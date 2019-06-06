@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496085"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473680"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -41,15 +41,6 @@ Básicamente, PIM ayuda a administrar quién accede a los recursos que le import
 - Obtenga **notificaciones** cuando se activan los roles con privilegios
 - Lleve a cabo **revisiones de acceso** para asegurarse de que los usuarios siguen necesitando roles
 - Descargue el **historial de auditoría** para la auditoría interna o externa
-
-## <a name="prerequisites"></a>Requisitos previos
-
-Para usar PIM, debe tener una de las siguientes licencias de pago o de evaluación. Para más información, consulte [¿Qué es Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-Para información sobre las licencias para los usuarios, consulte [License requirements to use PIM](subscription-requirements.md) (Requisitos de licencia para usar PIM).
 
 ## <a name="terminology"></a>Terminología
 
@@ -104,6 +95,12 @@ PIM admite los siguientes escenarios:
 - Solicitar la activación de un rol que requiere aprobación
 - Ver el estado de la solicitud de activación
 - Completar la tarea en Azure AD si la activación se ha aprobado
+
+## <a name="license-requirements"></a>Requisitos de licencia
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Para información sobre las licencias para los usuarios, consulte [License requirements to use PIM](subscription-requirements.md) (Requisitos de licencia para usar PIM).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa253f95c01e35505e154d9709ca88033735fa52
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090532"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390465"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Guía de inicio rápido: Realizar una búsqueda de noticias mediante PHP y la API de REST de Bing News Search
 
@@ -34,7 +34,7 @@ Consulte también [Precios de Cognitive Services - Bing Search API](https://azur
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-[Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) devuelve resultados relacionados con las noticias desde el motor de búsqueda de Bing.
+[Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devuelve resultados relacionados con las noticias desde el motor de búsqueda de Bing.
 
 1. Asegúrese de que la compatibilidad segura con HTTP está habilitada en `php.ini`, tal como se describe en el comentario del código.
 2. Cree un nuevo proyecto de PHP en su IDE o editor favorito.

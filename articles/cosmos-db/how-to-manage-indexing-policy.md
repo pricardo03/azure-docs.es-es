@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 179b67306803437ccad085cccfb1b5fd40888261
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240855"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386794"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
@@ -167,7 +167,7 @@ Estos son algunos ejemplos de directivas de indexación que se muestran en su fo
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Directiva de rechazo que excluye de forma selectiva algunas rutas de acceso de propiedades
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -201,7 +201,7 @@ Estos son algunos ejemplos de directivas de indexación que se muestran en su fo
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Directiva de participación que incluye de forma selectiva algunas rutas de acceso de propiedades
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -235,7 +235,7 @@ Nota: Por lo general se recomienda usar una directiva de indexación de **rechaz
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Uso de un índice espacial en una ruta de acceso de una propiedad concreta solo
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -280,7 +280,7 @@ Esta directiva se puede usar en las situaciones en que la [característica Time-
 ### <a name="no-indexing"></a>Sin indexación
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2fde25e4d21081d350fb2a7ecf07b66f348e7ab1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fbbe139160a7efd528e63e206aa37ac72b2542df
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736488"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515184"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Inicio rápido: Uso de Translator Text API para traducir una cadena mediante Java
 

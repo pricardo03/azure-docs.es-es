@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 05/16/2019
-ms.openlocfilehash: ded2011111262eb45818ea149949989eef885f24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789586"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393982"
 ---
 # <a name="what-is-azure-stream-analytics"></a>¿Qué es Azure Stream Analytics?
 
@@ -49,7 +49,7 @@ Azure Stream Analytics se ha diseñado para ser fácil de usar, flexible, confia
 
 ## <a name="ease-of-getting-started"></a>Facilidad para empezar
 
-Es fácil empezar a usar Azure Stream Analytics. Con pocos clics es posible conectarse a varios orígenes y receptores, creando una canalización integral. Stream Analytics puede conectarse directamente a [Azure Event Hubs](/azure/event-hubs/) y [Azure IoT Hub](/azure/iot-hub/) para la ingesta de datos de streaming, y con el [servicio Azure Blob Storage](/azure/storage/storage-introduction) para la ingesta de datos históricos. La entrada del trabajo también puede incluir datos de referencia estáticos o que cambien lentamente de Azure Blob Storage o [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database-preview) que puede unir a los datos de streaming para realizar operaciones de búsqueda.
+Es fácil empezar a usar Azure Stream Analytics. Con pocos clics es posible conectarse a varios orígenes y receptores, creando una canalización integral. Stream Analytics puede conectarse directamente a [Azure Event Hubs](/azure/event-hubs/) y [Azure IoT Hub](/azure/iot-hub/) para la ingesta de datos de streaming, y con el [servicio Azure Blob Storage](/azure/storage/storage-introduction) para la ingesta de datos históricos. La entrada del trabajo también puede incluir datos de referencia estáticos o que cambien lentamente de Azure Blob Storage o [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database) que puede unir a los datos de streaming para realizar operaciones de búsqueda.
 
 Stream Analytics puede enrutar la salida del trabajo a muchos sistemas de almacenamiento como [Azure Blob Storage](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) y [Azure Cosmos DB](/azure/cosmos-db/introduction). Se pueden realizar análisis por lotes en los resultados almacenados con Azure HDInsight o enviar la salida a otro servicio, como a Event Hubs para su consumo, o a [Power BI](https://docs.microsoft.com/power-bi/) para la visualización en tiempo rea.
 

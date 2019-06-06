@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 669eaaf0eaf28c696a7ca368c02f5816054e5d10
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 24f35d795b34e7d9c214a23c040791841b4a711b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010113"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382568"
 ---
 # <a name="what-is-bing-autosuggest"></a>¿Qué es Bing Autosuggest?
 
@@ -47,7 +47,7 @@ Cuando un usuario selecciona una sugerencia en la lista desplegable, puede usarl
 
 Para comenzar rápidamente con su primera solicitud, consulte [Making Your First Query](quickstarts/csharp.md) (Realizar su primera consulta).
 
-Familiarícese con la referencia de [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference). La referencia contiene la lista de puntos de conexión, encabezados y parámetros de consulta que se usan para solicitar términos de consulta sugeridos y las definiciones de los objetos de la respuesta.
+Familiarícese con la referencia de [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). La referencia contiene la lista de puntos de conexión, encabezados y parámetros de consulta que se usan para solicitar términos de consulta sugeridos y las definiciones de los objetos de la respuesta.
 
 Aprenda a realizar búsquedas en la web mediante [Bing Web Search API](../bing-web-search/search-the-web.md).
 

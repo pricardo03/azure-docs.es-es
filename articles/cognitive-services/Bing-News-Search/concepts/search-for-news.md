@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: scottwhi
-ms.openlocfilehash: 612a3961d901f53147ab2f3cfeea20f9c11d96b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087863"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383411"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Búsqueda de noticias con Bing News Search API
 
@@ -27,7 +27,7 @@ Aunque Bing News Search API principalmente busca y devuelve los artículos de no
 
 Si proporciona un cuadro de búsqueda donde el usuario escribe su término de búsqueda, use [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) para mejorar la experiencia. La API devuelve cadenas consulta sugeridas basadas en términos de búsqueda parciales a medida que el usuario escribe.
 
-Una vez que el usuario escriba el término de búsqueda, codifíquelo en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
+Una vez que el usuario escriba el término de búsqueda, codifíquelo en formato de URL antes de establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing dinghies*, establezca `q` en `sailing+dinghies` o `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Obtención de noticias generales
 
@@ -99,9 +99,9 @@ A continuación se muestra la respuesta de la consulta anterior. Como parte de l
 }
 ```
 
-La respuesta de [noticias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news) muestra una lista de artículos de prensa que para Bing eran apropiados para la consulta. El campo `totalEstimatedMatches` contiene una estimación del número de artículos que están disponibles para ver. Para obtener información acerca de la paginación de los artículos, vea [Noticias de Bing](../paging-news.md).
+La respuesta de [noticias](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) muestra una lista de artículos de prensa que para Bing eran apropiados para la consulta. El campo `totalEstimatedMatches` contiene una estimación del número de artículos que están disponibles para ver. Para obtener información acerca de la paginación de los artículos, vea [Noticias de Bing](../paging-news.md).
 
-Cada [artículo de noticias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#newsarticle) de la lista incluye el nombre del artículo, su descripción y su dirección URL al artículo en el sitio web del host. Si el artículo contiene una imagen, el objeto incluye una miniatura de la imagen. Use `name` y `url` para crear un hipervínculo que lleve al usuario al artículo de noticias en el sitio del host. Si el artículo incluye una imagen, asegúrese de que se pueda hacer clic en ella mediante `url`. Asegúrese de utilizar `provider` para atribuir el artículo.
+Cada [artículo de noticias](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) de la lista incluye el nombre del artículo, su descripción y su dirección URL al artículo en el sitio web del host. Si el artículo contiene una imagen, el objeto incluye una miniatura de la imagen. Use `name` y `url` para crear un hipervínculo que lleve al usuario al artículo de noticias en el sitio del host. Si el artículo incluye una imagen, asegúrese de que se pueda hacer clic en ella mediante `url`. Asegúrese de utilizar `provider` para atribuir el artículo.
 
 Si Bing puede determinar la categoría del artículo de prensa, el artículo incluye el campo `category`.
 
@@ -135,7 +135,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Use el parámetro de consulta [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) para especificar la categoría de artículos que quiere obtener. Para obtener una lista de categorías de noticias posibles que puede especificar, vea [News Categories by Market](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-categories-by-market) (Categorías de noticias por mercado).
+Use el parámetro de consulta [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) para especificar la categoría de artículos que quiere obtener. Para obtener una lista de categorías de noticias posibles que puede especificar, vea [News Categories by Market](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market) (Categorías de noticias por mercado).
 
 La respuesta al obtener noticias por categoría es prácticamente la misma que al obtener noticias generales. Sin embargo, los artículos son todos de la categoría especificada.
 
@@ -153,11 +153,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-No incluya el parámetro de consulta [categoría](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category).
+No incluya el parámetro de consulta [categoría](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category).
 
 La respuesta al obtener titulares es igual que al obtener las noticias destacadas del día. Si el artículo es un titular, su campo `headline` se establece en **true**.
 
-De forma predeterminada, la respuesta incluye hasta 12 artículos titulares. Para cambiar el número de artículos titulares que se van a devolver, especifique el parámetro de consulta [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headlinecount). La respuesta también incluye hasta cuatro artículos no titulares por categoría de noticias.
+De forma predeterminada, la respuesta incluye hasta 12 artículos titulares. Para cambiar el número de artículos titulares que se van a devolver, especifique el parámetro de consulta [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount). La respuesta también incluye hasta cuatro artículos no titulares por categoría de noticias.
 
 La respuesta tiene en cuenta los clústeres como un artículo. Dado que un clúster puede tener varios artículos, la respuesta puede incluir más de 12 artículos titulares y más de cuatro artículos no titulares por categoría.
 
@@ -223,7 +223,7 @@ El archivo JSON siguiente es la respuesta a la solicitud anterior. Cada artícul
 
 ## <a name="getting-related-news"></a>Obtener noticias relacionadas
 
-Si hay otros artículos relacionados con un artículo de prensa, el artículo de prensa puede incluir el campo [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle-clusteredarticles). A continuación se muestra un artículo con artículos agrupados.
+Si hay otros artículos relacionados con un artículo de prensa, el artículo de prensa puede incluir el campo [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles). A continuación se muestra un artículo con artículos agrupados.
 
 ```json
     {

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 65e28b557a3708c155bf80f21a784374c4497783
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60648161"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383035"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>¿Qué es Bing Web Search API?
 
@@ -50,5 +50,5 @@ Bing Web Search API es fácil de llamar desde cualquier lenguaje de programació
 
 * Use nuestra [guía de inicio rápido de Python](quickstarts/python.md) para realizar la primera llamada a Bing Web Search API.  
 * [Compile una aplicación web de una sola página](tutorial-bing-web-search-single-page-app.md).
-* Revise la documentación de [referencia de Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
+* Revise la documentación de [referencia de Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).  
 * Más información sobre [cómo usar y mostrar los requisitos](UseAndDisplayRequirements.md) de Bing Web Search.  

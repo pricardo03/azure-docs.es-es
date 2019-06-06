@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c8213e7d725c7c06d40555176fff24be4cff7607
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60917149"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388674"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>¿Qué es Bing Image Search API?
 
@@ -59,7 +59,7 @@ Para empezar rápidamente con la primera solicitud de API, puede conocer cómo:
 
 * [Detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) de Bing Search API. 
 
-* La sección de referencia de [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) contiene información sobre los puntos de conexión de la API, encabezados, respuestas de API y parámetros de consulta.
+* La sección de referencia de [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) contiene información sobre los puntos de conexión de la API, encabezados, respuestas de API y parámetros de consulta.
 
 * En los [requisitos de uso y visualización de Bing](./useanddisplayrequirements.md) se especifican usos aceptables del contenido y la información adquirida mediante las API de búsqueda de Bing.
 

@@ -121,7 +121,7 @@ En este paso, se crea un servicio vinculado de HDInsight para vincular el clúst
 
 1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el editor de JSON, realice los siguientes pasos:
 
-     a. Especifique el identificador URI del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
+    a. Especifique el identificador URI del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Especifique el nombre del usuario que tiene acceso al clúster de Spark.
 
@@ -218,7 +218,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
     ```
     Tenga en cuenta los siguientes puntos:
 
-     a. La propiedad de **tipo** se establece en **HDInsightSpark**.
+    a. La propiedad de **tipo** se establece en **HDInsightSpark**.
 
     b. La propiedad **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de blobs y pyFiles es la carpeta de archivos en ese contenedor. En este ejemplo, la instancia de Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una cuenta de almacenamiento diferente. Si lo hace, cree un servicio vinculado de Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Para más información sobre esta y otras propiedades que admite la actividad de Spark, consulte [Propiedades de la actividad de Spark](#spark-activity-properties).
 
@@ -330,17 +330,17 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
 | name | Nombre de la actividad en la canalización. | Sí |
-| description | Texto que describe para qué se usa la actividad. | Sin  |
+| description | Texto que describe para qué se usa la actividad. | Sin |
 | type | Esta propiedad debe establecerse en HDInsightSpark. | Sí |
 | linkedServiceName | Nombre del servicio vinculado de HDInsight en el que se ejecuta el programa de Spark. | Sí |
 | rootPath | Contenedor de blobs y carpeta que contiene el archivo de Spark. El nombre de archivo distingue entre mayúsculas y minúsculas. | Sí |
 | entryFilePath | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. | Sí |
-| className | Clase principal de Spark o Java de la aplicación. | Sin  |
-| argumentos | Lista de argumentos de línea de comandos del programa de Spark. | Sin  |
-| proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | Sin  |
-| sparkConfig | Especifique valores para las propiedades de configuración de Spark indicadas en el tema [Spark configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | Sin  |
-| getDebugInfo | Especifica si se copian los archivos de registro de Spark en el almacenamiento que usa el clúster de HDInsight que especifica sparkJobLinkedService. Los valores permitidos son Ninguno, Siempre o Error. El valor predeterminado es Ninguno. | Sin  |
-| sparkJobLinkedService | El servicio vinculado de Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark. Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | Sin  |
+| className | Clase principal de Spark o Java de la aplicación. | Sin |
+| argumentos | Lista de argumentos de línea de comandos del programa de Spark. | Sin |
+| proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | Sin |
+| sparkConfig | Especifique valores para las propiedades de configuración de Spark indicadas en el tema [Spark configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | Sin |
+| getDebugInfo | Especifica si se copian los archivos de registro de Spark en el almacenamiento que usa el clúster de HDInsight que especifica sparkJobLinkedService. Los valores permitidos son Ninguno, Siempre o Error. El valor predeterminado es Ninguno. | Sin |
+| sparkJobLinkedService | El servicio vinculado de Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark. Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | Sin |
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 La actividad de Spark no es compatible con un script en línea, al contrario que las actividades de Pig y Hive. Los trabajos de Spark también son más ampliable que los de Pig y Hive. En los trabajos de Spark, puede proporcionar varias dependencias como paquetes JAR (ubicados en la CLASSPATH de Java), archivos de Python (ubicados en la ruta PYTHONPATH) y cualquier otro archivo.
@@ -351,11 +351,11 @@ Cree la siguiente estructura de carpetas en la instancia de Blob Storage a la qu
 | ---- | ----------- | -------- | ---- |
 | . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí | Archivo |
-| ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | Sin  | Carpeta |
-| ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | Sin  | Carpeta |
-| ./files | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | Sin  | Carpeta |
-| ./archives | Todos los archivos de esta carpeta están sin comprimir. | Sin  | Carpeta |
-| ./logs | Carpeta donde se almacenan los registros del clúster de Spark.| Sin  | Carpeta |
+| ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | Sin | Carpeta |
+| ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | Sin | Carpeta |
+| ./files | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | Sin | Carpeta |
+| ./archives | Todos los archivos de esta carpeta están sin comprimir. | Sin | Carpeta |
+| ./logs | Carpeta donde se almacenan los registros del clúster de Spark.| Sin | Carpeta |
 
 Este es un ejemplo de un almacenamiento que contiene dos archivos de trabajos de Spark en la instancia de Blob Storage a la que hace referencia el servicio vinculado de HDInsight:
 

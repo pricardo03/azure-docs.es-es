@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 55c1a2a56743b53d6d5932665be0c45e1ac9b9b3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 4cd77c1e71287ea2cec2a4098e5ef7f713350f9f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596038"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388633"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API de REST Bing Autosuggest y C#
 
@@ -40,7 +40,7 @@ Use este inicio rápido para empezar a realizar llamadas a Bing Autosuggest API 
     using System.Text;
     ```
 
-2. En una nueva clase, cree variables para el host y la ruta de acceso de la API, el [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes) y una consulta de búsqueda parcial.
+2. En una nueva clase, cree variables para el host y la ruta de acceso de la API, el [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) y una consulta de búsqueda parcial.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -166,4 +166,4 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 ## <a name="see-also"></a>Otras referencias
 
 - [¿Qué es Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Referencia de Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referencia de Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

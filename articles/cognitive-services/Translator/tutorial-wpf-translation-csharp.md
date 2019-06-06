@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078132"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514722"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Creación de una aplicación de traducción con WPF
 
@@ -76,12 +76,12 @@ Nuestro proyecto requiere un grupo de ensamblados de .NET Framework y NewtonSoft
 
 Agreguemos ensamblados a nuestro proyecto para serializar y deserializar objetos, y para administrar solicitudes y respuestas HTTP.
 
-1. Busque el proyecto en el Explorador de soluciones de Visual Studio (panel derecho). Haga clic con el botón derecho en el proyecto y seleccione **Agregar > Referencia...**, que abrirá **Administrador de referencias**.
+1. Busque el proyecto en el Explorador de soluciones de Visual Studio (panel derecho). Haga clic con el botón derecho en el proyecto y seleccione **Agregar > Referencia...** , que abrirá **Administrador de referencias**.
    ![Adición de referencias de ensamblados](media/add-assemblies-sample.png)
 2. La pestaña de ensamblados muestra todos los ensamblados de .NET Framework que están disponibles como referencia. Utilice la barra de búsqueda en la parte superior derecha de la pantalla para buscar estas referencias y agregarlas al proyecto:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. Después de agregar estas referencias al proyecto, haga clic en **Aceptar** para cerrar **Administrador de referencias**.
 
 > [!NOTE]
