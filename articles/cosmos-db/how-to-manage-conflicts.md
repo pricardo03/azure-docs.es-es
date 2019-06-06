@@ -345,7 +345,7 @@ const container = client
 const { result: conflicts } = await container.conflicts.readAll().toArray();
 ```
 
-### <a id="read-from-conflict-feed-python">Python</a>
+### <a id="read-from-conflict-feed-python"></a>Python
 
 ```python
 conflicts_iterator = iter(client.ReadConflicts(self.manual_collection_link))

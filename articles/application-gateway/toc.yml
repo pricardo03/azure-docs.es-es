@@ -73,6 +73,8 @@
           href: waf-overview.md
         - name: Configuración de WAF
           href: application-gateway-waf-configuration.md
+        - name: Reglas personalizadas
+          href: custom-waf-rules-overview.md
     - name: Supervisión del estado
       items:
         - name: Sondeo de mantenimiento
@@ -141,6 +143,12 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: application-gateway-customize-waf-rules-cli.md
+    - name: Reglas personalizadas del firewall de aplicaciones web
+      items:
+        - name: Ejemplos de reglas personalizadas
+          href: create-custom-waf-rules.md
+        - name: Configuración del firewall de aplicaciones web con reglas personalizadas
+          href: configure-waf-custom-rules.md
     - name: Enrutamiento por dirección URL
       items:
         - name: Azure PowerShell

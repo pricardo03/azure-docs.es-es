@@ -37,7 +37,7 @@
   items:
     - name: 1 - Diseño de una base de datos
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -119,17 +119,17 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -153,13 +153,17 @@
           href: howto-connect-webapp.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: Almacenamiento de crecimiento automático
+      items:
+        - name: Portal de Azure
+          href: howto-auto-grow-storage-portal.md
     - name: Acceso a registros de servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
@@ -185,17 +189,17 @@
           href: howto-troubleshoot-sys-schema.md
     - name: Protección contra amenazas avanzada
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-manage-vnet-using-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-using-cli.md
     - name: Reinicio del servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md

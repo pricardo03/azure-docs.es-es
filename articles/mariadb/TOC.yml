@@ -19,7 +19,7 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
@@ -77,13 +77,13 @@
   items:
     - name: Reglas de firewall
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-manage-firewall-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -101,13 +101,17 @@
           href: howto-configure-ssl.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
+    - name: Almacenamiento de crecimiento automático
+      items:
+        - name: Portal de Azure
+          href: howto-auto-grow-storage-portal.md
     - name: Acceso a registros de servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-configure-server-logs-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-cli.md
@@ -127,13 +131,13 @@
           href: howto-troubleshoot-query-performance.md
     - name: Virtual Network
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-manage-vnet-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-cli.md
     - name: Reinicio del servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
