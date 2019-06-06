@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987688"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472419"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
@@ -110,14 +110,13 @@ La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.
 
 Si el cliente de SMB de Linux no admite el cifrado, monte Azure Files con SMB 2.1 desde una máquina virtual Linux de Azure que se encuentre en el mismo centro de datos que el recurso de archivos. Compruebe que el ajuste [Se requiere transferencia segura]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) esté deshabilitado en la cuenta de almacenamiento. 
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Error "Acceso denegado" al ir a un recurso compartido de archivos de Azure en el portal
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Error "Error de autorización" al ir a un recurso compartido de archivos de Azure en el portal
 
 Cuando examine un recurso compartido de archivos de Azure en el portal, puede recibir el siguiente error:
 
-Acceso denegado  
-No tiene acceso  
-Parece que no tiene acceso a este contenido. Para obtener acceso, póngase en contacto con el propietario.  
+Error de autorización  
+No tiene acceso
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 1: Su cuenta de usuario no tiene acceso a la cuenta de almacenamiento
 
@@ -140,7 +139,7 @@ Una posible causa de un rendimiento lento es que el almacenamiento en caché est
 
 ### <a name="solution"></a>Solución
 
-Para comprobar si el almacenamiento en caché está deshabilitado, busque la entrada **cache=**. 
+Para comprobar si el almacenamiento en caché está deshabilitado, busque la entrada **cache=** . 
 
 **Cache=none** indica que el almacenamiento en caché está deshabilitado. Vuelva a montar el recurso compartido mediante el comando de montaje predeterminado o agregando explícitamente la opción **cache=strict** al comando de montaje con el fin de asegurarse de que el almacenamiento en caché predeterminado o el modo de almacenamiento en caché "strict" esté habilitado.
 
@@ -250,6 +249,6 @@ A continuación, puede crear symlinks como se sugiere en la [wiki](https://wiki.
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="need-help-contact-support"></a>¿Ayuda? Póngase en contacto con el servicio de soporte técnico.
+## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

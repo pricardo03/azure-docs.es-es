@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 60cf37e5f6375d08e73241f6e357ac39ea665e9b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192533"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492756"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -34,9 +34,9 @@ Las aplicaciones típicas son:
 
 Almacenamiento inmutable admite lo siguiente:
 
-- **[Compatibilidad con la directiva de retención con duración definida](#time-based-retention)**: Los usuarios pueden establecer directivas para almacenar los datos de un intervalo especificado. Cuando una directiva de retención con duración definida es establecido, los blobs pueden ser creados y leer, pero no modificados o eliminados. Una vez transcurrido el período de retención, se pueden eliminar pero no sobrescriben los blobs.
+- **[Compatibilidad con la directiva de retención con duración definida](#time-based-retention)** : Los usuarios pueden establecer directivas para almacenar los datos de un intervalo especificado. Cuando una directiva de retención con duración definida es establecido, los blobs pueden ser creados y leer, pero no modificados o eliminados. Una vez transcurrido el período de retención, se pueden eliminar pero no sobrescriben los blobs.
 
-- **[Compatibilidad con la directiva de suspensión legal](#legal-holds)**: Si no se conoce el intervalo de retención, los usuarios pueden establecer suspensiones legales para almacenar datos immutably hasta que se borre la retención legal.  Cuando se establece una directiva de retención legal, blobs se pueden crear y leer, pero no modificados o eliminados. Cada suspensión legal se asocia con una definido por el usuario alfanuméricos etiqueta (por ejemplo, un identificador de caso, el nombre de evento, etc.) que se usa como una cadena de identificador. 
+- **[Compatibilidad con la directiva de suspensión legal](#legal-holds)** : Si no se conoce el intervalo de retención, los usuarios pueden establecer suspensiones legales para almacenar datos immutably hasta que se borre la retención legal.  Cuando se establece una directiva de retención legal, blobs se pueden crear y leer, pero no modificados o eliminados. Cada suspensión legal se asocia con una definido por el usuario alfanuméricos etiqueta (por ejemplo, un identificador de caso, el nombre de evento, etc.) que se usa como una cadena de identificador. 
 
 - **Compatibilidad con todos los niveles de blobs:** las directivas WORM son independientes del nivel de Azure Blob Storage y se aplican a todos los niveles: de archivo, frecuente y esporádico. Los usuarios pueden transferir sus datos al nivel que les ofrezca la mayor optimización de costos de acuerdo con sus cargas de trabajo sin alterar la inmutabilidad de los datos.
 
@@ -53,7 +53,7 @@ Eliminación de la cuenta y de contenedor también no se permiten si no hay ning
 ### <a name="time-based-retention"></a>Basado en tiempo de retención
 
 > [!IMPORTANT]
-> Una directiva de retención con duración definida debe estar *bloqueada* para que el blob esté en estado inmutable (protegido frente a escritura y eliminación) y, por consiguiente, se cumplan SEC 17a-4(f) y otras regulaciones. Se recomienda bloquear la directiva en un período razonable, normalmente antes de 24 horas. No se recomienda usar el estado *desbloqueado* con ningún fin que no sea evaluar la característica a corto plazo.
+> Debe ser una directiva de retención con duración definida *bloqueado* para el blob en un conforme inmutable (escritura y eliminación protegido) estado 17a-4(f) s y las otras normas. Se recomienda que bloquee la directiva en un período razonable de tiempo, normalmente menos de 24 horas. Es el estado inicial de una política de retención basada en tiempo de *desbloqueado*, lo que permite probar la característica y realizar cambios en la directiva antes de que lo bloquea. Mientras el *desbloqueado* estado proporciona protección de inmutabilidad, no se recomienda usar la *desbloqueado* estado para cualquier propósito distinto de las evaluaciones de función a corto plazo. 
 
 Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención eficaz para los blobs existentes es igual a la diferencia entre la hora de modificación del blob y el intervalo de retención especificado por el usuario.
 
@@ -65,6 +65,8 @@ Para los nuevos blobs, el período de retención efectivo es igual al intervalo 
 > El blob existente en ese contenedor, _testblob1_, se creó hace un año. El período de retención efectiva _testblob1_ es desde hace cuatro años.
 >
 > Un nuevo blob, _testblob2_, ahora se carga en el contenedor. El período de retención efectivo de este nuevo blob es de cinco años.
+
+Se recomienda una directiva de retención de duración definida desbloqueado sólo para probar la característica y una directiva debe estar bloqueada para ser compatible con s 17a-4(f) y las otras normas. Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar la directiva y se permite un máximo de 5 aumenta el período de retención efectiva. Para obtener más información sobre cómo establecer y directivas de retención basada en tiempo de bloqueo, consulte el [Introducción](#getting-started) sección.
 
 ### <a name="legal-holds"></a>Retenciones legales
 
@@ -124,7 +126,7 @@ Las versiones más recientes de la [portal Azure](https://portal.azure.com), [CL
 
     El estado inicial de la directiva está desbloqueado que permite probar la característica y realizar cambios en la directiva antes de que lo bloquea. La directiva de bloqueo es esencial para el cumplimiento de normas como SEC 17a-4.
 
-5. Bloquee la directiva. Haga clic en el botón de puntos suspensivos (**...** ), y aparecerá el siguiente menú con acciones adicionales:
+5. Bloquee la directiva. Haga clic en el botón de puntos suspensivos ( **...** ), y aparecerá el siguiente menú con acciones adicionales:
 
     !["Directiva de bloqueo" en el menú](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
@@ -169,7 +171,7 @@ Las siguientes bibliotecas de cliente admiten el almacenamiento inmutable para A
 
 **¿Puede proporcionar documentación de cumplimiento de gusano?**
 
-Sí. Cumplimiento de documento, Microsoft mantiene una empresa líder de valoración independiente que se especializa en registros información y administración de control, Cohasset Associates, evaluar inmutable de Azure Blob Storage y su compatibilidad con los requisitos específicos en el sector de servicios financieros. Cohasset valida que inmutable Blob de Azure Storage, cuando se utiliza para conservar los Blobs basado en tiempo en estado de un gusano, cumple los requisitos de almacenamiento relevantes de regla CFTC 1.31(c)-(d) FINRA regla 4511 y SEC Rule 17a-4. Microsoft había destinado a este conjunto de reglas, ya que representan el asesoramiento más global para la retención de registros para las instituciones financieras. El informe Cohasset está disponible en el [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage).
+Sí. Cumplimiento de documento, Microsoft mantiene una empresa líder de valoración independiente que se especializa en registros información y administración de control, Cohasset Associates, evaluar inmutable de Azure Blob Storage y su compatibilidad con los requisitos específicos en el sector de servicios financieros. Cohasset valida que inmutable Blob de Azure Storage, cuando se utiliza para conservar los Blobs basado en tiempo en estado de un gusano, cumple los requisitos de almacenamiento relevantes de regla CFTC 1.31(c)-(d) FINRA regla 4511 y SEC Rule 17a-4. Microsoft había destinado a este conjunto de reglas, ya que representan el asesoramiento más global para la retención de registros para las instituciones financieras. El informe Cohasset está disponible en el [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). Para solicitar una carta de certificación de Microsoft con respecto al cumplimiento de gusano, póngase en contacto con soporte técnico de Azure.
 
 **¿La característica se aplica solo a los blobs en bloques o también a los blobs en páginas y a los blobs en anexos?**
 
@@ -186,6 +188,10 @@ Sí, un contenedor puede tener una retención legal y una directiva de retenció
 **¿Las directivas de retención legal solo son para un proceso legal o hay otros escenarios de uso?**
 
 No, la retención Legal es simplemente el término general que se usa para una directiva de retención no basados en tiempo. No es necesario que solo se usará para litigios relacionados con un procedimiento. Las directivas de retención legales son útiles para deshabilitar la sobrescritura y las eliminaciones para proteger la empresa importante datos gusano, donde el período de retención es desconocido. Puede usar como una directiva de empresa para proteger los gusano cargas de trabajo críticas o utilizarlo como una directiva de almacenamiento provisional antes de que un desencadenador de evento personalizado requiere el uso de una directiva de retención con duración definida. 
+
+**¿Puedo quitar una *bloqueado* directiva de retención con duración definida o suspensión legal?**
+
+Solo las directivas de retención de duración definida desbloqueado se pueden quitar de un contenedor. Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar; solo se permiten período de retención efectiva las extensiones. Se pueden eliminar las etiquetas de retención legal. Cuando se eliminan todas las etiquetas legales, se quita la retención legal.
 
 **¿Qué ocurre si se intenta eliminar un contenedor con una directiva de retención basada en el tiempo o una retención legal *bloqueada*?**
 
@@ -375,12 +381,12 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-Eliminación de una directiva de inmutabilidad (agregue - Force para descartar el mensaje):
+Quitar una directiva de inmutabilidad desbloqueado (agregar - Force para descartar el símbolo del sistema):
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `

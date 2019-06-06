@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298816"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473790"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADConnectivityTools
 
@@ -35,7 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>Description
 
-Ejecuta pruebas de conectividad de DNS locales. Para configurar el conector de Active Directory, el usuario debe tener ambos resolución de nombres para el bosque que están intentando conectarse a, así como en los controladores de dominio asociados a este bosque.
+Ejecuta pruebas de conectividad de DNS locales.
+Para configurar el conector de Active Directory, el usuario debe tener tanto problema de: nombre para el bosque al que está intentando conectarse a, así como en los controladores de dominio asociados a este bosque.
 
 ### <a name="examples"></a>EJEMPLOS
 
@@ -309,7 +310,7 @@ Accept wildcard characters: False
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
 Si el usuario no está utilizando servicios DNS proporcionados por el sitio de AD o el controlador de dominio de inicio de sesión, entonces es posible que desea omitir la comprobación de puerto 53.
-El usuario debe poder resolver _.ldap._tcp.\<forestfqdn\> para que la configuración del conector de Active Directory se realice correctamente.
+El usuario todavía debe ser capaz de resolver _.ldap._tcp. \<forestfqdn\> en orden para la configuración del conector de Active Directory se realice correctamente.
 
 ```yml
 Type: SwitchParameter

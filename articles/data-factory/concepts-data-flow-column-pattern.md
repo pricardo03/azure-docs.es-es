@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155233"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430759"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Patrones de columnas de flujos de datos de asignación de Azure data factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Varias transformaciones de Azure Data Factory Data Flow admiten la idea de "Patrones de columnas" para que pueda crear columnas de plantilla basadas en patrones, en lugar de nombres de columna codificados de forma rígida. Esta característica se puede usar en Generador de expresiones para definir patrones que coinciden con las columnas para la transformación, en lugar de requerir nombres de campo específicos y exactos. Patrones son útiles si los campos de origen entrante cambian con frecuencia, especialmente en el caso de cambio de columnas en los archivos de texto o bases de datos NoSQL. Esta condición se conoce a veces como "Desviación en el esquema".
+Varias transformaciones de Azure Data Factory Data Flow admiten la idea de "Patrones de columnas" para que pueda crear columnas de plantilla basadas en patrones, en lugar de nombres de columna codificados de forma rígida. Puede usar esta característica en el generador de expresiones para definir los patrones para que coincida con las columnas para la transformación en lugar de requerir nombres de campo específico, exacto. Patrones son útiles si los campos de origen entrante cambian con frecuencia, especialmente en el caso de cambio de columnas en los archivos de texto o bases de datos NoSQL. Esta condición se conoce a veces como "Desviación en el esquema".
 
 ![patrones de columna](media/data-flow/columnpattern2.png "Column Patterns")
 
@@ -27,6 +27,6 @@ Cuando agregue una expresión a una transformación que acepta patrones, elija "
 
 Al crear patrones de las columnas de la plantilla, use `$$` en la expresión para representar una referencia a cada campo coincidente desde el flujo de datos de entrada.
 
-Si elige usar una de las funciones de expresión regular del Generador de expresiones, posteriormente podrá usar $1, $2, $3... para hacer referencia a los patrones secundarios que coinciden con su expresión regular.
+Si decide usar una de las funciones de expresión regular del generador de expresiones,, a continuación, puede usar posteriormente $1, 2 $, $3... Para hacer referencia a los subpatrones coincidentes desde la expresión regex.
 
-Un ejemplo de escenario de patrón de columnas usa SUM con una serie de campos de entrada. Los cálculos de SUM de agregados se encuentran en la transformación Agregado. Posteriormente puede usar SUM en todas las coincidencias de tipos de campos que coincidan con "integer" y, después, usar $$ para hacer referencia a cada coincidencia en la expresión.
+Un ejemplo de escenario de patrón de columnas usa SUM con una serie de campos de entrada. Los cálculos de SUM de agregados se encuentran en la transformación Agregado. A continuación, puede usar suma en cada coincidencia de tipos de campo que coincide con "integer" y, a continuación, utilice $$ para hacer referencia a cada coincidencia en la expresión.

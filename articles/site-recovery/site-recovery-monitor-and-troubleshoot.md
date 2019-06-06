@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969378"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497544"
 ---
 # <a name="monitor-site-recovery"></a>Monitor de recuperación de sitios
 
@@ -37,9 +37,9 @@ En la sección de elementos replicados se muestra el estado de todas las máquin
 
 **Estado** | **Detalles**
 --- | ---
-Estado correcto | La replicación progresa con normalidad. No se ha detectado ningún síntoma de error o advertencia.
+Healthy | La replicación progresa con normalidad. No se ha detectado ningún síntoma de error o advertencia.
 Advertencia | Se han detectado uno o varios síntomas de advertencia que podrían afectar a la replicación.
-Fundamental | Se han detectado uno o varios síntomas de errores críticos de replicación.<br/><br/> Estos síntomas de error suelen ser indicadores de que la replicación se ha quedado bloqueada, o de que no está progresando a la misma velocidad que el cambio de datos.
+Crítico | Se han detectado uno o varios síntomas de errores críticos de replicación.<br/><br/> Estos síntomas de error suelen ser indicadores de que la replicación se ha quedado bloqueada, o de que no está progresando a la misma velocidad que el cambio de datos.
 No aplicable | Los servidores cuya replicación no se espera actualmente. Esto podría incluir las máquinas que se han conmutado por error.
 
 ## <a name="monitor-test-failovers"></a>Supervisión de conmutaciones por error de prueba
@@ -97,11 +97,11 @@ En la **Vista de la infraestructura** se muestran los componentes de infraestruc
 
     **Escenario** | **Estado**  | **¿Vista disponible?**
     --- |--- | ---
-    **Replicación entre sitios locales** | Todos los estados | No 
+    **Replicación entre sitios locales** | Todos los estados | Sin 
     **Replicación de máquina virtual de Azure entre las regiones de Azure**  | Replicación habilitada/replicación inicial en curso | Sí
     **Replicación de máquina virtual de Azure entre las regiones de Azure** | Conmutada por error/conmutación por recuperación | No   
     **Replicación de VMware en Azure** | Replicación habilitada/replicación inicial en curso | Sí     
-    **Replicación de VMware en Azure** | Conmutada por error/conmutada por recuperación | No      
+    **Replicación de VMware en Azure** | Conmutada por error/conmutada por recuperación | Sin      
     **Replicación de Hyper-V en Azure** | Conmutada por error/conmutada por recuperación | No
 
 - Para ver la vista de la infraestructura para una sola máquina de replicación, en el menú Almacén, haga clic en **Elementos replicados** y seleccione un servidor.  
@@ -190,7 +190,7 @@ Puede suscribirse para recibir notificaciones por correo electrónico para estos
 
 Suscríbase de la siguiente manera:
 
-En el almacén > sección **Supervisión e informes**, haga clic en **Eventos de Site Recovery**.
+En el almacén > **supervisión** sección, haga clic en **eventos de Site Recovery**.
 1. Haga clic en **Notificaciones por correo electrónico**.
 1. En **Notificaciones por correo electrónico**, active las notificaciones y especifique a quién deben enviarse. Puede enviarlas a todos los administradores de suscripción y, de forma opcional, a direcciones de correo electrónico específicas.
 

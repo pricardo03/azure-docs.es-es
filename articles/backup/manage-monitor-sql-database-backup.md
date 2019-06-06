@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681843"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492739"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -89,6 +89,14 @@ Para detener la protección de una base de datos:
     ![Conservar o eliminar datos en el menú Detener copia de seguridad](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Seleccione **Detener copia de seguridad**.
+
+>
+> [!NOTE]
+Consulte las siguientes preguntas más frecuentes para obtener más información sobre la opción de eliminación de datos: <br/>
+* [Si elimino una base de datos de una instancia de autoprotected, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [¿Si se detiene la operación de copia de seguridad de una base de datos autoprotected cuál será su comportamiento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
 
 
 ## <a name="resume-protection-for-a-sql-database"></a>Reanudación de la protección en una base de datos SQL

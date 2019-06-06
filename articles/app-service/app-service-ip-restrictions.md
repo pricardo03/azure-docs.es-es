@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236116"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494263"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restricciones de acceso de Azure App Service #
 
@@ -50,17 +50,25 @@ La lista mostrará todas las restricciones actuales que están en la aplicación
 
 Puede hacer clic en **[+] agregar** para agregar una nueva regla de restricción de acceso. Una vez que agregue una regla, entrará en vigor de inmediato. Las reglas se aplican en orden de prioridad, empezando por el número más bajo y en ascenso. Hay una denegación implícita de todo lo que esté en vigor una vez que agregue incluso una sola regla.
 
+### <a name="adding-ip-address-rules"></a>Adición de reglas de direcciones IP
+
 ![Agregar una regla de restricción de acceso IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 Al crear una regla, debe seleccionar Permitir/Denegar y también el tipo de regla. También deben proporcionar el valor de prioridad y está restringiendo el acceso a.  Opcionalmente, puede agregar un nombre y una descripción para la regla.  
 
-Para establecer una dirección IP basada en reglas, seleccione un tipo de IPv4 o IPv6. La notación de dirección IP debe ser CIDR tanto para direcciones IPv4 como IPv6. Para especificar una dirección exacta, puede usar un formato como 1.2.3.4/32, donde los cuatro primeros octetos representan la dirección IP y /32 es la máscara. La notación CIDR IPv4 para todas las direcciones es 0.0.0.0/0. Para más información acerca de la notación CIDR, puede leer [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (Enrutamiento interdominios sin clases).
+Para establecer una dirección IP basada en reglas, seleccione un tipo de IPv4 o IPv6. La notación de dirección IP debe ser CIDR tanto para direcciones IPv4 como IPv6. Para especificar una dirección exacta, puede usar un formato como 1.2.3.4/32, donde los cuatro primeros octetos representan la dirección IP y /32 es la máscara. La notación CIDR IPv4 para todas las direcciones es 0.0.0.0/0. Para más información acerca de la notación CIDR, puede leer [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (Enrutamiento interdominios sin clases). 
+
+### <a name="service-endpoints"></a>Puntos de conexión de servicio
 
 ![Agregar una regla de restricción de acceso de red virtual](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Para restringir el acceso a las subredes seleccionadas, seleccione un tipo de red Virtual. A continuación podrá elegir la suscripción, red virtual y subred que desea permitir o denegar el acceso con. Si los extremos de servicio no ya están habilitados con Microsoft.Web para la subred que seleccionó, automáticamente se habilitará automáticamente a menos que se active la casilla que se pregunta si no desea hacerlo. La situación donde desearía para habilitarlo en la aplicación pero no la subred está estrechamente relacionada si tiene los permisos para habilitar los puntos de conexión de servicio en la subred o no. Si necesita obtener nadie más para habilitar puntos de conexión de servicio en la subred, puede que la aplicación configurada para puntos de conexión de servicio en previsión de la misma que se va a habilitar más adelante en la subred y Active la casilla. 
 
 Los puntos de conexión de servicio no se puede usar para restringir el acceso a las aplicaciones que se ejecutan en un entorno de App Service. Cuando la aplicación está en un entorno de App Service, puede controlar el acceso a la aplicación con las reglas de acceso IP. 
+
+Con los puntos de conexión de servicio, puede configurar la aplicación con Application Gateway u otros dispositivos de WAF. También puede configurar aplicaciones de varios niveles con servidores back-end seguro. Para obtener más detalles sobre algunas de las posibilidades, lea [las características de red y App Service](networking-features.md).
+
+### <a name="managing-access-restriction-rules"></a>Administrar reglas de restricción de acceso
 
 Puede hacer clic en cualquier fila para editar una regla de restricción de acceso existente. Las modificaciones son efectivas inmediatamente, incluidos los cambios en el orden de prioridad.
 
@@ -74,19 +82,19 @@ Para eliminar una regla, haga clic en los puntos suspensivos **...**  en la regl
 
 ![Eliminar regla de restricción de acceso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="scm-site"></a>Sitio SCM 
-
-Además de ser capaz de controlar el acceso a la aplicación, también puede restringir el acceso al sitio de scm utilizado por la aplicación. El sitio scm es WebDeploy extremo y también en la consola de Kudu. Puede asignar restricciones de acceso al sitio de scm desde la aplicación por separado o usar el mismo conjunto de la aplicación y el sitio de scm. Cuando se activa la casilla para tener las mismas restricciones que la aplicación, todo lo que está en blanco. Si desactiva la casilla, se aplican las configuraciones que tenía anteriormente en el sitio de scm. 
-
-![restricciones de acceso de la lista](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
-
-## <a name="blocking-a-single-ip-address"></a>Bloqueo de una única dirección IP ##
+### <a name="blocking-a-single-ip-address"></a>Bloqueo de una única dirección IP ##
 
 Al agregar la primera regla de restricción de IP, el servicio se agregará una explícita **denegar todo** regla con una prioridad de 2147483647. En la práctica, la configuración explícita **denegar todo** regla será la última regla ejecutada y bloqueará el acceso a cualquier dirección IP no permitido explícitamente mediante una **permitir** regla.
 
 Para el escenario donde los usuarios desean bloquear explícitamente una única dirección IP o el bloque de direcciones IP, pero permitir todo acceso else, es necesario agregar explícita **permitir todo** regla.
 
 ![dirección ip única de bloque](media/app-service-ip-restrictions/block-single-address.png)
+
+### <a name="scm-site"></a>Sitio SCM 
+
+Además de ser capaz de controlar el acceso a la aplicación, también puede restringir el acceso al sitio de scm utilizado por la aplicación. El sitio scm es WebDeploy extremo y también en la consola de Kudu. Puede asignar restricciones de acceso al sitio de scm desde la aplicación por separado o usar el mismo conjunto de la aplicación y el sitio de scm. Cuando se activa la casilla para tener las mismas restricciones que la aplicación, todo lo que está en blanco. Si desactiva la casilla, se aplican las configuraciones que tenía anteriormente en el sitio de scm. 
+
+![restricciones de acceso de la lista](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulación de las reglas de restricción de acceso mediante programación ##
 

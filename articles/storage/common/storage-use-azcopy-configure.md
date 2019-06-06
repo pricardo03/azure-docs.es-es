@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247130"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688024"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, optimizar y solucionar problemas de AzCopy
 
@@ -21,10 +21,10 @@ AzCopy es una utilidad de línea de comandos que puede usar para copiar los blob
 
 > [!NOTE]
 > Si está buscando el contenido que le ayudarán a empezar a trabajar con AzCopy, consulte cualquiera de los siguientes artículos:
-> - [Empezar a trabajar con AzCopy](storage-use-azcopy-v10.md)
-> - [Transferencia de datos con AzCopy y blob storage](storage-use-azcopy-blobs.md)
-> - [Transferencia de datos con AzCopy y file storage](storage-use-azcopy-files.md)
-> - [Transferencia de datos con AzCopy y Amazon S3 depósitos](storage-use-azcopy-s3.md)
+> - [Introducción a AzCopy](storage-use-azcopy-v10.md)
+> - [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+> - [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+> - [Transferencia de datos con AzCopy y cubos de Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Configuración de los valores de proxy
 
@@ -52,7 +52,7 @@ Use el `azcopy env` para comprobar el valor actual de esta variable.  Si el valo
 
 ## <a name="change-the-location-of-the-log-files"></a>Cambie la ubicación del archivo de registro.
 
-De forma predeterminada, los archivos de registro se encuentran en el `%USERPROFILE\\.azcopy` carpeta de Windows o en el `$HOME\\.azcopy` carpeta en Mac y Linux. Puede cambiar esta ubicación si necesita mediante los siguientes comandos.
+De forma predeterminada, los archivos de registro se encuentran en el `%USERPROFILE\\.azcopy` directorio de Windows o en el `$HOME\\.azcopy` directorio en Mac y Linux. Puede cambiar esta ubicación si necesita mediante los siguientes comandos.
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy crea archivos de registro y el plan para cada trabajo. Puede usar los reg
 
 Los registros contendrá el estado de error (`UPLOADFAILED`, `COPYFAILED`, y `DOWNLOADFAILED`), la ruta de acceso completa y el motivo del error.
 
-De forma predeterminada, los archivos de registro y el plan se encuentran en el `%USERPROFILE\\.azcopy` carpeta de Windows o `$HOME\\.azcopy` carpeta en Mac y Linux.
+De forma predeterminada, los archivos de registro y el plan se encuentran en el `%USERPROFILE\\.azcopy` directorio en Windows o `$HOME\\.azcopy` directorio en Mac y Linux.
 
 > [!IMPORTANT]
 > Al enviar una solicitud a Microsoft Support (o para solucionar el problema de que impliquen a ningún tercero), compartir la versión censurada del comando que desea ejecutar. Esto garantiza que la SAS accidentalmente no se comparte con nadie. Puede encontrar la versión censurada al principio del archivo de registro.

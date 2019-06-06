@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61231985"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688900"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
@@ -100,7 +100,7 @@ De forma predeterminada, todos los detalles, excepto **Hora de la última repeti
 * Alerta
 * Elemento de copia de seguridad
 * Servidor protegido
-* Gravedad
+* Severity
 * Duration
 * Hora de creación
 * Status
@@ -156,7 +156,7 @@ Elija la gravedad de alerta (Crítica o Advertencia) usada para generar el corre
 
 ## <a name="manage-backup-items"></a>Administración de elementos de copia de seguridad
 
-Un almacén de Recovery Services contiene muchos tipos de datos de copia de seguridad. Para ver una lista completa de los tipos de copia de seguridad, consulte [¿De qué aplicaciones y cargas de trabajo se puede hacer una copia de seguridad?](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Para administrar los distintos servidores, equipos, bases de datos y cargas de trabajo, haga clic en el icono **Elementos de copia de seguridad** para ver el contenido del almacén.
+Un almacén de Recovery Services contiene muchos tipos de datos de copia de seguridad. [Obtenga más información](backup-overview.md#what-can-i-back-up) sobre qué hacer copias de seguridad. Para administrar los distintos servidores, equipos, bases de datos y cargas de trabajo, haga clic en el icono **Elementos de copia de seguridad** para ver el contenido del almacén.
 
 ![Icono Elementos de copia de seguridad](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -221,7 +221,7 @@ El tipo de elemento es el tipo de administración de copia de seguridad de la in
 Puede ver una sola operación o todas las operaciones. No puede seleccionar dos o tres operaciones. Las operaciones disponibles son:
 
 * Todas las operaciones
-* Register 
+* Register
 * Configuración de la copia de seguridad
 * Copia de seguridad
 * Restauración
@@ -233,7 +233,7 @@ Puede ver una sola operación o todas las operaciones. No puede seleccionar dos 
 Puede ver todos los estados o solo uno. No puede seleccionar dos o tres estados. Los estados disponibles son:
 
 * Todos los estados
-* Completed
+* Completada
 * En curso
 * Con error
 * Canceled

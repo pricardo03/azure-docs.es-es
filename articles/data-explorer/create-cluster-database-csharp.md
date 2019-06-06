@@ -1,18 +1,18 @@
 ---
-title: 'Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer mediante C#'
+title: Creación de un clúster y una base de datos de Azure Data Explorer mediante C#
 description: Aprenda a crear un clúster y una base de datos de Azure Data Explorer mediante C#
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 719aba498c08617b42d248d3c677499f8eb3e4b2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: e51551d4ce8061122fce52b05e68e102b71c27a8
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900831"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494606"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante C#
 
@@ -24,7 +24,7 @@ ms.locfileid: "65900831"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En este inicio rápido, se crean un clúster y una base de datos mediante C#.
+Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En este artículo, cree un clúster y una base de datos mediante el uso de C#.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -112,7 +112,7 @@ Ahora cuenta con un clúster y una base de datos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-* Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserve los recursos que creó.
+* Si tiene previsto seguir nuestros otros artículos, mantenga los recursos que creó.
 * Para limpiar los recursos, elimine el clúster. Cuando se elimina un clúster, también se eliminan todas las bases de datos en él. Use el siguiente comando para eliminar el clúster:
 
     ```C#-interactive
@@ -121,5 +121,4 @@ Ahora cuenta con un clúster y una base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos mediante el SDK de .NET Standard de Azure Data Explorer (versión preliminar)](net-standard-ingest-data.md)
+* [Ingesta de datos mediante el SDK de .NET Standard de Azure Data Explorer (versión preliminar)](net-standard-ingest-data.md)

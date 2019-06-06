@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migración de la federación a la autenticación de paso a través en Azure Active Directory | Microsoft Docs'
+title: 'Azure AD Connect: Migrar de federación a PTA para Azure AD'
 description: Este artículo contiene información acerca de cómo mover un entorno de identidad híbrida de la federación a la autenticación de paso a través.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382781"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473381"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migración de la federación a la autenticación de paso a través en Azure Active Directory
 
@@ -75,7 +75,7 @@ Para entender qué método debe usar, siga los pasos de las próximas secciones.
 2. En la página **Tareas adicionales**, seleccione **Ver configuración actual** y, después, seleccione **Siguiente**.<br />
  
    ![Captura de pantalla de la opción Ver configuración actual de la página Tareas adicionales](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. En la página **Revisar su solución**, desplácese hasta **Servicios de federación de Active Directory (AD FS)**.<br />
+3. En la página **Revisar su solución**, desplácese hasta **Servicios de federación de Active Directory (AD FS)** .<br />
 
    * Si la configuración de AD FS aparece en esta sección, puede suponer con seguridad que AD FS se configuró originalmente con Azure AD Connect. Puede convertir los dominios de identidad federada a identidad administrada mediante la opción **Cambiar inicio de sesión de usuario** de Azure AD Connect. Para más información sobre este proceso, consulte la sección **Opción 1: Configuración de la autenticación de paso a través mediante Azure AD Connect**.
    * Si AD FS no aparece en la configuración actual, debe convertir manualmente los dominios de identidad federada a identidad administrada mediante PowerShell. Para más información sobre este proceso, consulte la sección **Opción 2: Cambio de la federación a la autenticación de paso a través mediante Azure AD Connect y PowerShell**.

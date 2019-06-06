@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236633"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475983"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo 
 
@@ -31,22 +31,22 @@ En este artículo, aprenderá a usar diversos destinos de proceso para el entren
 
 
 >[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.6.
+> Código de este artículo se ha probado con Azure Machine Learning SDK versión 1.0.39.
 
 ## <a name="compute-targets-for-training"></a>Destinos de proceso para entrenamiento
 
 Azure Machine Learning Service tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente su entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
 
 
-|Destinos de proceso para entrenamiento| Aceleración de GPU | Automatizado<br/> ajuste de hiperparámetros | Automatizado<br/> aprendizaje automático | Canalizaciones de Azure Machine Learning |
+|Entrenamiento &nbsp;destinos| Compatibilidad con GPU |Machine Learning Automatizado | Canalizaciones de Machine Learning | Interfaz visual
 |----|:----:|:----:|:----:|:----:|
-|[Equipo local](#local)| Es posible | &nbsp; | ✓ | &nbsp; |
-|[Proceso de Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[Máquina virtual remota](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Análisis con Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[HDInsight de Azure](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Equipo local](#local)| Quizás | Sí | &nbsp; | &nbsp; |
+|[Proceso de Azure Machine Learning](#amlcompute)| Sí | Sí & <br/>hiperparámetros&nbsp;optimización | Sí | Sí |
+|[Máquina virtual remota](#vm) |Sí | Sí & <br/>ajuste de hiperparámetros | Sí | &nbsp; |
+|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | Sí | Sí | &nbsp; |
+|[Análisis con Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | Sí | &nbsp; |
+|[HDInsight de Azure](#hdinsight)| &nbsp; | &nbsp; | Sí | &nbsp; |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | Sí | &nbsp; |
 
 **Todos los destinos de proceso se pueden reutilizar para varios trabajos de entrenamiento**. Por ejemplo, una vez que se adjunta una VM remota al área de trabajo, puede reutilizarla para varios trabajos.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782929"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431218"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -116,7 +116,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | base64Output | string | b25lLCB0d28sIHRocmVl |
 | toStringOutput | string | one, two, three |
@@ -181,10 +181,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | base64Output | string | b25lLCB0d28sIHRocmVl |
-| toStringOutput | string | one, two, three |
+| toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -246,7 +246,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | base64Output | string | b25lLCB0d28sIHRocmVl |
 | toStringOutput | string | one, two, three |
@@ -263,7 +263,7 @@ Combina varios valores de cadena y devuelve la cadena concatenada, o combina var
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o matriz |El primer valor para la concatenación. |
-| argumentos adicionales |Sin  |string |Valores adicionales en orden secuencial para la concatenación. |
+| argumentos adicionales |Sin |string |Valores adicionales en orden secuencial para la concatenación. |
 
 ### <a name="return-value"></a>Valor devuelto
 Una cadena o matriz de valores concatenados.
@@ -296,7 +296,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| concatOutput | string | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) siguiente se muestra cómo combinar dos matrices.
 
@@ -528,7 +528,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | dataUriOutput | string | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | string | Hola mundo. |
+| toStringOutput | String | Hola mundo. |
 
 ## <a name="empty"></a>empty
 
@@ -589,7 +589,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -652,7 +652,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -708,12 +708,12 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | string | one |
 | stringOutput | string | O |
 
-## <a name="format"></a>formato
+## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -725,7 +725,7 @@ Crea una cadena con formato de valores de entrada.
 |:--- |:--- |:--- |:--- |
 | formatString | Sí | string | La cadena de formato compuesto. |
 | arg1 | Sí | valor booleano, entero o cadena | El valor que se va a incluir en la cadena con formato. |
-| argumentos adicionales | Sin  | valor booleano, entero o cadena | Valores adicionales que incluir en la cadena con formato. |
+| argumentos adicionales | Sin | valor booleano, entero o cadena | Valores adicionales que incluir en la cadena con formato. |
 
 ### <a name="remarks"></a>Comentarios
 
@@ -766,7 +766,7 @@ La plantilla de ejemplo siguiente muestra cómo usar la función format.
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | formatTest | string | Hola, usuario. Número con formato: 8,175,133 |
 
@@ -781,7 +781,7 @@ Crea un valor en el formato de un identificador único global en función de los
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |El valor utilizado en la función hash para crear el GUID. |
-| parámetros adicionales según sea necesario |Sin  |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
+| parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Comentarios
 
@@ -949,7 +949,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | string | three |
 | stringOutput | string | e |
@@ -1069,7 +1069,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1123,7 +1123,7 @@ La plantilla de ejemplo siguiente muestra un parámetro con un nuevo identificad
 
 El resultado del ejemplo anterior varía para cada implementación, pero será similar a:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1166,7 +1166,7 @@ En el ejemplo siguiente se usa la función newGuid para crear un nombre único p
 
 El resultado del ejemplo anterior varía para cada implementación, pero será similar a:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | nameOutput | string | storagenziwvyru7uxie |
 
@@ -1183,7 +1183,7 @@ Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda ha
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sí |cadena o entero |Valor que se va a alinear a la derecha. |
 | totalLength |Sí |int |El número total de caracteres de la cadena devuelta. |
-| paddingCharacter |Sin  |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
+| paddingCharacter |Sin |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
 
 Si la cadena original es mayor que el número de caracteres que se va a rellenar, no se agrega ningún carácter.
 
@@ -1259,7 +1259,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1272,7 +1272,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | firstOutput | string | 1231231234 |
-| secodeOutput | string | 123-123-xxxx |
+| secondOutput | string | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1396,7 +1396,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | firstOutput | Matriz | ["one", "two", "three"] |
 | secondOutput | Matriz | ["one", "two", "three"] |
@@ -1534,7 +1534,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | string | {"valueA":10,"valueB":"Example Text"} |
+| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | string | ["a","b","c"] |
 | intOutput | string | 5 |
 
@@ -1549,8 +1549,8 @@ Devuelve una subcadena que empieza en la posición de carácter especificada y q
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
-| startIndex |Sin  |int |La posición de carácter inicial basado en cero de la subcadena. |
-| length |Sin  |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
+| startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
+| length |Sin |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. Debe ser cero o mayor. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1595,7 +1595,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | substringOutput | string | two |
 
@@ -1662,10 +1662,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["one", "two"] |
-| stringOutput | string | en |
+| stringOutput | String | en |
 
 ## <a name="tolower"></a>toLower
 
@@ -1713,7 +1713,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | toLowerOutput | string | one two three |
 | toUpperOutput | string | ONE TWO THREE |
@@ -1764,10 +1764,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | string | one two three |
-| toUpperOutput | string | ONE TWO THREE |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 ## <a name="trim"></a>trim
 
@@ -1813,7 +1813,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| return | string | one two three |
+| return | String | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1826,7 +1826,7 @@ Crea una cadena de hash determinista basada en los valores proporcionados como p
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |Valor utilizado en la función hash para crear una cadena única. |
-| parámetros adicionales según sea necesario |Sin  |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
+| parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Comentarios
 
@@ -1951,7 +1951,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2006,11 +2006,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2061,11 +2061,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| NOMBRE | type | Valor |
+| Name | type | Valor |
 | ---- | ---- | ----- |
 | uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2077,7 +2077,7 @@ Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| formato |Sin  |string |El valor codificado por el identificador URI para convertir en una cadena. Usar [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Sin |string |El valor codificado por el identificador URI para convertir en una cadena. Usar [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Comentarios
 

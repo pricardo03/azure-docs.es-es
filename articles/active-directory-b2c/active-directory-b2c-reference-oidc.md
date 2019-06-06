@@ -2,20 +2,20 @@
 title: 'Inicio de sesión web con OpenID Connect: Azure Active Directory B2C | Microsoft Docs'
 description: Cree aplicaciones web mediante el protocolo de autenticación OpenID Connect en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4137360fadab0206c6569b58d6a9a0519ce74450
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703950"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509202"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -76,13 +76,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | --------- | -------- | ----------- |
 | client_id | Sí | IDENTIFICADOR de la aplicación que el [portal Azure](https://portal.azure.com/) asignado a la aplicación. |
 | response_type | Sí | Debe incluir un token de identificador para OpenID Connect. Si la aplicación web también necesita tokens para llamar a una API web, puede usar `code+id_token`. |
-| redirect_uri | Sin  | El `redirect_uri` parámetro de la aplicación, donde las respuestas de autenticación pueden ser enviadas y recibidas por la aplicación. Debe coincidir exactamente con uno de los `redirect_uri` parámetros que ha registrado en el portal de Azure, salvo que debe estar codificado como URL. |
+| redirect_uri | No | El `redirect_uri` parámetro de la aplicación, donde las respuestas de autenticación pueden ser enviadas y recibidas por la aplicación. Debe coincidir exactamente con uno de los `redirect_uri` parámetros que ha registrado en el portal de Azure, salvo que debe estar codificado como URL. |
 | scope | Sí | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. El `offline_access` ámbito es opcional para las aplicaciones web. Indica que la aplicación necesitará un *token de actualización* para acceso total a los recursos. |
-| response_mode | Sin  | El método que se usa para devolver el código de autorización resultante a la aplicación. Puede ser `query`, `form_post` o `fragment`.  Para mayor seguridad se recomienda el modo de respuesta `form_post`. |
-| state | Sin  | Un valor incluido en la solicitud que también se devuelve en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se utiliza normalmente un valor único generado de forma aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se produjo la solicitud de autenticación, como la página que estaban. |
-| valor de seguridad | Sí | Un valor incluido en la solicitud (generada por la aplicación) que se incluye en el token de identificador resultante como una notificación. La aplicación, a continuación, puede comprobar este valor para mitigar los ataques de reproducción de tokens. Normalmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
+| response_mode | No | El método que se usa para devolver el código de autorización resultante a la aplicación. Puede ser `query`, `form_post` o `fragment`.  Para mayor seguridad se recomienda el modo de respuesta `form_post`. |
+| state | No | Un valor incluido en la solicitud que también se devuelve en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se utiliza normalmente un valor único generado de forma aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se produjo la solicitud de autenticación, como la página que estaban. |
+| nonce | Sí | Un valor incluido en la solicitud (generada por la aplicación) que se incluye en el token de identificador resultante como una notificación. La aplicación, a continuación, puede comprobar este valor para mitigar los ataques de reproducción de tokens. Normalmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
 | p | Sí | El flujo de usuario que se ejecuta. Es el nombre de un flujo de usuario que se crea en el inquilino de Azure AD B2C. El nombre del flujo de usuario debe comenzar con `b2c\_1\_`. |
-| símbolo del sistema | Sin  | El tipo de interacción con el usuario que se necesita. El único valor válido en este momento es `login`, que obliga al usuario a escribir sus credenciales en esa solicitud. |
+| símbolo del sistema | Sin | El tipo de interacción con el usuario que se necesita. El único valor válido en este momento es `login`, que obliga al usuario a escribir sus credenciales en esa solicitud. |
 
 En este momento, el usuario se le pide para completar el flujo de trabajo. El usuario podría tener que escribir su nombre de usuario y la contraseña, inicie sesión con una identidad social, o un inicio de sesión para el directorio. Podría haber cualquier otro número de pasos en función de cómo se define el flujo de usuario.
 
@@ -100,7 +100,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | Parámetro | DESCRIPCIÓN |
 | --------- | ----------- |
 | ID_token | El token de identificador que solicitó la aplicación. Puede usar el token de identificador para comprobar la identidad del usuario y comenzar una sesión con el usuario. |
-| código | El código de autorización que solicitó la aplicación, si ha usado `response_type=code+id_token`. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para un recurso de destino. Los códigos de autorización normalmente expiran después de unos 10 minutos. |
+| code | El código de autorización que solicitó la aplicación, si ha usado `response_type=code+id_token`. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para un recurso de destino. Los códigos de autorización normalmente expiran después de unos 10 minutos. |
 | state | Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que el `state` valores de la solicitud y respuesta son idénticos. |
 
 Las respuestas de error también pueden enviarse a la `redirect_uri` parámetro para que la aplicación pueda controlarlas adecuadamente:
@@ -167,8 +167,8 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | p | Sí | El flujo de usuario usado para adquirir el código de autorización. No se puede usar un flujo de usuario diferente en esta solicitud. Agregue este parámetro en la cadena de consulta, no en el cuerpo de POST. |
 | client_id | Sí | IDENTIFICADOR de la aplicación que el [portal Azure](https://portal.azure.com/) asignado a la aplicación. |
 | grant_type | Sí | El tipo de concesión, que debe ser `authorization_code` para el flujo de código de autorización. |
-| scope | Sin  | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de parámetros id_token. Puede usar para obtener tokens para la web de back-end de la aplicación API, que viene representado por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
-| código | Sí | El código de autorización que adquirió en el principio del flujo de usuario. |
+| scope | No | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de parámetros id_token. Puede usar para obtener tokens para la web de back-end de la aplicación API, que viene representado por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
+| code | Sí | El código de autorización que adquirió en el principio del flujo de usuario. |
 | redirect_uri | Sí | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
 | client_secret | Sí | El secreto de aplicación que se generó en el [portal Azure](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. Cambie este secreto del cliente de forma periódica. |
 
@@ -234,8 +234,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | p | Sí | El flujo de usuario usado para adquirir el token de actualización original. No se puede usar un flujo de usuario diferente en esta solicitud. Agregue este parámetro en la cadena de consulta, no en el cuerpo de POST. |
 | client_id | Sí | IDENTIFICADOR de la aplicación que el [portal Azure](https://portal.azure.com/) asignado a la aplicación. |
 | grant_type | Sí | El tipo de concesión, que debe ser un token de actualización para esta parte del flujo de código de autorización. |
-| scope | Sin  | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. Se puede usar para enviar los tokens a su propia aplicación back-end API web, que viene representada por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
-| redirect_uri | Sin  | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
+| scope | No | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. Se puede usar para enviar los tokens a su propia aplicación back-end API web, que viene representada por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
+| redirect_uri | Sin | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
 | refresh_token | Sí | El token de actualización original que se ha adquirido en la segunda parte del flujo. El `offline_access` ámbito debe usarse en las solicitudes de tokens y autorización para recibir un token de actualización. |
 | client_secret | Sí | El secreto de aplicación que se generó en el [portal Azure](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. Cambie este secreto del cliente de forma periódica. |
 
@@ -289,7 +289,7 @@ p=b2c_1_sign_in
 | Parámetro | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | p | Sí | El flujo de usuario que quiere usar para cerrar la sesión del usuario en la aplicación. |
-| post_logout_redirect_uri | Sin  | La dirección URL que se debe redirigir al usuario después de cierre de sesión correcto. Si no se incluye, Azure AD B2C muestra al usuario un mensaje genérico. |
+| post_logout_redirect_uri | No | La dirección URL que se debe redirigir al usuario después de cierre de sesión correcto. Si no se incluye, Azure AD B2C muestra al usuario un mensaje genérico. |
 
 Al dirigir al usuario a la `end_session` extremo borrará algún estado de inicio del usuario único inicio de sesión con Azure AD B2C, pero no el usuario fuera de su sesión (IDP) del proveedor de identidades sociales inicie sesión. Si el usuario selecciona el mismo IDP durante un inicio de sesión posteriores, se vuelve a autenticar, sin escribir sus credenciales. Si un usuario quiere cerrar sesión en la aplicación, no significa necesariamente que quieran cerrar sesión en su cuenta de Facebook. Sin embargo, si se utilizan cuentas locales, la sesión del usuario finaliza correctamente.
 

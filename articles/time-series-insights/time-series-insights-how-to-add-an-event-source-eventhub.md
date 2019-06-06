@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b39001481764eb955ab4535e8c6ea1752e0c012
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239027"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475732"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Incorporación de un origen del evento de centro de eventos al entorno de Time Series Insights
 
 Este artículo describe cómo usar Azure Portal para agregar un origen de eventos que lee datos de Azure Event Hubs en su entorno de Azure Time Series Insights.
 
 > [!NOTE]
-> Los pasos que se describen en este artículo se aplican tanto a los entornos de Time Series Insights con disponibilidad general como a los entornos en versión preliminar.
+> Los pasos que se describen en este artículo se aplican tanto a los entornos de tiempo de vista previa de la información de serie y tiempo Series Insights GA.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,7 +34,7 @@ Este artículo describe cómo usar Azure Portal para agregar un origen de evento
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Incorporación de un grupo de consumidores al centro de eventos
 
-Las aplicaciones usan grupos de consumidores para extraer datos de Azure Event Hubs. Proporcione un grupo de consumidores dedicado para su uso exclusivo en este entorno de Time Series Insights, para leer datos del centro de eventos de manera confiable.
+Las aplicaciones usan grupos de consumidores para extraer datos de Azure Event Hubs. Para leer datos desde el centro de eventos de manera confiable, proporcione un grupo de consumidores dedicado que es utilizado únicamente por este entorno de Time Series Insights.
 
 Para agregar un nuevo grupo de consumidores al centro de eventos:
 
@@ -64,38 +64,40 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
 
 1. Seleccione los valores apropiados para **Opción de importación**:
    - Cuando ya tenga un centro de eventos en una de sus suscripciones seleccione **Use Event Hub from available subscriptions** (Usar el centro de eventos de las suscripciones disponibles). Esta opción presenta el enfoque más sencillo.
-   - Si el centro de eventos es externo a sus suscripciones o si quiere elegir opciones avanzadas, seleccione **Indicar manualmente la configuración del Centro de eventos**.
 
-   [![En el panel de origen de eventos nuevo, escriba valores para los tres primeros parámetros](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
+       [![En el panel de origen de eventos nuevo, escriba valores para los tres primeros parámetros](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
-1. En la siguiente tabla se explican las propiedades necesarias para la opción **Use Event Hub from available subscriptions** (Usar el centro de eventos de las suscripciones disponibles):
 
-   [![Detalles del centro de eventos y suscripción](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+       [![Detalles del centro de eventos y suscripción](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Propiedad | DESCRIPCIÓN |
-   | --- | --- |
-   | Id. de suscripción | Seleccione la suscripción en la que se creó el centro de eventos.
-   | Espacio de nombres de Service bus | Seleccione el espacio de nombres de Azure Service Bus que contiene el centro de eventos.
-   | Nombre del centro de eventos | Seleccione el nombre del centro de eventos.
-   | Nombre de la directiva del centro de eventos | Seleccione la directiva de acceso compartido. Puede crear la directiva de acceso compartido en el centro de eventos en la pestaña **Configurar**. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**.
-   | Clave de la directiva de centro de eventos | El valor clave puede haberse rellenado previamente.
-   | Grupo de consumidores de centro de eventos | El grupo de consumidores que lee eventos del centro de eventos. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento. |
-   | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos tienen que estar en este formato, de lo contrario no se podrá leer ningún dato. |
-   | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de eventos. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
+     En la siguiente tabla se explican las propiedades necesarias para la opción **Use Event Hub from available subscriptions** (Usar el centro de eventos de las suscripciones disponibles):
 
-1. En la siguiente tabla se explican las propiedades necesarias para la opción **Indicar manualmente la configuración del Centro de eventos**:
+     | Propiedad | DESCRIPCIÓN |
+     | --- | --- |
+     | Id. de suscripción | Seleccione la suscripción en la que se creó el centro de eventos.
+     | Espacio de nombres de Service Bus | Seleccione el espacio de nombres de Azure Service Bus que contiene el centro de eventos.
+     | Nombre del centro de eventos | Seleccione el nombre del centro de eventos.
+     | Nombre de la directiva del centro de eventos | Seleccione la directiva de acceso compartido. Puede crear la directiva de acceso compartido en el centro de eventos en la pestaña **Configurar**. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**.
+     | Clave de la directiva de centro de eventos | El valor clave puede haberse rellenado previamente.
+     | Grupo de consumidores de centro de eventos | El grupo de consumidores que lee eventos del centro de eventos. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento. |
+     | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos deben tener este formato o datos no se puede leer. |
+     | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de eventos. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
 
-   | Propiedad | DESCRIPCIÓN |
-   | --- | --- |
-   | Id. de suscripción | La suscripción en la que se creó este centro de eventos.
-   | Grupos de recursos | El grupo de recursos en el que se creó este centro de eventos.
-   | Espacio de nombres de Service bus | Un espacio de nombres de Service Bus es un contenedor para un conjunto de entidades de mensajería. Al crear un nuevo centro de eventos, también se crea un espacio de nombres de Service Bus.
-   | Nombre del centro de eventos | El nombre del centro de eventos. Cuando creó el centro de eventos, también le asignó un nombre específico.
-   | Nombre de la directiva del centro de eventos | La directiva de acceso compartido. Puede crear una directiva de acceso compartido en el centro de eventos en la pestaña **Configurar**. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**.
-   | Clave de la directiva de centro de eventos | La clave de acceso compartido que se usa para autenticar el acceso al espacio de nombres de Service Bus. Especifique la clave principal o secundaria aquí.
-   | Grupo de consumidores de centro de eventos | El grupo de consumidores que lee eventos del centro de eventos. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento.
-   | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos tienen que estar en este formato, de lo contrario no se podrá leer ningún dato. |
-   | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de eventos. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
+    - Si el centro de eventos es externo a sus suscripciones o si quiere elegir opciones avanzadas, seleccione **Indicar manualmente la configuración del Centro de eventos**.
+
+      En la siguiente tabla se explican las propiedades necesarias para la opción **Indicar manualmente la configuración del Centro de eventos**:
+ 
+      | Propiedad | DESCRIPCIÓN |
+      | --- | --- |
+      | Id. de suscripción | La suscripción en la que se creó este centro de eventos.
+      | Grupos de recursos | El grupo de recursos en el que se creó este centro de eventos.
+      | Espacio de nombres de Service Bus | Un espacio de nombres de Service Bus es un contenedor para un conjunto de entidades de mensajería. Al crear un nuevo centro de eventos, también se crea un espacio de nombres de Service Bus.
+      | Nombre del centro de eventos | El nombre del centro de eventos. Cuando creó el centro de eventos, también le asignó un nombre específico.
+      | Nombre de la directiva del centro de eventos | La directiva de acceso compartido. Puede crear una directiva de acceso compartido en el centro de eventos en la pestaña **Configurar**. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**.
+      | Clave de la directiva de centro de eventos | La clave de acceso compartido que se usa para autenticar el acceso al espacio de nombres de Service Bus. Especifique la clave principal o secundaria aquí.
+      | Grupo de consumidores de centro de eventos | El grupo de consumidores que lee eventos del centro de eventos. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento.
+      | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos deben tener este formato o datos no se puede leer. |
+      | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de eventos. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
 
 1. Agregue el nombre del grupo de consumidores dedicado de Time Series Insights que agregó al centro de eventos.
 

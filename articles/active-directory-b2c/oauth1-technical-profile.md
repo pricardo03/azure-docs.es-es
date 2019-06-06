@@ -2,20 +2,20 @@
 title: Definir un perfil técnico OAuth1 en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
 description: Definir un perfil técnico OAuth1 en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699822"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513113"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico OAuth1 en una directiva personalizada de Azure Active Directory B2C
 
@@ -70,12 +70,12 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
-| ProviderName | Sin  | Nombre del proveedor de identidades. |
+| ProviderName | No | Nombre del proveedor de identidades. |
 | request_token_endpoint | Sí | La dirección URL del punto de conexión del token de solicitud de acuerdo con RFC 5849. |
 | authorization_endpoint | Sí | La dirección URL del punto de conexión de autorización de acuerdo con RFC 5849. |
 | access_token_endpoint | Sí | La dirección URL del punto de conexión del token de acuerdo con RFC 5849. |
-| ClaimsEndpoint | Sin  | La dirección URL del punto de conexión de la información de usuario. | 
-| ClaimsResponseFormat | Sin  | El formato de respuesta de las notificaciones.|
+| ClaimsEndpoint | Sin | La dirección URL del punto de conexión de la información de usuario. | 
+| ClaimsResponseFormat | Sin | El formato de respuesta de las notificaciones.|
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: e7cea725a25d48ac9f1ffad6acc434e21145890e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a7dd5530c3941fe55e8a649f8adb217159823f5d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473242"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492791"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
@@ -62,7 +62,7 @@ Para obtener más información sobre el comando de ARMClient, hacer referencia a
 
 ### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>Use el cliente de Azure Resource Manager para eliminar el almacén de Recovery Services
 
-1. Ejecute el comando siguiente con el Id. de suscripción, el nombre del grupo de recursos y el nombre del almacén. W\hen ejecuta el comando elimina el almacén si no tienen ninguna dependencia.
+1. Ejecute el comando siguiente con el Id. de suscripción, el nombre del grupo de recursos y el nombre del almacén. Al ejecutar el comando elimina el almacén si no tienen ninguna dependencia.
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15

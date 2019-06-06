@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989590"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472808"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -78,7 +78,7 @@ Para publicar su propia aplicación de forma local:
 1. Si no lo hizo en la última sección, inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com/) como administrador de aplicaciones.
 2. Seleccione **aplicaciones empresariales** > **nueva aplicación** > **aplicación local**. El **agregar su propia aplicación en el entorno local** aparece la página.
 
-   ![Agregar aplicación local propia](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
+   ![Agregue su propia aplicación de forma local](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 3. Rellene los campos obligatorios con información sobre la nueva aplicación. Utilice las instrucciones siguientes para la configuración.
 
    > [!NOTE]
@@ -124,11 +124,11 @@ Por último, configurar la aplicación en el entorno local para que los usuarios
 
 1. Desde el **registros de aplicaciones** barra lateral de la aplicación, seleccione **permisos de API** > **agregar un permiso**  >   **API de Microsoft** > **Microsoft Graph**. El **permisos de solicitud API** página **Microsoft Graph** aparece, que contiene las API de Windows Azure Active Directory.
 
-   ![Solicitud de permisos de API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+   ![Solicitar permisos de API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 2. Seleccione **permisos delegados** > **usuario** > **User.Read**.
 3. Seleccione **permisos de la aplicación** > **aplicación** > **Application.ReadWrite.All**.
 4. Seleccione **agregar permisos**.
-5. En el **permisos de API** página, seleccione **conceder consentimiento del administrador para \<el nombre de directorio >**.
+5. En el **permisos de API** página, seleccione **conceder consentimiento del administrador para \<el nombre de directorio >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Recopilación de información para los pasos de PingAccess
 
@@ -158,9 +158,9 @@ Para recopilar esta información:
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Actualice GraphAPI para enviar los campos personalizados (opcional)
 
-Para obtener una lista de tokens de seguridad que Azure AD envía para la autenticación, consulte [tokens de identificador de plataforma de identidad de Microsoft](../develop/id-tokens.md). Si necesita una notificación personalizada que envíe otros tokens, establezca el `acceptMappedClaims` campo de la aplicación a `True`. Puede utilizar el Explorador de Graph o manifiesto de aplicación del portal de Azure AD para realizar este cambio.
+Si necesita una notificación personalizada que envíe otros tokens en el access_token consumirlos PingAccess, establezca el `acceptMappedClaims` campo de la aplicación a `True`. Puede utilizar el Explorador de Graph o manifiesto de aplicación del portal de Azure AD para realizar este cambio.
 
-En este ejemplo se usa el Explorador de Graph:
+**En este ejemplo usa el Explorador de gráfico:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-Este ejemplo se usa el [portal de Azure Active Directory](https://aad.portal.azure.com/) para actualizar el `acceptMappedClaims` campo:
+**Este ejemplo se usa el [portal de Azure Active Directory](https://aad.portal.azure.com/) para actualizar el `acceptMappedClaims` campo:**
 
 1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com/) como administrador de aplicaciones.
 2. Seleccione **Azure Active Directory** > **Registros de aplicaciones**. Aparece una lista de aplicaciones.
@@ -179,7 +179,28 @@ Este ejemplo se usa el [portal de Azure Active Directory](https://aad.portal.azu
 5. Busque el `acceptMappedClaims` campo y cambie el valor a `True`.
 6. Seleccione **Guardar**.
 
-### <a name="use-a-custom-claim-optional"></a>Usar una notificación personalizada (opcional)
+
+### <a name="use-of-optional-claims-optional"></a>Uso de notificaciones opcionales (opcionales)
+Notificaciones opcionales le permite agregar notificaciones standard-but-not-included-by-default que tienen cada usuario y el inquilino. Puede configurar notificaciones opcionales para la aplicación modificando el manifiesto de aplicación. Para obtener más información, consulte el [descripción del artículo de manifiesto de aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+Ejemplo para incluir la dirección de correo electrónico en el access_token que consumirá PingAccess:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Uso de demandas de asignación de directiva (opcional)
+[Asignación de directiva (versión preliminar) de notificaciones](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) para los atributos que no existen en Azure AD. Asignación de notificaciones le permite migrar aplicaciones locales anterior a la nube mediante la adición de notificaciones personalizadas adicionales que están respaldadas por los objetos de AD FS o el usuario
 
 Para que la aplicación use una notificación personalizada e incluya campos adicionales, asegúrese de haber también [crea una directiva de asignación de notificaciones personalizadas y ha asignado a la aplicación](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -187,6 +208,16 @@ Para que la aplicación use una notificación personalizada e incluya campos adi
 > Para usar una notificación personalizada, también debe tener una directiva personalizada definida y asignada a la aplicación. Esta directiva debe incluir todos los atributos personalizados necesarios.
 >
 > Puede hacer la definición de directiva y la asignación a través de PowerShell, Azure AD Graph Explorer o Microsoft Graph. Si va a realizar ellos en PowerShell, debe usar primero `New-AzureADPolicy` y, a continuación, asignarlo a la aplicación con `Add-AzureADServicePrincipalPolicy`. Para obtener más información, consulte [asignación de directiva de asignación de notificaciones](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Ejemplo:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Habilitar PingAccess usar las notificaciones personalizadas (opcional, pero necesario si se espera que la aplicación para consumir notificaciones adicionales)
+Cuando se configura PingAccess en el paso siguiente, la sesión Web creará (configuración -> acceso -> sesiones Web) debe tener **solicitar perfil** anula la selección y **actualizar atributos de usuario** establecido en **n**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>Descarga de PingAccess y configuración de la aplicación
 

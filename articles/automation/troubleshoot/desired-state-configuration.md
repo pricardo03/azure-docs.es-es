@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087275"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514460"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC)
 
@@ -145,6 +145,25 @@ Ha usado una credencial en una configuración, pero no proporcionó adecuado **C
 #### <a name="resolution"></a>Resolución
 
 * Asegúrese de pasar el valor adecuado **ConfigurationData** establecer **PSDscAllowPlainTextPassword** como true para cada configuración de nodo que se menciona en la configuración. Para más información, consulte los [recursos en DSC de Azure Automation](../automation-dsc-compile.md#assets).
+
+### <a name="failure-processing-extension"></a>Escenario: Incorporación de la extensión dsc, el error "Error de procesamiento de extensión"
+
+#### <a name="issue"></a>Problema
+
+Cuando se produce de incorporación con la extensión DSC de un error que contiene el error:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>Causa
+
+Este error suele producirse cuando el nodo se asigna un nombre de configuración de nodo que no existe en el servicio.
+
+#### <a name="resolution"></a>Resolución
+
+* Asegúrese de que se va a asignar el nodo con un nombre de configuración de nodo que coincida exactamente con el nombre del servicio.
+* Puede elegir no incluir el nombre de configuración de nodo, lo que dará lugar a incorporar el nodo, pero no asignar una configuración de nodo
 
 ## <a name="next-steps"></a>Pasos siguientes
 

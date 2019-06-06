@@ -2,20 +2,20 @@
 title: Protección de un servicio RESTful mediante certificados de cliente en Azure Active Directory B2C | Microsoft Docs
 description: Proteja los intercambios de notificaciones de la API de REST personalizada en Azure AD B2C mediante certificados de cliente
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f184ddfc01260b203b0df4090f5f231f58d2cb80
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b007aa4619effbd34e4e969e4ce7b58f3b0c4cf6
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699010"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510538"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteja los servicios REST mediante certificados de cliente
 
@@ -48,7 +48,7 @@ Para configurar **Azure App Service** para que solicite certificados de cliente,
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Paso 2: Carga del certificado en las claves de directiva de Azure AD B2C
 Después de establecer `clientCertEnabled` en *true*, la comunicación con la API RESTful requiere un certificado de cliente. Para obtener, cargar y almacenar el certificado de cliente en el inquilino de Azure AD B2C, siga estos pasos: 
-1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)** > **Marco de experiencia de identidad**.
+1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)**  > **Marco de experiencia de identidad**.
 
 2. Para ver las claves disponibles en el inquilino, seleccione **Policy Keys** (Claves de directiva).
 

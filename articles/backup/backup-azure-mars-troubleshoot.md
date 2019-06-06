@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243449"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743136"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -82,7 +82,15 @@ Se recomienda realizar la siguiente validación, antes de empezar a solucionar p
 Si las copias de seguridad programadas no se desencadenan automáticamente, mientras que las copias de seguridad manuales funcionan sin problemas, pruebe las acciones siguientes:
 
 - Asegúrese de programación de copia de seguridad de Windows Server no entra en conflicto con la programación de copia de seguridad de archivos y carpetas de Azure.
-- Vaya a **Panel de Control** > **Herramientas administrativas** > **Programador de tareas**. Expanda **Microsoft** y seleccione **Copia de seguridad en línea**. Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores**. Asegúrese de que el estado de la tarea se establece en **Habilitado**. En caso contrario, seleccione **Editar**, active la casilla **Habilitado** y haga clic en **Aceptar**. En la pestaña **General**, vaya a **Opciones de seguridad** y compruebe que la cuenta de usuario seleccionada para ejecutar la tarea es **SYSTEM** o pertenece al **grupo de administradores locales** en el servidor.
+
+- Asegúrese de que el estado de copia de seguridad en línea se establece en **habilitar**. Para comprobar el estado de realizar la siguiente:
+
+  - Vaya a **Panel de Control** > **Herramientas administrativas** > **Programador de tareas**.
+    - Expanda **Microsoft** y seleccione **Copia de seguridad en línea**.
+  - Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores**.
+  - Compruebe si el estado se establece en **habilitado**. En caso contrario, seleccione **Editar**, active la casilla **Habilitado** y haga clic en **Aceptar**.
+
+- Asegúrese de la cuenta de usuario seleccionada para ejecutar la tarea es **sistema** o **grupo Local de administradores** en el servidor. Para comprobar la cuenta de usuario, vaya a la **General** pestaña y compruebe el **las opciones de seguridad**.
 
 - Compruebe si PowerShell 3.0 o posterior está instalado en el servidor. Para comprobar la versión de PowerShell, ejecute el siguiente comando y verifique que el número de versión *principal* es igual o mayor que 3.
 
@@ -97,6 +105,15 @@ Si las copias de seguridad programadas no se desencadenan automáticamente, mien
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+
+- Asegúrese de que se ha reiniciado el servidor después de la instalación del agente de copia de seguridad
+
+- Asegúrese de que no hay ninguna falta o está dañado **PowerShell** módulo **MSonlineBackup**. Si hay cualquier archivo falta o está dañado, para resolver el problema realice el siguiente:
+
+  - Desde otra máquina (Windows 2008 R2) que el agente de MARS funciona correctamente, copie la carpeta de MSOnlineBackup de *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* ruta de acceso.
+  - Pegue esto en el equipo problemático en la misma ruta de acceso *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
+  - Si **MSOnlineBackup** carpeta está ya existe en la máquina, pegar y reemplazar los archivos de contenido dentro de él.
+
 
 > [!TIP]
 > Para garantizar que los cambios realizados se aplican de forma coherente, reinicie el servidor después de realizar los pasos anteriores.

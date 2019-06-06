@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277312"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479959"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
 
@@ -43,7 +43,7 @@ Esta es la arquitectura antes de la conmutación por error.
         - Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
         - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red virtual:
             - **Subred 1**: 10.1.1.0/24
-            - **Subred 2**: 10.1.2.0/24,
+            - **Subred 2**: 10.1.2.0/24
             - **Subred 3**: 10.1.3.0/24
     - La región secundaria (destino) es la del Sudeste Asiático de Azure.
         - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
@@ -131,11 +131,11 @@ Este es el aspecto de la arquitectura de red antes de la conmutación por error:
 - Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
   - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red **VNET de origen**:
     - **Subred 1**: 10.1.1.0/24
-    - **Subred 2**: 10.1.2.0/24,
-    - **Subred 3**: 10.1.3.0/24, que usa una red virtual de Azure con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
+    - **Subred 2**: 10.1.2.0/24
+    - **Subred 3**: 10.1.3.0/24, uso de una red virtual con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
       - La región secundaria (destino) es la del Sudeste Asiático de Azure:
   - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
-- Las máquinas virtuales de la región de Asia Oriental están conectadas a un centro de datos local mediante Azure ExpressRoute o una conexión VPN de sitio a sitio.
+- Las máquinas virtuales de Asia Pacífico están conectadas a un centro de datos locales con Azure ExpressRoute o VPN de sitio a sitio.
 - Para reducir el RTO, la empresa B debe aprovisionar las puertas de enlace en VNET de recuperación en la región del Sudeste Asiático de Azure antes de realizar la conmutación por error.
 - La empresa B asigna o comprueba las direcciones IP de destino de las máquinas virtuales replicadas. La dirección IP de destino es la misma que la dirección IP de origen para cada máquina virtual.
 

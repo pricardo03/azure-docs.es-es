@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9f7a5332c8529753f2e22efd6af3d04cb3f44b6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323286"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479753"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP específicos de Verizon para el motor de reglas de Azure CDN
 
 En el caso de los productos de **Azure CDN Premium de Verizon**, cuando se envía una solicitud HTTP al servidor de origen, el servidor de punto de presencia (POP) puede agregar uno o varios encabezados reservados (o encabezados de proxy especiales) en la solicitud del cliente al POP. Estos encabezados son adicionales a los encabezados de reenvío estándar recibidos. Para más información acerca de los encabezados de solicitud estándar, consulte [Request fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields) (Campos de solicitud).
 
-Si desea impedir que se agregue uno de estos encabezados reservados en la solicitud POP de Azure CDN (Content Delivery Network) al servidor de origen, deberá crear una regla con la [característica Encabezados de proxy especiales](cdn-rules-engine-reference-features.md#proxy-special-headers) en el motor de reglas. En esta regla, excluya el encabezado que desee quitar de la lista predeterminada de encabezados del campo correspondiente. Si ha habilitado la [característica Depurar encabezados de respuesta de la caché](cdn-rules-engine-reference-features.md#debug-cache-response-headers), no olvide agregar los encabezados `X-EC-Debug` necesarios. 
+Si desea impedir que se agregue uno de estos encabezados reservados en la solicitud POP de Azure CDN (Content Delivery Network) al servidor de origen, deberá crear una regla con la [característica Encabezados de proxy especiales](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) en el motor de reglas. En esta regla, excluya el encabezado que desee quitar de la lista predeterminada de encabezados del campo correspondiente. Si ha habilitado la [característica Depurar encabezados de respuesta de la caché](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), no olvide agregar los encabezados `X-EC-Debug` necesarios. 
 
 Por ejemplo, para quitar el `Via` encabezado, el campo de encabezados de la regla debe incluir la siguiente lista de encabezados: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
@@ -42,7 +42,7 @@ X-Host | Indica el nombre de host de la solicitud. | cdn.mydomain.com
 X-Midgress | Indica si la solicitud se redirigió mediante un proxy a través de un servidor de CDN adicional. Por ejemplo, un servidor POP de escudo de servidor a origen o un servidor POP de puerta de enlace de servidor a ADN. <br />Este encabezado se agrega a la solicitud solo cuando tiene lugar el tráfico de midgress. En este caso, el encabezado se establece en 1 para indicar que la solicitud se redirigió mediante un proxy a través de un servidor de CDN adicional.| 1
 [Host](#host-request-header) | Identifica el host y el puerto en los que se puede encontrar el contenido solicitado. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica la lista de conmutación por error de servidores de puerta de enlace de ADN asignados a un origen de cliente. <br />Escudo de origen: Indica el conjunto de servidores de escudo de origen asignados a un origen de cliente. | `icn1,hhp1,hnd1`
-X-EC-_&lt;name&gt;_ | Los encabezados de solicitud que comienzan por *X-EC* (por ejemplo, X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) están reservados para su uso por la CDN.| waf-production
+X-EC- _&lt;name&gt;_ | Los encabezados de solicitud que comienzan por *X-EC* (por ejemplo, X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) están reservados para su uso por la CDN.| waf-production
 
 ## <a name="via-request-header"></a>Encabezado de solicitud Via
 El formato a través del cual el encabezado de solicitud `Via` identifica un servidor POP se especifica mediante la sintaxis siguiente:

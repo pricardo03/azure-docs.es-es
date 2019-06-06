@@ -3,17 +3,17 @@ title: Conceptos de arquitectura en Azure IoT Central | Microsoft Docs
 description: En este artículo se presentan conceptos clave relacionados con la arquitectura de Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/26/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887425"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693132"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitectura de Azure IoT Central
 
@@ -79,6 +79,14 @@ En la plantilla de un dispositivo:
 
 Una aplicación puede tener uno o varios dispositivos simulados y reales basados en cada plantilla de dispositivo.
 
+## <a name="data-export"></a>Exportación de datos
+
+En una aplicación de Azure IoT Central, puede [exportar continuamente los datos](howto-export-data-event-hubs-service-bus.md) a su propio Azure Event Hubs y las instancias de Azure Service Bus. Periódicamente también puede exportar los datos a la cuenta de almacenamiento de blobs de Azure. IoT Central puede exportar las medidas, dispositivos y las plantillas de dispositivo.
+
+## <a name="batch-device-updates"></a>Actualizaciones del dispositivo por lotes
+
+En una aplicación de Azure IoT Central, puede [crear y ejecutar trabajos](howto-run-a-job.md) para administrar los dispositivos conectados. Estos trabajos le permiten las actualizaciones de configuración o las propiedades del dispositivo de forma masiva o ejecutar comandos. Por ejemplo, puede crear un trabajo para aumentar la velocidad del ventilador para varias máquinas expendedoras refrigeradas.
+
 ## <a name="role-based-access-control-rbac"></a>Control de acceso basado en roles (RBAC)
 
 Un [administrador puede definir reglas de acceso](howto-administer.md) para una aplicación de Azure IoT Central con los roles predefinidos. Un administrador puede asignar usuarios a roles que determinan a qué áreas de la aplicación tiene acceso el usuario.
@@ -95,7 +103,10 @@ Entre las características de seguridad de Azure IoT Central están las siguient
 ## <a name="ui-shell"></a>Shell de IU
 
 El shell de la interfaz de usuario es una a aplicación moderna, con capacidad de respuesta y basada en un explorador HTML5.
+Un administrador puede personalizar la interfaz de usuario de la aplicación aplicando temas personalizados y modificar los vínculos de ayuda para que apunte a sus propios recursos de ayuda personalizado. Para obtener más información acerca de la interfaz de usuario personalizada, vea [personalizar Azure IoT Central UI](howto-customize-ui.md) artículo.
+
+Un operador puede crear paneles de aplicaciones personalizadas. Puede tener varios paneles que muestran datos diferentes y cambiar entre ellas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido sobre la arquitectura de Azure IoT Central, el siguiente paso sugerido es obtener información sobre [la conectividad de dispositivos](concepts-connectivity.md) en Azure IoT Central.
+Ahora que ha aprendido acerca de la arquitectura de Azure IoT Central, el siguiente paso sugerido es obtener información sobre [conectividad de dispositivos](concepts-connectivity.md) en Azure IoT Central.

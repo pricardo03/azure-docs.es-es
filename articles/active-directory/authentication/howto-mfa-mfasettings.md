@@ -5,24 +5,24 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359206"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496747"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
-Este artículo le ayuda a administrar la configuración de Multi-Factor Authentication en Azure Portal. Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication. No todas estas características están disponibles en cada una de las [versiones de Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+Este artículo le ayuda a administrar la configuración de Multi-Factor Authentication en Azure Portal. Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication. No todas las características están disponibles en todas las versiones de Azure Multi-factor Authentication.
 
-Puede acceder a la configuración relacionada con Multi-Factor Authentication desde Azure Portal; para ello, vaya a **Azure Active Directory** > **MFA**.
+Puede tener acceso a la configuración relacionada con la autenticación multifactor de Azure desde Azure portal, vaya a **Azure Active Directory** > **MFA**.
 
 ![Azure Portal: Configuración de Multi-Factor Authentication de Azure AD](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,7 +33,7 @@ Algunas de estas opciones se aplican al Servidor MFA, Azure MFA o ambos.
 | Característica | DESCRIPCIÓN |
 | ------- | ----------- |
 | Bloqueo de cuenta | Bloquea temporalmente las cuentas del servicio de autenticación multifactor si hay demasiados intentos de autenticación denegados en una fila. Esta característica solo se aplica a los usuarios que escriben un PIN para autenticarse. (Servidor MFA) |
-| [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se usa para impedir que usuarios específicos en el Servidor MFA (local) puedan recibir solicitudes de Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
+| [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se utiliza para bloquear a usuarios específicos puedan recibir las solicitudes de autenticación multifactor. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
 | [Alerta de fraude](#fraud-alert) | Configurar valores relacionados con la capacidad de los usuarios para notificar las solicitudes de comprobación fraudulento |
 | Notificaciones | Permite notificaciones de eventos desde el Servidor MFA. |
 | [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
@@ -89,7 +89,7 @@ Configure la característica de _alerta de fraude_ para que los usuarios puedan 
 ### <a name="configuration-options"></a>Opciones de configuración
 
 * **Bloquear usuario al notificarse fraudes**: si se informa de que un usuario ha cometido fraude, su cuenta se bloquea durante 90 días o hasta que un administrador la desbloquee. Un administrador puede revisar los inicios de sesión usando el informe de inicio de sesión y puede tomar las medidas adecuadas para prevenir el fraude en el futuro. El administrador puede, a continuación, [desbloquear](#unblock-a-user) la cuenta de usuario.
-* **Código para notificar fraudes durante el saludo inicial**: cuando los usuarios reciben una llamada telefónica al realizar la verificación en dos pasos, normalmente presionan **#** para confirmar el inicio de sesión. Si desea notificar un fraude, el usuario introduce un código antes de presionar **#**. De manera predeterminada, dicho código es **0**, pero se puede personalizar.
+* **Código para notificar fraudes durante el saludo inicial**: cuando los usuarios reciben una llamada telefónica al realizar la verificación en dos pasos, normalmente presionan **#** para confirmar el inicio de sesión. Si desea notificar un fraude, el usuario introduce un código antes de presionar **#** . De manera predeterminada, dicho código es **0**, pero se puede personalizar.
 
    >[!NOTE]
    >El saludo predeterminado de Microsoft solicita a los usuarios que presionen **0#** para enviar una alerta de fraude. Si quiere usar un código distinto a **0**, grabe y cargue su propio saludo personalizado con las instrucciones adecuadas para sus usuarios.

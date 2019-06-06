@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918965"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427117"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -35,7 +35,7 @@ Figura 1: Parejas regionales de Azure
 | Canadá |Centro de Canadá |Este de Canadá |
 | China |Norte de China |Este de China|
 | China |Norte de China 2 |Este de China 2|
-| Europa |Norte de Europa |Europa occidental |
+| Europa |Norte de Europa (Irlanda) |Oeste de Europa (Países Bajos) |
 | Francia |Centro de Francia|Sur de Francia|
 | Alemania |Centro de Alemania |Noreste de Alemania |
 | India |India Central |Sur de la India |
@@ -48,7 +48,7 @@ Figura 1: Parejas regionales de Azure
 | Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. 
 | Sudáfrica | Sudáfrica septentrional | Sudáfrica occidental
 | Reino Unido |Oeste de Reino Unido |Sur de Reino Unido 2 |
-| Emiratos Árabes Unidos | Norte de EAU | UAE Center
+| Emiratos Árabes Unidos | Norte de EAU | Centro de EAU
 | Departamento de Defensa de Estados Unidos |Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
 | Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |
 | Gobierno de Estados Unidos |US Gov Iowa |Gobierno de EE. UU. - Virginia |
@@ -75,7 +75,7 @@ Ilustración 2: Pareja regional de Azure hipotética
 ## <a name="cross-region-activities"></a>Actividades entre regiones
 Como se indica en la ilustración 2.
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (Iaas)**: debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. Para obtener más información, consulte [Guía técnica sobre resistencia en Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (Iaas)** : debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. Para obtener más información, consulte [Guía técnica sobre resistencia en Azure](resiliency/resiliency-technical-guidance.md).
 
 ![Storage](./media/best-practices-availability-paired-regions/2Green.png)**Azure Storage**: el almacenamiento con redundancia geográfica (GRS) se configura de manera predeterminada cuando se crea una cuenta de Azure Storage. Con GRS, los datos se replican automáticamente tres veces dentro de la región primaria y tres veces en la región emparejada. Para obtener más información, consulte [Opciones de redundancia de Azure Storage](storage/common/storage-redundancy.md).
 

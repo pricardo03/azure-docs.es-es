@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea39bceaa6b58e84def9635436d902002e33cd14
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464818"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514510"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la administración y la protección de las imágenes de contenedor en Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,6 @@ En este artículo se indica cómo proteger los contenedores de AKS. Aprenderá a
 
 > [!div class="checklist"]
 > * Buscar y corregir vulnerabilidades de la imagen
-> * Usar un registro de confianza con imágenes de contenedor firmadas digitalmente
 > * Desencadenar automáticamente y volver a implementar imágenes de contenedor cuando se actualiza una imagen base
 
 También puede leer las prácticas recomendadas para la [seguridad del clúster][best-practices-cluster-security] y para la [seguridad de pod][best-practices-pod-security].
@@ -36,16 +35,6 @@ Un problema con la adopción de cargas de trabajo basadas en contenedores es com
 ![Analizar y corregir imágenes de contenedor, validar e implementar](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 En un ejemplo del mundo real, puede usar una integración continua y una canalización de implementación continua (CI/CD) para automatizar el análisis, la comprobación y la implementación de imágenes. Azure Container Registry incluye estas funcionalidades de análisis de vulnerabilidades.
-
-## <a name="use-a-trusted-registry"></a>Usar un registro de confianza
-
-**Orientación con procedimientos recomendados**: limitar los registros de imágenes que pueden usar los pods y las implementaciones. Permitir solo registros de confianza donde puede validar y controlar las imágenes que están disponibles.
-
-Para mayor seguridad, puede firmar digitalmente las imágenes del contenedor tal como se puede firmar digitalmente el código de la aplicación. A continuación, solo permitirá que AKS implemente imágenes firmadas. Este proceso proporciona una capa adicional de seguridad en la que limitar AKS para extraer solo las imágenes firmadas digitalmente y de confianza, no solo las imágenes que pasan una comprobación de vulnerabilidad. Asegúrese también de que la imagen de contenedor no se ha alterado ni reemplazado por una imagen con el mismo nombre.
-
-Los registros de confianza que proporcionan las imágenes de contenedor firmadas digitalmente agregan complejidad al entorno, pero pueden ser necesarios para determinadas directivas o cumplimiento de normativas. Azure Container Registry admite el uso de los registros de confianza e imágenes firmadas.
-
-Para obtener más información acerca de las imágenes firmadas digitalmente, vea [Confianza en el contenido en Azure Container Registry][acr-content-trust].
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>Compilar automáticamente nuevas imágenes en la actualización de imagen base
 
@@ -62,7 +51,6 @@ Para obtener más información acerca de las actualizaciones de imagen base, vea
 En este artículo se indica cómo proteger los contenedores. Para implementar algunas de estas áreas, consulte los artículos siguientes:
 
 * [Automatización de compilaciones de imágenes en la actualización de imagen base con Azure Container Registry Tasks][acr-base-image-update]
-* [Confianza en el contenido en Azure Container Registry][acr-content-trust]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
@@ -72,5 +60,4 @@ En este artículo se indica cómo proteger los contenedores. Para implementar al
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
-[acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md

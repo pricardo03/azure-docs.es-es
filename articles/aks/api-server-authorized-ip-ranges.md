@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243580"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475143"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Preview - autoriza el acceso seguro a la API de servidor mediante intervalos de direcciones IP en Azure Kubernetes Service (AKS)
 
@@ -74,8 +74,6 @@ Al configurar intervalos IP del servidor autorizado de API, se aplican las sigui
 El servidor de API de Kubernetes es cómo se exponen las APIs Kubernetes subyacente. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes. AKS proporciona a un patrón de inquilino único clúster, con un servidor dedicado de API. De forma predeterminada, el servidor de API se asigna una dirección IP pública y se debe controlar el acceso mediante controles de acceso basado en roles (RBAC).
 
 Para proteger el acceso al plano de control de AKS en caso contrario, es públicamente accesible / servidor de la API, puede habilitar y utilizar los intervalos IP autorizados. Estos intervalos IP autorizados solo permiten intervalos de direcciones IP definidos para comunicarse con el servidor de API. Se bloquea una solicitud realizada al servidor de API desde una dirección IP que no forma parte de estos intervalos IP autorizados. Aún debe usar RBAC para, a continuación, autorizar a los usuarios y las acciones que se solicitan.
-
-Para usar la funcionalidad de intervalo IP autorizada, una dirección IP pública se expone en el grupo de nodos mediante la implementación de un servicio básico de NGINX. El servidor de API se comunica con el grupo de nodos a través de esta dirección IP autorizada. A continuación, definir intervalos de direcciones IP adicionales que pueden tener acceso al servidor de API.
 
 Para obtener más información sobre el servidor de API y otros componentes del clúster, consulte [conceptos básicos de Kubernetes para AKS][concepts-clusters-workloads].
 

@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956393"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497184"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.56 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+Necesita la CLI de Azure versión 2.0.65 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Información general sobre redes kubenet con una subred propia
 
@@ -48,7 +48,7 @@ Con *Azure CNI*, un problema común es que el intervalo de direcciones IP asigna
 
 Como compromiso, puede crear un clúster de AKS que use *kubenet* y conectarse a una subred de red virtual existente. Este enfoque permite que los nodos reciban direcciones IP definidas, sin necesidad de reservar un gran número de direcciones IP por adelantado para todos los pods posibles que se podrían ejecutar en el clúster.
 
-Con *kubenet*, puede usar un intervalo de direcciones IP mucho más pequeño y tener la capacidad de satisfacer una elevada demanda de los clústeres y la aplicación. Por ejemplo, incluso con un intervalo de direcciones IP de */27*, podría ejecutar un clúster de 20-25 nodos con espacio suficiente para escalar o actualizar. Este tamaño de clúster admitiría hasta *2200-2750* pods (con una capacidad máxima predeterminada de 110 pods por nodo).
+Con *kubenet*, puede usar un intervalo de direcciones IP mucho más pequeño y tener la capacidad de satisfacer una elevada demanda de los clústeres y la aplicación. Por ejemplo, incluso con un intervalo de direcciones IP de */27*, podría ejecutar un clúster de 20-25 nodos con espacio suficiente para escalar o actualizar. Este tamaño de clúster admitiría hasta *2200-2750* pods (con una capacidad máxima predeterminada de 110 pods por nodo). El número máximo de pods por nodo que se puede configurar con *kubenet* en AKS es 250.
 
 Los cálculos básicos siguientes comparan la diferencia entre los modelos de red:
 
@@ -140,15 +140,15 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Creación de un clúster de AKS en la red virtual
 
-Ya ha creado una red virtual y una subred y también ha creado y asignado permisos para que una entidad de servicio utilice dichos recursos de red. Ahora cree un clúster de AKS en la red virtual y la subred con el comando [az aks create][az-aks-create]. Definir su propia entidad de servicio  *\<appId >* y  *\<contraseña >*, tal y como se muestra en la salida del comando anterior para crear la entidad de servicio.
+Ya ha creado una red virtual y una subred y también ha creado y asignado permisos para que una entidad de servicio utilice dichos recursos de red. Ahora cree un clúster de AKS en la red virtual y la subred con el comando [az aks create][az-aks-create]. Definir su propia entidad de servicio  *\<appId >* y  *\<contraseña >* , tal y como se muestra en la salida del comando anterior para crear la entidad de servicio.
 
 Los siguientes intervalos de direcciones IP también se definen como parte del proceso de creación del clúster:
 
-* *--service-cidr* se usa para asignar servicios internos en una dirección IP del clúster de AKS. Este intervalo de direcciones IP debe ser un espacio de direcciones que no se use en ninguna otra parte del entorno de red. Esto incluye cualquier rango de red local si conecta, o pretende conectar, las redes virtuales de Azure mediante ExpressRoute o con una conexión VPN de sitio a sitio.
+* *--service-cidr* se usa para asignar servicios internos en una dirección IP del clúster de AKS. Este intervalo de direcciones IP debe ser un espacio de direcciones que no se use en ninguna otra parte del entorno de red. Este intervalo incluye cualquier rangos de red local si se conecta o se va a conectar redes virtuales de Azure mediante Expressroute o una conexión VPN de sitio a sitio.
 
 * La dirección *--dns-service-ip* debe ser la dirección *.10* del intervalo de direcciones IP del servicio.
 
-* *--pod-cidr* debe ser un espacio de direcciones grande que no se use en ninguna otra parte del entorno de red. Esto incluye cualquier rango de red local si conecta, o pretende conectar, las redes virtuales de Azure mediante ExpressRoute o con una conexión VPN de sitio a sitio.
+* *--pod-cidr* debe ser un espacio de direcciones grande que no se use en ninguna otra parte del entorno de red. Este intervalo incluye cualquier rangos de red local si se conecta o se va a conectar redes virtuales de Azure mediante Expressroute o una conexión VPN de sitio a sitio.
     * Este intervalo de direcciones debe ser lo suficientemente grande como para alojar el número de nodos hasta el que pretende escalar verticalmente. No puede cambiar este intervalo de direcciones una vez que el clúster se haya implementado, en caso de que necesite más direcciones para nodos adicionales.
     * El intervalo de direcciones IP para pods se usa para asignar un espacio de direcciones de */24* a cada nodo del clúster. En el ejemplo siguiente, *--pod-cidr* de *192.168.0.0/16* asigna el primer nodo *192.168.0.0/24*, el segundo nodo *192.168.1.0/24* y el tercer nodo *192.168.2.0/24*.
     * A medida que el clúster se escala o actualiza, la plataforma de Azure continúa asignando un intervalo de direcciones IP para pods a cada nuevo nodo.

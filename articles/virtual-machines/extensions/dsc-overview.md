@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518861"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515907"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
@@ -81,7 +81,7 @@ Esta información puede verse en la [portal Azure](../../automation/automation-d
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Para el nombre de la configuración de nodo, asegúrese de que está utilizando el nombre de la *configuración de nodo* y no la configuración.
+Para el nombre de la configuración de nodo, asegúrese de que la configuración del nodo existe en la configuración de estado de Azure.  Si no es así, la implementación de extensión devolverá un error.  Además, asegúrese de que usa el nombre de la *configuración de nodo* y no la configuración.
 Se define una configuración en una secuencia de comandos que se usa [para compilar la configuración de nodo (archivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 El nombre será siempre la configuración seguida por un punto `.` y `localhost` o un nombre de equipo específico.
 

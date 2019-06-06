@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417988"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425423"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
@@ -35,7 +35,7 @@ Las **directivas de clave de contenido** son actualizables. Puede tardar hasta 1
 > * Las propiedades de **directivas de clave de contenido** que son de tipo Datetime siempre están en formato UTC.
 > * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con sus localizadores de streaming siempre que se necesiten las mismas opciones. Para más información, consulte [Cuotas y limitaciones](limits-quotas-constraints.md).
 
-## <a name="example"></a>Ejemplo
+### <a name="example"></a>Ejemplo
 
 Para obtener la clave, use **GetPolicyPropertiesWithSecretsAsync**, tal y como se muestra en el [obtener una clave de firma de la directiva existente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) ejemplo.
 

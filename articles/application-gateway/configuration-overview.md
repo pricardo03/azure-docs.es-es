@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946806"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431304"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -57,7 +57,7 @@ Se admiten grupos de seguridad de red (NSG) en Application Gateway. Sin embargo,
 
 - El tráfico de la **AzureLoadBalancer** etiqueta debe estar permitida.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Acceso de puerta de enlace de aplicación de lista blanca para algunas direcciones IP de origen
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir el acceso de Application Gateway para algunas direcciones IP de origen
 
 En este escenario, use los NSG en la subred de puerta de enlace de aplicaciones. Coloque las siguientes restricciones en la subred en este orden de prioridad:
 
@@ -209,13 +209,13 @@ Para una regla basada en ruta de acceso, agregue varias opciones de configuraci�
 
 ### <a name="redirection-setting"></a>Configuración de redirección
 
-Si la redirección se configura para una regla básica, se redirigen todas las solicitudes en el agente de escucha asociado al destino. Se trata de *global* redirección. Si la redirección se configura para una regla basada en ruta de acceso, se redirigen solamente las solicitudes en un área específica del sitio. Un ejemplo es un área de carro de la compra que se indica mediante */cart/\**. Se trata de *basadas en rutas* redirección.
+Si la redirección se configura para una regla básica, se redirigen todas las solicitudes en el agente de escucha asociado al destino. Se trata de *global* redirección. Si la redirección se configura para una regla basada en ruta de acceso, se redirigen solamente las solicitudes en un área específica del sitio. Un ejemplo es un área de carro de la compra que se indica mediante */cart/\** . Se trata de *basadas en rutas* redirección.
 
 Para obtener más información acerca de las redirecciones, vea [Introducción a la redirección de Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
-#### <a name="redirection-type"></a>Tipo de redirección
+#### <a name="redirection-type"></a>Tipo de redireccionamiento
 
-Elija el tipo de redirección mínimo: *Permanent(301)*, *Temporary(307)*, *Found(302)*, o *consulte other(303)*.
+Elija el tipo de redirección mínimo: *Permanent(301)* , *Temporary(307)* , *Found(302)* , o *consulte other(303)* .
 
 #### <a name="redirection-target"></a>Destino de la redirección
 
@@ -247,7 +247,7 @@ Esta configuración agrega, quita o actualiza los encabezados de solicitud y res
  - [Vuelva a escribir la información general de los encabezados HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Configurar la reescritura del encabezado HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
 
-## <a name="http-settings"></a>Configuración HTTP
+## <a name="http-settings"></a>Configuración de HTTP
 
 Application gateway enruta el tráfico a los servidores back-end con la configuración que especifique aquí. Después de crear una configuración de HTTP, debe asociarlo con una o varias reglas de enrutamiento de solicitud.
 

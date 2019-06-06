@@ -9,22 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 903405c8fada6165b79e780a7828c6de3b95163e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387350"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478927"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar una regla de límite web application firewall frecuencia mediante Azure PowerShell
 La regla de límites de velocidad de web de Azure aplicación firewall (WAF) para el acceso de principal de Azure controla el número de solicitudes permitidas desde una dirección IP de cliente único durante una duración de un minuto.
 En este artículo se muestra cómo configurar una regla de límite de tasa de WAF que controla el número de solicitudes permitidas desde un solo cliente para una aplicación web que contenga */promo* en la dirección URL con Azure PowerShell.
-
-> [!IMPORTANT]
-> La característica de regla de límite de velocidad de WAF para Azure puerta de entrada está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

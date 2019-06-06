@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417901"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514573"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -407,7 +407,7 @@ Puede realizar tareas comunes relacionadas con la facturación como actualizar l
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
 
 ### <a name="desktop-analytics-administrator"></a>Administrador de análisis de escritorio
-Puede acceder a servicios y herramientas de administración de escritorio y administrarlos, incluido Intune.
+Puede administrar el análisis de escritorio y personalización de Office & directiva de servicios. Para realizar análisis de escritorio, esto incluye la capacidad de ver el inventario de activos, crear planes de implementación, ver el estado de mantenimiento e implementación. Personalización de Office & directiva de servicio, este rol permite a los usuarios administrar las directivas de Office.
 
   > [!NOTE]
   > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.

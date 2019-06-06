@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149227"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515742"
 ---
-# <a name="streaming-endpoints-origin"></a>Extremos de streaming (origen)
+# <a name="streaming-endpoints"></a>Extremos de streaming 
 
 En Microsoft Azure Media Services, un [Streamingendpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un dinámico (just-in-time) empaquetado y el origen de servicio que puede entregar el contenido en directo y a petición directamente a una aplicación de Reproductor de cliente, mediante uno de los media protocolos de streaming comunes (HLS o DASH). Además, el **Streamingendpoint** proporciona el cifrado dinámico (just-in-time) para DRM de líderes del sector.
 
@@ -41,7 +41,7 @@ Existen dos tipos de **puntos de conexión de streaming**: **Estándar** (versi�
 
 En la tabla se describen los tipos:  
 
-|Type|Unidades de escalado|DESCRIPCIÓN|
+|Escriba|Unidades de escalado|DESCRIPCIÓN|
 |--------|--------|--------|  
 |**Estándar**|0|El valor predeterminado es el punto de conexión de Streaming un **estándar** escriba, se puede cambiar el tipo Premium ajustando `scaleUnits`.|
 |**Premium**|>0|**Premium** extremos de Streaming son adecuados para cargas de trabajo avanzadas, proporcionan una capacidad de ancho de banda dedicada y escalable. Mover a un **Premium** tipo ajustando `scaleUnits` (unidades de streaming). La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
@@ -55,10 +55,10 @@ Para obtener información de SLA, consulte [precios y SLA](https://azure.microso
 
 Característica|Estándar|Premium
 ---|---|---
-Gratis los primeros 15 días <sup>1</sup>| Sí |Sin 
+Gratis los primeros 15 días <sup>1</sup>| Sí |No
 Throughput |Hasta 600 Mbps y puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.|200 Mbps por unidad de streaming. Puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.
 CDN|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.
-La facturación se prorratea| Diario|Diario
+La facturación se prorratea| Cada día|Cada día
 Cifrado dinámico|Sí|Sí
 Empaquetado dinámico|Sí|Sí
 Escala|Se amplía automáticamente hasta el rendimiento objetivo.|Unidades de streaming adicionales
@@ -156,7 +156,7 @@ La integración de la red CDN está habilitada en todos los centros de datos de 
 
 Puede determinar si se ha realizado el cambio DNS en un extremo de Streaming (el tráfico se dirige a la red CDN de Azure) mediante https://www.digwebinterface.com. Si los resultados tiene nombres de dominio azureedge.net en los resultados, el tráfico que apuntan ahora a la red CDN.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416708"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730697"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -82,6 +82,9 @@ No, Azure Disk Encryption solo cifra los volúmenes montados.
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>¿Cómo se pueden girar secretos o claves de cifrado?
 
 Para cambiar los secretos, llamaremos el mismo comando que se usaron originalmente para habilitar el cifrado de disco, especifica un almacén de claves diferente. Para rotar la clave de cifrado de claves, llame al mismo comando que se usaron originalmente para habilitar el cifrado de disco, especificando el cifrado de claves nuevo. 
+
+>[!WARNING]
+> - Si ha usado anteriormente [Azure Disk Encryption con Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) mediante la especificación de credenciales de Azure AD para cifrar esta máquina virtual, tendrá que seguir use esta opción para cifrar la máquina virtual. No puede usar [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) en esta VM cifrada ya que no es un escenario compatible, lo que significa que el cambio desde la aplicación de AAD para esta VM cifrada aún no es compatible.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>¿Cómo agregar o quitar una clave de cifrado de claves si originalmente no usar uno?
 

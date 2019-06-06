@@ -1,28 +1,28 @@
 ---
-title: 'Inicio rápido: Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer'
-description: En esta guía de inicio rápido, obtendrá información sobre cómo ingerir (cargar) datos en Azure Data Explorer con Node.js.
+title: Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer
+description: En este artículo, obtendrá información sobre cómo introducir (cargar) datos en el Explorador de datos de Azure con Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
-ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800421"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494494"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Inicio rápido: Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer proporciona dos bibliotecas cliente para Node: una [biblioteca de ingesta](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) y una [biblioteca de datos](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Estas bibliotecas permiten ingerir (cargar) datos en un clúster y consultar datos desde el código. En esta guía de inicio rápido, primero creará una tabla y la asignación de datos en un clúster de prueba. A continuación, pondrá en cola la ingesta en el clúster y validará los resultados.
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer proporciona dos bibliotecas cliente para Node: una [biblioteca de ingesta](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) y una [biblioteca de datos](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Estas bibliotecas permiten ingerir (cargar) datos en un clúster y consultar datos desde el código. En este artículo, cree primero una tabla y la asignación de datos en un clúster de prueba. A continuación, pondrá en cola la ingesta en el clúster y validará los resultados.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Además de una suscripción de Azure, necesita lo siguiente para completar esta guía de inicio rápido:
+Además de una suscripción de Azure, necesita lo siguiente para completar este artículo:
 
 * [Base de datos y clúster de prueba](create-cluster-database-portal.md)
 
@@ -158,7 +158,7 @@ Ejecute el siguiente comando para ver el estado de todas las operaciones de inge
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserve los recursos que creó. De lo contrario, ejecute el siguiente comando en la base de datos para limpiar la tabla `StormEvents`.
+Si tiene previsto seguir nuestros otros artículos, mantenga los recursos que creó. De lo contrario, ejecute el siguiente comando en la base de datos para limpiar la tabla `StormEvents`.
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserv
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Escritura de consultas](write-queries.md)
+* [Escritura de consultas](write-queries.md)

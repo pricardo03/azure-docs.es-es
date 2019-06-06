@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736979"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475287"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN
 El encabezado de solicitud de caché de depuración, `X-EC-Debug`, proporciona información adicional acerca de la directiva de caché que se aplica al recurso solicitado. Estos encabezados son específicos de los productos **Azure CDN Premium de Verizon**.
@@ -27,7 +27,7 @@ El encabezado de solicitud de caché de depuración, `X-EC-Debug`, proporciona i
 ## <a name="usage"></a>Uso
 La respuesta que se envía desde los servidores POP a un usuario incluye el encabezado `X-EC-Debug` solo si se cumplen las condiciones siguientes:
 
-- La [característica Encabezados de respuesta de caché de depuración](cdn-rules-engine-reference-features.md#debug-cache-response-headers) se ha habilitado en el motor de reglas para la solicitud especificada.
+- La [característica Encabezados de respuesta de caché de depuración](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) se ha habilitado en el motor de reglas para la solicitud especificada.
 - La solicitud especificada define el conjunto de encabezados de respuesta de caché de depuración que se incluirán en la respuesta.
 
 ## <a name="requesting-debug-cache-information"></a>Solicitud de información de la caché de depuración
@@ -118,7 +118,7 @@ El siguiente ejemplo de encabezado de respuesta indica si el contenido solicitad
 ## <a name="cache-key-response-header"></a>Encabezado de respuesta Cache-Key
 El encabezado de respuesta `X-EC-Debug: x-ec-cache-key` indica la clave de caché física asociada al contenido solicitado. Una clave de caché física es una ruta de acceso que identifica un recurso con fines de almacenamiento en caché. En otras palabras, los servidores buscarán una versión almacenada en caché de un recurso de acuerdo a la ruta de acceso que definió la clave de caché.
 
-Esta clave de caché física empieza por una doble barra diagonal (/ /) seguida por el protocolo que se usa para solicitar el contenido (HTTP o HTTPS). Este protocolo viene seguido por la ruta de acceso relativa al recurso solicitado, que comienza por el punto de acceso al contenido (por ejemplo, _/000001/_).
+Esta clave de caché física empieza por una doble barra diagonal (/ /) seguida por el protocolo que se usa para solicitar el contenido (HTTP o HTTPS). Este protocolo viene seguido por la ruta de acceso relativa al recurso solicitado, que comienza por el punto de acceso al contenido (por ejemplo, _/000001/_ ).
 
 De forma predeterminada, las plataformas HTTP están configuradas para utilizar *standard-cache*, lo que significa que el mecanismo de almacenamiento en caché ignorará las cadenas de consulta. Este tipo de configuración impide que la clave de caché incluya los datos de la cadena de consulta.
 
@@ -151,7 +151,7 @@ Los términos que se usan en la sintaxis del encabezado de respuesta anterior se
 
 - MATimePeriod: Convierte el valor de max-age (es decir, MASeconds) en el equivalente aproximado de una unidad mayor (por ejemplo, días). 
 
-- UnixTime: Indica la marca de tiempo de la memoria caché del contenido solicitado en el tiempo de Unix (también conocida como tiempo POSIX o época de Unix). La marca de tiempo de la caché indica la fecha y hora de inicio desde la que se empezará a calcular el período de vida de un recurso. 
+- UnixTime: Indica la marca de tiempo de la memoria caché del contenido solicitado en el tiempo de Unix (también conocido como POSIX tiempo o tiempo Unix). La marca de tiempo de la caché indica la fecha y hora de inicio desde la que se empezará a calcular el período de vida de un recurso. 
 
     Si el servidor de origen no utiliza un servidor de caché HTTP de un tercero o si ese servidor no devuelve el encabezado de respuesta Age, la marca de tiempo de la caché será siempre la fecha y hora en la que se recuperó o revalidó el recurso. En caso contrario, los servidores POP usará el campo Age para calcular el TTL del activo como sigue: Retrieval/RevalidateDateTime - Age.
 

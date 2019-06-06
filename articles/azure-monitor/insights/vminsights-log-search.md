@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602077"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472577"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 Monitor para las máquinas virtuales de Azure recopila información de estado de mantenimiento y métricas de conexión, equipo y procesar los datos de inventario y rendimiento y la reenvía al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
@@ -43,8 +43,8 @@ Los campos y las convenciones siguientes se aplican a VMConnection y VMBoundPort
 
 - Equipo: Nombre de dominio completo del equipo de reporting 
 - AgentID: El identificador único para un equipo con el agente de Log Analytics  
-- Máquina: Nombre del recurso de Azure Resource Manager para la máquina expuesta por Service Map. Es el formato *m-{GUID}*, donde *GUID* es el mismo GUID como Id. de agente  
-- Proceso: Nombre del recurso de Azure Resource Manager para el proceso expuesto por Service Map. Es el formato *p-{cadena hexadecimal}*. Proceso es único dentro de un ámbito de la máquina y para generar un identificador único del proceso entre máquinas, combinar campos de equipo y proceso. 
+- Equipo: Nombre del recurso de Azure Resource Manager para la máquina expuesta por Service Map. Es el formato *m-{GUID}* , donde *GUID* es el mismo GUID como Id. de agente  
+- Proceso: Nombre del recurso de Azure Resource Manager para el proceso expuesto por Service Map. Es el formato *p-{cadena hexadecimal}* . Proceso es único dentro de un ámbito de la máquina y para generar un identificador único del proceso entre máquinas, combinar campos de equipo y proceso. 
 - Nombre del proceso: Nombre del archivo ejecutable del proceso de generación de informes.
 - Todas las direcciones IP son cadenas en formato canónico de IPv4, por ejemplo *13.107.3.160* 
 
@@ -69,7 +69,7 @@ Para tener en cuenta el impacto de la agrupación, se proporciona información s
 |LinksFailed |Número de conexiones de red físicas que han generado errores durante el período de tiempo de generación de informes Actualmente, esta información está disponible solo para las conexiones salientes. |
 |LinksLive |Número de conexiones de red físicas que estaban abiertas al final del período de tiempo de generación de informes|
 
-#### <a name="metrics"></a>Métricas
+#### <a name="metrics"></a>metrics
 
 Además de las métricas de recuento de conexión, también se incluye información sobre el volumen de datos enviado y recibido en una conexión lógica o puerto de red concreto en las siguientes propiedades del registro:
 
@@ -125,13 +125,6 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 ### <a name="ports"></a>Puertos 
 Puertos en una máquina que activamente acepten el tráfico entrante o potencialmente podrían aceptar tráfico, pero están inactivas durante el período de tiempo de generación de informes, se escriben en la tabla VMBoundPort.  
 
->[!NOTE]
->Azure Monitor para las máquinas virtuales no admite recopilar y registrar datos de puerto en un área de trabajo de Log Analytics en las siguientes regiones:  
->- Este de EE. UU  
->- Europa occidental
->
-> Recopilar estos datos está habilitada en el otro [regiones admitidas](vminsights-enable-overview.md#log-analytics) para Azure Monitor para las máquinas virtuales. 
-
 Todos los registros de VMBoundPort se identifican mediante los siguientes campos: 
 
 | Propiedad | Descripción |
@@ -143,7 +136,7 @@ Todos los registros de VMBoundPort se identifican mediante los siguientes campos
  
 La identidad de un puerto se deriva de los cinco campos anteriores y se almacena en la propiedad PortId. Esta propiedad se puede usar para buscar rápidamente los registros para un puerto específico a través del tiempo. 
 
-#### <a name="metrics"></a>Métricas 
+#### <a name="metrics"></a>metrics 
 Registros de puerto incluyen métricas que representen las conexiones asociadas. Actualmente, se notifican las métricas siguientes (los detalles de cada métrica se describen en la sección anterior): 
 
 - BytesSent y BytesReceived 
@@ -162,7 +155,7 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 
 | Propiedad | Descripción |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
+| Escriba | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de una máquina en el área de trabajo |
 | ResourceName_s | Identificador único de una máquina en el área de trabajo |
@@ -187,7 +180,7 @@ Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para
 
 | Propiedad | Descripción |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
+| Escriba | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificador único de un proceso en el área de trabajo |
 | ResourceName_s | Identificador único de un proceso en el equipo en el que se está ejecutando|
@@ -204,7 +197,7 @@ Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para
 | CommandLine_s | Línea de comandos |
 | ExecutablePath_s | Ruta de acceso al archivo ejecutable |
 | WorkingDirectory_s | Directorio de trabajo |
-| Nombre de usuario | Cuenta en la que se está ejecutando el proceso |
+| UserName | Cuenta en la que se está ejecutando el proceso |
 | UserDomain | Dominio en el que se está ejecutando el proceso |
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo

@@ -2,20 +2,20 @@
 title: Habilitar la restricción de acceso por edad en Azure Active Directory B2C | Microsoft Docs
 description: Obtenga información acerca de cómo identificar a los menores mediante la aplicación.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228008"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511667"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitación de la restricción de acceso por edad en Azure Active Directory B2C
 
@@ -31,14 +31,14 @@ Azure AD B2C usa la información que escribe el usuario para identificar si es u
 
 La restricción de acceso por edad implica dos valores de edad: la edad en que alguien ya se no considera un menor y la edad en la que un menor debe tener consentimiento parental. En la tabla siguiente se enumeran las reglas de edad que se usan para la definición de un menor y de un menor que requiere consentimiento.
 
-| País o región | Nombre de país o región | Edad de consentimiento de menores | Edad del menor |
+| País/región | Nombre de país o región | Edad de consentimiento de menores | Edad del menor |
 | -------------- | ------------------- | ----------------- | --------- |
 | Valor predeterminado | None | None | 18 |
 | AE | Emiratos Árabes Unidos | None | 21 |
 | AT | Austria | 14 | 18 |
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgaria | 16 | 18 |
-| BH | Reino de Baréin | None | 21 |
+| BH | Bahréin | None | 21 |
 | CM | Camerún | None | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Checa | 16 | 18 |
@@ -47,10 +47,10 @@ La restricción de acceso por edad implica dos valores de edad: la edad en que a
 | EE | Estonia | 16 | 18 |
 | EG | Egipto | None | 21 |
 | ES | España | 13 | 18 |
-| VF | Francia | 16 | 18 |
+| FR | Francia | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
 | GR | Grecia | 16 | 18 |
-| HR | Croacia (Hrvatska) | 16 | 18 |
+| HR | Croacia | 16 | 18 |
 | HU | Hungría | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
 | IT | Italia | 16 | 18 |
@@ -60,10 +60,10 @@ La restricción de acceso por edad implica dos valores de edad: la edad en que a
 | LV | Letonia | 16 | 18 |
 | MT | Malta | 16 | 18 |
 | N/D | Namibia | None | 21 |
-| NL | Países bajos | 16 | 18 |
+| NL | Países Bajos | 16 | 18 |
 | PL | Polonia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
-| RO | Rumanía | 16 | 18 |
+| RO | Rumania | 16 | 18 |
 | SE | Suecia | 13 | 18 |
 | SG | Singapur | None | 21 |
 | SI | Eslovenia | 16 | 18 |

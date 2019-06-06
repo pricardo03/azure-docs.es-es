@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237612"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427370"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de protección de Azure Backup Server
 
@@ -82,6 +82,15 @@ En este artículo se indican los diferentes servidores y cargas de trabajo que p
 |Máquinas virtuales de VMware|Versión con licencia de VMware vCenter/vSphere ESX/ESXi 5.5/6.0/6.5 |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|Y|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
 |Máquinas virtuales de VMware|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|N|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> La recuperación de archivos y carpetas en el nivel de elemento solo está disponible para máquinas virtuales Windows, VMware vApps no está admitido.|
 |Linux|Linux ejecutado como invitado de Hyper-V o VMware|Servidor físico, <br/>máquina virtual Hyper-V local, <br/> máquina virtual Windows en VMWare|Y|Y|Hyper-V debe ejecutarse en Windows Server 2012 R2 o Windows Server 2016. Protección: máquina virtual completa<br /><br />Recuperación: máquina virtual completa <br/><br/> Para obtener una lista completa de las distribuciones y las versiones de Linux compatibles, vea el artículo [Linux en distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md).|
+
+## <a name="azure-expressroute-support"></a>Soporte técnico de Azure ExpressRoute
+
+Si se configura Azure ExpressRoute con emparejamiento de Microsoft o privada, no se puede usar para realizar una copia de seguridad de los datos en Azure.
+
+Si se configura Azure ExpressRoute con emparejamiento público, puede usar para realizar una copia de seguridad de los datos en Azure.
+
+>[!NOTE]
+>Emparejamiento público está en desuso para los circuitos nuevo.
 
 ## <a name="cluster-support"></a>Compatibilidad con clústeres
 Azure Backup Server puede proteger datos en las siguientes aplicaciones agrupadas en clúster:

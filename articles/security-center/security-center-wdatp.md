@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258467"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743228"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Windows Defender con Azure Security Center
 
@@ -44,10 +44,6 @@ Estas funcionalidades están disponibles ahora en Azure Security Center:
 - **Investigación detallada de las máquinas**: los clientes de Azure Security Center pueden acceder a la consola de ATP de Windows Defender para llevar a cabo una investigación detallada destinada a descubrir el ámbito de una brecha.
 
 ![Azure Security Center muestra una lista de alertas e información general sobre cada alerta](media/security-center-wdatp/image1.png)
-
-Puede [investigar la alerta](security-center-investigation.md) en Azure Security Center:
-
-![El panel de investigación de alertas en Azure Security Center](media/security-center-wdatp/image2.png)
 
 Puede investigar más la alerta basándose en ATP de Windows Defender. Allí puede ver información adicional como el árbol de procesos de alerta y el grafo de incidentes. También puede ver una escala de tiempo de la máquina detallada que muestra cada comportamiento durante un período histórico de hasta seis meses.
 

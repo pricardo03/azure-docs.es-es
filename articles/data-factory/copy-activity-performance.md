@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768180"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425610"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Puntos a tener en cuenta:
 
 ## <a name="data-integration-units"></a>Unidades de integración de datos
 
-Una **unidad de integración de datos (DIU)**, antes conocida como Unidad de movimiento de datos en la nube o DMU, es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una **DIU solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
+Una **unidad de integración de datos (DIU)** , antes conocida como Unidad de movimiento de datos en la nube o DMU, es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una **DIU solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** , pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
 **La cantidad mínima de unidades de integración de datos para impulsar la ejecución de la actividad de copia, es dos.** Si no se especifica, en la tabla siguiente se muestran las DIU predeterminadas que se usan en distintos escenarios de copia:
 
@@ -93,7 +93,7 @@ Para reemplazar esta configuración predeterminada, especifique un valor para la
 Puede ver las unidades de integración de datos que realmente se usan en cada ejecución de copia en la salida de la actividad, cuando se supervisa una ejecución de actividad. Obtenga detalles en [Supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> La configuración de unidades de integración de datos **en un número superior a 4** actualmente solo funciona cuando se **copian varias archivos desde Blob Storage, Data Lake Store, Amazon S3, FTP en la nube o SFTP en la nube a cualquier otro almacén de datos en la nube**.
+> Configuración de DIUs **mayor que 4** actualmente solo se aplica cuando se **copian varios archivos de Azure Storage o Data Lake Storage, Amazon S3/Google Cloud Storage o en la nube FTP en la nube o SFTP a cualquier otras nube almacenes de datos**.
 >
 
 **Ejemplo:**
@@ -193,7 +193,7 @@ Configure la opción **enableStaging** de la actividad de copia para especificar
 | **enableStaging** |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
 | **linkedServiceName** |Especifique el nombre de un servicio vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la instancia de Storage que se usa como almacenamiento provisional. <br/><br/> No puede usar Storage con una firma de acceso compartido para cargar datos en SQL Data Warehouse mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
 | **path** |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
-| **enableCompression** |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |Sin  |
+| **enableCompression** |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |Sin |
 
 >[!NOTE]
 > Si usa una copia almacenada provisionalmente con la compresión habilitada, no se admite la autenticación de MSI o de entidad de servicio para el almacenamiento provisional de un servicio vinculado de blob.

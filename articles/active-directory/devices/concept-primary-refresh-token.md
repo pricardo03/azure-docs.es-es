@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420594"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473402"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un Token de actualización principal?
 
@@ -111,8 +111,11 @@ Cuando un usuario inicia una interacción con el explorador, el explorador (o la
 Un PRT puede obtener una notificación de autenticación multifactor (MFA) en escenarios concretos. Cuando se usa un PRT basado en MFA para solicitar tokens para las aplicaciones, la notificación de MFA se transfiere a los tokens de aplicación. Esta funcionalidad proporciona una experiencia sin problemas a los usuarios evitando el desafío MFA para todas las aplicaciones que lo requiera. Un PRT puede obtener una notificación de MFA de las maneras siguientes:
 
 * **Inicie sesión con Windows Hello para empresas**: Windows Hello para empresas reemplaza las contraseñas y claves criptográficas se utiliza para proporcionar autenticación segura en dos fases. Windows Hello para empresas es un usuario en un dispositivo específico y, sí requiere MFA para aprovisionar. Cuando un usuario inicia sesión con Windows Hello para empresas, PRT del usuario obtiene una notificación de MFA. Este escenario también se aplica a los usuarios que inician sesión con tarjetas inteligentes si la autenticación de tarjeta inteligente genera una notificación de MFA de ADFS.
+   * Como Windows Hello para empresas se considera autenticación multifactor, la notificación de MFA se actualiza cuando se actualiza el PRT propio, por lo que la duración MFA se extenderá continuamente cuando los usuarios iniciar sesión con WIndows Hello para empresas
 * **MFA durante el inicio de sesión interactivo WAM**: Durante una solicitud de token a través de WAM, si un usuario se requiere para realizar la MFA para tener acceso a la aplicación, el PRT que se renueva durante esta interacción es impreso con una notificación de MFA.
+   * En este caso, la notificación de MFA no se actualiza continuamente, por lo que la duración MFA se basa en la duración establecida en el directorio.
 * **MFA durante el registro de dispositivo**: Si un administrador ha configurado la configuración del dispositivo en Azure AD para [exija MFA para registrar dispositivos](device-management-azure-portal.md#configure-device-settings), el usuario necesita para realizar la MFA para completar el registro. Durante este proceso, el PRT emitido para el usuario tiene la notificación de MFA obtenida durante el registro. Esta funcionalidad solo se aplica al usuario que realizó la operación de combinación, no a otros usuarios que inician sesión en el dispositivo.
+   * Al igual que el inicio de sesión interactivo WAM, la notificación de MFA no se actualiza continuamente, por lo que la duración MFA se basa en la duración establecida en el directorio.
 
 Windows 10 mantiene una lista con particiones de prt por cada credencial. Por lo tanto, hay un PRT para cada uno de Windows Hello para la empresa, contraseña o tarjeta inteligente. Este particionamiento asegura que las notificaciones MFA están aisladas en función de la credencial que usa y no se mezclen durante las solicitudes de token.
 

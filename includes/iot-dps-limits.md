@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 65c89730e7d3d492b91daa8aba50e5606ca700a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238522"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455153"
 ---
 En la tabla siguiente se enumera los límites que se aplican a los recursos de servicio de aprovisionamiento de dispositivos de Azure IoT Hub.
 
@@ -20,6 +20,7 @@ En la tabla siguiente se enumera los límites que se aplican a los recursos de s
 | Número máximo de registros | 1 000 000 |
 | Número máximo de grupos de inscripciones | 100 |
 | Número máximo de CA | 25 |
+| Tamaño máximo de mensaje | 96 KB|
 
 > [!NOTE]
 > Para aumentar el número de instancias de la suscripción, póngase en contacto con [Microsoft Support](https://azure.microsoft.com/support/options/).

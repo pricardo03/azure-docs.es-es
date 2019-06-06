@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6636c87493230e3e392c29ffaf182b489ab0ba34
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967763"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730413"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentación de referencia de Swagger de Azure Digital Twins
 
@@ -42,15 +42,15 @@ El material de referencia de Swagger generado automáticamente proporciona una i
 
 Un breve resumen describe la API.
 
-![Parte superior de Swagger][1]
+[![Parte superior de swagger](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
 
 También se muestran los modelos de objetos de la API de administración.
 
-![Modelos de Swagger][2]
+[![Modelos de swagger](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
 
 Puede seleccionar cada modelo de objetos de la lista para obtener un resumen más detallado de los atributos clave.
 
-![Modelo de Swagger][3]
+[![Modelo de swagger](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
 
 Los modelos de objetos de Swagger generados resultan prácticos para ver todos los [objetos y las API](./concepts-objectmodel-spatialgraph.md) de Azure Digital Twins que están disponibles. Los desarrolladores utilizar recurso al crear soluciones en Azure Digital Twins.
 
@@ -64,7 +64,7 @@ Cada punto de conexión de la lista también incluye la información de solicitu
 * Tipos de datos de parámetro obligatorios.
 * Método HTTP para acceder al recurso.
 
-![Puntos de conexión de Swagger][4]
+[![Puntos de conexión de swagger](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
 
 Para ver una descripción más detallada, seleccione cada recurso.
 
@@ -74,11 +74,11 @@ Una de las funcionalidades más eficaces de Swagger proporciona la capacidad de 
 
 Después de seleccionar un punto de conexión específico, verá **Try it out** (Pruébelo).
 
-![Prueba de Swagger][5]
+[![Try swagger](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
 
 Al expandir esa sección se muestran los campos de entrada para cada parámetro obligatorio y opcional. Escriba los valores correctos y seleccione **Ejecución**.
 
-![Swagger probado][6]
+[![Ha intentado swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
 
 Después de ejecutar la prueba, puede comprobar los datos de respuesta.
 
@@ -86,7 +86,7 @@ Después de ejecutar la prueba, puede comprobar los datos de respuesta.
 
 Cada punto de conexión en la lista también incluye datos del cuerpo de respuesta para comprobar desarrollo y pruebas. Estos ejemplos incluyen los códigos de estado y JSON que desea ver para las solicitudes correctas de HTTP.
 
-![Respuesta de Swagger][7]
+[![Respuesta de swagger](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
 
 Los ejemplos incluyen también los códigos de error para ayudar a depurar o mejorar los errores de las pruebas.
 
@@ -104,7 +104,7 @@ Para más información sobre las solicitudes de pruebas interactivas protegidas 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | NOMBRE  | Reemplazar por | Ejemplo |
+    | Name  | Reemplazar por | Ejemplo |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | La dirección URL de documentación de API de REST de administración se encuentra en el portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -118,31 +118,22 @@ Para más información sobre las solicitudes de pruebas interactivas protegidas 
 
 5. Copie el identificador de la aplicación de Azure AD.
 
-6. Haga clic en el botón autorizar en la página swagger.
+Después de completar el registro de Azure Active Directory:
 
-    ![Botón autorizar de swagger](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+6. Haga clic en el **Authorize** botón en la página swagger.
 
-7. Pegue el identificador de aplicación en el campo client_id.
+    [![Haga clic en el Swagger botón autorizar](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-    ![Campo client_id de swagger](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+7. Pegue el identificador de aplicación en el **client_id** campo.
 
-    ![Conceder permisos de aplicación de swagger](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+    [![Campo client_id de swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Ahora debería ver el portador pasa el token de autenticación en el encabezado de autorización y la identidad del usuario que ha iniciado sesión aparece en el resultado.
+8. Se le redirigirá al éxito siguiente modal.
 
-    ![Resultado de token de swagger](../../includes/media/digital-twins-permissions/swagger-token-example.png)
+    [![Modal de redirección de swagger](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los modelos de objeto de Azure Digital Twins y el grafo de inteligencia espacial, lea [Descripción de los modelos de objetos de Azure Digital Twins](./concepts-objectmodel-spatialgraph.md).
 
 - Para aprender cómo autenticar con Management API, lea [Autenticación con las API](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.PNG
-[2]: media/how-to-use-swagger/swagger_management_models.PNG
-[3]: media/how-to-use-swagger/swagger_management_model.PNG
-[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
-[5]: media/how-to-use-swagger/swagger_management_try.PNG
-[6]: media/how-to-use-swagger/swagger_management_tried.PNG
-[7]: media/how-to-use-swagger/swagger_management_response.PNG

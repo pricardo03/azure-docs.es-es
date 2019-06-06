@@ -2,20 +2,20 @@
 title: Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
 description: Defina un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718712"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507442"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -255,12 +255,12 @@ El perfil técnico siguiente elimina una cuenta de usuario de red social mediant
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Sin  | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | Sin  | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).| 
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Sin  | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.| 
-| UserMessageIfClaimsPrincipalAlreadyExists | Sin  | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. El valor se puede [localizar](localization.md).| 
-| ApplicationObjectId | Sin  | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
-| ClientId | Sin  | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
+| RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. | 
+| UserMessageIfClaimsPrincipalDoesNotExist | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).| 
+| RaiseErrorIfClaimsPrincipalAlreadyExists | Sin | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.| 
+| UserMessageIfClaimsPrincipalAlreadyExists | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. El valor se puede [localizar](localization.md).| 
+| ApplicationObjectId | No | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
+| ClientId | Sin | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
 
 
 

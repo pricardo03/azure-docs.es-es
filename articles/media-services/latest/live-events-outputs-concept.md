@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/06/2019
 ms.author: juliako
-ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550961"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732983"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
@@ -28,7 +28,7 @@ Azure Media Services permite entregar eventos en directo a sus clientes en la nu
 > Para los clientes que migran desde las API de Media Services v2, la **evento en directo** entidad reemplaza **canal** en v2 y **Live salida** reemplaza **programa**.
 
 
-## <a name="live-events"></a>Eventos en directo
+## <a name="live-events"></a>Eventos en vivo
 
 Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un objeto LiveEvent, se crea un punto de conexión de entrada que puede utilizar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`. Para el protocolo de introducción RTMP, los esquemas de dirección URL admitidos son `rtmp://` o `rtmps://`. 
 
@@ -79,48 +79,53 @@ Una vez que se crea el objeto LiveEvent, puede ingerir las direcciones URL que p
 
 Puede usar direcciones URL que sean mnemónicas o no mnemónicas. 
 
+> [!NOTE] 
+> Para que una dirección URL de introducción ser predictiva, establezca el modo de "personal".
+
 * Dirección URL no mnemónica
 
     Este es el modo predeterminado en AMS v3. Posiblemente, puede obtener el objeto LiveEvent rápidamente, pero solo conocerá la dirección URL de ingesta cuando se haya iniciado el evento en directo. La dirección URL cambiará si detiene o inicia el objeto LiveEvent. <br/>El modo no mnemónico es útil en aquellos casos en los que un usuario final quiere hacer streaming mediante una aplicación y esta quiere obtener un objeto LiveEvent lo antes posible, y en los que tener una dirección URL de ingesta dinámica no es un problema.
 * Dirección URL mnemónica
 
     El modo mnemónico lo prefieren los grandes operadores de difusión multimedia que usan codificadores de difusión y no quieren volver a configurarlos cuando empiezan un objeto LiveEvent. Prefieren una dirección URL de ingesta predictiva que no cambie con el tiempo.
+    
+    Para especificar este modo, establezca `vanityUrl` a `true` en tiempo de creación (valor predeterminado es `false`). También deberá pasar su propio token de acceso (`LiveEventInput.accessToken`) en tiempo de creación. Especifique el valor del token para evitar un token aleatorio en la dirección URL. El token de acceso debe ser una cadena GUID válida (con o sin guiones). Una vez establecido el modo de no pueden actualizarse.
 
-> [!NOTE] 
-> Para que una dirección URL de ingesta sea predictiva, deberá usar el modo "mnemónico" y pasar su propio token de acceso (para evitar un token aleatorio en la dirección URL).
+    El token de acceso debe ser único en su centro de datos. Si la aplicación necesita usar una dirección URL de personal, se recomienda crear siempre una nueva instancia GUID para el token de acceso (en lugar de reutilizar cualquier GUID existente). 
 
 ### <a name="live-ingest-url-naming-rules"></a>Reglas de nomenclatura de direcciones URL de ingesta en directo
 
 La cadena *random* que aparece a continuación es un número hexadecimal de 128 bits (que se compone de 32 caracteres del 0 al 9 y de la "a" a la "f").<br/>
-El siguiente *token de acceso* es el que debe especificar para una dirección URL fija. También es un número hexadecimal de 128 bits.
+El *token de acceso* es lo que debe especificar para la dirección URL fijo. Debe establecer una cadena de token de acceso es una cadena GUID de longitud válida. <br/>
+El *nombre de la secuencia* indica el nombre del flujo de una conexión específica. El valor de nombre de secuencia normalmente se agrega el codificador en directo que utilice.
 
 #### <a name="non-vanity-url"></a>Dirección URL no mnemónica
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>Dirección URL mnemónica
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>Dirección URL de vista previa de objeto LiveEvent
 

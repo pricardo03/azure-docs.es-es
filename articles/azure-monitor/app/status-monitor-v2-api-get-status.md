@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de API de estado de Azure Monitor v2: Obtener estado | Microsoft Docs'
-description: Estado Monitor v2 API referencia Get-ApplicationInsightsMonitoringStatus. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: 'Referencia de API v2 de Azure Monitor de estado: Obtener estado | Microsoft Docs'
+description: Referencia de API v2 de Monitor de estado. Get-ApplicationInsightsMonitoringStatus. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,27 +12,27 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ff61cf2bfb49a64d2f885cb13fd6c48e32c1f8f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415996"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514308"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>API de v2 del Monitor de estado: Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
 
-Este documento describe un cmdlet que se distribuye como un miembro de la [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Este artículo describe un cmdlet que forme parte del [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > V2 de Monitor de estado está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para obtener más información, consulte [términos de uso complementarios para vistas previas de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no es aconsejable para cargas de trabajo de producción. Podrían no admitir algunas características, y algunas pueden tener funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 
-Este cmdlet se ofrece para solucionar el módulo de PowerShell en uso.
-Este cmdlet notificará información de versión y los archivos clave necesarios para la supervisión.
-Parámetros adicionales proporcionan informes adicionales sobre el estado actual de la supervisión.
+Habilita la solución de problemas del módulo de PowerShell que se está usando.
+Este cmdlet notificará información de versión e información sobre los archivos claves necesarios para la supervisión.
+Parámetros adicionales proporcionan informes adicionales sobre el estado de supervisión.
 
 > [!IMPORTANT] 
 > Este cmdlet requiere una sesión de PowerShell con permisos de administrador.
@@ -40,9 +40,9 @@ Parámetros adicionales proporcionan informes adicionales sobre el estado actual
 ## <a name="examples"></a>Ejemplos
 
 
-### <a name="example-basic-information"></a>Ejemplo: información básica
+### <a name="example-basic-information"></a>Ejemplo: Información básica
 
-Ejecute el comando: `Get-ApplicationInsightsMonitoringStatus` para obtener un resultado de la información sobre este módulo:
+Ejecute `Get-ApplicationInsightsMonitoringStatus` para mostrar información sobre el módulo actual:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -77,11 +77,11 @@ Machine Identifier:
 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
 ```
 
-### <a name="example-runtime-status"></a>Ejemplo: el estado en tiempo de ejecución
+### <a name="example-runtime-status"></a>Ejemplo: Estado de tiempo de ejecución
 
 Puede inspeccionar el proceso en el equipo para ver si se cargan todos los archivos DLL instrumentado. Si funciona la supervisión, se debe cargar al menos 12 dll.
 
-- Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+Ejecute el comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -115,19 +115,19 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>Parámetros 
+## <a name="parameters"></a>Parámetros
 
-### <a name="no-params"></a>(Sin parámetros)
+### <a name="no-parameters"></a>(Sin parámetros)
 
-Por **predeterminada**, este cmdlet informará de números de versión y rutas de acceso de archivos DLL necesarios para la supervisión.
+De forma predeterminada, este cmdlet notificará los números de versión y rutas de acceso de archivos DLL necesarios para la supervisión.
 
 Use esta opción si tiene que identificar la versión de cualquier archivo DLL, incluidos los SDK de Application Insights.
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Opcional**. Este cmdlet se informará de si se está ejecutando IIS.
-Este cmdlet también descargará las herramientas externas que inspeccione si los archivos DLL necesarios se cargan en el tiempo de ejecución IIS.
+**Opcional**. Utilice este parámetro para informar de si se está ejecutando IIS.
+También descargará herramientas externas para determinar si los archivos DLL necesarios se cargan en el tiempo de ejecución IIS.
 
 
 Si este proceso se produce un error por algún motivo, puede ejecutar estos comandos manualmente:
@@ -138,7 +138,7 @@ Si este proceso se produce un error por algún motivo, puede ejecutar estos coma
 
 ### <a name="-force"></a>-Force
 
-**Opcional**. Se utiliza sólo con InspectProcess. Este modificador omite el mensaje de usuario para descargar las herramientas adicionales.
+**Opcional**. Se utiliza sólo con InspectProcess. Use este modificador para omitir el mensaje de usuario que aparece antes de que se descargan herramientas adicionales.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

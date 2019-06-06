@@ -15,18 +15,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 52e092e6e48f004656860cb5d078e780039584ab
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511189"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730234"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
 *Clústeres de Event Hubs* ofrecen implementaciones de inquilino único para los clientes con las necesidades más exigentes de transmisión por secuencias. Esta oferta de inquilino único tiene un SLA del 99,99% garantizado y solo está disponible en nuestro plan de tarifa de dedicado. Un clúster de Event Hubs puede incorporar millones de eventos por segundo con capacidad garantizada y la latencia de fracciones de segundo. Espacios de nombres y event hubs creados dentro del clúster dedicado incluyen todas las características de la oferta estándar y mucho más, pero sin los límites de entrada. También incluye el popular [Event Hubs Capture](event-hubs-capture-overview.md) característica sin costo adicional, lo que le permite automáticamente por lotes y el registro de flujos de datos en Azure Storage o Azure Data Lake. 
 
-Los clústeres se aprovisionan y se factura por **unidades de capacidad (Cu)**, una cantidad de recursos de CPU y memoria previamente asignada. Puede adquirir 1, 2, 4, 8, 12, 16 o 20 CU para cada clúster. ¿Cuánto tiempo puede ingerir y transmitir por unidad de capacidad depende de diversos factores, como el número de productores y consumidores, la forma de carga, salida, velocidad (vea los resultados de pruebas comparativas a continuación para obtener más detalles). 
+Los clústeres se aprovisionan y se factura por **unidades de capacidad (Cu)** , una cantidad de recursos de CPU y memoria previamente asignada. Puede adquirir 1, 2, 4, 8, 12, 16 o 20 CU para cada clúster. ¿Cuánto tiempo puede ingerir y transmitir por unidad de capacidad depende de diversos factores, como el número de productores y consumidores, la forma de carga, salida, velocidad (vea los resultados de pruebas comparativas a continuación para obtener más detalles). 
 
 > [!NOTE]
 > Todos los clústeres de Event Hubs están habilitadas para Kafka de manera predeterminada y se admiten puntos de conexión de Kafka que se pueden usar por existentes Kafka aplicaciones basadas en. Tener habilitadas para Kafka en el clúster no afecta a los casos de uso no Kafka; No hay ninguna opción o la necesidad de deshabilitar a Kafka en un clúster.
@@ -54,18 +54,18 @@ La oferta de Event Hubs dedicado se factura a un precio mensual fijo, con un mí
 | --- |:---:|:---:|
 | Ancho de banda | 20 tu (hasta 40 tu) | 20 CUs |
 | Espacios de nombres |  1 | 50 por unidad de capacidad |
-| Event Hubs |  10 | No hay límite en event hubs o temas |
-| Eventos de entrada | Pago por millones de eventos | Incluido |
+| Event Hubs |  10 por espacio de nombres | 1000 por espacio de nombres |
+| Eventos de entrada | Pago por millones de eventos | Se incluye |
 | Tamaño de los mensajes | 1 millón de Bytes | 1 millón de Bytes |
 | Particiones | 40 por espacio de nombres | 2000 por unidad de capacidad |
 | Grupos de consumidores | 20 por centro de eventos | No hay límite por unidad de capacidad, 1000 por centro de eventos |
-| Conexiones desacopladas | 1000 incluidos | 100 000 incluidos |
+| Conexiones asincrónicas | 1.000 a 5.000 incluye, max | 100 K incluidos y max |
 | Retención de mensajes | 7 días, 84 GB por unidad incluido | 90 días, 10 TB incluido por unidad de capacidad |
-| Captura | Pago por hora | Incluido |
+| Capture | Pago por hora | Se incluye |
 
 ## <a name="how-to-onboard"></a>¿Cómo incorporarlo?
 
-Para incorporar a Event Hubs dedicado, póngase en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com). El plan dedicado es único en el sentido de que tendrá más ayuda del equipo del producto Event Hubs en el proceso de incorporación con el fin de obtener la implementación flexible adecuada. 
+La experiencia de autoservicio [crear un clúster de Event Hubs](event-hubs-dedicated-cluster-create-portal.md) a través de la [Portal de Azure](https://aka.ms/eventhubsclusterquickstart) está ahora en versión preliminar. Si tiene alguna pregunta o necesita ayuda incorporación a Event Hubs dedicado, póngase en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com).
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
@@ -87,20 +87,21 @@ En las pruebas, se usaron los siguientes criterios:
 - El centro de eventos usado para la ingesta tenía 200 particiones. 
 - Dos aplicaciones receptoras recibieron los datos ingeridos de todas las particiones.
 
-#### <a name="can-i-scale-down-my-cluster"></a>¿Puedo reducir mi clúster?
+#### <a name="can-i-scale-updown-my-cluster"></a>¿Se puede escalar verticalmente/reducir verticalmente el clúster?
 
-Después de la creación, los clústeres se facturan durante un mínimo de 4 horas de uso. En la versión preliminar de la experiencia de autoservicio, puede enviar un [solicitud de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) al equipo de Event Hubs en *técnicos > cuota > solicitud para escalar verticalmente o escalar hacia abajo clúster dedicado*. Puede tardar hasta 7 días para completar la solicitud para escalar verticalmente el clúster. 
+Después de la creación, los clústeres se facturan durante un mínimo de 4 horas de uso. En la versión preliminar de la experiencia de autoservicio, puede enviar un [solicitud de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) al equipo de Event Hubs en *técnicos > cuota > solicitud para escalar verticalmente o escalar hacia abajo clúster dedicado* a escala el clúster hacia arriba o hacia abajo. Puede tardar hasta 7 días para completar la solicitud para escalar verticalmente el clúster. 
 
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>¿Cómo funcionarán Geo-DR con mi clúster?
 
 Puede que un espacio de nombres en un clúster dedicado capa con otro espacio de nombres en un clúster dedicado capa del par de replicación geográfica. No se recomienda un espacio de nombres de nivel de dedicado con un espacio de nombres en nuestro estándar que ofrece, ya que el límite de rendimiento serán incompatibles que se producirán errores de asignación. 
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>¿Puedo migrar mi espacios de nombres estándar para que pertenezcan a un clúster dedicado niveles?
-No actualmente admitimos un proceso de migración automatizada para migrar los datos de event hubs de un espacio de nombres estándar a un dedicado uno. Para migrar a un clúster dedicado capa, se recomienda purgar los mensajes que queden en los centros de eventos de nivel estándar y reemplazando los puntos de conexión con el de su espacio de nombres dedicado.
+No actualmente admitimos un proceso de migración automatizada para migrar los datos de event hubs de un espacio de nombres estándar a un dedicado uno. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Póngase en contacto con su representante de ventas de Microsoft o el Servicio de soporte técnico de Microsoft para obtener detalles adicionales sobre la capacidad Event Hubs Dedicado. Para más información acerca de los planes de tarifa de Event Hubs, visite los vínculos siguientes:
+Póngase en contacto con su representante de ventas de Microsoft o Microsoft Support para obtener detalles adicionales acerca de Event Hubs dedicado. También puede crear un clúster u obtener más información acerca de Event Hubs, los planes de tarifa, visite los vínculos siguientes:
 
+- [Crear un clúster de Event Hubs a través del Portal de Azure](https://aka.ms/eventhubsclusterquickstart) 
 - [Precios de Event Hubs dedicado](https://azure.microsoft.com/pricing/details/event-hubs/). También puede ponerse en contacto con su representante de ventas de Microsoft o el Servicio de soporte técnico de Microsoft para obtener detalles adicionales sobre la capacidad dedicada de Event Hubs.
 - En [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md) se proporciona información sobre los precios, así como respuestas a algunas preguntas frecuentes acerca de Event Hubs.

@@ -2,20 +2,20 @@
 title: Ejemplos de transformación de notificaciones de JSON para el esquema del marco de experiencia de identidad de Azure Active Directory B2C | Microsoft Docs
 description: Ejemplos de transformación de notificaciones de JSON para el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7574327f8acbd2215080e43a57b0b9c7cdd8b423
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710235"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510749"
 ---
 # <a name="json-claims-transformations"></a>Transformaciones de notificaciones de JSON
 
@@ -191,7 +191,7 @@ Convierte los datos XML en formato JSON.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Xml | string | ClaimTypes usados por la transformación de notificaciones para convertir los datos XML en formato JSON. |
+| InputClaim | xml | string | ClaimTypes usados por la transformación de notificaciones para convertir los datos XML en formato JSON. |
 | OutputClaim | json | string | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation, con los datos en formato JSON. |
 
 ```XML

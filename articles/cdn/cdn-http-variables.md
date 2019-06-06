@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709927"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475206"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
 Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta y solicitudes HTTP. Estos metadatos pueden usarse después para alterar una solicitud o respuesta de forma dinámica. El uso de las variables HTTP se restringe a las siguientes características del motor de reglas:
 
-- [Reescritura de clave de caché](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modificar encabezado de solicitud de cliente](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [Modificar encabezado de respuesta de cliente](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [Redirección de direcciones URL](cdn-rules-engine-reference-features.md#url-redirect)
-- [Reescritura de direcciones URL](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Reescritura de clave de caché](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Modificar encabezado de solicitud de cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Modificar encabezado de respuesta de cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [Redirección de direcciones URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [Reescritura de direcciones URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Definiciones
 En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve un valor en blanco cuando los metadatos de replicación geográfica (por ejemplo, el código postal) no están disponibles para una solicitud concreta.
 
 
-| NOMBRE | Variable | DESCRIPCIÓN | Valor de ejemplo |
+| Name | Variable | DESCRIPCIÓN | Valor de ejemplo |
 | ---- | -------- | ----------- | ------------ |
 | ASN (solicitante) | %{geo_asnum} | Indica el número de sistema autónomo (AS) del solicitante. <br /><br />**En desuso**: %{virt_dst_asnum}. <br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_asnum}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | AS15133 |
 | Ciudad (solicitante) | %{geo_city} | Indica la ciudad del solicitante. | Los Ángeles |
@@ -113,7 +113,7 @@ En la tabla siguiente se describen las circunstancias en que el texto especifica
 | Condición | DESCRIPCIÓN | Ejemplo |
 | --------- | ----------- | --------|
 | Símbolo de escape % | El símbolo de porcentaje se puede escapar mediante el uso de una barra diagonal inversa. <br />El valor de ejemplo de la derecha se tratará como un valor literal y no como una variable HTTP.| \%{host} |
-| Variables desconocidas | Siempre se devuelve una cadena vacía para variables desconocidas. | %{unknownvariable} |
+| Variables desconocidas | Siempre se devuelve una cadena vacía para variables desconocidas. | %{unknown_variable} |
 | Sintaxis o caracteres no válidos | Las variables que contienen sintaxis o caracteres no válidos se tratan como valores literales. <br /><br />Ejemplo 1 #: El valor especificado contiene un carácter no válido (por ejemplo,-). <br /><br />Ejemplo 2 de #: El valor especificado contiene un conjunto de llaves doble. <br /><br />Ejemplo 3 #: El valor especificado no tiene una llave de cierre.<br /> | Ejemplo 1: %{resp_user-agent} <br /><br />Ejemplo 2: %{{host}} <br /><br />Ejemplo 3: %{host |
 | Falta el nombre de variable | Siempre se devuelve un valor NULL cuando no se especifica una variable. | %{} |
 | Caracteres finales | Caracteres que finalizan una variable se tratan como valores literales. <br />El valor de ejemplo de la derecha contiene una llave final que se tratará como un valor literal. | %{host}} |
@@ -127,9 +127,9 @@ En la tabla siguiente se describe cómo definir un valor predeterminado.
 
 | Condición | Sintaxis | Ejemplo | DESCRIPCIÓN |
 | --------- | ------ | --------| ----------- |
-| Establecer un encabezado en un valor predeterminado si se cumple alguna de las siguientes condiciones: <br /><br />- Falta el encabezado <br /><br />- El valor de encabezado está establecido en NULL.| %{Variable:=Value} | %{http_referer:=unspecified} | El encabezado de origen de referencia solo se establecerá en *sin especificar* en caso de que falte o de que esté establecido en NULL. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
-| Establecer un encabezado en un valor predeterminado cuando está ausente. | %{Variable=Value} | %{http_referer=unspecified} | El encabezado de origen de referencia solo se establecerá en *sin especificar* en caso de que falte. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
-| Establecer el encabezado en un valor predeterminado si no se cumple alguna de las siguientes condiciones: <br /><br />- Falte.<br /><br /> - Se establezca en NULL. | %{Variable:+Value} | %{http_referer:+unspecified} | El encabezado de origen de referencia solo se establecerá en *sin especificar* si se le ha asignado algún valor. No se llevará a cabo ninguna acción si falta o está establecido en NULL. |
+| Establecer un encabezado en un valor predeterminado si se cumple alguna de las siguientes condiciones: <br /><br />- Falta el encabezado <br /><br />- El valor de encabezado está establecido en NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | Solo se establecerá en el encabezado del sitio de referencia *sin especificar* cuando lo falta o está establecido en NULL. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
+| Establecer un encabezado en un valor predeterminado cuando está ausente. | %{Variable=Value} | %{http_referrer=unspecified} | Solo se establecerá en el encabezado del sitio de referencia *sin especificar* cuando no aparece. En caso de que se haya definido, no se llevará a cabo ninguna acción. |
+| Establecer el encabezado en un valor predeterminado si no se cumple alguna de las siguientes condiciones: <br /><br />- Falte.<br /><br /> - Se establezca en NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | Solo se establecerá en el encabezado del sitio de referencia *sin especificar* cuando se ha asignado un valor a él. No se llevará a cabo ninguna acción si falta o está establecido en NULL. |
 
 ## <a name="manipulating-variables"></a>Manipular variables
 Las variables se pueden manipular de las maneras siguientes:

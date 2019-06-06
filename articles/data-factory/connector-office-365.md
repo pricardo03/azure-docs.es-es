@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245033"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475655"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar datos de Office 365 en Azure mediante Azure Data Factory
 
-Azure Data Factory permite incluir los datos importantes de la organización en el inquilino de Office 365 en Azure de una manera escalable, además de crear aplicaciones de análisis y extraer información en función de estos importantes recursos de datos. La integración con Privileged Access Management proporciona control de acceso seguro para los datos protegidos valiosos en Office 365.  Para más información sobre la conexión de datos de Microsoft Graph, consulte [este vínculo](https://docs.microsoft.com/graph/data-connect-concept-overview).
+Azure Data Factory se integra con [conexión de datos de Microsoft Graph](https://docs.microsoft.com/graph/data-connect-concept-overview), lo que permite aprovechar la amplia inquilino en Azure de manera escalable de datos de la organización en su Office 365 y compilación aplicaciones de análisis y extraer ideas según estos activos de datos valiosos. La integración con Privileged Access Management proporciona control de acceso seguro para los datos protegidos valiosos en Office 365.  Consulte [este vínculo](https://docs.microsoft.com/graph/data-connect-concept-overview) para obtener información general sobre los datos de Microsoft Graph, conectarse y hacer referencia a [este vínculo](https://docs.microsoft.com/graph/data-connect-policies#licensing) para obtener información sobre licencias.
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Office 365. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
+Conector de Office 365 de ADF y los datos de Microsoft Graph conectan habilita la recopilación de escala de diferentes tipos de conjuntos de datos de buzones de Exchange habilitados para correo electrónico, incluidos contactos de la libreta de direcciones, los eventos de calendario, mensajes de correo electrónico, información de usuario, configuración del buzón, y así sucesivamente.  Consulte [aquí](https://docs.microsoft.com/graph/data-connect-datasets) para ver una lista completa de conjuntos de datos disponibles.
 
 Por ahora, dentro de una actividad de copia único solo puede **copiar datos de Office 365 en [Azure Blob Storage](connector-azure-blob-storage.md), [Gen1 de almacenamiento de Azure Data Lake](connector-azure-data-lake-store.md), y [Azure Data Lake Storage Gen2 ](connector-azure-data-lake-storage.md) en formato JSON** (tipo setOfObjects). Si desea cargar Office 365 en otros tipos de almacenes de datos o en otros formatos, puede encadenar la primera actividad de copia con una actividad de copia posterior para cargar más datos en cualquiera de los [almacenes de destino de ADF admitidos](copy-activity-overview.md#supported-data-stores-and-formats); consulte la columna "Se admite como receptor" de la tabla "Almacenes de datos y formatos que se admiten".
 
@@ -83,7 +84,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Office 3
 | servicePrincipalTenantId | Especifique la información del inquilino en el que reside la aplicación web de Azure AD. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. | Sí |
-| connectVia | El entorno de ejecución de integración que se usará para conectarse al almacén de datos.  Si no se especifica, se usará Azure Integration Runtime. | Sin  |
+| connectVia | El entorno de ejecución de integración que se usará para conectarse al almacén de datos.  Si no se especifica, se usará Azure Integration Runtime. | No |
 
 >[!NOTE]
 > La diferencia entre **office365TenantId** y **servicePrincipalTenantId** y el valor correspondiente que se debe proporcionar:
@@ -120,7 +121,7 @@ Para copiar datos de Office 365, se admiten las siguientes propiedades:
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **Office365Table** | Sí |
 | tableName | Nombre del conjunto de datos para extraer de Office 365. Haga clic [aquí](https://docs.microsoft.com/graph/data-connect-datasets#datasets) para obtener la lista de conjuntos de datos de Office 365 disponibles para la extracción. | Sí |
-| allowedGroups | Predicado de selección de grupo.  Utilice esta propiedad para seleccionar hasta 10 grupos de usuarios para los que se recuperarán los datos.  Si se especifica ningún grupo, se devolverán datos para toda la organización. | Sin  |
+| allowedGroups | Predicado de selección de grupo.  Utilice esta propiedad para seleccionar hasta 10 grupos de usuarios para los que se recuperarán los datos.  Si se especifica ningún grupo, se devolverán datos para toda la organización. | No |
 | userScopeFilterUri | Cuando `allowedGroups` no se especifica la propiedad, puede usar una expresión de predicado que se aplica en todo el inquilino para filtrar las filas específicas para extraer de Office 365. El formato de predicado debe coincidir con el formato de la consulta de Microsoft Graph API, por ejemplo, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No |
 | dateFilterColumn | Nombre de la columna de filtro de fecha y hora. Utilice esta propiedad para limitar el intervalo de tiempo para que Office 365 se extraen los datos. | Sí, si el conjunto de datos tiene una o varias columnas de fecha y hora. Consulte [aquí](https://docs.microsoft.com/graph/data-connect-filtering#filtering) para obtener la lista de conjuntos de datos que requieren este filtro de fecha y hora. |
 | startTime | Inicie el valor de fecha y hora para el filtro. | Sí si `dateFilterColumn` se especifica |

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783443"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473781"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar el acceso remoto a SharePoint con el proxy de aplicación de Azure AD
 
@@ -114,8 +114,8 @@ Para configurar KCD, repita los pasos siguientes para cada equipo de conexión:
 
 Ahora que ha configurado KCD, está listo para configurar Azure AD Application Proxy.
 
-1. Publique el sitio de SharePoint con la siguiente configuración. Para obtener instrucciones detalladas, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-publish-azure-portal.md).
-   * **Dirección URL interna**: dirección URL interna de SharePoint que se ha elegido anteriormente, como **<https://SharePoint/>**.
+1. Publique el sitio de SharePoint con la siguiente configuración. Para obtener instrucciones detalladas, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   * **Dirección URL interna**: dirección URL interna de SharePoint que se ha elegido anteriormente, como **<https://SharePoint/>** .
    * **Método de autenticación previa**: Azure Active Directory
    * **Traducir URL en encabezados**: NO
 
@@ -180,7 +180,7 @@ La configuración de SharePoint se ha realizado ya, pero, dado que la dirección
 
 3. Abra la consola del Administrador de Internet Information Services.
 4. Expanda el servidor en la vista de árbol, expanda "Sitios", seleccione el sitio "SharePoint – Proxy de AAD" y haga clic en **Enlaces**.
-5. Seleccione el enlace HTTPS y haga clic en **Editar...** 
+5. Seleccione el enlace HTTPS y haga clic en **Editar...**
 6. En el campo Certificado SSL, elija el certificado de **SharePoint** y haga clic en Aceptar.
 
 Ahora puede tener acceso al sitio de SharePoint externamente mediante el proxy de aplicación de Azure AD.

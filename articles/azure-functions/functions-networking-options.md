@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575603"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492833"
 ---
 # <a name="azure-functions-networking-options"></a>Las opciones de red de Azure Functions
 
@@ -61,7 +61,7 @@ Integración de red virtual proporciona el acceso a la aplicación de función a
 
 Puede usar la integración de red virtual para permitir el acceso desde aplicaciones de bases de datos y servicios web que se ejecutan en la red virtual. Con la integración de red virtual, no es necesario exponer un punto de conexión público para las aplicaciones en la máquina virtual. Puede usar las direcciones privadas de internet que no son enrutables en su lugar.
 
-La versión disponible con carácter general de la integración de red virtual se basa en una puerta de enlace VPN para conectarse a aplicaciones de función a una red virtual. Está disponible en las funciones hospedadas en un plan de App Service. Para obtener información sobre cómo configurar esta característica, consulte [integrar su aplicación con una red virtual](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+La versión disponible con carácter general de la integración de red virtual se basa en una puerta de enlace VPN para conectarse a aplicaciones de función a una red virtual. Está disponible en las funciones hospedadas en un plan de App Service. Para obtener información sobre cómo configurar esta característica, consulte [integrar su aplicación con una red virtual](../app-service/web-sites-integrate-with-vnet.md).
 
 ### <a name="preview-version-of-virtual-network-integration"></a>Versión preliminar de integración de red virtual
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255573"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497166"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -60,9 +60,12 @@ Para volver a la experiencia de información general, simplemente seleccione:
 
 ![Botón Información general](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>solución de problemas
+
+Si selecciona **configurar las opciones de mosaico** y establezca un intervalo de tiempo personalizado que supere los 31 días, no se mostrará el panel más allá de 31 días de datos, incluso con la retención de datos predeterminado de 90 días. Actualmente no hay ninguna solución alternativa para este comportamiento.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Embudos](../../azure-monitor/app/usage-funnels.md)
 - [Retención](../../azure-monitor/app/usage-retention.md)
 - [Flujos de usuario](../../azure-monitor/app/usage-flows.md)
-- [Paneles](../../azure-monitor/app/app-insights-dashboards.md)

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299181"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494347"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -114,10 +114,10 @@ Empaquetado dinámico admite archivos MP4 con audio codificado con
     * DTS Express (dtse)
     * DTS-HD sin pérdida de datos (no core) (dtsl)
 
-### <a name="hls-support"></a>Soporte técnico de HSL
+### <a name="multi-audio-tracks"></a>Varias pistas de audio
 
-Empaquetado dinámico admite HLS (versión 4 o posterior) para los activos que tienen varias pistas de audio con varios códecs y lenguajes.
-
+La transmisión por secuencias los activos que tienen varias pistas de audio con varios códecs y lenguajes, empaquetado dinámico admite varias pistas de audio para la salida HLS (versión 4 o posterior).
+ 
 ### <a name="not-supported"></a>No compatible
 
 El empaquetado dinámico no admite archivos que contienen audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (es un códec heredado).

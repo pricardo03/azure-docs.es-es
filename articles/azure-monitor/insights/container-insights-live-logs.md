@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 06/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 376a7f3f83cc7fcf7490675d9c0aef1513862e8a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521736"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514321"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Cómo ver los registros y eventos en tiempo real (versión preliminar)
 Supervisión de contenedores de Azure incluye una característica, que se encuentra actualmente en versión preliminar, que proporciona una vista en vivo en los registros de contenedor de Azure Kubernetes Service (AKS) (stdout y stderr) y los eventos sin tener que ejecutar los comandos de kubectl. Cuando se selecciona cualquiera de las opciones, aparece un nuevo panel debajo de la tabla de datos de rendimiento en el **nodos**, **controladores**, y **contenedores** vista. Muestra eventos generados por el motor de contenedor para ayudar a solucionar los problemas en tiempo real y registro en vivo. 
@@ -27,7 +27,7 @@ Supervisión de contenedores de Azure incluye una característica, que se encuen
 >**Colaborador** se requiere acceso al recurso de clúster para esta característica funcione.
 >
 
-Los registros dinámicos admiten tres métodos diferentes para controlar el acceso a los registros:
+Registros activos admiten tres métodos diferentes para controlar el acceso a los registros:
 
 1. AKS sin autorización RBAC de Kubernetes habilitada 
 2. AKS habilitado con autorización de RBAC de Kubernetes
@@ -66,10 +66,13 @@ Si ha habilitado la autorización de RBAC de Kubernetes, deberá aplicar el enla
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Si se configuran por primera vez, se crea el enlace de regla de clúster, ejecute el comando siguiente: `kubectl create -f LogReaderRBAC.yaml`. Si habilitó anteriormente el soporte técnico para obtener una vista previa en registros activos antes de que se introdujeron en directo de los registros de eventos, para actualizar la configuración, ejecute el siguiente comando: `kubectl apply -f LiveLogRBAC.yml`. 
+2. Si se configuran por primera vez, se crea el enlace de regla de clúster, ejecute el comando siguiente: `kubectl create -f LogReaderRBAC.yaml`. Si habilitó anteriormente el soporte técnico para obtener una vista previa en registros activos antes de que se introdujeron en directo de los registros de eventos, para actualizar la configuración, ejecute el siguiente comando: `kubectl apply -f LogReaderRBAC.yml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configuración de AKS con Azure Active Directory
-Es posible configurar AKS para que utilice Azure Active Directory (AD) para la autenticación de usuarios. Si va a configurar esto por primera vez, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md). Durante los pasos para crear la [aplicación cliente](../../aks/azure-ad-integration.md#create-client-application) y especificar el **URI de redirección**, deberá agregar otro URI a la lista `https://ininprodeusuxbase.microsoft.com/*`.  
+Es posible configurar AKS para que utilice Azure Active Directory (AD) para la autenticación de usuarios. Si se configuran por primera vez, consulte [integrar Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md). Durante los pasos para crear el [aplicación cliente](../../aks/azure-ad-integration.md#create-client-application), deberá especificar dos **URI de redirección** entradas. Los dos identificadores URI son:
+
+- https://ininprodeusuxbase.microsoft.com/*
+- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
 
 >[!NOTE]
 >La configuración de la autenticación con Azure Active Directory para el inicio de sesión único solo puede lograrse durante la implementación inicial de un nuevo clúster de AKS. No puede configurar el inicio de sesión único en un clúster de AKS ya implementado. Debe configurar la autenticación desde **registro de la aplicación (heredada)** opción en Azure AD con el fin de admitir el uso de un carácter comodín en el URI y mientras éste se agrega a la lista, regístrelo como un **nativo** app.
@@ -77,18 +80,18 @@ Es posible configurar AKS para que utilice Azure Active Directory (AD) para la a
 
 ## <a name="view-live-logs-and-events"></a>Eventos y registros de vista en vivo
 
-Puede ver eventos de registro en tiempo real de medida que se generan por el motor de contenedor desde el **nodos**, **controladores**, y **contenedores** vista. En el panel Propiedades seleccione **ver datos activos (versión preliminar)** se presenta la opción y un panel debajo de la tabla de datos de rendimiento donde puede ver el registro y eventos en un flujo continuo. 
+Puede ver eventos de registro en tiempo real de medida que se generan por el motor de contenedor desde el **nodos**, **controladores**, y **contenedores** vista. En el panel Propiedades, seleccionar **ver datos activos (versión preliminar)** se presenta la opción y un panel debajo de la tabla de datos de rendimiento donde puede ver el registro y eventos en un flujo continuo. 
 
 ![Opción de nodo propiedades panel Ver registros activos](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
 Los mensajes de eventos y registros están limitados según el tipo de recurso está seleccionado en la vista.
 
-| Vista | Tipo de recurso | Registro o evento | Datos presentados |
+| Ver | Tipo de recurso | Registro o evento | Datos presentados |
 |------|---------------|--------------|----------------|
 | Nodos | Nodo | Evento | Cuando se selecciona un nodo de eventos no se filtran y mostrar los eventos de todo el clúster Kubernetes. Título del panel muestra el nombre del clúster. |
 | Nodos | Pod | Evento | Cuando se selecciona un pod se filtran los eventos a su espacio de nombres. Título del panel muestra el espacio de nombres de lo pod. | 
 | Controladores | Pod | Evento | Cuando se selecciona un pod se filtran los eventos a su espacio de nombres. Título del panel muestra el espacio de nombres de lo pod. |
-| Controladores | Controlador | Evento | Cuando se selecciona un controlador de eventos se filtran a su espacio de nombres. Título del panel muestra el espacio de nombres del controlador. |
+| Controladores | Controller | Evento | Cuando se selecciona un controlador de eventos se filtran a su espacio de nombres. Título del panel muestra el espacio de nombres del controlador. |
 | Nodos/controladores o contenedores | Contenedor | Registros | Título del panel muestra que el nombre del pod del contenedor se agrupa con. |
 
 Si el clúster de AKS se configura con inicio de sesión único mediante AAD, deberá autenticarse en el primer uso durante esa sesión del explorador. Seleccione la cuenta y complete la autenticación con Azure.  

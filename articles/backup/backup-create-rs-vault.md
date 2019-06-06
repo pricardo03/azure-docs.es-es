@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: b345f5e7f6f32d7fbb76d4f0227c8f4f925ff884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400302"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477571"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -76,7 +76,7 @@ Copia de seguridad de Azure controla automáticamente el almacenamiento para el 
    - Obtenga más información sobre [geográfica](../storage/common/storage-redundancy-grs.md) y [local](../storage/common/storage-redundancy-lrs.md) redundancia.
 
 > [!NOTE]
-> Una vez elegido el **tipo de replicación de almacenamiento** desde **con redundancia geográfica** a **con redundancia local**, no se puede revertir.
+> Cambiar **tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para una recuperación del almacén de servicios debe realizarse antes de configurar las copias de seguridad en el almacén. Una vez Configurar copia de seguridad, la opción modificar está deshabilitada y no puede cambiar el **tipo de replicación de almacenamiento**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

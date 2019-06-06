@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab18c8f165fc30636cd05091be1181743f9972d
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873650"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473062"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Solicitar notificaciones de correo electrónico y el proceso de administración de derechos de Azure AD (versión preliminar)
 
 > [!IMPORTANT]
-> Administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
+> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -44,8 +44,8 @@ Un usuario que necesite tener acceso a un paquete de acceso puede enviar una sol
 | --- | --- |
 | Enviado | El usuario envía una solicitud. |
 | Pendiente de aprobación | Si la directiva para un paquete de acceso requiere aprobación, mueve a una solicitud pendiente de aprobación. |
-| Expirada | Si no hay aprobadores revisión una solicitud en el tiempo de espera de solicitud de aprobación, finalice la solicitud. Para intentarlo de nuevo, el usuario tendrá que volver a enviar su solicitud. |
-| Denegada | Aprobador rechaza una solicitud. |
+| Expirada | Si no hay aprobadores aprobar una solicitud en el tiempo de espera de solicitud de aprobación, finalice la solicitud. Para intentarlo de nuevo, el usuario tendrá que volver a enviar su solicitud. |
+| Denegado | Aprobador rechaza una solicitud. |
 | Aprobado | Aprobador aprueba una solicitud. |
 | Entrega | Usuario tiene **no** sido asignado acceso a todos los recursos en el paquete de acceso. Si se trata de un usuario externo, el usuario aún no tiene acceso el directorio de recursos y acepta el símbolo del sistema de permisos. |
 | Delivered (Entregado) | Usuario ha se ha asignado acceso a todos los recursos en el paquete de acceso. |
@@ -71,7 +71,7 @@ En la tabla siguiente proporciona más detalles sobre cada una de estas notifica
 | 7 | El acceso a *[paquete de acceso]* expira en X días | X días antes de acceso del solicitante al paquete acceso expira | Solicitante |
 | 8 | El acceso a *[paquete de acceso]* ha expirado | Cuando expira el acceso del solicitante a un paquete de acceso | Solicitante |
 
-### <a name="review-access-request-emails"></a>Correos electrónicos de solicitud de acceso de revisión
+### <a name="access-request-emails"></a>Correos electrónicos de solicitud de acceso
 
 Cuando un solicitante envía una solicitud de acceso de un paquete de acceso que está configurado para requerir la aprobación, configurados en la directiva de todos los aprobadores reciben una notificación de correo electrónico con los detalles de la solicitud. Los detalles incluyen el nombre del solicitante, organización, tener acceso a las fechas de inicio y finalización, si se proporciona, justificación comercial, cuando se envió la solicitud, y cuando la solicitud expirará. El correo electrónico incluye un vínculo donde los aprobadores pueden aprobar o denegar la solicitud de acceso. Aquí es una notificación de correo electrónico de ejemplo que se envía a un aprobador cuando un solicitante envía una solicitud de acceso.
 
@@ -79,7 +79,7 @@ Cuando un solicitante envía una solicitud de acceso de un paquete de acceso que
 
 ### <a name="approved-or-denied-emails"></a>Correos electrónicos aprobados y denegados
 
-Los solicitantes se le notificará cuando su solicitud de acceso está aprobado y disponibles para el acceso, o cuando se ha denegado su solicitud de acceso. Cuando un aprobador revisa una solicitud de acceso enviada por un solicitante, pueden aprobar o denegar la solicitud de acceso. El aprobador debe agregar una justificación comercial para su decisión.
+Los solicitantes se le notificará cuando su solicitud de acceso está aprobado y disponibles para el acceso, o cuando se ha denegado su solicitud de acceso. Cuando un aprobador recibe una solicitud de acceso enviada por un solicitante, pueden aprobar o denegar la solicitud de acceso. El aprobador debe agregar una justificación comercial para su decisión.
 
 Cuando se aprueba una solicitud de acceso, administración de derechos inicia el proceso de otorgar el solicitante un acceso a cada uno de los recursos en el paquete de acceso. Después de que el solicitante se ha concedido acceso a todos los recursos en el paquete de acceso, se envía una notificación por correo electrónico al solicitante que se ha aprobado su solicitud de acceso y que ahora tienen acceso al paquete acceso. Aquí es una notificación de correo electrónico de ejemplo que se envía al solicitante cuando se les concede acceso a un paquete de acceso.
 

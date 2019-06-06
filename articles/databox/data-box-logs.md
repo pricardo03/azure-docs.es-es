@@ -1,43 +1,43 @@
 ---
-title: Realizar un seguimiento y registrar los eventos de Azure Data Box | Microsoft Docs
-description: Describe cómo realizar un seguimiento y registro de eventos en las distintas fases de su pedido de Azure Data Box.
+title: Realizar un seguimiento y registro de Azure Data Box, eventos cuadro intensivo de datos de Azure | Microsoft Docs
+description: Describe cómo realizar un seguimiento y registrar los eventos en las distintas fases de su pedido de Azure Data Box y cuadro intensivo de datos de Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7a6adc72c1dfbe67311ae2ca98d5b07dfab41719
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806512"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495819"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box"></a>Seguimiento y registro de eventos para Azure Data Box
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Seguimiento y registro de eventos para su Azure Data Box y cuadro intensivo de datos de Azure
 
-Un pedido de Data Box se pasa a través de los pasos siguientes: pedidos, configurar, datos copiarán, devolverán, cargar en Azure y comprobación y eliminación de datos. Corresponde a cada paso en el orden, puede realizar varias acciones para controlar el acceso a la orden, los eventos de auditoría, controlar el orden e interpretar los registros distintos que se generan.
+Un pedido de Data Box o cuadro intensivo de datos pasa a través de los pasos siguientes: pedidos, configurar, datos copiarán, devolverán, cargar en Azure y comprobación y eliminación de datos. Corresponde a cada paso en el orden, puede realizar varias acciones para controlar el acceso a la orden, los eventos de auditoría, controlar el orden e interpretar los registros distintos que se generan.
 
-En la tabla siguiente se muestra un resumen de los pasos de pedido de Data Box y las herramientas disponibles para realizar un seguimiento y el orden de auditoría durante cada paso.
+En la tabla siguiente se muestra un resumen de los pasos de orden de Data Box o cuadro intensivo de datos y las herramientas disponibles para realizar un seguimiento y el orden de auditoría durante cada paso.
 
 | Fase de pedido del cuadro de datos       | Herramienta para realizar un seguimiento y de auditoría                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Crear pedido               | [Configurar el control de acceso en el orden a través de RBAC](#set-up-access-control-on-the-order)                                                    |
 | Pedido procesado            | [Controlar el orden](#track-the-order) a través de <ul><li> Azure Portal </li><li> Sitio Web de transportista de envío </li><li>Notificaciones por correo electrónico</ul> |
 | Configuración de un dispositivo              | Dispositivo las credenciales de acceso que ha iniciado sesión [los registros de actividad](#query-activity-logs-during-setup)                                              |
-| Copia de datos en el dispositivo        | [Vista *error.xml* archivos](#view-error-log-during-data-copy-to-data-box) para copia de datos                                                             |
-| Preparar para enviar            | [Inspeccionar los archivos de la lista de materiales](#inspect-bom-during-prepare-to-ship) o los archivos de manifiesto en el dispositivo                                      |
+| Copia de datos en el dispositivo        | [Vista *error.xml* archivos](#view-error-log-during-data-copy) para copia de datos                                                             |
+| Preparación para el envío            | [Inspeccionar los archivos de la lista de materiales](#inspect-bom-during-prepare-to-ship) o los archivos de manifiesto en el dispositivo                                      |
 | Carga de datos en Azure       | [Revisión *copylogs* ](#review-copy-log-during-upload-to-azure) errores durante los datos de carga en el centro de datos de Azure                         |
 | Eliminación de datos del dispositivo   | [Ver la cadena de custodia registros](#get-chain-of-custody-logs-after-data-erasure) incluidos registros de auditoría y el orden del historial                                                   |
 
-En este artículo se describe detalladamente los distintos mecanismos o herramientas disponibles para realizar un seguimiento y auditar el pedido de Data Box.
+En este artículo se describe detalladamente los distintos mecanismos o disponibles para realizar un seguimiento y auditar el pedido de Data Box o intensivo de datos de cuadro de herramientas. La información de este artículo se aplica a ambos, Data Box y cuadro intensivo de datos. En las secciones posteriores, todas las referencias al cuadro de datos también se aplican a intensivo de datos de cuadro.
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurar el control de acceso en el orden
 
 Puede controlar quién puede acceder a su pedido cuando se crea por primera vez el orden. Configurar las funciones de Control de acceso basado en roles (RBAC) en varios ámbitos para controlar el acceso para el pedido de Data Box. Un rol de RBAC determina el tipo de acceso: lectura y escritura, de solo lectura, lectura y escritura para un subconjunto de operaciones.
 
-Las dos funciones de Data Box que se pueden definir son:
+Son las dos funciones que se pueden definir para el servicio de Azure Data Box:
 
 - **Lector de datos de cuadro** -tienen acceso de solo lectura para un pedido según se define en el ámbito. Solo pueden ver los detalles de un pedido. No pueden tener acceso a los otros detalles relacionados con las cuentas de almacenamiento ni editar los detalles del pedido como la dirección y así sucesivamente.
 - **Colaborador de datos de cuadro** -solo puede crear un pedido para transferir datos a una cuenta de almacenamiento determinado *si ya tienen acceso de escritura a una cuenta de almacenamiento*. Si no tiene acceso a una cuenta de almacenamiento, incluso no pueden crear un pedido de Data Box para copiar datos a la cuenta. Este rol no define ninguna cuenta de almacenamiento relacionados con los permisos ni concede acceso a las cuentas de almacenamiento.  
@@ -70,9 +70,9 @@ Puede realizar un seguimiento de su pedido a través de Azure portal y el sitio 
 
 - Cada inicio de sesión en el cuadro de datos está registrada en tiempo real. Sin embargo, esta información sólo está disponible en el [registros de auditoría](#audit-logs) después de que el pedido se ha completado correctamente.
 
-## <a name="view-error-log-during-data-copy-to-data-box"></a>Ver registro de errores durante la copia de datos en Data Box
+## <a name="view-error-log-during-data-copy"></a>Ver registro de errores durante la copia de datos
 
-Durante la copia de datos en Data Box, se genera un archivo de error si hay algún problema con los datos copiados.
+Durante la copia de datos en Data Box o intensivo de datos de cuadro, se genera un archivo de error si hay algún problema con los datos copiados.
 
 ### <a name="errorxml-file"></a>Archivo error.Xml
 
@@ -147,7 +147,7 @@ Este es un ejemplo de la *error.xml* errores diferentes al copiar a Azure Files.
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-En cada uno de los casos anteriores, resuelva los errores antes de continuar con el paso siguiente. Para obtener más información sobre los errores recibidos durante la copia de datos en el cuadro de datos a través de los protocolos SMB o NFS, vaya a [problemas de solución de problemas de Data Box](data-box-troubleshoot.md). Para obtener información sobre los errores recibidos durante la copia de datos en el cuadro de datos a través de REST, vaya a [problemas de almacenamiento de la solución de problemas de datos cuadro Blob](data-box-troubleshoot-rest.md).
+En cada uno de los casos anteriores, resuelva los errores antes de continuar con el paso siguiente. Para obtener más información sobre los errores recibidos durante la copia de datos en el cuadro de datos a través de los protocolos SMB o NFS, vaya a [problemas de solución de problemas de Data Box e intensivo de datos de cuadro](data-box-troubleshoot.md). Para obtener información sobre los errores recibidos durante la copia de datos en el cuadro de datos a través de REST, vaya a [problemas de almacenamiento de la solución de problemas de datos cuadro Blob](data-box-troubleshoot-rest.md).
 
 ## <a name="inspect-bom-during-prepare-to-ship"></a>Inspeccionar BOM durante la preparación para el envío
 
@@ -157,7 +157,7 @@ Durante la preparación para el envío, una lista de archivos que se conoce como
 - Use este archivo para comprobar los tamaños reales de los archivos.
 - Compruebe que la *crc64* corresponde a una cadena distinta de cero. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-Para obtener más información sobre los errores recibidos durante la preparación enviar, vaya a [problemas de solución de problemas de Data Box](data-box-troubleshoot.md).
+Para obtener más información sobre los errores recibidos durante la preparación enviar, vaya a [problemas de solución de problemas de Data Box e intensivo de datos de cuadro](data-box-troubleshoot.md).
 
 ### <a name="bom-or-manifest-file"></a>Archivo BOM o manifiesto
 
@@ -205,7 +205,7 @@ Se realiza un cálculo de comprobación de redundancia cíclica (CRC) durante la
 
 De forma predeterminada, los registros se escriben en un contenedor denominado copylog. Los registros se almacenan con la convención de nomenclatura siguiente:
 
-`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml` 
+`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
 La ruta de acceso copylog también se muestra en el **Introducción** hoja para el portal.
 
@@ -253,7 +253,7 @@ Una vez que se borran los datos de los discos de datos cuadro según las directr
 
 ### <a name="audit-logs"></a>Registros de auditoría
 
-Los registros de auditoría contienen información acerca de encendido y compartir el acceso en el cuadro de datos cuando está fuera del centro de datos de Azure. Estos registros se encuentran en: `storage-account/azuredatabox-chainofcustodylogs`
+Los registros de auditoría contienen información acerca de encendido y compartir el acceso en el cuadro o datos intensivo de datos de cuadro cuando está fuera del centro de datos de Azure. Estos registros se encuentran en: `storage-account/azuredatabox-chainofcustodylogs`
 
 Este es un ejemplo del registro de auditoría de un cuadro de datos:
 
@@ -308,9 +308,9 @@ The authentication information fields provide detailed information about this sp
 ```
 
 
-## <a name="download-order-history"></a>Descargar el historial de pedidos
+## <a name="download-order-history"></a>Descarga del historial de pedidos
 
-Historial de pedidos está disponible en Azure portal. Si el pedido está completo y se complete la limpieza de dispositivos (eliminación de datos de los discos), a continuación, vaya a **pedido de Data Box > detalles de pedidos**. ** Descargar historial de pedidos** opción está disponible. Para obtener más información, consulte [descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
+Historial de pedidos está disponible en Azure portal. Si el pedido está completo y se complete la limpieza de dispositivos (eliminación de datos de los discos), a continuación, vaya a su orden de dispositivo y vaya a **detalles de pedidos**. ** Descargar historial de pedidos** opción está disponible. Para obtener más información, consulte [descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
 
 Si se desplaza por el historial de pedidos, verá:
 
@@ -324,7 +324,7 @@ Este es un ejemplo del registro de historial de pedido de Azure portal:
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-pinto                              
+Name                                               : gus-poland                              
 StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
 DeviceType                                     : DataBox                                           
 -------------------
@@ -362,11 +362,11 @@ Time(UTC)                 | Activity                       | Status          | D
 Data Box Log Links
 ------------------
 Account Name         : gusacct
-Copy Logs Path       : databoxcopylog/gus-pinto_<Device-serial-no>_CopyLog_<GUID>.xml
+Copy Logs Path       : databoxcopylog/gus-poland_<Device-serial-no>_CopyLog_<GUID>.xml
 Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [solucionar problemas en el cuadro de datos](data-box-troubleshoot.md).
+- Obtenga información sobre cómo [solucionar problemas en el cuadro de datos e intensivo de datos de cuadro](data-box-troubleshoot.md).

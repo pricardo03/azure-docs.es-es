@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457483"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475962"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -45,7 +45,7 @@ Para solucionar este problema, siga estos pasos:
 
 2. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
-    | Certificate | Location |
+    | Certificate | Ubicación |
     | ------------- | ------------- |
     | AzureClient.pfx  | Usuario actual\Personal\Certificados |
     | Azuregateway-*GUID*.cloudapp.net  | Usuario actual\Entidades de certificación raíz de confianza|
@@ -62,7 +62,7 @@ Para más información sobre cómo instalar el certificado de cliente, consulte 
 
 ### <a name="symptom"></a>Síntoma
 
-Cuando pruebe y conectarse a un gteway de red virtual de Azure con IKEv2 en Windows, obtendrá el mensaje de error siguiente:
+Cuando pruebe y conectarse a una puerta de enlace de red virtual de Azure con IKEv2 en Windows, obtendrá el mensaje de error siguiente:
 
 **No se pudo establecer la conexión de red entre el equipo y el servidor VPN porque el servidor remoto no responde**
 
@@ -122,7 +122,7 @@ Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, apar
 
 1. Asegúrese de que los certificados siguientes están en la ubicación correcta:
 
-    | Certificate | Location |
+    | Certificate | Ubicación |
     | ------------- | ------------- |
     | AzureClient.pfx  | Usuario actual\Personal\Certificados |
     | Azuregateway-*GUID*.cloudapp.net  | Usuario actual\Entidades de certificación raíz de confianza|

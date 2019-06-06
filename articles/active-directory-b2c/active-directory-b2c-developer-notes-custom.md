@@ -2,20 +2,20 @@
 title: 'Notas de desarrollador para las directivas personalizadas: Azure Active Directory B2C | Microsoft Docs'
 description: Notas para desarrolladores sobre la configuración y el mantenimiento de Azure AD B2C con directivas personalizadas.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1093f1882328604819d5fbab33d87b26f1af2886
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1d0be4ec2ed8feb308839377e0494ef2f4b78368
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703240"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510211"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas de desarrollador para las directivas personalizadas en Azure Active Directory B2C
 
@@ -126,7 +126,7 @@ Funcionalidades de marco de experiencia de identidad/directivas personalizadas e
 |-------- | ----------- | ------- | -- | ----- |
 | Claves de directivas: generar, manual, carga |  |  | X |  |
 | Claves de directivas: RSA/Certificado, secretos |  |  | X |  |
-| Carga de directiva |  |  | X |  |
+| Cargar directiva |  |  | X |  |
 
 ### <a name="developer-interface"></a>Interfaz del desarrollador
 

@@ -2,20 +2,20 @@
 title: Solución de problemas de directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
 description: Información sobre los métodos para resolver errores al trabajar con directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5345069005f9161ff04fffb063fda99b7594ec08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703038"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509972"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solución de problemas de directivas personalizadas de Azure AD B2C y el marco de experiencia de identidad
 
@@ -57,8 +57,8 @@ Fragmento de código de error: `Reason: User is currently logged as a user of 'y
 
 * Use `Run Now` y `https://jwt.io` para probar sus directivas con independencia de su aplicación web o móvil. Este sitio web actúa como una aplicación de usuario de confianza. Muestra el contenido del JSON Web Token (JWT) que genera la directiva de Azure AD B2C. Para crear una aplicación de prueba en el marco de experiencia de identidad, use los valores siguientes:
     * Nombre: TestApp
-    * Aplicación web/API web: Sin 
-    * Cliente nativo: Sin 
+    * Aplicación web/API web: No
+    * Cliente nativo: Sin
 
 * Use [Fiddler](https://www.telerik.com/fiddler) para realizar un seguimiento del intercambio de mensajes entre su explorador cliente y Azure AD B2C. Puede ayudarle a detectar un error en el recorrido del usuario en los pasos de la orquestación.
 

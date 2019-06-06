@@ -1,23 +1,18 @@
 ---
 title: Implementación de recursos con la API de REST y plantilla | Microsoft Docs
 description: Use Azure Resource Manager y API de REST de Resource Manager para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0490cf6837cb413bc2e869424cd430fd4a824dc9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782980"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688872"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager
 
@@ -27,11 +22,25 @@ Puede incluir la plantilla en el cuerpo de solicitud o vincularla a un archivo. 
 
 ## <a name="deployment-scope"></a>Ámbito de implementación
 
-Puede tener como destino la implementación de una suscripción de Azure o un grupo de recursos dentro de una suscripción. En la mayoría de los casos, serán las objetivo implementación en un grupo de recursos. Use las implementaciones de suscripción para aplicar directivas y las asignaciones de roles a través de la suscripción. También se pueden usar implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en ella. Según el ámbito de la implementación, use comandos diferentes.
+Puede dirigirse a su implementación en un grupo de administración, una suscripción de Azure o un grupo de recursos. En la mayoría de los casos, deberá destino las implementaciones en un grupo de recursos. Use las implementaciones de suscripción o grupo de administración para aplicar las directivas y las asignaciones de roles en el ámbito especificado. También se pueden usar implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en ella. Según el ámbito de la implementación, use comandos diferentes.
 
-Para implementar en un **grupo de recursos**, utilice [crear implementaciones -](/rest/api/resources/deployments/createorupdate).
+Para implementar en un **grupo de recursos**, utilice [crear implementaciones -](/rest/api/resources/deployments/createorupdate). La solicitud se envía al:
 
-Para implementar en un **suscripción**, utilice [implementaciones - crear en el ámbito de la suscripción](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Para implementar en un **suscripción**, utilice [implementaciones - crear en el ámbito de la suscripción](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La solicitud se envía al:
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Para implementar en un **grupo de administración**, utilice [implementaciones - crear en el ámbito de grupo de administración](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La solicitud se envía al:
+
+```HTTP
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
 
 Los ejemplos en este artículo usan las implementaciones de grupo de recursos. Para obtener más información acerca de las implementaciones de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](deploy-to-subscription.md).
 
@@ -42,7 +51,7 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
 1. Si no tiene un grupo de recursos existente, puede crear uno. Especifique el identificador de la suscripción, el nombre del nuevo grupo de recursos y la ubicación que necesita para la solución. Para obtener más información, consulte [Crear un grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
    ```
 
    Con un cuerpo de la solicitud como:
@@ -58,13 +67,13 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
 
 1. Valide la implementación antes de ejecutarla. Para ello, ejecute la operación de [validación de una implementación de plantilla](/rest/api/resources/deployments/validate). Al probar la implementación, proporcione los parámetros exactamente como lo haría al ejecutar la implementación (como se muestra en el paso siguiente).
 
-1. Cree una implementación. Especifique el identificador de suscripción, el nombre del grupo de recursos, el nombre de la implementación y un vínculo a su plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](/rest/api/resources/deployments/createorupdate). Observe que el **modo** se establece en **Incremental**. Para ejecutar una implementación completa, establezca el **modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
+1. Para implementar una plantilla, especifique el identificador de suscripción, el nombre del grupo de recursos, el nombre de la implementación en el URI de solicitud. 
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   Con un cuerpo de la solicitud como:
+   En el cuerpo de solicitud, proporcione un vínculo al archivo de plantilla y parámetros. Observe que el **modo** se establece en **Incremental**. Para ejecutar una implementación completa, establezca el **modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
 
    ```json
    {
@@ -73,11 +82,11 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
-      }
+      },
+      "mode": "Incremental"
     }
    }
    ```
@@ -91,11 +100,11 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
       },
+      "mode": "Incremental",
       "debugSetting": {
         "detailLevel": "requestContent, responseContent"
       }
@@ -105,7 +114,7 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
 
     Puede configurar la cuenta de almacenamiento para utilizar un token de firma de acceso compartido (SAS). Para obtener más información, consulte [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)(Delegación del acceso con una firma de acceso compartido).
 
-1. En lugar de crear vínculos a archivos para la plantilla y los parámetros, puede incluirlos en el cuerpo de la solicitud.
+1. En lugar de crear vínculos a archivos para la plantilla y los parámetros, puede incluirlos en el cuerpo de la solicitud. El ejemplo siguiente muestra el cuerpo de solicitud con la plantilla y parámetro en línea:
 
    ```json
    {
@@ -168,7 +177,7 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
    }
    ```
 
-1. Obtenga el estado de la implementación de la plantilla. Para obtener más información, consulte [Obtener información acerca de una implementación de plantilla](/rest/api/resources/deployments/get).
+1. Para obtener el estado de la implementación de plantilla, use [obtener implementaciones -](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -176,11 +185,11 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
 
 ## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
 
-Esta característica también es conocido como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice la propiedad `onErrorDeployment` en el cuerpo de la solicitud. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de infraestructura y desea que se puede revertir a esto. Hay una serie de advertencias y restricciones:
+Esta característica también es conocido como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice la propiedad `onErrorDeployment` en el cuerpo de la solicitud. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de infraestructura y desea volver a este estado. Hay una serie de advertencias y restricciones:
 
 - La nueva implementación se ejecuta exactamente como se ha ejecutado anteriormente con los mismos parámetros. No se puede cambiar los parámetros.
 - La implementación anterior se ejecuta con la [modo completo](./deployment-modes.md#complete-mode). Se eliminan todos los recursos que no se incluyen en la implementación anterior y se establecen las configuraciones de recursos a su estado anterior. Asegúrese de que comprende perfectamente el [modos de implementación](./deployment-modes.md).
-- La reimplementación solo afecta a los recursos, los cambios de datos no se ven afectados.
+- La reimplementación solo afecta a los recursos, no se ven afectados los cambios de datos.
 - Esta característica solo se admite en las implementaciones de grupo de recursos, no implementaciones de nivel de suscripción. Para obtener más información acerca de la implementación de nivel de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](./deploy-to-subscription.md).
 
 Para usar esta opción, las implementaciones deben tener nombres únicos para que se puedan identificar en el historial. Si no tienen nombres únicos, la implementación con error en cuestión podría sobrescribir la implementación anteriormente correcta en el historial. Solo se puede usar esta opción con las implementaciones de nivel de raíz. Las implementaciones de una plantilla anidada no están disponibles para volver a implementarse.
@@ -268,6 +277,5 @@ Si necesita proporcionar un valor confidencial para un parámetro (por ejemplo, 
 
 - Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero que no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
 - Para obtener información sobre el control de operaciones asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
-- Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
-- Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
-- Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- Para más información acerca de las plantillas, consulte [entender la estructura y sintaxis de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+

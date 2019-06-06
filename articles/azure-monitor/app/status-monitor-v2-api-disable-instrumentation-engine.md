@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de API de estado de Azure Monitor v2: Deshabilitar el motor de instrumentación | Microsoft Docs'
-description: Deshabilitación de referencia de API-InstrumentationEngine de estado Monitor v2. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: 'Referencia de API v2 de Azure Monitor de estado: Deshabilitar el motor de instrumentación | Microsoft Docs'
+description: Referencia de API v2 de Monitor de estado. Disable-InstrumentationEngine. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,26 +12,25 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 7d1b658da59c0e778c82301077ef27bdd9c9e614
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b5ff218ce7bc7593d38f496b22d2a03402a00cdc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144905"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514423"
 ---
 # <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>API de v2 del Monitor de estado: Disable-InstrumentationEngine (v0.2.1-alpha)
 
-Este documento describe un cmdlet que se distribuye como un miembro de la [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Este artículo describe un cmdlet que forme parte del [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > V2 de Monitor de estado está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para obtener más información, consulte [términos de uso complementarios para vistas previas de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no es aconsejable para cargas de trabajo de producción. Podrían no admitir algunas características, y algunas pueden tener funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
-
-Este cmdlet deshabilitará el motor de instrumentación mediante la eliminación de algunas claves del registro.
-Reinicie IIS para que estos cambios surtan efecto.
+Deshabilita el motor de instrumentación mediante la eliminación de algunas claves del registro.
+Reinicie IIS para que los cambios surtan efecto.
 
 > [!IMPORTANT] 
 > Este cmdlet requiere una sesión de PowerShell con permisos de administrador.

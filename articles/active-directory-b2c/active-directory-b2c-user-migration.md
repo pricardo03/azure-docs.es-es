@@ -2,20 +2,20 @@
 title: Métodos de migración de usuarios en Azure Active Directory B2C | Microsoft Docs
 description: Describe fundamentos y conceptos avanzados sobre la migración de usuarios mediante Graph API y opcionalmente mediante directivas personalizadas de Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726121"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507660"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 Si migra su proveedor de identidades a Azure Active Directory B2C (Azure AD B2C), también debe migrar la cuenta de usuario. En este artículo se explica cómo migrar las cuentas de usuario existentes desde cualquier proveedor de identidades a Azure AD B2C. El artículo no pretende ser preceptivo, sino describir varios enfoques. El desarrollador es responsable de la idoneidad de cada enfoque.
@@ -25,7 +25,7 @@ Con Azure AD B2C, puede migrar los usuarios mediante [Azure AD Graph API][B2C-Gr
 
 - **Antes de la migración**: este flujo se aplica cuando tiene acceso libre a las credenciales de un usuario (nombre de usuario y contraseña) o las credenciales se cifran, pero puede descifrarlas. El proceso de pre-migración implica leer los usuarios del anterior proveedor de identidades y crear nuevas cuentas en el directorio de Azure AD B2C.
 
-- **Pre-migración y restablecimiento de contraseña**: este flujo se aplica cuando la contraseña de un usuario no es accesible. Por ejemplo: 
+- **Pre-migración y restablecimiento de contraseña**: este flujo se aplica cuando la contraseña de un usuario no es accesible. Por ejemplo:
    - La contraseña se almacena en formato HASH.
    - La contraseña se almacena en un proveedor de identidades al que no tiene acceso. El proveedor de identidades anterior valida las credenciales de usuario mediante una llamada a un servicio web.
 
@@ -238,12 +238,12 @@ Para obtener el vínculo a la directiva de restablecimiento de contraseña, haga
 > Para comprobar y cambiar el estado de migración del usuario, debe usar una directiva personalizada. Las instrucciones de instalación del artículo [Get started with custom policies][B2C-GetStartedCustom] (Comenzar a trabajar con directivas personalizadas) deben completarse.
 >
 
-Cuando los usuarios intentan iniciar sesión sin restablecer la contraseña primero, la directiva debería devolver un mensaje de error descriptivo. Por ejemplo: 
+Cuando los usuarios intentan iniciar sesión sin restablecer la contraseña primero, la directiva debería devolver un mensaje de error descriptivo. Por ejemplo:
 >*La contraseña ha expirado. Para restablecerla, seleccione el vínculo Restablecer contraseña.*
 
 Para realizar este paso opcional, es necesario el uso de las directivas personalizadas de Azure AD B2C, tal como se describe en el artículo [Getting started with custom policies][B2C-GetStartedCustom] (Comenzar a trabajar con directivas personalizadas).
 
-En esta sección, se cambia la directiva para comprobar el estado de migración del usuario en el inicio de sesión. Si el usuario no ha cambiado la contraseña, se devuelve el mensaje de error HTTP 409, que pide al usuario que seleccione el vínculo **¿Ha olvidado la contraseña?**.
+En esta sección, se cambia la directiva para comprobar el estado de migración del usuario en el inicio de sesión. Si el usuario no ha cambiado la contraseña, se devuelve el mensaje de error HTTP 409, que pide al usuario que seleccione el vínculo **¿Ha olvidado la contraseña?** .
 
 Para realizar un seguimiento del cambio de contraseña, se usa una tabla de Azure. Cuando ejecuta el proceso de pre-migración con el parámetro de la línea de comandos `2`, crea la entidad de usuario en una tabla de Azure. Su servicio realiza lo siguiente:
 

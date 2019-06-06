@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4cbc0b399bddbaebd4cb951dcd116e090c2e0c09
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938026"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515612"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Soluciones integradas en Azure Marketplace y AppSource
 
@@ -30,6 +30,15 @@ Ventajas de un enfoque integrado son:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede descubrir soluciones integradas y conectar con estos valores asociados, visite la sección de servicios de consultoría de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+Puede descubrir soluciones integradas y conectar con estos asociados con valores visitando sus anuncios aquí:
+
+* [Customer 360 con tecnología de Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Rapid Commerce](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [Análisis de crédito](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [Pila de seguridad de servicios de salud en la nube](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [Motor de aceleración de DevOps](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows Server de fin de soporte](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+y visitando también la sección de servicios de consultoría de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
 ---

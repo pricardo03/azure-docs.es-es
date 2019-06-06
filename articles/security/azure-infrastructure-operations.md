@@ -1,8 +1,8 @@
 ---
-title: Operaciones de producción y administración de Azure
-description: En este artículo se proporciona una descripción general de la administración y el funcionamiento de la red de producción de Azure.
+title: Administración de red de producción de Azure - Microsoft Azure
+description: En este artículo se describe cómo Microsoft administra y opera la red de producción de Azure para proteger los centros de datos de Azure.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591476"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428270"
 ---
-# <a name="azure-production-operations-and-management"></a>Operaciones de producción y administración de Azure    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Administración y funcionamiento de la red de producción de Azure    
+En este artículo se describe cómo Microsoft administra y opera la red de producción de Azure para proteger los centros de datos de Azure.
+
+## <a name="monitor-log-and-report"></a>Supervisión, registro e informe
+
 La administración y el funcionamiento de la red de producción de Azure es un esfuerzo coordinado entre los equipos de operaciones de Azure y Azure SQL Database. Los equipos usan varias herramientas de supervisión de rendimiento de sistemas y de aplicaciones en el entorno. Y usan las herramientas adecuadas para supervisar dispositivos de red, servidores, servicios y procesos de aplicación.
 
 Para garantizar la ejecución segura de los servicios que se ejecutan en el entorno de Azure, los equipos de operaciones implementan varios niveles de supervisión, registro y generación de informes, incluidas las siguientes acciones:
@@ -53,7 +57,7 @@ Para obtener más información sobre lo que hace Microsoft para proteger la infr
 - [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)
 - [Arquitectura de red de Azure](azure-infrastructure-network.md)
 - [Red de producción de Azure](azure-production-network.md)
-- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
+- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
 - [Supervisión de la infraestructura de Azure](azure-infrastructure-monitoring.md)
 - [Integridad de la infraestructura de Azure](azure-infrastructure-integrity.md)
 - [Protección de datos de cliente de Azure](azure-protection-of-customer-data.md)

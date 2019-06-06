@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835301"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742936"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
 
@@ -35,9 +35,17 @@ Sin importar el número de instancias escaladas horizontalmente, cada aplicació
 - Eliminar la última aplicación de una combinación de grupo de recursos _y_ región y volver a crearla.
 - Eliminar un enlace SSL existente, como durante la renovación de un certificado (consulte [Renew certificates](app-service-web-tutorial-custom-ssl.md#renew-certificates) [Renovación de certificados]).
 
-## <a name="get-static-inbound-ip"></a>Obtención de la dirección IP de entrada estática
+## <a name="find-the-inbound-ip"></a>Buscar la dirección IP de entrada
 
-En ocasiones, podría desear una dirección IP estática dedicada para la aplicación. Para obtener una dirección IP de entrada estática, debe configurar un [enlace SSL basado en IP](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). Si realmente no necesita la funcionalidad SSL para proteger la aplicación, puede cargar incluso un certificado autofirmado para este enlace. En un enlace SSL basado en IP, el certificado se enlaza a la dirección IP propiamente dicha, de modo que App Service aprovisiona una dirección IP estática para conseguir que esto ocurra. 
+Simplemente ejecute el siguiente comando en un terminal local:
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>Obtener una dirección IP de entrada estática
+
+En ocasiones, podría desear una dirección IP estática dedicada para la aplicación. Para obtener una dirección IP de entrada estática, debe configurar un [enlace SSL basado en IP](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Si realmente no necesita la funcionalidad SSL para proteger la aplicación, puede cargar incluso un certificado autofirmado para este enlace. En un enlace SSL basado en IP, el certificado se enlaza a la dirección IP propiamente dicha, de modo que App Service aprovisiona una dirección IP estática para conseguir que esto ocurra. 
 
 ## <a name="when-outbound-ips-change"></a>Cuando cambian las direcciones IP de salida
 

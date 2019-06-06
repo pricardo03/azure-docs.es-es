@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463491"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513668"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -181,6 +181,8 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |500121| Error de autenticación durante la solicitud de autenticación segura.|
 |500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
 |530021|Aplicación no cumple los requisitos de aplicación aprobada de acceso condicional.|
+|7000218|El cuerpo de solicitud debe contener el siguiente parámetro: 'client_assertion' o 'client_secret'.|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

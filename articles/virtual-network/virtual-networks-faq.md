@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508414"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497107"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -113,7 +113,7 @@ No. Una red virtual está limitada a una única región. Una red virtual, sin em
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>¿Puedo conectar una red virtual a otra red virtual en Azure?
 Sí. Puede conectar una red virtual a otra mediante los métodos siguientes:
 - **Emparejamiento de redes virtuales**: para obtener más información, consulte la [VNet peering overview](virtual-network-peering-overview.md) (Introducción al emparejamiento de redes virtuales).
-- **Una instancia de Azure VPN Gateway.**: para obtener más información, consulte [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una conexión de red virtual a red virtual). 
+- **Una instancia de Azure VPN Gateway.** : para obtener más información, consulte [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una conexión de red virtual a red virtual). 
 
 ## <a name="name-resolution-dns"></a>resolución de nombres DNS
 
@@ -180,17 +180,18 @@ Sí. Todas las máquinas virtuales y las instancias de rol de Cloud Services imp
 ## <a name="azure-services-that-connect-to-vnets"></a>Servicios de Azure que se conectan a redes virtuales
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>¿Se puede usar Azure App Service Web Apps con una red virtual?
-Sí. Web Apps se puede implementar en una red virtual mediante ASE (App Service Environment). Si tiene una conexión de punto a sitio configurada para la red virtual, todas las aplicaciones web se pueden conectar a los recursos de la red virtual y acceder a ellos de forma segura. Para más información, consulte los siguientes artículos.
+Sí. Puede implementar aplicaciones Web dentro de una red virtual mediante ASE (entorno de App Service), conectar el back-end de sus aplicaciones a sus redes virtuales con la integración con red virtual y bloquear el tráfico entrante a la aplicación con los puntos de conexión de servicio. Para más información, consulte los siguientes artículos.
 
+* [Características de red de App Service](../app-service/networking-features.md)
 * [Creación de Web Apps en un entorno de App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integración de una aplicación con Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Uso de la integración de la red virtual y de conexiones híbridas con Web Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [Restricciones de acceso de App Service](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>¿Puedo implementar Cloud Services con los roles web y de trabajo (PaaS) en una red virtual?
 Sí. Opcionalmente, es posible implementar instancias de rol de Cloud Services en redes virtuales. Para hacerlo, es preciso especificar el nombre de la red virtual y las asignaciones de rol/subred en la sección de configuración de red de la configuración del servicio. No es necesario actualizar ninguno de los archivos binarios.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>¿Se puede conectar un conjunto de escalado de máquinas virtuales (VMSS) a una red virtual?
-Sí. Debe conectar un VMSS a una red virtual.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>¿Conectar un conjunto de escalado a una red virtual?
+Sí. Debe conectar un conjunto de escalado a una red virtual.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>¿Hay una lista completa de servicios de Azure de la que pueda implementar recursos desde una red virtual?
 Sí. Para más información, consulte [Integración de red virtual para los servicios de Azure](virtual-network-for-azure-services.md).
@@ -219,7 +220,7 @@ Sí. Para más información, consulte [Información general sobre Azure Network 
 ## <a name="apis-schemas-and-tools"></a>API, esquemas y herramientas
 
 ### <a name="can-i-manage-vnets-from-code"></a>¿Puedo administrar redes virtuales mediante programación?
-Sí. Puede usar las API REST para redes virtuales en los modelos de implementación de [Azure Resource Manager](/rest/api/virtual-network) y [clásica (Service Management)](https://go.microsoft.com/fwlink/?LinkId=296833).
+Sí. Puede usar las API de REST para redes virtuales en el [Azure Resource Manager](/rest/api/virtual-network) y [clásico](https://go.microsoft.com/fwlink/?LinkId=296833) modelos de implementación.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>¿Hay compatibilidad con las herramientas para redes virtuales?
 Sí. Más información acerca del uso de:
@@ -247,7 +248,7 @@ Los siguientes recursos usan equilibradores de carga básica de lo que significa
 - API Management
 - Servicio de dominio de Active Directory (ADDS)
 - Logic Apps
-- HD Insight
+- HDInsight
 -   Azure Batch
 - AKS
 - Entorno de App Service
@@ -285,7 +286,7 @@ No. No se admite el emparejamiento transitivo. Se deben emparejar VNETA y VNETC 
 No. El emparejamiento de VNET, ya sea local o global, no impone ninguna restricción de ancho de banda. El ancho de banda solo está limitado por el recurso de proceso o de máquina virtual.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>¿Cómo puedo solucionar problemas de emparejamiento de redes virtuales?
-Esta es una [Guía de solucionador de problemas] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) para probarlo.
+Este es un [Guía de solucionador de problemas](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) para probarlo.
 
 ## <a name="virtual-network-tap"></a>TAP de red virtual
 

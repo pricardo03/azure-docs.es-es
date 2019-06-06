@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785854"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493754"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
@@ -38,8 +38,8 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 | **Ámbito** | **Definido en** | **Acceso requerido para ver los datos** | **Configuración de EA como requisito previo** | **Consolida los datos en** |
 | --- | --- | --- | --- | --- |
 | Cuenta de facturación<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Administrador de organización | None | Todas las suscripciones del contrato Enterprise |
-| Departamento | [https://ea.azure.com](https://ea.azure.com/) | Administrador de departamento | **AD: ver los cargos** habilitado | Todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento |
-| Cuenta de inscripción<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Propietario de la cuenta | **PC: ver los cargos** habilitado | Todas las suscripciones de la cuenta de inscripción |
+| department | [https://ea.azure.com](https://ea.azure.com/) | Administrador de departamento | **AD: ver los cargos** habilitado | Todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento |
+| Cuenta de inscripción<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Propietario de cuenta | **PC: ver los cargos** habilitado | Todas las suscripciones de la cuenta de inscripción |
 | Grupo de administración | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todas las suscripciones por debajo del grupo de administración |
 | Subscription | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los grupos de recursos o recursos en la suscripción |
 | Grupos de recursos | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los recursos del grupo de recurso |
@@ -170,6 +170,13 @@ Para obtener acceso al grupo de recursos es necesario tener al menos permiso de 
 7. En **Assign access to** (Asignar acceso a), seleccione **Azure AD, user, group, or application** (Usuario, grupo o aplicación de Azure AD).
 8. Para asignar el acceso, búsquelo y, a continuación, seleccione el usuario.
 9. Haga clic en **Save**(Guardar).
+
+## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticación entre inquilinos
+
+Actualmente, Azure Cost Management tiene compatibilidad para la autenticación entre inquilinos limitada. En algunas circunstancias cuando intenta autenticarse en varios inquilinos, puede recibir un **acceso denegado** error de análisis de costos. Este problema puede producirse si configura el control de acceso basado en roles (RBAC) para la suscripción del otro inquilino y, a continuación, intente ver los datos de costo.
+
+*Para solucionar el problema*: Después de configurar RBAC entre inquilinos, espere una hora. A continuación, intente ver los costos de análisis de costos o conceder acceso de administración de costos para los usuarios de ambos inquilinos.  
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

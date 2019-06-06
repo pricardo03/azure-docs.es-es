@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 06/03/2019
+ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990510"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479284"
 ---
 # <a name="scale-hdinsight-clusters"></a>Escalabilidad de clústeres de HDInsight
 
@@ -58,13 +58,12 @@ Para evitar que los trabajos en ejecución producirá un error durante una opera
 1. Finalizar manualmente los trabajos.
 1. Vuelva a enviar los trabajos una vez haya finalizado la operación de escalado.
 
-Para ver una lista de pendientes y los trabajos en ejecución, puede usar el YARN **UI de ResourceManager**, siga estos pasos:
+Para ver una lista de pendientes y los trabajos en ejecución, puede usar el YARN **Resource Manager UI**, siga estos pasos:
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
-2. Desde la izquierda, vaya a **todos los servicios** > **Analytics** > **clústeres de HDInsight**y, a continuación, seleccione el clúster.
-3. En la vista principal, vaya a **paneles de clúster** > **Ambari principal**. Escriba sus credenciales de clúster.
-4. En la UI de Ambari, seleccione **YARN** en la lista de servicios en el menú izquierdo.  
-5. En la página YARN, seleccione **vínculos rápidos** y mantenga el mouse sobre el nodo principal activo, a continuación, seleccione **UI de ResourceManager**.
+1. Desde el [portal Azure](https://portal.azure.com/), seleccione el clúster.  Consulte [Enumeración y visualización de clústeres](./hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva página del portal.
+2. En la vista principal, vaya a **paneles de clúster** > **Ambari principal**. Escriba sus credenciales de clúster.
+3. En la UI de Ambari, seleccione **YARN** en la lista de servicios en el menú izquierdo.  
+4. En la página YARN, seleccione **vínculos rápidos** y mantenga el mouse sobre el nodo principal activo, a continuación, seleccione **UI de ResourceManager**.
 
     ![UI de ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 

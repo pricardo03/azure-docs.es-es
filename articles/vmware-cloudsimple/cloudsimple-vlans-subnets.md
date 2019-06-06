@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209576"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497577"
 ---
 # <a name="vlans-and-subnets-overview"></a>Información general de las VLAN y subredes
 
 CloudSimple proporciona una red por región donde se implementa el servicio CloudSimple.  La red es un único espacio de dirección TCP capa 3 con el enrutamiento habilitado de forma predeterminada.  Todas las nubes privadas y las subredes creadas en esta región pueden comunicarse entre sí sin ninguna configuración adicional.  Puede crear grupos de puertos distribuido en el servidor de vCenter con las VLAN.
+
+![Topología de red CloudSimple](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
@@ -34,6 +36,10 @@ Todas las subredes pueden comunicarse entre sí de forma predeterminada, lo que 
 Se crea una nube privada como una pila VMware aislada (hosts ESXi, vCenter, vSAN y NSX) entorno administrado por un servidor vCenter.  Los componentes de administración se implementan en la red seleccionada para **vSphere/vSAN subredes CIDR**.  El intervalo de CIDR de red se divide en subredes diferentes durante la implementación.
 
 Prefijo de intervalo de subredes de vSphere/vSAN mínimas CIDR: **/24** prefijo de intervalo de subredes de vSphere/vSAN máximo CIDR:   **/21**
+
+> [!CAUTION]
+> Las direcciones IP en el intervalo CIDR de vSphere/vSAN están reservadas para su uso por la infraestructura de nube privada. No use una dirección IP de este intervalo en cualquier máquina virtual.
+
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>límites de intervalo de subredes de vSphere/vSAN CIDR
 

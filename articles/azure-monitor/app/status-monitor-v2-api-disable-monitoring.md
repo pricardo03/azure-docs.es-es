@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de API de estado de Azure Monitor v2: Deshabilitar la supervisión | Microsoft Docs'
-description: Deshabilitación de referencia de API-ApplicationInsightsMonitoring de estado Monitor v2. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: 'Referencia de API v2 de Azure Monitor de estado: Deshabilitar la supervisión | Microsoft Docs'
+description: Referencia de API v2 de Monitor de estado. Disable-ApplicationInsightsMonitoring. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,26 +12,26 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6f2bde824c2a9815dc9fd4791ab43e03558da835
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144928"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514404"
 ---
 # <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>API de v2 del Monitor de estado: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Este documento describe un cmdlet que se distribuye como un miembro de la [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Este artículo describe un cmdlet que forme parte del [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > V2 de Monitor de estado está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para obtener más información, consulte [términos de uso complementarios para vistas previas de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no es aconsejable para cargas de trabajo de producción. Podrían no admitir algunas características, y algunas pueden tener funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 
-Deshabilitar la supervisión del equipo de destino.
-Este cmdlet quitará las modificaciones a applicationHost.config IIS y quitar claves del registro.
+Deshabilita la supervisión en el equipo de destino.
+Este cmdlet quitará las modificaciones realizadas en applicationHost.config IIS y quitar claves del registro.
 
 > [!IMPORTANT] 
 > Este cmdlet requiere una sesión de PowerShell con permisos de administrador.
@@ -45,7 +45,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>Parámetros 
 
 ### <a name="-verbose"></a>-Verbose
-**Parámetro común.** Use este modificador para enviar registros detallados.
+**Parámetro común.** Utilice este modificador para mostrar los registros detallados.
 
 ## <a name="output"></a>Salida
 

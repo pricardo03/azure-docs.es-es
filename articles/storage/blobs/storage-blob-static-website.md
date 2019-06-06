@@ -7,171 +7,109 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.reviewer: seguler
-ms.date: 04/29/2019
+ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: cd1fa71cb2a10c7e61f76bdd224ba6d0f039346f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 36cc8cebdb567cb9650ad1ad3baf72a0b5478247
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148472"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427963"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
-Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. Si aprovecha el hospedaje que ofrece Azure Storage, podrá usar arquitecturas sin servidor, incluyendo[Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de PaaS.
 
-A diferencia del hospedaje de sitios web estáticos, los sitios dinámicos que dependen del código del lado servidor se hospedan mejor si se usa [Azure App Service](/azure/app-service/overview).
-
-## <a name="how-does-it-work"></a>¿Cómo funciona?
-Cuando habilita el hospedaje de sitios web estáticos en su cuenta de almacenamiento, debe seleccionar el nombre del archivo predeterminado y, opcionalmente, proporcionar una ruta de acceso a una página 404 personalizada. Cuando la característica está habilitada, se crea un contenedor llamado *$web* si este aún no existe.
-
-Los archivos del contenedor *$web* tienen las siguientes características:
-
-- se proporcionan a través de solicitudes de acceso anónimas.
-- solo están disponibles a través de operaciones de lectura de objetos.
-- Distingue mayúsculas de minúsculas.
-- están disponibles en la web pública si se sigue este patrón:
-    - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- están disponibles a través de un punto de conexión de Blob Storage si se sigue este patrón:
-    - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
-
-Debe usar el punto de conexión de Blob Storage para cargar archivos. Por ejemplo, el archivo que se cargó a esta ubicación:
-
-```bash
-https://contoso.blob.core.windows.net/$web/image.png
-```
-
-está disponible en el explorador en una ubicación similar a la siguiente:
-
-```bash
-https://contoso.z4.web.core.windows.net/image.png
-```
-
-El nombre de archivo predeterminado que se seleccionó se usa en la raíz y en cualquier subdirectorio cuando no se proporciona ningún nombre de archivo. Si el servidor devuelve un error 404 y no proporciona ninguna ruta de acceso al documento de error, entonces se devuelve una página 404 predeterminada al usuario.
+Puede servir contenido estático (HTML, CSS, JavaScript y los archivos de imagen) directamente desde un contenedor de almacenamiento denominado *$web*. Hospedar el contenido en el almacenamiento de Azure le permite usar arquitecturas sin servidor que incluyen [Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de plataforma como servicio (PaaS).
 
 > [!NOTE]
-> El nivel de acceso público predeterminado para los archivos es privado. Dado que los archivos se sirven a través de solicitudes de acceso anónimo, este valor se omite. No hay acceso público a todos los archivos y se omiten los permisos de RBAC.
+> Si su sitio depende del código del lado servidor, utilice [Azure App Service](/azure/app-service/overview) en su lugar.
 
-## <a name="cdn-and-ssl-support"></a>Compatibilidad con SSL y la red CDN
+## <a name="setting-up-a-static-website"></a>Configurar un sitio Web estático
 
-Para que los archivos del sitio Web estático disponible a través de su dominio personalizado y HTTPS, consulte [mediante la red CDN de Azure para tener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md). Como parte de este proceso, debe *apuntar su red CDN al punto de conexión web* en lugar de al punto de conexión del blob. Es posible que deba esperar unos minutos antes de que su contenido sea visible, ya que la configuración de CDN no se ejecuta de inmediato.
+Hospedaje del sitio Web estático es una característica que se debe habilitar en la cuenta de almacenamiento.
+
+Para habilitar el hospedaje de sitios Web estático, seleccione el nombre del archivo de forma predeterminada y, a continuación, opcionalmente, proporcione una ruta de acceso a una página 404 personalizada. Si un contenedor de almacenamiento de blobs denominado **$web** ya no existe en la cuenta, se crea uno automáticamente. Agregue los archivos de su sitio para este contenedor.
+
+Para obtener instrucciones detalladas, consulte [hospedar un sitio Web estático en Azure Storage](storage-blob-static-website-how-to.md).
+
+![Métrica de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+
+Archivos en el **$web** contenedor distinguen mayúsculas de minúsculas, entregados a través de las solicitudes de acceso anónimo y están disponibles solo a través de las operaciones de lectura.
+
+## <a name="uploading-content"></a>Carga de contenido
+
+Puede usar cualquiera de estas herramientas para cargar contenido en el **$web** contenedor:
+
+> [!div class="checklist"]
+> * [CLI de Azure](storage-blob-static-website-how-to.md#cli)
+> * [Módulo de Azure PowerShell](storage-blob-static-website-how-to.md#powershell)
+> * [AzCopy](../common/storage-use-azcopy-v10.md)
+> * [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
+> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> * [Extensión de Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
+
+## <a name="viewing-content"></a>Visualización del contenido
+
+Los usuarios pueden ver el contenido del sitio desde un explorador utilizando la dirección URL pública del sitio Web. Puede encontrar la dirección URL mediante el uso de Azure portal, CLI de Azure o PowerShell. Use esta tabla como guía.
+
+|Herramienta| Guía |
+|----|----|
+|**Azure Portal** | [Buscar la dirección URL del sitio Web mediante el portal de Azure](storage-blob-static-website-how-to.md#portal-find-url) |
+|**CLI de Azure** | [Buscar la dirección URL del sitio Web mediante la CLI de Azure](storage-blob-static-website-how-to.md#cli-find-url) |
+|**Módulo de Azure PowerShell** | [Buscar la dirección URL del sitio Web mediante PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+
+La dirección URL del sitio contiene un código de región. Por ejemplo, la dirección URL `https://contosoblobaccount.z22.web.core.windows.net/` contiene código regional `z22`.
+
+Mientras que el código debe permanecer en la dirección URL, es solo para uso interno y no tendrá que usar ese código en cualquier otra forma.
+
+El documento de índice que especifique al habilitar el hospedaje del sitio Web estático, aparece cuando los usuarios abrir el sitio y no especifican un archivo concreto (por ejemplo: `https://contosoblobaccount.z22.web.core.windows.net`).  
+
+Si el servidor devuelve un error 404, y no ha especificado un documento de error cuando se habilita el sitio Web, se devuelve una página 404 predeterminada para el usuario.
+
+## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto de la configuración del nivel de acceso público del contenedor web
+
+Puede modificar el nivel de acceso público de la **$web** contenedor, pero esto no influye en el punto de conexión principal sitio Web estático porque estos archivos se sirven a través de las solicitudes de acceso anónimo. Eso significa acceso público a (de solo lectura) a todos los archivos.
+
+Captura de pantalla siguiente muestra la configuración del nivel de acceso público en el portal de Azure:
+
+![Captura de pantalla que muestra cómo establecer el nivel de acceso público en el portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+
+Mientras no se vea afectado el punto de conexión principal sitio Web estático, un cambio en el nivel de acceso público afectar el extremo del servicio principal de blob.
+
+Por ejemplo, si cambia el nivel de acceso público de la **$web** contenedor desde **privado (sin acceso anónimo)** a **Blob (acceso de lectura anónimo solo para blobs)** , el nivel de acceso público al punto de conexión principal sitio Web estático `https://contosoblobaccount.z22.web.core.windows.net/index.html` no cambia.
+
+Sin embargo, el acceso público a la réplica principal punto de conexión de servicio de blob `https://contosoblobaccount.blob.core.windows.net/$web/index.html` cambiar de privado a público. Ahora los usuarios pueden abrir ese archivo mediante cualquiera de estos dos extremos.
+
+## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Content Delivery Network (CDN) y soporte técnico de Secure Socket Layer (SSL)
+
+Para que los archivos del sitio Web estático disponible a través de su dominio personalizado y HTTPS, consulte [mediante la red CDN de Azure para tener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md). Como parte de este proceso, se necesita para que apunte a la red CDN a la réplica principal *del sitio Web estático* punto de conexión en lugar de la réplica principal *servicio blob* punto de conexión. Es posible que deba esperar unos minutos antes de que el contenido está visible, como la configuración de red CDN no se ejecuta inmediatamente.
 
 Cuando se actualiza el sitio Web estático, asegúrese de borrar el contenido almacenado en caché en los servidores perimetrales CDN mediante la purga el punto de conexión CDN. Para más información, consulte [Purgar un punto de conexión de Azure CDN](../../cdn/cdn-purge-endpoint.md).
 
 > [!NOTE]
-> HTTPS se admite de forma nativa a través del extremo de web de la cuenta. El uso de dominios personalizados a través de HTTPS requiere el uso de la red CDN de Azure en este momento. 
+> HTTPS admite de forma nativa a través del extremo web cuenta, por lo que el punto de conexión web es accesible a través de HTTP y HTTPS. Sin embargo, si la cuenta de almacenamiento está configurada para requerir a transferencia segura a través de HTTPS, los usuarios deben usar el extremo HTTPS. Para obtener más información, consulte [requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md).
 >
-> Punto de conexión público cuenta web a través de HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
+> El uso de dominios personalizados a través de HTTPS requiere el uso de la red CDN de Azure en este momento.
 
 ## <a name="custom-domain-names"></a>Nombres de dominio personalizados
 
-Puede [configurar un nombre de dominio personalizado para su cuenta de Azure Storage](storage-custom-domain-name.md) para que su sitio web estático esté disponible a través de un dominio personalizado. Para obtener información detallada sobre cómo hospedar su dominio en Azure, consulte [Hospedaje del dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+Puede hacer que el sitio Web estático disponible a través de un dominio personalizado. Para obtener más información, consulte [configurar un nombre de dominio personalizado para la cuenta de almacenamiento de Azure](storage-custom-domain-name.md).
+
+Para información detallada de hospedar el dominio en Azure, consulte [hospede su dominio en DNS de Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Precios
-Habilitar el hospedaje del sitio Web estático es gratuito. Los clientes se cobran por los costos de almacenamiento y las operaciones de blob infrautilizados. Para obtener más información acerca de los precios de Azure Blob Storage, consulte la [página de precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="quickstart"></a>Guía de inicio rápido
+Puede habilitar el hospedaje de sitios Web estático de forma gratuita. Se factura solo para el almacenamiento de blobs que usa el sitio y los costos de las operaciones. Para obtener más información acerca de los precios de Azure Blob Storage, consulte la [página de precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### <a name="azure-portal"></a>Azure Portal
-Para comenzar, abra Azure Portal en https://portal.azure.com y siga los siguientes pasos en su cuenta de GPv2 de Storage:
+## <a name="metrics"></a>metrics
 
-1. Haga clic en **Configuración**.
-2. Haga clic en **Sitio web estático**.
-3. Escriba el *nombre del documento de índice*. (Un valor común es *index.html)*.
-4. De forma opcional, escriba una *ruta de acceso de documento de error* a una página 404 personalizada. (Un valor común es *404.html)*.
+Puede habilitar las métricas en las páginas del sitio Web estático. Una vez que ha habilitado las métricas, tráfico de las estadísticas de archivos en el **$web** contenedor se muestran en el panel de métricas.
 
-![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
-
-A continuación, cargue los recursos al contenedor *$web* a través de Azure Portal o con el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargar los directorios completos. Asegúrese de incluir un archivo que coincida con el *nombre de documento del índice* que seleccionó cuando se habilitó la característica.
-
-Por último, desplácese hasta el punto de conexión web para probar su sitio web.
-
-### <a name="azure-cli"></a>Azure CLI
-Instale la extensión de la versión preliminar de almacenamiento:
-
-```azurecli-interactive
-az extension add --name storage-preview
-```
-En el caso de tener varias suscripciones, establezca la CLI en la suscripción de la cuenta de GPv2 de Storage que quiera habilitar:
-
-```azurecli-interactive
-az account set --subscription <SUBSCRIPTION_ID>
-```
-Habilite la característica. Asegúrese de reemplazar todos los valores de los marcadores de posición, incluyendo las llaves, con sus propios valores:
-
-```azurecli-interactive
-az storage blob service-properties update --account-name <ACCOUNT_NAME> --static-website --404-document <ERROR_DOCUMENT_NAME> --index-document <INDEX_DOCUMENT_NAME>
-```
-Consulte la dirección URL del punto de conexión web:
-
-```azurecli-interactive
-az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
-```
-
-Cargue los objetos al contenedor *$web* desde un directorio de origen. No olvide usar el carácter de escapa correcto para la referencia al contenedor *$web* en el comando. Por ejemplo, si usa la CLI de Azure desde CloudShell en Azure Portal, use el carácter de escape para el contenedor *$web* como se muestra a continuación:
-
-```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
-```
-
-## <a name="deployment"></a>Implementación
-
-Los métodos disponibles para implementar el contenido en un contenedor de almacenamiento son los siguientes:
-
-- [AzCopy](../common/storage-use-azcopy.md)
-- [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-- [Extensión de Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
-
-En todos los casos, asegúrese de copiar los archivos en el contenedor *$web*.
-
-## <a name="metrics"></a>Métricas
-
-Para habilitar las métricas en las páginas de su sitio web estático, haga clic en **Settings** (Configuración)  > **Monitoring** (Supervisión)  > **Metrics**  (Métricas).
-
-Los datos de las métricas se generan al enlazarse en diferentes API de métricas. El portal solo muestra los miembros de API que se usan en un período de tiempo determinado, para centrarse únicamente en los miembros que devuelven datos. Para asegurarse de que puede seleccionar el miembro de API necesario, el primer paso es expandir el período de tiempo.
-
-Haga clic en el botón de marco de tiempo y seleccione **Last 24 hours** (Últimas 24 horas) y luego haga clic en **Apply** (Aplicar).
-
-![Intervalo de tiempo de las métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
-
-A continuación, seleccione **Blob** en el menú desplegable *Namespace* (Espacio de nombres).
-
-![Espacio de nombres de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
-
-A continuación, seleccione la métrica **Egress**.
-
-![Métrica de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
-
-Seleccione **Sum** del selector *Aggregation* (Agregación).
-
-![Agregación de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
-
-A continuación, haga clic en el botón **Add filter** (Agregar filtro) y elija **API name** (Nombre de API) en el selector *Property* (Propiedad).
-
-![Nombre de API de métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
-
-Finalmente, marque la casilla junto a **GetWebContent** en el selector *Values* (Valores) para completar el informe de métricas.
-
-![GetWebContent de métricas de sitios web de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
-
-Una vez habilitadas, las estadísticas de tráfico de los archivos en el contenedor *$web* aparecen en el panel de métricas.
-
-## <a name="faq"></a>Preguntas más frecuentes
-
-**¿La característica de sitios web estáticos está disponible para todos los tipos de cuentas de almacenamiento?**  
-No, el hospedaje de sitios web estáticos solo está disponible en las cuentas de almacenamiento estándar GPv2.
-
-**¿Se admiten las reglas de firewall y VNET de almacenamiento con el nuevo punto de conexión web?**  
-Sí, el nuevo punto de conexión web cumple las reglas de firewall y de VNET configuradas para la cuenta de almacenamiento.
-
-**¿El punto de conexión web distingue entre mayúsculas y minúsculas?**  
-Sí, el punto de conexión web distingue entre mayúsculas y minúsculas, al igual que el punto de conexión del blob.
-
-**¿Es el punto de conexión web accesibles a través de HTTP y HTTPS?**
-Sí, el punto de conexión web es accesible a través de HTTP y HTTPS. Sin embargo, si la cuenta de almacenamiento está configurada para requerir a transferencia segura a través de HTTPS, los usuarios deben usar el extremo HTTPS. Para obtener más información, consulte [requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md).
+Para habilitar las métricas en las páginas del sitio Web estático, vea [habilitar las métricas en las páginas del sitio Web estático](storage-blob-static-website-how-to.md#metrics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
+
+* [Hospedar un sitio Web estático en el almacenamiento de Azure](storage-blob-static-website-how-to.md)
+* [Usar la red CDN de Azure para acceder a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar un nombre de dominio personalizado para el punto de conexión web o de blob](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)

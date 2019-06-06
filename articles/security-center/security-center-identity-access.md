@@ -3,7 +3,7 @@ title: Supervisión de identidad y acceso en Azure Security Center | Microsoft D
 description: Aprenda a usar la funcionalidad de identidad y acceso de Azure Security Center para supervisar los problemas relacionados con la actividad de acceso e identidad de los usuarios.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 05/30/2018
+ms.author: monhaber
+ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389488"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428421"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Supervisión de la identidad y el acceso en Azure Security Center (Versión preliminar)
 Este artículo le ayuda a usar Azure Security Center para supervisar la identidad y la actividad de acceso del usuario.
@@ -42,7 +42,6 @@ Mediante la supervisión de las actividades de identidad, puede realizar accione
 > [!NOTE]
 > Si su suscripción tiene más de 600 cuentas, Security Center no puede ejecutar las recomendaciones de identidades en su suscripción. Las recomendaciones que no se ejecutan se muestran bajo "evaluaciones no disponibles", lo que se describe a continuación.
 Security Center no puede ejecutar las recomendaciones de identidad en los agentes de administración del asociado de un proveedor de soluciones en la nube (CSP).
->
 >
 
 Consulte [Recomendaciones](security-center-identity-access.md#recommendations) para obtener una lista de las recomendaciones de acceso e identidad proporcionadas por Security Center.
@@ -111,23 +110,20 @@ Use la tabla siguiente como referencia para ayudarle a conocer las recomendacion
 
 |Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
 |----|----|----|----|
-|Subscription|50|Habilitar MFA para las cuentas de la aplicación de administración de Azure con permisos de propietario en la suscripción|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de administrador para evitar una vulneración de las cuentas o recursos.|
-|Subscription|50|Habilitar Security Center en las suscripciones |Habilite Security Center en todas las suscripciones para la detección de amenazas avanzada, JIT, listas de aplicaciones permitidas y recomendaciones avanzadas. |
-|Subscription|50|Habilitar el nivel estándar de Security Center en las suscripciones |Habilite el centro de seguridad de todas las suscripciones para la detección de amenazas avanzada, JIT, listas de aplicaciones permitidas y recomendaciones avanzadas.|
-|Subscription|40|Habilitar MFA para las cuentas de la aplicación de administración de Azure con permisos de escritura en la suscripción|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de escritura para evitar una vulneración de las cuentas o recursos.|
-|Subscription|30|Quitar las cuentas externas con permisos de propietario de la suscripción|Elimine las cuentas externas con permisos de propietario de la suscripción a fin de evitar el acceso no supervisado. |
-|Subscription|30|Habilitar MFA para las cuentas de la aplicación de administración de Azure con permisos de lectura en la suscripción|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de lectura para evitar una vulneración de las cuentas o recursos.|
-|Subscription|25|Quitar las cuentas externas con permisos de escritura de la suscripción|Elimine las cuentas externas con permisos de escritura de la suscripción a fin de evitar el acceso no supervisado. |
-|Subscription|20|Quitar de la suscripción las cuentas en desuso con permisos de propietario|Quite de la suscripción las cuentas en desuso con permisos de propietario. Las cuentas en desuso son las cuentas para el que iniciar sesión se ha bloqueado en Azure AD.|
-|Subscription|5|Quitar las cuentas en desuso de la suscripción|Quite las cuentas en desuso de sus suscripciones para habilitar el acceso a solo los usuarios actuales. Las cuentas en desuso son las cuentas para el que iniciar sesión se ha bloqueado en Azure AD.|
-|Subscription|5|Designar a más de un propietario en la suscripción|Designe a más de un propietario de la suscripción para tener redundancia de acceso de administrador.|
-|Subscription|5|Designar a un máximo de 3 propietarios en la suscripción|Designe a un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro.|
-|Almacén de claves|5|Habilitar los registros de diagnóstico en Key Vault|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Subscription|15|Quitar las cuentas externas con permisos de lectura de la suscripción|Elimine las cuentas externas con privilegios de lectura de la suscripción a fin de evitar el acceso no supervisado.|
-|Subscription|1|Proporcionar datos de los contactos de seguridad|Proporcione información de los contactos de seguridad para cada una de sus suscripciones. La información de los contactos es una dirección de correo electrónico y un número de teléfono. La información se usará para establecer contacto con usted si nuestro equipo de seguridad descubre que sus recursos están en peligro.|
+|Subscription|50|MFA debe estar habilitada en las cuentas con permisos de propietario de la suscripción|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de administrador para evitar una vulneración de las cuentas o recursos.|
+|Subscription|40|MFA debe estar habilitada en las cuentas de suscripción con permisos de escritura|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de escritura para evitar una vulneración de las cuentas o recursos.|
+|Subscription|30|Las cuentas externas con permisos de propietario deben quitarse de la suscripción|Elimine las cuentas externas con permisos de propietario de la suscripción a fin de evitar el acceso no supervisado.|
+|Subscription|30|MFA debe estar habilitada en las cuentas de suscripción con permisos de lectura|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de lectura para evitar una vulneración de las cuentas o recursos.|
+|Subscription|25|Cuentas externas con escritura permisos deben quitarse de la suscripción|Elimine las cuentas externas con permisos de escritura de la suscripción a fin de evitar el acceso no supervisado. |
+|Subscription|20|Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción|Quite de la suscripción las cuentas en desuso con permisos de propietario.|
+|Subscription|5|Las cuentas en desuso deben quitarse de la suscripción|Quite las cuentas en desuso de sus suscripciones para habilitar el acceso a solo los usuarios actuales. |
+|Subscription|5|Debe haber más de un propietario asignado a su suscripción|Designe a más de un propietario de la suscripción para tener redundancia de acceso de administrador.|
+|Subscription|5|Debe designar un máximo de 3 propietarios de la suscripción|Designe a un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro.|
+|Almacén de claves|5|Se deben habilitar los registros de diagnóstico en Key Vault|Habilite los registros y consérvelos durante un período de hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Subscription|15|Las cuentas externas con permisos de lectura deben quitarse de la suscripción|Elimine las cuentas externas con privilegios de lectura de la suscripción a fin de evitar el acceso no supervisado.| 
 
-> [NOTA] Si ha creado una directiva de acceso condicional que requiere MFA pero tiene exclusiones establecidas, la evaluación de la recomendación de MFA de Security Center considera la directiva no compatible, porque permite que algunos usuarios inicien sesión en Azure sin MFA.
->
+> [!NOTE]
+> Si ha creado una directiva de acceso condicional que requiere MFA, pero tiene exclusiones establecido, la evaluación de la recomendación de MFA del centro de seguridad considera que la directiva no compatibles, porque permite que algunos usuarios iniciar sesión en Azure sin MFA.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:

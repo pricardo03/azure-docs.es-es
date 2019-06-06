@@ -2,20 +2,20 @@
 title: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure Active Directory B2C | Microsoft Docs
 description: Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717297"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510716"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 
@@ -60,7 +60,7 @@ Complete los pasos del artículo [Introducción a las directivas personalizadas]
 
 1. Cree un proyecto en Visual Studio, para lo que debe seleccionar **Archivo** >  **Nuevo** > **Proyecto**.
 
-2. En la ventana **Nuevo proyecto**, seleccione **Visual C#** > **Web** > **Aplicación web ASP.NET (.NET Framework)**.
+2. En la ventana **Nuevo proyecto**, seleccione **Visual C#**  > **Web** > **Aplicación web ASP.NET (.NET Framework)** .
 
 3. En el cuadro **Nombre**, escriba el nombre de la aplicación (por ejemplo, *Contoso.AADB2C.API*) y seleccione **Aceptar**.
 
@@ -248,13 +248,13 @@ Un proveedor de notificaciones puede tener varios perfiles técnicos por distint
 
 El siguiente fragmento de código de XML contiene un proveedor de reclamaciones con dos perfiles técnicos:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: define el servicio RESTful.
+* **TechnicalProfile Id="REST-API-SignUp"** : define el servicio RESTful.
   * `Proprietary` se describe como protocolo de un proveedor basado en REST.
   * `InputClaims` define las notificaciones que se enviarán desde Azure AD B2C al servicio REST.
 
     En este ejemplo, el contenido de la notificación `givenName` se envía al servicio REST como `firstName`, el contenido de la notificación `surname` se envía al servicio REST como `lastName` y `email` se envía tal cual. El elemento `OutputClaims` define las notificaciones que se recuperan del servicios REST para Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: agrega un perfil técnico de validación a un perfil técnico existente (definido en la directiva de base). Durante el recorrido del registro, el perfil técnico de validación invoca el perfil técnico anterior. Si el servicio REST devuelve un error HTTP 409 (un error de conflicto), el mensaje de error se muestra al usuario.
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : agrega un perfil técnico de validación a un perfil técnico existente (definido en la directiva de base). Durante el recorrido del registro, el perfil técnico de validación invoca el perfil técnico anterior. Si el servicio REST devuelve un error HTTP 409 (un error de conflicto), el mensaje de error se muestra al usuario.
 
 Busque el nodo `<ClaimsProviders>` y agregue el siguiente fragmento de código XML al nodo `<ClaimsProviders>`:
 

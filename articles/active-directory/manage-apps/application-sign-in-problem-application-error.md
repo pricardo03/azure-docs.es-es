@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234fc94a0a2ad3d3bee49853cf1dfc6a805a0166
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825397"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742383"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Error en la página de aplicación después de iniciar sesión
 
@@ -67,9 +67,11 @@ Para agregar un atributo en la configuración de Azure AD para enviarlo en la re
 
 La próxima vez que el usuario inicie sesión en la aplicación, Azure AD enviará el nuevo atributo en la respuesta de SAML.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>La aplicación espera un formato o un valor de identificador de usuario diferente
+## <a name="the-application-doesnt-identify-the-user"></a>La aplicación no identifica el usuario
 
-El inicio de sesión en la aplicación falla porque la respuesta de SAML no encuentra los atributos, por ejemplo, los roles, o porque la aplicación espera un formato diferente para el atributo EntityID.
+El inicio de sesión a la aplicación tiene errores porque la respuesta de SAML no tiene atributos, como los roles o porque la aplicación espera un formato diferente o un valor para el atributo EntityID.
+
+Si usas [Azure AD aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para crear, mantener y quitar usuarios de la aplicación. A continuación, compruebe que el usuario se ha aprovisionado correctamente a la aplicación de SaaS. Para obtener más información, consulte [no se está aprovisionando ningún usuario a una aplicación de galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Incorporación de un atributo en la configuración de la aplicación de Azure AD:
 

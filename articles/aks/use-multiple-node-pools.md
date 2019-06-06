@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235766"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475457"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Obtener una vista previa: crear y administrar varios grupos de nodos para un clúster en Azure Kubernetes Service (AKS)
 
@@ -74,6 +74,7 @@ Al crear y administrar clústeres AKS que admiten varios grupos de nodos, se apl
 * No se puede eliminar el primer grupo de nodos.
 * No se puede usar el complemento de enrutamiento de aplicación HTTP.
 * No puede utilizar una plantilla de Resource Manager existente al igual que con la mayoría de las operaciones de grupos de nodos de agregar/actualizar/eliminar. En su lugar, [usar una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en grupos de nodos en un clúster de AKS.
+* No se puede usar el Escalador automático de clúster (actualmente en versión preliminar de AKS).
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
 
@@ -222,7 +223,7 @@ Tarda unos minutos en eliminar los nodos y el grupo de nodos.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Especifique un tamaño de máquina virtual para un grupo de nodos
 
-En los ejemplos anteriores para crear un grupo de nodos, se usó un tamaño de máquina virtual predeterminada para los nodos creados en el clúster. Es un escenario más común para que crear grupos de nodos con diferentes tamaños de máquina virtual y capacidades. Por ejemplo, puede crear un grupo de nodos que contiene los nodos con grandes cantidades de memoria o CPU, o un grupo de nodos que proporciona compatibilidad con GPU. En el paso siguiente, que [uso taints y tolerations][#schedule-pods-using-taints-and-tolerations] para indicar que el programador de Kubernetes a cómo limitar el acceso a los pods que se pueden ejecutar en esos nodos.
+En los ejemplos anteriores para crear un grupo de nodos, se usó un tamaño de máquina virtual predeterminada para los nodos creados en el clúster. Es un escenario más común para que crear grupos de nodos con diferentes tamaños de máquina virtual y capacidades. Por ejemplo, puede crear un grupo de nodos que contiene los nodos con grandes cantidades de memoria o CPU, o un grupo de nodos que proporciona compatibilidad con GPU. En el paso siguiente, se [usar taints y tolerations](#schedule-pods-using-taints-and-tolerations) para indicar que el programador de Kubernetes a cómo limitar el acceso a los pods que se pueden ejecutar en esos nodos.
 
 En el ejemplo siguiente, cree un grupo de nodos basado en GPU que usa el *Standard_NC6* tamaño de máquina virtual. Estas máquinas virtuales cuentan con la tarjeta Tesla K80 de NVIDIA. Para obtener información sobre los tamaños de máquina virtual disponibles, consulte [tamaños de máquinas virtuales Linux en Azure][vm-sizes].
 
@@ -332,7 +333,7 @@ Solo los pods que tienen este su sabor aplicado pueden programarse en nodos *gpu
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Administrar grupos de nodos mediante una plantilla de Resource Manager
 
-Cuando usa una plantilla de Azure Resource Manager para crear y los recursos administrados, normalmente puede actualizar la configuración de la plantilla y volver a implementar para actualizar el recurso. Con nodepools en AKS, no se puede actualizar el perfil nodepool inicial una vez creado el clúster de AKS. Este comportamiento significa que no se puede actualizar una plantilla de Resource Manager existente, realice un cambio en los grupos de nodos y volver a implementar. En su lugar, debe crear una plantilla de Resource Manager independiente que actualiza los grupos de agentes para un clúster AKS existente.
+Cuando usa una plantilla de Azure Resource Manager para crear y los recursos administrados, normalmente puede actualizar la configuración de la plantilla y volver a implementar para actualizar el recurso. Con grupos de nodos de AKS, no se puede actualizar el perfil del grupo de nodos inicial una vez creado el clúster de AKS. Este comportamiento significa que no se puede actualizar una plantilla de Resource Manager existente, realice un cambio en los grupos de nodos y volver a implementar. En su lugar, debe crear una plantilla de Resource Manager independiente que actualiza los grupos de agentes para un clúster AKS existente.
 
 Crear una plantilla como `aks-agentpools.json` y pegue el siguiente ejemplo de manifiesto. Esta plantilla de ejemplo configura los valores siguientes:
 
@@ -437,7 +438,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo ha aprendido a crear y administrar varios grupos de nodos en un clúster de AKS. Para obtener más información acerca de cómo controlar los pods a través de grupos de nodos, vea [procedimientos recomendados para las características avanzadas de programador en AKS][operator-best-practices-advanced-scheduler].
+En este artículo, aprendió a crear y administrar varios grupos de nodos en un clúster de AKS. Para obtener más información acerca de cómo controlar los pods a través de grupos de nodos, vea [procedimientos recomendados para las características avanzadas de programador en AKS][operator-best-practices-advanced-scheduler].
 
 Para crear y usar grupos de nodos de contenedor de Windows Server, vea [crear un contenedor de Windows Server en AKS][aks-windows].
 

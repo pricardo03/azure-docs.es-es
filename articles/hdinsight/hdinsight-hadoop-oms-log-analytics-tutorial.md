@@ -2,18 +2,17 @@
 title: Los registros de uso de Azure Monitor para supervisar clústeres de HDInsight de Azure
 description: Aprenda a usar los registros de Azure Monitor para supervisar trabajos que se ejecutan en un clúster de HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/03/2019
+ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203673"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479254"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Los registros de uso de Azure Monitor para supervisar clústeres de HDInsight
 
@@ -49,21 +48,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En esta sección, configurará un clúster de HDInsight Hadoop existente para usar un área de trabajo de Azure Log Analytics para supervisar trabajos, depurar registros, etc.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Desde el [portal Azure](https://portal.azure.com/), seleccione el clúster.  Consulte [Enumeración y visualización de clústeres](./hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva página del portal.
 
-2. En el menú izquierdo, seleccione **Todos los servicios**.
+1. Desde la izquierda, en **Supervisión**, seleccione **Operations Management Suite**.
 
-3. Seleccione **Clústeres de HDInsight** en **ANALYTICS**.
+1. En la vista principal, en **Supervisión de OMS**, seleccione **Habilitar**.
 
-4. Seleccione el clúster en la lista.
+1. En la lista desplegable **Seleccionar un área de trabajo**, seleccione un área de trabajo de Log Analytics existente.
 
-5. Desde la izquierda, en **Supervisión**, seleccione **Operations Management Suite**.
-
-6. En la vista principal, en **Supervisión de OMS**, seleccione **Habilitar**.
-
-7. En la lista desplegable **Seleccionar un área de trabajo**, seleccione un área de trabajo de Log Analytics existente.
-
-8. Seleccione **Guardar**.  Guardar la configuración tarda unos minutos.
+1. Seleccione **Guardar**.  Guardar la configuración tarda unos minutos.
 
     ![Habilitar la supervisión para clústeres de HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 

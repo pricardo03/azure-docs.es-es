@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: 6fbbdb67478d0b45a2cc2ecb8a44fac140e72da5
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.date: 06/03/2019
+ms.openlocfilehash: 42ef03d604caacf5ba18773b88e892237b5f0eae
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851867"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688534"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio
 
@@ -33,10 +33,10 @@ Para completar este tutorial y usar Data Lake Tools para Visual Studio, se neces
 
 * Un clúster de HDInsight de Azure. Para crear un clúster de HDInsight, consulte [Introducción a Apache Hadoop en Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Para ejecutar consultas interactivas de Apache Hive, necesita un clúster de [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md).  
 
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/) (2013 o versiones posteriores).  El [edición Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) es gratuito.  Consulte también, [instalar Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) y [2019 de Visual Studio](https://visualstudio.microsoft.com/downloads/).
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) (2013 o versiones posteriores).  El [edición Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) es gratuito.  Consulte también, [instalar Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) y [2019 de Visual Studio](https://visualstudio.microsoft.com/downloads/). Hay variaciones de la interfaz ligera con Visual Studio de 2019.
 
   > [!IMPORTANT]  
-  > Ya no se admite herramientas de Data Lake para Visual Studio 2013. 
+  > Ya no se admite herramientas de Data Lake para Visual Studio 2013.
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Instalación de Data Lake Tools para Visual Studio  
 <a name="install-or-update-data-lake-tools-for-visual-studio"></a>
@@ -85,7 +85,7 @@ Para conectarse a su suscripción de Azure:
 
    ![Captura de pantalla de la lista de clústeres de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png "Lista de clústeres de Data Lake Tools para Visual Studio en el Explorador de servidores")
 
-5. Expanda un clúster de HDInsight. **Bases de datos de Hive**, aparecerán una cuenta de almacenamiento predeterminada, cuentas de almacenamiento vinculadas y un **registro del servicio Hadoop**. Puede expandir las entidades.
+5. Expanda un clúster de HDInsight. **Las bases de datos de Hive**, una cuenta de almacenamiento de forma predeterminada, las cuentas de almacenamiento vinculadas, y **registro del servicio Hadoop** aparecen. Puede expandir las entidades.
 
 Una vez conectado a su suscripción de Azure, puede realizar las siguientes tareas.
 
@@ -93,19 +93,20 @@ Para conectarse a Azure Portal desde Visual Studio:
 
 1. En el Explorador de servidores, vaya a **Azure** > **HDInsight** y seleccione el clúster.
 
-2. Haga clic en un clúster de HDInsight y seleccione **administrar el clúster en Azure Portal**.
+2. Haga clic en un clúster de HDInsight y seleccione **administrar el clúster en Azure portal [sic]** .
 
 Para formular preguntas o proporcionar comentarios desde Visual Studio:
 
 1. En el Explorador de servidores, vaya a **Azure** > **HDInsight**.
 
 2. Haga clic en **HDInsight** y seleccione **foro de MSDN** para formular preguntas, o **enviar comentarios** proporcionar comentarios.
+
 ## <a name="link-a-cluster"></a>Vinculación de un clúster
-Puede vincular un clúster, haga clic con el botón secundario en **HDInsight** , a continuación, seleccione **vincular un clúster de HDInsight**. Escriba **dirección Url de conexión**, **nombre de usuario** y **contraseña**, haga clic en **siguiente** , a continuación, **finalizar**, el clúster debería aparecer bajo el nodo de HDInsight correctamente.
+Puede vincular un clúster con el botón secundario en **HDInsight** , a continuación, seleccione **vincular un clúster de HDInsight**. Escriba **dirección Url de conexión**, **nombre de usuario** y **contraseña**, haga clic en **siguiente** , a continuación, **finalizar**, el clúster debería aparecer bajo el nodo de HDInsight correctamente.
 
 ![Captura de pantalla de Data Lake Tools para el cuadro de diálogo del clúster de vínculo de Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
-Haga clic con el botón derecho en el clúster vinculado, seleccione **editar**, usuario podría actualizar la información del clúster. Tenga en cuenta que el clúster de HDInsight agregar sólo admite Hive por ahora.
+Haga clic con el botón derecho en el clúster vinculado, seleccione **editar**, usuario podría actualizar la información del clúster. Adición de un clúster de HDInsight solo es compatible con Hive ahora.
 
 ![Captura de pantalla de Data Lake Tools para la actualización de clúster de vínculo de Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
@@ -170,7 +171,14 @@ Para crear y ejecutar consultas ad hoc:
 
 1. Haga clic en el clúster donde desea ejecutar la consulta y seleccione **escribir una consulta de Hive**.  
 
-2. Escriba las consultas de Hive.  
+2. Escriba la siguiente consulta de Hive:
+
+    ```sql
+    SELECT devicemodel, COUNT(devicemodel) AS deviceCount
+    FROM hivesampletable
+    GROUP BY devicemodel
+    ORDER BY devicemodel
+    ```
 
     El editor de Hive es compatible con IntelliSense. Data Lake Tools para Visual Studio es compatible con la carga de metadatos remotos cuando se edita un script de Hive. Por ejemplo, si escribe `SELECT * FROM`, IntelliSense muestra todos los nombres de tabla sugeridos. Cuando se especifica un nombre de tabla, IntelliSense enumera los nombres de columna. Las herramientas admiten casi todas las instrucciones DML de Hive, subconsultas y UDF integradas.
 
@@ -204,7 +212,7 @@ Para crear y ejecutar una solución de Hive:
 
 1. En la barra de menús, vaya a **archivo** > **New** > **proyecto...** .
 
-2. En el panel izquierdo, vaya a **instalado** > **Azure Data Lake** > **HIVE (HDInsight)**.  
+2. En el panel izquierdo, vaya a **instalado** > **Azure Data Lake** > **HIVE (HDInsight)** .  
 
 3. En el panel del medio, seleccione **Aplicación Hive**. Escriba las propiedades y seleccione **Aceptar**.
 
@@ -237,7 +245,7 @@ El gráfico del trabajo no puede aparecer incluso si se especifica Tez como moto
 ![Gráfico del trabajo](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png "resumen del trabajo de Hive")
 
 
-### <a name="task-execution-detail"></a>Detalles de ejecución de la tarea
+### <a name="task-execution-detail"></a>Detalles de ejecución de tareas
 
 En el gráfico del trabajo, puede seleccionar **detalles de ejecución de tarea** para obtener información de trabajos de Hive estructurada y visualizada. También puede obtener más información del trabajo. Si se produce algún problema de rendimiento, puede usar la vista para obtener más información sobre el mismo. Por ejemplo, puede obtener información acerca de cómo funciona cada tarea e información detallada acerca de cada tarea (lectura y escritura de datos, hora de programación/inicio/fin, etc.). Esta información se puede usar para ajustar las configuraciones de trabajo o la arquitectura del sistema en función de la información visualizada.
 
@@ -266,7 +274,7 @@ Para ver trabajos de Hive:
 
 1. En la barra de menús, vaya a **archivo** > **New** > **proyecto...** .
 
-2. En el panel izquierdo, vaya a **instalado** > **Azure Data Lake** > **Pig (HDInsight)**.  
+2. En el panel izquierdo, vaya a **instalado** > **Azure Data Lake** > **Pig (HDInsight)** .  
 
 3. En el panel central, seleccione **Pig Application**. Escriba las propiedades y seleccione **Aceptar**.
 

@@ -2,20 +2,20 @@
 title: Adición de ADFS como proveedor de identidades de SAML mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
 description: Configurar ADFS 2016 mediante el protocolo SAML y las directivas personalizadas en Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767990"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510433"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Agregar ADFS como proveedor de identidades de SAML mediante las directivas personalizadas de Azure Active Directory B2C
 
@@ -144,7 +144,7 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
 Para usar ADFS como proveedor de identidades en Azure AD B2C, debe crear una relación de confianza para usuarios de confianza de ADFS con los metadatos de SAML de Azure AD B2C. En el ejemplo siguiente se muestra una dirección URL a los metadatos SAML de un perfil técnico de Azure AD B2C:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Reemplace los valores siguientes:
@@ -170,7 +170,7 @@ Abra un explorador y vaya a esta dirección URL. Asegúrese de escribir la direc
     | Atributo LDAP | Tipo de notificación saliente |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
-    | Apellido | family_name |
+    | Surname | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | email |
     | Display-Name | Nombre |

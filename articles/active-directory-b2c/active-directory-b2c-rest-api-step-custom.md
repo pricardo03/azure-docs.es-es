@@ -2,20 +2,20 @@
 title: 'Azure Active Directory B2C: intercambios de notificaciones de API de REST | Microsoft Docs'
 description: Agregue los intercambios de notificaciones de API de REST para las directivas personalizadas de B2C de Active Directory.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e705c12782310597ea14d5253aba8b6a1a004e6d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952779"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508766"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Agregue los intercambios de notificaciones de API de REST para las directivas personalizadas en Azure Active Directory B2C
 
