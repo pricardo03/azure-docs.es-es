@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796908"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514655"
 ---
 # <a name="request-limits-for-translator-text"></a>Límites de solicitudes de Translator Text
 
@@ -29,16 +29,16 @@ La siguiente tabla se enumeran elemento y el carácter límites de la matriz par
 
 | Operación | Tamaño máximo del elemento de matriz |   Número máximo de elementos de matriz |  Tamaño máximo de solicitud (caracteres) |
 |:----|:----|:----|:----|
-| Trasladar | 5.000 | 100   | 5.000 |
+| Translate | 5.000 | 100   | 5.000 |
 | Transliterar | 5.000 | 10    | 5.000 |
-| Detectar | 10 000 | 100 |   50,000 |
+| Detect | 10 000 | 100 |   50,000 |
 | BreakSentence | 10 000    | 100 | 5,0000 |
 | Búsqueda en diccionario| 100 |  10  | 1000 |
 | Ejemplos de diccionario | 100 para texto y 100 para la traducción (total de 200)| 10|   2.000 |
 
 ## <a name="character-limits-per-hour"></a>Límites de caracteres por hora
 
-El límite de caracteres por hora se basa en el nivel de suscripción de Translator Text. La cuota por hora se debe consumir uniformemente a lo largo de la hora. Si alcanzar o superar estos límites o enviar demasiado grande de una parte de la cuota en un breve período de tiempo, probablemente recibirá una salida de respuesta de la cuota. 
+El límite de caracteres por hora se basa en el nivel de suscripción de Translator Text. La cuota por hora se debe consumir uniformemente a lo largo de la hora. Si alcanzar o superar estos límites o enviar demasiado grande de una parte de la cuota en un breve período de tiempo, probablemente recibirá una salida de respuesta de la cuota.
 
 | Nivel: | Límite de caracteres |
 |------|-----------------|
@@ -60,7 +60,7 @@ Translator Text API tiene una latencia máxima de 15 segundos con los modelos es
 
 Cuando se usa la función [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), la longitud de la oración se limita a 275 caracteres. Existen excepciones para estos idiomas:
 
-| Idioma | Código | Límite de caracteres |
+| Lenguaje | Código | Límite de caracteres |
 |----------|------|-----------------|
 | Chino | zh | 132 |
 | Alemán | de | 290 |
@@ -69,7 +69,7 @@ Cuando se usa la función [BreakSentence](https://docs.microsoft.com/azure/cogni
 | Portugués | pt | 290 |
 | Español | es | 280 |
 | Italiano | it | 280 |
-| Tailandés | .º | 258 |
+| Tailandés | th | 258 |
 
 > [!NOTE]
 > Este límite no se aplica a las traducciones.

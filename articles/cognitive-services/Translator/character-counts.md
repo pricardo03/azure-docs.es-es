@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 157b809c1f1707cdaa561ab09486cf4886fff4e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389228"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514283"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Cómo hace Translator Text API para contar caracteres
 
@@ -35,7 +35,7 @@ Lo que importa es:
 
 Para los scripts basados en ideogramas, como el chino y kanji japonés, Translator Text API aún contará el número de puntos de código Unicode, un carácter por ideograma. Excepción: Los suplentes Unicode cuentan como dos caracteres.
 
-El número de solicitudes, palabras, frases o bytes es irrelevante en el recuento de caracteres. 
+El número de solicitudes, palabras, frases o bytes es irrelevante en el recuento de caracteres.
 
 Las llamadas a los métodos Detect y BreakSentence no se cuentan en el consumo de caracteres. Sin embargo, se espera que las llamadas a los métodos Detect y BreakSentence tengan una proporción razonable frente al uso de otras funciones que se cuentan. Si el número de llamadas Detect o BreakSentence que hace supera en 100 veces el número de otros métodos contados, Microsoft se reserva el derecho a restringir el uso de los métodos Detect y BreakSentence.
 

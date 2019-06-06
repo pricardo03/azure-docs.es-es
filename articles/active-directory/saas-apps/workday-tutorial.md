@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9c8d1fb234efd5df297082cfc1001f28ca1656
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990350"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388869"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Tutorial: Integración de Workday con Azure Active Directory
 
@@ -31,7 +31,7 @@ En este tutorial, obtendrá información sobre cómo integrar Workday con Azure 
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Workday con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -80,7 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml2.flex`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.workday.com`
 
@@ -88,7 +88,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. La URL de respuesta debe tener un subdominio (por ejemplo, www, wd2, wd3, wd3-impl, wd5 y wd5-impl).
-    > Algo como `http://www.myworkday.com` funciona, pero `http://myworkday.com` no. Póngase en contacto con el [equipo de soporte técnico de Workday](https://www.workday.com/partners-services/services/support.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Algo como `http://www.myworkday.com` funciona, pero `http://myworkday.com` no. Póngase en contacto con el [equipo de soporte técnico de Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. La aplicación Workday espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación Workday espera que **nameidentifier** se asigne con **user.mail**, **UPN** etc., por lo que debe editar la asignación de atributos haciendo clic en el icono **Editar** y cambiar dicha asignación.
 
@@ -107,7 +107,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![imagen](./media/workday-tutorial/signing-option.png)
 
-     a. Seleccione **Opción de firma** como **Firmar respuesta y aserción SAML**.
+    a. Seleccione **Opción de firma** como **Firmar respuesta y aserción SAML**.
 
     b. Haga clic en **Guardar**
 
@@ -127,7 +127,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Direcciones URL de redirección](./media/workday-tutorial/IC7829581.png "Direcciones URL de redirección")
 
-     a. Haga clic en **Add Row**(Agregar fila).
+    a. Haga clic en **Add Row**(Agregar fila).
 
     b. En los cuadros de texto **Dirección URL de redireccionamiento de inicio de sesión**, **Dirección URL de redireccionamiento de tiempo de espera** y **Dirección URL de redireccionamiento móvil**, pegue la **Dirección URL de inicio de sesión** que ha copiado de la sección **Set up Workday** (Configurar Workday) de Azure Portal.
 
@@ -138,13 +138,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    > [!NOTE]
    > El valor del atributo Entorno está vinculado con el valor de la URL del inquilino:  
    > -Si el nombre de dominio de la URL de inquilino de Workday empieza por impl (por ejemplo, *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), el atributo **Entorno** tiene que establecerse en Implementación.  
-   > Si el nombre de dominio empieza por otra cosa, deberá ponerse en contacto con el [equipo de soporte técnico de Workday](https://www.workday.com/partners-services/services/support.html) para obtener el valor de **Entorno** coincidente.
+   > Si el nombre de dominio empieza por otra cosa, deberá ponerse en contacto con el [equipo de soporte técnico de Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obtener el valor de **Entorno** coincidente.
 
 4. En la sección **Configuración de SAML** , realice los pasos siguientes:
 
     ![Configuración de SAML](./media/workday-tutorial/IC782926.png "Configuración de SAML")
 
-     a.  Seleccione **Enable SAML Authentication**(Habilitar autenticación SAML).
+    a.  Seleccione **Enable SAML Authentication**(Habilitar autenticación SAML).
 
     b.  Haga clic en **Add Row**(Agregar fila).
 
@@ -152,7 +152,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Proveedores de identidades SAML](./media/workday-tutorial/IC7829271.png "Proveedores de identidades SAML")
 
-     a. En el cuadro de texto **Identity Provider Name** (Nombre del proveedor de identidades), escriba un nombre de proveedor (por ejemplo: *SPInitiatedSSO*).
+    a. En el cuadro de texto **Identity Provider Name** (Nombre del proveedor de identidades), escriba un nombre de proveedor (por ejemplo: *SPInitiatedSSO*).
 
     b. En Azure Portal, en la sección **Set up Workday** (Configurar Workday), copie el valor de **Identificador de Azure AD** y péguelo en el cuadro de texto **Emisor**.
 
@@ -176,7 +176,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Visualización de clave pública x509](./media/workday-tutorial/IC782930.png "Visualización de clave pública x509")
 
-     a. En el cuadro de texto **Name** (Nombre), escriba un nombre para el certificado (por ejemplo: *PPE\_SP*).
+    a. En el cuadro de texto **Name** (Nombre), escriba un nombre para el certificado (por ejemplo: *PPE\_SP*).
 
     b. En el cuadro de texto **Válido desde** , escriba el valor del atributo Válido desde del certificado.
 
@@ -197,7 +197,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Configuración de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuración de SSO")
 
-     a.  En el cuadro de texto **Service Provider ID** (Id. de proveedor de servicios), escriba **https://www.workday.com** .
+    a.  En el cuadro de texto **Service Provider ID** (Id. de proveedor de servicios), escriba **https://www.workday.com** .
 
     b. Seleccione **No desinflar la solicitud de autenticación iniciada por el SP**.
 
@@ -216,7 +216,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
    1. En el campo **Nombre**, escriba `Britta Simon`.  

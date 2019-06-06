@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 2c17ef292d6afcf66d9a5aaf2c502751276bb470
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389587"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515104"
 ---
 # <a name="customize-your-text-translations"></a>Personalización de las traducciones de texto
 
@@ -51,9 +51,9 @@ Puede encontrar más detalles acerca de los diferentes niveles de personalizaci�
 |:-----|:----:|:----:|
 |Estado de la característica de personalización   | Disponibilidad general  | Disponibilidad general |
 | Versión de Text API  | Solo v2   | Solo v3 |
-| Personalización de SMT | Sí   | No |
-| Personalización de NMT | No    | Sí |
-| Nueva personalización unificada de servicios de voz | Sin     | Sí |
+| Personalización de SMT | Sí   | Sin |
+| Personalización de NMT | Sin    | Sí |
+| Nueva personalización unificada de servicios de voz | Sin    | Sí |
 | [Sin seguimiento](https://www.aka.ms/notrace) | Sí  | Sí |
 
 ## <a name="collaborative-translations-framework"></a>Marco de traducciones en colaboración

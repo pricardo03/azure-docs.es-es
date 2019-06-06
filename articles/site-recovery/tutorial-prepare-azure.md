@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691766"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417816"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparación de los recursos de Azure para la recuperación ante desastres de máquinas locales
 
@@ -75,7 +75,7 @@ Las máquinas locales se replican en los discos administrados de Azure. Cuando s
 4. Especifique el grupo de recursos en el que se creará la red. Se va a usar el grupo de recursos existente **contosoRG**.
 5. En **Intervalo de direcciones**, escriba el intervalo de la red. Usamos **10.1.0.0/24**, pero no usamos ninguna subred.
 6. En **Suscripción**, seleccione la suscripción en la que se creará la red.
-7. En **Ubicación**, seleccione la región que en que se creó el almacén de Recovery Services. En este tutorial es **Oeste de Europa**.  La red debe estar en la misma región que el almacén.
+7. En **Ubicación**, seleccione la región que en que se creó el almacén de Recovery Services. En este tutorial es **Oeste de Europa**. La red debe estar en la misma región que el almacén.
 8. Se van a dejar las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio en la red.
 9. Haga clic en **Create**(Crear).
 
