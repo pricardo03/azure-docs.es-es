@@ -133,7 +133,7 @@ Se devuelve el objeto ErrorDetails cuando se produce un error en la API de Maps.
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| código | string | El código de estado HTTP. |
+| code | string | El código de estado HTTP. |
 | message | string | Si está disponible, una descripción legible del error. |
 | innererror | InnerError | Si está disponible, un objeto que contiene información específica del servicio sobre el error. |
 
@@ -141,7 +141,7 @@ InnerError es un objeto que contiene información específica del servicio sobre
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| código | string | El mensaje de error. |
+| code | string | El mensaje de error. |
 
 El objeto "geometries" muestra los identificadores de geometría de las geovallas que han expirado en relación con la hora que especificó el usuario en la solicitud. El objeto "geometries" tiene elementos de geometría con las siguientes propiedades: 
 
