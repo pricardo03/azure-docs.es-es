@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5b3f352528087c427a05aac4c5162f90a423b793
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b92700caab27b527ae58cc0c7e8deca89c4d43f
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712003"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66727917"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual Windows en Azure con certificados SSL almacenados en Key Vault
 
@@ -33,7 +33,7 @@ Para proteger los servidores web, se puede utilizar un certificado Capa de socke
 > * Creación de una máquina virtual e instalación del servidor web IIS
 > * Inserción del certificado en la máquina virtual y configuración de IIS con un enlace SSL
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
@@ -49,7 +49,7 @@ En lugar de usar una imagen de máquina virtual personalizada que incluya los ce
 
 
 ## <a name="create-an-azure-key-vault"></a>Crear una instancia de Azure Key Vault
-Para poder crear una instancia de Key Vault y certificados, cree un grupo de recursos con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupSecureWeb* en la ubicación *Este de EE. UU.*:
+Para poder crear una instancia de Key Vault y certificados, cree un grupo de recursos con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupSecureWeb* en la ubicación *Este de EE. UU.* :
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"

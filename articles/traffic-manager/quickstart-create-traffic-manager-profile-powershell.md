@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2019
 ms.author: kumud
-ms.openlocfilehash: 6ffecf973632911113608b7478d2af2aef036257
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f6ed2e03352a335022d99cf703240552fa34e732
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344086"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729011"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Inicio rápido: Creación de un perfil de Traffic Manager para una aplicación web de alta disponibilidad mediante Azure PowerShell
 
@@ -26,7 +26,7 @@ En este inicio rápido, creará dos instancias de una aplicación web. Cada una 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
@@ -66,7 +66,7 @@ New-AzTrafficManagerProfile `
 
 ## <a name="create-web-apps"></a>Creación de aplicaciones web
 
-Para este inicio rápido, debe haber implementado dos instancias de una aplicación web en dos regiones de Azure distintas (*Oeste de EE. UU.* y *Este de EE. UU.*). Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic Manager.
+Para este inicio rápido, debe haber implementado dos instancias de una aplicación web en dos regiones de Azure distintas (*Oeste de EE. UU.* y *Este de EE. UU.* ). Cada una de ellas servirá como los puntos de conexión principal y de conmutación por error de Traffic Manager.
 
 ### <a name="create-web-app-service-plans"></a>Creación de planes de Web App Service
 Cree planes de Web App Service mediante [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) para las dos instancias de la aplicación web que implementará en dos regiones de Azure distintas.

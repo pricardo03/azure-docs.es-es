@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0eb5a33b91925260c89e0b1c23800614ed637bdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990639"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728691"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 
@@ -36,9 +36,9 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 
@@ -140,7 +140,7 @@ IpAddress
 52.168.121.216
 ```
 
-Cree una conexión remota a la primera instancia de máquina virtual. Especifique la dirección IP pública y el número de puerto de la instancia de máquina virtual necesaria, tal como se muestra en los comandos anteriores. Cuando se le solicite, escriba las credenciales que ha utilizado al crear el conjunto de escalado (de forma predeterminada en los comandos de ejemplo, *azureuser* y *P\@ssw0rd!*). Si se utiliza Azure Cloud Shell, realice este paso desde un símbolo del sistema local de PowerShell o un cliente de Escritorio remoto. En el ejemplo siguiente, se realiza una conexión a una instancia de máquina virtual *1*:
+Cree una conexión remota a la primera instancia de máquina virtual. Especifique la dirección IP pública y el número de puerto de la instancia de máquina virtual necesaria, tal como se muestra en los comandos anteriores. Cuando se le solicite, escriba las credenciales que ha utilizado al crear el conjunto de escalado (de forma predeterminada en los comandos de ejemplo, *azureuser* y *P\@ssw0rd!* ). Si se utiliza Azure Cloud Shell, realice este paso desde un símbolo del sistema local de PowerShell o un cliente de Escritorio remoto. En el ejemplo siguiente, se realiza una conexión a una instancia de máquina virtual *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

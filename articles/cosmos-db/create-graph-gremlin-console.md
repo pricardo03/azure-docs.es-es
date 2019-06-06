@@ -5,14 +5,14 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: lbosq
-ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 277755641047bf311e06d17de5fe9d39bcc3b74b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849829"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480579"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Inicio rápido: Creación, consulta y recorrido de una base de datos de grafos de Azure Cosmos DB en la consola de Gremlin
 
@@ -55,7 +55,7 @@ También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/
 
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
-    hosts|[*nombre-de-la-cuenta*.gremlin.cosmosdb.azure.com] o [*nombre-de-la-cuenta*.graphs.azure.com] para las cuentas creadas antes del 20 de diciembre de 2017|Vea la siguiente captura de pantalla. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.
+    hosts|[*account-name*.gremlin.cosmos.azure.com]|Vea la siguiente captura de pantalla. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.
     puerto|443|Se establece en 443.
     nombre de usuario|*Su nombre de usuario*|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos y `<coll>` es el nombre de la colección.
     contraseña|*La clave principal*| Ver la segunda captura de pantalla más adelante. Es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Use el botón Copiar a la izquierda del cuadro de texto para copiar el valor.
@@ -69,7 +69,7 @@ También necesita instalar la [consola de Gremlin](https://tinkerpop.apache.org/
 El archivo remote-secure.yaml debe tener este aspecto:
 
 ```
-hosts: [your_database_server.gremlin.cosmosdb.azure.com]
+hosts: [your_database_server.gremlin.cosmos.azure.com] 
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key

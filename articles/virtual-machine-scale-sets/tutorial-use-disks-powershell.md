@@ -16,29 +16,29 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984790"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728578"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
 > * Conexión y preparación de los discos de datos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
@@ -87,7 +87,7 @@ Los discos Premium están respaldados por discos de latencia reducida y alto ren
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Tamaño del disco (redondeo hacia arriba) | 32 GB | 64 GB | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) |
 | Máximo de IOPS por disco | 120 | 240 | 500 | 2,300 | 5.000 | 7500 | 7500 |
-Rendimiento de disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
+Rendimiento de disco. | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtener un mayor nivel de rendimiento dividiendo varios discos de datos. Por ejemplo, una máquina virtual Standard_GS5 puede conseguir 80 000 IOPS como máximo. Para más información sobre el número máximo de IOPS por máquina virtual, consulte los [tamaños de máquinas virtuales Windows](../virtual-machines/windows/sizes.md).
 
@@ -316,10 +316,10 @@ Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 En este tutorial, aprendió a crear y utilizar discos con conjuntos de escalado con Azure PowerShell:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
 > * Conexión y preparación de los discos de datos
 
 Vaya al siguiente tutorial para aprender a usar una imagen personalizada para las instancias de máquina virtual de su conjunto de escalado.
