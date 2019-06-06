@@ -2,20 +2,20 @@
 title: Definir un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
 description: Definir un perfil técnico de OAuth2 en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683880"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512947"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico de OAuth2 de una directiva personalizada de Azure Active Directory B2C
 
@@ -79,22 +79,22 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
-| IdTokenAudience | Sin  | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token está en una notificación devuelta por el proveedor de identidades y es igual al especificado. |
+| IdTokenAudience | Sin | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token está en una notificación devuelta por el proveedor de identidades y es igual al especificado. |
 | authorization_endpoint | Sí | La dirección URL del punto de conexión de autorización de acuerdo con RFC 6749. |
 | AccessTokenEndpoint | Sí | La dirección URL del punto de conexión del token de acuerdo con RFC 6749. |  
 | ClaimsEndpoint | Sí | La dirección URL del punto de conexión de la información de usuario de acuerdo con RFC 6749. | 
-| AccessTokenResponseFormat | Sin  | El formato de la llamada al punto de conexión del token de acceso. Por ejemplo, Facebook requiere un método HTTP GET, pero la respuesta del token de acceso está en formato JSON. |
-| AdditionalRequestQueryParameters | Sin  | Parámetros de consulta de solicitud adicionales. Por ejemplo, es posible que desee enviar parámetros adicionales a su proveedor de identidades. Puede incluir varios parámetros usando la coma como delimitador. | 
-| ClaimsEndpointAccessTokenName | Sin  | El nombre del parámetro de la cadena de consulta del token de acceso. Los puntos de conexión de notificaciones de algunos proveedores de identidades admiten la solicitud GET HTTP. En este caso, se envía el token de portador mediante un parámetro de cadena de consulta en lugar del encabezado de autorización. |
-| ClaimsEndpointFormatName | Sin  | El nombre del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el nombre como `format` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ClaimsEndpointFormat | Sin  | El valor del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el valor como `json` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ProviderName | Sin  | Nombre del proveedor de identidades. |
-| response_mode | Sin  | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
-| scope | Sin  | El ámbito de la solicitud que se define según la especificación de proveedor de identidades de OAuth2. Por ejemplo, `openid`, `profile` y `email`. |
-| HttpBinding | Sin  | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
-| ResponseErrorCodeParamName | Sin  | El nombre del parámetro que contiene el mensaje de error devuelto a través de HTTP 200 (OK). |
-| ExtraParamsInAccessTokenEndpointResponse | Sin  | Contiene los parámetros adicionales que pueden devolverse en la respuesta de **AccessTokenEndpoint** por algunos proveedores de identidades. Por ejemplo, la respuesta de **AccessTokenEndpoint** contiene un parámetro adicional, como `openid`, que es un parámetro obligatorio además del elemento access_token en una cadena de consulta de solicitud **ClaimsEndpoint**. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |
-| ExtraParamsInClaimsEndpointRequest | Sin  | Contiene los parámetros adicionales que pueden devolverse en la solicitud **ClaimsEndpoint** por algunos proveedores de identidades. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |
+| AccessTokenResponseFormat | Sin | El formato de la llamada al punto de conexión del token de acceso. Por ejemplo, Facebook requiere un método HTTP GET, pero la respuesta del token de acceso está en formato JSON. |
+| AdditionalRequestQueryParameters | Sin | Parámetros de consulta de solicitud adicionales. Por ejemplo, es posible que desee enviar parámetros adicionales a su proveedor de identidades. Puede incluir varios parámetros usando la coma como delimitador. | 
+| ClaimsEndpointAccessTokenName | Sin | El nombre del parámetro de la cadena de consulta del token de acceso. Los puntos de conexión de notificaciones de algunos proveedores de identidades admiten la solicitud GET HTTP. En este caso, se envía el token de portador mediante un parámetro de cadena de consulta en lugar del encabezado de autorización. |
+| ClaimsEndpointFormatName | Sin | El nombre del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el nombre como `format` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
+| ClaimsEndpointFormat | Sin | El valor del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el valor como `json` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
+| ProviderName | Sin | Nombre del proveedor de identidades. |
+| response_mode | Sin | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
+| scope | Sin | El ámbito de la solicitud que se define según la especificación de proveedor de identidades de OAuth2. Por ejemplo, `openid`, `profile` y `email`. |
+| HttpBinding | Sin | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
+| ResponseErrorCodeParamName | Sin | El nombre del parámetro que contiene el mensaje de error devuelto a través de HTTP 200 (OK). |
+| ExtraParamsInAccessTokenEndpointResponse | Sin | Contiene los parámetros adicionales que pueden devolverse en la respuesta de **AccessTokenEndpoint** por algunos proveedores de identidades. Por ejemplo, la respuesta de **AccessTokenEndpoint** contiene un parámetro adicional, como `openid`, que es un parámetro obligatorio además del elemento access_token en una cadena de consulta de solicitud **ClaimsEndpoint**. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |
+| ExtraParamsInClaimsEndpointRequest | Sin | Contiene los parámetros adicionales que pueden devolverse en la solicitud **ClaimsEndpoint** por algunos proveedores de identidades. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 

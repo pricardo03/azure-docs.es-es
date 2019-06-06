@@ -4,14 +4,14 @@ description: Use Azure Resource Manager y Azure PowerShell para implementar recu
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779956"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476982"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -35,6 +35,8 @@ Para implementar en un **suscripción**, utilice [New AzDeployment](/powershell/
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
+Actualmente, solo se admiten las implementaciones de grupo de administración a través de la API de REST. Consulte [implementación de recursos con plantillas de Resource Manager y API de REST de Resource Manager](resource-group-template-deploy-rest.md).
+
 Los ejemplos en este artículo usan las implementaciones de grupo de recursos. Para obtener más información acerca de las implementaciones de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -44,7 +46,7 @@ Necesita una plantilla para implementar. Si aún no tiene uno, descargue y guard
 A menos que use Azure Cloud shell para implementar plantillas, es preciso instalar Azure PowerShell y conéctese a Azure:
 
 - **Instale los cmdlets de Azure PowerShell en el equipo local.** Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Conéctese a Azure utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para más información, consulte [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Uso de varias suscripciones de Azure).
+- **Conéctese a Azure utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para más información, consulte [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Uso de varias suscripciones de Azure).
 
 ## <a name="deploy-local-template"></a>Implementar una plantilla local
 

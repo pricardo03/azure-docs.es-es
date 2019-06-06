@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388154"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742475"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -81,7 +81,7 @@ Las aplicaciones que admiten el perfil SCIM descrito en este artículo se pueden
    *Ilustración 3: Configuración del aprovisionamiento en Azure Portal*
     
 1. En el campo **Dirección URL del inquilino**, escriba la dirección URL del punto de conexión SCIM de la aplicación. Ejemplo: https://api.contoso.com/scim/v2/
-1. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. Si este campo se deja en blanco, Azure AD incluye un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token que emitió Azure AD.
+1. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. 
 1. Seleccione **Probar conexión** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si el intento falla, se muestra información de error.  
 
     >[!NOTE]
@@ -667,8 +667,7 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
     
 1. En el campo **URL de inquilino**, escriba la dirección URL expuesta a Internet y el puerto del punto de conexión SCIM. La entrada es algo parecido a http://testmachine.contoso.com:9000 o http://\<ip-address>:9000/, donde \<ip-address> es la dirección IP expuesta a Internet. 
 
-1. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. Si este campo se deja en blanco, Azure AD incluirá un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token emitido por Azure AD.
-
+1. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. 
 1. Seleccione **Probar conexión** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si el intento falla, se muestra información de error.  
 
     >[!NOTE]
@@ -1328,7 +1327,7 @@ Los recursos del grupo se identifican mediante el identificado de esquema `urn:i
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |título |
-| mail |emails[type eq "work"].value |
+| correo |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -1343,10 +1342,10 @@ Los recursos del grupo se identifican mediante el identificado de esquema `urn:i
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabla 2: Asignación de atributos de grupo predeterminada
 
-| Grupo de Azure Active Directory  | urn:ietf:params:scim:schemas:core:2.0:Group |
+| Grupo de Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | DisplayName |externalId |
-| mail |emails[type eq "work"].value |
+| correo |emails[type eq "work"].value |
 | mailNickname |DisplayName |
 | members |members |
 | objectId |ID |

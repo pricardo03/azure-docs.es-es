@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073136"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743102"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 
@@ -55,6 +55,9 @@ Las tres versiones de Azure SQL Database ofrecen la posibilidad de escalar diná
 - Con una [base de datos única](sql-database-single-database-scale.md), se pueden usar los modelos de [DTU](sql-database-dtu-resource-limits-single-databases.md) o [núcleo virtual](sql-database-vcore-resource-limits-single-databases.md) para definir la cantidad máxima de recursos que se asignarán a cada base de datos.
 - En [Instancia administrada](sql-database-managed-instance.md) se usa el modo de [núcleos virtuales](sql-database-managed-instance.md#vcore-based-purchasing-model) y se puede definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia comparten los recursos asignados a la instancia.
 - Los [grupos elásticos](sql-database-elastic-pool-scale.md) permiten definir el límite máximo de recursos por grupo de bases de datos en el grupo.
+
+> [!NOTE]
+> Puede esperar un salto short conexión cuando el escalado vertical o proceso de reducción está terminado. Si ha implementado [lógica de reintento para errores transitorios estándares](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), no observará la conmutación por error.
 
 ## <a name="alternative-scale-methods"></a>Métodos de escala alternativos
 

@@ -12,36 +12,36 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239416"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431258"
 ---
-# <a name="security-model-of-azure-notification-hubs"></a>Modelo de seguridad de Azure Notification Hubs
+# <a name="notification-hubs-security"></a>Seguridad de Notification Hubs
 
 ## <a name="overview"></a>Información general
 
-En este tema se describe el modelo de seguridad de Azure Notification Hubs. Dado que los centros de notificaciones son una entidad de Service Bus, implementan el mismo modelo de seguridad que Service Bus. Para obtener más información, consulte los temas de [autenticación de Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) .
+En este tema se describe el modelo de seguridad de Azure Notification Hubs.
 
 ## <a name="shared-access-signature-security-sas"></a>Seguridad de Firma de acceso compartido (SAS)
 
 Notification Hubs implementa un esquema de seguridad de nivel de entidad llamado SAS (Firma de acceso compartido). Este esquema permite a las entidades de mensajería declarar hasta 12 reglas de autorización en su descripción que conceden derechos sobre esa entidad.
 
-Cada regla contiene un nombre, un valor de clave (secreto compartido) y un conjunto de derechos, tal como se explica en la sección "Notificaciones de seguridad". Al crear un Centro de notificaciones, automáticamente se crean dos reglas: una con derechos de escucha (que usa la aplicación cliente) y otra con todos los derechos (que usa el back-end de la aplicación).
+Cada regla contiene un nombre, un valor de clave (secreto compartido) y un conjunto de derechos, tal como se explica en [notificaciones de seguridad](#security-claims). Al crear un centro de notificaciones, automáticamente se crean dos reglas: una con **escuchar** derechos (que usa la aplicación cliente) y otro con **todas** derechos (que usa el back-end de aplicación).
 
 Al realizar la administración de registros desde aplicaciones cliente, si la información enviada a través de notificaciones no es confidencial (por ejemplo, actualizaciones del información meteorológica), una forma común de acceder a un Centro de notificaciones es dar al valor de clave de la regla acceso de solo escucha a la aplicación cliente y proporcionar al valor de clave de la regla acceso completo al back-end de la aplicación.
 
-No se recomienda insertar el valor de clave en aplicaciones cliente de Tienda Windows. Una manera de evitar insertar el valor de clave es que la aplicación cliente lo recupere del back-end de la aplicación en el inicio.
+Las aplicaciones no debe insertar el valor de clave en las aplicaciones cliente de Windows Store, en su lugar tiene la aplicación cliente recuperar desde el back-end de aplicación en el inicio.
 
-Es importante comprender que la clave con acceso de escucha permite a una aplicación cliente registrarse para cualquier etiqueta. Si la aplicación debe restringir los registros en etiquetas específicas a clientes específicos (por ejemplo, si las etiquetas representan identificadores de usuario), el back-end de la aplicación debe realizar los registros. Para obtener más información, consulte Administración de registros. Tenga en cuenta que, de este modo, la aplicación cliente no tendrá acceso directo a Notification Hubs.
+La clave con **escuchar** acceso permite que una aplicación cliente registrarse para cualquier etiqueta. Si la aplicación debe restringir los registros en etiquetas específicas a clientes específicos (por ejemplo, si las etiquetas representan identificadores de usuario), el back-end de aplicación debe realizar los registros. Para obtener más información, consulte [administración de registros](notification-hubs-push-notification-registration-management.md). Tenga en cuenta que, de este modo, la aplicación cliente no tendrá acceso directo a Notification Hubs.
 
 ## <a name="security-claims"></a>Notificaciones de seguridad
 
-De modo similar a otras entidades, las operaciones del Centro de notificaciones se permiten para tres notificaciones de seguridad: escucha, envío y administración.
+De modo similar a otras entidades, las operaciones del Centro de notificaciones se permiten para tres notificaciones de seguridad: **Escuchar**, **enviar**, y **administrar**.
 
 | Notificación   | DESCRIPCIÓN                                          | Operaciones permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |

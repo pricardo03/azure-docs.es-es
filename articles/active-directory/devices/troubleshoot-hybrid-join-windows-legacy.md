@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76177972cbd002793f5d9fc4ab8bbe6ef2121e91
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106698"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474298"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -87,7 +87,7 @@ Si el dispositivo no estaba unido a Azure AD híbrido, puede intentar unirlo hac
     
   - Autoworkplace.exe no puede autenticarse de forma silenciosa con Azure AD o AD FS. Esto puede deberse a la falta o mala configuración de AD FS (para dominios federados) o a la falta o mala configuración del inicio de sesión único de conexión directa de Azure AD (para dominios administrados) o a problemas de red. 
     
-    - Podría ser que la autenticación de multifactor (MFA) esté habilitada o configurada para el usuario, y WIAORMUTLIAUTHN no esté configurado en el servidor de AD FS. 
+    - Es posible que la autenticación multifactor (MFA) está habilitada o configurada para el usuario y WIAORMULTIAUTHN no está configurado en el servidor de AD FS. 
      
     - Otra posibilidad es que la página de detección de dominio de inicio (HRD) esté esperando a la interacción del usuario, lo que impide que **autoworkplace.exe** solicite de forma silenciosa un token.
      

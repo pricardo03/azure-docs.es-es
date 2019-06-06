@@ -11,32 +11,45 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 416bebc070cfcad52c6180e65f0066c46c826cbe
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 0eaf48f57c3011222b71a63d703e1ccec7aca001
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849641"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692825"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
-En este artículo aprenderá a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos continuamente. Puede implementar los modelos que haya entrenado con Azure Machine Learning, en la máquina local o que procedan de otros orígenes. 
+En este artículo, obtenga información sobre cómo usar el servicio de Azure Machine Learning para administrar el ciclo de vida de los modelos. Azure Machine Learning usa un enfoque de aprendizaje de máquinas (MLOps), lo que mejora la calidad y la coherencia de sus soluciones de aprendizaje automático. Servicio de Azure Machine Learning proporciona las siguientes funcionalidades MLOps:
 
-En el siguiente diagrama se ilustra el flujo de trabajo de implementación completo: [![Flujo de trabajo de implementación para Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+* Integración con las canalizaciones de Azure. Definir flujos de trabajo integración e implementación continua para los modelos.
+* Un registro de modelo que mantiene varias versiones de los modelos entrenados.
+* Validación del modelo. Validar los modelos entrenados y seleccione la configuración óptima para su implementación en producción automáticamente.
+* Implementar los modelos como un servicio web en la nube, localmente o en dispositivos IoT Edge.
+* Supervisar el rendimiento del modelo implementada, por lo que puede impulsar mejoras en la próxima versión del modelo.
 
-El MLOps / flujo de trabajo de implementación incluye los pasos siguientes:
-1. **Registrar el modelo** en un registro hospedado en el área de trabajo de Azure Machine Learning Services
-1. **Use** el modelo en un servicio web en la nube, en un dispositivo de IoT, o para realizar análisis con Power BI.
-1. **Supervisar y recopilar datos**
-1. **Actualizar** una implementación para usar una imagen nueva.
-
-Cada paso puede realizarse de forma independiente o como parte de un único comando. Además, puede crear un **flujo de trabajo de CI/CD** tal como se muestra en este gráfico.
-
-[!['Ciclo de implementación (CI/CD) continua e integración continua de azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+Para saber más sobre los conceptos de MLOps y cómo se aplican al servicio Azure Machine Learning, vea el siguiente vídeo.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
-## <a name="step-1-register-model"></a>Paso 1: Registro del modelo
+## <a name="integration-with-azure-pipelines"></a>Integración con las canalizaciones de Azure
+
+Puede utilizar las canalizaciones de Azure para crear un proceso de integración continua que entrena un modelo. En un escenario típico, cuando un científico de datos comprueba un cambio en el repositorio de Git para un proyecto, la canalización de Azure se iniciará una ejecución de entrenamiento. A continuación, se pueden inspeccionar los resultados de la ejecución para ver las características de rendimiento del modelo entrenado. También puede crear una canalización que se implementa el modelo como un servicio web.
+
+El [extensión de Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml) hace que sea más fácil trabajar con las canalizaciones de Azure. Proporciona las siguientes mejoras a las canalizaciones de Azure:
+
+* Habilita la selección de área de trabajo al definir una conexión de servicio.
+* Permite liberar las canalizaciones se desencadenen en los modelos entrenados creados en una canalización de aprendizaje.
+
+Para obtener más información sobre el uso de canalizaciones de Azure con Azure Machine Learning, consulte el [integración continua e implementación de modelos de aprendizaje automático con canalizaciones de Azure](/azure/devops/pipelines/targets/azure-machine-learning) artículo y el [MLOps de servicio de Azure Machine Learning](https://aka.ms/mlops) repositorio.
+
+## <a name="convert-and-optimize-models"></a>Convertir y optimizar los modelos
+
+Convertir el modelo de [intercambio de red neuronal abierta](https://onnx.ai) (ONNX) puede mejorar el rendimiento. En promedio, convertir a ONNX puede producir un aumento del rendimiento en 2.
+
+Para obtener más información sobre ONNX con el servicio de Azure Machine Learning, consulte el [Create y acelerar los modelos de aprendizaje automático](concept-onnx.md) artículo.
+
+## <a name="register-models"></a>Registrar modelos
 
 El registro del modelo permite almacenar y versionar los modelos en la nube de Azure, en su área de trabajo. El registro de modelo facilita organizar y mantener un seguimiento de los modelos entrenados.
 
@@ -51,18 +64,53 @@ Para más información, consulte la sección de registro de modelos de [Implemen
 
 Para un ejemplo de registro de un modelo almacenado en formato pickle, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes](tutorial-deploy-models-with-aml.md).
 
-## <a name="step-2-use-the-model"></a>Paso 2: Usar el modelo
+## <a name="package-and-debug-models"></a>Modelos de paquetes y depuración
 
-Modelos de Machine learning pueden usarse como un servicio web, en dispositivos IoT Edge, o para realizar análisis de servicios como Power BI.
+Antes de implementar un modelo en producción, lo se empaqueta en una imagen de Docker. En la mayoría de los casos, la creación de imágenes produce automáticamente en segundo plano durante la implementación. Para escenarios avanzados, puede especificar manualmente la imagen.
 
-### <a name="web-service"></a>Servicio Web
+Si experimenta problemas con la implementación, puede implementar en su entorno de desarrollo local para solucionar problemas y depuración.
+
+Para obtener más información, consulte [implementar modelos](how-to-deploy-and-where.md#registermodel) y [solucionar problemas en implementaciones](how-to-troubleshoot-deployment.md).
+
+## <a name="validate-and-profile-models"></a>Validar y generar perfiles de modelos
+
+Servicio Azure Machine Learning puede utilizar la generación de perfiles para determinar la configuración de CPU y memoria ideal para usarlo al implementar el modelo. Se produce la validación del modelo como parte de este proceso, con los datos que proporcione para el proceso de generación de perfiles.
+
+## <a name="use-models"></a>Usar modelos
+
+Modelos de aprendizaje automático entrenado se puede implementar como servicios web en la nube o localmente en su entorno de desarrollo. También puede implementar modelos a los dispositivos de Azure IoT Edge. Las implementaciones pueden utilizar la CPU, GPU o matrices de puertas programable de campo (FPGA) para inferencia. También puede usar modelos de Power BI.
+
+Cuando se usa un modelo como un servicio web o un dispositivo de IoT Edge, proporcione los siguientes elementos:
+
+* Los modelos que se utilizan para puntuar los datos enviados al servicio o dispositivo.
+* Un script de entrada. Este script acepta las solicitudes, usa los modelos para puntuar los datos y devolver una respuesta.
+* Un archivo de entorno de conda que describe las dependencias requeridas por el script de entrada y de modelos.
+* Los recursos adicionales, como texto, datos, etc. requeridos por el script de entrada y de modelos.
+
+Estos activos se empaqueta en una imagen de Docker e implementan como un servicio web o un módulo IoT Edge.
+
+Si lo desea, puede usar los siguientes parámetros para optimizar aún más la implementación:
+
+* Permitir GPU: Se usa para habilitar la compatibilidad con GPU en la imagen de Docker. La imagen se debe usar en los servicios de Microsoft Azure como Azure Container Instances, Azure Kubernetes Service, Azure Machine Learning Compute o máquinas virtuales de Azure.
+* Pasos del archivo de docker adicional: Un archivo que contiene los pasos adicionales de Docker para ejecutarlo al crear la imagen de Docker.
+* Imagen base: Una imagen personalizada para usarla como imagen base. Si no usa una imagen personalizada, el servicio de Azure Machine Learning proporciona la imagen base.
+
+También proporcionan la configuración de la plataforma de implementación de destino. Por ejemplo, la máquina virtual tipo de familia, la memoria disponible y número de núcleos al implementar en Azure Kubernetes Service.
+
+Cuando se crea la imagen, también se agregan los componentes requeridos por el servicio Azure Machine Learning. Por ejemplo, los recursos necesarios para ejecutar el servicio web e interactuar con IoT Edge.
+
+> [!NOTE]
+> No se puede modificar o cambiar el servidor web o los componentes de IoT Edge utilizados en la imagen de Docker. Servicio Azure Machine Learning usa una configuración de servidor web y componentes de IoT Edge que se han probado y compatible con Microsoft.
+
+### <a name="web-service"></a>Servicio web
 
 Puede usar los modelos en **servicios web** con los siguientes destinos de proceso:
 
-* Instancia de Azure Container
+* Azure Container Instances
 * Azure Kubernetes Service
+* Entorno de desarrollo local
 
-Para implementar el modelo como un servicio web, debe proporcionar lo siguiente:
+Para implementar el modelo como un servicio web, debe proporcionar los siguientes elementos:
 
 * El modelo o un conjunto de modelos.
 * Dependencias necesarias para utilizar el modelo. Por ejemplo, una secuencia de comandos que acepta solicitudes e invoca el modelo, las dependencias de conda, etcetera.
@@ -72,7 +120,8 @@ Para obtener más información, consulte [implementar modelos](how-to-deploy-and
 
 ### <a name="iot-edge-devices"></a>Dispositivos IoT Edge
 
-Puede usar modelos con dispositivos IoT a través de **módulos de Azure IoT Edge**. Módulos de IoT Edge se implementan en dispositivos de hardware, lo que permite la inferencia o modelo de puntuación en el dispositivo.
+
+Puede usar modelos con dispositivos IoT a través de **módulos de Azure IoT Edge**. Módulos de IoT Edge se implementan en un dispositivo de hardware, lo que permite la inferencia o modelo de puntuación en el dispositivo.
 
 Para obtener más información, consulte [implementar modelos](how-to-deploy-and-where.md).
 
@@ -80,17 +129,13 @@ Para obtener más información, consulte [implementar modelos](how-to-deploy-and
 
 Microsoft Power BI admite el uso de modelos de aprendizaje automático para el análisis de datos. Para obtener más información, consulte [integración de Azure Machine Learning en Power BI (versión preliminar)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## <a name="step-3-monitor-models-and-collect-data"></a>Paso 3: Supervisión de los modelos y recopilación de datos
+## <a name="monitor-and-collect-data"></a>Supervisar y recopilar datos
 
 Supervisión permite comprender qué datos se envían a su modelo y las predicciones que devuelve.
 
 Esta información le ayudará a comprender cómo se usa el modelo. Los datos recopilados de entrada también pueden ser útiles en versiones futuras de entrenamiento del modelo.
 
 Para más información, consulte [cómo habilitar la recopilación de datos de un modelo](how-to-enable-data-collection.md).
-
-## <a name="step-4-update-the-deployment"></a>Paso 4: Actualización de la implementación
-
-Las implementaciones se deben actualizar explícitamente. Para más información, consulte la sección de actualización de [Implementación de modelos](how-to-deploy-and-where.md#update).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

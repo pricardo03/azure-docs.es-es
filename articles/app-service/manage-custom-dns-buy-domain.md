@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978894"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475221"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -41,7 +41,7 @@ Para completar este tutorial:
 
 Para usar dominios personalizados en Azure App Service, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de la aplicación debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). En este paso, asegúrese de que la aplicación se encuentra en el plan de tarifa admitido.
 
-### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Abra [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
@@ -55,7 +55,7 @@ Consulte la página de administración de la aplicación de App Service.
 
 ### <a name="check-the-pricing-tier"></a>Comprobar el plan de tarifa
 
-En el panel de navegación izquierdo de la página de la aplicación, desplácese hasta la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)**.
+En el panel de navegación izquierdo de la página de la aplicación, desplácese hasta la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)** .
 
 ![Menú Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -79,10 +79,10 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 
 ## <a name="buy-the-domain"></a>Comprar el dominio
 
-### <a name="pricing-information"></a>Información sobre precios
+### <a name="pricing-information"></a>Información de precios
 Para más información sobre dominios de Azure App Service, visite la [página precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) y desplácese hasta el dominio de App Service.
 
-### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Abra [Azure Portal](https://portal.azure.com/) e inicie sesión con su cuenta de Azure.
 
 ### <a name="launch-buy-domains"></a>Iniciar Comprar dominios
@@ -138,13 +138,17 @@ De nuevo en la hoja **Dominio de App Service**, haga clic en **Aceptar**. Mientr
 
 ### <a name="test-the-hostnames"></a>Probar los nombres de host
 
-Si ha asignado nombres de host predeterminados a la aplicación, también verá una notificación de operación correcta para cada nombre de host seleccionado. 
+Si ha asignado nombres de host predeterminados a la aplicación, también verá una notificación de operación correcta para cada nombre de host seleccionado.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-También verá los nombres de host seleccionados en la página **Dominios personalizados**, en la sección **Nombres de host personalizados**. 
+También verá los nombres de host seleccionados en la página **Dominios personalizados**, en la sección **Nombres de host personalizados**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> Un **Nota Secure** etiqueta para su dominio personalizado significa que aún no está enlazado a un certificado SSL y recibirá cualquier solicitud HTTPS desde un explorador a su dominio personalizado y error o advertencia, dependiendo del explorador. Para configurar el enlace SSL, consulte [comprar y configurar un certificado SSL para Azure App Service](web-sites-purchase-ssl-web-site.md).
+>
 
 Para probar los nombres de host, vaya a los nombres de host enumerados en el explorador. En el ejemplo de la captura de pantalla anterior, intente navegar a _kontoso.net_ y _www\.kontoso.net_.
 
@@ -267,7 +271,7 @@ En Azure Portal, en el menú de la izquierda, seleccione **Todos los servicios**
 
 Seleccione el dominio que quiera cancelar o eliminar. 
 
-### <a name="delete-hostname-bindings"></a>Eliminar enlaces del nombre de host
+### <a name="delete-hostname-bindings"></a>Eliminación de enlaces de nombre de host
 
 En el menú de la izquierda del dominio, seleccione **Enlaces de nombre de host**. Aquí se enumeran los enlaces de nombre de host de todos los servicios de Azure.
 
@@ -275,7 +279,7 @@ En el menú de la izquierda del dominio, seleccione **Enlaces de nombre de host*
 
 No se puede eliminar el dominio de App Service hasta que se eliminen todos los enlaces de nombre de host.
 
-Para eliminar todos los enlaces de nombre de host, seleccione **...** > **Eliminar**. Después de eliminarlos todos, haga clic en **Guardar**.
+Para eliminar todos los enlaces de nombre de host, seleccione **...**  > **Eliminar**. Después de eliminarlos todos, haga clic en **Guardar**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 

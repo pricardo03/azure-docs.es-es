@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925895"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477990"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -82,7 +82,7 @@ IoT Hub admite actualmente los siguientes servicios de Azure como puntos de cone
 
 Para conocer los límites del número de puntos de conexión que se pueden agregar, consulte [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md).
 
-Puede usar la API de REST [obtener estado de punto de conexión](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar la [métricas de IoT Hub](iot-hub-metrics.md) relacionados con la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado de punto de conexión está inactiva o es incorrecto.
+Puede usar la API de REST [obtener estado de punto de conexión](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar la [métricas de IoT Hub](iot-hub-metrics.md) relacionados con la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del extremo no responde o está en mal estado, tal como esperábamos latencia será mayor si el punto de conexión está en uno de esos Estados.
 
 |Estado de mantenimiento|DESCRIPCIÓN|
 |---|---|

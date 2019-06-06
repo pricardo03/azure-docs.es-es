@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 69399513291a47f7109003e825052314f447125a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 01c1711fb70d31fe84c7e20272de0eb7ce82c879
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002322"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494232"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creación de filtros con la API REST de Media Services
 
-Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que el cliente necesite más flexibilidad que la descrita en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. Para obtener más información, consulte [filtros](filters-concept.md) y [los manifiestos dinámicos](filters-dynamic-manifest-overview.md).
+Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que el cliente necesite más flexibilidad que la descrita en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. 
+
+Para una descripción detallada de esta característica y los escenarios donde se utiliza, consulte [los manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [filtros](filters-concept.md).
 
 En este tema se muestra cómo definir un filtro para un recurso Vídeo bajo demanda y usar las API REST para crear [Filtros de cuenta](https://docs.microsoft.com/rest/api/media/accountfilters) y [Filtros de recurso](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
@@ -99,7 +101,7 @@ Para más información, vea el tema sobre [creación o actualización](https://d
 
 ## <a name="create-asset-filters"></a>Creación de filtros de recurso  
 
-En la colección de Postman "Media Services v3" que ha descargado, seleccione **Recursos**->**Create or update Asset Filter (Crear o actualizar filtro de recurso)**.
+En la colección de Postman "Media Services v3" que ha descargado, seleccione **Recursos**->**Create or update Asset Filter (Crear o actualizar filtro de recurso)** .
 
 El método **PUT** de solicitud HTTP es similar a:
 

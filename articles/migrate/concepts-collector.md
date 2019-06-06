@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728027"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428466"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -111,7 +111,7 @@ La comprobación de conectividad se valida mediante la conexión a una lista de 
 --- | --- | ---
 *.portal.azure.com | Se aplica a Azure Global. Comprueba la conectividad con el servicio de Azure y la sincronización horaria. | Se necesita acceso a URL.<br/><br/> Se produce un error de comprobación de requisitos previos si no hay conectividad.
 *.portal.azure.us | Se aplica solo a Azure Government. Comprueba la conectividad con el servicio de Azure y la sincronización horaria. | Se necesita acceso a URL.<br/><br/> Se produce un error de comprobación de requisitos previos si no hay conectividad.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Sirve para descargar el módulo vCenter PowerCLI de PowerShell. | Se requiere acceso a direcciones URL.<br/><br/> No se producirá un error en la comprobación de requisitos previos.<br/><br/> Se producirá un error en la instalación automática del módulo en la máquina virtual del recopilador. Deberá instalar manualmente el módulo en un equipo que tenga conectividad a internet y, a continuación, copie los módulos en el dispositivo. [Más información, vaya al paso 4 en esta guía de solución de problemas](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | Sirve para descargar el módulo vCenter PowerCLI de PowerShell. | Se requiere acceso a direcciones URL.<br/><br/> No se producirá un error en la comprobación de requisitos previos.<br/><br/> Se producirá un error en la instalación automática del módulo en la máquina virtual del recopilador. Deberá instalar manualmente el módulo en un equipo que tenga conectividad a internet y, a continuación, copie los módulos en el dispositivo. [Más información, vaya al paso 4 en esta guía de solución de problemas](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Instalar manualmente el módulo de VMware PowerCLI
@@ -214,7 +214,7 @@ Detalles del adaptador de red (por NIC) | Direcciones IPv4 | vm.Guest.Net
 Detalles del adaptador de red (por NIC) | Direcciones IPv6 | vm.Guest.Net
 Detalles del adaptador de red (por NIC) | Megabytes por segundo de rendimiento de lectura | net.received.average
 Detalles del adaptador de red (por NIC) | Megabytes por segundo de rendimiento de escritura | net.transmitted.average
-Detalles de la ruta de acceso de inventario | NOMBRE | container.GetType().Name
+Detalles de la ruta de acceso de inventario | Name | container.GetType().Name
 Detalles de la ruta de acceso de inventario | Tipo de objeto secundario | container.ChildType
 Detalles de la ruta de acceso de inventario | Información de referencia | container.MoRef
 Detalles de la ruta de acceso de inventario | Ruta de acceso del inventario completo | container.Name con ruta de acceso completa

@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '(Versión preliminar) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Zona de horaria configurar</a> durante la creación de instancias.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configurar la zona horaria</a> durante la creación de instancias.'
           - html: 'Creación de instancias con <a href="https://aka.ms/managed-instance-collation">intercalación de nivel de servidor de su elección</a>.'
           - html: 'Funcionalidad de restauración geográfica permite <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar la base de datos a otro centro de datos mediante PowerShell</a>.'
           - html: '(Versión preliminar) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Volver a crear quita bases de datos mediante PowerShell</a>'

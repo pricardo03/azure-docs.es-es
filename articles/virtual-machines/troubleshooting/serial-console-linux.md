@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389021"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735252"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola de serie de Azure para Linux
 
@@ -47,6 +47,7 @@ Para obtener documentación de la consola serie para Windows, consulte [consola 
 
 - Para conocer la configuración específica de las distribuciones de Linux, consulte [Disponibilidad de distribuciones de Linux para la consola serie](#serial-console-linux-distribution-availability).
 
+- La instancia de conjunto de escalado de máquina virtual o una máquina virtual debe configurarse para la salida de serie en `ttys0`. Este es el valor predeterminado para las imágenes de Azure, pero desea volver a comprobar esto en imágenes personalizadas. Detalles [debajo](#custom-linux-images).
 
 
 ## <a name="get-started-with-the-serial-console"></a>Introducción a la consola serie
@@ -84,6 +85,9 @@ Consola serie está disponible en una base por instancia para conjuntos de escal
 ## <a name="serial-console-linux-distribution-availability"></a>Disponibilidad de distribución de Linux de la consola serie
 Para que la consola serie funcione correctamente, el sistema operativo invitado debe configurarse para leer y escribir mensajes de la consola en el puerto serie. La mayoría de [distribuciones de Linux aprobadas por Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tienen la consola serie configurada de manera predeterminada. Si selecciona la opción **Consola serie** en la sección **Soporte técnico y solución de problemas** de Azure Portal, obtendrá acceso a la consola serie.
 
+> [!NOTE]
+> Si no ve nada en la consola serie, asegúrese de que el diagnóstico de arranque está habilitado en la máquina virtual. Alcanzar **ENTRAR** a menudo se solucionará problemas donde nada se muestre en la consola serie.
+
 Distribución      | Acceso a la consola serie
 :-----------|:---------------------
 Red Hat Enterprise Linux    | El acceso a la consola serie está habilitado de forma predeterminada.
@@ -92,10 +96,13 @@ Ubuntu      | El acceso a la consola serie está habilitado de forma predetermin
 CoreOS      | El acceso a la consola serie está habilitado de forma predeterminada.
 SUSE        | Las imágenes de SLES más nuevas disponibles en Azure tienen habilitado el acceso a la consola serie de forma predeterminada. Si está utilizando versiones anteriores (10 o inferiores) de SLES en Azure, consulte el [artículo de KB](https://www.novell.com/support/kb/doc.php?id=3456486) para habilitar la consola serie.
 Oracle Linux        | El acceso a la consola serie está habilitado de forma predeterminada.
-Imágenes personalizadas de Linux     | Para habilitar la consola serie para la imagen de VM de Linux personalizada, habilite el acceso de la consola en el archivo */etc/inittab* a fin de ejecutar un terminal en `ttyS0`. Por ejemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obtener más información sobre la creación correcta de imágenes personalizadas, consulte [Creación y carga de un VHD de Linux en Azure](https://aka.ms/createuploadvhd). Si está compilando un kernel personalizado, considere la posibilidad de habilitar las marcas de kernel `CONFIG_SERIAL_8250=y` y `CONFIG_MAGIC_SYSRQ_SERIAL=y`. El archivo de configuración se encuentra normalmente en la ruta de acceso */boot/* .
 
-> [!NOTE]
-> Si no ve nada en la consola serie, asegúrese de que el diagnóstico de arranque está habilitado en la máquina virtual. Alcanzar **ENTRAR** a menudo se solucionará problemas donde nada se muestre en la consola serie.
+### <a name="custom-linux-images"></a>Imágenes personalizadas de Linux
+Para habilitar la consola serie para la imagen de VM de Linux personalizada, habilite el acceso de la consola en el archivo */etc/inittab* a fin de ejecutar un terminal en `ttyS0`. Por ejemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+
+También deberá agregar ttys0 como destino de salida de serie. Para obtener más información sobre cómo configurar una imagen personalizada para que funcione con la consola serie, consulte los requisitos del sistema general en [crear y cargar un VHD de Linux en Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+
+Si está compilando un kernel personalizado, considere la posibilidad de habilitar las marcas de kernel `CONFIG_SERIAL_8250=y` y `CONFIG_MAGIC_SYSRQ_SERIAL=y`. El archivo de configuración se encuentra normalmente en la ruta de acceso */boot/* . |
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Escenarios comunes para acceder a la consola serie
 
@@ -201,6 +208,7 @@ El texto de la consola serie solo ocupa una parte de la pantalla (a menudo despu
 El hecho de pegar cadenas largas no funciona. | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres a fin de impedir que el ancho de banda del puerto serie se sobrecargue.
 La consola serie no funciona con un firewall de la cuenta de almacenamiento. | Por su diseño, la consola serie no puede operar con firewalls de la cuenta de almacenamiento habilitados en la cuenta de almacenamiento del diagnóstico de arranque.
 Consola serie no funciona con una cuenta de almacenamiento mediante Azure Data Lake Storage Gen2 con espacios de nombres jerárquico. | Se trata de un problema conocido con los espacios de nombres jerárquico. Para mitigar, asegúrese de que cuenta de almacenamiento de diagnósticos de arranque de la máquina virtual no se crea mediante Azure Data Lake Storage Gen2. Esta opción solo puede establecerse durante la creación de la cuenta de almacenamiento. Es posible que deba crear cuenta de almacenamiento de un diagnóstico de arranque independiente sin Azure Data Lake Storage Gen2 habilitado para mitigar este problema.
+Teclado errático en imágenes de SLES BYOS. Entradas mediante teclado esporádicamente solo se reconocen. | Se trata de un problema con el paquete Plymouth. No se debe ejecutar Plymouth en Azure ya no necesita una pantalla de presentación y Plymouth interfiere con la capacidad de plataforma para usar la consola serie. Quitar Plymouth con `sudo zypper remove plymouth` y reinicie el equipo. Como alternativa, modifique la línea de núcleo de la configuración GRUB anexando `plymouth.enable=0` al final de la línea. Para ello, [editar la entrada de arranque en tiempo de arranque](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), o mediante la edición de la línea GRUB_CMDLINE_LINUX `/etc/default/grub`, reconstrucción GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg`y, a continuación, reiniciar el equipo.
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

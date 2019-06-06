@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: thweiss
-ms.openlocfilehash: c45beb3ed6f87e95d171e2299c533b4be2827f27
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954040"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431186"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Cuando una ruta de acceso se incluye explícitamente en la directiva de indexaci
 
 | Tipo de índice | Tipos de datos de destino permitidos |
 | --- | --- |
-| Rango | Cadena o un número |
+| Intervalo | Cadena o un número |
 | Espacial | Point, LineString o polígono |
 
 Por ejemplo, podríamos incluimos la `/headquarters/employees/?` ruta de acceso y especificar que un `Range` índice se debe aplicar en esa ruta de acceso para ambos `String` y `Number` valores.
@@ -94,7 +94,7 @@ Considere el ejemplo siguiente, donde se define un índice compuesto en las prop
 
 | **Índice compuesto**     | **Ejemplo `ORDER BY` consulta**      | **¿Es compatible con el índice?** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
 | ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: dbc8363052556f29633c069bcd82af5249a3406f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306872"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428121"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
@@ -38,7 +38,7 @@ Para ejecutar una aplicación que existe en un contenedor de Windows en un clús
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un equipo de desarrollo en el que se ejecute:
-  * Visual Studio 2015 o Visual Studio 2017.
+  * Visual Studio 2015 o Visual Studio de 2019.
   * [SDK y herramientas de Service Fabric](service-fabric-get-started.md).
   *  Docker para Windows. [Obtener Docker CE para Windows (estable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Después de instalar e iniciar Docker, haga clic con el botón derecho en el icono de la bandeja y seleccione **Switch to Windows containers** (Conmutar a contenedores de Windows), Este paso es necesario para ejecutar imágenes de Docker basadas en Windows.
 
@@ -479,15 +479,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilidad entre el sistema operativo del contenedor y del host en Windows Server
 
-Los contenedores de Windows Server no son compatibles con todas las versiones del sistema operativo de un host. Por ejemplo: 
+Los contenedores de Windows Server no son compatibles con todas las versiones del sistema operativo de un host. Por ejemplo:
  
 - Los contenedores de Windows Server creados con la versión 1709 de Windows Server no funcionarán en un host que tenga la versión 2016 de Windows Server. 
-- Los contenedores de Windows Server creados con la versión 2016 de Windows Server solamente podrán utilizar el modo de aislamiento de Hyper-V en un host que tenga la versión 1709 de Windows Server. 
+- Contenedores de Windows Server creados con Windows Server 2016 funcionan en modo de aislamiento de Hyper-V solo en un host que ejecuta Windows Server versión 1709. 
 - En el caso de los contenedores de Windows Server creados con Windows Server 2016, tal vez sea necesario garantizar que la revisión del sistema operativo del contenedor y del sistema operativo del host es la misma cuando se utiliza el modo de aislamiento de proceso en un host con Windows Server 2016.
  
 Para más información, consulte [Compatibilidad con versiones de contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Tenga en cuenta la compatibilidad de los sistemas operativos del host y del contenedor al compilar e implementar contenedores en el clúster de Service Fabric. Por ejemplo: 
+Tenga en cuenta la compatibilidad de los sistemas operativos del host y del contenedor al compilar e implementar contenedores en el clúster de Service Fabric. Por ejemplo:
 
 - Asegúrese de que implementa los contenedores utilizando un sistema operativo compatible con el sistema operativo de los nodos del clúster.
 - Asegúrese de que el modo de aislamiento especificado en la aplicación de contenedor es coherente y compatible con el sistema operativo del contenedor que se ejecuta en el nodo donde se está implementando.

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939584"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693088"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -129,6 +129,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
 - No se admite la autenticación de Azure Active Directory.
 - No se admiten las tablas con el mismo nombre y un esquema diferente (por ejemplo, dbo.customers y sales.customers).
+- No se admiten columnas con tipos de datos definidos por el usuario
 
 #### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
 

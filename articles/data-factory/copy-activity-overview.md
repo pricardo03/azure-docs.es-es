@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/06/2019
 ms.locfileid: "65150868"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
 ## <a name="overview"></a>Información general
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-data-movement-activities.md)
 > * [Versión actual](copy-activity-overview.md)
 
@@ -136,11 +136,11 @@ La plantilla siguiente de una actividad de copia contiene una lista exhaustiva d
 | typeProperties | Grupo de propiedades para configurar la actividad de copia. | Sí |
 | source | Especifique el tipo de origen de copia y las propiedades correspondientes sobre cómo recuperar los datos.<br/><br/>Obtenga detalles en la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
 | sink | Especifique el tipo de receptor de copia y las propiedades correspondientes sobre cómo escribir los datos.<br/><br/>Obtenga detalles en la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
-| translator | Especifique asignaciones de columna explícitas de origen a receptor. Se aplica cuando el comportamiento predeterminado de copia no puede satisfacer sus necesidades.<br/><br/>Obtenga información en [Asignación de tipos de datos y esquemas](copy-activity-schema-and-type-mapping.md). | Sin  |
-| dataIntegrationUnits | Especifique la potencia de [Azure Integration Runtime](concepts-integration-runtime.md) para impulsar la copia de datos. Anteriormente conocidas como Unidades de movimiento de datos de nube (DMU). <br/><br/>Obtenga más información acerca de las [Unidades de integración de datos](copy-activity-performance.md#data-integration-units). | Sin  |
-| parallelCopies | Especifique el paralelismo que desea que la actividad de copia use al leer datos desde el origen y copiar datos en el receptor.<br/><br/>Obtenga información en [Copia en paralelo](copy-activity-performance.md#parallel-copy). | Sin  |
-| enableStaging<br/>stagingSettings | Elija esta opción almacenar provisionalmente los datos en un almacenamiento de blobs en lugar de copiar directamente los datos de origen a receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin  |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos de origen a receptor.<br/><br/>Obtenga información en [Tolerancia a errores](copy-activity-fault-tolerance.md). | Sin  |
+| translator | Especifique asignaciones de columna explícitas de origen a receptor. Se aplica cuando el comportamiento predeterminado de copia no puede satisfacer sus necesidades.<br/><br/>Obtenga información en [Asignación de tipos de datos y esquemas](copy-activity-schema-and-type-mapping.md). | Sin |
+| dataIntegrationUnits | Especifique la potencia de [Azure Integration Runtime](concepts-integration-runtime.md) para impulsar la copia de datos. Anteriormente conocidas como Unidades de movimiento de datos de nube (DMU). <br/><br/>Obtenga más información acerca de las [Unidades de integración de datos](copy-activity-performance.md#data-integration-units). | Sin |
+| parallelCopies | Especifique el paralelismo que desea que la actividad de copia use al leer datos desde el origen y copiar datos en el receptor.<br/><br/>Obtenga información en [Copia en paralelo](copy-activity-performance.md#parallel-copy). | Sin |
+| enableStaging<br/>stagingSettings | Elija esta opción almacenar provisionalmente los datos en un almacenamiento de blobs en lugar de copiar directamente los datos de origen a receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos de origen a receptor.<br/><br/>Obtenga información en [Tolerancia a errores](copy-activity-fault-tolerance.md). | Sin |
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -148,7 +148,7 @@ Puede supervisar la ejecución de la actividad de copia en la interfaz de usuari
 
 ### <a name="monitor-visually"></a>Supervisión visual
 
-Para supervisar de manera visual la ejecución de la actividad de copia, vaya a la factoría de datos -> **Author & Monitor (Creación y supervisión)** -> **pestaña Monitor (Supervisión)**. Verá una lista de ejecuciones de canalización con un vínculo "View Activity Runs" (Ver ejecuciones de actividad) en la columna **Acciones**.
+Para supervisar de manera visual la ejecución de la actividad de copia, vaya a la factoría de datos -> **Author & Monitor (Creación y supervisión)**  -> **pestaña Monitor (Supervisión)** . Verá una lista de ejecuciones de canalización con un vínculo "View Activity Runs" (Ver ejecuciones de actividad) en la columna **Acciones**.
 
 ![La supervisión de la canalización se ejecuta](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 

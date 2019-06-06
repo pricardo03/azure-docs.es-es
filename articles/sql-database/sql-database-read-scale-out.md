@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146108"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492713"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usar réplicas de solo lectura para las cargas de trabajo de consulta de solo lectura de equilibrio de carga
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
 
 Como parte de la [arquitectura de alta disponibilidad](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), cada base de datos en el nivel de servicio Premium, crítico para la empresa o a gran escala se aprovisiona automáticamente con una réplica principal y varias réplicas secundarias. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. El **escalado horizontal de lectura** característica le permite equilibrar la carga base de datos SQL de solo lectura las cargas de trabajo mediante la capacidad de una de las réplicas de solo lectura en lugar de compartir la réplica de lectura y escritura. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está pensada para las aplicaciones que tienen cargas de trabajo separadas lógicamente de solo lectura, como el análisis. Pueden obtener ventajas de rendimiento con esta capacidad adicional sin ningún costo adicional.
 
@@ -38,7 +36,7 @@ Si desea asegurarse de que la aplicación se conecta a la réplica principal sin
 > [!NOTE]
 > Consulta de datos Store, Extended Events, SQL Profiler y las características de auditoría no se admiten en las réplicas de solo lectura. 
 
-## <a name="data-consistency"></a>Coherencia de los datos
+## <a name="data-consistency"></a>Coherencia de datos
 
 Una de las ventajas de las réplicas es que siempre se encuentran en estado de coherencia transaccional, pero es posible que en diferentes momentos pueda haber una pequeña latencia entre las distintas réplicas. El escalado horizontal de lectura admite la coherencia en el nivel de sesión. Significa que, si la sesión de solo lectura se vuelve a conectar después de un error de conexión causado por falta de disponibilidad de réplica, se puede redirigir a una réplica que no esté actualizada con la réplica de lectura y escritura al 100%. Del mismo modo, si una aplicación escribe datos mediante una sesión de lectura y escritura y los lee inmediatamente mediante una sesión de solo lectura, es posible que las actualizaciones más recientes no son inmediatamente visibles en la réplica. La latencia se produce por una operación de rehacer de registro de transacción asincrónica.
 

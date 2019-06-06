@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826580"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515916"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
@@ -46,7 +46,7 @@ Los registros de actividad están activados de forma predeterminada y proporcion
 
    ![Resumen de la operación de registro de actividad de Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Desplácese hacia abajo hasta la sección **Propiedades** del código JSON, que proporciona los detalles del error que provocó el error de la operación. En este ejemplo, el error se produjo debido a un error en tiempo de ejecución por valores fuera de los límites de latitud.
+4. Desplácese hacia abajo hasta la sección **Propiedades** del código JSON, que proporciona los detalles del error que provocó el error de la operación. En este ejemplo, el error se produjo debido a un error en tiempo de ejecución por valores fuera de los límites de latitud. Discrepancia en los datos que se procesan mediante un trabajo de Stream Analytics produce un error de datos. Puede obtener información sobre diferentes [errores de entrada y salida de datos y por qué se producen](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![Detalles del error en JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -97,14 +97,14 @@ Azure Stream Analytics captura dos categorías de registros de diagnóstico:
 
 Todos los registros se almacenan en formato JSON. Cada entrada tiene los siguientes campos de cadena comunes:
 
-NOMBRE | DESCRIPCIÓN
+Name | DESCRIPCIÓN
 ------- | -------
 time | Marca de tiempo (en UTC) del registro.
 resourceId | Identificador del recurso en el que tuvo lugar la operación, en mayúsculas. Incluye el identificador de suscripción, el grupo de recursos y el nombre del trabajo. Por ejemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | La categoría del registro: **Ejecución** o **Creación**.
 operationName | Nombre de la operación que se registra. Por ejemplo, **Envío de eventos: error de escritura de salida de SQL en mysqloutput**.
 status | Estado de la operación. Por ejemplo, **Erróneo** o **Correcto**.
-nivel | Nivel de registro. Por ejemplo, **Error**, **Advertencia** o **Información**.
+level | Nivel de registro. Por ejemplo, **Error**, **Advertencia** o **Información**.
 properties | Detalle específico de entrada de registro, serializado como una cadena JSON. Para más información, consulte las siguientes secciones de este artículo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propiedades de registros de ejecución
@@ -115,11 +115,11 @@ Los registros de ejecución contienen información sobre eventos que se produjer
 
 Cualquier error que se produce mientras el trabajo está procesando datos se puede incluir en esta categoría de registros. Estos registros se crean habitualmente durante las operaciones de lectura, serialización y escritura de datos. No incluyen errores de conectividad. Los errores de conectividad se tratan como eventos genéricos.
 
-NOMBRE | DESCRIPCIÓN
+Name | DESCRIPCIÓN
 ------- | -------
 Origen | Nombre de la entrada o salida del trabajo donde se produjo el error.
 Message | Mensaje asociado al error.
-Type | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+Escriba | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Datos | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
 
 En función del valor de **operationName**, los errores de datos tendrán el siguiente esquema:
@@ -140,7 +140,7 @@ NOMBRE | DESCRIPCIÓN
 -------- | --------
 Error | (opcional) Información de error. Normalmente, es información de la excepción, si está disponible.
 Message| Mensaje de registro.
-Type | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+Escriba | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.
 
 ## <a name="next-steps"></a>Pasos siguientes

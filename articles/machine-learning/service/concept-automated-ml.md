@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418064"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515567"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -155,11 +155,11 @@ Con Azure Machine Learning, puede usar para generar un modelo de Python y conver
 
 ML automatizada también está disponible en otras soluciones de Microsoft, como:
 
-|Integraciones|DESCRIPCIÓN
-|------------|-----------
-|ML.NET|Selección del modelo automático y entrenamiento en aplicaciones de .NET con Visual Studio y Visual Studio Code con ML.NET automatizadas Machine Learning (versión preliminar). [Más información](https://docs.microsoft.com/dotnet/machine-learning/automl-overview).
-|HDIsnight|Escalar horizontalmente sus trabajos de aprendizaje de ML automatizados en Spark en clústeres de HDInsight en paralelo. [Más información](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md).
-|PowerBI|Invocación de los modelos de aprendizaje automático directamente en Power BI (versión preliminar). [Más información](https://docs.microsoft.com/power-bi/service-machine-learning-automated).
+|Integraciones|DESCRIPCIÓN|
+|------------|-----------|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selección del modelo automático y entrenamiento en aplicaciones de .NET con Visual Studio y Visual Studio Code con ML.NET automatizadas Machine Learning (versión preliminar).|
+|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Escalar horizontalmente sus trabajos de aprendizaje de ML automatizados en Spark en clústeres de HDInsight en paralelo.|
+|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invocación de los modelos de aprendizaje automático directamente en Power BI (versión preliminar).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

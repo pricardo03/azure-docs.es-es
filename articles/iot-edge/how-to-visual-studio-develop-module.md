@@ -9,12 +9,12 @@ ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 96a67a9a593655b3b187fe1bb0decfc7252d2d10
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253057"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474783"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Usar Visual Studio de 2019 para desarrollar y depurar módulos para Azure IoT Edge (versión preliminar)
 
@@ -95,20 +95,19 @@ Una vez preparado el Visual Studio de 2019, también necesita las herramientas y
 
 La plantilla de proyecto de Azure IoT Edge en Visual Studio crea un proyecto que se puede implementar en dispositivos de Azure IoT Edge en Azure IoT Hub. En primer lugar cree una solución de Azure IoT Edge y, a continuación, generar el primer módulo en esa solución. Cada solución de IoT Edge puede contener más de un módulo.
 
-1. En el diálogo nuevo proyecto de Visual Studio, busque y seleccione **Azure IoT Edge**, escriba un nombre para el proyecto y especificar la ubicación y, a continuación, seleccione **Aceptar**. El nombre de proyecto predeterminado es **AzureIoTEdgeApp1**.
+1. En el diálogo nuevo proyecto de Visual Studio, busque y seleccione **Azure IoT Edge** del proyecto y haga clic en **siguiente**. En la ventana de configuración del proyecto, escriba un nombre para el proyecto y especifique la ubicación y, a continuación, seleccione **crear**. El nombre de proyecto predeterminado es **AzureIoTEdgeApp1**.
 
-1. En el **Agregar aplicación de IoT Edge y el módulo** ventana, seleccione **Linux Amd64**, **Windows Amd64**, o ambos, como la plataforma de aplicaciones. Si selecciona ambos, cree una solución con dos proyectos que hagan referencia el módulo de código de forma predeterminada.
+   ![Creación de un proyecto](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-   > [!TIP]
-   > La extensión de Azure IoT Edge para Visual Studio actualmente no admite la creación de proyectos para la plataforma ARM. Vea este [entrada de blog para desarrolladores de IoT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obtener un ejemplo del uso de Visual Studio Code para desarrollar una solución para ARM32v7/armhf.
+1. En el **Agregar aplicación de IoT Edge y el módulo** ventana, seleccione  **C# módulo** o **módulo C** y, a continuación, especifique el nombre del módulo y el repositorio de imágenes de módulo. Visual Studio completa automáticamente el nombre del módulo como **localhost:5000 /<el nombre de su módulo\>** . Reemplácelo por su propia información de registro. Si usa un registro de Docker local para realizar pruebas, **localhost** puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a * **\<nombre del registro\>*.azurecr.io**. Solo reemplace la sección **localhost:5000** de la cadena para que el resultado final se parezca a * *\<* nombre del registro *\>.azurecr.io/* \<nombre del módulo\>***. El nombre de módulo predeterminado es **IoTEdgeModule1**
 
-1. Seleccione  **C# módulo** o **módulo C** y, a continuación, especifique el nombre del módulo y el repositorio de imágenes de módulo. Visual Studio completa automáticamente el nombre del módulo como **localhost:5000 /<el nombre de su módulo\>** . Reemplácelo por su propia información de registro. Si usa un registro de Docker local para realizar pruebas, **localhost** puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a * **\<nombre del registro\>*.azurecr.io**. Solo reemplace la sección **localhost:5000** de la cadena para que el resultado final se parezca a * *\<* nombre del registro *\>.azurecr.io/* \<nombre del módulo\>***. El nombre de módulo predeterminado es **IoTEdgeModule1**
+   ![Agregar la aplicación y el módulo](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. Seleccione **Aceptar** para crear la solución de Azure IoT Edge con un módulo que utiliza cualquiera C# o C.
 
-Ahora tiene un **AzureIoTEdgeApp1.Linux.Amd64** proyecto o un **AzureIoTEdgeApp1.Windows.Amd64** proyecto, o ambos y también un **IoTEdgeModule1** del proyecto en el solución. Cada **AzureIoTEdgeApp1** proyecto tiene un `deployment.template.json` archivo, que define los módulos que desea para compilar e implementar la solución de IoT Edge y también define las rutas entre módulos. La solución predeterminada tiene un módulo **tempSensor** y otro **IoTEdgeModule1**. El módulo **tempSensor** genera datos simulados para **IoTEdgeModule1**, mientras que el código predeterminado del módulo **IoTEdgeModule1** canaliza directamente los mensajes recibidos a Azure IoT Hub.
+Ahora tiene un **AzureIoTEdgeApp1.Linux.Amd64** proyecto o un **AzureIoTEdgeApp1.Windows.Amd64** proyecto y también un **IoTEdgeModule1** proyecto de la solución. Cada **AzureIoTEdgeApp1** proyecto tiene un `deployment.template.json` archivo, que define los módulos que desea para compilar e implementar la solución de IoT Edge y también define las rutas entre módulos. La solución predeterminada tiene un módulo **tempSensor** y otro **IoTEdgeModule1**. El módulo **tempSensor** genera datos simulados para **IoTEdgeModule1**, mientras que el código predeterminado del módulo **IoTEdgeModule1** canaliza directamente los mensajes recibidos a Azure IoT Hub.
 
-El proyecto **IoTEdgeModule1** es una aplicación de consola de .NET Core 2.1. Contiene los archivos de Docker que necesita para que el dispositivo de IoT Edge se ejecute con un contenedor de Windows o Linux. El `module.json` archivo describe los metadatos de un módulo. El código del módulo real, que toma el SDK de dispositivo IoT de Azure como una dependencia, se encuentra en la `Program.cs` o `main.c` archivo.
+El **IoTEdgeModule1** proyecto es una aplicación de consola .NET Core 2.1, si es un C# módulo. Contiene los archivos de Docker que necesita para que el dispositivo de IoT Edge se ejecute con un contenedor de Windows o Linux. El `module.json` archivo describe los metadatos de un módulo. El código del módulo real, que toma el SDK de dispositivo IoT de Azure como una dependencia, se encuentra en la `Program.cs` o `main.c` archivo.
 
 ## <a name="develop-your-module"></a>Desarrollo de su módulo
 
@@ -122,7 +121,7 @@ Cuando esté listo para personalizar la plantilla de módulo con su propio códi
 
    ![Copia de la cadena de conexión del dispositivo Edge](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. Vaya a **herramientas** > **herramientas de Azure IoT Edge** > **programa de instalación de IoT Edge simulador**, pasten la cadena de conexión y haga clic en **Aceptar** .
+1. Vaya a **herramientas** > **herramientas de Azure IoT Edge** > **programa de instalación de IoT Edge simulador**, pegue la cadena de conexión y haga clic en **Aceptar**.
 
    ![Apertura de la ventana de la cadena de conexión del dispositivo Edge establecida](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 

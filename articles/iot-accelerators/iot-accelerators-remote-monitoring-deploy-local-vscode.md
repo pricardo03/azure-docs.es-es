@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967517"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730160"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implementación local del acelerador de soluciones de supervisión remota con Visual Studio Code
 
@@ -62,13 +62,14 @@ dotnet build -c Release
 Los pasos siguientes muestran cómo ejecutar los microservicios de supervisión remota en Visual Studio Code:
 
 1. Inicie Visual Studio Code.
-1. Abra el módulo **azure-iot-pcs-remote-monitoring-dotnet** en su copia local de VS Code.
-1. Copie los archivos **launch.json** y **tasks.json** desde scripts\local\launch\idesettings\vscode\.. Cree una nueva carpeta **azure-iot-pcs-remote-monitoring-dotnet\.vscode** y pegue los archivos allí.
-1. Abra el panel de depuración en VS Code y ejecute la opción **Ejecutar todos los microservicios**. Esta configuración ejecuta el microservicio de simulación de dispositivos en Docker y ejecuta los demás microservicios en el depurador.
+1. En VS Code, abra el **azure-iot-pcs-remote-monitoring-dotnet** carpeta.
+1. Cree una carpeta nueva denominada **.vscode** en el **azure-iot-pcs-remote-monitoring-dotnet** carpeta.
+1. Copie los archivos **launch.json** y **tasks.json** desde services\scripts\local\launch\idesettings\vscode a la **.vscode** carpeta recién creada.
+1. Abra el **panel de depuración** en VS Code y ejecute el **ejecutar todos los microservicios** configuración. Esta configuración ejecuta el microservicio de simulación de dispositivos en Docker y ejecuta los demás microservicios en el depurador.
 
-Por ejemplo, la salida del servicio **Auth** en la **Consola de depuración** tiene el siguiente aspecto:
+El resultado de ejecución **ejecutar todos los microservicios** en la consola de depuración es similar al siguiente:
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Ejecución de la interfaz de usuario web
 

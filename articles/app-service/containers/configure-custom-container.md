@@ -1,5 +1,5 @@
 ---
-title: Configurar los contenedores de cliente - Azure App Service | Microsoft Docs
+title: 'Configurar el contenedor personalizado: Azure App Service | Microsoft Docs'
 description: Obtenga información sobre cómo configurar aplicaciones de Node.js para que funcione en Azure App Service
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919730"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430929"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar un contenedor de Linux personalizado para Azure App Service
 
@@ -28,7 +28,7 @@ Esta guía proporciona los conceptos clave e instrucciones para la inclusión en
 
 ## <a name="configure-port-number"></a>Configurar el número de puerto
 
-El servidor web en la imagen personalizada puede utilizar un puerto distinto de 80. Para indicar a Azure el puerto que usa el personalizado mediante la `WEBSITES_PORT` configuración de la aplicación. La página de GitHub que contiene el [ejemplo de Python de este tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) muestra que es preciso establecer `WEBSITES_PORT` en _8000_. Puede establecer mediante la ejecución de [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo: 
+El servidor web en la imagen personalizada puede utilizar un puerto distinto de 80. Para indicar a Azure el puerto que usa el contenedor personalizado mediante la `WEBSITES_PORT` configuración de la aplicación. La página de GitHub que contiene el [ejemplo de Python de este tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) muestra que es preciso establecer `WEBSITES_PORT` en _8000_. Puede establecer mediante la ejecución de [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -36,7 +36,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Configuración de las variables de entorno
 
-El contenedor personalizado puede usar variables de entorno que deben proporcionarse externamente. Puede pasar en ejecutando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo: 
+El contenedor personalizado puede usar variables de entorno que deben proporcionarse externamente. Puede pasar en ejecutando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -50,7 +50,7 @@ Puede usar el */home* directorio en el sistema de archivos de la aplicación par
 
 Cuando se deshabilita el almacenamiento persistente después se escribe en el `/home` directorio no se conservan entre reinicios de aplicación o entre varias instancias. La única excepción es el `/home/LogFiles` directorio, que se usa para almacenar los registros de Docker y el contenedor. Cuando se habilita el almacenamiento persistente, todas las escrituras a la `/home` directory se conservan y pueden tener acceso a todas las instancias de una aplicación de escala horizontal.
 
-De forma predeterminada, el almacenamiento persistente es *deshabilitado*. Para habilitarlo o deshabilitarlo, establezca el `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuración de la aplicación mediante la ejecución de [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo: 
+De forma predeterminada, el almacenamiento persistente es *deshabilitado*. Para habilitarlo o deshabilitarlo, establezca el `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuración de la aplicación mediante la ejecución de [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando en Cloud Shell. Por ejemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -122,7 +122,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 En su *docker-compose.yml* de archivos, asigne el `volumes` opción `${WEBAPP_STORAGE_HOME}`. 
 
-`WEBAPP_STORAGE_HOME` es una variable de entorno en App Service que se asigna al almacenamiento persistente para la aplicación. Por ejemplo: 
+`WEBAPP_STORAGE_HOME` es una variable de entorno en App Service que se asigna al almacenamiento persistente para la aplicación. Por ejemplo:
 
 ```yaml
 wordpress:

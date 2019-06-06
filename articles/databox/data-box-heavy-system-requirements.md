@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248000"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427747"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Requisitos del sistema de pesado de cuadro de datos de Azure
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Requisitos del sistema pesado de cuadro de datos Azure (versión preliminar)
 
 En este artículo se describe los requisitos de sistema importante para el dispositivo cuadro intensivo de datos de Azure y para los clientes que se conectan al dispositivo. Se recomienda que revise cuidadosamente la información antes de implementar la pesada de cuadro de datos y luego la consulte según sea necesario durante la implementación y las operaciones subsiguientes.
 

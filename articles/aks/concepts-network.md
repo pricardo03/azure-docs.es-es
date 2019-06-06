@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074063"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431321"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ En Kubernetes, los *servicios* agrupan lógicamente los pods para permitir el ac
 
 La plataforma Azure también ayuda a simplificar las redes virtuales de los clústeres de AKS. Cuando se crea un equilibrador de carga de Kubernetes, se crea y se configura el recurso de equilibrador de carga de Azure subyacente. Cuando abre los puertos de red a los pods, se configuran las reglas de los grupos de seguridad de red de Azure correspondientes. Para el enrutamiento de aplicaciones HTTP, Azure también puede configurar un *DNS externo* a medida que se configuran nuevas rutas de entrada.
 
-## <a name="services"></a>Services
+## <a name="services"></a>Servicios
 
 Para simplificar la configuración de red de las cargas de trabajo de la aplicación, Kubernetes usa *servicios* para agrupar lógicamente un conjunto de pods y proporcionar conectividad de red. Están disponibles los siguientes tipos de servicio:
 
@@ -62,7 +62,7 @@ Se pueden crear equilibradores de carga *internos* y *externos*. Solo se asigna 
 En AKS, puede implementar un clúster que use uno de los dos siguientes modelos de red:
 
 - Red de *kubenet*: los recursos de la red normalmente se crean y se configuran cuando se implementa el clúster de AKS.
-- Red de *Azure Container Networking Interface (CNI)*: el clúster de AKS se conecta a los recursos y configuraciones de la red virtual existentes.
+- Red de *Azure Container Networking Interface (CNI)* : el clúster de AKS se conecta a los recursos y configuraciones de la red virtual existentes.
 
 ### <a name="kubenet-basic-networking"></a>Red (básica) de kubenet
 
@@ -99,6 +99,8 @@ Los *controladores de entrada* funcionan en la capa 7 y puede usar reglas más i
 En AKS, puede crear un recurso de entrada con algo parecido a NGINX, o usar la característica de enrutamiento de aplicación HTTP de AKS. Cuando se habilita el enrutamiento de aplicación HTTP para un clúster de AKS, la plataforma Azure crea el controlador de entrada y un controlador de *DNS externo*. Cuando se crean nuevos recursos de entrada en Kubernetes, se crean los registros DNS A necesarios en una zona DNS específica del clúster. Para más información, consulte información sobre la implementación del [Enrutamiento de aplicación HTTP][aks-http-routing].
 
 Otra característica común de los controladores de entrada es la terminación SSL/TLS. En aplicaciones web de gran tamaño, a las que se accede a través de HTTPS, la terminación TLS puede controlarse mediante el recurso de entrada en lugar de en la propia aplicación. Para proporcionar una configuración y generación automática de certificados TLS, puede configurar el recurso de entrada para que use proveedores como Let's Encrypt. Para más información sobre cómo configurar un controlador de entrada de NGINX con Let's Encrypt, consulte [Entrada y TLS][aks-ingress-tls].
+
+También puede configurar el controlador de entrada para conservar la dirección IP de origen de cliente en las solicitudes a los contenedores en un clúster AKS. Cuando la solicitud de un cliente se enruta a un contenedor en el clúster de AKS a través de su controlador de entrada, la dirección ip de origen original de dicha solicitud no estará disponible para el contenedor de destino. Al habilitar *preservación de IP de origen de cliente*, la dirección IP de origen para el cliente está disponible en el encabezado de solicitud en *X-Forwarded-For*. Si usas la conservación de IP de origen de cliente en el controlador de entrada, no puede usar paso a través SSL. Conservación de IP de origen de cliente y de paso a través SSL pueden usarse con otros servicios, como el *LoadBalancer* tipo.
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 

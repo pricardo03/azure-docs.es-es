@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955747"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475863"
 ---
 # <a name="security-in-azure-app-service"></a>Seguridad en Azure App Service
 
@@ -71,7 +71,7 @@ La funcionalidad de autorización y autenticación de App Service admite varios 
 Al autenticarse con un servicio back-end, App Service proporciona dos mecanismos diferentes dependiendo de sus necesidades:
 
 - **Identidad de servicio**: inicie sesión en el recurso remoto con la identidad de la propia aplicación. App Service permite crear fácilmente una [identidad administrada](overview-managed-identity.md), que puede usar para autenticarse en otros servicios, como [Azure SQL Database](/azure/sql-database/) o [Azure Key Vault](/azure/key-vault/). Para ver un tutorial completo sobre este tema, consulte [Tutorial: protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada](app-service-web-tutorial-connect-msi.md).
-- **En nombre de otra persona (OBO)**: cree un acceso delegado a los recursos remotos en nombre del usuario. Con Azure Active Directory como proveedor de autenticación, la aplicación de App Service puede realizar un inicio de sesión delegada a un servicio remoto, como [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) o una aplicación de API remota en App Service. Para ver un tutorial completo sobre este tema, consulte [Autenticación y autorización de usuarios de un extremo a otro en Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **En nombre de otra persona (OBO)** : cree un acceso delegado a los recursos remotos en nombre del usuario. Con Azure Active Directory como proveedor de autenticación, la aplicación de App Service puede realizar un inicio de sesión delegada a un servicio remoto, como [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) o una aplicación de API remota en App Service. Para ver un tutorial completo sobre este tema, consulte [Autenticación y autorización de usuarios de un extremo a otro en Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividad a los recursos remotos
 
@@ -113,7 +113,6 @@ También puede integrar la aplicación de App Service con [Azure Key Vault](/azu
 
 Excepto en el plan de tarifa **Aislado**, todos los niveles ejecutan las aplicaciones en la infraestructura de red compartida en App Service. Por ejemplo, las direcciones IP públicas y los equilibradores de carga de front-end se comparten con otros inquilinos. El plan **Aislado** ejecuta las aplicaciones dentro de un [entorno de App Service](environment/intro.md) dedicado para tener un aislamiento de red completo. Los entornos de App Service se ejecutan en su propia instancia de la [red virtual de Azure](/azure/virtual-network/). Le permite: 
 
-- Restringir el acceso de red mediante [grupos de seguridad de red](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Servir las aplicaciones a través de un punto de conexión público dedicado, con servidores front-end dedicados.
 - Servir la aplicación interna usando un equilibrador de carga interno (ILB), que permite el acceso únicamente desde dentro de la red virtual de Azure. El ILB tiene una dirección IP de la subred privada, que aísla completamente las aplicaciones de Internet.
 - [Uso de un ILB detrás de un firewall de aplicaciones web (WAF)](environment/integrate-with-application-gateway.md). WAFS ofrece protección de nivel empresarial para las aplicaciones de acceso público, tales como protección frente a DDoS, filtrado de URI y prevención de inyección de SQL.

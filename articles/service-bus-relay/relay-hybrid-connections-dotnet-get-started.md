@@ -1,6 +1,6 @@
 ---
-title: Introducción a los Websockets de Conexiones híbridas de Azure Relay en .NET | Microsoft Docs
-description: Escriba una aplicación de consola en C# para Websockets de Conexiones híbridas de Azure Relay.
+title: Introducción a Azure Relay híbrida conexiones WebSockets en .NET | Microsoft Docs
+description: Escribir un C# aplicación para Azure Relay híbrida conexiones WebSockets de consola.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749739"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428358"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introducción a WebSockets de Conexiones híbridas de Relay en .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ En Visual Studio, escriba una aplicación de consola en C# para enviar mensajes 
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Enhorabuena, ha creado una aplicación de conexiones híbridas de extremo a extremo.
+Enhorabuena, ha creado una aplicación completa de las conexiones híbridas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, ha creado aplicaciones de cliente y servidor de .NET que han usado WebSockets para enviar y recibir mensajes. La característica Conexiones híbridas de Azure Relay también admite el uso de HTTP para enviar y recibir mensajes. Para aprender a usar HTTP con Conexiones híbridas de Azure Relay, consulte la [guía de inicio rápido de HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79d2062f0e174eeb7550205f90c1650185e1623a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 955b0e36c63b181e2fe6d2f87e7b015196fceff9
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236984"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455604"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adición de un origen de eventos de IoT Hub al entorno de Time Series Insights
 
@@ -34,13 +34,13 @@ Este artículo describe cómo usar Azure Portal para agregar un origen de evento
 
 ### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adición de un grupo de consumidores a IoT Hub
 
-Las aplicaciones usan grupos de consumidores para extraer datos de Azure IoT Hub. Proporcione un grupo de consumidores dedicado, solo para su uso en este entorno de Time Series Insights, para leer datos de manera confiable del centro de IoT Hub.
+Las aplicaciones usan grupos de consumidores para extraer datos de Azure IoT Hub. Para leer datos desde IoT hub de manera confiable, proporcione un grupo de consumidores dedicado que es utilizado únicamente por este entorno de Time Series Insights.
 
 Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 
 1. En Azure Portal, busque y abra el centro de IoT Hub.
 
-1. En el menú, en **Configuración**, seleccione **Puntos de conexión integrados** y, a continuación, seleccione el punto de conexión **Events**.
+1. En **configuración**, seleccione **puntos de conexión integrados**y, a continuación, seleccione el **eventos** punto de conexión.
 
    [![En la página de compilación en puntos de conexión, seleccione el botón de eventos](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
@@ -65,36 +65,37 @@ Para agregar un nuevo grupo de consumidores a la instancia de IoT Hub:
 1. Seleccione un valor para **Opción de importación**:
 
    * Si ya tiene un centro de IoT en una de sus suscripciones, seleccione **Usar IoT Hub desde las suscripciones disponibles**. Esta opción presenta el enfoque más sencillo.
-   * Si el centro de IoT es externo a sus suscripciones, o si desea elegir opciones avanzadas, seleccione **Proporcionar configuración del centro de IoT de forma manual**.
+   
+     [![Seleccione las opciones en el panel de origen de evento nuevo](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
-   [![Seleccione las opciones en el panel de origen de evento nuevo](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
+    * En la siguiente tabla se explican las propiedades necesarias para la opción **Usar IoT Hub desde las suscripciones disponibles**:
 
-1. En la siguiente tabla se explican las propiedades necesarias para la opción **Usar IoT Hub desde las suscripciones disponibles**:
+       [![Nuevo panel de origen de eventos - propiedades para establecer en el centro de IoT de uso de la opción de suscripciones disponibles](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
-   [![Nuevo panel de origen de eventos - propiedades para establecer en el centro de IoT de uso de la opción de suscripciones disponibles](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
+       | Propiedad | DESCRIPCIÓN |
+       | --- | --- |
+       | Id. de suscripción | Seleccione la suscripción en la que se creó el centro de IoT.
+       | Nombre de IoT Hub | Seleccione el nombre del centro de IoT.
+       | Nombre de la directiva de IoT Hub | Seleccione la directiva de acceso compartido. Puede encontrar esta directiva en la pestaña Configuración de centro de IoT. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
+       | Clave de la directiva de IoT Hub | La clave se rellena previamente.
+       | Grupo de consumidores de IoT Hub | El grupo de consumidores que lee eventos del centro de IoT. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento.
+       | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos deberán estar en este formato o no se podrá leer ningún dato. |
+       | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de IoT. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
 
-   | Propiedad | DESCRIPCIÓN |
-   | --- | --- |
-   | Id. de suscripción | Seleccione la suscripción en la que se creó el centro de IoT.
-   | Nombre de IoT Hub | Seleccione el nombre del centro de IoT.
-   | Nombre de la directiva de IoT Hub | Seleccione la directiva de acceso compartido. Puede encontrar esta directiva en la pestaña Configuración de centro de IoT. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
-   | Clave de la directiva de IoT Hub | La clave se rellena previamente.
-   | Grupo de consumidores de IoT Hub | El grupo de consumidores que lee eventos del centro de IoT. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento.
-   | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos deberán estar en este formato o no se podrá leer ningún dato. |
-   | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de IoT. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
+    * Si el centro de IoT es externo a sus suscripciones, o si desea elegir opciones avanzadas, seleccione **Proporcionar configuración del centro de IoT de forma manual**.
 
-1. En la siguiente tabla se explican las propiedades necesarias para la opción **Proporcionar configuración del Centro de IoT de forma manual**:
+      En la siguiente tabla se explican las propiedades necesarias para la opción **Proporcionar configuración del Centro de IoT de forma manual**:
 
-   | Propiedad | DESCRIPCIÓN |
-   | --- | --- |
-   | Id. de suscripción | La suscripción en la que se creó este centro de IoT.
-   | Grupos de recursos | El nombre del grupo de recursos en el que se creó este centro de IoT.
-   | Nombre de IoT Hub | El nombre del centro de IoT. Cuando creó el centro de IoT especificó un nombre para este.
-   | Nombre de la directiva de IoT Hub | La directiva de acceso compartido. Puede crear esta directiva en la pestaña Configuración de centro de IoT. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
-   | Clave de la directiva de IoT Hub | La clave de acceso compartido que se usa para autenticar el acceso al espacio de nombres de Azure Service Bus. Especifique la clave principal o secundaria aquí.
-   | Grupo de consumidores de IoT Hub | El grupo de consumidores que lee eventos del centro de IoT. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento.
-   | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos deberán estar en este formato o no se podrá leer ningún dato. |
-   | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de IoT. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
+       | Propiedad | DESCRIPCIÓN |
+       | --- | --- |
+       | Id. de suscripción | La suscripción en la que se creó este centro de IoT.
+       | Grupos de recursos | El nombre del grupo de recursos en el que se creó este centro de IoT.
+       | Nombre de IoT Hub | El nombre del centro de IoT. Cuando creó el centro de IoT especificó un nombre para este.
+       | Nombre de la directiva de IoT Hub | La directiva de acceso compartido. Puede crear esta directiva en la pestaña Configuración de centro de IoT. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
+       | Clave de la directiva de IoT Hub | La clave de acceso compartido que se usa para autenticar el acceso al espacio de nombres de Azure Service Bus. Especifique la clave principal o secundaria aquí.
+       | Grupo de consumidores de IoT Hub | El grupo de consumidores que lee eventos del centro de IoT. Es muy recomendable usar un grupo de consumidores dedicado para el origen del evento.
+       | Formato de serialización de eventos | Actualmente, JSON es el único formato de serialización disponible. Los mensajes de eventos deberán estar en este formato o no se podrá leer ningún dato. |
+       | Nombre de la propiedad de marca de tiempo | Para determinar este valor, es necesario que comprenda el formato de mensaje de los datos del mensaje que se envía al centro de IoT. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
 
 1. Agregue el nombre del grupo de consumidores dedicado de Time Series Insights que agregó al centro de IoT.
 

@@ -1,6 +1,6 @@
 ---
 title: Depuración de contenedores de Windows con Service Fabric y VS | Microsoft Docs
-description: Obtenga información acerca de cómo depurar los contenedores de Windows en Azure Service Fabric mediante Visual Studio 2017.
+description: Obtenga información sobre cómo depurar contenedores de Windows en Azure Service Fabric mediante Visual Studio de 2019.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482650"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428150"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedimientos para: Depuración de contenedores de Windows en Azure Service Fabric mediante Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procedimientos para: Depurar contenedores de Windows en Azure Service Fabric mediante Visual Studio de 2019
 
-Con Visual Studio 2017 Update 7 (15.7), puede depurar aplicaciones .NET en contenedores como servicios de Service Fabric. En este artículo se muestra cómo configurar el entorno y, a continuación, depurar una aplicación .NET en un contenedor que se ejecuta en un clúster de Service Fabric local.
+Con Visual Studio 2019, puede depurar aplicaciones .NET en contenedores como servicios de Service Fabric. En este artículo se muestra cómo configurar el entorno y, a continuación, depurar una aplicación .NET en un contenedor que se ejecuta en un clúster de Service Fabric local.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,7 +34,7 @@ Con Visual Studio 2017 Update 7 (15.7), puede depurar aplicaciones .NET en conte
 
 1. Asegúrese de que el Docker de servicio de Windows se esté ejecutando antes de continuar con el paso siguiente.
 
-1. Para admitir la resolución DNS entre contenedores, tendrá que configurar el clúster de desarrollo local, usando para ello el nombre de la máquina. Estos pasos también son necesarios si desea ofrecer los servicios mediante el proxy inverso.
+1. Para admitir la resolución DNS entre contenedores, tendrá que configurar el clúster de desarrollo local, usando el nombre de equipo. Estos pasos también son necesarios si desea ofrecer los servicios mediante el proxy inverso.
    1. Abra PowerShell como administrador.
    2. Vaya a la carpeta de instalación del clúster del SDK, que suele ser `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
    3. Ejecución del script `DevClusterSetup.ps1`
@@ -53,19 +53,19 @@ Con Visual Studio 2017 Update 7 (15.7), puede depurar aplicaciones .NET en conte
 
 A continuación, se muestra una lista de limitaciones conocidas al depurar contenedores en Service Fabric y las posibles soluciones:
 
-* El uso de localhost para ClusterFQDNorIP no admitirá la resolución DNS en contenedores.
+* El uso de localhost para ClusterFQDNorIP no admite la resolución DNS en contenedores.
     * Resolución: Configure el clúster local usando el nombre de la máquina (véase más arriba).
-* Al ejecutar Windows 10 en una máquina virtual, no se obtendrá la respuesta de DNS en el contenedor.
+* Ejecutando Windows10 en una máquina Virtual no recibirá respuesta DNS en el contenedor.
     * Resolución: Deshabilite la descarga de suma de comprobación de UDP para IPv4 en la NIC de máquinas virtuales.
-    * Tenga en cuenta que esto disminuirá el rendimiento de red en la máquina.
+    * Ejecutando Windows10 degradará el rendimiento de red en el equipo.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* La resolución de servicios en la misma aplicación con nombre del servicio DNS no funciona en Windows 10 si la aplicación se implementó mediante Docker Compose.
+* Resolver los servicios en la misma aplicación con DNS nombre del servicio no funciona en Windows10, si la aplicación se implementó mediante Docker Compose
     * Resolución: Use servicename.applicationname para resolver los puntos de conexión de servicio.
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Si usa la dirección IP para ClusterFQDNorIP, al cambiar la dirección IP principal en el host se inhabilitará la funcionalidad DNS.
-    * Resolución: Vuelva a crear el clúster con la nueva dirección IP principal en el host o use el nombre de la máquina. Esto es así por diseño.
-* Si el FQDN con el que se creó el clúster no se puede resolver en la red, se producirá un error de DNS.
-    * Resolución: Vuelva a crear el clúster local con la dirección IP principal del host. Esto es así por diseño.
+    * Resolución: Vuelva a crear el clúster con la nueva dirección IP principal en el host o use el nombre de la máquina. Esta interrupción es así por diseño.
+* Si el FQDN del clúster se creó con no se puede resolver en la red, se producirá un error de DNS.
+    * Resolución: Vuelva a crear el clúster local con la dirección IP principal del host. Este error es por diseño.
 * Cuando se depura un contenedor, los registros de Docker solo estarán disponibles en la ventana de salida de Visual Studio, no mediante las API de Service Fabric, incluido Service Fabric Explorer.
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Depuración de una aplicación .NET que se ejecuta en contenedores de Docker en Service Fabric
@@ -81,4 +81,4 @@ A continuación, se muestra una lista de limitaciones conocidas al depurar conte
     Visual Studio admite la consola y los tipos de proyecto ASP.NET para .NET y .NET Core.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre las funcionalidades de Service Fabric y los contenedores, siga este vínculo: [Información general sobre los contenedores de Service Fabric](service-fabric-containers-overview.md).
+Para obtener más información sobre las capacidades de Service Fabric y contenedores, consulte overview](service-fabric-containers-overview.md) de contenedores de Service Fabric.

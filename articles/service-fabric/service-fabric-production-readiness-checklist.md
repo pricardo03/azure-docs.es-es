@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
+ms.date: 6/05/2019
 ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726594"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729858"
 ---
 # <a name="production-readiness-checklist"></a>Lista de comprobación sobre la preparación de producción
 
 ¿La aplicación y el clúster están preparados para asumir el tráfico de producción? La ejecución y las pruebas de la aplicación y del clúster no significan necesariamente que todo esté listo para pasar a producción. Revise la siguiente lista de comprobación para que la aplicación y el clúster se ejecuten sin problemas. Se recomienda encarecidamente comprobar todos estos elementos. Obviamente, puede optar por usar soluciones alternativas para un elemento de línea específico (por ejemplo, sus propios marcos de diagnóstico).
 
 
-## <a name="pre-requisites-for-production"></a>Requisitos previos para la producción
-1. Los [procedimientos recomendados de seguridad de Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) son: 
-1. Uso de certificados X.509
-1. Configuración de directivas de seguridad
-1. Configuración de SSL para Azure Service Fabric
-1. Uso de aislamiento y seguridad de red con Azure Service Fabric
-1. Configuración de Azure Key Vault para la seguridad
-1. Usuarios de Microsoft.Network/loadBalancersAssign a roles
+## <a name="prerequisites-for-production"></a>Requisitos previos para la producción
+1. Azure Service Fabric procedimientos recomendados: [Diseño de la aplicación](./service-fabric-best-practices-applications.md), [seguridad](./service-fabric-best-practices-security.md), [redes](./service-fabric-best-practices-networking.md), [planeamiento de capacidad y escalado](./service-fabric-best-practices-capacity-scaling.md), [infraestructura como código](./service-fabric-best-practices-infrastructure-as-code.md), y [supervisión y diagnóstico](./service-fabric-best-practices-monitoring.md). 
 1. Implementación de la configuración de seguridad de Reliable Actors si se usa el modelo de programación Actores
 1. Para los clústeres con más de 20 núcleos o 10 nodos, cree un tipo de nodo principal dedicado para los servicios del sistema. Agregue [restricciones de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar el tipo de nodo principal para los servicios del sistema.
 1. Use una SKU D2v2 o una versión superior para el tipo de nodo principal. Se recomienda seleccionar una SKU con 50 GB de capacidad de disco duro como mínimo.

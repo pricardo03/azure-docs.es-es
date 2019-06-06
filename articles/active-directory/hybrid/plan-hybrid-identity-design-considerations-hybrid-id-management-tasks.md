@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918498"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472952"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan para el ciclo de vida de identidad híbrida
 La identidad es una de las bases de la estrategia de acceso a las aplicaciones y movilidad de la empresa. Si va a iniciar sesión en su dispositivo móvil o aplicación SaaS, su identidad es la clave para obtener acceso a todo. En su nivel más alto, una solución de administración de identidades abarca la unificación y la sincronización entre los repositorios de identidad, lo que incluye la automatización y la centralización del proceso de aprovisionamiento de recursos. La solución de identidad debe ser una identidad centralizada entre el entorno local y la nube y también usar algún tipo de federación de identidades para mantener la autenticación centralizada y compartir y colaborar de forma segura con usuarios y empresas externos. Los recursos van desde sistemas operativos y aplicaciones hasta personas de una organización o afiliadas a ella. Se puede modificar la estructura organizativa para dar cabida a las directivas y procedimientos de aprovisionamiento.
@@ -48,22 +48,23 @@ Al definir esos requisitos, asegúrese de que al menos puede contestar a las sig
   
   * ¿Se ocupa la solución de identidad híbrida de la administración de licencias?
     * En caso afirmativo, ¿qué  funcionalidades están disponibles?
-* ¿Controla la solución la administración de licencias basada en grupos? 
+  * ¿Controla la solución la administración de licencias basada en grupos? 
   
-      - En caso afirmativo, ¿se le puede asignar un grupo de seguridad? 
-       - En caso afirmativo, ¿asignará el directorio en la nube licencias a todos los miembros del grupo automáticamente? 
-        - En caso de que un usuario se agregue posteriormente al grupo o se elimina de este, ¿se asignará una licencia automáticamente o se eliminará según corresponda? 
+    * En caso afirmativo, ¿se le puede asignar un grupo de seguridad? 
+    * En caso afirmativo, ¿asignará el directorio en la nube licencias a todos los miembros del grupo automáticamente? 
+    * En caso de que un usuario se agregue posteriormente al grupo o se elimina de este, ¿se asignará una licencia automáticamente o se eliminará según corresponda? 
 * Integración con otros proveedores de identidades de terceros:
-* ¿Se puede integrar esta solución híbrida con proveedores de identidades de terceros para implementar el inicio de sesión único?
-* ¿Es posible unificar los distintos proveedores de identidades en un sistema de identidad coherente?
-* En caso afirmativo, ¿cómo y cuáles son y que funcionalidades hay disponibles?
+  * ¿Se puede integrar esta solución híbrida con proveedores de identidades de terceros para implementar el inicio de sesión único?
+  * ¿Es posible unificar los distintos proveedores de identidades en un sistema de identidad coherente?
+  * En caso afirmativo, ¿cómo y cuáles son y que funcionalidades hay disponibles?
 
 ## <a name="synchronization-management"></a>Administración de la sincronización
 Uno de los objetivos de un administrador de identidades es poder reunir todos los proveedores de identidades y mantenerlos sincronizados. Los datos se mantienen sincronizados en función de un proveedor de identidades maestro autorizado. En un escenario de identidad híbrida, con un modelo de administración sincronizada, todas las identidades de los usuarios y de los dispositivos se administran en un servidor local y la cuentas y, opcionalmente las contraseñas, se sincronizan con la nube. El usuario escribe la misma contraseña en el entorno local y en la nube y, en el inicio de sesión, la solución de identidad la comprueba. En este modelo se emplea una herramienta de sincronización de directorios.
 
-![sincronización de directorios](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) para diseñar correctamente la sincronización de la solución de identidad híbrida, asegúrese de que se responden las preguntas siguientes: • ¿Cuáles son las soluciones de sincronización disponibles para la solución de identidad híbrida?
-•  ¿Qué funcionalidades de inicio de sesión único están disponibles?
-•  ¿Cuáles son las opciones para la federación de identidades entre B2B y B2C?
+![sincronización de directorios](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) para diseñar correctamente la sincronización de la solución de identidad híbrida, asegúrese de que se responden las preguntas siguientes:
+*    ¿Cuáles son las soluciones de sincronización disponibles para la solución de identidad híbrida?
+*    ¿Cuáles son la capacidades disponibles de inicio de sesión único?
+*    ¿Cuáles son las opciones de federación de identidades entre B2B y B2C?
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de la estrategia de adopción de administración de identidad híbrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

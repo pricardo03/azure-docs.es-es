@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9a078579fff355d7ddb996316af2a2136fb62335
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7489f42719223dbd7f9cc2908f666dca53fe7c04
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473329"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496387"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -312,7 +312,7 @@ module.exports = {
 ```
 Este módulo implementa la propiedad `IsPastDue` para que permanezca como una instancia de temporizador falsa.
 
-A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](https://code.visualstudio.com/tutorials/functions-extension/getting-started) y asígnele el nombre *HttpTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
+A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started) y asígnele el nombre *HttpTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
 
 ```javascript
 const httpFunction = require('./index');

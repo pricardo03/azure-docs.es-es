@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398546"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430859"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Interoperabilidad de modelo con el servicio de Azure Machine Learning
 
@@ -462,7 +462,7 @@ La explicación se puede implementar junto con el modelo original y puede utiliz
 
 Automatizada machine learning contiene paquetes para interpretar la importancia de características en los modelos entrenados en automático. Además, los escenarios de clasificación permiten recuperar la importancia de características de nivel de clase. Hay dos métodos para habilitar este comportamiento automatizado machine Learning:
 
-* Para habilitar la importancia de características para un modelo entrenado del conjunto, utilice el [ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) función.
+* Para habilitar la importancia de características para un modelo entrenado del conjunto, utilice el [ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) función.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -471,7 +471,7 @@ Automatizada machine learning contiene paquetes para interpretar la importancia 
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* Para habilitar la importancia de características para cada ejecución individual antes de entrenamiento, establezca el `model_explainability` parámetro `True` en el `AutoMLConfig` objeto, junto con el suministro de datos de validación. A continuación, utilice el [ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) función.
+* Para habilitar la importancia de características para cada ejecución individual antes de entrenamiento, establezca el `model_explainability` parámetro `True` en el `AutoMLConfig` objeto, junto con el suministro de datos de validación. A continuación, utilice el [ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) función.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation

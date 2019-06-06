@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835036"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735259"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader, que es probablemente lo primero que verá al arrancar una máquina virtual. Al mostrarse antes de que se haya iniciado el sistema operativo, no se puede acceder a él mediante SSH. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.
@@ -184,7 +184,7 @@ El acceso a GRUB en SUSE Linux Enterprise Server requiere la configuración del 
 Se le pondrá automáticamente en el shell de emergencia si SLES no puede arrancar normalmente. Para especificar manualmente el shell de emergencia, siga estas instrucciones:
 
 1. En GRUB, presione "e" para editar la entrada de arranque (la entrada de SLES)
-1. Busque la línea de kernel que empieza por `linux`
+1. Busque la línea de kernel: se inicia con `linux`
 1. Anexe `systemd.unit=emergency.target` al final de la línea
 1. Presione Ctrl + X para reiniciar el equipo con esta configuración y especificar el shell de emergencia
    > Tenga en cuenta que se le pondrá en el shell de emergencia con un sistema de archivos de _solo lectura_. Si desea realizar alguna edición en cualquier archivo, tendrá que volver a montar el sistema de archivos con permisos de lectura y escritura. Para ello, escriba `mount -o remount,rw /` en el shell

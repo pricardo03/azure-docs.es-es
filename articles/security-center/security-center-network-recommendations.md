@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e038c500d93e4d631c585eed743a373b5e6cec85
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968347"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428371"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
@@ -131,16 +131,14 @@ El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descr
 
 |Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
 |----|----|----|----|
-|Machine|40|Habilitar los grupos de seguridad de red en máquinas virtuales|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|
-|Subred|35|Habilitar grupos de seguridad de red en subredes |Habilite grupos de seguridad de red para controlar el acceso de red de los recursos implementados en las subredes.|
-|Machine|30|Aplicar un control de acceso a redes Just-In-Time|Aplique el control de acceso de máquina virtual Just-In-Time para bloquear de forma permanente el acceso a puertos seleccionados y permitir que los usuarios autorizados los abran mediante el mismo mecanismo y durante una cantidad de tiempo limitada.|
-|Machine|20|Restringir el acceso a través de un punto de conexión accesible desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|
+|Machine|40|Se debe habilitar los grupos de seguridad de red para las máquinas virtuales|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|
+|Subred|35|Grupos de seguridad de red en el nivel de subred debe estar habilitados|Habilite grupos de seguridad de red para controlar el acceso de red de los recursos implementados en las subredes.|
+|Machine|30|Se debe aplicar el control de acceso de red Just-In-Time en máquinas virtuales|Aplique el control de acceso de máquina virtual Just-In-Time para bloquear de forma permanente el acceso a puertos seleccionados y permitir que los usuarios autorizados los abran mediante el mismo mecanismo y durante una cantidad de tiempo limitada.|
+|Machine|20|Restricción del acceso a través de puntos de conexión accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|
 |Machine|10|Agregar un firewall de próxima generación|Agregue una solución de Firewall de próxima generación (NGFW) para proteger mejor sus máquinas virtuales accesibles desde Internet.|
 |Machine|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de su solución de firewall de próxima generación, se debe enrutar el tráfico a las máquinas virtuales accesibles desde Internet protegidas solo a través de la solución de firewall de próxima generación.|
-|Red virtual|5|Habilitar estándar de protección contra DDoS|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
-|Machine|10|Agregar un firewall de próxima generación|Agregue una solución de firewall de próxima generación (NGFW) para proteger mejor las máquinas virtuales accesibles desde Internet.|
-|Machine|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de la solución de firewall de próxima generación, el tráfico hacia las máquinas virtuales accesibles desde Internet protegidas se debe enrutar solo a través de la solución de firewall de próxima generación.|
-Red virtual|5|Habilitar estándar de protección contra DDoS|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
+|VNet|5|Habilitar la protección contra DDoS estándar|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
+
 ## <a name="see-also"></a>Vea también
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 

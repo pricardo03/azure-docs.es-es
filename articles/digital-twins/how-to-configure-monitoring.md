@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967810"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730322"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Configuración de la supervisión en Azure Digital Twins
 
@@ -40,17 +40,17 @@ El registro de actividad de Azure Digital Twins está habilitado de forma predet
 1. Seleccionar la instancia de Azure Digital Twins.
 1. Elegir **Registro de actividad** para que aparezca el panel de pantalla:
 
-    ![Registro de actividades][1]
+    [![Registro de actividad](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 Para el registro de actividad avanzada:
 
 1. Seleccione la opción **Registros** para mostrar la **información general de Activity Log Analytics**:
 
-    ![Número de selección][2]
+    [![Selección](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
 1. La **información general de Activity Log Analytics** resume los datos de registro de actividad esenciales:
 
-    ![Introducción al análisis de registros de actividad][3]
+    [![Información general de análisis de registro de actividad]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >Use los **registros de actividad** para obtener información rápida sobre los eventos a nivel de suscripción.
@@ -70,12 +70,12 @@ Para habilitar los registros de diagnóstico para una instancia:
 1. Abra el recurso en Azure Portal.
 1. Haga clic en **Configuración de diagnóstico**:
 
-    ![Configuración de diagnóstico número uno][4]
+    [![Una configuración de diagnóstico](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
 1. Haga clic en **Activar diagnóstico** para recopilar datos (si no se habilitó anteriormente).
 1. Rellene los campos solicitados y seleccione cómo y dónde se guardarán los datos:
 
-    ![Configuración de diagnóstico número dos][5]
+    [![Dos opciones de diagnóstico](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     A menudo se guardan registros de diagnóstico mediante [Azure File Storage](../storage/files/storage-files-deployment-guide.md) y se comparte con [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Ambas opciones se pueden seleccionar.
 
@@ -99,24 +99,24 @@ Consultar el registro completo se proporciona a través de [registros de Azure M
 1. Busque **Log Analytics** en Azure Portal.
 1. Verá su disponible **área de trabajo de Log Analytics** instancias. Elija una y seleccione **Registros** para consultar:
 
-    ![Log Analytics][6]
+    [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. Si aún no tiene un **área de trabajo de Log Analytics** instancia, puede crear un área de trabajo, haga clic en el **agregar** botón:
 
-    ![Creación de OMS][7]
+    [![Creación de OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 Una vez su **área de trabajo de Log Analytics** se aprovisiona la instancia, puede usar consultas eficaces para buscar entradas en los registros de múltiplos o buscar mediante criterios específicos mediante **administración de registros**:
 
-   ![Administración de registros][8]
+   [![Administración de registros](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 Para obtener más información acerca de estas eficaces operaciones de consulta, lea [Introducción a las consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Puede experimentar un retraso de 5 minutos al enviar eventos a **área de trabajo de Log Analytics** por primera vez.
 
-Registros de Azure Monitor proporciona también error eficaces y servicios de notificación de alerta, que pueden verse haciendo clic en **diagnosticar y resolver problemas**:
+Registros de Azure Monitor también proporcionan error eficaces y servicios de notificación de alerta, que pueden verse haciendo **diagnosticar y resolver problemas**:
 
-   ![Notificaciones de alerta y de error][9]
+   [![Notificaciones de alerta y de error](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >Use **área de trabajo de Log Analytics** a los historiales de registro de consultas para varios servicios, suscripciones o las funcionalidades de la aplicación.
@@ -132,14 +132,3 @@ Azure Digital Twins también admite el registro y la auditoría de seguridad esp
 - Profundice en la configuración de diagnóstico de Azure consultando la [información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 - Obtenga más información sobre [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
-
-<!-- Images -->
-[1]: media/how-to-configure-monitoring/activity-log.png
-[2]: media/how-to-configure-monitoring/activity-log-select.png
-[3]: media/how-to-configure-monitoring/log-analytics-overview.png
-[4]: media/how-to-configure-monitoring/diagnostic-settings-one.png
-[5]: media/how-to-configure-monitoring/diagnostic-settings-two.png
-[6]: media/how-to-configure-monitoring/log-analytics.png
-[7]: media/how-to-configure-monitoring/log-analytics-oms.png
-[8]: media/how-to-configure-monitoring/log-analytics-management.png
-[9]: media/how-to-configure-monitoring/log-analytics-notifications.png

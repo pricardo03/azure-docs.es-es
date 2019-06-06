@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463623"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430799"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -42,6 +42,7 @@ Para poder asociar o agregar su suscripción, debe realizar las siguientes tarea
     - Los usuarios que se han asignado los roles mediante RBAC perderán el acceso
     - Administrador de servicios y los coadministradores perderán el acceso
     - Si dispone de los almacenes de claves, que sean inaccesibles y tendrá que corregirlos después de la asociación
+    - Si dispone de ninguna identidad administrada para recursos como máquinas virtuales o aplicaciones lógicas, tendrá que volver a habilitar o volver a crearlos después de la asociación
     - Si tiene un registrado Azure Stack, tendrá que volver a registrarla después de la asociación
 
 1. Iniciar sesión con una cuenta que:
@@ -76,7 +77,9 @@ Después de asociar una suscripción a un directorio diferente, puede haber paso
 
 1. Si dispone de los almacenes de claves, debe cambiar el identificador del inquilino de almacén de claves. Para obtener más información, consulte [cambiar un identificador de inquilino de key vault después de mover una suscripción](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Si ha registrado un usando esta suscripción de Azure Stack, debe volver a registrar. Para obtener más información, consulte [registrar Azure Stack con Azure](/azure-stack/operator/azure-stack-registration).
+2. Si usaba asignado por el sistema de identidades administradas para los recursos, deben volver a habilitar estos. Si usaba asignada por el usuario identidades administradas, deben volver a crear estos. Después de volver a habilitar o volver a crear las identidades administradas, que debe volver a establecer los permisos asignados a las identidades. Para obtener más información, consulte [What ' s identidades administradas para los recursos de Azure?](../managed-identities-azure-resources/overview.md).
+
+3. Si ha registrado un usando esta suscripción de Azure Stack, debe volver a registrar. Para obtener más información, consulte [registrar Azure Stack con Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

@@ -2,20 +2,20 @@
 title: Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
 description: Aprenda a personalizar la entrada del usuario y a agregar notificaciones en el proceso de registro o inicio de sesión en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768007"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507559"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Los elementos siguientes se usan para definir la notificación:
 - **UserHelpText**: ayuda al usuario a entender los requisitos.
 - **UserInputType**: puede ser un cuadro de texto, un botón de selección, una lista desplegable o una selección múltiple.
 
-#### <a name="textbox"></a>Cuadro de texto
+#### <a name="textbox"></a>TextBox
 
 ```xml
 <ClaimType Id="city">
@@ -263,7 +263,7 @@ Los elementos siguientes se usan para definir la notificación:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, haga clic en el **filtro de directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
-4. Seleccione **Identity Experience Framework (versión preliminar)**.
+4. Seleccione **Identity Experience Framework (versión preliminar)** .
 5. Seleccione **Cargar directiva personalizada** y cargue los dos archivos de directiva modificados.
 2. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
 3. Debe poder registrarse con una dirección de correo electrónico.

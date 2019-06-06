@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024858"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479932"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
 En este artículo se explica cómo usar Azure Search para indexar documentos (como archivos PD, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
@@ -139,6 +139,7 @@ En función de la [configuración del indizador](#PartsOfBlobToIndex), el indiza
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): La última marca de tiempo modificada para el blob. Azure Search usa esta marca de tiempo para identificar los blobs modificados para evitar volver a indexar todo después de la indexación inicial.
   * **metadata\_storage\_size** (Edm.Int64): Tamaño del blob en bytes.
   * **metadata\_storage\_content\_md5** (Edm.String): Hash MD5 del contenido del blob, si está disponible.
+  * **metadatos\_almacenamiento\_sas\_token** (Edm.String): un token temporal que puede usarse por [habilidades personalizadas](cognitive-search-custom-skill-interface.md) para obtener derechos de acceso al blob. Este token de sas no debe almacenarse para su uso posterior es posible que expire.
 * Se extraen las propiedades de metadatos específicos de cada formato de documento en los campos enumerados [aquí](#ContentSpecificMetadata).
 
 No es necesario definir campos para todas las propiedades anteriores en el índice de búsqueda, capture solo las propiedades que necesita para la aplicación.
@@ -272,7 +273,7 @@ Azure Search limita el tamaño de los blobs que se indexan. Estos límites se do
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-También puede continuar con la indexación si se producen errores en cualquier punto del procesamiento, mientras se analizan blobs o se agregan documentos a un índice. Para omitir un número específico de errores, establezca los parámetros de configuración `maxFailedItems` y `maxFailedItemsPerBatch` en los valores deseados. Por ejemplo: 
+También puede continuar con la indexación si se producen errores en cualquier punto del procesamiento, mientras se analizan blobs o se agregan documentos a un índice. Para omitir un número específico de errores, establezca los parámetros de configuración `maxFailedItems` y `maxFailedItemsPerBatch` en los valores deseados. Por ejemplo:
 
     {
       ... other parts of indexer definition

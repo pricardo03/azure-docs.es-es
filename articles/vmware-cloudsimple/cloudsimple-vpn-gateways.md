@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872758"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496861"
 ---
 # <a name="vpn-gateways-overview"></a>Información general sobre las puertas de enlace VPN
 
@@ -37,6 +37,8 @@ Casos de uso de VPN de sitio a sitio se incluyen:
 * Transferencia cómoda de plantillas, imágenes ISO y otros archivos de máquina virtual de los recursos locales al nube privada de vCenter.
 * Accesibilidad de las cargas de trabajo que se ejecutan en la nube privada de la red local.
 
+![Topología de conexión de VPN de sitio a sitio](media/cloudsimple-site-to-site-vpn-connection.png)
+
 ### <a name="cryptographic-parameters"></a>Parámetros criptográficos
 
 Una conexión VPN de sitio a sitio usa los siguientes parámetros cifrado predeterminada para establecer una conexión segura.  Cuando se crea una conexión de dispositivo VPN local, los parámetros deben coincidir.
@@ -52,7 +54,7 @@ Una conexión VPN de sitio a sitio usa los siguientes parámetros cifrado predet
 | Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
 | Grupo de Diffie Hellman (DH grupo) | 1 | 1 | 1 |
 | Tiempo de vida | 28.800 segundos | 28.800 segundos | 28.800 segundos |
-| Tamaño de datos | 4 GB | 4 GB | 4 GB |
+| Tamaño de los datos | 4 GB | 4 GB | 4 GB |
 
 
 #### <a name="phase-2-proposals"></a>Fase 2 propuestas 
@@ -63,7 +65,7 @@ Una conexión VPN de sitio a sitio usa los siguientes parámetros cifrado predet
 | Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
 | Grupo de confidencialidad directa perfecta (grupo PFS) | None | None | None |
 | Tiempo de vida | 1800 segundos | 1800 segundos | 1800 segundos |
-| Tamaño de datos | 4 GB | 4 GB | 4 GB |
+| Tamaño de los datos | 4 GB | 4 GB | 4 GB |
 
 ## <a name="point-to-site-vpn-gateway"></a>Puerta de enlace de VPN de punto a sitio
 

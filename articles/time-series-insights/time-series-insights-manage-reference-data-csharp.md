@@ -10,14 +10,14 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 683aa2c7112533d9e3c06ddcb238048a26c75db3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 50368175fbe563d5685f17e96dd41251a0494afd
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237609"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728992"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Administrar datos de referencia de la disponibilidad general para un entorno de Azure Time Series Insights medianteC#
 
@@ -36,7 +36,7 @@ Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 1. Modifique el código de ejemplo para reemplazar las constantes de ejemplo, designadas en **DUMMY #** , cerca del principio del código.
 
 > [!NOTE]
-> Ver el código de ejemplo de disponibilidad general en [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> Ver el código de ejemplo de disponibilidad general en [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dependencias del proyecto
 

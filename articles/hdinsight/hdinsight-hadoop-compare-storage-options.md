@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720470"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479162"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -45,15 +45,15 @@ Puede crear un clúster mediante combinaciones diferentes de servicios de almace
 | Versión de HDInsight | Almacenamiento principal | Almacenamiento secundario | Compatible |
 |---|---|---|---|
 | 3.6 & 4.0 | Uso general V1, V2 de propósito General | Uso general V1, V2 de propósito General, BlobStorage (Blobs en bloques) | Sí |
-| 3.6 & 4.0 | Uso general V1, V2 de propósito General | Data Lake Storage Gen2 | Sin  |
+| 3.6 & 4.0 | Uso general V1, V2 de propósito General | Data Lake Storage Gen2 | No |
 | 3.6 & 4.0 | Uso general V1, V2 de propósito General | Data Lake Storage Gen1 | Sí |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Sí |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Uso general V1, V2 de propósito General, BlobStorage (Blobs en bloques) | Sí |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Sin  |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Sin |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sí |
 | 3.6 | Data Lake Storage Gen1 | Uso general V1, V2 de propósito General, BlobStorage (Blobs en bloques) | Sí |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Sin  |
-| 4.0 | Data Lake Storage Gen1 | Cualquiera | Sin  |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Sin |
+| 4.0 | Data Lake Storage Gen1 | Cualquiera | No |
 
 * = Podría tratarse de una o varias cuentas de Data Lake Storage Gen2, siempre sean toda la configuración que se usará la misma identidad administrada para el acceso al clúster.
 
@@ -137,7 +137,7 @@ HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta local
 
 A través de HDInsight también puede tener acceso a datos en Azure Storage. La sintaxis es la siguiente:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 A la hora de usar una cuenta de Azure Storage con clústeres de HDInsight, es necesario considerar lo siguiente:
 

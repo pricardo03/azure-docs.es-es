@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280424"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480295"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configuración de la recuperación ante desastres para una aplicación web basada en IIS de niveles múltiples
 
@@ -62,7 +62,7 @@ Escenario | En un sitio secundario | En Azure
 --- | --- | ---
 Hyper-V | Sí | Sí
 VMware | Sí | Sí
-Servidor físico | Sin  | Sí
+Servidor físico | Sin | Sí
 Azure|N/D|Sí
 
 ## <a name="replicate-virtual-machines"></a>Replicación de máquinas virtuales
@@ -109,7 +109,7 @@ Si la cadena de conexión hace referencia a la máquina virtual de la base de da
         </connectionStrings>
         </configuration>
 
-Para actualizar la cadena de conexión en la capa web, agregue un [script de actualización de la conexión de IIS](https://aka.ms/asr-update-webtier-script-classic) después del grupo 3 en el plan de recuperación.
+Para actualizar la cadena de conexión en la capa web, agregue un [script de actualización de la conexión de IIS](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) después del grupo 3 en el plan de recuperación.
 
 #### <a name="site-bindings-for-the-application"></a>Enlaces del sitio en la aplicación
 Todos los sitios se componen de información de enlace. La información de enlace incluye el tipo de enlace, la dirección IP en la que el servidor IIS escucha las solicitudes del sitio, el número de puerto y los nombres de host del sitio. Durante la conmutación por error, puede ser necesario actualizar estos enlaces si hay un cambio en la dirección IP que tienen asociada.

@@ -2,20 +2,20 @@
 title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento ClaimsSchema de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721754"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511866"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -107,7 +107,7 @@ El elemento **Mask** contiene los siguientes atributos:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | `Type` | Sí | Tipo de enmascaramiento de la notificación. Valores posibles: `Simple` o `Regex`. El valor `Simple` indica que se aplica un solo enmascaramiento del texto en la parte inicial de una notificación de la cadena. El valor `Regex` indica que una expresión regular se aplica a una notificación de la cadena en conjunto.  Si se especifica el valor `Regex`, también debe definirse un atributo opcional con la expresión regular que se va a usar. |
-| `Regex` | Sin  | Si **`Type`** está establecido en `Regex`, especifique la expresión regular a utilizar.
+| `Regex` | No | Si **`Type`** está establecido en `Regex`, especifique la expresión regular a utilizar.
 
 El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascaramiento `Simple`:
 
@@ -146,7 +146,7 @@ El elemento **Restriction** puede contener el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| MergeBehavior | Sin  | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
+| MergeBehavior | Sin | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
 
 El elemento **Restriction** contiene los elementos siguientes:
 
@@ -163,7 +163,7 @@ El elemento **Enumeration** contiene los siguientes atributos:
 | --------- | -------- | ----------- |
 | Text | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
 |Valor | Sí | El valor de notificación que está asociado a la selección de esta opción. |
-| SelectByDefault | Sin  | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
+| SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente se configura una notificación de lista desplegable **Ciudad** con un valor predeterminado establecido en `New York`:
 
@@ -191,7 +191,7 @@ El elemento **Pattern** puede contener los siguientes atributos:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | RegularExpression | Sí | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
-| HelpText | Sin  | El patrón o una expresión regular para esta notificación. |
+| HelpText | No | El patrón o una expresión regular para esta notificación. |
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:
 

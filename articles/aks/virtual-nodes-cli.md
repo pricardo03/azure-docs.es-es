@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506955"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742786"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -69,6 +69,7 @@ Funcionalidad de los nodos virtual es depende en gran medida en el conjunto de c
 * [Alias de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para exec en ACI
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) no implementará los pods en el nodo virtual
+* [Nodos de Windows Server (actualmente en versión preliminar de AKS)](windows-container-cli.md) no se admiten junto con los nodos virtuales. Puede usar los nodos virtuales para programar los contenedores de Windows Server sin necesidad de nodos de Windows Server en un clúster de AKS.
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
@@ -280,7 +281,7 @@ Instale `curl` en el pod mediante `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Ahora acceda a la dirección de su pod mediante `curl`, como *http://10.241.0.4*. Proporcione su propia dirección IP interna mostrada en el comando `kubectl get pods` anterior:
+Ahora acceda a la dirección de su pod mediante `curl`, como *http://10.241.0.4* . Proporcione su propia dirección IP interna mostrada en el comando `kubectl get pods` anterior:
 
 ```console
 curl -L http://10.241.0.4

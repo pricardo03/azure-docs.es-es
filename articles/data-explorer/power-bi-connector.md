@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 6147269ab38ac14c2a2ecadaac3448a491af7c20
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.date: 06/04/2019
+ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399305"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494623"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualización de datos mediante el conector de Azure Data Explorer para Power BI
 
@@ -38,13 +38,11 @@ En primer lugar, conéctese al clúster de ayuda de Azure Data Explorer, despué
 
     ![Obtener los datos](media/power-bi-connector/get-data-more.png)
 
-1. Busque *Azure Data Explorer* y, a continuación, seleccione **Azure Data Explorer (versión beta)** y **Conectar**.
+1. Busque *Explorador de Azure Data*, seleccione **Explorador de Azure Data** , a continuación, **Connect**.
 
     ![Buscar y obtener datos](media/power-bi-connector/search-get-data.png)
 
-1. En la pantalla **Conector de vista previa**, seleccione **Continuar**.
-
-1. En la siguiente pantalla, rellene el formulario con esta información.
+1. En el **Explorador de datos de Azure (Kusto)** pantalla, rellene el formulario con la siguiente información.
 
     ![Opciones de clúster, base de datos y tabla](media/power-bi-connector/cluster-database-table.png)
 

@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806152"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474528"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Comprobar el estado de publicación de su oferta de Marketplace comercial
 
 Puede ver su actual **estado de publicación** en el **ofrecen información general sobre** pestaña de la [portal Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) en Centro de partners.
 
+Uno de los siguientes indicadores de estado se debe mostrar para cada oferta.
+
+| **Estado**    | **Descripción**  |
+| :---------- | :-------------------|
+| **Draft** | Se ha creado la oferta pero no está publicada. |
+| **Publicación en curso** | Plan de oferta/está trabajando su recorrido por los pasos del proceso de publicación. |
+| **Atención necesitado** | Se ha detectado un problema crítico durante la certificación Microsoft o de cualquiera de los pasos de publicación. |
+| **Versión preliminar** | Oferta certificada por Microsoft y ahora espera una comprobación final por el publicador. Seleccione lanzarla a poner la oferta en vivo. |
+| **Publicación** | Oferta también está disponible en marketplace puede ver y adquirida por los clientes. |
+| **Venta de detención pendiente** | Publicador había seleccionado "Detener sell" en la oferta o plan, pero no se ha completado la acción. |
+| **No está disponible en marketplace** | Se quitó un publicada anteriormente/plan de oferta en marketplace. |
+
 ## <a name="automated-validation"></a>Validación automatizada
 
 El primer paso del proceso de publicación es un conjunto de validaciones automatizadas. Cada paso de validación que se corresponde con una característica que eligió para habilitar la creación de su oferta. Si esa característica no se ha habilitado la validación salta hasta el siguiente paso de publicación. Cada comprobación de validación debe realizarse antes de que el estado de publicación se ha aprobado.
 
-- **Configuración del flujo de compra de la oferta (> 10 min)**
+- **Configuración del flujo de compra de la oferta (< 10 min)**
 
 En este paso, nos aseguramos de que su oferta puede cumplirse cuando se adquieren por los clientes a través del portal de Azure. Este paso solo es aplicable para las ofertas de venta a través de Microsoft.
 
@@ -34,7 +46,7 @@ En este paso, se validan los datos que proporcionó en la sección de configurac
 
 En este paso después de validar los datos y la funcionalidad de la versión de prueba en el paso anterior, se implementa y se replican las instancias de la versión de prueba para que estén listos para el uso del cliente.  Este paso solo es aplicable para las ofertas con una versión de prueba habilitada.
 
-- **Llevar el registro y la validación de administración (> 15 minutos)**
+- **Llevar el registro y la validación de administración (< 15 minutos)**
 
 En este paso, confirmamos que su sistema de administración de clientes potenciales puede recibir clientes potenciales según los detalles proporcionados en el programa de instalación de la oferta. Este paso solo es aplicable para las ofertas con administración de clientes potenciales habilitada.
 

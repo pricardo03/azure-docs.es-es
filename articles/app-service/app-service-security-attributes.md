@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001699"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475084"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Atributos de seguridad para Azure App Service
 
@@ -51,7 +51,7 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Authentication| Sí | Los clientes pueden crear aplicaciones en App Service que se integran automáticamente con [Azure Active Directory (Azure AD)](../active-directory/index.md) , así como otros proveedores de identidades compatible con OAuth; vea [autenticación y autorización en Azure App Service](overview-authentication-authorization.md). Para administración de acceso a los recursos de App Service, todo el acceso se controla mediante una combinación de entidad de seguridad de Azure AD autenticado y roles de RBAC de Azure Resource Manager. |
+| Authentication| Sí | Los clientes pueden crear aplicaciones en App Service que se integran automáticamente con [Azure Active Directory (Azure AD)](../active-directory/index.yml) , así como otros proveedores de identidades compatible con OAuth; vea [autenticación y autorización en Azure App Service](overview-authentication-authorization.md). Para administración de acceso a los recursos de App Service, todo el acceso se controla mediante una combinación de entidad de seguridad de Azure AD autenticado y roles de RBAC de Azure Resource Manager. |
 | Autorización| Sí | Para administración de acceso a los recursos de App Service, todo el acceso se controla mediante una combinación de entidad de seguridad de Azure AD autenticado y roles de RBAC de Azure Resource Manager.  |
 
 
@@ -60,7 +60,7 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Auditoría y registro del plano de control y administración| Sí | Todas las operaciones de administración realizadas en objetos de App Service se producen a través de [Azure Resource Manager](../azure-resource-manager/index.yml). Los registros históricos de estas operaciones están disponibles tanto en el portal a través de la CLI; consulte [operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb) y [registro de actividad de monitor az](/cli/azure/monitor/activity-log). |
-| Auditoría y registro del plano de datos | No | El plano de datos de App Service es un recurso compartido de archivos remoto que contiene el contenido del sitio web implementado de un cliente.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
+| Auditoría y registro del plano de datos | Sin | El plano de datos de App Service es un recurso compartido de archivos remoto que contiene el contenido del sitio web implementado de un cliente.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
 
 ## <a name="configuration-management"></a>Administración de configuración
 

@@ -2,20 +2,20 @@
 title: Inicio de sesión único de la página con el flujo implícito - Azure Active Directory B2C | Microsoft Docs
 description: Obtenga información sobre cómo agregar inicio de sesión único de la página de usar el flujo implícito de OAuth 2.0 con Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06156b1050bbf77fbbd5be8559b3c1683c2ced24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698944"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508973"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión único de la página utilizando el flujo implícito de OAuth 2.0 en Azure Active Directory B2C
 
@@ -83,13 +83,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | --------- | -------- | ----------- |
 | client_id | Sí | IDENTIFICADOR de la aplicación que el [portal Azure](https://portal.azure.com/) asignado a la aplicación. |
 | response_type | Sí | Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir el tipo de respuesta `token`. Si usa `token`, la aplicación puede recibir un token de acceso inmediatamente desde el punto de conexión autorizado sin realizar una segunda solicitud para autorizar el punto de conexión.  Si usa el tipo de respuesta `token`, el parámetro `scope` debe contener un ámbito que indica para qué recurso se va a emitir el token. |
-| redirect_uri | Sin  | El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que ha registrado en el portal, con la excepción de que debe estar codificado como URL. |
-| response_mode | Sin  | Especifica el método que se usará para enviar el token resultante de nuevo a la aplicación.  Para los flujos implícitos, use `fragment`. |
+| redirect_uri | Sin | El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que ha registrado en el portal, con la excepción de que debe estar codificado como URL. |
+| response_mode | No | Especifica el método que se usará para enviar el token resultante de nuevo a la aplicación.  Para los flujos implícitos, use `fragment`. |
 | scope | Sí | Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. El ámbito `offline_access` es opcional para las aplicaciones web. Indica que la aplicación necesita un token de actualización para un acceso de larga duración a los recursos. |
-| state | Sin  | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que quiera usar. Se suele usar un valor único generado de manera aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página en la que estaban. |
-| valor de seguridad | Sí | Un valor incluido en la solicitud (generada por la aplicación), que se incluye en el token de identificador resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que puede usarse para identificar el origen de la solicitud. |
-| p | Sí | La directiva que se va a ejecutar. Es el nombre de una directiva (flujo de usuario) que se crea en el inquilino de Azure AD B2C. El valor del nombre de directiva debe comenzar por **b2c\_1\_**. |
-| símbolo del sistema | Sin  | El tipo de interacción con el usuario que se necesita. Actualmente, el único valor válido es `login`. Este parámetro obliga al usuario a escribir sus credenciales en esa solicitud. Inicio de sesión único no surta efecto. |
+| state | Sin | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que quiera usar. Se suele usar un valor único generado de manera aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página en la que estaban. |
+| nonce | Sí | Un valor incluido en la solicitud (generada por la aplicación), que se incluye en el token de identificador resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que puede usarse para identificar el origen de la solicitud. |
+| p | Sí | La directiva que se va a ejecutar. Es el nombre de una directiva (flujo de usuario) que se crea en el inquilino de Azure AD B2C. El valor del nombre de directiva debe comenzar por **b2c\_1\_** . |
+| símbolo del sistema | Sin | El tipo de interacción con el usuario que se necesita. Actualmente, el único valor válido es `login`. Este parámetro obliga al usuario a escribir sus credenciales en esa solicitud. Inicio de sesión único no surta efecto. |
 
 En este punto se pedirá al usuario que complete el flujo de trabajo de la directiva. El usuario podría tener que escribir su nombre de usuario y la contraseña, inicie sesión con una identidad social, inicio de sesión para el directorio, o cualquier otro número de pasos. Las acciones del usuario dependerán de cómo se defina el flujo de usuario.
 
@@ -152,7 +152,7 @@ Para determinar qué flujo de usuario se ha usado para firmar un token de identi
 Cuando haya adquirido el documento de metadatos del punto de conexión de metadatos de OpenID Connect, podrá usar las claves públicas RSA-256 (que están ubicadas en este punto de conexión) para validar la firma del token de identificador. Podría haber varias claves enumeradas en este punto de conexión en cualquier momento, cada una identificada con una `kid`. El encabezado de `id_token` también contiene una notificación `kid`. Indica cuál de estas claves se ha usado para firmar el token de identificador. Para obtener más información, incluida la información para [validar los tokens](active-directory-b2c-reference-tokens.md), vea [Azure AD B2C: referencia de tokens](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
 
-Después de que valide la firma del token de identificador, varias notificaciones necesitan comprobarse. Por ejemplo: 
+Después de que valide la firma del token de identificador, varias notificaciones necesitan comprobarse. Por ejemplo:
 
 * Valide la notificación `nonce` para evitar ataques de reproducción del token. Su valor debería ser el que especificó en la solicitud de inicio de sesión.
 * Valide la notificación `aud` para asegurarse de que se ha generado el token de identificador para su aplicación. Su valor debería ser el identificador de la aplicación.
@@ -199,7 +199,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |Obligatorio |Una lista de ámbitos separada por espacios.  Para obtener los tokens, incluya todos los ámbitos que necesita para el recurso previsto. |
 | response_mode |Recomendado |Especifica el método que se usará para enviar el token resultante de nuevo a la aplicación.  Puede ser `query`, `form_post` o `fragment`. |
 | state |Recomendado |Un valor incluido en la solicitud que se devolverá en la respuesta del token.  Puede ser una cadena de cualquier contenido que quiera usar.  Se suele usar un valor único generado de manera aleatoria para evitar los ataques de falsificación de solicitudes entre sitios.  El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación. Por ejemplo, la página o la vista en la que ha estado el usuario. |
-| valor de seguridad |Obligatorio |Un valor incluido en la solicitud, generada por la aplicación, que se incluirá en el token de identificador resultante como una notificación.  La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que puede identificar el origen de la solicitud. |
+| nonce |Obligatorio |Un valor incluido en la solicitud, generada por la aplicación, que se incluirá en el token de identificador resultante como una notificación.  La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que puede identificar el origen de la solicitud. |
 | símbolo del sistema |Obligatorio |Para actualizar y obtener tokens en un iframe oculto, use `prompt=none` para asegurarse de que el iframe no se bloquea en la página de inicio de sesión y se devuelve inmediatamente. |
 | login_hint |Obligatorio |Para actualizar y obtener tokens en un iframe oculto, incluya el nombre de usuario del usuario en esta sugerencia para distinguir entre varias sesiones que el usuario pueda tener en un momento dado. Puede extraer el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
 | domain_hint |Obligatorio |Puede ser `consumers` o `organizations`.  Para actualizar y obtener tokens en un iframe oculto, incluya el `domain_hint` valor de la solicitud.  Extraiga la notificación `tid` del token de identificador de un inicio de sesión anterior para determinar qué valor va a usar.  Si el valor de la notificación `tid` es `9188040d-6c67-4c5b-b112-36a304b66dad`, use `domain_hint=consumers`.  De lo contrario, use `domain_hint=organizations`. |
@@ -248,7 +248,7 @@ Los tokens de identificador y los tokens de acceso expiran tras un breve períod
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 Cuando quiera iniciar sesión fuera de la aplicación, redirija al usuario a Azure AD para cerrar la sesión. Si no redirige al usuario, es posible que pueda autenticar la aplicación sin volver a escribir sus credenciales porque tienen una única inicio de sesión en sesión válida con Azure AD.
 
-Lo que puede hacer es simplemente redirigir al usuario al elemento `end_session_endpoint` que se enumera en el mismo documento de metadatos de OpenID Connect que se ha descrito en [Validar el token de identificador](#validate-the-id-token). Por ejemplo: 
+Lo que puede hacer es simplemente redirigir al usuario al elemento `end_session_endpoint` que se enumera en el mismo documento de metadatos de OpenID Connect que se ha descrito en [Validar el token de identificador](#validate-the-id-token). Por ejemplo:
 
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?

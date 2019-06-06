@@ -16,17 +16,17 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918471"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473150"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Escenarios comunes de administración de derechos de Azure AD (versión preliminar)
 
 > [!IMPORTANT]
-> Administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
+> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -46,16 +46,16 @@ Hay varias formas que puede configurar la administración de derechos para su or
 > [!div class="mx-tableFixed"]
 > | Pasos | Ejemplo |
 > | --- | --- |
-> | **1.** [Crear un nuevo paquete de acceso en un catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Crear un paquete de acceso](./media/entitlement-management-scenarios/access-package.png) |
+> | **1.** [Crear un nuevo paquete de acceso en un catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Creación de un paquete de acceso](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Agregar roles de recursos para acceder al paquete](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Grupos</li><li>APLICACIONES</li><li>Sitios de SharePoint</li></ul> | ![Agregar roles de recursos](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [Agregar una directiva](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>Para los usuarios del directorio</li><li>Requerir aprobación</li><li>Configuración de expiración</li></ul> | ![Add policy](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Quiero permitir que a los usuarios de mi socios comerciales (incluidos los usuarios aún no en mi directorio) para solicitar acceso a grupos, aplicaciones o sitios de SharePoint
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Quiero permitir que a los usuarios desde mi directorio de socios de negocios (incluidos los usuarios aún no en mi directorio) para solicitar acceso a grupos, aplicaciones o sitios de SharePoint
 
 > [!div class="mx-tableFixed"]
 > | Pasos | Ejemplo |
 > | --- | --- |
-> | **1.** [Crear un nuevo paquete de acceso en un catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Crear un paquete de acceso](./media/entitlement-management-scenarios/access-package.png) |
+> | **1.** [Crear un nuevo paquete de acceso en un catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Creación de un paquete de acceso](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Agregar roles de recursos para acceder al paquete](entitlement-management-access-package-edit.md#add-resource-roles) | ![Agregar roles de recursos](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [Agregar una directiva para los usuarios externos](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>Para los usuarios no en el directorio</li><li>Requerir aprobación</li><li>Configuración de expiración</li></ul> | ![Agregar directiva para los usuarios externos](./media/entitlement-management-scenarios/policy-external.png) |
 > | **4.** [Envíe el vínculo del portal de mi acceso para solicitar el paquete de acceso a su socio comercial](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>Socio de negocio puede compartir el vínculo con sus usuarios</li></ul> |  |
@@ -91,7 +91,7 @@ Hay varias formas que puede configurar la administración de derechos para su or
 > | Pasos | Ejemplo |
 > | --- | --- |
 > | **1.** [Solicitud de apertura en el portal de mi acceso](entitlement-management-request-approve.md#open-request) | [![Icono Mi portal de acceso](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** [Aprobar solicitud de acceso](entitlement-management-request-approve.md#approve-or-deny-request) | ![Aprobar acceso](./media/entitlement-management-scenarios/approve-access.png) |
+> | **2.** [Aprobar solicitud de acceso](entitlement-management-request-approve.md#approve-or-deny-request) | ![Aprobar el acceso](./media/entitlement-management-scenarios/approve-access.png) |
 
 ## <a name="requestors"></a>Solicitantes
 
@@ -124,4 +124,4 @@ Hay varias formas que puede configurar la administración de derechos para su or
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Tutorial: Crear el primer paquete de acceso](entitlement-management-access-package-first.md)
-- [Editar y administrar un paquete de acceso existente](entitlement-management-access-package-edit.md)
+- [Edición y administración de un paquete de acceso existente](entitlement-management-access-package-edit.md)

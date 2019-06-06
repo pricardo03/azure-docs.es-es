@@ -1,6 +1,6 @@
 ---
 title: Aplicar la directiva de nomenclatura de grupo en grupos de Office 365 - Azure Active Directory | Microsoft Docs
-description: Cómo configurar una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
+description: Cómo configurar la directiva de nomenclatura para grupos de Office 365 en Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0c13b95028975c5463217455c940bb84c3867899
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605552"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734788"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Aplicar una directiva de nomenclatura de grupos de Office 365 en Azure Active Directory
 
@@ -76,27 +76,27 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 - Administrador de usuarios
 - Escritores de directorios
 
-## <a name="configure-naming-policy-in-azure-portal-preview"></a>Configuración de directiva de nomenclatura en Azure portal (versión preliminar)
+## <a name="configure-naming-policy-in-azure-portal"></a>Configuración de directiva de nomenclatura en Azure portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios.
-1. Seleccione **grupos**, a continuación, seleccione **directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
+1. Seleccione **Grupos**, a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
 
-    ![Abra la página de la directiva de nomenclatura en el centro de administración](./media/groups-naming-policy/policy-preview.png)
+    ![apertura de la página de la directiva de nomenclatura en el centro de administración](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Ver o editar la directiva de nomenclatura de prefijo-sufijo
 
-1. En el **directiva de nomenclatura** página, seleccione **directiva de nomenclatura de grupo**.
-1. Puede ver o editar el actual prefijo o sufijo políticas de nomenclatura individualmente seleccionando los atributos o cadenas que desea aplicar como parte de la directiva de nomenclatura.
-1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **eliminar**. Varios elementos se pueden eliminar al mismo tiempo.
+1. En la página **Directiva de nomenclatura**, seleccione **Directiva de nomenclatura de grupos**.
+1. Puede ver o editar las directivas de nomenclatura de prefijo o sufijo actuales individualmente seleccionando los atributos o cadenas que desea aplicar como parte de la directiva de nomenclatura.
+1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **Eliminar**. Se pueden eliminar varios elementos al mismo tiempo.
 1. Guarde los cambios para la nueva directiva entre en vigor seleccionando **guardar**.
 
 ### <a name="edit-custom-blocked-words"></a>Editar las palabras bloqueadas personalizadas
 
-1. En el **directiva de nomenclatura** página, seleccione **palabras bloqueadas**.
+1. En la página **Directiva de nomenclatura**, seleccione **Palabras bloqueadas**.
 
-    ![Editar y cargar la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-naming-policy/blockedwords-preview.png)
+    ![edición y carga de la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-naming-policy/blockedwords.png)
 
-1. Ver o editar la lista actual de palabras bloqueadas personalizadas seleccionando **descargar**.
+1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar**.
 1. Cargue la nueva lista de palabras bloqueadas personalizadas seleccionando el icono del archivo.
 1. Guarde los cambios para la nueva directiva entre en vigor seleccionando **guardar**.
 
@@ -198,10 +198,10 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Elimine la directiva de nomenclatura
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Quitar la directiva de nomenclatura mediante Azure portal (versión preliminar)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Quitar la directiva de nomenclatura mediante Azure portal
 
-1. En el **directiva de nomenclatura** página, seleccione **Eliminar directiva**.
-1. Después de confirmar la eliminación, se quita la directiva de nomenclatura, incluidos prefijo-sufijo todos los nombres de directiva y las palabras bloqueadas personalizadas.
+1. En la página **Directiva de nomenclatura**, seleccione **Eliminar directiva**.
+1. Después de confirmar la eliminación, se quita la directiva de nomenclatura, incluida toda la directiva de nomenclatura de prefijos y sufijos y cualquier palabra bloqueada personalizada.
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Quitar la directiva de nomenclatura con Azure AD PowerShell
 
@@ -235,7 +235,7 @@ Carga de trabajo | Cumplimiento normativo
 Portales de Azure Active Directory | El portal de Azure AD y el portal Panel de acceso muestran la directiva de nomenclatura aplicada cuando el usuario escribe un nombre de grupo al crear o editar un grupo. Cuando un usuario escribe una palabra bloqueada personalizada, aparece un mensaje de error con la palabra bloqueada para que el usuario pueda quitarla.
 Outlook Web Access (OWA) | Outlook Web Access muestra el nombre aplicado por la directiva de nomenclatura cuando el usuario escribe un nombre o alias de grupo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error en la interfaz de usuario junto con la palabra bloqueada para que el usuario pueda quitarla.
 Escritorio de Outlook | Los grupos creados en el escritorio de Outlook son compatibles con la configuración de directivas de nomenclatura. La aplicación de escritorio de Outlook no muestra aún la vista previa del nombre de grupo aplicado y no devuelve errores de palabras bloqueadas personalizadas cuando el usuario escribe el nombre del grupo. Sin embargo, la directiva de nomenclatura se aplica automáticamente al crear o editar un grupo, y los usuarios ven mensajes de error si hay palabras bloqueadas personalizadas en el nombre o alias del grupo.
-Microsoft Teams | Microsoft Teams muestra el nombre aplicado por la directiva de nomenclatura de grupo cuando el usuario escribe un nombre de equipo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error junto con la palabra bloqueada para que el usuario pueda quitarla.
+Equipos de Microsoft | Microsoft Teams muestra el nombre aplicado por la directiva de nomenclatura de grupo cuando el usuario escribe un nombre de equipo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error junto con la palabra bloqueada para que el usuario pueda quitarla.
 SharePoint  |  SharePoint muestra el nombre aplicado por la directiva de nomenclatura cuando el usuario escribe el nombre de un sitio o la dirección de correo electrónico de un grupo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error, junto con la palabra bloqueada para que el usuario pueda quitarla.
 Microsoft Stream | Microsoft Stream muestra el nombre aplicado por la directiva de nomenclatura de grupos cuando el usuario escribe el nombre de un grupo o el alias de la dirección de correo electrónico del grupo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error con la palabra bloqueada para que el usuario pueda quitarla.
 Aplicación de Outlook iOS y Android | Los grupos creados en las aplicaciones de Outlook son compatibles con la directiva de nomenclatura configurada. La aplicación móvil de Outlook no muestra aún la vista previa del nombre aplicado por la directiva de nomenclatura y no devuelve errores de palabras bloqueadas personalizadas cuando el usuario escribe el nombre del grupo. Sin embargo, la directiva de nomenclatura se aplica automáticamente al hacer clic para crear o editar, y los usuarios ven mensajes de error si hay palabras bloqueadas personalizadas en el nombre o alias del grupo.

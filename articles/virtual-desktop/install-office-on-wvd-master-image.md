@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 92a0ba8c0f43e26b7a1bbe82cc52f61d390fc04d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cb9edbb508ddd993dcefbf69eb06b4f0d4156485
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827331"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742547"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalación de Office en la imagen de un disco duro virtual principal
 
@@ -29,7 +29,9 @@ En este artículo también se da por supuesto que acceso ha elevado en la máqui
 
 Activación de equipo compartido le permite implementar Office 365 ProPlus en un equipo de la organización que se tiene acceso a varios usuarios. Para obtener más información acerca de la activación de equipos compartidos, consulte [general de activación en equipos compartidos para Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
 
-Use la [herramienta de implementación de Office](https://www.microsoft.com/download/details.aspx?id=49117) para instalar Office. Varias sesiones de Windows 10 Enterprise solo es compatible con Office 365 ProPlus.
+Use la [herramienta de implementación de Office](https://www.microsoft.com/download/details.aspx?id=49117) para instalar Office. Varias sesiones de Windows 10 Enterprise solo admite las siguientes versiones de Office:
+- Office 365 ProPlus
+- Negocio de Office 365 que viene con una suscripción de Microsoft 365 empresa
 
 La herramienta de implementación de Office requiere un archivo XML de configuración. Para personalizar el ejemplo siguiente, vea el [las opciones de configuración de la herramienta de implementación de Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
@@ -132,7 +134,7 @@ Aquí le mostramos cómo instalar OneDrive en el modo por equipo:
 
 2. Descargue OneDriveSetup.exe en la ubicación de ensayo con este vínculo: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Si ha instalado office con OneDrive omitiendo  **\<ExcludeApp ID = "OneDrive" /\>**, desinstalar cualquier las instalaciones existentes por el usuario de OneDrive desde un símbolo del sistema con privilegios elevados, ejecutando el siguiente comando:
+3. Si ha instalado office con OneDrive omitiendo  **\<ExcludeApp ID = "OneDrive" /\>** , desinstalar cualquier las instalaciones existentes por el usuario de OneDrive desde un símbolo del sistema con privilegios elevados, ejecutando el siguiente comando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

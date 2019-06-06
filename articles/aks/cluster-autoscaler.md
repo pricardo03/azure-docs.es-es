@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234156"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475649"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Obtener una vista previa: escalado automático de un clúster para satisfacer las necesidades de aplicación en Azure Kubernetes Service (AKS)
 
@@ -28,11 +28,11 @@ En este artículo se muestra cómo habilitar y administrar el escalado automáti
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo es necesario ejecutar la versión de la CLI de Azure 2.0.55 o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Este artículo es preciso que ejecute la CLI de Azure versión 2.0.65 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Los clústeres de AKS que admitan el escalado automático de clústeres deben usar conjuntos de escalado de máquinas virtuales y ejecutar la versión de Kubernetes *1.12.4* o posterior. La compatibilidad con el conjunto de escalado está en su versión preliminar. Para optar por recibir y crear clústeres que usan conjuntos de escalado, primero instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add], tal como se muestra en el ejemplo siguiente:
+Clústeres AKS que admitan el Escalador automático del clúster deben utilizar conjuntos de escalado de máquinas virtuales y ejecutar la versión de Kubernetes *1.12.7* o una versión posterior. La compatibilidad con el conjunto de escalado está en su versión preliminar. Para optar por recibir y crear clústeres que usan conjuntos de escalado, primero instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add], tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Limitaciones
 
-Las siguientes limitaciones se aplican al crear y administrar clústeres AKS que usan conjuntos de escalado de máquinas virtuales:
+Las siguientes limitaciones se aplican al crear y administrar clústeres AKS que usan el Escalador automático del clúster:
 
 * No se puede usar el complemento de enrutamiento de aplicación HTTP.
+* Actualmente no se puede usar varios grupos de nodos (actualmente en versión preliminar de AKS).
 
 ## <a name="about-the-cluster-autoscaler"></a>Acerca del escalado automático de clústeres
 

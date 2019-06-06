@@ -1,23 +1,18 @@
 ---
 title: Prácticas de implementación segura entre regiones con Azure Deployment Manager
 description: Describe cómo implementar un servicio en varias regiones con Azure Deployment Manager. Muestra las prácticas de implementación segura para comprobar la estabilidad de la implementación antes de proceder en todas las regiones.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595790"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431170"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilite prácticas de desarrollo seguro con Azure Deployment Manager (versión preliminar)
 
@@ -25,7 +20,7 @@ Para implementar un servicio en varias regiones y asegurarse de que se ejecuta s
 
 Deployment Manager es una característica de Resource Manager. Amplía sus funcionalidades durante la implementación. Use Deployment Manager cuando tenga un implementar un servicio complejo en varias regiones. Mediante el establecimiento de fases en el lanzamiento del servicio, puede encontrar posibles problemas antes de que se haya implementado en todas las regiones. Si no necesita las precauciones adicionales de un lanzamiento por fases, use las [opciones de implementación](resource-group-template-deploy-portal.md) estándar para Resource Manager. Deployment Manager se integra perfectamente con todas las herramientas de terceros existentes que admiten las implementaciones de Resource Manager, como las ofertas de integración continua y entrega continua (CI/CD). 
 
-Azure Deployment Manager está en versión preliminar privada. Para usar Azure Deployment Manager, complete el [formulario de registro](https://aka.ms/admsignup). Sus [comentarios](https://aka.ms/admfeedback) pueden ayudarnos a mejorar la característica.
+Azure Deployment Manager está en versión preliminar. Ayúdenos a mejorar la característica proporcionando [comentarios](https://aka.ms/admfeedback).
 
 Para usar Deployment Manager, es preciso crear cuatro archivos:
 
@@ -217,7 +212,7 @@ El paso de espera detiene la implementación antes de continuar. Permite comprob
 
 La propiedad duration usa el [estándar ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). El ejemplo anterior especifica una espera un minuto.
 
-Para obtener más información sobre el paso de comprobación de mantenimiento, consulte [introducir el lanzamiento de la integración de estado a Azure Deployment Manager](./deployment-manager-health-check.md) y [Tutorial: Usar comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Para obtener más información sobre el paso de comprobación de mantenimiento, consulte [introducir el lanzamiento de la integración de estado a Azure Deployment Manager](./deployment-manager-health-check.md) y [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Para más información, consulte la [referencia de la plantilla de pasos](/azure/templates/Microsoft.DeploymentManager/steps).
 

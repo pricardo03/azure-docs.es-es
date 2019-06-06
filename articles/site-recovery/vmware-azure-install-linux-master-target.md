@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602075"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479992"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -67,7 +67,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 
 1.  Seleccione el **inglés** como idioma preferido y, a continuación, seleccione **Entrar**.
     
-    ![Seleccionar un idioma](./media/vmware-azure-install-linux-master-target/image1.png)
+    ![Selección de un idioma](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Seleccione **Install Ubuntu Server** (Instalar servidor Ubuntu) y, a continuación, seleccione **Entrar**.
 
     ![Selección de instalación de servidor Ubuntu](./media/vmware-azure-install-linux-master-target/image2.png)
@@ -91,7 +91,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 
 1. Para crear una cuenta de usuario, escriba el nombre de usuario y, luego, seleccione **Continue** (Continuar).
 
-      ![Crear una cuenta de usuario](./media/vmware-azure-install-linux-master-target/image9.png)
+      ![Crea una cuenta de usuario](./media/vmware-azure-install-linux-master-target/image9.png)
 
 1. Escriba la contraseña de la nueva cuenta de usuario y luego seleccione **Continue** (Continuar).
 
@@ -245,7 +245,7 @@ Use los pasos siguientes para crear un disco de retención:
 
     ![Identificador de múltiples rutas](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatee la unidad y, a continuación, cree un sistema de archivos en la nueva unidad: **mkfs.ext4 /dev/mapper/<identificador de múltiples rutas del disco de retención>**.
+3. Formatee la unidad y, a continuación, cree un sistema de archivos en la nueva unidad: **mkfs.ext4 /dev/mapper/<identificador de múltiples rutas del disco de retención>** .
     
     ![Sistema de archivos](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

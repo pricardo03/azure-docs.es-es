@@ -2,20 +2,20 @@
 title: Administración de SSO y personalización de tokens con directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
 description: Aprenda cómo administrar SSO y personalizar tokens con directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f3621b176e4bbfdfbd171339d6d01a1f91ed0ae7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703377"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509297"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Administración de SSO y personalización de tokens con directivas personalizadas en Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Los valores siguientes se establecen en el ejemplo anterior:
 - **Duración del token de identificador**: el valor se establece con el metadato **token_lifetime_secs**. El valor predeterminado es 3600 segundos (60 minutos).
 - **Duración del token de actualización**: el valor se establece con el metadato **refresh_token_lifetime_secs**. El valor predeterminado es 1 209 600 segundos (14 días).
 - **Duración de la ventana deslizante del token de actualización**: si quiere establecer este valor para el token de actualización, modifique el valor del metadato **rolling_refresh_token_lifetime_secs**. El valor predeterminado es 7 776 000 segundos (90 días). Si no quiere exigir una duración de ventana deslizante, reemplace esta línea por `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
-- **Notificación del emisor (iss)**: este valor se establece con el metadato **IssuanceClaimPattern**. Los valores aplicables son `AuthorityAndTenantGuid` y `AuthorityWithTfp`.
+- **Notificación del emisor (iss)** : este valor se establece con el metadato **IssuanceClaimPattern**. Los valores aplicables son `AuthorityAndTenantGuid` y `AuthorityWithTfp`.
 - **Configuración de notificación que representa el identificador de directiva**: las opciones para configurar este valor son `TFP` (directiva de plataforma de confianza) y `ACR` (referencia de contexto de autenticación). `TFP` es el valor recomendado. Establezca el valor de **AuthenticationContextReferenceClaimPattern** en `None`. 
 
     En el elemento **ClaimsSchema**, agregue este elemento: 
@@ -75,7 +75,7 @@ Los valores siguientes se establecen en el ejemplo anterior:
 
     Para ACR, quite **AuthenticationContextReferenceClaimPattern**.
 
-- **Notificación de asunto (sub)**: esta opción se establece de forma predeterminada en ObjectID. Si quiere cambiarla a `Not Supported`, reemplace esta línea: 
+- **Notificación de asunto (sub)** : esta opción se establece de forma predeterminada en ObjectID. Si quiere cambiarla a `Not Supported`, reemplace esta línea: 
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
@@ -101,6 +101,6 @@ Para cambiar las configuraciones de comportamiento de sesión y SSO, debe agrega
 
 Los valores siguientes se configuran en el ejemplo anterior:
 
-- **Single sign on (SSO)**: el inicio de sesión único se configura con **SingleSignOn**. Los valores aplicables son `Tenant`, `Application`, `Policy` y `Suppressed`. 
-- **Duración de la sesión de la aplicación web (minutos)**: el valor se establece con el elemento **SessionExpiryInSeconds**. El valor predeterminado es 86 400 segundos (1440 minutos).
+- **Single sign on (SSO)** : el inicio de sesión único se configura con **SingleSignOn**. Los valores aplicables son `Tenant`, `Application`, `Policy` y `Suppressed`. 
+- **Duración de la sesión de la aplicación web (minutos)** : el valor se establece con el elemento **SessionExpiryInSeconds**. El valor predeterminado es 86 400 segundos (1440 minutos).
 - **Tiempo de espera de la sesión de la aplicación web**: el valor se establece con el elemento **SessionExpiryType**. Los valores aplicables son `Absolute` y `Rolling`.

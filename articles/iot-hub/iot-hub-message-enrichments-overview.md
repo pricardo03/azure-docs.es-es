@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258855"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735159"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Grado de enriquecimiento del mensaje para mensajes de IoT Hub del dispositivo a nube (versión preliminar)
 
@@ -49,6 +49,8 @@ Los mensajes pueden proceder de cualquier origen de datos admitido por [enrutami
 
 Puede agregar enriquecimientos a mensajes que se van a punto de conexión integrado de un centro de IoT, o que se están enrutando a puntos de conexión personalizados, como Azure Blob storage, una cola de Service Bus o un tema de Service Bus.
 
+También puede agregar enriquecimientos a los mensajes que se publican en Event Grid, seleccione el punto de conexión como Event Grid. Para obtener más información, consulte [Iot Hub y Event Grid](iot-hub-event-grid.md).
+
 Se aplican enriquecimientos de cada punto de conexión. Si especifica cinco enriquecimientos de que se marcarán para un extremo específico, todos los mensajes que se va a ese punto de conexión se marcan con el mismos enriquecimientos de cinco.
 
 Para ver cómo probar el grado de enriquecimiento del mensaje, consulte el [tutorial enriquecimientos de mensaje](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ Grado de enriquecimiento del mensaje está disponible sin ningún cargo adiciona
 
 ## <a name="availability"></a>Disponibilidad
 
-Esta funcionalidad está disponible en versión preliminar y está disponible en todas las regiones excepto este de Estados Unidos, oeste de Estados Unidos, Europa occidental, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), y [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Esta funcionalidad está disponible en versión preliminar y está disponible en todas las regiones excepto este de Estados Unidos, oeste de Estados Unidos, Europa occidental, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), y [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

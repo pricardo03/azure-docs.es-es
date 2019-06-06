@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5ef051f42f3d092cc1d88008eaa8af981684ac6c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001008"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730054"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementar una aplicación de pila doble de IPv6 en Azure: PowerShell (versión preliminar)
 
@@ -27,7 +27,7 @@ Este artículo muestra cómo implementar una aplicación de doble pila (IPv4 + I
 > [!Important]
 > Compatibilidad con IPv6 para Azure Virtual Network está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar PowerShell localmente, este artículo requiere la versión del módulo 6.9.0 de Azure PowerShell o una versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
@@ -149,7 +149,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Crear equilibrador de carga
+### <a name="create-load-balancer"></a>Creación de un equilibrador de carga
 
 Cree un equilibrador de carga básico con [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). En el ejemplo siguiente se crea un público básico equilibrador de carga denominado *myLoadBalancer* con la dirección IP de front-end IPv4 e IPv6 configuraciones, grupos de back-end y reglas de equilibrio de carga que creó en los pasos anteriores:
 
@@ -182,7 +182,7 @@ $avset = New-AzAvailabilitySet `
   -Sku aligned
 ```
 
-### <a name="create-network-security-group"></a>Crear grupo de seguridad de red
+### <a name="create-network-security-group"></a>Creación de un grupo de seguridad de red
 
 Cree un grupo de seguridad de red para las reglas que rige la comunicación entrante y saliente de la red virtual.
 

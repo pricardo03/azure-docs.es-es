@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869417"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472159"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protección de los activos de Azure CDN con autenticación por tokens
 
@@ -72,7 +72,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
       ```rand -hex <key length>```
 
-      Por ejemplo: 
+      Por ejemplo:
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -173,17 +173,17 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 3. En **HTTP Large** (HTTP grandes), seleccione **Motor de reglas**. Utilice el motor de reglas para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación por tokens y habilitar otras funcionalidades relacionadas con la autenticación por tokens. Para más información, vea [Referencia del motor de reglas](cdn-rules-engine-reference.md).
 
    1. Seleccione una regla existente o cree una para definir el recurso o la ruta de acceso para los que desea aplicar la autenticación por tokens. 
-   2. Para habilitar la autenticación por tokens según una regla, seleccione **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** (Autenticación por tokens) en la lista **Características** y después seleccione **Habilitada**. Seleccione **Actualizar** si va a actualizar una regla o **Agregar** si va a crearla.
+   2. Para habilitar la autenticación por tokens según una regla, seleccione **[Token Auth](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** (Autenticación por tokens) en la lista **Características** y después seleccione **Habilitada**. Seleccione **Actualizar** si va a actualizar una regla o **Agregar** si va a crearla.
         
       ![Ejemplo de autenticación por tokens habilitada en el motor de reglas de la red CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. En el motor de reglas, también puede habilitar otras características relacionadas con la autenticación por tokens. Para habilitar cualquiera de las siguientes características, selecciónela en la lista **Características** y después seleccione **Habilitada**.
     
-   - **[Código de denegación de autorización de token](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Determina el tipo de respuesta que se devuelve a un usuario cuando se deniega una solicitud. Las reglas establecidas aquí invalidan el código de respuesta especificado en la sección **Custom Denial Handling** (Control de denegación personalizado) de la página de autenticación por tokens.
+   - **[Código de denegación de autorización de token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Determina el tipo de respuesta que se devuelve a un usuario cuando se deniega una solicitud. Las reglas establecidas aquí invalidan el código de respuesta especificado en la sección **Custom Denial Handling** (Control de denegación personalizado) de la página de autenticación por tokens.
 
-   - **[Token Auth Omitir mayúsculas y minúsculas de la dirección URL](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Determina si la dirección URL usada para validar el token distingue mayúsculas de minúsculas.
+   - **[Token Auth Omitir mayúsculas y minúsculas de la dirección URL](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Determina si la dirección URL usada para validar el token distingue mayúsculas de minúsculas.
 
-   - **[Parámetro de autenticación de token](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Cambia el nombre el parámetro de cadena de consulta de autenticación por tokens que aparece en la dirección URL solicitada. 
+   - **[Parámetro de autenticación de token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Cambia el nombre el parámetro de cadena de consulta de autenticación por tokens que aparece en la dirección URL solicitada. 
         
      ![Ejemplo de configuración de la autenticación por tokens en el motor de reglas de la red CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

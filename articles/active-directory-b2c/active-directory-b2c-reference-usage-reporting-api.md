@@ -2,20 +2,20 @@
 title: Ejemplos y definiciones de la API de informes de uso en Azure Active Directory B2C | Microsoft Docs
 description: Guía y ejemplos sobre la obtención de informes en las autenticaciones multifactor, las autenticaciones y los usuarios de inquilino de Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb8c41f657d8901535ba284c147f4ca3aa86198d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703620"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508710"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acceso a informes de uso en Azure AD B2C a través de la API de informes
 

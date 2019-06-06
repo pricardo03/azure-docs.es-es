@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e552b90a4c98eff7b04cbeaef26aa10749ce672c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788470"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493395"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -442,5 +442,7 @@ Más información sobre Resource Health:
 -  [Información general sobre Azure Resource Health](Resource-health-overview.md)
 -  [Tipos de recursos y comprobaciones de mantenimiento disponibles a través de Azure Resource Health](resource-health-checks-resource-types.md)
 
+
 Creación de alertas de Service Health:
 -  [Configuración de alertas de Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Esquema de eventos de registro de actividad de Azure](../azure-monitor/platform/activity-log-schema.md)

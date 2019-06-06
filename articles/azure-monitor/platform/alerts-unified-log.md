@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 5/31/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae35c735cffeb8cd85af1f32bb2d14ede6dc6b69
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345895"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427416"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -27,13 +27,13 @@ Alertas de registro consiste en reglas de búsqueda de registros creadas para lo
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regla de alertas de búsqueda de registros: definición y tipos
 
-Alertas de Azure crea las reglas de búsqueda de registros para ejecutar automáticamente consultas de registros especificadas a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. La regla, luego, puede ejecutar de forma automática una o varias acciones con [grupos de acciones](../../azure-monitor/platform/action-groups.md). Puede que se necesite el rol de [Colaborador de supervisión de Azure](../../azure-monitor/platform/roles-permissions-security.md) para crear, modificar y actualizar las alertas de registro. Además, debe tener los permisos de acceso y ejecución de consultas para los destinos de análisis en la consulta o regla de alertas. Si el usuario que realice el proceso no tiene acceso a todos los destinos de análisis en la consulta o regla de alertas, puede que la creación de la regla devuelva un error o que la regla de alertas de registro se ejecute con resultados parciales.
+Alertas de Azure crea las reglas de búsqueda de registros para ejecutar automáticamente consultas de registros especificadas a intervalos regulares.  Si los resultados de la consulta de registros coinciden con determinados criterios, se crea un registro de alertas. La regla, luego, puede ejecutar de forma automática una o varias acciones con [grupos de acciones](../../azure-monitor/platform/action-groups.md). Puede que se necesite el rol de [Colaborador de supervisión de Azure](../../azure-monitor/platform/roles-permissions-security.md) para crear, modificar y actualizar las alertas de registro. Además, debe tener los permisos de acceso y ejecución de consultas para los destinos de análisis en la consulta o regla de alertas. En caso de usuario que crea no tiene acceso a todos los destinos de análisis en la regla de alerta o consulta de alerta - puede producir un error en la creación de reglas o la regla de alerta de registro se ejecutará con resultados parciales.
 
 Las reglas de búsqueda de registros se definen mediante los siguientes detalles:
 
 - **Consulta de registro**.  La consulta que se ejecuta cada vez que se activa la regla de alertas.  Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. La consulta de Analytics puede ser para un área de trabajo específica de Log Analytics o una aplicación de Application Insights, e incluso puede abarcar [varios recursos de Log Analytics y de Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) siempre que el usuario tenga derechos de acceso y de consulta a todos los recursos. 
     > [!IMPORTANT]
-    > Las alertas de registro **no** admiten el uso de [funciones](../log-query/functions.md) por motivos de seguridad. También admiten [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) para alertas de registro de Application Insights y para alertas de registro de [Log Analytics que se configuran únicamente mediante scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md).
+    > [consulta entre recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) compatibilidad en alertas de registro de alertas de registro y Application Insights para [Log Analytics que se configuran mediante la API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md) solo.
 
     Algunos comandos y combinaciones de análisis son incompatibles con el uso de las alertas de registro. Para más información, consulte [Consultas de alertas de registro en Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
 
@@ -45,8 +45,8 @@ Las reglas de búsqueda de registros se definen mediante los siguientes detalles
 
 Las reglas de búsqueda de [registros de Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events) pueden ser de dos tipos. Cada uno de estos tipos se describe en detalle en las secciones que aparecen a continuación.
 
-- **[Número de resultados](#number-of-results-alert-rules)**. Alerta única creada cuando los registros de números devueltos por la búsqueda de registros superan un número especificado.
-- **[Unidades métricas](#metric-measurement-alert-rules)**.  Alerta creada para cada objeto de los resultados de la búsqueda de registros con valores que superan el umbral especificado.
+- **[Número de resultados](#number-of-results-alert-rules)** . Alerta única creada cuando los registros de números devueltos por la búsqueda de registros superan un número especificado.
+- **[Unidades métricas](#metric-measurement-alert-rules)** .  Alerta creada para cada objeto de los resultados de la búsqueda de registros con valores que superan el umbral especificado.
 
 Las diferencias entre los tipos de reglas de alerta son las siguientes.
 
@@ -76,9 +76,9 @@ De ese modo, la alerta ejecutaría la consulta cada 5 minutos, con 30 minutos de
 
 ### <a name="metric-measurement-alert-rules"></a>Reglas de alertas para medición de métricas
 
-Las reglas de alertas para **unidades métricas** crean una alerta para cada objeto de una consulta con un valor que supera un umbral especificado.  Presentan las siguientes diferencias con respecto a las reglas de alerta para **número de resultados**.
+**Unidades métricas** reglas de alerta creación una alerta para cada objeto de una consulta con un valor que supera un umbral especificado y especifica la condición desencadenadora. A diferencia de **número de resultados** reglas de alerta **unidades métricas** las reglas de alertas funcionan cuando los resultados de análisis proporciona una serie temporal. Presentan las siguientes diferencias con respecto a las reglas de alerta para **número de resultados**.
 
-- **Función de agregado**: Determina el cálculo que se lleva a cabo y potencialmente un campo numérico para agregar.  Por ejemplo, **count()** devuelve el número de registros de la consulta y **avg(CounterValue)**, el promedio del campo CounterValue durante el intervalo. La función de agregado en la consulta debe recibir el siguiente nombre: AggregatedValue y proporcionar un valor numérico. 
+- **Función de agregado**: Determina el cálculo que se lleva a cabo y potencialmente un campo numérico para agregar.  Por ejemplo, **count()** devuelve el número de registros de la consulta y **avg(CounterValue)** , el promedio del campo CounterValue durante el intervalo. La función de agregado en la consulta debe recibir el siguiente nombre: AggregatedValue y proporcionar un valor numérico. 
 
 - **Campo de grupo**: Se crea un registro con un valor agregado para cada instancia de este campo y se puede generar una alerta para cada una.  Por ejemplo, si desea generar una alerta para cada equipo, usaría **by Computer** (por Equipo). En caso de que haya varios campos de grupos especificados en la consulta de alerta, el usuario puede especificar qué campo desea usar para clasificar los resultados mediante el parámetro **Aggregate On** (metricColumn).
 
@@ -127,16 +127,16 @@ Puesto que la alerta está configurada para desencadenarse si las infracciones s
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regla de alertas de búsqueda de registros: desencadenamiento y estado
 
-La regla de alertas de búsqueda de registros funciona con la lógica dictada por el usuario según la configuración y la consulta personalizada de análisis que se use. Ya que la lógica de la condición o razón exactas por las que la regla de alertas se debería desencadenar se encapsula en una consulta de Analytics, la cual puede ser diferente en cada regla de alertas de registro. Alertas de Azure cuenta con escasa información sobre la causa subyacente en los resultados del registro cuando se cumple o se supera la condición de umbral de la regla de alertas de búsqueda de registros. Por tanto, las alertas de registro se mencionan como si no tuvieran un estado y se desencadenan cada vez que el resultado de la búsqueda de registros es suficiente para superar el umbral especificado en las alertas de registro con una condición de tipo *número de resultados* o *unidades métricas*. Y las reglas de alertas de registro se siguen activando periódicamente siempre que el resultado de la consulta personalizada de análisis cumpla la condición de la alerta; por tanto, la alerta no se resuelve nunca. Ya que la lógica de la causa exacta del error de supervisión se enmascara dentro de la consulta de análisis proporcionada por el usuario, Alertas de Azure no tiene ningún medio para determinar de forma concluyente si el que el resultado de la búsqueda de registros no esté llegando al umbral indica que el problema se resolvió.
+La regla de alertas de búsqueda de registros funciona con la lógica dictada por el usuario según la configuración y la consulta personalizada de análisis que se use. Desde la lógica de supervisión como la condición exacto o el motivo por qué debe desencadenar la regla de alerta se encapsula en una consulta de analytics - que puede ser diferente en cada regla de alerta de registro. Alertas de Azure tiene escaso info del escenario que se evalúa cuando se cumple o supera la condición de umbral de regla de alerta de búsqueda de registro específica causa raíz subyacente (o). Por lo tanto las alertas del registro se conocen como sin estado. Y mantener desencadenando reglas de alerta de registro mientras se cumple la condición de alerta mediante el resultado de consulta de análisis personalizada proporcionada. Sin la alerta cada resuelve introducción, como la lógica de la causa exacta del error de supervisión se enmascara dentro de la consulta de análisis proporcionada por el usuario. Hay actualmente ningún mecanismo para Azure Monitor genera una alerta deducir forma concluyente la causa raíz que se ha resuelto.
 
-Ahora, supongamos que tenemos una regla de alerta de registro denominada *Contoso-Log-Alert*, según la configuración en el [ejemplo proporcionado para la alerta de registro de tipo Número de resultados](#example-of-number-of-records-type-log-alert). 
-- A las 13:00 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros produjo 0 registros; estuvo por debajo del umbral y, por tanto, la alerta no se activó. 
-- En la siguiente iteración a las 13:10 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros proporcionó 5 registros; se superó el umbral y se activó la alerta y, poco después, se desencadenó el [grupo de acciones](../../azure-monitor/platform/action-groups.md) asociado. 
-- A las 13:15 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros proporcionó 2 registros; se superó el umbral y se activó la alerta y, poco después, se desencadenó el [grupo de acciones](../../azure-monitor/platform/action-groups.md) asociado.
-- A continuación, a la 13:20 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros produjo de nuevo 0 registros; estuvo por debajo del umbral y, por tanto, la alerta no se activó.
+Permite ver las mismas con un ejemplo práctico. Supongamos que tenemos una regla de alerta de registro denominada *alerta de registro de Contoso*según la configuración en el [ejemplo proporcionado para la alerta de registro del tipo de número de resultados](#example-of-number-of-records-type-log-alert) : donde la consulta de alerta personalizada está diseñada para buscar por 500 código de resultado en los registros.
 
-Pero en el caso anterior, a las 13:15 h Alertas de Azure no puede determinar que persisten los problemas subyacentes de la 13:10 h ni si hay nuevos errores de red; ya que la consulta proporcionada por el usuario puede considerar los registros anteriores, las alertas de Azure sí pueden determinarlo. Por tanto, para estar totalmente seguros, cuando Contoso-Log-Alert se ejecuta a la 13:15 h, el [grupo de acciones](../../azure-monitor/platform/action-groups.md) configurado se vuelve a activar. A la 13:20 h, cuando no hay registros visibles: Alertas de Azure no puede asegurar que la causa de los registros se ha solucionado; por lo tanto, Contoso-Log-Alert no se cambiará a Resuelto en el panel de Alertas de Azure ni en las notificaciones que se envíen para informar de la resolución de la alerta.
+- A 1:05 p. M. cuándo se ejecutó la alerta del registro de Contoso mediante alertas de Azure, el resultado de búsqueda de registros no produjo ningún registro con el código de resultado tiene 500. Puesto que es cero por debajo del umbral y no se desencadena la alerta.
+- En la siguiente iteración a la 1:10 P.M. cuándo se ejecutó la alerta del registro de Contoso mediante alertas de Azure, el resultado de búsqueda de registros proporciona cinco registros con el código de resultado como 500. Se desencadena desde cinco supera el umbral y la alerta se desencadena con las acciones asociadas.
+- A 1:15 p. M. cuándo se ejecutó la alerta del registro de Contoso mediante alertas de Azure, el resultado de búsqueda de registros proporciona dos registros con el código de resultado de 500. Se desencadena desde dos supera el umbral y la alerta se desencadena con las acciones asociadas.
+- En la siguiente iteración a la 1:20 P.M. cuándo se ejecutó la alerta del registro de Contoso por alerta de Azure, el resultado de búsqueda de registros proporciona ahora nuevo ningún registro con el código de resultado de 500. Puesto que es cero por debajo del umbral y no se desencadena la alerta.
 
+Pero en el caso de la lista anterior, a la 1:15 P.M. - alertas de Azure no pueden determinar que persisten los problemas subyacentes a las 1:10 y si hay nuevos errores netas. Como la consulta proporcionada por el usuario puede teniendo en cuenta los registros anteriores, las alertas de Azure pueden estar seguro. Puesto que la lógica de la alerta está encapsulada en la consulta de alerta - por lo que los dos registros con el código de resultado de 500 visto a las 13:15 pueden o no se pueden ver ya a la 1:10 P.M. Por lo tanto, para pecan de precaución, cuando se ejecuta la alerta de registro de Contoso a la 1:15 P.M., acción configurada se activa de nuevo. Ahora a la 1:20 P.M. cuando se ven ningún registro con el código de resultado de 500 - alertas de Azure no pueden estar seguro de que ahora se ha resuelto la causa del código de resultado de 500 visto a 1:10 P.M. y 1:15 P.M. y las alertas de Azure Monitor con confianza pueden deducir los problemas de un 500 error no se realizará por la misma razón s a intentarlo. Por lo tanto, la alerta del registro de Contoso le no cambia a resuelto en el panel de alerta de Azure o las notificaciones enviadas a establecer la resolución de alerta. En su lugar, el usuario que comprende la condición exacto o el motivo de la lógica incrustada en la consulta de analytics, puede [marca la alerta como cerrada](alerts-managing-alert-states.md) según sea necesario.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Precios y facturación de las alertas de registro
 
@@ -154,6 +154,8 @@ Para eliminar los recursos scheduleQueryRules ocultos que se crearon para la fac
 
 - El usuario puede [cambiar la preferencia de API para las reglas de alertas del área de trabajo de Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) y sin perder sus reglas de alertas y sin supervisión puede moverlas a [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) compatible con Azure Resource Manager. Esto elimina la necesidad de crear pseudo reglas de alertas ocultas para la facturación.
 - O si el usuario no desea cambiar la preferencia de API, deberá **eliminar** la programación original y la acción de alerta mediante la [API heredada de Log Analytics](api-alerts.md) o eliminar [la regla de alertas original en Azure Portal](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+
+Además de los recursos de scheduleQueryRules oculto creados para la facturación de reglas de alerta mediante [API heredada de Log Analytics](api-alerts.md), cualquier operación de modificación, como PUT se producirá un error. Como el `microsoft.insights/scheduledqueryrules` tipo pseudo reglas son para fines de facturación de las reglas de alerta creadas con [API heredada de Log Analytics](api-alerts.md). Se debe realizar cualquier modificación de la regla de alerta mediante [API heredada de Log Analytics](api-alerts.md) (o) el usuario puede [cambiar la preferencia de API para las reglas de alerta](../../azure-monitor/platform/alerts-log-api-switch.md) usar [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) en lugar de.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

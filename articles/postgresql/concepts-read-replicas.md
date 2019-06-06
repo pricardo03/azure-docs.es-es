@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242292"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734648"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 Cuando se le solicite, escriba la contraseña de la cuenta de usuario.
 
 ## <a name="monitor-replication"></a>Supervisión de la replicación
-Azure Database for PostgreSQL proporciona la métrica **Retraso máximo entre réplicas** en Azure Monitor. Esta métrica está disponible únicamente en el servidor maestro. La métrica muestra el retardo en bytes entre el servidor maestro y la réplica con mayor retardo. 
+Azure Database for PostgreSQL proporciona dos métricas para supervisar la replicación. Las dos métricas son **retraso máximo entre réplicas** y **réplica Lag**. Para obtener información sobre cómo ver estas métricas, vea el **supervisar una réplica** sección de la [lea el artículo de procedimientos de réplica](howto-read-replicas-portal.md).
 
-Azure Database for PostgreSQL también proporciona la métrica **Retraso entre réplicas** en Azure Monitor. Esta métrica está disponible únicamente para las réplicas. 
+El **retraso máximo entre réplicas** métrica muestra el intervalo de bytes entre el patrón y la réplica de retraso de la mayoría. Esta métrica está disponible únicamente en el servidor maestro.
 
-La métrica se calcula a partir de la vista `pg_stat_wal_receiver`:
+El **réplica Lag** métrica muestra el tiempo transcurrido desde la última transacción de reproducir. Si no se produce ninguna transacción en el servidor maestro, la métrica refleja este retardo de tiempo. Esta métrica está disponible para los servidores de réplica solo. Retraso de la réplica se calcula a partir del `pg_stat_wal_receiver` vista:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-La métrica de retardo de réplica muestra el tiempo desde la última transacción reproducida. Si no se produce ninguna transacción en el servidor maestro, la métrica refleja este retardo de tiempo.
 
 Establezca una alerta que le informe cuando el retardo de la réplica alcance un valor que no sea aceptable para la carga de trabajo. 
 

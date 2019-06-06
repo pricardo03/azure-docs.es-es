@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414873"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742290"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuración de la lista personalizada de contraseñas prohibidas
 
@@ -24,7 +24,7 @@ Los usuarios de muchas organizaciones emplean palabras locales comunes, como un 
 
 ## <a name="add-to-the-custom-list"></a>Adición a la lista personalizada
 
-La configuración de la lista personalizada de contraseñas prohibidas requiere una licencia P1 o P2 de Azure Active Directory Premium. Para más información acerca de las licencias de Azure Active Directory, consulte el [Plan de tarifas de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+La configuración de la lista personalizada de contraseñas prohibidas requiere una licencia P1 o P2 de Azure Active Directory Premium. Para obtener más información acerca de las licencias de Azure Active Directory, consulte el [precios de Azure Active Directory página](https://azure.microsoft.com/pricing/details/active-directory/).
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com) y vaya a **Azure Active Directory**, **métodos de autenticación**, a continuación, **protección con contraseña**.
 1. En **Enforce custom list** (Exigir lista personalizada), seleccione la opción **Yes** (Sí).

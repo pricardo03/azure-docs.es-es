@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: cc0eee9dc36878f7a02b97453c859d94ea99b901
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4ef485bb91fe52e138b805f347e729fc4097fc7c
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217145"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431104"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Cifrado de discos virtuales en una máquina virtual Windows
 Para mejorar la seguridad y el cumplimiento de las máquinas virtuales, se pueden cifrar los discos virtuales en Azure. Los discos se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se describe cómo cifrar los discos virtuales en una máquina virtual Windows con Azure PowerShell. También se puede [cifrar una máquina virtual Linux mediante la CLI de Azure](../linux/encrypt-disks.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-disk-encryption"></a>Introducción al cifrado de discos
 Los discos virtuales en VM Windows se cifran en reposo mediante BitLocker. El cifrado de los discos virtuales en Azure no conlleva ningún cargo. Las claves criptográficas se almacenan en Azure Key Vault con protección de software, o puede importar o generar las claves en módulos de seguridad de hardware (HSM) certificados conforme a las normas FIPS 140-2 de nivel 2. Las claves criptográficas se usan para cifrar y descifrar los discos virtuales conectados a la máquina virtual. El usuario tiene el control de estas claves criptográficas y se puede auditar su uso. 
@@ -65,7 +65,7 @@ Antes de empezar, asegúrese de tener instalada la versión más reciente del m�
 
 El primer paso es crear un almacén de Azure Key Vault para almacenar las claves criptográficas. Azure Key Vault puede almacenar claves, secretos o contraseñas que permiten su implementación segura en las aplicaciones y los servicios. Para el cifrado de discos virtuales, se crea una instancia de Key Vault para almacenar una clave criptográfica que se usa para cifrar o descifrar los discos virtuales. 
 
-Habilite el proveedor de Azure Key Vault dentro de la suscripción de Azure con [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider) y, después, cree un grupo de recursos con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación del *este de EE. UU.*:
+Habilite el proveedor de Azure Key Vault dentro de la suscripción de Azure con [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider) y, después, cree un grupo de recursos con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación del *este de EE. UU.* :
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
@@ -85,12 +85,12 @@ New-AzKeyVault -Location $location `
     -EnabledForDiskEncryption
 ```
 
-Puede almacenar las claves criptográficas utilizando protección de software o de módulo de seguridad de hardware (HSM).  Una instancia estándar de Key Vault solo almacena claves protegidas por software. Para usar HSM se necesita una instancia premium de Key Vault con un costo adicional. Para crear una instancia premium de Key Vault, en el paso anterior agregue el parámetro *-Sku "Premium"*. En el ejemplo siguiente se usa claves protegidas por software ya que hemos creado un almacén de Key Vault estándar. 
+Puede almacenar las claves criptográficas utilizando protección de software o de módulo de seguridad de hardware (HSM).  Una instancia estándar de Key Vault solo almacena claves protegidas por software. Para usar HSM se necesita una instancia premium de Key Vault con un costo adicional. Para crear una instancia premium de Key Vault, en el paso anterior agregue el parámetro *-Sku "Premium"* . En el ejemplo siguiente se usa claves protegidas por software ya que hemos creado un almacén de Key Vault estándar. 
 
 En ambos modelos de protección, la plataforma Windows Azure debe tener acceso para solicitar las claves criptográficas cuando la máquina virtual arranca para descifrar los discos virtuales. Cree una clave criptográfica en la instancia de Key Vault con [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). En el ejemplo siguiente se crea una clave llamada *myKey*:
 
 ```azurepowershell-interactive
-Add-AzureKeyVaultKey -VaultName $keyVaultName `
+Add-AzKeyVaultKey -VaultName $keyVaultName `
     -Name "myKey" `
     -Destination "Software"
 ```

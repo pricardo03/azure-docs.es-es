@@ -1,20 +1,18 @@
 ---
-title: 'Herramientas de Azure HDInsight: uso de Visual Studio Code para Hive, LLAP o PySpark | Microsoft Docs'
+title: 'Herramientas de HDInsight de Azure: usar Visual Studio Code para Hive, LLAP o PySpark'
 description: Aprenda a usar Obtenga información sobre cómo usar Herramientas de Azure HDInsight para Visual Studio Code para crear y enviar consultas y scripts.
-Keywords: Código de Visual Studio, herramientas de Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Hive interactivo, consulta interactiva
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681760"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427691"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -71,12 +69,12 @@ Antes de poder enviar scripts a clústeres de HDInsight desde Visual Studio Code
 
     ![Inicio de sesión de Herramientas de HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Siga las instrucciones del panel **SALIDA**.
+2. Siga las instrucciones que aparecen en el inicio de sesión el **salida** panel.
     + Para el entorno global de Azure, el comando **HDInsight: Login** desencadenará la acción **Iniciar sesión en Azure** en el explorador de HDInsight y viceversa.
 
         ![Instrucciones de inicio de sesión para Azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + Para otros entornos, siga las instrucciones de inicio de sesión.
+    + Para otros entornos, siga la instrucciones de inicio de sesión.
 
         ![Instrucciones de inicio de sesión para otro entorno](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 

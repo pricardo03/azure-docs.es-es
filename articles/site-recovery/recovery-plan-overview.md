@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400025"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471446"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
@@ -37,10 +37,10 @@ Un plan de recuperación ayudar a definir un proceso de recuperación sistemáti
 
 Puede planear y crear un grupo de recuperación para capturar propiedades específicas de la aplicación. Por ejemplo, consideremos una aplicación típica de tres niveles con un back-end de servidor SQL, un software intermedio y un front-end web. Por lo general, personalizará el plan de recuperación para que las máquinas de cada nivel se inicien en el orden correcto después de la conmutación por error.
 
-    - El back-end SQL debe iniciarse en primer lugar, luego el software intermedio y, por último, el front-end web.
-    - Este orden garantiza que para cuando la última máquina se inicia, la aplicación está en funcionamiento.
-    - Este orden garantiza que cuando el software intermedio se inicia e intenta conectarse al nivel de SQL Server, este nivel ya se está ejecutando. 
-    - Este orden también ayuda a garantizar que el servidor front-end se inicie el último, por lo que los usuarios finales no se conectan a la dirección URL de la aplicación hasta que todos los componentes estén en funcionamiento y la aplicación esté lista para aceptar solicitudes.
+- El back-end SQL debe iniciarse en primer lugar, luego el software intermedio y, por último, el front-end web.
+- Este orden garantiza que para cuando la última máquina se inicia, la aplicación está en funcionamiento.
+- Este orden garantiza que cuando el software intermedio se inicia e intenta conectarse al nivel de SQL Server, este nivel ya se está ejecutando. 
+- Este orden también ayuda a garantizar que el servidor front-end se inicie el último, por lo que los usuarios finales no se conectan a la dirección URL de la aplicación hasta que todos los componentes estén en funcionamiento y la aplicación esté lista para aceptar solicitudes.
 
 Para crear este orden, se agregan grupos al grupo de recuperación y se incorporan máquinas a los grupos.
 - Cuando se especifica el orden, se utiliza la secuenciación. Las acciones se ejecutan en paralelo donde procede para mejorar el RTO de recuperación de aplicaciones.

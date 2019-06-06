@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Log Analytics; Copia de seguridad de Azure; Alertas; Configuración de diagnóstico; Grupos de acciones
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190501"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734847"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -46,7 +46,7 @@ Puede seleccionar un área de trabajo de LA de otra suscripción como el destino
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Implementar la solución al área de trabajo de Log Analytics
 
-Una vez que los datos se están dentro del área de trabajo de LA [implementar una plantilla de github](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) en LA para visualizar los datos. Asegúrese de que asignar el mismo grupo de recursos, el nombre de área de trabajo y ubicación del área de trabajo para identificar correctamente el área de trabajo y, a continuación, instalar esta plantilla en ella.
+Una vez que los datos se están dentro del área de trabajo de LA [implementar una plantilla de GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) en LA para visualizar los datos. Asegúrese de que asignar el mismo grupo de recursos, el nombre de área de trabajo y ubicación del área de trabajo para identificar correctamente el área de trabajo y, a continuación, instalar esta plantilla en ella.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Ver los datos de copia de seguridad de Azure mediante Log Analytics (LA)
 
@@ -109,7 +109,7 @@ El aspecto clave es la condición desencadenadora de la alerta. Al hacer clic en
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Edite la consulta Kusto, si es necesario, seleccione el umbral adecuado (que decidirá cuando se desencadena la alerta), el período de la derecha (ventana de tiempo para el que se ejecuta la consulta) y la frecuencia. Por ejemplo:  Si el umbral es mayor que 0, el período es de 5 minutos y la frecuencia es de 5 minutos, a continuación, la regla se traduce como "Ejecutar la consulta cada 5 minutos durante los últimos 5 minutos y si el número de resultados es mayor que 0, notificarme vía el grupo de acciones seleccionado"
+Edite la consulta Kusto, si es necesario, seleccione el umbral adecuado (que decidirá cuando se desencadena la alerta), el período de la derecha (ventana de tiempo para el que se ejecuta la consulta) y la frecuencia. Por ejemplo: Si el umbral es mayor que 0, el período es de 5 minutos y la frecuencia es de 5 minutos, a continuación, la regla se traduce como "Ejecutar la consulta cada 5 minutos durante los últimos 5 minutos y si el número de resultados es mayor que 0, notificarme vía el grupo de acciones seleccionado"
 
 #### <a name="action-group-integration"></a>Integración de grupos de acción
 
@@ -242,13 +242,13 @@ Aplique los filtros que se muestran en la ilustración siguiente para comprobar 
 
 ![Registros de actividad de las copias de seguridad de máquina virtual de Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Puede hacer clic en el segmento "JSON" para obtener más detalles; para verlo, cópielo y péguelo en un editor de texto. Deben mostrar los detalles del almacén y el elemento que desencadenó la actividad de registro, es decir, el elemento de copia de seguridad.
+Haga clic en el nombre de la operación mostrará la operación y los detalles pertinentes.
 
-A continuación, haga clic en "Agregar alerta de registro de actividad" para generar alertas para todos los registros de este tipo.
+![Nueva alerta de reglas](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Puede hacer clic en "Alerta de registro de actividad agregar" anterior y se abrirá la pantalla de creación de la alerta es similar a la pantalla de creación de la alerta [como se describió anteriormente](#create-alerts-using-log-analytics).
+Haga clic en **nueva regla de alerta** para abrir el **crear regla** pantalla, aquí puede crear alertas mediante los pasos descritos en este [artículo](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-Aquí el recurso es el propio almacén RS y, por tanto, deberá repetir la misma acción para todos los almacenes en el que desea que la notificación a través de los registros de actividad. La condición no tendrán ningún umbral, el período, la frecuencia porque se trata de una alerta basada en eventos. Tan pronto como se genera el registro de actividad correspondiente, se desencadena la alerta.
+Aquí el recurso es el propio almacén de Recovery Services y, por tanto, deberá repetir la misma acción para todos los almacenes en el que desea que la notificación a través de los registros de actividad. La condición no tendrán ningún umbral, el período, la frecuencia porque se trata de una alerta basada en eventos. Tan pronto como se genera el registro de actividad correspondiente, se desencadena la alerta.
 
 ## <a name="recommendation"></a>Recomendación
 

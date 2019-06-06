@@ -1,24 +1,24 @@
 ---
-title: 'Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer'
-description: En esta guía de inicio rápido, obtendrá información sobre cómo ingerir (cargar) datos en el Explorador de datos de Azure con Python.
+title: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer
+description: En este artículo, obtendrá información sobre cómo introducir (cargar) datos en el Explorador de datos de Azure con Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046468"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496916"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer
+# <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona dos bibliotecas cliente para Python: una [biblioteca de ingesta](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) y una [biblioteca de datos](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Estas bibliotecas permiten ingerir (cargar) datos en un clúster y consultar datos desde el código. En este inicio rápido, primero creará una tabla y la asignación de datos en un clúster de prueba. A continuación, pondrá en cola la ingesta en el clúster y validará los resultados.
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona dos bibliotecas cliente para Python: una [biblioteca de ingesta](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) y una [biblioteca de datos](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Estas bibliotecas permiten ingerir (cargar) datos en un clúster y consultar datos desde el código. En este artículo, cree primero una tabla y la asignación de datos en un clúster. A continuación, pondrá en cola la ingesta en el clúster y validará los resultados.
 
-Esta guía de inicio rápido también está disponible como un [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+En este artículo también está disponible como un [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -170,7 +170,7 @@ Ejecute el siguiente comando para ver el estado de todas las operaciones de inge
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserve los recursos que creó. De lo contrario, ejecute el siguiente comando en la base de datos para limpiar la tabla StormEvents.
+Si tiene previsto seguir nuestros otros artículos, mantenga los recursos que creó. De lo contrario, ejecute el siguiente comando en la base de datos para limpiar la tabla StormEvents.
 
 ```Kusto
 .drop table StormEvents
@@ -178,5 +178,4 @@ Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserv
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Consulta de datos mediante Python](python-query-data.md)
+* [Consulta de datos mediante Python](python-query-data.md)

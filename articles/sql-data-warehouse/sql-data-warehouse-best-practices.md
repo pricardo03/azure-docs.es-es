@@ -2,20 +2,20 @@
 title: Procedimientos recomendados para Azure SQL Data Warehouse | Microsoft Docs
 description: Recomendaciones y procedimientos recomendados que debe saber para desarrollar soluciones de Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/26/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e7fe0f7630e59be231f2513cdb7e38f8c15a68f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 72a705e11a84e27a97946f33f837105614691f6a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762653"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515770"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedimientos recomendados para Azure SQL Data Warehouse
 Este artículo es una colección de procedimientos recomendados que le ayudará a conseguir un rendimiento óptimo de la instancia de Azure SQL Data Warehouse.  Algunos de los conceptos son básicos y fáciles de explicar, otros son más avanzados y solo se pueden ver por encima en este artículo.  El objetivo de este artículo es proporcionarle algunos consejos básicos y mostrarle los aspectos importantes que debe considerar al crear almacenamiento de datos.  En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.

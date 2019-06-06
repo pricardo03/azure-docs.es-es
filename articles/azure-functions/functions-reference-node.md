@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957344"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729462"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -110,7 +110,7 @@ En JavaScript, los [enlaces](functions-triggers-bindings.md) se configuran y def
 
 ### <a name="inputs"></a>Entradas
 Las entradas se dividen en dos categorías Azure Functions: una es la entrada del desencadenador y la otra es una entrada adicional. Una función puede leer los enlaces del desencadenador y de entrada (enlaces de `direction === "in"`) de tres maneras:
- - **_[Recomendada]_ Como parámetros pasados a la función.** Se pasan a la función en el mismo orden en que se definen en *function.json*. El `name` propiedad definida en *function.json* no necesita coincidir con el nombre del parámetro, aunque lo que debería.
+ - ** _[Recomendada]_ Como parámetros pasados a la función.** Se pasan a la función en el mismo orden en que se definen en *function.json*. El `name` propiedad definida en *function.json* no necesita coincidir con el nombre del parámetro, aunque lo que debería.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ Las salidas (enlaces de `direction === "out"`) se pueden escribir mediante una f
 
 Puede asignar datos a los enlaces de salida en una de las maneras siguientes (no combinar estos métodos):
 
-- **_[Recomendado para varias salidas]_ Devolución de un objeto.** Si usas un async/promesa devuelve la función, puede devolver un objeto con datos de salida asignado. En el ejemplo siguiente, los enlaces de salida se denominan "httpResponse" y "queueOutput" en el archivo *function.json*.
+- ** _[Recomendado para varias salidas]_ Devolución de un objeto.** Si usas un async/promesa devuelve la función, puede devolver un objeto con datos de salida asignado. En el ejemplo siguiente, los enlaces de salida se denominan "httpResponse" y "queueOutput" en el archivo *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,8 +156,8 @@ Puede asignar datos a los enlaces de salida en una de las maneras siguientes (no
   ```
 
   Si utiliza una función sincrónica, puede devolver este objeto mediante [`context.done`](#contextdone-method) (vea el ejemplo).
-- **_[Recomendado para una salida única]_ Devolución de un valor directamente y uso del nombre de enlace $return.** Este método solo funciona con las funciones de devolución asincrónicas o de promesa. Vea el ejemplo de [Exportación de una función asincrónica](#exporting-an-async-function). 
-- **Asignación de valores a `context.bindings`**. Puede asignar valores directamente a context.bindings.
+- ** _[Recomendado para una salida única]_ Devolución de un valor directamente y uso del nombre de enlace $return.** Este método solo funciona con las funciones de devolución asincrónicas o de promesa. Vea el ejemplo de [Exportación de una función asincrónica](#exporting-an-async-function). 
+- **Asignación de valores a `context.bindings`** . Puede asignar valores directamente a context.bindings.
 
   ```javascript
   module.exports = async function(context) {
@@ -397,9 +397,9 @@ Cuando se trabaja con desencadenadores HTTP, hay varias maneras de acceder a los
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Solo respuesta]_ Llamando a `context.res.send(body?: any)`.** Se crea una respuesta HTTP con la entrada `body` como cuerpo de la respuesta. Se llama a `context.done()` implícitamente.
++ ** _[Solo respuesta]_ Llamando a `context.res.send(body?: any)`.** Se crea una respuesta HTTP con la entrada `body` como cuerpo de la respuesta. Se llama a `context.done()` implícitamente.
 
-+ **_[Solo respuesta]_ Llamando a `context.done()`.** Un tipo especial de enlace HTTP que devuelve la respuesta que se pasa al método `context.done()`. El enlace de salida HTTP siguiente define un parámetro de salida `$return`:
++ ** _[Solo respuesta]_ Llamando a `context.done()`.** Un tipo especial de enlace HTTP que devuelve la respuesta que se pasa al método `context.done()`. El enlace de salida HTTP siguiente define un parámetro de salida `$return`:
 
     ```json
     {
@@ -465,23 +465,16 @@ Hay dos maneras de instalar paquetes en Function App:
 
 ## <a name="environment-variables"></a>Variables de entorno
 
-En Functions, [la configuración de la aplicación](functions-app-settings.md), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Puede acceder a estos ajustes mediante `process.env`, como se muestra a continuación en la función `GetEnvironmentVariable`:
+En Functions, [la configuración de la aplicación](functions-app-settings.md), como las cadenas de conexión del servicio, se exponen como variables de entorno durante la ejecución. Puede tener acceso a estas opciones mediante `process.env`, como se muestra en la segunda y terceros llamadas a `context.log()` donde se inicie la `AzureWebJobsStorage` y `WEBSITE_SITE_NAME` variables de entorno:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]

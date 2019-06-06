@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399186"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477864"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de registro en Azure Monitor  
 
 Este artículo muestra cómo resolver problemas comunes que pueden surgir cuando está configurando alertas del registro en Azure Monitor. También proporciona soluciones a problemas comunes con la funcionalidad o la configuración de alertas de registro. 
 
-El término *alertas de registro* se describen las alertas que fire se basa en una consulta de registro en un [área de trabajo de Azure Log Analytics](../learn/tutorial-viewdata.md) o en [Azure Application Insights](../../azure-monitor/app/analytics.md). Obtener información acerca de la funcionalidad, terminología y los tipos en [alertas de registro en Azure Monitor](../platform/alerts-unified-log.md).
+El término *alertas de registro* describen las reglas que fire se basa en una consulta de registro en un [área de trabajo de Azure Log Analytics](../learn/tutorial-viewdata.md) o en [Azure Application Insights](../../azure-monitor/app/analytics.md). Obtener información acerca de la funcionalidad, terminología y los tipos en [alertas de registro en Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > En este artículo no considera que los casos donde el portal de Azure muestra una regla de alerta desencadenada y una notificación no se realiza mediante un grupo de acciones asociada. Para estos casos, vea los detalles en [crear y administrar grupos de acciones en el portal de Azure](../platform/action-groups.md).

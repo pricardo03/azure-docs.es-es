@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385142"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688647"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -36,11 +36,18 @@ Para más información, consulte [Guía de migración para mover de Media Servic
 
 ## <a name="may-2019"></a>Mayo de 2019
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 y versiones posteriores admiten en el empaquetado dinámico 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Soporte técnico de Azure Monitor para las métricas y registros de diagnóstico de Media Services
 
-Agrega HLS (versión 4 o versiones posteriores) admiten en el empaquetado dinámico de activos que tienen varias pistas de audio con varios códecs y lenguajes.
+Ahora puede usar a Azure Monitor para ver emmited de datos de telemetría por Media Services.
 
-Para obtener más información, consulte [empaquetado dinámico](dynamic-packaging-overview.md).
+* Use los registros de diagnóstico de Azure Monitor para supervisar las solicitudes enviadas por el punto de conexión de la entrega de claves de Media Services. 
+* Supervisar las métricas de Media Services emitidas [extremos de Streaming](streaming-endpoint-concept.md).   
+
+Para obtener más información, consulte [registros de diagnóstico y métricas de supervisión de Media Services](media-services-metrics-diagnostic-logs.md).
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Compatibilidad con varias pistas de audio en empaquetado dinámico 
+
+La transmisión por secuencias los activos que tienen varias pistas de audio con varios códecs y lenguajes, [empaquetado dinámico](dynamic-packaging-overview.md) ahora es compatible con varias pistas de audio para la salida HLS (versión 4 o posterior).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>Par regional Corea está abierto para Media Services 
 

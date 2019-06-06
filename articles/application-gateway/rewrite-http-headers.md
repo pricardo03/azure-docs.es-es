@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000966"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476041"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Vuelva a escribir los encabezados HTTP con Application Gateway
 
@@ -153,11 +153,11 @@ Puede evaluar un encabezado de solicitud o respuesta HTTP para la presencia de u
 
 ## <a name="limitations"></a>Limitaciones
 
+- Si una respuesta tiene varios encabezados con el mismo nombre, a continuación, volver a escribir el valor de uno de esos encabezados dará como resultado la eliminación de los demás encabezados en la respuesta. Normalmente, esto puede suceder con encabezado Set-Cookie ya que puede tener más de un encabezado Set-Cookie en una respuesta. Uno de estos escenarios es cuando se usa un servicio de aplicaciones con una puerta de enlace de aplicaciones y ha configurado la afinidad de sesión basada en cookies en la puerta de enlace de la aplicación. En este caso, la respuesta contendrá 2 encabezados Set-Cookie: uno utilizado por el servicio de aplicación, es decir, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` y otro para la afinidad de la puerta de enlace de aplicación, es decir, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Volver a escribir uno de los encabezados de Set-Cookie en este escenario podría quitar el otro encabezado Set-Cookie de la respuesta.
+
 - Actualmente no se admite la reescritura de los encabezados de Host, actualización y conexión.
 
 - Los nombres de encabezado pueden contener los caracteres alfanuméricos y símbolos específicos, tal como se define en [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Actualmente no se admite el carácter de subrayado (\_) caracteres especiales en nombres de encabezado.
-
-- Si una respuesta tiene varios encabezados con el mismo nombre, a continuación, volver a escribir el valor de uno de esos encabezados dará como resultado la eliminación de los demás encabezados en la respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

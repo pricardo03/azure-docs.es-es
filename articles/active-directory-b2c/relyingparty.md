@@ -2,20 +2,20 @@
 title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento RelyingParty de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253777"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512852"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -202,8 +202,8 @@ El elemento **OutputClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | Una referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** del archivo de directiva. |
-| DefaultValue | Sin  | Un valor predeterminado que se puede usar si el valor de notificación está vacío. |
-| PartnerClaimType | Sin  | Envía la notificación con un nombre distinto al configurado en la definición de ClaimType. |
+| DefaultValue | No | Un valor predeterminado que se puede usar si el valor de notificación está vacío. |
+| PartnerClaimType | Sin | Envía la notificación con un nombre distinto al configurado en la definición de ClaimType. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 

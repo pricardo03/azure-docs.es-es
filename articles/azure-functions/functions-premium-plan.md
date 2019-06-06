@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242303"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492709"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plan de funciones Premium de Azure (versión preliminar)
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Conectividad de red privada
 
-Aprovecha las funciones de Azure implementadas en un plan Premium de [nueva integración con red virtual para las aplicaciones web](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration).  Cuando se configura, la aplicación puede comunicarse con recursos de su red virtual o protegido a través de extremos de servicio.  Las restricciones de IP también están disponibles en la aplicación para restringir el tráfico entrante.
+Aprovecha las funciones de Azure implementadas en un plan Premium de [nueva integración con red virtual para las aplicaciones web](../app-service/web-sites-integrate-with-vnet.md).  Cuando se configura, la aplicación puede comunicarse con recursos de su red virtual o protegido a través de extremos de servicio.  Las restricciones de IP también están disponibles en la aplicación para restringir el tráfico entrante.
 
 Al asignar una subred a la aplicación de función en un plan Premium, necesitará una subred con suficientes direcciones IP para cada instancia posibles. Aunque el número máximo de instancias puede variar durante la versión preliminar, es necesario un bloque de IP con al menos 100 direcciones disponibles.
 

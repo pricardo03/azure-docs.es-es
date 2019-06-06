@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225888"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477254"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -168,6 +168,7 @@ Todavía no se admiten los siguientes escenarios:
 * Los recursos de Virtual Machines con certificado almacenados en Key Vault se pueden trasladar al nuevo grupo de recursos en la misma suscripción, pero no entre suscripciones.
 * No se puede mover conjuntos de escalado de máquinas virtuales con equilibrador de carga de SKU estándar o IP pública de SKU estándar.
 * Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
+* Máquinas virtuales en una red Virtual existente, donde el usuario no tiene intención de mover todos los recursos en la red Virtual.
 
 Para mover máquinas virtuales configuradas con la copia de seguridad de Azure, use la siguiente solución alternativa:
 

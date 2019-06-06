@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627157"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471427"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca BulkExecutor para .NET: Información de descarga 
 
@@ -42,6 +42,18 @@ ms.locfileid: "60627157"
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+
+* Se agregó compatibilidad para el ejecutor en masa de graph Aceptar el ttl de vértices y bordes
+
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+
+* Se ha corregido un problema, que han provocado excepciones durante el escalado elástico de Azure Cosmos DB cuando se ejecuta en modo de puerta de enlace. Esta corrección facilita funcionalmente equivalente a 1.4.1 de versión.
+
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+
+* BulkDelete se ha agregado compatibilidad para que las cuentas de API de SQL Aceptar la clave de partición, las tuplas de Id. de documento para eliminar. Este cambio facilita funcionalmente equivalente a la versión 1.4.0 de versión.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Incluye MongoBulkExecutor para la compatibilidad con .NET Standard 2.0. Esta característica tiene una funcionalidad similar a la de la versión 1.3.0, pero se ha agregado la compatibilidad con .NET Standard 2.0 como plataforma de destino.
@@ -50,10 +62,24 @@ ms.locfileid: "60627157"
 
 * Se ha agregado .NET Standard 2.0 como una de las plataformas de destino admitidas para que la biblioteca BulkExecutor funcione con las aplicaciones .NET Core.
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* Actualizado el ejecutor en masa para usar la versión más reciente del SDK de .NET de Azure Cosmos DB (2.4.0).
+
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+
+* Se agregó compatibilidad para el ejecutor en masa de graph Aceptar el ttl de vértices y bordes
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+* Se ha corregido un problema, que han provocado excepciones durante el escalado elástico de Azure Cosmos DB cuando se ejecuta en modo de puerta de enlace.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+* BulkDelete se ha agregado compatibilidad para que las cuentas de API de SQL Aceptar la clave de partición, las tuplas de Id. de documento para eliminar.
+
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* Se ha agregado una sobrecarga de la operación BulkDelete para que las cuentas de la API de SQL acepten la clave de partición y las tuplas de identificación de documentos que se van a eliminar.
-* Se ha agregado una sobrecarga de la operación BulkDelete para que las cuentas de la API de SQL acepten objetos RequestOption que contengan la clave de partición que especifica el valor de la clave de partición y lo utilicen como filtro en la consulta de entrada que especifica los documentos que se van a eliminar.
 * Se ha corregido un problema que generaba un error de formato en el agente de usuario utilizado por BulkExecutor.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0

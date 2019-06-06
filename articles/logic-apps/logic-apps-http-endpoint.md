@@ -1,29 +1,25 @@
 ---
-title: 'Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP: Azure Logic Apps | Microsoft Docs'
+title: 'Llamar, desencadenar o anidar flujos de trabajo con puntos de conexión HTTP: Azure Logic Apps'
 description: Configuración de puntos de conexión HTTP para llamadas, desencadenamientos o anidamiento de flujos de trabajo para Azure Logic Apps
 services: logic-apps
-keywords: flujos de trabajo, puntos de conexión HTTP
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304277"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495057"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Llamar, desencadenar o anidar flujos de trabajo con puntos de conexión HTTP en Azure Logic Apps
 
 Puede exponer de manera nativa puntos de conexión HTTP sincrónicos como desencadenadores en aplicaciones lógicas, de manera que pueda desencadenar las aplicaciones lógicas o llamarlas a través de una dirección URL. También puede anidar flujos de trabajo en las aplicaciones lógicas mediante el uso de un patrón de puntos de conexión invocables.
 

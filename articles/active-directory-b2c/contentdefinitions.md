@@ -2,20 +2,20 @@
 title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento ContentDefinitions de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6807ae8d9c8b8458b9ac4552a90119a8f709d330
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693359"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511312"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -101,7 +101,7 @@ El elemento **LocalizedResourcesReferences** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Idioma | Sí | Una cadena que contiene un idioma admitido para la directiva según RFC 5646 (etiquetas para identificar idiomas). |
+| Lenguaje | Sí | Una cadena que contiene un idioma admitido para la directiva según RFC 5646 (etiquetas para identificar idiomas). |
 | LocalizedResourcesReferenceId | Sí | El identificador del elemento **LocalizedResources**. |
 
 En el ejemplo siguiente, se muestra una definición de contenido de registro o inicio de sesión:
@@ -146,7 +146,7 @@ El id. de atributo del elemento **ContentDefinition** especifica el tipo de pág
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de error**: muestra una página de error cuando se produce una excepción o un error. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de selección de proveedor de identidades**: muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. Las opciones normalmente son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Selección de proveedor de identidades para registro**: muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el registro. Las opciones normalmente son proveedores de identidades de empresa, proveedores de identidades sociales como Facebook y Google+ o cuentas locales. |
-| **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página ¿Olvidó la contraseña?**: muestra un formulario que los usuarios necesitan completar para iniciar un restablecimiento de contraseña. |
+| **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página ¿Olvidó la contraseña?** : muestra un formulario que los usuarios necesitan completar para iniciar un restablecimiento de contraseña. |
 | **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inicio de sesión en cuenta local**: muestra un formulario para iniciar sesión con una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. El formulario puede contener un cuadro de entrada de texto y un cuadro de entrada de contraseña. |
 | **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de registro en cuenta local**: muestra un formulario para registrar una cuenta local basada en una dirección de correo electrónico o un nombre de usuario. El formulario puede contener varios controles de entrada, como un cuadro de entrada de texto, un cuadro de entrada de contraseña, un botón de radio, cuadros desplegables de selección única y casillas de selección múltiple. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Página de autenticación multifactor**: verifica los números de teléfono mediante mensajes de texto o llamadas de voz durante el registro o inicio de sesión. |

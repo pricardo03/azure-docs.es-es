@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/13/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2f55891ddd383ea15da499495909b56ffb0e06d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786145"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427485"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Actualización de módulos de Azure PowerShell en Azure Automation
 
-Para actualizar los módulos de Azure en su cuenta de Automation, deberá usar el [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), que está disponible como código abierto. Para empezar a usar el runbook **Update-AutomationAzureModulesForAccount** para actualizar los módulos de Azure, descárguelo desde el [repositorio del runbook Actualizar módulos de Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) en GitHub. A continuación, puede importarlo en su cuenta de Automation o ejecutarlo como un script. Las instrucciones sobre cómo hacer esto se encuentran en el [repositorio del runbook Actualizar módulos de Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
+Para actualizar los módulos de Azure en su cuenta de Automation, deberá usar el [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), que está disponible como código abierto. Para empezar a usar el runbook **Update-AutomationAzureModulesForAccount** para actualizar los módulos de Azure, descárguelo desde el [repositorio del runbook Actualizar módulos de Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) en GitHub. A continuación, puede importarlo en su cuenta de Automation o ejecutarlo como un script. Para obtener información sobre cómo importar un runbook en su cuenta de Automation, consulte [importar un runbook](manage-runbooks.md#import-a-runbook).
 
 Los módulos de AzureRM PowerShell más comunes se proporcionan de forma predeterminada en cada cuenta de Automation. El equipo de Azure actualiza los módulos de Azure con regularidad, por lo tanto, para mantenerse al día querrá usar la [actualización AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook para actualizar los módulos de sus cuentas de Automation.
 

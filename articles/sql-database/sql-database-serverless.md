@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/05/2019
+ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393542"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734770"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database sin servidor (versión preliminar)
 
 ## <a name="serverless-compute-tier"></a>Nivel de servicio de informática sin servidor
 
-SQL Database sin servidor (versión preliminar) es un nivel de proceso que factura por la cantidad de proceso utilizada por una sola base de datos por segundo. Este nivel de proceso sin servidor ofrece una relación entre precio y rendimiento optimizada para bases de datos únicas con patrones de uso intermitentes e impredecibles, que pueden permitirse alguna demora en el calentamiento de los recursos de proceso después de períodos de inactividad.
+Base de datos SQL sin servidor (versión preliminar) es un nivel de proceso de base de datos única que escala automáticamente de proceso y se les factura para la cantidad de proceso utilizado por segundo. 
 
 Una base de datos en el nivel de proceso sin servidor se parametriza con el intervalo de proceso que puede usar y una demora de pausa automática.
 
@@ -31,7 +31,7 @@ Una base de datos en el nivel de proceso sin servidor se parametriza con el inte
 
 ### <a name="performance"></a>Rendimiento
 
-- `MinVcore` y `MaxVcore` son parámetros configurables que definen el intervalo de capacidad de proceso disponible para la base de datos. Los límites de memoria y E/S son proporcionales al intervalo de núcleos virtuales especificado.  
+- El número de núcleos virtuales mínimos y núcleos virtuales es parámetros configurables que definen el rango de capacidad de proceso disponible para la base de datos. Los límites de memoria y E/S son proporcionales al intervalo de núcleos virtuales especificado.  
 - La demora de pausa automática es un parámetro configurable que define el período de tiempo de que la base de datos debe estar inactiva antes de detenerse automáticamente. La base de datos se reanuda automáticamente con el siguiente inicio de sesión.
 
 ### <a name="pricing"></a>Precios
@@ -43,19 +43,19 @@ La facturación de proceso se basa en la cantidad de núcleos virtuales usados y
 
 ## <a name="scenarios"></a>Escenarios
 
-Este nivel de proceso sin servidor ofrece una relación entre precio y rendimiento optimizada para bases de datos únicas con patrones de uso intermitentes e impredecibles, que pueden permitirse alguna demora en el calentamiento de los recursos de proceso después de períodos de inactividad. En cambio, el nivel de proceso aprovisionado ofrece una relación entre precio y rendimiento optimizada para bases de datos únicas o agrupadas con mayor uso medio que no pueden permitirse ninguna demora en el calentamiento de los recursos de proceso.
+Este nivel de proceso sin servidor ofrece una relación entre precio y rendimiento optimizada para bases de datos únicas con patrones de uso intermitentes e impredecibles, que pueden permitirse alguna demora en el calentamiento de los recursos de proceso después de períodos de inactividad. En cambio, el nivel de proceso aprovisionada es precio / rendimiento optimizado para las bases de datos únicas o varias bases de datos en grupos elásticos con un mayor uso medio que no puede permitirse cualquier retraso en la preparación del proceso.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Escenarios adecuados para el proceso sin servidor
 
-- Bases de datos únicas con patrones de uso impredecibles e intermitentes intercalados con períodos de inactividad, que pueden beneficiarse del ahorro en los precios que ofrece la facturación por segundo para la cantidad de proceso utilizada.
-- Bases de datos únicas con una demanda de recursos difícil de predecir y clientes que prefieren delegar en el servicio el dimensionamiento de los recursos de proceso.
-- Bases de datos únicas en el nivel de proceso aprovisionado que cambian con frecuencia los niveles de rendimiento.
+- Bases de datos únicas con patrones de uso impredecible, intermitente intercalan con períodos de inactividad y la utilización de proceso promedio inferior con el tiempo.
+- Bases de datos únicas en el nivel de proceso aprovisionada que se escalan con frecuencia y los clientes que prefieren para delegar el proceso cambia la escala para el servicio.
+- Nuevas bases de datos únicas sin historial de uso donde el tamaño de proceso es difícil o no es posible calcular antes de la implementación en la base de datos SQL.
 
 ### <a name="scenarios-well-suited-for-provisioned-compute"></a>Escenarios adecuados para el proceso aprovisionado
 
-- Bases de datos únicas con un uso de proceso más considerable y habitual a lo largo del tiempo.
+- Bases de datos únicas con patrones de uso más regular y predecible y promedio mayor uso con el tiempo de proceso.
 - Bases de datos que no pueden tolerar compensaciones de rendimiento resultantes de recortes de memoria más frecuentes o de una demora en la reanudación automática desde un estado de pausa.
-- Varias bases de datos con patrones de uso impredecibles e intermitentes que se pueden consolidar en un único servidor y usan grupos elásticos para una mejor optimización de precios.
+- Varias bases de datos con patrones de uso impredecible, intermitente que se pueden consolidar en grupos elásticos para una mejor optimización de precio / rendimiento.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Comparación con el nivel de proceso aprovisionado
 
@@ -63,7 +63,7 @@ La tabla siguiente resume las diferencias entre el nivel de proceso sin servidor
 
 | | **Proceso sin servidor** | **Proceso aprovisionado** |
 |:---|:---|:---|
-|**Escenario de uso principal**| Bases de datos con uso impredecible e intermitente, intercalado con períodos de inactividad. | Bases de datos o grupos elásticos con uso más habitual.|
+|**Patrón de uso de la base de datos**| Uso con el tiempo de proceso de uso impredecible, intermitente con un promedio inferior. |  Patrones de uso más normales con Media mayor uso en el tiempo o varias bases de datos con grupos elásticos de proceso.|
 | **Trabajo de administración del rendimiento** |Inferior|Superior|
 |**Escalado de proceso**|Automático|Manual|
 |**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediata|
@@ -77,7 +77,7 @@ SQL Database sin servidor solo se admite actualmente en el nivel de uso general 
 
 ### <a name="scaling-responsiveness"></a>Escalado de la capacidad de respuesta
 
-En general, las bases de datos se ejecutan en una máquina con capacidad suficiente para satisfacer la demanda de recursos sin interrupciones para cualquier cantidad de proceso solicitada dentro de los límites establecidos por el valor `maxVcores`. En ocasiones, se produce automáticamente un equilibrio de carga si la máquina no puede satisfacer la demanda de recursos en cuestión de minutos. La base de datos permanece en línea durante el equilibrio de carga excepto durante un breve período al final de la operación cuando se deshabilitan las conexiones.
+En general, las bases de datos sin servidor se ejecutan en un equipo con capacidad suficiente para satisfacer la demanda de recursos sin interrupciones para cualquier cantidad de proceso solicitado dentro de los límites establecidos por el valor del número de núcleos virtuales. En ocasiones, se produce automáticamente un equilibrio de carga si la máquina no puede satisfacer la demanda de recursos en cuestión de minutos. Por ejemplo, si la demanda de recursos es de 4 núcleos virtuales, pero sólo 2 núcleos virtuales están disponibles, a continuación, esta puede tardar unos minutos para equilibrar la carga antes de que se proporcionan 4 núcleos virtuales. La base de datos permanece en línea durante el equilibrio de carga excepto durante un breve período al final de la operación cuando se deshabilitan las conexiones.
 
 ### <a name="memory-management"></a>Administración de memoria
 
@@ -90,7 +90,7 @@ A diferencia de las bases de datos de proceso aprovisionada, se reclama memoria 
 - Utilización de la caché se considera baja cuando el tamaño total de las más usados recientemente caché entradas cae por debajo del umbral durante un período de tiempo.
 - Cuando se desencadena la recuperación de la memoria caché, el tamaño de caché de destino se reduce gradualmente a una fracción del tamaño anterior y reclamar solo continúa si uso sigue siendo bajo.
 - Cuando se produce la recuperación de caché, la directiva para seleccionar las entradas de caché se va a expulsar es la misma directiva de selección en cuanto a las bases de datos de proceso aprovisionada cuando la presión de memoria es alta.
-- El tamaño de caché nunca se reduce por debajo de la memoria mínima como se define en núcleos virtuales mínimos, que se pueden configurar.
+- El tamaño de caché nunca se reduce por debajo del límite de memoria mínima como se define en núcleos virtuales mínimos que se pueden configurar.
 
 Sin servidor y aprovisionado proceso bases de datos, caché entradas pueden expulsarse si se usa toda la memoria disponible.
 
@@ -102,31 +102,41 @@ La caché de SQL crece a medida que se capturan datos desde el disco de la misma
 
 ### <a name="autopause"></a>Pausa automática
 
-La pausa automática se desencadena si todas las condiciones siguientes se cumplen durante la demora de pausa automática:
+Autopausing se desencadena si todas las condiciones siguientes son verdaderas para la duración del retraso pausarautomáticamente:
 
 - Número de sesiones = 0
-- CPU = 0 (para la carga de trabajo de usuario en ejecución en el grupo de usuarios)
+- CPU = 0 para la carga de trabajo de usuario que se ejecuta en el grupo de usuario
 
-Hay disponible una opción para deshabilitar la pausa automática si se desea.
+Se proporciona una opción para deshabilitar autopausing si lo desea.
+
+Las características siguientes no admiten autopausing.  Es decir, si se utiliza cualquiera de las siguientes características, la base de datos permanece en línea, independientemente de la duración de inactividad de la base de datos:
+
+- Replicación geográfica (grupos de conmutación por error automática y replicación geográfica activos).
+- Retención de copia de seguridad a largo plazo (LTR).
+- La base de datos de sincronización utilizada en la sincronización de datos SQL.
+
+Autopausing se evita temporalmente durante la implementación de algunas actualizaciones de servicio que requieren que la base de datos esté en línea.  En tales casos, autopausing se convierte en permite a intentarlo una vez completada la actualización del servicio.
 
 ### <a name="autoresume"></a>Reanudación automática
 
-La reanudación automática se desencadena si se cumple cualquiera de las siguientes condiciones en cualquier momento:
+Autoresuming se desencadena si alguna de las siguientes condiciones es verdadera en cualquier momento:
 
 |Característica|Desencadenamiento de reanudación automática|
 |---|---|
 |Autenticación y autorización|Inicio de sesión|
-|Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor<br>Modificación de la configuración de detección de amenazas en el nivel de base de datos o servidor|
+|Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor.<br>Modificar configuración de detección de amenazas en el nivel de base de datos o servidor.|
 |Detección y clasificación de datos|Adición, modificación, eliminación o visualización de las etiquetas de confidencialidad|
-|Auditoría|Visualización de registros de auditoría<br>Actualización o visualización de la directiva de auditoría|
+|Auditoría|Visualización de registros de auditoría<br>Actualizar o ver la directiva de auditoría.|
 |Enmascaramiento de datos|Adición, modificación, eliminación o visualización de reglas de enmascaramiento de datos|
 |Cifrado de datos transparente|Visualización del estado de cifrado de datos transparente|
 |Almacén de datos de consulta (rendimiento)|Modificación o visualización de la configuración del almacén de consulta, ajuste automático|
 |Ajuste automático|Aplicación y comprobación de recomendaciones de ajuste automático, como la indexación automática|
-|Copia de base de datos|Creación de base de datos como copia<br>Exportación a un archivo BACPAC|
+|Copia de base de datos|Crear base de datos como copia.<br>Exportar a un archivo BACPAC.|
 |Sincronización de datos SQL|Sincronización entre la base de datos central y las bases de datos miembro que se ejecutan según una programación configurable o bien de forma manual|
-|Modificación de algunos metadatos de base de datos|Adición de nuevas etiquetas de base de datos<br>Cambio del máximo de núcleos virtuales, el mínimo de núcleos virtuales y la demora de pausa automática|
+|Modificación de algunos metadatos de base de datos|Agregar nuevas etiquetas de la base de datos.<br>Cambiar el número de núcleos virtuales, núcleos virtuales mínimos o retraso pausarautomáticamente.|
 |SQL Server Management Studio (SSMS)|Al usar SSMS versión 18 y abrir una nueva ventana de consulta para cualquier base de datos en el servidor se reanudará cualquier base de datos en pausa automática en el mismo servidor. Este comportamiento no se produce si se usa SSMS versión 17.9.1 con IntelliSense deshabilitado.|
+
+Autoresuming también se desencadena durante la implementación de algunas actualizaciones de servicio que requieren que la base de datos esté en línea.
 
 ### <a name="connectivity"></a>Conectividad
 
@@ -134,22 +144,13 @@ Si está en pausa una base de datos sin servidor, el primer inicio de sesión se
 
 ### <a name="latency"></a>Latencia
 
-La latencia para pausar o reanudar automáticamente una base de datos sin servidor suele ser de 1 minuto.
-
-### <a name="feature-support"></a>Compatibilidad de características
-
-Las características siguientes no admiten la pausa y reanudación automáticas. Es decir, si se utiliza cualquiera de las siguientes características, la base de datos permanecerá en línea, independientemente de la duración de la inactividad de la base de datos:
-
-- Replicación geográfica (replicación geográfica activa y grupos de conmutación por error automáticos)
-- Retención de copia de seguridad a largo plazo (LTR)
-- La base de datos de sincronización utilizada en la sincronización de datos SQL.
-
+La latencia a autoresume y pausarautomáticamente una base de datos sin servidor suele ser el orden de 1 minuto para autoresume y 1-10 minutos para pausarautomáticamente.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Incorporación a nivel de proceso sin servidor
 
 La creación de una nueva base de datos o el cambio de una base de datos existente a un nivel de proceso sin servidor siguen el mismo patrón que la creación de una nueva base de datos en el nivel de proceso aprovisionado y constan de los dos pasos siguientes:
 
-1. Especifique el nombre del objetivo de servicio. El objetivo de servicio preceptúa el nivel de servicio, la generación de hardware y el máximo de núcleos virtuales. La siguiente tabla muestra las opciones de objetivo de servicio:
+1. Especifique el nombre del objetivo de servicio. El objetivo de servicio prescribe el nivel de servicio, la generación de hardware y el número de núcleos virtuales. La siguiente tabla muestra las opciones de objetivo de servicio:
 
    |Nombre del objetivo de servicio|Nivel de servicio|Generación de hardware|Máximo de núcleos virtuales|
    |---|---|---|---|
@@ -157,11 +158,11 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
    |GP_S_Gen5_2|Uso general|Gen5|2|
    |GP_S_Gen5_4|Uso general|Gen5|4|
 
-2. Opcionalmente, especifique el mínimo de núcleos virtuales y la demora de pausa automática para cambiar sus valores predeterminados. En la siguiente tabla se muestran los valores disponibles para estos parámetros.
+2. Opcionalmente, especifique el retraso mínimo de núcleos virtuales y pausarautomáticamente para cambiar sus valores predeterminados. En la siguiente tabla se muestran los valores disponibles para estos parámetros.
 
    |Parámetro|Opciones de valores|Valor predeterminado|
    |---|---|---|---|
-   |Mínimo de núcleos virtuales|Cualquier valor entre {0,5, 1, 2, 4} que no supere el máximo de núcleos virtuales|0,5 núcleos virtuales|
+   |Núcleos virtuales mínimos|Cualquier valor entre {0,5, 1, 2, 4} que no supere el máximo de núcleos virtuales|0,5 núcleos virtuales|
    |Demora de pausa automática|Mín.: 360 minutos (6 horas)<br>Máx.: 10 080 minutos (7 días)<br>Incrementos: 60 minutos<br>Deshabilitar pausa automática: -1|360 minutos|
 
 > [!NOTE]
@@ -175,8 +176,6 @@ Consulte [Quickstart: Creación de una base de datos única en Azure SQL Databas
 
 En el ejemplo siguiente se crea una nueva base de datos en el nivel de proceso sin servidor definida por el objetivo de servicio denominado GP_S_Gen5_4 con los valores predeterminados para el mínimo de núcleos virtuales y la demora de pausa automática.
 
-El nivel de proceso sin servidor requiere una versión más reciente de PowerShell que la que está disponible actualmente en la galería, así que debe ejecutar `Update-Module Az.Sql` para obtener los cmdlets más recientes compatibles con el nivel de proceso sin servidor.
-
 ```powershell
 New-AzSqlDatabase `
   -ResourceGroupName $resourceGroupName `
@@ -187,7 +186,7 @@ New-AzSqlDatabase `
   -ComputeGeneration Gen5 `
   -MinVcore 0.5 `
   -MaxVcore 2 `
-  -AutoPauseDelay 720
+  -AutoPauseDelayInMinutes 720
 ```
 
 ### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Mover la base de datos de proceso aprovisionado en el nivel de proceso sin servidor
@@ -204,7 +203,7 @@ Set-AzSqlDatabase
   -ComputeGeneration Gen5 `
   -MinVcore 1 `
   -MaxVcore 4 `
-  -AutoPauseDelay 1440
+  -AutoPauseDelayInMinutes 1440
 ```
 
 ### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Mover la base de datos sin servidor en el nivel de proceso aprovisionada
@@ -215,7 +214,7 @@ Una base de datos sin servidor se puede mover a un nivel de proceso aprovisionad
 
 ### <a name="maximum-vcores"></a>Máximo de núcleos virtuales
 
-El máximo de núcleos virtuales se modifica mediante el comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) en PowerShell con el argumento `MaxVcore`.
+Modificar el número de núcleos virtuales se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `MaxVcore` argumento.
 
 ### <a name="minimum-vcores"></a>Mínimo de núcleos virtuales
 
@@ -223,7 +222,7 @@ Modificación de los núcleos virtuales mínimos se realiza mediante el [conjunt
 
 ### <a name="autopause-delay"></a>Demora de pausa automática
 
-Modificar el retraso pausarautomáticamente se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `AutoPauseDelay` argumento.
+Modificar el retraso pausarautomáticamente se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `AutoPauseDelayInMinutes` argumento.
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -279,7 +278,7 @@ Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](sql-
 La cantidad de proceso que se factura es el máximo de CPU y memoria usado en cada segundo. Si la cantidad de CPU y memoria usadas es inferior a la cantidad mínima aprovisionada para cada una, se factura la cantidad aprovisionada. Para comparar la CPU y la memoria con fines de facturación, la memoria se normaliza en unidades de núcleos virtuales cambiando la escala de la cantidad de GB de memoria en 3 GB por núcleo virtual.
 
 - **Recurso facturado**: CPU y memoria
-- **Importe facturado ($)** : precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
+- **Importe facturado**: precio unitario de memoria con núcleo virtual * max (núcleos virtuales mínimos, núcleos virtuales que se usa, GB de memoria mínima * 1/3, memoria GB usados * 1/3) 
 - **Frecuencia de facturación**: Por segundo
 
 El precio de unidad de memoria con núcleo virtual en el costo por núcleo virtual por segundo. Consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para conocer los precios de unidad específicos de una región determinada.
@@ -292,25 +291,25 @@ La cantidad de proceso facturada se expone mediante la métrica siguiente:
 
 Esta cantidad se calcula cada segundo y se agrega en un intervalo de 1 minuto.
 
-Considere la posibilidad de una base de datos sin servidor configurado con núcleo virtual de 1 minuto y número de 4 núcleos virtuales.  Esto corresponde a aproximadamente 3 GB de memoria de mínimo y máximo de 12 GB de memoria.  Supongamos que el retraso de pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras horas 2 de un período de 24 horas e inactiva en caso contrario.    
+Considere la posibilidad de una base de datos sin servidor configurado con núcleo virtual de 1 minuto y número de 4 núcleos virtuales.  Esto corresponde a aproximadamente 3 GB de memoria de mínimo y máximo de 12 GB de memoria.  Supongamos que el retraso de pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras horas 2 de un período de 24 horas e inactiva en caso contrario.    
 
-En este caso, la base de datos se factura por proceso y almacenamiento durante las primeras 8 horas.  Aunque la base de datos está iniciando inactiva después de la segunda hora, todavía se factura para el cálculo en las subsiguientes 6 horas, según el proceso mínimos aprovisionado mientras la base de datos está en línea.  Sólo almacenamiento se factura durante el resto del período de 24 horas mientras está en pausa la base de datos.
+En este caso, la base de datos se factura por proceso y almacenamiento durante las primeras 8 horas.  Aunque la base de datos está iniciando inactiva después de la segunda hora, todavía se factura para el cálculo en las subsiguientes 6 horas, según el proceso mínimos aprovisionado mientras la base de datos está en línea.  Sólo almacenamiento se factura durante el resto del período de 24 horas mientras está en pausa la base de datos.
 
 Más concretamente, la factura de proceso en este ejemplo se calcula como sigue:
 
 |Intervalo de tiempo|núcleos virtuales que usa cada segundo.|Utilizar GB por segundo|Calcular la factura de dimensión|segundos de la memoria con núcleo virtual se factura en un intervalo de tiempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|núcleos virtuales que se usa|4 núcleos virtuales * 3600 segundos = 14400 segundos de memoria con núcleo virtual|
-|1:00-2:00|1|12|Memoria usada|12 Gb * 1/3 * 3600 segundos = 14400 segundos de memoria con núcleo virtual|
-|2:00-8:00|0|0|Memoria mínima aprovisionado|3 Gb * 1/3 * 21600 segundos = 21600 segundos de la memoria con núcleo virtual|
+|1:00-2:00|1|12|Memoria usada|12 GB * 1/3 * 3600 segundos = 14400 segundos de memoria con núcleo virtual|
+|2:00-8:00|0|0|Memoria mínima aprovisionado|3 GB * 1/3 * 21600 segundos = 21600 segundos de la memoria con núcleo virtual|
 |8:00-24:00|0|0|No hay ningún proceso de factura mientras está en pausa|núcleo virtual 0 segundos|
 |Segundos de núcleo virtual total facturadas más de 24 horas||||núcleo virtual 50400 segundos|
 
-Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/segundo.  A continuación, la factura para este período de 24 horas de proceso es el producto de los segundos de precio y núcleo virtual de unidad proceso facturadas: $0.000073/vCore/second * 50400 segundos de la memoria con núcleo virtual = $3,68
+Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/segundo.  A continuación, la factura para este período de 24 horas de proceso es el producto de los segundos de precio y núcleo virtual de unidad proceso facturadas: $0.000073/vCore/second * 50400 segundos de la memoria con núcleo virtual = $3,68
 
 ## <a name="available-regions"></a>Regiones disponibles
 
-El nivel de proceso sin servidor está disponible en todas las regiones excepto las siguientes: Este de Australia Central, China, Norte de China, sur de Francia, noreste de Alemania, Alemania Central, India occidental, Corea del Sur, oeste de Sudáfrica, Norte de Reino Unido, sur de Reino Unido, oeste de Reino Unido y centro occidental de EE.UU.
+El nivel de proceso sin servidor está disponible en todo el mundo, excepto las siguientes regiones: Este de Australia Central, China, Norte de China, sur de Francia, noreste de Alemania, Alemania Central, India occidental, Corea del Sur, oeste de Sudáfrica, Norte de Reino Unido, sur de Reino Unido, oeste de Reino Unido y centro occidental de EE.UU.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

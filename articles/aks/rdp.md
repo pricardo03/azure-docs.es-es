@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/04/2019
 ms.author: twhitney
-ms.openlocfilehash: 6b5ebbab717a3db7c9b50549d2762df61c274131
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307353"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688635"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conectar con RDP a Azure Kubernetes Service (AKS) nodos del clúster Windows Server para el mantenimiento o la solución de problemas
 
@@ -32,7 +32,18 @@ También necesita la CLI de Azure versión 2.0.61 o posterior instalado y config
 
 Los nodos de Windows Server del clúster de AKS no tienen direcciones IP accesibles externamente. Para realizar una conexión RDP, puede implementar una máquina virtual con una dirección IP accesible públicamente a la misma subred que los nodos de Windows Server.
 
-En el ejemplo siguiente se crea una máquina virtual denominada *myVM* en el *myResourceGroup* grupo de recursos. Reemplace *SUBNET_ID $* con el identificador de la subred usada por el grupo de nodos de Windows Server.
+En el ejemplo siguiente se crea una máquina virtual denominada *myVM* en el *myResourceGroup* grupo de recursos.
+
+En primer lugar, obtenga la subred usada por el grupo de nodos de Windows Server. Para obtener el identificador de subred, se necesita el nombre de la subred. Para obtener el nombre de la subred, se necesita el nombre de la red virtual. Obtiene el nombre de red virtual consultando el clúster para su lista de redes. Para consultar el clúster, necesita su nombre. Puede obtener todos estos ejecutando lo siguiente en Azure Cloud Shell:
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
+SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
+SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+```
+
+Ahora que tiene el SUBNET_ID, ejecute el siguiente comando en la misma ventana Azure Cloud Shell para crear la máquina virtual:
 
 ```azurecli-interactive
 az vm create \

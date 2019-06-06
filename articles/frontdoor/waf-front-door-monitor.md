@@ -8,22 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/31/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: 5368ed8d1e60a646366065e2cf617fb2f3735b53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ba6cca679ce4910ea941d9578939721514b2ec
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459766"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478975"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Firewall de aplicaciones web de Azure de supervisión y registro 
 
 Supervisión de firewall (WAF) de aplicación web de Azure y el registro se proporcionan a través del registro y la integración con Azure Monitor y Azure Monitor registros.
-
-> [!IMPORTANT]
-> El WAF de supervisión y la característica de registro para el acceso de principal de Azure está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
