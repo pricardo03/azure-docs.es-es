@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356822"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418440"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Plantillas de Azure Resource Manager para Azure SQL Database
 
@@ -33,7 +33,6 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 | [Servidor lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Esta plantilla de Azure Resource Manager crea un servidor lógico para Azure SQL Database. |
 | [Grupo elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Esta plantilla permite implementar un grupo de bases de datos elásticas nuevo con su nuevo servidor con SQL Server y sus nuevas bases de datos SQL asociados para asignárselo. |
 | [Grupos de conmutación por error](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Esta plantilla crea dos servidores lógicos de Azure SQL, una base de datos SQL y un grupo de conmutación por error.|
-| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Esta plantilla le permite implementar un servidor lógico de Azure SQL con el servicio Advanced Threat Protection habilitado y una base de datos de Azure SQL opcional. SQL Advanced Threat Protection es un paquete unificado de funcionalidades avanzadas de seguridad de SQL.|
 | [Detección de amenazas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Esta plantilla permite implementar un servidor lógico de SQL Azure y un conjunto de bases de datos de Azure SQLs con Detección de amenazas habilitado, con una dirección de correo electrónico para las alertas de cada base de datos. Detección de amenazas forma parte de la oferta de Advanced Threat Protection (ATP) de SQL y proporciona una capa de seguridad que responda a amenazas potenciales a través de las bases de datos SQL y servidores con SQL Server.|
 | [Auditoría a Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Esta plantilla le permite implementar un servidor lógico de Azure SQL con la auditoría habilitada para escribir los registros de auditoría en un almacenamiento de blobs. La auditoría de Azure SQL Database y realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría que se puede colocar en su cuenta de Azure Storage, en el área de trabajo de OMS o en Event Hubs.|
 | [Auditoría a Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Esta plantilla le permite implementar un servidor con Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en centro de eventos existente. Para enviar eventos de auditoría al centro de eventos, establezca la configuración con auditoría `Enabled` `State` y establecer `IsAzureMonitorTargetEnabled` como `true`. Configure también los valores de diagnóstico con la categoría de registros de diagnóstico `SQLSecurityAuditEvents` en la base de datos `master` (para la auditoría de nivel de servidor). La auditoría de Azure SQL Database y SQL Data Warehouse realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría que se puede colocar en su cuenta de Azure Storage, área de trabajo de OMS o Event Hubs.|

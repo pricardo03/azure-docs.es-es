@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410902"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418360"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparación de los recursos de Azure para la recuperación ante desastres de máquinas locales
 
@@ -55,7 +55,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 1. En el menú [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento: blob, archivo, tabla, cola**.
 2. En **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta.  El nombre que elija debe ser único dentro de Azure, tener de 3 a 24 caracteres y usar solo letras minúsculas y números. Para este tutorial, use **contosovmsacct1910171607**.
 3. En **Modelo de implementación**, seleccione **Resource Manager**.
-4. En **Tipo de cuenta** seleccione **Storage (uso general v1)**. No seleccione Blob Storage.
+4. En **Tipo de cuenta** seleccione **Storage (uso general v1)** . No seleccione Blob Storage.
 5. En **Replicación**, seleccione el valor predeterminado **Almacenamiento con redundancia geográfica con acceso de lectura** como redundancia de almacenamiento. Deje la opción "Se requiere transferencia segura" como deshabilitada.
 6. En **Rendimiento**, seleccione **Estándar**. A continuación, en **Nivel de acceso**, seleccione la opción predeterminada **Frecuente**.
 7. En **Suscripción**, elija la suscripción en la que desea crear la nueva cuenta de almacenamiento.
@@ -68,7 +68,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
 
 1. En Azure Portal, seleccione **+Crear un recurso** y, en Azure Marketplace, busque Recovery Services.
-2. Seleccione **Backup and Site Recovery (OMS)**. A continuación, en la página **Backup and Site Recovery**, seleccione **Crear**.
+2. Seleccione **Backup and Site Recovery (OMS)** . A continuación, en la página **Backup and Site Recovery**, seleccione **Crear**.
 1. En **Almacén de Recovery Services > Nombre**, escriba un nombre descriptivo para identificar el almacén. En este tutorial, se usa **ContosoVMVault**.
 2. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo. Use **contosoRG** en este tutorial.
 3. En **Ubicación**, seleccione la región en la que debería estar el almacén. Para este tutorial, use **Oeste de Europa**.

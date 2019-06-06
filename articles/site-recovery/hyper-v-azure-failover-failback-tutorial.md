@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 53b2c2945062ef348104e24a352895a14eed1a04
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314865"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399435"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Conmutar por error y conmutar por recuperación máquinas virtuales de Hyper-V replicadas en Azure
 
@@ -73,7 +73,7 @@ Básicamente, la operación de conmutación por recuperación es una conmutació
 
 1. En **Configuración** > **Elementos replicados**, haga clic en VM > **Conmutación por error planeada**.
 2. En **Confirmar conmutación por error planeada**, compruebe la dirección de la conmutación por error (de Azure) y seleccione las ubicaciones de origen y de destino.
-3. Seleccione **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios diferenciales)**. Esta opción minimiza el tiempo de inactividad de la máquina virtual, ya que se sincroniza sin necesidad de apagarla.
+3. Seleccione **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios diferenciales)** . Esta opción minimiza el tiempo de inactividad de la máquina virtual, ya que se sincroniza sin necesidad de apagarla.
 4. Inicie la conmutación por error. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** .
 5. Una vez que la sincronización de datos inicial haya finalizado y esté listo para apagar las máquinas virtuales de Azure, haga clic en **Trabajos** > nombre del trabajo de conmutación por error planeado > **Completar conmutación por error**. La máquina virtual de Azure se apagará, se transferirán los cambios más recientes en el entorno local y se iniciará la máquina virtual local.
 6. Inicie sesión en la máquina virtual local para comprobar que está disponible según lo previsto.

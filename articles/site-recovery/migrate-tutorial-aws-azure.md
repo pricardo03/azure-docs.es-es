@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519231"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400047"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -117,7 +117,7 @@ Cuando haya terminado, seleccione **Aceptar** para continuar con la siguiente se
 
 ### <a name="2-select-deployment-planning"></a>2. Selección de un planeamiento de implementación
 
-En **¿Completó el planeamiento de implementación?**, seleccione **Lo haré más tarde** y, a continuación, seleccione **Aceptar**.
+En **¿Completó el planeamiento de implementación?** , seleccione **Lo haré más tarde** y, a continuación, seleccione **Aceptar**.
 
 ### <a name="3-prepare-source"></a>3: Preparación del origen
 

@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264206"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494053"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Guía de inicio rápido: Creación de un salón de chat con Azure Functions y SignalR Service mediante JavaScript
 
@@ -84,4 +84,4 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 En este inicio rápido, ha compilado y ejecutado una aplicación sin servidor en tiempo real en VS Code. A continuación, obtenga más información sobre cómo implementar Azure Functions desde VS Code.
 
 > [!div class="nextstepaction"]
-> [Implementación de Azure Functions con VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Implementación de Azure Functions con VS Code](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)
