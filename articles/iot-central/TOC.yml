@@ -91,6 +91,8 @@
               href: howto-export-data-blob-storage.md
         - name: Crear reglas personalizadas
           href: howto-create-custom-rules.md
+        - name: Creación de análisis personalizados
+          href: howto-create-custom-analytics.md
         - name: Visualización de datos en Power BI
           href: howto-connect-powerbi.md
         - name: Conexión a otras nubes de IoT
