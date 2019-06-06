@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5602298ffe60ad15d3daf52587c50357c310200c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795765"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480115"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -35,7 +35,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en máqui
 
 Para completar este tutorial:
 
-- Asegúrese de entender la [arquitectura y los componentes del escenario](concepts-azure-to-azure-architecture.md).
+- Revise la [arquitectura del escenario y sus componentes](concepts-azure-to-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-azure-to-azure.md) antes de empezar.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
@@ -111,7 +111,7 @@ Obtenga más información sobre los [roles integrados de Azure RBAC](../role-bas
 
 ### <a name="select-the-source"></a>Seleccione el origen
 
-1. En los almacenes de Recovery Services, haga clic en el nombre del almacén y > **+Replicar**. 
+1. En los almacenes de Recovery Services, haga clic en el nombre del almacén y > **+Replicar**.
 2. En **Origen**, seleccione **Azure**.
 3. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
 4. Seleccione la **suscripción de origen** donde se ejecutan las máquinas virtuales. Puede tratarse de cualquier suscripción dentro del mismo inquilino de Azure Active Directory donde exista el almacén de Recovery Services.
