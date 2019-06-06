@@ -171,9 +171,9 @@ El objeto data tiene las siguientes propiedades:
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | id | string | El identificador de evento. |
-|  timestamp | string | La hora a la que se produjo el evento. |
+| timestamp | string | La hora a la que se produjo el evento. |
 | action | string | La acción que abarca el evento proporcionado. |
-| Destino | objeto | El destino del evento. |
+| target | objeto | El destino del evento. |
 | request | objeto | La solicitud que generó el evento. |
 
 El objeto target tiene las siguientes propiedades:
@@ -185,8 +185,8 @@ El objeto target tiene las siguientes propiedades:
 | digest | string | El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro. |
 | length | integer | El número de bytes del contenido. Igual que el campo de tamaño. |
 | repository | string | El nombre del repositorio. |
-| etiqueta | string | El nombre de la etiqueta. |
-| Nombre | string | El nombre del gráfico. |
+| tag | string | El nombre de la etiqueta. |
+| name | string | El nombre del gráfico. |
 | version | string | La versión del gráfico. |
 
 El objeto request tiene las siguientes propiedades:
@@ -196,7 +196,7 @@ El objeto request tiene las siguientes propiedades:
 | id | string | El identificador de la solicitud que inició el evento. |
 | addr | string | La dirección IP o nombre de host y, posiblemente, el puerto de la conexión de cliente que inició el evento. Este valor es RemoteAddr de la solicitud http estándar. |
 | host | string | El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host http en las solicitudes entrantes. |
-| estático | string | El método de la solicitud que generó el evento. |
+| method | string | El método de la solicitud que generó el evento. |
 | useragent | string | El encabezado de agente de usuario de la solicitud. |
 
 ## <a name="next-steps"></a>Pasos siguientes
