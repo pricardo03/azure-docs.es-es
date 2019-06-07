@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736146"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428490"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectarse a la API de Media Services v3 - .NET
 
@@ -27,7 +27,7 @@ Este artículo muestra cómo conectar con el SDK de .NET de Azure Media Services
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de cuenta de Media Services
-- Instale una herramienta que le gustaría usar para el desarrollo. NET. Los pasos descritos en este artículo muestran cómo usar [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Puede usar Visual Studio Code, consulte [trabajar con C# ](https://code.visualstudio.com/docs/languages/csharp). O bien, puede usar un editor de código diferente.
+- Instale una herramienta que le gustaría usar para el desarrollo. NET. Los pasos descritos en este artículo muestran cómo usar [2019 de Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Puede usar Visual Studio Code, consulte [trabajar con C# ](https://code.visualstudio.com/docs/languages/csharp). O bien, puede usar un editor de código diferente.
 
 ## <a name="create-a-console-application"></a>Creación de una aplicación de consola
 

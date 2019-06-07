@@ -2,20 +2,20 @@
 title: Protección de los servicios RESTful mediante la autenticación HTTP básica en Azure Active Directory B2C | Microsoft Docs
 description: Proteja los intercambios de notificaciones de la API REST personalizada en Azure AD B2C mediante la autenticación HTTP básica.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694666"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507584"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Protección de los servicios REST mediante la autenticación HTTP básica
 
@@ -232,7 +232,7 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Paso 3.1: Adición de un Id. de cliente de servicios REST
 
-1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)** > **Marco de experiencia de identidad**.
+1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)**  > **Marco de experiencia de identidad**.
 
 
 2. Seleccione **Policy Keys** (Claves de directiva) para ver las claves disponibles en el inquilino.
@@ -242,7 +242,7 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
 4. En **Opciones**, seleccione **Manual**.
 
 5. En **Nombre**, escriba **B2cRestClientId**.  
-    Es posible que se agregue automáticamente el prefijo *B2C_1A_*.
+    Es posible que se agregue automáticamente el prefijo *B2C_1A_* .
 
 6. En el cuadro **Secreto**, escriba el identificador de aplicación que ha definido anteriormente.
 
@@ -254,7 +254,7 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
 
 ### <a name="step-32-add-a-restful-services-client-secret"></a>Paso 3.2: Adición del secreto de cliente de servicios REST
 
-1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)** > **Marco de experiencia de identidad**.
+1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)**  > **Marco de experiencia de identidad**.
 
 2. Seleccione **Policy Keys** (Claves de directiva) para ver las claves disponibles en el inquilino.
 
@@ -263,7 +263,7 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
 4. En **Opciones**, seleccione **Manual**.
 
 5. En **Nombre**, escriba **B2cRestClientSecret**.  
-    Es posible que se agregue automáticamente el prefijo *B2C_1A_*.
+    Es posible que se agregue automáticamente el prefijo *B2C_1A_* .
 
 6. En el cuadro **Secreto**, escriba el secreto de aplicación que ha definido anteriormente.
 

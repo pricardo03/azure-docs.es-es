@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045480"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478858"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante SQL Data Warehouse (SQL DW) para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . El modelo de clasificación binaria construido predice si se va a pagar o no una propina para la carrera, y también se describen los modelos de clasificación y regresión multiclase que predicen la distribución de los importes pagados en concepto de propina.
@@ -67,7 +67,7 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 
 **Cree su propia cuenta de Almacenamiento de blobs de Azure.**
 
-* Cuando aprovisione su propia instancia de Azure Blob Storage, elija una ubicación geográfica para esta en la región **centro-sur de EE.UU.**, o lo más cerca posible de esta región, ya que es donde se almacenan los datos de NYC Taxi. Los datos se copian con AzCopy desde el contenedor de Almacenamiento de blobs público a un contenedor de su propia cuenta de almacenamiento. Cuanto más se acerque el Almacenamiento de blobs de Azure a la región centro-sur de EE. UU., más rápida se completará esta tarea (paso 4).
+* Cuando aprovisione su propia instancia de Azure Blob Storage, elija una ubicación geográfica para esta en la región **centro-sur de EE.UU.** , o lo más cerca posible de esta región, ya que es donde se almacenan los datos de NYC Taxi. Los datos se copian con AzCopy desde el contenedor de Almacenamiento de blobs público a un contenedor de su propia cuenta de almacenamiento. Cuanto más se acerque el Almacenamiento de blobs de Azure a la región centro-sur de EE. UU., más rápida se completará esta tarea (paso 4).
 * Para crear una cuenta propia de almacenamiento de Azure, siga los pasos descritos en [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-create-storage-account.md). Asegúrese de hacer anotaciones en los valores de las credenciales de la cuenta de almacenamiento siguientes, que necesitará más adelante en este tutorial.
 
   * **Nombre de cuenta de almacenamiento**
@@ -584,11 +584,11 @@ Si ya ha configurado un área de trabajo de Aprendizaje automático de Azure, pu
 
 Para ejecutar el cuaderno de IPython Notebook de ejemplo o el archivo de script de Python, son necesarios los siguientes paquetes Python. Si usa el servicio IPython Notebook de Aprendizaje automático de Azure, estos paquetes ya están preinstalados.
 
-    - Pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- Pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 La secuencia recomendada al crear soluciones analíticas avanzadas en Aprendizaje automático de Azure con gran cantidad de datos es la siguiente:
 

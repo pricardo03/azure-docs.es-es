@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/03/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417855"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496339"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con registros de Azure Monitor
 
@@ -58,6 +58,9 @@ Los cargos de Log Analytics se agregarán a la factura de Azure. Puede consultar
 Puede configurar un límite diario y limitar la ingesta diaria para el área de trabajo, pero tenga cuidado de establecer el límite diario como el objetivo al que llegar.  En caso contrario, perderá los datos para el resto del día, lo que puede afectar a otros servicios y soluciones de Azure cuya funcionalidad puede depender de la disponibilidad de datos actualizados en el área de trabajo.  Como resultado, esto afecta a la capacidad de observar y recibir alertas cuando cambian las condiciones de mantenimiento de los recursos que respaldan los servicios de TI.  El límite diario está pensado para usarse como una manera de administrar el aumento inesperado en el volumen de datos de los recursos administrados y permanecer dentro de su límite, o cuando desee limitar cargos no planeados para el área de trabajo.  
 
 Cuando se alcanza el límite diario, la recopilación de tipos de datos facturables se detiene durante el resto del día. Un mensaje emergente de advertencia aparece en la parte superior de la página del área de trabajo de Log Analytics seleccionada, y se envía un evento de operación para la tabla *Operación* en la categoría **LogManagement**. La recopilación de datos se reanuda después de que se restablezca el tiempo definido en *Daily limit will be set at* (El límite diario se establecerá en). Se recomienda definir una regla de alerta en función de este evento de operación que esté configurada para notificar cuando se ha alcanzado el límite diario de datos. 
+
+> [!NOTE]
+> El límite diario no detiene la recopilación de datos de Azure Security Center.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificación del límite diario de datos para definir
 
@@ -105,7 +108,7 @@ Los pasos siguientes describen cómo configurar cuánto tiempo se conservan los 
 
 ## <a name="legacy-pricing-tiers"></a>Planes de tarifa heredados
 
-Los clientes con un contrato Enterprise firmado antes del 1 de julio de 2018 o que ya crearon un área de trabajo de Log Analytics en una suscripción, seguirán teniendo acceso al plan *Gratis*. Si su suscripción no está asociado a una inscripción de EA existente, el nivel *Gratis* no está disponible cuando se crea un área de trabajo en una suscripción nueva después del 2 de abril de 2018.  Datos se limitan a la retención de siete días para el *gratis* nivel.  Para heredado *independiente* o *por nodo* niveles, así como el actual 2018 único plan de tarifa, los datos recopilados están disponibles durante los últimos 31 días. El plan *Gratis* tiene 500 MB de límite de ingesta diaria; si observa que supera constantemente el volumen permitido, puede cambiar el área de trabajo a otro plan de pago para recopilar datos más allá de este límite. 
+Las suscripciones que tenían un área de trabajo de Log Analytics o un recurso de Application Insights en él antes del 2 de abril de 2018, o que están vinculadas a un contrato Enterprise que se iniciaron antes del 1 de febrero de 2019, seguirá teniendo acceso a los planes de tarifa heredado: Gratis, independiente (por GB) y por nodo (OMS).  Áreas de trabajo en el plan de tarifa gratis tendrá la ingesta diaria de datos limitado a 500 MB (excepto los tipos de datos de seguridad recopilados por Azure Security Center) y la retención de datos se limita a 7 días. El plan de tarifa gratis está pensado solo para fines de evaluación. Las áreas de trabajo en los planes de tarifa por nodo o independiente tengan acceso a la retención de datos de hasta 2 años. 
 
 > [!NOTE]
 > Para usar los derechos que proceden de la adquisición de OMS E1 Suite, OMS E2 Suite o un complemento de OMS para System Center, elija el plan de tarifa *Por nodo* de Log Analytics.
@@ -131,7 +134,9 @@ Si desea mover el área de trabajo en el plan de tarifa actual, deberá cambiar 
 
 Si tiene el plan de tarifa gratuito heredado y ha enviado más de 500 MB de datos en un día, la recopilación de datos se detiene durante el resto del día. Alcanzar el límite diario es un motivo frecuente de que Log Analytics deje de recopilar datos o de que parezca que faltan datos.  Log Analytics crea un evento de tipo Operación cuando la recopilación de datos se inicia y se detiene. Ejecute la siguiente consulta en la búsqueda para comprobar si ha alcanzado el límite diario y faltan datos: 
 
-`Operation | where OperationCategory == 'Data Collection Status'`
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
 
 Cuando se detiene la recopilación de datos, OperationStatus es **advertencia**. Cuando se inicia la recopilación de datos, OperationStatus es **Succeeded**. La tabla siguiente describe los motivos por los que se detiene la recopilación de datos y una acción recomendada para reanudarla:  
 
@@ -153,51 +158,63 @@ Un mayor uso está provocado por una de estas causas o por ambas:
 
 Para comprender el número de equipos que informan de los latidos cada día en el último mes, use
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
+```kusto
+Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
+| render timechart
+```
 
 Para obtener una lista de equipos que se factura como nodos si el área de trabajo está en el heredado por nodo de plan de tarifa, busque los nodos que envían **facturan los tipos de datos** (algunos tipos de datos son gratuitos). Para ello, use el `_IsBillable` [propiedad](log-standard-properties.md#_isbillable) y utilice el campo más a la izquierda del nombre de dominio completo. Esto devuelve la lista de equipos con los datos de facturación:
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
 
 El número de nodos facturables visto puede evaluarse como: 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)`
+| billableNodes=dcount(computerName)
+```
 
 > [!NOTE]
 > Use estas consultas `union withsource = tt *` con moderación, ya que la ejecución de exámenes entre tipos de datos es costosa. Esta consulta sustituye la antigua forma de consultar información de cada equipo con el tipo de datos de uso.  
 
 Es un cálculo más preciso de lo que realmente se facturará para obtener el recuento de equipos por hora que se va a enviar los tipos de datos de facturación. (Para las áreas de trabajo en el plan de tarifa por nodo heredado, Log Analytics calcula el número de nodos que necesita se facturan por hora). 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ## <a name="understanding-ingested-data-volume"></a>Volumen de datos ingerido de descripción
 
 En la página **Uso y costos estimados**, el gráfico *Ingesta de datos por solución*  muestra el volumen total de los datos enviados y la cantidad que envía cada solución. Esto le permite determinar tendencias tales como si el uso global de los datos (o el uso de una solución en particular) crece, permanece constante o disminuye. La consulta que se utiliza para generar esto es:
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 Tenga en cuenta que la cláusula "where IsBillable = true" filtra los tipos de datos de determinadas soluciones para las que no hay ningún cargo de ingesta. 
 
 Puede profundizar más para ver las tendencias de datos para tipos de datos específicos; por ejemplo, si desea estudiar los datos debidos a los registros de IIS:
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 ### <a name="data-volume-by-computer"></a>Volumen de datos por equipo
 

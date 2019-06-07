@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243308"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455643"
 ---
 # <a name="create-a-new-saas-offer"></a>Cree una nueva oferta de SaaS
 
-Para empezar a crear Software como servicio (SaaS) ofrece, asegúrese de que primero [crear una cuenta de centro de partners](./create-account.md) y abra el [panel Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con el **ofrece** pestaña seleccionada. 
+Para empezar a crear Software como servicio (SaaS) ofrece, asegúrese de que primero [crear una cuenta de centro de partners](./create-account.md) y abra el [panel Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con el **informacióngeneralsobre** pestaña seleccionada.
 
-![Panel comercial de Marketplace en el centro de partners](./media/commercial-marketplace-offers.png)
+![Panel comercial de Marketplace en el centro de partners](./media/new-offer-overview.png)
 
 Seleccione el + **crear un nuevo...** botón y luego seleccione el **Software como servicio** elemento de menú. 
 
 Si selecciona uno de los otros tipos de oferta, se le redirigirá a la versión anterior [Cloud Partner Portal](https://cloudpartner.azure.com/).  Ofertas de SaaS sola están disponibles en el portal de Marketplace comercial en el centro de partners en este momento. 
 
-![Crear ventana de la oferta en el centro de partners](./media/new-offer.png)
+![Crear ventana de la oferta en el centro de partners](./media/new-offer-click.png)
 
+El **nueva oferta** se muestra el cuadro de diálogo. 
 
-El **nueva oferta** se muestra el cuadro de diálogo. ![Cuadro de diálogo nueva oferta](./media/new-offer-popup.png)
+![Cuadro de diálogo nueva oferta](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>Identificador de oferta y el nombre

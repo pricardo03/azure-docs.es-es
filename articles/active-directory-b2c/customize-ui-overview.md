@@ -2,26 +2,26 @@
 title: Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C | Microsoft Docs
 description: Obtenga información acerca de cómo personalizar la interfaz de usuario en las aplicaciones que usan Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 26dea1b636fce9e7f5defddd5cf4bc4c7d78d5da
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682015"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511172"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C
 
 La capacidad para marcar y personalizar la interfaz de usuario (UI) que Azure Active Directory (Azure AD) B2C ofrece a sus aplicaciones es importante para poder proporcionar una experiencia sin problemas a su cliente. Estas experiencias incluyen las opciones de registro, inicio de sesión, edición de perfiles y restablecimiento de contraseñas. En este artículo se proporciona información que le ayudará a personalizar la interfaz de usuario de sus aplicaciones.
 
-Dependiendo de sus necesidades en lo que a estas experiencias se refiere, puede personalizar la interfaz de usuario de su aplicación de diferentes maneras. Por ejemplo: 
+Dependiendo de sus necesidades en lo que a estas experiencias se refiere, puede personalizar la interfaz de usuario de su aplicación de diferentes maneras. Por ejemplo:
 
 - si usa [flujos de usuario](active-directory-b2c-reference-policies.md) para proporcionar experiencias de registro o inicio de sesión, restablecimiento de contraseña o edición de perfiles en su aplicación, utilice [Azure Portal para personalizar la interfaz de usuario](tutorial-customize-ui.md).
 - Si va a usar un flujo de usuarios de la versión v2, puede usar una [plantilla de diseño de página](#page-layout-templates) para cambiar el aspecto de las páginas del flujo de usuarios sin tener que realizar ninguna personalización adicional. Por ejemplo, puede aplicar un tema Azul océano o Gris pizarra a todas las páginas del flujo de usuarios.
@@ -48,7 +48,7 @@ Cuando use sus propios archivos HTML y CSS para personalizar la interfaz de usua
 
 Para los flujos de usuario de la versión v2, puede elegir una plantilla prediseñada que proporciona un mejor aspecto a las páginas predeterminadas y sirve como una buena base para su propia personalización.
 
-En el menú de la izquierda, en **Personalizar**, seleccione **Diseños de página**. A continuación, seleccione **Plantilla (versión preliminar)**.
+En el menú de la izquierda, en **Personalizar**, seleccione **Diseños de página**. A continuación, seleccione **Plantilla (versión preliminar)** .
 
 ![Elección de una plantilla de diseño de página](media/customize-ui-overview/template.png)
 

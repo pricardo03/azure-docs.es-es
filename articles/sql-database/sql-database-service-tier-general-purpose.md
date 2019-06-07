@@ -1,6 +1,6 @@
 ---
-title: 'Nivel de servicio Uso general: Azure SQL Database | Microsoft Docs'
-description: Obtenga información sobre el nivel de servicio Uso general de Azure SQL Database.
+title: Nivel de servicio de uso general - Azure SQL Database | Microsoft Docs
+description: Obtenga información sobre el nivel de uso general de Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,17 +12,17 @@ ms.author: jovanpop-msft
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b972ea985a09457d8b6a17a292e18754761f5a6e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709165"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479195"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Nivel de servicio Uso general: Azure SQL Database
 
 > [!NOTE]
-> El nivel de servicio Uso general del modelo de compra basado en núcleo virtual se denomina el nivel de servicio estándar en el modelo de compra basado en DTU. Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
+> El nivel de servicio de uso general en el modelo de compra basado en núcleos virtuales se denomina el nivel de servicio estándar en el modelo de compra basado en DTU. Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server adaptada al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres niveles de servicio que se usan en Azure SQL Database, cada uno con diferentes modelos de arquitectura. Estos niveles de servicio son:
 
@@ -30,7 +30,7 @@ Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL 
 - Crítico para la empresa
 - Hiperescala
 
-El modelo de arquitectura para el nivel de servicio general se basa en la separación del proceso y el almacenamiento. Este modelo de arquitectura se basa en la alta disponibilidad y confiabilidad de Azure Blob Storage que replica de forma transparente los archivos de base de datos y garantiza que no se pierdan los datos si se produce algún error en la infraestructura subyacente.
+El modelo de arquitectura para el nivel de servicio de uso general se basa en una separación de proceso y almacenamiento. Este modelo de arquitectura se basa en la alta disponibilidad y confiabilidad de Azure Blob Storage que replica de forma transparente los archivos de base de datos y garantiza que no se pierdan los datos si se produce algún error en la infraestructura subyacente.
 
 En la siguiente imagen se muestran cuatro nodos en el modelo de arquitectura estándar con las capas separadas de proceso y almacenamiento.
 
@@ -45,10 +45,11 @@ Siempre que se actualice un sistema operativo o un motor de base de dato, si se 
 
 ## <a name="when-to-choose-this-service-tier"></a>¿Cuándo elegir este nivel de servicio?
 
-El nivel de servicio Uso general es un nivel de servicio predeterminado e Azure SQL Database diseñado para la mayoría de las cargas de trabajo genéricas. Si necesita un motor de base de datos totalmente administrado con un Acuerdo de Nivel de Servicio de un 99,99 % de latencia de almacenamiento de entre 5 y 10 ms que coincida con IaaS de Azure SQL en la mayoría de los casos, el nivel de uso general es la opción más conveniente en su caso.
+El nivel de servicio Uso general es un nivel de servicio predeterminado e Azure SQL Database diseñado para la mayoría de las cargas de trabajo genéricas. Si tiene un motor de base de datos totalmente administrado con SLA del 99,99% con una latencia de almacenamiento entre 5 y 10 ms que coinciden con IaaS de SQL Azure en la mayoría de los casos, nivel de uso General es la opción para usted.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Encontrar recursos características (número de memoria de núcleos, E/S,) del nivel General propósito o estándar en [instancia administrada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), único en la base de datos [modelo de núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) o [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes), o Grupo elástico en [modelo de núcleos virtuales](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) y [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
 - Obtenga información sobre los niveles [Crítico para la empresa](sql-database-service-tier-business-critical.md) e [Hiperescala](sql-database-service-tier-hyperscale.md).
 - Obtenga información sobre [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Para conocer más opciones de alta disponibilidad y recuperación ante desastres, consulte [Continuidad del negocio](sql-database-business-continuity.md).

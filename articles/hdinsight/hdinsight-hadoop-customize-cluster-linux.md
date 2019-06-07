@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518888"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479465"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de clústeres de HDInsight de Azure mediante el uso de las acciones de script
 
@@ -58,7 +58,7 @@ Una acción de script es un script de Bash que se ejecuta en los nodos de un cl�
 
      * Para clústeres con ESP:
          
-         * El wasb [s] :// o http [s] :// se admiten los URI.
+         * El wasb: / / o wasbs: / / o http [s] :// se admiten los URI.
             
 * Pueden restringirse para ejecutarse solo en determinados tipos de nodos. Algunos ejemplos son los nodos principales o nodos de trabajo.
 
@@ -145,10 +145,10 @@ HDInsight proporciona scripts para instalar los siguientes componentes en clúst
 
 | NOMBRE | Script |
 | --- | --- |
-| Agregar una cuenta de Azure Storage |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`  Consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md). |
-| Instalar Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`  Consulte [Instalación y uso de Hue en clústeres de Hadoop para HDInsight](hdinsight-hadoop-hue-linux.md). |
-| Instalar Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`  Consulte [Instalación y uso de Presto en clústeres de Hadoop para HDInsight](hdinsight-hadoop-install-presto.md). |
-| Instalar Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Consulte [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
+| Adición de una cuenta de Azure Storage |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md). |
+| Instalación de Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Consulte [Instalación y uso de Hue en clústeres de Hadoop para HDInsight](hdinsight-hadoop-hue-linux.md). |
+| Instalación de Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Consulte [Instalación y uso de Presto en clústeres de Hadoop para HDInsight](hdinsight-hadoop-install-presto.md). |
+| Instalación de Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Consulte [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | Carga previa de las bibliotecas de Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Consulte [Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Uso de una acción de script durante la creación de un clúster
@@ -352,7 +352,7 @@ Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúste
 
     ![Acciones de script, Propiedades](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. También puede usar los puntos suspensivos (**...**) de la derecha de las entradas de la sección Acciones de script para realizar acciones.
+6. También puede usar los puntos suspensivos ( **...** ) de la derecha de las entradas de la sección Acciones de script para realizar acciones.
 
     ![Acciones de script, puntos suspensivos](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 

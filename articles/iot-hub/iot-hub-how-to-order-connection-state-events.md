@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015267"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743262"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -154,7 +154,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 
 4. En el Diseñador de aplicaciones lógicas, desplácese a la derecha hasta que vea desencadenadores comunes. En **plantillas**, elija **aplicación lógica en blanco** para que pueda crear la aplicación lógica desde cero.
 
-### <a name="select-a-trigger"></a>Seleccione un desencadenador
+### <a name="select-a-trigger"></a>Selección de un desencadenador
 
 Un desencadenador es un evento específico que inicia la aplicación lógica. Para este tutorial, el desencadenador que activa el flujo de trabajo recibe una solicitud a través de HTTP.
 
@@ -266,13 +266,13 @@ En esta sección, va a configurar IoT Hube para publicar eventos cuando se produ
 
 4. Rellene **detalles de la suscripción de evento**: Proporcione un nombre descriptivo y seleccione **Esquema de Event Grid**.
 
-5. Rellene el **tipos de evento** campos. Desactive la opción **suscribirse a todos los tipos de evento** y seleccione **dispositivo conectado** y **dispositivo desconectado** en el menú.
+5. Rellene el **tipos de evento** campos. En la lista desplegable, seleccione sólo **dispositivo conectado** y **dispositivo desconectado** en el menú. Haga clic en cualquier otro lugar de la pantalla para cerrar la lista y guardar sus selecciones.
 
    ![Establecer tipos de evento que se busca](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. Para **los detalles del extremo**, seleccione el tipo de punto de conexión como **Webhook** y haga clic en Seleccionar punto de conexión y pegue la dirección URL que copió de la aplicación lógica y confirme la selección.
 
-   ![Seleccione la dirección url del extremo](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Seleccione la dirección url del extremo](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. El formulario debe parecerse al ejemplo siguiente:
 
@@ -302,11 +302,9 @@ Ahora que la suscripción de eventos se ha configurado, vamos a probar a conecta
 
    ![ConnectionString de dispositivo](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Inicio del simulador de Raspberry Pi
 
-1. Vamos a usar el simulador web de Raspberry Pi para simular la conexión del dispositivo.
+Vamos a usar el simulador web de Raspberry Pi para simular la conexión del dispositivo.
 
 [Iniciar simulador de Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ En lugar de usar [Azure Portal](https://portal.azure.com), puede llevar a cabo l
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En este tutorial se usaron recursos que generan gastos en su suscripción de Azure. Cuando haya terminado de probar el tutorial y los resultados de las pruebas, deshabilite o elimine los recursos que no desea conservar.
+En este tutorial se usaron recursos que generan gastos en su suscripción de Azure. Cuando haya terminado de probar el tutorial y las pruebas, los resultados de deshabilitar o eliminar los recursos que no desea conservar.
 
 Si no desea perder el trabajo realizado en la aplicación lógica, deshabilítela en lugar de eliminarla.
 

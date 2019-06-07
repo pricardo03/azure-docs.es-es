@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232426"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427138"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
@@ -114,11 +114,11 @@ La ubicación de Integration Runtime define la ubicación de su proceso de back-
 ### <a name="azure-ir-location"></a>Ubicación de Azure Integration Runtime
 Puede establecer una ubicación determinada para una instancia de Azure Integration Runtime, en cuyo caso el movimiento de datos y la distribución de actividades se producirá en esa región específica. 
 
-Si opta por utilizar la resolución automática de Azure Integration Runtime, que es la opción predeterminada: 
+Si opta por usar el **resolución automática de IR de Azure** que es el valor predeterminado, 
 
 - En la actividad de copia, ADF intentará detectar automáticamente el receptor y el almacén de datos de origen para elegir la mejor ubicación en la misma región si está disponible, o la más cercana en la misma ubicación geográfica, o si esta no se puede detectar, para usar la región de la factoría de datos como alternativa.
 
-- Para la ejecución de la actividad Lookup/GetMetadata y la distribución de actividades de transformación, ADF usará la instancia de IR de la región de la factoría de datos.
+- Para la ejecución de actividad de búsqueda, GetMetadata o eliminar (también conocido como actividades de canalización), actividad de transformación de envío (también conocido como externas actividades) y la creación de operaciones (Probar conexión, examinar carpeta listas y tabla, obtener una vista previa de datos), ADF usará la instancia de IR en la región de la factoría de datos.
 
 - Para el flujo de datos, ADF usará la instancia de IR en la región de la factoría de datos. 
 

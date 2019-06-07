@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357073"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472739"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Administración del acceso a recursos de Azure mediante RBAC y la API de REST
 
@@ -38,7 +38,7 @@ En RBAC, para enumerar el acceso se enumeran las asignaciones de roles. Para mos
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener.
 
-    | Scope | Type |
+    | Scope | Escriba |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -52,9 +52,9 @@ En RBAC, para enumerar el acceso se enumeran las asignaciones de roles. Para mos
 
     | Filtrar | DESCRIPCIÓN |
     | --- | --- |
-    | `$filter=atScope()` | Lista de las asignaciones de roles únicamente para el ámbito especificado, sin incluir las asignaciones de roles en ámbitos secundarios. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Lista de las asignaciones de roles para un usuario, un grupo o una entidad de servicio determinados. |
-    | `$filter=assignedTo('{objectId}')` | Lista de las asignaciones de roles para un usuario determinado, incluidas las que se heredaron de otros grupos. |
+    | `$filter=atScope()` | Enumera las asignaciones de roles para solo el ámbito especificado, sin incluir las asignaciones de roles en ámbitos secundarios. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Enumera las asignaciones de roles para un usuario especificado, grupo o entidad de servicio. |
+    | `$filter=assignedTo('{objectId}')` | Enumera las asignaciones de roles para un usuario especificado o la entidad de servicio. Si el usuario es miembro de un grupo que tiene una asignación de roles, también se muestra esa asignación de roles. Este filtro es transitiva para grupos, lo que significa que si el usuario es miembro de un grupo y ese grupo es un miembro de otro grupo que tiene una asignación de roles, también se muestra esa asignación de roles. Este filtro sólo acepta un identificador de objeto para un usuario o una entidad de servicio. No se puede pasar un identificador de objeto para un grupo. |
 
 ## <a name="grant-access"></a>Conceder acceso
 
@@ -81,7 +81,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. Para cr
     
 1. En el identificador URI, reemplace *{scope}* por el ámbito de la asignación de roles.
 
-    | Scope | Type |
+    | Scope | Escriba |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -109,7 +109,7 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Para qui
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito para eliminar la asignación de roles.
 
-    | Scope | Type |
+    | Scope | Escriba |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |

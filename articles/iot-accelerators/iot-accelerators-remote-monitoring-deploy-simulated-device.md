@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66143384"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427570"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Implementar un nuevo dispositivo simulado
 
@@ -88,13 +88,14 @@ En esta sección, debe configurar Docker para que cargue los archivos de modelo 
 1. Copie los archivos de modelo de dispositivo existentes del contenedor a la nueva ubicación. En primer lugar, busque el id.de contenedor para el contenedor de la simulación de dispositivo:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     A continuación, copie los archivos de modelo de dispositivo en la carpeta **tmp** en la máquina virtual. Con el siguiente comando se asume que el id. del contenedor es c378d6878407; reemplace este valor con el id. del contenedor de simulación de dispositivo:
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Mantenga la ventana **Bash** y su sesión SSH abierta.
@@ -116,13 +117,13 @@ En esta sección, debe configurar Docker para que cargue los archivos de modelo 
     Si quiere ver el estado de los contenedores de Docker en ejecución y sus id. de contenedor, use el siguiente comando:
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Si quiere ver el registro desde el contenedor de simulación del dispositivo, ejecute el siguiente comando. Reemplace el id. del contenedor con el id. del contenedor de simulación del dispositivo:
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>Ejecutar simulación

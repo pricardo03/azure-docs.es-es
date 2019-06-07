@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956402"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497212"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -65,13 +65,13 @@ El número máximo de pods por nodo en un clúster de AKS es 250. El número má
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Sí (hasta 250) |
 | Plantilla de Resource Manager | 110 | 30 | Sí (hasta 250) |
-| Portal | 110 | 30 | No |
+| Portal | 110 | 30 | Sin |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo: nuevos clústeres
 
 Puede configurar el número máximo de pods por nodo *solo en tiempo de implementación del clúster*. Si implementa con la CLI de Azure o con una plantilla de Resource Manager, puede establecer los pods máximos por cada valor de nodo de hasta 250.
 
-| Redes | Mínimo | Máximo |
+| Redes | Mínima | Máxima |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
@@ -170,8 +170,6 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red de *
   Aunque no se recomienda, esta configuración es posible. El rango de direcciones de servicio es un conjunto de direcciones IP virtuales (VIP) que Kubernetes asigna a los servicios internos del clúster. Las redes de Azure no tiene ninguna visibilidad sobre el intervalo de direcciones IP de servicio del clúster de Kubernetes. Debido a ello, es posible crear posteriormente una nueva subred en la red virtual del clúster que se superponga con el intervalo de direcciones de servicio. Si se produce una superposición de este tipo, Kubernetes podría asignar a un servicio una dirección IP que ya esté en uso por otro recurso de la subred, lo que provocaría un comportamiento impredecible o errores. Al tener la seguridad de usar un intervalo de direcciones que se encuentra fuera de la red virtual del clúster puede evitar este riesgo de superposición.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-### <a name="networking-in-aks"></a>Redes en AKS
 
 Más información acerca de las redes en AKS en los siguientes artículos:
 

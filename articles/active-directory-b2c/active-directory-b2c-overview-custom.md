@@ -2,20 +2,20 @@
 title: Directivas personalizadas de Azure Active Directory B2C | Microsoft Docs
 description: Información acerca de las directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ddc77cbcf004ddbd1738e598d5073a11f13e2c5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2938ae075bbd4c38b686ca6654bede678f876857
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695417"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509797"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Directivas personalizadas de Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Se usan estos tres tipos de archivos de directivas:
 
 - **Archivo base**: contiene la mayoría de las definiciones. Se recomienda que haga un mínimo de cambios en este archivo para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas.
 - **Archivo de extensiones**: contiene los cambios de configuración únicos para el inquilino.
-- **Un archivo de usuario de confianza (RP)**: el archivo centrado en una tarea única que la aplicación o el servicio (también conocido como usuario de confianza) invoca directamente. Cada tarea única requiere su propio usuario de confianza y, en función de los requisitos de marca, el número podría ser "total de aplicaciones x número total de casos de uso".
+- **Un archivo de usuario de confianza (RP)** : el archivo centrado en una tarea única que la aplicación o el servicio (también conocido como usuario de confianza) invoca directamente. Cada tarea única requiere su propio usuario de confianza y, en función de los requisitos de marca, el número podría ser "total de aplicaciones x número total de casos de uso".
 
 Los flujos de usuario de Azure AD B2C siguen el patrón de tres archivos mencionado, pero el desarrollador solo ve el archivo de usuario de confianza mientras que Azure Portal hace cambios en el archivo de extensiones en segundo plano.
 

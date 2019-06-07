@@ -2,20 +2,20 @@
 title: Configurar el comportamiento de sesión - Azure Active Directory B2C | Microsoft Docs
 description: Configurar el comportamiento de la sesión en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700984"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512563"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar el comportamiento de la sesión en Azure Active Directory B2C
 
@@ -51,10 +51,10 @@ Los siguientes casos de uso se habilitan mediante estas propiedades:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino de Azure AD B2C.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **flujos de usuario (directivas)**.
+4. Seleccione **flujos de usuario (directivas)** .
 5. Abra el flujo de usuario que creó anteriormente. 
 6. Seleccione **Propiedades**.
-7. Configurar **aplicación Web de duración de la sesión (minutos)**, **tiempo de espera de sesión de aplicación de Web**, **configuración del inicio de sesión único**, y **requieren el Token de identificador en las solicitudes de cierre de sesión**  según sea necesario.
+7. Configurar **aplicación Web de duración de la sesión (minutos)** , **tiempo de espera de sesión de aplicación de Web**, **configuración del inicio de sesión único**, y **requieren el Token de identificador en las solicitudes de cierre de sesión**  según sea necesario.
 
     ![Configuración del comportamiento de la sesión](./media/session-behavior/session-behavior.png)
     

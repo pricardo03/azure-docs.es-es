@@ -1,25 +1,25 @@
 ---
-title: Administración de la interfaz de usuario web local de Microsoft Azure Data Box | Microsoft Docs en datos
-description: Describe cómo usar la interfaz de usuario web local para administrar su dispositivo Data Box.
+title: Administración de la interfaz de usuario de Azure Data Box, cuadro intensivo de datos de Azure de web local | Microsoft Docs
+description: Describe cómo utilizar la interfaz de usuario web local para administrar los dispositivos de Data Box y pesado de cuadro de datos
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
+ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404049"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496258"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Usar la interfaz de usuario web local para administrar su Data Box
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usar la interfaz de usuario web local para administrar sus datos de cuadro y pesado de cuadro de datos
 
-En este artículo se describen algunas de las tareas de administración y configuración que se pueden realizar en Data Box. Puede administrar Data Box a través de la interfaz de usuario de Azure portal y la interfaz de usuario web local para el dispositivo. En este artículo nos centraremos en las tareas que puede realizar mediante la interfaz de usuario web.
+En este artículo se describe algunas de las tareas de configuración y administración que se pueden realizar en el dispositivo Data Box e intensivo de datos de cuadro. Puede administrar los dispositivos de Data Box y pesado de cuadro de datos a través de la interfaz de usuario de Azure portal y la interfaz de usuario web local para el dispositivo. En este artículo nos centraremos en las tareas que puede realizar mediante la interfaz de usuario web.
 
-La interfaz de usuario web local para Data Box se usa para la configuración inicial del dispositivo. También puede usar la interfaz de usuario web local para apagar o reiniciar el servicio Data Box, ejecutar pruebas de diagnóstico, actualizar el software, ver registros de copia y generar un paquete de registro para el Soporte técnico de Microsoft.
+Interfaz de usuario para el cuadro de datos e intensivo de datos de cuadro de web local se usa para la configuración inicial del dispositivo. También puede usar la interfaz de usuario web local para apagar o reiniciar el dispositivo, ejecutar pruebas de diagnóstico, actualizar el software, ver registros de copia y generar un paquete de registro para Microsoft Support. En un dispositivo de datos cuadro pesada con dos nodos independientes, puede tener acceso a dos interfaces de usuario web local independiente correspondiente a cada nodo del dispositivo.
 
 Este artículo incluye los siguientes tutoriales:
 
@@ -27,11 +27,11 @@ Este artículo incluye los siguientes tutoriales:
 - Apagar o reiniciar el dispositivo
 - Descarga de los archivos del manifiesto o la lista de materiales
 - Ver la capacidad disponible del dispositivo
-- Omitir la validación de la suma de comprobación 
+- Omitir la validación de la suma de comprobación
 
 ## <a name="generate-support-package"></a>Generar un paquete de soporte técnico
 
-Si experimenta los problemas con el dispositivo, puede crear un paquete de soporte técnico de los registros del sistema. El Soporte técnico de Microsoft usa este paquete para solucionar el problema. Para generar un paquete de soporte técnico, realice los pasos siguientes:
+Si experimenta los problemas con el dispositivo, puede crear un paquete de soporte técnico de los registros del sistema. El Soporte técnico de Microsoft usa este paquete para solucionar el problema. Para generar un paquete de soporte, siga estos pasos:
 
 1. En la interfaz de usuario web local, vaya a **Contacto con soporte técnico** y haga clic en **Crear un paquete de soporte técnico**.
 
@@ -52,9 +52,9 @@ Si experimenta los problemas con el dispositivo, puede crear un paquete de sopor
 
 ## <a name="shut-down-or-restart-your-device"></a>Apagar o reiniciar el dispositivo
 
-Puede apagar o reiniciar el dispositivo Data Box mediante la interfaz de usuario web local. Se recomienda que antes de reiniciar, desconecte los recursos compartidos del host y, luego, el dispositivo. Esto minimizará la posibilidad de daños en los datos. Asegúrese de que la copia de datos no esté en curso al apagar el dispositivo.
+Puede apagar o reiniciar el dispositivo mediante la interfaz de usuario web local. Se recomienda que antes de reiniciar, desconecte los recursos compartidos del host y, luego, el dispositivo. Esto minimizará la posibilidad de daños en los datos. Asegúrese de que la copia de datos no esté en curso al apagar el dispositivo.
 
-Para cerrar su Data Box, realice los pasos siguientes.
+Para apagar el dispositivo, siga estos pasos.
 
 1. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
 2. Haga clic en **Apagar**.
@@ -80,11 +80,11 @@ Para reiniciar su Data Box, realice los pasos siguientes.
 
 ## <a name="download-bom-or-manifest-files"></a>Descarga de los archivos del manifiesto o la lista de materiales
 
-Los archivos del manifiesto o la lista de materiales (BOM) contienen la lista de archivos que se copian en Data Box. Estos archivos se generan al preparar Data Box para el envío.
+La lista de materiales (BOM) o los archivos de manifiesto contienen la lista de los archivos que se copian en el cuadro de datos o el cuadro intensivo de datos. Estos archivos se generan al preparar el dispositivo para el envío.
 
-Antes de comenzar, asegúrese de completar el paso **Preparación para el envío** de Data Box. Siga estos pasos para descargar los archivos del manifiesto o la lista de materiales:
+Antes de comenzar, asegúrese de que el dispositivo se ha completado **preparación para el envío** paso. Siga estos pasos para descargar los archivos del manifiesto o la lista de materiales:
 
-1. Vaya a la interfaz de usuario web local de su instancia de Data Box. Ahí podrá ver si Data Box ha completado la preparación para el envío. Una vez completada la preparación del dispositivo, su estado se muestra como **Listo para el envío**.
+1. Vaya a la interfaz de usuario web local para el dispositivo. Verá que el dispositivo ha completado la preparación para el envío. Una vez completada la preparación del dispositivo, su estado se muestra como **Listo para el envío**.
 
     ![Dispositivo listo para el envío](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -109,6 +109,9 @@ Antes de comenzar, asegúrese de completar el paso **Preparación para el envío
     |mydbmdrg2_MDisk-BOM.txt     |Disco administrado         |SMB/NFS         |
 
 Esta lista sirve para comprobar qué archivos se han cargado en la cuenta de Azure Storage después de que Data Box vuelva al centro de datos de Azure. A continuación, se muestra un archivo de manifiesto de ejemplo.
+
+> [!NOTE]
+> En una pesada de cuadro de datos, los dos conjuntos de la lista de archivos (BOM) están presentes correspondientes a los dos nodos en el dispositivo.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -150,25 +153,24 @@ Esta lista sirve para comprobar qué archivos se han cargado en la cuenta de Azu
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Este archivo contiene la lista de todos los archivos que se copiaron en Data Box. En este archivo, el valor *crc64* está relacionado con la suma de comprobación que se genera para el archivo correspondiente.
+Este archivo contiene la lista de todos los archivos que se copiaron en el cuadro de datos o el cuadro intensivo de datos. En este archivo, el valor *crc64* está relacionado con la suma de comprobación que se genera para el archivo correspondiente.
 
 ## <a name="view-available-capacity-of-the-device"></a>Ver la capacidad disponible del dispositivo
 
-Puede usar el panel del dispositivo para ver la capacidad disponible y utilizada del dispositivo. 
+Puede usar el panel del dispositivo para ver la capacidad disponible y utilizada del dispositivo.
 
 1. En la interfaz de usuario web local, vaya a **Ver panel**.
 2. En **Conectar y copiar**, se muestra el espacio disponible y utilizado del dispositivo.
 
     ![Ver la capacidad disponible](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
-
 ## <a name="skip-checksum-validation"></a>Omitir la validación de la suma de comprobación
 
-Las sumas de comprobación se generan para sus datos de forma predeterminada cuando se prepara el envío. En algunos casos poco frecuentes, según el tipo de datos (tamaños de archivo reducidos), el rendimiento puede ser lento. En tales casos, puede omitir la suma de comprobación. 
+Las sumas de comprobación se generan para sus datos de forma predeterminada cuando se prepara el envío. En algunos casos poco frecuentes, según el tipo de datos (tamaños de archivo reducidos), el rendimiento puede ser lento. En tales casos, puede omitir la suma de comprobación.
 
 Recomendamos encarecidamente que no deshabilite la suma de comprobación, a menos que el rendimiento se vea afectado considerablemente.
 
-1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, vaya a Configuración.
+1. En la esquina superior derecha de la interfaz de usuario del dispositivo de web local, vaya a **configuración**.
 
     ![Deshabilitar la suma de comprobación](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -177,5 +179,5 @@ Recomendamos encarecidamente que no deshabilite la suma de comprobación, a meno
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [administrar Data Box mediante Azure Portal](data-box-portal-admin.md).
+- Obtenga información sobre cómo [administrar el cuadro y datos intensivo de datos de cuadro a través del portal de Azure](data-box-portal-admin.md).
 

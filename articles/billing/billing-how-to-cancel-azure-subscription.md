@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417597"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480224"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Cancelación de la suscripción de Azure
 
@@ -29,6 +29,7 @@ Antes de cancelar la suscripción:
 * Cierre los servicios. Vaya a la [página de recursos en el portal de administración](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) y **detenga** todas las máquinas virtuales, aplicaciones u otros servicios en ejecución.
 * Considere la posibilidad de migrar los datos. Consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 * Debe eliminar todos los recursos y todos los grupos de recursos. Es necesario eliminarlos antes de poder cancelar una suscripción. Cada grupo de recursos debe eliminarse por separado. Durante la eliminación del grupo de recursos, debe confirmar la eliminación, escriba el nombre del grupo de recursos.
+* Si tiene los roles personalizados que hacen referencia a esta suscripción en `AssignableScopes`, debe actualizar los roles personalizados para quitar la suscripción. Si se intenta actualizar un rol personalizado después de cancelar una suscripción, es posible que obtenga un error. Para obtener más información, consulte [solucionar problemas relacionados con roles personalizados](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) y [roles personalizados para recursos de Azure](../role-based-access-control/custom-roles.md).
 
 Si cancela un plan de soporte técnico de Azure de pago, se le seguirá facturando mensualmente el resto del período de la suscripción. Para más información, vea [Soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
 
@@ -43,11 +44,9 @@ Si cancela un plan de soporte técnico de Azure de pago, se le seguirá facturan
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>¿Qué ocurre después de cancelar la suscripción?
 
-Una vez que se cancela, la facturación se detiene inmediatamente. Sin embargo, pueden transcurrir hasta 10 minutos hasta que la cancelación se muestre en el portal.
+Después de cancelar, la facturación se detiene inmediatamente. Sin embargo, pueden transcurrir hasta 10 minutos hasta que la cancelación se muestre en el portal. Si cancela en medio de un período de facturación, enviamos la factura final en la fecha de factura típica una vez finalizado el período.
 
-Después, los servicios se deshabilitan. Esto significa que las máquinas virtuales se desasignan, las direcciones IP temporales se liberan y el almacenamiento es de solo lectura.
-
-Si cancela en medio de un período de facturación, enviamos la factura final en la fecha de factura típica una vez finalizado el período.
+Después de cancelar, los servicios estén deshabilitados. Esto significa que las máquinas virtuales se desasignan, las direcciones IP temporales se liberan y el almacenamiento es de solo lectura.
 
 Esperamos 90 días antes de eliminar permanentemente los datos, por si necesita acceder a ellos o cambia de opinión. No se le cobrará por conservar los datos. Para más información, consulte el [Microsoft Trust Center: How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Centro de confianza de Microsoft: Administración de los datos).
 

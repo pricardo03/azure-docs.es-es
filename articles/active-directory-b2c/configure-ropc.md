@@ -2,20 +2,20 @@
 title: Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C | Microsoft Docs
 description: Averigüe cómo puede configurar el flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715890"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511341"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -32,7 +32,7 @@ En Azure Active Directory (Azure AD) B2C, se admiten las siguientes opciones:
 No se admiten los siguientes flujos:
 
 - **De servidor a servidor**: el sistema de protección de identidades necesita una dirección IP de confianza que recopile el autor de la llamada (el cliente nativo) como parte de la interacción. En una llamada API del lado servidor, se utiliza sólo la dirección IP del servidor. Si se supera un umbral dinámico de errores de autenticación, el sistema de protección de identidad puede identificar una dirección IP repetida como un atacante.
-- **Confidential client flow (Flujo de cliente confidencial)**: se valida el identificador de cliente de la aplicación, pero no el secreto de la aplicación.
+- **Confidential client flow (Flujo de cliente confidencial)** : se valida el identificador de cliente de la aplicación, pero no el secreto de la aplicación.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Creación de un flujo de usuario del propietario del recurso
 

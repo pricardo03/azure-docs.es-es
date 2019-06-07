@@ -2,20 +2,20 @@
 title: 'Información general de tokens: Azure Active Directory B2C | Microsoft Docs'
 description: Obtenga información sobre los tokens usados en Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681889"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509090"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Información general de tokens de Azure Active Directory B2C
 
@@ -50,14 +50,14 @@ Las notificaciones en tokens de identificador no se devuelven en ningún orden c
 
 En la tabla siguiente se enumera las notificaciones que puede esperar de los tokens de identificador y tener acceso a los tokens emitidos por Azure AD B2C.
 
-| NOMBRE | Notificación | Valor de ejemplo | DESCRIPCIÓN |
+| Name | Notificación | Valor de ejemplo | DESCRIPCIÓN |
 | ---- | ----- | ------------- | ----------- |
 | Público | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica al destinatario previsto del token. Para Azure AD B2C, la audiencia es el identificador de aplicación. La aplicación debe validar este valor y rechazar el token si no coincide. Audiencia es sinónimo de recursos. |
 | Emisor | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica el servicio de token de seguridad (STS) que construye y devuelve el token. También identifica el directorio en el que se autenticó al usuario. La aplicación debe validar la notificación del emisor para asegurarse de que el token proviene del punto de conexión adecuado. |
 | Emitido a las | `iat` | `1438535543` | La hora en que se emitió el token, que se representa en tiempo de época. |
 | Fecha de expiración | `exp` | `1438539443` | La hora en que el token deja de ser válido, que se representa en tiempo de época. La aplicación debe usar esta notificación para comprobar la validez de la duración del token. |
 | No antes de | `nbf` | `1438535543` | Hora a la que el token pasa a ser válido, representada en tiempo de época. Este tiempo suele ser el mismo que el tiempo que se emitió el token. La aplicación debe usar esta notificación para comprobar la validez de la duración del token. |
-| `Version` | `ver` | `1.0` | La versión del token de identificador, tal como se define por Azure AD B2C. |
+| Version | `ver` | `1.0` | La versión del token de identificador, tal como se define por Azure AD B2C. |
 | Código hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash de código que se incluye en un token de identificador solo cuando el token se emite junto con un código de autorización de OAuth 2.0. Los códigos hash se pueden usar para validar la autenticidad de un código de autorización. Para obtener más información sobre cómo realizar esta validación, vea el [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash de token de acceso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash de token de acceso incluido en un token de identificador solo cuando el token se emite junto con un token de acceso de OAuth 2.0. El hash de token de acceso se puede usar para validar la autenticidad de un token de acceso. Para obtener más información sobre cómo realizar esta validación, vea el [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Valor de seguridad | `nonce` | `12345` | El valor de seguridad es una estrategia que se usa para mitigar los ataques de reproducción de tokens. La aplicación puede especificar un valor nonce en una solicitud de autorización mediante el `nonce` parámetro de consulta. El valor que proporcione en la solicitud se genera sin modificar en el `nonce` de notificación de un token de identificador solo. Esta notificación permite que la aplicación comprobar el valor con respecto al valor especificado en la solicitud. La aplicación debe realizar la validación durante el proceso de validación del token de identificador. |
@@ -65,7 +65,7 @@ En la tabla siguiente se enumera las notificaciones que puede esperar de los tok
 | Referencia de clase de contexto de autenticación | `acr` | No aplicable | Usar solo con las directivas anteriores. |
 | Directiva de marco de confianza | `tfp` | `b2c_1_signupsignin1` | El nombre de la directiva que se usó para adquirir el token de identificador. |
 | Hora de autenticación | `auth_time` | `1438535543` | La hora en el que un usuario especificó por última vez las credenciales, se representa en tiempo de época. |
-| Ámbito | `scp` | `Read`| Los permisos concedidos al recurso para un token de acceso. Varios permisos concedidos están separados por un espacio. |
+| Scope | `scp` | `Read`| Los permisos concedidos al recurso para un token de acceso. Varios permisos concedidos están separados por un espacio. |
 | Entidad autorizada | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | El **id. de la aplicación** cliente que inició la solicitud. |
 
 ## <a name="configuration"></a>Configuración
@@ -89,9 +89,9 @@ Estas opciones no están disponibles para flujos de usuario de restablecimiento 
 
 Las siguientes propiedades se utilizan para [administrar la compatibilidad de token](configure-tokens.md):
 
-- **Notificación de emisor (iss)**: esta propiedad identifica el inquilino de Azure AD B2C que emitió el token. El valor predeterminado es `https://<domain>/{B2C tenant GUID}/v2.0/`. El valor de `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` incluyen los identificadores para el inquilino de Azure AD B2C y el flujo de usuario que se usó en la solicitud de token. Si su aplicación o biblioteca necesita Azure AD B2C sea compatible con la [especificación de OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), use este valor.
+- **Notificación de emisor (iss)** : esta propiedad identifica el inquilino de Azure AD B2C que emitió el token. El valor predeterminado es `https://<domain>/{B2C tenant GUID}/v2.0/`. El valor de `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` incluyen los identificadores para el inquilino de Azure AD B2C y el flujo de usuario que se usó en la solicitud de token. Si su aplicación o biblioteca necesita Azure AD B2C sea compatible con la [especificación de OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), use este valor.
 
-- **Notificación de asunto (sub)**: esta propiedad identifica la entidad para la que el token valida la información. El valor predeterminado es **ObjectID**, que rellena el `sub` de notificación en el token con el identificador de objeto del usuario. El valor de **no admite** solo se proporciona por motivos de compatibilidad. Se recomienda que empiece a **ObjectID** tan pronto como pueda.
+- **Notificación de asunto (sub)** : esta propiedad identifica la entidad para la que el token valida la información. El valor predeterminado es **ObjectID**, que rellena el `sub` de notificación en el token con el identificador de objeto del usuario. El valor de **no admite** solo se proporciona por motivos de compatibilidad. Se recomienda que empiece a **ObjectID** tan pronto como pueda.
 
 - **Notificación que representa el Id. de directiva** -esta propiedad identifica el tipo de notificación en la que se rellena el nombre de directiva utilizado en la solicitud de token. El valor predeterminado es `tfp`. El valor de `acr` solo se proporciona por motivos de compatibilidad.
 
