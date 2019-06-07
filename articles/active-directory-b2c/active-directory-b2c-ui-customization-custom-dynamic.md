@@ -2,20 +2,20 @@
 title: Personalización dinámica de la interfaz de usuario de Azure Active Directory B2C mediante directivas personalizadas
 description: Admisión de varias experiencias de personalización de marca con contenido HTML5/CSS que cambia dinámicamente en tiempo de ejecución.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c655a1ed7cefcc7af8a22ed1d869b1a2e8b81715
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708878"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507775"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas
 
@@ -68,7 +68,7 @@ En este tutorial realizará lo siguiente:
 
 1. Cree un proyecto en Visual Studio, para lo que debe seleccionar **Archivo** >  **Nuevo** > **Proyecto**.
 
-2. En la ventana **Nuevo proyecto**, seleccione **Visual C#** > **Web** > **Aplicación web ASP.NET Core (.NET Core)**.
+2. En la ventana **Nuevo proyecto**, seleccione **Visual C#**  > **Web** > **Aplicación web ASP.NET Core (.NET Core)** .
 
 3. Asigne un nombre a la aplicación, por ejemplo, *Contoso.AADB2C.UI* y, a continuación, seleccione **Aceptar**.
 
@@ -321,7 +321,7 @@ Modifique el método `unified` de HomeController para aceptar el parámetro camp
 Si selecciona el vínculo **Regístrese ahora** en la página de inicio de sesión, el explorador muestra la imagen de fondo predeterminada, no la imagen que ha definido. Este comportamiento se produce porque ha cambiado la página de registro o de inicio de sesión. Para cambiar el resto de las definiciones de contenido de autoaserción:
 1. Vuelva al "Paso 2" y haga lo siguiente:
 
-     a. Descargue el archivo *selfasserted*.
+    a. Descargue el archivo *selfasserted*.
 
     b. Copie el contenido del archivo.
 
@@ -331,7 +331,7 @@ Si selecciona el vínculo **Regístrese ahora** en la página de inicio de sesi�
 
 2. Vuelva al "Paso 4" y haga lo siguiente: 
 
-     a. En la directiva de extensión, busque el nodo `<ContentDefinition>` que incluye `Id="api.selfasserted"`, `Id="api.localaccountsignup"` y `Id="api.localaccountpasswordreset"`.
+    a. En la directiva de extensión, busque el nodo `<ContentDefinition>` que incluye `Id="api.selfasserted"`, `Id="api.localaccountsignup"` y `Id="api.localaccountpasswordreset"`.
 
     b. Establezca el atributo `LoadUri` en el URI de *selfasserted*.
 

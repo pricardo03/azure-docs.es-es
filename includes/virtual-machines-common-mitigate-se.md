@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125182"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735219"
 ---
-**Última actualización del documento**: 14 de mayo de 2019 10:00 A.M. hora del Pacífico.
+**Última actualización del documento**: 4 de junio de 2019 3:00 P.M. hora del Pacífico.
 
 La divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
@@ -49,7 +49,7 @@ Aunque no se necesita una actualización del sistema operativo para aislar de ot
 | Oferta | Acción recomendada  |
 |----------|---------------------|
 | Azure Cloud Services  | Habilite las [actualizaciones automáticas](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) o asegúrese de que está ejecutando la versión más reciente del sistema operativo invitado. |
-| Azure Linux Virtual Machines | Instale las actualizaciones de su proveedor de sistema operativo. Para más información, consulte [Linux](#linux) más adelante en este documento. |
+| Máquinas virtuales Linux en Azure | Instale las actualizaciones de su proveedor de sistema operativo. Para más información, consulte [Linux](#linux) más adelante en este documento. |
 | Máquinas virtuales Windows en Azure  | Instale las últimas actualizaciones acumulativas de seguridad.
 | Otros servicios PaaS de Azure | No es necesaria ninguna acción para los clientes que usan estos servicios. Azure mantiene actualizadas las versiones de sistema operativo de forma automática. |
 
@@ -72,12 +72,12 @@ Los clientes que no implementan un escenario relacionado con código que no es d
 
 Puede habilitar características de seguridad adicionales dentro de la máquina virtual o servicio en la nube si está ejecutando código no seguro. En paralelo, asegúrese de que el sistema operativo está actualizado para habilitar las características de seguridad dentro de la máquina virtual o servicio en la nube
 
-### <a name="windows"></a> Windows 
+### <a name="windows"></a>Windows 
 
 El sistema operativo de destino debe estar actualizado para habilitar estas características de seguridad adicionales. Aunque hay habilitadas numerosas mitigaciones del canal lateral de ejecución especulativa de forma predeterminada, las características adicionales que se describen aquí deben habilitarse manualmente y pueden afectar al rendimiento. 
 
 
-**Paso 1: Deshabilitar el hyperthreading en la máquina virtual** : los clientes que ejecutan código no seguro en un hiperproceso VM deberá deshabilitar el hyperthreading o mover a un tamaño de máquina virtual no hyperthreading. Para comprobar si la máquina virtual tiene habilitado el hiperproceso, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
+**Paso 1: Deshabilitar hyper-threading en la máquina virtual** -clientes que ejecutan código no seguro en una máquina virtual de hyper-threading debe deshabilitar hyper-threading o mover a un tamaño de máquina virtual que no sea hyper-Threading. Referencia [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene hyper-threading habilitado, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
 
 Tipo `wmic` para entrar en la interfaz interactiva. A continuación, escriba el siguiente para ver la cantidad de física y lógica procesadores en la máquina virtual.
 
@@ -85,7 +85,7 @@ Tipo `wmic` para entrar en la interfaz interactiva. A continuación, escriba el 
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Si el número de procesadores lógicos es mayor de procesadores físicos (núcleos), se habilita el hyperthreading.  Si está ejecutando una máquina virtual hiperproceso, inicie [póngase en contacto con soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obtener el hyperthreading deshabilitado.  Una vez que el hyperthreading está deshabilitado, **soporte requerirá un reinicio de máquina virtual completo**. 
+Si el número de procesadores lógicos es mayor de procesadores físicos (núcleos), a continuación, hyper-threading está habilitada.  Si está ejecutando una máquina virtual de hyper-threading, por favor, [póngase en contacto con soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obtener hyperthreading deshabilitado.  Una vez que hyper-threading está deshabilitada, **soporte requerirá un reinicio de máquina virtual completo**. Consulte [Core recuento](#core-count) para entender por qué se reduce el número de núcleos de máquina virtual.
 
 
 **Paso 2**: En paralelo al paso 1, siga las instrucciones de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para comprobar las protecciones se habilitan mediante la [SpeculationControl](https://aka.ms/SpeculationControlPS) módulo de PowerShell.
@@ -123,14 +123,14 @@ Si el resultado muestra `MDS mitigation is enabled: False`, por favor, [póngase
 <a name="linux"></a>Se requiere que el sistema operativo de destino esté completamente actualizado para habilitar el conjunto de características de seguridad adicionales. Algunas de las mitigaciones estarán habilitadas de forma predeterminada. La siguiente sección describe las características que están desactivadas de forma predeterminada y sujetas a la compatibilidad de hardware (microcódigo). La habilitación de estas características puede afectar al rendimiento. Consulte la documentación del proveedor de su sistema operativo para más instrucciones
 
 
-**Paso 1: Deshabilitar el hyperthreading en la máquina virtual** : los clientes que ejecutan código no seguro en un hiperproceso VM deberá deshabilitar el hyperthreading o mover a una VM no hyperthreading.  Para comprobar si está ejecutando una máquina virtual hiperproceso, ejecute el `lscpu` comando en la VM de Linux. 
+**Paso 1: Deshabilitar hyper-threading en la máquina virtual** -clientes que ejecutan código no seguro en una máquina virtual de hyper-threading debe deshabilitar hyper-threading o mover a una máquina virtual que no sea hyper-Threading.  Referencia [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el `lscpu` comando en la VM de Linux. 
 
-Si `Thread(s) per core = 2`, a continuación, se ha habilitado el hyperthreading. 
+Si `Thread(s) per core = 2`, a continuación, hyper-threading se ha habilitado. 
 
-Si `Thread(s) per core = 1`, a continuación, se ha deshabilitado el hyperthreading. 
+Si `Thread(s) per core = 1`, a continuación, hyper-threading se ha deshabilitado. 
 
  
-Ejemplo de salida para una máquina virtual con el hyperthreading habilitado: 
+Salida de ejemplo para una máquina virtual con hyper-threading habilitado: 
 
 ```console
 CPU Architecture:      x86_64
@@ -145,7 +145,8 @@ NUMA node(s):          1
 
 ```
 
-Si está ejecutando una máquina virtual hiperproceso, inicie [póngase en contacto con soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obtener el hyperthreading deshabilitado.  Una vez que el hyperthreading está deshabilitado, **soporte requerirá un reinicio de máquina virtual completo**.
+Si está ejecutando una máquina virtual de hyper-threading, por favor, [póngase en contacto con soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obtener hyperthreading deshabilitado.  Una vez que hyper-threading está deshabilitada, **soporte requerirá un reinicio de máquina virtual completo**. Consulte [Core recuento](#core-count) para entender por qué se reduce el número de núcleos de máquina virtual.
+
 
 
 **Paso 2**: Para mitigar el riesgo cualquiera de las siguientes vulnerabilidades de canal lateral de ejecución especulativa, consulte la documentación del proveedor de su sistema operativo:   
@@ -153,6 +154,11 @@ Si está ejecutando una máquina virtual hiperproceso, inicie [póngase en conta
 - [RedHat y CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### <a name="core-count"></a>Núm. de núcleos
+
+Cuando se crea una máquina virtual de hyper-threading, Azure asigna 2 subprocesos por núcleo: se denominan vCPU. Cuando hyper-threading está deshabilitada, Azure quita un subproceso y superficies de núcleos de subprocesos únicos (núcleos físicos). La proporción de vCPU en la CPU es 2:1, así que después hyper-threading está deshabilitada, el número de la CPU en la máquina virtual aparecerá disminuido a la mitad. Por ejemplo, una máquina virtual de D8_v3 es una máquina virtual de hyper-threading que se ejecutan en 8 vCPU (2 subprocesos por núcleos core x 4).  Cuando hyper-threading está deshabilitada, las CPU caerá hasta 4 núcleos físicos con 1 subproceso por núcleo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

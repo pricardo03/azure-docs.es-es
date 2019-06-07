@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 71f66129aeec4f4c8b470a421caade22960d2d64
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473218"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743026"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -42,6 +42,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No está seguro de cómo actualizar el SO invitado? Compruebe [esto][cloud updates].
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+
+###### <a name="june-6-2019"></a>**6 de junio de 2019**
+Se ha publicado el SO invitado de mayo.
 
 ###### <a name="may-7-2019"></a>**7 de mayo de 2019**
 Se ha publicado el sistema operativo invitado de abril.
@@ -70,7 +73,7 @@ Se ha publicado el SO invitado de octubre.
 ###### <a name="october-12-2018"></a>**12 de octubre de 2018**
 Se ha publicado el SO invitado de septiembre.
 
-## <a name="releases"></a>Versiones
+## <a name="releases"></a>Lanzamientos
 
 ## <a name="family-6-releases"></a>Lanzamientos de la familia 6
 **Windows Server 2019**
@@ -90,10 +93,11 @@ Versión de .NET Framework instalada: 3.5, 4.7.2
 >
 
 
-| Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
+| Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-6.7_201905-01 |6 de junio de 2019 |POST 6.9 |
 | WA-GUEST-OS-6.6_201904-01 |7 de mayo de 2019 |POST 6.8 |
-| WA-GUEST-OS-6.5_201903-01 |26 de marzo de 2019 |POST 6.7 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 de marzo de 2019 |6 de junio de 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 de marzo de 2019 |7 de mayo de 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 de febrero de 2019 |26 de marzo de 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |24 de enero de 2019 |12 de marzo de 2019 |
@@ -109,10 +113,11 @@ Versión de .NET Framework instalada: 3.5, 4.6.2
 >
 
 
-| Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
+| Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-5.31_201905-01 |6 de junio de 2019 |POST 5.33 |
 | WA-GUEST-OS-5.30_201904-01 |7 de mayo de 2019 |POST 5.32 |
-| WA-GUEST-OS-5.29_201903-01 |26 de marzo de 2019 |POST 5.31 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 de marzo de 2019 |6 de junio de 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 de marzo de 2019 |7 de mayo de 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 de febrero de 2019 |26 de marzo de 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |7 de enero de 2019 |12 de marzo de 2019 |
@@ -125,10 +130,11 @@ Versión de .NET Framework instalada: 3.5, 4.6.2
 
 Versión de .NET Framework instalada: 3.5, 4.5.1
 
-| Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
+| Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-4.66_201905-01 |6 de junio de 2019 |Post 4,68 |
 | WA-GUEST-OS-4.65_201904-01 |7 de mayo de 2019 |Post 4,67 |
-| WA-GUEST-OS-4.64_201903-01 |26 de marzo de 2019 |Post 4.66 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 de marzo de 2019 |6 de junio de 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 de marzo de 2019 |7 de mayo de 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 de febrero de 2019 |26 de marzo de 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |7 de enero de 2019 |12 de marzo de 2019 |
@@ -141,10 +147,11 @@ Versión de .NET Framework instalada: 3.5, 4.5.1
 
 Versión de .NET Framework instalada: 3.5, 4.5
 
-| Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
+| Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-3.73_201905-01 |De 67 de junio de 2019 |POST 3,75 |
 | WA-GUEST-OS-3.72_201904-01 |7 de mayo de 2019 |POST 3,74 |
-| WA-GUEST-OS-3.71_201903-01 |26 de marzo de 2019 |POST 3,73 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 de marzo de 2019 |6 de junio de 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 de marzo de 2019 |7 de mayo de 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 de febrero de 2019 |26 de marzo de 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |7 de enero de 2019 |12 de marzo de 2019 |
@@ -157,10 +164,11 @@ Versión de .NET Framework instalada: 3.5, 4.5
 
 Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0)
 
-| Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
+| Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-2.86_201905-01 |6 de junio de 2019 |POST 2,88 |
 | WA-GUEST-OS-2.85_201904-01 |7 de mayo de 2019 |POST 2.87 |
-| WA-GUEST-OS-2.84_201903-01 |26 de marzo de 2019 |POST 2.86 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 de marzo de 2019 |6 de junio de 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 de marzo de 2019 |7 de mayo de 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 de febrero de 2019 |26 de marzo de 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 de enero de 2019 |12 de marzo de 2019 |
@@ -194,13 +202,13 @@ Una vez que pase la fecha de **expiración**, cualquier servicio en la nube que 
 Las familias del SO invitado se basan en versiones lanzadas de Microsoft Windows Server. El SO invitado es el sistema operativo subyacente en el que se ejecuta Azure Cloud Services. Cada SO invitado tiene un número de familia, versión y lanzamiento.
 
 * **Guest OS family**  
-   Versión del sistema operativo Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
+  Versión del sistema operativo Windows Server en la que se basa un SO invitado. Por ejemplo, la *familia 3* se basa en Windows Server 2012.
 * **Versión del SO invitado**  
   Corresponde a la imagen de la familia del SO invitado, más las revisiones pertinentes del [Centro de respuestas de seguridad de Microsoft (MSRC)][msrc] disponibles en la fecha en que se genera la nueva versión del SO invitado. Es posible que no se incluyan todas las revisiones.
 
     Los números empiezan por 0 y se incrementan en 1 cada vez que se agrega un nuevo conjunto de actualizaciones. Solo se muestran los ceros finales si es importante. Es decir, la versión 2.10 es una versión mucho más posterior y diferente que la versión 2.1.
 * **Lanzamiento del SO invitado**  
-   Relanzamiento de una versión de SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. Azure Portal solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
+  Relanzamiento de una versión de SO invitado. Un relanzamiento se produce si Microsoft encuentra, durante las pruebas, problemas que requieran cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. Azure Portal solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
 
 En el ejemplo siguiente, 2 es la familia, 12 es la versión y "rel2" es el lanzamiento.
 

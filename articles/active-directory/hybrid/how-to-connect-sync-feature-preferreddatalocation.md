@@ -1,5 +1,5 @@
 ---
-title: 'Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para las capacidades multigeográficas de Office 365 | Microsoft Docs'
+title: 'Azure AD Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365'
 description: Describe cómo poner los recursos de usuario de Office 365 cerca del usuario con la sincronización de Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348248"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473024"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -216,7 +216,7 @@ En general, se requiere un ciclo de sincronización completo. Esto se debe a que
    1. Haga clic con el botón derecho en **Conector de Azure AD** y seleccione **Espacio del conector de búsqueda**.
    2. En el cuadro de diálogo **Search Connector Space** (Espacio del conector de búsqueda):
 
-         a. Establezca el **ámbito** en **Pending Export** (Exportación pendiente).<br>
+        a. Establezca el **ámbito** en **Pending Export** (Exportación pendiente).<br>
         b. Active las tres casillas, incluidas **Agregar, Modificar y Eliminar**.<br>
         c. Para ver la lista de objetos con cambios que se deben exportar, seleccione **Buscar**. Para examinar los cambios de un determinado objeto, haga doble clic en el objeto.<br>
         d. Compruebe que los cambios sean los previstos.

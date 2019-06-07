@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551382"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688729"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
@@ -182,8 +182,8 @@ La arquitectura de almacenamiento de Azure Backup le ofrece lo mejor de ambos mu
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>¿Hay un límite en el número de puntos de recuperación que se pueden crear?
 Puede crear hasta 9999 puntos de recuperación por instancia protegida. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo que realiza copias de seguridad en Azure.
 
-- Obtenga más información sobre [copia de seguridad y retención](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- Obtenga más información sobre [instancias protegidas](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance).
+- Obtenga más información sobre [copia de seguridad y retención](./backup-overview.md#backup-and-retention).
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>¿Cuántas veces puedo recuperar datos de los que se ha realizado una copia de seguridad en Azure?
 No hay ningún límite en cuanto al número de recuperaciones de Azure Backup.

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919095"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496736"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -54,7 +54,7 @@ La tabla siguiente le ayuda a determinar las ventajas y desventajas de cada una 
 
 | Estrategia | Ventajas | Desventajas |
 | --- | --- | --- |
-| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar localmente. No se necesita hardware adicional<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube. <br>  Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
+| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar localmente. No se necesita hardware adicional<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube. <br> Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
 | **Sincronizada** |La contraseña local se autentica localmente y en directorios en la nube. <br>Más fácil de administrar para organizaciones pequeñas, medianas o grandes. <br>Los usuarios pueden tener el inicio de sesión único (SSO) en algunos recursos. <br> Método preferido de Microsoft para la sincronización <br> Más fácil de administrar |Algunos clientes pueden ser reacios a sincronizar sus directorios con la nube debido  a las directivas de la compañía. |
 | **Federada** |Los usuarios pueden tener el inicio de sesión único (SSO). <br>Si un usuario es cesado o abandona, la cuenta puede deshabilitarse inmediatamente y revocarse el acceso.<br> Admite escenarios avanzados que no se pueden lograr con la sincronizada. |Más pasos para instalar y configurar. <br> Mayor mantenimiento <br> Puede requerir hardware adicional para la infraestructura de STS. <br> Puede exigir hardware adicional para instalar el servidor de federación. Es necesario software adicional si se usa AD FS. <br> Necesita una configuración amplia de SSO. <br> Punto crítico de error si el servidor de federación está inactivo, los usuarios no podrán autenticarse. |
 
@@ -175,7 +175,7 @@ Los siguientes elementos no se admiten y no deben elegirse como implementación:
 > 
 > 
 
-## <a name="define-multi-factor-authentication-strategy"></a>Definición de una estrategia de Multi-Factor Authentication 
+## <a name="define-multi-factor-authentication-strategy"></a>Definición de una estrategia de Multi-Factor Authentication
 En esta tarea definirá la estrategia de Multi-Factor Authentication que va a usar.  Azure Multi-Factor Authentication está disponible en dos versiones diferentes.  Una está basada en la nube y la otra es local con el servidor MFA de Azure.  Basándose en la evaluación que realizó anteriormente, puede determinar qué solución es la correcta para su estrategia.  Use la tabla siguiente para determinar qué opción de diseño cumple mejor el requisito de seguridad de su empresa:
 
 Opciones de diseño multifactor:
@@ -199,8 +199,7 @@ Aunque puede que eligiera una solución para su estrategia, será preciso que us
 | AD local |Servidor Multi-Factor Authentication |
 
 > [!NOTE]
-> También debe asegurarse de que la opción de diseño de Multi-Factor Authentication que seleccionó admite las características necesarias para el diseño.  Para obtener más información, consulte [Selección de la solución de seguridad multifactor más adecuada](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure)
-> 
+> También debe asegurarse de que la opción de diseño de Multi-Factor Authentication que seleccionó admite las características necesarias para el diseño.  Para obtener más información, consulte [Selección de la solución de seguridad multifactor más adecuada](../authentication/concept-mfa-howitworks.md)
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Proveedor de Multi-Factor Authentication

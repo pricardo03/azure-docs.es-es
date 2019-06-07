@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805987"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742412"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Ampliar Azure IoT Central con reglas personalizadas que envían notificaciones
 
@@ -40,13 +40,13 @@ Crear una aplicación IoT Central desde la [Azure IoT Central - mis aplicaciones
 
 | Configuración | Valor |
 | ------- | ----- |
-| Plan de pago | Pago por uso |
-| Plantilla de la aplicación | Contoso de ejemplo |
+| Plan de pago | Pay-As-You-Go |
+| Plantilla de la aplicación | Ejemplo Contoso |
 | Nombre de la aplicación | Acepte el valor predeterminado o elija su propio nombre |
-| Dirección URL | Acepte el valor predeterminado o elija su propio prefijo de dirección URL única |
+| URL | Acepte el valor predeterminado o elija su propio prefijo de dirección URL única |
 | Directorio | El inquilino de Azure Active Directory |
 | Suscripción de Azure | Su suscripción de Azure |
-| Área | Este de EE. UU |
+| Region | Este de EE. UU |
 
 Los ejemplos y capturas de pantalla en este artículo utilizan la **East US** región. Elija una ubicación cercana a usted y asegúrese de que crear todos los recursos en la misma región.
 
@@ -54,7 +54,7 @@ Los ejemplos y capturas de pantalla en este artículo utilizan la **East US** re
 
 Use la [Azure portal para crear un grupo de recursos](https://portal.azure.com/#create/Microsoft.ResourceGroup) llamado **DetectStoppedDevices** para contener los otros recursos que cree. Cree los recursos de Azure en la misma ubicación que la aplicación IoT Central.
 
-### <a name="event-hubs-namespace"></a>Espacio de nombres de los Event Hubs
+### <a name="event-hubs-namespace"></a>Espacio de nombres de Event Hubs
 
 Use la [Azure portal para crear un espacio de nombres de Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) con las siguientes opciones:
 
@@ -89,10 +89,10 @@ Use la [Azure portal para crear una aplicación de función](https://portal.azur
 | Nombre de la aplicación    | Elija el nombre de la aplicación de función |
 | Subscription | Su suscripción |
 | Grupos de recursos | DetectStoppedDevices |
-| SO |  Windows |
+| SO | Windows |
 | Plan de hospedaje | Plan de consumo |
 | Ubicación | Este de EE. UU |
-| Pila en tiempo de ejecución | .NET |
+| Pila de tiempo de ejecución | .NET |
 | Almacenamiento | Crear nuevo |
 
 ### <a name="sendgrid-account"></a>Cuenta de SendGrid
@@ -101,8 +101,8 @@ Use la [Azure portal para crear una cuenta de SendGrid](https://portal.azure.com
 
 | Configuración | Valor |
 | ------- | ----- |
-| NOMBRE    | Elija el nombre de cuenta de SendGrid |
-| Contraseña | Creación de una contraseña |
+| Name    | Elija el nombre de cuenta de SendGrid |
+| Contraseña | Crear una contraseña |
 | Subscription | Su suscripción |
 | Grupos de recursos | DetectStoppedDevices |
 | Plan de tarifa | F1 Gratis |
@@ -121,7 +121,7 @@ Puede configurar una aplicación IoT Central para exportar continuamente datos d
 
 El espacio de nombres de Event Hubs se parece a la captura de pantalla siguiente:
 
-![Espacio de nombres de los Event Hubs](media/howto-create-custom-rules/event-hubs-namespace.png)
+![Espacio de nombres de Event Hubs](media/howto-create-custom-rules/event-hubs-namespace.png)
 
 ## <a name="get-sendgrid-api-key"></a>Obtener clave de API de SendGrid
 
@@ -301,7 +301,7 @@ Esta solución usa una consulta de Stream Analytics para detectar cuándo un dis
 1. Seleccione **Guardar**.
 1. Para iniciar el trabajo de Stream Analytics, elija **información general sobre**, a continuación, **iniciar**, a continuación, **ahora**y, a continuación, **iniciar**:
 
-    ![Análisis de transmisiones](media/howto-create-custom-rules/stream-analytics.png)
+    ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
 
 ## <a name="configure-export-in-iot-central"></a>Configurar la exportación en IoT Central
 
@@ -312,19 +312,19 @@ Navegue hasta la [aplicación IoT Central](https://aka.ms/iotcentral) creó a pa
 
     | Configuración | Valor |
     | ------- | ----- |
-    | Nombre para mostrar | Exportar a Centros de eventos |
-    | Enabled | En |
-    | Espacio de nombres de los Event Hubs | El nombre del espacio de nombres de Event Hubs |
+    | Nombre para mostrar | Exportar a Event Hubs |
+    | Enabled | Por |
+    | Espacio de nombres de Event Hubs | El nombre del espacio de nombres de Event Hubs |
     | Centro de eventos | centralexport |
-    | Medidas | En |
-    | Dispositivos | Desactivada |
-    | Plantillas de dispositivo | Desactivada |
+    | Medidas | Por |
+    | Dispositivos | Off |
+    | Plantillas de dispositivo | Off |
 
 ![Configuración de exportación continua de datos](media/howto-create-custom-rules/cde-configuration.png)
 
 Espere hasta que el estado de exportación **ejecutando** antes de continuar.
 
-## <a name="test"></a>Probar
+## <a name="test"></a>Prueba
 
 Para probar la solución, puede deshabilitar la exportación continua de datos de IoT Central para los dispositivos simulados de detenido:
 
@@ -353,4 +353,4 @@ En esta guía paso a paso, ha aprendido lo siguiente:
 * Crear una consulta de Stream Analytics que detecta cuándo un dispositivo ha detenido el envío de datos.
 * Enviar una notificación por correo electrónico con los servicios de SendGrid y Azure Functions.
 
-Ahora que sabe cómo crear reglas personalizadas y notificaciones, el siguiente paso sugerido es obtener información sobre cómo [visualizar y analizar los datos de Azure IoT Central en un panel de Power BI](howto-connect-powerbi.md).
+Ahora que sabe cómo crear reglas personalizadas y notificaciones, el siguiente paso sugerido es obtener información sobre cómo [ampliar Azure IoT Central con análisis personalizado](howto-create-custom-analytics.md).

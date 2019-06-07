@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947084"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430871"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Los siguientes son preguntas más frecuentes sobre Azure Application Gateway.
 
 ## <a name="general"></a>General
 
@@ -187,13 +189,18 @@ Consulte [orden de las reglas de procesamiento](https://docs.microsoft.com/azure
 
 El campo Host especifica el nombre para enviar el sondeo para que haya configurado multisitio en Application Gateway. En caso contrario, usar '127.0.0.1'. Este valor es diferente del nombre del host de máquina virtual. Su formato es \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>.
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>¿Puede Application Gateway el acceso a solo unas cuantas direcciones IP de origen de la lista de permitidos?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>¿Permitir que Application Gateway el acceso únicamente a unos origen direcciones IP?
 
-Sí. Consulte [restringir el acceso a direcciones IP de origen específica](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Sí. Consulte [restringir el acceso a direcciones IP de origen específica](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>¿Puedo usar el mismo puerto para acceso público y privado accesible desde los agentes de escucha?
 
 No.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU de v1 a la SKU v2?
+
+Sí. Para obtener información detallada, consulte [migrar Azure Application Gateway y Firewall de aplicaciones Web de v1 a v2](migrate-v1-v2.md).
+
 
 ## <a name="configuration---ssl"></a>Configuración - SSL
 
@@ -312,6 +319,10 @@ Para obtener más información, consulte [vulnerabilidades OWASP top 10](https:/
 ### <a name="does-waf-support-ddos-protection"></a>¿Admite WAF la protección contra DDoS?
 
 Sí. Puede habilitar la protección contra DDoS en la red virtual donde se implementa la puerta de enlace de la aplicación. Esta configuración garantiza que el servicio Azure DDoS Protection protege también la IP virtual (VIP) puerta de enlace de aplicaciones.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>¿Hay instrucciones disponibles para migrar de la SKU de v1 a la SKU v2?
+
+Sí. Para obtener información detallada, consulte [migrar Azure Application Gateway y Firewall de aplicaciones Web de v1 a v2](migrate-v1-v2.md).
 
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 

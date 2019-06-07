@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130462"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472594"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Monitor de Azure para información general de las máquinas virtuales (versión preliminar)
 
@@ -40,6 +40,7 @@ Antes de empezar, asegúrese de conocer la información de los apartados siguien
 Azure Monitor para las máquinas virtuales es compatible con un área de trabajo de Log Analytics en las siguientes regiones:
 
 - Centro occidental de EE.UU.
+- Oeste de EE.UU. 2<sup>1</sup>
 - Este de EE. UU
 - Canada Central<sup>1</sup>
 - Sur de Reino Unido<sup>1</sup>
@@ -154,13 +155,13 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 |:--|:--|:--|
 | Agentes de Windows | Sí | Además del [agente de Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Windows requieren Microsoft Dependency Agent. Para obtener una lista completa de las versiones del sistema operativo, consulte los [sistemas operativos compatibles](#supported-operating-systems). |
 | Agentes de Linux | Sí | Además del [agente de Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Linux requieren Microsoft Dependency Agent. Para obtener una lista completa de las versiones del sistema operativo, consulte los [sistemas operativos compatibles](#supported-operating-systems). |
-| Grupo de administración de System Center Operations Manager | No | |
+| Grupo de administración de System Center Operations Manager | Sin | |
 
 Dependency Agent se puede descargar desde las ubicaciones siguientes:
 
 | Archivo | SO | Versión | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
@@ -190,7 +191,7 @@ Azure Monitor para las máquinas virtuales configura un área de trabajo de Log 
 
 ### <a name="windows-performance-counters"></a>Contadores de rendimiento de Windows
 
-|Nombre de objeto |Nombre del contador |
+|Nombre del objeto |Nombre del contador |
 |------------|-------------|
 |LogicalDisk |% de espacio libre |
 |LogicalDisk |Prom. Segundos de disco/lecturas |
@@ -198,26 +199,26 @@ Azure Monitor para las máquinas virtuales configura un área de trabajo de Log 
 |LogicalDisk |Prom. Segundos de disco/escrituras |
 |LogicalDisk |Bytes de disco/s |
 |LogicalDisk |Bytes de lectura de disco/s |
-|LogicalDisk |Lecturas de disco/s  |
+|LogicalDisk |Lecturas de disco/s |
 |LogicalDisk |Transferencias de disco/s |
-|LogicalDisk |Bytes de escritura en disco/s |
-|LogicalDisk | Escrituras en disco/s |
+|LogicalDisk | Bytes de escritura en disco/s |
+|LogicalDisk |Escrituras en disco/s |
 |LogicalDisk |Megabytes libres |
 |Memoria |MB disponibles |
-|Adaptador de red |Bytes recibidos/s |
-|Adaptador de red |Bytes enviados/seg. |
+|Adaptador de red |Bytes recibidos por segundo |
+|Adaptador de red |Bytes enviados por segundo |
 |Procesador |% de tiempo de procesador |
 
 ### <a name="linux-performance-counters"></a>Contadores de rendimiento de Linux
 
-|Nombre de objeto |Nombre del contador |
+|Nombre del objeto |Nombre del contador |
 |------------|-------------|
 |Disco lógico |% espacio usado |
 |Disco lógico |Bytes de lectura de disco/s |
-|Disco lógico |Lecturas de disco/s  |
+|Disco lógico |Lecturas de disco/s |
 |Disco lógico |Transferencias de disco/s |
-|Disco lógico |Bytes de escritura en disco/s |
-|Disco lógico | Escrituras en disco/s |
+|Disco lógico | Bytes de escritura en disco/s |
+|Disco lógico |Escrituras en disco/s |
 |Disco lógico |Megabytes libres |
 |Disco lógico |Bytes de disco lógico/s |
 |Memoria |MB de memoria disponibles |
@@ -225,7 +226,7 @@ Azure Monitor para las máquinas virtuales configura un área de trabajo de Log 
 |Red |Número total de bytes transmitidos |
 |Procesador |% de tiempo de procesador |
 
-## <a name="diagnostic-and-usage-data"></a>Datos de uso y diagnóstico
+## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 
 Microsoft recopila automáticamente datos de uso y rendimiento a través del servicio Azure Monitor. Microsoft usa estos datos para proporcionar y mejorar la calidad, la seguridad y la integridad del servicio. Con el fin de proporcionar funcionalidades de solución de problemas precisas y eficientes, los datos de la característica Mapa incluyen información sobre la configuración del software, como el sistema operativo y la versión, la dirección IP, el nombre DNS y el nombre de la estación de trabajo. Microsoft no recopila nombres, direcciones ni otra información de contacto.
 

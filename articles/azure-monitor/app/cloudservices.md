@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256298"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478329"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -112,7 +112,7 @@ En Visual Studio, configure el SDK de Application Insights para cada proyecto de
 
 1. Para configurar **roles de trabajo**: 
 
-     a. Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
+    a. Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
 
     b. Agregue [Application Insights para servidores de Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
@@ -120,7 +120,7 @@ En Visual Studio, configure el SDK de Application Insights para cada proyecto de
 
 1. Para configurar el SDK para enviar datos al recurso de Application Insights.
 
-     a. En una función de inicio adecuada, establezca la clave de instrumentación a partir de la opción de configuración del archivo *.cscfg*:
+    a. En una función de inicio adecuada, establezca la clave de instrumentación a partir de la opción de configuración del archivo *.cscfg*:
  
     ```csharp
    
@@ -194,18 +194,18 @@ Para los roles de trabajo, el seguimiento de las excepciones se puede realizar d
 ## <a name="performance-counters"></a>contadores de rendimiento
 Los siguientes contadores se recopilan de forma predeterminada:
 
-    * \Process(??APP_WIN32_PROC??)\% Tiempo de procesador
-    * \Memoria\Bytes disponibles
-    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-    * \Process(??APP_WIN32_PROC??)\Private Bytes
-    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * Procesador(_Total)\% Hora del procesador
+* \Process(??APP_WIN32_PROC??)\% Tiempo de procesador
+* \Memoria\Bytes disponibles
+* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+* \Process(??APP_WIN32_PROC??)\Private Bytes
+* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+* Procesador(_Total)\% Hora del procesador
 
 Además, también se recopilan los siguientes contadores para los roles web:
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 Puede especificar otros contadores de rendimiento de Windows o personalizados editando *ApplicationInsights.config* [como se muestra en este ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 

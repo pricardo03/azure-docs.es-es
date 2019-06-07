@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397635"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729482"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -79,9 +79,6 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |Ubuntu 14.04 LTS, 16.04 LTS y 18.04 (x86/x64)      |Los agentes de Linux deben tener acceso a un repositorio de actualización.         |
 
-> [!NOTE]
-> Conjuntos de escalado de máquina virtual de Azure se pueden administrar con administración de actualizaciones. Administración de actualizaciones funciona en las instancias de sí mismos y no la imagen base. Deberá programar las actualizaciones de forma incremental, como para no actualizar todas las instancias de máquina virtual a la vez.
-
 ### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
 
 En la tabla siguiente se enumeran los sistemas operativos no admitidos:
@@ -93,7 +90,7 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos:
 
 ### <a name="client-requirements"></a>Requisitos del cliente
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 Los agentes de Windows deben estar configurados para comunicarse con un servidor de WSUS o tener acceso a Microsoft Update. Puede usar Update Management con System Center Configuration Manager. Para más información sobre escenarios de integración, consulte [Integración de System Center Configuration Manager con Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). El [agente de Windows](../azure-monitor/platform/agent-windows.md) es necesario. Este agente se instala automáticamente si va a incorporar una máquina virtual de Azure.
 
@@ -155,7 +152,7 @@ Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```loganalytics
 Heartbeat
@@ -195,7 +192,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 Para cada equipo Windows administrado, se realiza un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado. Si ha cambiado el estado, se inicia un examen de cumplimiento.
 
-Para cada equipo Linux administrado, se realiza un examen cada 3 horas.
+Se realiza un examen cada hora para cada equipo Linux administrado.
 
 Puede que transcurran entre 30 minutos y 6 horas antes de que se muestren los datos actualizados de los equipos administrados.
 
@@ -228,7 +225,7 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 
 | Propiedad | Descripción |
 | --- | --- |
-| NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
+| Name |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Linux o Windows|
 | Para actualizar los grupos |Para máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure para incluir en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda para seleccionar un grupo de máquinas que no son de Azure debe incluir en la implementación existente. </br></br>Para más información, consulte los [grupos dinámicos](automation-update-management.md#using-dynamic-groups).|
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |
@@ -272,7 +269,7 @@ Para ver una implementación de actualizaciones de la API de REST, consulte [Sof
 
 En las siguientes tablas se muestran las clasificaciones de actualizaciones en Update Management, junto con una definición de cada clasificación.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 |clasificación  |DESCRIPCIÓN  |
 |---------|---------|
@@ -492,7 +489,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="computers-list"></a>Lista de equipos

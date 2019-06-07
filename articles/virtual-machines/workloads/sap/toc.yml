@@ -86,6 +86,8 @@
       href: cal-s4h.md
     - name: Configuraciones y operaciones de infraestructura de SAP HANA en Azure
       href: hana-vm-operations.md
+    - name: Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
+      href: hana-vm-operations-storage.md
     - name: Disponibilidad de SAP HANA en Azure Virtual Machines
       items:
         - name: Introducción a la disponibilidad de SAP HANA en Azure

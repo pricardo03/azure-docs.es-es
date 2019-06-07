@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 24e0b61dfd9950a5c5990f8341e32d048453c5d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6e0192029decef95dcaecc0c60dce5fd5b6f99ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689578"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479904"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -53,7 +53,7 @@ HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta local
 
 Además, HDInsight le permite acceder a los datos almacenados en Azure Storage. La sintaxis es:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 A la hora de usar una cuenta de Azure Storage con clústeres de HDInsight, es necesario tener en cuenta algunas cosas.
 
@@ -96,10 +96,10 @@ Determinados trabajos y paquetes de MapReduce podrían crear resultados intermed
 El esquema de URI para acceder a los archivos de Azure Storage desde HDInsight es:
 
 ```config
-wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 ```
 
-El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:*) y acceso cifrado SSL con *wasbs*). Se recomienda usar *wasbs* siempre que sea posible, incluso cuando se acceda a datos que se encuentren en la misma región de Azure.
+El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:* ) y acceso cifrado SSL con *wasbs*). Se recomienda usar *wasbs* siempre que sea posible, incluso cuando se acceda a datos que se encuentren en la misma región de Azure.
 
 El `<BlobStorageContainerName>` identifica el nombre del contenedor de blobs en almacenamiento de Azure.
 El `<StorageAccountName>` identifica el nombre de cuenta de almacenamiento de Azure. Se necesita el nombre completo de dominio (FQDN).
@@ -137,7 +137,7 @@ El contenedor de blobs predeterminado almacena información específica del clú
 
 Microsoft proporciona las siguientes herramientas para trabajar con Azure Storage:
 
-| Herramienta | Linux | OS X |  Windows |
+| Herramienta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [CLI de Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |

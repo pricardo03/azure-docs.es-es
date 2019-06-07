@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228369"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496518"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
-
-## <a name="overview"></a>Información general ##
 
 Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network de un cliente. Consta de:
 
@@ -62,17 +60,14 @@ Para crear una aplicación en un entorno ASE:
 
 1. Seleccione el sistema operativo. 
 
-    * El hospedaje de una aplicación Linux en un ASE es una nueva característica en versión preliminar, por lo que se recomienda no agregar aplicaciones Linux en un ASE que esté ejecutando en ese momento cargas de trabajo de producción. 
-    * Agregar una aplicación Linux en un ASE significa que el ASE estará también en modo versión preliminar. 
-
 1. Seleccione un plan de App Service existente en ASE o cree uno nuevo siguiendo estos pasos:
 
-     a. Seleccione **Crear nuevo**.
+    a. Seleccione **Crear nuevo**.
 
     b. Especifique el nombre del plan de App Service.
 
-    c. Seleccione el entorno ASE en la lista desplegable **Ubicación**. El hospedaje de una aplicación Linux en una instancia de ASE solo está habilitado en este momento en 6 regiones: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** 
-
+    c. Seleccione el entorno ASE en la lista desplegable **Ubicación**. 
+    
     d. Seleccione un plan de tarifa **Aislado**. Elija **Seleccionar**.
 
     e. Seleccione **Aceptar**.

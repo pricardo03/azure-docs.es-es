@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921059"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474055"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (Versión preliminar)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (versión preliminar)
 
 > [!IMPORTANT]
-> Administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
+> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -70,26 +70,17 @@ Estos son los tipos de recursos que puede administrar el acceso a con la adminis
 
 - Grupos de seguridad de Azure AD
 - Grupos de Office 365
-- Aplicaciones empresariales de Azure AD
-- Aplicaciones SaaS
-- Aplicaciones integradas personalizadas
-- Colecciones de sitios de SharePoint Online
-- Sitios de SharePoint Online
+- Enterprise aplicaciones de Azure AD, incluidos las aplicaciones integradas personalizadas que admiten la federación y aplicaciones SaaS o aprovisionamiento
+- Sitios y colecciones de sitios de SharePoint Online
 
-## <a name="prerequisites"></a>Requisitos previos
+También puede controlar el acceso a otros recursos que se basan en grupos de seguridad de Azure AD o grupos de Office 365.  Por ejemplo:
 
-Para usar la administración de derechos de Azure AD (versión preliminar), debe tener una de las licencias siguientes:
-
-- Azure AD Premium P2
-- Licencia de Enterprise Mobility + Security (EMS) E5
-
-Para obtener más información, consulte [registrarse para las ediciones de Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Enterprise Mobility + Security E5 evaluación](https://aka.ms/emse5trial).
-
-Nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, no están disponibles actualmente para su uso en esta versión preliminar.
+- Puedes usar licencias de usuario para Microsoft Office 365 mediante un grupo de seguridad de Azure AD en un paquete de acceso y configurar [licencias basadas en grupo](../users-groups-roles/licensing-groups-assign.md) para ese grupo
+- Proporciona a los usuarios acceso para administrar recursos de Azure mediante un grupo de seguridad de Azure AD en un paquete de acceso y crear un [asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md) para ese grupo.
 
 ## <a name="what-are-access-packages-and-policies"></a>¿Cuáles son los paquetes de acceso y directivas?
 
-Administración de derechos introduce el concepto de un *paquete acceso*. Un paquete de acceso es una agrupación de todos los recursos que un usuario necesita para trabajar en un proyecto o realizar su trabajo. Los recursos incluyen el acceso a grupos, aplicaciones o sitios. Paquetes de acceso se utilizan para controlar el acceso para sus empleados internos y también usuarios ajenos a su organización. Paquetes de acceso se definen en contenedores llamados *catálogos*.
+Administración de derechos introduce el concepto de un *paquete acceso*. Un paquete de acceso es una agrupación de todos los recursos que un usuario necesita para trabajar en un proyecto o realizar su trabajo. Los recursos incluyen el acceso a grupos, aplicaciones o sitios. Paquetes de acceso se utilizan para controlar el acceso para sus empleados internos y también usuarios ajenos a su organización. Los paquetes de acceso se definen en contenedores llamados *catálogos*.
 
 Paquetes de acceso también incluyen uno o varios *directivas*. Una directiva define las reglas o barreras de seguridad para tener acceso a un paquete de acceso. Al habilitar una directiva exige que solo los usuarios adecuados se conceden acceso a los recursos adecuados y para la cantidad adecuada de tiempo.
 
@@ -132,12 +123,12 @@ Para entender mejor la administración de derechos y su documentación, debe rev
 | policy | Un conjunto de reglas que define el ciclo de vida de acceso, como cómo los usuarios obtienen acceso, quién puede aprobar y cuánto tiempo los usuarios tienen acceso. Las directivas de ejemplo incluyen el acceso de los empleados y el acceso externo. |
 | catalog | Un contenedor de paquetes de acceso y recursos relacionados. |
 | Catálogo general | Un catálogo integrado que siempre está disponible. Para agregar recursos al catálogo General, requiere determinados permisos. |
-| Recurso | Un recurso o servicio (por ejemplo, un grupo, aplicación o sitio) que se puede conceder permisos para un usuario. |
-| tipo de recurso | El tipo de recurso, que incluye grupos, aplicaciones y sitios de SharePoint Online. |
+| resource | Un recurso o servicio (por ejemplo, un grupo, aplicación o sitio) que se puede conceder permisos para un usuario. |
+| Tipo de recurso | El tipo de recurso, que incluye grupos, aplicaciones y sitios de SharePoint Online. |
 | roles de recursos | Una colección de permisos asociados a un recurso. |
 | directorio de recursos | Un directorio que tiene uno o más recursos para compartirla. |
 | usuarios asignados | Asignación de un paquete de acceso a un usuario o grupo. |
-| habilitar | El proceso de poner a disposición de los usuarios solicitar un paquete de acceso. |
+| enable | El proceso de poner a disposición de los usuarios solicitar un paquete de acceso. |
 
 ## <a name="roles-and-permissions"></a>Roles y permisos
 
@@ -173,6 +164,12 @@ En la tabla siguiente se enumera los permisos para cada uno de estos roles.
 | [Agregar o quitar recursos de un catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Agregar propietarios de catálogo o tener acceso a los administradores de paquetes](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Editar o eliminar un catálogo](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>Requisitos de licencia
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, no están disponibles actualmente para su uso en esta versión preliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

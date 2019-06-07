@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797374"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755066"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
 
@@ -69,7 +69,7 @@ Los registros de Azure Monitor y Blob storage están disponibles como un servici
 
 La siguiente sección le guía por los pasos necesarios para habilitar y usar Azure Blob Storage para recopilar datos de registro creados por las operaciones de Azure Search, y acceder a ellos.
 
-## <a name="enable-logging"></a>Habilitar registro
+## <a name="enable-logging"></a>Habilitación del registro
 
 De forma predeterminada, el registro para indexación y consulta de cargas de trabajo está desactivado y la infraestructura de registro y el almacenamiento externo a largo plazo dependen de soluciones complementarias. Por sí solos, los únicos datos persistentes en Azure Search son los objetos que crea y administra, por lo que los registros se deben almacenar en otra parte.
 
@@ -111,10 +111,10 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Esquema de registro
 Los blobs que contienen los registros de tráfico del servicio de búsqueda se estructuran como se describe en esta sección. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro. Cada blob contiene registros de todas las operaciones que tuvieron lugar durante la misma hora.
 
-| NOMBRE | Type | Ejemplo | Notas |
+| NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
+| time |Datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
 | operationName |string |"Query.Search" |El nombre de la operación |
 | operationVersion |string |"2019-05-06" |La versión de la API usada |
 | category |string |"OperationLogs" |constant |
@@ -125,7 +125,7 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 **Esquema de propiedades**
 
-| NOMBRE | Type | Ejemplo | Notas |
+| NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | DESCRIPCIÓN |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
 | Consultar |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Los parámetros de consulta |
@@ -136,16 +136,16 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 Se capturan las métricas de solicitudes de consulta.
 
-| NOMBRE | Type | Ejemplo | Notas |
+| NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
-| Twitter en tiempo |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
-| media |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| mínimo |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| máximo |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |
+| Twitter en tiempo |Datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
+| average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
+| minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
+| maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | total |int |258 |El valor total de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| número |int |4 |El número de muestras sin procesar usadas para generar la métrica |
+| count |int |4 |El número de muestras sin procesar usadas para generar la métrica |
 | timegrain |string |"PT1M" |El intervalo de agregación de la métrica en ISO 8601 |
 
 Todas las métricas se notifican en intervalos de un minuto. Cada métrica expone los valores mínimo, máximo y promedio por minuto.
@@ -175,7 +175,7 @@ La API REST de Azure Search y .NET SDK proporcionan acceso mediante programació
 * [Recuento de documentos](/rest/api/searchservice/count-documents)
 * [Obtención del estado del indizador](/rest/api/searchservice/get-indexer-status)
 
-Para habilitar el uso de PowerShell o la CLI de Azure, consulte la documentación [aquí](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+Para habilitar el uso de PowerShell o la CLI de Azure, consulte la documentación [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

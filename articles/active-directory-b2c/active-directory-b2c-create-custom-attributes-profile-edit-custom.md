@@ -2,20 +2,20 @@
 title: Agregar sus propios atributos a las directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
 description: Un tutorial sobre cómo usar las propiedades de extensión y los atributos personalizados, y cómo incluirlos en la interfaz de usuario.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9f81f60c7153368ae12f80bb7bb6781c3e295cb8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ab7231c214060d17927e2509bee1687e2c9c87a3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689228"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507572"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: uso de los atributos personalizados en una directiva de edición de perfil personalizada
 
@@ -268,7 +268,7 @@ El token del identificador que se devuelve a la aplicación incluirá la nueva p
 
 2. Use los mismos atributos de extensión entre directivas integradas y personalizadas. Cuando se agregan atributos de extensión (o personalizados) a través de la experiencia del portal, los atributos se registran mediante **b2c-extensions-app** que existe en cada inquilino B2C. Siga estos pasos para usar los atributos de extensión en la directiva personalizada:
 
-    a. En el inquilino B2C en portal.azure.com, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.  
+   a. En el inquilino B2C en portal.azure.com, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.  
    b. Encuentre su **b2c-extensiones-app** y selecciónelo.  
    c. En **Información esencial**, escriba el **Identificador de la aplicación** y el **Identificador del objeto**.  
    d. Inclúyalos en los metadatos de TechnicalProfile de **AAD-Common**:  

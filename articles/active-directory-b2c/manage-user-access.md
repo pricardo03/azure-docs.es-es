@@ -2,20 +2,20 @@
 title: Administración del acceso de usuarios en Azure Active Directory B2C | Microsoft Docs
 description: Aprenda a identificar a los menores, recopilar la fecha de nacimiento y el país o región de datos y obtener la aceptación de condiciones de uso en la aplicación mediante el uso de Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 6aead01ec0084eb75ea385a67f7c85ea185b017a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956953"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510566"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ El siguiente es un ejemplo de flujo de usuario para recopilar el consentimiento 
 
 2. La aplicación procesa el token JSON y muestra una pantalla a la secundaria, que le notifica que se requiere el consentimiento parental y solicitar el consentimiento de un elemento primario en línea. 
 
-3. Azure AD B2C muestra una operación de inicio de sesión para que el usuario inicie sesión normalmente y emite un token a la aplicación que se establece para incluir **legalAgeGroupClassification = "minorWithParentalConsent"**. La aplicación recopila la dirección de correo electrónico del padre o la madre y verifica que sea una persona adulta. Para ello, usa una fuente de confianza, como un carnet de identidad, una verificación de la licencia o una prueba de la tarjeta de crédito. Si la verificación se realiza correctamente, la aplicación solicita al menor que inicie sesión mediante el uso del flujo de usuario de Azure AD B2C. Si se ha rechazado el consentimiento (por ejemplo, si **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C devuelve un token JSON (no un inicio de sesión) a la aplicación para que vuelva a iniciar el proceso de consentimiento. También se puede personalizar el flujo de usuario, de modo que un menor o un adulto pueda recuperar el acceso a la cuenta del menor enviando un código de registro a la dirección de correo electrónico del menor o a la dirección de correo electrónico registrada del adulto.
+3. Azure AD B2C muestra una operación de inicio de sesión para que el usuario inicie sesión normalmente y emite un token a la aplicación que se establece para incluir **legalAgeGroupClassification = "minorWithParentalConsent"** . La aplicación recopila la dirección de correo electrónico del padre o la madre y verifica que sea una persona adulta. Para ello, usa una fuente de confianza, como un carnet de identidad, una verificación de la licencia o una prueba de la tarjeta de crédito. Si la verificación se realiza correctamente, la aplicación solicita al menor que inicie sesión mediante el uso del flujo de usuario de Azure AD B2C. Si se ha rechazado el consentimiento (por ejemplo, si **legalAgeGroupClassification = "minorWithoutParentalConsent"** ), Azure AD B2C devuelve un token JSON (no un inicio de sesión) a la aplicación para que vuelva a iniciar el proceso de consentimiento. También se puede personalizar el flujo de usuario, de modo que un menor o un adulto pueda recuperar el acceso a la cuenta del menor enviando un código de registro a la dirección de correo electrónico del menor o a la dirección de correo electrónico registrada del adulto.
 
 4. La aplicación ofrece una opción al menor para revocar el consentimiento.
 
@@ -70,7 +70,7 @@ Los pasos siguientes muestran la lógica que se usa para calcular **ageGroup** a
 
 2. Si el nodo **MinorConsent** existe en el elemento de país:
 
-     a. Calcule la fecha en la que el usuario debe haber nacido para que se considere un adulto. Por ejemplo, si la fecha actual es 14 de marzo de 2015, y **MinorConsent** es 18, la fecha de nacimiento no debe ser posterior al 14 de marzo de 2000.
+    a. Calcule la fecha en la que el usuario debe haber nacido para que se considere un adulto. Por ejemplo, si la fecha actual es 14 de marzo de 2015, y **MinorConsent** es 18, la fecha de nacimiento no debe ser posterior al 14 de marzo de 2000.
 
     b. Compare la fecha de nacimiento mínima con la fecha de nacimiento real. Si la fecha de nacimiento mínima es anterior a la fecha de nacimiento del usuario, el cálculo devuelve **Menor** como grupo de edad.
 
