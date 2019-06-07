@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 460d8756c437a1212aef054cf069be2bccac8c8a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 64accb70561d4c0282b3ee45935d955dba1c67c4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001361"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474540"
 ---
 # <a name="security-attributes-for-azure-services"></a>Atributos de seguridad para servicios de Azure
 
@@ -30,7 +30,7 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí (solo para el cifrado del servicio) | Los datos confidenciales, como certificados, claves y valores con nombre secreto se cifran con administradas del servicio, por las claves de la instancia de servicio. |
 | Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | [Expressroute](../expressroute/index.yml) y proporciona el cifrado de red virtual por [redes de Azure](../virtual-network/index.yml). |
-| Control de claves de cifrado (CMK, BYOK, etcetera.)| No | Todas las claves de cifrado son por instancia de servicio y servicio administrado. |
+| Control de claves de cifrado (CMK, BYOK, etcetera.)| Sin | Todas las claves de cifrado son por instancia de servicio y servicio administrado. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | Las llamadas de plano de administración se realizan a través de [Azure Resource Manager](../azure-resource-manager/index.yml) a través de TLS. Se requiere un token web de JSON (JWT) válido.  Las llamadas de plano de datos pueden estar protegidas con TLS y uno de los mecanismos de autenticación admitidos (por ejemplo, el certificado de cliente o JWT).
  |
@@ -39,7 +39,7 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad de punto de conexión de servicio| No | |
+| Compatibilidad de punto de conexión de servicio| Sin | |
 | Compatibilidad con inserción de redes virtuales| Sí | |
 | Aislamiento de red y la compatibilidad con Firewall| Sí | Uso de grupos de seguridad de red (NSG) y Azure Application Gateway (u otro dispositivo de software), respectivamente. |
 | Fuerza la tunelización de soporte técnico| Sí | Las redes de Azure proporcionan la tunelización forzada. |
@@ -103,7 +103,7 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Authentication| Sí | Los clientes pueden crear aplicaciones en App Service que se integran automáticamente con [Azure Active Directory (Azure AD)](../active-directory/index.md) , así como otros proveedores de identidades compatible con OAuth; vea [autenticación y autorización en Azure App Service](../app-service/overview-authentication-authorization.md). Para administración de acceso a los recursos de App Service, todo el acceso se controla mediante una combinación de entidad de seguridad de Azure AD autenticado y roles de RBAC de Azure Resource Manager. |
+| Authentication| Sí | Los clientes pueden crear aplicaciones en App Service que se integran automáticamente con [Azure Active Directory (Azure AD)](../active-directory/index.yml) , así como otros proveedores de identidades compatible con OAuth; vea [autenticación y autorización en Azure App Service](../app-service/overview-authentication-authorization.md). Para administración de acceso a los recursos de App Service, todo el acceso se controla mediante una combinación de entidad de seguridad de Azure AD autenticado y roles de RBAC de Azure Resource Manager. |
 | Autorización| Sí | Para administración de acceso a los recursos de App Service, todo el acceso se controla mediante una combinación de entidad de seguridad de Azure AD autenticado y roles de RBAC de Azure Resource Manager.  |
 
 
@@ -112,7 +112,7 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Auditoría y registro del plano de control y administración| Sí | Todas las operaciones de administración realizadas en objetos de App Service se producen a través de [Azure Resource Manager](../azure-resource-manager/index.yml). Los registros históricos de estas operaciones están disponibles tanto en el portal a través de la CLI; consulte [operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb) y [registro de actividad de monitor az](/cli/azure/monitor/activity-log). |
-| Auditoría y registro del plano de datos | No | El plano de datos de App Service es un recurso compartido de archivos remoto que contiene un sitio de web de cliente s implementar contenido.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
+| Auditoría y registro del plano de datos | Sin | El plano de datos de App Service es un recurso compartido de archivos remoto que contiene un sitio de web de cliente s implementar contenido.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
 
 ### <a name="configuration-management"></a>Administración de configuración
 
@@ -139,14 +139,14 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| No | |
 | Compatibilidad con inserción de redes virtuales| Sí | |
-| Aislamiento de red y la compatibilidad con Firewall| No |  |
-| Fuerza la tunelización de soporte técnico| No |  |
+| Aislamiento de red y la compatibilidad con Firewall| Sin |  |
+| Fuerza la tunelización de soporte técnico| Sin |  |
 
 ### <a name="detection"></a>Detección
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Supervisión de soporte técnico (Log analytics, Application insights, etcetera) de Azure| No | |
+| Supervisión de soporte técnico (Log analytics, Application insights, etcetera) de Azure| Sin | |
 
 ### <a name="identity-and-access-management"></a>Administración de identidades y acceso
 
@@ -177,9 +177,9 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Uso de cifrado del servicio de almacenamiento para las cuentas de almacenamiento. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| No | Se usa HTTPS. |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sin | Se usa HTTPS. |
 | Control de claves de cifrado (CMK, BYOK, etcetera.)| No |  |
-| Cifrado de nivel de columna (Azure Data Services)| No |  |
+| Cifrado de nivel de columna (Azure Data Services)| Sin |  |
 | Llamadas API cifradas| Sí |  |
 
 ### <a name="network-segmentation"></a>Segmentación de red
@@ -187,9 +187,9 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| No |  |
-| Compatibilidad con inserción de redes virtuales| No |  |
+| Compatibilidad con inserción de redes virtuales| Sin |  |
 | Aislamiento de red y la compatibilidad con Firewall| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no se admite para las cargas de trabajo que se ejecutan en VM. |
-| Fuerza la tunelización de soporte técnico| No |  |
+| Fuerza la tunelización de soporte técnico| Sin |  |
 
 ### <a name="detection"></a>Detección
 
@@ -236,9 +236,9 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| Sí | Uso de puntos de conexión de servicio de red Virtual (VNet). |
-| Compatibilidad con inserción de redes virtuales| No |  |
+| Compatibilidad con inserción de redes virtuales| Sin |  |
 | Aislamiento de red y la compatibilidad con Firewall| Sí | Usar reglas de firewall de red virtual. |
-| Fuerza la tunelización de soporte técnico| No |  |
+| Fuerza la tunelización de soporte técnico| Sin |  |
 
 ### <a name="detection"></a>Detección
 
@@ -285,7 +285,7 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| Sí (solo en el nivel Premium) | Se admiten los puntos de conexión de servicio de red virtual para [nivel Premium de Service Bus](../service-bus-messaging/service-bus-premium-messaging.md) solo. |
-| Compatibilidad con inserción de redes virtuales| No | |
+| Compatibilidad con inserción de redes virtuales| Sin | |
 | Aislamiento de red y la compatibilidad con Firewall| Sí (solo en el nivel Premium) |  |
 | Fuerza la tunelización de soporte técnico| No |  |
 
@@ -324,7 +324,7 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>|  N/D | Retransmisión es un socket web y no conserva los datos. |
 | Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | El servicio requiere TLS. |
-| Control de claves de cifrado (CMK, BYOK, etcetera.)| No | Usa solo los certificados de Microsoft TLS.  |
+| Control de claves de cifrado (CMK, BYOK, etcetera.)| Sin | Usa solo los certificados de Microsoft TLS.  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | HTTPS. |
 
@@ -332,8 +332,8 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad de punto de conexión de servicio| No |  |
-| Aislamiento de red y la compatibilidad con Firewall| No |  |
+| Compatibilidad de punto de conexión de servicio| Sin |  |
+| Aislamiento de red y la compatibilidad con Firewall| Sin |  |
 | Fuerza la tunelización de soporte técnico| N/D | Retransmisión es el túnel TLS  |
 
 ### <a name="detection"></a>Detección
@@ -458,7 +458,7 @@ En este artículo recopila los atributos de seguridad común para los servicios 
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración (control de versiones de configuración, etcetera.)| No  | | 
+| Compatibilidad con la administración de configuración (control de versiones de configuración, etcetera.)| Sin  | | 
 
 ### <a name="additional-security-attributes-for-sql-database"></a>Atributos de seguridad adicionales para la base de datos de SQL
 

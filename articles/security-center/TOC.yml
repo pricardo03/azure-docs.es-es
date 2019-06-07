@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: Comparación de las bases de referencia mediante la supervisión de la integridad de los archivos
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: Colección de datos
-          href: security-center-enable-data-collection.md
-        - name: Directivas de seguridad integradas
-          href: security-center-policy-definitions.md
-        - name: Notificaciones por correo electrónico
-          href: security-center-provide-security-contact-details.md
-        - name: Plan de tarifa
-          href: security-center-pricing.md
-        - name: Configuraciones de seguridad
-          href: security-center-customize-os-security-config.md
-        - name: Visibilidad de todos los inquilinos
-          href: security-center-management-groups.md
+    - name: Colección de datos
+      href: security-center-enable-data-collection.md
+    - name: Directivas de seguridad integradas
+      href: security-center-policy-definitions.md
+    - name: Notificaciones por correo electrónico
+      href: security-center-provide-security-contact-details.md
+    - name: Plan de tarifa
+      href: security-center-pricing.md
+    - name: Configuraciones de seguridad
+      href: security-center-customize-os-security-config.md
+    - name: Visibilidad de todos los inquilinos
+      href: security-center-management-groups.md
     - name: Implementación de recomendaciones de seguridad
       href: security-center-recommendations.md
       items:
