@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455643"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751902"
 ---
 # <a name="create-a-new-saas-offer"></a>Cree una nueva oferta de SaaS
 
@@ -74,7 +74,7 @@ Para enumerar el Software como servicio (SaaS) se ofrece con el catálogo de sol
 
 - La oferta debe ser compatible con clientes de Azure. (A menudo las aplicaciones de SaaS también están hospedadas en Azure para optimizar el rendimiento y compatibilidad, pero esto no es un requisito.) 
 - Debe usar la oferta [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para la autenticación y administración de identidades.
-- Debe usar la oferta [API de entrega SaaS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) para integrarse con Azure Marketplace.
+- Debe usar la oferta [API de entrega SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para integrarse con Azure Marketplace.
 
 #### <a name="billing-infrastructure-costs"></a>Costos de infraestructura de facturación
 Para las ofertas de SaaS, como el publicador, debe tener en cuenta para las cuotas de uso de la infraestructura de Azure y las cuotas de licencias de software como un elemento único costo. Este costo se representa como una tarifa plana mensual para el cliente. Uso de la infraestructura de Azure administra y factura directamente a usted, el socio comercial. El cliente no ve los honorarios de uso de infraestructura reales. En general, los publicadores optan por agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software. 

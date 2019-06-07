@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480063"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753195"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -27,7 +27,7 @@ Obtenga información sobre la arquitectura, los conceptos y flujo de trabajo par
 
 Por lo general, el flujo de trabajo de machine learning sigue esta secuencia:
 
-1. Los scripts de entrenamiento del aprendizaje automático se desarrollan en **Python**.
+1. Desarrollar las secuencias de comandos de entrenamiento de aprendizaje de automático **Python** o con la interfaz visual.
 1. Se crea y configura un **destino de proceso**.
 1. **Se envían los scripts** al destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, los scripts pueden leer o escribir en el **almacén de datos**. Y los registros de ejecución se guardan como **ejecuciones** en el **área de trabajo**, agrupados en **experimentos**.
 1. **Se consulta el experimento** para las métricas registradas en ejecuciones actuales y anteriores. Si las métricas no ofrecen el resultado deseado, se vuelve en bucle al paso 1 y se repiten los scripts.
@@ -107,34 +107,7 @@ Use la API del SDK de Python o la CLI de Azure Machine Learning para almacenar y
 
 ## <a name="compute-target"></a>Destino de proceso
 
-Un destino de proceso es el recurso de proceso que se usa para ejecutar el script de entrenamiento o para hospedar la implementación del servicio web. Los destinos de proceso admitidos son los siguientes:
-
-| Destino de proceso | Cursos | Implementación |
-| ---- |:----:|:----:|
-| Equipo local | ✓ | &nbsp; |
-| Proceso de Azure Machine Learning | ✓ | &nbsp; |
-| Una única máquina virtual Linux en Azure</br>(como Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Análisis con Azure Data Lake | ✓ | &nbsp; |
-| Apache Spark para HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Matriz de puertas programables por campo (FPGA) | &nbsp; | ✓ |
-
-Los destinos de proceso están asociados a un área de trabajo. Los usuarios del área de trabajo comparten los destinos de proceso que no sean el equipo local.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Destinos de proceso administrados y no administrados
-
-* **Administrado**: destinos de proceso que crea y administra Azure Machine Learning Service. Estos destinos de proceso están optimizados para cargas de trabajo de Machine Learning. El proceso de Azure Machine Learning es el único destino de proceso administrado desde el 4 de diciembre de 2018. En el futuro pueden agregarse destinos de proceso administrados adicionales.
-
-    Puede crear instancias del proceso de Machine Learning directamente en el área de trabajo si usa Azure Portal, el SDK de Azure Machine Learning o la CLI de Azure. Todos los demás destinos de proceso deben crearse fuera del área de trabajo y adjuntarse posteriormente.
-
-* **No administrado**: destinos de proceso que *no* administra Azure Machine Learning Service. Es posible que tenga que crearlos fuera de Azure Machine Learning y, después, conectarlos al área de trabajo antes de usarlos. Estos destinos de proceso no administrados pueden requerir pasos adicionales para mantener o mejorar el rendimiento de las cargas de trabajo de Machine Learning.
-
-Para obtener información sobre cómo seleccionar un destino de proceso para el aprendizaje, consulte [Selección y uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
-
-Para obtener información sobre cómo seleccionar un destino de proceso para la implementación, consulte [Implementación de modelos con Azure Machine Learning Service](how-to-deploy-and-where.md).
+Un [destino de proceso](concept-compute-target.md) le permite especificar el recurso de proceso donde ejecute el script de entrenamiento o host de la implementación del servicio. Esta ubicación puede ser el equipo local o un recurso de proceso en la nube. Destinos de proceso fácil cambiar el entorno de proceso sin cambiar el código. 
 
 ## <a name="training-script"></a>Script de entrenamiento
 

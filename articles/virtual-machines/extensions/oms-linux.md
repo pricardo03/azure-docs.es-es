@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2019
+ms.date: 06/06/2019
 ms.author: roiyz
-ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743605"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755143"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Azure Monitor para Linux
 
@@ -39,7 +39,7 @@ Registros de Azure Monitor proporciona funcionalidades de corrección de alertas
 
 La extensión del agente de Log Analytics puede ejecutarse en estas distribuciones de Linux.
 
-| Distribución | `Version` |
+| Distribución | Version |
 |---|---|
 | CentOS Linux | 6 (x86/x64) y 7 (x64) |
 | Amazon Linux | 2017.09 (x64) | 
@@ -53,11 +53,27 @@ La extensión del agente de Log Analytics puede ejecutarse en estas distribucion
 >OpenSSL anterior a la versión 1.x no es compatible con ninguna plataforma y la versión 1.10 solo es compatible con plataformas x86_64 (64 bits).  
 >
 
+### <a name="agent-prerequisites"></a>Requisitos previos del agente
+
+En la tabla siguiente se resalta los paquetes necesarios para las distribuciones de Linux compatibles que se instalará el agente en.
+
+|Paquete necesario |DESCRIPCIÓN |Versión mínima |
+|-----------------|------------|----------------|
+|Glibc |    Biblioteca GNU C | 2.5-12 
+|Openssl    | Bibliotecas OpenSSL | 1.0 o 1.1 |
+|Curl | Cliente web de cURL | 7.15.5 |
+|Python ctypes | | 
+|PAM | Módulos de autenticación conectables | | 
+
+>[!NOTE]
+>Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar configurar el demonio de Rsyslog para reemplazar Sysklog.
+
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
 En la tabla siguiente proporciona una asignación de la versión de la extensión de máquina virtual de Azure Monitor y el paquete del agente de Log Analytics para cada versión. Se incluye un vínculo a las notas de la versión del paquete del agente de Log Analytics. Las notas de versión incluyen detalles sobre corrección de errores y nuevas características que están disponibles para una versión de agente determinada.  
 
 | Versión de la extensión de máquina virtual Linux de Monitor Azure | Versión del paquete del agente de Log Analytics | 
 |--------------------------------|--------------------------|
+|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 

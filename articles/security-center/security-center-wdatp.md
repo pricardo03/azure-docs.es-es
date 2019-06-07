@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743228"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752574"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Windows Defender con Azure Security Center
 
@@ -93,7 +93,7 @@ Siga las instrucciones de [Asignar acceso de usuario al portal](https://docs.mic
 
 ## <a name="set-the-firewall-configuration"></a>Establecimiento de la configuración del firewall
 
-Si tiene un servidor proxy o firewall que bloquea el tráfico anónimo, como un sensor de ATP de Windows Defender que se conecta desde el contexto del sistema, asegúrese de que el tráfico anónimo se permite. Siga las instrucciones para [habilitar el acceso a direcciones URL del servicio de ATP de Windows Defender en el servidor proxy](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server).
+Si tiene un servidor proxy o firewall que bloquea el tráfico anónimo, como un sensor de ATP de Windows Defender que se conecta desde el contexto del sistema, asegúrese de que el tráfico anónimo se permite. Siga las instrucciones para [habilitar el acceso a direcciones URL del servicio de ATP de Windows Defender en el servidor proxy](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## <a name="test-the-feature"></a>Prueba de la característica
 

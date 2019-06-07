@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472006"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752875"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Escribir y configurar los datos con el SDK de Azure Machine Learning Data Prep
 
@@ -73,7 +73,7 @@ Salida de ejemplo:
 
 ### <a name="delimited-file-example"></a>Ejemplo de archivo delimitado
 
-El siguiente código utiliza el [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-csv-directory-path--destinationpath--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) función para escribir datos en un archivo delimitado.
+El siguiente código utiliza el [ `write_to_csv()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-csv-directory-path--datadestination--separator--str--------na--str----na---error--str----error------azureml-dataprep-api-dataflow-dataflow) función para escribir datos en un archivo delimitado.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -121,7 +121,7 @@ El código anterior produce este resultado:
 
 ### <a name="parquet-file-example"></a>Ejemplo de archivo PARQUET
 
-Similar a `write_to_csv()`, [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#write-to-parquet-file-path--typing-union--destinationpath--nonetype----none--directory-path--typing-union--destinationpath--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) función devuelve un nuevo flujo de datos con un paso de Parquet que se ejecuta cuando el flujo de datos se ejecuta de escritura.
+Similar a `write_to_csv()`, [ `write_to_parquet()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#write-to-parquet-file-path--typing-union--datadestination--nonetype----none--directory-path--typing-union--datadestination--nonetype----none--single-file--bool---false--error--str----error---row-groups--int---0-----azureml-dataprep-api-dataflow-dataflow) función devuelve un nuevo flujo de datos con un paso de Parquet que se ejecuta cuando el flujo de datos se ejecuta de escritura.
 
 ```python
 write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./test_parquet_out/'),

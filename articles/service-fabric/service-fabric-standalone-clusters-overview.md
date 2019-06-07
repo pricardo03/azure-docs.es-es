@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b4b7759d1dc23c1a1b3a9b5aeb2a181923e14d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543743"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752339"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Introducción a los clústeres de Service Fabric independientes
 
@@ -51,7 +51,7 @@ Service Fabric también admite el control de acceso para limitar este a determin
 
 Para más información, lea [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Cambiar escala
 
 Las necesidades de las aplicaciones cambian a lo largo del tiempo. Puede necesitar aumentar los recursos del clúster para cumplir con aumentos del tráfico de red o de la carga de trabajo de la aplicación o reducir los recursos del clúster cuando la demanda baja. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos). Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster. Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
@@ -68,6 +68,7 @@ Podrá crear clústeres en VM o equipos que ejecuten estos sistemas operativos (
 
 * Windows Server 2012 R2
 * Windows Server 2016 
+* Windows Server 2019
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información más detallada sobre [protección](service-fabric-cluster-security.md), [escalado](service-fabric-cluster-scaling-standalone.md) y [actualización](service-fabric-cluster-upgrade-standalone.md) de los clústeres independientes.

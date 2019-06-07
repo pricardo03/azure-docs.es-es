@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305012"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754752"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -98,7 +98,7 @@ Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
  
 2. El hecho de que no se replican datos significa que las sesiones activas en la actualidad no se replican. Además, la detección de duplicados y mensajes programados puede no funcionar. Funcionarán las nuevas sesiones, los mensajes programados y los duplicados nuevos. 
 
-3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) al menos una vez. 
+3. Conmutar por error una compleja infraestructura distribuida debe [ensayarse](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) al menos una vez. 
 
 4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto.
 

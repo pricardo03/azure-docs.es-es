@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd5e0749116ef335887ea634b9d2790c63bf171d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61341256"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751932"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Solución de problemas de la extensión de máquina virtual de Log Analytics en Azure Monitor
 En este artículo se proporciona ayuda y posibles soluciones para resolver los errores que puedan surgir con la extensión de máquinas virtuales de Log Analytics para aquellas máquinas virtuales que se ejecutan en Microsoft Azure para Windows y Linux.
@@ -45,16 +45,11 @@ Si la extensión de la máquina virtual *Microsoft Monitoring Agent* no se insta
    * También puede revisar el archivo de registro del agente de máquina virtual `C:\WindowsAzure\logs\WaAppAgent.log`
    * Si el registro no existe, el agente de máquina virtual no estará instalado.
    * [Instale el agente de máquina virtual de Azure.](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Confirme que se está ejecutando la tarea de latido de la extensión de Microsoft Monitoring Agent mediante los siguientes pasos:
-   * Inicie sesión en la máquina virtual.
-   * Abra el programador de tareas y busque la tarea `update_azureoperationalinsight_agent_heartbeat`.
-   * Confirme que la tarea está habilitada y se ejecuta cada minuto.
-   * Consulte el archivo de registro de latido en `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`.
-3. Revise los archivos de registro de la extensión de máquina virtual de Microsoft Monitoring Agent en `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
-4. Asegúrese de que la máquina virtual puede ejecutar scripts de PowerShell.
-5. Asegúrese de que no se hayan modificado los permisos en C:\Windows\temp.
-6. Consulte el estado de Microsoft Monitoring Agent, para lo que debe escribir lo siguiente en una ventana de PowerShell con privilegios elevados en la máquina virtual `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
-7. Revise los archivos de registro de instalación de Microsoft Monitoring Agent en `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
+2. Revise los archivos de registro de la extensión de máquina virtual de Microsoft Monitoring Agent en `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
+3. Asegúrese de que la máquina virtual puede ejecutar scripts de PowerShell.
+4. Asegúrese de que no se hayan modificado los permisos en C:\Windows\temp.
+5. Consulte el estado de Microsoft Monitoring Agent, para lo que debe escribir lo siguiente en una ventana de PowerShell con privilegios elevados en la máquina virtual `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+6. Revise los archivos de registro de instalación de Microsoft Monitoring Agent en `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
 Para más información, consulte [Solución de problemas de la extensión de máquina virtual de Microsoft Azure](../../virtual-machines/extensions/oms-windows.md).
 

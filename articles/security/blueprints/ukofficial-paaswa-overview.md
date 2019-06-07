@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109334"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753862"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
 
@@ -191,7 +191,7 @@ Esta plantilla usa los siguientes componentes de Application Insights:
 
 #### <a name="azure-activity-logs"></a>Registros de actividad de Azure
 
-[Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) audita los eventos en el plano de control de las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes.
+[Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) audita los eventos en el plano de control de las suscripciones. Con el Registro de actividades, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 

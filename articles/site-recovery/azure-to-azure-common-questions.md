@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925666"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753777"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres en Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
 En este artículo proporciona respuestas a preguntas habituales acerca de la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante [Site Recovery](site-recovery-overview.md). 
 
@@ -59,7 +59,7 @@ Sí, puede excluir discos en el momento de la protección mediante PowerShell. P
 Sí, esto se admite para máquinas virtuales de Azure con discos administrados. Cuando se agrega un nuevo disco a una máquina virtual de Azure que está habilitado para la replicación, estado de replicación de la máquina virtual muestra una advertencia con una nota que especifica que uno o más discos en la máquina virtual están disponibles para la protección. Puede habilitar la replicación de los discos agregados.
 - Si habilita la protección para los discos agregados, la advertencia desaparecerá después de la replicación inicial.
 - Si decide no habilitar la replicación para el disco, puede seleccionar para descartar la advertencia.
-- Cuando se conmuta a una máquina virtual al que agregar un disco y habilitar su replicación, los puntos de la replicación mostrará los discos que están disponibles para la recuperación. Por ejemplo, si una máquina virtual tiene un único disco y agregar uno nuevo, los puntos de replicación que se crearon antes de agregar el disco mostrará que el punto de replicación se compone de "1 de 2 discos".
+- Cuando se conmuta a una máquina virtual al que agregar un disco y habilitar su replicación, los puntos de la replicación mostrará los discos que están disponibles para la recuperación. Por ejemplo, si una máquina virtual tiene un único disco y agrega uno nuevo, los puntos de replicación que se crearon antes de agregar el disco mostrarán que el punto de replicación se compone de "1 de 2 discos".
 
 Site Recovery no admite "frecuente quitar" de un disco de una máquina virtual replicada. Si quita un disco de máquina virtual, deberá deshabilitar y, a continuación, volver a habilitar la replicación de la máquina virtual.
 
@@ -129,7 +129,7 @@ El punto de recuperación más antiguo que puede usar es de 72 horas.
 No, Site Recovery mantendrá todos los puntos de recuperación anteriores. Dependiendo del periodo de retención de puntos de recuperación, 24 horas en este caso, Site Recovery reemplaza el punto más antiguo solo si hay una generación de nuevos puntos. En este caso, como no habrá ningún nuevo punto de recuperación generado como consecuencia de algún problema, todos los puntos antiguos permanecerán intactos una vez que finalice el periodo de retención.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Después de habilitar la replicación en una máquina virtual, ¿cómo puedo cambiar la directiva de replicación?
-Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Directivas de replicación**. Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
+Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación**. Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>¿Todos los puntos de recuperación son una copia completa de la máquina virtual o diferencial?
 El primer punto de recuperación que se genera tiene la copia completa. Los puntos de recuperación sucesivos tienen los cambios diferenciales.
@@ -143,7 +143,7 @@ Sí. Si aumenta el período de retención de 24 a 72 horas, Site Recovery guarda
 Significa asegurarse de que el punto de recuperación sea coherente en todas las máquinas virtuales replicadas.
 Site Recovery proporciona una opción de "Coherencia con varias máquinas virtuales" que, cuando se selecciona, crea un grupo de replicación para replicar juntas todas las máquinas que forman parte del grupo.
 Todas las máquinas virtuales tendrán puntos de recuperación compartidos coherentes con los bloqueos y coherentes con la aplicación cuando conmuten por error.
-Repase el tutorial para [habilitar la coherencia con múltiples máquinas virtuales](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Repase el tutorial para [habilitar la coherencia con múltiples máquinas virtuales](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>¿Puedo conmutar por error una sola máquina virtual de un grupo de replicación de coherencia con múltiples máquinas virtuales?
 Al seleccionar la opción "Coherencia con varias máquinas virtuales", indica que la aplicación depende de todas las máquinas virtuales de un grupo. Por lo tanto, no se permite la conmutación por error de una sola máquina virtual.
@@ -180,7 +180,7 @@ Obtenga información sobre [conservar las direcciones IP durante la conmutación
 Site Recovery trata de proporcionar la dirección IP en el momento de la conmutación por error. Si otra máquina virtual se lleva esa dirección, Site Recovery establece la siguiente dirección IP disponible como destino.
 Obtenga más información sobre [configurar asignación de red y el direccionamiento IP para redes virtuales](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
-### <a name="what-are-latest-lowest-rpo-recovery-points"></a>¿Qué son los puntos de recuperación **Más reciente (RPO más bajo)**?
+### <a name="what-are-latest-lowest-rpo-recovery-points"></a>¿Qué son los puntos de recuperación **Más reciente (RPO más bajo)** ?
 La opción **Más reciente (RPO más bajo)** procesa primero todos los datos que se han enviado al servicio Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Esta opción ofrece el objetivo de punto de recuperación mínimo, ya que la máquina virtual creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
 
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>¿Los puntos de recuperación con la opción **Más reciente (RPO más bajo)** afectan al RTO de conmutación por error?

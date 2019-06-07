@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 8155a9c8dd8e16ae9853f78ea949954fd15d30e1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a63ad846f569f434e1cae33746f61e3a033de66c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109487"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755024"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager
 
@@ -99,7 +99,7 @@ La versión de la API de Service Bus de la plantilla.
 Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**con tema y suscripción.
 
 ```json
-"resources ": [{
+"resources": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
         "type": "Microsoft.ServiceBus/Namespaces",

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735159"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754548"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Grado de enriquecimiento del mensaje para mensajes de IoT Hub del dispositivo a nube (versión preliminar)
 
@@ -77,7 +77,7 @@ Grado de enriquecimiento del mensaje está disponible sin ningún cargo adiciona
 
 ## <a name="availability"></a>Disponibilidad
 
-Esta funcionalidad está disponible en versión preliminar y está disponible en todas las regiones excepto este de Estados Unidos, oeste de Estados Unidos, Europa occidental, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), y [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Esta funcionalidad está disponible en versión preliminar y está disponible en todas las regiones excepto este de Estados Unidos, oeste de Estados Unidos, Europa occidental, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), y [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

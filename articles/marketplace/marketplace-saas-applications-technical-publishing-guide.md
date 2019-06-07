@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937716"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752727"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
 
@@ -25,14 +25,14 @@ Las aplicaciones de SaaS están disponibles en los escaparates de Azure. En la t
 | Opción de escaparate | Listado | Evaluación/transacción |  
 | --- | --- | --- |  
 | AppSource | Sí (Contacto) | Sí (PowerBI/Dynamics) |
-| Azure Marketplace | Sin  | Sí (Aplicaciones de SaaS) |   
+| Azure Marketplace | Sin | Sí (Aplicaciones de SaaS) |   
 
 **Lista:**  la opción de publicación de listado consiste en un tipo de oferta del tipo Ponerse en contacto conmigo y se usa cuando una participación de nivel de evaluación o transacción no es viable. La ventaja de este enfoque es que permite que los anunciantes con una solución en el mercado comiencen a recibir inmediatamente clientes potenciales que pueden convertirse en ventas para hacer crecer su negocio.  
 **Evaluación/Transacción:**  el cliente tiene la opción de comprar directamente o solicitar una versión de evaluación para la solución. Proporcionar una experiencia de Evaluación aumenta el nivel de compromiso que se ofrece a los clientes y permite que exploren la solución antes de comprarla. Con una experiencia de este tipo, tendrá mejores posibilidades de promoción en los escaparates, y deberían generarse más clientes potenciales y más valiosos a partir de la interacción con los clientes. Las versiones de evaluación deben incluir al menos soporte técnico gratuito durante el período de evaluación.  
 
 | Oferta de aplicaciones de SaaS | Requisitos empresariales | Requisitos técnicos |  
 | --- | --- | --- |  
-| **Póngase en contacto con nosotros** | Sí | Sin  |  
+| **Póngase en contacto con nosotros** | Sí | Sin |  
 | **PowerBI/Dynamics** | Sí | Sí (integración de Azure AD) |  
 | **Aplicaciones de SaaS**| Sí | Sí (integración de Azure AD) |     
 
@@ -148,4 +148,4 @@ Si aún no lo ha hecho,
 Si está registrado y está creando una oferta nueva o trabajando en una existente,
 
 - [Inicie sesión en Cloud Partner Portal](https://cloudpartner.azure.com) para crear o completar la oferta
-- Consulte [Oferta de aplicación SaaS de Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) para más información.
+- Consulte [Oferta de aplicación SaaS de Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) para más información.

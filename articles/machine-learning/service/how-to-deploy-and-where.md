@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742955"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753102"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementación de modelos con el servicio Azure Machine Learning
 
@@ -92,14 +92,7 @@ Para más información, consulte la documentación de referencia de la [clase Mo
 
 El siguiente proceso destinos, o los recursos de proceso, se puede usar para hospedar la implementación del servicio web. 
 
-| Destino de proceso | Uso | DESCRIPCIÓN |
-| ----- | ----- | ----- |
-| [Servicio web local](#local) | Las pruebas y depuración | Bueno para limitado de probar y solucionar problemas.
-| [Azure Kubernetes Service (AKS)](#aks) | Inferencia en tiempo real | Es útil para las implementaciones de producción a gran escala. Proporciona escalado automático y tiempos de respuesta rápidos. |
-| [Azure Container Instances (ACI)](#aci) | Pruebas | Es útil para la pequeña escala, cargas de trabajo basadas en CPU. |
-| [Proceso de Azure Machine Learning](how-to-run-batch-predictions.md) | Inferencia de lote | Inferencia de proceso por lotes se ejecutan en el proceso sin servidor. Es compatible con máquinas virtuales normales y de baja prioridad. |
-| [Azure IoT Edge](#iotedge) | (Versión preliminar) Módulo de IoT | Implementación y servir de modelos de aprendizaje automático en dispositivos IoT. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Preparación de la actualización
 

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967047"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754507"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Incorporación de blobs a objetos en Azure Digital Twins
 
@@ -36,7 +36,7 @@ Además de **Content-Type** y **Content-Disposition**, las solicitudes de varias
 
 Los cuatro esquemas JSON principales utilizados son:
 
-![Esquemas JSON][1]
+[![Esquemas de JSON](media/how-to-add-blobs/blob-models.PNG)](media/how-to-add-blobs/blob-models.PNG#lightbox)
 
 Los metadatos del blob JSON se ajustan al modelo siguiente:
 
@@ -51,16 +51,16 @@ Los metadatos del blob JSON se ajustan al modelo siguiente:
   }
 ```
 
-| Atributo | Type | DESCRIPCIÓN |
+| Atributo | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| **parentId** | String | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
+| **parentId** | string | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
 | **name** |String | Nombre fácil de usar para el blob |
-| **type** | String | Tipo de blob, no se puede usar *type* ni *typeId*  |
-| **typeId** | Integer | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
-| **subtype** | String | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
-| **subtypeId** | Integer | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
+| **type** | string | Tipo de blob, no se puede usar *type* ni *typeId*  |
+| **typeId** | Entero | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
+| **subtype** | string | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
+| **subtypeId** | Entero | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
 | **descripción** | String | Descripción personalizada del blob |
-| **sharing** | String | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
+| **sharing** | string | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
 
 Los metadatos del blob siempre se proporcionan como el primer fragmento con **Content-Type** `application/json` o como archivo `.json`. Los datos de archivos se proporcionan en el segundo fragmento y pueden ser de cualquier tipo MIME admitido.
 
@@ -108,20 +108,20 @@ Los blobs devueltos individualmente cumplen con el esquema JSON siguiente:
 }
 ```
 
-| Atributo | Type | DESCRIPCIÓN |
+| Atributo | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
-| **id** | String | Identificador único para el blob |
-| **name** |String | Nombre fácil de usar para el blob |
+| **id** | string | Identificador único para el blob |
+| **name** |string | Nombre fácil de usar para el blob |
 | **parentId** | String | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
-| **type** | String | Tipo de blob, no se puede usar *type* ni *typeId*  |
-| **typeId** | Integer | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
-| **subtype** | String | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
-| **subtypeId** | Integer | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
-| **sharing** | String | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
-| **descripción** | String | Descripción personalizada del blob |
+| **type** | string | Tipo de blob, no se puede usar *type* ni *typeId*  |
+| **typeId** | Entero | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
+| **subtype** | string | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
+| **subtypeId** | Entero | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
+| **sharing** | string | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
+| **descripción** | string | Descripción personalizada del blob |
 | **contentInfos** | Matriz | Especifica la información de metadatos sin estructurar, incluida la versión |
-| **fullName** | String | Nombre completo del blob |
-| **spacePaths** | String | Ruta de acceso al espacio |
+| **fullName** | string | Nombre completo del blob |
+| **spacePaths** | string | Ruta de acceso al espacio |
 
 Los metadatos del blob siempre se proporcionan como el primer fragmento con **Content-Type** `application/json` o como archivo `.json`. Los datos de archivos se proporcionan en el segundo fragmento y pueden ser de cualquier tipo MIME admitido.
 
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Por último, los usuarios de [cURL](https://curl.haxx.se/) pueden hacer solicitudes de formulario de varias partes de la misma manera:
 
-![Blobs de dispositivo][5]
+[![Blobs de dispositivo](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
 
 ```bash
 curl
@@ -211,7 +211,7 @@ Las siguientes secciones describen los principales puntos de conexión de API re
 
 Puede conectar blobs a dispositivos. La siguiente imagen muestra la documentación de referencia de Swagger para las API de administración. Especifica los puntos de conexión de API relacionados con los dispositivos para el consumo de blobs y los parámetros de ruta de acceso necesarios que se pasarán a dichos puntos de conexión.
 
-![Blobs de dispositivo][2]
+[![Blobs de dispositivo](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
 
 Por ejemplo, para actualizar o crear un blob y conectarlo a un dispositivo, realice una solicitud HTTP PATCH autenticada a:
 
@@ -229,7 +229,7 @@ Las solicitudes correctas devuelven un objeto JSON como [se ha descrito anterior
 
 También puede conectar blobs a espacios. En la imagen siguiente se enumeran todos los puntos de conexión de API de espacio responsables de controlar los blobs. También muestra los parámetros de ruta de acceso que se van a pasar a esos puntos de conexión.
 
-![Blobs de espacio][3]
+[![Blobs de espacio](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
 
 Por ejemplo, para devolver un blob conectado a un espacio, realice una solicitud HTTP GET autenticada a:
 
@@ -249,7 +249,7 @@ Una solicitud PATCH al mismo punto de conexión actualiza las descripciones de m
 
 Puede conectar blobs a modelos de usuario (por ejemplo, para asociar una imagen de perfil). En la imagen siguiente se muestran los puntos de conexión de API de usuarios pertinentes y los parámetros de ruta de acceso necesarios, como `id`:
 
-![Blobs de usuario][4]
+[![Blobs de usuario](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
 
 Por ejemplo, para capturar un blob conectado a un usuario, realice una solicitud HTTP GET autenticada con todos los datos de formulario necesarios a:
 
@@ -288,10 +288,3 @@ Además, verifique que cada fragmento de varias partes tenga un **Content-Type**
 - Para obtener más información sobre la documentación de referencia de Swagger para Azure Digital Twins, lea [Uso de Azure Digital Twins Swagger](how-to-use-swagger.md).
 
 - Para cargar blobs a través de Postman, lea [Configuración de Postman](./how-to-configure-postman.md).
-
-<!-- Images -->
-[1]: media/how-to-add-blobs/blob-models.PNG
-[2]: media/how-to-add-blobs/blobs-device-api.PNG
-[3]: media/how-to-add-blobs/blobs-space-api.PNG
-[4]: media/how-to-add-blobs/blobs-users-api.PNG
-[5]: media/how-to-add-blobs/curl.PNG

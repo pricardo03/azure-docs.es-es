@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420734"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755570"
 ---
 Los tamaños de VM optimizadas para almacenamiento proporcionan un alto rendimiento de disco y de E/S y son ideales para macrodatos, bases de datos SQL y NoSQL, almacenamiento de datos y bases de datos transaccionales grandes.  Por ejemplo, Cassandra, MongoDB, Cloudera y Redis. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento local y del ancho de banda de red para cada tamaño optimizado.
 
@@ -57,7 +57,7 @@ Caching de Premium Storage: No compatible
 - SLES 12 SP2 o posterior
 - Versión RHEL o CentOS 6.7 a través de 6.10, con el paquete LIS proporcionada por Microsoft 4.3.1 (o posterior) instalado
 - Versión RHEL o CentOS 7.3, con el paquete proporcionado por Microsoft LIS 4.2.1 (o posterior) instalado
-- Versión RHEL o CentOS 7.4 o posterior
+- RHEL o CentOS versión 7.6 o posterior
 - Oracle Linux con UEK4 o posterior
 - Debian 9 con el kernel backports, Debian, 10 o posterior
 - CoreOS con un kernel 4.14 o posterior

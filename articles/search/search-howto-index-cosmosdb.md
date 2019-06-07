@@ -10,18 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522830"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753986"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Cómo indexar Cosmos DB mediante un indexador de Azure Search
 
 
 > [!Note]
-> Compatibilidad con la API de MongoDB está en versión preliminar y no se ha diseñado para su uso en producción. El [API de REST versión 2019-05-06-Preview](search-api-preview.md) proporciona esta característica. No hay ningún portal o la compatibilidad con el SDK de .NET en este momento.
+> Compatibilidad con la API de MongoDB está en versión preliminar y no se ha diseñado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. No hay ningún portal o la compatibilidad con el SDK de .NET en este momento.
 >
 > API de SQL está disponible con carácter general.
 
@@ -258,7 +258,7 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
 | Bool |Edm.Boolean, Edm.String |
 | Números que parecen enteros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que parecen puntos flotantes |Edm.Double, Edm.String |
-| String |Edm.String |
+| string |Edm.String |
 | Matrices de tipos primitivos, por ejemplo ["a", "b", "c"] |Collection(Edm.String) |
 | Cadenas que parecen fechas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por ejemplo {"type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -282,6 +282,8 @@ Una vez creados el origen de datos y los índices, ya podrá crear el indizador:
 Este indexador se ejecuta cada dos horas (el intervalo de programación se establece en "PT2H"). Para ejecutar un indizador cada 30 minutos, establézcalo en PT30M. El intervalo más breve que se admite es de 5 minutos. La programación es opcional: si se omite, el indizador solo se ejecuta una vez cuando se crea. Sin embargo, puede ejecutarlo a petición en cualquier momento.   
 
 Para más información sobre la API Create Indexer, consulte [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Para obtener más información acerca de cómo definir programaciones de indizador vea [cómo programar los indizadores para Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="use-net"></a>Uso de .NET
 

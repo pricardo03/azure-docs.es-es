@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479932"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753985"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
 En este artículo se explica cómo usar Azure Search para indexar documentos (como archivos PD, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
@@ -116,6 +116,8 @@ Este indizador se ejecutará cada dos horas (el intervalo de programación se es
 
 Para más información sobre la API Create Indexer, consulte [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+Para obtener más información acerca de cómo definir programaciones de indizador vea [cómo programar los indizadores para Azure Search](search-howto-schedule-indexers.md).
+
 ## <a name="how-azure-search-indexes-blobs"></a>Proceso mediante el cual Azure Search indiza los blobs
 
 En función de la [configuración del indizador](#PartsOfBlobToIndex), el indizador de blob puede indizar solo los metadatos de almacenamiento (resulta útil cuando solo le interesan los metadatos y no necesita indizar el contenido de los blobs), los metadatos de almacenamiento y contenido, o bien el contenido textual y los metadatos. De forma predeterminada, el indizador extrae los metadatos y el contenido.
@@ -139,7 +141,8 @@ En función de la [configuración del indizador](#PartsOfBlobToIndex), el indiza
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): La última marca de tiempo modificada para el blob. Azure Search usa esta marca de tiempo para identificar los blobs modificados para evitar volver a indexar todo después de la indexación inicial.
   * **metadata\_storage\_size** (Edm.Int64): Tamaño del blob en bytes.
   * **metadata\_storage\_content\_md5** (Edm.String): Hash MD5 del contenido del blob, si está disponible.
-  * **metadatos\_almacenamiento\_sas\_token** (Edm.String): un token temporal que puede usarse por [habilidades personalizadas](cognitive-search-custom-skill-interface.md) para obtener derechos de acceso al blob. Este token de sas no debe almacenarse para su uso posterior es posible que expire.
+  * **metadatos\_almacenamiento\_sas\_token** (Edm.String): un token SAS temporal que puede usarse por [habilidades personalizadas](cognitive-search-custom-skill-interface.md) para obtener acceso al blob. No se debe almacenar este token para su uso posterior es posible que expire.
+
 * Se extraen las propiedades de metadatos específicos de cada formato de documento en los campos enumerados [aquí](#ContentSpecificMetadata).
 
 No es necesario definir campos para todas las propiedades anteriores en el índice de búsqueda, capture solo las propiedades que necesita para la aplicación.

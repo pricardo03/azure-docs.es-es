@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240625"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754026"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado
 
@@ -43,7 +43,7 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
     - **Proyecto público**: (desactivado)
     - **Create a README.md** (Crear un Léame.md): desactivada
 
-1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+**) y seleccione **Cuaderno**.
+1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+** ) y seleccione **Cuaderno**.
 
 1. Asigne al cuaderno un nombre similar a *Entorno personalizado.ipynb*, seleccione **Python 3.6** como el lenguaje y, luego, seleccione **Nuevo**.
 

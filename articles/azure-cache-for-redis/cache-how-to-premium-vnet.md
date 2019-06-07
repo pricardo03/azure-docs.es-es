@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831087"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752064"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Premium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -110,10 +110,10 @@ Existen siete requisitos de puerto de salida.
 - Tres de los puertos enrutan el tráfico a los puntos de conexión de Azure que funcionan con Azure Storage y Azure DNS.
 - Los intervalos de puertos restantes y para las comunicaciones internas de la subred de Redis. No es necesaria ninguna regla de NSG para las comunicaciones internas de la subred de Redis.
 
-| Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
+| Puertos | Direction | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Salida |TCP |Dependencias de Redis en Azure Storage/PKI (Internet) | (Subred de Redis) |* |
-| 53 |Salida |TCP/UDP |Dependencias de Redis en DNS (Internet y red virtual) | (Subred de Redis) |* |
+| 53 |Salida |TCP/UDP |Dependencias de Redis en DNS (Internet y red virtual) | (Subred de Redis) | 168.63.129.16 y 169.254.169.254 <sup>1</sup> y cualquier servidor DNS personalizado para la subred <sup>3</sup> |
 | 8443 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) | (Subred de Redis) |
 | 10221-10231 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) | (Subred de Redis) |
 | 20226 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
@@ -121,12 +121,15 @@ Existen siete requisitos de puerto de salida.
 | 15000-15999 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 6379-6380 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 
+<sup>1</sup> se usan estas direcciones IP que pertenecen a Microsoft para abordar la máquina virtual de Host que actúa de DNS de Azure.
+
+<sup>3</sup> no es necesario para las subredes con ningún servidor DNS personalizado, o una más reciente redis memorias caché que pasan por alto DNS personalizado.
 
 #### <a name="inbound-port-requirements"></a>Requisitos de puerto de entrada
 
 Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entrantes de estos intervalos provienen de otros servicios hospedados en la misma red virtual o son comunicaciones internas de la subred de Redis.
 
-| Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
+| Puertos | Direction | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) | (Subred de Redis), Virtual Network, Azure Load Balancer |
 | 8443 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
@@ -157,7 +160,7 @@ Cuando los requisitos de puerto se configuran tal como se describe en la secció
 
 - [Reinicie](cache-administration.md#reboot) todos los nodos de la caché. Si no se pueden alcanzar todas las dependencias de caché necesarias (como se documenta en [Requisitos del puerto de entrada](cache-how-to-premium-vnet.md#inbound-port-requirements) y [Requisitos de puerto de salida](cache-how-to-premium-vnet.md#outbound-port-requirements)), la caché no podrá reiniciarse correctamente.
 - Cuando se han reiniciado los nodos de la memoria caché (como indica el estado de la caché en Azure Portal), puede realizar las siguientes pruebas:
-  - hacer ping en el punto de conexión de caché (con el puerto 6380) desde una máquina que esté dentro de la misma red virtual como la memoria caché, con [tcping](https://www.elifulkerson.com/projects/tcping.php). Por ejemplo: 
+  - hacer ping en el punto de conexión de caché (con el puerto 6380) desde una máquina que esté dentro de la misma red virtual como la memoria caché, con [tcping](https://www.elifulkerson.com/projects/tcping.php). Por ejemplo:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +183,7 @@ Evite el uso de la dirección IP similar a la cadena de conexión siguiente:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Si no puede resolver el nombre DNS, algunas bibliotecas de cliente incluyen opciones de configuración como `sslHost`, que proporciona el cliente StackExchange.Redis. Esto le permite invalidar el nombre de host utilizado para la validación del certificado. Por ejemplo: 
+Si no puede resolver el nombre DNS, algunas bibliotecas de cliente incluyen opciones de configuración como `sslHost`, que proporciona el cliente StackExchange.Redis. Esto le permite invalidar el nombre de host utilizado para la validación del certificado. Por ejemplo:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

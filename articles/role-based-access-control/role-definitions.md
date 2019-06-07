@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949996"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754895"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
@@ -136,7 +136,7 @@ Propietario
 &nbsp;&nbsp;&nbsp;&nbsp;Acciones<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Colaborador de datos de Storage Blob
+Colaborador de datos de Blob de almacenamiento
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acciones<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -157,7 +157,7 @@ Para más información acerca de la administración y la seguridad en el plano d
 
 Para visualizar y trabajar con operaciones de datos, debe tener las versiones correctas de las herramientas o SDK:
 
-| Tool  | Version  |
+| Herramienta  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o posterior |
 | [CLI de Azure](/cli/azure/install-azure-cli) | 2.0.30 o posterior |
@@ -216,7 +216,7 @@ El permiso `NotDataActions` especifica las operaciones de datos que se excluyen 
 
 ## <a name="assignablescopes"></a>Ámbitos asignables
 
-La propiedad `AssignableScopes` especifica los ámbitos (suscripciones, grupos de recursos o recursos) en los que el rol está disponible para la asignación. Puede permitir que el rol esté disponible para su asignación solamente en las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario con el resto de las suscripciones o grupos de recursos. Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
+El `AssignableScopes` propiedad especifica los ámbitos (suscripciones, grupos de recursos o recursos) que tienen esta definición de rol disponible. Puede realizar la función disponibles para la asignación de solo las suscripciones o grupos de recursos que lo requieran y sin necesidad de abarrotar la experiencia del usuario para el resto de las suscripciones o grupos de recursos. Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
 
 Los roles integrados tienen `AssignableScopes` establecido en el ámbito raíz (`"/"`). El ámbito raíz indica que el rol está disponible para la asignación en todos los ámbitos. Ejemplos de ámbitos asignables válidos son:
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303209"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755047"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a Azure SQL Database administra los límites de recursos de instancia
 
@@ -38,8 +38,8 @@ Instancia administrada de Azure SQL Database se puede implementar en dos generac
 | --- | --- | --- |
 | Hardware | Procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz; núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico) | Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz; SSD NVMe rápido, núcleo virtual equivalente a 1 LP (Hyper-Threading) |
 | Núcleos virtuales | 8, 16, 24 núcleos virtuales | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
-| Memoria | 7 GB por núcleo virtual | 5,1 GB por núcleo virtual |
-| Memoria de máximo de OLTP en memoria | 3 GB por núcleo virtual | 2,6 GB por núcleo virtual |
+| Memoria (memoria/núcleo) | 7 GB por núcleo virtual | 5,1 GB por núcleo virtual |
+| Memoria de máximo de OLTP en memoria | Límite de instancia: 3 GB por núcleo virtual<br/>Límites de la base de datos:<br/> -8 núcleos: 8GB por base de datos<br/> -16 núcleos: 20GB por base de datos<br/> -24-core: 36GB por base de datos | Límite de instancia: 2,5 GB por núcleo virtual<br/>Límites de la base de datos:<br/> -8 núcleos: 13GB por base de datos<br/> -16 núcleos: 32GB por base de datos |
 | Almacenamiento de instancia máximo (uso General) |  8 TB | 8 TB |
 | Almacenamiento de instancia máximo (crítico para la empresa) | 1 TB | 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 
@@ -50,14 +50,14 @@ Instancia administrada tiene dos niveles de servicio - uso General y crítico pa
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |
 | Número de núcleos virtuales\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memoria | Gen4: 56 GB - 168 GB (7GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5.1 GB/núcleo virtual) | Gen4: 56 GB - 168 GB (7GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5.1 GB/núcleo virtual) |
+| Memoria (memoria/núcleo) | Gen4: 56 GB - 168 GB (7GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5.1 GB/núcleo virtual) | Gen4: 56 GB - 168 GB (7GB/núcleo virtual)<br/>Gen5: 40,8 GB - 408 GB (5.1 GB/núcleo virtual) |
 | Tamaño máximo de almacenamiento de instancia | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 8 y 16 núcleos virtuales<br/>- 2 TB para 24 núcleos virtuales<br/>- 4 TB para 32, 40, 64 y 80 núcleos virtuales |
 | Almacenamiento máximo por base de datos | Determinado por el tamaño de almacenamiento máximo por instancia | Determinado por el tamaño de almacenamiento máximo por instancia |
 | Número máximo de bases de datos por instancia | 100 | 100 |
 | Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
 | Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
 | Rendimiento de registro | 3 MB/s por núcleo virtual<br/>Max 22 MB/s por instancia | 4 MB/s por núcleo virtual<br/>Max 48 MB/s por instancia|
-| Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
+| Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/D |
 | Latencia de E/S (aproximada) | 5-10 ms | 1-2 ms |
 | Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual) | No hay restricciones: limitadas por el tamaño máximo de almacenamiento de la instancia |
 | Sesiones máximas | 30000 | 30000 |

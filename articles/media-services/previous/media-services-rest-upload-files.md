@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817651"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752880"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST  
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ En este tutorial, obtendrá información sobre cómo cargar un archivo y otras o
 Al usar la API de REST de Media Services, se aplican las consideraciones siguientes:
  
 * Al obtener acceso a las entidades mediante la API de REST de Media Services, debe establecer campos de encabezado y valores específicos en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md). <br/>La colección de Postman que se usa en este tutorial establece todos los encabezados necesarios.
-* Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un '.' para la extensión del nombre de archivo.
+* Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]" Además, solo puede haber un '.' para la extensión del nombre de archivo.
 * La longitud del nombre no debe ser superior a 260 caracteres.
 * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) artículo para obtener información más detallada acerca de la limitación de tamaño de archivo.
 
@@ -86,7 +86,7 @@ Para obtener los pasos sobre cómo configurar Postman para este tutorial, consul
         ]
     }
     ```
-4. En la parte izquierda de la ventana **Postman**, haga clic en **1. Get AAD Auth token (Obtener token de autenticación de AAD)** -> **Get Azure AD Token for Service Principal (Obtener token de Azure AD para la entidad de servicio)**.
+4. En la parte izquierda de la ventana **Postman**, haga clic en **1. Get AAD Auth token (Obtener token de autenticación de AAD)**  -> **Get Azure AD Token for Service Principal (Obtener token de Azure AD para la entidad de servicio)** .
 
     La parte de la dirección URL se rellena con la variable de entorno **AzureADSTSEndpoint** (anteriormente en el tutorial estableció los valores de las variables de entorno para que admiten la colección).
 
@@ -109,7 +109,7 @@ Antes de cargar los archivos en el almacenamiento de blobs, establezca los derec
 
 ### <a name="create-an-access-policy"></a>Creación de una directiva de acceso
 
-1. Seleccione **AccessPolicy** -> **Create AccessPolicy for Upload (Crear AccessPolicy para la carga)**.
+1. Seleccione **AccessPolicy** -> **Create AccessPolicy for Upload (Crear AccessPolicy para la carga)** .
 2. Presione **Enviar**.
 
     ![Cargar un archivo](./media/media-services-rest-upload-files/postman-access-policy.png)
@@ -161,7 +161,7 @@ Se aplican algunas consideraciones:
 
 ### <a name="create-a-sas-locator"></a>Creación de un localizador de SAS
 
-1. Seleccione **Localizador** -> **Create SAS Locator (Crear localizador de SAS)**.
+1. Seleccione **Localizador** -> **Create SAS Locator (Crear localizador de SAS)** .
 2. Presione **Enviar**.
 
     El script "test" crea la "dirección URL de carga" en función del nombre del archivo multimedia que ha especificado y la información del localizador de SAS, y establece la variable de entorno adecuada.
@@ -176,7 +176,7 @@ Ahora que tiene la dirección URL de carga, tiene que escribir código directame
 
 - [Uso de la API de REST de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Carga de blobs a Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Carga de blobs a Blob Storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Carga de un archivo con Postman
 
@@ -187,7 +187,7 @@ La solicitud de carga no forma parte de la colección **AzureMedia**.
 Creación y configuración de una nueva solicitud:
 1. Presione **+** para crear una nueva pestaña de solicitud.
 2. Seleccione la operación **PUT** y pegue **{{UploadURL}}** en la dirección URL.
-2. Deje la pestaña **Autorización** tal cual (no la establezca en **Bearer Token [Token de portador]**).
+2. Deje la pestaña **Autorización** tal cual (no la establezca en **Bearer Token [Token de portador]** ).
 3. En la pestaña **Encabezados** especifique: **Clave**: "x-ms-blob-type" y **Valor**: "BlockBlob".
 2. En la pestaña **Cuerpo**, haga clic en **binario**.
 4. Elija el archivo con el nombre que especificó en la variable de entorno **MediaFileName**.

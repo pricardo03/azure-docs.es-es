@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743243"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754587"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurar el tráfico saliente de red para clústeres de HDInsight de Azure con Firewall (versión preliminar)
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 La integración del Firewall de Azure con los registros de Azure Monitor es útil al obtener primero un trabajo de la aplicación cuando no es consciente de todas las dependencias de aplicación. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="access-to-the-cluster"></a>Acceso al clúster
-Después de tener correctamente la configuración del firewall, puede usar el punto de conexión interno (https://<clustername>-int.azurehdinsight.net) para tener acceso a la de Ambari desde dentro de la red virtual. Para usar el punto de conexión público (https://<clustername>. azurehdinsight.net) o ssh punto de conexión (<clustername>-ssh.azurehdinsight.net), asegúrese de que dispone de las rutas de la derecha en la tabla de rutas y configuración las reglas de NSG para evitar que se explica el problema de enrutamiento tráfico [aquí](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Después de tener correctamente la configuración del firewall, puede usar el punto de conexión interno (`https://<clustername>-int.azurehdinsight.net`) para tener acceso a la de Ambari desde dentro de la red virtual. Para usar el punto de conexión público (`https://<clustername>.azurehdinsight.net`) o ssh punto de conexión (`<clustername>-ssh.azurehdinsight.net`), asegúrese de que dispone de las rutas de la derecha en la tabla de rutas y configuración las reglas de NSG para evitar el problema de enrutamiento de tráfico se explica [aquí](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configurar otro dispositivo de red virtual
 

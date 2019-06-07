@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f3d7f916d31a03d7b868749026f541dd646459f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732525"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751945"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Control de errores con Durable Functions (Azure Functions)
 
-Las orquestaciones de Durable Functions se implementan en el código y pueden utilizar las funciones de control de errores del lenguaje de programación. Así, realmente no hay ningún nuevo concepto que deba conocer sobre cuándo incorporar el control de errores y la compensación en las orquestaciones. No obstante, hay algunos comportamientos que deben tenerse en cuenta.
+Las orquestaciones de Durable Functions se implementan en el código y pueden utilizar las funciones de control de errores del lenguaje de programación. Teniendo esto en mente, realmente no hay ningún nuevo concepto que necesita para obtener información sobre cómo incorporar el control de errores y compensación a las orquestaciones. No obstante, hay algunos comportamientos que deben tenerse en cuenta.
 
 ## <a name="errors-in-activity-functions"></a>Errores en funciones de actividad
 

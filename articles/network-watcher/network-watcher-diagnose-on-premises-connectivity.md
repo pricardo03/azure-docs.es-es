@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713771"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754064"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
@@ -36,7 +36,7 @@ Quiere configurar una conexión de sitio a sitio entre Azure y la red local con 
 
 1. Puerta de enlace de red virtual: la instancia de VPN Gateway en Azure
 1. Puerta de enlace de red local: la representación de la[ instancia de VPN Gateway local (FortiGate](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)) en la nube de Azure
-1. Conexión de sitio a sitio (basada en rutas): [conexión entre la puerta de enlace de VPN y el enrutador local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Conexión de sitio a sitio (basada en rutas): [conexión entre la puerta de enlace de VPN y el enrutador local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Configuración de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
@@ -81,30 +81,30 @@ La característica de solución de problemas de Azure Network Watcher le permite
 
 ### <a name="gateway"></a>Puerta de enlace
 
-| Tipo de error | Motivo | Registro|
+| Tipo de error | Reason | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
-| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin |
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | Sin  |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Esto sucede cuando se produce un error en el sondeo de estado. | Sin  |
-| PlatformInActive | Hay un problema con la plataforma. | Sin |
-| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin |
-| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| Sin |
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
+| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin|
+| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | Sin |
+| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Esto sucede cuando se produce un error en el sondeo de estado. | Sin |
+| PlatformInActive | Hay un problema con la plataforma. | Sin|
+| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin|
+| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| Sin|
 | ConnectionsNotConnected | No está conectada ninguna de las conexiones. Esto es solo una advertencia.| Sí|
 | GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
 ### <a name="connection"></a>Conexión
 
-| Tipo de error | Motivo | Registro|
+| Tipo de error | Reason | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
-| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin |
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | Sin  |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | Sin  |
-| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin  |
-| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin |
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
+| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin|
+| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | Sin |
+| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | Sin |
+| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin |
+| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin|
 | ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
 | ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| Sí|
 | Authentication | Error de coincidencia de clave previamente compartida. | Sí|

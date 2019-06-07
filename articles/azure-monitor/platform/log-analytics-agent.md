@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916375"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751986"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Azure Log Analytics
 
@@ -59,7 +59,8 @@ A partir de las versiones publicadas después de agosto de 2018, hemos realizado
 * No se admiten las nuevas versiones de AMI.  
 * Solo se admiten las versiones que ejecutan SSL 1.x de forma predeterminada.
 
-Si utiliza una distribución o versión que no se admite actualmente y no se alinea con nuestro modelo de soporte técnico, se recomienda bifurcar este repositorio, confirmar que el soporte técnico de Microsoft no prestará asistencia con versiones de agente con bifurcación.
+>[!NOTE]
+>Si utiliza una distribución o versión que no se admite actualmente y no se alinea con nuestro modelo de soporte técnico, se recomienda bifurcar este repositorio, confirmar que el soporte técnico de Microsoft no prestará asistencia con versiones de agente con bifurcación.
 
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x86/x64) y 7 (x64)  
@@ -72,6 +73,21 @@ Si utiliza una distribución o versión que no se admite actualmente y no se ali
 >[!NOTE]
 >OpenSSL 1.1.0 solo se admite en las plataformas x86_x64 (64 bits) y OpenSSL anterior a 1.x no se admite en ninguna plataforma.
 >
+
+### <a name="agent-prerequisites"></a>Requisitos previos del agente
+
+En la tabla siguiente se resalta los paquetes necesarios para las distribuciones de Linux compatibles que se instalará el agente en.
+
+|Paquete necesario |DESCRIPCIÓN |Versión mínima |
+|-----------------|------------|----------------|
+|Glibc |    Biblioteca GNU C | 2.5-12 
+|Openssl    | Bibliotecas OpenSSL | 1.0 o 1.1 |
+|Curl | Cliente web de cURL | 7.15.5 |
+|Python ctypes | | 
+|PAM | Módulos de autenticación conectables | | 
+
+>[!NOTE]
+>Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar configurar el demonio de Rsyslog para reemplazar Sysklog.
 
 ## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 Para garantizar la seguridad de datos en tránsito a los registros de Azure Monitor, se recomienda encarecidamente configurar el agente para que utilice al menos seguridad de capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.  Para información adicional, revise [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
@@ -105,7 +121,7 @@ Con el agente de Linux, el servidor proxy se especifica durante o [después de l
 |user | Nombre de usuario opcional para la autenticación de proxy |
 |contraseña | Contraseña opcional para la autenticación de proxy |
 |proxyhost | Dirección o nombre de dominio completo (FQDN) del servidor proxy o la puerta de enlace de Log Analytics |
-|puerto | Número de puerto opcional para el servidor proxy o la puerta de enlace de Log Analytics |
+|port | Número de puerto opcional para el servidor proxy o la puerta de enlace de Log Analytics |
 
 Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 

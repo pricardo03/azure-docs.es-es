@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025355"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755101"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Azure Search
 
@@ -158,23 +158,7 @@ También puede disponer que el indizador se ejecute periódicamente según una p
 
 El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-El valor **startTime** opcional indica cuándo deben comenzar las ejecuciones programadas. Si se omite, se usará la hora UTC actual. Este tiempo puede estar en el pasado, en cuyo caso la primera ejecución se programa como si el indexador se hubiera ejecutado continuamente desde la hora de inicio.  
-
-Solo se puede ejecutar a la vez una ejecución de un indexador. Si está ejecutando un indexador cuando está programada su ejecución, dicha ejecución se pospone hasta la próxima hora programada.
-
-Veamos un ejemplo entenderlo concretamente. Supongamos que está configurada la siguiente programación por hora:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Esto es lo que sucede:
-
-1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
-2. Suponga que esta ejecución tarda 20 minutos (o un período inferior a 1 hora).
-3. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m.
-4. Ahora suponga que esta ejecución tarda más de una hora (por ejemplo, 70 minutos), de forma que finalice aproximadamente 2:10 a.m.
-5. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Ahora bien, dado que la segunda ejecución de la 1 a. m. aún está en ejecución, la tercera se omite. La tercera ejecución empieza a las 3 a. m.
-
-Puede agregar, cambiar o eliminar la programación de un indizador existente mediante una solicitud **PUT de indizador** .
+Para obtener más información acerca de cómo definir programaciones de indizador vea [cómo programar los indizadores para Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243593"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751640"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -53,7 +53,7 @@ Puede asociar a una entidad de seguridad con un nivel de acceso de archivos y di
 
 Si ha asignado un rol a una entidad de seguridad en el nivel de cuenta de almacenamiento, puede usar listas de control de acceso para conceder que acceso elevado de esa entidad de seguridad a los directorios y archivos específicos.
 
-No se puede usar listas de control de acceso para proporcionar un nivel de acceso que sea inferior a un nivel concedido por una asignación de roles. Por ejemplo, si asigna el [colaborador de datos de almacenamiento Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) listas de rol a una entidad de seguridad, no puede usar el control de acceso para impedir que esa entidad de seguridad se escriban en un directorio.
+No se puede usar listas de control de acceso para proporcionar un nivel de acceso que sea inferior a un nivel concedido por una asignación de roles. Por ejemplo, si asigna el [colaborador de datos de almacenamiento Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) listas de rol a una entidad de seguridad, no puede usar el control de acceso para impedir que esa entidad de seguridad se escriban en un directorio.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Conjunto de permisos de nivel de archivo y directorio, mediante el uso de listas de control de acceso
 
@@ -270,7 +270,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>¿Es preciso habilitar la compatibilidad con las ACL?
 
- No. Control de acceso mediante las ACL está habilitada para una cuenta de almacenamiento como el Namespace (SNP) jerárquica característica está activada.
+No. Control de acceso mediante las ACL está habilitada para una cuenta de almacenamiento como el Namespace (SNP) jerárquica característica está activada.
 
 Si el espacio de nombres jerárquico está DESACTIVADO, las reglas de autorización de RBAC siguen siendo aplicables.
 

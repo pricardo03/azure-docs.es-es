@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121508"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752556"
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 
@@ -279,7 +279,7 @@ La tabla siguiente enumera y describe escenarios de integración:
 |[Mapa de aplicación](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Los componentes de la aplicación, con alertas y métricas clave.|
 |[Búsqueda de diagnóstico para datos de instancia](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Busque y filtre eventos como solicitudes, excepciones, llamadas de dependencia, seguimientos de registro y vistas de páginas.|
 |[Explorador de métricas para datos agregados](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filtre y segmente datos agregados, como los índices de solicitudes, errores y excepciones; los tiempos de respuesta y los tiempos de carga de página.|
-|[Paneles](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combine datos de varios recursos y compártalos con otros. Ideal para aplicaciones de varios componentes y para la presentación continua en la sala de reuniones.|
+|[Paneles](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Combine datos de varios recursos y compártalos con otros. Ideal para aplicaciones de varios componentes y para la presentación continua en la sala de reuniones.|
 |[Secuencia de métricas en directo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Al implementar una nueva compilación, fíjese en estos indicadores de rendimiento casi en tiempo real para asegurarse de que todo funciona según lo esperado.|
 |[Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Responda preguntas complejas acerca del uso y el rendimiento de su aplicación mediante este eficaz lenguaje de consulta.|
 |[Alertas automáticas y manuales](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Las alertas automáticas se adaptan a los patrones normales de telemetría de la aplicación y se desencadenan cuando algo no responde al patrón habitual. También puede establecer alertas sobre niveles de métricas estándares o personalizadas.|
@@ -328,9 +328,9 @@ Hay cuatro maneras de [recopilar registros y métricas de los servicios de Azure
 
 * Scripts para recopilar y, a continuación, publicar datos en los registros de Azure Monitor (celdas en blanco en la tabla siguiente y servicios que no aparecen)
 
-| Servicio | Tipo de recurso | Registros | Métricas | Solución |
+| Servicio | Tipo de recurso | Registros | metrics | Solución |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Azure Application](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Azure Application](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     Conector|  Conector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)[Connector (versión preliminar)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Cuentas de Azure Automation| Microsoft.Automation/<br>AutomationAccounts|    Diagnóstico||       [Más información](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Cuentas de Azure Batch|  Microsoft.Batch/<br>batchAccounts|  Diagnóstico|    Diagnóstico||
@@ -344,7 +344,7 @@ Hay cuatro maneras de [recopilar registros y métricas de los servicios de Azure
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnóstico|||
 |Azure Logic Apps|  Microsoft.Logic/<br>workflows|  Diagnóstico|    Diagnóstico||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Grupos de seguridad de red|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Análisis de los grupos de seguridad de red de Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Grupos de seguridad de red|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Análisis de los grupos de seguridad de red de Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Almacenes de recuperación|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (versión preliminar)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Servicios de búsqueda|   Microsoft.Search/<br>searchServices|    Diagnóstico|    Diagnóstico||
 |Espacio de nombres de Service Bus| Microsoft.ServiceBus/<br>namespaces|    Diagnóstico|Diagnóstico|    [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -357,7 +357,7 @@ Hay cuatro maneras de [recopilar registros y métricas de los servicios de Azure
 |Conjuntos de escalas de máquina virtual|    Microsoft.Compute/<br>virtualMachines    ||Diagnóstico||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Granjas de servidores web|Microsoft.Web/<br>serverfarms||   Diagnóstico
-|Websites|  Microsoft.Web/<br>sites ||      Diagnóstico|    [Más información](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|Sitios web|  Microsoft.Web/<br>sites ||      Diagnóstico|    [Más información](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>sites/<br>slots||||
 
 

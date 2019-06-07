@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024799"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755089"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexación de Azure Table Storage con Azure Search
 En este artículo se muestra cómo usar Azure Search para indexar datos almacenados en Azure Table Storage.
@@ -114,6 +114,8 @@ Después de crear el origen de datos y el índice, ya puede crear el indexador:
 Este indexador se ejecuta cada dos horas. (El intervalo de programación se establece en "PT2H"). Para ejecutar un indizador cada 30 minutos, establézcalo en PT30M. El intervalo más breve que se admite es de cinco minutos. La programación es opcional: si se omite, el indexador solo se ejecuta una vez cuando se crea. Sin embargo, puede ejecutarlo a petición en cualquier momento.   
 
 Para más información sobre la API de creación de indexador, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de un indexador).
+
+Para obtener más información acerca de cómo definir programaciones de indizador vea [cómo programar los indizadores para Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Trabajo con distintos nombres de campos
 A veces, los nombres de los campos de un índice existente no coincidirán con los nombres de las propiedades de la tabla. Puede usar asignaciones de campos para asignar los nombres de propiedad procedentes de la tabla a los nombres de campo del índice de búsqueda. Para aprender más sobre las asignaciones de campos, consulte [Las asignaciones de campos de indexador de Azure Search salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).

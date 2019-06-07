@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410581"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755135"
 ---
 # <a name="automatically-scale-session-hosts"></a>Escalado automático de los host de sesiones
 
@@ -26,7 +26,7 @@ El entorno donde se ejecuta el script debe tener lo siguiente:
 
 - Un inquilino de Escritorio Virtual de Windows y la cuenta o una entidad de servicio con permisos para consultar ese inquilino (por ejemplo, el colaborador de RDS).
 - Máquinas virtuales del grupo de host de sesión configurado y registren con el servicio de Escritorio Virtual de Windows.
-- Una máquina virtual adicional que se ejecuta la tarea programada a través del programador de tareas y tiene acceso a la red para hosts de sesión. Se trata más adelante en el documento se refiere a como máquina virtual de scaler.
+- Una máquina virtual adicional que se ejecuta la tarea programada a través del programador de tareas y tiene acceso a la red para hosts de sesión. Esto se hará referencia a más adelante en el documento como máquina virtual de scaler.
 - El [módulo Microsoft Azure Resource Manager PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instalado en la máquina virtual ejecutando la tarea programada.
 - El [módulo Windows PowerShell de Escritorio Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) instalado en la máquina virtual ejecutando la tarea programada.
 

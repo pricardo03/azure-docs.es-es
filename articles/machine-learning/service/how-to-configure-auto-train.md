@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400249"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753178"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizadas experimentos de aprendizaje automático en Python
 
@@ -125,7 +125,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 El script `get_data` puede devolver:
 
-Clave | Type | Se excluye mutuamente con    | DESCRIPCIÓN
+Clave | Escriba | Se excluye mutuamente con    | DESCRIPCIÓN
 ---|---|---|---
 X | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |  Todas las características que se usan para el aprendizaje
 y | Dataframe de Pandas o matriz de Numpy |   etiqueta   | Datos de etiquetas que se usan para el aprendizaje. Para la clasificación, debe ser una matriz de enteros.
@@ -158,7 +158,7 @@ Utilice el conjunto de datos de validación personalizada si la división aleato
 
 A continuación, determine dónde se va a entrenar el modelo. Un experimento de entrenamiento de aprendizaje automático automatizado se puede ejecutar en las opciones de proceso siguientes:
 *   La máquina local, como un escritorio local o un equipo portátil: generalmente, cuando haya un pequeño conjunto de datos y siga en la fase de exploración.
-*   Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
+*   Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
 
 Visite el [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obtener cuadernos de ejemplo con destinos de proceso locales y remotos.
 

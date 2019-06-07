@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806197"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752828"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Cómo administrar su cuenta de Marketplace comercial en el centro de partners 
 
@@ -279,7 +279,7 @@ Si desea conceder acceso de centro de partners a un Azure completamente nuevo cu
 1.  Desde el **usuarios** página (en **configuración de la cuenta**), seleccione **agregar aplicaciones de Azure AD**.
 2.  En la siguiente página, seleccione **New Azure AD application**.
 3.  Escriba el **dirección URL de respuesta** para la nueva aplicación de Azure AD. Se trata de la dirección URL donde los usuarios pueden iniciar sesión y usar la aplicación de Azure AD (a veces, también conocido como dirección URL de aplicación o dirección URL de inicio de sesión). El **dirección URL de respuesta** no puede tener más de 256 caracteres y debe ser único dentro de su directorio.
-4.  Escriba el **App ID URI** para la nueva aplicación de Azure AD. Se trata de un identificador lógico para la aplicación de Azure AD que se presenta cuando se envía una solicitud de inicio de sesión única con Azure AD. Tenga en cuenta que el **App ID URI** debe ser único para cada aplicación de Azure AD en el directorio. Este identificador no puede ser superior a 256 caracteres. Para obtener más información sobre el URI de Id. de aplicación, consulte [integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.  Escriba el **App ID URI** para la nueva aplicación de Azure AD. Se trata de un identificador lógico para la aplicación de Azure AD que se presenta cuando se envía una solicitud de inicio de sesión única con Azure AD. Tenga en cuenta que el **App ID URI** debe ser único para cada aplicación de Azure AD en el directorio. Este identificador no puede ser superior a 256 caracteres. Para obtener más información sobre el URI de Id. de aplicación, consulte [integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  En el **Roles** , especifique los roles o permisos personalizados para la aplicación de Azure AD.
 6.  Seleccione **Guardar**.
 
@@ -313,9 +313,9 @@ Tenga en cuenta los roles de inquilino de Azure Active Directory (AAD) incluyen 
 |      |• Crear incidencias de soporte técnico para el centro de partners
 ||• Vista acuerdos, listas de precios y ofertas
 ||• Ver, crear y administrar los usuarios del asociado|
-|Administrador|• Puede tener acceso a todas las características de la cuenta de Microsoft, excepto las opciones de pago y fiscal
+|Manager|• Puede tener acceso a todas las características de la cuenta de Microsoft, excepto las opciones de pago y fiscal
 |      |• Puede administrar usuarios, roles, cuentas y trabajo (inquilinos)|
-|Desarrollador|• Puede cargar paquetes, enviar las aplicaciones y los complementos y ver el informe de uso para obtener más información de telemetría
+|Developer|• Puede cargar paquetes, enviar las aplicaciones y los complementos y ver el informe de uso para obtener más información de telemetría
 |      |• No se puede obtener acceso a la configuración de cuenta o información financiera|
 |Colaborador de la empresa|• Puede tener acceso a información financiera y establecer los detalles de precios
 |      |• No se puede crear o enviar nuevas aplicaciones y complementos|
@@ -367,7 +367,7 @@ Cuando se quita un inquilino, todos los usuarios que se han agregado a la cuenta
 > No se puede quitar a un inquilino si has iniciado sesión en el centro de partners mediante una cuenta en el mismo inquilino. Para quitar un inquilino, debe iniciar sesión en el centro de partners como un **Manager** para otro inquilino que está asociado con la cuenta. Si hay un solo inquilino asociado con la cuenta, solo se puede quitar ese inquilino después de iniciar sesión con la cuenta de Microsoft que abrió la cuenta.
 
 
-## <a name="agreements"></a>Acuerdos
+## <a name="agreements"></a>Contratos
 
 El **acuerdos** sección del centro de partners (bajo **configuración de la cuenta**) vamos a ver una lista de los contratos de publicación que hayan autorizado. Estos contratos se enumeran según el nombre y número de versión, incluida la fecha en que se aceptó y el nombre del usuario que ha aceptado el contrato. 
 
