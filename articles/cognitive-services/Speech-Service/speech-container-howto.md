@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388687"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752446"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar y ejecutar contenedores de servicios de voz
 
@@ -260,7 +260,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### <a name="text-to-speech"></a>Texto a voz
 
-El contenedor proporciona el punto de conexión REST API que pueden encontrarse [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) y puede encontrar ejemplos de [aquí](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+El contenedor proporciona el punto de conexión REST API que pueden encontrarse [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) y puede encontrar ejemplos de [aquí](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

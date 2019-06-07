@@ -12,6 +12,8 @@
       href: workloads/oracle/oracle-considerations.md
     - name: SAP
       href: workloads/sap/get-started.md
+    - name: Informática de alto rendimiento
+      href: workloads/hpc/configure.md
     - name: Rehospedaje del sistema central
       href: workloads/mainframe-rehosting/overview.md
 - name: Implementaciones clásicas
