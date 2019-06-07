@@ -190,7 +190,7 @@ Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado*
 | -------- | ---- | ----------- |
 | twin | objeto | Información sobre el dispositivo gemelo, que es la representación en la nube de metadatos de dispositivo de la aplicación. | 
 | deviceID | string | Identificador único del dispositivo gemelo. | 
-| ETag | string | Un validador para garantizar la coherencia de las actualizaciones de un dispositivo gemelo. Se garantiza que cada etiqueta de entidad sea exclusiva de cada dispositivo gemelo. |  
+| eTag | string | Un validador para garantizar la coherencia de las actualizaciones de un dispositivo gemelo. Se garantiza que cada etiqueta de entidad sea exclusiva de cada dispositivo gemelo. |  
 | deviceEtag| string | Un validador para garantizar la coherencia de las actualizaciones de un registro de dispositivo. Se garantiza que cada deviceEtag sea exclusiva de cada registro de dispositivo. |
 | status | string | Si el dispositivo gemelo está habilitado o deshabilitado. | 
 | statusUpdateTime | string | La marca de tiempo ISO8601 de la última actualización de estado del dispositivo gemelo. |
