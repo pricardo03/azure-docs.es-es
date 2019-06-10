@@ -163,25 +163,29 @@
       items:
         - name: Introducción a los indexadores
           href: search-indexer-overview.md
-        - name: Indexador de Blob Storage
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Indexador de Table Storage
+        - name: Indexador de Azure Table Storage
           href: search-howto-indexing-azure-tables.md
-        - name: Indexador de SQL Database
+        - name: Indexador de Azure SQL Database
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Indexador de Cosmos DB
+        - name: Indexador de Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
-        - name: Indexación de blobs de uno a varios
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Indexación de blobs en CSV
-          href: search-howto-index-csv-blobs.md
-        - name: Indexación de blobs en JSON
-          href: search-howto-index-json-blobs.md
+        - name: Indexador de Azure Blob Storage
+          items:
+            - name: Configuración de un indexador de blobs
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexación de blobs de uno a varios
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indexación de blobs CSV
+              href: search-howto-index-csv-blobs.md
+            - name: Indexación de blobs JSON
+              href: search-howto-index-json-blobs.md
+        - name: Programación de indexadores
+          href: search-howto-schedule-indexers.md
+        - name: Asignación de campos
+          href: search-indexer-field-mappings.md
         - name: Conexión con las máquinas virtuales de SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Asignaciones de campos
-          href: search-indexer-field-mappings.md
-        - name: Solución de problemas habituales
+        - name: Solución de problemas comunes
           href: search-indexer-troubleshooting.md
     - name: Enriquecimiento con IA
       items:
