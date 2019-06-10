@@ -56,7 +56,7 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | $schema |Sin  |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
-| título |Sí |Nombre del artefacto que se muestra en el laboratorio. |
+| title |Sí |Nombre del artefacto que se muestra en el laboratorio. |
 | description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
 | iconUri |Sin  |Identificador URI del icono que se muestra en el laboratorio. |
 | targetOsType |Sí |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
@@ -78,8 +78,8 @@ Para definir los parámetros, use la estructura siguiente:
 
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
-| Tipo |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
-| DisplayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
+| type |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
+| displayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
 | description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
 
 Los tipos permitidos son:
