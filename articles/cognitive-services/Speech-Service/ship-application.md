@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 9bb721221f8f90a39b1c84bcdd66429bbd628494
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65912649"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808458"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
 
@@ -24,14 +24,14 @@ Respete la [licencia de Speech SDK](https://aka.ms/csspeech/license201809), así
 
 En función de la plataforma, existen otras dependencias para ejecutar la aplicación.
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 El SDK de Voz de Cognitive Services se ha probado en Windows 10 y en Windows Server 2016.
 
 Cognitive Services Speech SDK requiere la [Microsoft Visual C++ Redistributable para Visual Studio de 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) en el sistema. Puede descargar los instaladores para la versión más reciente de `Microsoft Visual C++ Redistributable for Visual Studio 2019` aquí:
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 Si en la aplicación se usa código administrado, se necesita `.NET Framework 4.6.1` o una versión posterior en el equipo de destino.
 
@@ -39,7 +39,7 @@ Para la entrada de micrófono, las bibliotecas de Media Foundation deben estar i
 
 Los archivos necesarios del SDK de Voz se pueden implementar en el mismo directorio que la aplicación. De esta forma la aplicación puede acceder directamente a las bibliotecas. Asegúrese de seleccionar la versión correcta (Win32/x64) que coincida con la aplicación.
 
-| NOMBRE | Función
+| Name | Función
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK básico, necesario para la implementación nativa y administrada
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necesario para la implementación administrada
