@@ -63,7 +63,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | as2To | string | Nombre del destinatario del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
 | as2From | string | Nombre del remitente del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
 | agreementName | string | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
-| dirección | string | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | string | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | messageId | string | Identificador del mensaje AS2, de los encabezados del mensaje AS2 (opcional) |
 | dispositionType |string | Valor del tipo de disposición de notificación de disposición del mensaje (MDN). (Opcional) |
 | fileName | string | Nombre de archivo, del encabezado del mensaje AS2. (Opcional) |
@@ -116,7 +116,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | as2To | string | Nombre del asociado que recibe el mensaje AS2. (Obligatorio) |
 | as2From | string | Nombre del asociado que envía el mensaje AS2. (Obligatorio) |
 | agreementName | string | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
-| dirección |string | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction |string | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | messageId | string | Identificador del mensaje AS2. (Opcional) |
 | originalMessageId |string | Identificador del mensaje original AS2. (Opcional) |
 | dispositionType | string | Valor de tipo de disposición de MDN. (Opcional) |
