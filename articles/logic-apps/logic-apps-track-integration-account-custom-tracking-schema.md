@@ -59,7 +59,7 @@ En este artículo se proporciona un código personalizado que puede usar en las 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | sourceType |   | Tipo del origen de ejecución. Los valores permitidos son **Microsoft.Logic/workflows** y **custom**. (Obligatorio) |
-| Origen |   | Si el tipo de origen es **Microsoft.Logic/workflows**, la información de origen tiene que ir detrás de este esquema. Si el tipo de origen es **custom**, el esquema es un JToken (Obligatorio) |
+| source |   | Si el tipo de origen es **Microsoft.Logic/workflows**, la información de origen tiene que ir detrás de este esquema. Si el tipo de origen es **custom**, el esquema es un JToken (Obligatorio) |
 | systemId | string | Id. de sistema de aplicación lógica. (Obligatorio) |
 | runId | string | Id. de ejecución de aplicación lógica. (Obligatorio) |
 | operationName | string | Nombre de la operación (por ejemplo, acción o desencadenador). (Obligatorio) |
