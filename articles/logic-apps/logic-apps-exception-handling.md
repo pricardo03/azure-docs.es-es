@@ -75,7 +75,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 |-------|------|-------------|
 | <*retry-policy-type*> | string | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
 | <*retry-interval*> | string | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
-| <*retry-attempts*> | Entero | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
+| <*retry-attempts*> | Integer | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
 ||||
 
 *Opcional*
