@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desarrollo en equipo de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 94083639ca769d12b04c4dc316a9f9867e4209b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765239"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480358"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Inicio rápido: Desarrollo en equipo en Kubernetes con Azure Dev Spaces
 
@@ -35,7 +35,7 @@ En esta guía, aprenderá a:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
 
-Debe crear un clúster de AKS en una [región admitida](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Los siguientes comandos permiten crear un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
+Debe crear un clúster de AKS en una [región admitida][supported-regions]. Los siguientes comandos permiten crear un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -92,6 +92,8 @@ cd charts/
 helm init --wait
 helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
 ```
+> [!Note]
+> **Si va a usar un clúster habilitado para RBAC**, no olvide configurar [una cuenta de servicio para Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). En caso contrario, los comandos `helm` generarán un error.
 
 El comando `helm install` puede tardar varios minutos en completarse. La salida del comando muestra el estado de todos los servicios que implementó en el clúster cuando finaliza:
 
@@ -232,3 +234,6 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 
 > [!div class="nextstepaction"]
 > [Trabajo con varios contenedores y desarrollo en equipo](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

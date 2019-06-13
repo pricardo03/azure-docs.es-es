@@ -12,13 +12,13 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
-ms.date: 04/11/2019
-ms.openlocfilehash: 2b1206e3087b0573736174d4eed502653d76f7a5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/29/2019
+ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001197"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416369"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Inicio rápido: Uso de R para consultar una base de datos de Azure SQL (versión preliminar)
 
@@ -32,14 +32,35 @@ Para completar esta guía de inicio rápido, asegúrese de que dispone de lo sig
 
 - Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
-  || Base de datos única | Instancia administrada |
+<!-- Managed instance is not supported during the preview
+  || Single database | Managed instance |
   |:--- |:--- |:---|
-  | Crear| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configuración | [Regla de firewall de IP en el nivel de servidor](sql-database-server-level-firewall-rule.md)| [Conectividad desde una máquina virtual](sql-database-managed-instance-configure-vm.md)|
-  |||[Conectividad desde el sitio](sql-database-managed-instance-configure-p2s.md)
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md) | [Connectivity from a VM](sql-database-managed-instance-configure-vm.md) |
+  ||| [Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) |
+  | Load data | Adventure Works loaded per quickstart | [Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) |
+  ||| Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) |
   |||
+-->
+
+  || Base de datos única |
+  |:--- |:--- |
+  | Crear| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Configuración | [Regla de firewall de IP en el nivel de servidor](sql-database-server-level-firewall-rule.md) |
+  | Carga de datos | Adventure Works cargado por inicio rápido |
+  |||
+
+  > [!NOTE]
+  > Durante la versión preliminar de Azure SQL Database Machine Learning Services con R, no se admite la opción de implementación de instancia administrada.
+
+<!-- Managed instance is not supported during the preview
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+-->
 
 - Machine Learning Services (con R) habilitado. Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente. Siga los pasos que se indican en [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
 
@@ -63,7 +84,10 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 1. Pase el script de R completo al procedimiento almacenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-   El script se pasa mediante el argumento `@script`. Todo lo que hay dentro del argumento `@script` debe ser un código de R válido.
+   El script se pasa mediante el argumento `@script`. Todo lo que haya en el argumento `@script` debe ser un código de R válido.
+   
+   >[!IMPORTANT]
+   >El código de este ejemplo usa los datos de AdventureWorksLT de ejemplo, que puede elegir como origen al crear la base de datos. Si la base de datos tiene datos distintos, use las tablas de su propia base de datos en la consulta SELECT. 
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -83,7 +107,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)
+- [Diseño de su primera base de datos de Azure SQL](sql-database-design-first-database.md)
 - [Machine Learning Services (con R) en Azure SQL Database](sql-database-machine-learning-services-overview.md)
 - [Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-quickstart-r-create-script.md)
 - [Escribir funciones de R avanzadas en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-functions.md)

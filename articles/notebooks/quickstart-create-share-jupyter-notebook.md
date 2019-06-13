@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239831"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751787"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Inicio rápido: Creación y uso compartido de un cuaderno
 
@@ -41,11 +41,11 @@ ms.locfileid: "60239831"
 
      ![Ventana emergente Nuevo proyecto con los detalles completados](media/quickstarts/new-project-popup.png)
 
-1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+**) y seleccione **Cuaderno**:
+1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+** ) y seleccione **Cuaderno**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Un proyecto nuevo vacío y el comando para agregar cuaderno")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. En la ventaja emergente **Create New Notebook** (Crear nuevo cuaderno) que aparece, escriba un nombre de archivo para el cuaderno, como *HelloWorldInPython.ipynb* (*.ipynb* se refiere a IronPython (Jupyter) Notebook) y seleccione **Python 3.6** en el lenguaje (que también se denomina como el *kernel*):
+1. En la ventaja emergente **Create New Notebook** (Crear nuevo cuaderno) que aparece, escriba un nombre de archivo para el cuaderno, como *HelloWorldInPython.ipynb* ( *.ipynb* se refiere a IronPython (Jupyter) Notebook) y seleccione **Python 3.6** en el lenguaje (que también se denomina como el *kernel*):
 
     ![La ventana emergente para crear un cuaderno](media/quickstarts/new-notebook-popup.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "60239831"
 
     ![Icono Guardar en la barra de herramientas de Jupyter Notebook](media/quickstarts/hello-results-save-icon.png)
 
-1. Seleccione el **archivo** > **cerrar y detener** comando de menú para detener el servidor y cerrar la ventana del explorador.
+1. Seleccione el comando de menú **Archivo** > **Close and Halt** (Cerrar y detener) para detener el servidor y cerrar la ventana del explorador.
 
 ## <a name="share-the-notebook"></a>Uso compartido del cuaderno
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 8d10c3edcf64ccc66b0599d064e91270a4ad8202
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160069"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66814875"
 ---
 Puede realizar fácilmente el [escalado automático](../articles/azure-monitor/platform/autoscale-best-practices.md) de sus [máquinas virtuales (VM)](../articles/virtual-machines/windows/overview.md) si usa los [conjuntos de escalado de máquinas virtuales](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) y la [característica de escalado automático de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Las máquinas virtuales tienen que ser miembros del conjunto de escalado que se va a escalar automáticamente. Este artículo le proporciona información que le permitirá entender mejor cómo escalar las máquinas virtuales tanto vertical como horizontalmente mediante métodos automáticos y manuales.
 

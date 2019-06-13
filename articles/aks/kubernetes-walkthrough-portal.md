@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c43375afe7965475e84793ddcd54a38a2e9bd3cd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073712"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688110"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 
@@ -31,27 +31,28 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
-En la esquina superior izquierda de Azure Portal, seleccione **+ Crear un recurso** > **Kubernetes Service**.
+En la esquina superior izquierda de Azure Portal, seleccione **+ Crear un recurso** > **Contenedores** >  **Servicio de Kubernetes**.
 
 Para crear un clúster de AKS, realice los siguientes pasos:
 
-1. **Datos básicos**. Configure las siguientes opciones:
+1. En la página **Datos básicos**, configure las siguientes opciones:
    - *DETALLES DEL PROYECTO*: seleccione una suscripción de Azure y, a continuación, seleccione o cree un grupo de recursos de Azure, como *myResourceGroup*. Escriba un **Nombre del clúster de Kubernetes**, como *myAKSCluster*.
    - *DETALLES DEL CLÚSTER*: seleccione la región, la versión de Kubernetes y el prefijo del nombre DNS para el clúster de AKS.
-   - *ESCALA*: seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS.
+   - **GRUPO DE NODOS PRINCIPAL**: seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS. 
        - Seleccione el número de nodos que se van a implementar en el clúster. En esta guía de inicio rápido, establezca **Número de nodos** en *1*. El número de nodos **puede** ajustarse después de implementar el clúster.
     
      ![Creación de un clúster de AKS: proporcionar información básica](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Seleccione **Siguiente: autenticación** cuando haya terminado.
+     Seleccione **Siguiente: Escala** cuando haya terminado.
 
-1. **Autenticación**: Configure las siguientes opciones:
-   - Cree una entidad de servicio o haga clic en *Configurar* para usar una existente. Al usar un SPN existente, debe proporcionar el identificador de cliente SPN y el secreto.
-   - Habilite la opción para los controles de acceso basado en roles (RBAC) de Kubernetes. Estos controles proporcionan un control más minucioso sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
+2. En la página **Escala**, deje las opciones predeterminadas. En la parte inferior de la pantalla, haga clic en **Siguiente: Autenticación**.
+3. En la página **Autenticación**, configure las siguientes opciones:
+   - Cree una entidad de servicio; para ello, deje el campo **Entidad de servicio** con **Entidad de servicio predeterminada (nueva)** . También puede elegir *Configurar la entidad de servicio* para usar una existente. Si usa una existente, deberá proporcionar el identificador de cliente y el secreto de SPN.
+   - Habilite la opción para los controles de acceso basado en roles (RBAC) de Kubernetes. Esta opción proporciona un control más pormenorizado sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
 
-     De forma predeterminada, se usa la red *Básica* y está habilitado Azure Monitor para contenedores. Seleccione **Review + create** (Revisar y crear) y, a continuación, **Create** cuando esté preparado.
+    De forma predeterminada, se usa la red *Básica* y está habilitado Azure Monitor para contenedores. Haga clic en **Revisar y crear** y, luego, en **Crear** cuando finalice la validación.
 
-Se tardan unos minutos en crear el clúster de AKS y en prepararlo para usarlo. Cuando termine, vaya al grupo de recursos del clúster de AKS, como *myResourceGroup* y seleccione el recurso de AKS, como *myAKSCluster*. Se muestra el panel del clúster de AKS, como se muestra en la siguiente captura de pantalla de ejemplo:
+El clúster de AKS tarda unos minutos en crearse. Una vez finalizada la implementación, haga clic en **Ir al recurso**, o busque el grupo de recursos del clúster de AKS, como *myResourceGroup* y seleccione el recurso de AKS, por ejemplo, *myAKSCluster*. Se muestra el panel del clúster de AKS, como en este ejemplo:
 
 ![Panel de AKS de ejemplo en Azure Portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -59,7 +60,7 @@ Se tardan unos minutos en crear el clúster de AKS y en prepararlo para usarlo. 
 
 Para administrar un clúster de Kubernetes, usará [kubectl][kubectl], el cliente de línea de comandos de Kubernetes. El cliente `kubectl` viene preinstalado en Azure Cloud Shell.
 
-Abra Cloud Shell mediante el botón de la esquina superior derecha de Azure Portal.
+Abra Cloud Shell mediante el botón `>_` de la parte superior de Azure Portal.
 
 ![Apertura de Azure Cloud Shell en el portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 

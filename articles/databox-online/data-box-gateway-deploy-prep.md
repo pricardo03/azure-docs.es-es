@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686530"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476831"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway
 
@@ -51,7 +51,11 @@ Aquí encontrará los requisitos previos para configurar su recurso de Data Box 
 Antes de comenzar, asegúrese de que:
 
 - El recurso de Data Box Gateway debe admitir su suscripción de Microsoft Azure. No se admiten suscripciones de pago por uso.
-- Debe tener acceso de colaborador o propietario a la suscripción.
+- Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage.
+
+    - Para crear cualquier recurso de Data Box Edge o Data Box Gateway, deben tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
 - Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 

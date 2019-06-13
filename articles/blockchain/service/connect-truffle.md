@@ -5,19 +5,19 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 037f37d6a8e1c41579403dbf7c9dd265efbb5d10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8b1a701beac867c5f331ffa1ee1dee615961c6b3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030033"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416289"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-an-azure-blockchain-service-network"></a>Inicio rápido: Uso de Truffle para conectarse a una red de Azure Blockchain Service
+# <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>Inicio rápido: Uso de Truffle para conectarse a una red de Azure Blockchain Service
 
 Truffle es un entorno de desarrollo de cadena de bloques que puede usarse para conectarse a un nodo de Azure Blockchain Service.
 
@@ -26,24 +26,24 @@ Truffle es un entorno de desarrollo de cadena de bloques que puede usarse para c
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Crear un miembro de Azure Blockchain](create-member.md)
-* Para usar Truffle es necesario instalar varias herramientas, como [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) y [Truffle](https://github.com/trufflesuite/truffle).
-
-    Para una instalación rápida en Windows 10, instale [Ubuntu en Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) para un terminal de shell de Bash de Unix y, luego, instale [Truffle](https://github.com/trufflesuite/truffle). La distribución de Ubuntu en Windows incluye Node.js y Git.
+* Instale [Truffle](https://github.com/trufflesuite/truffle). Para usar Truffle es necesario instalar varias herramientas, como [Node.js](https://nodejs.org) y [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Instale [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python es necesario para Web3.
 
 ## <a name="create-truffle-project"></a>Creación de un proyecto de Truffle
 
-1. Abra un terminal de shell de Bash.
-1. Cambie el directorio por el lugar donde quiere crear el directorio del proyecto de Truffle. Por ejemplo,
-
-    ``` bash
-    cd /mnt/c
-    ```
-
+1. Abra un símbolo del sistema o shell de Node.js.
+1. Cambie el directorio por el lugar donde quiere crear el directorio del proyecto de Truffle.
 1. Cree un directorio para el proyecto y cambie la ruta de acceso para que señale al nuevo directorio. Por ejemplo,
 
     ``` bash
     mkdir truffledemo
     cd truffledemo
+    ```
+
+1. Inicialice el proyecto de Truffle.
+
+    ``` bash
+    truffle init
     ```
 
 1. Instale Ethereum JavaScript API web3 en la carpeta del proyecto. Actualmente, se requiere web3 1.0.0-beta.37.
@@ -53,12 +53,6 @@ Truffle es un entorno de desarrollo de cadena de bloques que puede usarse para c
     ```
 
     Puede que reciba advertencias de npm durante la instalación.
-
-1. Inicialice el proyecto de Truffle.
-
-    ``` bash
-    truffle init
-    ```
 
 1. Inicie la consola de desarrollo interactiva de Truffle.
 
@@ -70,7 +64,7 @@ Truffle es un entorno de desarrollo de cadena de bloques que puede usarse para c
 
 ## <a name="connect-to-transaction-node"></a>Conexión al nodo de transacción
 
-Se usará Web3 para la conexión al nodo de transacción. Puede obtener la cadena de conexión de Web3 en Azure Portal.
+Use *Web3* para la conexión al nodo de transacción. Puede obtener la cadena de conexión de *Web3* en Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Vaya al miembro de Azure Blockchain Service. Seleccione **Nodos de transacción** y el vínculo al nodo de transacción predeterminado.
@@ -90,8 +84,7 @@ Se usará Web3 para la conexión al nodo de transacción. Puede obtener la caden
     truffle(develop)> var Web3 = require("Web3");
     truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
     truffle(develop)> var web3 = new Web3(provider);
-    truffle(develop)>
-     ```
+    ```
 
     Puede llamar a los métodos del objeto **web3** para interactuar con el nodo de la transacción.
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79697d44ea3e5126d43169f36c550046af3bc366
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170605"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480040"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
@@ -23,7 +23,9 @@ VPN Gateway es un tipo específico de puerta de enlace de red virtual que se usa
 
 Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada *subred de puerta de enlace*. Las máquinas virtuales que se encuentran en esta subred se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No se pueden configurar directamente las máquinas virtuales que forman parte de la puerta de enlace de red virtual y nunca debe implementar recursos adicionales en la subred de la puerta de enlace.
 
-La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos. Al crear una puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace y se configuran con las opciones que especifique. Una de las opciones que se configuran es el tipo de puerta de enlace. El tipo de puerta de enlace "vpn" especifica que el tipo de puerta de enlace de red virtual creado es una puerta de enlace de VPN. Después de crear una instancia de VPN Gateway, puede crear una conexión de túnel de VPN de IPsec o IKE entre esa instancia y otra instancia de VPN Gateway (de red virtual a red virtual), o crear una conexión de túnel de VPN de IPsec o IKE con implementaciones locales entre la instancia de VPN Gateway y un dispositivo VPN local (de sitio a sitio). También puede crear una conexión VPN de punto a sitio (VPN a través de IKEv2 o SSTP) que le permitirá conectarse a la red virtual desde una ubicación remota como, por ejemplo, una sala de conferencias o desde su casa.
+Las puertas de enlace de VPN se pueden implementar en Azure Availability Zones. Esto aporta una mayor disponibilidad, escalabilidad y resistencia a las puertas de enlace de red virtual. Implementar puertas de enlace en Azure Availability Zones separa de forma física y lógica las puertas de enlace dentro de una región, y protege la conectividad de red local en Azure de errores de nivel de zona. Consulte [Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
+
+La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos. Al crear una puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace y se configuran con las opciones que especifique. Una de las opciones que se configuran es el tipo de puerta de enlace. El tipo de puerta de enlace "vpn" especifica que el tipo de puerta de enlace de red virtual creado es una puerta de enlace de VPN. Después de crear una instancia de VPN Gateway, puede crear una conexión de túnel de VPN de IPsec o IKE entre esa instancia y otra instancia de VPN Gateway (de red virtual a red virtual), o crear una conexión de túnel de VPN de IPsec o IKE con implementaciones locales entre la instancia de VPN Gateway y un dispositivo VPN local (de sitio a sitio). También puede crear una conexión VPN de punto a sitio (VPN a través de OpenVPN, IKEv2 o SSTP) que le permite conectarse a la red virtual desde una ubicación remota como, por ejemplo, una sala de conferencias o desde su casa.
 
 ## <a name="configuring"></a>Configuración de una instancia de VPN Gateway
 
@@ -83,7 +85,7 @@ Este tipo de conexión es una variación de la conexión de sitio a sitio. Puede
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>Punto a sitio (VPN a través de IKEv2 o SSTP)
+## <a name="P2S"></a>VPN de punto a sitio
 
 Una conexión de puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Se establece una conexión de punto a sitio al iniciarla desde el equipo cliente. Esta solución resulta útil para los teletrabajadores que deseen conectarse a redes virtuales de Azure desde una ubicación remota, por ejemplo, desde casa o un congreso. La conexión VPN de punto a sitio también es una solución útil en comparación con la conexión VPN de sitio a sitio cuando solo necesitan conectarse a la red virtual algunos clientes.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c553e3f2de963abb4a3c23a4114eecfa33d0aa61
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682504"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735331"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Ejemplos de plantilla de Azure Resource Manager para una red virtual
 
@@ -29,7 +29,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de plantilla de Azure Res
 Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte [Tipos de recursos de Microsoft.Network](/azure/templates/microsoft.network/allversions).
 
 
-| | |
+| Tarea | DESCRIPCIÓN |
 |----|----|
 |[Creación de una red virtual con dos subredes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| Crea una red virtual con dos subredes.|
 |[Enrutamiento del tráfico por una aplicación virtual de red](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Crea una red virtual con tres subredes. Implementa una máquina virtual en cada una de las subredes. Crea una tabla de rutas que contiene las rutas para dirigir el tráfico de una subred a otra a través de la máquina virtual de la tercera subred. Asocia la tabla de rutas a una de las subredes.|

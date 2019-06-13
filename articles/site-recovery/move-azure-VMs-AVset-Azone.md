@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e26f9d344a4c11c335d1ea34998c848cbe3598a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793742"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753750"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Traslado de máquinas virtuales de Azure a zonas de disponibilidad
-Availability Zones de Azure ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, ofrecemos un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en regiones exclusivas, tal como se indica en [¿Qué es Availability Zones en Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
+Availability Zones de Azure ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, ofrecemos un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en regiones exclusivas, tal como se indica en [¿Qué es Availability Zones en Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
 
 En un escenario en el que se implementan las máquinas virtuales como de *instancia única* en una región específica y desea mejorar la disponibilidad trasladándolas a una instancia de Availability Zones, puede hacerlo con Azure Site Recovery. Esta acción se puede categorizar más adelante en:
 
@@ -28,7 +28,7 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 
 ## <a name="check-prerequisites"></a>Comprobación de los requisitos previos
 
-- Compruebe si la región de destino es [compatible con Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). Compruebe que su opción de [combinación de región de origen y región de destino se admite](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Tome una decisión informada sobre la región de destino.
+- Compruebe si la región de destino es [compatible con Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region). Compruebe que su opción de [combinación de región de origen y región de destino se admite](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Tome una decisión informada sobre la región de destino.
 - Asegúrese de entender la [arquitectura y los componentes del escenario](azure-to-azure-architecture.md).
 - Revise las [limitaciones y los requisitos de compatibilidad](azure-to-azure-support-matrix.md).
 - Compruebe los permisos de la cuenta Si acaba de crear su cuenta de Azure gratis, ya es el administrador de la suscripción. Si no es administrador de la suscripción, solicite al administrador que le asigne los permisos que necesita. Para habilitar la replicación para una máquina virtual y finalmente copiar los datos al destino mediante Azure Site Recovery, debe tener:
@@ -86,7 +86,7 @@ Los siguientes pasos le guiarán al usar Azure Site Recovery para permitir la re
 
 1. En Azure Portal, seleccione **Máquinas virtuales** y seleccione la máquina virtual que desea trasladar a Availability Zones.
 2. En **Operaciones**, seleccione **Recuperación ante desastres**.
-3. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación. Asegúrese de que esta región [admita](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) Availability Zones.
+3. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación. Asegúrese de que esta región [admita](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) Availability Zones.
 
     ![Selección de región de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834309"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478582"
 ---
 # <a name="personalizer-settings"></a>Configuración de Personalizer
 
@@ -63,7 +63,9 @@ Después de cambiar este valor asegúrese de seleccionar **Save** (Guardar).
 
 ### <a name="model-update-frequency"></a>Frecuencia de actualización del modelo
 
-**Frecuencia de actualización del modelo** establece la frecuencia con la que se vuelve a entrenar un nuevo modelo de Personalizer. 
+El modelo más reciente, que se ha entrenado a partir de llamadas a Reward API desde todos los eventos activos, no lo usa automáticamente la llamada a Rank Personalizer. La **frecuencia de actualización del modelo** establece la frecuencia con qué se actualiza el modelo usado por la llamada Rank. 
+
+Las frecuencias elevadas de actualización del modelo son útiles en aquellas situaciones en las que se desea hacer un estrecho seguimiento de los cambios en los comportamientos de los usuarios. Algunos ejemplos incluyen sitios que ofrecen noticias en vivo, contenido viral o pujas en vivo. En estos escenarios se puede usar una frecuencia de 15 minutos. Sin embargo, en la mayor parte de los casos una menor frecuencia de actualización resulta muy efectiva. Las frecuencias de actualización de un minuto son útiles cuando se depura el código de una aplicación mediante Personalizer, se realizan demostraciones o se prueban de forma interactiva ciertos aspectos del aprendizaje automático.
 
 ![Frecuencia de actualización del modelo establece la frecuencia con la que se vuelve a entrenar un nuevo modelo de Personalizer.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ Después de cambiar este valor asegúrese de seleccionar **Save** (Guardar).
 
 ## <a name="export-the-personalizer-model"></a>Exportación del modelo de Personalizer
 
-En la sección de administración de recursos para **Modelo y directiva**, revise las fechas de creación y de última actualización del modelo y exporte el modelo actual.
+En la sección de administración de recursos para **Modelo y directiva**, revise las fechas de creación y de última actualización del modelo y exporte el modelo actual. Puede usar Azure Portal o las API de Personalizer para exportar un archivo de modelo para el archivado. 
 
 ![Exportación del modelo de Personalizer actual](media/settings/export-current-personalizer-model.png)
 

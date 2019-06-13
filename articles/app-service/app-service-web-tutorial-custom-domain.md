@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e670c00e7d43c449947908ac1d89587c8435b0a7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129509"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475523"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -48,7 +48,7 @@ Para completar este tutorial:
   Por ejemplo, para agregar entradas DNS para `contoso.com` y `www.contoso.com`, debe poder configurar las opciones de DNS del dominio raíz de `contoso.com`.
 
   > [!NOTE]
-  > Si no tiene un nombre de dominio, considere la posibilidad de [comprar un dominio mediante Azure Portal](manage-custom-dns-buy-domain.md). 
+  > Si no tiene un nombre de dominio, considere la posibilidad de [comprar un dominio mediante Azure Portal](manage-custom-dns-buy-domain.md).
 
 ## <a name="prepare-the-app"></a>Preparación de la aplicación
 
@@ -72,7 +72,7 @@ Consulte la página de administración de la aplicación de App Service.
 
 ### <a name="check-the-pricing-tier"></a>Comprobar el plan de tarifa
 
-En el panel de navegación izquierdo de la página de la aplicación, desplácese hasta la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)**.
+En el panel de navegación izquierdo de la página de la aplicación, desplácese hasta la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)** .
 
 ![Menú Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -139,13 +139,13 @@ Seleccione el icono **+** situado junto a **Agregar nombre de host**.
 
 ![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Escriba el nombre de dominio completo para el que ha agregado un registro CNAME, como `www.contoso.com`. 
+Escriba el nombre de dominio completo para el que ha agregado un registro CNAME, como `www.contoso.com`.
 
 Seleccione **Validar**.
 
 Se muestra la página **Agregar nombre de host**. 
 
-Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **CNAME (www\.example.com o cualquier subdominio)**.
+Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **CNAME (www\.example.com o cualquier subdominio)** .
 
 Seleccione **Agregar nombre de host**.
 
@@ -156,7 +156,7 @@ El nuevo nombre de host puede tardar un tiempo en reflejarse en la página **Dom
 ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Nota Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
@@ -166,7 +166,7 @@ Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteri
 
 ### <a name="map-an-a-record"></a>Asignar un registro A
 
-En el ejemplo del tutorial, se agrega un registro A al dominio raíz (por ejemplo, `contoso.com`). 
+En el ejemplo del tutorial, se agrega un registro A al dominio raíz (por ejemplo, `contoso.com`).
 
 <a name="info"></a>
 
@@ -174,7 +174,7 @@ En el ejemplo del tutorial, se agrega un registro A al dominio raíz (por ejempl
 
 Para asignar un registro A, se necesita la dirección IP externa de la aplicación. Dicha dirección IP se puede encontrar en la página **Dominios personalizados** de la aplicación en Azure Portal.
 
-En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**. 
+En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
 ![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
@@ -191,13 +191,13 @@ En la página **Dominios personalizados**, copie la dirección IP de la aplicaci
 Para asignar un registro A a un aplicación, App Service requiere **dos** registros DNS:
 
 - Un registro **A** que se asigna a la dirección IP de la aplicación.
-- Un registro **TXT** que se asigna al nombre de host predeterminado de la aplicación `<app_name>.azurewebsites.net`. App Service usa este registro solo durante la configuración para comprobar que posee el dominio personalizado. Después de que el dominio personalizado se valida y se configura en App Service, puede eliminar el registro TXT. 
+- Un registro **TXT** que se asigna al nombre de host predeterminado de la aplicación `<app_name>.azurewebsites.net`. App Service usa este registro solo durante la configuración para comprobar que posee el dominio personalizado. Después de que el dominio personalizado se valida y se configura en App Service, puede eliminar el registro TXT.
 
-En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la tabla siguiente (`@` suele representar el dominio raíz). 
+En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la tabla siguiente (`@` suele representar el dominio raíz).
 
 | Tipo de registro | Host | Valor |
 | - | - | - |
-| Una  | `@` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+| Una | `@` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
@@ -205,7 +205,7 @@ En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la ta
 >
 > | Tipo de registro | Host | Valor |
 > | - | - | - |
-> | Una  | `www` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+> | Una | `www` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 
@@ -229,7 +229,7 @@ Seleccione **Validar**.
 
 Se muestra la página **Agregar nombre de host**. 
 
-Asegúrese de que el **tipo de registro de nombre de host** esté establecido en el **registro D (ejemplo.com)**.
+Asegúrese de que el **tipo de registro de nombre de host** esté establecido en el **registro D (ejemplo.com)** .
 
 Seleccione **Agregar nombre de host**.
 
@@ -240,7 +240,7 @@ El nuevo nombre de host puede tardar un tiempo en reflejarse en la página **Dom
 ![Registro D agregado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Nota Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteriormente, verá un error de comprobación en la parte inferior de la página.
 
@@ -250,7 +250,7 @@ Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteri
 
 ### <a name="map-a-wildcard-domain"></a>Asignar un dominio con caracteres comodín
 
-En el ejemplo del tutorial, asigne un [nombre DNS con caracteres comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (por ejemplo, `*.contoso.com`) a la aplicación de App Service mediante la adición de un registro CNAME. 
+En el ejemplo del tutorial, asigne un [nombre DNS con caracteres comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (por ejemplo, `*.contoso.com`) a la aplicación de App Service mediante la adición de un registro CNAME.
 
 #### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
 
@@ -268,9 +268,9 @@ Cuando se agrega CNAME, la página de registros DNS es como la del ejemplo sigui
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Habilitación de la asignación del registro CNAME en la aplicación
 
-Ahora puede agregar cualquier subdominio que coincida con el nombre con caracteres comodín a la aplicación (por ejemplo, `sub1.contoso.com` y `sub2.contoso.com` coinciden con `*.contoso.com`). 
+Ahora puede agregar cualquier subdominio que coincida con el nombre con caracteres comodín a la aplicación (por ejemplo, `sub1.contoso.com` y `sub2.contoso.com` coinciden con `*.contoso.com`).
 
-En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**. 
+En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
 ![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
@@ -282,7 +282,7 @@ Escriba un nombre de dominio completo que coincida con el dominio con caracteres
 
 Se activa el botón **Agregar nombre de host**. 
 
-Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **Registro CNAME (www\.example.com o cualquier subdominio)**.
+Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **Registro CNAME (www\.example.com o cualquier subdominio)** .
 
 Seleccione **Agregar nombre de host**.
 
@@ -295,7 +295,7 @@ Vuelva a seleccionar el icono **+** de nuevo para agregar otro nombre de host qu
 ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si un dominio personalizado contiene la etiqueta **Nota Secure**, significa que aún no está enlazado a un certificado SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para agregar un enlace SSL, consulte [Enlazar un certificado SSL personalizado existente a Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Probar en el explorador
 
@@ -322,7 +322,7 @@ De forma predeterminada, App Service dirige las solicitudes web al directorio ra
 
 Para ello, seleccione **Configuración de la aplicación** en el panel de navegación izquierdo de la página de la aplicación web. 
 
-En la parte inferior de la página, el directorio virtual raíz `/` apunta a `site\wwwroot` de forma predeterminada, que es el directorio raíz del código de la aplicación. Cambie esta configuración para que, en su lugar, apunte, por ejemplo, a `site\wwwroot\public` y después guarde los cambios. 
+En la parte inferior de la página, el directorio virtual raíz `/` apunta a `site\wwwroot` de forma predeterminada, que es el directorio raíz del código de la aplicación. Cambie esta configuración para que, en su lugar, apunte, por ejemplo, a `site\wwwroot\public` y después guarde los cambios.
 
 ![Personalización del directorio virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
@@ -339,23 +339,23 @@ El comando siguiente agrega un nombre DNS personalizado configurado a una aplica
 ```bash 
 az webapp config hostname add \
     --webapp-name <app_name> \
-    --resource-group <resource_group_name> \ 
-    --hostname <fully_qualified_domain_name> 
+    --resource-group <resource_group_name> \
+    --hostname <fully_qualified_domain_name>
 ``` 
 
-Para más información, consulte [Asignación de un dominio personalizado a una aplicación web](scripts/cli-configure-custom-domain.md). 
+Para más información, consulte [Asignación de un dominio personalizado a una aplicación web](scripts/cli-configure-custom-domain.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
+El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service.
 
 ```powershell  
 Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
 ```
 
 Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/powershell-configure-custom-domain.md).

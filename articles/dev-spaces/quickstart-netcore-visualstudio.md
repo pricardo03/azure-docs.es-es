@@ -1,5 +1,5 @@
 ---
-title: Desarrollo con .NET Core en AKS con Azure Dev Spaces y Visual Studio 2017
+title: Desarrollo con .NET Core en AKS con Azure Dev Spaces y Visual Studio
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,30 +13,29 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765299"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399220"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Inicio rápido: Desarrollo con .NET Core en Kubernetes con Azure Dev Spaces (Visual Studio 2017)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Inicio rápido: Desarrollo con .NET Core en Kubernetes con Azure Dev Spaces (Visual Studio)
 
 En esta guía, aprenderá a:
 
 - Configurar Azure Dev Spaces con un clúster de Kubernetes administrado en Azure.
-- Desarrollar código de forma iterativa en contenedores con Visual Studio 2017.
-- Depurar el código que se ejecuta en un clúster con Visual Studio 2017.
+- Desarrollar código de forma iterativa en contenedores con Visual Studio
+- Depurar el código que se ejecuta en un clúster con Visual Studio
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
-- Visual Studio 2017 en Windows con la carga de trabajo Desarrollo web instalada. Si no está instalada, descárguela [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- [Visual Studio Tools para Kubernetes](https://aka.ms/get-vsk8stools) instalada.
+- Visual Studio 2019 en Windows con la carga de trabajo de desarrollo de Azure instalada. También puede usar Visual Studio 2017 en Windows con la carga de trabajo Desarrollo web y [Visual Studio Tools para Kubernetes](https://aka.ms/get-vsk8stools) instalados. Si no tiene instalado Visual Studio, descárguelo [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
 
-Debe crear un clúster de AKS en una [región admitida](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Para crear un clúster:
+Debe crear un clúster de AKS en una [región admitida][supported-regions]. Para crear un clúster:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 1. Seleccione *+ Crear un recurso > Kubernetes Service*. 
@@ -55,7 +54,7 @@ Vaya a su clúster de AKS en Azure Portal y haga clic en *Dev Spaces*. Cambie *E
 
 ## <a name="create-a-new-aspnet-web-app"></a>Crear una aplicación web ASP.NET
 
-1. Abra Visual Studio 2017.
+1. Abra Visual Studio.
 1. Crear un nuevo proyecto.
 1. Elija *Aplicación web ASP.NET Core* y asigne al proyecto el nombre *webfrontend*.
 1. Haga clic en *OK*.
@@ -101,7 +100,7 @@ Es posible que este proceso haya deshabilitado el acceso público a su servicio.
 
 ## <a name="update-code"></a>Actualización del código
 
-Si Visual Studio 2017 está conectado todavía a su espacio de desarrollo, haga clic en el botón Detener. Cambie la línea 20 en `Controllers/HomeController.cs` a:
+Si Visual Studio está aún conectado a su espacio de desarrollo, haga clic en el botón Detener. Cambie la línea 20 en `Controllers/HomeController.cs` a:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -113,9 +112,9 @@ En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Establecimiento y uso de puntos de interrupción para la depuración
 
-Si Visual Studio 2017 está conectado todavía a su espacio de desarrollo, haga clic en el botón Detener. Abra `Controllers/HomeController.cs` y haga clic en algún lugar de la línea 20 para colocar el cursor allí. Para establecer un punto de interrupción, pulse *F9* o haga clic en *Depurar* y en *Alternar punto de interrupción*. Para iniciar el servicio en modo de depuración en el espacio de desarrollo, pulse *F5* o haga clic en *Depurar* y en *Iniciar depuración*.
+Si Visual Studio está aún conectado a su espacio de desarrollo, haga clic en el botón Detener. Abra `Controllers/HomeController.cs` y haga clic en algún lugar de la línea 20 para colocar el cursor allí. Para establecer un punto de interrupción, pulse *F9* o haga clic en *Depurar* y en *Alternar punto de interrupción*. Para iniciar el servicio en modo de depuración en el espacio de desarrollo, pulse *F5* o haga clic en *Depurar* y en *Iniciar depuración*.
 
-Abra el servicio en un explorador y observe que no se muestra ningún mensaje. Vuelva a Visual Studio 2017 y observe que la línea 20 está resaltada. El punto de interrupción que estableció ha detenido el servicio en la línea 20. Para reanudar el servicio, pulse *F5* o haga clic en *Depurar* y en *Continuar*. Regrese al explorador y observe que ahora se muestra el mensaje.
+Abra el servicio en un explorador y observe que no se muestra ningún mensaje. Vuelva a Visual Studio y observe que la línea 20 está resaltada. El punto de interrupción que estableció ha detenido el servicio en la línea 20. Para reanudar el servicio, pulse *F5* o haga clic en *Depurar* y en *Continuar*. Regrese al explorador y observe que ahora se muestra el mensaje.
 
 Mientras se ejecuta el servicio en Kubernetes con un depurador asociado, tiene acceso completo a la información de depuración como, por ejemplo, la de la pila de llamadas, las variables locales y la información de excepciones.
 
@@ -135,3 +134,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Trabajo con varios contenedores y desarrollo en equipo](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

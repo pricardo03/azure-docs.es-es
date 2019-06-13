@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471594"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393796"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
 
@@ -69,11 +69,14 @@ Si no combina recursos en un solo grupo o si los grupos de recursos existentes s
 
 ## <a name="select-a-location"></a>Seleccionar una ubicación
 
-En cuanto servicio de Azure, Azure Search se puede hospedar en centros de datos de todo el mundo. Los [precios pueden variar](https://azure.microsoft.com/pricing/details/search/) según la región geográfica.
+En cuanto servicio de Azure, Azure Search se puede hospedar en centros de datos de todo el mundo. Se puede encontrar la lista de regiones admitidas en la [página de precios](https://azure.microsoft.com/pricing/details/search/). 
 
-Si va a indexar los datos que proporciona otro servicio de Azure (Azure Storage, Azure Cosmos DB, Azure SQL Database), cree un servicio Azure Search en la misma región para evitar cargos de ancho de banda. No hay ningún cargo por datos salientes si los servicios están en la misma región.
+Si va a indexar los datos proporcionados por otro servicio de Azure (Azure Storage, Azure Cosmos DB, Azure SQL Database), se recomienda crear un servicio Azure Search en la misma región para evitar cargos de ancho de banda. No hay ningún cargo por datos salientes si los servicios están en la misma región.
 
 Si usa los enriquecimientos de la inteligencia artificial de búsqueda cognitiva, cree su servicio en la misma región que el recurso de Cognitive Services. La coubicación de servicios es un requisito para el enriquecimiento de la inteligencia artificial.
+
+> [!Note]
+> Los nuevos servicios no están disponibles actualmente en India central. En el caso de los servicios que ya están en India central, puede escalar verticalmente sin restricciones, y el servicio se admite completamente en dicha región. La restricción en esta región es temporal y se quitará esta nota cuando deje de aplicarse.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selección de un plan de tarifa (SKU)
 

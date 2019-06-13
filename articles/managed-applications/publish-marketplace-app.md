@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/10/2018
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572583"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688570"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
 
@@ -42,7 +42,7 @@ Además, hay varios requisitos previos de tipo empresarial. Son las siguientes:
 Para convertirse en publicador en Azure Marketplace, debe:
 
 1. Crear un identificador de Microsoft: cree su cuenta Microsoft con una dirección de correo electrónico que corresponda al dominio de su empresa, no a un solo individuo. Esta dirección de correo electrónico se usa tanto para el Centro de desarrolladores de Microsoft como para Cloud Partner Portal. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
-1. Enviar el [formulario de nominación para Azure Marketplace](https://aka.ms/ampnomination): en **Solution that you intend to publish?** (Solución que intenta publicar), seleccione **Managed Application** (Aplicación administrada). Una vez que se envía el formulario, el equipo de incorporación de Marketplace revisa la aplicación y valida la solicitud. El proceso de aprobación puede tardar entre uno y tres días. Una vez que se aprueba la nominación, recibe un código promocional para eximirse de la tarifa de registro del centro para desarrolladores. Si **no** completa el formulario de nominación de Marketplace, se le pedirá pagar un honorario de registro de 99 USD.
+1. Envíe el [formulario de nominación para Azure Marketplace](https://aka.ms/ampnomination): en **Solution that you intend to publish?** (Solución que intenta publicar), seleccione **Managed Application** (Aplicación administrada). Una vez que se envía el formulario, el equipo de incorporación de Marketplace revisa la aplicación y valida la solicitud. El proceso de aprobación puede tardar entre uno y tres días. Una vez que se aprueba la nominación, recibe un código promocional para eximirse de la tarifa de registro del centro para desarrolladores. Si **no** completa el formulario de nominación de Marketplace, se le pedirá pagar un honorario de registro de 99 USD.
 1. Registrarse en el [Centro para desarrolladores](https://dev.windows.com/registration?accountprogram=azure): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país o la región en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 1. Iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com): en el perfil del publicador, asocie la cuenta del Centro para desarrolladores con el perfil del publicador de Marketplace. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 
@@ -103,6 +103,8 @@ La SKU aparece debajo de la oferta principal en Marketplace. como una entidad de
 
    * **Versión**: escriba una versión para el paquete que vaya a cargar. Debe tener este formato: `{number}.{number}.{number}{number}`.
    * **Package file (.zip)** (Archivo del paquete [.zip]): este paquete contiene dos archivos necesarios comprimidos en uno .zip. Un archivo es una plantilla de Resource Manager que define los recursos que va a implementar en la aplicación administrada. El otro archivo define la [interfaz de usuario](create-uidefinition-overview.md) para que los consumidores implementen la aplicación administrada mediante el portal. En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
+   * **Id. de inquilino**: El identificador del inquilino de la cuenta a la que se va a acceder.
+   * **Enable JIT Access?** (¿Habilitar acceso JIT?): Seleccione **Sí** para habilitar el [control de acceso just-in-time](request-just-in-time-access.md) para la cuenta. Cuando se habilita, se solicita acceso a la cuenta del consumidor durante un período específico. Para exigir que los consumidores de la aplicación administrada concedan el acceso permanente a la cuenta, seleccione **No**.
    * **PrincipalId**: esta propiedad es el identificador de Azure Active Directory de un usuario, de un grupo de usuarios o de una aplicación a quienes se haya concedido acceso a los recursos de la suscripción de los clientes. La definición de rol describe los permisos.
    * **Role Definition**: esta propiedad es una lista de todos los roles de control de acceso basado en rol (RBAC) integrados que proporciona Azure AD. Puede seleccionar el rol que resulte más adecuado para administrar los recursos en nombre del cliente.
    * **Configuración de directivas**: aplique una directiva de [Azure Policy](../governance/policy/overview.md) a la aplicación administrada para especificar los requisitos de cumplimiento para las soluciones implementadas. Entre las opciones disponibles, seleccione las directivas que se van a aplicar. En **Parámetros de directiva**, proporcione una cadena JSON con los valores del parámetro. Para las definiciones de directiva y el formato de los valores de parámetro, consulte [ejemplos de Azure Policy](../governance/policy/samples/index.md).
@@ -117,7 +119,7 @@ En el formulario de Marketplace se solicitan campos que aparecen en [Azure Marke
 
 ### <a name="preview-subscription-ids"></a>Id. de suscripción de versión preliminar
 
-Escriba una lista de identificadores de suscripciones de Azure que puedan tener acceso a la oferta una vez publicada. Puede usar estas suscripciones de lista blanca para probar la versión preliminar de la oferta antes de activarla. Puede compilar una lista blanca de hasta 100 suscripciones en el portal de asociados.
+Escriba una lista de identificadores de suscripciones de Azure que puedan tener acceso a la oferta una vez publicada. Puede usar estas suscripciones de lista blanca para probar la versión preliminar de la oferta antes de activarla. Puede compilar una lista de permitidos de hasta 100 suscripciones en el portal de asociados.
 
 ### <a name="suggested-categories"></a>Categorías sugeridas
 
@@ -137,7 +139,7 @@ La pestaña **Planes y precios** de la aplicación administrada muestra los camp
 
 ![Planes de Marketplace](./media/publish-marketplace-app/publishvm15.png)
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 En el resumen de la aplicación administrada, se muestran los campos siguientes:
 

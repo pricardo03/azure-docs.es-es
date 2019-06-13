@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores, microservicios y Node.js en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 7507b6741a373f28e0e780af08d076235e377839
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5efacc38ab6b30a1a4ae45772f2b81030e76eb83
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873152"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393925"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Inicio rápido: Desarrollo con Node.js en Kubernetes con Azure Dev Spaces
 
@@ -35,7 +35,7 @@ En esta guía, aprenderá a:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
 
-Debe crear un clúster de AKS en una [región admitida](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Los siguientes comandos permiten crear un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
+Debe crear un clúster de AKS en una [región admitida][supported-regions]. Los siguientes comandos permiten crear un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -111,13 +111,13 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Para ver el servicio que se está ejecutando, abra la dirección URL pública que aparece en la salida del comando `azds up`. En este ejemplo, la dirección URL pública es *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Para ver el servicio que se está ejecutando, abra la dirección URL pública que aparece en la salida del comando `azds up`. En este ejemplo, la dirección URL pública es *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Si detiene el comando `azds up` mediante *Ctrl + c*, el servicio continuará ejecutándose en AKS y la dirección URL pública seguirá estando disponible.
 
 ## <a name="update-code"></a>Actualización del código
 
-Para implementar una versión actualizada del servicio, puede actualizar cualquier archivo del proyecto y volver a ejecutar el comando `azds up`. Por ejemplo: 
+Para implementar una versión actualizada del servicio, puede actualizar cualquier archivo del proyecto y volver a ejecutar el comando `azds up`. Por ejemplo:
 
 1. Si `azds up` se está todavía ejecutando, presione *Ctrl + c*.
 1. Actualice la [línea 10 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L10) a:
@@ -168,7 +168,7 @@ Haga clic en *Depurar* y en *Detener depuración* para detener el depurador.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Establecimiento y uso de puntos de interrupción para la depuración
 
-Inicie el servicio mediante *Launch Server (AZDS)*.
+Inicie el servicio mediante *Launch Server (AZDS)* .
 
 Vaya a la vista *Explorer*. Para ello haga clic en *Ver* y en *Explorer*. Abra `server.js` y haga clic en algún lugar de la línea 10 para colocar el cursor allí. Para establecer un punto de interrupción, pulse *F9* o haga clic en *Depurar* y en *Alternar punto de interrupción*.
 
@@ -190,7 +190,7 @@ Este comando compila y ejecuta el servicio en Azure Dev Spaces. También se inic
 
 Una vez iniciado el servicio, vaya a él mediante el explorador e interactúe con él.
 
-Mientras se ejecuta el servicio, vuelva a VS Code y actualice la línea 10 en `server.js`. Por ejemplo: 
+Mientras se ejecuta el servicio, vuelva a VS Code y actualice la línea 10 en `server.js`. Por ejemplo:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```
@@ -211,3 +211,6 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 
 > [!div class="nextstepaction"]
 > [Trabajo con varios contenedores y desarrollo en equipo](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

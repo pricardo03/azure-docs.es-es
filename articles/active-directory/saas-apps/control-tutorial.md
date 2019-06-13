@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integración de Azure Active Directory con Control | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Control.
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Continuity Control.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,29 +16,29 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569021d79e74bc7a5a2582741109e1094ba90de8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65874053"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507506"
 ---
-# <a name="tutorial-integrate-control-with-azure-active-directory"></a>Tutorial: Integración de Control con Azure Active Directory
+# <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Tutorial: Integración de Continuity Control con Azure Active Directory
 
-En este tutorial, obtendrá información sobre cómo integrar Control con Azure Active Directory (Azure AD). Al integrar Control con Azure AD, puede hacer lo siguiente:
+En este tutorial, obtendrá información sobre cómo integrar Continuity Control con Azure Active Directory (Azure AD). Al integrar Control con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a Control.
+* Controlar en Azure AD quién tiene acceso a Continuity Control.
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Control con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede obtener la evaluación gratuita de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-* Suscripción habilitada para el inicio de sesión único (SSO) en Control
+* Suscripción habilitada para el inicio de sesión único (SSO) en Continuity Control.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -83,7 +83,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Control](mailto:help@continuity.net) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualice el valor con el subdominio correcto. Se puede configurar el subdominio de inicio de sesión único en [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security) (Estrategias de autenticación de control). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la sección **Certificado de firma de SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
 
@@ -93,19 +93,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Copia del valor de la huella digital](common/copy-thumbprint.png)
 
-1. En la sección **Set up Control** (Configurar Control), copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Set up Control** (Configurar Control), copie la dirección URL de inicio de sesión y guárdelo en su equipo.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
-
 ### <a name="configure-control-sso"></a>Configuración del inicio de sesión único de Control
 
-Para configurar el inicio de sesión único en **Control**, es preciso enviar el **valor de la huella digital** y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Control](mailto:help@continuity.net). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Control**, es preciso actualizar la configuración de la autenticación de inicio de sesión único en [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security) (Estrategias de autenticación de Control). Actualice la **dirección URL de inicio de sesión único de SAML** con la **dirección URL de inicio de sesión** y la **huella digital del certificado** con el **valor de la huella digital** desde Azure Portal.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -139,7 +133,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-control-test-user"></a>Creación de un usuario de prueba de Control
 
-En esta sección, creará un usuario llamado Britta Simon en Control. Trabaje con el  [equipo de soporte técnico de Control](mailto:help@continuity.net) para agregar los usuarios a la plataforma de Control. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Control. Trabaje con el  [equipo de soporte técnico de Control](mailto:help@continuity.net) para agregar los usuarios a la plataforma de Control. Utilice el **nombre de usuario** de Azure AD de Britta Simon para rellenar el **identificador de usuario del proveedor de identidades** en Control. Los usuarios deben crearse, y el **identificador de usuario del proveedor de identidades** debe establecerse en Control antes de poder utilizar el inicio de sesión único.
 
 ### <a name="test-sso"></a>Prueba de SSO
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792049"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382271"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guías de inicio rápido: Conexión y consulta de Azure SQL Database
 
@@ -39,6 +39,7 @@ En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran
 |[PHP](sql-database-connect-query-php.md)|En esta guía de inicio rápido se muestra cómo se usa PHP para crear un programa que se conecte a una base de datos de Azure SQL y que use instrucciones Transact-SQL para consultar los datos.|
 |[Python](sql-database-connect-query-python.md)|Esta guía de inicio rápido muestra cómo se usa Python para conectarse a una base de datos de Azure SQL y usar instrucciones Transact-SQL para consultar los datos. |
 |[Ruby](sql-database-connect-query-ruby.md)|En esta guía de inicio rápido se muestra cómo se usa Ruby para crear un programa que se conecte a una base de datos de Azure SQL y que use instrucciones Transact-SQL para consultar los datos.|
+|[R](sql-database-connect-query-r.md)|En esta guía de inicio rápido se muestra cómo se usa R con Azure SQL Machine Learning Services para crear un programa y que se conecte a una base de datos de Azure SQL y use instrucciones Transact-SQL para consultar los datos.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>Consideraciones de TLS para la conectividad de SQL Database

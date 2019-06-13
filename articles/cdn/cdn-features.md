@@ -5,22 +5,22 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: sohamnchatterjee
+editor: mdgattuso
 ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 06/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0c80abeb4aca47b3ef957c25e12c59e86d59dd94
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5aa342700c8440e67987cd9d1b45574c02a45f47
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872872"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729815"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparación de las características de los productos de Azure CDN
 
@@ -52,7 +52,7 @@ En la tabla siguiente se comparan las características disponibles con cada prod
 ||||
  **Seguridad** | **Microsoft estándar** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** | 
 | Compatibilidad con HTTPS con el punto de conexión de red CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Dominio personalizado HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Dominio personalizado HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** , Requiere CNAME directo para habilitar |**&#x2713;** |**&#x2713;** |
 | [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Filtrado geográfico](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Autenticación de token](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 

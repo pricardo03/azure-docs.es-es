@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 37fe192e83c946089e2374f24ae10a756134e45a
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512487"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807857"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformaciones de notificaciones de cuentas de redes sociales
 
@@ -38,7 +38,7 @@ En este artículo, se proporcionan ejemplos de uso de las transformaciones de no
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Crea una representación JSON de la propiedad alternativeSecurityId del usuario que puede usarse en las llamadas Azure Active Directory. Para obtener más información, vea [Esquema de AlternativeSecurityId](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType).
+Crea una representación JSON de la propiedad alternativeSecurityId del usuario que puede usarse en las llamadas Azure Active Directory. Para obtener más información, vea [Esquema de AlternativeSecurityId](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#alternativesecurityid-type).
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |

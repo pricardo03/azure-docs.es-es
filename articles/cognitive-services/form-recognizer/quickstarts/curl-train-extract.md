@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235604"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475266"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API de REST con cURL
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [cURL](https://curl.haxx.se/windows/) instalado.
-- Un conjunto de al menos cinco formularios del mismo tipo. Para este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
+- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. Para este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los datos en la raíz de una cuenta de Azure Blob Storage.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -47,7 +47,7 @@ Cuando el recurso de Form Recognizer termine la implementación, búsquelo y sel
 
 ## <a name="train-a-form-recognizer-model"></a>Entrenamiento de un modelo de Form Recognizer
 
-En primer lugar, necesitará un conjunto de datos de entrenamiento. Puede usar los datos de un blob de Azure o sus propios datos de entrenamiento locales. Debe tener un mínimo de cinco formularios de ejemplo (documentos PDF o imágenes) de la misma estructura y tipo que los datos de entrada principales. También puede usar un único formulario vacío. El nombre de archivo del formulario debe incluir la palabra "vacío".
+En primer lugar, se necesitará un conjunto de datos de entrenamiento de un blob de Azure Storage. Debe tener un mínimo de cinco formularios de ejemplo (documentos PDF o imágenes) de la misma estructura y tipo que los datos de entrada principales. O bien, puede usar un formulario vacío con dos formularios rellenos. El nombre de archivo del primero formulario debe incluir la palabra "empty".
 
 Para entrenar un modelo de Form Recognizer mediante los documentos del contenedor de blobs de Azure, llame a la API **Train** mediante la ejecución del comando de cURL siguiente. Antes de ejecutar el comando, realice estos cambios:
 

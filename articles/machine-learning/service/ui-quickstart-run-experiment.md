@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545006"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475942"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Inicio rápido: Preparación y visualización de datos sin escribir código en Azure Machine Learning
 
-Prepare y visualice los datos en la interfaz visual de arrastrar y colocar (versión preliminar) para Azure Machine Learning. Los datos que se usarán incluyen entradas para diversos automóviles individuales, por ejemplo, información sobre la marca, el modelo, las especificaciones técnicas y el precio.  
+Prepare y visualice los datos en la interfaz visual de arrastrar y colocar (versión preliminar) para Azure Machine Learning. Los datos que se usarán incluyen entradas para diversos automóviles individuales, por ejemplo, información sobre la marca, el modelo, las especificaciones técnicas y el precio. Cuando haya completado este inicio rápido, estará listo para usar estos datos para predecir el precio de un automóvil. 
 
-En este inicio rápido podrá explorar y preparar los datos:
+Antes de entrenar un modelo de aprendizaje automático, deberá comprender y preparar los datos.  En este inicio rápido:
 
 - Creará su primer experimento para agregar y obtener una vista previa de los datos
 - Preparará los datos mediante la eliminación de los valores que faltan
@@ -131,7 +131,7 @@ Ahora que ha ejecutado el experimento inicial, puede visualizar los datos para c
 
      ![Vista previa de los datos](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Haga clic en cada columna para más información sobre el conjunto de datos.
+1. Haga clic en cada columna para saber más sobre el conjunto de datos y pensar si estas columnas serán útiles para predecir el precio de un automóvil.
 
 ## <a name="prepare-data"></a>Preparación de los datos
 
@@ -176,7 +176,7 @@ En primer lugar, elimine por completo la columna **normalized-losses**.
 
 ### <a name="clean-missing-data"></a>Limpiar datos que faltan
 
-A continuación, agregue otro módulo que quite las filas restantes que tengan datos que faltan.
+Cuando entrena un modelo, tiene que hacer algo sobre los datos que faltan.  En este caso, agregará un módulo para quitar las filas restantes que tienen datos que faltan.  
 
 1. Escriba **Clean** (Limpiar) en el cuadro de búsqueda para encontrar el módulo **Clean Missing Data** (Limpiar datos que faltan).
 
@@ -216,7 +216,7 @@ Como ha realizado cambios en los módulos del experimento, el estado ha cambiado
 
     Ahora hay 193 filas y 25 columnas.
 
-    Si hace clic en **num-of-doors** (número de puertas) verá que aún tiene dos valores únicos pero ahora ya no tiene ningún valor que falte.  
+    Si hace clic en **num-of-doors** (número de puertas) verá que aún tiene dos valores únicos pero ahora ya no tiene ningún valor que falte. Haga clic en el resto de las columnas para ver que no hayan quedado valores que faltan en el conjunto de datos. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -228,7 +228,7 @@ En este tutorial, ha aprendido a hacer lo siguiente:
 
 - Creará su primer experimento para agregar y obtener una vista previa de los datos
 - Preparará los datos mediante la eliminación de los valores que faltan
-- Visualizará los datos resultantes
+- Visualización de los datos preparados
 
 Seguir el tutorial para usar estos datos para predecir el precio de un automóvil.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2a4bdaba45c466b7f1f6fb8e91033f9a7665e034
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253065"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730547"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -113,6 +113,8 @@ El registro de auditoría de Azure AD incluirá información sobre la dirección
 Cuando los usuarios restablecen su contraseña desde la pantalla de inicio de sesión de un dispositivo Windows 10, se crea una cuenta temporal con pocos privilegios denominada "defaultuser1". Esta cuenta se usa para proteger el proceso de restablecimiento de contraseña. La propia cuenta tiene una contraseña generada aleatoriamente, no se muestra en el inicio de sesión del dispositivo y se elimina automáticamente después de que el usuario restablece su contraseña. Aunque pueden existir varios perfiles "defaultuser", se pueden omitir con seguridad.
 
 ## <a name="limitations"></a>Limitaciones
+
+No se admite el desbloqueo de cuentas, la notificación de aplicación móvil y el código de aplicación móvil con SSPR para Windows 10.
 
 Al probar esta funcionalidad con Hyper-V, el vínculo "Restablecer contraseña" no aparece.
 

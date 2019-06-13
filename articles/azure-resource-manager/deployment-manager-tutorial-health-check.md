@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790125"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479183"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Uso de la comprobación de estado en Azure Deployment Manager (versión preliminar pública)
 
@@ -50,18 +50,18 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este artículo, necesitará lo siguiente:
 
 * Completar [Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
-* Descargue [las plantillas y los artefactos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) que se usan en este tutorial. 
+* Descargue [las plantillas y los artefactos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) que se usan en este tutorial.
 
 ## <a name="create-a-health-check-service-simulator"></a>Creación de un simulador del servicio de comprobación de estado
 
-En producción, se suele utilizar uno o varios proveedores de supervisión. Para que la integración del mantenimiento sea lo más sencilla posible, Microsoft ha trabajado con varias de las compañías de seguimiento del estado de los servicios más punteras para ofrecer una solución sencilla de copiar y pegar para integrar las comprobaciones de estado en las implementaciones. Para obtener una lista de estas empresas, consulte [Proveedores de seguimiento de estado](./deployment-manager-health-check.md#health-monitoring-providers). Para este tutorial, cree una [función de Azure](/azure/azure-functions/) que simule un servicio de supervisión de estado. Dicha función toma un código de estado y devuelve el mismo código. La plantilla de Azure Deployment Manager usa el código de estado para determinar cómo realizar la implementación. 
+En producción, se suele utilizar uno o varios proveedores de supervisión. Para que la integración del mantenimiento sea lo más sencilla posible, Microsoft ha trabajado con varias de las compañías de seguimiento del estado de los servicios más punteras para ofrecer una solución sencilla de copiar y pegar para integrar las comprobaciones de estado en las implementaciones. Para obtener una lista de estas empresas, consulte [Proveedores de seguimiento de estado](./deployment-manager-health-check.md#health-monitoring-providers). Para este tutorial, cree una [función de Azure](/azure/azure-functions/) que simule un servicio de supervisión de estado. Dicha función toma un código de estado y devuelve el mismo código. La plantilla de Azure Deployment Manager usa el código de estado para determinar cómo realizar la implementación.
 
 Los dos archivos siguientes se usan para implementar la función de Azure. Para completar el tutorial no es preciso descargarlos.
 
-* Una plantilla de Resource Manager se encuentra en [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Implemente esta plantilla para crear una función de Azure.  
-* Un archivo zip del código fuente de la función de Azure, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). La plantilla de Resource Manager llama a este archivo zip.
+* Una plantilla de Resource Manager se encuentra en [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Implemente esta plantilla para crear una función de Azure.
+* Un archivo zip del código fuente de la función de Azure, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). La plantilla de Resource Manager llama a este archivo zip.
 
-Para implementar la función de Azure, seleccione **Pruébelo** para abrir Azure Cloud Shell y pegue el siguiente script en la ventana del shell.  Para pegar el código, haga clic con el botón derecho en la ventana del shell y seleccione **Pegar**. 
+Para implementar la función de Azure, seleccione **Pruébelo** para abrir Azure Cloud Shell y pegue el siguiente script en la ventana del shell.  Para pegar el código, haga clic con el botón derecho en la ventana del shell y seleccione **Pegar**.
 
 > [!IMPORTANT]
 > En el script de PowerShell, **projectName** se utiliza para generar nombres para los servicios de Azure que se implementan en este tutorial. Los distintos servicios de Azure tienen diferentes requisitos con respecto a los nombres. Para asegurarse de que la implementación se realice correctamente, elija un nombre con menos de 12 caracteres con solo letras minúsculas y números.
@@ -81,7 +81,7 @@ Para comprobar y probar la función de Azure:
 1. Abra [Azure Portal](https://portal.azure.com).
 1. Abra el grupo de recursos.  El nombre predeterminado es el nombre del proyecto con **rg** anexado.
 1. Seleccione el servicio de aplicaciones en el grupo de recursos.  El nombre predeterminado del servicio de aplicaciones es el nombre del proyecto con **webapp** anexado.
-1. Expanda **Functions** y seleccione **HttpTrigger1**. 
+1. Expanda **Functions** y seleccione **HttpTrigger1**.
 
     ![Función de Azure de la comprobación de estado de Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
@@ -178,7 +178,7 @@ El propósito de esta sección es mostrar cómo incluir un paso de comprobación
     },
     ```
 
-    Según la definición, el lanzamiento continúa si el estado de mantenimiento es *healthy* o *warning*. 
+    Según la definición, el lanzamiento continúa si el estado de mantenimiento es *healthy* o *warning*.
 
 1. Actualice la sección **dependsON** de la definición del lanzamiento para incluir el paso de comprobación del estado recién definido:
 
@@ -189,7 +189,7 @@ El propósito de esta sección es mostrar cómo incluir un paso de comprobación
     ],
     ```
 
-1. Actualice **stepGroups** para incluir el paso de comprobación del estado. **healthCheckStep** se llama en **postDeploymentSteps** de **stepGroup2**. **stepGroup3** y **stepGroup4** solo se implementan si el estado es *healthy* o *warning*. 
+1. Actualice **stepGroups** para incluir el paso de comprobación del estado. **healthCheckStep** se llama en **postDeploymentSteps** de **stepGroup2**. **stepGroup3** y **stepGroup4** solo se implementan si el estado es *healthy* o *warning*.
 
     ```json
     "stepGroups": [
@@ -265,7 +265,7 @@ Se debe seleccionar **Mostrar tipos ocultos** para ver los recursos.
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implementación del lanzamiento con estado incorrecto
 
-Para simplificar el tutorial, la plantilla de lanzamiento revisada se comparten en las siguientes ubicaciones para que no tenga que preparar su propia copia. Si desea utilizar los suyos, siga las instrucciones de [Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
+Para simplificar el tutorial, la plantilla de lanzamiento revisada se comparte en las siguientes ubicaciones, con el fin de que no tenga que preparar su propia copia. Si desea utilizar los suyos, siga las instrucciones de [Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager](./deployment-manager-tutorial.md).
 
 * Plantilla de topología: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Tienda de artefactos: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
@@ -394,7 +394,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
     * **&lt;namePrefix>ServiceWUSrg**: contiene los recursos definidos por ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: contiene los recursos definidos por ServiceEUS.
     * El grupo de recursos de la identidad administrada definida por el usuario.
-3. Seleccione el nombre del grupo de recursos.  
+3. Seleccione el nombre del grupo de recursos.
 4. Seleccione **Eliminar grupo de recursos** del menú superior.
 5. Repita los dos últimos pasos para eliminar otros grupos de recursos creados en este tutorial.
 

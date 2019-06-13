@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a9ba6fcc0c8b74664f5c4b32e54530fb4aaa2881
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237900"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751724"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario
 
@@ -35,7 +35,7 @@ Aunque siempre puede ver Azure Notebooks sin iniciar sesión, sí que deberá in
     ![Comando Crear cuenta de Microsoft en el símbolo del sistema de inicio de sesión](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > Si intenta crear una nueva cuenta con una dirección de correo electrónico que ya tiene una cuenta asociada con él, es posible que vea el mensaje "no se puede iniciar sesión aquí con un trabajo o una dirección de correo electrónico escolar. Utilizar un correo electrónico personal, como Gmail o Yahoo!, u obtenga un nuevo correo electrónico de Outlook." En ese caso, intente iniciar sesión con la dirección de correo electrónico de trabajo sin necesidad de crear una nueva cuenta.
+    > Si intenta crear una nueva cuenta con una dirección de correo electrónico que ya tiene una cuenta asociada a ella, aparecerá el mensaje "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (No se puede iniciar sesión aquí con una dirección de correo electrónico profesional o educativa. Use un correo personal como Gmail o Yahoo! u obtenga un nuevo correo de Outlook). En ese caso, intente iniciar sesión con la dirección de correo electrónico del trabajo sin necesidad de crear una nueva cuenta.
 
 1. Escriba la contraseña cuando se le solicite.
 
@@ -56,7 +56,7 @@ Aunque siempre puede ver Azure Notebooks sin iniciar sesión, sí que deberá in
     ![Vista inicial de una página de perfil de Azure Notebooks](media/accounts/profile-page-new.png)
 
 > [!NOTE]
-> Si ve el mensaje, "Id. de usuario ya está en uso," intente un identificador diferente. Los identificadores de usuario son únicos en todas las cuentas de Azure Notebooks y Azure Notebooks también se reserva ciertos identificadores de usuario, como nombres de marca de Microsoft.
+> Si aparece el mensaje "User ID is already in use," (El identificador del usuario ya está en uso), pruebe con un identificador diferente. Los identificadores de usuario son únicos entre todas las cuentas de Azure Notebooks y, además, Azure Notebooks se reserva también ciertos identificadores de usuario como, por ejemplo, nombres de marcas de Microsoft.
 
 ## <a name="sign-out"></a>Cerrar sesión
 

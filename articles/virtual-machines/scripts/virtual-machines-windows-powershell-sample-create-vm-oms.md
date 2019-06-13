@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11ae92770f712f2e809824d9caf5981f435b25a9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 130ca2dc156df8c816fecec6cf4302472d072e68
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541526"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723116"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>Creación de una máquina virtual de Azure Monitor con PowerShell 
 
@@ -29,7 +29,7 @@ Este script crea una máquina virtual de Azure, instala el agente de Log Analyti
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

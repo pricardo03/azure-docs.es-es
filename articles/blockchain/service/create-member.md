@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 51775c5534a13fb2515fafa182658beafd38c1eb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029943"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417500"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Blockchain Service mediante Azure Portal
 
@@ -40,11 +40,12 @@ Azure Blockchain Service se crea con un conjunto definido de recursos de proceso
     Subscription | Seleccione la suscripción de Azure que quiere usar con el servicio. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Grupos de recursos | Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
     Region | La ubicación debe ser la misma para todos los miembros del consorcio.
-    Member account password (Contraseña de la cuenta del miembro) | Proporcione una nueva contraseña para la cuenta del miembro. La contraseña de la cuenta del miembro se usa para autenticarse en el punto de conexión público del miembro de cadena de bloques mediante autenticación básica.
+    Member account password (Contraseña de la cuenta del miembro) | cifrar la clave privada de la cuenta de Ethereum que se crea para el miembro. Usará la cuenta del miembro y la contraseña de la cuenta del miembro para la administración del consorcio.
     Nombre del consorcio | Si es un nuevo consorcio, escriba un nombre único. Si se va a unir a un consorcio por medio de una invitación, el valor es el consorcio al que se une.
     DESCRIPCIÓN | Descripción del consorcio.
     Protocolo |  La versión preliminar admite el protocolo de quorum.
     Precios | La configuración de nodo del nuevo servicio. Seleccione **Estándar**. La configuración predeterminada es 2 nodos de validación y 1 nodo de transacción.
+    Contraseña del nodo de transacción | La contraseña del nodo de transacción predeterminado del miembro. Use la contraseña para la autenticación básica al conectarse al punto de conexión público del nodo de transacción predeterminado del miembro de la cadena de bloques.
 
 1. Seleccione **Crear** para aprovisionar el servicio. El aprovisionamiento tarda aproximadamente 10 minutos.
 1. Para supervisar el proceso de implementación, seleccione **Notificaciones** en la barra de herramientas.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 51fcb1e504f853973d9772bcece7e893a2d94e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090389"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472139"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS
 
@@ -28,10 +28,10 @@ Después de integrar su cuenta de almacenamiento de Azure con Azure Content Deli
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder completar los pasos de este tutorial, primero debe integrar su cuenta de almacenamiento de Azure con Azure CDN. Para más información, consulte [Guía de inicio rápido: Integración de una cuenta de almacenamiento de Azure con Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+Para poder completar los pasos de este tutorial, primero debe integrar su cuenta de almacenamiento de Azure con Azure CDN. Para más información, consulte [Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Adición de un dominio personalizado
-Después de crear un punto de conexión de CDN en el perfil, su nombre, que es un subdominio de azureedge.net, se incluye de forma predeterminada en la dirección URL de entrega de contenido de la red CDN. También puede asociar un dominio personalizado a un punto de conexión de CDN. Con esta opción, entrega el contenido con un dominio personalizado en la dirección URL, en lugar de un nombre de punto de conexión. Para agregar un dominio personalizado al punto de conexión, siga las instrucciones de este tutorial: [Adición de un dominio personalizado a un punto de conexión de Azure CDN](cdn-map-content-to-custom-domain.md).
+Después de crear un punto de conexión de CDN en el perfil, su nombre, que es un subdominio de azureedge.net, se incluye de forma predeterminada en la dirección URL de entrega de contenido de la red CDN. También puede asociar un dominio personalizado a un punto de conexión de CDN. Con esta opción, entrega el contenido con un dominio personalizado en la dirección URL, en lugar de un nombre de punto de conexión. Para agregar un dominio personalizado al punto de conexión, siga las instrucciones de este tutorial: [Incorporación de un dominio personalizado a un punto de conexión de Azure CDN](cdn-map-content-to-custom-domain.md).
 
 ## <a name="configure-https"></a>Configuración de HTTPS
 Mediante el protocolo HTTPS en su dominio personalizado, se asegura de que los datos se entregan de manera segura en internet a través de cifrado TLS/SSL. Cuando el explorador web se conecta a un sitio web a través de HTTPS, valida el certificado de seguridad del sitio web y comprueba que lo ha emitido una entidad de certificación legítima. Para configurar HTTPS en su dominio personalizado, siga las instrucciones de este tutorial: [Configuración de HTTPS en un dominio personalizado de Azure CDN](cdn-custom-ssl.md).
@@ -44,7 +44,7 @@ Azure CDN pasa por alto las restricciones agregadas al token de SAS. Por ejemplo
 Si crea varias direcciones URL de SAS para el mismo punto de conexión de blob, considere habilitar el almacenamiento en caché de la cadena de consulta. Así, se asegura de que cada dirección URL se trata como una entidad única. Para más información, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Redireccionamiento de HTTP a HTTPS
-Puede elegir redirigir el tráfico HTTP a HTTPS mediante la creación de una [regla de redireccionamiento de direcciones URL](cdn-rules-engine-reference-features.md#url-redirect) con el [motor de reglas de Azure CDN](cdn-rules-engine.md). Esta opción requiere un perfil de **Azure CDN Premium de Verizon**. 
+Puede elegir redirigir el tráfico HTTP a HTTPS mediante la creación de una [regla de redireccionamiento de direcciones URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) con el [motor de reglas de Azure CDN](cdn-verizon-premium-rules-engine.md). Esta opción requiere un perfil de **Azure CDN Premium de Verizon**.
 
 ![Regla de redireccionamiento de direcciones URL](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
@@ -56,7 +56,7 @@ Cuando tiene acceso a blobs mediante Azure CDN, paga [tarifas de Blob Storage](h
 Si, por ejemplo, tiene una cuenta de almacenamiento en Estados Unidos a la que se accede con Azure CDN y alguien en Europa intenta acceder a uno de los blobs en esa cuenta de almacenamiento a través de Azure CDN, Azure CDN comprueba primero el POP más cercano en Europa para ese blob. Si encuentra uno, Azure CDN accede a esa copia del blob y usa las tarifas de la red CDN, ya que tiene acceso a él en Azure CDN. Si no encuentra ninguno, Azure CDN copia el blob en el servidor POP, lo que generará gastos de salida y transacción, tal como se especifica en las tarifas de Blob Storage, y obtendrá acceso al archivo en el servidor POP, lo que dará lugar a facturación según las tarifas de Azure CDN.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md) (Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN)
+[Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN](cdn-caching-rules-tutorial.md)
 
 
 

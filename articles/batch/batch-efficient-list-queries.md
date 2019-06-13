@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: eddafdc651eb2cd0fbdf400f7f7e933a91021faf
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778261"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808153"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
@@ -89,7 +89,7 @@ La cadena expand reduce el número de llamadas API necesarias para obtener deter
 * Esta cadena expand de ejemplo especifica que se debe devolver información estadística de cada elemento de la lista: `stats`.
 
 > [!NOTE]
-> Al construir cualquiera de los tres tipos de cadena de consulta (filter, select y expand), debe asegurarse de que los nombres de las propiedades y el uso de mayúsculas y minúsculas coinciden con los elementos homólogos de la API de REST. Por ejemplo, si trabaja con la clase .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask), debe especificar **state** en lugar de **State**, aunque la propiedad de .NET sea [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). Consulte en las tablas siguientes las asignaciones de propiedad entre la API de REST y la de .NET.
+> Al construir cualquiera de los tres tipos de cadena de consulta (filter, select y expand), debe asegurarse de que los nombres de las propiedades y el uso de mayúsculas y minúsculas coinciden con los elementos homólogos de la API de REST. Por ejemplo, si trabaja con la clase .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#Microsoft_Azure_Batch_CloudTask), debe especificar **state** en lugar de **State**, aunque la propiedad de .NET sea [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Consulte en las tablas siguientes las asignaciones de propiedad entre la API de REST y la de .NET.
 > 
 > 
 
@@ -110,7 +110,7 @@ En la API de [.NET de Batch][api_net], se usa la clase [ODATADetailLevel][odata]
 * [ODATADetailLevel][odata].[ SelectClause][odata_select]: especifica los valores de propiedad devueltos con cada elemento.
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]: recupera datos para todos los elementos en una sola llamada a la API en lugar de en llamadas independientes para cada elemento.
 
-El siguiente fragmento de código usa la API de .NET de Batch para consultar de forma eficaz las estadísticas de un conjunto específico de grupos en el servicio Batch. En este escenario, el usuario de Batch tiene grupos de prueba y de producción. Los identificadores del grupo de prueba tienen el prefijo "test", mientras que los del grupo de producción tienen el prefijo "prod". En el fragmento de código, *myBatchClient* es una instancia de la clase [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) inicializada correctamente.
+El siguiente fragmento de código usa la API de .NET de Batch para consultar de forma eficaz las estadísticas de un conjunto específico de grupos en el servicio Batch. En este escenario, el usuario de Batch tiene grupos de prueba y de producción. Los identificadores del grupo de prueba tienen el prefijo "test", mientras que los del grupo de producción tienen el prefijo "prod". En el fragmento de código, *myBatchClient* es una instancia de la clase [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) inicializada correctamente.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Para limitar la cantidad de datos devueltos, también se puede pasar una instancia de [ODATADetailLevel][odata] configurada con las cláusulas Select y Expand a los métodos Get apropiados, como [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__).
+> Para limitar la cantidad de datos devueltos, también se puede pasar una instancia de [ODATADetailLevel][odata] configurada con las cláusulas Select y Expand a los métodos Get apropiados, como [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__).
 > 
 > 
 

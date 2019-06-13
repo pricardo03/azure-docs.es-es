@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019841"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515633"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Predicción del precio de un automóvil con la interfaz visual
 
@@ -78,11 +78,11 @@ Si ha reutilizado correctamente el experimento del inicio rápido, omita la secc
 
 Si no ha completado el inicio rápido, siga estos pasos para crear rápidamente un experimento que importe y limpie el conjunto de datos de los automóviles.
 
-1. Para crear un experimento, seleccione **+NEW** (+Nuevo) en la parte inferior de la ventana de la interfaz visual.
+1. Para crear un experimento, seleccione **+New** (+Nuevo) en la parte inferior de la ventana de la interfaz visual.
 
-1. Seleccione **EXPERIMENT** >  **Blank Experiment** (Experimento > Experimento en blanco).
+1. Seleccione **Experiments** >  **Blank Experiment** (Experimento > Experimento en blanco).
 
-1. Seleccione el nombre de experimento predeterminado **"Experimented Created on ...**"(Experimento creado el...) en la parte superior del lienzo y cámbielo por otro que sea significativo. Por ejemplo, **Automobile price prediction** (Predicción del precio de automóviles). No es necesario que el nombre sea único.
+1. Seleccione el nombre de experimento predeterminado **"Experimented Created on ...** "(Experimento creado el...) en la parte superior del lienzo y cámbielo por otro que sea significativo. Por ejemplo, **Automobile price prediction** (Predicción del precio de automóviles). No es necesario que el nombre sea único.
 
 1. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Para encontrar módulos, utilice el cuadro de búsqueda de la parte superior de la paleta de módulos. Escriba **automobile** (automóvil) en el cuadro de búsqueda para encontrar el conjunto de datos llamado **Automobile price data (Raw)** (Datos de precios de automóviles [sin formato]). Arrastre este conjunto de datos al lienzo del experimento.
 
@@ -183,8 +183,8 @@ Ahora que ha entrenado el modelo con el 70 % de los datos, puede usarlo para pun
 
 Se muestran las siguientes estadísticas de su modelo:
 
-* **Desviación media (MAE)**: la media de errores absolutos (un error es la diferencia entre el valor previsto y el valor real).
-* **Error cuadrático medio (RMSE)**: la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
+* **Desviación media (MAE)** : la media de errores absolutos (un error es la diferencia entre el valor previsto y el valor real).
+* **Error cuadrático medio (RMSE)** : la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
 * **Error absoluto relativo**: la media de errores absolutos en relación con la diferencia absoluta entre los valores reales y la media de todos los valores reales.
 * **Error al cuadrado relativo**: la media de errores al cuadrado en relación con la diferencia al cuadrado entre los valores reales y la media de todos los valores reales.
 * **Coeficiente de determinación**: también se conoce como valor R cuadrado y es una métrica estadística que indica cómo se ajusta un modelo a los datos.
