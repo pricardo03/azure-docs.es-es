@@ -15,7 +15,7 @@ ms.date: 03/19/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61463538"
@@ -95,17 +95,17 @@ En la tabla siguiente, se describen elementos del archivo JSON de salida.
 | Elemento | DESCRIPCIÓN |
 | --- | --- |
 | `Version` |Esto se refiere a la versión de la API de vídeo. La versión actual es 2. |
-| Timescale |"Tics" por segundo del vídeo. |
+| Escala de tiempo |"Tics" por segundo del vídeo. |
 | Offset |La diferencia de tiempo para las marcas de tiempo en "tics". En la versión 1.0 de las API de vídeo, será siempre 0. En los escenarios futuros que se admitan, este valor puede cambiar. |
 | Framerate |Fotogramas por segundo del vídeo. |
 | Width, Height |Se refiere al ancho y alto del vídeo en píxeles. |
-| Start |La marca de tiempo de inicio en "tics". |
+| Iniciar |La marca de tiempo de inicio en "tics". |
 | Duration |La longitud del evento, en "tics". |
 | Interval |El intervalo de cada entrada del evento, en "tics". |
 | Events |Cada fragmento de evento contiene el movimiento detectado dentro de esa duración. |
 | Type |En la versión actual, este valor siempre es "2" para el movimiento genérico. Esta etiqueta brinda a las API de vídeo la flexibilidad para clasificar el movimiento en las versiones futuras. |
 | RegionID |Tal como se explicó anteriormente, este valor siempre será 0 en esta versión. Esta etiqueta brinda a la API de vídeo la flexibilidad para encontrar el movimiento en diversas regiones en las versiones futuras. |
-| Regions |Se refiere al área del vídeo donde le interesa el movimiento. <br/><br/>-"id" representa el área de la región: en esta versión es solo una, Id. 0. <br/>-"tipo" representa la forma de la región que le interesa para un movimiento. Actualmente, se admiten los valores "rectángulo" y "polígono".<br/> Si especifica "rectángulo", las dimensiones de la región son X, Y, ancho y alto. Las coordenadas X e Y representan las coordenadas XY del lado superior izquierdo de la región en una escala normalizada de 0,0 a 1,0. El ancho y el alto representan el tamaño de la región en una escala normalizada de 0,0 a 1,0. En la versión actual, X, Y, ancho y alto son valores fijos siempre en 0, 0 y 1, 1. <br/>Si especifica "polígono", la región tiene dimensiones en puntos. <br/> |
+| Regiones |Se refiere al área del vídeo donde le interesa el movimiento. <br/><br/>-"id" representa el área de la región: en esta versión es solo una, Id. 0. <br/>-"tipo" representa la forma de la región que le interesa para un movimiento. Actualmente, se admiten los valores "rectángulo" y "polígono".<br/> Si especifica "rectángulo", las dimensiones de la región son X, Y, ancho y alto. Las coordenadas X e Y representan las coordenadas XY del lado superior izquierdo de la región en una escala normalizada de 0,0 a 1,0. El ancho y el alto representan el tamaño de la región en una escala normalizada de 0,0 a 1,0. En la versión actual, X, Y, ancho y alto son valores fijos siempre en 0, 0 y 1, 1. <br/>Si especifica "polígono", la región tiene dimensiones en puntos. <br/> |
 | Fragments |Los metadatos se separan en diferentes segmentos denominados fragmentos. Cada fragmento contiene un inicio, una duración, un número de intervalo y eventos. Un fragmento sin eventos significa que no se detectó movimiento durante esa hora de inicio y la duración. |
 | Corchetes [] |Cada corchete representa un intervalo del evento. Si ese intervalo contiene corchetes vacíos, significa que no se detectó movimiento. |
 | locations |Esta nueva entrada de eventos muestra la ubicación donde se produjo el movimiento. Se trata de un valor más específico que las zonas de detección. |
