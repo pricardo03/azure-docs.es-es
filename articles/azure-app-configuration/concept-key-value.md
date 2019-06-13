@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408743"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393602"
 ---
 # <a name="keys-and-values"></a>Claves y valores
 
@@ -27,7 +27,7 @@ Azure App Configuration almacena los datos de configuración como pares clave-va
 
 Las claves sirven como nombre de los pares clave-valor y se usan para almacenar y recuperar los valores correspondientes. Es una práctica habitual la organización de las claves en un espacio de nombres jerárquico mediante un delimitador de caracteres como `/` o `:`. Use la convención que resulte más adecuada para su aplicación. Azure App Configuration trata las claves como un todo. No analiza las claves para averiguar cómo están estructurados sus nombres o para aplicar ninguna regla en ellas.
 
-El uso del almacén de configuración dentro de los marcos de trabajo de la aplicación puede dictar esquemas de nombres específicos para los pares clave-valor. Por ejemplo, el marco de trabajo de Spring Cloud de Java define los recursos `Environment` que aportan la configuración a una aplicación de Spring que se va a parametrizar mediante variables entre las que se incluyen el *nombre de la aplicación* y el *perfil*. Las claves de los datos de configuración relacionadas con Spring Cloud empiezan normalmente por estos dos elementos, separados por un delimitador.
+El uso de datos de configuración dentro de los marcos de trabajo de las aplicaciones puede dictar esquemas de nombres específicos para los pares clave-valor. Por ejemplo, el marco de trabajo de Spring Cloud de Java define los recursos `Environment` que aportan la configuración a una aplicación de Spring que se va a parametrizar mediante variables entre las que se incluyen el *nombre de la aplicación* y el *perfil*. Las claves de los datos de configuración relacionadas con Spring Cloud empiezan normalmente por estos dos elementos, separados por un delimitador.
 
 Las claves almacenadas en App Configuration distinguen entre mayúsculas y minúsculas y son cadenas basadas en Unicode. Las claves *app1* y *App1* se consideran diferentes en un almacén de App Configuration. Téngalo en cuenta al utilizar las opciones de configuración en una aplicación ya que algunos marcos de trabajo administran las claves de configuración sin hacer distinción entre mayúsculas y minúsculas. Por ejemplo, el sistema de configuración de ASP.NET Core trata las claves como cadenas sin distinción de mayúsculas y minúsculas. Para evitar comportamientos impredecibles al realizar consultas en App Configuration dentro de una aplicación de ASP.NET Core, no utilizan claves que solo se distingan por el uso de mayúsculas o minúsculas.
 

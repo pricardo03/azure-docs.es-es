@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: e35d46607e0a186c8a3a38669c68a6ea52711b51
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0bbab2acc9bf9e22e1d3c36336aa9dad04b0b73a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242080"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688492"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Guía de inicio rápido: Exploración del entorno de demostración de la versión preliminar de Azure Time Series Insights
 
-Esta guía de inicio rápido le ayuda a empezar a trabajar con Azure Time Series Insights Preview. Con la demostración gratuita, conocerá las características principales que se han agregado en Azure Time Series Insights (versión preliminar).
+Este inicio rápido le ayuda a empezar a trabajar con el entorno de versión preliminar de Azure Time Series Insights. En la demostración gratuita, recorrerá las características principales que se han agregado a la versión preliminar de Time Series Insights.
 
-El entorno de demostración de la versión preliminar contiene una escenario de la empresa Contoso, que opera dos granjas de turbinas eólicas, cada una con 10 turbinas. Cada turbina tiene veinte sensores que comunican los datos cada minuto a Azure IoT Hub. Los sensores recopilan información acerca de las condiciones meteorológicas, la posición de inclinación y el paso de las palas. También sobre el rendimiento del generador, el comportamiento de la caja de cambios y los monitores de seguridad.
+El entorno de demostración de la versión preliminar de Time Series Insights contiene un escenario de la empresa Contoso, que dirige dos granjas de turbinas eólicas. Cada granja tiene 10 turbinas. Cada turbina tiene veinte sensores que comunican los datos cada minuto a Azure IoT Hub. Los sensores recopilan información acerca de las condiciones meteorológicas, la posición de inclinación y el paso de las palas. También se registra información sobre el rendimiento de los generadores, el comportamiento de la caja de cambios y los monitores de seguridad.
 
- Aprenderá a usar Time Series Insights para buscar información útil en los datos de Contoso. También llevará a cabo un breve análisis de la causa raíz para predecir mejor los errores críticos y realizar tareas de mantenimiento.
+En este inicio rápido, aprenderá a usar Time Series Insights para buscar información que requiere acción en los datos de Contoso. También llevará a cabo un breve análisis de la causa principal para predecir mejor los errores críticos y realizar tareas de mantenimiento.
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Exploración del explorador de Time Series Insights en un entorno de demostración
 
@@ -32,68 +32,68 @@ El explorador de Time Series Insights (versión preliminar) muestra datos histó
 
 1. Cree una  [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)  si aún no tiene una.
 
-1. Vaya al entorno  [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples).  
+1. Vaya al entorno de ejemplo  [Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).  
 
 1. Si se le solicita, inicie sesión en el explorador de Time Series Insights con las credenciales de la cuenta de Azure.
 
 ## <a name="work-with-historical-data"></a>Trabajo con datos históricos
 
-1. Observe la turbina eólica **W7** en **Contoso Plant 1**.  
+1. En **Contoso Plant 1**, examine la turbina eólica **W7**.  
 
-    * Actualice el intervalo de la vista a **1/1/17 20:00 a 10/03/17 20:00 (UTC)** .
-    * Seleccione el sensor **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. A continuación, revise los valores resultantes.
+   1. Cambie el intervalo de la vista a **1/1/17 20:00 to 3/10/17 20:00 (UTC)** .
+   1. Para seleccionar el sensor, elija **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Luego, revise los valores que se muestran.
 
       [![W7 en Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
-1. Recientemente, Contoso encontró un incendio en el **aerogenerador número 7**. Las opiniones sobre cuál fue la causa del incendio varían. En un examen más detallado, vemos que el sensor de alerta de incendios se activó durante el fuego.
+1. Recientemente, Contoso encontró un incendio en el **aerogenerador número 7**. Las opiniones sobre lo que ha provocado el fuego varían. En Time Series Insights, podemos ver que el sensor de alerta de incendio se activó durante el incendio.
 
-    * Actualice el intervalo de la vista a **9/3/17 20:00 a 10/3/17 20:00 (UTC)** .
-    * Seleccione el sensor **Safety System** > **FireAlert**.
+   1. Cambie el intervalo de la vista a **3/9/17 20:00 to 3/10/17 20:00 (UTC)** .
+   1. Seleccione **Safety System** > **FireAlert**.
 
       [![Contoso tuvo un incendio en la turbina eólica W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
-1. Revise otros eventos en el momento del incendio para comprender qué ha sucedido. Se dieron advertencias de presión del aceite y advertencias activas justo antes del incendio.
+1. Revise otros eventos en el momento del incendio para comprender qué ha sucedido. Se proporcionaron advertencias de presión del aceite y advertencias activas justo antes del incendio.
 
-    * Seleccione el sensor **Pitch System** > **HydraulicOilPressure**.
-    * Seleccione el sensor **Pitch System** > **ActiveWarning**.
+   1. Seleccione **Pitch System** > **HydraulicOilPressure**.
+   1. Seleccione **Pitch System** > **ActiveWarning**.
 
       [![Revisión de otros eventos sucedidos aproximadamente al mismo tiempo](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
-1. Se dieron advertencias de presión del aceite y advertencias activas justo antes del incendio. Expanda la serie temporal mostrada para ver otras señales que pudieran haber provocado el incendio. Ambos sensores variaron de forma coherente a lo largo del tiempo, lo que indica un patrón persistente y preocupante.
+1. Se dieron advertencias de presión del aceite y advertencias activas justo antes del incendio. Expanda la serie temporal mostrada para ver otras señales que evidencien la causa del incendio. Ambos sensores fluctuaron sistemáticamente con el tiempo. Las fluctuaciones indican un patrón persistente y preocupante.
 
-    * Actualice el intervalo de la vista a **24/2/17 20:00 a 10/3/17 20:00 (UTC)** .
+    * Cambie el intervalo de la vista a **2/24/17 20:00 to 3/10/17 20:00 (UTC)** .
 
       [![Sensores de presión del aceite y sensores de advertencia también activos](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
 1. El examen de dos años de datos históricos revela otro incendio con las mismas fluctuaciones en los sensores.
 
-    * Actualice el intervalo de la vista a **1/1/16 a 31/12/17** (todos los datos).
+    * Cambie el intervalo de la vista a **1/1/16 to 12/31/17** (todos los datos).
 
       [![Búsqueda de patrones históricos](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Con Azure Time Series Insights y los datos de telemetría de los sensores, hemos descubierto una problemática tendencia a largo plazo oculta en los datos históricos. Con estas nuevas conclusiones, se puede:
+Con Time Series Insights y los datos de telemetría de los sensores, hemos descubierto una tendencia problemática a largo plazo oculta en los datos históricos. Con estas nuevas conclusiones, se puede:
 
 > [!div class="checklist"]
 > * Explicar lo que realmente sucedió.
 > * Corregir el problema.
 > * Poner en marcha sistemas de notificación de alertas superiores.
 
-## <a name="root-cause-analysis"></a>Análisis de causa raíz
+## <a name="root-cause-analysis"></a>Análisis de la causa raíz
 
-1. Algunos escenarios requieren un análisis sofisticado para revelar pistas sutiles en los datos. Seleccione el generador **W6** en la fecha **25/6**
+1. Algunos escenarios requieren un análisis sofisticado para revelar pistas sutiles en los datos. Seleccione el generador **W6** en la fecha **6/25**.
 
-    * Actualice el intervalo de la vista a **1/6/17 20:00 a 1/7/17 20:00 (UTC)** .
-    * A continuación, seleccione el sensor **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning** .
+    1. Cambie el intervalo de la vista a **6/1/17 20:00 to 7/1/17 20:00 (UTC)** .
+    1. Seleccione **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
-      [![Actualización del intervalo de la vista y selección de W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Cambio del intervalo de la vista y selección de W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. La advertencia indica un problema con la tensión de salida del generador. La potencia de salida general del generador se mueve dentro de los parámetros normales en el intervalo actual. Al aumentar el intervalo, surge otro patrón: hay una caída definitiva.
+1. La advertencia indica un problema con la tensión de salida del generador. La potencia de salida general del generador se mueve dentro de los parámetros normales en el intervalo actual. Al aumentar nuestro intervalo, surge otro patrón. Se evidencia una caída definitiva.
 
-    * Elimine el sensor **VoltageActuatorSwitchWarning**.
-    * Seleccione el sensor **Generator System** > **ActivePower**.
-    * Actualice el intervalo a **3d**.
+    1. Elimine el sensor **VoltageActuatorSwitchWarning**.
+    1. Seleccione **Generator System** > **ActivePower**.
+    1. Cambie el intervalo a **3d**.
 
-      [![Actualización del intervalo a 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Cambio del intervalo a 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
 1. Si expande el intervalo de tiempo, podemos determinar si el problema se ha detenido o si continúa.
 
@@ -103,22 +103,22 @@ Con Azure Time Series Insights y los datos de telemetría de los sensores, hemos
 
 1. Se pueden agregar otros puntos de datos de sensores para proporcionar un mayor contexto. Cuantos más sensores podamos ver, mayor será nuestra comprensión del problema. Coloquemos un marcador para ver los valores reales. 
 
-    * Seleccione los sensores **Generator System** > **GridVoltagePhase1**, **GridVoltagePhase2** y **GridVoltagePhase3**.
-    * Coloque un marcador en el último punto de datos en el área visible.
+    1. Seleccione **Generator System** y, luego, elija tres sensores: **GridVoltagePhase1**, **GridVoltagePhase2** y **GridVoltagePhase3**.
+    1. Coloque un marcador en el último punto de datos en el área visible.
 
-      [![Eliminación de un marcador](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Eliminación de un marcador](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
-    Los tres sensores de voltaje están operando de forma comparable y dentro de los parámetros normales. Parece que el sensor **GridVoltagePhase3** es el culpable.
+    Dos de los sensores de voltaje están funcionando de forma comparable y dentro de los parámetros normales. Parece que el sensor **GridVoltagePhase3** es el culpable.
 
-1. Una vez agregados los datos estrechamente relacionados con el contexto, la caída de la fase 3 aparece aún más como el problema. Estamos listos para comunicar el problema al equipo de mantenimiento con un buen punto de partida sobre la causa de la advertencia.  
+1. Una vez agregados los datos estrechamente relacionados con el contexto, la caída de la fase 3 se evidencia más como la causa del problema. Ahora, tenemos un buen punto de partida sobre la causa de la advertencia. Ya estamos listos para remitir el asunto a nuestro equipo de mantenimiento.  
 
-    * Actualice la pantalla para superponer todos los sensores de **Generator System** en la misma escala del gráfico.
+    * Cambie la pantalla para superponer todos los sensores de **Generator System** en la misma escala del gráfico.
 
-       [![Actualización de la pantalla para incluir todo](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Cambio de la pantalla para incluir todo](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Está listo para crear su propio entorno en versión preliminar de Time Series Insights:
+Está listo para crear su propio entorno de Time Series Insights: Para comenzar:
 
 > [!div class="nextstepaction"]
 > [Planeamiento de un entorno en versión preliminar de Time Series Insights](time-series-insights-update-plan.md)

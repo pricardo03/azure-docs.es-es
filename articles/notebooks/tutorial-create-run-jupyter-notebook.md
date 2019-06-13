@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: c593b472326fc373c0b715865b839cca3b6bcf45
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480248"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751763"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter con Python
 
@@ -49,7 +49,7 @@ Encontrará el cuaderno completo en [GitHub: Ejemplos de Azure Notebooks](https:
 
 ## <a name="create-the-data-file"></a>Creación del archivo de datos
 
-El modelo de regresión lineal que se crea en el cuaderno extrae datos de un archivo del proyecto llamado *cricket_chirps.csv*. Puede crear este archivo copiando desde [GitHub: ejemplos de cuadernos de Azure](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), o escribiendo los datos directamente. Estas dos opciones se describen en las secciones siguientes.
+El modelo de regresión lineal que se crea en el cuaderno extrae datos de un archivo del proyecto llamado *cricket_chirps.csv*. Para crear este archivo, cópielo de [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps) o escriba los datos directamente. Estas dos opciones se describen en las secciones siguientes.
 
 ### <a name="upload-the-data-file"></a>Carga del archivo de datos
 
@@ -160,7 +160,7 @@ Los grupos de comandos de menú son los siguientes:
 | Kernel | Comandos para administrar cómo se ejecuta el código en el kernel, más **Change kernel** (Cambiar kernel) para cambiar el lenguaje o la versión de Python que se usa para ejecutar el cuaderno. |
 | Datos | Comandos para cargar y descargar archivos desde el proyecto o la sesión. Consulte [Trabajo con archivos de datos de proyecto](work-with-project-data-files.md). |
 | Widgets | Comandos para administrar [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html) (Widgets de Jupyter), que proporcionan funcionalidades adicionales para la visualización, la asignación y el trazado.|
-| Help | Comandos que ofrecen ayuda y documentación sobre la interfaz de Jupyter. |
+| Ayuda | Comandos que ofrecen ayuda y documentación sobre la interfaz de Jupyter. |
 
 La mayoría de los comandos de la barra de herramientas tiene comandos de menú equivalentes. Una excepción es **Enter/Edit RISE Slideshow** (Especificar/editar presentación de RISE), que se describe en [Uso compartido y presentación de cuadernos](present-jupyter-notebooks-slideshow.md).
 

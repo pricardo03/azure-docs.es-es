@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665804"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515847"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Creación e implementación de una aplicación con un servicio de front-end de ASP.NET Core Web API y un servicio back-end con estado
 
 Este tutorial es la primera parte de una serie.  Aprenda a crear una aplicación de Azure Service Fabric con un front-end de ASP.NET Core Web API y un servicio back-end con estado para almacenar los datos. Cuando termine, tendrá una aplicación de votación con un front-end web de ASP.NET Core que guarda los resultados de una votación en un servicio back-end con estado en el clúster. Si no desea crear manualmente la aplicación de votación, puede [descargar el código fuente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) de la aplicación terminada y pasar directamente al [Tutorial de la aplicación de ejemplo de votación](#walkthrough_anchor).  Si lo prefiere, también puede ver un [vídeo](https://channel9.msdn.com/Events/Connect/2017/E100) de este tutorial.
 
-![Diagrama de la aplicación](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![Front-end de la API AngularJS+ASP.NET, conexión a un servicio de back-end con estado en Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 En la primera parte de la serie, se aprende a:
 
@@ -346,7 +346,7 @@ Service Fabric permite almacenar de forma coherente y confiable su estado justo 
 
 En este tutorial creará un servicio, que almacena un valor de contador en una colección de confianza.
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en **Servicios**, en el proyecto de aplicación Voting y seleccione **Agregar > Nuevo servicio de Service Fabric…**.
+1. En el Explorador de soluciones, haga clic con el botón derecho en **Servicios**, en el proyecto de aplicación Voting y seleccione **Agregar > Nuevo servicio de Service Fabric…** .
     
 2. En el cuadro de diálogo **Nuevo servicio de Service Fabric**, elija **ASP.NET Core con estado**, asigne el nombre de **VotingData** al servicio y presione **Aceptar**.
 
@@ -625,9 +625,9 @@ Para ver lo que ocurre en el código, siga estos pasos:
 
       ![Incorporación del servicio front-end de voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Primero, construya la dirección URL para el valor de ReverseProxy del servicio back-end **(1)**.
-   3. A continuación, envíe la solicitud PUT de HTTP a ReverseProxy **(2)**.
-   4. Por último, se devuelve la respuesta del servicio back-end al cliente **(3)**.
+   2. Primero, construya la dirección URL para el valor de ReverseProxy del servicio back-end **(1)** .
+   3. A continuación, envíe la solicitud PUT de HTTP a ReverseProxy **(2)** .
+   4. Por último, se devuelve la respuesta del servicio back-end al cliente **(3)** .
 
 5. Presione **F5** para continuar.
    1. Ya está en el punto de interrupción del servicio back-end.
@@ -636,7 +636,7 @@ Para ver lo que ocurre en el código, siga estos pasos:
 
    2. En la primera línea del método **(1)** se usa `StateManager` para obtener o agregar un diccionario de confianza denominado `counts`.
    3. Todas las interacciones con valores de un diccionario de confianza requieren una transacción. Esta instrucción using **(2)** crea dicha transacción.
-   4. Después, en la transacción, se actualiza el valor de la tecla correspondiente para la opción de votación y se confirma la operación **(3)**. Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
+   4. Después, en la transacción, se actualiza el valor de la tecla correspondiente para la opción de votación y se confirma la operación **(3)** . Una vez que se devuelve el método Commit, los datos se actualizan en el diccionario y se replican en otros nodos del clúster. Los datos ahora están almacenados de forma segura en el clúster y el servicio back-end puede conmutar por error a otros nodos, mientras sigue teniendo los datos disponibles.
 6. Presione **F5** para continuar.
 
 Para detener la sesión de depuración, presione **Mayús+F5**.

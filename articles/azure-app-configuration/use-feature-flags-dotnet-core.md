@@ -1,6 +1,6 @@
 ---
 title: Tutorial para usar las marcas de características en una aplicación de .NET Core | Microsoft Docs
-description: En este tutorial, obtendrá información sobre cómo implementar las marcas de características en aplicaciones de .NET Core
+description: En este tutorial, aprenderá a implementar las marcas de características en aplicaciones de .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: b0e48a0db63eded9e9c4921d33b03af39656ce0d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299262"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393510"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de .NET Core
 
-Las bibliotecas de administración de características de .NET Core proporcionan soporte idiomático para implementar las marcas de características en una aplicación de .NET o ASP.NET Core. Le permiten agregar marcas de características al código de una forma más declarativa para que no sea necesario escribir todas las instrucciones `if` correspondientes manualmente. Administran los ciclos de vida de las marcas de características (por ejemplo, actualizan y almacenan en caché los estados de marca y garantizan que un estado de marca sea inmutable durante una llamada de solicitud) en segundo plano. Además, la biblioteca de ASP.NET Core ofrece integraciones listas para usar, como acciones de controlador de MVC, vistas, rutas y middleware.
+Las bibliotecas de administración de características de .NET Core proporcionan soporte idiomático para implementar las marcas de características en una aplicación de .NET o ASP.NET Core. Estas bibliotecas le permiten agregar mediante declaración marcas de características al código para que no sea necesario escribir todas las instrucciones `if` correspondientes manualmente.
 
-El inicio rápido [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) (Agregar marcas de características a una aplicación ASP.NET Core) muestra varias maneras de agregar las marcas de características en una aplicación ASP.NET Core. Este tutorial explica esto con más detalles. Consulte la [documentación de administración de características de ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410) para obtener una referencia completa.
+Las bibliotecas de administración de características también administran los ciclos de vida de las marcas de características en segundo plano. Por ejemplo, actualizan y almacenan en caché los estados de marca y garantizan que un estado de marca sea inmutable durante una llamada de solicitud. Además, la biblioteca de ASP.NET Core ofrece integraciones listas para usar, como acciones de controlador de MVC, vistas, rutas y middleware.
+
+El inicio rápido [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) (Agregar marcas de características a una aplicación ASP.NET Core) muestra varias maneras de agregar las marcas de características en una aplicación ASP.NET Core. Este tutorial explica estos métodos en profundidad. Consulte la [documentación de administración de características de ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410) para obtener una referencia completa.
 
 En este tutorial, aprenderá a:
 
@@ -33,9 +35,9 @@ En este tutorial, aprenderá a:
 > * Agregar marcas de características en las partes clave de la aplicación para controlar la disponibilidad de características.
 > * Integrar con App Configuration cuando se usa para administrar las marcas de características.
 
-## <a name="setup"></a>Configuración
+## <a name="set-up-feature-management"></a>Configuración de la administración de características
 
-El administrador de características de .NET Core `IFeatureManager` obtiene las marcas de características del sistema de configuración nativo del marco. Como resultado, puede definir marcas de características de la aplicación con cualquier origen de configuración que admita .NET Core, incluido el archivo local *appsettings.json* o las variables de entorno. El administrador de características se basa en la inserción de dependencias de .NET Core. Puede registrar los servicios de administración de características mediante las convenciones estándar.
+El administrador de características de .NET Core `IFeatureManager` obtiene las marcas de características del sistema de configuración nativo del marco. Como resultado, puede definir marcas de características de la aplicación con cualquier origen de configuración que admita .NET Core, incluido el archivo local *appsettings.json* o las variables de entorno. `IFeatureManager` se basa en la inserción de dependencias de .NET Core. Puede registrar los servicios de administración de características mediante las convenciones estándar:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -49,7 +51,7 @@ public class Startup
 }
 ```
 
-El administrador de características recupera las marcas de características de la sección "FeatureManagement" de los datos de configuración de .NET Core de forma predeterminada. En el ejemplo siguiente se le indica que lea de una sección diferente que se llama "MyFeatureFlags" en su lugar.
+De forma predeterminada, el administrador de características recupera las marcas de características de la sección `"FeatureManagement"` de los datos de configuración de .NET Core. En el ejemplo siguiente se le indica al administrador de características que lea de una sección diferente que se llama `"MyFeatureFlags"` en su lugar:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -66,7 +68,7 @@ public class Startup
 }
 ```
 
-Si usa el filtros en sus marcas de características, deberá incluir una biblioteca adicional y registrarla. El ejemplo siguiente muestra cómo usar un filtro de características integrado que se llama **"PercentageFilter"** .
+Si usa el filtros en sus marcas de características, deberá incluir una biblioteca adicional y registrarla. El ejemplo siguiente muestra cómo usar un filtro de características integrado que se llama `PercentageFilter`:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -82,7 +84,9 @@ public class Startup
 }
 ```
 
-Para que funcione de forma eficaz, debe mantener las marcas de características fuera de la aplicación y administrarlas por separado. De este modo, podrá modificar los estados de las marcas en cualquier momento y hacer que estos cambios surtan efecto en la aplicación de inmediato. App Configuration proporciona un lugar centralizado para organizar y controlar todas las marcas de características a través de una IU de portal dedicada y ofrece las marcas a la aplicación directamente a través de sus bibliotecas de cliente de .NET Core. La manera más fácil de conectar la aplicación de ASP.NET Core con App Configuration es a través del proveedor de configuración `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Puede usar este paquete de NuGet en el código agregando lo siguiente al archivo *Program.cs*:
+Es recomendable que mantenga las marcas de características fuera de la aplicación y las administre por separado. De este modo, podrá modificar los estados de las marcas en cualquier momento y hacer que estos cambios surtan efecto en la aplicación de inmediato. App Configuration proporciona un lugar centralizado para organizar y controlar todas las marcas de características mediante la interfaz de usuario de un portal dedicado. App Configuration proporciona también las marcas a la aplicación directamente a través de sus bibliotecas cliente de .NET Core.
+
+La manera más fácil de conectar la aplicación de ASP.NET Core con App Configuration es a través del proveedor de configuración `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Para usar este paquete NuGet, agregue el código siguiente al archivo *Program.cs*:
 
 ```csharp
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -99,7 +103,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            .UseStartup<Startup>();
 ```
 
-Los valores de las marcas de características se esperan que cambien con el tiempo. De forma predeterminada, el administrador de características actualizará los valores de las marcas de características cada 30 segundos. Puede usar un intervalo de sondeo distinto en la llamada `options.UseFeatureFlags()` anterior.
+Los valores de las marcas de características se esperan que cambien con el tiempo. De forma predeterminada, el administrador de características actualizará los valores de las marcas de características cada 30 segundos. El código siguiente muestra cómo cambiar el intervalo de sondeo a 5 segundos en la llamada a `options.UseFeatureFlags()`:
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
@@ -112,14 +116,16 @@ config.AddAzureAppConfiguration(options => {
 
 ## <a name="feature-flag-declaration"></a>Declaración de la marca de características
 
-Cada marca de características tiene dos partes: un nombre y una lista de uno o varios filtros que se utilizan para evaluar si el estado de la característica está *activo* (es decir, cuando su valor es `True`). Un filtro define un caso de uso para el que debe activarse una característica. Si una marca de características tiene varios filtros, la lista de filtros se recorre en orden hasta que uno de los filtros determina que se debe habilitar la característica. En este momento, se considera la marca de característica está *activa* y se omiten los resultados del filtro restantes. Si ningún filtro indica que se debe habilitar la característica, la marca de características está *desactivada*.
+Cada marca de características tiene dos partes: un nombre y una lista de uno o varios filtros que se utilizan para evaluar si el estado de la característica está *activo* (es decir, cuando su valor es `True`). Un filtro define un caso de uso en el que debe activarse una característica.
 
-El administrador de la característica admite *appsettings.json* como origen de configuración para las marcas de características. El ejemplo siguiente muestra cómo establecer las marcas de características en un archivo json.
+Cuando una marca de características tiene varios filtros, la lista de filtros se recorre en orden hasta que uno de los filtros determina que se debe habilitar la característica. En ese momento, la marca de característica está *activa* y se omiten los resultados del filtro restantes. Si ningún filtro indica que se debe habilitar la característica, la marca de características está *desactivada*.
+
+El administrador de la característica admite *appsettings.json* como origen de configuración para las marcas de características. El ejemplo siguiente muestra cómo establecer las marcas de características en un archivo JSON:
 
 ```JSON
 "FeatureManagement": {
-    "FeatureX": true, // Feature flag set to on
-    "FeatureY": false, // Feature flag set to off
+    "FeatureA": true, // Feature flag set to on
+    "FeatureB": false, // Feature flag set to off
     "FeatureC": {
         "EnabledFor": [
             {
@@ -133,15 +139,15 @@ El administrador de la característica admite *appsettings.json* como origen de 
 }
 ```
 
-Por convención, la sección `FeatureManagement` de este documento json se usa para la configuración de la marca de características. El ejemplo anterior muestra tres marcas de características con los filtros definidos en la propiedad *EnabledFor*:
+Por convención, la sección `FeatureManagement` de este documento JSON se usa para la configuración de la marca de características. El ejemplo anterior muestra tres marcas de características con los filtros definidos en la propiedad `EnabledFor`:
 
-* **FeatureA** está en estado *on* (activo).
-* **FeatureA** está en estado *off* (desactivado).
-* **FeatureC** especifica un filtro denominado *Percentage* (Porcentaje) con una propiedad *Parameters* (Parámetros). *Percentage* es un ejemplo de un filtro configurable y especifica una probabilidad del 50 % para que **FeatureC** esté en estado *on*.
+* `FeatureA` está *activada*.
+* `FeatureB` está *desactivada*.
+* `FeatureC` especifica un filtro denominado `Percentage` con una propiedad `Parameters`. `Percentage` es un filtro configurable. En este ejemplo, `Percentage` especifica una probabilidad del 50 por ciento de que la marca `FeatureC` esté *activada*.
 
-## <a name="referencing"></a>Referencia
+## <a name="feature-flag-references"></a>Referencias de marcas de características
 
-Aunque no es necesario, las marcas de características deben definirse como variables `enum` de modo que se pueda hacer referencia a ellas con facilidad en el código.
+Para que pueda hacer referencia fácilmente a las marcas de características en el código, deberá definirlas como variables `enum`:
 
 ```csharp
 public enum MyFeatureFlags
@@ -152,9 +158,9 @@ public enum MyFeatureFlags
 }
 ```
 
-## <a name="feature-flag-check"></a>Comprobación de la marca de características
+## <a name="feature-flag-checks"></a>Comprobaciones de las marcas de características
 
-El patrón básico de administración de características consiste en comprobar primero si una marca de características está configurada en estado *on* y, a continuación, realizar las acciones asociadas si ese es el caso.
+El patrón básico de administración de características consiste en comprobar primero si una marca de características está *activada*. Si es así, el administrador de características ejecutará las acciones que contiene la característica. Por ejemplo:
 
 ```csharp
 IFeatureManager featureManager;
@@ -167,7 +173,7 @@ if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
 
 ## <a name="dependency-injection"></a>Inserción de dependencia
 
-En ASP.NET Core MVC, el administrador de características `IFeatureManager` puede obtenerse a través de la inserción de dependencias.
+En ASP.NET Core MVC, puede acceder al administrador de características `IFeatureManager` mediante la inserción de dependencias:
 
 ```csharp
 public class HomeController : Controller
@@ -181,9 +187,9 @@ public class HomeController : Controller
 }
 ```
 
-## <a name="controller-action"></a>Acción del controlador
+## <a name="controller-actions"></a>Acciones de controlador
 
-En los controladores MVC, se puede usar un atributo `Feature` para controlar si se habilita una clase de controlador completo o una acción específica. El siguiente controlador `HomeController` requiere que *FeatureA* esté en estado *on* para ejecutar cualquier acción que contiene.
+En los controladores MVC, puede usar un atributo `Feature` para controlar si se habilita una clase de controlador completa o una acción específica. El siguiente controlador `HomeController` requiere que `FeatureA` esté *activada* para ejecutar cualquier acción que contenga la clase del contenedor:
 
 ```csharp
 [Feature(MyFeatureFlags.FeatureA)]
@@ -193,7 +199,7 @@ public class HomeController : Controller
 }
 ```
 
-La siguiente acción `Index` requiere que *FeatureA* esté en estado *on* para ejecutarse.
+La siguiente acción `Index` requiere que `FeatureA` esté *activada* para ejecutarse:
 
 ```csharp
 [Feature(MyFeatureFlags.FeatureA)]
@@ -203,11 +209,11 @@ public IActionResult Index()
 }
 ```
 
-Cuando una acción o controlador MVC está bloqueado porque la marca de característica de control está en estado *off*, se llama a un valor `IDisabledFeatureHandler` registrado. El valor predeterminado `IDisabledFeatureHandler` devuelve un código de estado 404 al cliente sin cuerpo de respuesta.
+Cuando una acción o controlador MVC está bloqueado porque la marca de característica de control está *desactivada*, se llama a una interfaz `IDisabledFeaturesHandler` registrada. La interfaz predeterminada `IDisabledFeaturesHandler` devuelve un código de estado 404 al cliente sin cuerpo de respuesta.
 
-## <a name="view"></a>Ver
+## <a name="mvc-views"></a>Vistas de MVC
 
-En las vistas de MVC, se puede usar una etiqueta `<feature>` para representar el contenido en función de si una marca de características está habilitada o no.
+En las vistas de MVC, se puede usar una etiqueta `<feature>` para representar el contenido en función de si una marca de características está habilitada:
 
 ```html
 <feature name="FeatureA">
@@ -215,9 +221,9 @@ En las vistas de MVC, se puede usar una etiqueta `<feature>` para representar el
 </feature>
 ```
 
-## <a name="mvc-filter"></a>Filtro MVC
+## <a name="mvc-filters"></a>Filtros MVC
 
-Los filtros MVC se pueden configurar de manera que se activen en función del estado de una marca de características. Lo siguiente agrega un filtro MVC denominado `SomeMvcFilter`. Este filtro se desencadena en la canalización de MVC solo si está habilitado *FeatureA*.
+Los filtros MVC se pueden configurar de manera que se activen en función del estado de una marca de características. El código siguiente agrega un filtro MVC denominado `SomeMvcFilter`. Este filtro se desencadena en la canalización de MVC solo si está habilitada `FeatureA`.
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -232,9 +238,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="route"></a>Enrutar
+## <a name="routes"></a>Rutas
 
-Las rutas se pueden exponer de forma dinámica según las marcas de características. Lo siguiente agrega una ruta, que establece `Beta` como controlador predeterminado, solo cuando *FeatureA* está habilitado.
+Puede utilizar las marcas de características para exponer dinámicamente rutas. El código siguiente agrega una ruta, que establece `Beta` como controlador predeterminado, solo cuando `FeatureA` está habilitada:
 
 ```csharp
 app.UseMvc(routes => {
@@ -244,13 +250,13 @@ app.UseMvc(routes => {
 
 ## <a name="middleware"></a>Software intermedio
 
-Las marcas de características pueden utilizarse para agregar middleware y ramas de aplicación condicionalmente. Lo siguiente inserta un componente de middleware en la canalización de la solicitud solo cuando *FeatureA* está habilitado.
+También puede usar las marcas de características para agregar condicionalmente ramas de aplicación y middleware. El código siguiente inserta un componente de middleware en la canalización de la solicitud solo cuando `FeatureA` está habilitada:
 
 ```csharp
 app.UseMiddlewareForFeature<ThirdPartyMiddleware>(nameof(MyFeatureFlags.FeatureA));
 ```
 
-Esto desarrolla la capacidad más genérica de bifurcar toda la aplicación en función de una marca de características.
+Este código desarrolla una funcionalidad más genérica de crear una rama de toda la aplicación en función de una marca de características:
 
 ```csharp
 app.UseForFeature(featureName, appBuilder => {
@@ -260,7 +266,7 @@ app.UseForFeature(featureName, appBuilder => {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a implementar marcas de características en la aplicación ASP.NET Core mediante el uso de la bibliotecas `Microsoft.FeatureManagement`. Consulte los siguientes recursos para obtener más información sobre la compatibilidad de administración de características en ASP.NET Core y App Configuration.
+En este tutorial, ha aprendido a implementar marcas de características en la aplicación ASP.NET Core mediante el uso de bibliotecas `Microsoft.FeatureManagement`. Consulte los siguientes recursos para más información sobre la compatibilidad de la administración de características en ASP.NET Core y App Configuration:
 
 * [ASP.NET Core feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core) (Código de ejemplo de marca de características de ASP.NET Core)
 * [Microsoft.FeatureManagement documentation](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement) (Documentación de Microsoft.FeatureManagement)

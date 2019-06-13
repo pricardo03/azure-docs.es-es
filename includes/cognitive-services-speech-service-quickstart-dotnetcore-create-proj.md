@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/12/2018
 ms.author: erhopf
-ms.openlocfilehash: 6e49db90aa9e9f933a190425afbafd15e0057fca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 777b2608cf5f326556dfaea307f4f3e9346213f8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146055"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482271"
 ---
-1. Inicie Visual Studio 2017.
+1. Inicie Visual Studio 2019.
 
 1. Asegúrese de que la carga de trabajo de **Desarrollo multiplataforma de .NET Core** esté disponible. Elija **Herramientas** > **Get Tools and Features (Obtener herramientas y características)** desde la barra de menús de Visual Studio para abrir el instalador de Visual Studio. Si esta carga de trabajo ya está habilitada, cierre el cuadro de diálogo.
 
@@ -19,7 +19,7 @@ ms.locfileid: "66146055"
 
    En caso contrario, active la casilla junto a **Desarrollo multiplataforma de .NET Core** y elija **Modificar** en la esquina inferior derecha del cuadro de diálogo. La instalación de la nueva característica tardará un momento.
 
-1. Cree una nueva aplicación de consola de .NET Core en Visual C#. En el cuadro de diálogo **Nuevo proyecto**, en el panel izquierdo, expanda **Instalado** > **Visual C#** > **.NET Core**. Luego, seleccione **Aplicación de consola (.NET Framework)**. Para el nombre del proyecto, escriba *helloworld*.
+1. Cree una nueva aplicación de consola de .NET Core en Visual C#. En el cuadro de diálogo **Nuevo proyecto**, en el panel izquierdo, expanda **Instalado** > **Visual C#**  >  **.NET Core**. Luego, seleccione **Aplicación de consola (.NET Framework)** . Para el nombre del proyecto, escriba *helloworld*.
 
    ![Captura de pantalla del cuadro de diálogo Nuevo proyecto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Crear aplicación de consola de C# de Visual Studio (.NET Core)")
 

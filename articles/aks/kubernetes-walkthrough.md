@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956422"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687949"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -238,7 +238,7 @@ Para ver la aplicación Azure Vote en acción, abra un explorador web en la dire
 
 Cuando se creó el clúster de AKS, se habilitó Azure Monitor para los contenedores a fin de capturar métricas de mantenimiento para los nodos de clúster y los pods. Estas métricas de mantenimiento están disponibles en Azure Portal.
 
-Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Azure Vote, complete los pasos siguientes:
+Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Azure Vote, haga lo siguiente:
 
 1. En un explorador web, vaya a Azure Portal[https://portal.azure.com][azure-portal].
 1. Seleccione el grupo de recursos, como *myResourceGroup*, a continuación, seleccione el clúster de AKS, como *myAKSCluster*.
@@ -251,11 +251,11 @@ Se muestran los contenedores *azure-vote-back* y *azure-vote-front*, como aparec
 
 ![Visualización del estado de ejecución de contenedores en AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-Para ver los registros del pod `azure-vote-front`, seleccione la opción **Ver en Analytics** y, después, seleccione el vínculo **Ver registros del contenedor** en el lado derecho de la lista de contenedores. Estos registros incluyen los flujos *stdout* y *stderr* del contenedor.
+Para ver los registros del pod `azure-vote-back`, seleccione la opción **Ver en Analytics** y, después, seleccione el vínculo **Ver registros del contenedor** en el lado derecho de la lista de contenedores. Estos registros incluyen los flujos *stdout* y *stderr* del contenedor.
 
 ![Visualización de los registros de contenedores en AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>Eliminación de clúster
+## <a name="delete-the-cluster"></a>Eliminación del clúster
 
 Cuando el clúster ya no se necesite, puede usar el comando [az group delete][az-group-delete] para eliminar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
 

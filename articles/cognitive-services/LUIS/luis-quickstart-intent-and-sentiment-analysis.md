@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236198"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479781"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obtención de opiniones de expresión
 
@@ -54,6 +54,7 @@ Dado que es una configuración de publicación, no lo ve en las páginas de enti
 
 ## <a name="add-personname-prebuilt-entity"></a>Incorporación de la entidad precompilada PersonName 
 
+1. Seleccione **Compilar** en el menú de navegación.
 
 1. Seleccione **Entities** (Entidades) en el menú de navegación izquierdo.
 
@@ -69,11 +70,11 @@ Dado que es una configuración de publicación, no lo ve en las páginas de enti
 
 Agregue una nueva intención para capturar los comentarios de los miembros de la empresa. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Seleccione **Intents** (Intenciones) en el panel izquierdo.
 
-2. Haga clic en **Create new intent** (Crear intención).
+1. Haga clic en **Create new intent** (Crear intención).
 
-3. Escriba el nombre de la intención nueva `EmployeeFeedback`.
+1. Escriba el nombre de la intención nueva `EmployeeFeedback`.
 
     ![Cuadro de diálogo Create new intent (Crear nueva intención) con EmployeeFeedback como nombre](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -106,7 +107,7 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
 
 1. Seleccione **Manage** (Administrar) en la navegación superior derecha y luego seleccione **Publish settings** (Publicar configuración) en el menú izquierdo.
 
-1. Seleccione **Análisis de sentimiento** para habilitar esta opción. 
+1. Seleccione **Use sentiment analysis to determine if a user's utterance is positive, negative, or neutral** (Usar análisis de opiniones para determinar si la expresión de un usuario es positiva, negativa o neutral). para habilitar esta configuración. 
 
     ![Activación del Análisis de sentimiento como configuración de publicación](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -118,7 +119,11 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Vaya al final de la dirección URL en la dirección y escriba `Jill Jones work with the media team on the public portal was amazing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `EmployeeFeedback` con el análisis de sentimiento extraído.
+1. Vaya al final de la dirección URL y escriba la siguiente expresión:
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `EmployeeFeedback` con el análisis de sentimiento extraído.
     
     ```json
     {
@@ -153,6 +158,8 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
     ```
 
     El análisis de sentimiento es positivo con una puntuación de 86 %. 
+
+    Pruebe otra expresión, para lo que debe quitar el valor de `q` en la barra de direcciones del explorador: `William Jones did a terrible job presenting his ideas.` La puntuación de opiniones indica que si se devuelve una puntuación baja, la opinión es negativa`0.18597582`.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

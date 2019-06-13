@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/07/2018
-ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.custom: mvc
+ms.date: 06/03/2019
+ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969302"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493410"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
-En este tutorial se enseña cómo analizar los datos de las llamadas de teléfono mediante Azure Stream Analytics. Los datos de las llamadas de teléfono que genera una aplicación cliente, contienen varias fraudulentas que filtrará el trabajo de Stream Analytics.
+En este tutorial se enseña cómo analizar los datos de las llamadas de teléfono mediante Azure Stream Analytics. Los datos de las llamadas de teléfono, que genera una aplicación cliente, contienen varias llamadas fraudulentas que filtrará el trabajo de Stream Analytics.
 
 En este tutorial, aprenderá a:
 
@@ -32,10 +32,10 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar, asegúrese de que dispone de lo siguiente:
+Antes de empezar, realice las siguientes acciones:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Inicie sesión en [Azure Portal](https://portal.azure.com/).
+* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 * Descargue la aplicación de generación de eventos de llamada telefónica [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) del Centro de descarga de Microsoft u obtenga el código fuente de [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Necesitará la cuenta de Power BI.
 
@@ -45,7 +45,7 @@ Para que Stream Analytics pueda analizar el flujo de datos de las llamadas fraud
 
 Siga estos pasos para crear una instancia de Event Hub y enviar datos de la llamada a dicha instancia:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Crear un recurso** > **Internet de las cosas** > **Event Hubs**.
 
    ![Creación de un centro de eventos de Azure mediante Azure Portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -71,7 +71,7 @@ Siga estos pasos para crear una instancia de Event Hub y enviar datos de la llam
 
 Para que una aplicación pueda enviar datos a Azure Event Hubs, el centro de eventos debe tener una directiva que permita el acceso adecuado. La directiva de acceso genera una cadena de conexión que incluye la información de autorización.
 
-1. Vaya al centro de eventos que ha creado en el paso anterior, *MyEventHub*. Seleccione **Directivas de acceso compartido** en **Configuración** y, luego, seleccione **+Agregar**.
+1. Vaya al centro de eventos que ha creado en el paso anterior, MyEventHub*. Seleccione **Directivas de acceso compartido** en **Configuración** y, luego, seleccione **+Agregar**.
 
 2. Asigne a la directiva el nombre **MyPolicy** y asegúrese de que la opción **Administrar** está seleccionada. Seleccione **Crear**.
 
@@ -140,7 +140,7 @@ Ahora que tiene un flujo de eventos de llamada, puede crear un trabajo de Stream
    |Subscription    |  \<Su suscripción\>   |   Seleccione una suscripción de Azure donde desea crear el trabajo.       |
    |Grupos de recursos   |   MyASADemoRG      |   Seleccione **Use existing** (Usar existente) y, después, escriba un nuevo nombre de grupo de recursos para la cuenta.      |
    |Ubicación   |    Oeste de EE. UU. 2     |      Ubicación donde se puede implementar el trabajo. Es conveniente colocar el trabajo y el centro de eventos en la misma región para obtener el mejor rendimiento y no pagar por transferir datos de una región a otra.      |
-   |Entorno de hospedaje    | Nube        |     Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge.    |
+   |Entorno de hospedaje    | Nube        |     Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y, si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge.    |
    |Unidades de streaming     |    1       |      Las unidades de streaming representan los recursos informáticos que se necesitan para ejecutar un trabajo. De forma predeterminada, este valor se establece en 1. Para información sobre el escalado de unidades de streaming, consulte el artículo [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md).      |
 
 4. Use las opciones predeterminadas en el resto de la configuración, seleccione **Crear** y espere a que la implementación se realice correctamente.
@@ -163,7 +163,7 @@ El siguiente paso es definir un origen de entrada para que el trabajo lea los da
    |Subscription    |   \<Su suscripción\>      |   Seleccione la suscripción de Azure en la que creó el centro de eventos. El centro de eventos puede estar en la misma suscripción que el trabajo de Stream Analytics, o en otra diferente.       |
    |Espacio de nombres del centro de eventos    |  myEventHubsNS       |  Seleccione el espacio de nombres del centro de eventos que creó en la sección anterior. Todos los espacios de nombres del centro de eventos disponibles en su suscripción actual se muestran en la lista desplegable.       |
    |Nombre del centro de eventos    |   MyEventHub      |  Seleccione el centro de eventos que creó en la sección anterior. Todos los centros de eventos disponibles en la suscripción actual se muestran en la lista desplegable.       |
-   |Nombre de la directiva del centro de eventos   |  Mypolicy       |  Seleccione la directiva de acceso compartido del centro de eventos que creó en la sección anterior. Todas las directivas de los centros de eventos disponibles en la suscripción actual se muestran en la lista desplegable.       |
+   |Nombre de la directiva del centro de eventos   |  MyPolicy       |  Seleccione la directiva de acceso compartido del centro de eventos que creó en la sección anterior. Todas las directivas de los centros de eventos disponibles en la suscripción actual se muestran en la lista desplegable.       |
 
 4. Use las opciones predeterminadas en el resto de los valores y seleccione **Guardar**.
 
@@ -258,18 +258,18 @@ Puede probar una consulta en el editor de consultas y usar para ello datos de ej
    * Agregue un valor y seleccione **fraudulentcalls**.
    * En **Período de tiempo para mostrar**, seleccione los últimos 10 minutos.
 
-7. El panel debe ser similar al del ejemplo siguiente una vez que se agreguen ambos iconos. Observe que, si se ejecutan la aplicación del remitente del centro de eventos y la aplicación de Stream Analytics, el panel de PowerBI se actualiza periódicamente cuando llegan nuevos datos.
+7. El panel debe ser similar al del ejemplo siguiente una vez que se agreguen ambos iconos. Observe que, si se ejecutan la aplicación del remitente del centro de eventos y la aplicación de Stream Analytics, el panel de Power BI se actualiza periódicamente cuando llegan nuevos datos.
 
    ![Ver los resultados en el panel de Power BI](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Inserción del panel de PowerBI en una aplicación web
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Inserción del panel de Power BI en una aplicación web
 
-En esta parte del tutorial, usará una aplicación web [ASP.NET](https://asp.net/) de ejemplo que ha creado el equipo de PowerBI para insertar el panel. Para más información sobre cómo insertar paneles, consulte el artículo [Inserción con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+En esta parte del tutorial, usará una aplicación web [ASP.NET](https://asp.net/) de ejemplo que ha creado el equipo de Power BI para insertar el panel. Para más información sobre cómo insertar paneles, consulte el artículo [Inserción con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (El usuario es propietario de los datos) (use las direcciones URL de redireccionamiento y de la página principal en la subsección **integrate-dashboard-web-app**). Como se va a usar el ejemplo de Dashboard, utilice el código de ejemplo **integrate-dashboard-web-app**, que se encuentra en el [repositorio de GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Cuando esté satisfecho con la aplicación que se ejecuta en el explorador, siga estos pasos para insertar el panel que creó anteriormente en la página web:
 
-1. Seleccione **Sign in to Power BI** (Iniciar sesión en Power BI). Mediante esta acción se concede a la aplicación acceso a los paneles de la cuenta de Power BI.
+1. Seleccione **Sign in to Power BI** (Iniciar sesión en Power BI). Mediante esta acción se concede a la aplicación acceso a los paneles de la cuenta de Power BI.
 
 2. Seleccione el botón **Get Dashboards** (Obtener paneles), que muestra los paneles de su cuenta en una tabla. Busque el nombre del panel que creó anteriormente **powerbi-embedded-dashboard** y copie el valor de **EmbedUrl** correspondiente.
 

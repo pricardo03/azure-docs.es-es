@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "66167259"
@@ -249,7 +249,7 @@ Para validar solicitudes entrantes desde la aplicación lógica hacia la aplicac
 
 En la sección **Authorization**, incluya esta línea:
 
-`{"type": "basic", "username": "username", "password": "password"}` 
+`{"type": "basic", "username": "username", "password": "password"}`
 
 | Elemento | Obligatorio | DESCRIPCIÓN | 
 | ------- | -------- | ----------- | 

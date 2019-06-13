@@ -1,28 +1,29 @@
 ---
 title: ¿Qué es Azure SQL Data Warehouse? | Microsoft Docs
-description: Base de datos distribuida de clase empresarial, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos.
+description: Base de datos distribuida de clase empresarial que puede procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria con la capacidad de aumentarse, reducirse y pausarse en cuestión de segundos.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: nicw
+ms.date: 05/30/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+mscustom: sqlfreshmay19
+ms.openlocfilehash: a9126e9023091dd8c3df71f2aa2558a01227a8be
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790851"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428036"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>¿Qué es Azure SQL Data Warehouse?
 
-SQL Data Warehouse es un almacenamiento de datos empresarial (EDW) en la nube empresarial que aprovecha el procesamiento paralelo masivo (MPP) para ejecutar rápidamente consultas complejas en petabytes de datos. SQL Data Warehouse se usa como un componente clave de una solución de macrodatos. Importe macrodatos en SQL Data Warehouse con consultas T-SQL de [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) simples y, después, use la potencia de MPP para realizar análisis de alto rendimiento. Al realizar la integración y el análisis, el almacenamiento de datos pasará a ser la versión única de certeza con la que puede contar su empresa para obtener información.  
-
+SQL Data Warehouse es un almacenamiento de datos empresarial (EDW) basado en la nube que emplea el procesamiento paralelo masivo (MPP) para ejecutar rápidamente consultas complejas en petabytes de datos. SQL Data Warehouse se usa como un componente clave de una solución de macrodatos. Importe macrodatos en SQL Data Warehouse con consultas T-SQL de [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) simples y, después, use la potencia de MPP para realizar análisis de alto rendimiento. Al realizar la integración y el análisis, el almacenamiento de datos pasará a ser la versión única de certeza con la que puede contar su empresa para obtener información.  
 
 ## <a name="key-component-of-big-data-solution"></a>Componente clave de la solución de macrodatos
+
 SQL Data Warehouse es un componente clave de una solución de macrodatos de un extremo a otro en la nube.
 
 ![Solución de almacenamiento de datos](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
@@ -33,19 +34,21 @@ SQL Data Warehouse almacena los datos en tablas relacionales con almacenamiento 
 
 Los resultados del análisis pueden ir a aplicaciones o bases de datos de informes mundiales. En ellas, los analistas empresariales pueden obtener información útil para tomar decisiones empresariales bien informadas.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][create a SQL Data Warehouse] y [cargar datos de ejemplo de manera rápida][load sample data]. Si no está familiarizado con Azure, el [Glosario de Azure][Azure glossary] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de SQL Data Warehouse.  
 
-* [Casos de éxito de clientes]
-* [Blogs]
-* [Solicitud de función]
-* [Vídeos]
-* [Blogs de Customer Advisory Team]
+- Explore [Arquitectura de Azure SQL Data Warehouse](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture).
+- [Cree rápidamente una instancia de SQL Data Warehouse][create a SQL Data Warehouse].
+- [Cargue datos de ejemplo][load sample data].
+- Explore [vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos).
+
+O bien, examine algunos de estos otros recursos de SQL Data Warehouse.  
+* Busque información en [Blogs].
+* Envíe una [Solicitud de función].
+* Busque en [blogs de Customer Advisory Team].
 * [Creación de una incidencia de soporte técnico]
-* [Foro de MSDN]
-* [Foro Stack Overflow]
-* [Twitter]
+* Busque en el [foro de MSDN].
+* Busque en el [foro Stack Overflow].
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -63,14 +66,13 @@ Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia d
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Casos de éxito de clientes]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs de Customer Advisory Team]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Foro de MSDN]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Foro Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

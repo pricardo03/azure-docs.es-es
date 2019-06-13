@@ -6,18 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924770"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476783"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Preparación para la implementación de Azure Data Box Edge  
-
 
 Este es el primer tutorial de la serie de tutoriales de implementación necesarios para implementar completamente Azure Data Box Edge. En este tutorial se describe cómo preparar Azure Portal para implementar un recurso de Data Box Edge.
 
@@ -31,7 +30,6 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-
 ### <a name="get-started"></a>Introducción
 
 Para implementar Data Box Edge, consulte los siguientes tutoriales en el orden indicado.
@@ -42,7 +40,7 @@ Para implementar Data Box Edge, consulte los siguientes tutoriales en el orden i
 | 2. |**[Instalación de Data Box Edge](data-box-edge-deploy-install.md)**|Desempaquete, monte en el bastidor y realice el cableado del dispositivo físico de Data Box Edge.  |
 | 3. |**[Conexión, configuración y activación de Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Conéctese a la interfaz de usuario web local, complete la configuración del dispositivo y active el dispositivo. El dispositivo está listo para configurar recursos compartidos de SMB o NFS.  |
 | 4. |**[Transferencia de datos con Data Box Edge](data-box-edge-deploy-add-shares.md)** |Agregue recursos compartidos y conéctese a ellos mediante SMB o NFS. |
-| 5. |**[Transformación de datos con Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure los módulos de Edge en el dispositivo para que transformen los datos a medida que estos se mueven a Azure. |
+| 5. |**[Transformación de datos con Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure los módulos de proceso en el dispositivo para que transformen los datos a medida que estos se mueven a Azure. |
 
 Ya puede empezar a configurar Azure Portal.
 
@@ -55,7 +53,11 @@ A continuación, encontrará los requisitos previos para configurar su recurso d
 Antes de comenzar, asegúrese de que:
 
 - Su suscripción de Microsoft Azure debe estar habilitada para el recurso de Data Box Edge. No se admiten suscripciones de pago por uso.
-- Debe tener acceso de colaborador o propietario a la suscripción.
+- Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage.
+
+    - Para crear cualquier recurso de Data Box Edge o Data Box Gateway, deben tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
 - Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
@@ -64,7 +66,7 @@ Antes de comenzar, asegúrese de que:
 Antes de implementar un dispositivo físico, asegúrese de que:
 
 - Ha revisado la información de seguridad que se incluyó en el paquete de envío.
-- Tiene una ranura 1 U disponible en un bastidor estándar de 19" en su centro de datos para montar el dispositivo. 
+- Tiene una ranura 1U disponible en un bastidor estándar de 19" en el centro de datos para montar el dispositivo.
 - Tiene acceso a una superficie de trabajo plana, estable y nivelada en la que el dispositivo pueda apoyarse con seguridad.
 - La ubicación en la que desea efectuar la instalación del dispositivo dispone de corriente alterna estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con un sistema de alimentación ininterrumpida (UPS).
 - Tiene acceso a un dispositivo físico.

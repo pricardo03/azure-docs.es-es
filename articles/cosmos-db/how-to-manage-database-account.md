@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240888"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399882"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell.
 ```azurepowershell-interactive
-# Create an Azure Cosmos Account for Core (SQL) API
+# Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
@@ -71,7 +71,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="create-database-account-via-arm-template"></a>Plantilla de Azure Resource Manager
 
-Esta plantilla de Azure Resource Manager creará una cuenta de Azure Cosmos DB para cualquier API compatible configurada con dos regiones y opciones para seleccionar nivel de coherencia, conmutación automática por error y arquitectura multimaestro. Para implementar esta plantilla, haga clic en Implementar en Azure en la página Léame, [Creación de una cuenta de Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Esta plantilla de Azure Resource Manager creará una cuenta de Azure Cosmos para cualquier API compatible configurada con dos regiones y opciones para seleccionar nivel de coherencia, conmutación automática por error y arquitectura multimaestro. Para implementar esta plantilla, haga clic en Implementar en Azure en la página Léame, [Creación de una cuenta de Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Incorporación o eliminación de regiones de una cuenta de base de datos
 
@@ -185,7 +185,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --ena
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell.
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account from single to multi-master
+# Update an Azure Cosmos account from single to multi-master
 
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
@@ -200,7 +200,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>plantilla de Resource Manager
 
-Es posible migrar una cuenta desde un maestro único a una arquitectura multimaestro mediante la implementación de la plantilla de Resource Manager que se usa para crear la cuenta y estableciendo `enableMultipleWriteLocations: true`. La plantilla de Azure Resource Manager siguiente es una plantilla mínima que implementará una cuenta de Azure Cosmos DB para SQL API con una sola región y la arquitectura multimaestro habilitadas.
+Es posible migrar una cuenta desde un maestro único a una arquitectura multimaestro mediante la implementación de la plantilla de Resource Manager que se usa para crear la cuenta y estableciendo `enableMultipleWriteLocations: true`. La plantilla de Azure Resource Manager siguiente es una plantilla mínima que implementará una cuenta de Azure Cosmos para SQL API con una sola región y la arquitectura multimaestro habilitadas.
 
 ```json
 {
@@ -239,13 +239,13 @@ Es posible migrar una cuenta desde un maestro único a una arquitectura multimae
 }
 ```
 
-## <a id="automatic-failover"></a>Habilitación de la conmutación automática por error de la cuenta de Azure Cosmos DB
+## <a id="automatic-failover"></a>Habilitación de la conmutación por error automática en una cuenta de Azure Cosmos
 
 La opción de conmutación automática por error permite que Azure Cosmos DB conmute por error en la región con la prioridad de conmutación por error más alta sin acción del usuario si una región deja de estar disponible. Cuando la conmutación automática por error está habilitada, es posible modificar la prioridad de región. La cuenta debe tener dos o más regiones para habilitar la conmutación automática por error.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure Portal
 
-1. En la cuenta de Azure Cosmos DB, abra el panel **Replicar datos globalmente**.
+1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente**.
 
 2. En la parte superior del panel, seleccione **Conmutación automática por error**.
 
@@ -344,7 +344,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 El proceso para realizar una conmutación por error manual implica cambiar la región de escritura de la cuenta (prioridad de conmutación por error = 0) a otra región configurada para la cuenta.
 
 > [!NOTE]
-> Las cuentas de arquitectura multimaestro no se puede conmutar por error de manera manual. Para las aplicaciones que usan el SDK de Azure Cosmos DB, el SDK detectará cuando una región deja de estar disponible y luego redirige automáticamente a la región más cercana siguiente si se usa una API de hospedaje múltiple en el SDK.
+> Las cuentas de arquitectura multimaestro no se puede conmutar por error de manera manual. Para las aplicaciones que usan el SDK de Azure Cosmos, el SDK detectará cuando una región deja de estar disponible y luego redirige automáticamente a la región más cercana siguiente si se usa una API de hospedaje múltiple en el SDK.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure Portal
 

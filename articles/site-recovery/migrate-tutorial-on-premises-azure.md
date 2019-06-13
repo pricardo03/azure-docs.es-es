@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357975"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396538"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -52,9 +52,9 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 1. Haga clic en **Almacenes de Recovery Services** > almacén.
 2. En el menú de recursos, haga clic en **Site Recovery** > **Preparar la infraestructura** > **Objetivo de protección**.
 3. En **Objetivo de protección**, seleccione el contenido que quiera migrar.
-    - **VMware**: Seleccione **To Azure (En Azure)** > **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
-    - **Máquina física**: Seleccione **To Azure (En Azure)** > **No virtualizado/Otro**.
-    - **Hyper-V**: Seleccione **To Azure (En Azure)** > **Yes, with Hyper-V (Sí, con Hyper-V)**. Si VMM administra las máquinas virtuales de Hyper-V, seleccione **Sí**.
+    - **VMware**: Seleccione **To Azure (En Azure)**  > **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
+    - **Máquina física**: Seleccione **To Azure (En Azure)**  > **No virtualizado/Otro**.
+    - **Hyper-V**: Seleccione **To Azure (En Azure)**  > **Yes, with Hyper-V (Sí, con Hyper-V)** . Si VMM administra las máquinas virtuales de Hyper-V, seleccione **Sí**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen

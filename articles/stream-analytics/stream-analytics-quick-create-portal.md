@@ -4,18 +4,18 @@ description: En esta guía de inicio rápido se muestra cómo empezar a crear un
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311932"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493378"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 
 En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics. En esta guía de inicio rápido va a definir un trabajo de Stream Analytics que lee datos de streaming en tiempo real y filtra mensajes que indican una temperatura superior a 27. El trabajo de Stream Analytics lee los datos de un dispositivo de IoT Hub, los transforma y los escribe a su vez en un contenedor de Blob Storage. Un simulador en línea de Raspberry Pi genera los datos de entrada de esta guía de inicio rápido. 
 
@@ -44,7 +44,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
    ![Creación de un IoT Hub](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Seleccione **Next: Set size and scale** (Siguiente: Establecer tamaño y escala).
+4. Seleccione **Siguiente: Establezca la escala y el tamaño**.
 
 5. Seleccione su **Nivel de precios y de escala**. En esta guía de inicio rápido, seleccione el nivel **F1 - Free** (F1: gratis) si aún está disponible en la suscripción. Para más información, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -82,7 +82,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.  
 
-3. Seleccione **Datos y análisis** > **Trabajo de Stream Analytics** en la lista de resultados.  
+3. Seleccione **Analytics** > **Trabajo de Stream Analytics** en la lista de resultados.  
 
 4. Rellene la página del trabajo de Stream Analytics con la siguiente información:
 
@@ -187,7 +187,7 @@ Cuando no los necesite, elimine el grupo de recursos, el trabajo de streaming y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado un sencillo trabajo de Stream Analytics mediante Azure Portal. También puede implementar trabajos de Stream Analytics mediante [PowerShell](stream-analytics-quick-create-powershell.md) y [Visual Studio](stream-analytics-quick-create-vs.md).
+En esta guía de inicio rápido, ha implementado un sencillo trabajo de Stream Analytics mediante Azure Portal. También puede implementar trabajos de Stream Analytics mediante [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md) y [Visual Studio Code](quick-create-vs-code.md).
 
 Para aprender a configurar otros orígenes de entrada y realizar la detección en tiempo real, continúe con el siguiente artículo:
 

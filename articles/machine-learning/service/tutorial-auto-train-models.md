@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035462"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417292"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Uso del aprendizaje automático para crear un modelo de regresión
 
@@ -38,7 +38,7 @@ En este tutorial, ha aprendido las tareas siguientes:
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.0.
+> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.39.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787096"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428322"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Respuesta a eventos de Azure Service Bus recibidos a través de Azure Event Grid con Azure Functions y Azure Logic Apps
 En este tutorial, aprenderá a responder a eventos de Azure Service Bus que se reciben a través de Azure Event Grid con Azure Functions y Azure Logic Apps. Realizará los siguientes pasos:
@@ -280,8 +280,7 @@ Conecte una aplicación lógica con Azure Service Bus y Azure Event Grid mediant
     3. En **Resource Name** (Nombre del recurso), seleccione el espacio de nombres de Service Bus. 
     4. Seleccione **Add new parameter** (Agregar nuevo parámetro) y **Suffix Filter** (Filtro de sufijo). 
     5. En **Suffix Filter** (Filtro de sufijo), escriba el nombre de la segunda suscripción al tema de Service Bus. 
-
-        ![Diseñador de aplicaciones lógicas: configuración de eventos](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+        ![Diseñador de Logic Apps: configuración de eventos](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. En el diseñador, seleccione **+New Step** (+Nuevo paso) y siga los siguientes pasos:
     1. Busque **Service Bus**.
     2. Seleccione **Service Bus** en la lista. 

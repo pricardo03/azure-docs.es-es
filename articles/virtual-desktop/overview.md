@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 05/31/2019
 ms.author: helohr
-ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965723"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476734"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>¿Qué es la versión preliminar de Windows Virtual Desktop? 
 
@@ -26,6 +26,12 @@ A continuación se indica lo que puede hacer al ejecutar Windows Virtual Desktop
 * Traer sus aplicaciones y escritorios existentes de Servicios de Escritorio remoto (RDS) y Windows Server a cualquier equipo
 * Virtualizar escritorios y aplicaciones
 * Administrar escritorios y aplicaciones de Windows 10, Windows Server y Windows 7 con una experiencia de administración unificada
+
+## <a name="introductory-video"></a>Vídeo de introducción
+
+En el siguiente vídeo, Scott Manchester muestra algunas de las funcionalidades de Windows Virtual Desktop:
+
+<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="key-capabilities"></a>Principales capacidades
 
@@ -92,7 +98,6 @@ Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
-
 
 ## <a name="supported-virtual-machine-os-image"></a>Imágenes de SO de máquinas virtuales admitidas
 

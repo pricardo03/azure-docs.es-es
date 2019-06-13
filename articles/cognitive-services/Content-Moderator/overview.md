@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551310"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688861"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
@@ -25,11 +25,14 @@ Azure Content Moderator API es un servicio Cognitive que comprueba el contenido 
 
 Los siguientes son algunos escenarios en los que un desarrollador de software o un equipo de desarrolladores usaría Content Moderator:
 
-- Instancias de Marketplace en línea que moderan catálogos de productos y otro contenido generado por el usuario.
+- Mercados en línea que moderan catálogos de productos y otro contenido generado por el usuario.
 - Empresas de juegos que moderan los artefactos de juego generados por el usuario y las salas de chat.
 - Plataformas de mensajería de las redes sociales que moderan las imágenes, el texto y los vídeos que agregan los usuarios.
 - Empresas multimedia que implementan la moderación de centralizada de su contenido.
 - Proveedores de soluciones educativas de tipo K-12 que filtran contenido que no es apropiado para alumnos y educadores.
+
+> [!NOTE]
+> No puede usar Content Moderator para detectar imágenes ilegales de explotación infantil. Sin embargo, las organizaciones cualificadas pueden usar [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") para filtrar este tipo de contenido.
 
 ## <a name="what-it-includes"></a>Qué incluye
 

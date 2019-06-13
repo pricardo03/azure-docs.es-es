@@ -16,7 +16,7 @@ ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
 ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/30/2019
 ms.locfileid: "66399200"
@@ -55,12 +55,12 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
-| $schema |Sin  |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
+| $schema |Sin |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
 | title |Sí |Nombre del artefacto que se muestra en el laboratorio. |
 | description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
-| iconUri |Sin  |Identificador URI del icono que se muestra en el laboratorio. |
+| iconUri |Sin |Identificador URI del icono que se muestra en el laboratorio. |
 | targetOsType |Sí |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
-| parameters |Sin  |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto le ayuda a personalizar el artefacto. |
+| parameters |Sin |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto le ayuda a personalizar el artefacto. |
 | runCommand |Sí |Comando de instalación de artefacto que se ejecuta en una máquina virtual. |
 
 ### <a name="artifact-parameters"></a>Parámetros de artefacto

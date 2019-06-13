@@ -3,18 +3,18 @@ title: Un paseo por la interfaz de usuario de Azure IoT Central | Microsoft Docs
 description: Como compilador, familiarícese con las áreas principales de la interfaz de usuario de Azure IoT Central, que se utiliza para crear una solución de IoT.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 53306b2087a47f5a61fc2a228e2d1f527127f746
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233448"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476316"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Un paseo por la interfaz de usuario de Azure IoT Central
 
@@ -35,7 +35,7 @@ Como _operador_, usará la interfaz de usuario de Azure IoT Central para adminis
 
 ## <a name="use-the-left-navigation-menu"></a>Uso del menú de navegación izquierdo
 
-Use el menú de navegación izquierdo para acceder a las diferentes áreas de la aplicación. Puede expandir o contraer la barra de navegación mediante la selección de **<** o **>**:
+Use el menú de navegación izquierdo para acceder a las diferentes áreas de la aplicación. Puede expandir o contraer la barra de navegación mediante la selección de **<** o **>** :
 
 | Menú | DESCRIPCIÓN |
 | ---- | ----------- |
@@ -63,7 +63,9 @@ Puede elegir entre un tema claro o un tema oscuro para la interfaz de usuario:
 
 ![panel](media/overview-iot-central-tour/homepage.png)
 
-El panel es la primera página que verá cuando inicie sesión en la aplicación de Azure IoT Central. Como generador, puede personalizar el panel de la aplicación para otros usuarios mediante la adición de iconos. Para más información, consulte el tutorial [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) (Personalización de la vista del operador de Azure IoT Central). Los usuarios también pueden [crear sus propios paneles personales](howto-personalize-dashboard.md).
+* El panel es la primera página que verá cuando inicie sesión en la aplicación de Azure IoT Central. Como generador, puede personalizar el panel de la aplicación para otros usuarios mediante la adición de iconos. Para más información, consulte el tutorial [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) (Personalización de la vista del operador de Azure IoT Central).
+
+* Como operador, puede crear paneles personalizados y cambiar entre ellos y el panel predeterminado. Para más información, consulte el artículo de procedimientos [Crear y administrar paneles personales](howto-personalize-dashboard.md).
 
 ## <a name="device-explorer"></a>Explorador de dispositivos
 
@@ -90,25 +92,32 @@ La página de análisis muestra gráficos que le ayudarán a entender cómo se c
 
 ![Página de trabajos](media/overview-iot-central-tour/jobs.png)
 
-La página de trabajos le permite realizar operaciones de administración en los dispositivos de forma masiva. El compilador usa esta página para actualizar los comandos, la configuración y las propiedades del dispositivo. Para obtener más información, consulte el artículo [Run a job](howto-run-a-job.md) (Ejecución de un trabajo).
+La página de trabajos le permite realizar operaciones de administración de dispositivos de forma masiva. El compilador usa esta página para actualizar los comandos, la configuración y las propiedades del dispositivo. Para obtener más información, consulte el artículo [Run a job](howto-run-a-job.md) (Ejecución de un trabajo).
 
 ## <a name="device-templates"></a>Plantillas de dispositivo
 
 ![Página Plantillas de dispositivo](media/overview-iot-central-tour/templates.png)
 
-La página de plantillas de dispositivos es donde un generador crea y administra las plantillas de dispositivo en la aplicación. Para más información, consulte el tutorial [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) (Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central).
+La página de plantillas de dispositivos es donde un generador crea y administra las plantillas de dispositivo en la aplicación. Una plantilla de dispositivo especifica las características del dispositivo, por ejemplo:
+
+- Medidas de telemetría, estado y eventos
+- Configuración y propiedades
+- Comandos
+- Reglas basadas en eventos o valores de telemetría
+
+Para más información, consulte el tutorial [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) (Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central).
 
 ## <a name="continuous-data-export"></a>Exportación de datos continua
 
 ![Página Exportación de datos continua](media/overview-iot-central-tour/export.png)
 
-La página de exportación de datos continua es donde un administrador define cómo exportar datos, como la telemetría, desde la aplicación. Otros servicios pueden almacenar los datos exportados o utilizarlos para el análisis. Para más información, consulte el artículo [Exportación de datos a Azure IoT Central](howto-export-data.md).
+La página de exportación de datos continua es donde un administrador define cómo transmitir datos, como la telemetría, desde la aplicación. Otros servicios pueden almacenar los datos exportados o utilizarlos para el análisis. Para más información, consulte el artículo [Exportación de datos a Azure IoT Central](howto-export-data.md).
 
 ## <a name="administration"></a>Administración
 
 ![Página Administration](media/overview-iot-central-tour/administration.png)
 
-La página Administration contiene vínculos a las herramientas de administrador que se utiliza como definir usuarios y roles en la aplicación. Para más información, consulte el artículo [Administer your Azure IoT Central application](howto-administer.md) (Administración de la aplicación de Azure IoT Central).
+La página de administración contiene vínculos a las herramientas que usa un administrador, como definir los usuarios y roles de la aplicación y personalizar la interfaz de usuario. Para más información, consulte el artículo [Administer your Azure IoT Central application](howto-administer.md) (Administración de la aplicación de Azure IoT Central).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

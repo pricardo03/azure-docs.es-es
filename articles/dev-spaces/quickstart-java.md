@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores, microservicios y Java en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Java, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 2a7ff71a8143883226c10754afc9757aea310c63
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979124"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393473"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Inicio rápido: Desarrollo con Java en Kubernetes con Azure Dev Spaces
 
@@ -37,7 +37,7 @@ En esta guía, aprenderá a:
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
 
-Debe crear un clúster de AKS en una [región admitida](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Los siguientes comandos permiten crear un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
+Debe crear un clúster de AKS en una [región admitida][supported-regions]. Los siguientes comandos permiten crear un grupo de recursos llamado *MyResourceGroup* y un clúster de AKS denominado *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -119,7 +119,7 @@ Si detiene el comando `azds up` mediante *Ctrl + c*, el servicio continuará e
 
 ## <a name="update-code"></a>Actualización del código
 
-Para implementar una versión actualizada del servicio, puede actualizar cualquier archivo del proyecto y volver a ejecutar el comando `azds up`. Por ejemplo: 
+Para implementar una versión actualizada del servicio, puede actualizar cualquier archivo del proyecto y volver a ejecutar el comando `azds up`. Por ejemplo:
 
 1. Si `azds up` se está todavía ejecutando, presione *Ctrl + c*.
 1. Actualice la [línea 19 en `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) a:
@@ -188,7 +188,7 @@ Quite el punto de interrupción colocando el cursor en la línea 19 en `src/main
 
 ## <a name="update-code-from-visual-studio-code"></a>Actualización del código de Visual Studio Code
 
-Mientras el servicio se ejecuta en modo de depuración, actualice la línea 19 en `src/main/java/com/ms/sample/webfrontend/Application.java`. Por ejemplo: 
+Mientras el servicio se ejecuta en modo de depuración, actualice la línea 19 en `src/main/java/com/ms/sample/webfrontend/Application.java`. Por ejemplo:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```
@@ -213,3 +213,6 @@ Obtenga información acerca de la forma en que Azure Dev Spaces le ayuda a desar
 
 > [!div class="nextstepaction"]
 > [Trabajo con varios contenedores y desarrollo en equipo](multi-service-java.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

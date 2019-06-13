@@ -2,22 +2,18 @@
 title: Información general de Azure Resource Manager| Microsoft Docs
 description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225916"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514339"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 
@@ -51,13 +47,15 @@ Administrador de recursos ofrece varias ventajas:
 * Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos de la suscripción.
 * Puede aclarar la facturación de su organización viendo los costos de un grupo de recursos que compartan la misma etiqueta.
 
-## <a name="understand-management-scope"></a>Información sobre el ámbito de administración
+## <a name="understand-scope"></a>Descripción del ámbito
 
-Azure proporciona cuatro niveles de ámbito administración: [grupos de administración](../governance/management-groups/index.md), suscripciones, [grupos de recursos](#resource-groups) y recursos. En la imagen siguiente se muestra un ejemplo de estos niveles:
+Azure proporciona cuatro niveles de ámbito: [grupos de administración](../governance/management-groups/index.md), suscripciones, [grupos de recursos](#resource-groups) y recursos. En la imagen siguiente se muestra un ejemplo de estos niveles:
 
 ![Ámbito](./media/resource-group-overview/scope-levels.png)
 
 Aplicará la configuración de administración en cualquiera de estos niveles de ámbito. El nivel que seleccione determina el grado de amplitud con que se aplica la configuración. Los niveles inferiores heredan la configuración de los niveles superiores. Por ejemplo, al aplicar una [directiva](../governance/policy/overview.md) a la suscripción, esta se aplica a todos los grupos de recursos y recursos de la suscripción. Al aplicar una directiva al grupo de recursos, esta también se aplica al grupo de recursos y a todos sus recursos. Sin embargo, otro grupo de recursos no tiene la asignación de dicha directiva.
+
+Puede implementar plantillas en grupos de administración, suscripciones o grupos de recursos.
 
 ## <a name="guidance"></a>Guía
 
@@ -85,7 +83,7 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 
 Al crear un grupo de recursos, es preciso proporcionar una ubicación para dicho grupo de recursos. Pero puede preguntarse: "¿Por qué necesita un grupo de recursos una ubicación? Y si los recursos pueden tener ubicaciones distintas de las del grupo de recursos, ¿por qué es importante la ubicación de este?" Los grupos de recursos almacenan metadatos acerca de los recursos. Por consiguiente, al especificar la ubicación del grupo de recursos, se especifica el lugar en que se almacenan dichos metadatos. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
 
-Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para minimizar el riesgo, busque el grupo de recursos y los recursos en la misma región.
+Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para más información sobre la creación de aplicaciones confiables, consulte [Diseño de aplicaciones de Azure confiables](/azure/architecture/reliability/).
 
 ## <a name="resource-providers"></a>Proveedores de recursos
 

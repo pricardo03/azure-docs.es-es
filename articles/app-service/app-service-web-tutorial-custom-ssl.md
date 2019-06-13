@@ -1,5 +1,5 @@
 ---
-title: 'Enlazar un certificado SSL personalizado existente: Azure Web Service | Microsoft Docs'
+title: 'Carga y enlace de certificados SSL: Azure App Service | Microsoft Docs'
 description: Aprenda a enlazar un certificado SSL personalizado a aplicaciones web, back-ends para aplicaciones móviles o aplicaciones de API en Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0ee1e7c652ddf4126fc9658bf17d3e919d7a5c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138676"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475355"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Tutorial: Enlazar un certificado SSL personalizado a Azure App Service
+# <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Tutorial: Carga y enlace de certificados SSL en Azure App Service
 
-Azure App Service proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo enlazar un certificado SSL personalizado adquirido a una entidad de certificación de confianza para [Azure App Service](overview.md). Cuando haya terminado, podrá acceder a la aplicación en el punto de conexión HTTPS de su dominio DNS personalizado.
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo proteger dominio personalizado en App Service con un certificado adquirido a una entidad de certificación de confianza. También muestra cómo cargar los certificados privados y públicos que su aplicación necesita. Cuando haya terminado, podrá acceder a la aplicación en el punto de conexión HTTPS de su dominio DNS personalizado.
 
 ![Aplicación web con certificado SSL personalizado](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -32,51 +32,48 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Actualizar el plan de tarifa de la aplicación
-> * Enlazar el certificado personalizado con App Service
+> * Proteger un dominio personalizado con un certificado
+> * Carga de un certificado privado
+> * Carga de un certificado público
 > * Renovar certificados
 > * Aplicación de HTTPS
 > * Aplicación de TLS 1.1 y 1.2
 > * Automatización de la administración de TLS con scripts
-
-> [!NOTE]
-> Si necesita un certificado SSL personalizado, puede obtener uno directamente en Azure Portal y enlazarlo a la aplicación. Siga el tutorial [Incorporación de un certificado SSL a la aplicación App Service](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
 - [Crear una aplicación de App Service](/azure/app-service/)
-- [Asignar un nombre DNS personalizado a la aplicación de App Service](app-service-web-tutorial-custom-domain.md)
-- Adquirir un certificado SSL de una entidad de certificación de confianza
-- Tener la clave privada que se usó para firmar la solicitud de certificado SSL
+- [Asignar un nombre DNS personalizado a la aplicación de App Service](app-service-web-tutorial-custom-domain.md) (si se protege un dominio personalizado)
+- Adquirir un certificado de una entidad de certificación de confianza
+- Tener la clave privada que se usó para firmar la solicitud de certificado (para certificados privados)
 
 <a name="requirements"></a>
 
-### <a name="requirements-for-your-ssl-certificate"></a>Requisitos para el certificado SSL
+## <a name="prepare-a-private-certificate"></a>Preparación de un certificado privado
 
-Para usar un certificado en App Service, el certificado debe cumplir los siguientes requisitos:
+Para proteger un dominio, el certificado debe cumplir los siguientes requisitos:
 
+* Estar configurado para la autenticación de servidor
 * Estar firmado por una entidad de certificación de confianza
 * Haberse exportado como archivo PFX protegido por contraseña
 * Contener una clave privada con una longitud de al menos 2048 bits
 * Contener todos los certificados intermedios de la cadena de certificados
 
+> [!TIP]
+> Si necesita un certificado SSL personalizado, puede obtenerlo directamente en Azure Portal e importarlo a la aplicación. Siga el tutorial [Incorporación de un certificado SSL a la aplicación App Service](web-sites-purchase-ssl-web-site.md).
+
 > [!NOTE]
 > Los **certificados de criptografía de curva elíptica (ECC)** pueden funcionar con App Service, pero están fuera del ámbito de este artículo. Trabaje con la entidad de certificación sobre los pasos exactos para crear certificados ECC.
 
-[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
-
-<a name="upload"></a>
-
-## <a name="bind-your-ssl-certificate"></a>Enlazar el certificado SSL
-
-Está preparado para cargar el certificado SSL en la aplicación.
+Una vez que obtenga un certificado de su proveedor de certificados, siga los pasos que se describen en esta sección para prepararlo para App Service.
 
 ### <a name="merge-intermediate-certificates"></a>Combinación de certificados intermedios
 
-Si la entidad emisora de certificados ofrece varios certificados en la cadena de certificados, debe combinar los certificados en orden. 
+Si la entidad emisora de certificados ofrece varios certificados en la cadena de certificados, debe combinar los certificados en orden.
 
-Para ello, abra cada certificado que ha recibido en un editor de texto. 
+Para ello, abra cada certificado que ha recibido en un editor de texto.
 
 Cree un archivo para el certificado combinado, denominado _mergedcertificate.crt_. En un editor de texto, copie el contenido de cada certificado en este archivo. Los certificados deben seguir el orden de la cadena de certificados, comenzando por el certificado y terminando por el certificado raíz. Debe ser similar al ejemplo siguiente:
 
@@ -112,45 +109,49 @@ Cuando se le pida, defina una contraseña de exportación. Esta contraseña debe
 
 Si usó IIS o _Certreq.exe_ para generar la solicitud de certificado, instale el certificado en la máquina local y luego [exporte el certificado a PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
-### <a name="upload-your-ssl-certificate"></a>Cargar el certificado SSL
+Ya está listo para cargar el certificado en App Service.
 
-Para cargar el certificado SSL, haga clic en **Configuración de SSL** en el panel de navegación izquierdo de la aplicación.
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-Haga clic en **Cargar certificado**. 
+<a name="upload"></a>
+
+## <a name="secure-a-custom-domain"></a>Protección de un dominio personalizado
+
+> [!TIP]
+> Si necesita un certificado SSL personalizado, puede obtener uno directamente en Azure Portal y enlazarlo a la aplicación. Siga el tutorial [Incorporación de un certificado SSL a la aplicación App Service](web-sites-purchase-ssl-web-site.md).
+
+Para proteger un [dominio personalizado](app-service-web-tutorial-custom-domain.md) con un certificado de terceros, se carga el [certificado privado preparado](#prepare-a-private-certificate) y, después, se enlaza con el dominio personalizado, pero App Service simplifica este proceso. Siga estos pasos:
+
+Haga clic en **Dominios personalizados** en el panel izquierdo de la aplicación y, después, haga clic en **Agregar enlace** en el dominio que desea proteger. Si no ve **Agregar enlace** en algún dominio, se debe a que ya es seguro, por lo que debería tener un estado de SSL **Seguro**.
+
+![Agregar enlace a un dominio](./media/app-service-web-tutorial-custom-ssl/secure-domain-launch.png)
+
+Haga clic en **Cargar certificado**.
 
 En **Archivo de certificado PFX**, seleccione el archivo PFX. En **Contraseña del certificado**, escriba la contraseña que creó al exportar el archivo PFX.
 
 Haga clic en **Cargar**.
 
-![Carga del certificado](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
+![Carga del certificado en el dominio](./media/app-service-web-tutorial-custom-ssl/secure-domain-upload.png)
 
-Cuando App Service termina de cargar el certificado, este aparece en la página **Configuración de SSL**.
+Espere hasta que Azure cargue el certificado e inicie el cuadro de diálogo de enlaces de SSL.
 
-![Certificado cargado](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
-
-### <a name="bind-your-ssl-certificate"></a>Enlazar el certificado SSL
-
-En la sección **Enlaces SSL**, haga clic en **Agregar enlace**.
-
-En la página **Agregar enlace SSL**, use las listas desplegables para seleccionar el nombre de dominio que va a proteger, así como el certificado que pretende utilizar.
+En dicho cuadro de diálogo, seleccione el certificado que cargó y el tipo SSL y haga clic en **Agregar enlace**.
 
 > [!NOTE]
-> Si ha cargado el certificado pero no ve los nombres de dominio en la lista desplegable **Nombre de host**, pruebe a actualizar la página del explorador.
+> Se admiten los siguientes tipos de SSL:
 >
->
+> - **[SSL basada en SNI](https://en.wikipedia.org/wiki/Server_Name_Indication)** : se pueden agregar varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication)).
+> - **SSL basada en IP**: solo pueden agregarse enlaces SSL basados en IP. Esta opción solo permite que un único certificado SSL proteja una dirección IP dedicada. Para proteger varios dominios, debe protegerlos todos con el mismo certificado SSL. Se trata de la opción tradicional para enlaces SSL.
 
-En **Tipo de SSL**, seleccione si se va a usar **[Indicación de nombre de servidor (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** o SSL basada en IP.
+![Enlace de SSL a un dominio](./media/app-service-web-tutorial-custom-ssl/secure-domain-bind.png)
 
-- **SSL basada en SNI**: pueden agregarse varios enlaces SSL basados en SNI. Esta opción permite que varios certificados SSL protejan varios dominios en una misma dirección IP. Los exploradores más modernos (como Internet Explorer, Chrome, Firefox y Opera) admiten SNI (encontrará información de compatibilidad con exploradores más completa en [Indicación de nombre de servidor](https://wikipedia.org/wiki/Server_Name_Indication)).
-- **SSL basada en IP**: solo pueden agregarse enlaces SSL basados en IP. Esta opción solo permite que un único certificado SSL proteja una dirección IP dedicada. Para proteger varios dominios, debe protegerlos todos con el mismo certificado SSL. Se trata de la opción tradicional para enlaces SSL.
+El estado de SSL del dominio se debe cambiar ahora a **Seguro**.
 
-Haga clic en **Agregar enlace**.
+![Dominio protegido](./media/app-service-web-tutorial-custom-ssl/secure-domain-finished.png)
 
-![Enlazar certificado SSL](./media/app-service-web-tutorial-custom-ssl/bind-certificate.png)
-
-Cuando App Service termina de cargar el certificado, este aparece en la sección **Enlaces SSL**.
-
-![Certificado enlazado a la aplicación web](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
+> [!NOTE]
+> Un estado **Seguro** en **Dominios personalizados** significa que está protegido con un certificado, pero App Service no comprueba si el certificado es autofirmado o ha expirado, por ejemplo, lo que también puede provocar que los exploradores muestren un error o una advertencia.
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Reasignar un registro D en SSL de IP
 
@@ -175,8 +176,6 @@ Ahora todo lo que queda por hacer es asegurarse de que HTTPS funciona para el do
 >
 > Si no es así, puede que haya olvidado certificados intermedios cuando exportó el certificado al archivo PFX.
 
-<a name="bkmk_enforce"></a>
-
 ## <a name="renew-certificates"></a>Renovar certificados
 
 Su dirección IP de entrada puede cambiar al eliminar un enlace, incluso si este se basa en IP. Esto es especialmente importante al renovar un certificado que ya está en un enlace basado en IP. Para evitar un cambio en la dirección IP de su aplicación, siga estos pasos en orden:
@@ -184,6 +183,8 @@ Su dirección IP de entrada puede cambiar al eliminar un enlace, incluso si este
 1. Carga el nuevo certificado.
 2. Enlaza el nuevo certificado al dominio personalizado que desee sin eliminar el antiguo. Esta acción reemplaza el enlace en lugar de quitar el antiguo.
 3. Elimine el antiguo certificado. 
+
+<a name="bkmk_enforce"></a>
 
 ## <a name="enforce-https"></a>Aplicación de HTTPS
 
@@ -193,7 +194,7 @@ En la página de la aplicación, en el panel de navegación izquierdo, seleccion
 
 ![Aplicación de HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Una vez completada la operación, vaya a cualquiera de las direcciones URL HTTP que apuntan a la aplicación. Por ejemplo: 
+Una vez completada la operación, vaya a cualquiera de las direcciones URL HTTP que apuntan a la aplicación. Por ejemplo:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -217,32 +218,32 @@ Puede automatizar enlaces SSL de la aplicación con scripts, mediante la [CLI de
 
 El comando siguiente carga un archivo PFX exportado y obtiene la huella digital.
 
-```bash
+```azurecli-interactive
 thumbprint=$(az webapp config ssl upload \
-    --name <app_name> \
-    --resource-group <resource_group_name> \
-    --certificate-file <path_to_PFX_file> \
-    --certificate-password <PFX_password> \
+    --name <app-name> \
+    --resource-group <resource-group-name> \
+    --certificate-file <path-to-PFX-file> \
+    --certificate-password <PFX-password> \
     --query thumbprint \
     --output tsv)
 ```
 
 El comando siguiente usa la huella digital del comando anterior para agregar un enlace SSL basado en SNI.
 
-```bash
+```azurecli-interactive
 az webapp config ssl bind \
-    --name <app_name> \
-    --resource-group <resource_group_name>
+    --name <app-name> \
+    --resource-group <resource-group-name>
     --certificate-thumbprint $thumbprint \
     --ssl-type SNI \
 ```
 
 El siguiente comando aplica la versión mínima de TLS: la 1.2.
 
-```bash
+```azurecli-interactive
 az webapp config set \
-    --name <app_name> \
-    --resource-group <resource_group_name>
+    --name <app-name> \
+    --resource-group <resource-group-name>
     --min-tls-version 1.2
 ```
 
@@ -261,12 +262,10 @@ New-AzWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
-## <a name="public-certificates-optional"></a>Certificados públicos (opcionales)
-Si la aplicación necesita acceder a recursos remotos como un cliente y el recurso remoto requiere autenticación de certificados, puede cargar los [certificados públicos](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) en la aplicación. Los certificados públicos no son necesarios para los enlaces SSL de la aplicación.
 
-Para obtener más información sobre cómo cargar y usar un certificado público en su aplicación, consulte [Uso de un certificado SSL en el código de aplicación de Azure App Service](app-service-web-ssl-cert-load.md). También puede utilizar certificados públicos con las aplicaciones de App Service Environment. Si tiene que almacenar el certificado en el almacén de certificados de la máquina local, debe usar una aplicación en App Service Environment. Para más información, consulte [Configuración de certificados públicos en una aplicación de App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+## <a name="use-certificates-in-your-code"></a>Uso de certificados en el código
 
-![Carga de un certificado público](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
+Si la aplicación necesita conectarse a recursos remotos y el recurso remoto requiere la autenticación de certificados, puede cargar certificados públicos o privados en la aplicación. No es necesario enlazar estos certificados a ningún dominio personalizado en la aplicación. Para más información, consulte [Uso de un certificado SSL en el código de aplicación de Azure App Service](app-service-web-ssl-cert-load.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

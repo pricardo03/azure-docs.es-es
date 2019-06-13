@@ -1,6 +1,6 @@
 ---
 title: Tutorial para usar Azure App Configuration para administrar las marcas de características | Microsoft Docs
-description: En este tutorial, obtendrá información sobre cómo administrar las marcas de características por separado desde la aplicación mediante Azure App Configuration.
+description: En este tutorial, aprenderá a administrar las marcas de características por separado desde la aplicación mediante Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d995a2e9f0d05dc3b0853036e8fb3c04ccdfab96
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b7fbf9add67a45c0db89fc11cee5c10bc537ab63
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412294"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393567"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutorial: Administración de las marcas de características en Azure App Configuration
 
-Puede almacenar todas las marcas de características en Azure App Configuration y administrarlas desde un único lugar. Tiene una interfaz de usuario de portal, denominada **Administrador de características**, que se ha diseñado específicamente para las marcas de características. Además, App Configuration admite el esquema de datos de las marcas de características de .NET Core de forma nativa.
+Puede almacenar todas las marcas de características en Azure App Configuration y administrarlas desde un único lugar. App Configuration tiene una interfaz de usuario de portal, denominada **Administrador de características**, que se ha diseñado específicamente para las marcas de características. App Configuration admite también de forma nativa el esquema de datos de las marcas de características de .NET Core.
 
 En este tutorial, aprenderá a:
 
@@ -33,21 +33,23 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-feature-flags"></a>Creación de marcas de características
 
-El **Administrador de características** de Azure Portal para App Configuration proporciona una interfaz de usuario para crear y administrar las marcas de características que usa en la aplicación. Siga estos pasos para agregar una nueva marca de característica.
+El Administrador de características de Azure Portal para App Configuration proporciona una interfaz de usuario para crear y administrar las marcas de características que usa en las aplicaciones.
 
-1. Seleccione **Administrador de características** > **+ Crear** para agregar una marca de características.
+Para agregar una nueva marca de características:
+
+1. Seleccione **Administrador de características** >  **+Agregar** para agregar una marca de características.
 
     ![Lista de marcas de características](./media/azure-app-configuration-feature-flags.png)
 
-2. Escriba un nombre de clave único para la marca de características. Necesita este nombre para hacer referencia a la marca en el código.
+1. Escriba un nombre de clave único para la marca de características. Necesita este nombre para hacer referencia a la marca en el código.
 
-3. Opcionalmente, asigne a la marca de características una descripción más identificable.
+1. Si quiere, escriba una descripción de la marca de características.
 
-4. Establezca el estado inicial de la marca de características. Normalmente suele ser *Activado* o *Desactivado*.
+1. Establezca el estado inicial de la marca de características. Este estado será normalmente *Desactivado* o *Activado*. El estado *Activado* cambia a *Condicional* si agrega un filtro a la marca de características.
 
-    ![Creación de la marca de características](./media/azure-app-configuration-feature-flag-create.png)
+    ![Creación de una marca de características](./media/azure-app-configuration-feature-flag-create.png)
 
-5. Cuando el estado es *Activado*, puede especificar cualquier condición adicional para calificarla con **Agregar filtro**. Escriba una clave de filtro integrada o personalizada y asocie los parámetros. Entre los filtros integrados están los siguientes:
+1. Si el estado es *Activado*, seleccione **+Agregar filtro** para especificar cualquier condición adicional que haya que cumplir para tener ese estado. Escriba una clave de filtro integrada o personalizada y, a continuación, seleccione **+Agregar parámetro** para asociar uno o varios parámetros al filtro. Entre los filtros integrados están los siguientes:
 
     | Clave | Parámetros JSON |
     |---|---|
@@ -58,20 +60,20 @@ El **Administrador de características** de Azure Portal para App Configuration 
 
 ## <a name="update-feature-flag-states"></a>Actualización de los estados de las marcas de características
 
-Siga estos pasos para cambiar el valor de estado de una marca de características.
+Para cambiar el valor de estado de una marca de características:
 
 1. Seleccione **Administrador de características**.
 
-2. Haga clic en **...**  >  **Editar** a la derecha de una marca de características que desee modificar.
+1. A la derecha de la marca de características que desea modificar, seleccione los puntos suspensivos ( **...** ) y, a continuación, seleccione **Editar**.
 
-3. Establezca un nuevo estado para la marca de características.
+1. Establezca un nuevo estado para la marca de características.
 
 ## <a name="access-feature-flags"></a>Acceso a las marcas de características
 
-Las marcas de características creadas por el **Administrador de características** se almacenan y recuperan como pares clave-valor regulares. Se mantienen en un prefijo de espacio de nombres especial *. appconfig.featureflag*. Puede ver los pares clave-valor subyacentes mediante el **Explorador de configuración**. La aplicación puede recuperarlos mediante los proveedores de configuración de App Configuration, los SDK, las extensiones de la línea de comandos y las API REST.
+Las marcas de características creadas por el Administrador de características se almacenan y recuperan como pares clave-valor regulares. Se guardan con un prefijo especial de espacio de nombres `.appconfig.featureflag`. Para ver los pares clave-valor subyacentes, use el Explorador de configuración. La aplicación puede recuperar estos valores mediante los proveedores de configuración de App Configuration, los SDK, las extensiones de la línea de comandos y las API REST.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a administrar las marcas de características y sus estados mediante App Configuration. Consulte los siguientes recursos para obtener más información sobre la compatibilidad de administración de características en App Configuration y ASP.NET Core.
+En este tutorial, ha aprendido a administrar las marcas de características y sus estados mediante App Configuration. Para más información sobre la compatibilidad de administración de características en App Configuration y ASP.NET Core, consulte el siguiente artículo:
 
-* [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md) (Uso de marcas de características en una aplicación ASP.NET Core)
+* [Uso de marcas de características en una aplicación de ASP.NET Core](./use-feature-flags-dotnet-core.md)

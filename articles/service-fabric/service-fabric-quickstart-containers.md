@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f2f6bb572c46a1683d73ba42f435eca59829e5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110360"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428102"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables.
 
-Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Esta guía de inicio rápido muestra cómo implementar una imagen de contenedor Docker creada previamente en una aplicación de Service Fabric. Cuando haya terminado, tendrá un contenedor de Windows Server Core 2016 Server e IIS en ejecución. Esta guía de inicio rápido describe la implementación de un contenedor Windows; lea [esta otra guía](service-fabric-quickstart-containers-linux.md) para implementar un contenedor Linux.
+Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Esta guía de inicio rápido muestra cómo implementar una imagen de contenedor Docker creada previamente en una aplicación de Service Fabric. Cuando haya terminado, tendrá un contenedor de Windows Server Core 2016 Server e IIS en ejecución. En este inicio rápido se describe la implementación de un contenedor de Windows. [Léalo](service-fabric-quickstart-containers-linux.md) para implementar un contenedor de Linux.
 
 ![Página web predeterminada de IIS][iis-default]
 
@@ -44,7 +44,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 * Una suscripción de Azure (puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un equipo de desarrollo en el que se ejecute:
-  * Visual Studio 2015 o Visual Studio 2017.
+  * Visual Studio 2015 o Windows 2019.
   * [SDK y herramientas de Service Fabric](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Empaquetado de un contenedor de imagen de Docker con Visual Studio
@@ -67,7 +67,7 @@ Asigne el nombre "MyContainerService" al servicio y haga clic en **Aceptar**.
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>Especificación de la compilación del sistema operativo para la imagen de contenedor
 
-Los contenedores creados con una versión específica de Windows Server podrían no ejecutarse en un host que ejecute una versión distinta de Windows Server. Por ejemplo, los contenedores creados con Windows Server versión 1709 no funcionan en hosts que ejecutan Windows Server 2016. Para más información, consulte [Sistema operativo del contenedor Windows Server y compatibilidad con el sistema operativo del host](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
+Los contenedores creados con una versión específica de Windows Server podrían no ejecutarse en un host que ejecute una versión distinta de Windows Server. Por ejemplo, los contenedores creados con Windows Server versión 1709 no funcionan en hosts que ejecutan Windows Server 2016. Para más información, consulte [Sistema operativo del contenedor Windows Server y compatibilidad con el sistema operativo del host](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
 
 Con la versión 6.1 del runtime de Service Fabric y versiones más recientes, puede especificar varias imágenes de sistema operativo por contenedor y etiquetar cada una con la versión de compilación del sistema operativo en el que deben implementarse. Esto ayuda a asegurarse de que la aplicación se ejecutará en hosts que ejecutan versiones diferentes del sistema operativo Windows. Para más información, consulte [Especificación de las imágenes de contenedores de compilación específica del sistema operativo](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
@@ -106,7 +106,7 @@ Copie el script siguiente en el Portapapeles y abra **Windows PowerShell ISE**. 
 
 Cuando haya proporcionado los valores para las variables, presione **F5** para ejecutar el script.
 
-Después de ejecutar el script y crear el clúster, busque `ClusterEndpoint` en la salida. Por ejemplo: 
+Después de ejecutar el script y crear el clúster, busque `ClusterEndpoint` en la salida. Por ejemplo:
 
 ```powershell
 ...
@@ -150,7 +150,7 @@ Haga clic en **Parámetros de conexión avanzada** y compruebe la información d
 
 Haga clic en **Publicar**.
 
-Todas las aplicaciones del clúster deben tener un nombre único. Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a realizar la implementación.
+Todas las aplicaciones del clúster deben tener un nombre único. Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a realizar la implementación.
 
 Abra un explorador y vaya a la dirección que especificó en el campo **Connection Endpoint** (Punto de conexión) en el paso anterior. Si lo desea, puede anteponer el identificador de esquema `http://` y agregar el puerto `:80` a la dirección URL. Por ejemplo, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 

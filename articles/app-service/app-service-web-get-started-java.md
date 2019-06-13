@@ -1,222 +1,134 @@
 ---
-title: 'Creación de una aplicación web de Java: Azure App Service'
-description: Aprenda a ejecutar aplicaciones web en App Service mediante la implementación de una aplicación básica de Java.
+title: 'Creación de una aplicación web de Java en Windows: Azure App Service'
+description: En este inicio rápido, implementará su primera aplicación Hola mundo de Java en Azure App Service en Windows en cuestión de minutos.
+keywords: azure, app service, web app, windows, java, maven, quickstart
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: routlaw
+author: msangapu-msft
+manager: jeconnoc
 editor: ''
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
+ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: java
+ms.devlang: Java
 ms.topic: quickstart
-ms.date: 04/23/2019
-ms.author: cephalin;robmcm
-ms.custom: seodec18
-ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.author: jasonfreeberg
+ms.custom: mvc
+ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706140"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393235"
 ---
-# <a name="create-your-first-java-web-app-in-azure"></a>Creación de su primera aplicación web de Java en Azure
+# <a name="quickstart-create-a-java-app-in-app-service"></a>Inicio rápido: Creación de una aplicación de Java en App Service
 
-Azure App Service proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Esta guía de inicio rápido muestra cómo implementar una aplicación web de Java en App Service mediante Eclipse IDE for Java EE Developers (IDE de Eclipse para desarrolladores de Java EE).
+> [!NOTE]
+> En este artículo se implementa una aplicación en App Service en Windows. Para implementarla en App Service en _Linux_, consulte [Creación de una aplicación web de java en Linux](./containers/quickstart-java.md).
+>
 
-> [!IMPORTANT]
-> Azure App Service en Linux es también una opción para hospedar aplicaciones web de Java de forma nativa en Linux mediante ofertas de Tomcat, Java SE y WildFly administradas. Si está interesado en empezar a usar App Service en Linux, consulte [Inicio rápido: Creación de una aplicación de Java en App Service en Linux](containers/quickstart-java.md).
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático.  En este inicio rápido se muestra cómo usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con el [complemento Maven para Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implementar un archivo web (WAR) de Java.
 
-Cuando haya completado esta guía de inicio rápido, la aplicación se parecerá a la que se muestra en la siguiente ilustración al verla en un explorador web:
-
-!["Hello Azure!" aplicación web de ejemplo](./media/app-service-web-get-started-java/browse-web-app-1.png)
+> [!NOTE]
+> También se puede hacer lo mismo con IDE populares, como IntelliJ y Eclipse. Consulte nuestros documentos similares en [Inicio rápido de Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) o [Inicio rápido de Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+>
+![Aplicación de ejemplo que se ejecuta en Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
->
-> Los pasos de esta guía de inicio rápido muestran cómo usar el IDE Eclipse para publicar una aplicación web de Java en App Service, pero IntelliJ IDEA Ultimate Edition o Community Edition. Para más información, consulte [Creación de una aplicación web Hello World para Azure mediante IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
->
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="create-a-java-app"></a>Creación de una aplicación Java
 
-Para completar esta guía de inicio rápido necesita instalar:
+Ejecute el siguiente comando de Maven en el símbolo del sistema de Cloud Shell para crear una aplicación denominada `helloworld`:
 
-* El entorno gratuito <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. Este guía de inicio rápido utiliza Eclipse Neon.
-* El <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">kit de herramientas de Azure para Eclipse</a>.
-
-> [!NOTE]
->
-> Para completar los pasos de esta guía de inicio rápido, debe iniciar sesión en su cuenta de Azure mediante el kit de herramientas de Azure para Eclipse. Para hacerlo, [Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions).
->
-
-## <a name="create-a-dynamic-web-project-in-eclipse"></a>Creación de un proyecto web dinámico en Eclipse
-
-En Eclipse, seleccione **File (Archivo)**  > **New (Nuevo)**  > **Dynamic Web Project (Proyecto web dinámico)** .
-
-En el cuadro de diálogo **New Dynamic Web Project** (Nuevo proyecto web dinámico), asigne al proyecto el nombre **MyFirstJavaOnAzureWebApp** y seleccione **Finish** (Finalizar).
-   
-![Cuadro de diálogo New Dynamic Web Project (Nuevo proyecto web dinámico)](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
-
-### <a name="add-a-jsp-page"></a>Agregar una página JSP
-
-Si no se muestra el Explorador de proyectos, restáurelo.
-
-![Área de trabajo de Java EE para Eclipse](./media/app-service-web-get-started-java/pe.png)
-
-En el Explorador de proyectos, expanda el proyecto **MyFirstJavaOnAzureWebApp**.
-Haga clic con el botón derecho en **WebContent** (Contenido web) y, a continuación, seleccione **New** (Nuevo) > **JSP File** (Archivo JSP).
-
-![Menú de un nuevo archivo JSP en el Explorador de proyectos](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
-
-En el cuadro de diálogo **New JSP File** (Nuevo archivo JSP):
-
-* Asigne al archivo el nombre **index.jsp**.
-* Seleccione **Finalizar**.
-
-  ![Cuadro de diálogo Nuevo archivo JSP](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
-
-En el archivo index.jsp, reemplace el elemento `<body></body>` por el siguiente marcado:
-
-```jsp
-<body>
-<h1><% out.println("Hello Azure!"); %></h1>
-</body>
+```bash
+mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
 ```
 
-Guarde los cambios.
+## <a name="configure-the-maven-plugin"></a>Configuración del complemento Maven
 
-> [!NOTE]
->
-> Si ve un error en la línea 1 que hace referencia a una clase de servlet de Java que falta, lo puede ignorar.
-> 
-> ![Error de servlet de Java leve](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
->
+Para implementar desde Maven, use el editor de código de Cloud Shell para abrir el archivo de proyecto `pom.xml` en el directorio `helloworld`. 
 
-## <a name="publish-the-web-app-to-azure"></a>Publicación de la aplicación web en Azure
-
-En el Explorador de proyectos, haga clic con el botón derecho en el proyecto y, después, seleccione **Azure** > **Publish as Azure Web App** (Publicar como aplicación web de Azure).
-
-![Menú contextual Publish as Azure Web App (Publicar como aplicación web de Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
-
-Si se le presenta el cuadro de diálogo **Azure Sign In** (Inicio de sesión de Azure), tendrá que seguir los pasos del artículo [Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) para escribir sus credenciales.
-
-### <a name="deploy-web-app-dialog-box"></a>Cuadro de diálogo Implementar una aplicación web
-
-Una vez que haya iniciado sesión en su cuenta de Azure, aparecerá el cuadro de diálogo **Implementar una aplicación web**.
-
-Seleccione **Crear**.
-
-![Cuadro de diálogo Implementar una aplicación web](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
-
-### <a name="create-app-service-dialog-box"></a>Cuadro de diálogo Crear servicio de aplicaciones
-
-Aparece el cuadro de diálogo **Crear App Service** con los valores predeterminados. El número **170602185241** que se muestra en la siguiente imagen será diferente en su cuadro de diálogo.
-
-![Cuadro de diálogo Crear servicio de aplicaciones](./media/app-service-web-get-started-java/cas1.png)
-
-En el cuadro de diálogo **Crear App Service**:
-
-* Escriba un nombre único para la aplicación web, o bien conserve el que se ha generado. Este nombre debe ser único en Azure. El nombre forma parte de la dirección URL de la aplicación web. Por ejemplo: si el nombre de la aplicación web es **MyJavaWebApp**, la dirección URL será *myjavawebapp.azurewebsites.net*.
-* Para esta guía conserve el contenedor web predeterminado.
-* Seleccione una suscripción de Azure.
-* En la pestaña **Plan de App Service**:
-
-  * **Crear nuevo**: mantenga el valor predeterminado, que es el nombre del plan de App Service.
-  * **Ubicación**: seleccione **Europa occidental** o una ubicación cerca de usted.
-  * **Plan de tarifa**: seleccione la opción gratuita. Para ver las características, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-    ![Cuadro de diálogo Crear servicio de aplicaciones](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-### <a name="resource-group-tab"></a>Pestaña Grupo de recursos
-
-Seleccione la pestaña **Grupo de recursos**. Mantenga el valor generado de forma predeterminada para el grupo de recursos.
-
-![Pestaña Grupo de recursos](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
-
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
-
-Seleccione **Crear**.
-
-<!--
-### The JDK tab
-
-Select the **JDK** tab. Keep the default, and then select **Create**.
-
-![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
--->
-
-El kit de herramientas de Azure crea la aplicación web y muestra un cuadro de diálogo de progreso.
-
-![Cuadro de diálogo de progreso Crear App Service](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
-
-### <a name="deploy-web-app-dialog-box"></a>Cuadro de diálogo Implementar una aplicación web
-
-En el cuadro de diálogo **Implementar aplicación web**, seleccione **Implementar en el nodo raíz**. Si tiene un servicio de aplicaciones en *wingtiptoys.azurewebsites.net* y no lo implementa en la raíz, la aplicación web denominada **MyFirstJavaOnAzureWebApp** se implementará en *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
-
-![Cuadro de diálogo Implementar una aplicación web](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
-
-El cuadro de diálogo muestra las selecciones de Azure, JDK y contenedor web.
-
-Seleccione **Implementar** para publicar la aplicación web en Azure.
-
-Cuando finalice la publicación, seleccione el enlace **Publicado** en el cuadro de diálogo **Registro de actividad de Azure**.
-
-![Cuadro de diálogo Registro de actividad de Azure](./media/app-service-web-get-started-java/aal.png)
-
-Felicidades. Ha implementado correctamente la aplicación web en Azure. 
-
-!["Hello Azure!" aplicación web de ejemplo](./media/app-service-web-get-started-java/browse-web-app-1.png)
-
-## <a name="update-the-web-app"></a>Actualización de la aplicación web
-
-Cambie el código de ejemplo JSP a un mensaje diferente.
-
-```jsp
-<body>
-<h1><% out.println("Hello again Azure!"); %></h1>
-</body>
+```bash
+code pom.xml
 ```
 
-Guarde los cambios.
+Luego agregue la siguiente definición del complemento al elemento `<build>` del archivo `pom.xml`.
 
-En el Explorador de proyectos, haga clic con el botón derecho en el proyecto y, a continuación, seleccione **Azure** > **Publish as Azure Web App** (Publicar como aplicación web de Azure).
+```xml
+<plugins>
+    <!--*************************************************-->
+    <!-- Deploy to Tomcat in App Service Windows         -->
+    <!--*************************************************-->
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.4</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+            <!-- Java Runtime Stack for App Service on Windows-->
+            <runtime>
+                <os>windows</os>
+                <javaVersion>1.8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
+    </plugin>
+</plugins>
+```
 
-Aparece el cuadro de diálogo **Implementar aplicación web** y muestra el App Service que creó anteriormente. 
+> [!NOTE]
+> En este artículo solo se trabaja con aplicaciones Java empaquetadas en archivos WAR. El complemento también admite aplicaciones web JAR, visite [Implementación de un archivo JAR de SE de Java en App Service en Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para probarlo.
 
-> [!NOTE] 
-> Seleccione **Implementar en el nodo raíz** cada vez que publique. 
-> 
 
-Seleccione la aplicación web y seleccione **Implementar**, que publica los cambios.
+Actualice los siguientes marcadores de posición en la configuración del complemento:
 
-Cuando aparezca el enlace **Publicando**, selecciónelo para ir a la aplicación web y ver los cambios.
+| Marcador de posición | DESCRIPCIÓN |
+| ----------- | ----------- |
+| `SUBSCRIPTION_ID` | Id. único de la suscripción en la que quiere implementar la aplicación. El id. de la suscripción predeterminada se puede encontrar en Cloud Shell o en la CLI mediante el comando `az account show`. Para todas las suscripciones disponibles, use el comando `az account list`.|
+| `RESOURCEGROUP_NAME` | Nombre del nuevo grupo de recursos en el que se va a crear la aplicación. Al colocar todos los recursos de una aplicación en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos asociados con la aplicación. Actualice este valor con un nombre único de un nuevo grupo de recursos, por ejemplo, *TestResources*. Este nombre lo utilizará para limpiar todos los recursos de Azure en una sección posterior. |
+| `WEBAPP_NAME` | El nombre de aplicación formará parte del nombre de host de la aplicación si se ha implementado en Azure (WEBAPP_NAME.azurewebsites.net). Actualice este valor con un nombre único para la nueva aplicación de App Service, que hospedará la aplicación Java, por ejemplo *contoso*. |
+| `REGION` | Una región de Azure donde se hospeda la aplicación, por ejemplo, `westus2`. Puede obtener una lista de regiones en Cloud Shell o la CLI mediante el comando `az account list-locations`. |
 
-## <a name="manage-the-web-app"></a>Administrar la aplicación web
+## <a name="deploy-the-app"></a>Implementar la aplicación
 
-Vaya a <a href="https://portal.azure.com" target="_blank">Azure Portal</a> para ver la aplicación web que ha creado.
+Implemente la aplicación Java en Azure mediante el siguiente comando:
 
-Seleccione **Grupos de recursos** en el menú izquierdo.
+```bash
+mvn package azure-webapp:deploy
+```
 
-![Exploración de los grupos de recursos en el portal](media/app-service-web-get-started-java/rg.png)
+Una vez que se haya completado la implementación, vaya a la aplicación implementada mediante la siguiente dirección URL en el explorador web, por ejemplo, `http://<webapp>.azurewebsites.net/`.
 
-Seleccione el grupo de recursos. La página muestra los recursos que ha creado en esta guía de inicio rápido.
+![Aplicación de ejemplo que se ejecuta en Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-![Grupos de recursos](media/app-service-web-get-started-java/rg2.png)
+**¡Enhorabuena!** Ha implementado su primera aplicación de Java en App Service en Windows.
 
-Seleccione la aplicación web (**webapp-170602193915** en la imagen anterior).
-
-Aparece la página **Información general**. Esta página proporciona una visión del funcionamiento de la aplicación. En ella, puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes configuraciones que puede abrir. 
-
-![Página de App Service en Azure Portal](media/app-service-web-get-started-java/web-app-blade.png)
-
-[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Recursos de Azure para desarrolladores de Java](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain.md)

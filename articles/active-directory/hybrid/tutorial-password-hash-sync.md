@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial:  Integración de un bosque de AD único en Azure mediante la sincronización de hash de contraseñas (PHS) | Microsoft Docs'
+title: 'Tutorial:  Integración de un bosque de AD individual en Azure mediante PHS'
 description: Se muestra cómo configurar un entorno de identidad híbrida mediante la sincronización de hash de contraseñas.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103237"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474005"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integración de un único bosque de AD mediante la sincronización de hash de contraseñas (PHS)
 

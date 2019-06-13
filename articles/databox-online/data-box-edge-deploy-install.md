@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924535"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476955"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalación de Azure Data Box Edge
 
@@ -70,7 +70,7 @@ Este dispositivo se suministra en una única caja. Realice los pasos siguientes 
 1. Coloque la caja en una superficie plana y nivelada.
 2. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no los abra. Póngase en contacto con el soporte técnico de Microsoft para ayudarle a determinar si el dispositivo está en buen estado.
 3. Desempaquete la caja. Después de desempaquetar la caja, asegúrese de que dispone de:
-    - Un único dispositivo contenedor Edge
+    - Un único dispositivo contenedor Data Box Edge
     - Dos cables de alimentación
     - Un ensamblaje de kit de raíl
     - Un folleto informativo sobre la seguridad, el entorno y las normativas
@@ -100,7 +100,7 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 1. Dos ensamblajes de raíl deslizantes A7 Dell ReadyRails II
 2. Dos correas anchas con cierre de velcro
 
-![Identificación del contenido del kit de raíl](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identificación del contenido del kit de raíl](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instalación y retirada de los raíles no mecanizados (bastidores de agujeros cuadrados y redondos)
 
@@ -109,10 +109,10 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 
 1. Coloque las piezas del extremo de los raíles izquierdo y derecho con la etiqueta **FRONT** orientadas hacia dentro y fijadas en los agujeros anteriores de las pestañas del bastidor en vertical.
 2. Alinee cada pieza del extremo en los agujeros inferiores y superiores de los espacios en U preferidos.
-3. Ajuste el extremo posterior del raíl hasta que quede fijado en la pestaña del bastidor en vertical y el pestillo haga clic. Repita estos pasos para colocar y fijar la pieza del extremo anterior en la pestaña del bastidor en vertical.
+3. Ajuste el extremo posterior del raíl hasta que quede fijado en la pestaña del bastidor en vertical y el pestillo haga clic. Repita estos pasos para colocar y fijar la pieza del extremo anterior en la pestaña del bastidor vertical.
 4. Para quitar los carriles, suelte el botón de desbloqueo del pestillo de la parte central de la pieza del extremo y levante los raíles.
 
-![Instalación y retirada de los raíles no mecanizados](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Instalación y retirada de los raíles no mecanizados](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalación y retirada de raíles mecanizados (bastidores con agujeros a rosca)
 
@@ -124,7 +124,7 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 3. Encaje los raíles de montaje izquierdo y derecho a las pestañas anteriores del bastidor en vertical con 4 tornillos.
 4. Deslice los soportes posteriores izquierdo y derecho hacia delante contra las pestañas posteriores del bastidor en vertical y encájelos con 4 tornillos.
 
-![Instalación y retirada de raíles no mecanizados](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Instalación y retirada de raíles no mecanizados](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Instalación del sistema en un bastidor
 
@@ -133,7 +133,7 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 3. Inserte el sistema hasta que las pestañas de cierre hagan clic.
 4. Presione los botones de bloqueo deslizantes de los dos raíles y deslice el sistema para que encaje en el bastidor.
 
-![Instalación del sistema en un bastidor](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Instalación del sistema en un bastidor](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### <a name="remove-the-system-from-the-rack"></a>Extracción del sistema del bastidor
 
@@ -141,7 +141,7 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 2. Desbloquee las pestañas; para ello, gírelas hasta la posición de desbloqueo.
 3. Sujete firmemente los laterales del sistema e inserte este hasta que los separadores de los raíles queden frente a las ranuras en J. Levante el sistema y sáquelo del bastidor para colocarlo en una superficie nivelada.
 
-![Extracción del sistema del bastidor](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Extracción del sistema del bastidor](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
 ### <a name="engage-and-release-the-slam-latch"></a>Bloqueo y desbloqueo del pestillo de golpe
 
@@ -152,7 +152,7 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 2. Los pestillos se encajan automáticamente al insertar el sistema en el bastidor y se desbloquean al tirar de ellos.
 3. Para fijar el sistema para el transporte en el bastidor o en otros entornos inestables, ubique el tornillo de montaje rígido bajo cada pestillo y apriételo con un destornillador Phillips del número 2.
 
-![Bloqueo y desbloqueo del pestillo de golpe](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Bloqueo y desbloqueo del pestillo de golpe](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 ### <a name="route-the-cables"></a>Orientación de los cables
 
@@ -164,16 +164,16 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 3. Enrosque cintas de velcro en las ranuras de los soportes del CMA externos de cada lateral del sistema para fijar los mazos de cables.
 
 
-![Orientación de los cables](./media/data-box-edge-deploy-install/routing-cables.png)
+    ![Orientación de los cables](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Cableado del dispositivo
 
-Los siguientes procedimientos describen cómo realizar el cableado del dispositivo de Edge para la conexión a la corriente y a la red.
+En los siguientes procedimientos se describe cómo realizar el cableado del dispositivo de Data Box Edge para la conexión a la corriente eléctrica y a la red.
 
 Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 
-- El dispositivo físico de Edge, desempaquetado y montado en el bastidor.
-- Dos cables de alimentación. 
+- El dispositivo físico Data Box Edge, desempaquetado y montado en el bastidor.
+- Dos cables de alimentación.
 - Al menos un cable de red RJ-45 de 1-GbE cable para conectarse a la interfaz de administración de red. Hay dos interfaces de red de 1-GbE, uno de administración y otro de datos, en el dispositivo.
 - Un cable de cobre SFP+ de 25 GbE para cada interfaz de red de datos que se va a configurar. Al menos una interfaz de red de datos de entre los PUERTOS 2, 3, 4, 5 o 6, debe estar conectada a Internet (para la conectividad a Azure).  
 - Acceso a dos unidades de distribución de energía (recomendable).
@@ -181,34 +181,46 @@ Antes de empezar el cableado del dispositivo, necesita lo siguiente:
 > [!NOTE]
 > - Si va a conectar solo una interfaz de red de datos, es recomendable que use una interfaz de red de 25/10 GbE como la de los PUERTOS 3, 4, 5 o 6 para enviar datos a Azure. 
 > - Para obtener el mejor rendimiento y controlar grandes volúmenes de datos, considere la posibilidad de conectar todos los puertos de datos.
-> - El dispositivo de Edge debe estar conectado a la red del centro de datos para poder ingerir datos desde los servidores de origen de datos.
+> - El dispositivo Data Box Edge debe estar conectado a la red del centro de datos para que pueda ingerir datos desde los servidores de origen de datos.
 
-El dispositivo de Edge tiene 8 SSD de NVMe. El panel frontal incluye también indicadores LED de estado y botones de alimentación. El dispositivo incluye fuentes de alimentación (PSU) redundantes en la parte posterior. El dispositivo tiene seis interfaces de red:
+En el dispositivo Data Box Edge:
 
-- Dos interfaces de 1 Gbps
-- Cuatro interfaces de 25 Gbps que también sirven como interfaces de 10 Gbps.
-- Un controlador de administración de placa base (BMC). 
+- El panel frontal tiene unidades de disco y un botón de encendido.
 
-Identifique los distintos puertos de la placa posterior del dispositivo.
- 
-  ![Placa posterior de un dispositivo cableado](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    - Hay 10 ranuras de disco en el frontal del dispositivo.
+    - La ranura 0 tiene una unidad SATA de 240 GB que se usa como disco del sistema operativo. La ranura 1 está vacía y las ranuras 2 a 9 son unidades de estado sólido de NVMe que se usan como discos de datos.
+- El backplane incluye fuentes de alimentación (PSU) redundantes.
+- El backplane tiene seis interfaces de red:
 
-El dispositivo tiene dos tarjetas de red correspondientes a los 6 puertos: 
+    - Dos interfaces de 1 Gbps.
+    - Cuatro interfaces de 25 Gbps que también sirven como interfaces de 10 Gbps.
+    - Un controlador de administración de placa base (BMC).
 
- - QLogic FastLinQ 41264
- - QLogic FastLinQ 41262
+- El backplane tiene dos tarjetas de red correspondientes a los 6 puertos:
+
+    - QLogic FastLinQ 41264
+    - QLogic FastLinQ 41262
 
 Para una lista completa de los cables, enchufes y transceptores para estas tarjetas de red, vaya al artículo sobre la [matriz de interoperabilidad de la serie Cavium FastlinQ 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Realice los pasos siguientes para realizar el cableado de los cables de alimentación y de red del dispositivo.
 
-1. Conecte los cables de alimentación a cada una de las fuentes de alimentación del receptáculo. Para garantizar una alta disponibilidad, instale y conecte ambas fuentes de alimentación a distintas tomas de alimentación.
+1. Identifique los distintos puertos del backplane del dispositivo.
 
-2. Conecte los cables de alimentación a las unidades de distribución de energía (PDU) del bastidor. Asegúrese de que las dos PSU usen tomas de alimentación independientes.
+    ![Backplane de un dispositivo cableado](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-3. Conecte el PUERTO 1 de la interfaz de red de 1-GbE al equipo que se usa para configurar el dispositivo físico. El PUERTO 1 es la interfaz de administración dedicada.
+2. Busque las ranuras de los discos y el botón de encendido en el frontal del dispositivo.
 
-4. Conecte uno o varios de los PUERTOS 2, 3, 4, 5 o 6 a la red del centro de datos o Internet. Si conecta el PUERTO 2, utilice el cable de red RJ-45. Para las interfaces de red de 10/25 GbE, use cables de cobre SFP+.  
+    ![Plano delantero de un dispositivo](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+
+3. Conecte los cables de alimentación a cada una de las fuentes de alimentación del receptáculo. Para garantizar una alta disponibilidad, instale y conecte ambas fuentes de alimentación a distintas tomas de alimentación.
+4. Conecte los cables de alimentación a las unidades de distribución de energía (PDU) del bastidor. Asegúrese de que las dos PSU usen tomas de alimentación independientes.
+5. Presione el botón de encendido para encender el dispositivo.
+6. Conecte el PUERTO 1 de la interfaz de red de 1-GbE al equipo que se usa para configurar el dispositivo físico. El PUERTO 1 es la interfaz de administración dedicada.
+7. Conecte uno o varios de los PUERTOS 2, 3, 4, 5 o 6 a la red del centro de datos o Internet.
+
+    - Si conecta el PUERTO 2, utilice el cable de red RJ-45.
+    - Para las interfaces de red de 10/25 GbE, use cables de cobre SFP+.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -223,5 +235,3 @@ Pase al siguiente tutorial para aprender a conectar, configurar y activar el dis
 
 > [!div class="nextstepaction"]
 > [Conexión y configuración de Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
-
-

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947265"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418111"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -29,9 +29,9 @@ Este tipo de enrutamiento se conoce como equilibrio de carga de capa de aplicaci
 
 Las siguientes características se incluyen con Azure Application Gateway:
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminación de la Capa de sockets seguros (SSL)
+## <a name="secure-sockets-layer-ssltls-termination"></a>Terminación de la Capa de sockets seguros (SSL)
 
-Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, en algunas ocasiones, la comunicación sin cifrar con los servidores no es una opción aceptable. Esto podría deberse a los requisitos de seguridad y cumplimiento normativo, o bien a la posibilidad de que la aplicación solo acepte una conexión segura. Para estas aplicaciones, Application Gateway admite el cifrado SSL de un extremo a otro.
+Application Gateway admite la terminación SSL/TLS en la puerta de enlace, tras lo cual el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, en algunas ocasiones, la comunicación sin cifrar con los servidores no es una opción aceptable. Esto podría deberse a los requisitos de seguridad y cumplimiento normativo, o bien a la posibilidad de que la aplicación solo acepte una conexión segura. Para estas aplicaciones, Application Gateway admite el cifrado SSL/TLS de un extremo a otro.
 
 ## <a name="autoscaling"></a>Escalado automático
 

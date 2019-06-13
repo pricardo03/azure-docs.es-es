@@ -1,21 +1,17 @@
 ---
 title: Introducción a las aplicaciones administradas de Azure | Microsoft Docs
 description: Describe los conceptos de las aplicaciones administradas de Azure
-services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001795"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479825"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -55,7 +51,9 @@ Para más información sobre cómo publicar una aplicación administrada en Azur
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicaciones administradas
 
-Normalmente, los recursos de una aplicación administrada residen en dos grupos de recursos. El consumidor administra un grupo de recursos y el editor administra el otro. Al definir la aplicación administrada, el editor especifica los niveles de acceso. No se admite actualmente la restricción del acceso para las [operaciones de datos](../role-based-access-control/role-definitions.md) para todos los proveedores de datos en Azure.
+Normalmente, los recursos de una aplicación administrada residen en dos grupos de recursos. El consumidor administra un grupo de recursos y el editor administra el otro. Al definir la aplicación administrada, el editor especifica los niveles de acceso. El publicador puede solicitar una asignación de roles permanentes, o [acceso Just-In-Time](request-just-in-time-access.md) para una asignación que esté restringida a un período de tiempo.
+
+No se admite actualmente la restricción del acceso para las [operaciones de datos](../role-based-access-control/role-definitions.md) para todos los proveedores de datos en Azure.
 
 La siguiente imagen muestra un escenario en el que el editor solicita el rol de propietario del grupo de recursos administrados. El editor puso un bloqueo de solo lectura en este grupo de recursos para el consumidor. Las identidades del publicador a las que se concede acceso al grupo de recursos administrado están exentas del bloqueo.
 
@@ -69,7 +67,7 @@ El consumidor tiene acceso total al grupo de recursos y lo utiliza para administ
 
 ### <a name="managed-resource-group"></a>Grupo de recursos administrado
 
-Este grupo de recursos contiene todos los recursos que requiere la aplicación administrada. Por ejemplo, este grupo de recursos contiene las máquinas virtuales, cuentas de almacenamiento y redes virtuales para la solución. El consumidor tiene acceso limitado a este grupo de recursos ya que no puede administrar los recursos individuales de la aplicación administrada. El acceso del editor a este grupo de recursos se corresponde con el rol especificado en la definición de la aplicación administrada. Por ejemplo, el editor puede solicitar el rol de propietario o colaborador para este grupo de recursos.
+Este grupo de recursos contiene todos los recursos que requiere la aplicación administrada. Por ejemplo, este grupo de recursos contiene las máquinas virtuales, cuentas de almacenamiento y redes virtuales para la solución. El consumidor tiene acceso limitado a este grupo de recursos ya que no puede administrar los recursos individuales de la aplicación administrada. El acceso del editor a este grupo de recursos se corresponde con el rol especificado en la definición de la aplicación administrada. Por ejemplo, el editor puede solicitar el rol de propietario o colaborador para este grupo de recursos. El acceso es permanente o está limitado a un momento específico.
 
 Cuando el consumidor elimina la aplicación administrada, también se elimina el grupo de recursos administrados.
 

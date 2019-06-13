@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dd4fe4f7b105fd7aa2d2cf7ee568f85a7ad98ecb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265736"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutorial: Integración de Azure Active Directory con ExcelityGlobal
 
@@ -52,7 +52,7 @@ Para configurar la integración de ExcelityGlobal en Azure AD, será preciso que
 
 **Para agregar ExcelityGlobal desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con ExcelityGlobal, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de ExcelityGlobal](#configure-excelityglobal-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de ExcelityGlobal](#create-excelityglobal-test-user)**: para tener un homólogo de Britta Simon en ExcelityGlobal que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de ExcelityGlobal](#configure-excelityglobal-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de ExcelityGlobal](#create-excelityglobal-test-user)** : para tener un homólogo de Britta Simon en ExcelityGlobal que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con ExcelityGlobal, siga
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de ExcelityGlobal](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
     **Para un entorno de producción**: `https://ess.excelityglobal.com`
 
@@ -140,7 +140,7 @@ Para configurar el inicio de sesión único de Azure AD con ExcelityGlobal, siga
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Configuración del inicio de sesión único de ExcelityGlobal
 
-Para configurar el inicio de sesión único en **ExcelityGlobal**, es preciso enviar el **valor de la huella digital** y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **ExcelityGlobal**, es preciso enviar el **valor de la huella digital** y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de ExcelityGlobal](https://www.excelityglobal.com/contact-us). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -195,7 +195,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 ### <a name="create-excelityglobal-test-user"></a>Creación de un usuario de prueba de ExcelityGlobal
 
-En esta sección, creará una usuaria llamada Britta Simon en ExcelityGlobal. Trabaje con el  [equipo de soporte técnico de ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/) para agregar usuarios en la plataforma ExcelityGlobal. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará una usuaria llamada Britta Simon en ExcelityGlobal. Trabaje con el  [equipo de soporte técnico de ExcelityGlobal](https://www.excelityglobal.com/contact-us) para agregar usuarios en la plataforma ExcelityGlobal. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

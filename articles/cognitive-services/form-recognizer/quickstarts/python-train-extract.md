@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906970"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475260"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API de REST con Python
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [Python](https://www.python.org/downloads/) instalado (si desea ejecutar el ejemplo localmente).
-- Un conjunto de al menos cinco formularios del mismo tipo. Para este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
+- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. Para este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los datos en la raíz de una cuenta de Azure Blob Storage.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -45,9 +45,12 @@ Cuando se le conceda acceso para usar Form Recognizer, recibirá un correo elect
 
 Cuando el recurso de Form Recognizer termine la implementación, búsquelo y selecciónelo en la lista **Todos los recursos** del portal. A continuación, seleccione la pestaña **Claves** para ver las claves de la suscripción. Cualquiera de las claves dará a la aplicación acceso al recurso. Copie el valor de **CLAVE 1**. La usará en la sección siguiente.
 
-## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
+## <a name="train-a-form-recognizer-model"></a>Entrenamiento de un modelo de Form Recognizer
 
-Para crear y ejecutar el ejemplo, realice estos cambios en el siguiente fragmento de código:
+En primer lugar, se necesitará un conjunto de datos de entrenamiento de un blob de Azure Storage. Debe tener un mínimo de cinco formularios de ejemplo (documentos PDF o imágenes) de la misma estructura y tipo que los datos de entrada principales. O bien, puede usar un formulario vacío con dos formularios rellenos. El nombre de archivo del primero formulario debe incluir la palabra "empty".
+
+Para entrenar un modelo de Form Recognizer mediante los documentos del contenedor de blobs de Azure, llame a **Train** API, para lo que debe ejecutar el siguiente código Python. Antes de ejecutar el código, realice estos cambios:
+
 1. Reemplace `<Endpoint>` por la dirección URL del punto de conexión del recurso de Form Recognizer en la región de Azure en la que obtuvo las claves de suscripción.
 1. Reemplace `<SAS URL>` por una dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage compartido de la ubicación en la que se encuentran los datos de entrenamiento.  
 1. Reemplace `<Subscription key>` con la clave de suscripción que copió en el paso anterior.

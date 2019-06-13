@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992034"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400261"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus
 En este inicio rápido se describe cómo enviar y recibir mensajes con Service Bus mediante la CLI de Azure y la biblioteca Java de Service Bus. Por último, si le interesa obtener más información técnica, puede [leer una explicación](#understand-the-sample-code) de los elementos clave del ejemplo de código.
@@ -22,7 +22,7 @@ En este inicio rápido se describe cómo enviar y recibir mensajes con Service B
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
-Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita][free account] antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -377,7 +377,7 @@ En este artículo, ha creado un espacio de nombres de Service Bus y otros recurs
 > [!div class="nextstepaction"]
 > [Envío y recepción de mensajes](service-bus-dotnet-get-started-with-queues.md)
 
-[cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

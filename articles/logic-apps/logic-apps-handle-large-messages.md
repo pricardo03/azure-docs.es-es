@@ -16,7 +16,7 @@ ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60303797"
@@ -57,7 +57,7 @@ Si un punto de conexión ha habilitado la fragmentación para cargas o descargas
 
 Además, si una acción HTTP ya no permite la fragmentación, también debe configurarla en la propiedad `runTimeConfiguration` de la acción. Puede establecer esta propiedad dentro de la acción, ya sea directamente en el editor de vista de código, tal y como se describe más adelante, o en el Diseñador de aplicaciones lógicas, como se describe aquí:
 
-1. En la esquina superior derecha de la acción HTTP, elija el botón de puntos suspensivos (**...** ) y, a continuación, elija **Configuración**.
+1. En la esquina superior derecha de la acción HTTP, elija el botón de puntos suspensivos ( **...** ) y, a continuación, elija **Configuración**.
 
    ![En la acción, abra el menú Configuración.](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -127,8 +127,8 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
 
    | Campo de encabezado de respuesta del punto de conexión | Type | Obligatorio | DESCRIPCIÓN |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | Sin  | El tamaño de fragmento sugerido en bytes |
-   | **Ubicación** | string | Sin  | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
+   | **x-ms-chunk-size** | Integer | Sin | El tamaño de fragmento sugerido en bytes |
+   | **Ubicación** | string | Sin | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
    ||||
 
 3. La aplicación lógica crea y envía mensajes HTTP PATCH de seguimiento, cada uno con esta información:

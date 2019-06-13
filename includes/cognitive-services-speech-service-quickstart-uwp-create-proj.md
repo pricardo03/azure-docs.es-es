@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: faa93b75bde3a14e48baa7d27a3eb6439a137e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145429"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482435"
 ---
-1. Inicie Visual Studio 2017.
+1. Inicie Visual Studio 2019.
 
 1. Asegúrese de que la carga de trabajo de **desarrollo de Plataforma universal de Windows** está disponible. Elija **Herramientas** > **Get Tools and Features (Obtener herramientas y características)** desde la barra de menús de Visual Studio para abrir el instalador de Visual Studio. Si esta carga de trabajo ya está habilitada, cierre el cuadro de diálogo.
 
@@ -23,7 +23,7 @@ ms.locfileid: "66145429"
 
     ![Captura de pantalla del cuadro de diálogo Nuevo proyecto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. El SDK de Voz requiere que la aplicación se cree para Windows 10 Fall Creators Update o posterior. En la ventana emergente **New Universal Windows Platform Project** (Nuevo proyecto de la Plataforma universal de Windows), elija **Windows 10 Fall Creators Update (10.0, compilación 16299)** como la **versión mínima**. En el cuadro **Versión de destino**, seleccione esta o cualquier versión posterior y, a continuación, haga clic en **Aceptar**.
+1. El SDK de Voz requiere que la aplicación se cree para Windows 10 Fall Creators Update o posterior. En la ventana emergente **New Universal Windows Platform Project** (Nuevo proyecto de la Plataforma universal de Windows), elija **Windows 10 Fall Creators Update (10.0, compilación 16299)** como la **versión mínima**. En el cuadro **Versión de destino**, seleccione esta versión o cualquier otra posterior y, a continuación, haga clic en **Aceptar**.
 
     ![Captura de pantalla de la ventana New Universal Windows Platform Project (Nuevo proyecto de la Plataforma universal de Windows)](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
