@@ -310,7 +310,7 @@ Seleccione un recurso desde el que se va a exportar las métricas. Hay varios ti
 1. En el panel **Seleccionar centro de eventos**, configure cómo exportar datos desde los registros de diagnóstico hasta el centro de eventos que ha creado:
     1. En la lista **Seleccionar el espacio de nombres del Centro de eventos**, seleccione *AzureMonitoringData*.
     1. En la lista **Seleccionar nombre de centro de eventos**, seleccione *diagnosticlogsdata*.
-    1. En la lista **	Seleccionar el nombre de directiva del Centro de eventos**, seleccione **RootManagerSharedAccessKey**.
+    1. En la lista **Seleccionar el nombre de directiva del Centro de eventos**, seleccione **RootManagerSharedAccessKey**.
     1. Seleccione **Aceptar**.
 
 1. Seleccione **Guardar**.
