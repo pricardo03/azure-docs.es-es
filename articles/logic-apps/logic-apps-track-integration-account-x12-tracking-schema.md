@@ -66,7 +66,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
 | receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
 | agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | string | Número de control de intercambio. (Opcional) |
 | functionalGroupControlNumber | string | Número de control funcional. (Opcional) |
 | transactionSetControlNumber | string | Número de control de conjuntos de transacciones. (Opcional) |
@@ -122,7 +122,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
 | receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
 | agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | string | Número de control de intercambio de la confirmación funcional. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado. (Opcional) |
 | functionalGroupControlNumber | string | Número de control del grupo funcional de la confirmación funcional. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado. (Opcional) |
 | isaSegment | string | Segmento ISA del mensaje. El valor se rellena solo en el lado del envío en el que se ha recibido confirmación funcional de los mensajes enviados al asociado. (Opcional) |
@@ -180,7 +180,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
 | receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
 | agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | string | Número de control de intercambio. (Opcional) |
 | isaSegment | string | Segmento ISA del mensaje. (Opcional) |
 | isTechnicalAcknowledgmentExpected | Boolean | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
@@ -231,7 +231,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
 | receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
 | agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | string | Número de control de intercambio de la confirmación técnica que los asociados reciben. (Opcional) |
 | isaSegment | string | Segmento ISA de la confirmación técnica que los asociados reciben. (Opcional) |
 | respondingInterchangeControlNumber |string | Número de control de intercambio de la confirmación técnica que los asociados reciben. (Opcional) |
@@ -284,7 +284,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
 | receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
 | agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | string | Número de control de intercambio. (Opcional) |
 | functionalGroupControlNumber | string | Número de control funcional. (Opcional) |
 | gsSegment | string | Segmento GS del mensaje. (Opcional) |
@@ -340,7 +340,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | receiverQualifier | string | Calificador del asociado destinatario. (Obligatorio) |
 | receiverIdentifier | string | Identificador del asociado destinatario. (Obligatorio) |
 | agreementName | string | Nombre del contrato X12 en el que se resuelven los mensajes. (Opcional) |
-| dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | string | Número de control de intercambio, que se rellena para el lado del envío cuando los asociados reciben la confirmación técnica. (Opcional) |
 | functionalGroupControlNumber | string | Número de control de grupo funcional de la confirmación técnica, que se rellena para el lado del envío cuando los asociados reciben la confirmación técnica. (Opcional) |
 | isaSegment | string | Igual que el número de control de intercambio, pero se rellena solo en casos específicos. (Opcional) |
