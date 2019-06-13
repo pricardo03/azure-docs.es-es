@@ -40,7 +40,7 @@ Cree, elimine y administre aplicaciones y tipos de aplicaciones.
 | manifest | Obtiene el manifiesto que describe un tipo de aplicación. |
 | provision | Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete .sfpkg en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes. |
 | report-health | Envía un informe de estado sobre la aplicación de Service Fabric. |
-| Tipo | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado. |
+| type | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado. |
 | type-list | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric. |
 | unprovision | Elimina un tipo de aplicación de Service Fabric del clúster o anula su registro. |
 | upgrade | Inicia la actualización de una aplicación en el clúster de Service Fabric. |
