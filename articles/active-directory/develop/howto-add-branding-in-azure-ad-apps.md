@@ -19,10 +19,10 @@ ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac14572210b80ac1415d129c5810f0e5443012c9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540107"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
@@ -41,7 +41,7 @@ En este artículo:
 Microsoft administra dos tipos de cuentas de usuario:
 
 - **Cuentas personales** (anteriormente conocidas como Windows Live ID). Estas cuentas representan la relación entre los usuarios *individuales* y Microsoft. Se usan para tener acceso a servicios y dispositivos de consumidor de Microsoft. Estas cuentas están pensadas para un uso personal.
-- **Cuentas profesionales o educativas.**  Estas cuentas las administra Microsoft en nombre de las organizaciones que usan Azure Active Directory. Estas cuentas se utilizan para iniciar sesión en Office 365 y otros servicios empresariales de Microsoft.
+- **Cuentas profesionales o educativas.** Estas cuentas las administra Microsoft en nombre de las organizaciones que usan Azure Active Directory. Estas cuentas se utilizan para iniciar sesión en Office 365 y otros servicios empresariales de Microsoft.
 
 Las cuentas profesionales o educativas de Microsoft normalmente se asignan las organizaciones (compañías, escuelas, administraciones públicas, etc.).a los usuarios finales (empleados, estudiantes, empleados de las administraciones, etc.). Estas cuentas se controlan directamente en la nube (en la plataforma de Azure AD) o se sincronizan con Azure AD desde un directorio local, como Windows Server Active Directory. Microsoft mantiene la *custodia* de las cuentas profesionales o educativas, pero son propiedad la organización y es esta quien las controla.
 
@@ -60,7 +60,7 @@ En una versión anterior de estas directrices, se recomendaba usar un pictograma
 
 La aplicación puede presentar rutas diferentes para la suscripción y el inicio de sesión. En las secciones siguientes, se proporciona una guía visual para ambos escenarios.
 
-**Si la aplicación admite el registro de usuarios finales (por ejemplo, evaluación gratuita o modelo "freemium")**: puede mostrar un botón de **inicio de sesión** que permita a los usuarios acceder a la aplicación con su cuenta profesional o educativa. Azure AD mostrará una petición de consentimiento la primera vez que accedan a la aplicación.
+**Si la aplicación admite el registro de usuarios finales (por ejemplo, evaluación gratuita o modelo "freemium")** : puede mostrar un botón de **inicio de sesión** que permita a los usuarios acceder a la aplicación con su cuenta profesional o educativa. Azure AD mostrará una petición de consentimiento la primera vez que accedan a la aplicación.
 
 **Si su aplicación requiere permisos que solo los administradores pueden otorgar o requiere licencias para organizaciones**: separe la adquisición de administrador del inicio de sesión como usuario. El **botón "obtener esta aplicación"** redirigirá a los administradores al inicio de sesión. Después, se les pedirá que manifiesten su consentimiento en nombre de los usuarios de su organización, que cuenta con la ventaja añadida de suprimir las peticiones de consentimiento de usuario final en su aplicación.
 
@@ -72,7 +72,7 @@ Después de que los administradores den su consentimiento a la aplicación, pued
 
 ![Tipos de aplicaciones y escenarios](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-Sin embargo, se recomienda que escriba un texto explicativo en lugar de confiar en los botones. Por ejemplo: 
+Sin embargo, se recomienda que escriba un texto explicativo en lugar de confiar en los botones. Por ejemplo:
 
 > *Si ya usa Office 365 u otro servicio de negocio de Microsoft, puede conceder acceso a <nombre_su_aplicación> para acceder a los datos de su organización. De esta forma, los usuarios podrán acceder a <nombre_su_aplicación> con sus cuentas profesionales.*
 
