@@ -9,17 +9,17 @@ ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131823"
 ---
 La plantilla del proyecto de Azure Functions de Visual Studio crea un proyecto que se puede publicar en una aplicación de función en Azure. Puede usar una aplicación de función para agrupar funciones como una unidad lógica para la administración, la implementación y el uso compartido de recursos.
 
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
 
-2. En el cuadro de diálogo **Nuevo proyecto** seleccione **Instalado** > **Visual C#** > **Nube** > **Azure Functions**. Escriba el nombre del proyecto y seleccione **Aceptar**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
+2. En el cuadro de diálogo **Nuevo proyecto** seleccione **Instalado** > **Visual C#**  > **Nube** > **Azure Functions**. Escriba el nombre del proyecto y seleccione **Aceptar**. El nombre de la aplicación de función debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones u otros caracteres no alfanuméricos.
 
     ![Cuadro de diálogo Nuevo proyecto para crear una función en Visual Studio](./media/functions-vstools-create/functions-vs-new-project.png)
 
