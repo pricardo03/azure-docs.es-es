@@ -39,6 +39,8 @@
   items:
     - name: Implementación mediante Azure PowerShell
       href: deploy-ps.md
+    - name: Implementación con la CLI de Azure
+      href: deploy-cli.md
     - name: Implementación mediante una plantilla
       href: deploy-template.md
     - name: Integración con Load Balancer

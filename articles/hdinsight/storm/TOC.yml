@@ -233,7 +233,5 @@
   items:
     - name: Clústeres de Windows
       items:
-        - name: Migración de clústeres de Windows a los clústeres de Linux
-          href: ../hdinsight-migrate-from-windows-to-linux.md
         - name: Migración de soluciones .NET a clústeres de Linux
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
