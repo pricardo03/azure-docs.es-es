@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613884"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definición de Azure Cloud Services
@@ -98,5 +98,5 @@ El elemento `FromRole` especifica los roles que se pueden comunicar con los punt
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Necesario. El nombre del rol desde el que se va a permitir la comunicación.|
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definición de servicio en la nube [clásico])

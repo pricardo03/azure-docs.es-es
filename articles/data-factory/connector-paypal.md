@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: dcc54b0f67b9bf08df602c3eb9a4bcb0ea699ee7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405892"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar datos de PayPal con Azure Data Factory (versión preliminar)
@@ -48,9 +48,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de PayPal:
 | host | Dirección URL de la instancia de PayPal. (es decir, api.sandbox.paypal.com).  | Sí |
 | clientId | Id. de cliente asociado a la aplicación PayPal.  | Sí |
 | clientSecret | Secreto de cliente asociado a la aplicación PayPal. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
-| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
-| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
+| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin |
+| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
 
 **Ejemplo:**
 
@@ -79,7 +79,7 @@ Para copiar datos desde PayPal, establezca la propiedad type del conjunto de dat
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **PayPalObject** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **PayPalObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -108,7 +108,7 @@ Para copiar datos desde PayPal, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **PayPalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **PayPalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Payment_Experience"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

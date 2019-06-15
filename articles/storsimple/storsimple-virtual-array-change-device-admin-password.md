@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580411"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Cambio de la contraseña del administrador de dispositivos de la matriz virtual de StorSimple mediante StorSimple Device Manager

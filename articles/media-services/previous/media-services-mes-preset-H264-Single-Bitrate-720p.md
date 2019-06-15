@@ -1,8 +1,8 @@
 ---
 title: Valores predeterminados de Media Encoder Standard para H264 Single Bitrate 720p - Azure | Microsoft Docs
 description: En el tema se proporciona información general sobre el valor predeterminado de tarea **H264 Single Bitrate 720p**.
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/19/2019
+ms.author: juliako
 ms.openlocfilehash: d43b78b83ca1dcb60dc6afb17424354975681494
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61129611"
 ---
 # <a name="h264-single-bitrate-720p"></a>H264 Single Bitrate 720p

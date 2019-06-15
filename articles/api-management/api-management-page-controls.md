@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656989"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
@@ -49,7 +49,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 ##  <a name="app-actions"></a> app-actions  
  El control `app-actions` proporciona una interfaz de usuario para la interacción con aplicaciones en la página del perfil de usuario del portal para desarrolladores.  
   
- ![app&amp;#45;actions control](./media/api-management-page-controls/APIM-app-actions-control.png "Control app-actions de APIM")  
+ ![app&#45;actions control](./media/api-management-page-controls/APIM-app-actions-control.png "Control app-actions de APIM")  
   
 ### <a name="usage"></a>Uso  
   
@@ -71,7 +71,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 ##  <a name="basic-signin"></a> basic-signin  
  El control `basic-signin` ofrece un control para la recolección de información de inicio de sesión del usuario en la página de inicio de sesión del portal para desarrolladores.  
   
- ![basic&amp;#45;signin control](./media/api-management-page-controls/APIM-basic-signin-control.png "Control basic-signin de APIM")  
+ ![basic&#45;signin control](./media/api-management-page-controls/APIM-basic-signin-control.png "Control basic-signin de APIM")  
   
 ### <a name="usage"></a>Uso  
   
@@ -153,7 +153,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 ##  <a name="sign-up"></a> sign-up  
  El control `sign-up` proporciona un control para la recolección de información de perfil de usuario en la página de inicio de sesión del portal para desarrolladores.  
   
- ![sign&amp;#45;up control](./media/api-management-page-controls/APIM-sign-up-control.png "Sign-up control de APIM")  
+ ![sign&#45;up control](./media/api-management-page-controls/APIM-sign-up-control.png "Sign-up control de APIM")  
   
 ### <a name="usage"></a>Uso  
   
@@ -172,7 +172,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 ##  <a name="subscribe-button"></a> subscribe-button  
  El control `subscribe-button` proporciona un control para la suscripción de un usuario a un producto.  
   
- ![subscribe&amp;#45;button control](./media/api-management-page-controls/APIM-subscribe-button-control.png "Control subscribe-button de APIM")  
+ ![subscribe&#45;button control](./media/api-management-page-controls/APIM-subscribe-button-control.png "Control subscribe-button de APIM")  
   
 ### <a name="usage"></a>Uso  
   
@@ -191,7 +191,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  El control `subscription-cancel` proporciona un control para la cancelación de una suscripción a un producto en la página de perfil de usuario del portal para desarrolladores.  
   
- ![subscription&amp;#45;cancel control](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Control subscription-cancel de APIM")  
+ ![subscription&#45;cancel control](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Control subscription-cancel de APIM")  
   
 ### <a name="usage"></a>Uso  
   

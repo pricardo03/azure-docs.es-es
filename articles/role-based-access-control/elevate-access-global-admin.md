@@ -16,10 +16,10 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158418"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
@@ -47,7 +47,7 @@ Debe quitar este acceso con privilegios elevados una vez que haya hecho los camb
 
 ![Elevación de los privilegios de acceso](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 Siga estos pasos para elevar los privilegios de acceso de un administrador global mediante Azure Portal.
 

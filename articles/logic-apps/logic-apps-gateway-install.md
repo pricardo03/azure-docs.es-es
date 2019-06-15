@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544477"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
@@ -32,7 +32,7 @@ La puerta de enlace admite [conectores locales](../connectors/apis-list.md#on-pr
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle Database
+*   Base de datos de Oracle
 *   PostgreSQL
 *   Servidor de aplicaciones de SAP 
 *   Servidor de mensajes de SAP
@@ -329,43 +329,43 @@ Estos pasos describen lo que sucede cuando el usuario en la nube interactúa con
 ### <a name="general"></a>General
 
 **P**: ¿Necesito una puerta de enlace para orígenes de datos en la nube como, por ejemplo, Azure SQL Database? <br/>
-**R.**: No, las puertas de enlace se conectan únicamente a orígenes de datos locales.
+**R.** : No, las puertas de enlace se conectan únicamente a orígenes de datos locales.
 
-**P.**: ¿La puerta de enlace debe estar instalada en la misma máquina que el origen de datos? <br/>
-**R.**: No, la puerta de enlace se conecta al origen de datos con la información de conexión que se proporcionó. Considere la puerta de enlace como una aplicación cliente en este sentido. La puerta de enlace solo necesita la funcionalidad para conectarse al nombre de servidor que se proporcionó.
+**P.** : ¿La puerta de enlace debe estar instalada en la misma máquina que el origen de datos? <br/>
+**R.** : No, la puerta de enlace se conecta al origen de datos con la información de conexión que se proporcionó. Considere la puerta de enlace como una aplicación cliente en este sentido. La puerta de enlace solo necesita la funcionalidad para conectarse al nombre de servidor que se proporcionó.
 
 <a name="why-azure-work-school-account"></a>
 
-**P.**: ¿Por qué hay que usar una cuenta profesional o educativa para iniciar sesión? <br/>
-**R.**: Solo puede usar una cuenta profesional o educativa al instalar la puerta de enlace de datos local. Su cuenta de inicio de sesión se almacena en un inquilino administrado por Azure Active Directory (Azure AD). Por lo general, el nombre principal de usuario (UPN) de la cuenta de Azure AD coincide con la dirección de correo electrónico.
+**P.** : ¿Por qué hay que usar una cuenta profesional o educativa para iniciar sesión? <br/>
+**R.** : Solo puede usar una cuenta profesional o educativa al instalar la puerta de enlace de datos local. Su cuenta de inicio de sesión se almacena en un inquilino administrado por Azure Active Directory (Azure AD). Por lo general, el nombre principal de usuario (UPN) de la cuenta de Azure AD coincide con la dirección de correo electrónico.
 
 **P**: ¿Dónde se almacenan mis credenciales? <br/>
-**R.**: Las credenciales que especifique para un origen de datos se cifran y almacenan en el servicio en la nube de la puerta de enlace. Las credenciales se descifran en la puerta de enlace de datos local.
+**R.** : Las credenciales que especifique para un origen de datos se cifran y almacenan en el servicio en la nube de la puerta de enlace. Las credenciales se descifran en la puerta de enlace de datos local.
 
 **P**: ¿Hay algún requisito con respecto al ancho de banda de red? <br/>
-**R.**: Compruebe que la conexión de red tiene buen rendimiento. Cada entorno es diferente, y la cantidad de datos que se envían puede incidir en los resultados. Para garantizar un nivel de rendimiento entre el origen de datos local y los centros de datos de Azure, pruebe [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Para ayudar a medir su rendimiento, pruebe una herramienta externa como, por ejemplo, Azure Speed Test.
+**R.** : Compruebe que la conexión de red tiene buen rendimiento. Cada entorno es diferente, y la cantidad de datos que se envían puede incidir en los resultados. Para garantizar un nivel de rendimiento entre el origen de datos local y los centros de datos de Azure, pruebe [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Para ayudar a medir su rendimiento, pruebe una herramienta externa como, por ejemplo, Azure Speed Test.
 
-**P.**: ¿cuál es la latencia para la ejecución de consultas en un origen de datos desde la puerta de enlace? ¿Cuál es la mejor arquitectura? <br/>
+**P.** : ¿cuál es la latencia para la ejecución de consultas en un origen de datos desde la puerta de enlace? ¿Cuál es la mejor arquitectura? <br/>
 **R**: Para reducir la latencia de red, instale la puerta de enlace lo más cerca posible del origen de datos. Si puede instalar la puerta de enlace en el propio origen de datos, esta proximidad minimizará la latencia introducida. Además, tenga en cuenta la proximidad a los centros de datos de Azure. Por ejemplo, si el servicio usa el centro de datos Oeste de EE. UU. y tiene SQL Server hospedado en una máquina virtual de Azure, tal vez quiera que esta se encuentre también en la región Oeste de EE. UU. Esta proximidad minimiza la latencia y evita los cargos de salida en la máquina virtual de Azure.
 
 **P**: ¿Cómo se devuelven los resultados a la nube? <br/>
-**R.**: Los resultados se envían a través de Azure Service Bus.
+**R.** : Los resultados se envían a través de Azure Service Bus.
 
-**P.**: ¿Hay alguna conexión de entrada a la puerta de enlace desde la nube? <br/>
-**R.**: No, la puerta de enlace usa conexiones de salida con Azure Service Bus.
+**P.** : ¿Hay alguna conexión de entrada a la puerta de enlace desde la nube? <br/>
+**R.** : No, la puerta de enlace usa conexiones de salida con Azure Service Bus.
 
-**P.**: ¿Qué sucede si bloqueo las conexiones de salida? ¿Qué tengo que abrir? <br/>
+**P.** : ¿Qué sucede si bloqueo las conexiones de salida? ¿Qué tengo que abrir? <br/>
 **R**: Consulte los puertos y los hosts que usa la puerta de enlace.
 
 **P**: ¿Cómo se llama el servicio real de Windows? <br/>
-**R.**: En la pestaña Servicios del Administrador de tareas, el nombre del servicio es "PBIEgwService" o servicio Power BI Gateway - Enterprise. En la consola de servicios, el nombre del servicio es "On-premises data gateway service" (Servicio de puerta de enlace de datos local). El servicio de Windows utiliza "NT SERVICE\PBIEgwService" como SID del servicio (SSID).
+**R.** : En la pestaña Servicios del Administrador de tareas, el nombre del servicio es "PBIEgwService" o servicio Power BI Gateway - Enterprise. En la consola de servicios, el nombre del servicio es "On-premises data gateway service" (Servicio de puerta de enlace de datos local). El servicio de Windows utiliza "NT SERVICE\PBIEgwService" como SID del servicio (SSID).
 
-**P.**: ¿Se puede ejecutar el servicio de Windows de puerta de enlace con una cuenta de Azure Active Directory? <br/>
-**R.**: No, el servicio de Windows debe disponer de una cuenta de Windows válida.
+**P.** : ¿Se puede ejecutar el servicio de Windows de puerta de enlace con una cuenta de Azure Active Directory? <br/>
+**R.** : No, el servicio de Windows debe disponer de una cuenta de Windows válida.
 
 ### <a name="disaster-recovery"></a>Recuperación ante desastres
 
-**P.**: ¿Cuáles son las opciones de recuperación ante desastres disponibles? <br/>
+**P.** : ¿Cuáles son las opciones de recuperación ante desastres disponibles? <br/>
 **R**: Puede usar la clave de recuperación para restaurar o mover una puerta de enlace. Cuando instale la puerta de enlace, especifique la clave de recuperación.
 
 **P**: ¿Qué ventaja aporta la clave de recuperación? <br/>
@@ -375,11 +375,11 @@ Estos pasos describen lo que sucede cuando el usuario en la nube interactúa con
 
 En esta sección se tratan algunos problemas comunes que pueden surgir al configurar y usar la puerta de enlace de datos local.
 
-**P.**: ¿Por qué no se pudo realizar la instalación de puerta de enlace? <br/>
-**R.**: Este problema puede suceder si el software antivirus del equipo de destino no está actualizado. Puede actualizar el software antivirus o deshabilitarlo (solo durante la instalación de puerta de enlace) y luego volver a habilitarlo.
+**P.** : ¿Por qué no se pudo realizar la instalación de puerta de enlace? <br/>
+**R.** : Este problema puede suceder si el software antivirus del equipo de destino no está actualizado. Puede actualizar el software antivirus o deshabilitarlo (solo durante la instalación de puerta de enlace) y luego volver a habilitarlo.
 
-**P.**: ¿Por qué no puedo ver mi instalación de puerta de enlace al crear el recurso de puerta de enlace en Azure? <br/>
-**R.**: Este problema puede deberse a estos motivos:
+**P.** : ¿Por qué no puedo ver mi instalación de puerta de enlace al crear el recurso de puerta de enlace en Azure? <br/>
+**R.** : Este problema puede deberse a estos motivos:
 
 * La instalación de puerta de enlace está registrada y ha sido reclamada por otro recurso de puerta de enlace en Azure. Las instalaciones de puerta de enlace no aparecen en la lista de instancias después de crear los recursos de puerta de enlace para ellas.
 Para comprobar los registros de puerta de enlace en Azure Portal, revise todos los recursos de Azure de tipo **Puertas de enlace de datos local** para *todas* las suscripciones de Azure. 
@@ -388,10 +388,10 @@ Para comprobar los registros de puerta de enlace en Azure Portal, revise todos l
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**P.**: ¿Dónde están los registros de la puerta de enlace? <br/>
-**R.**: Vea la sección [**Registros**](#logs) más adelante en este artículo.
+**P.** : ¿Dónde están los registros de la puerta de enlace? <br/>
+**R.** : Vea la sección [**Registros**](#logs) más adelante en este artículo.
 
-**P.**: ¿Cómo se pueden ver las consultas que se envían al origen de datos local? <br/>
+**P.** : ¿Cómo se pueden ver las consultas que se envían al origen de datos local? <br/>
 **R**: Puede habilitar el seguimiento de consultas, que incluye las consultas que se envían. No olvide devolver el seguimiento de consultas al valor original cuando haya terminado de solucionar problemas. Si lo deja activado, crea registros de mayor tamaño.
 
 También puede examinar las herramientas de que dispone su origen de datos para el seguimiento de consultas. Por ejemplo, puede utilizar Eventos extendidos o SQL Profiler en SQL Server y Analysis Services.
@@ -430,7 +430,7 @@ Estas son otras ubicaciones donde puede encontrar diversos registros:
 Para encontrar los registros de eventos de la puerta de enlace, siga estos pasos:
 
 1. En el equipo con la instalación de puerta de enlace, abra el **Visor de eventos**. 
-2. Expanda **Visor de eventos (local)** > **Applications and Services Logs** (Registros de aplicaciones y servicios). 
+2. Expanda **Visor de eventos (local)**  > **Applications and Services Logs** (Registros de aplicaciones y servicios). 
 3. Seleccione **On-premises data gateway service** (Servicio de puerta de enlace de datos local).
 
    ![Visualización de registros de eventos de la puerta de enlace](./media/logic-apps-gateway-install/event-viewer.png)

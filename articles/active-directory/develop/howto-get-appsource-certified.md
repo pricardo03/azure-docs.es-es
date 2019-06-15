@@ -19,10 +19,10 @@ ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540261"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Obtención de AppSource certificado para Azure Active Directory
@@ -40,7 +40,7 @@ Si quiere saber cómo integrar la aplicación con Azure AD mediante OpenID Conne
 Una *aplicación multiempresa* es una aplicación que acepta inicios de sesión de usuarios de cualquier compañía u organización que tenga Azure AD, sin que se requiera otra instancia, configuración o implementación. AppSource recomienda que las aplicaciones implementen una arquitectura multiempresa para habilitar la experiencia de evaluación gratuita *con un solo clic*.
 
 Para habilitar la arquitectura multiempresa en la aplicación, siga estos pasos:
-1. Establezca la propiedad `Multi-Tenanted` en `Yes` en la información de registro de la aplicación de [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). De forma predeterminada, las aplicaciones creadas en Azure Portal se configuran como *[inquilino único](#single-tenant-applications)*.
+1. Establezca la propiedad `Multi-Tenanted` en `Yes` en la información de registro de la aplicación de [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). De forma predeterminada, las aplicaciones creadas en Azure Portal se configuran como *[inquilino único](#single-tenant-applications)* .
 1. Actualice el código para enviar solicitudes al punto de conexión `common`. Para ello, actualice el punto de conexión de `https://login.microsoftonline.com/{yourtenant}` a `https://login.microsoftonline.com/common*`.
 1. En algunas plataformas, como ASP.NET, también hay que actualizar el código para que acepte varios emisores.
 

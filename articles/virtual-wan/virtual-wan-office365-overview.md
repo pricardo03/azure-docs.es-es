@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
 ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458605"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685279"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Plano de control de Office 365 en la Virtual WAN
 
@@ -26,7 +26,7 @@ Los clientes de Virtual WAN con determinados dispositivos SDWAN pueden configura
 Con esta característica en Virtual WAN, los clientes ahora pueden especificar en qué categorías del tráfico de Office 365 confían para la sesión de subgrupos directa por internet. Este tráfico de confianza de Office 365 omitirá los servidores proxy y se enrutará directamente desde la ubicación del usuario hacia la ubicación de punto de preferencia de Microsoft más cercana. Esto evita que el tráfico se enrute en retroceso y se redireccione al origen, por lo que proporciona una experiencia de usuario óptima y ahorra en costes de WAN. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>¿Cuáles son las categorías de tráfico de Office 365?
-Los puntos de conexión de Office 365 representan direcciones de redes y subredes. Los puntos de conexión pueden ser direcciones URL, intervalos de direcciones IP o direcciones IP. Las direcciones URL pueden ser un FQDN como *account.office.net*, o una dirección URL de carácter comodín como **.office365.com*. Los puntos de conexión se distribuyen en tres categorías: **optimizar**, **permitir**, y **predeterminado**, según su importancia. Encontrará más detalles acerca de las categorías de punto de conexión [aquí](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
+Los puntos de conexión de Office 365 representan direcciones de redes y subredes. Los puntos de conexión pueden ser direcciones URL, intervalos de direcciones IP o direcciones IP. Las direcciones URL pueden ser un FQDN como *account.office.net*, o una dirección URL de carácter comodín como * *.office365.com*. Los puntos de conexión se distribuyen en tres categorías: **optimizar**, **permitir**, y **predeterminado**, según su importancia. Encontrará más detalles acerca de las categorías de punto de conexión [aquí](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>¿Qué categoría de tráfico de Office 365 recomienda Microsoft para la sesión de subgrupos directa por internet?
 La categoría **Optimizar** es para los puntos de conexión de red más importantes y es obligatoria para omitir la inspección e interrupción SSL y otros dispositivos de seguridad de red. Debe tener una salida de Internet directa cerca de los usuarios. Estos puntos de conexión representan escenarios de Office 365 que son más sensibles a la disponibilidad, latencia y rendimiento de la red. Esta categoría incluye un conjunto pequeño de (aproximadamente 10) direcciones URL claves y un conjunto definido de subredes IP dedicadas a las cargas de trabajo principales de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial Online y Microsoft Teams. 

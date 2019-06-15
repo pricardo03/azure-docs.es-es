@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630521"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple
@@ -84,7 +84,7 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 2. En la parte inferior de la página, haga clic en **Apagar**.
    
     ![apagar el dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Aparecerá una advertencia que le indicará que si apaga el dispositivo se interrumpirá cualquier operación de E/S que estuviera en curso, lo que producirá un tiempo de inactividad. Haga clic en el icono de verificación  ![icono de marca de verificación](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Aparecerá una advertencia que le indicará que si apaga el dispositivo se interrumpirá cualquier operación de E/S que estuviera en curso, lo que producirá un tiempo de inactividad. Haga clic en el icono de verificación ![icono de marca de verificación](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![advertencia de apagado del dispositivo](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -99,7 +99,7 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 2. En la parte inferior de la página, haga clic en **Reiniciar**.
    
     ![proceso de reinicio del dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Aparecerá una advertencia que le indicará que si reinicia el dispositivo se interrumpirá cualquier operación de E/S que estuviera en curso, lo que resultará en un tiempo de inactividad. Haga clic en el icono de verificación  ![icono de marca de verificación](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Aparecerá una advertencia que le indicará que si reinicia el dispositivo se interrumpirá cualquier operación de E/S que estuviera en curso, lo que resultará en un tiempo de inactividad. Haga clic en el icono de verificación ![icono de marca de verificación](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![advertencia de reinicio](./media/storsimple-ova-web-ui-admin/image37.png)
    

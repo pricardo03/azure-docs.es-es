@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618479"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
@@ -45,7 +45,7 @@ Algunas características solo están disponibles actualmente en las máquinas vi
 - Puede migrar una máquina virtual individual desde discos nativos a discos administrados, pero no puede migrar instancias de máquinas virtuales en un conjunto de escalado.
 - Puede asignar direcciones IP públicas IPv6 a tarjetas de interfaz de red (NIC) virtuales de máquinas virtuales individuales, pero no puede hacerlo para instancias de máquinas virtuales en un conjunto de escalado. Puede asignar direcciones IP públicas IPv6 a equilibradores de carga delante de máquinas virtuales individuales o de máquinas virtuales de conjunto de escalado.
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de escalado con Azure Managed Disks
 Los conjuntos de escalado se pueden crear con [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) en lugar de las cuentas de Azure Storage tradicionales. Managed Disks ofrece las siguientes ventajas:

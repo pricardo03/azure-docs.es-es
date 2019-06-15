@@ -12,10 +12,10 @@ ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429304"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Traslado de datos a una base de datos de Azure SQL para Azure Machine Learning
@@ -43,13 +43,13 @@ El procedimiento aquí descrito requiere disponer de:
 
 Puede adaptar los procedimientos que se describen aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](sql-walkthrough.md#dbload). Estas instrucciones corresponden a un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en SQL Server local es el mismo.
 
-## <a name="file-to-azure-sql-database"></a> Mover datos desde un origen de archivo plano a una base de datos SQL de Azure
+## <a name="file-to-azure-sql-database"></a> Mover datos desde un origen de archivo plano a una base de datos de Azure SQL
 Los datos de archivos planos (formatos CSV o TSV) se pueden mover a una base de datos de Azure SQL mediante una consulta SQL de inserción masiva.
 
 ### <a name="bulk-insert-sql-query"></a> Consulta SQL de inserción masiva
 Los pasos del procedimiento en el que se usa la consulta SQL de inserción masiva son similares a los descritos en las secciones en las que se explica el movimiento de datos desde un origen de archivo plano a un servidor SQL Server en una máquina virtual de Azure. Para detalles, vea [Consulta SQL de inserción masiva](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a> Mover datos desde un servidor SQL Server local a una base de datos SQL de Azure
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Mover datos desde un servidor SQL Server local a una base de datos de Azure SQL
 Si los datos de origen están almacenados en un servidor SQL Server local, hay varias alternativas para mover los datos a una base de datos de Azure SQL:
 
 1. [Exportación a un archivo plano](#export-flat-file)

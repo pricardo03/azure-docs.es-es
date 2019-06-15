@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: dcb6729581d5282b32359874eaad22050d0d2048
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510710"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Usar datos de Azure Blockchain Workbench con Microsoft Power BI
@@ -37,7 +37,7 @@ En este artículo se incluye un tutorial paso a paso sobre cómo conectarse a la
 
 4.  Proporcione el nombre del servidor y la base de datos en el cuadro de diálogo. Especifique si desea importar los datos o realizar una **DirectQuery**. Seleccione **Aceptar**.
 
-    ![Seleccionar SQL Server](./media/data-powerbi/select-sql.png)
+    ![Selección de SQL Server](./media/data-powerbi/select-sql.png)
 
 5.  Proporcione las credenciales de base de datos para acceder a Azure Blockchain Workbench. Seleccione **Base de datos** y escriba sus credenciales.
 

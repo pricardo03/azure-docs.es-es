@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611514"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
@@ -139,10 +139,10 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 -   El nombre de sujeto del certificado debe coincidir con el nombre de dominio usado para tener acceso al servicio en la nube.
 
     - Debe adquirir un nombre de dominio personalizado para el acceso a su servicio en la nube.
-    - Solicite un certificado a una entidad de certificación con un nombre de sujeto que coincida con el nombre de dominio personalizado del servicio. Por ejemplo, si el nombre de dominio personalizado es __contoso__**.com**, el certificado de la CA debe tener el nombre de sujeto **.contoso.com** o __www__**.contoso.com**.
+    - Solicite un certificado a una entidad de certificación con un nombre de sujeto que coincida con el nombre de dominio personalizado del servicio. Por ejemplo, si el nombre de dominio personalizado es __contoso__ **.com**, el certificado de la CA debe tener el nombre de sujeto **.contoso.com** o __www__ **.contoso.com**.
 
     >[!NOTE]
-    >No se puede obtener un certificado SSL de una entidad de certificación para el dominio __cloudapp__**.net**.
+    >No se puede obtener un certificado SSL de una entidad de certificación para el dominio __cloudapp__ **.net**.
 
 -   Este certificado debe usar un cifrado de 2,048 bits como mínimo.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640085"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Codificación de un recurso mediante Media Encoder Standard
@@ -279,5 +279,5 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo crear un trabajo para codificar un recurso, consulte [Comprobación del progreso del trabajo con Media Services](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)

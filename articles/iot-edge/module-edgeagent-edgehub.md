@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322747"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propiedades de los módulos gemelos del agente de IoT Edge y del centro de IoT Edge
@@ -31,26 +31,26 @@ El módulo gemelo del agente de IoT Edge se denomina `$edgeAgent` y coordina las
 | schemaVersion | Debe ser "1.0". | Sí |
 | runtime.type | Debe ser "docker". | Sí |
 | runtime.settings.minDockerVersion | Establece la propiedad en la versión de Docker mínima que requiere este manifiesto de implementación. | Sí |
-| runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de IoT Edge. [Opciones de registro de Docker](https://docs.docker.com/engine/admin/logging/overview/) | Sin  |
-| runtime.settings.registryCredentials<br>.{registryId}.username | El nombre de usuario del registro de contenedor. Para Azure Container Registry, el nombre de usuario suele ser el nombre del registro.<br><br> Las credenciales del registro son necesarias para las imágenes de módulo que no son públicas. | Sin  |
-| runtime.settings.registryCredentials<br>.{registryId}.password | La contraseña del registro de contenedor. | Sin  |
-| runtime.settings.registryCredentials<br>.{registryId}.address | La dirección del registro de contenedor. Para Azure Container Registry, la dirección suele ser *{nombre del registro}.azurecr.io*. | Sin  |  
+| runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de IoT Edge. [Opciones de registro de Docker](https://docs.docker.com/engine/admin/logging/overview/) | Sin |
+| runtime.settings.registryCredentials<br>.{registryId}.username | El nombre de usuario del registro de contenedor. Para Azure Container Registry, el nombre de usuario suele ser el nombre del registro.<br><br> Las credenciales del registro son necesarias para las imágenes de módulo que no son públicas. | Sin |
+| runtime.settings.registryCredentials<br>.{registryId}.password | La contraseña del registro de contenedor. | Sin |
+| runtime.settings.registryCredentials<br>.{registryId}.address | La dirección del registro de contenedor. Para Azure Container Registry, la dirección suele ser *{nombre del registro}.azurecr.io*. | Sin |  
 | systemModules.edgeAgent.type | Debe ser "docker". | Sí |
 | systemModules.edgeAgent.settings.image | El URI de la imagen del agente de IoT Edge. Actualmente, el agente de IoT Edge no puede actualizarse automáticamente. | Sí |
-| systemModules.edgeAgent.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin  |
+| systemModules.edgeAgent.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin |
 | systemModules.edgeAgent.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | systemModules.edgeHub.type | Debe ser "docker". | Sí |
 | systemModules.edgeHub.status | Debe ser "running". | Sí |
 | systemModules.edgeHub.restartPolicy | Debe ser "always". | Sí |
 | systemModules.edgeHub.settings.image | El URI de la imagen del centro de IoT Edge. | Sí |
-| systemModules.edgeHub.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin  |
+| systemModules.edgeHub.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de IoT Edge. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin |
 | systemModules.edgeHub.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | modules.{moduleId}.version | Una cadena definida por el usuario que representa la versión de este módulo. | Sí |
 | modules.{moduleId}.type | Debe ser "docker". | Sí |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Sí |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Sí |
 | modules.{moduleId}.settings.image | El URI de la imagen del módulo. | Sí |
-| modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin  |
+| modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Sin |
 | modules.{moduleId}.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica el manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 
 ## <a name="edgeagent-reported-properties"></a>Propiedades notificadas de EdgeAgent

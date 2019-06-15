@@ -11,10 +11,10 @@ ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: f27d30d4709fbf373c8458629d0c8c5af4333acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61297098"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicación de una aplicación de catálogo de servicios mediante Azure Portal

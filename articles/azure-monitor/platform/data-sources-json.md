@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 101719668fee155e84b7a767647a662ca845f0f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804647"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recopilación de orígenes de datos JSON personalizados con el agente de Log Analytics para Linux en Azure Monitor

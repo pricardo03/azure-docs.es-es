@@ -11,10 +11,10 @@ ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61004591"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Crear variables para guardar y administrar valores en Azure Logic Apps
@@ -76,7 +76,7 @@ Puede crear una variable y declarar el tipo de datos y el valor inicial de la mi
    |----------|----------|-------|--------------|
    | Name | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
    | Type | Sí | <*variable-type*> | El tipo de datos de la variable | 
-   | Value | Sin  | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. | 
+   | Value | Sin | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. | 
    ||||| 
 
    ![Inicializar la variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -182,7 +182,7 @@ Aquí tiene ejemplos de otros tipos de variable:
 Para recuperar o hacer referencia al contenido de una variable, también puede usar la [función variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) del Diseñador de la aplicación lógica y el editor de la vista de código.
 Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción. 
 
-Por ejemplo, esta expresión obtiene los elementos de la variable de la matriz [que se creó anteriormente en este artículo](#append-value) mediante la función **variables()**. La función **string()** devuelve el contenido de la variable en formato de cadena: `"1, 2, 3, red"`
+Por ejemplo, esta expresión obtiene los elementos de la variable de la matriz [que se creó anteriormente en este artículo](#append-value) mediante la función **variables()** . La función **string()** devuelve el contenido de la variable en formato de cadena: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -211,10 +211,10 @@ Para aumentar o *incrementar* una variable con un valor constante, agregue la ac
    | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
    | Name | Sí | <*variable-name*> | El nombre de la variable que se va a incrementar | 
-   | Value | Sin  | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
+   | Value | Sin | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
    |||| 
 
-   Por ejemplo:  
+   Por ejemplo: 
    
    ![Ejemplo del valor incremental](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -331,7 +331,7 @@ Estas son las propiedades para la acción **Reducir variable**:
 | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
 |----------|----------|-------|--------------|
 | Name | Sí | <*variable-name*> | El nombre de la variable que se va a reducir | 
-| Value | Sin  | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
+| Value | Sin | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
 ||||| 
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Reducir variable** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.
@@ -420,7 +420,7 @@ En cuanto a las variables que almacenan cadenas o matrices, puede insertar o *an
 2. Proporcione el valor que se anexa como el último elemento de la cadena o matriz. 
    Este valor es necesario. 
 
-Estas son las propiedades para la acción **Anexar a...**:
+Estas son las propiedades para la acción **Anexar a...** :
 
 | Propiedad | Obligatorio | Value |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 

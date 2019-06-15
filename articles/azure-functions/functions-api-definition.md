@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341726"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
@@ -36,7 +36,7 @@ Puede configurar todas las opciones de OpenAPI en la página **Definición de la
 > [!NOTE]
 > Actualmente, el entorno de ejecución beta no admite la característica de definición de la API de función.
 
-Para habilitar la generación de una definición de OpenAPI hospedada y una definición de inicio rápido, establezca **Origen de definición de API** en **Functions (versión preliminar)**. **Dirección URL externa** permite que su función utilice una definición de OpenAPI hospedada en otro lugar.
+Para habilitar la generación de una definición de OpenAPI hospedada y una definición de inicio rápido, establezca **Origen de definición de API** en **Functions (versión preliminar)** . **Dirección URL externa** permite que su función utilice una definición de OpenAPI hospedada en otro lugar.
 
 ## <a name="generate-definition"></a>Generación de un esqueleto de Swagger a partir de los metadatos de la función.
 Una plantilla puede ayudarle a empezar a escribir la primera definición de OpenAPI. La característica de plantilla de definición crea una definición de OpenAPI dispersa con todos los metadatos del archivo function.json para cada una de las funciones de desencadenador HTTP. Necesitará rellenar más información sobre la API con la [especificación de OpenAPI](https://swagger.io/specification/), como las plantillas de solicitud y respuesta.

@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487986"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copia o movimiento sencillos de datos con el Asistente para copia de Azure Data Factory
@@ -63,7 +63,7 @@ En el ejemplo, la consulta SQL usa la función `Text.Format` y la variable `Wind
 ![Validación de expresiones](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrar datos en una carpeta de blobs de Azure
-Puede usar variables en la ruta de acceso de la carpeta para copiar datos desde una carpeta que se determina en el runtime según las [variables del sistema](data-factory-functions-variables.md#data-factory-system-variables). Estas son las variables que se admiten: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** y **{custom}**. Ejemplo: carpetaDeEntrada/{year}/{month}/{day}.
+Puede usar variables en la ruta de acceso de la carpeta para copiar datos desde una carpeta que se determina en el runtime según las [variables del sistema](data-factory-functions-variables.md#data-factory-system-variables). Estas son las variables que se admiten: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** y **{custom}** . Ejemplo: carpetaDeEntrada/{year}/{month}/{day}.
 
 Supongamos que tiene carpetas de entrada con el siguiente formato:
 
@@ -72,7 +72,7 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
     2016/03/01/03
     ...
 
-Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}**, **03** por **{month}**, **01** por **{day}** y **02** por **{hour}** y presione la tecla TAB. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
+Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla TAB. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
 
 ![Uso de variables del sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

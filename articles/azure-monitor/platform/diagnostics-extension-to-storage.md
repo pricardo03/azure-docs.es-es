@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395074"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Almacenamiento y visualización de los datos de diagnóstico en Azure Storage
@@ -71,7 +71,7 @@ Los datos de registro se almacenan en almacenamiento BLOB o Tabla con los nombre
 * **"custom"** : un contenedor personalizado basado en la configuración de directorios supervisados por el monitor de diagnóstico.  El nombre de este contenedor de blob se especificará en WADDirectoriesTable.
 
 ## <a name="tools-to-view-diagnostic-data"></a>Herramientas para ver los datos de diagnóstico
-Existen varias herramientas para ver los datos una vez que se transfieren al almacenamiento. Por ejemplo: 
+Existen varias herramientas para ver los datos una vez que se transfieren al almacenamiento. Por ejemplo:
 
 * El Explorador de servidores en Visual Studio: si instaló Azure Tools para Microsoft Visual Studio, puede usar el nodo de Azure Storage en el Explorador de servidores para ver los datos de tabla y blob de solo lectura de las cuentas de Azure Storage. Puede mostrar datos de la cuenta del emulador de almacenamiento local y también desde cuentas de almacenamiento que haya creado para Azure. Para obtener más información, consulte [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, OSX y Linux.

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61423309"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
@@ -63,7 +63,7 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
    ![Azure Database for MySQL - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
    - **Punto de restauración**: seleccione el momento al que desea restaurar.
-   - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
+   - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
    - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 

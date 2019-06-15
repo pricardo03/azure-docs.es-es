@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: f7f4f9ae6a80052e06b2cafa68cb5c11dfa1333a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097936"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Administración de Azure Cache for Redis con Azure PowerShell
@@ -128,7 +128,7 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 | Parámetro | DESCRIPCIÓN | Valor predeterminado |
 | --- | --- | --- |
 | NOMBRE |Nombre de la memoria caché | |
-| Location |Ubicación de la memoria caché | |
+| Ubicación |Ubicación de la memoria caché | |
 | ResourceGroupName |Nombre del grupo de recursos en el que se va a crear la memoria caché | |
 | Tamaño |El tamaño de la memoria caché. Los valores válidos son: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1 GB |
 | ShardCount |El número de particiones para crear durante la creación de una memoria caché premium con clúster habilitado. Los valores válidos son: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |

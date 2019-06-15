@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242168"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronización de Azure AD Connect: Procedimientos recomendados de cambio de la configuración predeterminada
@@ -63,7 +63,7 @@ En la imagen anterior, el Asistente para la instalación ha encontrado un esquem
 ### <a name="change-an-out-of-box-rule"></a>cambiar una regla lista para usar
 La única vez que se debe cambiar una regla integrada es cuando tiene que cambiar la regla de unión. Si tiene que cambiar un flujo de atributo, debe crear una regla de sincronización con mayor prioridad que las reglas integradas. La única regla que necesita desde un punto de vista práctico es la regla **In from AD - User Join**. Puede invalidar el resto de reglas con una regla de prioridad superior.
 
-Si tiene que realizar cambios en una regla lista para usar, debe realizar una copia de esta y deshabilitar la regla original. A continuación, realice los cambios en la regla clonada. El Editor de reglas de sincronización le ayuda con esos pasos. Cuando se abre una regla lista para usar, se presenta este cuadro de diálogo:   
+Si tiene que realizar cambios en una regla lista para usar, debe realizar una copia de esta y deshabilitar la regla original. A continuación, realice los cambios en la regla clonada. El Editor de reglas de sincronización le ayuda con esos pasos. Cuando se abre una regla lista para usar, se presenta este cuadro de diálogo:  
 ![Regla lista para usar de advertencia](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
 Seleccione **Sí** para crear una copia de la regla. A continuación, se abre la regla clonada.  

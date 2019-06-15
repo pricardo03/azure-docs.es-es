@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095412"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Esquema WorkerRole de definición de Azure Cloud Services
@@ -416,5 +416,5 @@ En la tabla siguiente se describen los atributos del elemento `SourceDirectory`:
 | --------- | ---- | ----------- |
 |path|string|Necesario. Ruta de acceso absoluta o relativa de un directorio local cuyo contenido se copiará en la máquina virtual de Azure. Se admite la expansión de variables de entorno en la ruta de acceso de directorio.|
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definición de servicio en la nube [clásico])

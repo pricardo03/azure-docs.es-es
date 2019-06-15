@@ -1,6 +1,6 @@
 ---
 title: Análisis de registros de sitios web mediante Azure Data Lake Analytics
-description: 'Obtenga información sobre cómo analizar registros de sitios web mediante Análisis de Data Lake '
+description: Obtenga información sobre cómo analizar registros de sitios web mediante Análisis de Data Lake
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334113"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Análisis de registros de sitios web mediante Azure Data Lake Analytics
@@ -21,7 +21,7 @@ Aprenda a analizar registros de sitios web mediante Análisis de Data Lake, espe
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Visual Studio 2015 o Visual Studio 2013**.
-* **[Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs)** .
 
     Después de instalar Data Lake Tools for Visual Studio, verá un elemento **Data Lake** en el menú **Herramientas** de Visual Studio:
 
@@ -168,7 +168,7 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación.  Par
 3. Haga doble clic en **UnsuccessfulResponses.log**.
 4. También puede hacer doble clic en el archivo de salida en la vista de gráfico del trabajo para ir directamente a la salida.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
 * [Introducción a Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md)

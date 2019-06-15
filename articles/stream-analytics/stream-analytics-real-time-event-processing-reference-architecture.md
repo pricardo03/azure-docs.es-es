@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
 ms.openlocfilehash: 7f9748a4e4f1c86362781aa80d8958237c97106a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816964"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitectura de referencia: Procesado de eventos en tiempo real con Microsoft Azure Stream Analytics

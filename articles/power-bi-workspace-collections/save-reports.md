@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701862"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Novedades de las colecciones de áreas de trabajo de Power BI
@@ -127,7 +127,7 @@ var embedConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Embed a report in Power BI Embedded](embed-report.md) (Inserción de un informe en Power BI Embedded)  

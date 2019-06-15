@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702102"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Administración de bases de datos de Azure SQL mediante Azure Automation
@@ -40,9 +40,9 @@ Azure Automation también tiene la capacidad de comunicarse con servidores SQL S
 La [Galería de runbooks de Azure Automation](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) contiene una gran variedad de runbooks de la comunidad y el equipo de producto para empezar a automatizar la administración de bases de datos de Azure SQL, otros servicios de Azure y sistemas de terceros. Los runbooks de la Galería incluyen:
 
 - [Ejecución de consultas SQL en una Base de datos de SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
-- [Escalación vertical (arriba o abajo) de una instancia de Azure SQL Database en una programación](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+- [Escalación vertical (arriba o abajo) de una base de datos de Azure SQL en una programación](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
 - [Truncamiento de una tabla SQL si su base de datos se aproxima al tamaño máximo](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
-- [Indexación de tablas en Azure SQL Database si están muy fragmentadas](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
+- [Indexación de tablas en una base de datos de Azure SQL si están muy fragmentadas](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

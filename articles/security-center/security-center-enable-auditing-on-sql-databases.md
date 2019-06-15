@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 1108265101f37433860d0112e4e80aee0002ab5c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127232"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Habilitación de la auditoría y la detección de amenazas en bases de datos SQL en Azure Security Center
@@ -44,7 +44,7 @@ Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al se
    ![Activación de la detección de amenazas y auditoría][2]
 4. Siga los pasos de [SQL Database Threat Detection in the Azure portal](../sql-database/sql-database-threat-detection-portal.md) (Detección de amenazas de SQL Database en Azure Portal) para activar Detección de amenazas, así como para configurar esta funcionalidad y la lista de correos electrónicos que recibirán alertas de seguridad tras detectarse actividades anómalas.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este artículo, se ha mostrado cómo implementar la recomendación de "habilitar la auditoría y la detección de amenazas en bases de datos SQL". Para obtener más información sobre cómo proteger SQL Database, consulte los siguientes recursos:
 
 * [Protección de SQL Database](../sql-database/sql-database-security-overview.md)

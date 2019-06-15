@@ -13,10 +13,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f52f5200f33d11db44d94b5a5f26d246f711e224
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023801"
 ---
 #   <a name="sentiment-cognitive-skill"></a>Aptitud cognitiva Opinión
@@ -24,9 +24,9 @@ ms.locfileid: "65023801"
 La aptitud **Opinión** evalúa el texto no estructurado a lo largo de una continuidad positiva-negativa y, para cada registro, devuelve un valor numérico entre 0 y 1. Las puntuaciones próximas a 1 indican una opinión positiva y las puntuaciones próximas a 0 indican una opinión negativa. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
 
 > [!NOTE]
-> Expandir ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregar más algoritmos de inteligencia artificial, tendrá que [adjuntar un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> Ejecución de habilidades integrados se cobra a los existentes [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services/). Precios de extracción de imagen se describen en el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -120,7 +120,7 @@ Si no hay nada, no se devuelve una puntuación de la opinión para dichos regist
 ## <a name="error-cases"></a>Casos de error
 Si no se admite un idioma, se genera un error y no se devuelve ninguna puntuación de opinión.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

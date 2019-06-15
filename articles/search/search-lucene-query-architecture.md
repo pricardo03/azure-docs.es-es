@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797478"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
@@ -270,7 +270,7 @@ Para el campo **descripción**, el índice es el siguiente:
 | Término | Lista de documento |
 |------|---------------|
 | post- | 3
-| y el | 4
+| y | 4
 | playa | 1
 | vacacional | 3
 | cómodo | 3
@@ -291,7 +291,7 @@ Para el campo **descripción**, el índice es el siguiente:
 | to | 1
 | view | 1, 2, 3
 | paseo | 1
-| que contengan | 3
+| por | 3
 
 
 **Coincidencia de términos de consulta con términos indexados**
@@ -393,7 +393,7 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 + [Configurar los analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para un procesamiento mínimo o especializado en campos específicos.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

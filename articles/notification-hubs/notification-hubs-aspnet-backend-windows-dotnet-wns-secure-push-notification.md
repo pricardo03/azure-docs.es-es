@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459241"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inserción de notificaciones de forma segura desde Azure Notification Hubs
@@ -90,10 +90,10 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
 El paso siguiente es crear el componente de segundo plano de inserción.
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el nodo de nivel superior de la solución (en este caso, **Solución SecurePush**), haga clic en **Agregar** y, después, haga clic en **Nuevo proyecto**.
-2. Expanda **Aplicaciones de la Tienda**, haga clic en **Aplicaciones de Windows Phone** y, después, en **Componente de Windows Runtime (Windows Phone)**. Asigne al proyecto el nombre **PushBackgroundComponent** y, después, haga clic en **Aceptar** para crear el proyecto.
+2. Expanda **Aplicaciones de la Tienda**, haga clic en **Aplicaciones de Windows Phone** y, después, en **Componente de Windows Runtime (Windows Phone)** . Asigne al proyecto el nombre **PushBackgroundComponent** y, después, haga clic en **Aceptar** para crear el proyecto.
 
     ![][12]
-3. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **PushBackgroundComponent (Windows Phone 8.1)**, haga clic en **Agregar** y, después, en **Clase**. Asigne el nombre `PushBackgroundTask.cs` a la nueva clase. Haga clic en **Agregar** para generar la clase.
+3. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **PushBackgroundComponent (Windows Phone 8.1)** , haga clic en **Agregar** y, después, en **Clase**. Asigne el nombre `PushBackgroundTask.cs` a la nueva clase. Haga clic en **Agregar** para generar la clase.
 4. Reemplace todo el contenido de la definición del espacio de nombres `PushBackgroundComponent` por el código siguiente, reemplazando el marcador de posición `{back-end endpoint}` por el punto de conexión de back-end obtenido al implementar el back-end:
 
     ```csharp
@@ -157,8 +157,8 @@ El paso siguiente es crear el componente de segundo plano de inserción.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. En el Explorador de soluciones, en el proyecto **NotifyUserWindowsPhone (Windows Phone 8.1)**, haga clic con el botón derecho en **Referencias** y, después, haga clic en **Agregar referencia…** En el diálogo Administrador de referencias, active la casilla junto a **PushBackgroundComponent** y, después, haga clic en **Aceptar**.
-12. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** en el proyecto **NotifyUserWindowsPhone (Windows Phone 8.1)**. En **Notificaciones**, establezca la opción **Capacidad de aviso** en **Sí**.
+11. En el Explorador de soluciones, en el proyecto **NotifyUserWindowsPhone (Windows Phone 8.1)** , haga clic con el botón derecho en **Referencias** y, después, haga clic en **Agregar referencia…** En el diálogo Administrador de referencias, active la casilla junto a **PushBackgroundComponent** y, después, haga clic en **Aceptar**.
+12. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** en el proyecto **NotifyUserWindowsPhone (Windows Phone 8.1)** . En **Notificaciones**, establezca la opción **Capacidad de aviso** en **Sí**.
 
     ![][3]
 13. Sin salir de **Package.appxmanifest**, haga clic en el menú **Declaraciones** cerca de la parte superior. En el cuadro desplegable **Declaraciones disponibles**, haga clic en **Tareas en segundo plano** y, después, en **Agregar**.

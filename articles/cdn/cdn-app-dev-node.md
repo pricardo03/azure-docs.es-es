@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564249"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
@@ -86,7 +86,7 @@ Con *apps.js* abierto en el editor, vamos a escribir la estructura básica del p
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Necesitamos definir algunas constantes que los métodos van a usar.  Agregue lo siguiente.  Asegúrese de reemplazar los marcadores de posición (incluidos los **&lt;corchetes angulares&gt;**) con sus propios valores según sea necesario.
+2. Necesitamos definir algunas constantes que los métodos van a usar.  Agregue lo siguiente.  Asegúrese de reemplazar los marcadores de posición (incluidos los **&lt;corchetes angulares&gt;** ) con sus propios valores según sea necesario.
    
     ``` javascript
     //Tenant app constants

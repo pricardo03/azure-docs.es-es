@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339103"
 ---
 # <a name="evaluate-method"></a>Método de evaluación
@@ -30,14 +30,14 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 ## <a name="request-parameters"></a>Parámetros de solicitud  
 
-NOMBRE     | Value | ¿Necesario?  | DESCRIPCIÓN
+NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 -----------|-----------|---------|--------
 **expr**       | Cadena de texto | Sí | Expresión de consulta que especifica qué entidades se deben devolver.
-**model**      | Cadena de texto | Sin   | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
-**attributes** | Cadena de texto | Sin <br>valor predeterminado: Id | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
-**count**        | Number | Sin <br>Valor predeterminado: 10 | Número de resultados que se van a devolver.
-**offset**     | Number |   Sin <br>Valor predeterminado: 0    | Índice del primer resultado que se va a devolver.
-**orderby** |   Cadena de texto | Sin <br>valor predeterminado: reducir la probabilidad | Nombre de un atributo que se utiliza para ordenar las entidades. Opcionalmente, se puede especificar el orden ascendente o descendente. El formato es: *nombre:asc* o *nombre:desc*.
+**model**      | Cadena de texto | Sin  | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
+**attributes** | Cadena de texto | Sin<br>valor predeterminado: Id | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
+**count**        | Number | Sin<br>Valor predeterminado: 10 | Número de resultados que se van a devolver.
+**offset**     | Number |   Sin<br>Valor predeterminado: 0    | Índice del primer resultado que se va a devolver.
+**orderby** |   Cadena de texto | Sin<br>valor predeterminado: reducir la probabilidad | Nombre de un atributo que se utiliza para ordenar las entidades. Opcionalmente, se puede especificar el orden ascendente o descendente. El formato es: *nombre:asc* o *nombre:desc*.
   
  <br>
 

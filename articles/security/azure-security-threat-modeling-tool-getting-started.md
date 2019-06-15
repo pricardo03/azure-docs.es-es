@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610768"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introducción a Threat Modeling Tool
 
-Microsoft Threat Modeling Tool 2018 2018 se lanzó para que tuviese disponibilidad general en septiembre de 2018, como una opción gratuita de **[hacer clic para descargar](https://aka.ms/threatmodelingtool)**. El cambio en el mecanismo de entrega nos permite insertar las mejoras y correcciones de errores más recientes para los clientes cada vez que abran la herramienta, facilitando el mantenimiento y el uso.
+Microsoft Threat Modeling Tool 2018 2018 se lanzó para que tuviese disponibilidad general en septiembre de 2018, como una opción gratuita de **[hacer clic para descargar](https://aka.ms/threatmodelingtool)** . El cambio en el mecanismo de entrega nos permite insertar las mejoras y correcciones de errores más recientes para los clientes cada vez que abran la herramienta, facilitando el mantenimiento y el uso.
 Este artículo le guía por el proceso de empezar a usar la solución de modelado de amenazas SDL de Microsoft y le muestra cómo utilizar la herramienta para desarrollar modelos de amenazas excepcionales como columna vertebral del proceso de seguridad.
 
 Este artículo se basa en los conocimientos actuales de la solución de modelado de amenazas SDL. Para una revisión rápida, consulte **[Aplicaciones web de modelado de amenazas](https://msdn.microsoft.com/library/ms978516.aspx)** y una versión archivada del artículo de MSDN sobre el **[descubrimiento de defectos de seguridad con el enfoque STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publicado en 2006.
@@ -79,14 +79,14 @@ Van a realizar el proceso de desarrollo de su primer modelo de amenaza.
 > - Van a enviar comandos a nuestro servidor web: el círculo
 > - El servidor web va a consultar una base de datos: dos líneas paralelas
 
-Lo que Ricardo ha mostrado a Cristina es un DFD, abreviatura de  **[diagrama de flujo de datos](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool permite a los usuarios especificar los límites de confianza, indicados por las líneas de puntos rojos, que muestran dónde están las distintas entidades en el control. Por ejemplo, los administradores de TI requieren un sistema de Active Directory para la autenticación, por lo que Active Directory está fuera de su control.
+Lo que Ricardo ha mostrado a Cristina es un DFD, abreviatura de  **[diagrama de flujo de datos](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool permite a los usuarios especificar los límites de confianza, indicados por las líneas de puntos rojos, que muestran dónde están las distintas entidades en el control. Por ejemplo, los administradores de TI requieren un sistema de Active Directory para la autenticación, por lo que Active Directory está fuera de su control.
 
 > Cristina: Me parece correcto. ¿Qué ocurre con las amenazas?
 > Ricardo: Permíteme que te lo muestre.
 
 ## <a name="analyzing-threats"></a>Análisis de las amenazas
 
-Una vez que el usuario hace clic en la vista de análisis desde la selección del menú de icono (el archivo con la lupa), se le muestra una lista de amenazas generadas que Threat Modeling Tool encontró en función de la plantilla predeterminada, que usa el método SDL denominado  **[STRIDE (suplantación de identidad, manipulación, revelación de información, rechazo, denegación de servicio y elevación de privilegios)](https://en.wikipedia.org/wiki/STRIDE_(security))**. La idea es que el software viene con un conjunto predecible de amenazas, que se puede encontrar usando estas seis categorías.
+Una vez que el usuario hace clic en la vista de análisis desde la selección del menú de icono (el archivo con la lupa), se le muestra una lista de amenazas generadas que Threat Modeling Tool encontró en función de la plantilla predeterminada, que usa el método SDL denominado  **[STRIDE (suplantación de identidad, manipulación, revelación de información, rechazo, denegación de servicio y elevación de privilegios)](https://en.wikipedia.org/wiki/STRIDE_(security))** . La idea es que el software viene con un conjunto predecible de amenazas, que se puede encontrar usando estas seis categorías.
 
 Este enfoque es como proteger su casa asegurándose de que cada puerta y cada ventana disponen de un mecanismo de bloqueo antes de agregar un sistema de alarma o de perseguir al ladrón.
 

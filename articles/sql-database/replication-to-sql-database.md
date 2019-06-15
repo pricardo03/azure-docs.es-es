@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646813"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en bases de datos agrupadas y únicas de SQL Database
@@ -107,9 +107,9 @@ Las siguientes opciones no se admiten para las suscripciones de Azure SQL Databa
 Cree una publicación y una suscripción de inserción. Para más información, consulte:
   
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'**) y el nombre de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks**).  
+- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'** ) y el nombre de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks**).  
 
-## <a name="see-also"></a>Vea también  
+## <a name="see-also"></a>Otras referencias  
 
 - [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)

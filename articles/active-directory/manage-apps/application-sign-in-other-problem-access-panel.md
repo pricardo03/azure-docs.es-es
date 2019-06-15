@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51e486e8eb2fef04c1b876dff3de644dda4aaf2e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65781131"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas de inicio de sesión en una aplicación desde el panel de acceso
@@ -333,7 +333,7 @@ Para seleccionar el identificador de usuario o agregar atributos de usuario, sig
 
    1. Haga clic en **Agregar atributo**. Escriba el **Nombre** y seleccione el **Valor** de la lista desplegable.
 
-   2. Haga clic en **Guardar**. En la tabla verá el nuevo atributo.
+   2\. Haga clic en **Guardar**. En la tabla verá el nuevo atributo.
 
 ### <a name="download-the-azure-ad-metadata-or-certificate"></a>Descarga del certificado o los metadatos de Azure AD
 

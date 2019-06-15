@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922442"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
@@ -138,7 +138,7 @@ Siga estos pasos en Azure Portal:
 Para autenticarse con una entidad de servicio, debe asignar un rol RBAC a la aplicación. Siga estos pasos:
 
 1. En Azure Portal, vaya a la cuenta de Batch utilizada por la aplicación.
-2. En la hoja **Configuración** de la cuenta de Batch, seleccione **Control de acceso (IAM)**.
+2. En la hoja **Configuración** de la cuenta de Batch, seleccione **Control de acceso (IAM)** .
 3. Haga clic en la pestaña **Asignaciones de roles**.
 4. Haga clic en el botón **Agregar asignación de roles**. 
 5. En el menú desplegable **Rol**, elija el rol _Colaborador_ o _Lector_ para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).  

@@ -15,10 +15,10 @@ ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110368"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adición de recursos de Azure Automation a una solución de administración (versión preliminar)
@@ -172,7 +172,7 @@ En la tabla siguiente se describen las propiedades para los recursos de credenci
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | userName |Nombre de usuario de la credencial. |
-| password |Contraseña de la credencial. |
+| contraseña |Contraseña de la credencial. |
 
 
 ## <a name="schedules"></a>Programaciones
@@ -242,8 +242,8 @@ En la tabla siguiente se describen las propiedades para las programaciones de tr
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| schedule name |Entidad **name** única con el nombre de la programación. |
-| runbook name  |Entidad **name** única con el nombre del runbook.  |
+| nombre de programación |Entidad **name** única con el nombre de la programación. |
+| nombre de runbook  |Entidad **name** única con el nombre del runbook.  |
 
 
 
@@ -271,7 +271,7 @@ En la tabla siguiente se describen las propiedades para los recursos de variable
 |:--- |:--- |
 | description | Descripción opcional de la variable. |
 | isEncrypted | Especifica si se debe cifrar la variable. |
-| type | Esta propiedad no tiene actualmente ningún efecto.  El tipo de datos de la variable se determinará por el valor inicial. |
+| Tipo | Esta propiedad no tiene actualmente ningún efecto.  El tipo de datos de la variable se determinará por el valor inicial. |
 | value | Valor de la variable. |
 
 > [!NOTE]
@@ -284,7 +284,7 @@ Si establece el valor inicial de la variable, este debe configurarse con el tipo
 | string   | Incluya el valor entre comillas dobles.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Valor numérico con comillas simples.| "64" | 64 |
 | boolean  | **true** o **false** entre comillas.  Tenga en cuenta que este valor debe ir en minúsculas. | "true" | true |
-| datetime | Valor de fecha serializado.<br>Puede usar el cmdlet ConvertTo-Json de PowerShell para generar este valor para una fecha determinada.<br>Ejemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Datetime | Valor de fecha serializado.<br>Puede usar el cmdlet ConvertTo-Json de PowerShell para generar este valor para una fecha determinada.<br>Ejemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 La solución de administración no necesita definir los [módulos globales](../../automation/automation-integration-modules.md) que usan los runbooks porque siempre estarán disponibles en la cuenta de Automation.  Debe incluir un recurso para cualquier otro módulo usado por los runbooks.

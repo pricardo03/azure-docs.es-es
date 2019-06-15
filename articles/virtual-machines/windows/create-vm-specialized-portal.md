@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61402311"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creación de una máquina virtual a partir de un VHD mediante Azure Portal
@@ -46,14 +46,14 @@ Cree una instantánea y, a continuación, cree un disco a partir de la instantá
 4. En el menú de la parte superior, seleccione **Crear instantánea**. 
 5. Escriba un **nombre** para la instantánea.
 6. Elija un **Grupo de recursos** para la instantánea. Puede usar un grupo de recursos existente o crear uno nuevo.
-7. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)**.
+7. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)** .
 8. Cuando haya terminado, seleccione **Crear** para crear la instantánea.
 9. Una vez creada la instantánea, seleccione **Crear un recurso** en el menú izquierdo.
 10. En el cuadro de búsqueda, escriba **disco administrado** y seleccione **Discos administrados** en la lista.
 11. En la página **Discos administrados**, seleccione **Crear**.
 12. Escriba un **Nombre** para el disco.
 13. Elija un **Grupo de recursos** para el disco. Puede usar un grupo de recursos existente o crear uno nuevo. Esta selección también se usará como el grupo de recursos donde crear la máquina virtual desde el disco.
-14. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)**.
+14. En **Tipo de cuenta**, elija almacenamiento **Estándar (HDD)** o **Premium (SSD)** .
 15. En **Tipo de origen**, asegúrese de que está seleccionada la opción **Instantánea**.
 16. En el desplegable **Instantánea de origen**, seleccione la instantánea que quiere usar.
 17. Realice cualquier otro ajuste que sea necesario y, a continuación, seleccione **Crear** para crear el disco.

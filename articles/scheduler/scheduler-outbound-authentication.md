@@ -10,11 +10,11 @@ ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708948"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticación de salida en Azure Scheduler
 
@@ -403,7 +403,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)

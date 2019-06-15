@@ -13,10 +13,10 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900467"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetría de métricas: Modelo de datos de Application Insights
@@ -49,7 +49,7 @@ El nombre de la métrica que le gustaría ver en el portal de Application Insigh
 
 Valor único para la medida. Suma de las mediciones individuales para la agregación.
 
-## <a name="count"></a>Número
+## <a name="count"></a>Recuento
 
 Peso de la métrica agregada. No se debe establecer para una medida.
 

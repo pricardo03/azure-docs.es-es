@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: 454d17ac4f4c3723d7b7ee1ac2c639b885f3fff9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721209"
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>Crear un grupo de seguridad de red (clásico) mediante la CLI de Azure clásica
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]

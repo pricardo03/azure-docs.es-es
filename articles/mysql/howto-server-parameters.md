@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61422170"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal
@@ -46,17 +46,17 @@ El grupo de búferes de InnoDB y el número máximo de conexiones no son configu
 |Uso general| Gen 4| 2| 3584| 300|
 |Uso general| Gen 4| 4| 7680| 625|
 |Uso general| Gen 4| 8| 15360| 1250|
-|Uso general| Gen 4| 16| 31232| 2.500|
+|Uso general| Gen 4| 16| 31232| 2\.500|
 |Uso general| Gen 4| 32| 62976| 5000|
 |Uso general| Gen 5| 2| 3584| 300|
 |Uso general| Gen 5| 4| 7680| 625|
 |Uso general| Gen 5| 8| 15360| 1250|
-|Uso general| Gen 5| 16| 31232| 2.500|
+|Uso general| Gen 5| 16| 31232| 2\.500|
 |Uso general| Gen 5| 32| 62976| 5000|
 |Uso general| Gen 5| 64| 125952| 10000|
 |Memoria optimizada| Gen 5| 2| 7168| 600|
 |Memoria optimizada| Gen 5| 4| 15360| 1250|
-|Memoria optimizada| Gen 5| 8| 30720| 2.500|
+|Memoria optimizada| Gen 5| 8| 30720| 2\.500|
 |Memoria optimizada| Gen 5| 16| 62464| 5000|
 |Memoria optimizada| Gen 5| 32| 125952| 10000|
 

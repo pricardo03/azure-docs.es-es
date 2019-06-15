@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: a8a50db5ece242bc00a28e66e21c863388950d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437639"
 ---
 # <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Optimización del rendimiento de Azure Data Lake Storage Gen1
@@ -141,6 +141,6 @@ Además de las directrices generales anteriores, cada aplicación tiene diferent
 | [MapReduce en HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm en HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de procesos de trabajo</li><li>Número de instancias de ejecutor de spout</li><li>Número de instancias de ejecutor de bolt </li><li>Número de tareas de spout</li><li>Número de tareas de bolt</li></ul>|
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

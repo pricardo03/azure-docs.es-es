@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: dfb85b0f9f1dda611c613cb296177cf28391adc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318857"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure
@@ -62,7 +62,7 @@ az vm show --resource-group myResourceGroup --name myVM \
     --query [storageProfile.osDisk.vhd.uri] --output tsv
 ```
 
-El URI es similar a **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**.
+El URI es similar a **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** .
 
 ## <a name="delete-existing-vm"></a>Eliminación de la VM existente
 Los discos duros virtuales y las máquinas virtuales son dos recursos diferentes de Azure. Un disco duro virtual es el recurso donde se almacenan el propio sistema operativo, las aplicaciones y las configuraciones. La propia máquina virtual consiste solo en metadatos que definen el tamaño o la ubicación y hace referencia a recursos como un disco duro virtual o una tarjeta de interfaz de red virtual (NIC). Cada disco duro virtual tiene una concesión que se asigna cuando se conecta a una máquina virtual. Aunque los discos de datos se pueden conectar y desconectar incluso mientras se está ejecutando la máquina virtual, no se puede desasociar el disco del sistema operativo, a menos que se elimine el recurso de máquina virtual. La concesión continúa para asociar el disco del sistema operativo a una máquina virtual incluso cuando esa máquina virtual está en un estado detenido o desasignado.

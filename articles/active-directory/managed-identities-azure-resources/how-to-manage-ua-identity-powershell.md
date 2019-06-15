@@ -16,10 +16,10 @@ ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 886b56de194f38fbb4b94f96b92bff11f2288b37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60293518"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell
@@ -34,7 +34,7 @@ En este artículo, aprenderá a crear, enumerar y eliminar una identidad adminis
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)**.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Instale [la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps) si aún no lo ha hecho.
 - Si ejecuta PowerShell localmente, también necesita realizar las siguientes operaciones: 

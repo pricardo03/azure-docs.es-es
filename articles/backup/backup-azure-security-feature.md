@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
 ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620694"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup

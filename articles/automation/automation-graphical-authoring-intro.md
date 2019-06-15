@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740818"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
@@ -123,7 +123,7 @@ Cuando se especifica un valor para un parámetro, se selecciona un origen de dat
 
 #### <a name="optional-additional-parameters"></a>Parámetros adicionales opcionales
 
-Todos los cmdlets tienen la opción de proporcionar parámetros adicionales. Se trata de parámetros comunes de PowerShell u otros parámetros personalizados. Aparecerá un cuadro de texto en el que podrá proporcionar parámetros con la sintaxis de PowerShell. Por ejemplo, para usar el parámetro común **Verbose**, debiera especificar **"-Verbose:$True"**.
+Todos los cmdlets tienen la opción de proporcionar parámetros adicionales. Se trata de parámetros comunes de PowerShell u otros parámetros personalizados. Aparecerá un cuadro de texto en el que podrá proporcionar parámetros con la sintaxis de PowerShell. Por ejemplo, para usar el parámetro común **Verbose**, debiera especificar **"-Verbose:$True"** .
 
 ### <a name="retry-activity"></a>Vuelva a intentar la actividad
 

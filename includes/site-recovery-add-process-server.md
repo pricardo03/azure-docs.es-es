@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66169962"
 ---
 1. Inicie Azure Site Recovery UnifiedSetup.exe
 2. En **Antes de comenzar**, seleccione **Add additional process servers to scale out deployment** (Agregar servidores de procesos adicionales para el escalado horizontal de la implementación).
 
-   ![Agregar servidor de procesos](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![Agregar servidores de procesos](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP del servidor de configuración y la frase de contraseña.
 

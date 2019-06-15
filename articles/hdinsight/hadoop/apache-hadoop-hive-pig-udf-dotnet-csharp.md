@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 31738c43756da14ba6c2c92afbcb2882561c8001
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722873"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Usar funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop de HDInsight
@@ -163,9 +163,9 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
 
     ![Explorador de servidores en el que se muestra la cuenta de almacenamiento para el clúster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * Si se puede expandir esta entrada, significa que está utilizando una __cuenta de Azure Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, expanda la entrada y, a continuación, haga doble clic en __(Contenedor predeterminado)__.
+    * Si se puede expandir esta entrada, significa que está utilizando una __cuenta de Azure Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, expanda la entrada y, a continuación, haga doble clic en __(Contenedor predeterminado)__ .
 
-    * Si esta entrada no se puede expandir, quiere decir que está usando __Azure Data Lake Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, haga doble clic en la entrada __(Cuenta de almacenamiento predeterminada)__.
+    * Si esta entrada no se puede expandir, quiere decir que está usando __Azure Data Lake Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, haga doble clic en la entrada __(Cuenta de almacenamiento predeterminada)__ .
 
 6. Para cargar los archivos .exe, siga uno de estos métodos:
 

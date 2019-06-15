@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: 0392a187bf40e1fe35053b493733c7e89aa6969e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60799421"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensión de Windows de instantánea de máquina virtual para Azure Backup
@@ -90,7 +90,7 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

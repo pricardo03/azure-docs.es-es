@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 02/11/2019
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 02/11/2019
+ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368396"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descripción de imágenes con lenguaje natural
@@ -60,5 +59,3 @@ La siguiente respuesta JSON muestra lo que devuelve Computer Vision al describir
 ## <a name="next-steps"></a>Pasos siguientes
 
 Conozca los conceptos de [etiquetado de imágenes](concept-tagging-images.md) y de [categorización de imágenes](concept-categorizing-images.md).
-
-<!-- Update_Description: wording update -->

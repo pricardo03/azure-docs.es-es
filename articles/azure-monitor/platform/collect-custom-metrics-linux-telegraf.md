@@ -1,18 +1,18 @@
 ---
 title: Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf
 description: Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741612"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf
@@ -47,7 +47,7 @@ Cree una nueva máquina virtual Linux:
 
     ![Información general del tamaño de máquina virtual en el agente de Telegraf](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. En la página  **Configuración** de  **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, selecccione  **HTTP**  y  **SSH (22)**. Deje el resto de valores predeterminados y seleccione  **Aceptar**. 
+1. En la página  **Configuración** de  **Red** > **Grupo de seguridad de red** > **Seleccionar puertos de entrada públicos**, selecccione  **HTTP**  y  **SSH (22)** . Deje el resto de valores predeterminados y seleccione  **Aceptar**. 
 
 1. En la página de resumen, seleccione  **Crear ** para iniciar la implementación de la máquina virtual. 
 
@@ -132,5 +132,6 @@ Cuando ya no los necesite, puede eliminar el grupo de recursos, la máquina virt
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).
+
 
 

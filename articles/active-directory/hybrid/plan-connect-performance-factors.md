@@ -13,10 +13,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295386"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factores que influyen en el rendimiento de Azure AD Connect
@@ -46,8 +46,8 @@ El motor de aprovisionamiento se conecta a cada bosque de Active Directory y a A
 
 Azure AD Connect usa los siguientes procesos, reglas y áreas de almacenamiento provisional para permitir la sincronización de Active Directory en Azure AD:
 
-* **Espacio conector (CS)**: los objetos de cada directorio conectado (CD), los directorios reales, se preparan aquí primero antes de que el motor de aprovisionamiento los procese. Azure AD tiene su propio CS y cada bosque al que se conecta tiene su propio CS.
-* **Metaverso (MV)**: los objetos que deben sincronizarse se crean aquí basándose en las reglas de sincronización. Los objetos deben existir en el MV antes de que puedan rellenar objetos y atributos en otros directorios conectados. Solo hay un MV.
+* **Espacio conector (CS)** : los objetos de cada directorio conectado (CD), los directorios reales, se preparan aquí primero antes de que el motor de aprovisionamiento los procese. Azure AD tiene su propio CS y cada bosque al que se conecta tiene su propio CS.
+* **Metaverso (MV)** : los objetos que deben sincronizarse se crean aquí basándose en las reglas de sincronización. Los objetos deben existir en el MV antes de que puedan rellenar objetos y atributos en otros directorios conectados. Solo hay un MV.
 * **Reglas de sincronización**: deciden qué objetos se crearán (proyectarán) o conectarán (unirán) a los objetos del MV. Las reglas de sincronización también deciden qué valores de atributo se copiarán o transformarán en y desde los directorios.
 * **Perfiles de ejecución**: agrupa los pasos del proceso de copia de objetos y sus valores de atributo según las reglas de sincronización entre las áreas de almacenamiento provisional y los directorios conectados.
 
@@ -113,7 +113,7 @@ El tamaño de la topología de Active Directory que quiere importar es el númer
 
 
 - **Filtrado basado en dominio**: use esta opción para seleccionar los dominios específicos que quiere sincronizar con Azure AD. Debe agregar y quitar dominios de la configuración del motor de sincronización al realizar cambios en la infraestructura local después de instalar la sincronización de Azure AD Connect.
-- **Filtrado de la unidad organizativa (UO)**: usa las UO para dirigirse a objetos específicos en dominios de Active Directory para el aprovisionamiento en Azure AD. El filtrado por unidad organizativa es el segundo mecanismo de filtrado que se recomienda, porque utiliza consultas de ámbito LDAP sencillas para importar un subconjunto más pequeño de objetos de Active Directory.
+- **Filtrado de la unidad organizativa (UO)** : usa las UO para dirigirse a objetos específicos en dominios de Active Directory para el aprovisionamiento en Azure AD. El filtrado por unidad organizativa es el segundo mecanismo de filtrado que se recomienda, porque utiliza consultas de ámbito LDAP sencillas para importar un subconjunto más pequeño de objetos de Active Directory.
 - **Filtrado de atributos por objeto**: usa los valores de atributo de los objetos para decidir si aprovisionar un determinado objeto de Active Directory en Azure AD. El filtrado de atributos es excelente para ajustar los filtros cuando el filtrado por dominio y por unidad organizativa no cumple los requisitos específicos de filtrado. El filtrado de atributos no reduce el tiempo de importación, pero puede reducir el tiempo de sincronización y exportación.
 - **Filtrado basado en grupos**: usa la pertenencia a grupos para decidir qué objetos deben aprovisionarse en Azure AD. El filtrado basado en grupos solo es adecuado para situaciones de prueba y no se recomienda para entornos de producción, debido a la sobrecarga adicional necesaria para comprobar la pertenencia a grupos durante el ciclo de sincronización.
 

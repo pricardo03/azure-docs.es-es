@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 69ee9e7101a2b7337e1e42ff5ae09954fbfd50b2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128056"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Activación de la sincronización sin conexión para la aplicación de Windows
@@ -80,9 +80,9 @@ La primera vez que se ejecuta la aplicación, el controlador de eventos `OnNavig
 ## <a name="api-summary"></a>Resumen de la API
 Para admitir las características sin conexión de Mobile Services, se usa la interfaz [IMobileServiceSyncTable] y se inicializa [MobileServiceClient.SyncContext][synccontext] con una base de datos SQLite local. En el modo sin conexión, las operaciones CRUD normales para Mobile Apps funcionan como si la aplicación siguiera conectada y todas las operaciones se producen en el almacén local. Cuando se quiera sincronizar el almacén local con el servidor, se usan los métodos siguientes:
 
-* **[PushAsync]**: como este método es miembro de [IMobileServicesSyncContext], los cambios de todas las tablas se insertan en el back-end. Solo se envían al servidor los registros con cambios locales.
-* **[PullAsync]**: se inicia una extracción desde [IMobileServiceSyncTable]. Cuando haya cambios marcados en la tabla, se ejecuta una inserción implícita para asegurarse de que todas las tablas del almacén local junto con las relaciones siguen siendo coherentes. El parámetro *pushOtherTables* controla si se insertan otras tablas del contexto en una inserción implícita. El parámetro *query* toma la cadena de consulta de OData o [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] para filtrar los datos devueltos. El parámetro *queryId* se utiliza para definir la sincronización incremental. Para más información, consulte [Sincronización de datos sin conexión en Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
-* **[PurgeAsync]**: su aplicación debe llamar periódicamente a este método para purgar datos obsoletos del almacén local. Utilice el parámetro *force* cuando necesite purgar todos los cambios que aún no se hayan sincronizado.
+* **[PushAsync]** : como este método es miembro de [IMobileServicesSyncContext], los cambios de todas las tablas se insertan en el back-end. Solo se envían al servidor los registros con cambios locales.
+* **[PullAsync]** : se inicia una extracción desde [IMobileServiceSyncTable]. Cuando haya cambios marcados en la tabla, se ejecuta una inserción implícita para asegurarse de que todas las tablas del almacén local junto con las relaciones siguen siendo coherentes. El parámetro *pushOtherTables* controla si se insertan otras tablas del contexto en una inserción implícita. El parámetro *query* toma la cadena de consulta de OData o [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] para filtrar los datos devueltos. El parámetro *queryId* se utiliza para definir la sincronización incremental. Para más información, consulte [Sincronización de datos sin conexión en Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PurgeAsync]** : su aplicación debe llamar periódicamente a este método para purgar datos obsoletos del almacén local. Utilice el parámetro *force* cuando necesite purgar todos los cambios que aún no se hayan sincronizado.
 
 Para obtener más información sobre estos conceptos, consulte [Sincronización de datos sin conexión en Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585628"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de Elastic Database
@@ -29,7 +29,7 @@ Estos términos se usan en [Incorporación de una partición con herramientas de
 
 **Base de datos**: Una base de datos de Azure SQL. 
 
-**Enrutamiento dependiente de los datos**: la funcionalidad que permite que una aplicación se conecte a una partición dada una clave de partición específica. Consulte [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Comparar con **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
+**Enrutamiento dependiente de los datos**: la funcionalidad que permite que una aplicación se conecte a una partición dada una clave de partición específica. Consulte [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Comparar con **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)** .
 
 **Mapa de particiones global**: el mapa entre las claves de particionamiento y sus respectivas particiones dentro de un **conjunto de particiones**. El mapa de particiones global se almacena en el **administrador de mapas de particiones**. Comparar con **mapa de particiones local**.
 

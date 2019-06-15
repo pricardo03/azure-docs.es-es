@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
 ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822796"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de suscripción de Event Grid
@@ -35,7 +35,7 @@ El nombre de la suscripción de eventos debe tener entre 3 y 64 caracteres de lo
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| destination | objeto | El objeto que define el punto de conexión. |
+| de destino | objeto | El objeto que define el punto de conexión. |
 | filter | objeto | Un campo opcional para filtrar los tipos de eventos. |
 
 ### <a name="destination-object"></a>Objeto de destino

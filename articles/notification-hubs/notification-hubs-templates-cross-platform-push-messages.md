@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872112"
 ---
 # <a name="templates"></a>Plantillas
@@ -157,7 +157,7 @@ El siguiente ejemplo no es una plantilla XML válida:
 </tile>
 ```
 
-Como se explicó anteriormente, cuando se usa la concatenación, las expresiones deben ir entre corchetes. Por ejemplo: 
+Como se explicó anteriormente, cuando se usa la concatenación, las expresiones deben ir entre corchetes. Por ejemplo:
 
 ```xml
 <tile>

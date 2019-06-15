@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: f4a69fd57bf2e9535fdb1664365b074927e27585
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64707250"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
@@ -28,7 +28,7 @@ En este artículo se explican los aspectos de una plantilla de Azure Resource Ma
 
 Hay muchas [plantillas en la galería](https://azure.microsoft.com/documentation/templates/?term=VM) que incluyen el recurso de máquina virtual. No todos los elementos que pueden incorporarse en una plantilla se describen aquí.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 En este ejemplo se muestra una sección de recursos típica de una plantilla para crear un número especificado de máquinas virtuales:
 

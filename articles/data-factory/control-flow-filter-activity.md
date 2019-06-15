@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554854"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Actividad de filtro en Azure Data Factory
@@ -39,8 +39,8 @@ Puede usar una actividad de filtro en una canalización para aplicar una expresi
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-name | Nombre de la actividad `Filter`. | String | Sí
-type | Se debe establecer en **filter**. | String | Sí
+Nombre | Nombre de la actividad `Filter`. | Cadena | Sí
+Tipo | Se debe establecer en **filter**. | Cadena | Sí
 condition | Condición que se usará para filtrar la entrada. | Expression | Sí
 items | Matriz de entrada en la que se debe aplicar el filtro. | Expression | Sí
 

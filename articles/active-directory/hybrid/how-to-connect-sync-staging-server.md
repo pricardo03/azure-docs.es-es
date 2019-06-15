@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381593"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Almacenamiento provisional y recuperación ante desastres
@@ -65,9 +65,9 @@ Si ha realizado cambios personalizados en el servidor principal y desea comparar
 
 #### <a name="import-and-synchronize"></a>Importación y sincronización
 1. Seleccione **Conectores** y elija el primer conector de tipo **Active Directory Domain Services**. Haga clic en **Ejecutar** y seleccione **Importación completa** y **Aceptar**. Realice estos pasos para todos los conectores de este tipo.
-2. Seleccione el conector de tipo **Azure Active Directory (Microsoft)**. Haga clic en **Ejecutar** y seleccione **Importación completa** y **Aceptar**.
+2. Seleccione el conector de tipo **Azure Active Directory (Microsoft)** . Haga clic en **Ejecutar** y seleccione **Importación completa** y **Aceptar**.
 3. Asegúrese de que sigue seleccionada la pestaña Conectores. Para cada conector de tipo **Active Directory Domain Services**, haga clic en **Ejecutar**, y seleccione **Sincronización diferencial** y **Aceptar**.
-4. Seleccione el conector de tipo **Azure Active Directory (Microsoft)**. Haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y, después, **Aceptar**.
+4. Seleccione el conector de tipo **Azure Active Directory (Microsoft)** . Haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y, después, **Aceptar**.
 
 Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y AD local (si está usando la implementación híbrida de Exchange). Los siguientes pasos le permiten inspeccionar lo que está a punto de cambiar antes de que comience realmente la exportación a los directorios.
 

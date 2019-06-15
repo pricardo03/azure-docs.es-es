@@ -16,10 +16,10 @@ ms.date: 12/06/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fb16b1762f1e5330cf058c37a6b7e0f008eb447
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290985"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure
@@ -30,7 +30,7 @@ Una vez que haya configurado un recurso de Azure con una identidad administrada,
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)**.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para ejecutar los ejemplos de script de la CLI, tiene tres opciones:
     - Usar [Azure Cloud Shell](../../cloud-shell/overview.md) desde Azure Portal (consulte la sección siguiente).

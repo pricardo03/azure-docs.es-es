@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878773"
 ---
 # <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copia de datos entre Azure Data Lake Storage Gen1 y Azure SQL Database mediante Sqoop
@@ -33,7 +33,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). En este artículo se supone que tiene un clúster de HDInsight Linux con acceso a Data Lake Storage Gen1.
-* **Azure SQL Database**. Para obtener instrucciones sobre cómo crear una, vea [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**. Para obtener instrucciones sobre cómo crear una, vea [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started.md)
 
 ## <a name="do-you-learn-fast-with-videos"></a>¿Obtener información más rápidamente con vídeos?
 [Vea este vídeo](https://mix.office.com/watch/1butcdjxmu114) para saber cómo copiar datos entre los blobs de Azure Storage y Data Lake Storage Gen1 mediante DistCp.
@@ -107,7 +107,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    Cada archivo **part-m-*** corresponde a una fila de la tabla de origen, **Table1**. Puede ver el contenido de los archivos part-m-* para comprobarlo.
+    Cada archivo **part-m-** * corresponde a una fila de la tabla de origen, **Table1**. Puede ver el contenido de los archivos part-m-* para comprobarlo.
 
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Exportación de datos de Data Lake Storage Gen1 a Azure SQL Database
@@ -137,7 +137,7 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 
 Para optimizar el rendimiento del trabajo de Scoop con el fin de copiar datos en el Data Lake Storage Gen1, consulte el [documento de rendimiento de Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: 68bcd2b1916ccdf68eaa31ed251661a6b7e1bca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60704124"
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Control de incidentes de seguridad en Azure Security Center
@@ -53,7 +53,7 @@ La información sobre esta hoja variará según la alerta. Para más informació
 * Un nuevo filtro le permite personalizar la vista a solo incidente, solo alertas o ambos.
 * La misma alerta puede existir como parte de un incidente (si procede), así como a estar visible como alerta independiente.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este documento, aprendió a usar la funcionalidad de incidente de seguridad en el Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)

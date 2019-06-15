@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437703"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Uso del paquete de contenido de Power BI de Azure Active Directory
@@ -59,7 +59,7 @@ También puede filtrar los resultados mediante la selección de una fecha o ubic
 
 - User Name
 - Dirección IP
-- Location 
+- Ubicación 
 - Estado de inicio de sesión 
 
 **Embudo de SSPR**: este informe le ayuda a comprender cómo se usa la herramienta SSPR dentro de su organización. Puede ver cuántos restablecimientos de contraseña se intentaron con la herramienta SSPR y cuántos de ellos se realizaron correctamente. También puede profundizar más en los errores de restablecimiento de contraseña y comprender por qué se produjeron determinados errores. 
@@ -114,7 +114,7 @@ Para obtener ayuda general con Power BI, visite estos [artículos de Ayuda](http
 
 ### <a name="refresh-failed"></a>Error al actualizar 
  
-**¿Cómo aparece este error?**: correo electrónico desde Power BI o estado de error en el historial de actualización. 
+**¿Cómo aparece este error?** : correo electrónico desde Power BI o estado de error en el historial de actualización. 
 
 
 | Causa | Solución |
@@ -125,7 +125,7 @@ Para obtener ayuda general con Power BI, visite estos [artículos de Ayuda](http
  
 ### <a name="failed-to-update-data-source-credentials"></a>Error al actualizar las credenciales del origen de datos 
  
-**¿Cómo aparece este error?**: en Power BI, cuando se conecta al paquete de contenido de registros de actividad de Azure AD. 
+**¿Cómo aparece este error?** : en Power BI, cuando se conecta al paquete de contenido de registros de actividad de Azure AD. 
 
 | Causa | Solución |
 | ---   | ---        |
@@ -134,7 +134,7 @@ Para obtener ayuda general con Power BI, visite estos [artículos de Ayuda](http
  
 ### <a name="data-import-is-too-slow"></a>La importación de datos es demasiado lenta 
  
-**¿Cómo aparece este error?**: en Power BI, después de conectar el paquete de contenido, el proceso de importación de datos comienza a preparar su panel para los registros de actividad de Azure AD. Verá el mensaje: **Importando datos...**  sin ningún progreso adicional.  
+**¿Cómo aparece este error?** : en Power BI, después de conectar el paquete de contenido, el proceso de importación de datos comienza a preparar su panel para los registros de actividad de Azure AD. Verá el mensaje: **Importando datos...**  sin ningún progreso adicional.  
 
 | Causa | Solución |
 | ---   | ---        |

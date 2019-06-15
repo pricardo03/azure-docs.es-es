@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.openlocfilehash: 0e85d2b2c7e9a3022e7fea2063ffa0aa915abb53
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939053"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2
@@ -72,7 +72,7 @@ Dado que la granularidad más baja de DistCp es un único archivo, configurar el
 
 A continuación hay algunas instrucciones que puede usar.
 
-* **Paso 1: Determinar la memoria total disponible para la cola de aplicación YARN "predeterminada"**: el primer paso consiste en determinar la memoria disponible para la cola de aplicación YARN "predeterminada". Esta información está disponible en el portal de Ambari asociado con el clúster. Vaya a YARN y haga clic en la pestaña de configuración para ver la memoria YARN disponible para la cola de aplicación "predeterminada". Se trata de la memoria total disponible para el trabajo DistCp (que es realmente un trabajo de MapReduce).
+* **Paso 1: Determinar la memoria total disponible para la cola de aplicación YARN "predeterminada"** : el primer paso consiste en determinar la memoria disponible para la cola de aplicación YARN "predeterminada". Esta información está disponible en el portal de Ambari asociado con el clúster. Vaya a YARN y haga clic en la pestaña de configuración para ver la memoria YARN disponible para la cola de aplicación "predeterminada". Se trata de la memoria total disponible para el trabajo DistCp (que es realmente un trabajo de MapReduce).
 
 * **Paso 2: Cálculo del número de mapeadores**: el valor de **m** es igual al cociente de la memoria de YARN total dividido por el tamaño del contenedor de YARN. La información del tamaño de contenedor de YARN está también disponible en el portal del Ambari. Vaya a YARN y examine la pestaña de configuración. En esta ventana se muestra el tamaño del contenedor de YARN. La ecuación para llegar al número de asignadores (**m**) es
 

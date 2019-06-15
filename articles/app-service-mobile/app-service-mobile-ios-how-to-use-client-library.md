@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122462"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure
@@ -565,7 +565,7 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
    * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en [Azure Portal].
    * Reemplace **INSERT-RESOURCE-ID-HERE** por el Id. de cliente del back-end de la aplicación móvil. El Id. de cliente en la pestaña **Opciones avanzadas** de **Configuración de Azure Active Directory** en el portal.
    * Reemplace **INSERT-CLIENT-ID-HERE** por el Id. de cliente que copió de la aplicación cliente nativa.
-   * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. El valor debería parecerse al siguiente: *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. El valor debería parecerse al siguiente: *https://contoso.azurewebsites.net/.auth/login/done* .
 
 **Objective-C**:
 

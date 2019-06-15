@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326157"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad AlwaysOn en Azure
@@ -63,7 +63,7 @@ En primer lugar, cree el equilibrador de carga.
 
 5. En el cuadro de diálogo **Crear equilibrador de carga**, configure el equilibrador de carga tal y como se explica a continuación:
 
-   | Configuración | Value |
+   | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa el equilibrador de carga; Por ejemplo, **sqlLB**. |
    | **Tipo** |**Internas**: en la mayoría de las implementaciones se usa un equilibrador de carga interno que permite que las aplicaciones dentro de la misma red virtual se conecten al grupo de disponibilidad.  </br> **Externas**: permite que las aplicaciones se conecten al grupo de disponibilidad mediante una conexión a Internet pública. |
@@ -109,7 +109,7 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
 
 3. Configure el sondeo en la hoja **Agregar sondeo** . Utilice los valores siguientes para configurar el sondeo.
 
-   | Configuración | Value |
+   | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa el sondeo. Por ejemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
@@ -135,12 +135,12 @@ Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enru
 
 3. Utilice la hoja **Add load balancing rules** (Agregar reglas de equilibrio de carga) para configurar la regla de equilibrio de carga. Use la configuración siguiente: 
 
-   | Configuración | Value |
+   | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa las reglas de equilibrio de carga. Por ejemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
    | **Puerto** |*1433* |
-   | **Puerto back-end** |*1433*. Este valor se ignorará porque la regla usa **IP flotante (Direct Server Return)**. |
+   | **Puerto back-end** |*1433*. Este valor se ignorará porque la regla usa **IP flotante (Direct Server Return)** . |
    | **Sondeo** |Utilice el nombre del sondeo que creó para este equilibrador de carga. |
    | **Persistencia de la sesión** |**None** |
    | **Tiempo de espera de inactividad (minutos)** |*4* |
@@ -221,7 +221,7 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
 
 7. Agregue un sondeo de estado mediante las siguientes opciones:
 
-   |Configuración |Value
+   |Configuración |Valor
    |:-----|:----
    |**Nombre** |Un nombre para identificar el sondeo.
    |**Protocolo** |TCP
@@ -235,7 +235,7 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
 
 10. Configure la nueva regla de equilibrio de carga con los siguientes valores:
 
-    |Configuración |Value
+    |Configuración |Valor
     |:-----|:----
     |**Nombre** |Un nombre para identificar la regla de equilibrio de carga. 
     |**Frontend IP address** (Dirección IP de front-end) |Seleccione la dirección IP que creó. 
@@ -246,7 +246,7 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
     |**Sondeo de estado** |Elija el sondeo que creó.
     |**Persistencia de la sesión** |None
     |**Tiempo de espera de inactividad (minutos)** |Valor predeterminado (4)
-    |**IP flotante (Direct Server Return)** | Enabled
+    |**IP flotante (Direct Server Return)** | habilitado
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configuración del grupo de disponibilidad para usar la nueva dirección IP
 
@@ -284,7 +284,7 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
 
 1. Cree la regla de equilibrio de carga con la configuración siguiente:
 
-   |Configuración |Value
+   |Configuración |Valor
    |:-----|:----
    |**Nombre** |Nombre para identificar la regla de equilibrio de carga para el grupo de disponibilidad distribuido. 
    |**Frontend IP address** (Dirección IP de front-end) |Use la misma dirección IP de front-end que en el grupo de disponibilidad.
@@ -295,7 +295,7 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
    |**Sondeo de estado** |Elija el sondeo que creó.
    |**Persistencia de la sesión** |None
    |**Tiempo de espera de inactividad (minutos)** |Valor predeterminado (4)
-   |**IP flotante (Direct Server Return)** | Enabled
+   |**IP flotante (Direct Server Return)** | habilitado
 
 Repita estos pasos para el equilibrador de carga de los otros grupos de disponibilidad que forman parte de los grupos de disponibilidad distribuidos.
 

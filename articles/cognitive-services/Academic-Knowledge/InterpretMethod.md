@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61338459"
 ---
 # <a name="interpret-method"></a>Método de interpretación
@@ -29,14 +29,14 @@ Para proporcionar una experiencia interactiva, puede llamar a este método varia
 
 ## <a name="request-parameters"></a>Parámetros de solicitud
 
-NOMBRE     | Value | ¿Necesario?  | DESCRIPCIÓN
+NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 ---------|---------|---------|---------
 **consulta**    | Cadena de texto | Sí | Consulta especificada por el usuario.  Si complete se establece en 1, la consulta se interpretará como un prefijo para generar sugerencias de finalización automática para la consulta.        
-**model**    | Cadena de texto | Sin   | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
-**complete** | 0 o 1 | Sin <br>valor predeterminado:0  | 1 significa que las sugerencias de finalización automática se generan según los datos de gráfico y la gramática.         
-**count**    | Number | Sin <br>valor predeterminado:10 | Número máximo de interpretaciones de retorno.         
-**offset**   | Number | Sin <br>valor predeterminado:0  | Índice de la primera interpretación de retorno. Por ejemplo, *count=2&offset=0* devuelve interpretaciones 0 y 1. *count=2&offset=2* devuelve interpretaciones 2 y 3.       
-**timeout**  | Number | Sin <br>valor predeterminado:1000 | Tiempo de espera en milisegundos. Se devuelven únicamente las interpretaciones encontradas antes de que haya transcurrido el tiempo de espera.
+**model**    | Cadena de texto | Sin  | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
+**complete** | 0 o 1 | Sin<br>valor predeterminado:0  | 1 significa que las sugerencias de finalización automática se generan según los datos de gráfico y la gramática.         
+**count**    | Number | Sin<br>valor predeterminado:10 | Número máximo de interpretaciones de retorno.         
+**offset**   | Number | Sin<br>valor predeterminado:0  | Índice de la primera interpretación de retorno. Por ejemplo, *count=2&offset=0* devuelve interpretaciones 0 y 1. *count=2&offset=2* devuelve interpretaciones 2 y 3.       
+**timeout**  | Number | Sin<br>valor predeterminado:1000 | Tiempo de espera en milisegundos. Se devuelven únicamente las interpretaciones encontradas antes de que haya transcurrido el tiempo de espera.
 
 <br>
   

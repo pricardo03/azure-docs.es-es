@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166339"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitectura de seguridad de Internet de las cosas (IoT)
@@ -169,15 +169,15 @@ En esta sección se explora la arquitectura esbozada anteriormente a través de 
 
 En cada una de las categorías esbozadas en la arquitectura de IoT de Azure, en este ejemplo se intentan mitigar varias amenazas diferentes en las distintas fases en que existen información o datos: proceso, comunicación y almacenamiento. A continuación, se ofrece información general de las más comunes para la categoría de "proceso", seguida de información general de cuál sería la mejor forma de mitigar estas amenazas:
 
-**Suplantación de identidad (S)**: un atacante puede extraer material de la clave criptográfica de un dispositivo, en el nivel de hardware o en el de software y posteriormente acceder al sistema con un dispositivo físico o virtual diferente bajo la identidad del dispositivo del que se ha tomado el material de la clave. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
+**Suplantación de identidad (S)** : un atacante puede extraer material de la clave criptográfica de un dispositivo, en el nivel de hardware o en el de software y posteriormente acceder al sistema con un dispositivo físico o virtual diferente bajo la identidad del dispositivo del que se ha tomado el material de la clave. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
 
-**Denegación de servicio (D)**: un dispositivo se puede representar como incapaz de funcionar o comunicarse al interferir con frecuencias de radio o cortar hilos. Por ejemplo, una cámara de vigilancia cuya alimentación o conexión de red se ha interrumpido intencionadamente no puede notificar datos.
+**Denegación de servicio (D)** : un dispositivo se puede representar como incapaz de funcionar o comunicarse al interferir con frecuencias de radio o cortar hilos. Por ejemplo, una cámara de vigilancia cuya alimentación o conexión de red se ha interrumpido intencionadamente no puede notificar datos.
 
-**Manipulación (T)**: un atacante puede reemplazar total o parcialmente el software que se ejecuta en el dispositivo, lo que potencialmente permite que el software reemplazado use la identidad genuina del dispositivo si el material clave o las instalaciones criptográficas que contienen materiales clave estaban disponibles para el programa ilícito. Por ejemplo, un atacante puede sacar provecho del material clave extraído para interceptar y suprimir datos del dispositivo en la ruta de acceso de comunicación y reemplazarlos por datos falsos que se han autenticado con el material clave robado.
+**Manipulación (T)** : un atacante puede reemplazar total o parcialmente el software que se ejecuta en el dispositivo, lo que potencialmente permite que el software reemplazado use la identidad genuina del dispositivo si el material clave o las instalaciones criptográficas que contienen materiales clave estaban disponibles para el programa ilícito. Por ejemplo, un atacante puede sacar provecho del material clave extraído para interceptar y suprimir datos del dispositivo en la ruta de acceso de comunicación y reemplazarlos por datos falsos que se han autenticado con el material clave robado.
 
-**Divulgación de información (I)**: si el dispositivo ejecuta software manipulado, dicho software puede proporcionar datos a partes no autorizadas. Por ejemplo, un atacante puede sacar provecho del material clave extraído para inyectarse a sí mismo en la ruta de acceso de comunicación entre el dispositivo y un controlador o la puerta de enlace del campo o la puerta de enlace en la nube para desviar información.
+**Divulgación de información (I)** : si el dispositivo ejecuta software manipulado, dicho software puede proporcionar datos a partes no autorizadas. Por ejemplo, un atacante puede sacar provecho del material clave extraído para inyectarse a sí mismo en la ruta de acceso de comunicación entre el dispositivo y un controlador o la puerta de enlace del campo o la puerta de enlace en la nube para desviar información.
 
-**Elevación de privilegios (E)**: se puede forzar a un dispositivo que realiza una función específica a realizar otra función. Por ejemplo, se puede obligar a una válvula programada para abrirse a la mitad a abrirse completamente.
+**Elevación de privilegios (E)** : se puede forzar a un dispositivo que realiza una función específica a realizar otra función. Por ejemplo, se puede obligar a una válvula programada para abrirse a la mitad a abrirse completamente.
 
 | **Componente** | **Amenaza** | **Mitigación** | **Riesgo** | **Implementación** |
 | --- | --- | --- | --- | --- |

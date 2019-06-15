@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61432914"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
@@ -60,7 +60,7 @@ A medida que se crea cada rol, Visual Studio le agrega la extensión de Azure Di
 
 En primer lugar, si aún no tiene una cuenta de almacenamiento **clásica**, [cree una](../storage/common/storage-quickstart-create-account.md). Asegúrese de que la cuenta de almacenamiento se crea con el **modelo de implementación clásica** especificado.
 
-Después, vaya al recurso **Cuenta de almacenamiento (clásico)**. Seleccione **Configuración** > **Claves de acceso** y copie el valor de **Cadena de conexión principal**. Necesita este valor para el servicio en la nube. 
+Después, vaya al recurso **Cuenta de almacenamiento (clásico)** . Seleccione **Configuración** > **Claves de acceso** y copie el valor de **Cadena de conexión principal**. Necesita este valor para el servicio en la nube. 
 
 Debe modificar dos archivos de configuración para habilitar el diagnóstico avanzado, **ServiceDefinition.csdef** y **ServiceConfiguration.cscfg**.
 

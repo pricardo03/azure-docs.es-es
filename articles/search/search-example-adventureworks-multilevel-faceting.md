@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
 ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024120"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Ejemplo: Facetas de varios niveles en Azure Search
@@ -87,7 +87,7 @@ El objeto **categories** ahora se puede usar para representar un árbol taxonóm
   ![filtro en facetas de varios niveles](./media/search-example-adventureworks/multi-level-facet.png "filtro en facetas de varios niveles")
 
  
-Cada vínculo del árbol debe aplicar el filtro relacionado. Por ejemplo: 
+Cada vínculo del árbol debe aplicar el filtro relacionado. Por ejemplo:
 
 + **taxonomy/any**`(x:x eq 'Accessories')` devuelve todos los documentos de la rama Accesorios
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` devuelve solo los documentos con una categoría de Bike Racks de la rama Accesorios.
@@ -97,6 +97,6 @@ Esta técnica escalará para abarcar escenarios más complejos, como árboles ta
 > [!TIP]
 > El número de facetas devueltas afecta la velocidad de la consulta. Para admitir conjuntos taxonómicos de gran tamaño, considere la posibilidad de agregar un campo **Edm.String** en facetas para contener el valor taxonómico de nivel superior de cada documento. Luego, aplique la misma técnica anterior, pero solo realice la consulta de faceta de colección (filtrada en el campo de taxonomía raíz) cuando el usuario se expanda a un nodo de nivel superior. O bien, si no se requiere una recuperación del 100 %, simplemente disminuya el recuento de facetas a un número razonable y asegúrese de que las entradas de facetas se ordenan por recuento.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Ejemplo: Model the AdventureWorks Inventory database for Azure Search](search-example-adventureworks-modeling.md) (Modelo de la base de datos del inventario de AdventureWorks para Azure Search)

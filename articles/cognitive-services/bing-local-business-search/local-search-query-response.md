@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
 ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796792"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envío y uso de consultas y respuestas de Bing Local Business Search API
@@ -54,7 +54,7 @@ Las respuestas JSON de Bing Local Business Search API contienen un objeto `Searc
 Los resultados JSON devueltos por la API incluyen los siguientes atributos:
 
 * _type
-* dirección
+* address
 * entityPresentationInfo
 * geoárea
 * id

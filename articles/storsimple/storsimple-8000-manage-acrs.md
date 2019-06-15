@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693232"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Usar el servicio de Administrador de StorSimple para administrar registros de control de acceso
 
@@ -59,7 +59,7 @@ Realice los pasos siguientes para agregar un ACR.
 
     1. Proporcione un Nombre para el ACR.
     
-    2. Proporcione el nombre IQN del host de Windows Server en **Nombre del iniciador iSCSI (IQN)**.
+    2. Proporcione el nombre IQN del host de Windows Server en **Nombre del iniciador iSCSI (IQN)** .
 
     3. Haga clic en **Agregar** para crear el ACR.
 

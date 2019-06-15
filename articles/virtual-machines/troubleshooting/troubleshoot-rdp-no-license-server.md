@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318959"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>El servidor de licencias de Escritorio remoto no está disponible cuando se conecta a una máquina virtual de Azure.
@@ -63,7 +63,7 @@ Para resolver este problema, [realice una copia de seguridad del disco del siste
 
     Si no puede conectarse a la máquina virtual mediante una sesión administrativa, puede usar la [consola serie de máquina virtual de Azure](serial-console-windows.md) para acceder a la máquina virtual de la manera siguiente:
 
-    1. Acceda a Serial Console seleccionando **Soporte técnico y solución de problemas** > **Serial Console (versión preliminar)**. Si la característica está habilitada en la máquina virtual, puede conectar la máquina virtual correctamente.
+    1. Acceda a Serial Console seleccionando **Soporte técnico y solución de problemas** > **Serial Console (versión preliminar)** . Si la característica está habilitada en la máquina virtual, puede conectar la máquina virtual correctamente.
 
     2. Creación de un nuevo canal para una instancia CMD. Escriba **CMD** para iniciar el canal y obtener el nombre del canal.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634357"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Acceso a los datos en la nube en un cuaderno
@@ -53,7 +53,7 @@ if response.status_code == 200:
 
 Puede acceder a las bases de datos de SQL Server con la ayuda de las bibliotecas pyodbc o pymssql.
 
-[Uso de Python para consultar una base de datos SQL de Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) le ofrece instrucciones sobre cómo crear una base de datos que contiene los datos de AdventureWorks y le muestra cómo consultar dichos datos. El mismo código se muestra en el cuaderno de ejemplo de este artículo.
+[Uso de Python para consultar una base de datos de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) le ofrece instrucciones sobre cómo crear una base de datos que contiene los datos de AdventureWorks y le muestra cómo consultar dichos datos. El mismo código se muestra en el cuaderno de ejemplo de este artículo.
 
 ## <a name="azure-storage"></a>Azure Storage
 

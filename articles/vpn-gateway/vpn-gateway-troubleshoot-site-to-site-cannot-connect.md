@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64688498"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: una conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 
@@ -102,7 +102,10 @@ Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad 
 2. Haga clic en la advertencia de certificado.
 3. Si recibe una respuesta, se considera que la puerta de enlace de la VPN es correcta. Si no recibe una respuesta, puede que la puerta de enlace no sea correcta o que haya un NSG en la subred de puerta de enlace que provoque el problema. El siguiente texto es una respuesta de ejemplo:
 
-    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Instancia principal: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Paso 8. Compruebe si el dispositivo VPN local cuenta con la característica confidencialidad directa perfecta habilitada
 

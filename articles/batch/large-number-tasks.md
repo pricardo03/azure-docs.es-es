@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549672"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
@@ -65,7 +65,7 @@ Agregar una gran colección de tareas a un trabajo puede tardar, por ejemplo, ag
 
 Los siguientes fragmentos de código de C# muestran opciones que deben configurarse al agregar un gran número de tareas mediante la API de .NET de Batch.
 
-Para aumentar el rendimiento de la tarea, aumente el valor de la propiedad [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Por ejemplo: 
+Para aumentar el rendimiento de la tarea, aumente el valor de la propiedad [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Por ejemplo:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +75,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Agregue una colección de tareas al trabajo mediante la sobrecarga adecuada de los métodos [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-). Por ejemplo: 
+). Por ejemplo:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -145,7 +145,7 @@ client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=
 ...
 ```
 
-Cree una colección de tareas para agregarla a un trabajo. Por ejemplo: 
+Cree una colección de tareas para agregarla a un trabajo. Por ejemplo:
 
 
 ```python

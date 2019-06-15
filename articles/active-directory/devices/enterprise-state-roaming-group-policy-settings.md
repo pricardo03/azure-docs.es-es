@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353166"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configuración de MDM y directivas de grupo
@@ -33,7 +33,7 @@ Las tablas siguientes describen la configuración de la directiva disponible.
 ## <a name="mdm-settings"></a>Configuración de MDM
 La configuración de directiva MDM se aplica a Windows 10 y Windows 10 Mobile.  El soporte para Windows 10 Mobile existe solo para la itinerancia basada en cuentas de Microsoft a través de la cuenta OneDrive del usuario.  Consulte la sección [Dispositivos y puntos de conexión](enterprise-state-roaming-windows-settings-reference.md) para información detallada sobre qué dispositivos se admiten para la sincronización basada en Azure AD.
 
-| Name | DESCRIPCIÓN |
+| NOMBRE | DESCRIPCIÓN |
 | --- | --- |
 | Permitir la conexión con una cuenta de Microsoft |Permite a los usuarios autenticarse con una cuenta de Microsoft en el dispositivo. |
 | Permitir la sincronización de mi configuración |Permite a los usuarios usar un perfil itinerante para la configuración de Windows y los datos de la aplicación; si deshabilita esta directiva se deshabilitará la sincronización, así como las copias de seguridad en dispositivos móviles |
@@ -43,7 +43,7 @@ La configuración de directiva de grupo se aplica a dispositivos de Windows 10 q
 
 Esta configuración se encuentran en: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Name | DESCRIPCIÓN |
+| NOMBRE | DESCRIPCIÓN |
 | --- | --- |
 | Cuentas: Bloquear cuentas Microsoft |Esta configuración de directiva impide a los usuarios agregar nuevas cuentas de Microsoft en este equipo. |
 | No sincronizar |Impide a los usuarios usar un perfil itinerante para los datos de la aplicación y la configuración de Windows. |

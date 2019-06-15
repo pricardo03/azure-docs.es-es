@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60579969"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
@@ -51,7 +51,7 @@ El proyecto va a usar algunas bibliotecas de Azure contenidas en paquetes NuGet.
 1. Haga clic en el menú **Herramientas**, **Administrador de paquetes NuGet** y, después, en **Consola del Administrador de paquetes**.
    
     ![Administrar paquetes NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. En la Consola del Administrador de paquetes, ejecute el siguiente comando para instalar la **biblioteca de autenticación de Active Directory (ADAL)**:
+2. En la Consola del Administrador de paquetes, ejecute el siguiente comando para instalar la **biblioteca de autenticación de Active Directory (ADAL)** :
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Ejecute lo siguiente para instalar la **biblioteca de administración de Azure CDN**:
@@ -73,7 +73,7 @@ Escribamos la estructura básica del programa.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Necesitamos definir algunas constantes que los métodos van a usar.  En la clase `Program`, pero antes del método `Main`, agregue lo siguiente.  Asegúrese de reemplazar los marcadores de posición (incluidos los **&lt;corchetes angulares&gt;**) con sus propios valores según sea necesario.
+2. Necesitamos definir algunas constantes que los métodos van a usar.  En la clase `Program`, pero antes del método `Main`, agregue lo siguiente.  Asegúrese de reemplazar los marcadores de posición (incluidos los **&lt;corchetes angulares&gt;** ) con sus propios valores según sea necesario.
    
     ```csharp
     //Tenant app constants

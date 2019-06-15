@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60865531"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Ejecución de una exploración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
@@ -55,7 +55,7 @@ Al ejecutar una conmutación por error de prueba se le pide que seleccione la co
 
 - La red de prueba no tiene por qué coincidir con el tipo de red lógica de VMM usado para la conmutación por error de prueba. En cambio, algunas combinaciones no funcionan:
 
-     - Si la réplica utiliza DHCP y aislamiento basado en VLAN, la red de máquina virtual para la réplica no necesita un grupo de direcciones IP estáticas. Por lo tanto, el uso de la virtualización de red de Windows para la conmutación por error de prueba no funcionaría, ya que no hay grupos de direcciones disponibles.   
+     - Si la réplica utiliza DHCP y aislamiento basado en VLAN, la red de máquina virtual para la réplica no necesita un grupo de direcciones IP estáticas. Por lo tanto, el uso de la virtualización de red de Windows para la conmutación por error de prueba no funcionaría, ya que no hay grupos de direcciones disponibles. 
         
      - La conmutación por error de prueba no funcionará si la red de réplica no tiene aislamiento y la red de prueba utiliza la virtualización de red de Windows. Esto se debe a que una red sin aislamiento no tiene las subredes necesarias para crear una red de virtualización de red de Windows.
         

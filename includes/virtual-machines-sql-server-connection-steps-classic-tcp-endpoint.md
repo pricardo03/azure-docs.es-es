@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165510"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Creación de un extremo TCP para la máquina virtual
@@ -19,7 +19,7 @@ Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener u
 > 
 > 
 
-1. En Azure Portal, seleccione **Máquinas virtuales (clásico)**.
+1. En Azure Portal, seleccione **Máquinas virtuales (clásico)** .
 2. Luego seleccione la máquina virtual de SQL Server.
 3. Seleccione **Puntos de conexión** y, después, haga clic en el botón **Agregar** de la parte superior de la hoja Puntos de conexión.
    

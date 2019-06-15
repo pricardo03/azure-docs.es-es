@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488946"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
@@ -165,7 +165,7 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 - Cada nodo de Integration Runtime debe confiar en este certificado, así como en el equipo cliente que ejecuta la aplicación del Administrador de credenciales. 
   > [!NOTE]
   > La aplicación del Administrador de credenciales se usa al configurar de forma segura las credenciales en el Asistente para copia o en Azure Portal. Además, puede activarse en cualquier equipo que se encuentre en la misma red que el almacén de datos local o privado.
-- Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar ***.domain.contoso.com** como nombre del firmante del certificado.
+- Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar * **.domain.contoso.com** como nombre del firmante del certificado.
 - No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com**, pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
 - Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
 - El certificado que usa claves CNG no es compatible.
@@ -186,9 +186,9 @@ Puede habilitar la **Configuración avanzada** en la página **Puerta de enlace*
 
 Propiedad de supervisión | DESCRIPCIÓN
 :------------------ | :---------- 
-Name | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace.  
+NOMBRE | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace.  
 Status | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status). 
-Version | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). 
+Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). 
 Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
 Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
 Redes (Entrada/Salida) | Uso de red de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 

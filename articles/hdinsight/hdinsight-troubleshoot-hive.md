@@ -8,10 +8,10 @@ ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
 ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712481"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solución de problemas de Apache Hive mediante Azure HDInsight
@@ -170,7 +170,7 @@ Hay dos maneras de recopilar los datos de DAG de Tez.
 [Conexión a través de SSH con HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Otras referencias
 [Solución de problemas mediante Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 

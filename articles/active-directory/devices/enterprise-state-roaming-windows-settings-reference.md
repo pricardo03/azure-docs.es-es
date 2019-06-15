@@ -18,10 +18,10 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353260"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
@@ -32,10 +32,10 @@ Consulte la tabla siguiente para ver un resumen de los dispositivos y tipos de c
 
 | Tipo de cuenta y operación | Escritorio | Móvil |
 | --- | --- | --- |
-| Azure Active Directory: sincronización |Sí |Sin  |
-| Azure Active Directory: copia de seguridad/restauración |Sin  |Sin  |
+| Azure Active Directory: sincronización |Sí |Sin |
+| Azure Active Directory: copia de seguridad/restauración |Sin |Sin |
 | Cuenta de Microsoft: sincronización |Sí |Sí |
-| Cuenta de Microsoft: copia de seguridad/restauración |Sin  |Sí |
+| Cuenta de Microsoft: copia de seguridad/restauración |Sin |Sí |
 
 ## <a name="what-is-backup"></a>¿Qué es una copia de seguridad?
 La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. La característica Backup está destinada solo para dispositivos móviles y no está disponible actualmente para los usuarios de Enterprise State Roaming. Backup utiliza una cuenta Microsoft y almacena la configuración y los datos de aplicación en OneDrive. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.
@@ -76,7 +76,7 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Lista de aplicaciones**: lista de aplicaciones instaladas |X |backup |Otros |
 | **Bluetooth**: toda la configuración de Bluetooth |X |X | |
 | **Símbolo del sistema**: configuración de los "valores predeterminados" del símbolo del sistema |sync |X |interno |
-| **Credenciales**: Caja de seguridad de credenciales |sync |sync |password |
+| **Credenciales**: Caja de seguridad de credenciales |sync |sync |contraseña |
 | **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |language |
 | **Fecha, hora y región**: formato de 24 horas |sync |X |language |
 | **Fecha, hora y región**: fecha y hora |sync |X |language |

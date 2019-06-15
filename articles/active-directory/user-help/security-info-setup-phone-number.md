@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60475000"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configuración de la información de seguridad (versión preliminar) para usar llamadas de teléfono
@@ -86,11 +86,11 @@ Si desea que las llamadas de teléfono sean el método predeterminado usado al i
 
     ![Cambio de vínculo del método de inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Seleccione **Teléfono: llamada (*_su_número_de_teléfono_*)** en la lista desplegable de métodos disponibles y, a continuación, seleccione **Confirmar**.
+2. Seleccione **Teléfono: llamada ( *_su_número_de_teléfono_* )** en la lista desplegable de métodos disponibles y, a continuación, seleccione **Confirmar**.
 
     ![Elección de método para el inicio de sesión predeterminado](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    El método predeterminado usado para el inicio de sesión se cambia en **Teléfono: llamada (*_su_número_de_teléfono_*)**.
+    El método predeterminado usado para el inicio de sesión se cambia en **Teléfono: llamada ( *_su_número_de_teléfono_* )** .
 
 ## <a name="additional-security-info-methods"></a>Métodos de información de seguridad adicionales
 Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:

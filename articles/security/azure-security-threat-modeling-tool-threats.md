@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611560"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Amenazas de Microsoft Threat Modeling Tool
 
 Threat Modeling Tool es un elemento básico del Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft. Permite a los arquitectos de software identificar y mitigar los posibles problemas de seguridad en una fase temprana, cuando son relativamente sencillos y poco costosos de resolver. En consecuencia, reduce en gran medida el costo total de desarrollo. Además, hemos diseñado la herramienta pensando en expertos no relacionados con la seguridad, lo que facilita el modelado de amenazas para todos los programadores, ya que se proporcionan instrucciones claras sobre cómo crear y analizar los modelos de amenazas.
 
-> Visite **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)**.
+> Visite **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** .
 
 La Herramienta de modelado de amenazas le ayuda a dar respuesta a determinadas preguntas como las siguientes:
 

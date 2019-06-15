@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: fmegen
 ms.openlocfilehash: f34504dddaa21cc162476d1fdb462e7be5c48629
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60697920"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Acerca de Audio Input Stream API del SDK de Voz
@@ -59,7 +59,7 @@ Al usar flujos de entrada de audio, son necesarios los pasos siguientes:
    };
   ```
 
-- Cree una configuración de audio según el formato y el flujo de entrada del audio. Pase la configuración de voz normal y la configuración de entrada de audio cuando se cree el reconocedor. Por ejemplo: 
+- Cree una configuración de audio según el formato y el flujo de entrada del audio. Pase la configuración de voz normal y la configuración de entrada de audio cuando se cree el reconocedor. Por ejemplo:
 
   ```
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

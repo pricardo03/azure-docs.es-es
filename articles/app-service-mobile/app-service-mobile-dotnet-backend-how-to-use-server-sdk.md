@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119521"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps
@@ -51,9 +51,9 @@ De nuevo en la hoja *Comenzar*, en **Create a table API** (Crear una API de tabl
 
 Instale la carga de trabajo de Azure mediante el instalador de Visual Studio para publicar en el proyecto de Azure Mobile Apps desde Visual Studio. Una vez haya instalado el SDK, cree una aplicación de ASP.NET mediante los siguientes pasos:
 
-1. Abra el cuadro de diálogo **Nuevo proyecto** (desde **Archivo** > **Nuevo** > **Proyecto...**).
+1. Abra el cuadro de diálogo **Nuevo proyecto** (desde **Archivo** > **Nuevo** > **Proyecto...** ).
 2. Expanda **Visual C#** y seleccione **Web**.
-3. Seleccione **Aplicación web ASP.NET (.NET Framework)**.
+3. Seleccione **Aplicación web ASP.NET (.NET Framework)** .
 4. Rellene el nombre del proyecto. A continuación, haga clic en **Aceptar**.
 5. Seleccione **Azure Mobile App** en la lista de plantillas.
 6. Haga clic en **Aceptar** para crear la solución.
@@ -64,7 +64,7 @@ Instale la carga de trabajo de Azure mediante el instalador de Visual Studio par
 
 Para crear un proyecto de Azure Mobile Apps en Visual Studio, instale la versión 2.9.0 o posterior de [Azure SDK para .NET][4]. Una vez haya instalado el SDK, cree una aplicación de ASP.NET mediante los siguientes pasos:
 
-1. Abra el cuadro de diálogo **Nuevo proyecto** (desde **Archivo** > **Nuevo** > **Proyecto...**).
+1. Abra el cuadro de diálogo **Nuevo proyecto** (desde **Archivo** > **Nuevo** > **Proyecto...** ).
 2. Expanda **Plantillas** > **Visual C#** y seleccione **Web**.
 3. Seleccione **Aplicación web ASP.NET**.
 4. Rellene el nombre del proyecto. A continuación, haga clic en **Aceptar**.
@@ -104,7 +104,7 @@ Para habilitar características individuales, debe llamar a los métodos de exte
         .MapApiControllers()
         .ApplyTo(config);
 
-El inicio rápido de servidor desde el Portal de Azure llama a **UseDefaultConfiguration()**. Es equivalente a la siguiente configuración:
+El inicio rápido de servidor desde el Portal de Azure llama a **UseDefaultConfiguration()** . Es equivalente a la siguiente configuración:
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -166,7 +166,7 @@ Defina un controlador de tabla para exponer una tabla de SQL para clientes móvi
 2. Configuración de una referencia de tabla en la clase Mobile DbContext.
 3. Creación de un controlador de tabla.
 
-Un objeto de transferencia de datos (DTO) es un objeto de C# simple heredado de `EntityData`.  Por ejemplo: 
+Un objeto de transferencia de datos (DTO) es un objeto de C# simple heredado de `EntityData`.  Por ejemplo:
 
     public class TodoItem : EntityData
     {
@@ -197,7 +197,7 @@ El objeto DTO se utiliza para definir la tabla en SQL Database.  Para crear la e
 
 Si tiene instalado Azure SDK, ahora puede crear un controlador de tabla de la plantilla como sigue:
 
-1. Haga clic con el botón derecho en la carpeta Controladores y seleccione **Agregar** > **Controlador...**.
+1. Haga clic con el botón derecho en la carpeta Controladores y seleccione **Agregar** > **Controlador...** .
 2. Seleccione la opción **Controlador de tabla de Azure Mobile Apps** y haga clic en **Agregar**.
 3. En el cuadro de diálogo **Agregar controlador** :
    * En la lista desplegable **Clase de modelo** , seleccione el nuevo DTO.

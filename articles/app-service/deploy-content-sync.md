@@ -15,10 +15,10 @@ ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
 ms.openlocfilehash: 65f372196671e95f7d9af7f47011e9ca1f9de316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769657"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronización de contenido de una carpeta de nube a Azure App Service

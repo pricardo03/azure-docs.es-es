@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: df7866d4f87f55523e8139232e48d81cb17c80e4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62117340"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
@@ -45,7 +45,7 @@ StorSimple Cloud Appliance está disponible en dos modelos, el 8010 estándar (a
 | **Capacidad máxima** |30 TB |64 TB |
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria)| Standard_DS3 (4 núcleos, 14 GB de memoria)|
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br>Use [esta lista](https://azure.microsoft.com/regions/services/) para ver si las dos opciones **Virtual Machines > Serie DS** y **Storage > Almacenamiento en disco** están disponibles en su región. |
-| **Tipo de almacenamiento** |Azure Standard Storage para discos locales <br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br> |
+| **Tipo de almacenamiento** |Azure Standard Storage para discos locales<br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br> |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas de la nube <br></br>Baja latencia y cargas de trabajo de rendimiento más elevado<br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup>*Anteriormente conocido como 1100*.

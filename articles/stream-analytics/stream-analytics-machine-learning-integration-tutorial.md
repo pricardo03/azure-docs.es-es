@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480815"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Análisis de opiniones mediante Azure Stream Analytics y Azure Machine Learning
@@ -175,7 +175,7 @@ En esta sección del tutorial se define una función en el trabajo de Stream Ana
 
 1. Asegúrese de que tiene la dirección URL y la clave de API del servicio web que ha descargado anteriormente en el libro de Excel.
 
-2. Vaya a la hoja de trabajo > **Funciones** > **+ Agregar** > **AzureML**.
+2. Vaya a la hoja de trabajo > **Funciones** >  **+ Agregar** > **AzureML**.
 
 3. Rellene la hoja **Función de Azure Machine Learning** con estos valores:
 

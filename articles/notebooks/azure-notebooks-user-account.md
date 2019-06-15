@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
 ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632149"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Su cuenta de usuario de Azure Notebooks
@@ -43,7 +43,7 @@ Si no está seguro, seleccione el comando **Crear una** en el símbolo del siste
 ![Comando para crear una nueva cuenta de Microsoft](media/accounts/create-new-microsoft-account.png)
 
 > [!Note]
-> Si intenta crear una nueva cuenta con una dirección de correo electrónico que ya tiene una cuenta asociada con él, es posible que vea el mensaje "no se puede iniciar sesión aquí con un trabajo o una dirección de correo electrónico escolar. Utilizar un correo electrónico personal, como Gmail o Yahoo!, u obtenga un nuevo correo electrónico de Outlook." En ese caso, intente iniciar sesión con la dirección de correo electrónico de trabajo sin necesidad de crear una nueva cuenta.
+> Si intenta crear una nueva cuenta con una dirección de correo electrónico que ya tiene una cuenta asociada a ella, aparecerá el mensaje "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (No se puede iniciar sesión aquí con una dirección de correo electrónico profesional o educativa. Use un correo personal como Gmail o Yahoo! u obtenga un nuevo correo de Outlook). En ese caso, intente iniciar sesión con la dirección de correo electrónico del trabajo sin necesidad de crear una nueva cuenta.
 
 Para cuentas de menores, el acceso a Azure Notebooks se bloquea por defecto. Al iniciar sesión con una cuenta de un menor, se muestra el error siguiente:
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 731102037b596091b80fbdfa02a8ff3c111b556e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60707081"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adición de un firewall de próxima generación en Azure Security Center
@@ -54,7 +54,7 @@ Vuelva a la hoja **Recomendaciones** . Después de agregar un NGFW a través de 
    ![Configuración de reglas para limitar el acceso][9]
    ![Editar regla de entrada][10]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este documento se muestra cómo implementar la recomendación de Azure Security Center de agregar un firewall de próxima generación. Para obtener más información sobre los NGF y las soluciones de punto de comprobación de asociados, consulte los siguientes recursos:
 
 * [Firewall de próxima generación](https://en.wikipedia.org/wiki/Next-Generation_Firewall)

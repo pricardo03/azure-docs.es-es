@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473746"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creación de una máquina virtual Linux con la CLI de Azure clásica
@@ -50,7 +50,7 @@ En el tutorial siguiente, se implementa, paso a paso, una máquina virtual Ubunt
 
 Una forma rápida de elegir una distribución es usar los alias de la CLI de Azure asignados a las distribuciones de sistemas operativos más comunes. En la siguiente tabla se enumeran los alias (desde la versión 0.10 de la CLI de Azure). Todas las implementaciones que usan `quick-create` utilizan de forma predeterminada las máquinas virtuales que están respaldadas por el almacenamiento en una unidad de estado sólido (SSD), lo que proporciona un aprovisionamiento más rápido y un acceso al disco de alto rendimiento. (Estos alias representan una mínima parte de las distribuciones disponibles en Azure. Para encontrar más imágenes en Azure Marketplace, [busque una imagen en PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), búsquela [en la Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) o [cargue su propia imagen personalizada](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
-| Alias | Publicador | Oferta | SKU | `Version` |
+| Alias | Publicador | Oferta | SKU | Versión |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7,2 |más reciente |
 | CoreOS |CoreOS |CoreOS |Stable |más reciente |
@@ -67,7 +67,7 @@ En el anterior ejemplo `quick-create` solo se llama a la marca `-M` para identif
 * Nombre de la máquina virtual
 * Ubicación (`westus` o `westeurope` son valores predeterminados adecuados).
 * Linux (para informar a Azure qué sistema operativo desea).
-* username
+* nombre de usuario
 
 En el ejemplo siguiente se especifican todos los valores para que no sea necesaria ninguna otra solicitud. Siempre que tenga un archivo de clave pública `~/.ssh/id_rsa.pub` con formato ssh-rsa, funciona tal cual:
 

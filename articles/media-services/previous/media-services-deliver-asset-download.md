@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465667"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Procedimientos para: Entrega de un recurso mediante descarga  
@@ -87,6 +87,6 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Media S
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [contenido por secuencias](media-services-deliver-streaming-content.md)
 

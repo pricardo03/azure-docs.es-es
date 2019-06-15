@@ -17,10 +17,10 @@ ms.date: 07/12/2017
 ms.author: danlep
 ms.subservice: disks
 ms.openlocfilehash: 7d5b2d2ee7e7320fb8bf91c8a62a0f46c403c977
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60328772"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Traslado de archivos a una máquina virtual Linux o desde ella mediante SCP
@@ -57,7 +57,7 @@ Para más información acerca de cómo configurar las claves públicas y privada
 
 Para el primer ejemplo, copiamos un archivo de configuración de Azure en una máquina virtual Linux que se usa para implementar la automatización. Como este archivo contiene las credenciales de la API de Azure, que incluyen secretos, la seguridad es importante. El túnel cifrado proporcionado por SSH protege el contenido del archivo.
 
-El comando siguiente copia el archivo *.azure/config* local a una máquina virtual de Azure con el FQDN de *myserver.eastus.cloudapp.azure.com*. El nombre de usuario administrador en la máquina virtual de Azure es *azureuser*. El archivo está dirigido al directorio */home/azureuser/*. Sustituya sus valores propios en este comando.
+El comando siguiente copia el archivo *.azure/config* local a una máquina virtual de Azure con el FQDN de *myserver.eastus.cloudapp.azure.com*. El nombre de usuario administrador en la máquina virtual de Azure es *azureuser*. El archivo está dirigido al directorio */home/azureuser/* . Sustituya sus valores propios en este comando.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

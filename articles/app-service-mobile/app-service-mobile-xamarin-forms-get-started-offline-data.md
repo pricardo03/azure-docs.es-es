@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
 ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127886"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilitación de la sincronización sin conexión para la aplicación móvil Xamarin.Forms
@@ -45,7 +45,7 @@ Se incluye el código de sincronización sin conexión en el proyecto mediante e
    * **Plataforma universal de Windows**: instale [SQLite para la plataforma universal de Windows][5].
 
      Aunque el tutorial rápido no contiene un proyecto de Windows universal, la plataforma de Windows universal es compatible con Xamarin Forms.
-4. (Opcional) En cada proyecto de aplicación de Windows, haga clic con el botón derecho en **Referencias** > **Agregar referencia...**, amplíe la carpeta **Windows** > **Extensiones**.
+4. (Opcional) En cada proyecto de aplicación de Windows, haga clic con el botón derecho en **Referencias** > **Agregar referencia...** , amplíe la carpeta **Windows** > **Extensiones**.
     Habilite el SDK de **SQLite para Windows** junto con el SDK **Visual C++ 2013 Runtime para Windows**.
     Los nombres de SDK de SQLite varían ligeramente con cada plataforma de Windows.
 

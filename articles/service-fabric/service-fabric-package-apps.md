@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718382"
 ---
 # <a name="package-an-application"></a>Empaquetar una aplicación
@@ -54,7 +54,7 @@ Las carpetas reciben un nombre para coincidir con los atributos **Nombre** de ca
 
 ## <a name="use-setupentrypoint"></a>Usar SetupEntrypoint
 
-Los escenarios de uso de **SetupEntryPoint** habituales corresponden a cuando se necesita ejecutar un archivo ejecutable antes de iniciar el servicio o cuando necesita realizar una operación con privilegios elevados. Por ejemplo: 
+Los escenarios de uso de **SetupEntryPoint** habituales corresponden a cuando se necesita ejecutar un archivo ejecutable antes de iniciar el servicio o cuando necesita realizar una operación con privilegios elevados. Por ejemplo:
 
 * configuración e inicialización de las variables de entorno que el ejecutable del servicio necesita. No se limita tan solo a los archivos ejecutables escritos a través de los modelos de programación de Service Fabric. Por ejemplo, npm.exe necesita algunas variables de entorno configuradas para implementar una aplicación node.js.
 * Configuración del control de acceso mediante la instalación de certificados de seguridad.

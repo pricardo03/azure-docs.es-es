@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: b65bcfa5252a150c8101322eaf6d84ce46eef755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546359"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copia de datos de Oracle Service Cloud con Azure Data Factory (versión preliminar)
@@ -46,11 +46,11 @@ Las propiedades siguientes son compatibles con el servicio vinculado de Oracle S
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **OracleServiceCloud** | Sí |
 | host | Dirección URL de la instancia de Oracle Service Cloud.  | Sí |
-| username | Nombre de usuario que se usa para acceder al servidor de Oracle Service Cloud.  | Sí |
-| password | Contraseña correspondiente al nombre de usuario que ha proporcionado en la clave de nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
-| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
-| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
-| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
+| nombre de usuario | Nombre de usuario que se usa para acceder al servidor de Oracle Service Cloud.  | Sí |
+| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en la clave de nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin |
+| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
 
 **Ejemplo:**
 
@@ -83,7 +83,7 @@ Para copiar datos de Oracle Service Cloud, establezca la propiedad type del conj
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **OracleServiceCloudObject** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **OracleServiceCloudObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -113,7 +113,7 @@ Para copiar datos desde Oracle Service Cloud, establezca el tipo de origen de la
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleServiceCloudSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleServiceCloudSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

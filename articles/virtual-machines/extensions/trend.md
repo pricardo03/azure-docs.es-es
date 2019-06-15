@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
 ms.openlocfilehash: d7808fbff0199105a12c0570807876413d5c98c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800097"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure

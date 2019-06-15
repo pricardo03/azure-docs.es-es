@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f86931aad4eab697e4a0d2dfc47a6d4ff5bfc256
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401219"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar datos de Impala con Azure Data Factory (versión preliminar)
@@ -44,18 +44,18 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Impala:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe estar establecida en **Impala**. | Sí |
+| Tipo | La propiedad type debe estar establecida en **Impala**. | Sí |
 | host | La dirección IP o el nombre de host del servidor de Impala (es decir, 192.168.222.160).  | Sí |
-| port | Puerto TCP que el servidor de Impala usa para escuchar las conexiones del cliente. El valor predeterminado es 21050.  | Sin  |
+| puerto | Puerto TCP que el servidor de Impala usa para escuchar las conexiones del cliente. El valor predeterminado es 21050.  | Sin |
 | authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Anonymous**, **SASLUsername** y **UsernameAndPassword**. | Sí |
-| username | Nombre de usuario que se usa para acceder al servidor de Impala. El valor predeterminado es anonymous cuando se usa SASLUsername.  | Sin  |
-| password | La contraseña que se corresponde con el nombre de usuario cuando se usa UsernameAndPassword. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
-| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es **false**.  | Sin  |
-| trustedCertPath | La ruta de acceso completa del archivo .pem que contiene certificados de entidad de certificación de confianza usados para comprobar el servidor cuando se conecta a través de SSL. Esta propiedad solo puede establecerse cuando se usa SSL en Integration Runtime autohospedado. El valor predeterminado es el archivo cacerts.pem instalado con Integration Runtime.  | Sin  |
-| useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es **false**.  | Sin  |
-| allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado SSL emitido por una entidad de certificación coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es **false**.  | Sin  |
-| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es **false**.  | Sin  |
-| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+| nombre de usuario | Nombre de usuario que se usa para acceder al servidor de Impala. El valor predeterminado es anonymous cuando se usa SASLUsername.  | Sin |
+| contraseña | La contraseña que se corresponde con el nombre de usuario cuando se usa UsernameAndPassword. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
+| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es **false**.  | Sin |
+| trustedCertPath | La ruta de acceso completa del archivo .pem que contiene certificados de entidad de certificación de confianza usados para comprobar el servidor cuando se conecta a través de SSL. Esta propiedad solo puede establecerse cuando se usa SSL en Integration Runtime autohospedado. El valor predeterminado es el archivo cacerts.pem instalado con Integration Runtime.  | Sin |
+| useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es **false**.  | Sin |
+| allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado SSL emitido por una entidad de certificación coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es **false**.  | Sin |
+| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es **false**.  | Sin |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 **Ejemplo:**
 
@@ -90,7 +90,7 @@ Para copiar datos de Impala, establezca la propiedad type del conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos se debe establecer en: **ImpalaObject** | Sí |
+| Tipo | La propiedad type del conjunto de datos se debe establecer en: **ImpalaObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -119,7 +119,7 @@ Para copiar datos de Impala, establezca el tipo de origen de la actividad de cop
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en **ImpalaSource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **ImpalaSource**. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

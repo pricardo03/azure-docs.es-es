@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605311"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Análisis de contenido de vídeo para detectar material inapropiado en C#
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Si quiere usar un archivo de vídeo local (caso más sencillo), agréguelo al proyecto y escriba su ruta de acceso como el valor `INPUT_FILE` (las rutas de acceso relativas son relativas al directorio de ejecución).
 
-También deberá crear el archivo _preset.json_ en el directorio actual y usarlo para especificar un número de versión. Por ejemplo: 
+También deberá crear el archivo _preset.json_ en el directorio actual y usarlo para especificar un número de versión. Por ejemplo:
 
 ```JSON
 {

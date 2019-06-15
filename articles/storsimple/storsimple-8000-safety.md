@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631688"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar y operar el dispositivo StorSimple de forma segura
@@ -52,7 +52,7 @@ Para reducir el riesgo de lesiones:
 * No levante el alojamiento por las asas de los módulos de alimentación y refrigeración (PCM) ubicadas en la parte posterior de la unidad. No están diseñadas para soportar el peso.
 
 ## <a name="connection-precautions"></a>Precauciones en la conexión
-![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**¡ADVERTENCIA**
+![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **¡ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
@@ -62,7 +62,7 @@ Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 * Asegúrese siempre de que la conexión de alimentación está desconectada antes de extraer un PCM del alojamiento.
 * Dado que el enchufe del cable de la fuente de alimentación es el dispositivo de desconexión principal, asegúrese de que los enchufes están ubicados cerca del equipo y que se pueden acceder con facilidad.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**¡ADVERTENCIA**
+![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **¡ADVERTENCIA**
 
 Para reducir la probabilidad de sobrecalentamiento o de incendio de las conexiones eléctricas:
 

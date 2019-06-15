@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
 ms.openlocfilehash: bcece64a85a69c705b0f7f915dafe29123a2cd4a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128371"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificación de una conexión de VPN Gateway
 
 En este artículo se muestra cómo comprobar una conexión de puerta de enlace de VPN para los modelos de implementación clásico y de Resource Manager.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

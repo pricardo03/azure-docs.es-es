@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165477"
 ---
 En este paso, se creará una regla de firewall para abrir el puerto de sondeo para el punto de conexión de carga equilibrada (59999, como se especificó anteriormente) y otra regla para abrir el puerto de escucha del grupo de disponibilidad. Como se creó el punto de conexión de carga equilibrada en las máquinas virtuales que contienen réplicas del grupo de disponibilidad, será necesario abrir el puerto de sondeo y el puerto de escucha en las respectivas máquinas virtuales.

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
 ms.openlocfilehash: f6914a9894db07a40b372a8c247a7623c3957d86
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692424"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal
@@ -43,7 +43,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
-    |Location| Seleccione **Este de EE. UU**.|
+    |Ubicación| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
 5. En **Configuración**, seleccione **Dirección IP pública**.

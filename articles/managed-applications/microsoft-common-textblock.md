@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0dcd8ba1b1bacd990c91ce90ef0013caac446cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64722551"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.TextBlock
 Un control que se puede usar para agregar texto a la interfaz del portal.

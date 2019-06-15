@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861861"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de eventos de Azure Event Grid para Azure Maps
@@ -133,7 +133,7 @@ Se devuelve el objeto ErrorDetails cuando se produce un error en la API de Maps.
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| code | string | El código de estado HTTP. |
+| código | string | El código de estado HTTP. |
 | message | string | Si está disponible, una descripción legible del error. |
 | innererror | InnerError | Si está disponible, un objeto que contiene información específica del servicio sobre el error. |
 
@@ -141,7 +141,7 @@ InnerError es un objeto que contiene información específica del servicio sobre
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| code | string | El mensaje de error. |
+| código | string | El mensaje de error. |
 
 El objeto "geometries" muestra los identificadores de geometría de las geovallas que han expirado en relación con la hora que especificó el usuario en la solicitud. El objeto "geometries" tiene elementos de geometría con las siguientes propiedades: 
 

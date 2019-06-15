@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: cc298eb8757ec4b3aa968c0790b72e24cc3d1143
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699532"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>Escenarios comunes de Colección de áreas de trabajo de Power BI
@@ -28,7 +28,7 @@ Estos son algunos escenarios para usar **Colecciones de áreas de trabajo de Pow
 * Los clientes y proveedores de software independiente que crean aplicaciones de acceso al cliente, pueden usar el servicio **Colección de áreas de trabajo de Power BI** y Power BI SDK para insertar informes interactivos. Para saber cómo, lea [Introducción a Colecciones de áreas de trabajo de Power BI](get-started.md).
 * Como desarrollador, puede usar el marco de trabajo de visualización de Power BI para crear visualizaciones personalizadas que pueden usarse en su propia aplicación. Consulte [Amplíe Power BI con elementos visuales personalizados](https://powerbi.microsoft.com/custom-visuals/).
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Otras referencias
 
 * [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)
 * [Get started sample (Ejemplo de introducción)](get-started-sample.md)

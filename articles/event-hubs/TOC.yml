@@ -22,6 +22,7 @@
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
         - name: Plantilla del Administrador de recursos de Azure
+          displayName: ARM
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Envío y recepción de eventos
       items:

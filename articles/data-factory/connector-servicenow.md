@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60203421"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copia de datos de ServiceNow con Azure Data Factory
@@ -42,15 +42,15 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **ServiceNow** | Sí |
-| endpoint | El punto de conexión del servidor de ServiceNow (`http://<instance>.service-now.com`).  | Sí |
+| punto de conexión | El punto de conexión del servidor de ServiceNow (`http://<instance>.service-now.com`).  | Sí |
 | authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2** | Sí |
-| username | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | Sí |
-| password | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| clientId | Id. de cliente para la autenticación OAuth2.  | Sin  |
-| clientSecret | Secreto de cliente para la autenticación OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
-| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
-| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
-| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
+| nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | Sí |
+| contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| clientId | Id. de cliente para la autenticación OAuth2.  | Sin |
+| clientSecret | Secreto de cliente para la autenticación OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
+| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin |
+| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
 
 **Ejemplo:**
 
@@ -80,7 +80,7 @@ Para copiar datos de ServiceNow, establezca la propiedad type del conjunto de da
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **ServiceNowObject** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **ServiceNowObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -109,7 +109,7 @@ Para copiar datos de ServiceNow, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **ServiceNowSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ServiceNowSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Actual.alm_asset"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 Tenga en cuenta lo siguiente cuando especifique el esquema y la columna para ServiceNow en la consulta, y **consulte los [consejos de rendimiento](#performance-tips) en la implicación de rendimiento de copia**.
@@ -117,7 +117,7 @@ Tenga en cuenta lo siguiente cuando especifique el esquema y la columna para Ser
 - **Esquema:** especifica el esquema como `Actual` o `Display` en la consulta de ServiceNow, que puede considerar como el parámetro de `sysparm_display_value` verdadero o falso al llamar a las [API Restful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Columna:** el nombre de columna del valor real del esquema `Actual` es `[column name]_value`, mientras que el valor de visualización del esquema `Display` es `[column name]_display_value`. Tenga en cuenta que el nombre de columna se debe asignar al esquema que se usa en la consulta.
 
-**Consulta de ejemplo:**
+**Consulta de ejemplo:** 
 `SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
@@ -156,7 +156,7 @@ Tenga en cuenta lo siguiente cuando especifique el esquema y la columna para Ser
 
 ### <a name="schema-to-use"></a>Esquema que se va a usar
 
-ServiceNow tiene dos esquemas diferentes: uno se denomina **"Real"**, ya que devuelve los datos reales y el otro se denomina **"Mostrar"**, ya que devuelve los valores de visualización de datos. 
+ServiceNow tiene dos esquemas diferentes: uno se denomina **"Real"** , ya que devuelve los datos reales y el otro se denomina **"Mostrar"** , ya que devuelve los valores de visualización de datos. 
 
 Si tiene un filtro en su consulta, use el esquema "Real" que tenga un mejor rendimiento de copia. Al realizar una consulta con el esquema "Real", ServiceNow admite de forma nativa el filtro al obtener los datos que usará para devolver solo el conjunto de resultados filtrado; asimismo, al consultar el esquema "Mostrar", ADF recupera todos los datos y aplica el filtro internamente.
 

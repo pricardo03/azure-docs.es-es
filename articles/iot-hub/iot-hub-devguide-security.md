@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400615"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
@@ -108,7 +108,7 @@ Cuando se usa SASL PLAIN con AMQP, un cliente que se conecta a una instancia de 
 
 ## <a name="scope-iot-hub-level-credentials"></a>Restricción de las credenciales de nivel de centro de IoT
 
-Puede restringir el ámbito de las directivas de seguridad de nivel de centro de IoT mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a nube desde un dispositivo es **/devices/{deviceId}/messages/events**. También puede usar una directiva de acceso compartido de nivel de centro de IoT con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}**. Este enfoque crea un token que solo se puede usar para enviar mensajes en nombre del **deviceId**del dispositivo.
+Puede restringir el ámbito de las directivas de seguridad de nivel de centro de IoT mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a nube desde un dispositivo es **/devices/{deviceId}/messages/events**. También puede usar una directiva de acceso compartido de nivel de centro de IoT con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}** . Este enfoque crea un token que solo se puede usar para enviar mensajes en nombre del **deviceId**del dispositivo.
 
 Se trata de un mecanismo similar a la [directiva de edición de Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab), que permite que se implementen métodos de autenticación personalizados.
 
@@ -134,7 +134,7 @@ El token de seguridad tiene el formato siguiente:
 
 Estos son los valores esperados:
 
-| Value | DESCRIPCIÓN |
+| Valor | DESCRIPCIÓN |
 | --- | --- |
 | {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
 | {resourceURI} |Prefijo del identificador URI (por segmento) de los puntos de conexión a los que se puede obtener acceso con este token, que comienza por un nombre de host de IoT Hub (sin protocolo) Por ejemplo: `myHub.azure-devices.net/devices/device1` |
