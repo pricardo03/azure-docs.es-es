@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146874"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++
@@ -35,7 +35,7 @@ La biblioteca de cliente de almacenamiento proporciona una variedad de métodos 
 Cada uno de estos métodos se muestra con diferentes sobrecargas para diferentes escenarios.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asincrónica frente sincrónica
-Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++](https://github.com/Microsoft/cpprestsdk), admitimos inherentemente operaciones asincrónicas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo: 
+Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++](https://github.com/Microsoft/cpprestsdk), admitimos inherentemente operaciones asincrónicas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

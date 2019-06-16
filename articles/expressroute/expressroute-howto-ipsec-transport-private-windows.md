@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367279"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configuración del modo de transporte de IPsec para emparejamiento privado de ExpressRoute
@@ -122,7 +122,7 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 
 ## <a name="filteraction"></a>3. Definición de la acción de filtrado IP
 
-1. En la lista desplegable, haga clic en **Directiva de seguridad de IP en Active Directory** y, a continuación, haga clic en **Administrar listas de filtros IP y acciones de filtrado...**.
+1. En la lista desplegable, haga clic en **Directiva de seguridad de IP en Active Directory** y, a continuación, haga clic en **Administrar listas de filtros IP y acciones de filtrado...** .
 
    [![15]][15]
 2. En la pestaña "**Administrar acciones de filtrado**", haga clic en **Agregar**.
@@ -141,7 +141,7 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 6. En la página **Comunicación con equipos no compatibles con IPsec**, seleccione **No permitir comunicación no segura** y, a continuación, haga clic en **Siguiente**.
 
    [![20]][20]
-7. En la página **Tráfico IP y seguridad**, seleccione **Personalizado** y, a continuación, haga clic en **Configuración...**.
+7. En la página **Tráfico IP y seguridad**, seleccione **Personalizado** y, a continuación, haga clic en **Configuración...** .
 
    [![21]][21]
 8. En la página **Configuración de método de seguridad personalizado**, seleccione **Integridad y cifrado de datos (ESP): SHA1, 3DES**. A continuación, haga clic en **Aceptar**.
@@ -158,13 +158,13 @@ Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto
 1. Para calificar qué tipos de tráfico deben cifrarse, utilice una **lista de filtros IP**. En la pestaña **Administrar listas de filtros IP**, haga clic en **Agregar** para agregar una nueva lista de filtros IP.
 
    [![24]][24]
-2. En el campo **Nombre:**, escriba un nombre para la lista de filtros IP. Por ejemplo, **azure-onpremises-HTTP8080**. A continuación, haga clic en **Agregar**.
+2. En el campo **Nombre:** , escriba un nombre para la lista de filtros IP. Por ejemplo, **azure-onpremises-HTTP8080**. A continuación, haga clic en **Agregar**.
 
    [![25]][25]
 3. En la página **Descripción de filtro IP y propiedad reflejada**, seleccione **Reflejado**. La configuración reflejada coincide con los paquetes en ambas direcciones, lo que permite la comunicación bidireccional. A continuación, haga clic en **Siguiente**.
 
    [![26]][26]
-4. En el página **Origen del tráfico IP**, en la lista desplegable **Dirección de origen:**, elija **Una dirección IP o subred específica**. 
+4. En el página **Origen del tráfico IP**, en la lista desplegable **Dirección de origen:** , elija **Una dirección IP o subred específica**. 
 
    [![27]][27]
 5. Especifique la dirección de origen **Dirección IP o subred:** del tráfico IP y, a continuación, haga clic en **Siguiente**.
@@ -176,7 +176,7 @@ Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto
 7. En la página **Tipo de protocolo IP**, seleccione **TCP**. A continuación, haga clic en **Siguiente**.
 
    [![30]][30]
-8. En la página **Puerto de protocolo IP**, seleccione **Desde cualquier puerto** y **A este puerto:**. Escriba **8080** en el cuadro de texto. Esta configuración especifica que solo se cifrará el tráfico HTTP en el puerto de destino 8080. A continuación, haga clic en **Siguiente**.
+8. En la página **Puerto de protocolo IP**, seleccione **Desde cualquier puerto** y **A este puerto:** . Escriba **8080** en el cuadro de texto. Esta configuración especifica que solo se cifrará el tráfico HTTP en el puerto de destino 8080. A continuación, haga clic en **Siguiente**.
 
    [![31]][31]
 9. Consulte la lista de filtros IP.  La configuración de la lista de filtros IP **azure-onpremises-HTTP8080** desencadena el cifrado de todo el tráfico que coincide con los criterios siguientes:

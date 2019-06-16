@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589748"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus
@@ -86,7 +86,7 @@ A continuación, el servicio escucha en ambos extremos y un cliente puede invoca
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
 
 * [Recuperación ante desastres con localización geográfica de Azure Service Bus](service-bus-geo-dr.md)
-* [Continuidad de negocio de SQL Database de Azure][Azure SQL Database Business Continuity]
+* [Continuidad de negocio de Azure SQL Database][Azure SQL Database Business Continuity]
 * [Diseño de aplicaciones resistentes de Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md

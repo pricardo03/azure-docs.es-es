@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311426"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adición de propietarios y usuarios en Azure DevTest Labs
@@ -40,19 +40,19 @@ En la tabla siguiente se muestran las acciones que pueden realizar los usuarios 
 | **Acciones que pueden realizar los usuarios de este rol** | **Usuario de DevTest Labs** | **Propietario** | **Colaborador** |
 | --- | --- | --- | --- |
 | **Tareas de laboratorio** | | | |
-| Agregar usuarios a un laboratorio |Sin  |Sí |Sin  |
-| Actualizar la configuración de costo |Sin  |Sí |Sí |
+| Agregar usuarios a un laboratorio |Sin |Sí |Sin |
+| Actualizar la configuración de costo |Sin |Sí |Sí |
 | **Tareas base de máquina virtual** | | | |
-| Agregar y quitar imágenes personalizadas |Sin  |Sí |Sí |
+| Agregar y quitar imágenes personalizadas |Sin |Sí |Sí |
 | Agregar, actualizar y eliminar las fórmulas |Sí |Sí |Sí |
-| Incluir en la lista de permitidos imágenes de Azure Marketplace |Sin  |Sí |Sí |
+| Incluir en la lista de permitidos imágenes de Azure Marketplace |Sin |Sí |Sí |
 | **Tareas de la máquina virtual** | | | |
 | Creación de máquinas virtuales |Sí |Sí |Sí |
 | Iniciar, detener y eliminar máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
-| Actualizar directivas de máquinas virtuales |Sin  |Sí |Sí |
+| Actualizar directivas de máquinas virtuales |Sin |Sí |Sí |
 | Agregar discos de datos o quitarlos en máquinas virtuales |Solo las máquinas virtuales creadas por el usuario |Sí |Sí |
 | **Tareas de artefacto** | | | |
-| Agregar y quitar repositorios de artefacto |Sin  |Sí |Sí |
+| Agregar y quitar repositorios de artefacto |Sin |Sí |Sí |
 | Aplicar artefactos |Sí |Sí |Sí |
 
 > [!NOTE]

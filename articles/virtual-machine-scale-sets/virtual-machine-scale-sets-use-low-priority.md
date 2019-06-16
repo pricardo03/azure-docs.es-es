@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
 ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803226"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Máquinas virtuales de prioridad baja en conjuntos de escalado (versión preliminar)
@@ -86,7 +86,7 @@ El proceso para crear un conjunto de escalado que usa máquinas virtuales de pri
 
 Para establecer la directiva de expulsión en eliminación, agregue el parámetro "evictionPolicy" y establézcalo en *Eliminar*.
 
-En el ejemplo siguiente se crea un conjunto de escalado de Linux de prioridad baja llamado *myScaleSet* en *Centro de EE. UU.*, que *elimina* las máquinas virtuales del conjunto de escalado tras su expulsión:
+En el ejemplo siguiente se crea un conjunto de escalado de Linux de prioridad baja llamado *myScaleSet* en *Centro de EE. UU.* , que *elimina* las máquinas virtuales del conjunto de escalado tras su expulsión:
 
 ```json
 {

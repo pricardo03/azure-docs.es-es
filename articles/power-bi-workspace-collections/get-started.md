@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: d1011a8fd8f181233be8e1fa27c3bfaea3d86141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685161"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introducción a las colecciones de áreas de trabajo de Power BI
@@ -107,7 +107,7 @@ Puede crear conjuntos de datos dentro de colecciones de áreas de trabajo de Pow
 
 Puede crear un informe a partir de un conjunto de datos directamente en la aplicación mediante la API de JavaScript. Para más información, consulte [Create a new report from a dataset in Power BI Workspace Collections](create-report-from-dataset.md) (Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823324"
 ---
 # <a name="understand-the-device-model-schema"></a>Descripción del esquema de modelo del dispositivo
@@ -163,11 +163,11 @@ Actualmente, solo se pueden utilizar los esquemas de mensaje JSON. Los campos en
 
 * Objeto: serializado mediante JSON
 * Binario: serializado mediante base64
-* Text
+* Texto
 * Boolean
-* Integer
+* Entero
 * Double
-* DateTime
+* Datetime
 
 Para enviar mensajes de telemetría en diferentes intervalos, agregue varios tipos de telemetría a la matriz `Telemetry`. En el ejemplo siguiente se envían datos de temperatura y humedad cada 10 segundos y el estado de la luz cada minuto:
 

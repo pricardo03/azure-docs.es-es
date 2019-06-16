@@ -9,10 +9,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235819"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
@@ -58,7 +58,7 @@ Incluso si las instantáneas de recurso compartido se guardan de forma increment
 
 Las instantáneas no se tienen en cuenta en el límite de recursos compartidos de 5 TB. No hay ninguna restricción en la cantidad de espacio que ocupan las instantáneas de recurso compartido. Los límites de cuenta de almacenamiento se siguen aplicando.
 
-## <a name="limits"></a>Límites
+## <a name="limits"></a>límites
 En cambio, el número máximo de instantáneas de recurso compartido que permite Azure Files actualmente es de 200. Una vez se llegue a las 200 instantáneas de recurso compartido, las instantáneas más antiguas se eliminarán para poder crear otras nuevas. 
 
 No hay ningún límite en las llamadas simultáneas dedicadas a crear instantáneas de recurso compartido. Asimismo, tampoco hay ningún límite en la cantidad de espacio que las instantáneas de recurso compartido de un recurso compartido de archivos determinado pueden consumir. 

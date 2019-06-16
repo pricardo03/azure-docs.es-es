@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837970"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
@@ -77,7 +77,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **http(s):** el proxy inverso puede configurarse para que acepte tráfico HTTP o HTTPS. Para el reenvío HTTPS, vea [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md) (Conectar a un servicio seguro con el proxy inverso) después de configurar el proxy inverso para que escuche en HTTPS.
 * **Nombre de dominio completo del clúster (FQDN) | dirección IP interna:** para clientes externos, se puede configurar el proxy inverso para que sea accesible a través del dominio del clúster (por ejemplo, micluster.eastus.cloudapp.azure.com). De forma predeterminada, el proxy inverso se ejecuta en todos los nodos. Para el tráfico interno se puede acceder al proxy inverso en el host local o en cualquier dirección IP del nodo interno (por ejemplo, 10.0.0.1).
 * **Puerto:** el puerto especificado para el proxy inverso. Por ejemplo, el puerto 19081.
-* **ServiceInstanceName:** se trata del nombre completo de la instancia de servicio implementada con la que está tratando de comunicarse (sin el esquema "fabric:/"). Por ejemplo, para establecer conexión con el servicio *fabric:/miAplicación/miServicio/*, podría usar *miaplicación/miservicio*.
+* **ServiceInstanceName:** se trata del nombre completo de la instancia de servicio implementada con la que está tratando de comunicarse (sin el esquema "fabric:/"). Por ejemplo, para establecer conexión con el servicio *fabric:/miAplicación/miServicio/* , podría usar *miaplicación/miservicio*.
 
     El nombre de instancia del servicio distingue mayúsculas de minúsculas. Un uso de mayúsculas y minúsculas diferente para el nombre de instancia del servicio en la dirección URL hace que se produzca el error 404 (No encontrado) en las solicitudes.
 * **Ruta de acceso de sufijo:** se trata de la ruta de acceso URL real del servicio con el que quiere conectarse. Por ejemplo, *myapi/values/add/3*.

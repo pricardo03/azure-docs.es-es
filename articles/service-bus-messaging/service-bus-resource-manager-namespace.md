@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111238"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus mediante una plantilla de Azure Resource Manager
@@ -131,7 +131,7 @@ Cree un archivo JSON denominado **MyServiceBusNamespace-Parameters.json** con el
 
 ## <a name="use-azure-powershell-to-deploy-the-template"></a>Uso de Azure PowerShell para implementar la plantilla
 
-### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 1. Inicie Azure PowerShell
 
 2. Ejecute el siguiente comandos para iniciar sesión en Azure:
@@ -169,7 +169,7 @@ Para implementar los recursos con Azure PowerShell, cambie a la carpeta donde gu
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Uso de la CLI de Azure para implementar la plantilla
 
-### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 1. Ejecute el siguiente comandos para iniciar sesión en Azure:
 

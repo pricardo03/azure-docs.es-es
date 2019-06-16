@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020994"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
@@ -80,23 +80,23 @@ Por ejemplo, si un proxy tiene una plantilla de ruta, como `/pets/{petId}`, la d
 #### <a name="additional-request-parameters"></a>Parámetros de solicitud adicionales
 Además de los parámetros de la plantilla de ruta, pueden usarse los siguientes valores en la configuración:
 
-* **{request.method}**: método HTTP que se usa en la solicitud original.
-* **{request.headers.\<nombreDeEncabezado\>}**: encabezado que puede leerse desde la solicitud original. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la solicitud, el valor será una cadena vacía.
-* **{request.querystring.\<nombreDeParámetro\>}**: Parámetro de cadena de consulta que puede leerse de la solicitud original. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea leer. Si el parámetro no se incluye en la solicitud, el valor será una cadena vacía.
+* **{request.method}** : método HTTP que se usa en la solicitud original.
+* **{request.headers.\<nombreDeEncabezado\>}** : encabezado que puede leerse desde la solicitud original. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la solicitud, el valor será una cadena vacía.
+* **{request.querystring.\<nombreDeParámetro\>}** : Parámetro de cadena de consulta que puede leerse de la solicitud original. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea leer. Si el parámetro no se incluye en la solicitud, el valor será una cadena vacía.
 
 ### <a name="response-parameters"></a>Referencia a parámetros de respuesta de back-end
 
 Los parámetros de respuesta pueden utilizarse como parte de la modificación de la respuesta al cliente. Se pueden usar los siguientes valores en la configuración:
 
-* **{backend.response.statusCode}**: código de estado HTTP que se devuelve en la respuesta de back-end.
-* **{backend.response.statusReason}**: frase de motivo HTTP que se devuelve en la respuesta de back-end.
-* **{backend.response.headers.\<nombreDeEncabezado\>}**: encabezado que puede leerse desde la respuesta de back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la respuesta, el valor será una cadena vacía.
+* **{backend.response.statusCode}** : código de estado HTTP que se devuelve en la respuesta de back-end.
+* **{backend.response.statusReason}** : frase de motivo HTTP que se devuelve en la respuesta de back-end.
+* **{backend.response.headers.\<nombreDeEncabezado\>}** : encabezado que puede leerse desde la respuesta de back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la respuesta, el valor será una cadena vacía.
 
 ### <a name="use-appsettings"></a>Referencia a la configuración de la aplicación
 
 También puede hacer referencia a la [configuración de la aplicación definida para la aplicación de función](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) rodeando el nombre de la configuración con signos de porcentaje (%).
 
-Por ejemplo, en la dirección URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders*, "%ORDER_PROCESSING_HOST%" se sustituiría por el valor de la opción ORDER_PROCESSING_HOST.
+Por ejemplo, en la dirección URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders* , "%ORDER_PROCESSING_HOST%" se sustituiría por el valor de la opción ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Use la configuración de la aplicación para hosts back-end si tiene varias implementaciones o entornos de prueba. De este modo, puede asegurarse de que siempre se comunica con el back-end correcto para ese entorno.
@@ -189,8 +189,8 @@ Los proxies leen todas las cadenas de un archivo JSON usando \ como un símbolo 
 El objeto requestOverrides define los cambios realizados en la solicitud cuando se llama al recurso de back-end. El objeto se define mediante las siguientes propiedades:
 
 * **backend.request.method**: método HTTP que se usa para llamar al back-end.
-* **backend.request.querystring.\<nombreDeParámetro\>**: parámetro de cadena de consulta que se puede establecer para llamar al back-end. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea establecer. Si se proporciona una cadena vacía, el parámetro no se incluye en la solicitud de back-end.
-* **backend.request.headers.\<nombreDeEncabezado\>**: encabezado que se puede establecer para llamar al back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Si se proporciona una cadena vacía, el encabezado no se incluye en la solicitud de back-end.
+* **backend.request.querystring.\<nombreDeParámetro\>** : parámetro de cadena de consulta que se puede establecer para llamar al back-end. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea establecer. Si se proporciona una cadena vacía, el parámetro no se incluye en la solicitud de back-end.
+* **backend.request.headers.\<nombreDeEncabezado\>** : encabezado que se puede establecer para llamar al back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Si se proporciona una cadena vacía, el encabezado no se incluye en la solicitud de back-end.
 
 Los valores pueden hacer referencia a la configuración de la aplicación y a los parámetros de la solicitud de cliente original.
 
@@ -222,7 +222,7 @@ El objeto requestOverrides define los cambios realizados en la respuesta que se 
 * **response.statusCode**: código de estado HTTP que se va a devolver al cliente.
 * **response.statusReason**: frase de motivo HTTP que se va a devolver al cliente.
 * **response.body**: representación de cadena del cuerpo que se va a devolver al cliente.
-* **response.headers.\<nombreDeEncabezado\>**: encabezado que se puede establecer para la respuesta al cliente. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Si se proporciona una cadena vacía, el encabezado no se incluye en la respuesta.
+* **response.headers.\<nombreDeEncabezado\>** : encabezado que se puede establecer para la respuesta al cliente. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Si se proporciona una cadena vacía, el encabezado no se incluye en la respuesta.
 
 Los valores pueden hacer referencia a la configuración de la aplicación, a parámetros de la solicitud de cliente original y a parámetros de la respuesta de back-end.
 

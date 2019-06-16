@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
 ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845333"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Uso de la interfaz de usuario de StorSimple Snapshot Manager para administrar trabajos de copia de seguridad y el catálogo de copia de seguridad
@@ -359,7 +359,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 | ALT + F |Abre el menú **Archivo** . |N |Abre una nueva instancia de la consola. |
 |  |O |Abre la página **Herramientas administrativas** . | |
 |  |S |Guarda la consola de Administrador de instantáneas StorSimple. | |
-|  |Una  |Abre la página **Guardar como** . | |
+|  |Una |Abre la página **Guardar como** . | |
 |  |M |Abre la página **Agregar o quitar complemento** . | |
 |  |P |Abre la página **Opciones** . | |
 |  |H |Abre la Ayuda en pantalla. | |
@@ -368,9 +368,9 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |F |Actualiza la consola de Administrador de instantáneas StorSimple. | |
 |  |L |Abre la página **Exportar lista** . | |
 |  |H |Abre la Ayuda en pantalla. | |
-| ALT + V |Abre el menú **Vista** . |Una  |Abre la página **Agregar o quitar columnas** . |
+| ALT + V |Abre el menú **Vista** . |Una |Abre la página **Agregar o quitar columnas** . |
 |  |U |Abre la página **Personalizar vista** . | |
-| ALT + O |Abre el menú **Favoritos** . |Una  |Abre la página **Agregar a favoritos** . |
+| ALT + O |Abre el menú **Favoritos** . |Una |Abre la página **Agregar a favoritos** . |
 |  |O |Abre la página **Organizar favoritos** . | |
 | ALT + W |Abre el menú **Ventana** . |N |Abre otra ventana de Administrador de instantáneas StorSimple. |
 |  |C |Muestra todas las ventanas de consola abiertas en un estilo en cascada. | |
@@ -378,7 +378,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |I |Organiza los iconos en una fila horizontal en la parte inferior de la pantalla. | |
 | ALT + H |Abre el menú **Ayuda** . |H |Abre la Ayuda en pantalla. |
 |  |T |Abre la página web de Microsoft TechNet Tech Center. | |
-|  |Una  |Abre la página **Acerca de Microsoft Management Console** . | |
+|  |Una |Abre la página **Acerca de Microsoft Management Console** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Teclas de método abreviado del panel Ámbito
 Las siguientes tablas muestran las combinaciones de teclas de método abreviado para cada nodo en el panel **Ámbito** . 

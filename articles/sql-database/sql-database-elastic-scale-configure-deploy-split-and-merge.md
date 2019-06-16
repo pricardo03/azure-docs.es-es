@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585515"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementación de un servicio de división y combinación para mover datos entre bases de datos particionadas
@@ -142,12 +142,12 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
    Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
    ```
 
-* Asegúrese de que el nombre del servidor no comience por **https://**.
+* Asegúrese de que el nombre del servidor no comience por **https://** .
 * Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra la base de datos en el portal y asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté establecida en **Activado**.
 
 ## <a name="test-the-service-deployment"></a>Prueba de la implementación del servicio
 ### <a name="connect-with-a-web-browser"></a>Conexión con un explorador web
-Determine el extremo web de su servicio División y combinación. Para averiguar esto, en el portal, vaya a **Información general** de su servicio en la nube y busque en **Dirección URL del sitio** en el lado derecho. Reemplace **http://** por **https://**, dado que la configuración de seguridad predeterminada deshabilita el punto de conexión HTTP. Cargue la página de esta dirección URL en el explorador.
+Determine el extremo web de su servicio División y combinación. Para averiguar esto, en el portal, vaya a **Información general** de su servicio en la nube y busque en **Dirección URL del sitio** en el lado derecho. Reemplace **http://** por **https://** , dado que la configuración de seguridad predeterminada deshabilita el punto de conexión HTTP. Cargue la página de esta dirección URL en el explorador.
 
 ### <a name="test-with-powershell-scripts"></a>Pruebas con scripts de PowerShell
 Puede probar la implementación y su entorno si ejecuta los scripts de PowerShell de ejemplo incluidos.

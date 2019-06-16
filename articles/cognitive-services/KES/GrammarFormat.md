@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814864"
 ---
 # <a name="grammar-format"></a>Formato de gramática
@@ -128,8 +128,8 @@ En la tabla siguiente se enumeran los valores `op` admitidos para cada tipo de a
 
 | Tipo de atributo | Valor de operación | DESCRIPCIÓN | Operación index
 |----|----|----|----|
-| string | eq | Coincidencia exacta de cadena | equals |
-| string | starts_with | Coincidencia de prefijo de cadena | starts_with |
+| Cadena | eq | Coincidencia exacta de cadena | equals |
+| Cadena | starts_with | Coincidencia de prefijo de cadena | starts_with |
 | Int32, Int64, doble | eq |  Coincidencia de igualdad numérica | equals |
 | Int32, Int64, doble | lt, le, gt, ge | Coincidencia de desigualdad numérica (<, <=, >, >=) | is_between |
 | Int32, Int64, doble | starts_with | Coincidencia de prefijo del valor en notación decimal | starts_with |

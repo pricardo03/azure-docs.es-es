@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776531"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
-Para ejecutar determinados trabajos de Batch, puede aprovechar los tamaños de máquina virtual de Azure diseñados para el cálculo a gran escala. Por ejemplo: 
+Para ejecutar determinados trabajos de Batch, puede aprovechar los tamaños de máquina virtual de Azure diseñados para el cálculo a gran escala. Por ejemplo:
 
 * para ejecutar [cargas de trabajo de MPI](batch-mpi.md) de varias instancias, puede elegir la serie H u otros tamaños que tengan una interfaz de red para acceso directo a memoria remota (RDMA). Estos tamaños se conectan a una red de InfiniBand para la comunicación entre nodos, lo que puede acelerar las aplicaciones MPI. 
 

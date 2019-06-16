@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880194"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Inicio de un runbook en Azure Automation
@@ -84,7 +84,7 @@ El servicio web de Azure Automation proporciona una funcionalidad especial para 
 
 ### <a name="named-values"></a>Valores con nombre
 
-Si el parámetro tiene el tipo de datos [object], puede usar el siguiente formato JSON para enviar una lista de valores con nombre: *{"Nombre1":Valor1, "Nombre2":Valor2, "Nombre3":Valor3}*. Estos valores deben ser tipos simples. El runbook recibe el parámetro como un elemento [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) con propiedades que corresponden a cada valor con nombre.
+Si el parámetro tiene el tipo de datos [object], puede usar el siguiente formato JSON para enviar una lista de valores con nombre: *{"Nombre1":Valor1, "Nombre2":Valor2, "Nombre3":Valor3}* . Estos valores deben ser tipos simples. El runbook recibe el parámetro como un elemento [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) con propiedades que corresponden a cada valor con nombre.
 
 Considere el siguiente runbook de prueba que acepta un parámetro denominado user.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>Matrices
 
-Si el parámetro es una matriz como [array] o [string], puede usar entonces el siguiente formato JSON para enviarle una lista de valores: *[Value1,Value2,Value3]*. Estos valores deben ser tipos simples.
+Si el parámetro es una matriz como [array] o [string], puede usar entonces el siguiente formato JSON para enviarle una lista de valores: *[Value1,Value2,Value3]* . Estos valores deben ser tipos simples.
 
 Considere el siguiente runbook de prueba que acepta un parámetro denominado *user*.
 

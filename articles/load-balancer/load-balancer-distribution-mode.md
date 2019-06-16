@@ -4,21 +4,20 @@ titlesuffix: Azure Load Balancer
 description: Cómo configurar el modo de distribución de Azure Load Balancer para admitir la afinidad de IP de origen.
 services: load-balancer
 documentationcenter: na
-author: WenJason
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 09/25/2017
+ms.author: kumud
 ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122429"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuración del modo de distribución de Azure Load Balancer
@@ -62,14 +61,14 @@ Set-AzLoadBalancer -LoadBalancer $lb
 En máquinas virtuales clásicas, use Azure PowerShell para cambiar la configuración de distribución. Agregue un punto de conexión de Azure a una máquina virtual y configure el modo de distribución del equilibrador de carga:
 
 ```powershell
-Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution sourceIP | Update-AzureVM
+Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
 Establezca el valor del elemento `LoadBalancerDistribution` para la cantidad deseada de equilibrio de carga. Especifique sourceIP para el equilibrio de carga con tupla de 2 elementos (IP de origen e IP de destino). Especifique sourceIPProtocol para el equilibrio de carga con tupla de 3 elementos (IP de origen, IP de destino y tipo de protocolo). Especifique none para el comportamiento predeterminado de equilibrio de carga con tupla de 5 elementos.
 
 Recupere una configuración de modo de distribución del equilibrador de carga de punto de extremo mediante estos valores:
 
-    PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
+    PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -95,8 +94,8 @@ Cuando el elemento `LoadBalancerDistribution` no está presente, Azure Load Bala
 
 Cuando los puntos de conexión forman parte de un conjunto de puntos de conexión de carga equilibrada, el modo de distribución debe configurarse en el conjunto de puntos de conexión de carga equilibrada:
 
-```powershell
-Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution sourceIP
+```azurepowershell
+Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
 ### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>Configuración del modo de distribución para puntos de conexión de Cloud Services
@@ -131,12 +130,12 @@ En el ejemplo siguiente se muestra cómo volver a configurar el modo de distribu
 
 Utilice el modelo de implementación clásica de Azure para cambiar una configuración de implementación existente. Agregue el `x-ms-version` encabezado y establezca el valor en la versión 2014-09-01 o posterior.
 
-#### <a name="request"></a>Solicitar
+#### <a name="request"></a>Solicitud
 
-    POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
+    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
 
-    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
       <InputEndpoint>
         <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
         <LocalPort> local-port-number </LocalPort>
@@ -156,7 +155,7 @@ Utilice el modelo de implementación clásica de Azure para cambiar una configur
 
 Como se ha descrito anteriormente, establezca el elemento `LoadBalancerDistribution` en sourceIP para la afinidad con tupla de 2 elementos, sourceIPProtocol para la afinidad con tupla de 3 elementos o none para los casos sin afinidad (afinidad con tupla de 5 elementos).
 
-#### <a name="response"></a>Respuesta
+#### <a name="response"></a>Response
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache
@@ -171,5 +170,3 @@ Como se ha descrito anteriormente, establezca el elemento `LoadBalancerDistribut
 * [Información general sobre el equilibrador de carga interno de Azure](load-balancer-internal-overview.md)
 * [Introducción a la configuración de un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
 * [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-
-<!-- Update_Description: update meta properties, wording update, update link -->

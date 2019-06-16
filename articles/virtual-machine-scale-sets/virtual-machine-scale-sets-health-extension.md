@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60619831"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso de la extensión Estado de la aplicación con conjuntos de escalado de máquinas virtuales
@@ -67,15 +67,15 @@ En el siguiente JSON, se muestra el esquema para la extensión de Estado de la a
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
-| type | `ApplicationHealthLinux`Linux, `ApplicationHealthWindows` (Windows) | string |
+| Tipo | `ApplicationHealthLinux`Linux, `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Configuración
 
 | NOMBRE | Valor / ejemplo | Tipo de datos
 | ---- | ---- | ----
-| protocol | `http` o `tcp` | string |
-| port | Opcional cuando el protocolo es `http`, obligatorio cuando el protocolo es `tcp` | int |
+| protocolo | `http` o `tcp` | string |
+| puerto | Opcional cuando el protocolo es `http`, obligatorio cuando el protocolo es `tcp` | int |
 | requestPath | Obligatorio cuando el protocolo es `http`, no se permite cuando el protocolo es `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implementación de la extensión Estado de la aplicación

@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515319"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de Bing Speech
@@ -69,7 +69,7 @@ El encabezado *Authorization* debe contener un token de acceso JSON Web Token (J
 
 Para obtener información acerca de cómo suscribirse y obtener claves de API que se usan para recuperar los tokens de acceso JWT válidos, consulte la página de [suscripción A Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-La clave de API se pasa al servicio de token. Por ejemplo: 
+La clave de API se pasa al servicio de token. Por ejemplo:
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -78,11 +78,11 @@ Content-Length: 0
 
 La siguiente información de encabezado es obligatoria para el token de acceso.
 
-| Name | Formato | DESCRIPCIÓN |
+| NOMBRE | Formato | DESCRIPCIÓN |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Su clave de suscripción |
 
-El servicio de token devuelve el token de acceso JWT como `text/plain`. A continuación, el JWT se pasa como `Base64 access_token` al protocolo de enlace como un encabezado *Authorization* prefijado con la cadena `Bearer`. Por ejemplo: 
+El servicio de token devuelve el token de acceso JWT como `text/plain`. A continuación, el JWT se pasa como `Base64 access_token` al protocolo de enlace como un encabezado *Authorization* prefijado con la cadena `Bearer`. Por ejemplo:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -150,7 +150,7 @@ Los mensajes principales enviados por el cliente a los servicios son `speech.con
 
 Los encabezados siguientes son obligatorios para todos los mensajes originados por el cliente.
 
-| Encabezado | Value |
+| Encabezado | Valor |
 |----|----|
 | Ruta de acceso | La ruta de acceso del mensaje según lo especificado en este documento |
 | X-RequestId | UUID en formato "no-dash" |
@@ -174,12 +174,12 @@ Los clientes *deben* enviar un mensaje `speech.config` inmediatamente después d
 
 | Campo | DESCRIPCIÓN |
 |----|----|
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Cuerpo | La carga como estructura JSON |
 
 #### <a name="required-message-headers"></a>Encabezados de mensaje obligatorios
 
-| Nombre de encabezado | Value |
+| Nombre de encabezado | Valor |
 |----|----|
 | Ruta de acceso | `speech.config` |
 | X-Timestamp | Marca de tiempo del reloj de cliente UTC en formato ISO 8601 |
@@ -250,7 +250,7 @@ Servicio de voz utiliza el primer mensaje `audio` que contiene un identificador 
 
 Los siguientes encabezados son obligatorios para todos los mensajes `audio`.
 
-| Encabezado         |  Value     |
+| Encabezado         |  Valor     |
 | ------------- | ---------------- |
 | Ruta de acceso | `audio` |
 | X-RequestId | UUID en formato "no-dash" |
@@ -307,7 +307,7 @@ Los clientes deben confirmar el final de un turno enviando un mensaje `telemetry
 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Ruta de acceso | `telemetry` |
 | X-Timestamp | Marca de tiempo del reloj de cliente UTC en formato ISO 8601 |
 | Content-Type | `application/json` |
@@ -329,7 +329,7 @@ El mensaje `speech.startDetected` indica que Servicio de voz ha detectado voz en
 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Ruta de acceso | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Cuerpo | La estructura JSON que contiene información sobre las condiciones cuando se detectó el inicio de la voz. El campo *Offset* de esta estructura especifica el desfase (en unidades de 100 nanosegundos) cuando se detecta la voz en la secuencia de audio, en relación con el inicio de la secuencia. |
@@ -354,7 +354,7 @@ Durante el reconocimiento de voz, Servicio de voz genera periódicamente hipóte
 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Ruta de acceso | `speech.hypothesis` |
 | X-RequestId | UUID en formato "no-dash" |
 | Content-Type | application/json |
@@ -386,7 +386,7 @@ Cuando Servicio de voz determina que tiene suficiente información para generar 
 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Ruta de acceso | `speech.phrase` |
 | Content-Type | application/json |
 | Cuerpo | La estructura JSON de la frase de voz |
@@ -414,7 +414,7 @@ El mensaje `speech.endDetected` especifica que la aplicación cliente debe deten
 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Ruta de acceso | `speech.endDetected` |
 | Cuerpo | La estructura JSON que contiene el desfase cuando se ha detectado el final del habla. El desfase se representa en el unidades de 100 nanosegundos desde el principio del audio que se usó para el reconocimiento. |
 | Content-Type | application/json; charset=utf-8 |
@@ -439,7 +439,7 @@ El elemento *Offset* especifica el desfase (en unidades de 100 nanosegundos) cua
 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Ruta de acceso | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Cuerpo | Estructura JSON |
@@ -466,7 +466,7 @@ El cuerpo del mensaje `turn.start` es una estructura JSON que contiene el contex
 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
-| Codificación de mensajes de WebSocket | Text |
+| Codificación de mensajes de WebSocket | Texto |
 | Ruta de acceso | `turn.end` |
 | Cuerpo | None |
 
@@ -508,7 +508,7 @@ La métrica `Connection` especifica los detalles sobre los intentos de conexión
 
 | Campo | DESCRIPCIÓN | Uso |
 | ----- | ----------- | ----- |
-| Name | `Connection` | Obligatorio |
+| NOMBRE | `Connection` | Obligatorio |
 | Id | El valor de identificador de conexión que se utilizó en el encabezado *X-ConnectionId* para esta solicitud de conexión | Obligatorio |
 | Iniciar | La hora en que el cliente envió la solicitud de conexión | Obligatorio |
 | End | La hora en que el cliente recibió la notificación de que la conexión se estableció correctamente o, en casos de error, se rechazó, negó o falló | Obligatorio |
@@ -548,7 +548,7 @@ El valor de hora *End* para la métrica `Microphone` registra la hora cuando la 
 
 | Campo | DESCRIPCIÓN | Uso |
 | ----- | ----------- | ----- |
-| Name | Micrófono | Obligatorio |
+| NOMBRE | Micrófono | Obligatorio |
 | Iniciar | La hora en el cliente se comenzó a usar la entrada de audio del micrófono u otra secuencia de audio, o recibió un desencadenador del observador de palabras clave | Obligatorio |
 | End | La hora en que el cliente dejó de usar el micrófono o la secuencia de audio | Obligatorio |
 | Error | Una descripción del error producido, si lo hay. Si las operaciones de micrófono obtuvieron resultados satisfactorios, los clientes deben omitir este campo. La longitud máxima de este campo es de 50 caracteres. | Obligatorio para los casos de error; en caso contrario, se omite |
@@ -568,7 +568,7 @@ Utilice los siguientes ejemplos como guía para los valores de tiempo *Start* y 
 
 | Campo | DESCRIPCIÓN | Uso |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | Opcional |
+| NOMBRE | ListeningTrigger | Opcional |
 | Iniciar | La hora de inicio del desencadenador de escucha del cliente | Obligatorio |
 | End | La hora final del desencadenador de escucha del cliente | Obligatorio |
 | Error | Una descripción del error producido, si lo hay. Si la operación de desencadenador se estableció correctamente, los clientes deben omitir este campo. La longitud máxima de este campo es de 50 caracteres. | Obligatorio para los casos de error; en caso contrario, se omite |

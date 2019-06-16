@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515089"
 ---
 # <a name="what-is-bing-speech"></a>¿Qué es Bing Speech?
@@ -37,9 +37,9 @@ Microsoft Speech Recognition API *transcribe* secuencias de audio en texto que l
 | Casos de uso | [API de REST](GetStarted/GetStartedREST.md) | [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | Sí | Sí |
-| Convertir un audio largo (> 15 s) | Sin  | Sí |
-| Audio de secuencia con resultados provisionales deseados | Sin  | Sí |
-| Comprender el texto convertido desde audio mediante LUIS | Sin  | Sí |
+| Convertir un audio largo (> 15 s) | Sin | Sí |
+| Audio de secuencia con resultados provisionales deseados | Sin | Sí |
+| Comprender el texto convertido desde audio mediante LUIS | Sin | Sí |
 
 Sea cual sea el enfoque que los desarrolladores elijan (las API de REST o las bibliotecas cliente), el servicio de voz de Microsoft admite lo siguiente:
 

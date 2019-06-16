@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: c539460177a0a85938b886d161803e1fdf0e9e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730202"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creación de una canalización de aprendizaje automático de Apache Spark
@@ -128,6 +128,6 @@ only showing top 20 rows
 
 Ahora puede usarse el objeto `model` para realizar predicciones. Para obtener el ejemplo completo de esta aplicación de aprendizaje automático, así como instrucciones detalladas para ejecutarla, consulte [Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Ciencia de datos mediante Scala y Apache Spark en Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

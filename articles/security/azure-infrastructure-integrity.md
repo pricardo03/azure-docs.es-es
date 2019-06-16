@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: 24d54fa7a8985a6af58cddfc969b8023485c73c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587128"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integridad de la infraestructura de Azure
@@ -62,7 +62,7 @@ Para obtener más información sobre lo que hace Microsoft para proteger la infr
 - [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)
 - [Arquitectura de red de Azure](azure-infrastructure-network.md)
 - [Red de producción de Azure](azure-production-network.md)
-- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
+- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
 - [Operaciones de producción y administración de Azure](azure-infrastructure-operations.md)
 - [Supervisión de la infraestructura de Azure](azure-infrastructure-monitoring.md)
 - [Protección de datos de cliente de Azure](azure-protection-of-customer-data.md)

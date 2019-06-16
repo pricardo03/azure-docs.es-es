@@ -2,17 +2,16 @@
 title: Ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure | Microsoft Docs
 description: En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco ASA a puertas de enlace de VPN de Azure.
 services: vpn-gateway
-author: WenJason
+author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 10/19/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/19/2018
+ms.author: yushwang
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648758"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuración de ejemplo: Dispositivo Cisco ASA (IKEv2/sin BGP)
@@ -28,7 +27,7 @@ En este artículo se proporciona un ejemplo de configuración para conectar disp
 | Modelo probado           | ASA 5505                          |
 | Versión probada         | 9.2                               |
 | Versión de IKE            | IKEv2                             |
-| BGP                    | Sin                                 |
+| BGP                    | Sin                                |
 | Tipo de puerta de enlace de VPN de Azure | Puerta de enlace de VPN basada en rutas           |
 |                        |                                   |
 
@@ -79,7 +78,7 @@ En la tabla siguiente se enumeran los algoritmos y parámetros de IPsec o IKE qu
 | *Cifrado IPsec | AES256                               |
 | *Integridad de IPsec  | SHA1                                 |
 | Grupo PFS        | PFS24                                |
-| Vigencia de SA QM   | 7.200 segundos                         |
+| Vigencia de SA QM   | 7\.200 segundos                         |
 | Selector de tráfico | UsePolicyBasedTrafficSelectors $True |
 | Clave previamente compartida   | PreSharedKey                         |
 |                  |                                      |
@@ -303,4 +302,3 @@ Use los siguientes comandos de ASA para fines de depuración:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para configurar activo-activo entre entornos y las conexiones de red virtual a red virtual, consulte [Configuración de conexiones VPN activo-activo con puertas de enlace VPN](vpn-gateway-activeactive-rm-powershell.md).
-<!--Update_Description: wording update -->

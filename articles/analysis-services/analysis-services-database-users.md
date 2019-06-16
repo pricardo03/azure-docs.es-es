@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023638"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
@@ -134,7 +134,7 @@ Los filtros de fila definen las filas de una tabla que los miembros de un rol de
   
 Los filtros de fila solo se pueden definir para los roles con permisos de lectura y lectura y proceso. De manera predeterminada, si no hay definido un filtro de fila para una tabla determinada, los miembros pueden consultar todas las filas de la tabla a menos que el filtrado cruzado se aplique desde otra tabla.
   
- Los filtros de fila requieren una fórmula DAX, que se debe evaluar con un valor TRUE o FALSE, para definir las filas a las que pueden consultar los miembros de ese rol determinado. No es posible consultar filas que no están incluidas en la fórmula DAX. Por ejemplo, en la tabla Cliente con la siguiente expresión de filtros de fila siguiente, *=Customers [Country] = "USA"*, los miembros del rol Ventas solo pueden ver los clientes en los Estados Unidos.  
+ Los filtros de fila requieren una fórmula DAX, que se debe evaluar con un valor TRUE o FALSE, para definir las filas a las que pueden consultar los miembros de ese rol determinado. No es posible consultar filas que no están incluidas en la fórmula DAX. Por ejemplo, en la tabla Cliente con la siguiente expresión de filtros de fila siguiente, *=Customers [Country] = "USA"* , los miembros del rol Ventas solo pueden ver los clientes en los Estados Unidos.  
   
 Los filtros de fila se aplican a las rilas especificadas y a las filas relacionadas. Cuando una tabla tiene varias relaciones, los filtros aplican seguridad para la relación activa. Los filtros de fila forman una intersección con otros filtros de fila definidos para las tablas relacionadas, por ejemplo:  
   
@@ -146,7 +146,7 @@ Los filtros de fila se aplican a las rilas especificadas y a las filas relaciona
   
  El efecto neto es que los miembros pueden consultar filas de datos cuando el cliente se encuentra en EE. UU., la categoría de producto es "bicicletas" y el año es 2016. Los usuarios no pueden consultar transacciones fuera de los EE. UU., transacciones que no sean bicicletas o transacciones que no se hayan realizado el 2016, a menos que sean miembro de otro rol que conceda estos permisos.
   
- Puede usar el filtro, *=FALSE()*, para denegar el acceso a todas las filas de una tabla completa.
+ Puede usar el filtro, *=FALSE()* , para denegar el acceso a todas las filas de una tabla completa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

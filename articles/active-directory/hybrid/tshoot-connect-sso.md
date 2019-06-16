@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381891"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
@@ -91,7 +91,7 @@ Use la siguiente lista de comprobación para solucionar problemas de SSO de cone
 
 ### <a name="domain-controller-logs"></a>Registros del controlador de dominio
 
-Si habilita la auditoría de eventos correctos en el controlador de dominio, cada vez que un usuario inicie sesión mediante SSO de conexión directa, se graba una entrada de seguridad en el registro de eventos. Para encontrar estos eventos de seguridad, utilice la consulta siguiente. (Busque el evento **4769** asociado a la cuenta de equipo **AzureADSSOAcc$**).
+Si habilita la auditoría de eventos correctos en el controlador de dominio, cada vez que un usuario inicie sesión mediante SSO de conexión directa, se graba una entrada de seguridad en el registro de eventos. Para encontrar estos eventos de seguridad, utilice la consulta siguiente. (Busque el evento **4769** asociado a la cuenta de equipo **AzureADSSOAcc$** ).
 
 ```
     <QueryList>

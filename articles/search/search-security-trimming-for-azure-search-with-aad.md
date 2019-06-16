@@ -10,10 +10,10 @@ ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61282222"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Search mediante las identidades de Active Directory
@@ -43,7 +43,7 @@ La solicitud debe registrarse con AAD, tal como se describe en el siguiente proc
 
 Este paso integra la solicitud con AAD con el fin de aceptar inicios de sesión de cuentas de usuario y grupo. Si no es un administrador de AAD en su organización, podría tener que [crear un nuevo inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) para realizar los pasos siguientes.
 
-1. Vaya al [**Portal de registro de aplicaciones**](https://apps.dev.microsoft.com) >  **Converged app (Aplicación convergida)** > **Agregar una aplicación**.
+1. Vaya al [**Portal de registro de aplicaciones**](https://apps.dev.microsoft.com) >  **Converged app (Aplicación convergida)**  > **Agregar una aplicación**.
 2. Escriba un nombre para la solicitud y haga clic en **Crear**. 
 3. Seleccione la solicitud recién registrada en la página Mis aplicaciones.
 4. En la página de registro de la solicitud > **Plataformas** > **Agregar plataforma**, elija **API web**.
@@ -187,7 +187,7 @@ La respuesta incluye una lista filtrada de documentos, que consta de los que el 
 
 En este tutorial, ha aprendido técnicas para usar inicios de sesión de AAD para filtrar documentos en los resultados de Azure Search, recortando los resultados de los documentos que no coinciden con el filtro proporcionado en la solicitud.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Control de acceso basado en identidades mediante filtros de Azure Search](search-security-trimming-for-azure-search.md)
 + [Filtros de Azure Search](search-filters.md)

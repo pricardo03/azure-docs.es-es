@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60397284"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferencia de pequeños conjuntos de datos con ancho de banda de red de bajo a moderado
@@ -49,16 +49,16 @@ Las opciones recomendadas en este escenario son las siguientes:
 
 En la tabla siguiente se resumen las diferencias de las funcionalidades clave.
 
-| Característica | Explorador de Azure Storage | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
+| Característica | Explorador de Azure Storage | Portal de Azure | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilidad | Descargar e instalar <br>Herramientas independientes | Herramientas de exploración de Azure Portal basadas en la web | Texto de línea de comandos |Interfaces programables en. NET, Java, Python, JavaScript, C++, Go, Ruby y PHP |
-| Interfaz gráfica | Sí | Sí | No | Sin  |
+| Interfaz gráfica | Sí | Sí | No | Sin |
 | Plataformas compatibles | Windows, Mac, Linux | Basadas en web |Windows, Mac, Linux |Todas las plataformas |
 | Operaciones de Blob Storage permitidas<br>para blobs y carpetas | Cargar<br>Descargar<br>administración | Cargar<br>Descargar<br>administración |Cargar<br>Descargar<br>administración | Sí, es personalizable |
-| Almacenamiento de Data Lake Gen1 permitido<br>operaciones de archivos y carpetas | Cargar<br>Descargar<br>administración | Sin  |Cargar<br>Descargar<br>administración                   | Sin  |
+| Almacenamiento de Data Lake Gen1 permitido<br>operaciones de archivos y carpetas | Cargar<br>Descargar<br>administración | Sin |Cargar<br>Descargar<br>administración                   | Sin |
 | Operaciones de File Storage permitidas<br>para archivos y directorios | Cargar<br>Descargar<br>administración | Cargar<br>Descargar<br>administración   |Cargar<br>Descargar<br>administración | Sí, es personalizable |
-| Operaciones de Table Storage permitidas<br>para tablas |administración | Sin  |Compatibilidad con tablas en AzCopy v7 |Sí, es personalizable|
-| Instancia de Queue Storage permitida | administración | Sin   |Sin  | Sí, es personalizable|
+| Operaciones de Table Storage permitidas<br>para tablas |administración | Sin |Compatibilidad con tablas en AzCopy v7 |Sí, es personalizable|
+| Instancia de Queue Storage permitida | administración | Sin  |Sin | Sí, es personalizable|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

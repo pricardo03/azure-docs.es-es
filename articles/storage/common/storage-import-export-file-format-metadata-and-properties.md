@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478562"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato del archivo de propiedades y metadatos de Azure Import/Export
@@ -33,7 +33,7 @@ El formato de un archivo de metadatos es el siguiente:
 |Elemento XML|Type|DESCRIPCIÓN|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento raíz|Elemento raíz del archivo de metadatos.|  
-|`metadata-name`|String|Opcional. El elemento XML especifica el nombre de los metadatos para el blob y su valor especifica el valor de la configuración de metadatos.|  
+|`metadata-name`|Cadena|Opcional. El elemento XML especifica el nombre de los metadatos para el blob y su valor especifica el valor de la configuración de metadatos.|  
   
 ## <a name="properties-file-format"></a>Formato de archivo de propiedades  
 El formato de un archivo de propiedades es el siguiente:  
@@ -55,14 +55,14 @@ El formato de un archivo de propiedades es el siguiente:
 |Elemento XML|Type|DESCRIPCIÓN|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento raíz|Elemento raíz del archivo de propiedades.|  
-|`Last-Modified`|String|Opcional. Hora de la última modificación del blob. Solo para trabajos de exportación.|  
-|`Etag`|String|Opcional. Valor ETag del blob. Solo para trabajos de exportación.|  
-|`Content-Length`|String|Opcional. Tamaño del blob en bytes. Solo para trabajos de exportación.|  
-|`Content-Type`|String|Opcional. Tipo de contenido del blob.|  
-|`Content-MD5`|String|Opcional. Hash MD5 del blob.|  
-|`Content-Encoding`|String|Opcional. Codificación del contenido del blob.|  
-|`Content-Language`|String|Opcional. Idioma del contenido del blob.|  
-|`Cache-Control`|String|Opcional. Cadena de control de caché para el blob.|  
+|`Last-Modified`|Cadena|Opcional. Hora de la última modificación del blob. Solo para trabajos de exportación.|  
+|`Etag`|Cadena|Opcional. Valor ETag del blob. Solo para trabajos de exportación.|  
+|`Content-Length`|Cadena|Opcional. Tamaño del blob en bytes. Solo para trabajos de exportación.|  
+|`Content-Type`|Cadena|Opcional. Tipo de contenido del blob.|  
+|`Content-MD5`|Cadena|Opcional. Hash MD5 del blob.|  
+|`Content-Encoding`|Cadena|Opcional. Codificación del contenido del blob.|  
+|`Content-Language`|Cadena|Opcional. Idioma del contenido del blob.|  
+|`Cache-Control`|Cadena|Opcional. Cadena de control de caché para el blob.|  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
