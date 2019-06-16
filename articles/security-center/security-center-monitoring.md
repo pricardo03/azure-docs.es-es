@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 28b4667a9ceb4b3534d85ba28668f06c750e22c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703874"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Refuerce su seguridad con Azure Security Center
@@ -46,7 +46,7 @@ Para más información sobre cómo aplicar las recomendaciones, lea [Implementac
 
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este artículo, aprendió a usar las funcionalidades de supervisión en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): Aprenda a configurar opciones de seguridad en Azure Security Center.

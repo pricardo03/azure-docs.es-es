@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822376"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidad y coherencia en Event Hubs
@@ -38,7 +38,7 @@ El teorema de Brewer define la coherencia y la disponibilidad de la forma siguie
 Event Hubs se basa en un modelo de datos con particiones. Se puede configurar el número de particiones en el centro de eventos durante la instalación, pero no se puede cambiar este valor más adelante. Puesto que se deben utilizar particiones con Event Hubs, debe tomar una decisión con respecto a la disponibilidad y la coherencia de la aplicación.
 
 ## <a name="availability"></a>Disponibilidad
-La manera más sencilla de empezar a trabajar con Event Hubs es usar el comportamiento predeterminado. Si crea un nuevo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** y usa el método **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**, los eventos se distribuyen automáticamente entre las particiones del centro de eventos. Este comportamiento permite disfrutar del máximo tiempo de actividad.
+La manera más sencilla de empezar a trabajar con Event Hubs es usar el comportamiento predeterminado. Si crea un nuevo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** y usa el método **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** , los eventos se distribuyen automáticamente entre las particiones del centro de eventos. Este comportamiento permite disfrutar del máximo tiempo de actividad.
 
 Para los casos de uso que requieren el máximo tiempo de actividad, se prefiere este modelo.
 

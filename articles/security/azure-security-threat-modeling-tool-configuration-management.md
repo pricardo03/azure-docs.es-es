@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610726"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
@@ -286,7 +286,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | SQL Azure, OnPrem |
 | **Atributos**              | N/A, SQL Version: V12 |
-| **Referencias**              | [Cómo se configura el firewall de Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configurar Firewall de Windows para el acceso al motor de base de datos](https://msdn.microsoft.com/library/ms175043) |
+| **Referencias**              | [Procedimientos para configurar un firewall de Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configuración de Firewall de Windows para el acceso al motor de base de datos](https://msdn.microsoft.com/library/ms175043) |
 | **Pasos** | Los sistemas de firewall ayudan a evitar el acceso no autorizado a los recursos del equipo. Si desea acceder a una instancia del motor de base de datos de SQL Server a través de un firewall, debe configurar el firewall en el equipo que ejecuta SQL Server para que lo permita |
 
 ## <a id="cors-api"></a>Comprobación de que solo se permiten orígenes de confianza si CORS está activado en ASP.NET Web API

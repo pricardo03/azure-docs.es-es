@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486471"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
@@ -103,7 +103,7 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 *  Admite la configuración de proxy HTTP para la puerta de enlace con el Administrador de configuración de Data Management Gateway. Si está configurado, se accede a Blob de Azure, Tabla de Azure, Azure Data Lake y DocumentDB a través del proxy HTTP.
 *  Admite el control de encabezados para TextFormat al copiar datos en Blob de Azure, Azure Data Lake Store, el sistema de archivos local y el HDFS local como origen y destino.
 *  Admite la copia de datos desde blobs en anexos y blobs en páginas junto con los blobs en bloques que ya eran compatibles.
-*  Introduce un nuevo estado de puerta de enlace **Online (Limited)**(En línea [limitado]), lo que indica que se puede utilizar sin problemas la funcionalidad principal de la puerta de enlace, pero la operación interactiva del Asistente para copia.
+*  Introduce un nuevo estado de puerta de enlace **Online (Limited)** (En línea [limitado]), lo que indica que se puede utilizar sin problemas la funcionalidad principal de la puerta de enlace, pero la operación interactiva del Asistente para copia.
 *  Mejora la estabilidad del registro de puerta de enlace mediante la clave de registro.
 
 ## <a name="216040"></a>2.1.6040.

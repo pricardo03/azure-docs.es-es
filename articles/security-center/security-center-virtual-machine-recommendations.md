@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
 ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545004"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Descripción de las recomendaciones sobre recursos de Azure Security Center
@@ -50,7 +50,7 @@ Use las tablas siguientes para entender mejor las recomendaciones disponibles so
 | Recomendación de desactivación de Web Sockets para aplicaciones web| Se recomienda que revise cuidadosamente el uso de Web Sockets en las aplicaciones web.  El protocolo Web Sockets es vulnerable a distintos tipos de amenazas de seguridad. |
 | Uso de dominios personalizados para su aplicación web | Se recomienda el uso de dominios personalizados para proteger una aplicación web frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con el DNS. |
 | Configuración de las restricciones de IP de las aplicaciones web | Se recomienda definir una lista de direcciones IP que tienen permiso para acceder a su aplicación.  El uso de restricciones de IP protege una aplicación web frente a ataques comunes. |
-| No permita que todos los recursos ("*") tengan acceso a la aplicación | Se recomienda no configurar el parámetro WEBSITE_LOAD_CERTIFICATES en "*". Si establece el parámetro en "*" , significa que se van a cargar todos los certificados en el almacén de certificados personales de su aplicación web.  Esto puede dar lugar a un abuso del principio de privilegio mínimo, ya que es poco probable que el sitio necesite tener acceso a todos los certificados en tiempo de ejecución. |
+| No permita que todos los recursos ("*") tengan acceso a la aplicación | Se recomienda no configurar el parámetro WEBSITE_LOAD_CERTIFICATES en " *". Si establece el parámetro en "* " , significa que se van a cargar todos los certificados en el almacén de certificados personales de su aplicación web.  Esto puede dar lugar a un abuso del principio de privilegio mínimo, ya que es poco probable que el sitio necesite tener acceso a todos los certificados en tiempo de ejecución. |
 | CORS no debería permitir que todos los recursos accedan a la aplicación | Se recomienda que solo permita que los dominios requeridos interactúen con la aplicación web. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación web. |
 | Uso de la última versión compatible de .NET Framework para aplicaciones web | Se recomienda que utilice la versión más reciente de .NET Framework para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta. |
 | Uso de la última versión compatible de Java para aplicaciones web | Se recomienda que utilice la versión más reciente de Java para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta. |

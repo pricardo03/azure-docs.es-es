@@ -11,10 +11,10 @@ ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: rkarlin
 ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705131"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>¿Qué son las colecciones de áreas de trabajo de Power BI?
@@ -60,7 +60,7 @@ Se pueden usar los conjuntos de datos en caché.  Sin embargo, no puede actualiz
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Autenticación y autorización con tokens de aplicación
 
-Las **colecciones de áreas de trabajo de Microsoft Power BI** aplaza a su aplicación para realizar la autenticación y la autorización de usuario necesaria. No hay ningún requisito explícito por el que los usuarios finales tengan que ser clientes de Azure Active Directory (Azure AD).  En su lugar, la aplicación expresará la autorización para representar un informe de Power BI a las **colecciones de áreas de trabajo de Microsoft Power BI** mediante los **Tokens de autenticación de la aplicación (tokens de aplicación)**.  Estos **tokens de aplicación** se crean según sea necesario cuando la aplicación quiere presentar un informe.
+Las **colecciones de áreas de trabajo de Microsoft Power BI** aplaza a su aplicación para realizar la autenticación y la autorización de usuario necesaria. No hay ningún requisito explícito por el que los usuarios finales tengan que ser clientes de Azure Active Directory (Azure AD).  En su lugar, la aplicación expresará la autorización para representar un informe de Power BI a las **colecciones de áreas de trabajo de Microsoft Power BI** mediante los **Tokens de autenticación de la aplicación (tokens de aplicación)** .  Estos **tokens de aplicación** se crean según sea necesario cuando la aplicación quiere presentar un informe.
 
 ![Diagrama de uso del token de aplicación](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
@@ -76,7 +76,7 @@ Estos tokens se usan para las diversas fases de las interacciones con las **cole
 
 Ahora se pueden editar los informes existente o crear nuevos informes directamente en su aplicación sin tener que usar Power BI Desktop. Esto requiere que exista un conjunto de datos en el área de trabajo.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Escenarios comunes de las colecciones de áreas de trabajo de Power BI](scenarios.md)  
 [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)  

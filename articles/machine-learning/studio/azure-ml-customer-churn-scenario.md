@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699437"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Análisis de la pérdida de clientes mediante Azure Machine Learning Studio
@@ -188,7 +188,7 @@ Los modelos hospedados en Machine Learning Studio superaron en rendimiento a SAS
 En el sector de las telecomunicaciones, han surgido varias prácticas para analizar el abandono, entre las que se incluyen:  
 
 * Las métricas se pueden clasificar en cuatro categorías fundamentales:
-  * **Entidad (por ejemplo, una suscripción)**. Proporcione información básica sobre el abonado y/o cliente que es el sujeto del abandono.
+  * **Entidad (por ejemplo, una suscripción)** . Proporcione información básica sobre el abonado y/o cliente que es el sujeto del abandono.
   * **Actividad**. Obtenga toda la información de uso posible relacionada con la entidad, por ejemplo, el número de inicios de sesión.
   * **Servicio al cliente**. Recoja información de los registros de servicio al cliente para indicar si el abonado tuvo problemas o interacciones con el servicio al cliente.
   * **Datos competitivos y empresariales**. Obtenga cualquier información posible acerca del cliente (por ejemplo, puede no estar disponible o ser difícil de seguir).

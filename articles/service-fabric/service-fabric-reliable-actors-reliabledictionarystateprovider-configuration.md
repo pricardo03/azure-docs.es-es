@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60727138"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuración de Reliable Actors: ReliableDictionaryActorStateProvider
@@ -128,5 +128,5 @@ Si establece OptimizeForLowerDiskUsage en true, el espacio del archivo de regist
 
 El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Hay pocas ventajas en cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tuviera que cambiarse en raras ocasiones.
 
-Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obligar a un servicio a usar un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Para reducir la contención del movimiento de encabezados, los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido  Se espera que estos valores solo tuvieran que cambiarse en raras ocasiones.
+Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obligar a un servicio a usar un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Para reducir la contención del movimiento de encabezados, los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido Se espera que estos valores solo tuvieran que cambiarse en raras ocasiones.
 

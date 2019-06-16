@@ -11,10 +11,10 @@ ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 695fdfba1573ff97b05f8e8b50a05bef9dbf48de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61289626"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Filtro por idioma en Azure Search 
@@ -62,7 +62,7 @@ parameters =
 > [!Note]
 > Aunque no hay ningún argumento $filter en la consulta, este caso de uso está fuertemente vinculado a los conceptos de filtro, por lo que se presenta como un escenario de filtrado.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Filtros de Azure Search](search-filters.md)
 + [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)

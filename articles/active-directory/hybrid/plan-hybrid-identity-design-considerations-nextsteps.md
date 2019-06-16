@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295133"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: siguientes pasos
@@ -49,6 +49,6 @@ La consulta de los siguientes recursos con frecuencia proporciona las noticias y
 * [Blog de Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configurationmgr/)
 * [Blog del equipo de Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configmgrteam/)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

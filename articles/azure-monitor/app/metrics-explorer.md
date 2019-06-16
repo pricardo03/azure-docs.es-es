@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60700894"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploración de métricas en Application Insights
@@ -106,7 +106,7 @@ Se agregan métricas diferentes de distintas maneras:
 * **Suma** : suma los valores de todos los puntos de datos recibidos durante el intervalo de muestreo o el período del gráfico.
 * **Media** divide la suma por el número de puntos de datos recibidos durante el intervalo.
 * **únicos** se usan para los recuentos de usuarios y cuentas. Durante el intervalo de muestreo, o durante el período del gráfico, la ilustración muestra el recuento de usuarios diferentes que se ven en ese momento.
-* **%**: solo se usan versiones porcentuales de cada agregación con gráficos segmentados. La suma total es siempre el 100 % y el gráfico muestra la contribución relativa de diferentes componentes de un total.
+* **%** : solo se usan versiones porcentuales de cada agregación con gráficos segmentados. La suma total es siempre el 100 % y el gráfico muestra la contribución relativa de diferentes componentes de un total.
 
     ![Agregación porcentual](./media/metrics-explorer/percentage-aggregation.png)
 

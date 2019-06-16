@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
 ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148815"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
@@ -25,7 +25,7 @@ En este artículo se explican los niveles de soporte que se ofrecen para los len
 
 Hay tres niveles de soporte:
 
-* **Disponibilidad general (GA)**: totalmente compatible y aprobado para su uso en producción.
+* **Disponibilidad general (GA)** : totalmente compatible y aprobado para su uso en producción.
 * **Versión preliminar**: aún no cuenta con soporte pero se espera que llegue al estado de disponibilidad general en el futuro.
 * **Experimental**: no cuenta con soporte y podría abandonarse en el futuro; no se ofrece ninguna garantía de que alcance el estado de versión preliminar o disponibilidad general.
 

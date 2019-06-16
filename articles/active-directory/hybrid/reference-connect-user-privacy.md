@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455791"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacidad del usuario y Azure AD Connect 
@@ -77,7 +77,7 @@ Use los pasos siguientes para programar que el script se ejecute cada 48 horas.
 5.  Seleccione **Diariamente** para el desencadenador de tareas y haga clic en **Siguiente**.
 6.  Establezca la repetición en **2 días** y haga clic en **Siguiente**.
 7.  Seleccione **Iniciar un programa** como la acción y haga clic en **Siguiente**.
-8.  En el cuadro Programa o script, escriba **PowerShell** y, en el cuadro **Agregar argumentos (opcional)**, escriba la ruta de acceso completa al script que creó anteriormente y, luego, haga clic en **Siguiente**.
+8.  En el cuadro Programa o script, escriba **PowerShell** y, en el cuadro **Agregar argumentos (opcional)** , escriba la ruta de acceso completa al script que creó anteriormente y, luego, haga clic en **Siguiente**.
 9.  En la siguiente pantalla se muestra un resumen de la tarea que se dispone a crear. Compruebe los valores y haga clic en **Finalizar** para crear la tarea.
 
 

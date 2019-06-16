@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803265"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
@@ -45,7 +45,7 @@ Al implementar un conjunto de escalado, también tiene la opción de realizar la
 
 ### <a name="zone-balancing"></a>Equilibrio de zona
 
-Por último, para conjuntos de escalado implementados en varias zonas, también tiene la opción de elegir la mejor opción de equilibrio de zonas o equilibrio de zonas estricto. Un conjunto de escalado se considera “equilibrado” si cada zona tiene el mismo número de VM o +\\- 1 VM en todas las otras zonas para el conjunto de escalado. Por ejemplo: 
+Por último, para conjuntos de escalado implementados en varias zonas, también tiene la opción de elegir la mejor opción de equilibrio de zonas o equilibrio de zonas estricto. Un conjunto de escalado se considera “equilibrado” si cada zona tiene el mismo número de VM o +\\- 1 VM en todas las otras zonas para el conjunto de escalado. Por ejemplo:
 
 - Se considera equilibrado un conjunto de escalado con dos máquinas virtuales en la zona 1, tres en la zona 2 y tres en la zona 3. Hay solo una zona con un recuento de VM diferentes y es solo 1 menor que las demás zonas. 
 - Se considera equilibrado un conjunto de escalado con una máquina virtual en la zona 1, tres en la zona 2 y tres en la zona 3. La zona 1 tiene 2 VM menos que las zonas 2 y 3.

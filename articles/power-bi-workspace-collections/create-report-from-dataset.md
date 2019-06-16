@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: e7499345f03e3deedb8972b0d51e8e676cb6c982
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683454"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI
@@ -87,7 +87,7 @@ var embedCreateConfiguration = {
 </script>
 ```
 
-Al llamar a *powerbi.createReport()*, aparecerá un lienzo en blanco en modo de edición en el elemento *div*.
+Al llamar a *powerbi.createReport()* , aparecerá un lienzo en blanco en modo de edición en el elemento *div*.
 
 ![Nuevo informe en blanco](media/create-report-from-dataset/create-new-report.png)
 
@@ -196,7 +196,7 @@ var embedCreateConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Almacenamiento de informes](save-reports.md)  

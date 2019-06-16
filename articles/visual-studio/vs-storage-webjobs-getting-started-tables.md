@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390833"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introducción a Azure Storage (proyectos de WebJobs de Azure)
@@ -30,7 +30,7 @@ El servicio de almacenamiento de tabla de Azure permite almacenar una gran canti
 Algunos de los fragmentos de código muestran el atributo **Table** usado en funciones que se llaman manualmente, es decir, sin usar ninguno de los atributos de desencadenador.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Cómo agregar entidades a una tabla
-Para agregar entidades a una tabla, use el atributo **Table** con un parámetro **ICollector<T>** o **IAsyncCollector<T>**, donde **T** especifica el esquema de las entidades que quiere agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
+Para agregar entidades a una tabla, use el atributo **Table** con un parámetro **ICollector<T>** o **IAsyncCollector<T>** , donde **T** especifica el esquema de las entidades que quiere agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
 
 El ejemplo de código siguiente agrega entidades **Person** a una tabla denominada *Ingress*.
 

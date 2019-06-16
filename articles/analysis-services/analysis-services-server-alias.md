@@ -9,15 +9,15 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534324"
 ---
 # <a name="alias-server-names"></a>Alias de nombre de servidor
 
-Mediante un alias de nombre de servidor, los usuarios pueden conectarse a su servidor de Azure Analysis Services con un *alias* más corto en lugar del nombre del servidor. Al conectarse desde una aplicación cliente, el alias se especifica como un punto de conexión mediante el formato de protocolo **link://**. El punto de conexión devuelve entonces el nombre real del servidor para conectarse.
+Mediante un alias de nombre de servidor, los usuarios pueden conectarse a su servidor de Azure Analysis Services con un *alias* más corto en lugar del nombre del servidor. Al conectarse desde una aplicación cliente, el alias se especifica como un punto de conexión mediante el formato de protocolo **link://** . El punto de conexión devuelve entonces el nombre real del servidor para conectarse.
 
 Los alias de nombre de servidor son muy adecuados en los siguientes casos:
 
@@ -30,7 +30,7 @@ Cualquier punto de conexión HTTPS que devuelva un nombre de servidor válido de
 
 ![Alias mediante formato de vínculo](media/analysis-services-alias/aas-alias-browser.png)
 
-Al conectarse desde un cliente, el alias del nombre de servidor de especifica mediante el formato de protocolo **link://**. Por ejemplo, en Power BI Desktop:
+Al conectarse desde un cliente, el alias del nombre de servidor de especifica mediante el formato de protocolo **link://** . Por ejemplo, en Power BI Desktop:
 
 ![Conexión de Power BI Desktop](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
@@ -53,7 +53,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Conexión con Power BI Desktop](analysis-services-connect-pbi.md)

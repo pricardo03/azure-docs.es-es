@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454196"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recopilación de datos de Log Analytics con un runbook de Azure Automation
@@ -65,10 +65,10 @@ Sin embargo, la Galería de PowerShell le ofrece una opción rápida para implem
 
 | Propiedad | Valor de identificador de área de trabajo | Valor de clave de área de trabajo |
 |:--|:--|:--|
-| Name | WorkspaceId | WorkspaceKey |
-| Type | string | string |
-| Value | Pegue el identificador de área de trabajo de su área de trabajo de Log Analytics. | Pegue la clave secundaria o principal de su área de trabajo de Log Analytics. |
-| Cifrados | Sin  | Sí |
+| NOMBRE | WorkspaceId | WorkspaceKey |
+| Type | Cadena | Cadena |
+| Valor | Pegue el identificador de área de trabajo de su área de trabajo de Log Analytics. | Pegue la clave secundaria o principal de su área de trabajo de Log Analytics. |
+| Cifrados | Sin | Sí |
 
 ## <a name="3-create-runbook"></a>3. Creación de runbook
 
@@ -179,13 +179,13 @@ La manera más común de iniciar un runbook que recopila datos de supervisión e
 2. Haga clic en **Agregar una programación** > **Vincular una programación a su runbook** > **Crear una nueva programación**.
 5. Escriba los valores siguientes para la programación y haga clic en **Crear**.
 
-| Propiedad | Value |
+| Propiedad | Valor |
 |:--|:--|
-| Name | AutomationJobs-Hourly |
+| NOMBRE | AutomationJobs-Hourly |
 | Se inicia | Seleccione cualquier hora al menos 5 minutos después de la hora actual. |
 | Periodicidad | Periódica |
 | Repetir cada | 1 hora |
-| Configurar expiración | Sin  |
+| Configurar expiración | Sin |
 
 Una vez creada la programación, debe establecer los valores de los parámetros que se usarán cada vez que esta inicie el runbook.
 

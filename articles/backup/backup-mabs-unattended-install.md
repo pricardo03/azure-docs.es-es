@@ -2,18 +2,17 @@
 title: Instalación silenciosa de Azure Backup Server v2
 description: Use un script de PowerShell para realizar una instalación silenciosa de Azure Backup Server v2. Este tipo de instalación también se denomina instalación desatendida.
 services: backup
-author: lingliw
-manager: digimobile
+author: rayne-wiselman
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-origin.date: 11/13/2018
-ms.date: 11/26/2018
-ms.author: v-lingwu
+ms.date: 11/13/2018
+ms.author: raynew
 ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253852"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Ejecución de una instalación desatendida de Azure Backup Server
@@ -68,5 +67,3 @@ Después de instalar Backup Server, sepa cómo preparar el servidor o empezar a 
 - [Usar Backup Server para hacer una copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
 - [Usar Backup Server para hacer una copia de seguridad de SQL Server](backup-azure-sql-mabs.md)
 - [Agregar Modern Backup Storage a Backup Server](backup-mabs-add-storage.md)
-
-<!-- Update_Description: link update -->

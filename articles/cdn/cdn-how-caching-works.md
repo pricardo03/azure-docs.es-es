@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636816"
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
@@ -126,7 +126,7 @@ En la tabla siguiente se describe el valor predeterminado del comportamiento del
 
 |    | Microsoft: Entrega web general | Verizon: Entrega web general | Verizon: DSA | Akamai: Entrega web general | Akamai: DSA | Akamai: Descarga de archivos de gran tamaño | Akamai: streaming multimedia general o de vídeo bajo demanda |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Respetar origen**       | Sí    | Sí   | Sin    | Sí    | Sin    | Sí   | Sí    |
+| **Respetar origen**       | Sí    | Sí   | Sin   | Sí    | Sin   | Sí   | Sí    |
 | **Duración de la caché de la red CDN** | 2 días |7 días | None | 7 días | None | 1 día | 1 año |
 
 **Respetar origen**: especifica si se respetan los encabezados de la directiva de caché admitidos, en caso de que existan en la respuesta HTTP del servidor de origen.

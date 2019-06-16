@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150017"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Inicio de una conmutación por error de la cuenta de almacenamiento (versión preliminar)
@@ -44,7 +44,7 @@ Después de la conmutación por error, el tipo de cuenta de almacenamiento se co
 
 Después de volver a habilitar GRS para la cuenta de almacenamiento, Microsoft comienza a replicar los datos de la cuenta en la nueva región secundaria. La hora de la replicación depende de la cantidad de datos que se replican.  
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 Para iniciar una conmutación por error de la cuenta desde Azure Portal, siga estos pasos:
 

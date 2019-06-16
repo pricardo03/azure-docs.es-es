@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
 ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684238"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
@@ -52,13 +52,13 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | Tipo de error | Motivo | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
-| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin |
-| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño. | Sin  |
-| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin  |
-| PlatformInActive | Hay un problema con la plataforma. | Sin |
-| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin |
-| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Este error es solo una advertencia.| Sin |
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
+| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin|
+| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño. | Sin |
+| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin |
+| PlatformInActive | Hay un problema con la plataforma. | Sin|
+| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin|
+| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Este error es solo una advertencia.| Sin|
 | ConnectionsNotConnected | Las conexiones no están conectadas. Este error es solo una advertencia.| Sí|
 | GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
@@ -67,12 +67,12 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | Tipo de error | Motivo | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
-| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin |
-| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño.  | Sin  |
-| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin  |
-| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin  |
-| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin |
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
+| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin|
+| UserDrivenUpdate | Este error se produce cuando hay una actualización del usuario en curso. Esta actualización podría tratarse de una operación de cambio de tamaño.  | Sin |
+| VipUnResponsive | Este error se produce cuando no se puede alcanzar la instancia principal de la puerta de enlace debido a un error de sondeo de estado. | Sin |
+| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin |
+| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin|
 | ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
 | ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| Sí|
 | Authentication | Error de coincidencia de clave previamente compartida. | Sí|

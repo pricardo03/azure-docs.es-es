@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8a2a2fffa9ed3a4dae3c0768291b7585be4bfc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64690831"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error
 
@@ -89,7 +89,9 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 > [!NOTE]
 > Si desea conceder acceso de usuario a la base de datos secundaria, pero no a la principal, puede hacerlo modificando el inicio de sesión de usuario en el servidor principal con la sintaxis siguiente.
 >
+> ```sql
 > ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DISABLE no cambia la contraseña, por lo que siempre puede habilitarlo si es necesario.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: glenga
 ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035871"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
@@ -43,7 +43,7 @@ Cada aplicación de función tiene un conjunto de direcciones IP de salida dispo
 Para buscar las direcciones IP de salida disponibles para una aplicación de función:
 
 1. Inicie sesión en [Azure Resource Explorer](https://resources.azure.com).
-2. Seleccione **suscriptions (suscripciones) > {su suscripción} > providers (proveedores) > Microsoft.Web > sites (sitios)**.
+2. Seleccione **suscriptions (suscripciones) > {su suscripción} > providers (proveedores) > Microsoft.Web > sites (sitios)** .
 3. En el panel JSON, busque el sitio con una propiedad `id` que acabe en el nombre de la aplicación de función.
 4. Vea `outboundIpAddresses` y `possibleOutboundIpAddresses`. 
 

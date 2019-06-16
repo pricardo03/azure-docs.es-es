@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198333"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protección de los datos almacenados en Azure Data Lake Storage Gen1
@@ -55,11 +55,11 @@ Cuando asigna usuarios o grupos de seguridad a las cuentas de Data Lake Storage 
 
 1. Abra una cuenta de Data Lake Storage Gen1. En el panel izquierdo, haga clic en **Todos los recursos** y, en la hoja que se abre, haga clic en el nombre de la cuenta a la que desea asignar un usuario o grupo de seguridad.
 
-2. En la hoja de su cuenta de Data Lake Storage Gen1, haga clic en **Control de acceso (IAM)**. La hoja de forma predeterminada muestra a los propietarios de suscripción en el rol de propietario.
+2. En la hoja de su cuenta de Data Lake Storage Gen1, haga clic en **Control de acceso (IAM)** . La hoja de forma predeterminada muestra a los propietarios de suscripción en el rol de propietario.
    
     ![Asignar el grupo de seguridad a la cuenta de Azure Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Assign security group to Azure Data Lake Storage Gen1 account")
 
-3. En la hoja **Control de acceso (IAM)**, haga clic en **Agregar** para abrir la hoja **Agregar permisos**. En la hoja **Agregar permisos**, seleccione un **Rol** para el usuario o grupo. Busque el grupo de seguridad que creó antes en Azure Active Directory y selecciónelo. Si tiene muchos grupos en los que buscar, use el cuadro de texto **Seleccionar** para filtrar según el nombre del grupo. 
+3. En la hoja **Control de acceso (IAM)** , haga clic en **Agregar** para abrir la hoja **Agregar permisos**. En la hoja **Agregar permisos**, seleccione un **Rol** para el usuario o grupo. Busque el grupo de seguridad que creó antes en Azure Active Directory y selecciónelo. Si tiene muchos grupos en los que buscar, use el cuadro de texto **Seleccionar** para filtrar según el nombre del grupo. 
    
     ![Agregar un rol para el usuario](./media/data-lake-store-secure-data/adl.add.user.1.png "Agregar un rol para el usuario")
    
@@ -127,10 +127,10 @@ Cuando quita grupos de seguridad de cuentas de Data Lake Storage Gen1, solamente
 
 El acceso a datos no se ha modificado y sigue administrado por las ACL de acceso.  La excepción a esto son los usuarios o grupos en el rol Propietarios.  Los usuarios o grupos que se quiten del rol Propietarios dejarán de ser superusuarios y su acceso retrocede a la configuración de acceso de ACL. 
 
-1. En la hoja de su cuenta de Data Lake Storage Gen1, haga clic en **Control de acceso (IAM)**. 
+1. En la hoja de su cuenta de Data Lake Storage Gen1, haga clic en **Control de acceso (IAM)** . 
    
     ![Asignar el grupo de seguridad a la cuenta de Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Data Lake Storage Gen1 account")
-2. En la hoja **Control de acceso (IAM)**, haga clic en el grupo de seguridad que desea quitar. Haga clic en **Quitar**.
+2. En la hoja **Control de acceso (IAM)** , haga clic en el grupo de seguridad que desea quitar. Haga clic en **Quitar**.
    
     ![Grupo de seguridad quitado](./media/data-lake-store-secure-data/adl.remove.group.png "Grupo de seguridad quitado")
 
@@ -147,7 +147,7 @@ Cuando quita las ACL de grupos de seguridad de un sistema de archivos de Data La
    
     ![Asignación de permisos a un grupo](./media/data-lake-store-secure-data/adl.remove.acl.png "Asignación de permisos a un grupo")
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)

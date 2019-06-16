@@ -10,11 +10,11 @@ ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720434"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planes y facturación de Azure Scheduler
 
@@ -80,7 +80,7 @@ Las colecciones de trabajos Premium P20 proporcionan las mismas funcionalidades 
 
   Las facturas del servicio Scheduler se basan en el número de colecciones de trabajos activas que sean Estándar o Premium.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)

@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60540409"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Tutorial de la infraestructura de Azure de ejemplo para máquinas virtuales Windows
@@ -55,13 +55,13 @@ Todo lo anterior seguirá estas convenciones de nomenclatura:
 * Adventure Works Cycles usa **[carga de trabajo de TI]-[ubicación]-[recurso de Azure]** como prefijo
   * En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE. UU. 2") es la ubicación.
 * Las redes virtuales usan AZOS-USE-VN **[número]**
-* Los conjuntos de disponibilidad usan azos-use-as-**[rol]**
-* Los nombres de máquinas virtuales usan azos-use-vm-**[vmname]**
+* Los conjuntos de disponibilidad usan azos-use-as- **[rol]**
+* Los nombres de máquinas virtuales usan azos-use-vm- **[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Suscripciones y cuentas de Azure
 Adventure Works Cycles usa la suscripción Enterprise, denominada Adventure Works Enterprise Subscription, para proporcionar la facturación de esta carga de trabajo de TI.
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 Adventure Works Cycles determina que deben usar Azure Managed Disks. Al crear VM, se utilizan ambos niveles de almacenamiento disponibles:
 
 * **Almacenamiento estándar** de los servidores web, los servidores de aplicaciones y los controladores de dominio y sus discos de datos.

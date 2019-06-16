@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576193"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use la herramienta de diagnóstico de StorSimple para solucionar los problemas de los dispositivos de la serie 8000.
@@ -43,7 +43,7 @@ En este artículo, se supone que se ha conectado a la consola serie del disposit
 Cuando se haya conectado a la interfaz de Windows PowerShell del dispositivo, realice los pasos siguientes para ejecutar el cmdlet.
 1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Escriba el siguiente comando: 
+2. Escriba el siguiente comando:
 
     `Invoke-HcsDiagnostics`
 
@@ -378,7 +378,7 @@ Para usar esta herramienta, realice los siguientes pasos:
 
 1.  En primer lugar, cree una mezcla de volúmenes en capas y volúmenes anclados localmente con la opción de archivado marcada. Esta acción garantiza que la herramienta ejecuta las pruebas para tamaños de blob de 64 KB y 512 KB.
 
-2. Ejecute el cmdlet cuando haya creado y configurado los volúmenes. Escriba: 
+2. Ejecute el cmdlet cuando haya creado y configurado los volúmenes. Escriba:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 

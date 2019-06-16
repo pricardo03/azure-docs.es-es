@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035764"
 ---
 # <a name="in-memory-sample"></a>Ejemplo en memoria
@@ -52,7 +52,7 @@ Si desea ver una demostración más simple, pero más atractiva visualmente, del
 
 3. Copie el [script Transact-SQL de In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) en el Portapapeles. El script T-SQL crea los objetos en memoria necesarios en la base de datos de ejemplo AdventureWorksLT que se creó en el paso 1.
 
-4. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo. Es crucial la instrucción CREATE TABLE de la cláusula `MEMORY_OPTIMIZED = ON`. Por ejemplo: 
+4. Pegue el script T-SQL en SSMS.exe y, luego, ejecútelo. Es crucial la instrucción CREATE TABLE de la cláusula `MEMORY_OPTIMIZED = ON`. Por ejemplo:
 
 
 ```sql

@@ -9,10 +9,10 @@ ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787807"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
@@ -31,7 +31,7 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 
     ![Azure Explorer](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    La ejecución de la plantilla crea un valor de escalado automático predeterminado con el nombre **'autoscalewad'**. En el lado derecho puede ver la definición completa de este valor de escalado automático. En este caso, el valor de escalado automático predeterminado viene con una regla de escalado horizontal y otra de reducción horizontal, ambas basadas en el % de CPU.  
+    La ejecución de la plantilla crea un valor de escalado automático predeterminado con el nombre **'autoscalewad'** . En el lado derecho puede ver la definición completa de este valor de escalado automático. En este caso, el valor de escalado automático predeterminado viene con una regla de escalado horizontal y otra de reducción horizontal, ambas basadas en el % de CPU.  
 
 3. Ahora puede agregar más perfiles y reglas basadas en la programación o requisitos específicos. Creamos una configuración de escalado automático con tres perfiles. Para comprender los perfiles y las reglas de escalado automático, revise el artículo [Procedimientos recomendados de escalado automático](autoscale-best-practices.md).  
 

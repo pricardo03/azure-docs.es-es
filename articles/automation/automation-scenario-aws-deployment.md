@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 348c28f6a2d72048e34f117e802abf243597b458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737640"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Escenario de Azure Automation: aprovisionamiento de una máquina virtual de AWS
@@ -22,7 +22,7 @@ En este artículo aprenderá cómo se puede aprovechar Azure Automation para apr
 ## <a name="prerequisites"></a>Requisitos previos
 Para la finalidad de este artículo, debe tener una cuenta de Azure Automation y una suscripción de AWS. Para más información sobre cómo configurar una cuenta de Azure Automation con sus credenciales de la suscripción de AWS, consulte [Configuración de la autenticación con Amazon Web Services](automation-config-aws-account.md). Antes de continuar, debe crear o actualizar esta cuenta con sus credenciales de suscripción de AWS, ya que en los pasos siguientes haremos referencia a esta cuenta.
 
-## <a name="deploy-amazon-web-services-powershell-module"></a>Implementar un módulo Amazon Web Services de PowerShell 
+## <a name="deploy-amazon-web-services-powershell-module"></a>Implementar un módulo Amazon Web Services de PowerShell
 El runbook de aprovisionamiento de la máquina virtual aprovecha el módulo AWS de PowerShell para realizar su trabajo. Realice los pasos siguientes para agregar el módulo a la cuenta de Automation que esté configurada con sus credenciales de suscripción de AWS.  
 
 1. Abra el explorador web, navegue a la [Galería de PowerShell](https://www.powershellgallery.com/packages/AWSPowerShell/) y haga clic en el **botón Deploy to Azure Automation** (Implementar en Azure Automation).<br><br> ![Importación del módulo AWS de PS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)

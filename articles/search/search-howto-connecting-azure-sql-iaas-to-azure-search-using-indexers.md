@@ -10,14 +10,14 @@ ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60871287"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure
-Como se indicó en [Conexión de Azure SQL Database a Azure Search mediante indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creación de indexadores en **SQL Server on Azure VMs** (o **VM SQL Azure** para abreviar) es compatible con Azure Search, pero hay varios requisitos previos relacionados con la seguridad de los que hay que ocuparse en primer lugar. 
+Como se indicó en [Conexión de Azure SQL Database a Azure Search mediante indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creación de indexadores en **SQL Server on Azure VMs** (o **SQL Azure VMs** para abreviar) es compatible con Azure Search, pero hay varios requisitos previos relacionados con la seguridad de los que hay que ocuparse en primer lugar. 
 
 La conexión de Azure Search a SQL Server en una máquina virtual es una conexión pública de Internet. Todas las medidas de seguridad que seguiría normalmente para este tipo de conexiones son aplicables aquí también:
 

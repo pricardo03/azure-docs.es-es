@@ -13,10 +13,10 @@ ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
 ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388155"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
@@ -445,7 +445,7 @@ Los espacios de nombres de punto de conexión también se pueden usar en la sali
 * Cadenas de conexión (MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Traffic Manager
 * etiquetaDeNombreDeDominio de una dirección IP pública
-* Cloud Services
+* Servicios en la nube
 
 En general, evite los puntos de conexión codificados de forma rígida en una plantilla. El procedimiento recomendado consiste en usar la función de plantilla de referencia para recuperar los puntos de conexión de forma dinámica. Por ejemplo, el punto de conexión que se codifica de forma rígida con más frecuencia es el espacio de nombres de punto de conexión para las cuentas de almacenamiento. Cada cuenta de almacenamiento tiene un FQDN único que se crea concatenando el nombre de la cuenta de almacenamiento con el espacio de nombres de punto de conexión. Una cuenta de Blob Storage con el nombre mystorageaccount1 da como resultado otro FQDN en función de la nube:
 
@@ -493,7 +493,7 @@ Para recuperar una lista de las imágenes de máquina virtual disponibles en una
 az vm image list -all
 ```
 
-Puede recuperar la misma lista con el cmdlet de PowerShell de Azure [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) y especificar la ubicación que quiera con el parámetro `-Location`. Por ejemplo: 
+Puede recuperar la misma lista con el cmdlet de PowerShell de Azure [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) y especificar la ubicación que quiera con el parámetro `-Location`. Por ejemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -596,7 +596,7 @@ Para recuperar una lista de las extensiones de máquina virtual que están dispo
 az vm extension image list --location myLocation
 ```
 
-También puede ejecutar el cmdlet de Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) y usar `-Location` para especificar la ubicación de la imagen de máquina virtual. Por ejemplo: 
+También puede ejecutar el cmdlet de Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) y usar `-Location` para especificar la ubicación de la imagen de máquina virtual. Por ejemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

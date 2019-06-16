@@ -1,9 +1,8 @@
 ---
 title: Esquema NetworkConfiguration de Azure Cloud Services | Microsoft Docs
 ms.custom: ''
-origin.date: 12/07/2016
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 12/07/2016
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
 caps.latest.revision: 28
-author: thraka
-ms.author: v-yiso
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: fb833904502c0c42b46201fd46a368de0376277c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130283"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Esquema NetworkConfiguration de configuración de Azure Cloud Services
@@ -78,5 +77,5 @@ En la siguiente tabla se describen los elementos secundarios del elemento `Netwo
 | Subred | Opcional. Especifica la subred que corresponde al nombre de subred en el archivo de configuración de red. El nombre de la subred se define mediante una cadena en el atributo `name`.|
 | ReservedIP | Opcional. Especifica la dirección IP reservada que se debe asociar con la implementación. Debe usar Crear dirección IP reservada para crear la dirección IP reservada. Cada implementación de un servicio en la nube se puede asociar a una dirección IP reservada. El nombre de la dirección IP reservada se define mediante una cadena en el atributo `name`.|
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md) (Esquema de configuración de Cloud Service [clásico])

@@ -10,10 +10,10 @@ ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60871155"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Recompilación de un índice de Azure Search
@@ -94,7 +94,7 @@ Al cargar el índice, el índice invertido de cada campo se rellena con todas la
 
 Puede empezar a consultar un índice en cuanto se carga el primer documento. Si conoce el identificador de un documento, la [API REST para buscar documentos](https://docs.microsoft.com/rest/api/searchservice/lookup-document) devuelve el documento específico. Para realizar pruebas más amplias, debe esperar hasta que el índice se haya cargado completamente y, a continuación, usar consultas para comprobar el contexto que espera ver.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Información general del indexador](search-indexer-overview.md)
 + [Indexación de grandes conjuntos de datos a escala](search-howto-large-index.md)

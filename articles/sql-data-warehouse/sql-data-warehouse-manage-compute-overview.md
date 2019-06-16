@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748941"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Administración de proceso en Azure SQL Data Warehouse
@@ -42,7 +42,7 @@ En la tabla siguiente se muestra cómo cambia el número de distribuciones por n
 | 600  | 6                  | 10                           |
 | 1000 | 10                 | 6                            |
 | 1200 | 12                 | 5                            |
-| 1.500 | 15                 | 4                            |
+| 1\.500 | 15                 | 4                            |
 | 2000 | 20                 | 3                            |
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |

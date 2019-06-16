@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881485"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualización de registros para un servicio de contenedor de Service Fabric
@@ -27,9 +27,9 @@ Azure Service Fabric es un orquestador de contenedores que admite [contenedores 
 ## <a name="access-the-logs-of-a-running-container"></a>Acceso a los registros de un contenedor en ejecución
 Registros de contenedor se pueden acceder mediante [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  En un explorador web, vaya a [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer) para abrir Service Fabric Explorer desde el punto de conexión de administración del clúster.  
 
-Los registros de contenedor se encuentran en el nodo de clúster en el que se ejecuta la instancia de servicio de contenedor. Como ejemplo, obtenga los registros del contenedor de front-end web de la [aplicación de ejemplo de votación de Linux](service-fabric-quickstart-containers-linux.md). En la vista de árbol, expanda **Cluster**> **Applications (Aplicaciones)**> **VotingType**>**fabric:/Voting/azurevotefront**.  A continuación, expanda la partición (d1aa737e-f22a-e347-be16-eec90be24bc1, en este ejemplo) y compruebe que el contenedor se está ejecutando en el nodo de clúster *_lnxvm_0*.
+Los registros de contenedor se encuentran en el nodo de clúster en el que se ejecuta la instancia de servicio de contenedor. Como ejemplo, obtenga los registros del contenedor de front-end web de la [aplicación de ejemplo de votación de Linux](service-fabric-quickstart-containers-linux.md). En la vista de árbol, expanda **Cluster**> **Applications (Aplicaciones)** > **VotingType**>**fabric:/Voting/azurevotefront**.  A continuación, expanda la partición (d1aa737e-f22a-e347-be16-eec90be24bc1, en este ejemplo) y compruebe que el contenedor se está ejecutando en el nodo de clúster *_lnxvm_0*.
 
-En la vista de árbol, busque el paquete de código en el nodo  *_lnxvm_0* expandiendo **Nodes (nodos)**>**_lnxvm_0**>**fabric:/Voting**> **azurevotfrontPkg**>**Code Packages (Paquetes de código)**>**code (código)**.  A continuación, seleccione la opción **Registros de contenedor** para que se muestren los registros de contenedor.
+En la vista de árbol, busque el paquete de código en el nodo  *_lnxvm_0* expandiendo **Nodes (nodos)** > **_lnxvm_0**>**fabric:/Voting**> **azurevotfrontPkg**>**Code Packages (Paquetes de código)** >**code (código)** .  A continuación, seleccione la opción **Registros de contenedor** para que se muestren los registros de contenedor.
 
 ![Plataforma de Service Fabric][Image1]
 

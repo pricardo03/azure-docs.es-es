@@ -11,10 +11,10 @@ ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61083944"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Uso de Azure Functions para administrar recursos de proceso en Azure SQL Data Warehouse
@@ -53,7 +53,7 @@ Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gra
 
    ![Seleccione Integrar por función](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. En este momento, el valor mostrado debería indicar *%ScaleDownTime%* o *%ScaleUpTime%*. Estos valores indican que la programación se basa en los valores definidos en la [Configuración de la aplicación][Application Settings]. Por ahora, puede omitir este valor y cambiar la programación para el momento que prefiera en función de los siguientes pasos.
+3. En este momento, el valor mostrado debería indicar *%ScaleDownTime%* o *%ScaleUpTime%* . Estos valores indican que la programación se basa en los valores definidos en la [Configuración de la aplicación][Application Settings]. Por ahora, puede omitir este valor y cambiar la programación para el momento que prefiera en función de los siguientes pasos.
 
 4. En el área de programación, agregue el tiempo de la expresión CRON que prefiera para reflejar la frecuencia con la que desea que SQL Data Warehouse se reduzca verticalmente. 
 

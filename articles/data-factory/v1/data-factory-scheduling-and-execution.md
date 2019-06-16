@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 2d7fc45faf1fb77c7d9181e5a2419096dd1ad0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258990"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Programación y ejecución de Data Factory
@@ -188,9 +188,9 @@ La tabla siguiente describe las propiedades que puede utilizar en la sección de
 | --- | --- | --- | --- |
 | frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month |Sí |N/D |
 | interval |Especifica un multiplicador para frecuencia<br/><br/>”Frequency x interval” determina la frecuencia con la que se produce el segmento.<br/><br/>Si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/><b>Nota</b>: Si especifica Frequency como Minute, se recomienda establecer interval en no menos de 15 |Sí |N/D |
-| style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si frequency se establece en Month y style se establece en EndOfInterval, el segmento se produce el último día del mes. Si style se establece en StartOfInterval, el segmento se produce el primer día del mes.<br/><br/>Si frequency se establece en Day y style se establece en EndOfInterval, el segmento se produce la última hora del día.<br/><br/>Si frequency se establece en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se producirá a las 2 p.m. |Sin  |EndOfInterval |
-| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/><b>Nota</b>: Si AnchorDateTime tiene partes de fecha más pormenorizadas que la frecuencia, estas se omitirán. <br/><br/>Por ejemplo, si el valor de <b>interval</b> es <b>hourly</b> (frecuency: hour e interval: 1) y <b>AnchorDateTime</b> contiene <b>minutes and seconds</b>, las partes <b>minutes and seconds</b> de AnchorDateTime no se tienen en cuenta. |Sin  |01/01/0001 |
-| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/><b>Nota</b>: Si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado. |Sin  |N/D |
+| style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si frequency se establece en Month y style se establece en EndOfInterval, el segmento se produce el último día del mes. Si style se establece en StartOfInterval, el segmento se produce el primer día del mes.<br/><br/>Si frequency se establece en Day y style se establece en EndOfInterval, el segmento se produce la última hora del día.<br/><br/>Si frequency se establece en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se producirá a las 2 p.m. |Sin |EndOfInterval |
+| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/><b>Nota</b>: Si AnchorDateTime tiene partes de fecha más pormenorizadas que la frecuencia, estas se omitirán. <br/><br/>Por ejemplo, si el valor de <b>interval</b> es <b>hourly</b> (frecuency: hour e interval: 1) y <b>AnchorDateTime</b> contiene <b>minutes and seconds</b>, las partes <b>minutes and seconds</b> de AnchorDateTime no se tienen en cuenta. |Sin |01/01/0001 |
+| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/><b>Nota</b>: Si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado. |Sin |N/D |
 
 ### <a name="offset-example"></a>Ejemplo de offset
 De forma predeterminada, cada día (`"frequency": "Day", "interval": 1`) se inician los segmentos a las 24:00 UTC (medianoche). Si desea que, en su lugar, la hora de inicio sea a las 6:00 UTC, defina el desplazamiento como se muestra en el siguiente fragmento de código: 
@@ -234,8 +234,8 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 
 | Nombre de la directiva | DESCRIPCIÓN | Aplicado a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB | Valida que los datos de un **blob de Azure** cumplen los requisitos de tamaño mínimo (en megabytes). |blob de Azure |Sin  |N/D |
-| minimumRows | Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |Sin  |N/D |
+| minimumSizeMB | Valida que los datos de un **blob de Azure** cumplen los requisitos de tamaño mínimo (en megabytes). |blob de Azure |Sin |N/D |
+| minimumRows | Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |Sin |N/D |
 
 #### <a name="examples"></a>Ejemplos
 **minimumSizeMB:**
@@ -697,7 +697,7 @@ Esta es el JSON de canalización de ejemplo:
 
 Observe que en el ejemplo, el conjunto de datos de salida de la primera actividad de copia (ConjuntoDatos2) se especifica como entrada para la segunda. Por lo tanto, la segunda actividad solo se ejecuta cuando el conjunto de datos de salida de la primera está listo.  
 
-En el ejemplo, CopyActivity2 puede tener una entrada distinta, como Dataset3, pero especifica Dataset2 como una entrada de CopyActivity2 para que la actividad no se ejecute hasta que se haya completado CopyActivity1. Por ejemplo: 
+En el ejemplo, CopyActivity2 puede tener una entrada distinta, como Dataset3, pero especifica Dataset2 como una entrada de CopyActivity2 para que la actividad no se ejecute hasta que se haya completado CopyActivity1. Por ejemplo:
 
 CopyActivity1
 

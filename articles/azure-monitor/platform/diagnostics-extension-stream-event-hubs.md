@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922833"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs
@@ -45,7 +45,7 @@ La recepción de datos de Azure Diagnostics en Event Hubs se admite en Cloud Ser
 * Espacio de nombres de Event Hubs aprovisionado según el artículo [Introducción a los Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Conectar Diagnósticos de Azure al receptor de Event Hubs
-De forma predeterminada, Diagnósticos de Azure siempre envía registros y métricas a una cuenta de Azure Storage. Una aplicación también puede enviar datos a Event Hubs con la incorporación de una nueva sección **Sinks** al elemento **PublicConfig** / **WadCfg** del archivo *.wadcfgx*. En Visual Studio, el archivo *.wadcfgx* se almacena en la ruta de acceso siguiente: archivo **Proyecto de servicios en la nube** > **Roles** > **(nombreDeRol)** > **diagnostics.wadcfgx**.
+De forma predeterminada, Diagnósticos de Azure siempre envía registros y métricas a una cuenta de Azure Storage. Una aplicación también puede enviar datos a Event Hubs con la incorporación de una nueva sección **Sinks** al elemento **PublicConfig** / **WadCfg** del archivo *.wadcfgx*. En Visual Studio, el archivo *.wadcfgx* se almacena en la ruta de acceso siguiente: archivo **Proyecto de servicios en la nube** > **Roles** >  **(nombreDeRol)**  > **diagnostics.wadcfgx**.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ En el ejemplo siguiente se muestra cómo un desarrollador puede limitar la canti
 En este ejemplo, el receptor se aplica a los registros y se filtra solo para el seguimiento de nivel Error.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implementación y actualización de una aplicación de Cloud Services y configuración de diagnósticos
-Visual Studio proporciona la manera más sencilla de implementar la aplicación y la configuración del receptor de Event Hubs. Para ver y editar el archivo, abra el archivo *.wadcfgx* en Visual Studio, edítelo y guárdelo. La ruta de acceso es **Proyecto de servicio en la nube** > **Roles** > **(nombreDelRol)** > **diagnostics.wadcfgx**.  
+Visual Studio proporciona la manera más sencilla de implementar la aplicación y la configuración del receptor de Event Hubs. Para ver y editar el archivo, abra el archivo *.wadcfgx* en Visual Studio, edítelo y guárdelo. La ruta de acceso es **Proyecto de servicio en la nube** > **Roles** >  **(nombreDelRol)**  > **diagnostics.wadcfgx**.  
 
 En este punto, toda la implementación y las acciones de actualización de la implementación en Visual Studio, Visual Studio Team System, además de todos los comandos o scripts que se basan en MSBuild y usan el destino **/t:publish** incluirán el archivo *.wadcfgx* en el proceso de empaquetado. Además, las implementaciones y actualizaciones implementan el archivo en Azure mediante la extensión del agente de Diagnósticos de Azure en las máquinas virtuales.
 

@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614992"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Administración de Azure Data Lake Analytics con una aplicación Java
@@ -33,7 +33,7 @@ El siguiente fragmento de código proporciona código para la autenticación **n
 ## <a name="create-a-java-application"></a>Creación de una aplicación Java
 1. Abra IntelliJ y cree un proyecto de Java mediante la plantilla **Command-Line App** (Aplicación de línea de comandos).
 2. Haga clic con el botón derecho en el proyecto de la izquierda de la pantalla y haga clic en **Add Framework Support**(Agregar compatibilidad con el marco). Elija **Maven** y haga clic en **Aceptar**.
-3. Abra el archivo **"pom.xml"** recién creado y agregue el siguiente fragmento de código de texto entre las etiquetas **\<</version>** y **\</project>**:
+3. Abra el archivo **"pom.xml"** recién creado y agregue el siguiente fragmento de código de texto entre las etiquetas **\<</version>** y **\</project>** :
 
 ```
 <repositories>
@@ -86,7 +86,7 @@ El siguiente fragmento de código proporciona código para la autenticación **n
 </dependencies>
 ```
 
-Vaya a **File (Archivo) > Settings (Configuración) > Build, Execution, Deployment (Compilación, ejecución y desarrollo)**. Seleccione **Build Tools (Herramientas de compilación) > Maven > Importing (Importando)**. A continuación, marque **Import Maven projects automatically** (Importar proyectos de Maven automáticamente).
+Vaya a **File (Archivo) > Settings (Configuración) > Build, Execution, Deployment (Compilación, ejecución y desarrollo)** . Seleccione **Build Tools (Herramientas de compilación) > Maven > Importing (Importando)** . A continuación, marque **Import Maven projects automatically** (Importar proyectos de Maven automáticamente).
 
 Abra `Main.java` y sustituya el bloque de código existente por el siguiente fragmento de código:
 

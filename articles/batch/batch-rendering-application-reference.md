@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775396"
 ---
 # <a name="rendering-applications"></a>Aplicaciones de representación
@@ -33,7 +33,7 @@ Además de los representadores incorporados a 3ds Max, los representadores sigui
 
 Invoque la aplicación `3dsmaxcmdio.exe` para realizar la representación mediante línea de comandos en un nodo del grupo.  Esta aplicación está en la ruta de acceso cuando se ejecuta la tarea. La aplicación `3dsmaxcmdio.exe` tiene los mismos parámetros disponibles que la aplicación `3dsmaxcmd.exe` y se pueden encontrar en la [documentación de ayuda de 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) [sección Rendering (Representación) | Command-Line Rendering (Representación mediante línea de comandos)].
 
-Por ejemplo: 
+Por ejemplo:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

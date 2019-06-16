@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609761"
 ---
 # <a name="author-entity"></a>Entidad de autor
@@ -23,11 +23,11 @@ ms.locfileid: "60609761"
 NOMBRE    |DESCRIPCIÓN                            |Type       | Operaciones
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                              |Int64      |Equals
-AuN     |Nombre normalizado de autor                 |string     |Equals
-DAuN    |Nombre para mostrar de autor                    |string     |None
+AuN     |Nombre normalizado de autor                 |Cadena     |Equals
+DAuN    |Nombre para mostrar de autor                    |Cadena     |None
 CC      |Recuento total de cita de autor            |Int32      |None  
 ECC     |Recuento total de cita estimada de autor  |Int32      |None
-E       |Metadatos extendidos (vea la tabla "Atributos de metadatos extendidos")  |string     |None  
+E       |Metadatos extendidos (vea la tabla "Atributos de metadatos extendidos")  |Cadena     |None  
 
 
 ## <a name="extended-metadata-attributes"></a>Atributos de metadatos extendidos ##

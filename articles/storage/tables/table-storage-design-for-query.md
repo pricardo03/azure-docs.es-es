@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325874"
 ---
 # <a name="design-for-querying"></a>Diseño de consulta
@@ -37,12 +37,12 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 
 | *Nombre de la columna* | *Tipo de datos* |
 | --- | --- |
-| **PartitionKey** (nombre de departamento) |string |
-| **RowKey** (Identificación de empleado) |string |
-| **Nombre** |string |
-| **Apellidos** |string |
+| **PartitionKey** (nombre de departamento) |Cadena |
+| **RowKey** (Identificación de empleado) |Cadena |
+| **Nombre** |Cadena |
+| **Apellidos** |Cadena |
 | **Edad** |Entero |
-| **EmailAddress** |string |
+| **EmailAddress** |Cadena |
 
 En el artículo [Introducción a Azure Table Storage](table-storage-overview.md) se describen algunas de las características clave de Azure Table service que influyen directamente en el diseño de consultas. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

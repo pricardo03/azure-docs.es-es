@@ -10,10 +10,10 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683775"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Azure Logic Apps
@@ -90,7 +90,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
    3. Seleccione esta acción: **Enviar un correo electrónico - <*proveedor de correo electrónico*>**
 
-      Por ejemplo: 
+      Por ejemplo:
 
       ![Seleccione la acción "Enviar un correo electrónico" para el proveedor de correo electrónico](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 

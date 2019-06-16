@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001855"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Conexión a orígenes de datos
@@ -61,5 +61,5 @@ Con el objetivo de simplificar las cosas para los usuarios que detecten un orige
 ## <a name="summary"></a>Resumen
 Al registrar un origen de datos con **Azure Data Catalog**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catalog. Una vez que se registra y detecta un origen de datos, los usuarios pueden conectarse al origen de datos desde el menú "Abrir en…" del portal de **Azure Data Catalog** o con las herramientas de datos que prefieran.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.

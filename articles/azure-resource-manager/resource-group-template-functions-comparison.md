@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128691"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funciones de comparación para las plantillas de Azure Resource Manager
@@ -137,10 +137,10 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
-| checkStrings | Bool | True  |
-| checkArrays | Bool | True  |
-| checkObjects | Bool | True  |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -175,7 +175,7 @@ El resultado del ejemplo anterior es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True  |
+| checkNotEquals | Bool | True |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -251,7 +251,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
-| checkStrings | Bool | True  |
+| checkStrings | Bool | True |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -327,7 +327,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
-| checkStrings | Bool | True  |
+| checkStrings | Bool | True |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -341,7 +341,7 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
-## <a name="less"></a>menos
+## <a name="less"></a>less
 `less(arg1, arg2)`
 
 Comprueba si el primer valor es menor que el segundo.
@@ -402,7 +402,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
+| checkInts | Bool | True |
 | checkStrings | Bool | False |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -478,7 +478,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True  |
+| checkInts | Bool | True |
 | checkStrings | Bool | False |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:

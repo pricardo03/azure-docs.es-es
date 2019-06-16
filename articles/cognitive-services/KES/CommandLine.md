@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815149"
 ---
 # <a name="command-line-interface"></a>Interfaz de línea de comandos
@@ -82,7 +82,7 @@ El comando **host_service** hospeda una instancia del servicio Knowledge Explora
 | `<indexFile>`   | Ruta de acceso de índice binario de entrada           |
 | `--port <port>` | Número de puerto local.  Valor predeterminado: 8000 |
 
-Estos archivos se pueden especificar mediante rutas de acceso a archivos locales o rutas de dirección URL a blobs de Azure.  Un servicio web se hospedará en http://localhost:&lt;port&gt;/.  Consulte [API web](WebAPI.md) para obtener una lista de las operaciones admitidas.
+Estos archivos se pueden especificar mediante rutas de acceso a archivos locales o rutas de dirección URL a blobs de Azure.  Un servicio web se hospedará en http://localhost:&lt ;port&gt; /.  Consulte [API web](WebAPI.md) para obtener una lista de las operaciones admitidas.
 
 Fuera del entorno de Azure, los servicios que se hospedan localmente se limitan a archivos de índice de hasta 1 MB de tamaño, 10 solicitudes por segundo y 1000 llamadas en total.  Para superar estas limitaciones, ejecute **host_service** dentro de una máquina virtual de Azure o realice la implementación en un servicio en la nube de Azure mediante **deploy_service**.
 

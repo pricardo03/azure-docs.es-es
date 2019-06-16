@@ -10,10 +10,10 @@ ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
 ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60809947"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(EN DESUSO) Supervisión de un clúster de DC/OS en Azure Container Service con Log Analytics
@@ -62,7 +62,7 @@ En este artículo se supone que ha configurado un DC/OS y ha implementado aplica
 
 Una vez que instalado al agente de Log Analytics para Linux en las VM, el siguiente paso es configurar el panel de Log Analytics. Puede configurar el panel a través de Azure Portal.
 
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Portal de Azure 
 
 Inicie sesión en Azure Portal en <https://portal.microsoft.com/>. Vaya a **Marketplace**, seleccione **Supervisión y administración** y haga clic en **See All** (Ver todo). A continuación, escriba `containers` en la búsqueda. Verá "contenedores" en los resultados de búsqueda. Seleccione **Contenedores** y haga clic en **Crear**.
 

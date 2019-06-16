@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611360"
 ---
 # <a name="the-azure-production-network"></a>Red de producción de Azure
@@ -54,7 +54,7 @@ Azure implementa sólidas características de seguridad y firewall de software e
 ### <a name="azure-security-features"></a>Características de seguridad de Azure
 Azure implementa firewalls de software basados en host dentro de la red de producción. Varias características principales de seguridad y firewall residen dentro del entorno principal de Azure. Estas características de seguridad reflejan una estrategia de defensa en profundidad en el entorno de Azure. Los firewalls siguientes se encargan de proteger los datos del cliente en Azure:
 
-**Firewall de hipervisor (filtro de paquetes)**: este firewall se implementa en el hipervisor y se configura mediante un agente de controlador de tejido (FC). Este firewall protege al inquilino que se ejecuta dentro de la VM frente accesos no autorizados. De forma predeterminada, cuando se crea una VM, se bloquea todo el tráfico y, a continuación, el agente de FC agrega reglas y excepciones al filtro para permitir el tráfico autorizado.
+**Firewall de hipervisor (filtro de paquetes)** : este firewall se implementa en el hipervisor y se configura mediante un agente de controlador de tejido (FC). Este firewall protege al inquilino que se ejecuta dentro de la VM frente accesos no autorizados. De forma predeterminada, cuando se crea una VM, se bloquea todo el tráfico y, a continuación, el agente de FC agrega reglas y excepciones al filtro para permitir el tráfico autorizado.
 
 Existen dos categorías de reglas que se programan aquí:
 
@@ -84,7 +84,7 @@ Para obtener más información sobre lo que hace Microsoft para proteger la infr
 - [Disponibilidad de la infraestructura de Azure](azure-infrastructure-availability.md)
 - [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)
 - [Arquitectura de red de Azure](azure-infrastructure-network.md)
-- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
+- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
 - [Operaciones de producción y administración de Azure](azure-infrastructure-operations.md)
 - [Supervisión de la infraestructura de Azure](azure-infrastructure-monitoring.md)
 - [Integridad de la infraestructura de Azure](azure-infrastructure-integrity.md)

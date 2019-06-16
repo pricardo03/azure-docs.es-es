@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506695"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar el servicio Administrador de dispositivos de StorSimple para dispositivos de la serie StorSimple 8000
@@ -194,16 +194,16 @@ En Azure Portal, solo se admiten los dispositivos de StorSimple que ejecuten Upd
 | Buscar, descargar e instalar actualizaciones                                                                                             | Sí            |
 | Desactivar un dispositivo                                                                                                               | Sí            |
 | Eliminar un dispositivo                                                                                                                   | Sí            |
-| Crear, modificar y eliminar un contenedor de volúmenes                                                                                   | Sin              |
-| Crear, modificar y eliminar un volumen                                                                                             | Sin              |
-| Crear, modificar y eliminar una directiva de copia de seguridad                                                                                      | Sin              |
-| Creación de una copia de seguridad manual                                                                                                            | Sin              |
+| Crear, modificar y eliminar un contenedor de volúmenes                                                                                   | Sin             |
+| Crear, modificar y eliminar un volumen                                                                                             | Sin             |
+| Crear, modificar y eliminar una directiva de copia de seguridad                                                                                      | Sin             |
+| Creación de una copia de seguridad manual                                                                                                            | Sin             |
 | Realizar una copia de seguridad programada                                                                                                         | No aplicable |
-| Restaurar desde un conjunto de copias de seguridad                                                                                                        | Sin              |
+| Restaurar desde un conjunto de copias de seguridad                                                                                                        | Sin             |
 | Clonar en un dispositivo que ejecuta Update 3.0 y versiones posteriores <br> El dispositivo de origen está ejecutando una versión anterior a Update 3.0.                                | Sí            |
-| Clonar en un dispositivo que ejecuta versiones anteriores a Update 3.0                                                                          | Sin              |
+| Clonar en un dispositivo que ejecuta versiones anteriores a Update 3.0                                                                          | Sin             |
 | Conmutación por error como dispositivo de origen <br> (desde un dispositivo que ejecuta la versión anterior a Update 3.0 a un dispositivo que ejecuta Update 3.0 y versiones posteriores)                                                               | Sí            |
-| Conmutación por error como dispositivo de destino <br> (a un dispositivo que ejecuta una versión de software anterior a Update 3.0)                                                                                   | Sin              |
+| Conmutación por error como dispositivo de destino <br> (a un dispositivo que ejecuta una versión de software anterior a Update 3.0)                                                                                   | Sin             |
 | Desactivar una alerta                                                                                                                  | Sí            |
 | Ver las directivas de copia de seguridad, el catálogo de copias de seguridad, volúmenes, contenedores de volúmenes, gráficos de supervisión, trabajos y alertas creadas en el Portal clásico | Sí            |
 | Activar y desactivar los controladores de dispositivo                                                                                              | Sí            |

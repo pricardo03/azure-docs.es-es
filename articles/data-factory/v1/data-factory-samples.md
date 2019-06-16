@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61260474"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
@@ -50,7 +50,7 @@ En GitHub, puede encontrar las siguientes plantillas de Azure Resource Manager p
 
 | Plantilla | DESCRIPCIÓN |
 | --- | --- |
-| [Copia de datos de Azure Blob Storage de Azure en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado a la base de datos de Azure SQL. |
+| [Copia de datos de Azure Blob Storage en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado a la base de datos de Azure SQL. |
 | [Copia de datos de Salesforce en Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde la cuenta de Salesforce especificada al almacenamiento de blobs de Azure. |
 | [Transformación de los datos mediante la ejecución de un script de Hive en un clúster de Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización de datos que transforma los dato ejecutando el script de Hive en un clúster de Azure HDInsight (Hadoop). |
 
@@ -82,7 +82,7 @@ Debe tener lo siguiente instalado en el equipo:
 
 * Visual Studio 2013 o Visual Studio 2015.
 * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
-* Descargue el complemento más reciente de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si utiliza Visual Studio 2013, también puede actualizar el complemento con el procedimiento siguiente: En el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio (Herramientas de Microsoft Azure Data Factory para Visual Studio)** -> **Actualizar**.
+* Descargue el complemento más reciente de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si utiliza Visual Studio 2013, también puede actualizar el complemento con el procedimiento siguiente: En el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio (Herramientas de Microsoft Azure Data Factory para Visual Studio)**  -> **Actualizar**.
 
 ### <a name="use-data-factory-templates"></a>Uso de plantillas de Data Factory
 1. Haga clic en **Archivo** en el menú, seleccione **Nuevo** y haga clic en **Proyecto**.
@@ -104,7 +104,7 @@ Debe tener lo siguiente instalado en el equipo:
    2. Escriba un **nombre** para la factoría de datos.
    3. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
    4. Seleccione el **grupo de recursos** para la factoría de datos.
-   5. Seleccione **oeste de EE. UU.**, **este de EE. UU.** o **Europa del Norte** para la **región**.
+   5. Seleccione **oeste de EE. UU.** , **este de EE. UU.** o **Europa del Norte** para la **región**.
    6. Haga clic en **Next**.
 6. En la página **Configure data stores** (Configurar almacenes de datos), especifique una **base de datos de Azure SQL** y una **cuenta de almacenamiento de Azure** ya existentes o cree otras nuevas y haga clic en Siguiente.
 7. En la página **Configurar proceso**, seleccione los valores predeterminados y haga clic en **Siguiente**.

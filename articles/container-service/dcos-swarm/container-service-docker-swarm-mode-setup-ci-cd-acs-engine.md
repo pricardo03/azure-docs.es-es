@@ -10,10 +10,10 @@ ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
 ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430670"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Azure DevOps
@@ -157,7 +157,7 @@ Necesita dos pasos de Docker para cada imagen, uno para compilarla y otro para i
 
     ![Azure DevOps (inserción de Docker)](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
-    Para la operación de inserción, seleccione su instancia de Azure Container Registry, la acción **Push an image** (Insertar una imagen), especifique el valor de **Nombre de la imagen** y que se compiló en el paso anterior y seleccione **Incluir etiqueta " latest"**.
+    Para la operación de inserción, seleccione su instancia de Azure Container Registry, la acción **Push an image** (Insertar una imagen), especifique el valor de **Nombre de la imagen** y que se compiló en el paso anterior y seleccione **Incluir etiqueta " latest"** .
 
 4. Después de configurar los pasos de compilación e inserción de cada una de las cinco imágenes, agregue tres pasos más al flujo de trabajo de compilación.
 
@@ -197,7 +197,7 @@ Azure DevOps permite [administrar versiones entre entornos](https://www.visualst
 
 ### <a name="initial-release-setup"></a>Configuración inicial de la versión.
 
-1. Para crear una canalización de versión, haga clic en **Versiones** > **+ Versión**.
+1. Para crear una canalización de versión, haga clic en **Versiones** >  **+ Versión**.
 
 2. Para configurar el origen de artefacto, haga clic en **Artefactos** > **Link an artifact source** (Vincular un origen de artefacto). Aquí, vincule esta nueva canalización de versión a la compilación definida en el paso anterior. A partir de ese momento, el archivo docker-compose.yml estará disponible en el proceso de versión.
 

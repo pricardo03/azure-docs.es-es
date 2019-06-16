@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61127878"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicación de contenido en Azure Portal  
@@ -37,8 +37,8 @@ ms.locfileid: "61127878"
 
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar el contenido, primero debe publicar el recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos de recursos. Azure Media Services admite dos tipos de localizadores: 
 
-* **Localizadores de streaming (OnDemandOrigin)**. Los localizadores de streaming se usan para streaming adaptable. Los ejemplos de streaming adaptable incluyen Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming y Dynamic Adaptive Streaming sobre HTTP (DASH, también llamado MPEG-DASH). Para crear un localizador de streaming, el recurso debe incluir un archivo .ism. Por ejemplo, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
-* **Localizadores progresivos (firma de acceso compartido)**. Los localizadores progresivos se usan para proporcionar vídeo mediante descarga progresiva.
+* **Localizadores de streaming (OnDemandOrigin)** . Los localizadores de streaming se usan para streaming adaptable. Los ejemplos de streaming adaptable incluyen Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming y Dynamic Adaptive Streaming sobre HTTP (DASH, también llamado MPEG-DASH). Para crear un localizador de streaming, el recurso debe incluir un archivo .ism. Por ejemplo, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Localizadores progresivos (firma de acceso compartido)** . Los localizadores progresivos se usan para proporcionar vídeo mediante descarga progresiva.
 
 Para generar una dirección URL de streaming de HLS, anexe *(format=m3u8-aapl)* a la dirección URL:
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400650"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
@@ -66,7 +66,7 @@ Las propiedades de la aplicación son cadenas definidas por el usuario que se pu
 
 ### <a name="query-expressions"></a>Expresiones de consulta
 
-Una consulta sobre las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`. Las consultas a las propiedades de aplicación se realizan con el nombre y no deben prefijarse con el símbolo`$`. Si el nombre de una propiedad de la aplicación comienza por `$`, IoT Hub la buscará en las propiedades del sistema y, si no se encuentra, la buscará en las propiedades de la aplicación. Por ejemplo:  
+Una consulta sobre las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`. Las consultas a las propiedades de aplicación se realizan con el nombre y no deben prefijarse con el símbolo`$`. Si el nombre de una propiedad de la aplicación comienza por `$`, IoT Hub la buscará en las propiedades del sistema y, si no se encuentra, la buscará en las propiedades de la aplicación. Por ejemplo: 
 
 Para consultar en la propiedad del sistema contentEncoding 
 

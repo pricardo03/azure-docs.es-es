@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 0b1e3b98fe5b934b712db2a5549ebdc865523bfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61412585"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedimientos recomendados para SQL Data Sync 
@@ -163,7 +163,7 @@ Puede que los cambios no se propaguen por alguno de los siguientes motivos:
 Supervise el estado del grupo de sincronización y la base de datos con regularidad desde la interfaz del portal y de registro.
 
 
-## <a name="maintenance"></a>Mantenimiento 
+## <a name="maintenance"></a>Mantenimiento
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bases de datos y grupos de sincronización obsoletos
 
@@ -226,8 +226,8 @@ Para más información acerca de SQL Data Sync, consulte:
 -   Configuración de Data Sync
     - En el portal, [Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
-        -  [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Uso de PowerShell para sincronizar varias bases de datos de Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Uso de PowerShell para realizar la sincronización entre una base de datos de Azure SQL y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agente de sincronización de datos: [Agente de sincronización de datos para Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 -   Solución de problemas: [Solución de problemas de Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)

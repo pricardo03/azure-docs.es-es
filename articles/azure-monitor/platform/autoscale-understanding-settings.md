@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787502"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
@@ -111,7 +111,7 @@ Para ilustrar este esquema, se utiliza la siguiente configuración de escalado a
 | Regla | scaleAction | La acción que se realizará cuando se desencadene la propiedad metricTrigger de la regla. |
 | scaleAction | dirección | "Aumentar" para escalar horizontalmente o "Reducir" para reducir horizontalmente.|
 | scaleAction | value | El grado de aumento o reducción de la capacidad del recurso. |
-| scaleAction | cooldown | La cantidad de tiempo que debe transcurrir después de realizar una operación de escalado antes de poder iniciar otra. Por ejemplo, si **cooldown = "PT10M"**, el escalado automático no intenta escalar de nuevo durante otros 10 minutos. Cooldown permite que las métricas se estabilicen después de la adición o eliminación de instancias. |
+| scaleAction | cooldown | La cantidad de tiempo que debe transcurrir después de realizar una operación de escalado antes de poder iniciar otra. Por ejemplo, si **cooldown = "PT10M"** , el escalado automático no intenta escalar de nuevo durante otros 10 minutos. Cooldown permite que las métricas se estabilicen después de la adición o eliminación de instancias. |
 
 ## <a name="autoscale-profiles"></a>Perfiles de escalado automático
 
@@ -290,13 +290,13 @@ El escalado automático usa la siguiente secuencia para elegir el perfil:
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>¿Cómo evalúa el escalado automático varias reglas?
 
-Después de que el escalado automático determina qué perfil ejecutar, evalúa todas las reglas de escalado horizontal del perfil (son reglas con la **dirección = "Aumentar"**).
+Después de que el escalado automático determina qué perfil ejecutar, evalúa todas las reglas de escalado horizontal del perfil (son reglas con la **dirección = "Aumentar"** ).
 
 Si se desencadenan una o varias reglas de escalado horizontal, el escalado automático calcula la nueva capacidad según la propiedad **scaleAction** de cada una de esas reglas. A continuación, realiza el escalado horizontal hasta alcanzar el máximo de esas capacidades para garantizar la disponibilidad del servicio.
 
 Por ejemplo, supongamos que hay un conjunto de escalado de máquinas virtuales con una capacidad actual de 10. Hay dos reglas de escalado horizontal: una que aumenta la capacidad en un 10 por ciento y otra que la aumenta en 3 recuentos. La primera regla daría como resultado una nueva capacidad de 11 y la segunda regla generaría una capacidad de 13. Para garantizar la disponibilidad del servicio, el escalado automático elige la acción que tenga como resultado la capacidad máxima, por lo que, en este caso, se elige la segunda regla.
 
-Si no se desencadena ninguna regla de escalado horizontal, el escalado automático evalúa todas las reglas de reducción horizontal (reglas con la **dirección = "Reducir"**). El escalado automático solo realizará una acción de reducción horizontal si se desencadenan todas las reglas de reducción horizontal.
+Si no se desencadena ninguna regla de escalado horizontal, el escalado automático evalúa todas las reglas de reducción horizontal (reglas con la **dirección = "Reducir"** ). El escalado automático solo realizará una acción de reducción horizontal si se desencadenan todas las reglas de reducción horizontal.
 
 El escalado automático calcula la nueva capacidad en función de la propiedad **scaleAction** de cada una de esas reglas. A continuación, elige la acción de escalado que da como resultado el valor máximo de esas capacidades para garantizar la disponibilidad del servicio.
 
@@ -310,3 +310,4 @@ Para más información sobre el escalado automático, consulte los siguientes re
 * [Procedimientos recomendados de escalado automático en Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
+

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d5ddec40a1b20e377ec18ce871018f674557e7b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60704039"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Habilitación del Cifrado de datos transparente en Azure Security Center
@@ -43,7 +43,7 @@ Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al se
 
    ![Estado de cifrado][4]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este artículo mostramos cómo implementar la recomendación "Habilitar el cifrado de datos transparente" de Security Center. Para obtener más información sobre TDE de SQL, vea lo siguiente:
 
 * [Cifrado de datos transparente con Azure SQL Database](https://msdn.microsoft.com/library/dn948096)

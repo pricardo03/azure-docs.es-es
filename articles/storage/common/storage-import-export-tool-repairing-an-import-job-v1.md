@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477593"
 ---
 # <a name="repairing-an-import-job"></a>Reparación de un trabajo de importación
@@ -32,15 +32,15 @@ Se pueden modificar los parámetros siguientes con **RepairImport**:
   
 |||  
 |-|-|  
-|**/r:**&lt;ArchivoReparación\>|**Requerido.** Ruta de acceso al archivo de reparación, que realiza un seguimiento del progreso de la reparación y le permite reanudar una reparación interrumpida. Cada unidad debe tener un solo archivo de reparación. Cuando inicie una reparación para una unidad determinada, pasa la ruta de acceso a un archivo de reparación que aún no existe. Para reanudar una reparación interrumpida, debe pasar el nombre de un archivo de reparación existente. Siempre se debe especificar el archivo de reparación correspondiente a la unidad de destino.|  
-|**/logdir:**&lt;DirectorioRegistro\>|**Opcional.** El directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica un directorio de registro, se usa el directorio actual como directorio de registro.|  
-|**/d:**&lt;DirectoriosDestino\>|**Requerido.** Uno o varios directorios separados por puntos y coma que contienen los archivos originales que se importaron. También se puede utilizar la unidad de importación, pero no es necesaria si están disponibles ubicaciones alternativas de los archivos originales.|  
-|**/bk:**&lt;ClaveBitLocker\>|**Opcional.** Debe especificar la clave de BitLocker si desea que la herramienta desbloquee una unidad cifrada donde están disponibles los archivos originales.|  
-|**/sn:**&lt;NombreCuentaAlmacenamiento\>|**Requerido.** El nombre de la cuenta de almacenamiento para el trabajo de importación.|  
-|**/sk:**&lt;ClaveCuentaAlmacenamiento\>|**Necesario** únicamente si no se especifica un SAS del contenedor. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de importación.|  
-|**/csas:**&lt;SasContenedor\>|**Requerido** únicamente si no se especifica la clave de cuenta de almacenamiento. El SAS del contenedor para acceder a los blobs asociados al trabajo de importación.|  
-|**/CopyLogFile:**&lt;ArchivoRegistroCopiaUnidad\>|**Requerido.** Ruta de acceso al archivo de registro de copia de la unidad (registro detallado o registro de errores). El archivo lo genera el servicio Microsoft Windows Import/Export y se puede descargar desde el almacenamiento de blobs asociado al trabajo. El archivo de registro de copia contiene información sobre blobs con errores o archivos que deben repararse.|  
-|**/PathMapFile:**&lt;ArchivoAsignaciónRutaAccesoUnidad\>|**Opcional.** Ruta de acceso a un archivo de texto que puede usar para resolver ambigüedades si tiene varios archivos con el mismo nombre que se importaban en el mismo trabajo. La primera vez que se ejecuta la herramienta, se puede rellenar este archivo con todos los nombres ambiguos. Las ejecuciones posteriores de la herramienta usan este archivo para resolver las ambigüedades.|  
+|**/r:** &lt;ArchivoReparación\>|**Requerido.** Ruta de acceso al archivo de reparación, que realiza un seguimiento del progreso de la reparación y le permite reanudar una reparación interrumpida. Cada unidad debe tener un solo archivo de reparación. Cuando inicie una reparación para una unidad determinada, pasa la ruta de acceso a un archivo de reparación que aún no existe. Para reanudar una reparación interrumpida, debe pasar el nombre de un archivo de reparación existente. Siempre se debe especificar el archivo de reparación correspondiente a la unidad de destino.|  
+|**/logdir:** &lt;DirectorioRegistro\>|**Opcional.** El directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica un directorio de registro, se usa el directorio actual como directorio de registro.|  
+|**/d:** &lt;DirectoriosDestino\>|**Requerido.** Uno o varios directorios separados por puntos y coma que contienen los archivos originales que se importaron. También se puede utilizar la unidad de importación, pero no es necesaria si están disponibles ubicaciones alternativas de los archivos originales.|  
+|**/bk:** &lt;ClaveBitLocker\>|**Opcional.** Debe especificar la clave de BitLocker si desea que la herramienta desbloquee una unidad cifrada donde están disponibles los archivos originales.|  
+|**/sn:** &lt;NombreCuentaAlmacenamiento\>|**Requerido.** El nombre de la cuenta de almacenamiento para el trabajo de importación.|  
+|**/sk:** &lt;ClaveCuentaAlmacenamiento\>|**Necesario** únicamente si no se especifica un SAS del contenedor. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de importación.|  
+|**/csas:** &lt;SasContenedor\>|**Requerido** únicamente si no se especifica la clave de cuenta de almacenamiento. El SAS del contenedor para acceder a los blobs asociados al trabajo de importación.|  
+|**/CopyLogFile:** &lt;ArchivoRegistroCopiaUnidad\>|**Requerido.** Ruta de acceso al archivo de registro de copia de la unidad (registro detallado o registro de errores). El archivo lo genera el servicio Microsoft Windows Import/Export y se puede descargar desde el almacenamiento de blobs asociado al trabajo. El archivo de registro de copia contiene información sobre blobs con errores o archivos que deben repararse.|  
+|**/PathMapFile:** &lt;ArchivoAsignaciónRutaAccesoUnidad\>|**Opcional.** Ruta de acceso a un archivo de texto que puede usar para resolver ambigüedades si tiene varios archivos con el mismo nombre que se importaban en el mismo trabajo. La primera vez que se ejecuta la herramienta, se puede rellenar este archivo con todos los nombres ambiguos. Las ejecuciones posteriores de la herramienta usan este archivo para resolver las ambigüedades.|  
   
 ## <a name="using-the-repairimport-command"></a>Uso del comando RepairImport  
 Para reparar datos de importación haciendo streaming de los datos a través de la red, debe especificar los directorios que contienen los archivos originales que se estaban importando mediante el parámetro `/d`. También debe especificar el archivo de registro de copia que descargó desde la cuenta de almacenamiento. Una línea de comandos típica para reparar un trabajo de importación con errores parciales tiene el siguiente aspecto:  

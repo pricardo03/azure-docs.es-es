@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 57efc718a51398b577a0078ba829d2f6209cab54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878830"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operaciones de sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso de Python
@@ -129,7 +129,7 @@ En el siguiente fragmento de código se crea primero el cliente de la cuenta de 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Operaciones de administración de cuentas en Data Lake Storage Gen1 con Python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Referencia de Azure Data Lake Storage Gen1 con Python (sistema de archivos)](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Abrir aplicaciones de macrodatos de código abierto que funcionan con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

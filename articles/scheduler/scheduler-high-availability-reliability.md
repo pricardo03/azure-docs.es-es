@@ -10,11 +10,11 @@ ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
 ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702886"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Alta disponibilidad y confiabilidad en Azure Scheduler
 
@@ -70,7 +70,7 @@ El tipo de acción alternativa puede diferir de la acción original. Por ejemplo
 
 Para más información sobre cómo configurar un punto de conexión alternativo, consulte [errorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)

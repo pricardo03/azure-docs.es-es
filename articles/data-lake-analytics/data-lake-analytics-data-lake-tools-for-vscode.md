@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60509347"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Uso de Herramientas de Azure Data Lake para Visual Studio Code
@@ -155,7 +155,7 @@ Puede usar Herramientas de Data Lake para registrar ensamblados de código perso
 
 **Para registrar un ensamblado**
 
-Puede registrar el ensamblado mediante el comando **ADL: Register Assembly** o **ADL: Register Assembly (Advanced)**.
+Puede registrar el ensamblado mediante el comando **ADL: Register Assembly** o **ADL: Register Assembly (Advanced)** .
 
 **Para realizar el registro mediante el comando ADL: Register Assembly**
 1.  Seleccione Ctrl+Mayús+P para abrir la paleta de comandos.
@@ -366,9 +366,9 @@ También puede [supervisar el estado de la carga](#check-storage-tasks-status).
 
 
 ### <a name="download-a-file"></a>Descarga de un archivo 
-Puede descargar un archivo mediante el comando **ADL: Download File** o **ADL: Download File (Advanced)**.
+Puede descargar un archivo mediante el comando **ADL: Download File** o **ADL: Download File (Advanced)** .
 
-**Para descargar un archivo mediante el comando ADL: Download File (Advanced)** 
+**Para descargar un archivo mediante el comando ADL: Download File (Advanced)**
 1. Haga clic con el botón derecho en el editor de scripts y después seleccione **Download File (Advanced)** (Descargar archivo [Avanzado]).
 2. VS Code muestra un archivo JSON. Puede especificar las rutas de acceso de archivo y descargar varios archivos al mismo tiempo. Las instrucciones se muestran en la ventana **Salida**. Para continuar con la descarga del archivo o los archivos, guarde (Ctrl+S) el archivo JSON.
 

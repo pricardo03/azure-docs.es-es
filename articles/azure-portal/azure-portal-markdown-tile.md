@@ -4,17 +4,16 @@ description: Aprenda a agregar un icono de Markdown a un panel de Azure para mos
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: v-biyu
-origin.date: 01/25/2019
-ms.date: 03/04/2019
+ms.author: kfollis
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551607"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Uso de un icono de Markdown en los paneles de Azure para mostrar contenido personalizado
@@ -29,7 +28,7 @@ Puede agregar un icono de Markdown a los paneles de Azure para mostrar contenido
 
 2. En la **Galería de iconos**, busque el denominado **Markdown** y haga clic en **Agregar**. Este icono se agregará al panel y el panel **Editar Markdown** se abrirá.
 
-3. Edite los campos **Título**, **Subtítulo** y **Contenido** para personalizar el icono. En el ejemplo que se muestra a continuación, el icono de Markdown se ha editado para mostrar información personalizada del departamento de soporte técnico.
+1. Edite los campos **Título**, **Subtítulo** y **Contenido** para personalizar el icono. En el ejemplo que se muestra a continuación, el icono de Markdown se ha editado para mostrar información personalizada del departamento de soporte técnico.
 
    ![Captura de pantalla de la vista de edición del icono de Markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 

@@ -11,10 +11,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543690"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
@@ -77,7 +77,7 @@ Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Paso 1: Creación de un almacén de Recovery Services
 
 1. Abra [Azure Portal](https://portal.azure.com).
-2. Seleccione **Crear un recurso** > **Administración** > **Backup** and **Site Recovery (OMS)**. También puede seleccionar **Examinar** > **Almacén de Recovery Services** > **Agregar**. 
+2. Seleccione **Crear un recurso** > **Administración** > **Backup** and **Site Recovery (OMS)** . También puede seleccionar **Examinar** > **Almacén de Recovery Services** > **Agregar**. 
 3. Especifique la región en la que se van a replicar las máquinas virtuales. A efectos de la migración en la misma región, seleccione la región donde están máquinas virtuales de origen y las cuentas de almacenamiento de origen. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Paso 2: Selección de los objetivos de protección 

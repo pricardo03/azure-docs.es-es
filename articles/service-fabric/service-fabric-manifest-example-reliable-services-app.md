@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719171"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Ejemplos de manifiesto de servicio y de aplicación de servicios confiables
@@ -28,7 +28,7 @@ Se muestran las características siguientes:
 
 |Manifest|Características|
 |---|---|
-|[Manifiesto de aplicación](#application-manifest)| [regulación de recursos](service-fabric-resource-governance.md), [ejecutar un servicio como una cuenta de administrador local](service-fabric-application-runas-security.md), [aplicar una directiva predeterminada para todos los paquetes de código de servicio](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [crear entidades de seguridad de usuario y grupo](service-fabric-application-runas-security.md), compartir un paquete de datos entre instancias de servicio, [invalidar los extremos de servicio](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
+|[Manifiesto de aplicación](#application-manifest)| [gobernanza de recursos](service-fabric-resource-governance.md), [ejecutar un servicio como una cuenta de administrador local](service-fabric-application-runas-security.md), [aplicar una directiva predeterminada para todos los paquetes de código de servicio](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [crear entidades de seguridad de usuario y grupo](service-fabric-application-runas-security.md), compartir un paquete de datos entre instancias de servicio, [invalidar los extremos de servicio](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
 |Manifiesto del servicio FrontEndService| [Ejecutar un script al inicio del servicio](service-fabric-run-script-at-service-startup.md), [definir un punto de conexión HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
 |Manifiesto del servicio BackEndService| [Declarar un paquete de configuración](service-fabric-application-and-service-manifests.md), [declarar un paquete de datos](service-fabric-application-and-service-manifests.md), [configurar un punto de conexión](service-fabric-service-manifest-resources.md)| 
 

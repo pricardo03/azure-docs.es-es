@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106174"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Supervisión y administración de Trello como Azure Logic Apps
@@ -57,7 +57,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Trello y hag
    En la lista de acciones, seleccione la que desee.
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
-   Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+   Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
 
 1. Si se le solicita que inicie sesión en Trello, autorice el acceso para la aplicación lógica e inicie sesión.
 

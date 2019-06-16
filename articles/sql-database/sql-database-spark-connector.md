@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331525"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Aceleración del análisis de macrodatos en tiempo real con el conector de Spark para Azure SQL Database y SQL Server
@@ -28,7 +28,7 @@ Para comenzar, descargue el conector de Spark a SQL DB del [repositorio azure-sq
 
 ## <a name="official-supported-versions"></a>Versiones oficiales compatibles
 
-| Componente                            |Version                  |
+| Componente                            |Versión                  |
 | :----------------------------------- | :---------------------- |
 | Spark de Apache                         |2.0.2 o posterior           |
 | Scala                                |2.10 o posterior            |

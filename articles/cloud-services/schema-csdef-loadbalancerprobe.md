@@ -1,9 +1,8 @@
 ---
 title: Esquema LoadBalancerProbe de definición de Azure Cloud Services | Microsoft Docs
 ms.custom: ''
-origin.date: 04/14/2015
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 04/14/2015
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: thraka
-ms.author: v-yiso
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613875"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services
@@ -69,5 +68,5 @@ En la tabla siguiente se describen los atributos del elemento `LoadBalancerProbe
 | `intervalInSeconds` | `integer` | Opcional. El intervalo, en segundos, de la frecuencia de sondeo del punto de conexión para conocer el estado de mantenimiento. Normalmente, el intervalo es algo inferior a la mitad del período de tiempo de expiración asignado (en segundos), lo que permite dos sondeos completos antes de sacar la instancia de la rotación.<br /><br /> El valor predeterminado es 15 y el valor mínimo es 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. El período de tiempo de expiración, en segundos, aplicado al sondeo cuando no hay respuesta provocará que se impida que el posterior tráfico se entregue en el punto de conexión. Este valor permite sacar de la rotación los puntos de conexión de manera más rápida o lenta que los tiempos habituales usados en Azure (que son los predeterminados).<br /><br /> El valor predeterminado es 31 y el valor mínimo es 11.|
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definición de servicio en la nube [clásico])

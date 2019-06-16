@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111477"
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
@@ -80,13 +80,13 @@ El envío de un mensaje a Service Bus Relay se trata como un envío "completo a 
 Las retransmisiones que se abren mediante el enlace WCF **netTCPRelay** tratan los mensajes no como mensajes individuales, sino como un flujo de datos que fluye a través del sistema. Cuando se usa este enlace, solo el remitente y el agente de escucha tienen visibilidad sobre la trama de los mensajes individuales enviados y recibidos. Para las retransmisiones que usan el enlace **netTCPRelay**, todos los datos se tratan como un flujo para el cálculo de los mensajes facturables. En este caso, Service Bus calcula la cantidad total de datos enviados o recibidos a través de cada retransmisión individual en una base de 5 minutos. A continuación, divide la cantidad total de datos entre 64 KB para determinar el número de mensajes facturables para dicha retransmisión durante ese período de tiempo.
 
 ## <a name="quotas"></a>Cuotas
-| Nombre de cuota | Scope |  Notas | Valor |
+| Nombre de cuota | Ámbito |  Notas | Valor |
 | --- | --- | --- | --- |
 | Agentes de escucha simultáneos en una retransmisión |Entidad |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |25 |
-| Conexiones de retransmisión simultáneas por todos los puntos de conexión de retransmisión en un espacio de nombres de servicio |Espacio de nombres |- |5.000 |
+| Conexiones de retransmisión simultáneas por todos los puntos de conexión de retransmisión en un espacio de nombres de servicio |Espacio de nombres |- |5\.000 |
 | Puntos de conexión de retransmisión por espacio de nombres de servicio |Espacio de nombres |- |10 000 |
 | Tamaño de mensaje de las retransmisiones [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) y [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espacio de nombres |Los mensajes entrantes que superen estas cuotas se rechazarán y el código que realizó la llamada recibe una excepción. |64 KB |
-| Tamaño de mensaje de las retransmisiones [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) y [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Espacio de nombres |No hay límite en el tamaño del mensaje. |Sin límite |
+| Tamaño de mensaje de las retransmisiones [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) y [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Espacio de nombres |No hay límite en el tamaño del mensaje. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>¿Tiene Relay cuotas de uso?
 De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Somos conscientes de que en ocasiones sus necesidades pueden superar estos límites. Puede ponerse en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites según corresponda. Para Service Bus, las cuotas de uso agregado son las siguientes:
@@ -104,7 +104,7 @@ El nombre de un espacio de nombres de Relay debe tener entre 6 y 50 caracteres d
 
 Para mover un espacio de nombres de una suscripción de Azure a otra, puede utilizar [Azure Portal](https://portal.azure.com) o comandos de PowerShell. Para mover un espacio de nombres a otra suscripción, el espacio de nombres ya debe estar activo. El usuario que ejecuta los comandos debe ser un usuario administrador en las suscripciones de origen y de destino.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 Para usar Azure Portal para migrar espacios de nombres de Azure Relay de una suscripción a otra suscripción, consulte [Mover recursos a un nuevo grupo de recursos o suscripción](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
 

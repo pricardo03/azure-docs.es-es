@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61094529"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referencia de modelo de datos de la plantilla de Azure API Management
@@ -92,7 +92,7 @@ El portal para desarrolladores no está disponible en el nivel Consumo.
 |`Version`|string|Información de versión de la aplicación.|  
 |`Requirements`|string|Descripción de los requisitos de la aplicación.|  
 |`State`|número|Estado actual de la aplicación.<br /><br /> -0 - registrada<br /><br /> -1 - enviada<br /><br /> -2 - publicada<br /><br /> -3 - rechazada<br /><br /> -4 - no publicada|  
-|`RegistrationDate`|DateTime|Fecha y hora a las que se registró la aplicación.|  
+|`RegistrationDate`|Datetime|Fecha y hora a las que se registró la aplicación.|  
 |`CategoryId`|número|Categoría de la aplicación (finanzas, entretenimiento, etcétera).|  
 |`DeveloperId`|string|Identificador único del desarrollador que envió la aplicación.|  
 |`Attachments`|Colección de entidades [Attachment](#Attachment).|Cualquier tipo de datos adjuntos de la aplicación, como capturas de pantalla o iconos.|  
@@ -133,7 +133,7 @@ El portal para desarrolladores no está disponible en el nivel Consumo.
 |`Id`|número|Identificador del comentario.|  
 |`CommentText`|string|Cuerpo del comentario. Puede incluir HTML.|  
 |`DeveloperCompany`|string|Nombre de la empresa del desarrollador.|  
-|`PostedOn`|DateTime|Fecha y hora de publicación del comentario.|  
+|`PostedOn`|Datetime|Fecha y hora de publicación del comentario.|  
   
 ##  <a name="Issue"></a> Issue  
  La entidad `issue` tiene las siguientes propiedades.  
@@ -146,7 +146,7 @@ El portal para desarrolladores no está disponible en el nivel Consumo.
 |`Description`|string|Descripción del problema.|  
 |`SubscriptionDeveloperName`|string|Nombre del desarrollador que notificó el problema.|  
 |`IssueState`|string|Estado actual del problema. Los valores posibles son Proposed (Propuesto), Opened (Abierto), Closed (Cerrado).|  
-|`ReportedOn`|DateTime|Fecha y hora a las que se notificó el problema.|  
+|`ReportedOn`|Datetime|Fecha y hora a las que se notificó el problema.|  
 |`Comments`|Colección de entidades [Comment](#Comment).|Comentarios sobre este problema.|  
 |`Attachments`|Colección de entidades [Attachment](api-management-template-data-model-reference.md#Attachment).|Datos adjuntos al problema.|  
 |`Services`|Colección de entidades [API](#API).|Las API a las que está suscrito el usuario que archivó el problema.|  

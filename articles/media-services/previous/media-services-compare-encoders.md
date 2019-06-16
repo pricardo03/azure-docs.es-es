@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465718"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparación de codificadores multimedia a petición de Azure  
@@ -31,11 +31,11 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 
 |Capacidad|Media Encoder Estándar|Flujo de trabajo del Codificador multimedia|
 |---|---|---|
-|Aplicación de la lógica condicional durante la codificación<br/>(por ejemplo, si la entrada es HD, entonces, codifique audio 5.1)|Sin |Sí|
-|Subtítulos (CC)|Sin |[Sí](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Corrección de volumen profesional Dolby®](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> con Dialogue Intelligence™|Sin |Sí|
+|Aplicación de la lógica condicional durante la codificación<br/>(por ejemplo, si la entrada es HD, entonces, codifique audio 5.1)|Sin|Sí|
+|Subtítulos (CC)|Sin|[Sí](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
+|[Corrección de volumen profesional Dolby®](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> con Dialogue Intelligence™|Sin|Sí|
 |Deshacer entrelazado, telecine inverso|Básica|Calidad de difusión|
-|Detectar y quitar bordes negros <br/>(formato pillarbox y formato letterbox)|Sin |Sí|
+|Detectar y quitar bordes negros <br/>(formato pillarbox y formato letterbox)|Sin|Sí|
 |Generación de miniaturas|[Sí](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sí](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
 |Recorte y unión de vídeos|[Sí](media-services-advanced-encoding-with-mes.md#trim_video)|Sí|
 |Superposiciones de audio o vídeo|[Sí](media-services-advanced-encoding-with-mes.md#overlay)|[Sí](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
@@ -59,11 +59,11 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 | MPEG-4/MP4 |Sí |Sí |
 | Windows Media/ASF |Sí |Sí |
 | AVI (sin comprimir de 8 bits/10 bits) |Sí |Sí |
-| 3GPP/3GPP2 |Sí |Sin  |
-| Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3) |Sí |Sin  |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Sí |Sin  |
-| Matroska/WebM |Sí |Sin  |
-| QuickTime (.mov) |Sí |Sin  |
+| 3GPP/3GPP2 |Sí |Sin |
+| Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3) |Sí |Sin |
+| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Sí |Sin |
+| Matroska/WebM |Sí |Sin |
+| QuickTime (.mov) |Sí |Sin |
 
 ## <a name="input-video-codecs"></a>Códecs de vídeo de entrada
 | Códecs de vídeo de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
@@ -75,69 +75,69 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 | MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10) |Hasta 422 Perfil |Sí |
 | MPEG-1 |Sí |Sí |
 | Windows Media Video/VC-1 |Sí |Sí |
-| Canopus HQ/HQX |Sin  |Sin  |
-| MPEG-4, parte 2 |Sí |Sin  |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |Sí |Sin  |
-| Apple ProRes 422 |Sí |Sin  |
-| Apple ProRes 422 LT |Sí |Sin  |
-| Apple ProRes 422 HQ |Sí |Sin  |
-| Apple ProRes Proxy |Sí |Sin  |
-| Apple ProRes 4444 |Sí |Sin  |
-| Apple ProRes 4444 XQ |Sí |Sin  |
+| Canopus HQ/HQX |Sin |Sin |
+| MPEG-4, parte 2 |Sí |Sin |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |Sí |Sin |
+| Apple ProRes 422 |Sí |Sin |
+| Apple ProRes 422 LT |Sí |Sin |
+| Apple ProRes 422 HQ |Sí |Sin |
+| Apple ProRes Proxy |Sí |Sin |
+| Apple ProRes 4444 |Sí |Sin |
+| Apple ProRes 4444 XQ |Sí |Sin |
 | HEVC/H.265|Perfil Main|Perfil Main y Main 10|
 
 ## <a name="input-audio-codecs"></a>Códecs de audio de entrada
 | Códecs de audio de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
-| AES (SMPTE 331M y 302M, AES3-2003) |Sin  |Sí |
-| Dolby® E |Sin  |Sí |
-| Dolby® Digital (AC3) |Sin  |Sí |
-| Dolby® Digital Plus (E-AC3) |Sin  |Sí |
+| AES (SMPTE 331M y 302M, AES3-2003) |Sin |Sí |
+| Dolby® E |Sin |Sí |
+| Dolby® Digital (AC3) |Sin |Sí |
+| Dolby® Digital Plus (E-AC3) |Sin |Sí |
 | AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1) |Sí |Sí |
 | MPEG Layer 2 |Sí |Sí |
 | MP3 (MPEG-1 Audio Layer 3) |Sí |Sí |
 | Windows Media Audio |Sí |Sí |
 | WAV/PCM |Sí |Sí |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sí |Sin  |
-| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sí |Sin  |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sí |Sin  |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sí |Sin |
+| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sí |Sin |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sí |Sin |
 
 ## <a name="output-containerfile-formats"></a>Formatos de archivo/contenedor de salida
 | Formatos de archivo/contenedor de salida | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
-| Adobe® Flash® F4V |Sin  |Sí |
-| MXF (OP1a, XDCAM y AS02) |Sin  |Sí |
-| DPP (incluido AS11) |Sin  |Sí |
-| GXF |Sin  |Sí |
+| Adobe® Flash® F4V |Sin |Sí |
+| MXF (OP1a, XDCAM y AS02) |Sin |Sí |
+| DPP (incluido AS11) |Sin |Sí |
+| GXF |Sin |Sí |
 | MPEG-4/MP4 |Sí |Sí |
 | MPEG-TS |Sí |Sí |
-| Windows Media/ASF |Sin  |Sí |
-| AVI (sin comprimir de 8 bits/10 bits) |Sin  |Sí |
-| Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3) |Sin  |Sí |
+| Windows Media/ASF |Sin |Sí |
+| AVI (sin comprimir de 8 bits/10 bits) |Sin |Sí |
+| Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3) |Sin |Sí |
 
 ## <a name="output-video-codecs"></a>Códecs de vídeo de salida
 | Códecs de vídeo de salida | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
 | AVC (H.264; 8 bits; hasta Perfil alto, Nivel 5.2; 4K Ultra HD; AVC Intra) |Solo 8 bits 4:2:0 |Sí |
-| HEVC (H.265; 8 bits y 10 bits;)  |Sin  |Sí |
-| Avid DNxHD (en MXF) |Sin  |Sí |
-| MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10) |Sin  |Sí |
-| MPEG-1 |Sin  |Sí |
-| Windows Media Video/VC-1 |Sin  |Sí |
+| HEVC (H.265; 8 bits y 10 bits;)  |Sin |Sí |
+| Avid DNxHD (en MXF) |Sin |Sí |
+| MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10) |Sin |Sí |
+| MPEG-1 |Sin |Sí |
+| Windows Media Video/VC-1 |Sin |Sí |
 | Creación de miniaturas JPEG |Sí |Sí |
 | Creación de miniaturas PNG |Sí |Sí |
-| Creación de miniaturas BMP |Sí |Sin  |
+| Creación de miniaturas BMP |Sí |Sin |
 
 ## <a name="output-audio-codecs"></a>Códecs de audio de salida
 | Códecs de audio de salida | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
-| AES (SMPTE 331M y 302M, AES3-2003) |Sin  |Sí |
-| Dolby® Digital (AC3) |Sin  |Sí |
-| Dolby® Digital Plus (E-AC3) hasta 7.1 |Sin  |Sí |
+| AES (SMPTE 331M y 302M, AES3-2003) |Sin |Sí |
+| Dolby® Digital (AC3) |Sin |Sí |
+| Dolby® Digital Plus (E-AC3) hasta 7.1 |Sin |Sí |
 | AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1) |Sí |Sí |
-| MPEG Layer 2 |Sin  |Sí |
-| MP3 (MPEG-1 Audio Layer 3) |Sin  |Sí |
-| Windows Media Audio |Sin  |Sí |
+| MPEG Layer 2 |Sin |Sí |
+| MP3 (MPEG-1 Audio Layer 3) |Sin |Sí |
+| Windows Media Audio |Sin |Sí |
 
 >[!NOTE]
 >Si utiliza la codificación en Dolby® Digital (AC3), la salida solo puede escribirse en un archivo ISO MP4.

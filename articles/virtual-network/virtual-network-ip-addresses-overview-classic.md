@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60742129"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
@@ -51,7 +51,7 @@ Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se 
 ### <a name="dns-hostname-resolution"></a>Resolución de nombres de host DNS
 Cuando se crea un servicio en la nube o una máquina virtual de IaaS, debe proporcionar un nombre DNS del servicio en la nube que sea único en todos los recursos de Azure. Esto crea una asignación en los servidores DNS administrados de Azure para *dnsname*.cloudapp.net a la dirección IP pública del recurso. Por ejemplo, cuando crea un servicio en la nube con un nombre DNS del servicio en la nube de **Contoso**, el nombre de dominio completo (FQDN) **contoso.cloudapp.net** se resolverá en una dirección IP pública (VIP) del servicio en la nube. Puede usar este FQDN para crear un registro CNAME de dominio personalizado que apunte a la dirección IP pública en Azure.
 
-### <a name="cloud-services"></a>Cloud Services
+### <a name="cloud-services"></a>Servicios en la nube
 Un servicio en la nube siempre tiene una dirección IP pública a la que se conoce como una dirección IP virtual (VIP). Puede crear extremos en un servicio en la nube para asociar puertos diferentes en la dirección VIP a puertos internos en las máquinas virtuales e instancias de rol en el servicio en la nube. 
 
 Un servicio en la nube puede contener varias máquinas virtuales IaaS o instancias de rol PaaS, expuestas todas a través de la misma VIP de servicio en la nube. También puede asignar [varias direcciones VIP a un servicio en la nube](../load-balancer/load-balancer-multivip.md), que permite escenarios con varias VIP como un entorno multiempresa con sitios web basados en SSL.
@@ -90,9 +90,9 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 | Recurso | Dinámica | estática | Varias direcciones IP |
 | --- | --- | --- | --- |
 | servicio en la nube |Sí |Sí |Sí |
-| Instancia del rol PaaS o VM IaaS |Sí |No |Sin  |
-| puerta de enlace de VPN |Sí |No |Sin  |
-| puerta de enlace de aplicaciones |Sí |No |Sin  |
+| Instancia del rol PaaS o VM IaaS |Sí |No |Sin |
+| puerta de enlace de VPN |Sí |No |Sin |
+| puerta de enlace de aplicaciones |Sí |No |Sin |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en un servicio en la nube o en una [red virtual](virtual-networks-overview.md), o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
@@ -140,7 +140,7 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 | Recurso | Dinámica | estática | Varias direcciones IP |
 | --- | --- | --- | --- |
 | Máquina virtual (en una VNet o servicio en la nube *independiente*) |Sí |Sí |Sí |
-| Instancia de rol PaaS (en una VNet o servicio en la nube *independiente*) |Sí |No |Sin  |
+| Instancia de rol PaaS (en una VNet o servicio en la nube *independiente*) |Sí |No |Sin |
 | Front-end de equilibrador de carga interno |Sí |Sí |Sí |
 | Front-end de Puerta de enlace de aplicaciones |Sí |Sí |Sí |
 

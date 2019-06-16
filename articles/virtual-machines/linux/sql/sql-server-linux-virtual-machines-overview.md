@@ -14,10 +14,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: c97793dc28b4ef097d8baa34678aeb92bf123809
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473508"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Introducción a SQL Server en SQL Server en máquinas virtuales de Azure (Linux)
@@ -37,7 +37,7 @@ Para empezar, elija una imagen de máquina virtual con SQL Server con la versió
 > [!TIP]
 > Para más información sobre cómo entender los precios de imágenes de SQL; consulte la [página de precios de máquinas virtuales con SQL Server para Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-| `Version` | Sistema operativo | Edition |
+| Versión | Sistema operativo | Edition |
 | --- | --- | --- |
 | **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74) |
 | **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2) |
@@ -62,7 +62,7 @@ Al configurar SQL Server en Linux, instale el paquete del motor de base de datos
 
 * [Información general de Virtual Machines](../overview.md)
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 
 * [Introducción a Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906591"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restricción del acceso a través de puntos de conexión accesibles desde Internet en Azure Security Center
@@ -52,7 +52,7 @@ Esta recomendación se genera para cualquier puerto no web que tenga la opción 
 
    ![Editar regla de entrada][6]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este artículo se muestra cómo implementar la recomendación de Azure Security Center de restringir el acceso a través de puntos de conexión accesibles desde Internet. Para obtener más información sobre cómo habilitar NSG y reglas, consulte los siguientes recursos:
 
 * [¿Qué es un grupo de seguridad de red?](../virtual-network/security-overview.md)

@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 9165e51d07cf97756408c7f73720931abe067bb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751609"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
@@ -87,7 +87,7 @@ Al dibujar una línea, hemos creado un *modelo*. Piense en esto como tomar el mu
 
 El hecho de que todos los puntos no pasen exactamente por la línea es correcto. Los científicos de datos lo explican diciendo que existe el modelo, que es la línea, y que cada punto tiene cierto *ruido* o *varianza* asociado. Existe la relación subyacente perfecta, y después está la cruda realidad, que agrega ruido e incertidumbre.
 
-Dado que estamos intentando responder a la pregunta *¿cuánto?*, esto se denomina una *regresión*. Y puesto que estamos usando una línea recta, es una *regresión lineal*.
+Dado que estamos intentando responder a la pregunta *¿cuánto?* , esto se denomina una *regresión*. Y puesto que estamos usando una línea recta, es una *regresión lineal*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Uso del modelo para encontrar la respuesta
 Ahora tenemos un modelo y le planteamos nuestra pregunta: ¿Cuánto costará un diamante de 1,35 quilates?

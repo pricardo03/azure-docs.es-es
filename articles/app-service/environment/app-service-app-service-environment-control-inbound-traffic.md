@@ -16,13 +16,13 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130796"
 ---
-# <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Cómo controlar el tráfico de entrada a un entorno de App Service 
+# <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Cómo controlar el tráfico de entrada a un entorno de App Service
 ## <a name="overview"></a>Información general
 Un entorno de App Service se puede crear **en** una red virtual de Azure Resource Manager **o en** una [red virtual][virtualnetwork] del modelo de implementación clásica.  Una nueva red virtual y una nueva subred pueden definirse en el momento en que se crea un entorno de App Service.  También puede crearse un entorno de App Service en una red virtual y subred preexistentes.  Tras el cambio realizado en junio de 2016, los entornos ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  Para obtener más detalles sobre la creación de un entorno del Servicio de aplicaciones, consulte [Creación de un entorno de App Service][HowToCreateAnAppServiceEnvironment].
 

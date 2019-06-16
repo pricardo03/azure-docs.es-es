@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126756"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalación de Update 5 en el dispositivo StorSimple
@@ -47,7 +47,7 @@ Realice los pasos siguientes para actualizar el dispositivo a [Update 5](storsim
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 5 (6.3.9600.17845)**. También se debe modificar la **fecha de última actualización**.
+Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 5 (6.3.9600.17845)** . También se debe modificar la **fecha de última actualización**.
 
 Ahora también verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones). Los pasos para instalar actualizaciones en modo de mantenimiento se detallan en la sección siguiente.
 
@@ -99,7 +99,7 @@ Es posible que también necesite instalar actualizaciones de firmware de disco e
 
 | Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación | Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |Firmware del disco |Mantenimiento  <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
+| 3. |KB4037263 |Firmware del disco |Mantenimiento <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
 
 <br></br>
 

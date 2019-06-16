@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
 ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474051"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
@@ -108,7 +108,7 @@ A continuación se indican problemas detectados en muchas de las migraciones má
 
 - **Implementaciones de roles web y roles de trabajo**: Cloud Services con roles web y roles de trabajo no se puede migrar a Azure Resource Manager. Hay que quitar primero los roles web y los roles de trabajo de la red virtual para que la migración pueda empezar.  Una solución habitual consiste solo en mover las instancias de roles web y de roles de trabajo a una red virtual clásica independiente que también esté vinculada a un circuito ExpressRoute, o bien en migrar el código a App Services PaaS más recientes (este tema queda fuera del ámbito de este documento). En el caso de reimplementación anterior, cree una red virtual clásica nueva, mueva los roles web y los roles de trabajo a esa nueva red virtual o reimpleméntelos ahí y luego elimine las implementaciones de la red virtual que se va a migrar. No se requiere ningún cambio de código. La nueva funcionalidad [Emparejamiento de red virtual](../../virtual-network/virtual-network-peering-overview.md) se puede utilizar para emparejar la red virtual clásica que contiene los roles web y los roles de trabajo con otras redes virtuales de la misma región de Azure, como la red virtual que se va a migrar (**después de que termine la migración de la red virtual, ya que las máquinas virtuales emparejadas no se pueden migrar**), a fin de ofrecer las mismas funcionalidades sin perder rendimiento y sin penalizaciones de latencia o ancho de banda. Gracias a la adición del [Emparejamiento de red virtual](../../virtual-network/virtual-network-peering-overview.md), las implementaciones de roles web y roles de trabajo ahora pueden mitigarse con facilidad y no bloquean la migración a Azure Resource Manager.
 
-- **Cuotas de Azure Resource Manager**: las regiones de Azure tienen cuota y límites independientes para el modelo clásico y Azure Resource Manager. Aunque en un escenario de migración no se utiliza ningún hardware nuevo *(se están cambiando las máquinas virtuales existentes del modelo clásico a Azure Resource Manager)*, todavía es necesario que haya cuotas de Azure Resource Manager con capacidad suficiente para poder iniciar la migración. A continuación, se especifican los límites principales con los que se han detectado problemas.  Abra un vale de soporte sobre cuotas para aumentar los límites. 
+- **Cuotas de Azure Resource Manager**: las regiones de Azure tienen cuota y límites independientes para el modelo clásico y Azure Resource Manager. Aunque en un escenario de migración no se utiliza ningún hardware nuevo *(se están cambiando las máquinas virtuales existentes del modelo clásico a Azure Resource Manager)* , todavía es necesario que haya cuotas de Azure Resource Manager con capacidad suficiente para poder iniciar la migración. A continuación, se especifican los límites principales con los que se han detectado problemas.  Abra un vale de soporte sobre cuotas para aumentar los límites. 
 
     > [!NOTE]
     > Estos límites hay que aumentarlos en la misma región a la que se va a migrar el entorno actual.

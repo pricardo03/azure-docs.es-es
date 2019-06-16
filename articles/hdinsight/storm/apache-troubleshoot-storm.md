@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 3866e25cc3c87f569e84b2d5639d25aa9386cc78
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713760"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solución de problemas de Apache Storm mediante Azure HDInsight
@@ -147,5 +147,5 @@ El archivo de configuración Log4J de trabajo se lee de /usr/hdp/\<versión de H
  
 Ejemplos: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Otras referencias
 [Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

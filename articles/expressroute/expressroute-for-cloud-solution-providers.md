@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
 ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367598"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para proveedores de soluciones en la nube (CSP)
@@ -62,7 +62,7 @@ La elección entre ambas opciones se basa en los requisitos del cliente y la nec
 
 * **Control de acceso basado en rol (RBAC)** : RBAC se basa en Azure Active Directory.  Para más información sobre RBAC en Azure, consulte [este artículo](../role-based-access-control/role-assignments-portal.md).
 * **Redes** : se tratan los distintos temas de las redes en Microsoft Azure.
-* **Azure Active Directory (Azure AD)**: Azure AD proporciona la administración de identidades para Microsoft Azure y aplicaciones SaaS de terceros. Para más información sobre Azure AD, consulte [este artículo](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** : Azure AD proporciona la administración de identidades para Microsoft Azure y aplicaciones SaaS de terceros. Para más información sobre Azure AD, consulte [este artículo](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Velocidades de red
 ExpressRoute admite velocidades de red entre 50 Mb/s y 10 Gb/s. Esto permite que los clientes compren la cantidad de ancho de banda de red que necesiten para su entorno particular.

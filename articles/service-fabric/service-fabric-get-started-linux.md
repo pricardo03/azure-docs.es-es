@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470242"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
@@ -180,7 +180,7 @@ El sistema en tiempo de ejecución de Service Fabric que viene con la instalaci�
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | más reciente |
-RHEL | - | 1.8 OpenJDK | Implícito de npm | más reciente |
+RHEL | - | 1\.8 OpenJDK | Implícito de npm | más reciente |
 
 ## <a name="set-up-a-local-cluster"></a>Instalación de un clúster local
 Inicie un clúster local una vez finalizada la instalación.
@@ -277,7 +277,7 @@ El complemento de Eclipse para Service Fabric se puede instalar desde el IDE de 
 
 2. Para instalar el complemento de Service Fabric, seleccione **Help** > **Install New Software** (Ayuda > Instalar nuevo software).
 
-3. En el cuadro **Work with** (Trabajar con), escriba **https://dl.microsoft.com/eclipse**.
+3. En el cuadro **Work with** (Trabajar con), escriba **https://dl.microsoft.com/eclipse** .
 
 4. Seleccione **Agregar**.
 

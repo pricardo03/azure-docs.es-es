@@ -17,10 +17,10 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 42ad7bc10cb7b93bd4db9260f950ae4ca12aba44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61126915"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migración desde Amazon Web Services (AWS) y otras plataformas a Managed Disks en Azure
@@ -55,7 +55,7 @@ Esta sección puede ayudarlo a tomar la mejor decisión sobre los tipos de disco
 
 Si planea migrar de discos no administrados a discos administrados, debe saber que los usuarios con el rol [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) no podrán cambiar el tamaño de la máquina virtual (como podían hacer antes de la conversión). El motivo es que las máquinas virtuales con discos administrados requieren que el usuario tenga el permiso de escritura/discos/Microsoft.Compute para los discos del sistema operativo.
 
-### <a name="location"></a>Location
+### <a name="location"></a>Ubicación
 
 Elija una ubicación donde Azure Managed Disks esté disponible. Si va a migrar a Managed Disks Premium, asegúrese que Premium Storage también está disponible en la región a la que planea migrar. Consulte [Servicios de Azure por región](https://azure.microsoft.com/regions/#services) para obtener información actualizada sobre las ubicaciones disponibles.
 
@@ -72,7 +72,7 @@ Hay siete tipos de Managed Disks premium que se pueden usar con la máquina virt
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1\.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
 | Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
@@ -82,7 +82,7 @@ Hay siete tipos de Managed Disks estándar que se pueden usar con la máquina vi
 
 | Tipo de disco Estándar  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Tamaño del disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1.024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
+| Tamaño del disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1\.024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
 | IOPS por disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Rendimiento de disco. | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo |60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 
 

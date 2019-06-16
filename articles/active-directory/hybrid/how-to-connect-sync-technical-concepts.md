@@ -4,23 +4,23 @@ description: Explica los conceptos técnicos de la sincronización de Azure AD C
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 01/15/2018
-ms.date: 11/12/2018
-ms.component: hybrid
-ms.author: v-junlch
+ms.topic: conceptual
+ms.date: 01/15/2018
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347589"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronización de Azure AD Connect: Conceptos técnicos
@@ -34,11 +34,11 @@ Basándose en MIIS, ILM y FIM, Servicios de sincronización de Azure Active Dire
 
 Las secciones siguientes proporcionan más detalles sobre los siguientes aspectos del Servicio de sincronización de FIM:
 
-- Conector
-- Flujo del atributo
-- Espacio del conector
-- Metaverso
-- Aprovisionamiento
+* Conector
+* Flujo del atributo
+* Espacio del conector
+* Metaverso
+* Aprovisionamiento
 
 ## <a name="connector"></a>Conector
 Los módulos de código que se usan para comunicarse con un directorio conectado se denominan conectores (conocidos anteriormente como agentes de administración o MA).
@@ -87,9 +87,8 @@ Esto establece intrínsecamente un vínculo y el flujo de atributos puede contin
 Siempre que una regla se determina que tiene que crearse un nuevo objeto de espacio de conector, se le denomina aprovisionamiento. Sin embargo, puesto que esta operación solo se produce dentro del espacio del conector, no se mantienen en el origen de datos conectado hasta que se realiza una exportación.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-- [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](how-to-connect-sync-whatis.md)
-- [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
+* [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](how-to-connect-sync-whatis.md)
+* [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-

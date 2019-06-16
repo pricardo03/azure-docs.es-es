@@ -1,8 +1,8 @@
 ---
 title: H264 Multiple Bitrate 4x3 for iOS | Microsoft Docs
 description: El tema proporciona información sobre el valor predeterminado de la tarea **H264 Multiple Bitrate 4x3 for iOS**.
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/18/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/18/2019
+ms.author: juliako
 ms.openlocfilehash: 45dbaea4e2c6f8cdbe3d33df5d3b82b9df519ff2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463657"
 ---
 # <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264 Multiple Bitrate 4x3 for iOS

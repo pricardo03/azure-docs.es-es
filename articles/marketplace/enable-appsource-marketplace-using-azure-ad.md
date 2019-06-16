@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938083"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
@@ -35,12 +35,12 @@ Las distintas [opciones de aplicaciones y tipos de ofertas](https://docs.microso
 | **Tipo de oferta**    | **¿Se requiere el SSO de Azure AD?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Ponerse en contacto conmigo | Versión de prueba | Versión de prueba | Transacción |
-| Máquina virtual | N/D | Sin  | No | Sin  |
+| Máquina virtual | N/D | Sin | No | Sin |
 | Azure Apps (plantilla de solución)  | N/D | N/D | N/D | N/D |
-| Aplicaciones administradas  | N/D | N/D | N/D | Sin  |
-| SaaS  | Sin  | Sí | Sí | Sí |
-| Contenedores  | N/D | N/D | N/D | Sin  |
-| Servicios de consultoría  | Sin  | N/D | N/D | N/D |
+| Aplicaciones administradas  | N/D | N/D | N/D | Sin |
+| SaaS  | Sin | Sí | Sí | Sí |
+| Contenedores  | N/D | N/D | N/D | Sin |
+| Servicios de consultoría  | Sin | N/D | N/D | N/D |
 
 Para obtener más información acerca de los requisitos técnicos de SaaS, consulte la [Guía de publicación de ofertas de aplicaciones de SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628921"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recopilación de contadores de rendimiento para aplicaciones de Linux en Azure Monitor 
@@ -51,8 +51,8 @@ Las entradas del archivo de autenticación se describen en la tabla siguiente.
 | Propiedad | Descripción |
 |:--|:--|
 | Port | Representa el puerto actual en el que está escuchando la instancia de MySQL. El puerto 0 especifica que las propiedades que siguen se usan para la instancia predeterminada. |
-| Bind-Address| Dirección de enlace actual de MySQL. |
-| username| Usuario de MySQL usado para supervisar la instancia del servidor MySQL. |
+| Dirección de enlace| Dirección de enlace actual de MySQL. |
+| nombre de usuario| Usuario de MySQL usado para supervisar la instancia del servidor MySQL. |
 | Contraseña codificada en Base64| Contraseña del usuario de supervisión de MySQL codificada en Base64. |
 | Actualización automática| Especifica si se volverán a examinar los cambios en el archivo my.cnf y si se sobrescribirá el archivo de autenticación de MySQL para OMI cuando el proveedor de MySQL para OMI se actualice. |
 
@@ -118,8 +118,8 @@ Después de configurar el agente de Log Analytics para Linux de forma que envíe
 
 | Nombre de objeto | Nombre del contador |
 |:--|:--|
-| MySQL Database | Espacio en disco en bytes |
-| MySQL Database | Tablas |
+| Base de datos MySQL | Espacio en disco en bytes |
+| Base de datos MySQL | Tablas |
 | MySQL Server | Porcentaje de conexiones anuladas |
 | MySQL Server | Porcentaje de uso de conexión |
 | MySQL Server | Uso de espacio en disco en bytes |

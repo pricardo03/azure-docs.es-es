@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: kumud
 ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710920"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creación, cambio o eliminación de la directiva de punto de conexión de servicio mediante Azure Portal
@@ -73,7 +73,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
  
 ## <a name="view-endpoint-policies"></a>Visualización de directivas de punto de conexión de servicio 
 
-1. En el cuadro *Todos los servicios* del portal, comience a escribir *directivas de punto de conexión de servicio*. Seleccione **Directivas de punto de conexión de servicio (versión preliminar)**.
+1. En el cuadro *Todos los servicios* del portal, comience a escribir *directivas de punto de conexión de servicio*. Seleccione **Directivas de punto de conexión de servicio (versión preliminar)** .
 2. En **Suscripciones**, seleccione la suscripción y grupo de recursos, tal como se muestra en la siguiente imagen.
 
    ![Muestra de directiva](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)

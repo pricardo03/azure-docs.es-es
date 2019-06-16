@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291915"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Ejemplo: Modelado de la base de datos del inventario de AdventureWorks para Azure Search
@@ -43,7 +43,7 @@ Resolver este problema no es tan simple como mover el índice de destino a la ta
 
 ## <a name="use-a-collection-data-type"></a>Uso de un tipo de datos de colección
 
-El "enfoque correcto" es utilizar una característica de esquema de búsqueda que no tiene un paralelo directo en el modelo de base de datos: **Collection(Edm.String)**. Se utiliza el tipo de datos Collection cuando se tiene una lista de cadenas individuales, en lugar de una cadena muy larga (única). Si tiene etiquetas o palabras clave, utilizaría un tipo de datos Collection para este campo.
+El "enfoque correcto" es utilizar una característica de esquema de búsqueda que no tiene un paralelo directo en el modelo de base de datos: **Collection(Edm.String)** . Se utiliza el tipo de datos Collection cuando se tiene una lista de cadenas individuales, en lugar de una cadena muy larga (única). Si tiene etiquetas o palabras clave, utilizaría un tipo de datos Collection para este campo.
 
 Mediante la definición de campos de índice de valores múltiples de **Collection(Edm.String)** para "color", "tamaño" e "imagen", la información auxiliar se conserva para facetar y filtrar sin contaminar el índice con entradas duplicadas. Del mismo modo, aplique funciones de agregado a los campos numéricos del producto, indexando **minListPrice** en lugar de **listPrice** de cada uno de los productos.
 

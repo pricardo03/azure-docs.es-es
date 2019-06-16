@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681870"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
@@ -175,7 +175,7 @@ Por ejemplo, para comprobar periódicamente el servicio para buscar nuevos archi
 
 | ¿La solicitud incluye `triggerState`? | Respuesta de la API | 
 | -------------------------------- | -------------| 
-| Sin  | Devuelve un estado de HTTP `202 ACCEPTED` más un encabezado `location` con `triggerState` establecido en la hora actual y el intervalo `retry-after` en 15 segundos. | 
+| Sin | Devuelve un estado de HTTP `202 ACCEPTED` más un encabezado `location` con `triggerState` establecido en la hora actual y el intervalo `retry-after` en 15 segundos. | 
 | Sí | Compruebe si en el servicio se han agregado archivos después de la fecha `DateTime` para `triggerState`. | 
 ||| 
 

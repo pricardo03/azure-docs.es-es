@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883340"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
@@ -44,7 +44,7 @@ Vamos a analizar brevemente cada componente fijándonos en el diagrama de derech
  - **Subnet NSG**: al igual que la NIC, los NSG también pueden aplicarse a la subred. Asegúrese de que el conjunto de reglas de NSG es apropiado para el tráfico que intenta transmitir. (Para el tráfico entrante en la NIC, primero se aplica el NSG de la subred y luego el NSG de la NIC; a la inversa, para el tráfico saliente de la máquina virtual, primero se aplica el NSG de la NIC y luego el NSG de la subred).
  - **Subnet UDR**: las rutas definidas por el usuario puede dirigir el tráfico a un salto intermedio (como un firewall o un equilibrador de carga). Asegúrese de saber si existe una UDR para el tráfico y, en su caso, dónde se dirige y qué hará el siguiente salto con el tráfico. (Por ejemplo, un firewall puede pasar algún tráfico y denegar otro entre los mismos dos hosts).
  - **Gateway subnet / NSG / UDR**: de la misma manera que la subred de máquina virtual, la subred de puerta de enlace puede tener NSG y UDR. Asegúrese de que existan y de qué efectos tienen en el tráfico.
- - **VNet Gateway (ExpressRoute)**: una vez habilitado el emparejamiento (ExpressRoute) o VPN, existen muchas configuraciones que pueden afectar a que el tráfico se redirija o no y a cómo se lleva. Si tiene varios circuitos ExpressRoute o túneles VPN conectados a la misma puerta de enlace de red virtual, debe tener en cuenta la configuración del peso de la conexión, ya que este valor afecta a las preferencias de conexión y a la ruta que el tráfico sigue.
+ - **VNet Gateway (ExpressRoute)** : una vez habilitado el emparejamiento (ExpressRoute) o VPN, existen muchas configuraciones que pueden afectar a que el tráfico se redirija o no y a cómo se lleva. Si tiene varios circuitos ExpressRoute o túneles VPN conectados a la misma puerta de enlace de red virtual, debe tener en cuenta la configuración del peso de la conexión, ya que este valor afecta a las preferencias de conexión y a la ruta que el tráfico sigue.
  - **Route Filter** (no se muestra): un filtro de ruta solo se aplica al Emparejamiento de Microsoft en ExpressRoute, pero es crítico para comprobar si no aparecen las rutas previstas en el Emparejamiento de Microsoft. 
 
 En este punto, está en la parte WAN del vínculo. Este dominio de enrutamiento puede ser el proveedor de servicios, la WAN corporativa o Internet. Muchos saltos, tecnologías y empresas relacionados con estos vínculos pueden dificultar en cierta medida la solución de problemas. A menudo, trata de descartar Azure y las redes corporativas antes de pasar a este grupo de empresas y saltos.
@@ -160,7 +160,7 @@ Configuración de la prueba:
  - Un circuito ExpressRoute premium de 10 Gbps en la ubicación identificada con el emparejamiento privado habilitado.
  - Una red virtual de Azure con una puerta de enlace UltraPerformance en la región especificada.
  - Una VM DS5v2 que ejecuta Windows Server 2016 en la red virtual. La máquina virtual no estaba unida a un dominio y se compiló a partir de la imagen predeterminada de Azure (sin optimización ni personalización) con AzureCT instalado.
- - Todas las pruebas se realizaron mediante el comando Get-LinkPerformance de AzureCT con una prueba de carga de cinco minutos para cada una de las seis series de pruebas. Por ejemplo: 
+ - Todas las pruebas se realizaron mediante el comando Get-LinkPerformance de AzureCT con una prueba de carga de cinco minutos para cada una de las seis series de pruebas. Por ejemplo:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -179,7 +179,7 @@ Configuración de la prueba:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Region|Estimación<br/>Distancia (km)|Latencia|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
+|ExpressRoute<br/>Ubicación|Azure<br/>Region|Estimación<br/>Distancia (km)|Latencia|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
 | Seattle | Oeste de EE. UU. 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste de EE. UU.          |  1094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | Centro de EE. UU.       |  2357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |

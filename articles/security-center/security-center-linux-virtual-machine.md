@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
 ms.openlocfilehash: af9b1ef64944e72a24d76cc555e51841e75401ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909443"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center y Azure Virtual Machines con Linux
@@ -101,7 +101,7 @@ Si hace clic en esta recomendación, verá más detalles sobre las acciones espe
 ![Estado de la seguridad 2](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig5.png)
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.

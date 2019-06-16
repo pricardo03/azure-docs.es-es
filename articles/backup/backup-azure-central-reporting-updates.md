@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60641966"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Actualización del paquete de contenido de informes central de Azure Backup 
@@ -46,9 +46,9 @@ Los informes preconfigurados que vienen con el paquete de contenido de Azure Bac
 
 ![Cumplimiento normativo](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 
-![Almacenamiento](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
+![Storage](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Elementos de copia de seguridad
 ![Elementos de copia de seguridad](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)

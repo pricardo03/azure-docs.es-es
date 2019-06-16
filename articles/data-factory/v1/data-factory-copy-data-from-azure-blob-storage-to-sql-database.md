@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487339"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copia de datos de Blob Storage en SQL Database mediante Data Factory
@@ -49,7 +49,7 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * **Suscripción de Azure**.  Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) para obtener información.
 * **Cuenta de Azure Storage**. Almacenamiento de blobs se usará como un almacén de datos de **origen** en este tutorial. Si no tiene una cuenta de Almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
-* **Azure SQL Database**. Usará una base de datos de Azure SQL como un almacén de datos de **destino** en este tutorial. Si no dispone de una base de datos de Azure SQL que pueda usar en el tutorial, vea [Cómo crear y configurar Azure SQL Database](../../sql-database/sql-database-get-started.md) para crear una.
+* **Azure SQL Database**. Usará una base de datos de Azure SQL como un almacén de datos de **destino** en este tutorial. Si no dispone de una base de datos de Azure SQL que pueda usar en el tutorial, vea [Cómo crear y configurar Azure SQL Database](../../sql-database/sql-database-get-started.md) para crear una.
 * **SQL Server 2012/2014 o Visual Studio 2013**. Usará SQL Server Management Studio o Visual Studio para crear una base de datos de ejemplo y ver los datos de resultados de la base de datos.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Obtención del nombre y la clave de la cuenta de Almacenamiento de blobs
@@ -109,7 +109,7 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos de Azure SQL 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Si tiene SQL Server 2012/2014 instalado en el equipo**: siga las instrucciones de [Administración de Azure SQL Database con el uso de SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) para conectarse al servidor SQL de Azure y ejecutar el script de SQL. 
+    **Si tiene SQL Server 2012/2014 instalado en el equipo**: siga las instrucciones de [Administración de Azure SQL Database con SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) para conectarse a su servidor de Azure SQL y ejecutar el script de SQL. 
 
     Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su máquina (dirección IP). Consulte [este artículo](../../sql-database/sql-database-configure-firewall-settings.md) para conocer los pasos que deben darse para configurar el firewall de un servidor SQL de Azure.
 

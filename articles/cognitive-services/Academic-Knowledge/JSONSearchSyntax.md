@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336973"
 ---
 # <a name="json-search-syntax"></a>Sintaxis de búsqueda JSON
@@ -33,7 +33,7 @@ ms.locfileid: "61336973"
 }
 ```
 
-Los nombres de nodo de una ruta de acceso de consulta (_v0, v1, ..._) actúan como identificadores de nodo a los que se puede hacer referencia en el objeto de consulta; los nombres de borde (_e0, e1, ..._) de la ruta de acceso representan los tipos de los bordes correspondientes. Se puede usar un asterisco _*_ como nombre de nodo o borde (excepto para el nodo de inicio, que debe proporcionarse) para declarar que no hay ninguna restricción en ese elemento. Por ejemplo, una ruta de acceso de consulta `/v0/*/v1/e1/*/` recupera rutas de acceso de los grafos sin restringir el tipo de borde _(v0, v1)_. Mientras tanto, la consulta tampoco tiene restricciones en el destino (el último nodo) de la ruta de acceso.
+Los nombres de nodo de una ruta de acceso de consulta (_v0, v1, ..._ ) actúan como identificadores de nodo a los que se puede hacer referencia en el objeto de consulta; los nombres de borde (_e0, e1, ..._ ) de la ruta de acceso representan los tipos de los bordes correspondientes. Se puede usar un asterisco _*_ como nombre de nodo o borde (excepto para el nodo de inicio, que debe proporcionarse) para declarar que no hay ninguna restricción en ese elemento. Por ejemplo, una ruta de acceso de consulta `/v0/*/v1/e1/*/` recupera rutas de acceso de los grafos sin restringir el tipo de borde _(v0, v1)_ . Mientras tanto, la consulta tampoco tiene restricciones en el destino (el último nodo) de la ruta de acceso.
 
 Cuando una ruta de acceso solo contiene un único nodo, por ejemplo, _v0_, la consulta devolverá simplemente todas las entidades que satisfacen las restricciones. Un objeto de restricción que se aplica al nodo de inicio se llama *objeto de consulta de inicio*, cuya especificación es tal como se indica a continuación.
 

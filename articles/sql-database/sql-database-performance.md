@@ -6,17 +6,16 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: danimir
+ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 01/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584835"
 ---
 # <a name="monitor-and-improve-performance"></a>Supervisión y mejora del rendimiento
@@ -41,10 +40,10 @@ Esta vista ofrece un resumen del rendimiento de la base de datos y le ayuda con 
 
 ![Rendimiento](./media/sql-database-performance/performance.png)
 
-* El icono de **Recomendaciones** proporciona un desglose de recomendaciones de ajuste para la base de datos (se muestran las tres primeras recomendaciones si hay más). Haga clic en este icono para acceder a **[Recomendaciones de rendimiento](#performance-recommendations)**. 
+* El icono de **Recomendaciones** proporciona un desglose de recomendaciones de ajuste para la base de datos (se muestran las tres primeras recomendaciones si hay más). Haga clic en este icono para acceder a **[Recomendaciones de rendimiento](#performance-recommendations)** . 
 * El icono de **Tuning activity** (Actividad de optimización) proporciona un resumen de las acciones de optimización en curso y finalizadas para la base de datos, lo que le brinda una vista rápida del historial de la actividad de optimización. Si hace clic en este icono irá a la vista completa del historial de optimización de la basa de datos.
 * El icono **Ajuste automático** muestra la [configuración de ajuste automático](sql-database-automatic-tuning-enable.md) de la base de datos (las opciones de ajuste que se aplican automáticamente a la base de datos). Al hacer clic en este icono se abre el cuadro de diálogo de configuración de automatización.
-* El icono de **Consultas de bases de datos** muestra el resumen del rendimiento de consultas de la base de datos (uso general de DTU y consultas que consumen más recursos). Haga clic en este icono para acceder a **[Información de rendimiento de consultas](#query-performance-insight)**.
+* El icono de **Consultas de bases de datos** muestra el resumen del rendimiento de consultas de la base de datos (uso general de DTU y consultas que consumen más recursos). Haga clic en este icono para acceder a **[Información de rendimiento de consultas](#query-performance-insight)** .
 
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 
@@ -74,10 +73,10 @@ Las bases de datos de Azure SQL pueden optimizar automáticamente el rendimiento
 
   ![panel de rendimiento](./media/sql-database-query-performance/performance.png)
 
-Obtenga más información sobre esta página en el artículo **[Cómo usar información de rendimiento de consultas](sql-database-query-performance.md)**.
+Obtenga más información sobre esta página en el artículo **[Cómo usar información de rendimiento de consultas](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Guía de rendimiento de Azure SQL Database](sql-database-performance-guidance.md)
+* [Guía de rendimiento de Azure SQL Database para bases de datos únicas](sql-database-performance-guidance.md)
 * [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098733"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Incorporación de notificaciones push a la aplicación de Xamarin.Forms
@@ -59,7 +59,7 @@ Complete esta sección para habilitar las notificaciones push para el proyecto D
 
 Con el back-end configurado con FCM, puede agregar componentes y códigos al cliente para registrar con FCM. También puede registrarse para notificaciones de inserción con Azure Notification Hubs a través del back-end de Mobile Apps y recibir notificaciones.
 
-1. En el proyecto **Droid**, haga clic con el botón derecho en **Referencias > Administrar paquetes NuGet...**.
+1. En el proyecto **Droid**, haga clic con el botón derecho en **Referencias > Administrar paquetes NuGet...** .
 1. En la ventana del Administrador de paquetes NuGet, busque el paquete **Xamarin.Firebase.Messaging** y agréguelo al proyecto.
 1. En las propiedades del proyecto **Droid**, configure la aplicación para la compilación con la versión Android 7.0 o posterior.
 1. Agregue el archivo **google services.json**, que se descargó de la consola de Firebase, a la raíz del proyecto **Droid** y establezca su acción de compilación en **GoogleServicesJson**. Para más información, consulte [Add the Google Services JSON File](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File) (Incorporación del archivo JSON de Google Services).
@@ -232,7 +232,7 @@ Los dos primeros pasos son necesarios solo cuando se realizan pruebas en un emul
 2. Agregue una cuenta de Google al dispositivo Android haciendo clic en **Aplicaciones** > **Configuración** > **Agregar cuenta**. Luego siga las indicaciones para agregar una cuenta de Google existente al dispositivo o para crear una nueva.
 3. En Visual Studio o Xamarin Studio, haga clic con el botón derecho en el proyecto **Droid** y haga clic en **Establecer como proyecto de inicio**.
 4. Haga clic en **Ejecutar** para compilar el proyecto e iniciar la aplicación en el dispositivo Android o el emulador.
-5. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma (**+**).
+5. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma ( **+** ).
 6. Compruebe que se recibe una notificación cuando se agrega un artículo.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Configuración y ejecución del proyecto de iOS (opcional)
@@ -326,7 +326,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
    > [!NOTE]
    > Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
-3. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma (**+**).
+3. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma ( **+** ).
 4. Compruebe que se ha recibido la notificación y luego haga clic en **Aceptar** para descartarla.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Configuración y ejecución de proyectos de Windows (opcional)
@@ -398,7 +398,7 @@ Esta sección está dedicada a la ejecución de los proyectos WinApp y WinPhone8
 
 1. En Visual Studio, haga clic con el botón derecho en un proyecto de Windows y luego haga clic en **Establecer como proyecto de inicio**.
 2. Presione el botón **Run** para compilar el proyecto e iniciar la aplicación.
-3. En la aplicación, escriba un nombre para un nuevo todoitem y haga clic en el icono del signo más (**+**) para agregarlo.
+3. En la aplicación, escriba un nombre para un nuevo todoitem y haga clic en el icono del signo más ( **+** ) para agregarlo.
 4. Compruebe que se recibe una notificación cuando se agrega el artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes

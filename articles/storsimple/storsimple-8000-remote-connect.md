@@ -16,10 +16,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631876"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conexión de forma remota al dispositivo StorSimple serie 8000
@@ -151,7 +151,7 @@ Realice los pasos siguientes en la consola en serie del dispositivo para habilit
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Para habilitar la administración remota a través de la consola en serie del dispositivo
 1. En el menú de la consola serie, seleccione la opción 1. Para obtener más información sobre el uso de la consola serie en el dispositivo, vaya a [Conéctese a Windows PowerShell para StorSimple mediante la consola serie del dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. En el símbolo del sistema, escriba: 
+2. En el símbolo del sistema, escriba:
    
      `Enable-HcsRemoteManagement`
    
@@ -237,7 +237,7 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Para el parámetro -ComputerName del cmdlet, escriba el <*número de serie del dispositivo de destino*>. Este número de serie se asigna a la dirección IP de DATA 0 en el archivo de hosts del host remoto; Por ejemplo, **SHX0991003G44MT** tal como se muestra en la siguiente imagen.
-5. Escriba: 
+5. Escriba:
    
      `Enter-PSSession $session`
 6. Deberá esperar unos minutos y, a continuación, se conectará al dispositivo a través de HTTPS con SSL. Verá un mensaje que indica que está conectado al dispositivo.

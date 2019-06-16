@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126374"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
@@ -109,7 +109,7 @@ Las métricas proporcionan el número de resúmenes de los distintos estados que
 
 1. Escriba una consulta para **Criterios de las métricas**. La consulta se basa en las [propiedades notificadas](module-edgeagent-edgehub.md#edgehub-reported-properties) del módulo gemelo del centro de IoT Edge. La métrica representa el número de filas devueltas por la consulta.
 
-Por ejemplo: 
+Por ejemplo:
 
 ```sql
 SELECT deviceId FROM devices

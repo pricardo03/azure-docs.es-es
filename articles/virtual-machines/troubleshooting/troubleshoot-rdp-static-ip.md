@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
 ms.openlocfilehash: 81a3064290e0aa720a4fe6b0fa0d8eb13cfe6903
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318925"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>No se puede conectar mediante escritorio remoto a Azure Virtual Machines debido a una dirección IP estática

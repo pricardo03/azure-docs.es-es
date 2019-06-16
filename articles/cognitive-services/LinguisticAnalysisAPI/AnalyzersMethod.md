@@ -12,10 +12,10 @@ ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60404730"
 ---
 # <a name="analyzers-method"></a>Método de analizadores
@@ -33,7 +33,7 @@ None
 
 ## <a name="response-parameters"></a>Parámetros de respuesta
 
-Name | Type | DESCRIPCIÓN
+NOMBRE | Type | DESCRIPCIÓN
 -----|------|--------------
 languages | lista de cadenas | lista de códigos de idioma de dos letras ISO para los que se puede utilizar este analizador
 id   | string | identificador único para este analizador

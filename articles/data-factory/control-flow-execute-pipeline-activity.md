@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808854"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
@@ -62,11 +62,11 @@ La actividad de ejecución de canalización permite que una canalización de Dat
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad de ejecución de canalización. | string | Sí
-Tipo | Se debe establecer en: **ExecutePipeline**. | string | Sí
+Nombre | Nombre de la actividad de ejecución de canalización. | Cadena | Sí
+Tipo | Se debe establecer en: **ExecutePipeline**. | Cadena | Sí
 pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | Sí
-parameters | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | Sin 
-waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es false. | Boolean | Sin 
+parameters | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | Sin
+waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es false. | Boolean | Sin
 
 ## <a name="sample"></a>Muestra
 Este escenario consta de dos canalizaciones:

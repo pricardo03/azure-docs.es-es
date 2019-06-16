@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 01/23/2017
+ms.author: yegu
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829810"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Ejemplos de Azure Cache for Redis
@@ -32,14 +31,14 @@ En el ejemplo [Hello world](https://github.com/rustd/RedisSamples/tree/master/He
 
 Este ejemplo lo siguiente:
 
-- Uso de distintas opciones de conexión
-- Lectura y escritura de objetos hacia y desde la memoria caché mediante operaciones sincrónicas y asincrónicas
-- Uso de comandos MGET/MSET de Redis para devolver valores de las claves especificadas
-- Realización de operaciones transaccionales de Redis
-- Trabajo con listas de Redis y conjuntos ordenados
-- Almacenamiento de objetos de .NET con serializadores JsonConvert
-- Uso de conjuntos de Redis para implementar el etiquetado
-- Trabajar con el Clúster en Redis
+* Uso de distintas opciones de conexión
+* Lectura y escritura de objetos hacia y desde la memoria caché mediante operaciones sincrónicas y asincrónicas
+* Uso de comandos MGET/MSET de Redis para devolver valores de las claves especificadas
+* Realización de operaciones transaccionales de Redis
+* Trabajo con listas de Redis y conjuntos ordenados
+* Almacenamiento de objetos de .NET con serializadores JsonConvert
+* Uso de conjuntos de Redis para implementar el etiquetado
+* Trabajar con el Clúster en Redis
 
 Para más información, consulte la documentación de [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) en GitHub y para ver más escenarios de uso, las pruebas unitarias [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests).
 
@@ -53,8 +52,8 @@ El ejemplo de [Uso de Azure Cache for Redis como backplane de escalado horizonta
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Ejemplo de consulta de cliente de Azure Cache for Redis
 Este ejemplo compara el rendimiento entre el acceso a datos desde una memoria caché y el acceso a datos desde almacenamiento de persistencia. Este ejemplo tiene dos proyectos.
 
-- [Demostración de cómo Azure Cache for Redis puede mejorar el rendimiento con el almacenamiento de datos en caché](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-- [Inicialización de la base de datos y la memoria caché para la demostración](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+* [Demostración de cómo Azure Cache for Redis puede mejorar el rendimiento con el almacenamiento de datos en caché](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [Inicialización de la base de datos y la memoria caché para la demostración](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>Estado de sesión de ASP.NET y almacenamiento en caché de resultados
 El ejemplo de [Uso de Azure Cache for Redis para almacenar SessionState y OutputCache de ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) muestra cómo usar Azure Cache for Redis para almacenar la sesión y la memoria caché de salida de ASP.NET usando los proveedores SessionState y OutputCache para Redis.
@@ -70,6 +69,4 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 ## <a name="bandwidth-monitor"></a>Supervisión del ancho de banda
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
-
-<!-- Update_Description: update metedata properties -->
 

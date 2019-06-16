@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466584"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services 
@@ -337,7 +337,7 @@ Para registrar y configurar la aplicación puntero en Azure AD, siga estos pasos
 
 3. Actualice el archivo de manifiesto de la aplicación para que la propiedad groupMembershipClaims tenga el valor "groupMembershipClaims": "All".
 
-4. En la aplicación de Azure AD que apunta a la aplicación web de reproductor, en la sección **Permisos para otras aplicaciones**, agregue la aplicación de recursos que se agregó en el paso 1 anteriormente. En **Permisos delegados**, active seleccione **Acceso [nombre_de_recurso]**. Esta opción da permiso a la aplicación web para crear tokens de acceso que acceden a la aplicación de recursos. Haga esto para la versión local y la implementada de la aplicación web si desarrolla con Visual Studio y la aplicación web de Azure.
+4. En la aplicación de Azure AD que apunta a la aplicación web de reproductor, en la sección **Permisos para otras aplicaciones**, agregue la aplicación de recursos que se agregó en el paso 1 anteriormente. En **Permisos delegados**, active seleccione **Acceso [nombre_de_recurso]** . Esta opción da permiso a la aplicación web para crear tokens de acceso que acceden a la aplicación de recursos. Haga esto para la versión local y la implementada de la aplicación web si desarrolla con Visual Studio y la aplicación web de Azure.
 
 El token JWT emitido por Azure AD es el token de acceso que se utiliza para acceder al recurso de puntero.
 

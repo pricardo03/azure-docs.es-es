@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130762"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
@@ -37,7 +37,7 @@ Hay tres pasos implicados en la automatización de la creación de un ASE de ILB
 
 1. En primer lugar, el ASE base se crea en una red virtual con una dirección de equilibrador de carga interno, en lugar de una VIP pública.  Como parte de este paso, se asigna un nombre de dominio raíz al ASE de ILB.
 2. Una vez creado el ASE de ILB, se carga un certificado SSL.  
-3. El certificado SSL cargado se asigna explícitamente al ASE de ILB como su certificado SSL "predeterminado".  Este certificado SSL se usará para el tráfico SSL a las aplicaciones del ASE de ILB cuando las aplicaciones se direccionan mediante el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootcomain.com)).
+3. El certificado SSL cargado se asigna explícitamente al ASE de ILB como su certificado SSL "predeterminado".  Este certificado SSL se usará para el tráfico SSL a las aplicaciones del ASE de ILB cuando las aplicaciones se direccionan mediante el dominio raíz común asignado al ASE (por ejemplo, https://someapp.mycustomrootcomain.com) ).
 
 ## <a name="creating-the-base-ilb-ase"></a>Creación del ASE de ILB base
 Hay un ejemplo de plantilla de Azure Resource Manager y su archivo de parámetros asociado en GitHub, [aquí][quickstartilbasecreate].
@@ -58,12 +58,12 @@ Una vez que se haya rellenado el archivo *azuredeploy.parameters.json* de un ASE
 Después que se envíe la plantilla de Azure Resource Manager el ASE de ILB tardará unas horas en crearse.  Una vez completada la creación, el ASE de ILB se mostrará en el portal, en la lista de entornos de App Service de la suscripción que desencadenó la implementación.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Carga y configuración del certificado SSL "predeterminado"
-Una vez que se crea el ASE de ILB, es preciso asociarle un certificado SSL "predeterminado" que se use para establecer conexiones SSL con las aplicaciones.  Continuando con el ejemplo hipotético de Contoso Corporation, si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a *https://some-random-app.internal-contoso.com* requiere un certificado SSL que sea válido para **.internal-contoso.com*. 
+Una vez que se crea el ASE de ILB, es preciso asociarle un certificado SSL "predeterminado" que se use para establecer conexiones SSL con las aplicaciones.  Continuando con el ejemplo hipotético de Contoso Corporation, si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a *https://some-random-app.internal-contoso.com* requiere un certificado SSL que sea válido para * *.internal-contoso.com*. 
 
 Hay varias maneras de obtener un certificado SSL válido, entre las que se incluyen las CA internas, la adquisición de un certificado de un emisor externo y el uso de un certificado autofirmado.  Independientemente del origen del certificado SSL, es preciso configurar correctamente los siguientes atributos del certificado:
 
-* *Firmante*:  este atributo se debe establecer en **.su-dominio-raíz.com*
-* *Nombre alternativo del firmante*:  este atributo debe incluir tanto **.su-dominio-raíz.com* como **.scm.su-dominio-raíz.com*.  El motivo de la segunda entrada es que las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación se realizarán mediante una dirección, cuyo formato será *your-app-name.scm.your-root-domain-here.com*.
+* *Firmante*:  este atributo se debe establecer en * *.su-dominio-raíz.com*
+* *Nombre alternativo del firmante*:  este atributo debe incluir tanto * *.su-dominio-raíz.com* como * *.scm.su-dominio-raíz.com*.  El motivo de la segunda entrada es que las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación se realizarán mediante una dirección, cuyo formato será *your-app-name.scm.your-root-domain-here.com*.
 
 Con un certificado SSL válido, se necesitan dos pasos preparatorios adicionales.  El certificado SSL se debe guardar en formato .pfx, o bien convertirse a dicho formato.  Recuerde que es preciso que el archivo .pfx incluya todos los certificados raíz e intermedios, y también debe protegerse con una contraseña.
 
@@ -130,7 +130,7 @@ Una vez rellenado el archivo *azuredeploy.parameters.json* , se puede configurar
 
 Una vez que se envía la plantilla de Azure Resource Manager, se tarda unos 40 minutos en aplicar el cambio por cada front-end de ASE.  Por ejemplo, con un ASE de un tamaño predeterminado que usa dos front-ends, la plantilla tardará aproximadamente una hora y veinte minutos en completarse.  Mientras la plantilla ejecute el ASE no se podrá escalar.  
 
-Una vez que se completa la plantilla, se puede acceder a las aplicaciones del ASE de ILB a través de HTTPS y las conexiones se protegerán mediante el certificado SSL predeterminado.  El certificado SSL predeterminado se usará cuando las direcciones de las aplicaciones del ASE de ILB sean una combinación del nombre de la aplicación y el nombre de host predeterminado.  Por ejemplo, *https://mycustomapp.internal-contoso.com* usaría el certificado SSL predeterminado para **.internal-contoso.com*.
+Una vez que se completa la plantilla, se puede acceder a las aplicaciones del ASE de ILB a través de HTTPS y las conexiones se protegerán mediante el certificado SSL predeterminado.  El certificado SSL predeterminado se usará cuando las direcciones de las aplicaciones del ASE de ILB sean una combinación del nombre de la aplicación y el nombre de host predeterminado.  Por ejemplo, *https://mycustomapp.internal-contoso.com* usaría el certificado SSL predeterminado para * *.internal-contoso.com*.
 
 Sin embargo, al igual que las aplicaciones que se ejecutan en el servicio multiinquilino público, los desarrolladores también pueden configurar nombres de host personalizados para las aplicaciones individuales y luego configurar enlaces de certificados SSL SNI únicos para aplicaciones individuales.  
 

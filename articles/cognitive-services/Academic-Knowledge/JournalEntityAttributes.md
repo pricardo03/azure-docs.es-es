@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: ffb159dc684b4b6663dcb966706d4745ab88a403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61337812"
 ---
 # <a name="journal-entity"></a>Entidad de diario
@@ -24,7 +24,7 @@ ms.locfileid: "61337812"
 NOMBRE    |DESCRIPCIÓN                            |Type       | Operaciones
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                              |Int64      |Equals
-DJN     |Nombre normalizado de diario                |String     |None
-JN      |Nombre para mostrar de diario                   |String     |Equals
+DJN     |Nombre normalizado de diario                |Cadena     |None
+JN      |Nombre para mostrar de diario                   |Cadena     |Equals
 CC      |Recuento total de cita de diario           |Int32      |None  
 ECC     |Recuento total de cita de estimación de diario |Int32      |None

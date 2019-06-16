@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62113942"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Ejecución de scripts U-SQL en la máquina local
@@ -27,7 +27,7 @@ El gráfico siguiente muestra los componentes para la ejecución local y cómo s
 
 |Componente|Ejecución local|Ejecución en la nube|
 |---------|---------|---------|
-|Almacenamiento|Carpeta raíz de datos local|Cuenta predeterminada de Azure Data Lake Store|
+|Storage|Carpeta raíz de datos local|Cuenta predeterminada de Azure Data Lake Store|
 |Proceso|Motor de ejecución local de U-SQL|Servicio Azure Data Lake Analytics|
 |Entorno de ejecución|Directorio de trabajo en la máquina local|Clúster de Azure Data Lake Analytics|
 

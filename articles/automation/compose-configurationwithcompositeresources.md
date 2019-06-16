@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61303987"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration (DSC) mediante recursos compuestos
@@ -30,7 +30,7 @@ Antes de poder asignar una configuración realizada desde recursos compuestos en
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. A la izquierda, haga clic en **Todos los recursos** y, luego, en el nombre de la cuenta de Automation.
 1. En la página **Cuenta de Automation**, seleccione **State configuration (DSC)** (Configuración de estado [DSC]) en **Administración de configuración**.
-1. En la página **State configuration (DSC)**, haga clic en la pestaña **Configuraciones** o **Configuraciones compiladas** y, después, haga clic en **Configuración de Compose**  en el menú en la parte superior de la página.
+1. En la página **State configuration (DSC)** , haga clic en la pestaña **Configuraciones** o **Configuraciones compiladas** y, después, haga clic en **Configuración de Compose**  en el menú en la parte superior de la página.
 1. En el paso **Conceptos básicos**, proporcione el nuevo nombre de configuración (obligatorio) y haga clic en cualquier parte en la fila de cada recurso compuesto que quiera incluir en la nueva configuración, luego, haga clic en **Siguiente** o haga clic en el paso **Código fuente**. Para conocer los pasos siguientes, hemos seleccionado los recursos compuestos **PSExecutionPolicy** y **RenameAndDomainJoin**.
    ![Captura de pantalla del paso básico de la página Configuración de Compose](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. El paso **Código fuente** muestra el aspecto de la configuración compuesta de los recursos compuestos seleccionados. Puede ver la combinación de todos los parámetros y cómo se pasan al recurso compuesto. Cuando haya terminado de revisar el código fuente nuevo, haga clic en **Siguiente** o haga clic en el paso **Parámetros**.

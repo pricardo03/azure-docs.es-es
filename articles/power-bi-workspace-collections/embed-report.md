@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: a7d6ccc2360d63b888dc46badc742f2618a08dac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724604"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserción de un informe en Colecciones de áreas de trabajo de Azure Power BI
@@ -143,7 +143,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 El informe se insertará automáticamente según el tamaño de su contenedor. Para invalidar el tamaño predeterminado del elemento de inserción, agregue un atributo de clase CSS o estilos en línea de ancho y alto.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  

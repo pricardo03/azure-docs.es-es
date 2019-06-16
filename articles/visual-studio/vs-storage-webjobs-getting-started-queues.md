@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391234"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 El SDK serializa automáticamente el objeto a JSON. Siempre se crea un mensaje en cola, incluso si el objeto es null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Crear varios mensajes o en funciones asincrónicas
-Para crear varios mensajes, convierta el tipo de parámetro para la cola de salida **ICollector<T>** o **IAsyncCollector<T>**, como se muestra en el siguiente ejemplo.
+Para crear varios mensajes, convierta el tipo de parámetro para la cola de salida **ICollector<T>** o **IAsyncCollector<T>** , como se muestra en el siguiente ejemplo.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -342,7 +342,7 @@ Los mensajes cuyo contenido produce un error de una función se denominan *mensa
 ### <a name="automatic-poison-message-handling"></a>Control automático de mensajes dudosos
 El SDK llamará a una función hasta 5 veces para procesar un mensaje de la cola. Si se produce un error en el quinta intento, el mensaje se mueve a una cola de mensajes dudosos. Puede ver cómo configurar el número máximo de reintentos en [Establecimiento de opciones de configuración](#how-to-set-configuration-options).
 
-La cola de mensajes dudosos se denomina *{originalqueuename}*-poison. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual.
+La cola de mensajes dudosos se denomina *{originalqueuename}* -poison. Puede escribir una función para procesar los mensajes desde la cola de mensajes dudosos registrándolos o enviando una notificación indicando que se necesita atención manual.
 
 En el siguiente ejemplo la función **CopyBlob** generará un error cuando un mensaje de cola contenga el nombre de un blob que no existe. Cuando esto ocurre, el mensaje se mueve desde la cola de copyblobqueue a la cola copyblobqueue-poison. Después, **ProcessPoisonMessage** registra el mensaje dudoso.
 
@@ -544,7 +544,7 @@ En el panel del SDK de WebJobs, las 100 líneas más recientes de los resultados
 
 ![Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-En un WebJob continuo, los registros de aplicación aparecen en /data/jobs/continuous/*{nombrewebjob}*/job_log.txt en el sistema de archivos de la aplicación web.
+En un WebJob continuo, los registros de aplicación aparecen en /data/jobs/continuous/ *{nombrewebjob}* /job_log.txt en el sistema de archivos de la aplicación web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

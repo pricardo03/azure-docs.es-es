@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926227"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento clásico
@@ -43,7 +43,7 @@ Un recurso "Disco" se utiliza para montar un archivo de blob de páginas *.vhd e
 
 Cuando el usuario intenta eliminar una cuenta de almacenamiento clásico que ya no se necesita, puede observar el siguiente comportamiento.
 
-#### <a name="azure-portal"></a>Azure Portal 
+#### <a name="azure-portal"></a>Portal de Azure 
 Si el usuario va a la cuenta de almacenamiento clásico en [Azure Portal](https://portal.azure.com) y hace clic en **Eliminar**, verá un mensaje similar al siguiente: 
 
 Con discos "asociados" a una máquina virtual
@@ -68,7 +68,7 @@ El usuario intenta eliminar una cuenta de almacenamiento que ya no se está usan
 
 Cuando el usuario intenta eliminar un contenedor de blog de almacenamiento clásico que ya no se necesita, puede observar el siguiente comportamiento.
 
-#### <a name="azure-portal"></a>Azure Portal 
+#### <a name="azure-portal"></a>Portal de Azure 
 Azure Portal no permite al usuario eliminar un contenedor si no existe una concesión "Discos" que apunta a un archivo de blob en páginas *.vhd en el contenedor. Esto es así intencionadamente, para impedir la eliminación accidental de un archivo VHD con concesión de discos. 
 
 ![Captura de pantalla del portal, con el panel "lista" del contenedor de almacenamiento abierto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_container_portal.jpg)
@@ -85,7 +85,7 @@ Si el usuario decide eliminar mediante PowerShell, se producirá el siguiente er
 
 Después de eliminar la máquina virtual de Azure, el usuario intenta eliminar el archivo de disco duro virtual (blob en páginas) y recibe el mensaje siguiente:
 
-#### <a name="azure-portal"></a>Azure Portal 
+#### <a name="azure-portal"></a>Portal de Azure 
 En el portal, podría haber dos experiencias, en función de la lista de blobs seleccionados para eliminarse.
 
 1. Si solo se han seleccionado los blobs "Concedidos", el botón Eliminar no aparece.
@@ -99,7 +99,7 @@ En el portal, podría haber dos experiencias, en función de la lista de blobs s
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Si el usuario decide eliminar mediante PowerShell, se producirá el siguiente error. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : El servidor remoto devolvió un error: (412) Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud. Código de estado HTTP: 412 - Mensaje de error HTTP: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.</span>
 

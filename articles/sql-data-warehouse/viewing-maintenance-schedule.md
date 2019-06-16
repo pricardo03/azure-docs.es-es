@@ -11,10 +11,10 @@ ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474884"
 ---
 # <a name="view-a-maintenance-schedule"></a>Vista de una programación de mantenimiento 
@@ -27,7 +27,7 @@ Para ver la programación de mantenimiento que se ha aplicado al almacenamiento 
 
 1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2.  Seleccione el almacenamiento de datos que quiere ver. 
-3.  El almacenamiento de datos seleccionado se abre en la hoja de información general. La programación de mantenimiento que se aplica al almacén de datos se mostrará debajo de **Programación de mantenimiento (versión preliminar)**.
+3.  El almacenamiento de datos seleccionado se abre en la hoja de información general. La programación de mantenimiento que se aplica al almacén de datos se mostrará debajo de **Programación de mantenimiento (versión preliminar)** .
 
 ![Hoja Información general](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

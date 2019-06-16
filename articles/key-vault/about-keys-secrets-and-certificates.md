@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708694"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
@@ -84,8 +84,8 @@ Donde:
 
 Las claves criptográficas en Key Vault se representan como objetos de clave web JSON [JWK]. Las especificaciones de JWK/JWA base también se han ampliado para habilitar los tipos de clave únicos para la implementación de Key Vault. Por ejemplo, la importación de claves mediante empaquetado específico del proveedor de HSM permite el transporte seguro de claves que solo pueden usarse en los HSM de Key Vault.  
 
-- **Claves "débiles"**: una clave que Key Vault procesa en software, pero que se cifra en reposo con una clave del sistema que se encuentra en un HSM. Los clientes pueden importar una clave RSA o EC existente (curva elíptica) o solicitar que Key Vault genere una.
-- **Claves "fuertes"**: una clave que se procesa en un HSM (módulo de seguridad de hardware). Estas claves se protegen en uno de los espacios de seguridad de HSM de Key Vault (hay un espacio de seguridad en cada región geográfica para mantener el aislamiento). Los clientes pueden importar una clave RSA o EC, de forma temporal o exportándola desde un dispositivo HSM compatible. Los clientes también pueden solicitar que Key Vault genere una clave. Este tipo de clave agrega el atributo T al objeto JWK para transportar el material de la clave de HSM.
+- **Claves "débiles"** : una clave que Key Vault procesa en software, pero que se cifra en reposo con una clave del sistema que se encuentra en un HSM. Los clientes pueden importar una clave RSA o EC existente (curva elíptica) o solicitar que Key Vault genere una.
+- **Claves "fuertes"** : una clave que se procesa en un HSM (módulo de seguridad de hardware). Estas claves se protegen en uno de los espacios de seguridad de HSM de Key Vault (hay un espacio de seguridad en cada región geográfica para mantener el aislamiento). Los clientes pueden importar una clave RSA o EC, de forma temporal o exportándola desde un dispositivo HSM compatible. Los clientes también pueden solicitar que Key Vault genere una clave. Este tipo de clave agrega el atributo T al objeto JWK para transportar el material de la clave de HSM.
 
      Para más información acerca de los límites geográficos, consulte [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -145,8 +145,8 @@ Key Vault admite las siguientes operaciones en objetos de clave:
 -   **Enumerar**: permite a un cliente enumerar todas las claves de un determinado almacén de Key Vault.  
 -   **Enumerar versiones**: permite a un cliente enumerar todas las versiones de una clave determinada en un determinado almacén de Key Vault.  
 -   **Obtener**: permite a un cliente recuperar las partes públicas de una clave determinada en un almacén de Key Vault.  
--   **Backup (Copia de seguridad)**: exporta una clave en un formato protegido.  
--   **Restore (Restaurar)**: importa una clave desde una copia de seguridad previa.  
+-   **Backup (Copia de seguridad)** : exporta una clave en un formato protegido.  
+-   **Restore (Restaurar)** : importa una clave desde una copia de seguridad previa.  
 
 Para más información, consulte las [operaciones clave en la referencia de la API REST de Key Vault](/rest/api/keyvault).  
 
@@ -473,7 +473,7 @@ Los siguientes permisos pueden usarse al autorizar a una entidad de seguridad de
 
 Para más información, vea las [operaciones para cuentas de almacenamiento en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Autenticación, solicitudes y respuestas](authentication-requests-and-responses.md)
 - [Versiones de Key Vault](key-vault-versions.md)

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60346337"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
@@ -62,4 +62,5 @@ El nombre de un grupo inteligente es el nombre de su primera alerta. No se puede
 
 - [Administración de grupos inteligentes](https://aka.ms/managing-smart-groups)
 - [Cambio de estado de alerta y de grupo inteligente](https://aka.ms/managing-alert-smart-group-states)
+
 

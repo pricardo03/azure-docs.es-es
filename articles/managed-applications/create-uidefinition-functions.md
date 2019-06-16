@@ -14,28 +14,28 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587927"
 ---
 # <a name="createuidefinition-functions"></a>Funciones CreateUiDefinition
 Esta sección contiene las firmas de todas las funciones compatibles de una CreateUiDefinition.
 
-Para utilizar una función, encierre la declaración entre corchetes. Por ejemplo: 
+Para utilizar una función, encierre la declaración entre corchetes. Por ejemplo:
 
 ```json
 "[function()]"
 ```
 
-Puede hacerse referencia a cadenas y otras funciones como parámetros para una función, pero las cadenas deben encerrarse entre comillas simples. Por ejemplo: 
+Puede hacerse referencia a cadenas y otras funciones como parámetros para una función, pero las cadenas deben encerrarse entre comillas simples. Por ejemplo:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Si corresponde, puede hacer referencia a propiedades de la salida de una función mediante el operador de punto. Por ejemplo: 
+Si corresponde, puede hacer referencia a propiedades de la salida de una función mediante el operador de punto. Por ejemplo:
 
 ```json
 "[func().prop1]"

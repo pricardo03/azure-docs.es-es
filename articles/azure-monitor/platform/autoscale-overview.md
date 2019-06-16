@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787604"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
@@ -43,7 +43,7 @@ Los conjuntos de escalado de máquinas virtuales usan datos de telemetría de lo
 ## <a name="custom-metrics"></a>Métricas personalizadas
 También puede usar métricas personalizadas que las aplicaciones pueden generar. Si ha configurado las aplicaciones para que envíen métricas a Application Insights, puede usarlas para tomar decisiones sobre si necesita escalar o no.
 
-## <a name="time"></a>Time
+## <a name="time"></a>Hora
 Las reglas basadas en programaciones emplean el huso horario UTC. Debe establecer la zona horaria correctamente al configurar las reglas.  
 
 ## <a name="rules"></a>Reglas
@@ -102,7 +102,6 @@ Puede configurar el escalado automático en los siguientes lugares:
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Servicios compatibles con el escalado automático
-
 | Servicio | Esquema y documentos |
 | --- | --- |
 | Web Apps |[Escalado en Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -121,3 +120,4 @@ Para más información sobre el escalado automático, consulte los tutoriales de
 * [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61419305"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
@@ -131,7 +131,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 18. En la página **Virtual Machine Version** (Versión de la máquina virtual), seleccione **Virtual Machine Version: 8** (Versión de la máquina virtual: 8).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. En la página **Guest Operating System** (Sistema operativo invitado), seleccione **Windows** como **Guest Operating System** (Sistema operativo invitado). Para **Version** (Versión), en la lista desplegable, seleccione **Microsoft Windows Server 2012 (64 bits)**.
+19. En la página **Guest Operating System** (Sistema operativo invitado), seleccione **Windows** como **Guest Operating System** (Sistema operativo invitado). Para **Version** (Versión), en la lista desplegable, seleccione **Microsoft Windows Server 2012 (64 bits)** .
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. En la página **CPU**, ajuste **Number of virtual sockets** (Número de sockets virtuales) y **Number of cores per virtual socket** (Número de núcleos por socket virtual) para que **Total number of cores** (Número total de núcleos) sea de 4 (o más). Haga clic en **Next**.

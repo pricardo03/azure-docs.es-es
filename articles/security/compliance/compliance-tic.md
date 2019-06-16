@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608090"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Guía de conexiones a Internet de confianza
@@ -159,7 +159,7 @@ Los servicios que admiten la implementación de instancias dedicadas en una red 
 |Entorno de App Service               | GA               |
 |Azure Cache for Redis                     | GA               |
 |HDInsight de Azure                       | GA               |
-|Conjunto de escalas de máquina virtual             | GA               |
+|Conjunto de escalado de máquina virtual             | GA               |
 |Azure Cloud Services                  | GA               |
 
 
@@ -251,7 +251,7 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 |---------|---------|---------|---------|--------|
 | Proceso | Máquinas virtuales Linux en Azure | Sí | | |
 | Proceso | Máquinas virtuales Windows en Azure | Sí | | |
-| Proceso | Conjuntos de escalas de máquina virtual | Sí | | |
+| Proceso | Conjuntos de escalado de máquinas virtuales | Sí | | |
 | Proceso | Azure Functions | | Entorno de App Service | |
 | Web y móviles | Aplicación web interna | | Entorno de App Service| |
 | Web y móviles | Aplicación móvil interna | | Entorno de App Service | |
@@ -264,10 +264,10 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 | Base de datos | Azure SQL Data Warehouse | | | Sí |
 | Base de datos | Azure Cosmos DB | | | Sí |
 | Base de datos | Azure Cache for Redis | | Sí | |
-| Almacenamiento | Azure Blob Storage | Sí | | |
-| Almacenamiento | Archivos de Azure | Sí | | |
-| Almacenamiento | Azure Queue Storage | Sí | | |
-| Almacenamiento | Almacenamiento de tablas de Azure | Sí | | |
-| Almacenamiento | Azure Disk Storage | Sí | | |
+| Storage | Azure Blob Storage | Sí | | |
+| Storage | Archivos de Azure | Sí | | |
+| Storage | Azure Queue Storage | Sí | | |
+| Storage | Almacenamiento de tablas de Azure | Sí | | |
+| Storage | Azure Disk Storage | Sí | | |
 
 \* Versión preliminar pública en Azure Government con fecha de mayo de 2018
