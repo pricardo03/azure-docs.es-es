@@ -10,10 +10,10 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148816"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(EN DESUSO) Implementación de un clúster de Kubernetes para los contenedores de Windows
@@ -42,7 +42,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-kubernetes-cluster"></a>Crear un clúster de Kubernetes
+## <a name="create-kubernetes-cluster"></a>Creación de un clúster de Kubernetes
 Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 En el ejemplo siguiente se crea un clúster denominado *myK8sCluster* con un nodo maestro de Linux y dos nodos de agente de Windows. Este ejemplo crea claves SSH necesarias para conectar con el maestro de Linux. En este ejemplo se utiliza *azureuser* como nombre de usuario administrativo y *myPassword12* como contraseña en los nodos de Windows. Actualice estos valores a un valor apropiado para su entorno. 
@@ -183,7 +183,7 @@ Puede usar un explorador web de su elección para ver la página de bienvenida p
 ![Imagen de exploración hasta IIS](./media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
 
-## <a name="delete-cluster"></a>Eliminar clúster
+## <a name="delete-cluster"></a>Eliminación de clúster
 Cuando un clúster ya no se necesite, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
 
 ```azurecli-interactive 
