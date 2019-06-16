@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110988"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Activación de la sincronización sin conexión para una aplicación móvil Cordova
@@ -128,7 +128,7 @@ El código de sincronización sin conexión debe agregarse a la aplicación. La 
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    Decida cuándo se deben insertar los cambios en el back-end de Mobile App mediante la llamada a **syncContext.push()**. Por ejemplo, podría llamar a **syncBackend** en un controlador de eventos de botón asociado a un botón de sincronización.
+    Decida cuándo se deben insertar los cambios en el back-end de Mobile App mediante la llamada a **syncContext.push()** . Por ejemplo, podría llamar a **syncBackend** en un controlador de eventos de botón asociado a un botón de sincronización.
 
 ## <a name="offline-sync-considerations"></a>Consideraciones sobre la sincronización sin conexión
 

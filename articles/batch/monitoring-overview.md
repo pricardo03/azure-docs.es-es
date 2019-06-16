@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128862"
 ---
 # <a name="monitor-batch-solutions"></a>Supervisión de soluciones de Batch
@@ -41,7 +41,7 @@ Supervise las cuentas de Batch con características de [Azure Monitor](../azure-
 
 ## <a name="batch-resource-monitoring"></a>Supervisión de recursos de Batch
 
-En las aplicaciones de Batch, utilice las API de Batch para supervisar o consultar el estado de los recursos, como los trabajos, las tareas, los nodos y los grupos. Por ejemplo: 
+En las aplicaciones de Batch, utilice las API de Batch para supervisar o consultar el estado de los recursos, como los trabajos, las tareas, los nodos y los grupos. Por ejemplo:
 
 * [Recuento de tareas y nodos de proceso por estado](batch-get-resource-counts.md)
 * [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md)

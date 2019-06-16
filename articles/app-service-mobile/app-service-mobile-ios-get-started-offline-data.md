@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112657"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
@@ -147,7 +147,7 @@ Abra **QSDataModel.xcdatamodeld**. Hay cuatro tablas definidas: tres usadas por 
   * TodoItem: almacena las tareas pendientes. Las columnas del sistema **createdAt**, **updatedAt** y **version** son propiedades del sistema opcionales.
 
 > [!NOTE]
-> El SDK de Mobile Apps tiene reservados los nombres de columna que empiezan por "**``**". Utilice este prefijo exclusivamente para las columnas del sistema. De lo contrario, se modifican los nombres de las columnas cuando se usa el back-end remoto.
+> El SDK de Mobile Apps tiene reservados los nombres de columna que empiezan por " **``** ". Utilice este prefijo exclusivamente para las columnas del sistema. De lo contrario, se modifican los nombres de las columnas cuando se usa el back-end remoto.
 >
 >
 
@@ -162,9 +162,9 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 | Atributo | Type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | String |
+| itemId | Cadena |
 | properties | Binary Data |
-| table | String |
+| table | Cadena |
 | tableKind | Integer 16 |
 
 
@@ -174,7 +174,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 | Atributo | Type |
 | --- | --- |
-| id |String |
+| id |Cadena |
 | operationId |Integer 64 |
 | properties |Binary Data |
 | tableKind |Integer 16 |
@@ -185,11 +185,11 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 | Atributo | Type |
 | --- | --- |
-| id |String |
-| key |String |
+| id |Cadena |
+| key |Cadena |
 | keyType |Integer 64 |
-| table |String |
-| value |String |
+| table |Cadena |
+| value |Cadena |
 
 ### <a name="data-table"></a>Tabla de datos
 
@@ -199,10 +199,10 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 | --- | --- | --- |
 | id | Cadena, marcado obligatorio |Clave principal en almacén remoto |
 | complete | Boolean | Campo de tarea pendiente |
-| text |String |Campo de tarea pendiente |
+| text |Cadena |Campo de tarea pendiente |
 | createdAt | Date | (opcional) Se asigna a la propiedad del sistema **createdAt** |
 | updatedAt | Date | (opcional) Se asigna a la propiedad del sistema **updatedAt** |
-| version | String | (opcional) Se usa para detectar conflictos; se asigna a version |
+| version | Cadena | (opcional) Se usa para detectar conflictos; se asigna a version |
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
 En esta sección, modifique la aplicación para que no se sincronice al iniciarse la aplicación ni cuando se inserten y actualicen elementos. Solo se sincroniza cuando se realiza el gesto de actualización.

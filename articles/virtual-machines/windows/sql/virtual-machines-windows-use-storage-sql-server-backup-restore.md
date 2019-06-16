@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477151"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Uso de Azure Storage para la copia de seguridad y la restauración de SQL Server
@@ -51,14 +51,14 @@ Los siguientes componentes de Azure se utilizan al realizar una copia de segurid
 | --- | --- |
 | **Storage Account** |La cuenta de almacenamiento es el punto de partida de todos los servicios de almacenamiento. Para obtener acceso a un servicio Azure Blob Storage, primero debe crear una cuenta de Azure Storage. Para obtener más información acerca del servicio Azure Blob Storage, consulte [Uso del servicio Azure Blob Storage](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Contenedor** |Un contenedor ofrece la agrupación de un conjunto de blobs y puede almacenar un número ilimitado de ellos. Para realizar una copia de seguridad de SQL Server en Azure Blob service, debe haber creado un contenedor raíz como mínimo. |
-| **Blob** |Un archivo de cualquier tipo y tamaño. Los blobs son direccionables mediante el formato de dirección URL siguiente: **https://[cuenta de almacenamiento].blob.core.windows.net/[contenedor]/[blob]**. Para más información sobre los blobs en páginas, consulte la [descripción de los blobs en bloques y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |Un archivo de cualquier tipo y tamaño. Los blobs son direccionables mediante el formato de dirección URL siguiente: **https://[cuenta de almacenamiento].blob.core.windows.net/[contenedor]/[blob]** . Para más información sobre los blobs en páginas, consulte la [descripción de los blobs en bloques y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Componentes de SQL Server
 Se utilizan los siguientes componentes de SQL Server al realizar una copia de seguridad en el servicio de Almacenamiento de blobs de Azure.
 
 | Componente | DESCRIPCIÓN |
 | --- | --- |
-| **URL** |Una URL especifica el Identificador uniforme de recursos (URI) para un único archivo de copia de seguridad. La URL se usa para proporcionar la ubicación y el nombre del archivo de la copia de seguridad de SQL Server. La URL debe apuntar a un blob real, no solo a un contenedor. Si el blob no existe, se crea. Si se especifica un blob que ya existe, BACKUP provoca un error, a menos que se especifique la opción > WITH FORMAT. El siguiente es un ejemplo de la dirección URL que especificaría en el comando BACKUP: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. Se recomienda HTTPS, pero no es obligatorio. |
+| **URL** |Una URL especifica el Identificador uniforme de recursos (URI) para un único archivo de copia de seguridad. La URL se usa para proporcionar la ubicación y el nombre del archivo de la copia de seguridad de SQL Server. La URL debe apuntar a un blob real, no solo a un contenedor. Si el blob no existe, se crea. Si se especifica un blob que ya existe, BACKUP provoca un error, a menos que se especifique la opción > WITH FORMAT. El siguiente es un ejemplo de la dirección URL que especificaría en el comando BACKUP: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . Se recomienda HTTPS, pero no es obligatorio. |
 | **Credential:** |La información necesaria para conectarse y autenticarse en un servicio de almacenamiento de blobs de Azure se almacena como credencial.  Para que SQL Server escriba copias de seguridad en un blob de Azure o realice la restauración desde él es preciso crear una credencial de SQL Server. Para obtener más información, vea [Credencial de SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]

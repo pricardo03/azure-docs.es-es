@@ -1,9 +1,8 @@
 ---
 title: Esquema de rol de Azure Cloud Services | Microsoft Docs
 ms.custom: ''
-origin.date: 12/07/2016
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 12/07/2016
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: ''
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: aa6f8a821edea6261d64bb411154e82fdf212a8d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130252"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de rol de configuración de Azure Cloud Services
@@ -59,5 +58,5 @@ En la siguiente tabla se describen los elementos secundarios del elemento `Role`
 | Configuración   | Opcional. Especifica un nombre y un valor de configuración en una colección de valores para un rol. El nombre de la configuración se define mediante una cadena en el atributo `name` y el valor de configuración se define mediante una cadena en el atributo `value`.|
 | Certificate | Opcional. Especifica el nombre, la huella digital y el algoritmo de un certificado de servicio que se va a asociar con el rol. El nombre del certificado se define mediante una cadena en el atributo `name`. La huella digital del certificado se define mediante una cadena de números hexadecimales que no contienen espacios en el atributo `thumbprint`. Los números hexadecimales deben estar representados por dígitos y caracteres alfanuméricos en mayúscula. El algoritmo de certificado se define mediante una cadena en el atributo `thumbprintAlgorithm`.|
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md) (Esquema de configuración de Cloud Service [clásico])

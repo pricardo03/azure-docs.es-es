@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449499"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integración de la solución de supervisión remota con Azure Data Lake Store
@@ -103,7 +103,7 @@ Cree un trabajo de Azure Stream Analytics para transmitir los datos desde el cen
 
 1. Seleccione la cuenta de Data Lake Store creada en los pasos anteriores y proporcione la estructura de carpetas para transmitir datos al almacén.
 
-1. En el campo de formato de fecha, escriba **/streaming/{fecha}/{hora}**. Deje el formato de fecha predeterminado de AAAA/MM/DD y el formato de hora hh.
+1. En el campo de formato de fecha, escriba **/streaming/{fecha}/{hora}** . Deje el formato de fecha predeterminado de AAAA/MM/DD y el formato de hora hh.
 
     ![Definición de la estructura de carpetas](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 

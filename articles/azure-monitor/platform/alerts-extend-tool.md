@@ -9,10 +9,10 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431175"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Extensión de alertas de Log Analytics a Alertas de Azure
@@ -232,7 +232,7 @@ Aquí se indican los pasos para corregir cada error:
 
     Cuando se aplica [Azure Policy](../../governance/policy/overview.md), restringe cualquier recurso nuevo en una suscripción o grupo de recursos que contiene el área de trabajo de Log Analytics (Operations Management Suite). El sistema no puede ampliar las alertas en Azure y crear grupos de acciones necesarias.
     
-    Para resolver este problema, edite la directiva que provoca el error *[RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, que impide la creación de nuevos recursos en la suscripción o el grupo de recursos que contiene el área de trabajo. Para ello, puede usar Azure Portal, PowerShell, CLI de Azure o la API. Puede auditar las acciones para encontrar la directiva adecuada que está produciendo el error. Para más información, consulte el artículo sobre la [visualización de registros de actividad para auditar las acciones](../../azure-resource-manager/resource-group-audit.md). 
+    Para resolver este problema, edite la directiva que provoca el error *[RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* , que impide la creación de nuevos recursos en la suscripción o el grupo de recursos que contiene el área de trabajo. Para ello, puede usar Azure Portal, PowerShell, CLI de Azure o la API. Puede auditar las acciones para encontrar la directiva adecuada que está produciendo el error. Para más información, consulte el artículo sobre la [visualización de registros de actividad para auditar las acciones](../../azure-resource-manager/resource-group-audit.md). 
     
     Cuando resuelva el error mediante los pasos ilustrados en el artículo, Operations Management Suite extiende sus alertas a Azure dentro de la ejecución programada para el día siguiente. No es necesario realizar ninguna acción adicional ni iniciar nada.
 

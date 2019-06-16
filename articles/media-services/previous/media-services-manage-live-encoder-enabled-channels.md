@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217261"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
@@ -50,7 +50,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal, puede especif
 > 
 
 ## <a name="billing-implications"></a>Implicaciones de facturación
-Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.   También puede ver el estado en Azure Portal o en la herramienta del Explorador de Azure Media Services (https://aka.ms/amse)).
+Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.   También puede ver el estado en Azure Portal o en la herramienta del Explorador de Azure Media Services (https://aka.ms/amse) ).
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y Azure Portal. Los estados son ligeramente diferentes en la API y en la experiencia de usuario de Azure Portal. En cuanto un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en Azure Portal, la facturación estará activa.
 Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en Azure Portal.
@@ -70,9 +70,9 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Estado del canal | Indicadores IU del portal | ¿Es la facturación? |
 | --- | --- | --- |
 | Iniciando |Iniciando |No (estado transitorio) |
-| En ejecución |Listo (no hay programas en ejecución)<br/>O bien<br/>Streaming (al menos un programa en ejecución) |SÍ |
+| En ejecución |Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
-| Detenido |Stopped |Sin  |
+| Detenido |Stopped |Sin |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Cierre automático para canales no utilizados
 A partir del 25 de enero de 2016, Media Services implementó una actualización que detiene automáticamente un canal (con Live Encoding habilitado), después de haber estado ejecutándose en un estado no usado durante un largo período. Esto se aplica a los canales que no tienen ningún programa activo y que no han recibido una fuente de contribución de entrada durante un largo período de tiempo.
@@ -303,19 +303,19 @@ Si Live Encoding está habilitado, puede obtener una vista previa de la fuente d
 El estado actual de un canal. Los valores posibles son:
 
 * **Detenido**. Este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
-* **Iniciando**. El canal se está iniciando. Durante este estado no se permite realizar actualizaciones ni streaming. Si se produce un error, el canal vuelve al estado Detenido.
+* **Iniciando**. El canal se está iniciando. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
 * **En ejecución**. El canal es capaz de procesar secuencias en directo.
 * **Deteniéndose**. El canal se está deteniendo. No se permiten actualizaciones ni streaming durante este estado.
 * **Eliminando**. El canal se está eliminando. No se permiten actualizaciones ni streaming durante este estado.
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación. 
 
-| Estado del canal | Indicadores de UI del portal | ¿Facturado? |
+| Estado del canal | Indicadores IU del portal | ¿Facturado? |
 | --- | --- | --- |
 | Iniciando |Iniciando |No (estado transitorio) |
-| En ejecución |Listo (no hay programas en ejecución)<br/>O bien<br/>Streaming (con, al menos, un programa en ejecución) |SÍ |
+| En ejecución |Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución) |SÍ |
 | Deteniéndose |Deteniéndose |No (estado transitorio) |
-| Detenido |Stopped |Sin  |
+| Detenido |Stopped |Sin |
 
 > [!NOTE]
 > Actualmente, el promedio de inicio de canal es de aproximadamente 2 minutos, pero a veces puede tardar hasta más de 20 minutos. Los restablecimientos de canal pueden tardar hasta 5 minutos.

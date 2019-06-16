@@ -16,10 +16,10 @@ ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118891"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
@@ -50,13 +50,13 @@ En este artículo se usan los cmdlets de la versión 1.0.0 del módulo Az Batch.
 
 ### <a name="create-a-batch-account"></a>Crear una cuenta de Batch
 
-**New-AzBatchAccount** crea una cuenta de Batch en un grupo de recursos especificado. Si aún no dispone de un grupo de recursos, para crearlo debe ejecutar el cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Especifique una de las regiones de Azure en el parámetro **Ubicación**, como "centro de EE. UU.". Por ejemplo: 
+**New-AzBatchAccount** crea una cuenta de Batch en un grupo de recursos especificado. Si aún no dispone de un grupo de recursos, para crearlo debe ejecutar el cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Especifique una de las regiones de Azure en el parámetro **Ubicación**, como "centro de EE. UU.". Por ejemplo:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Luego, cree una cuenta de Batch en el nuevo grupo de recursos. Especifique su nombre en <*account_name*>, e indique también la ubicación y el nombre del grupo de recursos. La operación de crear la cuenta de Batch puede tardar un tiempo en completarse. Por ejemplo: 
+Luego, cree una cuenta de Batch en el nuevo grupo de recursos. Especifique su nombre en <*account_name*>, e indique también la ubicación y el nombre del grupo de recursos. La operación de crear la cuenta de Batch puede tardar un tiempo en completarse. Por ejemplo:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Eliminar una cuenta de Batch
 
-**Remove-AzBatchAccount** elimina una cuenta de Batch. Por ejemplo: 
+**Remove-AzBatchAccount** elimina una cuenta de Batch. Por ejemplo:
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -175,7 +175,7 @@ El parámetro **Id** solo admite búsquedas de identificadores completos. No se 
 
 ### <a name="use-the-maxcount-parameter"></a>Uso del parámetro MaxCount
 
-De forma predeterminada, cada cmdlet devuelve un máximo de 1000 objetos. Si se alcanza este límite, puede refinar el filtro para que devuelva menos objetos, o establecer explícitamente un máximo mediante el parámetro **MaxCount** . Por ejemplo: 
+De forma predeterminada, cada cmdlet devuelve un máximo de 1000 objetos. Si se alcanza este límite, puede refinar el filtro para que devuelva menos objetos, o establecer explícitamente un máximo mediante el parámetro **MaxCount** . Por ejemplo:
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

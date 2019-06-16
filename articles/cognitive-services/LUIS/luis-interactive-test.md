@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199166"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
@@ -63,7 +63,7 @@ Puede inspeccionar los detalles del resultado de las pruebas en el panel **Inspe
 
 ## <a name="view-sentiment-results"></a>Ver los resultados de sentimiento
 
-Si el **análisis de sentimiento** está configurado en la página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)**, los resultados de la prueba incluyen el sentimiento que se encontró en la expresión. 
+Si el **análisis de sentimiento** está configurado en la página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)** , los resultados de la prueba incluyen el sentimiento que se encontró en la expresión. 
 
 ![Imagen del panel Prueba con el análisis de sentimiento](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -103,9 +103,9 @@ Use el procedimiento siguiente para incluir el servicio [Bing Spell Check v7](ht
 
 1. En el panel **Prueba**, escriba una expresión. Cuando se haya predicho la expresión, haga clic en **[Inspeccionar](#inspect-score)** debajo de la expresión especificada. 
 
-2. Cuando se abra el panel **Inspeccionar**, seleccione **[Comparar con el publicado](#compare-with-published-version)**. 
+2. Cuando se abra el panel **Inspeccionar**, seleccione **[Comparar con el publicado](#compare-with-published-version)** . 
 
-3. Cuando se abra el panel **Publicado**, seleccione **[Configuración adicional](#additional-settings-in-test-panel)**.
+3. Cuando se abra el panel **Publicado**, seleccione **[Configuración adicional](#additional-settings-in-test-panel)** .
 
 4. En el cuadro de diálogo emergente, escriba su clave de servicio de **Bing Spell Check**. 
     ![Escribir la clave de servicio de Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)

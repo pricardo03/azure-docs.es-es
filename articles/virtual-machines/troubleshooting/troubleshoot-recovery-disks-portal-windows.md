@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
 ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320930"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
@@ -105,7 +105,7 @@ Para los pasos siguientes, se usa otra máquina virtual con el fin de solucionar
 
     ![Seleccione Servicios de archivos y almacenamiento en Administrador del servidor.](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. El disco de datos se detecta y conecta automáticamente. Para ver una lista de los discos conectados, seleccione **Discos**. Puede seleccionar el disco de datos para ver información de volumen, incluida la letra de unidad. En el ejemplo siguiente se muestra el disco de datos conectado a una máquina virtual y con **F:**:
+3. El disco de datos se detecta y conecta automáticamente. Para ver una lista de los discos conectados, seleccione **Discos**. Puede seleccionar el disco de datos para ver información de volumen, incluida la letra de unidad. En el ejemplo siguiente se muestra el disco de datos conectado a una máquina virtual y con **F:** :
 
     ![Disco conectado e información de volumen en Administrador del servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 

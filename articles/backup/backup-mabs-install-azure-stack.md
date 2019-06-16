@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
 ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60852147"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
@@ -140,7 +140,7 @@ Hay dos formas de descargar el instalador de Azure Backup Server. Puede descarga
 
     ![Backup-goals-default-opened](./media/backup-mabs-install-azure-stack/getting-started-menu.png)
 
-6. En el menú **¿Dónde se ejecuta su carga de trabajo?** del menú de la copia de seguridad, seleccione **Local**. En el menú desplegable **¿De qué quiere realizar una copia de seguridad?**, seleccione las cargas de trabajo que quiere proteger con Azure Backup Server. Si no está seguro de las cargas de trabajo que quiere seleccionar, elija **Máquinas virtuales de Hyper-V** y haga clic en **Prepare Infrastructure** (Preparar infraestructura).
+6. En el menú **¿Dónde se ejecuta su carga de trabajo?** del menú de la copia de seguridad, seleccione **Local**. En el menú desplegable **¿De qué quiere realizar una copia de seguridad?** , seleccione las cargas de trabajo que quiere proteger con Azure Backup Server. Si no está seguro de las cargas de trabajo que quiere seleccionar, elija **Máquinas virtuales de Hyper-V** y haga clic en **Prepare Infrastructure** (Preparar infraestructura).
 
     ![entorno local y cargas de trabajo como objetivos](./media/backup-mabs-install-azure-stack/getting-started-menu-onprem-hyperv.png)
 

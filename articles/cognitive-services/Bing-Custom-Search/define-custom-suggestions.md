@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128964"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configuración de experiencia de Custom Autosuggest
@@ -36,7 +36,7 @@ Para habilitar las sugerencias de Bing, ponga el control deslizante **Automatic 
 
 ## <a name="add-your-own-suggestions"></a>Adición de sus propias sugerencias
 
-Para agregar sus propias sugerencias de cadena de consulta, agréguelas a la lista de **User-defined suggestions** (Sugerencias definidas por el usuario). Después de agregar una sugerencia a la lista, presione la tecla ENTRAR o haga clic en el icono **+**. Puede especificar la sugerencia en cualquier lenguaje. Puede agregar un máximo de 5.000 sugerencias de cadena de consulta.
+Para agregar sus propias sugerencias de cadena de consulta, agréguelas a la lista de **User-defined suggestions** (Sugerencias definidas por el usuario). Después de agregar una sugerencia a la lista, presione la tecla ENTRAR o haga clic en el icono **+** . Puede especificar la sugerencia en cualquier lenguaje. Puede agregar un máximo de 5.000 sugerencias de cadena de consulta.
 
 ## <a name="upload-suggestions"></a>Carga de sugerencias
 
@@ -48,7 +48,7 @@ Para quitar una sugerencia de cadena de consulta, haga clic en el icono de elimi
 
 ## <a name="block-suggestions"></a>Bloqueo de sugerencias
 
-Si incluye sugerencias de Bing, puede agregar una lista de cadenas de consulta de búsqueda que no desea que Bing devuelva. Para agregar cadenas de consulta bloqueadas, haga clic en **Show blocked suggestions** (Mostrar sugerencias bloqueadas). Agregue la cadena de consulta a la lista y presione la tecla ENTRAR o haga clic en el icono **+**. Puede agregar un máximo de 50 cadenas de consulta bloqueadas.
+Si incluye sugerencias de Bing, puede agregar una lista de cadenas de consulta de búsqueda que no desea que Bing devuelva. Para agregar cadenas de consulta bloqueadas, haga clic en **Show blocked suggestions** (Mostrar sugerencias bloqueadas). Agregue la cadena de consulta a la lista y presione la tecla ENTRAR o haga clic en el icono **+** . Puede agregar un máximo de 50 cadenas de consulta bloqueadas.
 
 
 

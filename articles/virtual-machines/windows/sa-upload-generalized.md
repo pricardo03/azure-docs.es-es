@@ -17,11 +17,11 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715110"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carga de un VHD generalizado en Azure para crear una máquina virtual nueva
 
@@ -107,7 +107,7 @@ Si necesita crear una nueva cuenta de almacenamiento, siga estos pasos:
     Get-AzResourceGroup
     ```
 
-    Para crear un grupo de recursos denominado **myResourceGroup** en la región **Oeste de EE. UU.**, escriba:
+    Para crear un grupo de recursos denominado **myResourceGroup** en la región **Oeste de EE. UU.** , escriba:
 
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location "West US"

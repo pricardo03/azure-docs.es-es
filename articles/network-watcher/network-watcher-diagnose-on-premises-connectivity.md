@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754064"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
@@ -52,7 +52,7 @@ Uno de los pasos de configuración más importantes es la configuración de los 
 | Método de autenticación |Clave previamente compartida |Clave previamente compartida |
 | Algoritmos de cifrado |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 |28.800 segundos |10.800 segundos |
+| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 |28\.800 segundos |10\.800 segundos |
 
 Como usuario, se le pedirá que configure FortiGate. Puede encontrar un ejemplo de configuración en [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Sin saberlo, ya configuró FortiGate para que use SHA-512 como algoritmo hash. Como este algoritmo no es un algoritmo compatible con las conexiones basadas en directivas, la conexión VPN funciona.
 
@@ -81,7 +81,7 @@ La característica de solución de problemas de Azure Network Watcher le permite
 
 ### <a name="gateway"></a>Puerta de enlace
 
-| Tipo de error | Reason | Registro|
+| Tipo de error | Motivo | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
@@ -96,7 +96,7 @@ La característica de solución de problemas de Azure Network Watcher le permite
 
 ### <a name="connection"></a>Conexión
 
-| Tipo de error | Reason | Registro|
+| Tipo de error | Motivo | Registro|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447188"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opciones de arquitectura de supervisión remota
@@ -59,7 +59,7 @@ Para la conectividad de dispositivos IoT, puede usar:
 
 Para el procesamiento de flujos, la solución de supervisión remota usa Azure Stream Analytics para el procesamiento de reglas complejas. Si quiere usar reglas más sencillas, existe un microservicio personalizado con compatibilidad para el procesamiento de reglas sencillas, aunque esta configuración no forma parte de la implementación predefinida. La arquitectura de referencia recomienda usar Azure Functions para el procesamiento de reglas sencillas y Azure Stream Analytics para el procesamiento de reglas complejas.
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 
 Para el almacenamiento, el acelerador de soluciones de supervisión remota usa tanto Azure Time Series Insights como Azure Cosmos DB. Azure Time Series Insights almacena los mensajes entrantes a través de IoT Hub desde los dispositivos conectados. El acelerador de soluciones usa Azure Cosmos DB con el resto del almacenamiento, como almacenamiento en frío, definiciones de reglas, alertas y valores de configuración.
 

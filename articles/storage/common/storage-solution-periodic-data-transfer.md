@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729926"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluciones para la transferencia de datos periódica
@@ -58,9 +58,9 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 | Hardware                                      | Hipervisor del usuario            | Suministrado por Microsoft    | N/D                                                            |
 | Esfuerzo de instalación inicial                          | Bajo (<30 minutos)            | Moderado (un par de horas) | Grande (unos días)                                                 |
 | Formato de datos                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Admite más de 70 conectores de datos para almacenes y formatos de datos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Procesamiento previo de los datos                           | Sin                          | Sí, mediante un proceso perimetral    | Sí                                                           |
-| Caché local<br>(para almacenar datos locales)    | Sí                        | Sí                      | Sin                                                             |
-| Transferencia desde otras nubes                    | Sin                          | No                       | Sí                                                           |
+| Procesamiento previo de los datos                           | Sin                         | Sí, mediante un proceso perimetral    | Sí                                                           |
+| Caché local<br>(para almacenar datos locales)    | Sí                        | Sí                      | Sin                                                            |
+| Transferencia desde otras nubes                    | Sin                         | No                       | Sí                                                           |
 | Precios                                       | [Precios](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Precios](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Precios](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Pasos siguientes
