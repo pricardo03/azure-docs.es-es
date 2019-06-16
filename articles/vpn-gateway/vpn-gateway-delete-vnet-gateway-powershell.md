@@ -8,10 +8,10 @@ ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: 7b9503b2db14d4de6c4c8cf983c42bccd6f9f8fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157431"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
@@ -60,7 +60,7 @@ Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
 Para eliminar una puerta de enlace de red virtual correspondiente a una configuración de S2S, primero debe eliminar cada recurso que pertenece a la puerta de enlace de red virtual. Los recursos deben eliminarse en un orden determinado debido a las dependencias. Cuando se trabaja con los ejemplos siguientes, deben especificarse algunos de los valores, mientras que otros son un resultado de salida. Los siguientes valores específicos de los ejemplos se utilizan para fines de demostración:
 
-Nombre de la red virtual: VNET1<br>
+Nombre de la red virtual: VNet1<br>
 Nombre del grupo de recursos: RG1<br>
 Nombre de la puerta de enlace de red virtual: GW1<br>
 
@@ -98,7 +98,7 @@ Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 En este momento, la puerta de enlace de virtual se ha eliminado. Puede usar los pasos siguientes para eliminar los recursos que ya no se usan.
 
-### <a name="5-delete-the-local-network-gateways"></a>5. Elimine las puertas de enlace de red locales.
+### <a name="5-delete-the-local-network-gateways"></a>5\. Elimine las puertas de enlace de red locales.
 
 Obtenga la lista de las puertas de enlace de red locales correspondientes.
 
@@ -143,7 +143,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 Para eliminar una puerta de enlace de red virtual correspondiente a una configuración de V2V, primero debe eliminar cada recurso que pertenece a la puerta de enlace de red virtual. Los recursos deben eliminarse en un orden determinado debido a las dependencias. Cuando se trabaja con los ejemplos siguientes, deben especificarse algunos de los valores, mientras que otros son un resultado de salida. Los siguientes valores específicos de los ejemplos se utilizan para fines de demostración:
 
-Nombre de la red virtual: VNET1<br>
+Nombre de la red virtual: VNet1<br>
 Nombre del grupo de recursos: RG1<br>
 Nombre de la puerta de enlace de red virtual: GW1<br>
 
@@ -231,7 +231,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 Para eliminar una puerta de enlace de red virtual correspondiente a una configuración de P2S, primero debe eliminar cada recurso que pertenece a la puerta de enlace de red virtual. Los recursos deben eliminarse en un orden determinado debido a las dependencias. Cuando se trabaja con los ejemplos siguientes, deben especificarse algunos de los valores, mientras que otros son un resultado de salida. Los siguientes valores específicos de los ejemplos se utilizan para fines de demostración:
 
-Nombre de la red virtual: VNET1<br>
+Nombre de la red virtual: VNet1<br>
 Nombre del grupo de recursos: RG1<br>
 Nombre de la puerta de enlace de red virtual: GW1<br>
 

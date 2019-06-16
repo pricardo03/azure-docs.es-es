@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 15b45cadc69830827952d87ffc2315b06b07b02c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62124997"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Uso de las API de comunicación de Reliable Services
@@ -216,7 +216,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Para conectarse a servicios en otro clúster, se puede crear ServicePartitionResolver con un conjunto de puntos de conexión de puerta de enlace del clúster. Tenga en cuenta que los puntos de conexión de puerta de enlace son solo distintos puntos de conexión para conectarse al mismo clúster. Por ejemplo: 
+Para conectarse a servicios en otro clúster, se puede crear ServicePartitionResolver con un conjunto de puntos de conexión de puerta de enlace del clúster. Tenga en cuenta que los puntos de conexión de puerta de enlace son solo distintos puntos de conexión para conectarse al mismo clúster. Por ejemplo:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");

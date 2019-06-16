@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: bd863a8ddd9e2277b628673d2146efd8c458c319
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 81e6b5558ab90f154ebf121a558704b00b97444d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979503"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64684325"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
 
@@ -38,7 +38,7 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 > 
 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="resize-a-managed-disk"></a>Cambio de tamaño de un disco administrado

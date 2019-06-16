@@ -19,10 +19,10 @@ ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545194"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
@@ -67,9 +67,9 @@ Los permisos de Azure AD tienen un número de propiedades que ayudan a los usuar
 | `IsEnabled` | Indica si este permiso está disponible para su uso. | true |
 | `Type` | Indica si este permiso requiere el consentimiento del usuario o el consentimiento del administrador. | Usuario |
 | `AdminConsentDescription` | Es una descripción que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite que la aplicación lea el correo electrónico de los buzones del usuario. |
-| `AdminConsentDisplayName` | Es el nombre descriptivo que se muestra a los administradores durante las experiencias de consentimiento de administración. | Leer correo de usuario |
+| `AdminConsentDisplayName` | Es el nombre descriptivo que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite leer el correo del usuario. |
 | `UserConsentDescription` | Es una descripción que se muestra a los usuarios durante una experiencia de consentimiento del usuario. |  Permite que la aplicación lea el correo electrónico del buzón. |
-| `UserConsentDisplayName` | Es el nombre descriptivo que se muestra a los usuarios durante la experiencia de consentimiento de usuario. | Leer tu correo |
+| `UserConsentDisplayName` | Es el nombre descriptivo que se muestra a los usuarios durante la experiencia de consentimiento de usuario. | Permite leer su correo |
 | `Value` | Es la cadena que se usa para identificar el permiso durante los flujos de autorización de OAuth 2.0. `Value` también puede combinarse con la cadena del URI del identificador de la aplicación para formar un nombre de permiso completo. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Tipos de consentimiento

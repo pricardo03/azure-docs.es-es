@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457675"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Usar Twilio para capacidades de voz y SMS en Python
@@ -46,17 +46,17 @@ La API usa dos verbos de Twilio; por ejemplo, el verbo **&lt;Say&gt;** indica a 
 
 A continuación se presenta una lista de verbos de Twilio. Obtenga información sobre los demás verbos y capacidades a través de la [documentación del lenguaje de marcado de Twilio][twiml].
 
-* **&lt;Dial&gt;**: conecta la persona que llama con otro teléfono.
-* **&lt;Gather&gt;**: recopila los dígitos numéricos que se introdujeron en el teclado del teléfono.
-* **&lt;Hangup&gt;**: finaliza una llamada.
-* **&lt;Pause&gt;**: espera en silencio una cantidad de segundos especificada.
-* **&lt;Play&gt;**: reproduce un archivo de audio.
-* **&lt;Queue&gt;**: agregar a una cola de llamadas.
-* **&lt;Record&gt;**: graba la voz de la persona que llama y devuelve una dirección URL de un archivo que contiene la grabación.
-* **&lt;Redirect&gt;**: transfiere el control de una llamada o SMS al TwiML en una URL diferente.
-* **&lt;Reject&gt;**: rechaza una llamada entrante a su número de Twilio sin cobrarle.
-* **&lt;Say&gt;**: convierte texto en voz para hacer una llamada.
-* **&lt;Sms&gt;**: envía un mensaje SMS.
+* **&lt;Dial&gt;** : conecta la persona que llama con otro teléfono.
+* **&lt;Gather&gt;** : recopila los dígitos numéricos que se introdujeron en el teclado del teléfono.
+* **&lt;Hangup&gt;** : finaliza una llamada.
+* **&lt;Pause&gt;** : espera en silencio una cantidad de segundos especificada.
+* **&lt;Play&gt;** : reproduce un archivo de audio.
+* **&lt;Queue&gt;** : agregar a una cola de llamadas.
+* **&lt;Record&gt;** : graba la voz de la persona que llama y devuelve una dirección URL de un archivo que contiene la grabación.
+* **&lt;Redirect&gt;** : transfiere el control de una llamada o SMS al TwiML en una URL diferente.
+* **&lt;Reject&gt;** : rechaza una llamada entrante a su número de Twilio sin cobrarle.
+* **&lt;Say&gt;** : convierte texto en voz para hacer una llamada.
+* **&lt;Sms&gt;** : envía un mensaje SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML es un conjunto de instrucciones basadas en XML y en los verbos de Twilio que informan a Twilio sobre cómo procesar una llamada o un SMS.
@@ -174,7 +174,7 @@ A continuación se muestra cómo enviar un mensaje SMS con la clase `TwilioRestC
                                      body=message)
 
 ## <a id="howto_provide_twiml_responses"></a>Instrucciones: Proporcionar respuestas de TwiML desde su propio sitio web
-Cuando la aplicación inicia una llamada a la API de Twilio, Twilio envía su solicitud a una URL que debe devolver una respuesta de TwiML. El ejemplo anterior usa la dirección URL [https://twimlets.com/message][twimlet_message_url] proporcionada por Twilio. (Aunque TwiML está diseñado para su uso por Twilio, puede verlo en el explorador. Por ejemplo, haga clic en [https://twimlets.com/message][twimlet_message_url] para ver un elemento `<Response>` vacío; en este otro ejemplo, haga clic en [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] para ver un elemento `<Response>` que contiene un elemento `<Say>`).
+Cuando la aplicación inicia una llamada a la API de Twilio, Twilio envía su solicitud a una URL que debe devolver una respuesta de TwiML. El ejemplo anterior usa la dirección URL [https://twimlets.com/message][twimlet_message_url] proporcionada por Twilio. (Aunque TwiML está diseñado para su uso por Twilio, puede verlo en el explorador. Por ejemplo, haga clic en [https://twimlets.com/message][twimlet_message_url] para ver un elemento `<Response>` vacío; en este otro ejemplo, haga clic en [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] para ver un elemento `<Response>` que contiene un elemento `<Say>` ).
 
 En lugar de confiar en la URL que Twilio proporciona, puede crear su propio sitio que devuelve respuestas HTTP. Puede crear el sitio en cualquier lenguaje que devuelva respuestas XML. En este tema se da por supuesto que usará Python para crear el TwiML.
 

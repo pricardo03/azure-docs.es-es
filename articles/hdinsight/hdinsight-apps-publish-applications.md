@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685317"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
 Puede instalar una aplicación de Azure HDInsight en un clúster de HDInsight basado en Linux. En este artículo, aprenderá a publicar una aplicación de HDInsight en Azure Marketplace. Para obtener información general sobre cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
 
-Las aplicaciones de HDInsight usan el modelo *Traiga su propia licencia (BYOL)*. En un escenario BYOL, un proveedor de aplicaciones es responsable de conceder a los usuarios licencia para una aplicación. Los usuarios de la aplicación solo pagan por los recursos de Azure que crean, como el clúster de HDInsight y las máquinas virtuales y los nodos del clúster. Actualmente, la facturación de la aplicación no se realiza en Azure.
+Las aplicaciones de HDInsight usan el modelo *Traiga su propia licencia (BYOL)* . En un escenario BYOL, un proveedor de aplicaciones es responsable de conceder a los usuarios licencia para una aplicación. Los usuarios de la aplicación solo pagan por los recursos de Azure que crean, como el clúster de HDInsight y las máquinas virtuales y los nodos del clúster. Actualmente, la facturación de la aplicación no se realiza en Azure.
 
 Para más información, consulte estos artículos relacionados con la aplicación de HDInsight:
 
@@ -91,8 +91,8 @@ Para publicar una aplicación de HDInsight:
 3. Escriba un título y luego seleccione **Create a new solution template** ///(Crear una plantilla de solución).
 4. Si todavía no ha registrado su organización, seleccione **Create Dev Center account and join the Azure program** ///(Crear cuenta de Centro de desarrollo y unirse al programa de Azure).  Para más información, consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace/marketplace-publishers-guide.md).
 5. Seleccione **Define some Topologies to get Started** ///(Definir algunas topologías para comenzar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. 
-6. Escriba un nombre de topología y luego seleccione **+**.
-7. Escriba una nueva versión y luego seleccione  **+**.
+6. Escriba un nombre de topología y luego seleccione **+** .
+7. Escriba una nueva versión y luego seleccione  **+** .
 8. Cargue el archivo .zip que creó cuando empaquetó la aplicación.  
 9. Seleccione **Request Certification** ///(Solicitar certificación). El equipo de certificación de Microsoft revisa los archivos y certifica la topología.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715206"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
@@ -48,7 +48,7 @@ Estas son algunas cosas a tener en cuenta con este esquema:
 
 * Todas las medidas, como **Total Sales**, se almacenan en la tabla de hechos **Sales**.
 * Hay cuatro tablas de dimensiones adicionales relacionadas: **Item**, **Time**, **Store** y **District**.
-* Las flechas en las líneas de relación indican de qué forma los filtros pueden fluir de una tabla a otra. Por ejemplo, si se coloca un filtro en **Time[Date]**, en el esquema actual solo se deberían filtrar valores de la tabla **Sales**. Ninguna otra tabla se vería afectada por este filtro, ya que todas las flechas en las líneas de relación apuntan a la tabla de ventas y ninguna a otro lado.
+* Las flechas en las líneas de relación indican de qué forma los filtros pueden fluir de una tabla a otra. Por ejemplo, si se coloca un filtro en **Time[Date]** , en el esquema actual solo se deberían filtrar valores de la tabla **Sales**. Ninguna otra tabla se vería afectada por este filtro, ya que todas las flechas en las líneas de relación apuntan a la tabla de ventas y ninguna a otro lado.
 * La tabla **District** indica quién es el administrador de cada distrito:
   
   ![Filas de la tabla District](media/row-level-security/district-table-4.png)
@@ -111,7 +111,7 @@ Ahora, con todas las piezas juntas, cuando un usuario inicie sesión en nuestra 
 
 ![Informe que se muestra en la aplicación](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Seguridad de nivel de fila](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128671"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
@@ -33,7 +33,7 @@ Para obtener valores de recursos, grupos de recursos o suscripciones, consulte [
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>Implementación
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Devuelve información sobre la operación de implementación actual.
@@ -254,11 +254,11 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | opción 1 |
+| stringOutput | Cadena | opción 1 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"one": "a", "two": "b"} |
+| objectOutput | Objeto | {"one": "a", "two": "b"} |
 | arrayOutput | Matriz | [1, 2, 3] |
-| crossOutput | String | opción 1 |
+| crossOutput | Cadena | opción 1 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -283,7 +283,7 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| variableName |Sí |String |El nombre de la variable que se va a devolver. |
+| variableName |Sí |Cadena |El nombre de la variable que se va a devolver. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -357,10 +357,10 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | Cadena | myVariable |
 | exampleOutput2 | Matriz | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
+| exampleOutput3 | Cadena | myVariable |
+| exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 

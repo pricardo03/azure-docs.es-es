@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595290"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Supervisión y depuración de una aplicación .NET de Azure Batch con Application Insights
@@ -31,7 +31,7 @@ Hay una solución de C# de ejemplo con código que acompaña este artículo disp
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
-* [Visual Studio 2017 o posterior](https://www.visualstudio.com/vs)
+* [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/vs)
 
 * [Una cuenta de Batch y una cuenta de Storage vinculada](batch-account-create-portal.md)
 

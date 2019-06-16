@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61282397"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Configuración de roles RBAC para el acceso administrativo
@@ -36,7 +36,7 @@ Para Azure Search, los roles están asociados a los niveles de permisos que admi
 
 Los roles no otorgan derechos de acceso al punto de conexión de servicio. Las operaciones del servicio Search, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Para más información, consulte [Administración de claves de API](search-security-api-keys.md).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Administración mediante PowerShell](search-manage-powershell.md) 
 + [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md)

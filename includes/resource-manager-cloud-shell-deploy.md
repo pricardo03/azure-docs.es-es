@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129024"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implementación de una plantilla desde Cloud Shell
@@ -19,11 +19,11 @@ Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar l
 
 1. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
 
-   ![Seleccionar grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Selección de un grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
 
 1. Seleccione la cuenta de almacenamiento de Cloud Shell.
 
-   ![Seleccionar cuenta de almacenamiento](./media/resource-manager-cloud-shell-deploy/select-storage.png)
+   ![Selección de la cuenta de almacenamiento](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
 1. Seleccione **Blobs**.
 
@@ -47,7 +47,7 @@ Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar l
 
 1. Busque y cargue la plantilla.
 
-   ![Cargar archivo](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   ![Carga de archivo](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
 1. Una vez ha cargado, seleccione la plantilla.
 
@@ -55,7 +55,7 @@ Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar l
 
 1. Copie la dirección URL.
 
-   ![Copiar dirección URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
+   ![Copiar la dirección URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. Abra el símbolo del sistema.
 

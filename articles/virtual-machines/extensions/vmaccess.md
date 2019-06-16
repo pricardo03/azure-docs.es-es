@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
 ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800064"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
@@ -36,7 +36,7 @@ En este artículo se muestra cómo usar la extensión VMAccess de Azure para com
 
 La extensión de acceso a la máquina virtual puede ejecutarse en estas distribuciones de Linux:
 
-| Distribución | `Version` |
+| Distribución | Versión |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS y 12.04 LTS |
 | Debian | Debian 7.9+, 8.2+ |
@@ -245,7 +245,7 @@ az vm extension set \
   --version 1.4 \
   --protected-settings disk_check_repair.json
 ```
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61077738"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar el complemento MMC del Administrador de instantáneas StorSimple
@@ -88,7 +88,7 @@ Use los pasos siguientes para instalar Administrador de instantáneas StorSimple
 #### <a name="to-install-storsimple-snapshot-manager"></a>Para instalar Administrador de instantáneas StorSimple
 1. Descargue el software Administrador de instantáneas StorSimple (vaya a [Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220) en el Centro de descarga de Microsoft) y guárdelo localmente en el host.
 2. En el Explorador de archivos, haga clic en la carpeta comprimida y, a continuación, en **Extraer todo**.
-3. En la ventana **Extraer carpetas comprimidas (en zip)**, en el cuadro **Seleccionar un destino y extraer archivos**, escriba o busque la ruta de acceso donde desea extraer el archivo.
+3. En la ventana **Extraer carpetas comprimidas (en zip)** , en el cuadro **Seleccionar un destino y extraer archivos**, escriba o busque la ruta de acceso donde desea extraer el archivo.
    
     > [!IMPORTANT]
     > Debe instalar Administrador de instantáneas StorSimple en la unidad C:.

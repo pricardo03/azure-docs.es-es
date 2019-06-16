@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799244"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
@@ -47,7 +47,7 @@ En este artículo se muestra cómo los desarrolladores pueden sacar partido de [
     
     Después de suscribirse, podrá ver la suscripción y las claves principal y secundaria. Debe proteger las claves. Las claves solo debe usarlas el código del servidor. No deben estar disponibles en el lado cliente (.js, .html, etc.).
 
-    ![Regístrate](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Suscripción](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > El usuario de Video Indexer puede usar una clave de suscripción única para conectarse a varias cuentas de Video Indexer. A continuación, puede vincular estas cuentas de Video Indexer a diferentes cuentas de Media Services.
@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Introducción a Video Indexer](video-indexer-overview.md)
 - [Regiones](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

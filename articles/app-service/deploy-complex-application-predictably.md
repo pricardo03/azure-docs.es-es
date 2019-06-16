@@ -16,10 +16,10 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60767005"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionamiento e implementación predecibles de microservicios en Azure
@@ -193,7 +193,7 @@ Nuevamente, los recursos anidados deben tener una jerarquía muy similar a la de
 El botón **Implementación en Azure** es excelente, pero permite implementar la plantilla de grupo de recursos en azuredeploy.json sólo si ya se ha insertado azuredeploy.json en GitHub. El SDK .NET de Azure también proporciona las herramientas para implementar cualquier archivo de plantilla JSON directamente desde el equipo local. Para ello, siga estos pasos:
 
 1. En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
-2. Haga clic en **Visual C#** > **Nube** > **&gt; Grupo de recursos de Azure** y, a continuación, haga clic en **Aceptar**.
+2. Haga clic en **Visual C#**  > **Nube** >  **&gt; Grupo de recursos de Azure** y, a continuación, haga clic en **Aceptar**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. En **Seleccionar plantilla de Azure**, seleccione **Plantilla en blanco** y haga clic en **Aceptar**.

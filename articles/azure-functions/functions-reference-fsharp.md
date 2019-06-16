@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: fbc5a149e59bff1897d3949185272e9ca664f989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717827"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referencia para desarrolladores de F# de Azure Functions
@@ -57,7 +57,7 @@ Hay un archivo [host.json](functions-host-json.md) compartido que se puede usar 
 Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
-Cada enlace admite un conjunto de argumentos, como se detalla en [Referencias para desarrolladores de desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md). Por ejemplo, uno de los enlaces de argumento que un desencadenador de blob admite es un POCO, que se puede expresar utilizando un registro de F#. Por ejemplo: 
+Cada enlace admite un conjunto de argumentos, como se detalla en [Referencias para desarrolladores de desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md). Por ejemplo, uno de los enlaces de argumento que un desencadenador de blob admite es un POCO, que se puede expresar utilizando un registro de F#. Por ejemplo:
 
 ```fsharp
 type Item = { Id: string }
@@ -71,7 +71,7 @@ La F# de Azure Functions tendrá uno o más argumentos. Al hablar de los argumen
 
 En el ejemplo anterior, `blob` es un argumento de entrada, y `output` es un argumento de salida. Observe que hemos usado `byref<>` para `output` (no es necesario agregar la anotación `[<Out>]`). El uso de un tipo `byref<>` permite a la función cambiar el registro u objeto al que hace referencia el argumento.
 
-Cuando se utiliza un registro de F# como un tipo de entrada, la definición de registro tiene que marcarse con `[<CLIMutable>]` para permitir que el marco de Azure Functions establezca los campos de forma adecuada antes de pasar el registro a la función. Internamente, `[<CLIMutable>]` genera métodos establecedores para las propiedades de registro. Por ejemplo: 
+Cuando se utiliza un registro de F# como un tipo de entrada, la definición de registro tiene que marcarse con `[<CLIMutable>]` para permitir que el marco de Azure Functions establezca los campos de forma adecuada antes de pasar el registro a la función. Internamente, `[<CLIMutable>]` genera métodos establecedores para las propiedades de registro. Por ejemplo:
 
 ```fsharp
 [<CLIMutable>]
@@ -83,7 +83,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-También puede utilizarse una clase F# tanto para argumentos de entrada como de salida. Para una clase, las propiedades normalmente necesitan captadores y establecedores. Por ejemplo: 
+También puede utilizarse una clase F# tanto para argumentos de entrada como de salida. Para una clase, las propiedades normalmente necesitan captadores y establecedores. Por ejemplo:
 
 ```fsharp
 type Item() =
@@ -96,7 +96,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registro
-Para grabar la salida en los [registros de streaming](../app-service/troubleshoot-diagnostic-logs.md) de F#, la función debe adoptar un argumento de tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Por coherencia, se recomienda que se le dé el nombre `log`a este argumento. Por ejemplo: 
+Para grabar la salida en los [registros de streaming](../app-service/troubleshoot-diagnostic-logs.md) de F#, la función debe adoptar un argumento de tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Por coherencia, se recomienda que se le dé el nombre `log`a este argumento. Por ejemplo:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -188,7 +188,7 @@ Además, en los siguientes ensamblados se hace un uso especial de las mayúscula
 Si necesita hacer referencia a un ensamblado privado, puede cargar el archivo de ensamblado en una carpeta `bin` relacionada con la función y hacer referencia a él mediante el nombre de archivo (por ejemplo, `#r "MyAssembly.dll"`). Para más información acerca de cómo cargar archivos en su carpeta de función, consulte la sección siguiente sobre administración de paquetes.
 
 ## <a name="editor-prelude"></a>Preludio del editor
-Un editor que admita F# Compiler Services no será consciente de los espacios de nombres y ensamblados que Azure Functions incluye automáticamente. Por lo tanto, puede resultar útil incluir un preludio que ayude al editor a encontrar los ensamblados que esté utilizando y a abrir explícitamente los espacios de nombre. Por ejemplo: 
+Un editor que admita F# Compiler Services no será consciente de los espacios de nombres y ensamblados que Azure Functions incluye automáticamente. Por lo tanto, puede resultar útil incluir un preludio que ayude al editor a encontrar los ensamblados que esté utilizando y a abrir explícitamente los espacios de nombre. Por ejemplo:
 
 ```fsharp
 #if !COMPILED
@@ -264,7 +264,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Reutilización del código .fsx
-Puede utilizar el código de otros archivos `.fsx` mediante una directiva `#load`. Por ejemplo: 
+Puede utilizar el código de otros archivos `.fsx` mediante una directiva `#load`. Por ejemplo:
 
 `run.fsx`
 

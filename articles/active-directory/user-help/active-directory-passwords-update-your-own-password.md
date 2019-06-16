@@ -15,10 +15,10 @@ ms.author: lizross
 ms.custom: end-user
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60862268"
 ---
 # <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
@@ -55,7 +55,7 @@ Realice los pasos siguientes para tener acceso al autoservicio de restablecimien
    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**
    * **Enviar mensaje de texto a mi teléfono móvil**
    * **Llamar al teléfono móvil**
-   * **Llamar al teléfono del trabajo** 
+   * **Llamar al teléfono del trabajo**
    * **Responder a mis preguntas de seguridad**
 
    Elija una opción, dé las respuestas correctas y luego seleccione **Siguiente**.

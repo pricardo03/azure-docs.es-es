@@ -4,23 +4,23 @@ description: En este tema se describe la característica para evitar eliminacion
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/12/2017
-ms.date: 11/09/2018
-ms.component: hybrid
-ms.author: v-junlch
+ms.date: 07/12/2017
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383412"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronización de Azure AD Connect: evitar eliminaciones accidentales
@@ -31,9 +31,9 @@ Al instalar Azure AD Connect, la característica para evitar eliminaciones accid
 ## <a name="what-is-prevent-accidental-deletes"></a>Qué significa evitar eliminaciones accidentales
 Algunos de los escenarios comunes en los que puede observar esto son los siguientes:
 
-- Cambios en el [filtrado](how-to-connect-sync-configure-filtering.md) donde se anula la selección de una [unidad organizativa](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) completos.
-- Se eliminan todos los objetos de una unidad organizativa.
-- Se cambia el nombre de una unidad organizativa, así que se considera que todos los objetos están fuera del ámbito de la sincronización.
+* Cambios en el [filtrado](how-to-connect-sync-configure-filtering.md) donde se anula la selección de una [unidad organizativa](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) completos.
+* Se eliminan todos los objetos de una unidad organizativa.
+* Se cambia el nombre de una unidad organizativa, así que se considera que todos los objetos están fuera del ámbito de la sincronización.
 
 El valor predeterminado de 500 objetos puede cambiarse con PowerShell mediante `Enable-ADSyncExportDeletionThreshold`, que forma parte del módulo de sincronización de AD que se instala con Azure Active Directory Connect. Debe configurar este valor para ajustar el tamaño de su organización. Dado que el programador de sincronización se ejecutará cada 30 minutos, el valor es el número de eliminaciones que hemos visto en 30 minutos.
 
@@ -69,6 +69,5 @@ Si se desean todas las eliminaciones, haga lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**
 
-- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](how-to-connect-sync-whatis.md)
-- [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
-
+* [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](how-to-connect-sync-whatis.md)
+* [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)

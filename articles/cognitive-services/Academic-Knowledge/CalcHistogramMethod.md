@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498839"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
@@ -30,18 +30,18 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>Parámetros de solicitud
 
-Name  |Value | ¿Necesario?  |DESCRIPCIÓN
+NOMBRE  |Valor | ¿Necesario?  |DESCRIPCIÓN
 -----------|----------|--------|----------
 **expr**    |Cadena de texto | Sí  |Una expresión de consulta que especifica las entidades en las que se deben calcular los histogramas.
-**model** |Cadena de texto | Sin  |Seleccione el nombre del modelo que quiere consultar.  Actualmente, el valor predeterminado es *latest*.
-**attributes** | Cadena de texto | Sin <br>valor predeterminado: | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
-**count** |Number | Sin <br>Valor predeterminado: 10 |Número de resultados que se van a devolver.
-**offset**  |Number | Sin <br>Valor predeterminado: 0 |Índice del primer resultado que se va a devolver.
-**timeout**  |Number | Sin <br>Valor predeterminado: 1000 |Tiempo de espera en milisegundos. Se devuelven únicamente las interpretaciones encontradas antes de que haya transcurrido el tiempo de espera.
+**model** |Cadena de texto | Sin |Seleccione el nombre del modelo que quiere consultar.  Actualmente, el valor predeterminado es *latest*.
+**attributes** | Cadena de texto | Sin<br>valor predeterminado: | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
+**count** |Number | Sin<br>Valor predeterminado: 10 |Número de resultados que se van a devolver.
+**offset**  |Number | Sin<br>Valor predeterminado: 0 |Índice del primer resultado que se va a devolver.
+**timeout**  |Number | Sin<br>Valor predeterminado: 1000 |Tiempo de espera en milisegundos. Se devuelven únicamente las interpretaciones encontradas antes de que haya transcurrido el tiempo de espera.
 
 ## <a name="response-json"></a>Respuesta (JSON)
 
-Name | DESCRIPCIÓN
+NOMBRE | DESCRIPCIÓN
 --------|---------
 **expr**  |El parámetro expr de la solicitud.
 **num_entities** | Número total de entidades coincidentes.
@@ -65,7 +65,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime teevan after 2012
 ```
-<br>La expresión de la primera interpretación que se devuelve de la API interpret es *And(Composite(AA.AuN=='jaime teevan'),Y>2012)*.
+<br>La expresión de la primera interpretación que se devuelve de la API interpret es *And(Composite(AA.AuN=='jaime teevan'),Y>2012)* .
 <br>Este valor de expresión se pasa, a continuación, a la API **calchistogram**. El parámetro *attributes=Y,F.FN* indica que las distribuciones de recuentos de documentos deben ser por año y campo de estudio, p. ej.:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

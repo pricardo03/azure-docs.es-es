@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c89b45dd4d8e6c2964f3d2bcbb6c3cef445c79e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64698890"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.Section
 Control que agrupa uno o varios elementos en un encabezado.

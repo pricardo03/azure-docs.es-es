@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61430820"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
@@ -44,7 +44,7 @@ En este documento se supone que tiene una suscripción de Azure y una cuenta de 
 En los pasos siguientes se describe cómo cargar y descargar datos mediante el Explorador de Azure Storage. 
 
 1. Inicie Explorador de Microsoft Azure Storage.
-2. Para que aparezca el Asistente **Iniciar sesión en una cuenta...**, seleccione el icono de **Configuración de la cuenta de Azure**, luego **Agregar una cuenta** y escriba las credenciales. ![Agregar una cuenta de Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
+2. Para que aparezca el Asistente **Iniciar sesión en una cuenta...** , seleccione el icono de **Configuración de la cuenta de Azure**, luego **Agregar una cuenta** y escriba las credenciales. ![Agregar una cuenta de Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
 3. Para que aparezca el Asistente **Conectar a Azure Storage**, seleccione el icono de **Conectar a Azure Storage**. ![Haga clic en "Conectar a Azure Storage"](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
 4. Escriba la clave de acceso de la cuenta de Azure Storage en el Asistente **Conectar a Azure Storage** y luego haga clic en **Siguiente**. ![Escribir la clave de acceso de la cuenta de Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Escriba el nombre de la cuenta de almacenamiento en el cuadro **Nombre de cuenta** y, después, seleccione **Siguiente**. ![Adjuntar almacenamiento externo](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)

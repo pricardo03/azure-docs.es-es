@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118694"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
@@ -30,7 +30,7 @@ Hay una imagen de Windows 2016 y una imagen de CentOS.  En [Azure Marketplace](h
 
 Para obtener un ejemplo de configuración de grupo, consulte el [tutorial de representación de la CLI de Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Azure Portal y Batch Explorer proporcionan herramientas de GUI para seleccionar una imagen de VM de representación al crear un grupo.  Si usa una API de Batch, especifique los siguientes valores de propiedad para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) al crear un grupo:
 
-| Publicador | Oferta | SKU | `Version` |
+| Publicador | Oferta | SKU | Versión |
 |---------|---------|---------|--------|
 | proceso por lotes | rendering-centos73 | rendering | más reciente |
 | proceso por lotes | rendering-windows2016 | rendering | más reciente |

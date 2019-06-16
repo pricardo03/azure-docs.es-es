@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523494"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
@@ -82,11 +82,11 @@ Un punto de conexión de ejemplo tiene el siguiente aspecto:
 
 |Parámetro Querystring|description|
 |--|--|
-|Región| [región publicada](luis-reference-regions.md#publishing-regions) |
+|region| [región publicada](luis-reference-regions.md#publishing-regions) |
 |appID | Identificador de la aplicación de LUIS |
 |subscriptionID | Clave de punto de conexión (suscripción) de LUIS creada en Azure Portal |
 |q | expresión |
-|timezoneOffset| minutos|
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entidad
 

@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167259"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Protección de las llamadas a las API personalizadas desde Azure Logic Apps
@@ -194,7 +194,7 @@ Abra la definición de aplicación lógica en la vista de código, vaya a la sec
 | audience | Sí | El GUID para el recurso de destino al que desea acceder, que es el identificador de cliente de la identidad de aplicación para su aplicación web o de API | 
 | clientId | Sí | El GUID para el cliente que solicita acceso, que es el identificador de cliente de la identidad de aplicación para la aplicación lógica | 
 | secret | Sí | La clave o contraseña de la identidad de aplicación para el cliente que solicita el token de acceso | 
-| type | Sí | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. | 
+| Tipo | Sí | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por ejemplo:
@@ -226,7 +226,7 @@ Por ejemplo:
 
 <a name="certificate"></a>
 
-#### <a name="certificate-authentication"></a>Autenticación de certificado
+#### <a name="certificate-authentication"></a>Autenticación de certificados
 
 Para validar las solicitudes entrantes desde la aplicación lógica hacia la aplicación web o de API, puede usar certificados de cliente. Para configurar su código, aprenda a [configurar la autenticación mutua de TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
@@ -236,8 +236,8 @@ En la sección **Authorization**, incluya esta línea:
 
 | Elemento | Obligatorio | DESCRIPCIÓN | 
 | ------- | -------- | ----------- | 
-| type | Sí | El tipo de autenticación. Para los certificados de cliente SSL, el valor debe ser `ClientCertificate`. | 
-| password | Sí | La contraseña para acceder al certificado de cliente (archivo PFX) | 
+| Tipo | Sí | El tipo de autenticación. Para los certificados de cliente SSL, el valor debe ser `ClientCertificate`. | 
+| contraseña | Sí | La contraseña para acceder al certificado de cliente (archivo PFX) | 
 | pfx | Sí | Contenido con codificación base64 del certificado del cliente (archivo PFX) | 
 |||| 
 
@@ -249,13 +249,13 @@ Para validar solicitudes entrantes desde la aplicación lógica hacia la aplicac
 
 En la sección **Authorization**, incluya esta línea:
 
-`{"type": "basic", "username": "username", "password": "password"}`
+`{"type": "basic", "username": "username", "password": "password"}`.
 
 | Elemento | Obligatorio | DESCRIPCIÓN | 
 | ------- | -------- | ----------- | 
-| type | Sí | El tipo de autenticación que desea utilizar. Para la autenticación básica, el valor debe ser `Basic`. | 
-| username | Sí | El nombre de usuario que quiere usar en la autenticación | 
-| password | Sí | La contraseña que quiere usar en la autenticación | 
+| Tipo | Sí | El tipo de autenticación que desea utilizar. Para la autenticación básica, el valor debe ser `Basic`. | 
+| nombre de usuario | Sí | El nombre de usuario que quiere usar en la autenticación | 
+| contraseña | Sí | La contraseña que quiere usar en la autenticación | 
 |||| 
 
 <a name="azure-ad-code"></a>

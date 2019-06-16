@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466913"
 ---
 # <a name="add-an-email-action"></a>Adición de una acción de correo electrónico
@@ -102,7 +102,7 @@ En los pasos siguientes se muestra cómo configurar y comprobar manualmente las 
 
 1. Haga clic en el conector **office365-connector**:
 
-    ![Conexión de API](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
+    ![API Connection](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Haga clic en el banner para comenzar el proceso de autorización:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 0a310eaeb9baf6ed2438b9f824cd6ad7eb492915
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714192"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solución de problemas de HDFS de Apache Hadoop con Azure HDInsight
@@ -226,5 +226,5 @@ El clúster de HDInsight se ha reducido verticalmente hasta quedar muy pocos nod
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Otras referencias
 [Solución de problemas mediante Azure HDInsight](hdinsight-troubleshoot-guide.md)

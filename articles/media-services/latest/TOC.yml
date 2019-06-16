@@ -27,6 +27,7 @@
       items:
         - name: Con .NET
           href: stream-live-tutorial-with-api.md
+          displayName: 'Live Events, Live Outputs, ingest'
     - name: Análisis del vídeo
       items:
         - name: Con .NET
@@ -47,7 +48,7 @@
       href: concepts-overview.md
     - name: Carga y almacenamiento en la nube
       items:
-        - name: Almacenamiento
+        - name: Storage
           href: storage-account-concept.md
           displayName: Storage side encryption
         - name: Recursos
@@ -122,6 +123,7 @@
           href: live-streaming-overview.md
         - name: Eventos en directo y salidas en vivo
           href: live-events-outputs-concept.md
+          displayName: 'vanity, ingest'
         - name: Codificadores en directo recomendados
           href: recommended-on-premises-live-encoders.md
         - name: Uso de una DVR en la nube

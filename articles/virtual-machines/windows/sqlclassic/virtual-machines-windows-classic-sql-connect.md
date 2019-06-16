@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62111534"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)
@@ -58,7 +58,7 @@ En dicho escenario, puede conectarse mediante la máquina virtual **Nombre** (ta
 ### <a name="connect-to-sql-server-over-the-internet"></a>Conexión a SQL Server a través de Internet
 Si quiere conectarse a su motor de base de datos de SQL Server desde Internet, debe crear un extremo de máquina virtual para la comunicación TCP entrante. Este paso de la configuración de Azure dirige el tráfico del puerto TCP de entrada a un puerto TCP al que puede tener acceso la máquina virtual.
 
-Para conectarse a través de internet, debe usar el nombre DNS de la máquina virtual y el número de puerto del punto de conexión de la máquina virtual (configurado más adelante en este artículo). Para buscar el nombre DNS, vaya a Azure Portal y seleccione **Máquinas virtuales (clásico)**. Después, seleccione la máquina virtual. El **nombre DNS** se muestra en la sección **Información general**.
+Para conectarse a través de internet, debe usar el nombre DNS de la máquina virtual y el número de puerto del punto de conexión de la máquina virtual (configurado más adelante en este artículo). Para buscar el nombre DNS, vaya a Azure Portal y seleccione **Máquinas virtuales (clásico)** . Después, seleccione la máquina virtual. El **nombre DNS** se muestra en la sección **Información general**.
 
 Por ejemplo, piense en una máquina virtual clásica denominada **mysqlvm** con un nombre DNS de **mysqlvm7777.cloudapp.net** y un punto de conexión de la máquina virtual de **57500**. Suponiendo que la conectividad se ha configurado correctamente, la cadena de conexión siguiente podría usarse para tener acceso a la máquina virtual desde cualquier lugar de Internet:
 

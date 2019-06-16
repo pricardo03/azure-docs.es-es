@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 5e4e565b0b5272de19458617a9c4bd3509907cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60817394"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuración de directivas de entrega de recursos
@@ -260,7 +260,7 @@ Solicitud:
 
 Si quiere proteger su contenido con DRM de Widevine, actualice los valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tiene el valor de 7) y especifique la dirección URL de un servicio de entrega de licencias. Puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
-Por ejemplo:  
+Por ejemplo: 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 

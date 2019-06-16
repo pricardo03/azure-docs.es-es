@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752339"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Introducción a los clústeres de Service Fabric independientes
@@ -51,7 +51,7 @@ Service Fabric también admite el control de acceso para limitar este a determin
 
 Para más información, lea [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
-## <a name="scaling"></a>Cambiar escala
+## <a name="scaling"></a>Escalado
 
 Las necesidades de las aplicaciones cambian a lo largo del tiempo. Puede necesitar aumentar los recursos del clúster para cumplir con aumentos del tráfico de red o de la carga de trabajo de la aplicación o reducir los recursos del clúster cuando la demanda baja. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos). Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster. Según se escala el clúster, las aplicaciones se escalan automáticamente.
 

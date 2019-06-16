@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363637"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Uso de módulos gemelos en IoT Hub
@@ -113,7 +113,7 @@ En el ejemplo anterior, el módulo gemelo contiene una propiedad `batteryLevel` 
 
 ### <a name="desired-property-example"></a>Ejemplo de propiedad deseada
 
-En el ejemplo anterior, el back-end de la solución y la aplicación de módulo usan las propiedades deseadas y notificadas del módulo gemelo `telemetryConfig` para sincronizar la configuración de telemetría de este módulo. Por ejemplo: 
+En el ejemplo anterior, el back-end de la solución y la aplicación de módulo usan las propiedades deseadas y notificadas del módulo gemelo `telemetryConfig` para sincronizar la configuración de telemetría de este módulo. Por ejemplo:
 
 1. El back-end de la solución establece la propiedad deseada con el valor de configuración deseado. Esta es la parte del documento con el conjunto de propiedad deseada:
 
@@ -275,7 +275,7 @@ IoT Hub rechaza con un error todas las operaciones que podrían aumentar el tama
 ## <a name="module-twin-metadata"></a>Metadatos del módulo gemelo
 
 IoT Hub conserva la marca de tiempo de la última actualización para cada objeto JSON en las propiedades deseadas y notificadas del módulo gemelo. Las marcas de tiempo están en formato UTC y se codifican con el formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Por ejemplo: 
+Por ejemplo:
 
 ```json
 {

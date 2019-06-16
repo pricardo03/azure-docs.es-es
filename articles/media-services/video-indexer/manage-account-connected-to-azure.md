@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799519"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Administración de una cuenta de Video Indexer conectada a Azure
@@ -56,7 +56,7 @@ En la página **Settings** (Configuración) puede establecer el escalado automá
 
 El escalado automático no escalará por debajo de una unidad reservada ni por encima del límite predeterminado de la cuenta de Media Services. Con el fin de aumentar el límite, cree una solicitud de servicio. Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Regístrate](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Suscripción](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Errores y advertencias
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
 ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122207"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica
@@ -100,7 +100,7 @@ Una configuración de puerta de enlace de aplicaciones consta de varios valores.
 Los valores son:
 
 * **Grupo de servidores back-end**: lista de direcciones IP de los servidores back-end. Las direcciones IP de la lista deben pertenecer a la subred de la red virtual o ser una dirección VIP/IP pública.
-* **Configuración del grupo de servidores back-end:**: cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en las cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+* **Configuración del grupo de servidores back-end:** : cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en las cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 * **Puerto de front-end**: este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 * **Agente de escucha**: tiene un puerto front-end, un protocolo (Http o Https, estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura una descarga de SSL).
 * **Regla**: la regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se va a dirigir el tráfico cuando llegue a un determinado agente de escucha. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.

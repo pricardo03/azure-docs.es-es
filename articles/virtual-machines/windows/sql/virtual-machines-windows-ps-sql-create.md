@@ -17,10 +17,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: edf5f2b681123243f55b1c2bf19a500e68171c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165731"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell
@@ -67,9 +67,9 @@ $StorageSku = "Premium_LRS"
 ### <a name="network-properties"></a>Propiedades de red
 Defina las propiedades que va a usar la red en la máquina virtual. 
 
-- Interfaz de red
+- interfaz de red
 - Método de asignación de TCP/IP
-- Nombre de red virtual
+- Nombre de la red virtual
 - Nombre de la subred virtual
 - Intervalo de direcciones IP de la red virtual
 - Intervalo de direcciones IP de la subred

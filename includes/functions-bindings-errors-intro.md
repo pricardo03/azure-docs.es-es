@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132482"
 ---
 Los [desencadenadores y enlaces](../articles/azure-functions/functions-triggers-bindings.md) de Azure Functions se comunican con varios servicios de Azure. Cuando se integran con estos servicios, pueden surgir errores que se originan desde las API de los servicios de Azure subyacentes. También pueden producirse errores al intentar comunicarse con otros servicios con el código de función mediante bibliotecas de cliente o REST. Para evitar la pérdida de datos y garantizar el buen comportamiento de las funciones, es importante administrar los errores desde uno u otro origen.

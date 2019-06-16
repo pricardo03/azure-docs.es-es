@@ -19,10 +19,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d734db7fbedaf3e3f3cd71c31f9391a2237f5b4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545260"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Llamadas entre servicios mediante las credenciales del cliente (secreto compartido o certificado)
@@ -62,7 +62,7 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | grant_type |requerido |Especifica el tipo de concesión solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser **client_credentials**. |
 | client_id |requerido |Especifica el identificador de cliente de Azure AD del servicio web que realiza la llamada. Para buscar el identificador del cliente de la aplicación que realiza la llamada, en [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory** y **Registros de aplicaciones**, y haga clic en la aplicación. El identificador client_id es el *identificador de aplicación* |
 | client_secret |requerido |Escriba una clave registrada para el servicio web de llamada o la aplicación de demonio de Azure AD. Para crear una clave, en Azure Portal, haga clic en **Azure Active Directory** y en **Registros de aplicaciones**, haga clic en la aplicación, en **Configuración** y en **Claves** y agregue una clave.  Cuando lo proporcione, codifique como dirección URL este secreto. |
-| Recurso |requerido |Escriba el URI del identificador de la aplicación del servicio web de recepción. Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Registros de aplicaciones**, haga clic en la aplicación de servicio y, a continuación, en **Configuración** y en **Propiedades**. |
+| resource |requerido |Escriba el URI del identificador de la aplicación del servicio web de recepción. Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Registros de aplicaciones**, haga clic en la aplicación de servicio y, a continuación, en **Configuración** y en **Propiedades**. |
 
 #### <a name="example"></a>Ejemplo
 El siguiente elemento HTTP POST solicita un [token de acceso](access-tokens.md) para el servicio web https://service.contoso.com/. El parámetro `client_id` permite identificar el servicio web que solicita el token de acceso.
@@ -110,7 +110,7 @@ Una respuesta correcta contiene una respuesta de OAuth 2.0 de JSON con los sigui
 | expires_in |Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
 | not_before |La hora a partir de la cual el token de acceso pasa a ser utilizable. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración del token.|
-| Recurso |El URI del identificador de la aplicación del servicio web de recepción. |
+| resource |El URI del identificador de la aplicación del servicio web de recepción. |
 
 #### <a name="example-of-response"></a>Ejemplo de respuesta
 En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un token de acceso a un servicio web.
@@ -125,6 +125,6 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 }
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [OAuth 2.0 en Azure AD](v1-protocols-oauth-code.md)
 * [Ejemplo en C# de la llamada entre servicios con un secreto compartido](https://github.com/Azure-Samples/active-directory-dotnet-daemon) y [Ejemplo en C# de la llamada entre servicios con un certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595237"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
@@ -55,7 +55,7 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 
 1. Seleccione **Módulo IoT Edge**.
 
-1. Proporcione un nombre para el módulo y, a continuación, especifique la imagen de contenedor. Por ejemplo: 
+1. Proporcione un nombre para el módulo y, a continuación, especifique la imagen de contenedor. Por ejemplo:
 
    * **Nombre**: tempSensor
    * **Identificador URI de la imagen**: mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116182"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Realizar una copia de seguridad del estado del sistema y restaurar a una reconstrucción completa con Azure Backup Server
@@ -34,7 +34,7 @@ En la tabla siguiente se resumen los elementos de los que se pueden realizar cop
 |**Datos de archivo**<br /><br />Copia de seguridad de datos normal<br /><br />BMR/Copia de seguridad del estado del sistema|Datos de archivo perdidos|Y|N|N|
 |**Datos de archivo**<br /><br />Copia de seguridad de Azure Backup Server de los datos de archivo<br /><br />BMR/Copia de seguridad del estado del sistema|Sistema operativo dañado o perdido|N|Y|Y|
 |**Datos de archivo**<br /><br />Copia de seguridad de Azure Backup Server de los datos de archivo<br /><br />BMR/Copia de seguridad del estado del sistema|Servidor perdido (volúmenes de datos intactos)|N|N|Y|
-|**Datos de archivo**<br /><br />Copia de seguridad de Azure Backup Server de los datos de archivo<br /><br />BMR/Copia de seguridad del estado del sistema|Servidor perdido (volúmenes de datos perdidos)|Y|Sin |Sí (BMR, seguida de una recuperación normal de los datos de archivo de los que se ha realizado una copia de seguridad)|
+|**Datos de archivo**<br /><br />Copia de seguridad de Azure Backup Server de los datos de archivo<br /><br />BMR/Copia de seguridad del estado del sistema|Servidor perdido (volúmenes de datos perdidos)|Y|Sin|Sí (BMR, seguida de una recuperación normal de los datos de archivo de los que se ha realizado una copia de seguridad)|
 |**Datos de SharePoint**:<br /><br />Copia de seguridad de Azure Backup Server de los datos de la granja<br /><br />BMR/Copia de seguridad del estado del sistema|Sitio, listas, elementos de lista y documentos perdidos|Y|N|N|
 |**Datos de SharePoint**:<br /><br />Copia de seguridad de Azure Backup Server de los datos de la granja<br /><br />BMR/Copia de seguridad del estado del sistema|Sistema operativo dañado o perdido|N|Y|Y|
 |**Datos de SharePoint**:<br /><br />Copia de seguridad de Azure Backup Server de los datos de la granja<br /><br />BMR/Copia de seguridad del estado del sistema|Recuperación ante desastres|N|N|N|

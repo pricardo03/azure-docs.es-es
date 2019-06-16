@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846232"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Adición u obtención de metadatos de artefactos de cuentas de integración de Azure Logic Apps con Enterprise Integration Pack
@@ -89,11 +89,11 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
       |----------|----------|-------|-------------| 
       | **Método** | Sí | <*operation-to-run*> | La operación HTTP para ejecutar en el artefacto. Por ejemplo, esta acción HTTP utiliza el método **GET**. | 
       | **URI** | Sí | <*metadata-location*> | Para tener acceso al valor de metadatos de `routingUrl` del artefacto que ha recuperado, puede usar una expresión; por ejemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Encabezados** | Sin  | <*header-values*> | Cualquier salida de encabezado del desencadenador que desea pasar a la acción de HTTP. Por ejemplo, para pasar el valor de propiedad `headers` del desencadenador: puede utilizar una expresión, por ejemplo: <p>`@triggeroutputs()['headers']` | 
-      | **Cuerpo** | Sin  | <*body-content*> | Cualquier otro contenido que desee pasar a través de la propiedad `body` de la acción HTTP. En este ejemplo se pasan los valores `properties` del artefacto en la acción HTTP: <p>1. Haga clic en la propiedad **Body** para que aparezca la lista de contenido dinámico. Si no aparece ninguna propiedad, elija **Ver más**. <br>2. En la lista de contenido dinámico, en **Búsqueda de artefactos de la cuenta de integración**, seleccione **Propiedades**. | 
+      | **Encabezados** | Sin | <*header-values*> | Cualquier salida de encabezado del desencadenador que desea pasar a la acción de HTTP. Por ejemplo, para pasar el valor de propiedad `headers` del desencadenador: puede utilizar una expresión, por ejemplo: <p>`@triggeroutputs()['headers']` | 
+      | **Cuerpo** | Sin | <*body-content*> | Cualquier otro contenido que desee pasar a través de la propiedad `body` de la acción HTTP. En este ejemplo se pasan los valores `properties` del artefacto en la acción HTTP: <p>1. Haga clic en la propiedad **Body** para que aparezca la lista de contenido dinámico. Si no aparece ninguna propiedad, elija **Ver más**. <br>2. En la lista de contenido dinámico, en **Búsqueda de artefactos de la cuenta de integración**, seleccione **Propiedades**. | 
       |||| 
 
-      Por ejemplo: 
+      Por ejemplo:
 
       ![Especificación de los valores y expresiones para una acción HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

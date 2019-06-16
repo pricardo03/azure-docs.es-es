@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155178"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
@@ -54,10 +54,10 @@ La actividad Until proporciona la misma funcionalidad que una estructura de bucl
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-name | Nombre de la actividad `Until`. | String | Sí
-Tipo | Debe establecerse en **Until**. | String | Sí
+Nombre | Nombre de la actividad `Until`. | Cadena | Sí
+Tipo | Debe establecerse en **Until**. | Cadena | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | Sí
-timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | Cadena. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es: 90 días. | No
+timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es: 90 días. | Sin
 Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Sí
 
 ## <a name="example-1"></a>Ejemplo 1

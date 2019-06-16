@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159120"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Control de acceso basado en rol en StorSimple
@@ -165,7 +165,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción que constituya el ámbito de la asignación de roles. Al proporcionar acceso, tenga en cuenta que el acceso concedido en el nodo primario lo hereda el elemento secundario. Para obtener más información, vaya a [Control de acceso basado en roles](../role-based-access-control/overview.md).
 
-1. Vaya a **Control de acceso (IAM)**. Haga clic en **Agregar** en la hoja Control de acceso.
+1. Vaya a **Control de acceso (IAM)** . Haga clic en **Agregar** en la hoja Control de acceso.
 
     ![Adición de acceso al rol de RBAC](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

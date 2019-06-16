@@ -9,10 +9,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715953"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
@@ -38,7 +38,7 @@ ms.locfileid: "64715953"
 1. **Abra Finder**: Finder está abierto en macOS de forma predeterminada, pero para asegurarse de que es la aplicación actualmente seleccionada, haga clic en el "icono de cara de macOS" en el Dock:  
     ![Icono de cara de macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Seleccione "Connect to Server" (Conectar a servidor) en el menú "Go" (Ir)**: en la ruta de acceso UNC de los requisitos previos, convierta la doble barra diagonal inversa de comienzo (`\\`) en `smb://` y todas las otras barras diagonales inversas (`\`) en barras diagonales (`/`). El vínculo debería tener este aspecto: ![Cuadro de diálogo "Connect to Server" (Conectar a servidor)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Seleccione "Connect to Server" (Conectar a servidor) en el menú "Go" (Ir)** : en la ruta de acceso UNC de los requisitos previos, convierta la doble barra diagonal inversa de comienzo (`\\`) en `smb://` y todas las otras barras diagonales inversas (`\`) en barras diagonales (`/`). El vínculo debería tener este aspecto: ![Cuadro de diálogo "Connect to Server" (Conectar a servidor)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Use el nombre y la clave de la cuenta de almacenamiento cuando se le pida un nombre de usuario y una contraseña**: al hacer clic en "Connect" (Conectar) en el cuadro de diálogo "Connect to Server" (Conectar a servidor), se le solicitará el nombre de usuario y la contraseña (este se rellenará automáticamente con el nombre de usuario de macOS). Puede guardar el nombre y la clave de la cuenta de almacenamiento en la cadena de claves de macOS.
 

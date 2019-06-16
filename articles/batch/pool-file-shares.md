@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127835"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Uso de un recurso compartido de archivos con un grupo de Batch
@@ -54,7 +54,7 @@ Por ejemplo, incluya un comando `net use` para montar el recurso compartido de a
 * **Nombre de usuario**: AZURE\\\<storageaccountname\>, por ejemplo, AZURE\\*mystorageaccountname*
 * **Contraseña**: <StorageAccountKeyWhichEnds in==>, por ejemplo, *XXXXXXXXXXXXXXXXXXXXX==*
 
-El siguiente comando monta un recurso compartido de archivos *myfileshare* en la cuenta de almacenamiento *mystorageaccountname* como la unidad *S:*:
+El siguiente comando monta un recurso compartido de archivos *myfileshare* en la cuenta de almacenamiento *mystorageaccountname* como la unidad *S:* :
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -71,7 +71,7 @@ Para simplificar la operación de montaje, puede conservar las credenciales en l
 
    ```
 
-2. Montar el recurso compartido en cada nodo como parte de cada tarea mediante `net use`. Por ejemplo, la siguiente línea de comandos de tarea monta el recurso compartido de archivos como la unidad *S:*. Esto iría seguido de un comando o script que hace referencia el recurso compartido. Las credenciales almacenadas en caché se usan para llamar a `net use`. En este paso se da por hecho que en estas tareas usa la misma identidad de usuario que usó en la tarea de inicio en el grupo, que no resulta apropiada para todos los escenarios.
+2. Montar el recurso compartido en cada nodo como parte de cada tarea mediante `net use`. Por ejemplo, la siguiente línea de comandos de tarea monta el recurso compartido de archivos como la unidad *S:* . Esto iría seguido de un comando o script que hace referencia el recurso compartido. Las credenciales almacenadas en caché se usan para llamar a `net use`. En este paso se da por hecho que en estas tareas usa la misma identidad de usuario que usó en la tarea de inicio en el grupo, que no resulta apropiada para todos los escenarios.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
