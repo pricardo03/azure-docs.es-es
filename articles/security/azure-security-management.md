@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586771"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
@@ -127,7 +127,7 @@ Existen varios mecanismos para ayudar a proteger las conexiones de cliente de la
 
 Una estación de trabajo protegida independiente que no se conecta a Azure mediante Puerta de enlace de Escritorio remoto debe usar VPN de punto a sitio basada en SSTP para crear la conexión inicial a Azure Virtual Network y, después, establecer la conexión RDP a las máquinas virtuales individuales desde el túnel VPN.
 
-### <a name="management-auditing-vs-policy-enforcement"></a>Auditoría de administración y aplicación de directivas 
+### <a name="management-auditing-vs-policy-enforcement"></a>Auditoría de administración y aplicación de directivas
 Normalmente, hay dos enfoques para proteger los procesos de administración: auditoría y aplicación de directivas. Ambos proporcionarán controles completos, pero que pueden no ser posibles en todas las situaciones. Además, cada método tiene distintos niveles de riesgo, costo y esfuerzo asociados con la administración de la seguridad, especialmente en relación con el nivel de confianza en las personas y las arquitecturas del sistema.
 
 La supervisión, el registro y la auditoría proporcionan una base para el seguimiento y la descripción de las actividades administrativas, pero puede que no siempre sea factible auditar todas las acciones con detalle debido a la cantidad de datos generados. Sin embargo, auditar la efectividad de las directivas de administración es un procedimiento recomendado.

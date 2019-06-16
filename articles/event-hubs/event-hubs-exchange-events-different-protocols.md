@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821766"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Intercambio de eventos entre consumidores y productores que utilizan distintos protocolos: AMQP, Kafka y HTTPS

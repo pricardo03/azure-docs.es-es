@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60284946"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtención de datos mediante Reporting API de Azure Active Directory con certificados
@@ -87,7 +87,7 @@ En este tutorial, aprenderá a crear un certificado de prueba para acceder a Mic
   
 7. Ahora, puede obtener un token de acceso para MS Graph API con este certificado. Use el cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** del módulo MSCloudIdUtils de PowerShell pasando el identificador de la aplicación y la huella digital que obtuvo en el paso anterior. 
 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Portal de Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Use el token de acceso en el script de Powershell para consultar Graph API. Use el cmdlet **Invoke-MSCloudIdMSGraphQuery** desde MSCloudIDUtils para enumerar el punto de conexión de SignIns y DirectoryAudits. Este cmdlet controla los resultados de paginado múltiple y los envía a la canalización de PowerShell.
 

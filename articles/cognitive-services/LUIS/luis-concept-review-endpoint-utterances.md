@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813339"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceptos para habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión
@@ -37,7 +37,7 @@ Las expresiones de punto de conexión se obtienen de las consultas del usuario f
 No es necesario revisar las expresiones sugeridas todos los días, pero la revisión debe formar parte del mantenimiento periódico de LUIS. 
 
 ## <a name="delete-review-items-programmatically"></a>Eliminar los elementos de revisión mediante programación
-Use la API para **[eliminar expresiones sin etiquetar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)**. Realice una copia de seguridad de estas expresiones antes de eliminarlas mediante la **[exportación de los archivos de registro](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
+Use la API para **[eliminar expresiones sin etiquetar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** . Realice una copia de seguridad de estas expresiones antes de eliminarlas mediante la **[exportación de los archivos de registro](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

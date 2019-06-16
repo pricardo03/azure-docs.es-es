@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827942"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenido externo y de la comunidad para Text Analytics en Cognitive Services
@@ -47,7 +47,7 @@ ms.locfileid: "60827942"
 
 ¿Quiere obtener información acerca de una característica o un caso de uso que no tratamos? Considere la posibilidad de solicitar o votar por esta opción en [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
  [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

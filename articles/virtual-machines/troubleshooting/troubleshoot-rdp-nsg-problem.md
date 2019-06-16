@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318942"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>No puede conectarse de forma remota a una VM porque el puerto RDP no está habilitado en NSG

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706080"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
 
@@ -149,7 +149,7 @@ Las opciones de los parámetros de cadena de consulta son las siguientes:
 | `sb-hc-action`   | Sí      | Con el rol de agente de escucha, el parámetro debe ser **sb-hc-action=listen**.
 | `{path}`         | Sí      | La ruta de acceso del espacio de nombres codificada con la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
 | `sb-hc-token`    | Sí\*    | El agente de escucha debe proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **escucha**.
-| `sb-hc-id`       | Sin        | Este id. opcional especificado por el cliente permite realizar un seguimiento de diagnósticos completo.
+| `sb-hc-id`       | Sin       | Este id. opcional especificado por el cliente permite realizar un seguimiento de diagnósticos completo.
 
 Si se produce un error en la conexión de WebSocket porque la ruta de acceso de la conexión híbrida no está registrada, porque que falta un token, o no es válido, o por cualquier otro error, se utilizará el modelo de comentarios de estado normal de HTTP 1.1. La descripción del estado contiene un identificador de seguimiento de errores que se pueda comunicar al equipo de soporte técnico de Azure:
 
@@ -208,7 +208,7 @@ La URL debe utilizarse tal cual para establecer el socket de aceptación, pero d
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sí      | Para aceptar un socket, el parámetro tiene que ser `sb-hc-action=accept`
 | `{path}`       | Sí      | (vea el párrafo siguiente)
-| `sb-hc-id`     | Sin        | Consulte la descripción anterior del **identificador**.
+| `sb-hc-id`     | Sin       | Consulte la descripción anterior del **identificador**.
 
 `{path}` es la ruta de acceso del espacio de nombres con codificación URL de la conexión híbrida preconfigurada en la que se registra este agente de escucha. Esta expresión se anexa a la parte de la ruta de acceso `$hc/` fija.
 
@@ -439,7 +439,7 @@ Estas son las opciones de los parámetros de cadena de consulta:
 | `sb-hc-action` | Sí       | En el caso del rol de remitente, el parámetro debe ser `sb-hc-action=connect`.
 | `{path}`       | Sí       | (vea el párrafo siguiente)
 | `sb-hc-token`  | Sí\*     | El agente de escucha necesita proporcionar un token de acceso compartido de Service Bus válido y codificado para URL al espacio de nombres o a la conexión híbrida que concede el derecho de **envío**.
-| `sb-hc-id`     | Sin         | Un id. opcional que permite realizar el seguimiento de diagnóstico completo y que puede usarlo el agente de escucha durante el protocolo de enlace de aceptación.
+| `sb-hc-id`     | Sin        | Un id. opcional que permite realizar el seguimiento de diagnóstico completo y que puede usarlo el agente de escucha durante el protocolo de enlace de aceptación.
 
  `{path}` es la ruta de acceso del espacio de nombres codificado para la dirección URL de la conexión híbrida preconfigurada en la que se registrará este agente de escucha. La expresión `path` se puede ampliar con un sufijo y una expresión de cadena de consulta para comunicarse de nuevo. Si la conexión híbrida se registra en la ruta de acceso `hyco`, la expresión `path` puede ser `hyco/suffix?param=value&...`, seguida de los parámetros de cadena de consulta que se definen aquí. Una expresión completa puede ser como la siguiente:
 

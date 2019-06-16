@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60706060"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validación de alertas en Azure Security Center
@@ -45,7 +45,7 @@ Al revisar esta alerta, asegúrese de que el campo Arguments Auditing Enabled (A
 > [!NOTE]
 > Puede ver el vídeo [Validación de alertas en Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) para ver una demostración de esta característica.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este artículo se explicó el proceso de validación de las alertas. Ahora que conoce esta validación, intente los siguientes pasos:
 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Aprenda a administrar las alertas y responder a incidentes de seguridad en Security Center.

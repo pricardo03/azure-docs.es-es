@@ -9,10 +9,10 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237703"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmisión de registros de diagnóstico de Azure a un centro de eventos
@@ -24,7 +24,7 @@ Estas son solo algunas formas de usar la funcionalidad de streaming para registr
 * **Transmisión de registros a sistemas de registro y telemetría de terceros**: puede transmitir todos los registros de diagnóstico a un centro de eventos único para canalizar datos de registro a una herramienta de SIEM o de análisis de registros de terceros.
 * **Visualización del estado del servicio mediante streaming de datos de "ruta de acceso frecuente" a Power BI**: con Event Hubs, Stream Analytics y Power BI, es fácil transformar los datos de diagnóstico en información casi en tiempo real de los servicios de Azure. [En este artículo se ofrece una excelente introducción a la configuración Event Hubs, al procesamiento de datos con Stream Analytics y al uso de Power BI como salida](../../stream-analytics/stream-analytics-power-bi-dashboard.md). Estas son algunas recomendaciones para la configuración con los registros de diagnóstico:
 
-  * Un centro de eventos para una categoría de registros de diagnóstico se crea automáticamente al seleccionar la opción en el portal o habilitarla mediante PowerShell, por lo que debería seleccionar el centro de eventos en el espacio de nombres con el nombre que empieza por **insights-**.
+  * Un centro de eventos para una categoría de registros de diagnóstico se crea automáticamente al seleccionar la opción en el portal o habilitarla mediante PowerShell, por lo que debería seleccionar el centro de eventos en el espacio de nombres con el nombre que empieza por **insights-** .
   * El siguiente código SQL es una consulta de Stream Analytics de ejemplo que puede utilizar para analizar todos los datos de registro en una tabla de Power BI:
 
     ```sql

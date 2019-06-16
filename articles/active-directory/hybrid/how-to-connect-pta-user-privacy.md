@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242371"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidad del usuario y autenticación de paso a través de Azure Active Directory
@@ -93,12 +93,12 @@ Para programar que este script se ejecute cada 48 horas, siga estos pasos:
 1.  Guarde el script en un archivo con la extensión ".PS1".
 2.  Abra el **panel de control** y haga clic en **Sistema y seguridad**.
 3.  En el encabezado **Herramientas administrativas**, haga clic en "**Programar tareas**".
-4.  En el **Programador de tareas**, haga clic con el botón derecho en "**Biblioteca del Programador de tareas**" y haga clic en "**Crear tarea básica…**".
+4.  En el **Programador de tareas**, haga clic con el botón derecho en "**Biblioteca del Programador de tareas**" y haga clic en "**Crear tarea básica…** ".
 5.  Escriba el nombre de la nueva tarea y haga clic en **Siguiente**.
 6.  Seleccione "**Diariamente**" para el **desencadenador de tareas** y haga clic en **Siguiente**.
 7.  Establezca la repetición en dos días y haga clic en **Siguiente**.
 8.  Seleccione "**Iniciar un programa**" como la acción y haga clic en **Siguiente**.
-9.  Escriba "**PowerShell**" en el cuadro Programa o script y, en el cuadro "**Agregar argumentos (opcional)**", escriba la ruta de acceso completa al script que creó anteriormente y, luego, haga clic en **Siguiente**.
+9.  Escriba "**PowerShell**" en el cuadro Programa o script y, en el cuadro "**Agregar argumentos (opcional)** ", escriba la ruta de acceso completa al script que creó anteriormente y, luego, haga clic en **Siguiente**.
 10. En la siguiente pantalla se muestra un resumen de la tarea que se dispone a crear. Compruebe los valores y haga clic en **Finalizar** para crear la tarea:
  
 ### <a name="note-about-domain-controller-logs"></a>Nota sobre los registros de controlador de dominio

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388682"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
@@ -35,7 +35,7 @@ También hay disponible una extensión para instalar controladores de GPU de NVI
 
 Esta extensión es compatible con los siguientes sistemas operativos:
 
-| Distribución | Version |
+| Distribución | Versión |
 |---|---|
 | Windows 10 (hasta la versión 1803)| Núcleo |
 | Windows Server 2016 | Núcleo |
@@ -71,7 +71,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| Name | Valor / ejemplo | Tipo de datos |
+| NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
@@ -137,7 +137,7 @@ az vm extension set `
   }'
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

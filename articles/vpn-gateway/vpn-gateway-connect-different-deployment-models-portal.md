@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62124030"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal

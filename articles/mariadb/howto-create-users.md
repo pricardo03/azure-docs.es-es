@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: ed373cfa0ac755d56e7bc2601c65e0e6482ff6d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038878"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Crear usuarios en Azure Database for MariaDB 
@@ -29,7 +29,7 @@ Una vez creado el servidor de Azure Database for MariaDB, puede usar la primera 
 2. Use la cuenta y la contraseña de administrador para conectarse a su servidor de base de datos. Use la herramienta preferida de cliente, como MySQL Workbench, mysql.exe, HeidiSQL u otras. 
    Si no está seguro de cómo conectarse, consulte [Uso de MySQL Workbench para conectarse y consultar datos](./connect-workbench.md).
 
-3. Modifique y ejecute el siguiente código SQL. Reemplace el valor de marcador de posición `new_master_user` por el nuevo nombre de usuario. Esta sintaxis concede los privilegios enumerados en todos los esquemas de base de datos (*.*) al nombre de usuario (new_master_user en este ejemplo). 
+3. Modifique y ejecute el siguiente código SQL. Reemplace el valor de marcador de posición `new_master_user` por el nuevo nombre de usuario. Esta sintaxis concede los privilegios enumerados en todos los esquemas de base de datos ( *.* ) al nombre de usuario (new_master_user en este ejemplo). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

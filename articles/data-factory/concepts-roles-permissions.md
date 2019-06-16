@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61261854"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
@@ -57,7 +57,7 @@ Los permisos para Azure Repos y GitHub son independientes de los permisos de Dat
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Escenarios personalizados y roles personalizados
 
-A veces, tendrá que conceder distintos niveles de acceso para los usuarios de diferentes factorías de datos. Por ejemplo: 
+A veces, tendrá que conceder distintos niveles de acceso para los usuarios de diferentes factorías de datos. Por ejemplo:
 - Es posible que necesite un grupo en el que los usuarios solo tengan permisos en una factoría de datos específica.
 - O puede que necesite un grupo en el que los usuarios solo puedan supervisar una o varias factorías de datos pero no pueden modificarlas.
 
@@ -78,7 +78,7 @@ Estos son algunos ejemplos que muestran lo que se puede lograr con los roles per
   Este escenario requiere dos asignaciones de roles.
 
   1. Asigne el rol integrado **colaborador** a nivel de la factoría de datos.
-  2. Cree un rol personalizado con el permiso **Microsoft.Resources/deployments/**. Asigne este rol personalizado al usuario a nivel del grupo de recursos.
+  2. Cree un rol personalizado con el permiso **Microsoft.Resources/deployments/** . Asigne este rol personalizado al usuario a nivel del grupo de recursos.
 
 - Permitir que un usuario actualice una factoría de datos desde PowerShell o el SDK, pero no en Azure Portal.
 

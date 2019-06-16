@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860515"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalación de Update 4 en el dispositivo StorSimple
@@ -45,7 +45,7 @@ Realice los pasos siguientes para actualizar el dispositivo a [Update 4](storsim
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. También se debe modificar **Fecha de última actualización:** .
+Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 4 (6.3.9600.17820)** . También se debe modificar **Fecha de última actualización:** .
 
 * Ahora también verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones). Las actualizaciones del modo de mantenimiento provocan interrupciones con tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo.
 
@@ -85,7 +85,7 @@ Es posible que también necesite instalar actualizaciones de firmware de disco e
 
 | Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación | Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Firmware del disco |Mantenimiento  <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
+| 3. |KB3121899 |Firmware del disco |Mantenimiento <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
 
 <br></br>
 

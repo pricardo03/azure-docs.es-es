@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782723"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Copias de seguridad del estado del sistema de Windows en la implementación de Resource Manager
@@ -95,7 +95,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![Abrir hoja de objetivo de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. En el menú desplegable **¿Dónde se ejecuta su carga de trabajo?**, seleccione **Local**.
+2. En el menú desplegable **¿Dónde se ejecuta su carga de trabajo?** , seleccione **Local**.
 
     Elija **Local** ya que su equipo Windows o Windows Server es una máquina física que no está en Azure.
 

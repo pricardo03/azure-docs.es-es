@@ -3,16 +3,16 @@ title: Conceptos de dispositivos en el servicio Azure Device Provisioning | Micr
 description: Describe conceptos del aprovisionamiento de dispositivos específicos de los dispositivos con el servicio Device Provisioning e IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745985"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceptos de dispositivos del servicio IoT Hub Device Provisioning

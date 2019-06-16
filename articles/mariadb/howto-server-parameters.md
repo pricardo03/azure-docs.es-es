@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: c618a4035e9ec9b1ca1986e898ea1060ac05712d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60922592"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Configuración de parámetros del servidor en Azure Database for MariaDB mediante Azure Portal
@@ -44,12 +44,12 @@ El grupo de búferes de InnoDB y el número máximo de conexiones no son configu
 |Uso general| 2| 3584| 300|
 |Uso general| 4| 7680| 625|
 |Uso general| 8| 15360| 1250|
-|Uso general| 16| 31232| 2.500|
+|Uso general| 16| 31232| 2\.500|
 |Uso general| 32| 62976| 5000|
 |Uso general| 64| 125952| 10000|
 |Memoria optimizada| 2| 7168| 600|
 |Memoria optimizada| 4| 15360| 1250|
-|Memoria optimizada| 8| 30720| 2.500|
+|Memoria optimizada| 8| 30720| 2\.500|
 |Memoria optimizada| 16| 62464| 5000|
 |Memoria optimizada| 32| 125952| 10000|
 

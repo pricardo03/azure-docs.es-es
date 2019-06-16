@@ -2,17 +2,16 @@
 title: 'Procedimientos recomendados del operador: aislamiento de clústeres en Azure Kubernetes Service (AKS)'
 description: Obtenga más información acerca de los procedimientos recomendados del operador de clústeres para el aislamiento en Azure Kubernetes Service (AKS).
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
+ms.date: 11/26/2018
+ms.author: iainfou
 ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465313"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)

@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751389"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
@@ -66,7 +66,7 @@ Esta familia de algoritmos se llama clasificación de dos clases.
 
 Es útil para cualquier pregunta que solo tenga dos respuestas posibles.
 
-Por ejemplo: 
+Por ejemplo:
 
 * Este neumático se romperá en las próximas 1000 millas: ¿Sí o no?
 * Qué aporta más clientes ¿un cupón de 5 USD o un descuento del 25 %?

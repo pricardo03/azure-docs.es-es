@@ -2,24 +2,18 @@
 title: Control de errores en runbooks gráficos de Azure Automation
 description: En este artículo se describe cómo implementar la lógica de control de errores en runbooks gráficos de Azure Automation.
 services: automation
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/16/2018
-ms.date: 05/14/2018
-ms.author: v-nany
+ms.subservice: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
 ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61233127"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Control de errores en runbooks gráficos de Azure Automation
@@ -75,3 +69,4 @@ Fluyen vínculos de errores de flujo de estas actividades a una única actividad
 * Para más información acerca de los vínculos y tipos de vínculo de los runbooks gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
+

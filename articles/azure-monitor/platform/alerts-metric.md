@@ -8,10 +8,10 @@ ms.date: 09/18/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60713000"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
@@ -39,7 +39,7 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
 
 6. Verá una lista de señales que se admiten para el recurso. Seleccione la métrica para la que quiera crear una alerta.
 
-7. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. Si la métrica tiene dimensiones, podrá ver la tabla **Dimensiones**. Seleccione uno o varios valores por dimensión. La alerta de métrica se ejecutará y evaluará la condición para todas las combinaciones de valores seleccionados. [Obtenga más información sobre cómo funciona la creación de alertas en las métricas multidimensionales](alerts-metric-overview.md). También puede **seleccionar \*** para cualquiera de las dimensiones. **Si selecciona \***, se escalará dinámicamente la selección de todos los valores actuales y futuros de una dimensión.
+7. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. Si la métrica tiene dimensiones, podrá ver la tabla **Dimensiones**. Seleccione uno o varios valores por dimensión. La alerta de métrica se ejecutará y evaluará la condición para todas las combinaciones de valores seleccionados. [Obtenga más información sobre cómo funciona la creación de alertas en las métricas multidimensionales](alerts-metric-overview.md). También puede **seleccionar \*** para cualquiera de las dimensiones. **Si selecciona \*** , se escalará dinámicamente la selección de todos los valores actuales y futuros de una dimensión.
 
 8. Verá un gráfico para la métrica de las últimas 6 horas. Defina los parámetros de alerta; **Tipo de condición**, **Frecuencia**, **Operador** y **Umbral** o **Sensibilidad**. Estos determinarán la lógica en la que se evaluará la regla de alertas de métrica. [Más información sobre las opciones de tipo y sensibilidad de la condición de umbrales dinámicos](alerts-dynamic-thresholds.md).
 

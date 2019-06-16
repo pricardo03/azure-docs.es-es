@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60637903"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Uso del servicio StorSimple Device Manager de Azure Portal para clonar un volumen
@@ -79,7 +79,7 @@ Realice los pasos siguientes para crear un clon del volumen desde el catálogo d
    1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo.
 
       > [!NOTE]
-      > Asegúrese de que la capacidad necesaria para el clon es inferior a la capacidad disponible en el dispositivo de destino. 
+      > Asegúrese de que la capacidad necesaria para el clon es inferior a la capacidad disponible en el dispositivo de destino.
        
    2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
       

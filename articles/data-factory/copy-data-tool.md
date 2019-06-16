@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787740"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Herramienta Copy Data en Azure Data Factory
@@ -78,7 +78,7 @@ En la siguiente captura de pantalla se muestra una consulta SQL para filtrar los
 ![Filtrado de datos en una base de datos](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrar datos en una carpeta de blobs de Azure
-Puede usar variables en la ruta de acceso a la carpeta para copiar datos de una carpeta. Las variables admitidas son: **{year}**, **{month}**, **{day}**, **{hour}** y **{minute}**. Por ejemplo: carpetaDeEntrada/{year}/{month}/{day}. 
+Puede usar variables en la ruta de acceso a la carpeta para copiar datos de una carpeta. Las variables admitidas son: **{year}** , **{month}** , **{day}** , **{hour}** y **{minute}** . Por ejemplo: carpetaDeEntrada/{year}/{month}/{day}. 
 
 Supongamos que tiene carpetas de entrada con el siguiente formato: 
 
@@ -91,7 +91,7 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
 
 Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debe aparecer 2016/03/01/02. 
 
-A continuación, sustituya **2016** por **{year}**, **03** por **{month}**, **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tabulación**. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
+A continuación, sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tabulación**. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
 
 ![Filtrado de archivos o carpetas](./media/copy-data-tool/filter-file-or-folder.png)
 

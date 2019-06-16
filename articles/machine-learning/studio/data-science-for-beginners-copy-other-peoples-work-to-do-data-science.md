@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751865"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copia del trabajo de otras personas para realizar ciencia de datos
@@ -52,14 +52,14 @@ Uno de los secretos empresariales de la ciencia de datos es conseguir que otras 
 
 Microsoft tiene un servicio basado en la nube denominado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que puede probar de forma gratuita. Proporciona un área de trabajo donde puede experimentar con diferentes algoritmos de aprendizaje automático y, si consigue una solución que funciona, puede iniciarla como un servicio web.
 
-Una parte de este servicio recibe el nombre de **[Galería de Azure AI](https://gallery.azure.ai/)**. Contiene recursos, incluida una colección de experimentos o modelos de Azure Machine Learning Studio, que los usuarios han compilado y con los que han ayudado para que los usen otros usuarios. Estos experimentos son una excelente manera de aprovechar las ideas y el duro trabajo de otras personas para empezar a crear sus propias soluciones. Todo el mundo puede consultarla.
+Una parte de este servicio recibe el nombre de **[Galería de Azure AI](https://gallery.azure.ai/)** . Contiene recursos, incluida una colección de experimentos o modelos de Azure Machine Learning Studio, que los usuarios han compilado y con los que han ayudado para que los usen otros usuarios. Estos experimentos son una excelente manera de aprovechar las ideas y el duro trabajo de otras personas para empezar a crear sus propias soluciones. Todo el mundo puede consultarla.
 
 ![Galería de Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Si hace clic en **Experiments** (Experimentos) en la parte superior, verá los experimentos más recientes y populares de la galería. Puede buscar consultar los demás experimentos haciendo clic en **Browse All** (Examinar todo) en la parte superior de la pantalla, ahí puede escribir términos de búsqueda y elegir filtros de búsqueda.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Localización y uso de un ejemplo de algoritmo de clústeres
-Por ejemplo, supongamos que desea ver un ejemplo de cómo funcionan los clústeres, por lo que busca experimentos de **"clustering sweep"**.
+Por ejemplo, supongamos que desea ver un ejemplo de cómo funcionan los clústeres, por lo que busca experimentos de **"clustering sweep"** .
 
 ![Búsqueda de experimentos de clústeres](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

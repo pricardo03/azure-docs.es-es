@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331933"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de cliente de Elastic Database con Entity Framework
@@ -45,8 +45,8 @@ Cuando haya creado estas bases de datos, rellene los marcadores de posición en 
 
 Los desarrolladores de Entity Framework se basan en uno de los cuatro flujos de trabajo siguientes para compilar aplicaciones y garantizar la persistencia de los objetos de la aplicación:
 
-* **Code First (nueva base de datos)**: el desarrollador de EF crea el modelo en el código de aplicación y luego EF genera la base de datos a partir de él. 
-* **Code First (base de datos existente)**: el desarrollador permite que EF genere el código de aplicación para el modelo de una base de datos existente.
+* **Code First (nueva base de datos)** : el desarrollador de EF crea el modelo en el código de aplicación y luego EF genera la base de datos a partir de él. 
+* **Code First (base de datos existente)** : el desarrollador permite que EF genere el código de aplicación para el modelo de una base de datos existente.
 * **Model First**: el desarrollador crea el modelo en el diseñador de EF y luego EF crea la base de datos a partir del modelo.
 * **Database First**: el desarrollador usa las herramientas de EF para deducir el modelo a partir de una base de datos existente. 
 

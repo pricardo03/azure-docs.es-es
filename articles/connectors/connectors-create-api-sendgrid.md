@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 7eecd3908883b195b52755d03e70872afe9180bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105741"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envío de correos electrónicos y administración de listas de distribución de correo electrónico en SendGrid con Azure Logic Apps
@@ -56,7 +56,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
      O bien
 
    * Entre los pasos en los que desee agregar una acción, mueva el puntero sobre la flecha. 
-   Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+   Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
 
 1. En el cuadro de búsqueda, escriba "sendgrid" como filtro. En la lista de acciones, seleccione la que desee.
 

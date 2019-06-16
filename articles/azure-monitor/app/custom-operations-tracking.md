@@ -13,10 +13,10 @@ ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900896"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
@@ -229,8 +229,8 @@ Como las colas de Storage admiten la API de HTTP, Application Insights realiza e
 
 En este ejemplo se muestra cómo realizar un seguimiento de la operación `Enqueue`. Puede:
 
- - **Poner en correlación los reintentos (si existen)**: todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
- - **Poner en correlación los registros de almacenamiento (si es necesario y cuando sea necesario)**: se correlacionan con la telemetría de Application Insights.
+ - **Poner en correlación los reintentos (si existen)** : todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
+ - **Poner en correlación los registros de almacenamiento (si es necesario y cuando sea necesario)** : se correlacionan con la telemetría de Application Insights.
 
 La operación `Enqueue` es el elemento secundario de una operación principal (por ejemplo, una solicitud HTTP de entrada). La llamada de dependencia HTTP es el elemento secundario de la operación `Enqueue` y el descendiente de la solicitud de entrada:
 

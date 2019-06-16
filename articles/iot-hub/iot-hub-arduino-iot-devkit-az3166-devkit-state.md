@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61369862"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -106,7 +106,7 @@ Con MXChip IoT DevKit conectado al equipo:
 ![Procedimiento de prueba de ejemplo](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Los datos sin procesar del dispositivo gemelo se pueden ver en Azure Portal: IoT Hub -\> Dispositivos IoT -\> *\<su dispositivo\>* -\> Device Twin.
+> Los datos sin procesar del dispositivo gemelo se pueden ver en Azure Portal: IoT Hub -\> Dispositivos IoT -\> *\<su dispositivo\>*  -\> Device Twin.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

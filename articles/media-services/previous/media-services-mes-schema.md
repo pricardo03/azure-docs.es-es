@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131582"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema de Media Encoder Standard
@@ -38,7 +38,7 @@ Define un valor preestablecido de codificación.
 
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Versión**<br/><br/> Obligatorio |**xs: decimal** |La versión del valor preestablecido. Se aplican las restricciones siguientes: xs:fractionDigits value="1" y xs:minInclusive value="1". Por ejemplo, **version="1.0"**. |
+| **Versión**<br/><br/> Obligatorio |**xs: decimal** |La versión del valor preestablecido. Se aplican las restricciones siguientes: xs:fractionDigits value="1" y xs:minInclusive value="1". Por ejemplo, **version="1.0"** . |
 
 ## <a name="Encoding"></a> Encoding
 Contiene una secuencia de los elementos siguientes:  
@@ -143,9 +143,9 @@ Para detalles sobre qué valores son válidos para cada perfil, consulte la tabl
 
 Códec de audio|Detalles  
 -----------------|---  
-**AACLC** |1:<br/><br/> - 11025: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 12000: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 16000: 8 &lt;= velocidad de bits &lt;32<br/><br/>- 22050: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 24000: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 32000: 32 &lt;= velocidad de bits &lt;= 192<br/><br/> - 44100: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 48000: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 88200: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> - 96000 : 128 &lt;= velocidad de bits &lt;= 288<br/><br/> 2.<br/><br/> - 11025: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 12000: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 16000: 16 &lt;= velocidad de bits &lt; 40<br/><br/> - 22050: 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 24000 : 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 32000:  40 &lt;= velocidad de bits &lt;= 384<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= velocidad de bits &lt;= 896<br/><br/> - 44100: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 44100: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 896 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 896 &lt;= velocidad de bits &lt;= 1024  
-**HEAACV1** |1:<br/><br/> - 22050: velocidad de bits = 8<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: velocidad de bits = 64<br/><br/> 2.<br/><br/> - 32000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 88200: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> - 96000: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= velocidad de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= velocidad de bits &lt;= 448  
-**HEAACV2** |2.<br/><br/> - 22050: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= velocidad de bits &lt;= 64  
+**AACLC** |1:<br/><br/> - 11025: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 12000: 8 &lt;= velocidad de bits &lt; 16<br/><br/> - 16000: 8 &lt;= velocidad de bits &lt;32<br/><br/>- 22050: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 24000: 24 &lt;= velocidad de bits &lt; 32<br/><br/> - 32000: 32 &lt;= velocidad de bits &lt;= 192<br/><br/> - 44100: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 48000: 56 &lt;= velocidad de bits &lt;= 288<br/><br/> - 88200: 128 &lt;= velocidad de bits &lt;= 288<br/><br/> - 96000 : 128 &lt;= velocidad de bits &lt;= 288<br/><br/> 2\.<br/><br/> - 11025: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 12000: 16 &lt;= velocidad de bits &lt; 24<br/><br/> - 16000: 16 &lt;= velocidad de bits &lt; 40<br/><br/> - 22050: 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 24000 : 32 &lt;= velocidad de bits &lt; 40<br/><br/> - 32000:  40 &lt;= velocidad de bits &lt;= 384<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 576<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= velocidad de bits &lt;= 896<br/><br/> - 44100: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 240 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 640 &lt;= velocidad de bits &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 44100: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 48000: 384 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 88200: 896 &lt;= velocidad de bits &lt;= 1024<br/><br/> - 96000: 896 &lt;= velocidad de bits &lt;= 1024  
+**HEAACV1** |1:<br/><br/> - 22050: velocidad de bits = 8<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: velocidad de bits = 64<br/><br/> 2\.<br/><br/> - 32000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= velocidad de bits &lt;= 128<br/><br/> - 88200: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> - 96000: 96 &lt;= velocidad de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= velocidad de bits &lt;= 320<br/><br/> - 88200: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= velocidad de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 44100: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= velocidad de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= velocidad de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= velocidad de bits &lt;= 448  
+**HEAACV2** |2\.<br/><br/> - 22050: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= velocidad de bits &lt;= 64  
   
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Atributos
@@ -160,7 +160,7 @@ Códec de audio|Detalles
 
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **FileName** |**xs:string** |Nombre del archivo de salida.<br/><br/> Puede usar macros, descritas en la tabla siguiente, para generar los nombres de archivo de salida. Por ejemplo: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |Nombre del archivo de salida.<br/><br/> Puede usar macros, descritas en la tabla siguiente, para generar los nombres de archivo de salida. Por ejemplo:<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
 

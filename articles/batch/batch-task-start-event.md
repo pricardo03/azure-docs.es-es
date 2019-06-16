@@ -2,7 +2,7 @@
 title: Evento de inicio de tarea de Azure Batch | Microsoft Docs
 description: Referencia del evento de inicio de tarea de Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
-ms.date: 05/15/2018
-ms.author: v-junlch
+ms.date: 04/20/2017
+ms.author: lahugh
 ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549876"
 ---
 # <a name="task-start-event"></a>Evento de inicio de tarea
@@ -51,9 +50,9 @@ ms.locfileid: "60549876"
 
 |Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
-|jobId|String|Identificador del trabajo que contiene la tarea.|
-|id|String|Identificador de la tarea.|
-|taskType|String|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es.|
+|jobId|Cadena|Identificador del trabajo que contiene la tarea.|
+|id|Cadena|Identificador de la tarea.|
+|taskType|Cadena|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es.|
 |systemTaskVersion|Int32|Se trata del contador interno de reintentos de una tarea. De manera interna, el servicio de Batch puede reintentar una tarea para tener en cuenta los problemas transitorios. Estos problemas pueden incluir errores internos de programación o intentos de recuperación a partir de nodos de proceso en estado no válido.|
 |[nodeInfo](#nodeInfo)|Tipo complejo|Contiene información sobre el nodo de ejecución en que se ejecutó la tarea.|
 |[multiInstanceSettings](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Consulte [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para detalles.|
@@ -64,8 +63,8 @@ ms.locfileid: "60549876"
 
 |Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
-|poolId|String|Identificador del grupo en que se ejecutó la tarea.|
-|nodeId|String|Identificador del nodo en que se ejecutó la tarea.|
+|poolId|Cadena|Identificador del grupo en que se ejecutó la tarea.|
+|nodeId|Cadena|Identificador del nodo en que se ejecutó la tarea.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
@@ -84,5 +83,3 @@ ms.locfileid: "60549876"
 |Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
 |retryCount|Int32|Cantidad de veces que el servicio de Batch reintentó la tarea. La tarea se reintenta si el código de salida es distinto de cero, hasta el valor MaxTaskRetryCount especificado|
-
-<!-- Update_Description: update metedata properties -->

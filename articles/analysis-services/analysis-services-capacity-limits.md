@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023564"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Límites de recursos y objetos de Azure Analysis Services
@@ -58,14 +58,14 @@ Este nivel es para aplicaciones de producción críticas que requieren concurren
 
 Estos límites son teóricos. El rendimiento se verá reducido con números más bajos.
 
-|Object|Tamaños/números máximos|  
+|Objeto|Tamaños/números máximos|  
 |------------|----------------------------|  
 |Bases de datos en una instancia|16 000|  
 |Número combinado de tablas y columnas en una base de datos|16 000|  
 |Filas en una tabla|Ilimitado<br /><br /> **Advertencia:** con la restricción de que ninguna columna de la tabla puede tener más de 1 999 999 997 valores distintos.|  
 |Jerarquías en una tabla|15 999|  
 |Niveles en una jerarquía|15 999|  
-|Relaciones|8.000|  
+|Relaciones|8\.000|  
 |Columnas de clave en toda la tabla|15 999|  
 |Medidas en las tablas|2^31-1 = 2 147 483 647|  
 |Celdas devueltas por una consulta|2^31-1 = 2 147 483 647|  

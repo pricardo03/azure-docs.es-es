@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60694355"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (vista previa)
@@ -55,7 +55,7 @@ La credencial utiliza la consulta elástica para conectarse a las bases de datos
     [;]
 
 > [!NOTE]
-> Asegúrese de que *"\<username\>"* no incluya ningún sufijo *"\@servername"*.
+> Asegúrese de que *"\<username\>"* no incluya ningún sufijo *"\@servername"* .
 
 ## <a name="12-create-external-data-sources"></a>1.2 Creación de orígenes de datos externos
 
@@ -143,7 +143,7 @@ Las cláusulas SCHEMA\_NAME y OBJECT\_NAME asignan la definición de tabla exter
 
 La cláusula DISTRIBUTION especifica la distribución de datos que se usa en esta tabla. El procesador de consultas usa la información proporcionada en la cláusula DISTRIBUTION para crear los planes de consulta más eficaces.
 
-1. **SHARDED** significa que los datos se han particionado horizontalmente en la base de datos. La clave de creación de particiones para la distribución de datos es el parámetro **<sharding_column_name>**.
+1. **SHARDED** significa que los datos se han particionado horizontalmente en la base de datos. La clave de creación de particiones para la distribución de datos es el parámetro **<sharding_column_name>** .
 2. **REPLICATED** significa que copias idénticas de la tabla están presentes en cada base de datos. Es responsabilidad suya asegurarse de que las réplicas son idénticas en las bases de datos.
 3. **ROUND\_ROBIN** significa que la tabla tiene particiones horizontales mediante un método de distribución que depende de la aplicación.
 

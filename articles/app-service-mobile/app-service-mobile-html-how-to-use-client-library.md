@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106751"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de JavaScript para Azure Mobile Apps
@@ -40,7 +40,7 @@ Se puede instalar el SDK de JavaScript para Azure Mobile Apps con el comando `np
 npm install azure-mobile-apps-client --save
 ```
 
-La biblioteca también puede utilizarse como un módulo ES2015, en entornos de CommonJS, como Browserify y Webpack, y como una biblioteca AMD.  Por ejemplo: 
+La biblioteca también puede utilizarse como un módulo ES2015, en entornos de CommonJS, como Browserify y Webpack, y como una biblioteca AMD.  Por ejemplo:
 
 ```javascript
 // For ECMAScript 5.1 CommonJS

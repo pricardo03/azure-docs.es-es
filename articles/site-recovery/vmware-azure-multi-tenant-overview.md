@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718128"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Introducción a la compatibilidad multiinquilino con la recuperación ante desastres de máquinas virtuales de VMware en Azure (CSP)
@@ -24,11 +24,11 @@ Este artículo es una introducción a la implementación y la administración de
 
 Existen tres modelos principales multiinquilino:
 
-* **Proveedor de servicios de hospedaje compartido (HSP)**: el asociado posee la infraestructura física y usa los recursos compartidos (vCenter, centros de datos, almacenamiento físico, etc.) para hospedar máquinas virtuales multiinquilino en la misma infraestructura. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede ser propietario de la recuperación ante desastres como solución de autoservicio.
+* **Proveedor de servicios de hospedaje compartido (HSP)** : el asociado posee la infraestructura física y usa los recursos compartidos (vCenter, centros de datos, almacenamiento físico, etc.) para hospedar máquinas virtuales multiinquilino en la misma infraestructura. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede ser propietario de la recuperación ante desastres como solución de autoservicio.
 
 * **Proveedor de servicios de hospedaje dedicado**: el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede poseerla como solución de autoservicio.
 
-* **Proveedor de servicios administrados (MSP)**: aquí el cliente posee la infraestructura física que hospeda las máquinas virtuales y el asociado proporciona la habilitación y la administración de la recuperación ante desastres.
+* **Proveedor de servicios administrados (MSP)** : aquí el cliente posee la infraestructura física que hospeda las máquinas virtuales y el asociado proporciona la habilitación y la administración de la recuperación ante desastres.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Proveedor de servicios de hospedaje compartido (HSP)
 
@@ -89,7 +89,7 @@ Configure el servidor de configuración con una cuenta que tenga asignado un rol
 
 3. Asigne niveles de acceso a la cuenta de vCenter (usada en el servidor de configuración del inquilino) para distintos objetos, de la manera siguiente:
 
->| Object | Rol | Comentarios |
+>| Objeto | Rol | Comentarios |
 >| --- | --- | --- |
 >| vCenter | Solo lectura | Solo es necesario para permitir el acceso a vCenter y administrar diferentes objetos. Este permiso se puede quitar si la cuenta nunca se va a proporcionar a un inquilino ni se va a usar para las operaciones de administración en vCenter. |
 >| Centro de datos | Azure_Site_Recovery |  |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
 ms.openlocfilehash: 8a7b19dd6e5bc08c0c7e278b514ecaa9dc13a00e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254496"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script de PowerShell para crear un recurso de Application Insights
@@ -110,7 +110,7 @@ Hay dos maneras de hacer que el valor iKey esté disponible para el SDK:
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Crear Application Insights y recursos de pruebas web a partir de plantillas](powershell.md)
 * [Configurar la supervisión de diagnósticos de Azure con PowerShell](powershell-azure-diagnostics.md) 
 * [Establecimiento de alertas mediante PowerShell](powershell-alerts.md)

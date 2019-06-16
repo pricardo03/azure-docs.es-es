@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647272"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
@@ -67,7 +67,7 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
     Después de seleccionar esta opción, se ejecutará una comprobación de coherencia de copia de seguridad en el servidor DPM para evitar el tráfico de E/S que se genera al ejecutar el comando **eseutil** en el servidor Exchange.
 
    > [!NOTE]
-   > Para usar esta opción, debe copiar los archivos Ese.dll y Eseutil.exe en el directorio C:\Archivos de programa\Microsoft System Center 2012 R2\DPM\DPM\bin del servidor DPM. De lo contrario, se desencadena el siguiente error:   
+   > Para usar esta opción, debe copiar los archivos Ese.dll y Eseutil.exe en el directorio C:\Archivos de programa\Microsoft System Center 2012 R2\DPM\DPM\bin del servidor DPM. De lo contrario, se desencadena el siguiente error:  
    > ![Error de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -82,10 +82,10 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
 11. Revise el espacio en disco disponible y haga clic en **Siguiente**.
 12. Seleccione la hora a la que el servidor DPM creará la replicación inicial y haga clic en **Siguiente**.
 13. Seleccione las opciones de comprobación de coherencia y haga clic en **Siguiente**.
-14. Elija la base de datos de la que desea realizar una copia de seguridad en Azure y haga clic en **Siguiente**. Por ejemplo: 
+14. Elija la base de datos de la que desea realizar una copia de seguridad en Azure y haga clic en **Siguiente**. Por ejemplo:
 
     ![Especificar datos de protección en línea](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Defina la programación de **Azure Backup** y luego haga clic en **Siguiente**. Por ejemplo: 
+15. Defina la programación de **Azure Backup** y luego haga clic en **Siguiente**. Por ejemplo:
 
     ![Especificar programación de copia de seguridad en línea](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

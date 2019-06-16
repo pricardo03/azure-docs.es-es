@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 974f0af461ecdc7de820191950b010035d02a601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598300"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicación de contenido de Azure Media Services con REST 
@@ -193,7 +193,7 @@ ejemplo:
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Información general sobre la API de REST de operaciones de Azure Media Services](media-services-rest-how-to-use.md)
 
 [Configuración de directivas de entrega de activos](media-services-rest-configure-asset-delivery-policy.md)

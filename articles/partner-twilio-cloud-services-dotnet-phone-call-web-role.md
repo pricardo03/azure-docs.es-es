@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
 ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422821"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Realización de una llamada telefónica con Twilio en un rol web en Azure
@@ -151,7 +151,7 @@ Se realiza la llamada y se muestran el extremo de Twilio, la versión de la API 
 Encontrará más información acerca de TwiML en [https://www.twilio.com/docs/api/twiml][twiml]. Encontrará más información sobre &lt;Say&gt; y otros verbos de Twilio en [https://www.twilio.com/docs/api/twiml/say][twilio_say].
 
 ## <a id="nextsteps"></a>Pasos siguientes
-Este código se proporciona para mostrar la funcionalidad básica del uso de Twilio en un rol web de ASP.NET en Azure. Antes de implementarlo en Azure en producción, es posible que desee agregar más controles de errores u otras características. Por ejemplo: 
+Este código se proporciona para mostrar la funcionalidad básica del uso de Twilio en un rol web de ASP.NET en Azure. Antes de implementarlo en Azure en producción, es posible que desee agregar más controles de errores u otras características. Por ejemplo:
 
 * En lugar de usar un formulario web, puede usar Azure Blob Storage o una base de datos de Azure SQL para almacenar los números de teléfono y el texto de llamada. Para más información sobre cómo usar blobs en Azure, vea [Introducción al servicio Azure Blob Storage en .NET][howto_blob_storage_dotnet]. Para más información sobre cómo usar SQL Database, vea [Azure SQL Database: uso de .NET (C#) para conectar y consultar datos][howto_sql_azure_dotnet].
 * Puede usar `RoleEnvironment.getConfigurationSettings` para recuperar el identificador de la cuenta de Twilio y el token de autenticación desde los ajustes de configuración de su implementación, en vez de codificar de forma rígida los valores en el formulario. Para más información sobre la clase `RoleEnvironment`, vea el tema sobre el [espacio de nombres Microsoft.WindowsAzure.ServiceRuntime][azure_runtime_ref_dotnet].

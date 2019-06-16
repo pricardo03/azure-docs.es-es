@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515050"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Autenticación en Speech API
@@ -35,7 +35,7 @@ Para un uso a largo plazo o una cuota mayor, suscríbase para obtener una [cuent
 
 Para usar Speech API REST, debe pasar la clave de suscripción en el campo `Ocp-Apim-Subscription-Key` del encabezado de la solicitud.
 
-Name| Formato| DESCRIPCIÓN
+NOMBRE| Formato| DESCRIPCIÓN
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

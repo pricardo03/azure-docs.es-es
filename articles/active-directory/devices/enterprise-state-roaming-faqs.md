@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296323"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Preguntas más frecuentes sobre itinerancia de datos y configuración
@@ -76,7 +76,7 @@ En la versión de noviembre de 2015 o posterior de Windows 10, Enterprise State 
 Cuando varias cuentas de Azure AD de distintos inquilinos de Azure AD se encuentran en el mismo dispositivo, debe actualizar el registro del dispositivo para comunicarse con el servicio Azure Rights Management para cada inquilino de Azure AD.  
 
 1. Busque el GUID para cada inquilino de Azure AD. Abra Azure Portal y seleccione un inquilino de Azure AD. El GUID del inquilino está en la página Propiedades del inquilino seleccionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), con la etiqueta del **Identificador de directorio**. 
-2. Una vez que se tenga el GUID, será preciso agregar la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<GUID del identificador de inquilino>**.
+2. Una vez que se tenga el GUID, será preciso agregar la clave del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<GUID del identificador de inquilino>** .
    En la clave del **GUID del identificador de inquilino**, cree un nuevo valor de cadena múltiple (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para sus datos, especifique las direcciones URL del punto de distribución licencias de los otros inquilinos de Azure a los que accede el dispositivo.
 3. Puede encontrar las direcciones URL de los puntos de distribución de licencias ejecutando el cmdlet **Get-AadrmConfiguration** desde el módulo AADRM. Si los valores de **LicensingIntranetDistributionPointUrl** y **LicenseingExtranetDistributionPointUrl** son diferentes, especifique ambos. Si los valores son iguales, especifique solo un valor.
 

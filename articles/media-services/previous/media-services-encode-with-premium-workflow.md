@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463924"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
@@ -62,8 +62,8 @@ Hay que seguir estos pasos:
     En la mayoría de los casos, la cadena de configuración de la tarea está vacía (como en el ejemplo siguiente). Hay algunos escenarios avanzados (que requieren que establezca propiedades de tiempo de ejecución dinámicamente) en los que debería proporcionar una cadena XML para la tarea de codificación. Ejemplos de estos escenarios son la creación de una superposición, la unión paralela o secuencial multimedia y el subtitulado.
 5. Agregar dos recursos de entrada a la tarea.
 
-   1. 1.º: el recurso de flujo de trabajo.
-   2. 2.º: el recurso de vídeo.
+   1. 1\.º: el recurso de flujo de trabajo.
+   2. 2\.º: el recurso de vídeo.
 
       >[!NOTE]
       >El recurso de flujo de trabajo debe agregarse a la tarea antes que el recurso multimedia.

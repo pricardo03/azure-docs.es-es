@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587651"
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
@@ -229,7 +229,7 @@ Azure Marketplace combina los ecosistemas de asociados de Microsoft Azure en una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Proteger Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)
+- [Protección de las bases de datos de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)
 - [Servicios Azure Security Center y Azure SQL Database](https://docs.microsoft.com/azure/security-center/security-center-sql-database)
 - [Detectar amenazas de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
 - [Mejorar el rendimiento de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial)

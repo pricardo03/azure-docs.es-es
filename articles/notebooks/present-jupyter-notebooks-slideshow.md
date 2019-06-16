@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237377"
 ---
 # <a name="run-a-notebook-slideshow"></a>Ejecutar una presentación de un cuaderno
@@ -42,7 +42,7 @@ La preparación de un cuaderno para una presentación implica dos actividades pr
 
 Si coge un cuaderno aleatorio y lo usa para una presentación, verá que todas las celdas están mezcladas y gran parte del contenido se oculta en la parte inferior de la ventana del explorador. Para realizar una presentación eficaz, deberá asignar un tipo de presentación a cada celda con la barra de herramientas para celdas de la presentación:
 
-1. En el menú **Vista**, seleccione **Cell Toolbar (Barra de herramientas de celda)** > **Presentación**:
+1. En el menú **Vista**, seleccione **Cell Toolbar (Barra de herramientas de celda)**  > **Presentación**:
 
     ![Activación de la barra de herramientas de presentación de celdas](media/slideshow/slideshow-view-cell-toolbar.png)
 

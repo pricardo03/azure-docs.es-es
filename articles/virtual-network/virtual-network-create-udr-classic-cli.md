@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743928"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante la CLI de Azure
@@ -72,8 +72,8 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
    
     Parámetros:
    
-   * **-l (or --location)**. Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
-   * **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
+   * **-l (or --location)** . Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
+   * **-n (o --name)** . Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
 3. Ejecute el siguiente comando para crear una ruta en la tabla de rutas para enviar todo el tráfico destinado a la subred back-end (192.168.2.0/24) a la máquina virtual **FW1** (192.168.0.4):
 
     ```azurecli
@@ -89,9 +89,9 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
    
     Parámetros:
    
-   * **-r (o --route-table-name)**. Nombre de la tabla de rutas a la que se agregará la ruta. En este escenario, *UDR-FrontEnd*.
-   * **-a (o --address-prefix)**. Prefijo de dirección de la subred a la que se destinan los paquetes. En este escenario, *192.168.2.0/24*.
-   * **-t (o --next-hop-type)**. Tipo de objeto al que se enviará el tráfico. Los valores posibles son *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*.
+   * **-r (o --route-table-name)** . Nombre de la tabla de rutas a la que se agregará la ruta. En este escenario, *UDR-FrontEnd*.
+   * **-a (o --address-prefix)** . Prefijo de dirección de la subred a la que se destinan los paquetes. En este escenario, *192.168.2.0/24*.
+   * **-t (o --next-hop-type)** . Tipo de objeto al que se enviará el tráfico. Los valores posibles son *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* o *None*.
    * **-p (o --next-hop-ip-address**). Dirección IP para el próximo salto. En este escenario, *192.168.0.4*.
 4. Ejecute el siguiente comando para asociar la tabla de rutas que se ha creado a la subred **FrontEnd**:
 
@@ -114,7 +114,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
    
     Parámetros:
    
-   * **-t (o --vnet-name)**. Nombre de la red virtual donde se encuentra la subred. En este escenario, *TestVNet*.
+   * **-t (o --vnet-name)** . Nombre de la red virtual donde se encuentra la subred. En este escenario, *TestVNet*.
    * **-n (o --subnet-name**. Nombre de la subred a la que se agregará la tabla de rutas. En este escenario, *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Creación de la ruta definida por el usuario para la subred back-end

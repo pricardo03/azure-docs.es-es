@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60410128"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover datos al clúster de vFXT: ingesta paralela de datos 
@@ -272,7 +272,7 @@ Para usar msrsync para rellenar un volumen en la nube de Azure con un clúster d
 1. Instale msrsync y sus requisitos previos (rsync y Python 2.6 o posterior).
 1. Determine el número total de archivos y directorios que se copiarán.
 
-   Por ejemplo, use la utilidad de Avere ``prime.py`` con los argumentos ```prime.py --directory /path/to/some/directory``` (disponible si descarga la dirección URL https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py)).
+   Por ejemplo, use la utilidad de Avere ``prime.py`` con los argumentos ```prime.py --directory /path/to/some/directory``` (disponible si descarga la dirección URL https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py) ).
 
    Si no usa ``prime.py``, puede calcular el número de elementos con la herramienta de Gnu ``find``, tal como se muestra a continuación:
 

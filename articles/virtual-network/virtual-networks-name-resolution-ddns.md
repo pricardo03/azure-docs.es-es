@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640385"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Uso de DNS dinámico para registrar nombres de host en su propio servidor DNS
@@ -35,7 +35,7 @@ Los clientes Windows unidos a dominio registran sus direcciones IP con el contro
 ## <a name="linux-clients"></a>Clientes Linux
 Por lo general, los clientes Linux no se registran con el servidor DNS al iniciarse, dado que asumen que esto lo hace el servidor DHCP. Los servidores DHCP de Azure no tienen las credenciales para realizar registros en el servidor DNS. Puede usar una herramienta denominada `nsupdate`, que se incluye en el paquete Bind, para enviar las actualizaciones de DDNS. Dado que el protocolo DDNS está estandarizado, puede usar `nsupdate` aunque no use Bind en el servidor DNS.
 
-Puede usar los enlaces que proporciona el cliente DHCP para crear y mantener la entrada del nombre de host en el servidor DNS. Durante el ciclo de DHCP, el cliente ejecuta los scripts que aparecen en */etc/dhcp/dhclient-exit-hooks.d/*. Puede usar los enlaces para registrar la nueva dirección IP mediante `nsupdate`. Por ejemplo: 
+Puede usar los enlaces que proporciona el cliente DHCP para crear y mantener la entrada del nombre de host en el servidor DNS. Durante el ciclo de DHCP, el cliente ejecuta los scripts que aparecen en */etc/dhcp/dhclient-exit-hooks.d/* . Puede usar los enlaces para registrar la nueva dirección IP mediante `nsupdate`. Por ejemplo:
 
 ```bash
 #!/bin/sh

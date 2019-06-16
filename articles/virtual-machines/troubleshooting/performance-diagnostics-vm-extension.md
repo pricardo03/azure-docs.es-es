@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307939"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
@@ -113,7 +113,7 @@ Siga estas instrucciones para instalar la extensión en máquinas virtuales Wind
 Para quitar la extensión desde una máquina virtual, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com), seleccione la máquina virtual de la que quiere quitar esta extensión y, luego, seleccione la hoja **Extensiones**. 
-2. Seleccione (**…**) en la entrada de la lista de la extensión de diagnósticos de rendimiento y seleccione **Desinstalar**.
+2. Seleccione ( **…** ) en la entrada de la lista de la extensión de diagnósticos de rendimiento y seleccione **Desinstalar**.
 
     ![Captura de pantalla de la hoja Extensiones, donde se resalta Desinstalar](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +234,7 @@ La herramienta PerfInsights recopila distintos registros, configuraciones y dato
 
 ## <a name="view-and-share-the-results"></a>Visualización y uso compartido de resultados
 
-Puede encontrar la salida de la extensión en un archivo ZIP que se cargó en la cuenta de almacenamiento especificada durante la instalación y que se comparte durante 30 días mediante el uso de [Firmas de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este archivo ZIP contiene registros de diagnóstico y un informe con conclusiones y recomendaciones. Puede encontrar un vínculo SAS al archivo ZIP de salida dentro de un archivo de texto denominado *zipfilename*_saslink.txt en la carpeta **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versión>**. Cualquier persona que tenga este vínculo puede descargar el archivo ZIP.
+Puede encontrar la salida de la extensión en un archivo ZIP que se cargó en la cuenta de almacenamiento especificada durante la instalación y que se comparte durante 30 días mediante el uso de [Firmas de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este archivo ZIP contiene registros de diagnóstico y un informe con conclusiones y recomendaciones. Puede encontrar un vínculo SAS al archivo ZIP de salida dentro de un archivo de texto denominado *zipfilename*_saslink.txt en la carpeta **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<versión>** . Cualquier persona que tenga este vínculo puede descargar el archivo ZIP.
 
 Para ayudar al ingeniero de soporte técnico a trabajar en su incidencia, Microsoft puede usar este vínculo SAS para descargar los datos de diagnóstico.
 
@@ -247,7 +247,7 @@ También puede descargar el archivo ZIP directamente del portal seleccionando la
 > [!NOTE]
 > Puede que el vínculo SAS que se muestra en el portal a veces no funcione. El motivo puede ser una dirección URL con un formato incorrecto durante las operaciones de codificación y decodificación. Si este es su caso, obtenga el vínculo directamente del archivo *_saslink.txt de la máquina virtual.
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 - El estado de implementación de la extensión (en el área de notificación) puede mostrar "Implementación en curso" a pesar de que se haya realizado un aprovisionamiento correcto de la extensión.
 

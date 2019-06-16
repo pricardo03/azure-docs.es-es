@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240424"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabajar con archivos de datos en proyectos de Azure Notebooks
@@ -62,11 +62,11 @@ Puede colocar archivos en un proyecto desde el panel del proyecto o en un cuader
 
 1. En la ventana emergente **Estado de la carga** que aparece, seleccione una **carpeta de destino** en la lista desplegable:
 
-    - Carpeta de la sesión (*~/* ): Cargue archivos en la sesión actual del cuaderno, pero no cree archivos en el proyecto. La carpeta de la sesión es un elemento del mismo nivel que la carpeta del proyecto, pero no se conserva cuando finaliza la sesión. Para obtener acceso a los archivos de la sesión en código, agregue un prefijo a los nombres de archivo con la ruta de acceso relativa *../*.
+    - Carpeta de la sesión ( *~/* ): Cargue archivos en la sesión actual del cuaderno, pero no cree archivos en el proyecto. La carpeta de la sesión es un elemento del mismo nivel que la carpeta del proyecto, pero no se conserva cuando finaliza la sesión. Para obtener acceso a los archivos de la sesión en código, agregue un prefijo a los nombres de archivo con la ruta de acceso relativa *../* .
 
         El uso de la carpeta de la sesión es útil para la experimentación y evita saturar el proyecto con archivos que puede que no necesite a largo plazo. También puede cargar archivos en la carpeta de la sesión con nombres idénticos a los archivos del proyecto sin causar conflictos ni tener que cambiarles el nombre. Por ejemplo, supongamos que tiene una versión de *data.csv* en el proyecto, pero quiere experimentar con una versión diferente de *data.csv*. Al cargar el archivo en la carpeta de la sesión, puede ejecutar el cuaderno con datos del archivo cargado (que hagan referencia a él en el código mediante *../data.csv*) en lugar de los datos del archivo del proyecto.
 
-    - Carpeta del proyecto (*/project*): carga archivos en el proyecto, donde se puede obtener acceso a ellos mediante rutas de acceso relativas en código. Cargar un archivo en esta carpeta es lo mismo que cargar un archivo en el panel del proyecto. El archivo se guarda con el proyecto y está disponible en sesiones posteriores.
+    - Carpeta del proyecto ( */project*): carga archivos en el proyecto, donde se puede obtener acceso a ellos mediante rutas de acceso relativas en código. Cargar un archivo en esta carpeta es lo mismo que cargar un archivo en el panel del proyecto. El archivo se guarda con el proyecto y está disponible en sesiones posteriores.
 
         Si intenta cargar un archivo con el mismo nombre que uno que ya existe en el proyecto, se produce un error con la carga. Para sobrescribir un archivo, cargue el archivo nuevo desde el panel del proyecto en su lugar, lo que le ofrece la opción de sobrescribir.
 
@@ -90,7 +90,7 @@ La carpeta del proyecto es la carpeta predeterminada, por lo que al especificar 
 
 ### <a name="create-files-in-code"></a>Creación de archivos en código
 
-Al usar el código que crea un archivo, como la función `write_csv` de Pandas, las rutas de acceso son siempre relativas a la carpeta del proyecto. Al usar *../*, se crea un archivo de sesión que se descarta cuando se detiene y se cierra el cuaderno.
+Al usar el código que crea un archivo, como la función `write_csv` de Pandas, las rutas de acceso son siempre relativas a la carpeta del proyecto. Al usar *../* , se crea un archivo de sesión que se descarta cuando se detiene y se cierra el cuaderno.
 
 ## <a name="export-files"></a>Exportación de archivos
 
