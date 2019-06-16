@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128699"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager
@@ -49,7 +49,7 @@ Para obtener una matriz de valores de cadena delimitada por un valor, consulte [
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>matriz
+## <a name="array"></a>array
 `array(convertToArray)`
 
 Convierte el valor en una matriz.
@@ -137,7 +137,7 @@ Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las ma
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero, cadena, matriz u objeto |El primer valor para comprobar si hay valores nulos. |
-| argumentos adicionales |No |entero, cadena, matriz u objeto |Valores adicionales para probar si hay valores nulos. |
+| argumentos adicionales |Sin |entero, cadena, matriz u objeto |Valores adicionales para probar si hay valores nulos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -195,11 +195,11 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | default |
+| stringOutput | Cadena | default |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"first": "default"} |
+| objectOutput | Objeto | {"first": "default"} |
 | arrayOutput | Matriz | [1] |
-| emptyOutput | Bool | True  |
+| emptyOutput | Bool | True |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -225,7 +225,7 @@ Combina varias matrices y devuelve la matriz concatenada, o combina varios valor
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La primera matriz o cadena para la concatenación. |
-| argumentos adicionales |No |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
+| argumentos adicionales |Sin |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
 
 Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros.
 
@@ -313,7 +313,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Cadena | prefix-5yj4yjf5mbg72 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -329,7 +329,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="contains" />
 
-## <a name="contains"></a>contiene
+## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
 Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena. La comparación de cadena distingue mayúsculas de minúsculas. Pero, cuando se prueba si un objeto contiene una clave, la comparación no distingue mayúsculas de minúsculas.
@@ -402,11 +402,11 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringTrue | Booleano | True  |
+| stringTrue | Booleano | True |
 | stringFalse | Bool | False |
-| objectTrue | Bool | True  |
+| objectTrue | Bool | True |
 | objectFalse | Bool | False |
-| arrayTrue | Bool | True  |
+| arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -433,7 +433,7 @@ Crea una matriz a partir de los parámetros.
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
-| argumentos adicionales |No |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
+| argumentos adicionales |Sin |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -503,7 +503,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>Vacío
+## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
@@ -564,9 +564,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | True  |
-| objectEmpty | Bool | True  |
-| stringEmpty | Bool | True  |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -630,8 +630,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | Cadena | one |
+| stringOutput | Cadena | O |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -658,7 +658,7 @@ Devuelve una única matriz u objeto con los elementos comunes de los parámetros
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
+| argumentos adicionales |Sin |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -709,7 +709,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "three": "c"} |
+| objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Matriz | ["two", "three"] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -724,7 +724,7 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 `json(arg1)`
 
 Devuelve un objeto JSON.
@@ -781,9 +781,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| jsonOutput | Object | {"a": "b"} |
-| nullOutput | boolean | True  |
-| paramOutput | Object | {"a": "demo value"}
+| jsonOutput | Objeto | {"a": "b"} |
+| nullOutput | boolean | True |
+| paramOutput | Objeto | {"a": "demo value"}
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -847,8 +847,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | Cadena | three |
+| stringOutput | Cadena | e |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -947,7 +947,7 @@ Para más información sobre cómo usar esta función con una matriz, vea [Creac
 
 <a id="max" />
 
-## <a name="max"></a>máx
+## <a name="max"></a>max
 `max(arg1)`
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
@@ -1011,7 +1011,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min
+## <a name="min"></a>Min
 `min(arg1)`
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
@@ -1139,7 +1139,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>omitir
+## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
 
 Devuelve una matriz con todos los elementos después del número especificado de la matriz, o devuelve una cadena con todos los caracteres después del número especificado en la cadena.
@@ -1204,7 +1204,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Cadena | two three |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1285,7 +1285,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["one", "two"] |
-| stringOutput | String | en |
+| stringOutput | Cadena | en |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1312,7 +1312,7 @@ Devuelve una única matriz u objeto con todos los elementos de los parámetros. 
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
+| argumentos adicionales |Sin |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1363,7 +1363,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Matriz | ["one", "two", "three", "four"] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:

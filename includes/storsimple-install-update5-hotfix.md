@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171125"
 ---
 #### <a name="to-download-hotfixes"></a>Descargar revisiones
@@ -93,7 +93,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     > [!NOTE]
     > En ocasiones, el cmdlet notifica `False` cuando la actualización está todavía en curso. Para garantizar que la revisión está completada, espere unos minutos, vuelva a ejecutar este comando y compruebe que `RunInProgress` es `False`. Si es así, se habrá completado la revisión.
 
-7. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba: 
+7. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba:
    
     `Get-HcsSystem`
    
@@ -175,7 +175,7 @@ Para instalar las actualizaciones de firmware de disco, siga las instrucciones a
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Supervise el progreso de la instalación con el comando `Get-HcsUpdateStatus` . La actualización se habrá completado cuando `RunInProgress` cambie a `False`.
-4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión con la opción 1, **Iniciar sesión con acceso completo**, y compruebe la versión de firmware del disco. Escriba: 
+4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión con la opción 1, **Iniciar sesión con acceso completo**, y compruebe la versión de firmware del disco. Escriba:
    
    `Get-HcsFirmwareVersion`
    

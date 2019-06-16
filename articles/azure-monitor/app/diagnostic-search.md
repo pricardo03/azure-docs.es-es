@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900267"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
@@ -74,7 +74,7 @@ Los tipos de evento son:
 * **Vista de página** - [es la telemetría enviada por el cliente web](../../azure-monitor/app/javascript.md) , que se usa para crear informes de vistas de página. 
 * **Evento personalizado** - si ha insertado llamadas a TrackEvent() [para supervisar el uso](../../azure-monitor/app/api-custom-events-metrics.md) , puede buscarlas aquí.
 * **Excepción** - [excepciones no detectadas en el servidor](../../azure-monitor/app/asp-net-exceptions.md) y las que se registran mediante TrackException().
-* **Dependencia:** - [ llamadas desde su aplicación de servidor](../../azure-monitor/app/asp-net-dependencies.md) a otros servicios, como API de REST o bases de datos, y llamadas de AJAX desde su [código de cliente](../../azure-monitor/app/javascript.md).
+* **Dependencia:**  - [ llamadas desde su aplicación de servidor](../../azure-monitor/app/asp-net-dependencies.md) a otros servicios, como API de REST o bases de datos, y llamadas de AJAX desde su [código de cliente](../../azure-monitor/app/javascript.md).
 * **Disponibilidad**: resultados de [pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtro de los valores de propiedad

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411591"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Descarga del SDK de Azure para PHP
@@ -28,9 +28,9 @@ ms.locfileid: "65411591"
 El SDK de Azure para PHP incluye componentes que le permiten desarrollar, implementar y administrar aplicaciones PHP para Azure. Específicamente, el SDK de Azure para PHP incluye lo siguiente:
 
 * **Las bibliotecas de clientes PHP para Azure**. Estas bibliotecas de clases proporcionan una interfaz para tener acceso a características de Azure, como los servicios de administración de datos y los servicios en la nube.
-* **La interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLIC de Azure)**. Este es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Azure Websites y Azure Virtual Machines. La interfaz de la línea de comandos de Azure funciona en cualquier plataforma, incluidas las plataformas Mac, Linux y Windows.
-* **Azure PowerShell (solo Windows)**. Este es un conjunto de cmdlets de PowerShell para implementar y administrar servicios de Azure, como Cloud Services y Virtual Machines.
-* **Los emuladores de Azure (solo Windows)**. Los emuladores de proceso y almacenamiento son emuladores locales de los servicios en la nube y los servicios de administración de datos que le permiten probar localmente una aplicación. Los emuladores de Azure solo se ejecutan en Windows.
+* **La interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLIC de Azure)** . Este es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Azure Websites y Azure Virtual Machines. La interfaz de la línea de comandos de Azure funciona en cualquier plataforma, incluidas las plataformas Mac, Linux y Windows.
+* **Azure PowerShell (solo Windows)** . Este es un conjunto de cmdlets de PowerShell para implementar y administrar servicios de Azure, como Cloud Services y Virtual Machines.
+* **Los emuladores de Azure (solo Windows)** . Los emuladores de proceso y almacenamiento son emuladores locales de los servicios en la nube y los servicios de administración de datos que le permiten probar localmente una aplicación. Los emuladores de Azure solo se ejecutan en Windows.
 
 Las secciones que vienen a continuación describen cómo descargar e instalar los componentes descritos.
 

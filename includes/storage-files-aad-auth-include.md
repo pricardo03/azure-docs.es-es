@@ -9,10 +9,10 @@ ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 0cfa0fdb51969c92e767adfa86a0065d11da56e2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237740"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) admite la autenticación basada en identidades mediante SMB (Bloque de mensajes del servidor) (versión preliminar) mediante [Azure Active Directory (Azure AD) Domain Services](../articles/active-directory-domain-services/overview.md). Las máquinas virtuales (VM) Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md). 

@@ -13,10 +13,10 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 80d2e995a18a2d6dafbb8d92fdd5996b10eab17c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60783745"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch
@@ -144,7 +144,7 @@ Si el archivo de plantilla se denominara _pool-ffmpeg.json_, invoque la plantill
 az batch pool create --template pool-ffmpeg.json
 ```
 
-La CLI le solicita que proporcione valores para los parámetros `poolId` y `nodeCount`. También puede proporcionar los parámetros en un archivo JSON. Por ejemplo: 
+La CLI le solicita que proporcione valores para los parámetros `poolId` y `nodeCount`. También puede proporcionar los parámetros en un archivo JSON. Por ejemplo:
 
 ```json
 {

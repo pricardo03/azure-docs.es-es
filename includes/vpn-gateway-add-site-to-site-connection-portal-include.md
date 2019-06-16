@@ -9,10 +9,10 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170084"
 ---
 1. Vaya a la página de la puerta de enlace de la red virtual y ábrala. Hay varias formas de navegar. Puede ir hasta la puerta de enlace "VNet1GW" yendo a **TestVNet1 -> Introducción -> Dispositivos conectados -> VNet1GW**.
@@ -22,7 +22,7 @@ ms.locfileid: "66170084"
 3. En la página **Agregar conexión**, configure los valores de la conexión.
 
    - **Nombre:** asigne un nombre a la conexión.
-   - **Tipo de conexión**: seleccione **Sitio a sitio (IPSec)**.
+   - **Tipo de conexión**: seleccione **Sitio a sitio (IPSec)** .
    - **Puerta de enlace de red virtual:** el valor es fijo porque se conecta desde esta puerta de enlace.
    - **Puerta de enlace de red local:** haga clic en **Elegir una puerta de enlace de red local** y seleccione la puerta de enlace de red local que quiere utilizar.
    - **Clave compartida:** este valor debe ser el mismo que el que usa para el dispositivo VPN local. En el ejemplo se usa "abc123", pero puede (y debería) utilizar algo más complejo. Lo importante es que el valor que especifique aquí debe ser el mismo que el que se especificó al configurar el dispositivo VPN.

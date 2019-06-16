@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158522"
 ---
 Para poder usar la CLI de Azure con los comandos y plantillas de Resource Manager para implementar los recursos de Azure y las cargas de trabajo mediante grupos de recursos, necesitará una cuenta de Azure. Si no tiene una cuenta, puede obtener [aquí una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -33,9 +33,9 @@ Este artículo trata los comandos básicos que querrá usar con la CLI de Azure 
 | Task | Resource Manager |
 | --- | --- |
 | Creación de la máquina virtual más básica |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenga `image-urn` del comando `azure vm image list`. En [este artículo](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) encontrará algunos ejemplos.) |
-| Crear una VM Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
-| Crear una VM Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
-| Mostrar VM |`azure  vm list [options]` |
+| Creación de una máquina virtual Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
+| Creación de una máquina virtual Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
+| Enumeración de máquinas virtuales |`azure  vm list [options]` |
 | Obtención información acerca de una máquina virtual |`azure  vm show [options] <resource_group> <name>` |
 | Inicio de una máquina virtual |`azure vm start [options] <resource_group> <name>` |
 | Detención de una máquina virtual |`azure vm stop [options] <resource_group> <name>` |
