@@ -72,7 +72,7 @@ En el siguiente JSON, se muestra el esquema para la extensión de máquina virtu
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| Tipo | `LinuxChefClient`Linux, `ChefClient` (Windows) | string |
+| type | `LinuxChefClient`Linux, `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Configuración
