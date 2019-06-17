@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540661"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicaciones en v1.0
@@ -34,11 +34,11 @@ En el diagrama siguiente, se ilustran los escenarios y los tipos de aplicación,
 
 Estos son los cinco escenarios principales de aplicación que admite Azure AD:
 
-- **[Aplicación de página única (SPA)](single-page-application.md)**: un usuario tiene que iniciar sesión en una aplicación de página única protegida por Azure AD.
-- **[Explorador web a aplicación web](web-app.md)**: un usuario tiene que iniciar sesión en una aplicación web protegida por Azure AD.
-- **[Aplicación nativa a API web](native-app.md)**: una aplicación nativa que se ejecuta en teléfonos, tabletas o equipos tiene que autenticar a un usuario para obtener recursos de una API web protegida por Azure AD.
-- **[Aplicación web a API web](web-api.md)**: una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
-- **[Aplicación de servidor o de demonio a API web](service-to-service.md)**: una aplicación de demonio o de servidor sin interfaz de usuario web tiene que obtener recursos de una API web protegida por Azure AD.
+- **[Aplicación de página única (SPA)](single-page-application.md)** : un usuario tiene que iniciar sesión en una aplicación de página única protegida por Azure AD.
+- **[Explorador web a aplicación web](web-app.md)** : un usuario tiene que iniciar sesión en una aplicación web protegida por Azure AD.
+- **[Aplicación nativa a API web](native-app.md)** : una aplicación nativa que se ejecuta en teléfonos, tabletas o equipos tiene que autenticar a un usuario para obtener recursos de una API web protegida por Azure AD.
+- **[Aplicación web a API web](web-api.md)** : una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
+- **[Aplicación de servidor o de demonio a API web](service-to-service.md)** : una aplicación de demonio o de servidor sin interfaz de usuario web tiene que obtener recursos de una API web protegida por Azure AD.
 
 Siga los vínculos para obtener más información acerca de cada tipo de aplicación y entender los escenarios generales antes de empezar a trabajar con el código. También puede obtener información sobre las diferencias que necesita saber al escribir una aplicación específica que funcione con el punto de conexión v1.0 o v2.0.
 

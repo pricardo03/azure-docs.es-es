@@ -64,7 +64,9 @@ landingContent:
         links:
           - text: Configuración de una puerta de enlace transparente
             url: how-to-create-transparent-gateway.md
-          - text: Conexión de un dispositivo de bajada
+          - text: Autenticación de un dispositivo de bajada en Azure IoT Hub
+            url: how-to-authenticate-downstream-device.md
+          - text: Conexión de un dispositivo de bajada a una puerta de enlace
             url: how-to-connect-downstream-device.md
   - title: Preparación para escenarios de producción
     linkLists:

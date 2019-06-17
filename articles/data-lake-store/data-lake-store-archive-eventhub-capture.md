@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60879584"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Usar Azure Data Lake Storage Gen1 para capturar datos de Event Hubs
@@ -45,7 +45,7 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
 1. Asigne permisos en la raíz de Data Lake Storage Gen1. 
 
-     a. Haga clic en **Explorador de datos**, seleccione la raíz de la cuenta de Data Lake Storage Gen1 y después haga clic en **Acceso**.
+    a. Haga clic en **Explorador de datos**, seleccione la raíz de la cuenta de Data Lake Storage Gen1 y después haga clic en **Acceso**.
 
     ![Asignar permisos a la raíz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Asignar permisos a la raíz de Data Lake Storage Gen1")
 
@@ -66,7 +66,7 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
 1. Asigne permisos a la carpeta en la cuenta de Data Lake Storage Gen1 en que quiere capturar los datos.
 
-     a. Haga clic en **Explorador de datos**, seleccione la carpeta de la cuenta de Data Lake Storage Gen1 y después haga clic en **Acceso**.
+    a. Haga clic en **Explorador de datos**, seleccione la carpeta de la cuenta de Data Lake Storage Gen1 y después haga clic en **Acceso**.
 
     ![Asignar permisos a la carpeta de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Asignar permisos a la carpeta de Data Lake Storage Gen1")
 
@@ -94,7 +94,7 @@ En esta sección, creará un centro de eventos en un espacio de nombres de Event
 
     ![Crear centro de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Crear centro de eventos")
 
-     a. Especifique un nombre para el centro de eventos.
+    a. Especifique un nombre para el centro de eventos.
     
     b. Para este tutorial, establezca **Recuento de particiones** y **Retención de mensajes** en los valores predeterminados.
     
@@ -122,6 +122,6 @@ Ahora puede enviar datos a Azure Event Hubs para probar la solución. Siga las i
 Una vez que los datos están en Data Lake Storage Gen1, puede ejecutar trabajos analíticos para procesar y estudiar los datos. Vea [USQL Avro Example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) (Ejemplo de Avro de USQL) sobre cómo hacer esto con Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

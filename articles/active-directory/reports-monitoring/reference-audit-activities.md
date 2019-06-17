@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285487"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
@@ -288,7 +288,7 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Recurso|Establecimiento de propiedades de administración de derechos|
 |Recurso|Actualización de compañía|
 |Recurso|Actualización de configuración de compañía|
-|Recurso|  Actualizar dominio|
+|Recurso| Actualizar dominio|
 |Recurso|Comprobar dominio|
 |Recurso|Comprobar dominio verificado por correo electrónico|
 |Recurso|Incorporación|

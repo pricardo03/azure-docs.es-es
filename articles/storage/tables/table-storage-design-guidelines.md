@@ -2,18 +2,17 @@
 title: Directrices de diseño de tablas de Azure Storage | Microsoft Docs
 description: Diseñe su instancia de Azure Table service para que admita operaciones de lectura eficientes.
 services: storage
-author: WenJason
+author: SnehaGunda
 ms.service: storage
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 12/10/2018
-ms.author: v-jay
-ms.component: tables
+ms.date: 04/23/2018
+ms.author: sngun
+ms.subservice: tables
 ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269854"
 ---
 # <a name="guidelines-for-table-design"></a>Directrices para el diseño de tablas
@@ -22,18 +21,18 @@ Diseñar tablas para su uso con Table service de Azure Storage es muy diferente 
 
 ## <a name="design-your-table-service-solution-to-be-read-efficient"></a>Diseño de una solución de Table service para lecturas eficientes
 
-* ***Diseño para realizar consultas en aplicaciones con muchas lecturas.***  Al diseñar las tablas, piense en las consultas (especialmente las sensibles a la latencia) que ejecutará antes de pensar cómo actualizará las entidades. Normalmente esto produce una solución eficiente y de rendimiento.  
+* ***Diseño para realizar consultas en aplicaciones con muchas lecturas.*** Al diseñar las tablas, piense en las consultas (especialmente las sensibles a la latencia) que ejecutará antes de pensar cómo actualizará las entidades. Normalmente esto produce una solución eficiente y de rendimiento.  
 * ***Especificar tanto PartitionKey como RowKey en sus consultas.*** *consultas puntuales* como estas son las consultas más eficaces de servicio de tabla.  
 * ***Tenga en cuenta la posibilidad de almacenar copias duplicadas de las entidades.*** El almacenamiento en tablas es barato por lo que puede almacenar la misma entidad varias veces (con claves diferentes) para permitir que se realicen consultas más eficaces.  
 * ***Considere la posibilidad de desnormalizar sus datos.*** El almacenamiento en tablas es barato, por tanto, piense en desnormalizar sus datos. Por ejemplo, almacene entidades de resumen para que las consultas para datos agregados solo necesiten acceder a una única entidad.  
 * ***Use valores de clave compuestos.*** Las únicas claves de las que dispone son **PartitionKey** y **RowKey**. Por ejemplo, s los valores de clave compuestos para habilitar rutas de acceso con clave alternativas a las entidades.  
-* ***Use la proyección de consultas.***  Puede reducir la cantidad de datos que se transfieren a través de la red mediante el uso de consultas que seleccionen solo los campos que necesite.  
+* ***Use la proyección de consultas.*** Puede reducir la cantidad de datos que se transfieren a través de la red mediante el uso de consultas que seleccionen solo los campos que necesite.  
 
 ## <a name="design-your-table-service-solution-to-be-write-efficient"></a>Diseño de una solución de Table service para escrituras eficientes  
 
-* ***No cree particiones activas.***  Elija claves que le permitan distribuir las solicitudes en varias particiones en cualquier momento.  
-* ***Evite picos de tráfico.***  Equilibre el tráfico en un período de tiempo razonable y evite picos de tráfico.
-* ***No es preciso crear necesariamente una tabla independiente para cada tipo de entidad.***  Cuando necesite transacciones atómicas en los tipos de entidad, puede almacenar estos distintos tipos de entidad en la misma partición de la misma tabla.
+* ***No cree particiones activas.*** Elija claves que le permitan distribuir las solicitudes en varias particiones en cualquier momento.  
+* ***Evite picos de tráfico.*** Equilibre el tráfico en un período de tiempo razonable y evite picos de tráfico.
+* ***No es preciso crear necesariamente una tabla independiente para cada tipo de entidad.*** Cuando necesite transacciones atómicas en los tipos de entidad, puede almacenar estos distintos tipos de entidad en la misma partición de la misma tabla.
 * ***Tenga en cuenta el rendimiento máximo que debe alcanzar.*** Debe tener en cuenta los objetivos de escalabilidad de Table service y asegurarse de que su diseño no los superará.  
 
 A medida que lea esta guía, verá ejemplos en los que se ponen en práctica todos estos principios. 

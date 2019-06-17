@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165821"
 ---
 El agente de escucha del grupo de disponibilidad es un nombre de red y una dirección IP en los que escucha el grupo de disponibilidad de SQL Server. Para crear el agente de escucha del grupo de disponibilidad, haga lo siguiente:
 
 1. <a name="getnet"></a>Obtenga el nombre del recurso de red del clúster.
 
-     a. Use RDP para conectarse a la máquina virtual de Azure que hospeda la réplica principal. 
+    a. Use RDP para conectarse a la máquina virtual de Azure que hospeda la réplica principal. 
 
     b. Abra el Administrador de clústeres de conmutación por error.
 
@@ -26,7 +26,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 1. <a name="addcap"></a>Agregue el punto de acceso cliente  
     El punto de acceso cliente es el nombre de red que las aplicaciones utilizan para conectarse a las bases de datos en un grupo de disponibilidad. Cree el punto de acceso cliente en el Administrador de clústeres de conmutación por error.
 
-     a. Amplía el nombre del clúster y haz clic en **Funciones**.
+    a. Amplía el nombre del clúster y haz clic en **Funciones**.
 
     b. En el panel **Roles**, haga clic con el botón derecho en el nombre del grupo de disponibilidad y después seleccione **Agregar recurso** > **Punto de acceso cliente**.
 
@@ -41,7 +41,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
 1. <a name="congroup"></a>Configure el recurso IP para el grupo de disponibilidad.
 
-     a. Haga clic en la pestaña **Recursos** y expanda el punto de acceso cliente que acaba de crear.  
+    a. Haga clic en la pestaña **Recursos** y expanda el punto de acceso cliente que acaba de crear.  
     El punto de acceso cliente está desconectado.
 
    ![Punto de acceso cliente](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
@@ -58,7 +58,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
 1. <a name = "dependencyGroup"></a>Haga que el recurso del grupo de disponibilidad de SQL Server dependa del punto de acceso cliente.
 
-     a. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y, después, en el grupo de disponibilidad.
+    a. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y, después, en el grupo de disponibilidad.
 
     b. En la pestaña **Recursos**, en **Otros recursos**, haga clic con el botón derecho en el grupo de recursos de disponibilidad y después haga clic en **Propiedades**. 
 
@@ -70,7 +70,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
 1. <a name="listname"></a>Haga que el recurso de punto de acceso cliente dependa de la dirección IP.
 
-     a. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y, después, en el grupo de disponibilidad. 
+    a. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y, después, en el grupo de disponibilidad. 
 
     b. En la pestaña **Recursos**, haga clic en el recurso de punto de acceso cliente bajo **Nombre del servidor** y después haga clic en **Propiedades**. 
 
@@ -86,7 +86,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
 1. <a name="setparam"></a>Establezca los parámetros de clúster en PowerShell.
 
-    a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.
+   a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.
 
    - `$ListenerILBIP` es la dirección IP que creó en Azure Load Balancer para el agente de escucha del grupo de disponibilidad.
     
@@ -120,7 +120,7 @@ Si fuera necesario, repita los pasos anteriores para establecer los parámetros 
 
 1. <a name="setwsfcparam"></a>Establezca los parámetros de clúster en PowerShell.
   
-    a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.
+   a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.
 
    - `$ClusterCoreIP` es la dirección IP que creó en Azure Load Balancer para el recurso del clúster principal de WSFC. Es diferente de la dirección IP del agente de escucha del grupo de disponibilidad.
 

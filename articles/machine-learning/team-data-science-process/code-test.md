@@ -12,10 +12,10 @@ ms.date: 05/19/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336701"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
@@ -112,7 +112,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
 1. Configure la compilación automática y la prueba en Azure DevOps:
 
-     a. En el repositorio del proyecto, seleccione **Compilación y lanzamiento** y luego seleccione **+Nuevo** para crear un nuevo proceso de compilación.
+    a. En el repositorio del proyecto, seleccione **Compilación y lanzamiento** y luego seleccione **+Nuevo** para crear un nuevo proceso de compilación.
 
        ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 

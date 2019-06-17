@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630212"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
@@ -29,7 +29,7 @@ StorSimple usa [niveles de almacenamiento](#automatic-storage-tiering) para admi
 
 Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
 
-![icono de vídeo](./media/storsimple-overview/video_icon.png)  Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
+![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -205,7 +205,7 @@ La desduplicación disminuye la cantidad general de datos almacenados al elimina
 ## <a name="storsimple-workload-summary"></a>Resumen de la carga de trabajo de StorSimple
 A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 
-| Escenario | Carga de trabajo | Compatible | Restricciones | `Version` |
+| Escenario | Carga de trabajo | Compatible | Restricciones | Versión |
 | --- | --- | --- | --- | --- |
 | Colaboración |Uso compartido de archivos |Sí | |Todas las versiones |
 | Colaboración |Uso compartido de archivos distribuidos |Sí | |Todas las versiones |
@@ -232,13 +232,13 @@ Las cargas de trabajo siguientes no son compatibles con dispositivos de la serie
 
 A continuación, se muestra una lista de los componentes de infraestructura compatibles con StorSimple.
 
-| Escenario | Carga de trabajo | Compatible | Restricciones | `Version` |
+| Escenario | Carga de trabajo | Compatible | Restricciones | Versión |
 | --- | --- | --- | --- | --- |
 | General |ExpressRoute |Sí | |Todas las versiones |
 | General |DataCore FC |Sí* |Compatible con DataCore SANsymphony |Todas las versiones |
 | General |DFSR |Sí* |Solo compatible con volúmenes localmente anclados |Todas las versiones |
 | General |Indización |Sí* |Para volúmenes en capas, solo se admite la indización de metadatos (sin datos).<br>Para volúmenes anclados localmente, se admite la indización completa. |Todas las versiones |
-| General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br>  Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
+| General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br> Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
 
 *Sí&#42;. Se deben aplicar las restricciones y directrices de la solución.*
 

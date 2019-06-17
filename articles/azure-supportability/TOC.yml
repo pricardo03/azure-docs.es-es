@@ -6,6 +6,11 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Solicitudes de aumento de cuota
   href: resource-manager-core-quotas-request.md
+  items:
+    - name: Aumento del límite de máquinas virtuales de la serie vCPU
+      href: per-vm-quota-requests.md
+    - name: Aumento del límite de vCPU regionales totales
+      href: regional-quota-requests.md
 - name: Solución de problemas de regiones o suscripciones de SKU
   href: sku-series-unavailable.md
 - name: Referencia

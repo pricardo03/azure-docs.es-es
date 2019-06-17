@@ -48,17 +48,32 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: API de Azure Cosmos DB para MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: '<p>Si quiere migrar datos de Azure Table Storage a la oferta de tablas premium de Azure Cosmos DB, utilice Table API.</p>'
-            image:
-              src: media/index/table-api.svg
-            title: Table API
           - href: /azure/cosmos-db/cassandra-introduction/
             html: '<p>Si quiere migrar datos de Cassandra al servicio completamente administrado de Azure Cosmos DB, utilice Cassandra API.</p>'
             image:
               src: media/index/cassandra-api.png
             title: Cassandra API
-  - title: Inicios rápidos en 5 minutos
+          - href: /azure/cosmos-db/table-introduction/
+            html: '<p>Si quiere migrar datos de Azure Table Storage a la oferta de tablas premium de Azure Cosmos DB, utilice Table API.</p>'
+            image:
+              src: media/index/table-api.svg
+            title: Table API
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Use la compatibilidad integrada con Apache Spark para ejecutar análisis en los datos almacenados en una cuenta de Azure Cosmos. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Análisis integrado con Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: <p>Ejecute análisis en tiempo real con fuente de cambios mediante la lectura de la lista ordenada de documentos de un contenedor de Azure Cosmos DB en el orden en que se modificaron. </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: Fuente de cambios
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: "<p> La API etcd le permite usar Azure Cosmos\_DB como almacén de back-end de Azure Kubernetes.</p>"
+            image:
+              src: media/index/etcd-logo.png
+            title: Etcd API
+  - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph
         text: 'Aprenda a utilizar Azure Cosmos DB para crear una base de datos distribuida globalmente mediante alguno de los siguientes inicios rápidos de las API de varios modelos:'

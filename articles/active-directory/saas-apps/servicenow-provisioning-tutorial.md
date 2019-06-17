@@ -17,10 +17,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60869841"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios con Azure Active Directory
@@ -79,13 +79,13 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. En la sección Credenciales de administración, realice los pasos siguientes:
    
-     a. En el cuadro de texto **Nombre de la instancia de ServiceNow** , escriba el nombre de la instancia de ServiceNow.
+    a. En el cuadro de texto **Nombre de la instancia de ServiceNow** , escriba el nombre de la instancia de ServiceNow.
 
     b. En el cuadro de texto del **nombre de usuario de administrador de ServiceNow**, escriba el nombre de usuario de un administrador.
 
     c. En el cuadro de texto de **contraseña de administrador de ServiceNow**, escriba la contraseña del administrador.
 
-1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación ServiceNow. Si se produce un error de conexión, asegúrese de que su cuenta de ServiceNow tiene permisos de administrador de equipo y vuelva a intentar el paso de **"Credenciales de administración"**.
+1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación ServiceNow. Si se produce un error de conexión, asegúrese de que su cuenta de ServiceNow tiene permisos de administrador de equipo y vuelva a intentar el paso de **"Credenciales de administración"** .
 
 1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
 

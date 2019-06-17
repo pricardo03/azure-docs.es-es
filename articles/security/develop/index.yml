@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación sobre desarrollo seguro
+metadata:
+  document_id: null
+  title: Documentación sobre desarrollo seguro en Microsoft Azure
+  meta.description: Learn how to develop secure apps on Azure.
+  services: security
+  author: TerryLanfear
+  manager: barbkess
+  ms.service: security
+  ms.subservice: develop
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/11/2019
+  ms.author: terrylan
+abstract:
+  description: 'Aprenda a desarrollar e implementar aplicaciones seguras en Azure con nuestras aplicaciones de ejemplo, procedimientos recomendados e instrucciones.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/security/develop/secure-dev-overview
+            html: <p>Desarrollo de una aplicación web segura en Azure</p>
+            image:
+              src: /media/common/i_get-started.svg
+            title: Introducción
+          - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
+            html: <p>Los cinco elementos de seguridad principales para las aplicaciones web</p>
+            image:
+              src: /media/common/i_learn-about.svg
+            title: Desarrollo de aptitudes con Microsoft Learn
+  - title: Conceptos
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-dev-overview">Procedimientos recomendados para un desarrollo seguro</a>
+          - html: <a href="/azure/security/azure-security-threat-modeling-tool">Modelado de amenazas</a>

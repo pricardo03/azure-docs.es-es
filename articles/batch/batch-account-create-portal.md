@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60722635"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
@@ -42,7 +42,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
     ![Crear una cuenta de Batch][account_portal]
 
-     a. **Suscripción**: en la que se crea la cuenta de Batch. Si tiene una sola suscripción, se selecciona de forma predeterminada.
+    a. **Suscripción**: en la que se crea la cuenta de Batch. Si tiene una sola suscripción, se selecciona de forma predeterminada.
 
     b. **Grupo de recursos**: seleccione un grupo de recursos existente para la nueva cuenta de Batch (también se puede crear uno nuevo).
 
@@ -92,7 +92,7 @@ Al crear la primera cuenta de Batch en el modo de suscripción de usuario, tiene
 
     ![Registro del proveedor Microsoft.Batch][register_provider]
 
-1. En la página **Suscripción**, seleccione **Control de acceso (IAM)** > **Asignaciones de rol** > **Agregar asignación de rol**.
+1. En la página **Suscripción**, seleccione **Control de acceso (IAM)**  > **Asignaciones de rol** > **Agregar asignación de rol**.
 
     ![Control de acceso a la suscripción][subscription_access]
 

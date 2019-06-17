@@ -89,12 +89,20 @@
           href: concepts-business-continuity.md
         - name: Copia de seguridad y restauración
           href: concepts-backup.md
-    - name: Supervisión
+    - name: Supervisión y ajuste
       items:
-        - name: Supervisión
+        - name: Supervisión y ajuste
           href: concepts-monitoring.md
-        - name: Registros del servidor
+        - name: Registros de consultas lentos
           href: concepts-server-logs.md
+        - name: Registros de auditoría
+          href: concepts-audit-logs.md
+        - name: Almacén de consultas
+          href: concepts-query-store.md
+        - name: Información de rendimiento de consultas
+          href: concepts-query-performance-insight.md
+        - name: Recomendaciones de rendimiento
+          href: concepts-performance-recommendations.md
     - name: Desarrollo
       items:
         - name: Compatibilidad de controladores y herramientas
@@ -165,10 +173,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Acceso a registros de servidor
       items:
-        - name: Portal de Azure
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-in-cli.md
+        - name: Registros de consultas lentos
+          items:
+            - name: Portal de Azure
+              href: howto-configure-server-logs-in-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-in-cli.md
+        - name: Registros de auditoría
+          items:
+            - name: Portal de Azure
+              href: howto-configure-audit-logs-portal.md
     - name: Supervisión
       items:
         - name: Creación de alertas basadas en métricas

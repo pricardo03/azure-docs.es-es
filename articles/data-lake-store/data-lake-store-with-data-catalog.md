@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60196613"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registro de datos de Azure Data Lake Storage Gen1 en Azure Data Catalog
@@ -52,7 +52,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
     ![Conectar al origen de datos](./media/data-lake-store-with-data-catalog/connect-to-source.png "Conectar al origen de datos")
 1. La página resultante se puede dividir en los siguientes segmentos.
 
-     a. El cuadro **Jerarquía de servidor** representa la estructura de carpetas de la cuenta de Data Lake Storage Gen1. **$Root** representa la raíz de la cuenta de Data Lake Storage Gen1 y **AmbulanceData** representa la carpeta creada en la raíz de dicha cuenta.
+    a. El cuadro **Jerarquía de servidor** representa la estructura de carpetas de la cuenta de Data Lake Storage Gen1. **$Root** representa la raíz de la cuenta de Data Lake Storage Gen1 y **AmbulanceData** representa la carpeta creada en la raíz de dicha cuenta.
 
     b. El cuadro **Objetos disponibles** muestra los archivos y carpetas de la carpeta **AmbulanceData**.
 
@@ -77,7 +77,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
     * [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
     * [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
 * [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integración de Data Lake Storage Gen1 con otros servicios de Azure](data-lake-store-integrate-with-other-services.md)

@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: f9cd6e2fee738d2d42c790b4eb7b9a876a44b01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772982"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicación remota del servicio en C# con Reliable Services
@@ -202,7 +202,7 @@ Para actualizar de V1 a V2, se requieren actualizaciones en dos pasos. Siga los 
 1. Actualice el servicio V1 al servicio V2 mediante este atributo.
 Este cambio garantiza que el servicio escucha en el agente de escucha V1 y V2.
 
-     a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2" en el manifiesto de servicio.
+    a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2" en el manifiesto de servicio.
       ```xml
       <Resources>
         <Endpoints>
@@ -324,7 +324,7 @@ Para actualizar de V1 a V2 (compatible con interfaz, conocido como V2_1), se req
 1. Actualice el servicio V1 al servicio V2_1 mediante el atributo siguiente.
 Este cambio garantiza que el servicio escucha en el agente de escucha V1 y V2_1.
 
-     a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2_1" en el manifiesto de servicio.
+    a. Agregue un recurso de punto de conexión con el nombre "ServiceEndpointV2_1" en el manifiesto de servicio.
       ```xml
       <Resources>
         <Endpoints>

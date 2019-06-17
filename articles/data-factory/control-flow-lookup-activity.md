@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768669"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
@@ -70,7 +70,7 @@ firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | 
 
 El resultado de la búsqueda se devuelve en la sección `output` del resultado de ejecución de la actividad.
 
-* **Cuando `firstRowOnly` está establecido en `true` (valor predeterminado)**, el formato de salida es como se muestra en el código siguiente. El resultado de búsqueda está en una clave `firstRow` fija. Para utilizar el resultado en una actividad posterior, utilice el patrón de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Cuando `firstRowOnly` está establecido en `true` (valor predeterminado)** , el formato de salida es como se muestra en el código siguiente. El resultado de búsqueda está en una clave `firstRow` fija. Para utilizar el resultado en una actividad posterior, utilice el patrón de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -82,7 +82,7 @@ El resultado de la búsqueda se devuelve en la sección `output` del resultado d
     }
     ```
 
-* **Cuando `firstRowOnly` está establecido en `false`**, el formato de salida es como se muestra en el código siguiente. Un campo `count` indica cuántos registros se devuelven. Se muestran los valores detallados bajo una matriz `value` fija. En tal caso, la actividad de búsqueda va seguida de una [actividad ForEach](control-flow-for-each-activity.md). Pase la matriz `value` al campo `items` de la actividad ForEach mediante el patrón de `@activity('MyLookupActivity').output.value`. Para acceder a elementos en la matriz `value`, use la siguiente sintaxis: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Un ejemplo es `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Cuando `firstRowOnly` está establecido en `false`** , el formato de salida es como se muestra en el código siguiente. Un campo `count` indica cuántos registros se devuelven. Se muestran los valores detallados bajo una matriz `value` fija. En tal caso, la actividad de búsqueda va seguida de una [actividad ForEach](control-flow-for-each-activity.md). Pase la matriz `value` al campo `items` de la actividad ForEach mediante el patrón de `@activity('MyLookupActivity').output.value`. Para acceder a elementos en la matriz `value`, use la siguiente sintaxis: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Un ejemplo es `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {

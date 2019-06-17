@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244024"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: cambio en la configuración predeterminada
@@ -71,7 +71,7 @@ De forma predeterminada, el [programador](how-to-connect-sync-feature-scheduler.
    ![Filtro del ámbito de la regla entrada](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Esta sección se utiliza para definir los objetos a los que debería aplicarse la regla. Si se deja vacía, la regla se aplica a todos los objetos de usuario. Sin embargo, eso también incluiría a salas de conferencias, cuentas de servicio y otros objetos de usuario que no son personas.
 4. En la página **Join rules** (Reglas de unión), deje el campo vacío.
-5. En la página **Transformations** (Transformations), cambie **FlowType** por **Expression**. En **Target Attribute** (Atributo de destino), seleccione **givenName**. Y en **Source** (Origen), especifique **PCase([givenName])**.
+5. En la página **Transformations** (Transformations), cambie **FlowType** por **Expression**. En **Target Attribute** (Atributo de destino), seleccione **givenName**. Y en **Source** (Origen), especifique **PCase([givenName])** .
    ![Transformaciones de la regla de entrada](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    El motor de sincronización distingue mayúsculas de minúsculas tanto en el nombre de función como en el nombre del atributo. Si escribe algo incorrecto, verá una advertencia al agregar la regla. Puede guardar y continuar, pero deberá volver a abrir y corregir la regla.
 6. Haga clic en **Agregar** para guardar la regla.
@@ -92,7 +92,7 @@ Abra el **Servicio de sincronización** desde el menú **Inicio**. Los pasos de 
    2. En **Acciones**, seleccione **Ejecutar**.
    3. Seleccione **Sincronización completa**y, a continuación, seleccione **Aceptar**.
    ![Sincronización completa](./media/how-to-connect-sync-change-the-configuration/fullsync.png)  
-    Los objetos se actualizan ahora en el metaverso. Compruebe los cambios examinando el objeto en el metaverso.
+   Los objetos se actualizan ahora en el metaverso. Compruebe los cambios examinando el objeto en el metaverso.
 
 **Vista previa y sincronización completa en un solo objeto**  
 
@@ -101,7 +101,7 @@ Abra el **Servicio de sincronización** desde el menú **Inicio**. Los pasos de 
    3. Use el **ámbito** para encontrar un objeto que se vaya a utilizar para probar el cambio. Seleccione el objeto y haga clic en **Vista previa**. 
    4. En la nueva pantalla, seleccione **Vista previa de confirmación**.  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-    Ahora, el cambio se confirma en el metaverso.
+   Ahora, el cambio se confirma en el metaverso.
 
 **Visualización del objeto en el metaverso**  
 
@@ -135,7 +135,7 @@ Para crear una regla con otros flujos de atributo, haga lo siguiente:
 7. Haga clic en **Agregar** para guardar la regla.
 8. Vaya a **Synchronization Service Manager**. En **Conectores**, seleccione el conector donde agregó la regla. Seleccione **Ejecutar** y, a continuación, seleccione **Sincronización completa**. Una sincronización completa vuelve a calcular todos los objetos con las reglas actuales.
 
-Este es el resultado para el mismo objeto con esta regla personalizada:   
+Este es el resultado para el mismo objeto con esta regla personalizada:  
 ![Flujo de atributos 4](./media/how-to-connect-sync-change-the-configuration/attributeflowjp4.png)
 
 ### <a name="length-of-attributes"></a>Longitud de los atributos
@@ -278,7 +278,7 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 
 5. Vaya a la pestaña **Filtro de ámbito** y agregue un **solo grupo de filtro de ámbito** con la siguiente cláusula:
 
-    | Atributo | Operador | Value |
+    | Atributo | Operador | Valor |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Usuario\_ |
 

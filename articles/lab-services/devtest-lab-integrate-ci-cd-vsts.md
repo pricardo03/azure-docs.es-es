@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157127"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de Azure DevOps
@@ -98,7 +98,7 @@ Para crear la canalización de versión, siga estos pasos:
 1. Para abrir el menú contextual, en la nueva canalización de versión, seleccione los puntos suspensivos (...) junto al nombre del entorno y, luego, seleccione **Configurar variables**. 
 1. En la ventana de **configuración del entorno**, escriba los siguientes valores para las variables que se usan en las tareas de canalización de versión:
 
-    a. En **vmName**, escriba el nombre que asignó a la máquina virtual cuando creó la plantilla de Resource Manager en Azure Portal.
+   a. En **vmName**, escriba el nombre que asignó a la máquina virtual cuando creó la plantilla de Resource Manager en Azure Portal.
 
    b. En **userName**, escriba el nombre de usuario que asignó a la máquina virtual cuando creó la plantilla de Resource Manager en Azure Portal.
 
@@ -114,7 +114,7 @@ La siguiente fase de la implementación consiste en crear la máquina virtual qu
    > [!NOTE]
    > Para crear la máquina virtual que se usará en las implementaciones posteriores, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-    a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
+   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
 
    b. En **Nombre de laboratorio**, seleccione el nombre de la instancia que creó anteriormente.
 
@@ -142,7 +142,7 @@ La siguiente fase de la implementación consiste en crear la máquina virtual qu
    > [!NOTE]
    > Para recopilar los detalles de la máquina virtual de DevTest Lab, consulte el artículo sobre la [implementación de Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) y ejecute el script.
 
-    a. En **Tipo de conexión de Azure**, seleccione **Azure Resource Manager**.
+   a. En **Tipo de conexión de Azure**, seleccione **Azure Resource Manager**.
 
    b. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
 
@@ -171,7 +171,7 @@ La siguiente fase consiste en crear una imagen de la máquina virtual recién im
    > [!NOTE]
    > Para crear la imagen, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-    a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
+   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
 
    b. En **Nombre de laboratorio**, seleccione el nombre de la instancia que creó anteriormente.
 
@@ -179,7 +179,7 @@ La siguiente fase consiste en crear una imagen de la máquina virtual recién im
 
    d. Opcionalmente, en **Descripción**, escriba una descripción para facilitar la selección de la imagen correcta más adelante.
 
-   e. En **Source Lab VM - Source Lab VM ID** (Máquina virtual de laboratorio de origen: id. de máquina virtual de laboratorio de origen), si cambió el nombre predeterminado de la variable de entorno que se rellenó automáticamente con el identificador de la máquina virtual de laboratorio en una tarea anterior, edítelo aquí. El valor predeterminado es **$(labVMId)**.
+   e. En **Source Lab VM - Source Lab VM ID** (Máquina virtual de laboratorio de origen: id. de máquina virtual de laboratorio de origen), si cambió el nombre predeterminado de la variable de entorno que se rellenó automáticamente con el identificador de la máquina virtual de laboratorio en una tarea anterior, edítelo aquí. El valor predeterminado es **$(labVMId)** .
 
    f. En **Output Variables - Custom Image ID** (Variables de salida: id. de imagen personalizada), necesitará el identificador de la imagen recién creada si quiere administrarla o eliminarla. El nombre predeterminado de la variable de entorno que se rellena automáticamente con este identificador se establece en la sección **Variables de salida**. Puede modificar la variable si es necesario.
 
@@ -192,9 +192,9 @@ La fase final consiste en eliminar la máquina virtual que se implementó en la 
       > [!NOTE]
       > Para eliminar la máquina virtual, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-    a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
+   a. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Punto de conexión de servicio de Azure Resource Manager).
  
-   b. En **Lab VM ID** (Id. de máquina virtual de laboratorio), si cambió el nombre predeterminado de la variable de entorno que se rellenó automáticamente con el identificador de la máquina virtual de laboratorio en una tarea anterior, edítelo aquí. El valor predeterminado es **$(labVMId)**.
+   b. En **Lab VM ID** (Id. de máquina virtual de laboratorio), si cambió el nombre predeterminado de la variable de entorno que se rellenó automáticamente con el identificador de la máquina virtual de laboratorio en una tarea anterior, edítelo aquí. El valor predeterminado es **$(labVMId)** .
 
 1. Escriba un nombre para la canalización de versión y después guárdelo.
 1. Cree una versión, seleccione la última compilación e impleméntela en el entorno único de la canalización.

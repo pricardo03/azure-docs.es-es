@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60496498"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
@@ -43,9 +43,9 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | **Origen conectado** | **Soporte técnico** | **Descripción** |
 | --- | --- | --- |
 | [Agentes de Windows](../platform/agent-windows.md) | Sí | La solución recopila información de DNS de los agentes de Windows. |
-| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | Sin  | La solución no recopila información de DNS de los agentes directos de Linux. |
+| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | Sin | La solución no recopila información de DNS de los agentes directos de Linux. |
 | [Grupo de administración de System Center Operations](../platform/om-agents.md) | Sí | La solución recopila información de DNS de los agentes en un grupo de administración de Operations Manager conectado. No se requiere ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. Los datos se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
-| [Cuenta de Almacenamiento de Azure](../platform/collect-azure-metrics-logs.md) | Sin  | La solución no usa Azure Storage. |
+| [Cuenta de Almacenamiento de Azure](../platform/collect-azure-metrics-logs.md) | Sin | La solución no usa Azure Storage. |
 
 ### <a name="data-collection-details"></a>Detalles de la recopilación de datos
 
@@ -170,7 +170,7 @@ En la página Búsqueda de registros, puede crear una consulta. Puede filtrar lo
 
     ![Búsqueda de registros de Dnsevents](./media/dns-analytics/log-search-dnsevents.png)  
 
-     a. Para ver los datos de registro de las consultas de búsqueda, seleccione **LookUpQuery** como el filtro de **subtipo** en el control de faceta que se encuentra a la izquierda. Aparecerá una tabla que muestra todos los eventos de consulta de búsqueda para el período de tiempo seleccionado.
+    a. Para ver los datos de registro de las consultas de búsqueda, seleccione **LookUpQuery** como el filtro de **subtipo** en el control de faceta que se encuentra a la izquierda. Aparecerá una tabla que muestra todos los eventos de consulta de búsqueda para el período de tiempo seleccionado.
 
     b. Para ver los datos de registro de los registros dinámicos, seleccione **DynamicRegistration** como el filtro de **subtipo** en el control de faceta que se encuentra a la izquierda. Aparecerá una tabla que muestra todos los eventos de registro dinámicos para el período de tiempo seleccionado.
 

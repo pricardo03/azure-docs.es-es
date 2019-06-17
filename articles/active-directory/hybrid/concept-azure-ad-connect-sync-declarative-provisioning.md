@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246230"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: Descripción del aprovisionamiento declarativo
@@ -49,7 +49,7 @@ El módulo de ámbito consiste en evaluar un objeto, y determina las reglas que 
 El ámbito se define como cláusulas y grupos. Las cláusulas están dentro de un grupo. Se usa un operador lógico AND entre todas las cláusulas de un grupo. Por ejemplo, (departamento = IT AND país = Dinamarca). Se usa un operador lógico OR entre los grupos.
 
 ![Ámbito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
- El ámbito de esta imagen se debe leer como (departamento = IT AND país = Dinamarca) OR (país = Suecia). Si el grupo 1 o el grupo 2 se evalúa como verdadero, la regla está en el ámbito.
+El ámbito de esta imagen se debe leer como (departamento = IT AND país = Dinamarca) OR (país = Suecia). Si el grupo 1 o el grupo 2 se evalúa como verdadero, la regla está en el ámbito.
 
 El módulo de ámbito admite las siguientes operaciones:
 
@@ -69,13 +69,13 @@ El módulo de ámbito admite las siguientes operaciones:
 ## <a name="join"></a>Unión
 El módulo de unión en la canalización de sincronización es responsable de encontrar la relación entre el objeto en el origen y un objeto en el destino. En una regla de entrada, esta relación sería un objeto en un espacio conector que busca una relación con un objeto en el metaverso.  
 ![Unión entre cs y mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
- El objetivo es ver si ya hay un objeto en el metaverso, creado por otro conector, al que debe estar asociado. Por ejemplo, en un bosque de cuenta-recurso, el usuario del bosque de cuentas debe unirse al usuario del bosque de recursos.
+El objetivo es ver si ya hay un objeto en el metaverso, creado por otro conector, al que debe estar asociado. Por ejemplo, en un bosque de cuenta-recurso, el usuario del bosque de cuentas debe unirse al usuario del bosque de recursos.
 
 Las uniones se utilizan principalmente en las reglas de entrada para unir objetos del espacio conector para el mismo objeto de metaverso.
 
 Las uniones se definen como uno o varios grupos. Dentro de un grupo hay cláusulas. Se usa un operador lógico AND entre todas las cláusulas de un grupo. Se usa un operador lógico OR entre los grupos. El orden de procesamiento de los grupos es de arriba a abajo. Cuando un grupo encuentra exactamente una coincidencia con un objeto en el destino, no se evalúa ninguna otra regla de unión. Si se encuentran cero o más de un objeto, el procesamiento continúa con el siguiente grupo de reglas. Por este motivo, las reglas deben crearse en el orden de primero la más explícita y la más aproximada al final.  
 ![Definición de unión](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
- Las uniones de esta imagen se procesan de arriba a abajo. En primer lugar, la canalización de sincronización ve si hay una coincidencia en employeeID. Si no la hay, la segunda regla ve si el nombre de cuenta puede utilizarse para unir los objetos. Si tampoco hay ninguna coincidencia, la tercera y última regla es una coincidencia más aproximada que utiliza el nombre de usuario.
+Las uniones de esta imagen se procesan de arriba a abajo. En primer lugar, la canalización de sincronización ve si hay una coincidencia en employeeID. Si no la hay, la segunda regla ve si el nombre de cuenta puede utilizarse para unir los objetos. Si tampoco hay ninguna coincidencia, la tercera y última regla es una coincidencia más aproximada que utiliza el nombre de usuario.
 
 Si se han evaluado todas las reglas de unión y no hay ninguna coincidencia exacta, se usa el valor de **Tipo de vínculo** en la página **Descripción**. Si este valor se establece en **Aprovisionar**, se crea un objeto en el destino.  
 ![Aprovisionar o unir](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -124,15 +124,15 @@ Este es un ejemplo:
 
 En la regla *Out to AD - User Exchange hybrid* se puede encontrar el siguiente flujo:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
- Esta expresión se debe leer como: si el buzón del usuario se encuentra en Azure AD, el flujo de atributo va de Azure AD a AD. Si no es así, no vuelve nada a Active Directory. En este caso, se mantiene el valor existente en AD.
+Esta expresión se debe leer como: si el buzón del usuario se encuentra en Azure AD, el flujo de atributo va de Azure AD a AD. Si no es así, no vuelve nada a Active Directory. En este caso, se mantiene el valor existente en AD.
 
 ### <a name="importedvalue"></a>ImportedValue
-La función ImportedValue es diferente de todas las demás funciones, ya que el nombre del atributo debe incluirse entre comillas, en lugar de corchetes:   
+La función ImportedValue es diferente de todas las demás funciones, ya que el nombre del atributo debe incluirse entre comillas, en lugar de corchetes:  
 `ImportedValue("proxyAddresses")`.
 
 Normalmente, un atributo usa el valor esperado durante la sincronización, incluso si no se ha exportado todavía o se recibió un error durante la exportación ("parte superior de la torre"). Una sincronización entrante supone que un atributo que todavía no ha llegado a un directorio conectado lo alcanzará en algún momento. En algunos casos, es importante sincronizar únicamente un valor confirmado por el directorio conectado ("torre de importación delta y holograma").
 
-Un ejemplo de esta función se puede encontrar en la regla de sincronización de serie *In from AD – User Common from Exchange*. En Exchange híbrido, el valor agregado por Exchange Online solo se debe sincronizar cuando se ha confirmado que el valor se exportó correctamente:   
+Un ejemplo de esta función se puede encontrar en la regla de sincronización de serie *In from AD – User Common from Exchange*. En Exchange híbrido, el valor agregado por Exchange Online solo se debe sincronizar cuando se ha confirmado que el valor se exportó correctamente:  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## <a name="precedence"></a>Prioridad

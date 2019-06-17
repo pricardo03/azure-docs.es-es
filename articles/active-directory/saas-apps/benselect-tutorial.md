@@ -16,10 +16,10 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60282694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Tutorial: Integración de Azure Active Directory con BenSelect
@@ -60,7 +60,7 @@ Para configurar la integración de BenSelect en Azure AD, es preciso agregar Ben
 
 **Para agregar BenSelect desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -91,7 +91,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con BenSelect, 
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de BenSelect](#creating-a-benselect-test-user)**: para tener un homólogo de Britta Simon en BenSelect vinculado a su representación en Azure AD.
+1. **[Creación de un usuario de prueba de BenSelect](#creating-a-benselect-test-user)** : para tener un homólogo de Britta Simon en BenSelect vinculado a su representación en Azure AD.
 1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -128,7 +128,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**:
 
-     a. En la lista desplegable **Identificador de usuario**, seleccione **ExtractMailPrefix**.
+    a. En la lista desplegable **Identificador de usuario**, seleccione **ExtractMailPrefix**.
 
     b. En la lista desplegable **Correo**, seleccione **user.userprincipalname**.
 
@@ -140,7 +140,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_benselect_configure.png) 
 
-1. Para configurar el inicio de sesión único en **BenSelect**, es preciso enviar los valores descargados de **Certificado (sin procesar)**, **Sign-Out URL (Dirección URL de cierre de sesión), SAML Entity ID (Identificador de entidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de BenSelect ](mailto:support@selerix.com).
+1. Para configurar el inicio de sesión único en **BenSelect**, es preciso enviar los valores descargados de **Certificado (sin procesar)** , **Sign-Out URL (Dirección URL de cierre de sesión), SAML Entity ID (Identificador de entidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de BenSelect ](mailto:support@selerix.com).
 
    >[!NOTE]
    >Debe mencionar que esta integración requiere el algoritmo SHA256 (no se admite SHA1) para establecer el SSO en el servidor apropiado, como app2101. 
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/benselect-tutorial/create_aaduser_04.png) 
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -213,7 +213,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
 
 En esta sección, probará la configuración de SSO de Azure AD mediante el panel de acceso.
 

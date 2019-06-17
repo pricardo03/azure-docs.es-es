@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: Portales de usuario final
       href: end-user-experiences.md
+    - name: Inicio de sesión único de One Click
+      items:
+        - name: ¿Qué es el inicio de sesión único de One Click?
+          href: one-click-sso-tutorial.md
 - name: Guías de procedimientos
   items:
     - name: Incorporación de una aplicación en la nube

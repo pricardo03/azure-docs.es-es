@@ -59,12 +59,20 @@
           href: concepts-business-continuity.md
         - name: Copia de seguridad y restauración
           href: concepts-backup.md
-    - name: Supervisión
+    - name: Supervisión y ajuste
       items:
         - name: Supervisión
           href: concepts-monitoring.md
-        - name: Registros del servidor
+        - name: Registros de consultas lentos
           href: concepts-server-logs.md
+        - name: Registros de auditoría
+          href: concepts-audit-logs.md
+        - name: Almacén de consultas
+          href: concepts-query-store.md
+        - name: Información de rendimiento de consultas
+          href: concepts-query-performance-insight.md
+        - name: Recomendaciones de rendimiento
+          href: concepts-performance-recommendations.md
     - name: Desarrollo
       items:
         - name: Compatibilidad de controladores y herramientas
@@ -75,6 +83,8 @@
       items:
         - name: Replicación de datos internos
           href: concepts-data-in-replication.md
+        - name: Réplicas de lectura
+          href: concepts-read-replicas.md
 - name: Guías de procedimientos
   items:
     - name: Reglas de firewall
@@ -113,10 +123,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: Acceso a registros de servidor
       items:
-        - name: Portal de Azure
-          href: howto-configure-server-logs-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-cli.md
+        - name: Registros de consultas lentos
+          items:
+            - name: Portal de Azure
+              href: howto-configure-server-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-cli.md
+        - name: Registros de auditoría
+          items:
+            - name: Portal de Azure
+              href: howto-configure-audit-logs-portal.md
     - name: Supervisión
       items:
         - name: Creación de alertas basadas en métricas
@@ -125,6 +141,8 @@
       items:
         - name: Configuración de la replicación de datos internos
           href: howto-data-in-replication.md
+        - name: Creación de réplicas de lectura en Azure Portal
+          href: howto-read-replicas-portal.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de conexión

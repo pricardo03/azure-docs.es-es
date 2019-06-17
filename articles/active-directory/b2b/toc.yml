@@ -51,6 +51,8 @@
     - name: Guías de procedimientos
       expanded: true
       items:
+        - name: Administración del uso compartido de B2B
+          href: delegate-invitations.md
         - name: Administración de invitaciones
           items:
             - name: Adición de usuarios de B2B por los administradores
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: Autenticación con código de acceso de un solo uso
               href: one-time-passcode.md
-            - name: Directivas de uso compartido de B2B
-              href: delegate-invitations.md
             - name: Permiso o bloqueo de invitaciones
               href: allow-deny-list.md
             - name: Incorporación de usuarios B2B sin invitación

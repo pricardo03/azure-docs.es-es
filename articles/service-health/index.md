@@ -5,33 +5,48 @@ author: stephbaron
 layout: LandingPage
 ms.service: service-health
 ms.topic: landing-page
-ms.date: 03/4/2019
+ms.date: 06/05/2019
 ms.author: stbaron
-ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 05ea33076f329a6244d4259bf3f973b88bf1f2b5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073388"
 ---
 # <a name="azure-service-health-documentation"></a>Documentación de Azure Service Health
 
-Azure ofrece un conjunto de experiencias que le permiten estar constantemente informado acerca del estado de los recursos en la nube, lo que incluye los problemas actuales y futuros, como los eventos que afectan al servicio, el mantenimiento planeado y otros cambios que puedan afectar a la disponibilidad.
+Azure Service Health es un conjunto de experiencias que proporcionan guía y soporte técnico personalizados cuando aparecen problemas en los servicios de Azure. Azure Service Health puede enviarle notificaciones, ayudarle a conocer el impacto de los problemas y mantenerle actualizado con respecto a la actualización del problema. También le puede ayudar a preparar las operaciones de mantenimiento y los cambios planeados que podrían afectar a la disponibilidad de sus recursos.
 
-Es posible que esté familiarizado con la **[página de estado de Azure](https://status.azure.com)**, una vista global del mantenimiento de todos los servicios de Azure de todas las regiones de Azure. La página de estado es una buena referencia para incidentes con un impacto masivo, pero se recomienda encarecidamente a los usuarios de Azure actuales que aprovechan **Azure Service Health** para mantenerse informados acerca de los incidentes y del mantenimiento de Azure.
+Azure Service Health consta de:
 
-**[Azure Service Health](service-health-overview.md)** proporciona una vista personalizada del mantenimiento de los servicios y regiones de Azure que se usen. Es el mejor lugar para buscar comunicaciones que afecten a los servicios relativas a interrupciones, actividades de mantenimiento planeado y otros avisos de mantenimiento, ya que tras la autenticación, Azure Service Health conoce los servicios y recursos que usa en la actualidad. La mejor forma de usar Service Health es configurar sus alertas para que le envíen notificaciones a través de sus canales de comunicación preferidos cuando los problemas del servicio, el mantenimiento planeado u otros cambios puedan afectar a los servicios y regiones de Azure que utilice.
-
-**[Azure Resource Health](resource-health-overview.md)** proporciona información acerca del mantenimiento de los recursos en la nube individuales como una instancia de máquina virtual específica. Mediante Azure Monitor también puede configurar alertas que le notifiquen los cambios de disponibilidad de los recursos en la nube. Azure Resource Health junto con las notificaciones de Azure Monitor le ayudarán a estar mejor informado acerca de la disponibilidad de los recursos minuto a minuto y a evaluar rápidamente si un problema se le puede achacar a usted o está relacionado con un evento de plataforma de Azure.
+ * **Azure Status**: una vista global del estado de los servicios de Azure
+ * **Service Health**: una vista personalizada del estado de sus servicios de Azure
+ * **Resource Health**: una vista más detallada del estado de los recursos individuales que aprovisionan los servicios de Azure
 
 Conjuntamente, estas experiencias proporcionan una vista completa del estado de Azure con el nivel de detalle relevante.
 
-### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>Vea una introducción de la página de estados de Azure, Azure Service Health y Azure Resource Health
-
->[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
-
+Para más información detallada acerca de cada servicio, consulte [Introducción a Service Health](overview.md)
 
 <ul class="panelContent cardsFTitle">
+    <li>
+        <a href="https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Ver un vídeo de introducción a Service Health</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/azure/service-health/azure-status-overview">
         <div class="cardSize">
@@ -80,24 +95,6 @@ Conjuntamente, estas experiencias proporcionan una vista completa del estado de 
                     </div>
                     <div class="cardText">
                         <h3>Más información acerca de Resource Health</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/resources/videos/announcing-azure-service-health/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Vea un vídeo de introducción a Service Health</h3>
                     </div>
                 </div>
             </div>

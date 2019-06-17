@@ -1,0 +1,15 @@
+- name: Documentación sobre desarrollo seguro
+  href: index.yml
+- name: Conceptos
+  expanded: true
+  items:
+    - name: Procedimientos recomendados
+      items:
+        - name: Información general
+          href: secure-dev-overview.md
+        - name: Diseño de aplicaciones seguras
+          href: secure-design.md
+        - name: Desarrollo de aplicaciones seguras
+          href: secure-develop.md
+        - name: Implementación de aplicaciones seguras
+          href: secure-deploy.md

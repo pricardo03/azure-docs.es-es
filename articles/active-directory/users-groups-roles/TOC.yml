@@ -116,7 +116,7 @@
           href: licensing-groups-change-licenses.md
         - name: Otros escenarios
           href: licensing-group-advanced.md
-        - name: Licencias de grupos con PowerShell
+        - name: Licencias de grupos con PowerShell y Graph
           href: licensing-ps-examples.md
         - name: Identificadores de planes de servicio para licencias
           href: licensing-service-plan-reference.md

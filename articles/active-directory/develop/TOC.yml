@@ -139,6 +139,8 @@
                   href: scenario-protected-web-api-app-registration.md
                 - name: Configuración del código
                   href: scenario-protected-web-api-app-configuration.md
+                - name: Comprobación de los ámbitos o roles de aplicación
+                  href: scenario-protected-web-api-verification-scope-app-roles.md
                 - name: Paso a producción
                   href: scenario-protected-web-api-production.md
             - name: API web que llama a las API web

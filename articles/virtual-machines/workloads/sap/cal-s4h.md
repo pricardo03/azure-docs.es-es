@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836864"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementación de SAP S/4HANA o BW/4HANA en Azure
@@ -43,7 +43,7 @@ La página **Soluciones** muestra algunas de las soluciones basadas en SAP CAL H
 ### <a name="create-an-account-in-the-sap-cal"></a>Creación de una cuenta en SAP CAL
 1. La primera vez que inicie sesión en SAP CAL, utilice S-User de SAP, o cualquier otro usuario registrado de SAP. A continuación, defina una cuenta de SAP CAL que SAP CAL use para implementar aplicaciones en Azure. En la definición de la cuenta, debe:
 
-     a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
+    a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
 
     b. Especifique la suscripción a Azure. Una cuenta de SAP CAL no se puede asignar a más de una suscripción. Si necesita más de una suscripción, debe crear otra cuenta de SAP CAL.
 
@@ -54,7 +54,7 @@ La página **Soluciones** muestra algunas de las soluciones basadas en SAP CAL H
 
 1. Cree una nueva cuenta de SAP CAL. La página **Cuentas** muestra tres opciones de Azure: 
 
-     a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
+    a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
 
     b. **Microsoft Azure** es el nuevo modelo de implementación mediante Resource Manager.
 
@@ -112,7 +112,7 @@ Aquí se muestra la ruta de acceso básica a la implementación.
 
 1. En la página **Detalles de la cuenta**, debe:
 
-     a. Seleccionar una cuenta de SAP CAL. (Utilice una cuenta asociada para implementar con el modelo de implementación de Resource Manager).
+    a. Seleccionar una cuenta de SAP CAL. (Utilice una cuenta asociada para implementar con el modelo de implementación de Resource Manager).
 
     b. Especificar en **Name** el nombre de la instancia.
 

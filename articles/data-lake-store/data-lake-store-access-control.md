@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60879113"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
@@ -71,7 +71,7 @@ En el modelo de estilo de POSIX usado por Data Lake Storage Gen1, los permisos d
 
 A continuación, hay algunos escenarios comunes para ayudarle a entender qué permisos se necesitan para realizar ciertas operaciones en una cuenta de Data Lake Storage Gen1.
 
-| Operación | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| Operación | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lectura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Anexar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -297,6 +297,6 @@ No, pero las ACL predeterminada pueden usarse para establecer las ACL para archi
 * [ACL de POSIX en Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso de listas de control de acceso en Linux)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)

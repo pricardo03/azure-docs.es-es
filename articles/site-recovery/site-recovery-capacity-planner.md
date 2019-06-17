@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036780"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planeamiento de la capacidad para la recuperación ante desastres de máquinas virtuales de Hyper-V 
@@ -52,7 +52,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 3. En la hoja de cálculo **Capacity Planner**, escriba la información que necesite. Rellene todos los campos rodeados por un círculo rojo de la captura de pantalla siguiente:
 
-    a. En **Select your scenario** (Seleccionar escenario) elija **Hyper-V to Azure** (Hyper-V a Azure) o **VMware/Physical to Azure** (VMWare/Físico a Azure).
+   a. En **Select your scenario** (Seleccionar escenario) elija **Hyper-V to Azure** (Hyper-V a Azure) o **VMware/Physical to Azure** (VMWare/Físico a Azure).
 
    b. En **Average daily data change rate (%)** [Tasa media diaria de cambio de datos (%)], escriba la información que ha recopilado con la [herramienta de planeamiento de capacidad de Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
@@ -90,7 +90,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 3. En la hoja de cálculo **Workload Qualification**, escriba la información necesaria. Debe rellenar todos los campos marcados.
 
-    a. En **Processor Cores** (Núcleos de procesador), especifique el número total de núcleos de un servidor de origen.
+   a. En **Processor Cores** (Núcleos de procesador), especifique el número total de núcleos de un servidor de origen.
 
    b. En **Memory allocation (in MBs)** [Asignación de memoria (en MB)], especifique el tamaño de la RAM de un servidor de origen.
 

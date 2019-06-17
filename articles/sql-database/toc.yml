@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: Diseño de base de datos con .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Migración a SQL Database
+    - name: Base de datos singleton
       items:
         - name: Migración a una base de datos única o agrupada mediante DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: Migración a una instancia administrada mediante DMS
+        - name: Implementar una base de datos distribuida geográficamente
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Configuración de Azure SQL Data Sync
+          href: sql-database-get-started-sql-data-sync.md
+    - name: Instancia administrada
+      items:
+        - name: Migración en línea mediante DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Configuración de la replicación transaccional
+          href: replication-with-sql-database-managed-instance.md
     - name: Seguridad en SQL Database
       items:
         - name: Seguridad en bases de datos únicas y agrupadas
           href: sql-database-security-tutorial.md
         - name: Seguridad de la Instancia administrada
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: Implementar una base de datos distribuida geográficamente
-      href: sql-database-implement-geo-distributed-database.md
-    - name: Configuración de Azure SQL Data Sync
-      href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
         - name: Compilación de un modelo predictivo en R
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: Comprobación de la protección de firewall integrada
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: Replicación transaccional
-          href: replication-with-sql-database-managed-instance.md
         - name: Configuración de la detección de amenazas
           href: sql-database-managed-instance-threat-detection.md
         - name: Conexión de aplicaciones

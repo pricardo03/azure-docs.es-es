@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
 ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61467316"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificación o descodificación de archivos planos con Azure Logic Apps y Enterprise Integration Pack
@@ -29,7 +29,7 @@ Siga estos pasos para agregar un conector de codificación de archivos planos a 
    ![Captura de pantalla del desencadenador que va a seleccionar](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 1. Agregue la acción de codificación de archivos planos de la siguiente manera:
    
-     a. Seleccione el signo **más** .
+    a. Seleccione el signo **más** .
    
     b. Haga clic en el vínculo **Agregar una acción** (que aparece después de haber seleccionado el signo más).
    
@@ -59,7 +59,7 @@ Ahora puede probar el conector realizando una solicitud al punto de conexión HT
    ![Captura de pantalla del desencadenador que va a seleccionar](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 1. Agregue la acción de descodificación de archivos planos de la siguiente manera:
    
-     a. Seleccione el signo **más** .
+    a. Seleccione el signo **más** .
    
     b. Haga clic en el vínculo **Agregar una acción** (que aparece después de haber seleccionado el signo más).
    

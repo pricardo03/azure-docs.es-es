@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425141"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registro de Splunk en Azure Monitor
@@ -55,7 +55,7 @@ En la tabla siguiente se especifican las funciones de Azure Monitor que son equi
 | substr | substring() | (1)<br>Tenga en cuenta también que Splunk utiliza índices con base uno. Azure Monitor usa índices con base cero. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| match | matches regex |   (2)  |
+| match | matches regex |  (2)  |
 | regex | matches regex | En Splunk, `regex` es un operador. En Azure Monitor, es un operador relacional. |
 | searchmatch | == | En Splunk, `searchmatch` permite buscar la cadena exacta.
 | random | rand()<br>rand(n) | La función de Splunk devuelve un número entre cero y 2<sup>31</sup>-1. Azure Monitor devuelve un número entre 0,0 y 1,0, o si se ha proporcionado un parámetro, entre 0 y n-1.

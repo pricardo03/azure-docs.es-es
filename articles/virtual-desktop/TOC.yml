@@ -16,6 +16,10 @@
       href: manage-app-groups.md
     - name: 5. Creación de un grupo host para validar las actualizaciones del servicio
       href: create-validation-host-pool.md
+    - name: 6. Implementación de una herramienta de administración
+      href: manage-resources-using-ui.md
+    - name: 7. Configuración de alertas de servicio
+      href: set-up-service-alerts.md
 - name: Procedimiento
   items:
     - name: Conexión a recursos de Windows Virtual Desktop
@@ -40,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Escalado automático de los host de sesiones
       href: set-up-scaling-script.md
+    - name: Personalización de propiedades de RDP
+      href: customize-rdp-properties.md
 - name: Conceptos
   items:
     - name: Entorno de Windows Virtual Desktop

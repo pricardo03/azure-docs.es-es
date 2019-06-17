@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392898"
 ---
 # <a name="performance-metrics"></a>Métricas de rendimiento
@@ -36,10 +36,10 @@ Para las máquinas del clúster, considere la posibilidad de recopilar los sigui
 | Disco físico (por disco) | Prom. Longitud de la cola de escritura de disco |
 | Disco físico (por disco) | Prom. Segundos de disco/lecturas |
 | Disco físico (por disco) | Prom. Segundos de disco/escrituras |
-| Disco físico (por disco) | Lecturas de disco/s  |
-| Disco físico (por disco) | Bytes de lectura de disco/s  |
-| Disco físico (por disco) |  Escrituras en disco/s |
-| Disco físico (por disco) |   Bytes de escritura en disco/s |
+| Disco físico (por disco) | Lecturas de disco/s |
+| Disco físico (por disco) | Bytes de lectura de disco/s |
+| Disco físico (por disco) | Escrituras en disco/s |
+| Disco físico (por disco) |  Bytes de escritura en disco/s |
 | Memoria | MB disponibles |
 | Archivo de paginación | % de uso |
 | Procesador (total) | % de tiempo de procesador |

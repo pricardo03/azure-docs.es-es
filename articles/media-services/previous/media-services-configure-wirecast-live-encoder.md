@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232139"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única 
@@ -45,7 +45,7 @@ En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la 
 * Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 
 ## <a name="create-a-channel"></a>Crear un canal
-1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...**  en el menú.
+1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -94,7 +94,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 3. Haga clic en **OK**.
 4. En la página de configuración, establezca el campo **Destination** (Destino) en **Azure Media Services**.
 
-    El perfil de Encoding está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)**. Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y luego elija **New Preset**(Nuevo valor preestablecido).
+    El perfil de Encoding está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)** . Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y luego elija **New Preset**(Nuevo valor preestablecido).
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configure los valores preestablecidos del codificador.

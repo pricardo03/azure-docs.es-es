@@ -15,10 +15,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764925"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integración de ILB App Service Environment con Azure Application Gateway #
@@ -67,7 +67,7 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
 2. En la zona **Básico**:
 
-    a. Como **Nombre**, escriba el de Azure Application Gateway.
+   a. Como **Nombre**, escriba el de Azure Application Gateway.
 
    b. Como **Nivel**, seleccione **WAF**.
 
@@ -81,7 +81,7 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
 3. En el área **Configuración**:
 
-    a. Como **Red virtual**, seleccione la de App Service Environment.
+   a. Como **Red virtual**, seleccione la de App Service Environment.
 
    b. Como **Subred**, seleccione donde debe implementarse la instancia de Azure Application Gateway. No utilice GatewaySubnet, ya que esto impediría la creación de puertas de enlace de VPN.
 

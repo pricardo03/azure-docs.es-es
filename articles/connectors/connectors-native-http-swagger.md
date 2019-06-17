@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448655"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Llamada a puntos de conexión REST con el conector HTTP + Swagger para Azure Logic Apps
@@ -72,14 +72,14 @@ Estos son los pasos necesarios para crear, configurar y almacenar documentos Swa
 A continuación se muestran los detalles de los desencadenadores y las acciones que admite el conector HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Desencadenadores HTTP + Swagger
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica.  El conector HTTP + Swagger tiene un desencadenador. [Más información sobre los desencadenadores](../connectors/apis-list.md).
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. El conector HTTP + Swagger tiene un desencadenador. [Más información sobre los desencadenadores](../connectors/apis-list.md).
 
 | Desencadenador | DESCRIPCIÓN |
 | --- | --- |
 | HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
 
 ## <a name="http--swagger-actions"></a>Acciones HTTP + Swagger
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica.  El conector HTTP + Swagger tiene una acción posible. [Más información acerca de las acciones](../connectors/apis-list.md).
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. El conector HTTP + Swagger tiene una acción posible. [Más información acerca de las acciones](../connectors/apis-list.md).
 
 | . | DESCRIPCIÓN |
 | --- | --- |
@@ -94,7 +94,7 @@ Un asterisco (*) significa un campo obligatorio.
 
 | Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
-| Método* |estático |Verbo HTTP que se va a usar |
+| Método* |method |Verbo HTTP que se va a usar |
 | URI* |uri |Identificador URI de la solicitud HTTP |
 | encabezados |encabezados |Objeto JSON de los encabezados HTTP que se va a incluir |
 | Cuerpo |Cuerpo |Cuerpo de la solicitud HTTP |
@@ -113,7 +113,7 @@ Respuesta HTTP
 ### <a name="http-responses"></a>Respuestas HTTP
 Al realizar llamadas a diversas acciones, es posible que obtenga determinadas respuestas. A continuación se incluye una tabla que describe las respuestas y descripciones correspondientes.
 
-| Name | DESCRIPCIÓN |
+| NOMBRE | DESCRIPCIÓN |
 | --- | --- |
 | 200 |OK |
 | 202 |Accepted |

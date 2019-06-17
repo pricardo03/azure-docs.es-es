@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: b3357436d068396c5c3c4fae10ed6857759c5aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61221358"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services 
@@ -112,7 +112,7 @@ En esta sección, trataremos los escenarios de conmutación por error del servic
 1. Se recomienda que el codificador NO limite el número de reintentos para establecer una conexión ni reanude el streaming cuando se produce un error TCP.
 1. Después de un error TCP:
   
-     a. Se DEBE cerrar la conexión actual y se DEBE crear una nueva conexión para una nueva solicitud HTTP POST.
+    a. Se DEBE cerrar la conexión actual y se DEBE crear una nueva conexión para una nueva solicitud HTTP POST.
 
     b. La nueva URL HTTP POST DEBE ser la misma que la URL de POST inicial.
   
@@ -162,7 +162,7 @@ Los pasos siguientes reflejan una implementación recomendada para la ingestión
 1. En el cuadro **Live Server Manifest Box**, el valor de **manifestOutput** DEBE establecerse en **true**.
 1. Dada la naturaleza dispersa del evento de señalización, se recomienda lo siguiente:
    
-     a. Al principio del evento en directo, el codificador envía los cuadros de encabezados iniciales al servicio, lo que permite que el servicio registre la pista dispersa en el manifiesto del cliente.
+    a. Al principio del evento en directo, el codificador envía los cuadros de encabezados iniciales al servicio, lo que permite que el servicio registre la pista dispersa en el manifiesto del cliente.
    
     b. El codificador DEBERÍA finalizar la solicitud HTTP POST cuando no se están enviando datos. Una solicitud HTTP POST de larga duración que no envía datos puede impedir que Media Services se desconecte rápidamente del codificador en el caso de una actualización del servicio o reinicio del servidor. En estos casos, el servidor multimedia está bloqueado temporalmente en una operación de recepción en el socket.
    

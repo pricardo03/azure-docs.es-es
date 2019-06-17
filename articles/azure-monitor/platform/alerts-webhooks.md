@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345793"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Cómo hacer que una alerta de métrica clásica notifique a un sistema que no es de Azure mediante un webhook
@@ -73,7 +73,7 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 |:--- |:--- |:--- |:--- |
 | status |Y |Activado, Resuelto |Estado de la alerta en función de las condiciones que haya establecido. |
 | contexto |Y | |Contexto de la alerta |
-|  timestamp |Y | |La hora en la que se desencadenó la alerta. |
+| timestamp |Y | |La hora en la que se desencadenó la alerta. |
 | id |Y | |Cada regla de alerta tiene un identificador único. |
 | Nombre |Y | |Nombre de la alerta |
 | description |Y | |Descripción de la alerta. |
@@ -106,3 +106,4 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 * Aprenda a [usar una aplicación lógica para enviar un mensaje SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Sepa cómo [usar una aplicación lógica para enviar un mensaje de Slack desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Obtenga información sobre cómo [usar una aplicación lógica para enviar un mensaje a una cola de Azure desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+

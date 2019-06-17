@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836592"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementación de SAP IDES EHP7 SP3 para SAP ERP 6.0 en Azure
@@ -40,7 +40,7 @@ Después de iniciar sesión SAP CAL, la primera página normalmente conducir a l
 ### <a name="create-an-account-in-the-sap-cal"></a>Creación de una cuenta en SAP CAL
 1. La primera vez que inicie sesión en SAP CAL, utilice S-User de SAP, o cualquier otro usuario registrado de SAP. A continuación, defina una cuenta de SAP CAL que SAP CAL use para implementar aplicaciones en Azure. En la definición de la cuenta, debe:
 
-     a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
+    a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
 
     b. Especifique la suscripción a Azure. Una cuenta de SAP CAL no se puede asignar a más de una suscripción. Si necesita más de una suscripción, debe crear otra cuenta de SAP CAL.
     
@@ -51,7 +51,7 @@ Después de iniciar sesión SAP CAL, la primera página normalmente conducir a l
 
 1. Para crear una nueva cuenta de SAP CAL, la página **Accounts** (Cuentas) muestra dos opciones para Azure: 
 
-     a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
+    a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
 
     b. **Microsoft Azure** es el nuevo modelo de implementación mediante Resource Manager.
 
@@ -98,7 +98,7 @@ Ha creado correctamente una cuenta de SAP CAL que puede:
 
 1. En la página **Basic Mode: Create Instance** (Modo básico: crear instancia), tiene que:
 
-     a. Especificar en **Name** el nombre de la instancia.
+    a. Especificar en **Name** el nombre de la instancia.
 
     b. Seleccionar una **región** de Azure. Para poder elegir entre varias regiones de Azure, puede que necesite tener una suscripción a SAP CAL.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246143"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
@@ -52,7 +52,7 @@ Los siguientes objetos de usuario **no** se sincronizan con Azure AD:
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * No sincronice los objetos que no vayan a funcionar en Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-   Esta máscara de bits (& H21C07000) filtraría los objetos siguientes:
+  Esta máscara de bits (& H21C07000) filtraría los objetos siguientes:
   * Carpeta pública habilitada para correo (en versión preliminar a partir de la versión 1.1.524.0)
   * Buzón del operador del sistema
   * Buzón de la base de datos de buzones (buzón del sistema)
@@ -220,7 +220,7 @@ El asistente para instalación establece la precedencia para las reglas de sincr
 ### <a name="putting-it-all-together"></a>Resumen
 Ahora conocemos lo suficiente de las reglas de sincronización para poder comprender cómo funciona la configuración con las distintas reglas de sincronización. Si tomamos un usuario y los atributos que se aportan al metaverso, las reglas se aplican en el orden siguiente:
 
-| Name | Comentario |
+| NOMBRE | Comentario |
 |:--- |:--- |
 | In from AD – User Join |Regla para unir objetos del espacio del conector con el metaverso. |
 | In from AD – UserAccount Enabled |Atributos necesarios para iniciar sesión en Azure AD y Office 365. Estos atributos deben ser de la cuenta habilitada. |

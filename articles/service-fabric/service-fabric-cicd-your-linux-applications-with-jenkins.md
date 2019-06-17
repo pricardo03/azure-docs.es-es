@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
 ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038844"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
@@ -218,7 +218,7 @@ Los pasos descritos en esta sección muestran cómo configurar un trabajo de Jen
 1. En la pestaña **Source Code Management** (Administración del código fuente) seleccione **Git**. Especifique la dirección URL del repositorio que hospeda la aplicación de Java para Service Fabric que desea integrar con el flujo de CI/CD de Jenkins (por ejemplo, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). También puede especificar la rama que debe compilar (por ejemplo, `/master`).
 1. Configure el repositorio de *GitHub* para que se comunique con Jenkins:
 
-    a. En la página del repositorio de GitHub, vaya a **Settings** >  (Configuración) **Integrations and Services** (Integraciones y servicios).
+   a. En la página del repositorio de GitHub, vaya a **Settings** >  (Configuración) **Integrations and Services** (Integraciones y servicios).
 
    b. Seleccione **Add Service** (Agregar servicio), escriba **Jenkins** y seleccione el **complemento Jenkins-GitHub**.
 
@@ -259,7 +259,7 @@ Los pasos descritos en esta sección muestran cómo configurar un trabajo de Jen
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
         ``` 
 
-        Si el archivo PFX está protegido con contraseña, incluya la contraseña en el parámetro `-passin`. Por ejemplo: 
+        Si el archivo PFX está protegido con contraseña, incluya la contraseña en el parámetro `-passin`. Por ejemplo:
 
         ```sh
         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!

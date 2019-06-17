@@ -85,9 +85,10 @@
           items:
             - name: Optimización del rendimiento
               href: storage-performance.md
-        - name: GPU optimizada
-          href: sizes-gpu.md
+        - name: Proceso acelerado
           items:
+            - name: GPU optimizada
+              href: sizes-gpu.md
             - name: Configuración de los controladores de GPU
               href: n-series-driver-setup.md
         - name: Informática de alto rendimiento

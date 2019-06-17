@@ -16,10 +16,10 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Tutorial: Integración de Azure Active Directory con 23 Video
@@ -60,7 +60,7 @@ Para configurar la integración de 23 Video en Azure AD, deberá agregar 23 Vide
 
 **Para agregar 23 Video desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -91,7 +91,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con 23 Video, e
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de 23 Video](#creating-a-23-video-test-user)**: para tener un homólogo de Britta Simon en 23 Video que esté vinculado a la representación de ella en Azure AD.
+3. **[Creación de un usuario de prueba de 23 Video](#creating-a-23-video-test-user)** : para tener un homólogo de Britta Simon en 23 Video que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -113,7 +113,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/23video-tutorial/tutorial_23video_url.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.23video.com`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.23video.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.23video.com/saml/trust/<uniqueid>`
 
@@ -161,7 +161,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/23video-tutorial/create_aaduser_04.png) 
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
    
     ![Asignar usuario][402]
 
-     a. En el cuadro de texto **Direcciones de correo electrónico** , escriba la dirección de correo electrónico de Britta Simon en Azure AD.  
+    a. En el cuadro de texto **Direcciones de correo electrónico** , escriba la dirección de correo electrónico de Britta Simon en Azure AD.  
  
     b. Haga clic en **Agregar un usuario**.   
 
@@ -225,7 +225,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245117"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
@@ -137,7 +137,7 @@ Y el valor de IssuerUri en el nuevo dominio se ha establecido en https://bmfabri
 ## <a name="support-for-subdomains"></a>Compatibilidad con subdominios
 Cuando se agrega un subdominio, debido a la manera en que Azure AD controla los dominios, heredará la configuración del elemento primario.  Esto significa que la propiedad IssuerUri debe coincidir con los elementos primarios.
 
-Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com.  La propiedad IssuerUri de un usuario de corp.bmcontoso.com tendrá que ser **http://bmcontoso.com/adfs/services/trust.**  A pesar de la regla estándar implementada anteriormente para Azure AD, se generará un token con un emisor como **http://corp.bmcontoso.com/adfs/services/trust.**  que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
+Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com.  La propiedad IssuerUri de un usuario de corp.bmcontoso.com tendrá que ser **http://bmcontoso.com/adfs/services/trust.**  A pesar de la regla estándar implementada anteriormente para Azure AD, se generará un token con un emisor como **http://corp.bmcontoso.com/adfs/services/trust.** que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Habilitación de la compatibilidad con subdominios
 Para solucionar este comportamiento, es necesario actualizar la relación de confianza para usuario autenticado de AD FS para Microsoft Online.  Para ello, debe configurar una regla de notificaciones personalizada para eliminar cualquier subdominio del sufijo UPN del usuario al construir el valor de emisor personalizado.

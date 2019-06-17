@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: Almacenamiento local de datos con SQL
           href: tutorial-store-data-sql-server.md
+    - name: 4. Ejemplo global de aprendizaje automático en el perímetro
+      items:
+        - name: Introducción
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: Configuración de la máquina de desarrollo y los servicios de Azure
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: Generación de datos de dispositivos simulados
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Entrenamiento e implementación de un modelo de Azure Machine Learning
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: Configuración de una puerta de enlace transparente
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: Creación e implementación de módulos de IoT Edge
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: Envío de datos a IoT Hub mediante una puerta de enlace transparente
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Conceptos
   items:
     - name: Entorno de tiempo de ejecución de IoT Edge
@@ -149,6 +165,8 @@
       items:
         - name: Configuración de una puerta de enlace transparente
           href: how-to-create-transparent-gateway.md
+        - name: Autenticación de un dispositivo de bajada
+          href: how-to-authenticate-downstream-device.md
         - name: Conexión de un dispositivo de bajada
           href: how-to-connect-downstream-device.md
         - name: Puerta de enlace de protocolo ModBus

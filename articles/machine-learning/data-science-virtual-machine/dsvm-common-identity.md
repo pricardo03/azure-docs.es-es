@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
 ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502388"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configuración de una identidad común en Data Science Virtual Machine
@@ -41,7 +41,7 @@ Azure AD DS simplifica el proceso de administrar las identidades al proporcionar
 
 1. En Azure Portal, agregue el usuario a Active Directory: 
 
-    a. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+   a. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
     
    b. Seleccione **Azure Active Directory** y, después, **Usuarios y grupos**.
     
@@ -68,7 +68,7 @@ Azure AD DS simplifica el proceso de administrar las identidades al proporcionar
 1. Siga las [instrucciones](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) para agregar DSVM a Active Directory. 
 1. Monte un recurso compartido de Azure Files para hospedar su directorio particular o de cuaderno de forma que el área de trabajo se pueda montar en cualquier máquina. (Si necesita permisos de nivel de archivo estrictos, necesitará que NFS se ejecute en una o varias máquinas virtuales).
 
-    a. [Cree un recurso compartido de Azure Files](../../storage/files/storage-how-to-create-file-share.md).
+   a. [Cree un recurso compartido de Azure Files](../../storage/files/storage-how-to-create-file-share.md).
     
    b. Móntelo en la DSVM de Linux. Al hacer clic en el botón **Conectar** para el recurso compartido de Azure Files en la cuenta de almacenamiento en Azure Portal, se muestra el comando para la ejecución en el shell de Bash en la máquina virtual DSVM de Linux. El comando tiene este aspecto:
    

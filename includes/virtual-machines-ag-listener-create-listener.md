@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165382"
 ---
 En este paso, se crea manualmente el agente de escucha del grupo de disponibilidad en el Administrador de clústeres de conmutación por error y SQL Server Management Studio.
@@ -33,13 +33,13 @@ En este paso, se crea manualmente el agente de escucha del grupo de disponibilid
    
    * Para configurar una solución híbrida:
      
-         a. Haga clic con el botón derecho en el recurso de dirección IP que corresponda a la subred local y, a continuación, seleccione **Propiedades**. Anote el nombre de dirección IP y el nombre de red.
+        a. Haga clic con el botón derecho en el recurso de dirección IP que corresponda a la subred local y, a continuación, seleccione **Propiedades**. Anote el nombre de dirección IP y el nombre de red.
    
         b. Seleccione **Dirección IP estática**, asigne una dirección IP no utilizada y, a continuación, haga clic en **Aceptar**.
  
    * Para configurar una solución solo de Azure:
 
-         a. Haga clic en el recurso de dirección IP que corresponde a la subred de Azure y, a continuación, seleccione **Propiedades**.
+        a. Haga clic en el recurso de dirección IP que corresponde a la subred de Azure y, a continuación, seleccione **Propiedades**.
        
        > [!NOTE]
        > Si el agente de escucha no se puede poner en línea debido a una dirección IP en conflicto seleccionada por DHCP, puede configurar una dirección IP estática válida en esta ventana de propiedades.

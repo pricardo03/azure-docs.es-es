@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60750658"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Evaluación del rendimiento de un modelo en Azure Machine Learning Studio
@@ -115,7 +115,7 @@ Volviendo al problema de clasificación de ingresos, existen varias preguntas de
 
 ![Resultados de la evaluación de clasificación binaria](./media/evaluate-model-performance/7.png)
 
- Ilustración 7. Resultados de la evaluación de clasificación binaria.
+Ilustración 7. Resultados de la evaluación de clasificación binaria.
 
 Otra métrica relacionada que se usa con frecuencia es **F1 Score**, que tiene en cuenta la precisión y la recuperación. Es la media armónica de estas 2 métricas y se calcula como tal: F1 = 2 (precisión x recuperación) / (precisión + recuperación). La puntuación de F1 score es una buena forma de resumir la evaluación en un número único, pero siempre es una práctica recomendada comprobar la precisión y la recuperación juntas para comprender mejor cómo se comporta un clasificador.
 

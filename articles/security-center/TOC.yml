@@ -74,8 +74,9 @@
     - name: Visibilidad de todos los inquilinos
       href: security-center-management-groups.md
     - name: Implementación de recomendaciones de seguridad
-      href: security-center-recommendations.md
       items:
+        - name: ¿Cuáles son las recomendaciones de seguridad?
+          href: security-center-recommendations.md
         - name: Reforzamiento de la posición de seguridad
           href: security-center-monitoring.md
         - name: Protección de máquinas y aplicaciones
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: Administración de datos del usuario
       href: security-center-privacy.md
+    - name: Administración de IoT
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: Preguntas más frecuentes
       href: security-center-faq.md
     - name: Azure Security

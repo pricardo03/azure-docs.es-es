@@ -54,8 +54,14 @@
               href: azure-security-disk-encryption-overview.md
             - name: Guías de inicio rápido
               items:
-                - name: 'Cifrado de una máquina virtual: Azure PowerShell'
-                  href: quick-encrypt-vm-powershell.md
+                - name: Cifrado de una máquina virtual Linux con la CLI de Azure
+                  href: azure-disk-encryption-linux-cli-quickstart.md
+                - name: Cifrado de una máquina virtual Linux con Azure PowerShell
+                  href: azure-disk-encryption-linux-powershell-quickstart.md
+                - name: Cifrado de una máquina virtual Windows con la CLI de Azure
+                  href: azure-disk-encryption-windows-cli-quickstart.md
+                - name: Cifrado de una máquina virtual Windows con Azure PowerShell
+                  href: azure-disk-encryption-windows-powershell-quickstart.md
             - name: Azure Disk Encryption
               items:
                 - name: Requisitos previos del cifrado de disco

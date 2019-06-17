@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996524"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
@@ -29,7 +29,7 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 
 - El registro debe tener una sola entrada por línea o usar una marca de tiempo que coincida con uno de los formatos siguientes al principio de cada entrada.
 
-    AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM<br>Mes DD, AAAA HH:MM:SS<br />aaMMdd HH:mm:ss<br />ddMMaa HH:mm:ss<br />MMM d hh:mm:ss<br />dd/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-ddTHH:mm:ssK
+    AAAA-MM-DD HH:MM:SS<br>M/D/AAAA HH:MM:SS AM/PM<br>Mes DD, AAAA HH:MM:SS<br />aaMMdd HH:mm:ss<br />ddMMaa HH:mm:ss<br />MMM d hh:mm:ss<br />dd/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-ddTHH:mm:ssK
 
 - El archivo de registro no debe permitir el registro circular o la rotación de registros, donde el archivo se sobrescribe con nuevas entradas.
 - El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.
@@ -134,7 +134,7 @@ Las entradas del registro personalizado tienen un tipo con el nombre del registr
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | TimeGenerated |Fecha y hora en las que Azure Monitor recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
-| SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o System Center Operations Manager <br>  Linux: todos los agentes de Linux. |
+| SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o System Center Operations Manager <br> Linux: todos los agentes de Linux. |
 | RawData |Texto completo de la entrada recopilada. Probablemente le interesará [analizar estos datos en propiedades individuales](../log-query/parse-text.md). |
 | ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
 

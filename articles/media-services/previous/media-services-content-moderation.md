@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465684"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos 
@@ -72,7 +72,7 @@ La salida JSON incluye los siguientes elementos:
 | adultScore | Puntuación de confianza del posible contenido para adultos, en una escala del 0,00 al 0,99. |
 | racyScore | Puntuación de confianza del posible contenido obsceno, en una escala del 0,00 al 0,99. |
 | index | Índice del marco en una escala que va desde el primer hasta el último índice de fotograma. |
-|  timestamp | La ubicación del marco en "tics". |
+| timestamp | La ubicación del marco en "tics". |
 | shotIndex | El índice de la captura principal. |
 
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ab30dfeccc4ae1c7b09a8f48846ffb9e71cfc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439172"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure Active Directory
@@ -76,7 +76,7 @@ Si quiere configurar el directorio para que acceda a la API de generación de in
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
-     a. En el cuadro de texto **Nombre**, escriba `Reporting API application`.
+    a. En el cuadro de texto **Nombre**, escriba `Reporting API application`.
 
     b. Seleccione **Aplicación web o API** como **Tipo de aplicación**.
 
@@ -207,7 +207,7 @@ Para obtener el secreto de cliente de la aplicación, debe crear una nueva clave
 
     ![Registre la aplicación](./media/howto-configure-prerequisites-for-reporting-api/14.png)
 
-     a. En el cuadro de texto **Descripción**, escriba `Reporting API`.
+    a. En el cuadro de texto **Descripción**, escriba `Reporting API`.
 
     b. En **Expiración**, seleccione **En 2 años**.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60949188"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
@@ -42,7 +42,7 @@ Las entidades de mantenimiento son un reflejo las entidades de Service Fabric (p
 Las entidades de mantenimiento y la jerarquía permiten depurar, supervisar y realizar informes tanto del clúster como de las aplicaciones. El modelo de mantenimiento proporciona una representación *pormenorizada* y precisa del mantenimiento de las numerosas piezas móviles del clúster.
 
 ![Entidades de mantenimiento.][1]
- Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
+Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -211,7 +211,7 @@ Los [informes de mantenimiento](https://docs.microsoft.com/dotnet/api/system.fab
 * **RemoveWhenExpired**. Un valor booleano. Si está establecido en true, el informe de mantenimiento expirado se elimina automáticamente del Almacén de estado y no afecta a la evaluación del mantenimiento de la entidad. Se usa cuando el informe es válido solo durante un período de tiempo y el informador no necesita vaciarlo de manera explícita. También se utiliza para eliminar informes del Almacén de estado (por ejemplo, se cambia un guardián y deja de enviar informes con la propiedad y el origen anteriores). Puede enviar un informe con valor de TimeToLive pequeño, junto con RemoveWhenExpired para borrar cualquier estado anterior del Almacén de estado. Si el valor se establece en false, el informe expirado se trata como un error en la evaluación del mantenimiento. El valor false indica al Almacén de estado que el origen debe notificar periódicamente esta propiedad. Si no lo hace, debe haber algún error en el guardián. El mantenimiento del guardián se captura considerando el evento como error.
 * **SequenceNumber**. Un entero positivo que debe ir en constante aumento y representa el orden de los informes. Lo usa el Almacén de estado para detectar informes obsoletos que se reciben tarde debido a retrasos en la red u otros problemas. Un informe se rechaza si el número de secuencia es menor o igual que el último número aplicado a la misma entidad, origen y propiedad. Si no se especifica, el número de secuencia se genera automáticamente. Solo es necesario colocar el número de secuencia cuando se informa de las transiciones de estado. En esta situación, el origen necesita recordar los informes que envió y conservar la información para la recuperación de conmutación por error.
 
-Estos cuatro datos (SourceId, entity identifier, Property y HealthState) se requieren en todos los informes de mantenimiento. No se permite que la cadena de SourceId comience por el prefijo "**System.**", que se reserva para los informes del sistema. Para la misma entidad solo hay un informe del mismo origen y propiedad. Los informes del mismo origen y propiedad se invalidan entre sí, ya sea en el lado del cliente de mantenimiento (si se procesan por lotes) o en el lado del Almacén de estado. La sustitución se realiza basándose en los números de secuencia; los informes más recientes (con un número de secuencia mayor) reemplazan a los informes anteriores.
+Estos cuatro datos (SourceId, entity identifier, Property y HealthState) se requieren en todos los informes de mantenimiento. No se permite que la cadena de SourceId comience por el prefijo "**System.** ", que se reserva para los informes del sistema. Para la misma entidad solo hay un informe del mismo origen y propiedad. Los informes del mismo origen y propiedad se invalidan entre sí, ya sea en el lado del cliente de mantenimiento (si se procesan por lotes) o en el lado del Almacén de estado. La sustitución se realiza basándose en los números de secuencia; los informes más recientes (con un número de secuencia mayor) reemplazan a los informes anteriores.
 
 ### <a name="health-events"></a>Eventos de estado
 Internamente, el Almacén de estado conserva los [eventos de mantenimiento](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), que contienen toda la información de los informes y metadatos adicionales. Los metadatos incluyen la hora en que el informe se dio al cliente de mantenimiento y la hora en que se modificó en el servidor. Los eventos de mantenimiento los devuelven las [consultas de mantenimiento](service-fabric-view-entities-aggregated-health.md#health-queries).

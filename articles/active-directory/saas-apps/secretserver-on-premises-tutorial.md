@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integración de Azure Active Directory con Secret Server (On-Premises)
@@ -61,7 +61,7 @@ Para configurar la integración de Secret Server (On-Premises) en Azure AD, es n
 
 **Para agregar Secret Server (On-Premises) desde la galería, siga los pasos a continuación:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**. 
 
     ![Botón Azure Active Directory][1]
 
@@ -73,7 +73,7 @@ Para configurar la integración de Secret Server (On-Premises) en Azure AD, es n
 
     ![Botón Nueva aplicación][3]
 
-1. En el cuadro de búsqueda, escriba **Secret Server (On-Premises)**, seleccione **Secret Server (On-Premises)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Secret Server (On-Premises)** , seleccione **Secret Server (On-Premises)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Secret Server (On-Premises) en la lista de resultados](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
@@ -85,11 +85,11 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 
 Para configurar y probar el inicio de sesión único de Azure AD con Secret Server (On-Premises), es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Secret Server (On-Premises)](#create-a-secret-server-on-premises-test-user)**: para tener un homólogo de Britta Simon en Secret Server (On-Premises) que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Secret Server (On-Premises)](#create-a-secret-server-on-premises-test-user)** : para tener un homólogo de Britta Simon en Secret Server (On-Premises) que esté vinculado a su representación en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -97,7 +97,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 **Para configurar el inicio de sesión único de Azure AD con Secret Server (On-Premises), siga los pasos a continuación:**
 
-1. En Azure Portal, en la página de integración de la aplicación **Secret Server (On-Premises)**, haga clic en **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Secret Server (On-Premises)** , haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único][4]
 
@@ -109,7 +109,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-     a. En el cuadro de texto **Identificador**, escriba el valor elegido por el usuario como ejemplo: `https://secretserveronpremises.azure`
+    a. En el cuadro de texto **Identificador**, escriba el valor elegido por el usuario como ejemplo: `https://secretserveronpremises.azure`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`.
 
@@ -137,11 +137,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
     
-1. En la sección **Configuración de Secret Server (On-Premises)**, haga clic en **Configurar Secret Server (On-Premises)** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Secret Server (On-Premises)** , haga clic en **Configurar Secret Server (On-Premises)** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configuración de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
 
-1. Para configurar el inicio de sesión único en **Secret Server (On-Premises)**, es preciso enviar el **certificado (Base64), la dirección URL de cierre de sesión, la dirección URL del servicio de inicio de sesión único de SAML** y el **identificador de entidad de SAML** descargados al [equipo de soporte técnico de Secret Server (On-Premises)](https://thycotic.force.com/support/s/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **Secret Server (On-Premises)** , es preciso enviar el **certificado (Base64), la dirección URL de cierre de sesión, la dirección URL del servicio de inicio de sesión único de SAML** y el **identificador de entidad de SAML** descargados al [equipo de soporte técnico de Secret Server (On-Premises)](https://thycotic.force.com/support/s/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/secretserver-on-premises-tutorial/create_aaduser_04.png)
 
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -191,7 +191,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201]
 
-1. En la lista de aplicaciones, seleccione **Secret Server (On-Premises)**.
+1. En la lista de aplicaciones, seleccione **Secret Server (On-Premises)** .
 
     ![Vínculo de Secret Server (On-Premises) en la lista de aplicaciones](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 
