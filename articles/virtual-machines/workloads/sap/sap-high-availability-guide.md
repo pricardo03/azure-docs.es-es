@@ -18,19 +18,19 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204935"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -246,7 +246,7 @@ En la figura 1 se muestra un clúster de dos nodos. Si se produce un error en la
 
 Debido a que este ejemplo usa un clúster de dos nodos, usamos el modo de cuórum Mayoría de recurso compartido de archivos y nodo. Otra opción válida es el modo Mayoría de disco y nodo. En un entorno de producción, se recomienda usar un disco de cuórum. Puede usar tecnología de sistema de almacenamiento y red para hacerlo de alta disponibilidad.
 
-![Figura 1: Ejemplo de una configuración de clústeres de conmutación por error de Windows Server para ASCS/SCS de SAP en Azure][sap-ha-guide-figure-1000]
+![Ilustración 1: Ejemplo de una configuración de clústeres de conmutación por error de Windows Server para ASCS/SCS de SAP en Azure][sap-ha-guide-figure-1000]
 
 _**Ilustración 1:** Ejemplo de una configuración de clústeres de conmutación por error de Windows Server para ASCS/SCS de SAP en Azure_
 
@@ -767,22 +767,22 @@ Azure Load Balancer tiene un equilibrador de carga interno que cierra las conexi
 
 Para agregar entradas de registro en los dos nodos de clúster de la instancia de ASCS/SCS de SAP, en primer lugar, agregue estas entradas del registro de Windows en ambos nodos de clúster de Windows para ASCS/SCS de SAP:
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveTime` |
 | Tipo de variable |REG_DWORD (Decimal) |
-| `Value` |120000 |
+| Valor |120000 |
 | Vínculo a la documentación |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabla 3:** Cambio del primer parámetro de TCP/IP_
 
 Luego, agregue estas entradas del Registro de Windows en los nodos de clúster de Windows para ASCS/SCS de SAP:
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveInterval` |
 | Tipo de variable |REG_DWORD (Decimal) |
-| `Value` |120000 |
+| Valor |120000 |
 | Vínculo a la documentación |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabla 4:** Cambio del segundo parámetro de TCP/IP_
@@ -1133,7 +1133,7 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 1. En el Administrador de DNS de Windows, cree una entrada de DNS para el nombre de host virtual de la instancia de ASCS/SCS.
 
    > [!IMPORTANT]
-   > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer (**<*SID*>-lb-ascs**).  
+   > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer ( **<*SID*>-lb-ascs**).  
    >
    >
 
@@ -1269,7 +1269,7 @@ Para agregar un puerto de sondeo, siga estos pasos:
    }
    ```
 
-   Después de conectar el rol de clúster **SAP <*SID*>**, compruebe que **ProbePort** esté establecido en el nuevo valor.
+   Después de conectar el rol de clúster **SAP <*SID*>** , compruebe que **ProbePort** esté establecido en el nuevo valor.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>
@@ -1335,7 +1335,7 @@ El grupo de clústeres **SAP PR1** se ejecuta en el nodo de clúster A. Por ejem
 
 _**Figura 61:** Administrador de clústeres de conmutación por error: El grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster A_
 
-En la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración, puede ver que los datos del disco compartido se replican sincrónicamente desde la unidad de volumen de origen S en el nodo de clúster A. Por ejemplo, de **pr1-ascs-0 [10.0.0.40]** a **pr1-ascs-1 [10.0.0.41]**.
+En la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración, puede ver que los datos del disco compartido se replican sincrónicamente desde la unidad de volumen de origen S en el nodo de clúster A. Por ejemplo, de **pr1-ascs-0 [10.0.0.40]** a **pr1-ascs-1 [10.0.0.41]** .
 
 ![Figura 62: En SIOS DataKeeper, replique el volumen local desde el nodo de clústeres A al nodo de clústeres B][sap-ha-guide-figure-5001]
 
@@ -1364,7 +1364,7 @@ _**Figura 62:** En SIOS DataKeeper, replique el volumen local desde el nodo de c
 
    _**Figura 63**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster B_
 
-   Ahora, el disco compartido ahora está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]**.
+   Ahora, el disco compartido ahora está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]** .
 
    ![Figura 64: SIOS DataKeeper replica el volumen local desde el nodo del clúster B al nodo del clúster A][sap-ha-guide-figure-5003]
 

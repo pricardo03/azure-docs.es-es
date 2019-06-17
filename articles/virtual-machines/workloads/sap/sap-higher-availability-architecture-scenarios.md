@@ -18,15 +18,15 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825685"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilización del reinicio de VM de la infraestructura de Azure para lograr una "mayor disponibilidad" de un sistema de SAP
 
-[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -211,7 +211,7 @@ ms.locfileid: "60825685"
 
 > Esta sección es aplicable a:
 >
-> ![ Windows][Logo_Windows] Windows como para ![Linux][Logo_Linux] Linux
+> ![Windows][Logo_Windows] Windows como para ![Linux][Logo_Linux] Linux
 >
 
 Si decide no usar funcionalidades como los clústeres de conmutación por error de Windows Server (WSFC) o Pacemaker en Linux (actualmente admitido solo para SUSE Linux Enterprise Server [SLES] 12 y versiones posteriores), se utiliza el reinicio de máquina virtual de Azure. Con ello se protegen los sistemas SAP del tiempo de inactividad planeado y no planeado de la infraestructura de servidores físicos de Azure y la plataforma subyacente general de Azure.

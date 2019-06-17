@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 51a0ee6f2d928d79e60ca9976d7651c70867a41f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717596"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conocidos de clústeres de Apache Spark en HDInsight
@@ -67,7 +67,7 @@ Los clústeres de HDInsight Spark no son compatibles con el conector Spark-Phoen
 
 **Mitigación:**
 
-Debe usar el conector Spark-HBase en su lugar. Para instrucciones, consulte el artículo sobre el [uso del conector Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Debe usar el conector Spark-HBase en su lugar. Para instrucciones, consulte el artículo sobre el [uso del conector Spark-HBase](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemas relacionados con los cuadernos de Jupyter Notebook
 A continuación, se muestran algunos problemas conocidos relacionados con los cuadernos de Jupyter Notebook.
@@ -107,7 +107,7 @@ Cuando el clúster de Spark se queda sin recursos, el tiempo de espera de los ke
    * Detenga otras aplicaciones de Spark desde YARN.
 2. Reinicie el cuaderno que trataba de iniciar. Debe haber suficientes recursos para crear una sesión ahora.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios

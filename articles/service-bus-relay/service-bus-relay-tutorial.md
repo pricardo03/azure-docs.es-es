@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790085"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
@@ -68,7 +68,7 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 
 3. Instale el paquete NuGet de Service Bus. Este paquete agrega automáticamente referencias a las bibliotecas de Service Bus, así como a **System.ServiceModel** de WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) es el espacio de nombres que permite el acceso mediante programación a las características básicas de WCF. Service Bus utiliza muchos de los objetos y atributos de WCF para definir contratos de servicio.
 
-    En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, luego, en **Administrar paquetes NuGet**. Haga clic en la pestaña Examinar y, después, busque **WindowsAzure.ServiceBus**. Asegúrese de que el nombre del proyecto está seleccionado en el cuadro **Versiones**. Haga clic en **Instalar**y acepte las condiciones de uso.
+    En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, luego, en **Administrar paquetes NuGet**. Haga clic en la pestaña **Examinar** y, después, busque **WindowsAzure.ServiceBus**. Asegúrese de que el nombre del proyecto está seleccionado en el cuadro **Versiones**. Haga clic en **Instalar**y acepte las condiciones de uso.
 
     ![Paquete de Service Bus][3]
 4. En el Explorador de soluciones, haga doble clic en el archivo Program.cs para abrirlo en el editor en caso de que no esté ya abierto.
@@ -697,7 +697,7 @@ namespace Microsoft.ServiceBus.Samples
 4. Defina el cuadro **Acción** para los proyectos **EchoService** y **EchoClient** en **Iniciar**.
 
     ![][5]
-5. Haga clic en **Dependencias del proyecto**. En el cuadro **Proyectos**, seleccione **EchoClient**. En el cuadro **Depende de:**, asegúrese de que **EchoService** está seleccionado.
+5. Haga clic en **Dependencias del proyecto**. En el cuadro **Proyectos**, seleccione **EchoClient**. En el cuadro **Depende de:** , asegúrese de que **EchoService** está seleccionado.
 
     ![][6]
 6. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades**.

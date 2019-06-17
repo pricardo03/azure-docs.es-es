@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713500"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Solución de problemas de Apache HBase mediante Azure HDInsight
@@ -219,7 +219,7 @@ Para conectar con Apache Phoenix, debe proporcionar la dirección IP del nodo ac
    ```
 
    > [!Note] 
-   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)** > **ZK\* (Active)** > **Zookeeper Info (Información de Zookeeper)**. 
+   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)**  > **ZK\* (Active)**  > **Zookeeper Info (Información de Zookeeper)** . 
 
 3. Si sqlline.py se conecta a Phoenix y no supera el tiempo de espera, ejecute el siguiente comando para validar la disponibilidad y el estado de Phoenix:
 
@@ -277,7 +277,7 @@ En los registros de servidores de la región, intente identificar la escala de t
 
 Compruebe la pila de llamadas e intente determinar qué carpeta puede ser la causante del problema (por ejemplo, puede ser la carpeta de WAL o la carpeta .tmp). Después, en Cloud Explorer o mediante los comandos de HDFS, pruebe a buscar el archivo problemático. Normalmente, es un archivo \*-renamePending.json. (\*-renamePending.json es un archivo de diario que se utiliza para implementar la operación de cambio de nombre atómico en el controlador WASB. Debido a los errores de esta implementación, estos archivos se pueden dejar después de que el proceso se bloquea, y así sucesivamente). Fuerce la eliminación de este archivo en Cloud Explorer o mediante los comandos de HDFS. 
 
-En ocasiones, en esta ubicación también puede haber un archivo temporal denominado algo así como *$$$. $$$*. Para ver este archivo, tiene que usar el comando `ls` de HDFS; en Cloud Explorer no se puede ver. Para eliminar este archivo, use el comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
+En ocasiones, en esta ubicación también puede haber un archivo temporal denominado algo así como *$$$. $$$* . Para ver este archivo, tiene que usar el comando `ls` de HDFS; en Cloud Explorer no se puede ver. Para eliminar este archivo, use el comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
 
 Una vez que haya ejecutado estos comandos, HMaster debería iniciarse de inmediato. 
 
@@ -416,5 +416,5 @@ Esto es lo que sucede en segundo plano:
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Otras referencias
 [Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
