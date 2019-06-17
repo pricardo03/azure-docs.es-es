@@ -15,10 +15,10 @@ ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851430"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
@@ -43,7 +43,7 @@ Primero, en la página **Autenticación / Autorización** de Azure Portal, confi
 
 En **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada), seleccione **Allow Anonymous requests (no action)** (Permitir solicitudes anónimas (sin acción)).
 
-En la página de inicio de sesión, en la barra de navegación o en cualquier otra ubicación de la aplicación, agregue un vínculo de inicio de sesión a cada uno de los proveedores que ha habilitado (`/.auth/login/<provider>`). Por ejemplo: 
+En la página de inicio de sesión, en la barra de navegación o en cualquier otra ubicación de la aplicación, agregue un vínculo de inicio de sesión a cada uno de los proveedores que ha habilitado (`/.auth/login/<provider>`). Por ejemplo:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -65,7 +65,7 @@ Para redirigir al usuario después del inicio de sesión a una dirección URL pe
 
 En un inicio de sesión que dirige el cliente, la aplicación consigue de forma manual que el cliente inicie sesión en el proveedor y envía el token de autenticación a App Service para su validación (consulte el [flujo de autenticación](overview-authentication-authorization.md#authentication-flow)). Esta validación en sí misma no le otorga acceso a los recursos de aplicación que quiere, pero una validación exitosa le dará un token de sesión que puede usar para obtener acceso a los recursos de la aplicación. 
 
-Para validar el token del proveedor, la aplicación App Service debe configurarse primero con el proveedor que quiera usar. En el entorno de ejecución, después de recuperar el token de autenticación de su proveedor, publique el token en `/.auth/login/<provider>` para su validación. Por ejemplo:  
+Para validar el token del proveedor, la aplicación App Service debe configurarse primero con el proveedor que quiera usar. En el entorno de ejecución, después de recuperar el token de autenticación de su proveedor, publique el token en `/.auth/login/<provider>` para su validación. Por ejemplo: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -96,7 +96,7 @@ Si el token del proveedor se valida correctamente, la API regresa con un element
 }
 ```
 
-Una vez que tenga este token de sesión, puede obtener acceso a los recursos de aplicación protegidos agregando el encabezado `X-ZUMO-AUTH` a sus solicitudes HTTP. Por ejemplo:  
+Una vez que tenga este token de sesión, puede obtener acceso a los recursos de aplicación protegidos agregando el encabezado `X-ZUMO-AUTH` a sus solicitudes HTTP. Por ejemplo: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -117,7 +117,7 @@ A continuación, se muestra un vínculo de cierre de sesión simple en una pági
 <a href="/.auth/logout">Sign out</a>
 ```
 
-De forma predeterminada, un cierre de sesión correcto redirige el cliente a la dirección URL `/.auth/logout/done`. Puede cambiar la página de redirección del inicio de sesión posterior agregando el parámetro de consulta `post_logout_redirect_uri`. Por ejemplo: 
+De forma predeterminada, un cierre de sesión correcto redirige el cliente a la dirección URL `/.auth/logout/done`. Puede cambiar la página de redirección del inicio de sesión posterior agregando el parámetro de consulta `post_logout_redirect_uri`. Por ejemplo:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -186,7 +186,7 @@ Cuando el token de acceso de su proveedor (no el [token de sesión](#extend-sess
 - **Cuenta Microsoft**: cuando [defina la configuración de autenticación de Cuenta Microsoft](configure-authentication-provider-microsoft.md), seleccione el ámbito `wl.offline_access`.
 - **Azure Active Directory**: en [https://resources.azure.com](https://resources.azure.com), siga estos pasos:
     1. En la parte superior de la página, seleccione **Lectura y escritura**.
-    2. En el explorador de la izquierda, desplácese hasta **subscriptions** > **_\<nombre\_suscripción_** > **resourceGroups** > _**\<nombre\_grupo\_recursos>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<nombre\_aplicación>**_ > **config** > **authsettings**. 
+    2. En el explorador de la izquierda, desplácese hasta **subscriptions** >  ** _\<nombre\_suscripción_**  > **resourceGroups** >  _ **\<nombre\_grupo\_recursos>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\<nombre\_aplicación>** _ > **config** > **authsettings**. 
     3. Haga clic en **Editar**.
     4. Modifique la siguiente propiedad. Reemplace _\<app\_id>_ por el identificador de aplicación de Azure Active Directory del servicio al que desea acceder.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Cuenta Microsoft y Azure Active Directory le permiten iniciar sesión desde varios dominios. Por ejemplo, Cuenta Microsoft permite cuentas de _outlook.com_, _live.com_ y _hotmail.com_. Azure Active Directory permite cualquier número de dominios personalizados para las cuentas de inicio de sesión. Este comportamiento puede no ser deseable para una aplicación interna, a la que no desea que cualquier persona con una cuenta de _outlook.com_ acceda. Para limitar el nombre de dominio de las cuentas de inicio de sesión, siga estos pasos.
 
-En [https://resources.azure.com](https://resources.azure.com), desplácese hasta **subscriptions** > **_\<nombre\_suscripción_** > **resourceGroups** > _**\<nombre\_grupo\_recursos>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<nombre\_aplicación>**_ > **config** > **authsettings**. 
+En [https://resources.azure.com](https://resources.azure.com), desplácese hasta **subscriptions** >  ** _\< nombre\_ suscripción_**  > **resourceGroups** >  _ **\< nombre\_ grupo\_ recursos>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\< nombre\_ aplicación>** _ > **config** > **authsettings**. 
 
 Haga clic en **Editar**, modifique la propiedad siguiente y luego haga clic en **Put**. No olvide reemplazar _\<domain\_name>_ por el dominio que desee.
 

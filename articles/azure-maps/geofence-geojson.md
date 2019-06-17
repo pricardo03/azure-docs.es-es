@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64723570"
 ---
 # <a name="geofencing-geojson-data"></a>Datos GeoJSON de geovallas
@@ -32,8 +32,8 @@ Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` 
 
 | NOMBRE | Type | Obligatorio  | DESCRIPCIÓN |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | DateTime  | true | Fecha y hora de inicio del período de tiempo de validez. |
-| endTime   | DateTime  | true |  Fecha y hora de finalización del período de tiempo de validez. |
+| startTime | Datetime  | true | Fecha y hora de inicio del período de tiempo de validez. |
+| endTime   | Datetime  | true |  Fecha y hora de finalización del período de tiempo de validez. |
 | recurrenceType | string | false |   El tipo de periodicidad del período. El valor puede ser `Daily`, `Weekly`, `Monthly` o `Yearly`. El valor predeterminado es `Daily`.|
 | businessDayOnly | Boolean | false |  Indica si los datos solo son válidos durante los días laborables. El valor predeterminado es `false`.|
 
