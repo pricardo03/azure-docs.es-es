@@ -75,7 +75,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| Tipo | NvidiaGpuDriverLinux | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Configuración
@@ -85,7 +85,7 @@ Todos los parámetros son opcionales. El comportamiento predeterminado consiste 
 | NOMBRE | DESCRIPCIÓN | Valor predeterminado | Valores válidos | Tipo de datos |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Actualice el kernel, incluso si no es necesario para la instalación del controlador | false | true, false | boolean |
-| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del kit de herramientas CUDA. Los controladores más recientes del CUDA elegido se instalan automáticamente. | más reciente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del kit de herramientas CUDA. Los controladores más recientes del CUDA elegido se instalan automáticamente. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale el kit de herramientas CUDA. Pertinente solo para las máquinas virtuales de la serie NC/ND. | true | true, false | boolean |
 
 
