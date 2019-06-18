@@ -15,6 +15,8 @@
       href: cognitive-services-apis-create-account.md
     - name: Authentication
       href: authentication.md
+    - name: Registro de diagnósticos
+      href: diagnostic-logging.md
 - name: Recursos
   items:
     - name: Azure Roadmap

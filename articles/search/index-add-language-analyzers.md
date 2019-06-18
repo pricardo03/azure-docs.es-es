@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790897"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Search
@@ -73,7 +73,7 @@ Para más información sobre las propiedades del índice, consulte [Create Index
 |Checo|cs.microsoft|cs.lucene|  
 |Danés|da.microsoft|da.lucene|  
 |Neerlandés|nl.microsoft|nl.lucene|  
-|Inglés|en.microsoft|en.lucene|  
+|English|en.microsoft|en.lucene|  
 |Estonio|et.microsoft||  
 |Finés|fi.microsoft|fi.lucene|  
 |Francés|fr.microsoft|fr.lucene|  
@@ -101,7 +101,7 @@ Para más información sobre las propiedades del índice, consulte [Create Index
 |Polaco|pl.microsoft|pl.lucene|  
 |Portugués (Brasil)|pt-Br.microsoft|pt-Br.lucene|  
 |Portugués (Portugal)|pt-Pt.microsoft|pt-Pt.lucene|  
-|Punyabí|pa.microsoft||  
+|Punjabi|pa.microsoft||  
 |Rumano|ro.microsoft|ro.lucene|  
 |Ruso|ru.microsoft|ru.lucene|  
 |Serbio (cirílico)|sr-cyrillic.microsoft||  
@@ -120,7 +120,7 @@ Para más información sobre las propiedades del índice, consulte [Create Index
 
  Todos los analizadores con nombres anotados con **lucene** disponen de la tecnología de [analizadores de idioma de Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
 
-## <a name="see-also"></a>Vea también  
+## <a name="see-also"></a>Otras referencias  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice [API REST de Azure Search Service])  
  [Clase AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
  [Vídeo: Módulo 7 de la presentación MVA de Azure Search](https://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps/07).  
