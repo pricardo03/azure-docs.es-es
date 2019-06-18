@@ -37,9 +37,9 @@ Esta extensión es compatible con los siguientes sistemas operativos:
 
 | Distribución | Versión |
 |---|---|
-| Windows 10 (hasta la versión 1803)| Núcleo |
-| Windows Server 2016 | Núcleo |
-| Windows Server 2012R2 | Núcleo |
+| Windows 10 (hasta la versión 1803)| Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
@@ -75,7 +75,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| Tipo | NvidiaGpuDriverWindows | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
