@@ -102,7 +102,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 | ---- | ---- | ---- |
 | apiVersion | 01 de octubre de 2018 | date |
 | publisher | Microsoft.Powershell.DSC | string |
-| Tipo | DSC | string |
+| type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valores de la propiedad settings
@@ -113,11 +113,11 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 | settings.configuration.url | string | Especifica la ubicación de la dirección URL desde la que descargar el archivo zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, deberá establecer la propiedad protectedSettings.configurationUrlSasToken en el valor de su token de SAS. Esta propiedad es necesaria si se definen settings.configuration.script o settings.configuration.function.
 | settings.configuration.script | string | Especifica el nombre de archivo del script que contiene la definición de la configuración de DSC. Este script debe estar en la carpeta raíz del archivo zip descargado de la dirección URL especificada en la propiedad configuration.url. Esta propiedad es necesaria si se definen settings.configuration.url o settings.configuration.script.
 | settings.configuration.function | string | Especifica el nombre de la configuración de DSC. La configuración con nombre debe incluirse en el script definido en configuration.script. Esta propiedad es necesaria si se definen settings.configuration.url o settings.configuration.function.
-| settings.configurationArguments | Colección | Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no se cifrará.
+| settings.configurationArguments | Collection | Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no se cifrará.
 | settings.configurationData.url | string | Especifica la dirección URL desde la que descargar el archivo de datos de configuración (.pds1) que se usará como entrada para la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, deberá establecer la propiedad protectedSettings.configurationDataUrlSasToken en el valor de su token de SAS.
 | settings.privacy.dataEnabled | string | Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son "Enable", "Disable" o "$null". Si se deja esta propiedad en blanco o como null, se habilitará la telemetría.
 | settings.advancedOptions.forcePullAndApply | Bool | Esta configuración está diseñada para mejorar la experiencia de trabajar con la extensión para registrar los nodos con DSC de automatización de Azure.  Si el valor es `$true`, la extensión esperará a que la primera ejecución de la configuración que se extraen desde el servicio antes de devolver correcto o con errores.  Si el valor se establece en $false, el estado devuelto por la extensión solo se hará referencia a si el nodo se registró correctamente con la configuración de estado de automatización de Azure y la configuración de nodo no se ejecutará durante el registro.
-| settings.advancedOptions.downloadMappings | Colección | Define ubicaciones alternativas para descargar dependencias como WMF y .NET
+| settings.advancedOptions.downloadMappings | Collection | Define ubicaciones alternativas para descargar dependencias como WMF y .NET
 
 ### <a name="protected-settings-property-values"></a>Valores protegidos de la propiedad settings
 
