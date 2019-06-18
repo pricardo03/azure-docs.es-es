@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: Información general
   items:
-    - name: Acerca de Apache Hadoop en HDInsight
+    - name: ¿Qué es Apache Hadoop en HDInsight?
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: Arquitectura de Apache Hadoop en HDInsight
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: Componentes de Apache Hadoop en HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: Guías de inicio rápido
   items:
     - name: 'Creación de un clúster de Apache Hadoop: Portal'
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Creación de un clúster de Apache Hadoop con una plantilla de Resource Manager
+    - name: 'Creación de un clúster de Apache Hadoop: Plantilla'
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Tutoriales
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: Conceptos
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: Arquitectura de Apache Hadoop en HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: Componentes de Apache Hadoop en HDInsight
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Planeamiento de la capacidad de clúster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Clústeres de Windows
       items:
-        - name: Migración de clústeres de Windows a los clústeres de Linux
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: Migración de soluciones .NET a clústeres de Linux
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true
