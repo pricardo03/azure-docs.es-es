@@ -8,35 +8,45 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 244a4ebe20863945bfc3b6236e70e786387c8909
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116674"
 ---
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Seleccione **Todos los servicios** en el menú de la izquierda y seleccione **Notification Hubs** en la sección **Móvil**. Seleccione la estrella (`*`) junto al nombre del servicio para agregarlo a la sección **FAVORITOS** en el menú de la izquierda. Cuando **Notification Hubs** se agrega a **FAVORITOS**, selecciónelo en el menú de la izquierda. 
+
+1. Seleccione **Todos los servicios** en el menú de la izquierda y seleccione **Notification Hubs** en la sección **Móvil**. Seleccione el icono de estrella junto al nombre del servicio para agregarlo a la sección **FAVORITOS** en el menú de la izquierda. Cuando se agrega **Notification Hubs** a **FAVORITOS**, selecciónelo en el menú de la izquierda.
 
       ![Azure Portal: selección de Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
-3. En la página **Notification Hubs**, seleccione **Agregar** en la barra de herramientas. 
+
+1. En la página **Notification Hubs**, seleccione **Agregar** en la barra de herramientas.
 
       ![Notification Hubs: botón Agregar de la barra de herramientas](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
-4. En la página **Notification Hubs**, realice los pasos siguientes: 
-    1. Especifique un **nombre** para el **centro** de notificaciones.  
-    2. Especifique un **nombre** para el **espacio de nombres**. Un espacio de nombres contiene uno o más centros. 
-    3. Seleccione la **ubicación** en la que quiere crear el centro de notificaciones. 
-    4. Seleccione un grupo de recursos existente o escriba un nombre para el nuevo **grupo**.
-    5. Seleccione **Crear**. 
+
+1. En la página **Notification Hubs**, realice los pasos siguientes:
+
+    1. Escriba un nombre en el **centro de notificaciones**.  
+
+    1. Escriba un nombre en **Crear un nuevo espacio de nombres**. Un espacio de nombres contiene uno o más centros.
+
+    1. Seleccione un valor en el cuadro de lista desplegable **Ubicación**. Este valor especifica la ubicación en la que quiere crear el centro de notificaciones.
+
+    1. Seleccione un grupo de recursos existente en **Grupo de recursos** o cree un nombre para el nuevo grupo.
+
+    1. Seleccione **Crear**.
 
         ![Azure Portal: establecimiento de las propiedades del centro de notificaciones](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Seleccione **Notificaciones** (icono de campana) y, luego, **Go to resource** (Ir al recurso). También puede actualizar la lista en la página **Notification Hubs** (Centros de notificaciones) y seleccionar el centro de notificaciones. 
+
+1. Seleccione **Notificaciones** (el icono de campana) y, luego, **Ir al recurso**. También puede actualizar la lista en la página **Notification Hubs** y seleccionar el Centro de notificaciones.
 
       ![Azure Portal: notificaciones -> Go to resource (Ir al recurso)](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
-5. Seleccione **Directivas de acceso** en la lista. Anote las dos cadenas de conexión disponibles. Las necesitará para gestionar las notificaciones push más tarde.
+
+1. Seleccione **Directivas de acceso** en la lista. Anote las dos cadenas de conexión disponibles. Las necesitará para tratar las notificaciones push más tarde.
 
       >[!IMPORTANT]
-      >**NO** use la clave DefaultFullSharedAccessSignature en su aplicación. Está pensada para usarse solamente en el back-end.
+      >*No* use la directiva **DefaultFullSharedAccessSignature** en la aplicación. Está pensada para usarse solamente en el back-end.
       >
 
       ![Azure Portal: cadenas de conexión del centro de notificaciones](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
