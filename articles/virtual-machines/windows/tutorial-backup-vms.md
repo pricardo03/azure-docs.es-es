@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2017
+ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 1efa76cf6bb29dfac473ad6ce31cefdfee0c52ec
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890456"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808797"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Windows en Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Realización de copias de seguridad y restauración de archivos en máquinas virtuales Windows en Azure
 
 Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda la máquina virtual o determinados archivos. En este artículo se explica cómo restaurar un único archivo en una máquina virtual que ejecuta Windows Server e IIS. Si aún no tiene una máquina virtual que pueda usar, puede crear una mediante la guía de [inicio rápido de Windows](quick-create-portal.md). En este tutorial, aprenderá a:
 
@@ -40,20 +40,19 @@ Cuando se toma una instantánea de las máquinas virtuales de Windows, el servic
 
 Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
 
-
 ## <a name="create-a-backup"></a>Creación de una copia de seguridad
 Cree una copia de seguridad diaria programada simple en un almacén de Recovery Services. 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
-3. En la lista, seleccione la máquina virtual de la que quiere realizar una copia de seguridad.
-4. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
-5. En **Almacén de Recovery Services**, haga clic en **Create new** (Crear nuevo) y especifique el nombre del nuevo almacén. Se crea un nuevo almacén en el grupo de recursos y ubicación en que se encuentra la máquina virtual.
-6. Haga clic en **Directiva de copia de seguridad**. En este ejemplo, conserve los valores predeterminados y haga clic en **Aceptar**.
-7. En la hoja **Habilitar copia de seguridad**, haga clic en **Habilitar copia de seguridad**. De esta forma se crea una copia de seguridad diaria según la programación predeterminada.
-10. Para crear un punto de recuperación inicial, en la hoja **Copia de seguridad** haga clic en **Realizar copia de seguridad ahora**.
-11. En la hoja **Realizar copia de seguridad ahora**, haga clic en el icono del calendario, use el control de calendario para seleccionar el último día en que se mantendrá este punto de recuperación y haga clic en **Copia de seguridad**.
-12. En la hoja **Copia de seguridad** de la máquina virtual, verá el número de puntos de recuperación completos.
+1. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
+1. En la lista, seleccione la máquina virtual de la que quiere realizar una copia de seguridad.
+1. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
+1. En **Almacén de Recovery Services**, haga clic en **Create new** (Crear nuevo) y especifique el nombre del nuevo almacén. Se crea un almacén en la misma ubicación y el mismo grupo de recursos en que se encuentra la máquina virtual.
+1. En **Elegir directiva de copia de seguridad**, mantenga el valor predeterminado **DailyPolicy (nuevo)** y, después, haga clic en **Habilitar copia de seguridad**.
+1. Para crear un punto de recuperación inicial, en la hoja **Copia de seguridad** haga clic en **Realizar copia de seguridad ahora**.
+1. En la hoja **Realizar copia de seguridad ahora**, haga clic en el icono del calendario, use el control de calendario para elegir el tiempo que se va a conservar el punto de restauración y haga clic en **Aceptar**.
+1. En la hoja **Copia de seguridad** de la máquina virtual, verá el número de puntos de restauración completos.
+
 
     ![Puntos de recuperación](./media/tutorial-backup-vms/backup-complete.png)
     
@@ -69,25 +68,28 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 
     ![Página web predeterminada de IIS](./media/tutorial-backup-vms/iis-working.png)
 
-2. Conéctese a la máquina virtual.
-3. En la máquina virtual, abra el **Explorador de archivos**, vaya a \inetpub\wwwroot y elimine el archivo **iisstart.png**.
-4. En el equipo local, actualice el explorador para ver que la imagen en la página predeterminada de IIS ha desaparecido.
+1. Conéctese a la máquina virtual.
+1. En la máquina virtual, abra el **Explorador de archivos**, vaya a \inetpub\wwwroot y elimine el archivo **iisstart.png**.
+1. En el equipo local, actualice el explorador para ver que la imagen en la página predeterminada de IIS ha desaparecido.
 
     ![Página web predeterminada de IIS](./media/tutorial-backup-vms/iis-broken.png)
 
-5. En el equipo local, abra una nueva pestaña y vaya a [Azure Portal](https://portal.azure.com).
-6. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione la máquina virtual de la lista.
-8. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
-9. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
-10. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
-11. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Guarde el archivo en la carpeta **Descargas**.
-12. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo lleva delante el nombre de su máquina virtual. 
-13. En la máquina virtual (a través de la conexión RDP), pegue el archivo .exe en el escritorio de la máquina virtual. 
-14. Vaya al escritorio de la máquina virtual y haga doble clic en el archivo .exe. Se inicia un símbolo del sistema y luego se monta el punto de recuperación como un recurso compartido de archivos al que puede obtener acceso. Cuando se termine de crear el recurso compartido, escriba **q** para cerrar el símbolo del sistema.
-15. En la máquina virtual, abra el **Explorador de archivos** y vaya a la letra de unidad que se usó para el recurso compartido de archivos.
-16. Vaya a \inetpub\wwwroot, copie **iisstart.png** del recurso compartido de archivos y péguelo en \inetpub\wwwroot. Por ejemplo, copie F:\inetpub\wwwroot\iisstart.png y péguelo en c:\inetpub\wwwroot para recuperar el archivo.
-17. En el equipo local, abra la pestaña del explorador en el que está conectado a la dirección IP de la máquina virtual que muestra la página predeterminada de IIS. Presione CTRL + F5 para actualizar la página del explorador. Ahora debería ver que la imagen se ha restaurado.
-18. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente tras 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un nuevo punto de montaje.
+1. En el equipo local, abra una nueva pestaña y vaya a [Azure Portal](https://portal.azure.com).
+1. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione la máquina virtual de la lista.
+1. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
+1. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
+1. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
+1. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Descargar ejecutable**. Copie la contraseña del archivo y guárdela en algún lugar seguro.
+1. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo lleva delante el nombre de su máquina virtual. 
+1. En la máquina virtual (mediante la conexión RDP), pegue el archivo .exe en el escritorio de la máquina virtual. 
+1. Vaya al escritorio de la máquina virtual y haga doble clic en el archivo .exe. Se iniciará un símbolo del sistema. El programa monta el punto de recuperación como un recurso compartido de archivos al que se puede acceder. Cuando se termine de crear el recurso compartido, escriba **q** para cerrar el símbolo del sistema.
+1. En la máquina virtual, abra el **Explorador de archivos** y vaya a la letra de unidad que se usó para el recurso compartido de archivos.
+1. Vaya a \inetpub\wwwroot, copie **iisstart.png** del recurso compartido de archivos y péguelo en \inetpub\wwwroot. Por ejemplo, copie F:\inetpub\wwwroot\iisstart.png y péguelo en c:\inetpub\wwwroot para recuperar el archivo.
+1. En el equipo local, abra la pestaña del explorador en el que está conectado a la dirección IP de la máquina virtual que muestra la página predeterminada de IIS. Presione CTRL + F5 para actualizar la página del explorador. Ahora debería ver que la imagen se ha restaurado.
+1. En el equipo local, vuelva a la pestaña del explorador de Azure Portal y, en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un punto de montaje.
+
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

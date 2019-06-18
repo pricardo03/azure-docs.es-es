@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605642"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734735"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guía de inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
 
@@ -31,12 +31,12 @@ En esta guía de inicio rápido, configurará una directiva de nomenclatura en e
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configuración de la directiva de nomenclatura de grupos para un inquilino mediante Azure Portal (versión preliminar)
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configuración de la directiva de nomenclatura de grupos para un inquilino mediante Azure Portal
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios.
 1. Seleccione **Grupos**, a continuación, seleccione **Directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
 
-    ![apertura de la página de la directiva de nomenclatura en el centro de administración](./media/groups-naming-policy/policy-preview.png)
+    ![apertura de la página de la directiva de nomenclatura en el centro de administración](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualización o edición de la directiva de nomenclatura de prefijo-sufijo
 
@@ -49,7 +49,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. En la página **Directiva de nomenclatura**, seleccione **Palabras bloqueadas**.
 
-    ![edición y carga de la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-naming-policy/blockedwords-preview.png)
+    ![edición y carga de la lista de palabras bloqueadas para la directiva de nomenclatura](./media/groups-naming-policy/blockedwords.png)
 
 1. Vea o edite la lista actual de palabras bloqueadas personalizadas seleccionando **Descargar**.
 1. Cargue la nueva lista de palabras bloqueadas personalizadas seleccionando el icono del archivo.
@@ -59,7 +59,7 @@ Eso es todo. Ha establecido la directiva de nomenclatura y ha agregado las palab
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Eliminación de la directiva de nomenclatura mediante Azure Portal (versión preliminar)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Eliminación de la directiva de nomenclatura mediante Azure Portal
 
 1. En la página **Directiva de nomenclatura**, seleccione **Eliminar directiva**.
 1. Después de confirmar la eliminación, se quita la directiva de nomenclatura, incluida toda la directiva de nomenclatura de prefijos y sufijos y cualquier palabra bloqueada personalizada.

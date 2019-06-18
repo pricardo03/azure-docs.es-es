@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa653ecf306f5ac5eefaddd61d98e81f919876d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513303"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734604"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -65,7 +65,7 @@ La unión a Azure AD híbrido requiere que los dispositivos tengan acceso a los 
 - `https://device.login.microsoftonline.com`
 - [https://autologon.microsoftazuread-sso.com](`https://autologon.microsoftazuread-sso.com`)(Si está utilizando o planeando usar SSO de conexión directa)
 
-Si su organización necesita acceso a Internet a través de un proxy de salida, Microsoft recomienda [implementar la detección automática de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que los equipos con Windows 10 realicen el registro de dispositivos con Azure AD. Si está experimentando problemas con la configuración y administración de WPAD, vaya a [solución de problemas de detección automática] (https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+Si su organización necesita acceso a Internet a través de un proxy de salida, Microsoft recomienda [implementar la detección automática de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que los equipos con Windows 10 realicen el registro de dispositivos con Azure AD. Si está experimentando problemas con la configuración y administración de WPAD, vaya a [solución de problemas de detección automática](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Si no usa WPAD y necesita configurar el proxy en el equipo, puede hacerlo a partir de Windows 10 1709 si [configura WinHTTP mediante un objeto de directiva de grupo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -144,7 +144,7 @@ Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a 
 
 Para completar correctamente la unión a Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que usa la [sincronización de hash de contraseña (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) o la [autenticación de paso a través (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature).
 
-### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Instalar Microsoft Workplace Join for Windows en equipos de nivel inferior
+### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Instalación de Microsoft Workplace Join for Windows en equipos de nivel inferior
 
 Para registrar dispositivos de nivel inferior de Windows, las organizaciones deben instalar [Microsoft Workplace Join para equipos sin Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) que se encuentra disponible en el Centro de descarga de Microsoft.
 

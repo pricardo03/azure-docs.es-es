@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540152"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734482"
 ---
 # <a name="what-is-authentication"></a>¿Qué es la autenticación?
 
@@ -85,14 +85,11 @@ En el siguiente diagrama se muestra un flujo de aprovisionamiento de la platafor
 
 En este flujo de aprovisionamiento:
 
-|   |   |
-|---|---|
-| 1 | Un usuario del inquilino B intenta iniciar sesión con la aplicación |
-| 2 | Se adquieren y verifican las credenciales de usuario |
-| 3 | El usuario debe dar su consentimiento para que la aplicación tenga acceso al inquilino B |
-| 4 | La plataforma de identidad de Microsoft usa el objeto de aplicación de A como plano técnico para crear una entidad de servicio en el inquilino B |
-| 5 | El usuario recibe el token solicitado |
-|   |   |
+1. Un usuario del inquilino B intenta iniciar sesión con la aplicación y el punto de conexión de autorización solicita un token para la aplicación.
+1. Se adquieren y verifican las credenciales de usuario para la autenticación.
+1. El usuario debe dar su consentimiento para que la aplicación tenga acceso al inquilino B.
+1. La plataforma de identidad de Microsoft usa el objeto de aplicación del inquilino A como plano técnico para crear una entidad de servicio en el inquilino B.
+1. El usuario recibe el token solicitado
 
 Puede repetir este proceso tantas veces como quiera para otros inquilinos (C, D, etc.). El inquilino A conserva el plano técnico de la aplicación (objeto de aplicación). Los usuarios y administradores del resto de inquilinos en que se concede consentimiento a la aplicación conservan el control sobre lo que puede hacer la aplicación a través del objeto de la entidad de servicio correspondiente de cada inquilino. Para más información, consulte [Objetos de aplicación y de entidad de servicio en la plataforma de identidad de Microsoft](app-objects-and-service-principals.md).
 

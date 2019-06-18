@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169610"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754380"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Supervisión y actualización de una máquina virtual Linux en Azure
 
@@ -50,7 +50,7 @@ Para ver las métricas y los diagnósticos en acción, necesita una máquina vir
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). El siguiente ejemplo crea una máquina virtual llamada *myVM* y genera claves SSH, en caso de que no existan en *~/.ssh/*:
+Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). El siguiente ejemplo crea una máquina virtual llamada *myVM* y genera claves SSH, en caso de que no existan en *~/.ssh/* :
 
 ```azurecli-interactive
 az vm create \
@@ -126,7 +126,7 @@ Una máquina virtual Linux tiene un host dedicado de Azure que interactúa con. 
 Hay disponibles métricas básicas del host, pero para ver métricas más pormenorizadas específicas de la máquina virtual, es preciso instalar la extensión de Azure Diagnostics en la máquina virtual. La extensión de Azure Diagnostics permite recuperar más datos de supervisión y diagnóstico de la máquina virtual. Puede ver estas métricas de rendimiento y crear alertas basadas en el funcionamiento de la máquina virtual. La extensión de diagnósticos se instala a través de Azure Portal como se indica a continuación:
 
 1. En Azure Portal, elija **Grupos de recursos**, seleccione **myResourceGroupMonitor** y, después, seleccione **myVM** en la lista de recursos.
-1. Seleccione **Configuración de diagnóstico**. En el menú desplegable *Pick a storage account* (Elegir una cuenta de almacenamiento), elija la cuenta *mydiagdata [1234]*, que creó en la sección anterior.
+1. Seleccione **Configuración de diagnóstico**. En el menú desplegable *Pick a storage account* (Elegir una cuenta de almacenamiento), elija la cuenta *mydiagdata [1234]* , que creó en la sección anterior.
 1. Seleccione el botón **Habilitar supervisión a nivel de invitado**.
 
     ![Ver métricas de diagnósticos](./media/tutorial-monitoring/enable-diagnostics-extension.png)
@@ -201,28 +201,27 @@ Una vez habilitado **Update Management**, se muestra la pantalla **Administraci�
 
 Para instalar actualizaciones, programe una implementación que se ajuste a su ventana de programación y servicio de versiones. Puede elegir los tipos de actualizaciones que quiere incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
 
-Para programar una nueva implementación de actualizaciones para la máquina virtual, seleccione **Programar implementación de actualizaciones** en la parte superior de la pantalla **Administración de actualizaciones**. En la pantalla **Nueva implementación de actualización**, especifique la siguiente información:
+Programe una nueva implementación de actualizaciones para la máquina virtual. Para ello, haga clic en **Programar implementación de actualizaciones** en la parte superior de la pantalla **Administración de actualizaciones**. En la pantalla **Nueva implementación de actualización**, especifique la siguiente información:
 
-* **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
-* **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Los tipos de clasificación son:
-  * Actualizaciones críticas y de seguridad
-  * Otras actualizaciones
-* **Actualizaciones para excluir**: puede proporcionar una lista de nombres de paquetes que se deben omitir durante la implementación de actualizaciones. Los nombres de paquetes admiten caracteres comodín (como, por ejemplo, \*kernel\*).
+Para crear una nueva implementación de actualizaciones, seleccione **Programar implementación de actualizaciones**. Se abre la página **Nueva implementación de actualización**. Escriba valores para las propiedades descritas en la tabla siguiente y haga clic en **Crear**:
 
-  ![Pantalla de configuración de la programación de actualizaciones](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
+| Propiedad | Descripción |
+| --- | --- |
+| NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
+|Sistema operativo| Linux o Windows|
+| Grupos que se deben actualizar |Para las máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure e incluirlo en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda guardada ya existente para seleccionar un grupo de esas máquinas e incluirlo en la implementación. </br></br>Para más información, consulte los [grupos dinámicos](../../automation/automation-update-management.md#using-dynamic-groups).|
+| Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
+|Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
+|Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte la sección [Comportamiento de inclusión](../../automation/automation-update-management.md#inclusion-behavior). |
+|Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
+| Scripts previos + scripts posteriores|Seleccione los scripts que se ejecutarán antes y después de la implementación.|
+| Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |
+| Control de reinicio| Determina cómo se deben controlar los reinicios. Las opciones disponibles son la siguientes:</br>Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]</br>Always reboot (Reiniciar siempre)</br>Never reboot (No reiniciar nunca)</br>Only reboot (solo reiniciar), no se instalarán las actualizaciones|
 
-* **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, es decir, 30 minutos después de la hora actual, o bien especificar una hora distinta.
-  También puede especificar si la implementación se produce una vez o configurar una programación periódica. Para configurar una programación periódica, seleccione la opción Periódico en Periodicidad.
+Las implementaciones de actualizaciones también se pueden crear mediante programación. Para información sobre cómo crear una implementación de actualizaciones con la API de REST, consulte [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create) (Configuraciones de actualización de software: Creación). También hay un runbook de ejemplo que puede usarse para crear una implementación de actualizaciones semanal. Para más información acerca de este runbook, consulte [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Crear una implementación de actualización semanal para una o más VM en un grupo de recursos).
 
-  ![Pantalla de configuración de la programación de actualizaciones](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
-
-* **Ventana de mantenimiento (minutos)**: especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones. Esto ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
-
-Después de completar la configuración de la programación, seleccione el botón **Crear** para volver al panel de estado.
+Después de completar la configuración de la programación, haga clic en el botón **Crear** para volver al panel de estado.
 Tenga en cuenta que la tabla **Programada** muestra la programación de implementación que ha creado.
-
-> [!WARNING]
-> Para las actualizaciones que requieren un reinicio, la máquina virtual se reinicia automáticamente.
 
 ### <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 

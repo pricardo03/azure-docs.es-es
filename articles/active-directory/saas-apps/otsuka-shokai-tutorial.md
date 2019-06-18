@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481941"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752451"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Tutorial: Integración de Otsuka Shokai con Azure Active Directory
 
@@ -79,14 +79,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
-
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+1. En la página **Configurar el inicio de sesión único con SAML**, la aplicación está preconfigurada y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
 1. La aplicación Otsuka Shokai espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde  **nameidentifier** se asigna con  **user.userprincipalname**. La aplicación Otsuka Shokai espera que  **nameidentifier**  se asigne a  **user.objectid**, por lo que debe editar la asignación de atributos, para lo que debe hacer clic en el icono  **Editar**  y cambiar dicha asignación.
 
@@ -139,7 +132,7 @@ En esta sección, va a crear un usuario de prueba llamado B. Simon en Azure Port
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 1. En las propiedades del **usuario**, siga estos pasos:
    1. En el campo **Nombre**, escriba `B. Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Create**(Crear).
 
@@ -163,7 +156,7 @@ En esta sección, va a permitir que B. Simon acceda a Otsuka Shokai mediante el 
 
 ### <a name="create-otsuka-shokai-test-user"></a>Creación de un usuario de prueba de Otsuka Shokai
 
-En esta sección, creará un usuario llamado Britta Simon en Otsuka Shokai. Trabaje con el  [equipo de soporte técnico de Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) para agregar usuarios a la plataforma Otsuka Shokai. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B. Simon en Otsuka Shokai. Trabaje con el  [equipo de soporte técnico de Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) para agregar usuarios a la plataforma Otsuka Shokai. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-sso"></a>Prueba de SSO
 

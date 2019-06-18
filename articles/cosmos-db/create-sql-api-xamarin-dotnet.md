@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860884"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754731"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Creación de una aplicación de lista de tareas con Xamarin mediante la cuenta de SQL API de Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Si utiliza un equipo Mac, puede descargar **Visual Studio para Mac**, que es [gr
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Agregar una colección
+## <a name="add-a-container"></a>Agregar un contenedor
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -245,7 +245,7 @@ Los pasos siguientes mostrarán cómo se ejecuta la aplicación con el depurador
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear una colección mediante el Explorador de datos y compilar e implementar una aplicación Xamarin. Ahora puede importar datos adicionales en la cuenta de Azure Cosmos DB.
+En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos, crear un contenedor mediante Data Explorer y compilar e implementar una aplicación Xamarin. Ahora puede importar datos adicionales en la cuenta de Azure Cosmos.
 
 > [!div class="nextstepaction"]
 > [Importación de datos a Azure Cosmos DB](import-data.md)

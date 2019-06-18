@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475523"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742819"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -119,7 +119,7 @@ En el ejemplo del tutorial, agregue un registro CNAME para el subdominio `www` (
 
 #### <a name="create-the-cname-record"></a>Crear un registro CNAME
 
-Agregue un registro CNAME para asignar un subdominio al nombre de host predeterminado de la aplicación (`<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación).
+Agregue un registro CNAME para asignar un subdominio al nombre de dominio predeterminado de la aplicación (`<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación).
 
 En el caso del dominio `www.contoso.com` del ejemplo, agregue un registro CNAME que asigne el nombre `www` a `<app_name>.azurewebsites.net`.
 
@@ -129,13 +129,13 @@ Después de agregar CNAME, la página de registros DNS es como la del ejemplo si
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Habilitación de la asignación de registros CNAME en Azure
 
-En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**. 
+En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
 ![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 En la página **Dominios personalizados** de la aplicación, agregue el nombre DNS personalizado completo (`www.contoso.com`) a la lista.
 
-Seleccione el icono **+** situado junto a **Agregar nombre de host**.
+Seleccione el icono **+** situado junto a **Agregar dominio personalizado**.
 
 ![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -143,15 +143,15 @@ Escriba el nombre de dominio completo para el que ha agregado un registro CNAME,
 
 Seleccione **Validar**.
 
-Se muestra la página **Agregar nombre de host**. 
+Se abre la página **Agregar dominio personalizado**.
 
 Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **CNAME (www\.example.com o cualquier subdominio)** .
 
-Seleccione **Agregar nombre de host**.
+Seleccione **Agregar dominio personalizado**.
 
 ![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-El nuevo nombre de host puede tardar un tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
+El nuevo dominio personalizado puede tardar algo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
 
 ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -191,7 +191,7 @@ En la página **Dominios personalizados**, copie la dirección IP de la aplicaci
 Para asignar un registro A a un aplicación, App Service requiere **dos** registros DNS:
 
 - Un registro **A** que se asigna a la dirección IP de la aplicación.
-- Un registro **TXT** que se asigna al nombre de host predeterminado de la aplicación `<app_name>.azurewebsites.net`. App Service usa este registro solo durante la configuración para comprobar que posee el dominio personalizado. Después de que el dominio personalizado se valida y se configura en App Service, puede eliminar el registro TXT.
+- Un registro **TXT** que se asigna al nombre de dominio predeterminado de la aplicación `<app_name>.azurewebsites.net`. App Service usa este registro solo durante la configuración para comprobar que posee el dominio personalizado. Después de que el dominio personalizado se valida y se configura en App Service, puede eliminar el registro TXT.
 
 En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la tabla siguiente (`@` suele representar el dominio raíz).
 
@@ -219,23 +219,23 @@ Cuando se agregan los registros, la página de registros DNS es como la del ejem
 
 De vuelta a la página **Dominios personalizados** de la aplicación en Azure Portal, agregue el nombre DNS personalizado completo (por ejemplo, `contoso.com`) a la lista.
 
-Seleccione el icono **+** situado junto a **Agregar nombre de host**.
+Seleccione el icono **+** situado junto a **Agregar dominio personalizado**.
 
-![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Escriba el nombre de dominio completo para el que ha configurado el registro A, como `contoso.com`.
 
 Seleccione **Validar**.
 
-Se muestra la página **Agregar nombre de host**. 
+Se abre la página **Agregar dominio personalizado**.
 
 Asegúrese de que el **tipo de registro de nombre de host** esté establecido en el **registro D (ejemplo.com)** .
 
-Seleccione **Agregar nombre de host**.
+Seleccione **Agregar dominio personalizado**.
 
 ![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-El nuevo nombre de host puede tardar un tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
+El nuevo dominio personalizado puede tardar algo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
 
 ![Registro D agregado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -258,7 +258,7 @@ En el ejemplo del tutorial, asigne un [nombre DNS con caracteres comodín](https
 
 #### <a name="create-the-cname-record"></a>Crear un registro CNAME
 
-Agregue un registro CNAME para asignar un nombre con caracteres comodín al nombre de host predeterminado de la aplicación (`<app_name>.azurewebsites.net`).
+Agregue un registro CNAME para asignar un nombre con caracteres comodín al nombre de dominio predeterminado de la aplicación (`<app_name>.azurewebsites.net`).
 
 En el dominio `*.contoso.com` del ejemplo, el registro CNAME asignará el nombre `*` a `<app_name>.azurewebsites.net`.
 
@@ -274,23 +274,23 @@ En el panel de navegación izquierdo de la página de la aplicación en Azure Po
 
 ![Menú Dominio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Seleccione el icono **+** situado junto a **Agregar nombre de host**.
+Seleccione el icono **+** situado junto a **Agregar dominio personalizado**.
 
 ![Agregar nombre de host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Escriba un nombre de dominio completo que coincida con el dominio con caracteres comodín (por ejemplo, `sub1.contoso.com`) y, después, seleccione **Validar**.
 
-Se activa el botón **Agregar nombre de host**. 
+El botón **Agregar dominio personalizado** está activado.
 
 Asegúrese de que en **Tipo de registro de nombre de host** está seleccionado **Registro CNAME (www\.example.com o cualquier subdominio)** .
 
-Seleccione **Agregar nombre de host**.
+Seleccione **Agregar dominio personalizado**.
 
 ![Agregar nombre DNS a la aplicación](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-El nuevo nombre de host puede tardar un tiempo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
+El nuevo dominio personalizado puede tardar algo en reflejarse en la página **Dominios personalizados** de la aplicación. Intente actualizar el explorador para actualizar los datos.
 
-Vuelva a seleccionar el icono **+** de nuevo para agregar otro nombre de host que coincida con el dominio con caracteres comodín. Por ejemplo, agregue `sub2.contoso.com`.
+Vuelva a seleccionar el icono **+** de nuevo para agregar otro dominio personalizado que coincida con el dominio con caracteres comodín. Por ejemplo, agregue `sub2.contoso.com`.
 
 ![Registro CNAME agregado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
@@ -326,7 +326,7 @@ En la parte inferior de la página, el directorio virtual raíz `/` apunta a `si
 
 ![Personalización del directorio virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Una vez completada la operación, la aplicación debe devolver la página correcta en la ruta de acceso raíz (por ejemplo, http://contoso.com)).
+Una vez completada la operación, la aplicación debe devolver la página correcta en la ruta de acceso raíz (por ejemplo, http://contoso.com) ).
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 

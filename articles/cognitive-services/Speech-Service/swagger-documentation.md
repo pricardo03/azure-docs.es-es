@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580995"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743218"
 ---
 # <a name="swagger-documentation"></a>Documentación de Swagger
 
@@ -26,7 +26,7 @@ Los servicios de voz ofrecen una especificación de Swagger para interactuar con
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Generación de código desde la especificación Swagger
 
-La [especificación Swager](https://cris.ai/swagger/ui/index) tiene opciones que permiten probar rápidamente varias rutas de acceso. Sin embargo, a veces es conveniente generar código para todas las rutas de acceso, lo que crea una sola biblioteca de llamadas en la que se puedan basar las soluciones futuras. Echemos un vistazo al proceso para generar una biblioteca Python.
+La [especificación Swagger](https://cris.ai/swagger/ui/index) tiene opciones que permiten probar rápidamente varias rutas de acceso. Sin embargo, a veces es conveniente generar código para todas las rutas de acceso, lo que crea una sola biblioteca de llamadas en la que se puedan basar las soluciones futuras. Echemos un vistazo al proceso para generar una biblioteca Python.
 
 Tendrá que establecer Swagger en la misma región que su suscripción a Speech Service. Puede confirmar la región en Azure Portal en el recurso de servicios de voz. Para ver una lista completa de las regiones admitidas, consulte [Regiones](regions.md).
 

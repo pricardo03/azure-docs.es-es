@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 891b64b8e31266360d718255dcd8e8a1f9fb597c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 81d660857eff63e0dfeeda400b168ea424152081
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306569"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808606"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 
@@ -173,53 +173,54 @@ El entorno de ejecución de IoT Edge necesita las credenciales del registro par
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. Guarde el archivo deployment.template.json. 
 
-### Review the sample code
+### <a name="review-the-sample-code"></a>Revisión del código de ejemplo
 
-The solution template that you created includes sample code for an IoT Edge module. This sample module simply receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
+La plantilla de solución que ha creado incluye código de ejemplo de un módulo IoT Edge. Dicho módulo simplemente recibe los mensajes y, después, los pasa. La funcionalidad de canalización muestra un concepto importante de IoT Edge, cómo se comunican los módulos entre sí.
 
-Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific language for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
+Cada módulo puede tener varias colas de *entrada* y *salida* declaran en su código. El centro de IoT Edge que se ejecuta en el dispositivo enruta los mensajes de la salida de un módulo en la entrada de uno o varios módulos. El lenguaje específico para declarar las entradas y salidas varía de un lenguaje a otro, pero el concepto es el mismo en todos los módulos. Para más información acerca del enrutamiento entre módulos, consulte [Declaración de rutas](module-composition.md#declare-routes).
 
-1. In the **main.c** file, find the **SetupCallbacksForModule** function.
+1. En el archivo **main.c**, busque la función **SetupCallbacksForModule**.
 
-2. This function sets up an input queue to receive incoming messages. It calls the C SDK module client function [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Review this function and see that it initializes an input queue called **input1**. 
+2. Dicha función configura una cola de entrada para recibir los mensajes entrantes. Llama a la función de cliente del módulo del SDK de C [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Revise esta función y verá que inicializa una cola de entrada llamada **input1**. 
 
-   ![Find the input name in the SetInputMessageCallback constructor](./media/tutorial-develop-for-windows/declare-input-queue.png)
+   ![Buscar el nombre de entrada en el constructor SetInputMessageCallback](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
-3. Next, find the **InputQueue1Callback** function.
+3. Después, busque la función **InputQueue1Callback**.
 
-4. This function processes received messages and sets up an output queue to pass them along. It calls the C SDK module client function [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Review this function and see that it initializes an output queue called **output1**. 
+4. Esta función procesa los mensajes recibidos y configura una cola de salida para difundirlos. Llama a la función de cliente del módulo del SDK de C [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Revise dicha función y verá que inicializa una cola de salida llamada **output1**. 
 
-   ![Find the output name in the SendEventToOutputAsync constructor](./media/tutorial-develop-for-windows/declare-output-queue.png)
+   ![Buscar el nombre de salida en el constructor SendEventToOutputAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
-5. Open the **deployment.template.json** file.
+5. Abra el archivo **deployment.template.json**.
 
-6. Find the **modules** property of the $edgeAgent desired properties. 
+6. Busque la propiedad **modules** de las propiedades deseadas de $edgeAgent. 
 
-   There should be two modules listed here. The first is **tempSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **IotEdgeModule1** module that you created as part of this project.
+   Debería haber dos módulos. El primero es **tempSensor**, que se incluye en todas las plantillas de forma predeterminada para proporcionar datos de temperatura simulados que se pueden usar para probar los módulos. El segundo es el módulo **IotEdgeModule1** que creó como parte de este proyecto.
 
-   This modules property declares which modules should be included in the deployment to your device or devices. 
+   Esta propiedad modules declara qué módulos se deben incluir en la implementación en el dispositivo o dispositivos. 
 
-7. Find the **routes** property of the $edgeHub desired properties. 
+7. Busque la propiedad **routes** de las propiedades deseadas de $edgeHub. 
 
-   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
+   Una de las funciones del módulo del centro de IoT Edge es enrutar mensajes entre todos los módulos de una implementación. Revise los valores de la propiedad routes. La primera ruta, **IotEdgeModule1ToIoTHub**, usa un carácter comodín ( **\*** ) para incluir todos los mensajes que procedan de cualquiera de las colas de salida del módulo IoTEdgeModule1. Dichos mensajes van a *$upstream*, que es un nombre reservado que indica IoT Hub. La segunda ruta, **sensorToIotEdgeModule1**, toma los mensajes procedentes del módulo tempSensor y los enruta a la cola de entrada *input1* del módulo IotEdgeModule1. 
 
-   ![Review routes in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
+   ![Revisar las rutas de deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
 
-## Build and push your solution
+## <a name="build-and-push-your-solution"></a>Compilación e inserción de la solución
 
-You've reviewed the module code and the deployment template to understand some key deployment concepts. Now, you're ready to build the IotEdgeModule1 container image and push it to your container registry. With the IoT tools extension for Visual Studio, this step also generates the deployment manifest based on the information in the template file and the module information from the solution files. 
+Ha revisado el código del módulo y la plantilla de implementación para conocer algunos conceptos clave de la implementación. Ya está listo para que compilar la imagen de contenedor IotEdgeModule1 e insertarla en el registro de contenedor. Con la extensión de las herramientas de IoT para Visual Studio, este paso también genera el manifiesto de implementación en función de la información del archivo de plantilla y la información del módulo a partir de los archivos de la solución. 
 
-### Sign in to Docker
+### <a name="sign-in-to-docker"></a>Inicio de sesión en Docker
 
-Provide your container registry credentials to Docker on your development machine so that it can push your container image to be stored in the registry. 
+Especifique las credenciales del registro de contenedor para Docker en el equipo de desarrollo, con el fin de que pueda insertar la imagen de contenedor para que se almacene en el registro. 
 
-1. Open PowerShell or a command prompt.
+1. Abra PowerShell o un símbolo del sistema.
 
-2. Sign in to Docker with the Azure container registry credentials that you saved after creating the registry. 
+2. Inicie sesión en Docker con las credenciales del registro de contenedor de Azure que guardó después de crear el registro. 
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
