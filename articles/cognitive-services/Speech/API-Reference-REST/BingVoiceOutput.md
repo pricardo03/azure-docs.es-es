@@ -67,7 +67,7 @@ X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16kh
 X-Search-AppId | Un GUID (solo hexadecimal, sin guiones) | Un identificador que identifica la aplicación cliente de forma exclusiva. Puede ser el identificador del almacén de aplicaciones. Si no hay uno disponible, el usuario puede generar el identificador para una aplicación.
 X-Search-ClientID | Un GUID (solo hexadecimal, sin guiones) | Un identificador que identifica de forma única una instancia de la aplicación para cada instalación.
 User-Agent | Nombre de la aplicación | El nombre de la aplicación es necesario y debe tener menos de 255 caracteres.
-Autorización | Token de autorización |  Consulte la sección <a href="#Subscription">Token de autorización</a>.
+Authorization | Token de autorización |  Consulte la sección <a href="#Subscription">Token de autorización</a>.
 
 ### <a name="InputParam"></a>Parámetros de entrada
 
