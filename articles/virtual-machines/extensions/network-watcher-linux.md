@@ -39,12 +39,12 @@ La extensión del agente de Network Watcher puede configurarse para las siguient
 | Distribución | Versión |
 |---|---|
 | Ubuntu | 12+ |
-| Debian | 7 and 8 |
-| Red Hat | 6 and 7 |
-| Oracle Linux | 6.8+ and 7 |
-| SUSE Linux Enterprise Server | 11 and 12 |
+| Debian | 7 y 8 |
+| Red Hat | 6 y 7 |
+| Oracle Linux | 6.8+ y 7 |
+| SUSE Linux Enterprise Server | 11 y 12 |
 | OpenSUSE Leap | 42.3+ |
-| CentOS | 6.5+ and 7 |
+| CentOS | 6.5+ y 7 |
 | CoreOS | 899.17.0+ |
 
 
