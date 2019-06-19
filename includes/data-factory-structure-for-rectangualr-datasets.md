@@ -18,10 +18,10 @@ Cada columna contiene las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la columna. |Sí |
-| Tipo |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |Sin |
+| name |Nombre de la columna. |Sí |
+| type |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |Sin |
 | culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «en-us». |Sin |
-| formato |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |Sin |
+| format |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |Sin |
 
 En el ejemplo siguiente se muestra el JSON de la sección structure de una tabla con tres columnas userid, name y lastlogindate.
 
