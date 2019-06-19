@@ -5,19 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077487"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>¿Cuál es la diferencia entre una puerta de enlace de red virtual de Azure (VPN Gateway) y un elemento vpngateway de Azure Virtual WAN?
 
 Virtual WAN proporciona conectividad de sitio a sitio y a gran escala, y se ha creado para mejorar el rendimiento, la escalabilidad y la facilidad de uso. ExpressRoute y la funcionalidad de conectividad de punto a sitio están actualmente en versión preliminar. Los dispositivos de la rama CPE realizan un aprovisionamiento automático y se conectan en Azure Virtual WAN. Estos dispositivos están disponibles en un creciente ecosistema de asociados de VPN y SD-WAN. Consulte la [lista de asociados preferidos](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>¿Qué es una conexión de rama a Azure Virtual WAN?
+
+Una conexión desde un dispositivo de rama a Azure Virtual WAN, compuesta por dos túneles IPsec activo/activo.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>¿Qué proveedores de dispositivos (asociados de Virtual WAN) se admiten desde el primer momento?
 
@@ -29,7 +33,7 @@ Para conocer estos pasos, consulte [Automatización de asociados de Virtual WAN]
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>¿Debo usar un dispositivo de asociado preferido?
 
- No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisitos de Azure para la compatibilidad con IPsec de IKEv1 o IKEv2.
+No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisitos de Azure para la compatibilidad con IPsec de IKEv1 o IKEv2.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>¿Cómo automatizan la conectividad con Azure Virtual WAN los asociados de Virtual WAN?
 
@@ -53,7 +57,7 @@ Sí. Al principio, el flujo de tráfico sería del dispositivo local a la instan
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>¿Se admite el emparejamiento de VNet global con Azure Virtual WAN? 
 
-  No.
+ No.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>¿Pueden las redes virtuales radiales conectadas a un concentrador virtual comunicarse entre sí?
 
@@ -65,7 +69,7 @@ Sí, puede conectar su aplicación virtual de red (NVA) favorita a Azure Virtual
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>¿Puede una red virtual de NVA tener una puerta de enlace de red virtual?
 
- No. La red virtual de NVA no puede tener una puerta de enlace de red virtual si se conecta al concentrador virtual. 
+No. La red virtual de NVA no puede tener una puerta de enlace de red virtual si se conecta al concentrador virtual. 
 
 ### <a name="is-there-support-for-bgp"></a>¿Hay compatibilidad con BGP?
 
@@ -105,7 +109,7 @@ Sí.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>¿En qué difiere Virtual WAN del actual Azure Virtual Network Gateway?
 
-La VPN de Virtual Network Gateway se limita a 30 túneles. En las conexiones, debe usar Virtual WAN para VPN a gran escala. Puede realizar hasta 1000 conexiones de ramas con 2 Gbps en el concentrador para todas las regiones excepto la región Centro-oeste de EE. UU. Para esta región, hay 20 Gbps disponibles. Ampliaremos los 20 Gbps a más regiones próximamente. Una conexión es un túnel de activo a activo del dispositivo VPN local al concentrador virtual. Puede tener un único concentrador por región, lo que significa que puede conectar más de 1000 ramas en total con todos los concentradores.
+La VPN de Virtual Network Gateway se limita a 30 túneles. En las conexiones, debe usar Virtual WAN para VPN a gran escala. Puede realizar hasta 1000 conexiones de ramas con 2 Gbps en el concentrador para todas las regiones excepto la región Centro-oeste. Para esta región, hay 20 Gbps disponibles. Ampliaremos los 20 Gbps a más regiones próximamente. Una conexión es un túnel de activo a activo del dispositivo VPN local al concentrador virtual. Puede tener un único concentrador por región, lo que significa que puede conectar más de 1000 ramas en total con todos los concentradores.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>¿Cómo es que Virtual WAN admite dispositivos SD-WAN?
 
@@ -118,6 +122,14 @@ No. Usa la conectividad de sitio a sitio IPsec estándar a través de vínculos 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>¿Hay un límite en el rendimiento de la red al utilizar Azure Virtual WAN?
 
 El número de ramas se limita a 1000 conexiones por cada región o concentrador y a un total de 2 GB en el concentrador. La excepción es la región Centro-oeste de EE. UU., que dispone de un total de 20 Gbps. Ampliaremos los 20 Gbps a más regiones próximamente.
+
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>¿Cuántas conexiones VPN admite un concentrador de Virtual WAN?
+
+Un concentrador de Azure Virtual WAN puede admitir hasta 1000 conexiones S2S y 10 000 conexiones de P2S simultáneamente.
+
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>¿Qué es el rendimiento total de VPN de un túnel y una conexión VPN?
+
+El rendimiento total de VPN de un concentrador es de hasta 20 Gbps en función de la unidad de escalado elegida. El rendimiento se comparte entre todas las conexiones existentes.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>¿Azure Virtual WAN permite al dispositivo local usar varias ISP en paralelo o es siempre un solo túnel VPN?
 
