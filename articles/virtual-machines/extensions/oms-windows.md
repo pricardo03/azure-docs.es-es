@@ -90,7 +90,7 @@ En el siguiente JSON se muestra el esquema para la extensión del agente de Log 
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| Tipo | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (p. ej.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
