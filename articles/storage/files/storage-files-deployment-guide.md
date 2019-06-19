@@ -9,10 +9,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237732"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
@@ -129,7 +129,7 @@ Para reemplazar un recurso compartido de archivos local, es útil montar previam
 > [!Note]  
 > Montar un recurso compartido de archivos de Azure requiere el uso de la clave de la cuenta de almacenamiento como contraseña, por lo que solo se recomienda hacerlo en entornos de confianza. 
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 Puede usar PowerShell para ejecutar el comando de montaje en varios equipos. En el ejemplo siguiente, `$computers` es rellenar de forma manual, pero puede generar la lista de equipos para montar automáticamente. Por ejemplo, puede rellenar esta variable con resultados de Active Directory.
 
 ```powershell

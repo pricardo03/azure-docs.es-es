@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257066"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
@@ -208,7 +208,7 @@ Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real
 
 5. Navegue a la página de trabajo de Stream Analytics y seleccione **Salidas**.  
 
-6. Seleccione **+ agregar**. Seleccione **Power BI** en el menú desplegable.  
+6. Seleccione **+Agregar**. Seleccione **Power BI** en el menú desplegable.  
 
 7. Para crear una salida de Power BI para visualizar el precio medio, realice las siguientes acciones:
 
@@ -254,7 +254,7 @@ Power BI es un conjunto de herramientas de análisis de negocios que sirve para 
 
 7. Ahora, si quiere visualizar más métricas, puede volver a **streamjob1** y crear tres salidas más con los siguientes campos.
 
-    a. **Alias de salida:** incomingRevenueOutput, nombre del conjunto de datos: incomingRevenue, nombre de la tabla: incomingRevenue  
+   a. **Alias de salida:** incomingRevenueOutput, nombre del conjunto de datos: incomingRevenue, nombre de la tabla: incomingRevenue  
    b. **Alias de salida:** top5Output, nombre del conjunto de datos: top5, nombre de la tabla: top5  
    c. **Alias de salida:** uniqueVisitorCountOutput, nombre del conjunto de datos: uniqueVisitorCount, nombre de la tabla: uniqueVisitorCount
 

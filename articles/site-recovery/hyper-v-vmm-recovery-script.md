@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362278"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700460"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Incorporación de un script de VMM a un plan de recuperación
 
@@ -45,11 +45,11 @@ Puede usar scripts de PowerShell en los planes de recuperación. Para que sea po
   
   1. Abra el Editor del Registro y vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Cambie el valor de **ScriptLibraryPath** a **\\\libserver2.contoso.com\share\\**. Especifique el nombre de dominio completo. Proporcione permisos a la ubicación del recurso compartido. Este es el nodo raíz del recurso compartido. Para comprobar el nodo raíz, en VMM, vaya al nodo raíz en la biblioteca. La ruta de acceso que se abre es la raíz de la ruta de acceso. Esta es la ruta de acceso que debe usar en la variable.
+  1. Cambie el valor de **ScriptLibraryPath** a **\\\libserver2.contoso.com\share\\** . Especifique el nombre de dominio completo. Proporcione permisos a la ubicación del recurso compartido. Este es el nodo raíz del recurso compartido. Para comprobar el nodo raíz, en VMM, vaya al nodo raíz en la biblioteca. La ruta de acceso que se abre es la raíz de la ruta de acceso. Esta es la ruta de acceso que debe usar en la variable.
 
   1. Pruebe el script con una cuenta de usuario que tenga el mismo nivel de derechos de usuario que la cuenta de servicio de VMM. Al usar estos derechos de usuario se comprueba que los scripts independientes y probados se ejecutan del mismo modo que se ejecutan en los planes de recuperación. En el servidor VMM, establezca que se omita la directiva de ejecución como se indica a continuación:
 
-      a. Abra la consola de **Windows PowerShell de 64 bits** como administrador.
+     a. Abra la consola de **Windows PowerShell de 64 bits** como administrador.
      
      b. Escriba **Set-executionpolicy bypass**. Para más información, consulte [Uso del cmdlet Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65406951"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integración de Azure Active Directory con E Sales Manager Remix
@@ -101,9 +101,9 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-     a. En el cuadro **Sign-on URL** (Dirección URL de registro), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>/esales-pc*.
+    a. En el cuadro **Sign-on URL** (Dirección URL de registro), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>/esales-pc*.
 
-    b. En el cuadro **Identifier** (Identificador), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>*.
+    b. En el cuadro **Identifier** (Identificador), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>* .
 
     c. Anote el valor del **identificador** para usarlo más adelante en este tutorial.
     
@@ -154,11 +154,11 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Sección "SAML authentication setting"](./media/esalesmanagerremix-tutorial/configure3.png)
     
-     a. Seleccione la casilla **PC version** (Versión de PC).
+    a. Seleccione la casilla **PC version** (Versión de PC).
     
     b. En la sección **Collaboration item** (Elemento de colaboración), en la lista desplegable, seleccione **email**.
 
-    c. En el cuadro de texto **Collaboration item** (Elemento de colaboración), pegue el valor de notificación que ha copiado de Azure Portal (es decir, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. En el cuadro de texto **Collaboration item** (Elemento de colaboración), pegue el valor de notificación que ha copiado de Azure Portal (es decir, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
 
     d. En el cuadro de texto **Issuer (entity ID)** (Emisor [Id. de entidad]), pegue el valor del identificador que copió de la sección **E Sales Manager Remix Domain and URLs** (Dominio y direcciones URL de E Sales Manager Remix) de Azure Portal.
 
@@ -198,7 +198,7 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
 
     ![Ventana Usuario](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -222,7 +222,7 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
     
     ![Sección "New employee registration"](./media/esalesmanagerremix-tutorial/user2.png)
 
-     a. En el cuadro **Employee Name** (Nombre de empleado), escriba el nombre del usuario (por ejemplo, **Britta**).
+    a. En el cuadro **Employee Name** (Nombre de empleado), escriba el nombre del usuario (por ejemplo, **Britta**).
 
     b. Rellene los demás campos necesarios.
     
