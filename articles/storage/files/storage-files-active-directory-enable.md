@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
 ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237790"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)
@@ -73,7 +73,7 @@ Para habilitar la autenticación de Azure AD a través de SMB para Azure Files, 
 
 Tenga en cuenta que solo puede habilitar la autenticación de Azure AD a través de SMB después de haber implementado correctamente Azure AD Domain Services para su inquilino de Azure AD. Para más información, consulte los [requisitos previos](#prerequisites).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Para habilitar la autenticación de Azure AD a través de SMB mediante [Azure Portal](https://portal.azure.com), siga estos pasos:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 456eac4a8d3a6cb8cbaca13ad4e4f3b2ae0309bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66110273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125593"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -268,7 +268,7 @@ Para obtener otro ejemplo, consulte [uno que no es específico de Service Fabric
                     ],
     ```
 
-7. En el recurso `Microsoft.ServiceFabric/clusters`, cambie `managementEndpoint` al FQDN de DNS de la dirección IP estática. Si está usando un clúster seguro, asegúrese de cambiar *http://* a *https://*. (Tenga en cuenta que este paso se aplica solo a los clústeres de Service Fabric. Si está empleando un conjunto de escalado de máquinas virtuales, omita este paso).
+7. En el recurso `Microsoft.ServiceFabric/clusters`, cambie `managementEndpoint` al FQDN de DNS de la dirección IP estática. Si está usando un clúster seguro, asegúrese de cambiar *http://* a *https://* . (Tenga en cuenta que este paso se aplica solo a los clústeres de Service Fabric. Si está empleando un conjunto de escalado de máquinas virtuales, omita este paso).
 
     ```json
                     "fabricSettings": [],
@@ -370,7 +370,7 @@ Este escenario reemplaza el equilibrador de carga externo en la plantilla predet
                     ],
     ```
 
-6. En el recurso `Microsoft.ServiceFabric/clusters`, cambie `managementEndpoint` para que apunte a la dirección del equilibrador de carga interno. Si usa un clúster seguro, asegúrese de cambiar *http://* a *https://*. (Tenga en cuenta que este paso se aplica solo a los clústeres de Service Fabric. Si está empleando un conjunto de escalado de máquinas virtuales, omita este paso).
+6. En el recurso `Microsoft.ServiceFabric/clusters`, cambie `managementEndpoint` para que apunte a la dirección del equilibrador de carga interno. Si usa un clúster seguro, asegúrese de cambiar *http://* a *https://* . (Tenga en cuenta que este paso se aplica solo a los clústeres de Service Fabric. Si está empleando un conjunto de escalado de máquinas virtuales, omita este paso).
 
     ```json
                     "fabricSettings": [],
@@ -606,10 +606,7 @@ En un clúster de dos tipos de nodo, un tipo de nodo está en el equilibrador de
 Después de la implementación, puede ver dos de equilibradores de carga en el grupo de recursos. Si examina los equilibradores de carga, puede ver la dirección IP pública y los puntos de conexión de administración (puertos 19000 y 19080) asignados a la dirección IP pública. También puede ver la dirección IP interna estática y el punto de conexión de la aplicación (puerto 80) asignados al equilibrador de carga interno. Ambos equilibradores de carga usan el mismo grupo de back-end de conjunto de escalado de máquinas virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Crear un clúster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
-    ```
+[Creación de un clúster](service-fabric-cluster-creation-via-arm.md)
 
 Después de la implementación, puede ver dos de equilibradores de carga en el grupo de recursos. Si examina los equilibradores de carga, puede ver la dirección IP pública y los puntos de conexión de administración (puertos 19000 y 19080) asignados a la dirección IP pública. También puede ver la dirección IP interna estática y el punto de conexión de la aplicación (puerto 80) asignados al equilibrador de carga interno. Ambos equilibradores de carga usan el mismo grupo de back-end de conjunto de escalado de máquinas virtuales.
 
-## <a name="next-steps"></a>Pasos siguientes
-[Creación de un clúster](service-fabric-cluster-creation-via-arm.md)

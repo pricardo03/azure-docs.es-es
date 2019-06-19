@@ -9,21 +9,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 40757c80878ef5a06d3368d4c20f65ebfa11e47b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 299e8990d9211eadc33a7e3348ba0364adfafb92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078171"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introducción a Apache Storm en HDInsight con los ejemplos de Storm-Starter
 
 Aprenda a usar [Apache Storm](https://storm.apache.org/) en HDInsight con los ejemplos de Storm-Starter.
 
 Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a errores y en tiempo real para el procesamiento de secuencias de datos. Con Storm en HDInsight de Azure, puede crear un clúster de Storm basado en la nube que realice análisis en tiempo real de grandes cantidades de datos en tiempo real.
-
-> [!IMPORTANT]  
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +45,7 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
     * **Nombre del clúster**: el nombre del clúster de HDInsight.
     * **Suscripción**: Seleccione la suscripción que se va a usar.
     * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión del clúster**: inicio de sesión para obtener acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API de REST.
-    * **Nombre de usuario de Secure Shell (SSH)**: Inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
+    * **Nombre de usuario de Secure Shell (SSH)** : Inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
     * **Grupo de recursos**: El grupo de recursos en el que se va a crear el clúster.
     * **Ubicación**: La región de Azure donde se va crear el clúster.
 

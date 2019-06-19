@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165474"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186263"
 ---
 Después, si algún servidor del clúster está ejecutando Windows Server 2008 R2 o Windows Server 2012, debe comprobar que la revisión [KB2854082](https://support.microsoft.com/kb/2854082) está instalada en todos los servidores locales o máquinas virtuales de Azure que forman parte del clúster. Cualquier servidor o VM que esté en el clúster, pero no en el grupo de disponibilidad, también debería tener instalada esta revisión.
 

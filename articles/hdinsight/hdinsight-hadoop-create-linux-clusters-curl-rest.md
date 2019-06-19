@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059418"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Apache Hadoop mediante la API de REST de Azure
 
@@ -22,9 +22,6 @@ ms.locfileid: "64707341"
 Aprenda a crear un clúster de HDInsight mediante una plantilla de Azure Resource Manager y la API de REST de Azure.
 
 La API de REST de Azure permite realizar operaciones de administración en servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight.
-
-> [!IMPORTANT]  
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]  
 > En los pasos que se describen en este documento, se usa la utilidad [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para comunicarse con la API REST de Azure.
@@ -215,7 +212,7 @@ Este ejemplo se usa en los pasos de este documento. Sustituya los *valores* del 
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Inicie sesión en la suscripción de Azure
 
 Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) y conéctese a su suscripción con el comando `az login`.
 

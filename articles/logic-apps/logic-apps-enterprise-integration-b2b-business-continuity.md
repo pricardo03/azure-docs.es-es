@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
 ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967749"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Recuperación ante desastres entre regiones de cuentas de integración B2B: Azure Logic Apps
@@ -112,7 +112,7 @@ Seleccione comprobar la configuración duplicada en la configuración de recepci
 
 6. Busque en **X12** y seleccione **X12: Permite agregar o actualizar números de control**.   
 
-   ![Agregar o actualizar números de control](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Agregar o actualizar los números de control](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Para conectar una acción a la cuenta de integración de una región secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la *cuenta de integración de la región secundaria* en la lista y haga clic en **Crear**. 
 

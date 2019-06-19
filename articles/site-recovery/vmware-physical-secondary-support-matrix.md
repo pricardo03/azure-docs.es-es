@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418254"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
@@ -61,14 +61,14 @@ Host: formación de equipos NIC | Sí
 Host: VLAN | Sí 
 Host: IPv4 | Sí 
 Host: IPv6 | Sin 
-VM invitada: formación de equipos NIC | No
+VM invitada: formación de equipos NIC | Sin
 VM invitada: IPv4 | Sí
 VM invitada: IPv6 | Sin
 VM invitada: Windows/Linux - dirección IP estática | Sí
 VM invitada: múltiples NIC | Sí
 
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
@@ -90,7 +90,7 @@ Disco en clúster compartido | Sí
 Disco cifrado | Sin 
 UEFI| Sí 
 NFS | Sin 
-SMB 3.0 | No 
+SMB 3.0 | Sin 
 RDM | Sí 
 Disco > 1 TB | Sí 
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí 
@@ -103,7 +103,7 @@ Varias rutas (MPIO) | N/D
 
 **Acción** | **Compatible** 
 --- | --- 
-Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | No 
+Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
 Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
 
 ## <a name="mobility-service-and-updates"></a>Mobility Service y actualizaciones

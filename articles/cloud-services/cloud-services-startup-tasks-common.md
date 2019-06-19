@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1d78ab917589af0eae72eb70e3cdc2cc751072eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076434"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
 Este artículo proporciona algunos ejemplos de tareas comunes de inicio que puede realizar en su servicio en la nube. Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo. 
@@ -73,7 +73,7 @@ Los mensajes errorlevel que devuelve *AppCmd.exe* se enumeran en el archivo wine
 ### <a name="example-of-managing-the-error-level"></a>Ejemplo de administración del nivel de error
 Este ejemplo agrega una sección de compresión y una entrada de compresión para JSON al archivo *Web.config* con control de errores y registro.
 
-Las secciones relevantes del archivo [ServiceDefinition.csdef] se muestran aquí, e incluyen la configuración del atributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) como `elevated` para dar a *AppCmd.exe* permisos suficientes para cambiar la configuración en el archivo *Web.config*:
+Las secciones relevantes del archivo [ServiceDefinition.csdef] se muestran aquí, e incluyen la configuración del atributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) como `elevated` para dar a *AppCmd.exe* permisos suficientes para cambiar la configuración en el archivo *Web.config*:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -383,7 +383,7 @@ EXIT /B 0
 A continuación presentamos algunas prácticas recomendadas que debería seguir al configurar una tarea para el rol web o de trabajo.
 
 ### <a name="always-log-startup-activities"></a>Registre siempre las actividades de inicio
-Visual Studio no proporciona un depurador para repasar los archivos por lotes, por eso es conveniente tener tantos datos sobre el funcionamiento de archivos por lotes como sea posible. El registro de la salida de archivos por lotes, **stdout** y **stderr**, puede proporcionar información importante a la hora de depurar y corregir los archivos por lotes. Para registrar **stdout** y **stderr** en el archivo StartupLog.txt en el directorio señalado por la variable de entorno **%TEMP%**, agregue el texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` al final de líneas específicas que desee registrar. Por ejemplo, para ejecutar setup.exe en el directorio **% PathToApp1Install %** :
+Visual Studio no proporciona un depurador para repasar los archivos por lotes, por eso es conveniente tener tantos datos sobre el funcionamiento de archivos por lotes como sea posible. El registro de la salida de archivos por lotes, **stdout** y **stderr**, puede proporcionar información importante a la hora de depurar y corregir los archivos por lotes. Para registrar **stdout** y **stderr** en el archivo StartupLog.txt en el directorio señalado por la variable de entorno **%TEMP%** , agregue el texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` al final de líneas específicas que desee registrar. Por ejemplo, para ejecutar setup.exe en el directorio **% PathToApp1Install %** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
@@ -465,7 +465,7 @@ Salida de ejemplo en el archivo **StartupLog.txt**:
 ```
 
 > [!TIP]
-> El archivo **StartupLog.txt** se encuentra en la carpeta *C:\Resources\temp\\\RoleTemp {identificador de rol}*.
+> El archivo **StartupLog.txt** se encuentra en la carpeta *C:\Resources\temp\\\RoleTemp {identificador de rol}* .
 > 
 > 
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: eddafdc651eb2cd0fbdf400f7f7e933a91021faf
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 9d9e30bb8b31939b14d347369bbe88e23fcec49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808153"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050528"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
@@ -89,7 +89,7 @@ La cadena expand reduce el número de llamadas API necesarias para obtener deter
 * Esta cadena expand de ejemplo especifica que se debe devolver información estadística de cada elemento de la lista: `stats`.
 
 > [!NOTE]
-> Al construir cualquiera de los tres tipos de cadena de consulta (filter, select y expand), debe asegurarse de que los nombres de las propiedades y el uso de mayúsculas y minúsculas coinciden con los elementos homólogos de la API de REST. Por ejemplo, si trabaja con la clase .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#Microsoft_Azure_Batch_CloudTask), debe especificar **state** en lugar de **State**, aunque la propiedad de .NET sea [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Consulte en las tablas siguientes las asignaciones de propiedad entre la API de REST y la de .NET.
+> Al construir cualquiera de los tres tipos de cadena de consulta (filter, select y expand), debe asegurarse de que los nombres de las propiedades y el uso de mayúsculas y minúsculas coinciden con los elementos homólogos de la API de REST. Por ejemplo, si trabaja con la clase .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask), debe especificar **state** en lugar de **State**, aunque la propiedad de .NET sea [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Consulte en las tablas siguientes las asignaciones de propiedad entre la API de REST y la de .NET.
 > 
 > 
 

@@ -9,11 +9,11 @@ ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156792"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186561"
 ---
 ## <a name="create-the-webapi-project"></a>Creación del proyecto de API web
 
@@ -40,7 +40,7 @@ Realice las siguientes acciones para crear el nuevo back-end de ASP.NET WebAPI:
 2. Seleccione el **Explorador de servidores** e inicie sesión en su cuenta de Azure. Para crear los recursos del sitio web en su cuenta, tiene que iniciar sesión.
 
 3. En Visual Studio, haga clic con el botón derecho en la solución de Visual Studio, seleccione **Agregar** y haga clic en **Nuevo proyecto**.
-4. Expanda **Visual C#**, seleccione **Web** y haga clic en **Aplicación web ASP.NET**.
+4. Expanda **Visual C#** , seleccione **Web** y haga clic en **Aplicación web ASP.NET**.
 
 5. En el cuadro **Nombre**, escriba **AppBackend** y seleccione **Aceptar**.
 

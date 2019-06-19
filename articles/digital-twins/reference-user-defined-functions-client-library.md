@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 06/06/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: d309765e6c4b0b0cc8a7e92977134d4135a69a13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: be05cec8e3d755f1b04e5ecc5ec7c740053a74d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073034"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Referencia de la biblioteca cliente de funciones definidas por el usuario
 
@@ -221,7 +221,7 @@ Esta función establece un valor en el objeto de sensor con el tipo de datos ind
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Identificador del sensor |
 | *dataType*  | `string` | Tipo de datos del sensor |
-| *value*  | `string` | Value |
+| *value*  | `string` | Valor |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
 
@@ -233,7 +233,7 @@ Esta función establece un valor en el objeto de espacio con el tipo de datos in
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificador del espacio |
 | *dataType* | `string` | Tipo de datos |
-| *value* | `string` | Value |
+| *value* | `string` | Valor |
 
 ### <a name="logmessage"></a>log(Message)
 
@@ -420,7 +420,7 @@ Esta función envía una notificación con la carga útil especificada.
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | la carga útil de JSON que se incluye en la notificación |
 
-### <a name="value"></a>Value
+### <a name="value"></a>Valor
 
 ```JSON
 {

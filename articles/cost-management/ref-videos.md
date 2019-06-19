@@ -11,17 +11,17 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: f96c78e636b873a0238f6e34d9b80d1036e5ba4f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969106"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Vídeos de aprendizaje paso a paso de Cloudyn
 
 Los siguientes vídeos proporcionan demostraciones que lo ayudan a iniciarse en el uso de las características de Cloudyn. Cloudyn admite el seguimiento y la optimización de los costos de varias nubes, lo que incluye Microsoft Azure, Amazon Web Services y Google Cloud Platform.
 
-## <a name="overview-video"></a>Vídeo de introducción
+## <a name="overview-video"></a>Vídeo de información general
 
 [Introducción a Cloudyn](https://youtu.be/NWIRny6Wpsk)
 

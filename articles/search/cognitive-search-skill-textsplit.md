@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949868"
 ---
 #   <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
@@ -80,7 +80,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 }
 ```
 
-##  <a name="sample-input"></a>Entrada de muestra
+##  <a name="sample-input"></a>Entrada de ejemplo
 
 ```json
 {
@@ -133,7 +133,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de error
 Si no se admite un idioma, se genera una advertencia y el texto se divide en límites de carácter.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

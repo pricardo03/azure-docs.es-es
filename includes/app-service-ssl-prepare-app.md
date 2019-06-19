@@ -9,11 +9,11 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66136408"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186475"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar la aplicación web
 
@@ -33,7 +33,7 @@ Ha llegado a la página de administración de la aplicación web.
 
 ### <a name="check-the-pricing-tier"></a>Comprobar el plan de tarifa
 
-En el panel de navegación izquierdo de la página de la aplicación web, desplácese a la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)**.
+En el panel de navegación izquierdo de la página de la aplicación web, desplácese a la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)** .
 
 ![Menú Escalar verticalmente](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 

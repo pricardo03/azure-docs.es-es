@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055372"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -119,7 +119,7 @@ En el ejemplo anterior, el dispositivo gemelo contiene una propiedad `batteryLev
 
 ### <a name="desired-property-example"></a>Ejemplo de propiedad deseada
 
-En el ejemplo anterior, el back-end de la solución y la aplicación de dispositivo usan las propiedades deseadas y notificadas del dispositivo gemelo `telemetryConfig` para sincronizar la configuración de telemetría de este dispositivo. Por ejemplo: 
+En el ejemplo anterior, el back-end de la solución y la aplicación de dispositivo usan las propiedades deseadas y notificadas del dispositivo gemelo `telemetryConfig` para sincronizar la configuración de telemetría de este dispositivo. Por ejemplo:
 
 1. El back-end de la solución establece la propiedad deseada con el valor de configuración deseado. Esta es la parte del documento con el conjunto de propiedad deseada:
 
@@ -285,7 +285,7 @@ IoT Hub rechaza con un error todas las operaciones que podrían aumentar el tama
 
 IoT Hub conserva la marca de tiempo de la última actualización para cada objeto JSON en las propiedades deseadas y notificadas del dispositivo gemelo. Las marcas de tiempo están en formato UTC y se codifican con el formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Por ejemplo: 
+Por ejemplo:
 
 ```json
 {

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: 9b1ad1b70258f623219ca171797aac4cdd33b310
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66245945"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Unión de una máquina virtual Ubuntu de Azure a un dominio administrado
@@ -204,7 +204,7 @@ Verifique si la máquina se ha unido correctamente al dominio administrado. Con�
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceda privilegios de sudo al grupo "Administradores de controlador de dominio de AAD"
 Puede conceder privilegios administrativos a los miembros del grupo "Administradores de controlador de dominio de AAD" en la máquina virtual Ubuntu. El archivo sudo se encuentra en /etc/sudoers. Los miembros de los grupos de AD que agregó en sudoers pueden realizar sudo.
 
-1. En el terminal SSH, asegúrese de que ha iniciado sesión con privilegios de superusuario. Puede usar la cuenta de administrador local que especificó al crear la máquina virtual. Ejecute el siguiente comando:
+1. En el terminal SSH, asegúrese de que ha iniciado sesión con privilegios de superusuario. Puede usar la cuenta de administrador local que especificó al crear la máquina virtual. Ejecute el comando siguiente:
     ```
     sudo vi /etc/sudoers
     ```

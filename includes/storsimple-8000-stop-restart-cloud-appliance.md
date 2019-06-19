@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159697"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186373"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Detención e inicio de una aplicación en la nube
 
@@ -24,7 +24,7 @@ ms.locfileid: "66159697"
 
     ![Máquina virtual de StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. Cuando detiene una máquina virtual, esta se desasigna. Mientras se está deteniendo la aplicación en la nube, su estado es **Desasignando**. Después de que la aplicación en la nube se ha detenido, su estado es **Detenido (desasignado)**.
+4. Cuando detiene una máquina virtual, esta se desasigna. Mientras se está deteniendo la aplicación en la nube, su estado es **Desasignando**. Después de que la aplicación en la nube se ha detenido, su estado es **Detenido (desasignado)** .
 
     ![Máquina virtual de StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 

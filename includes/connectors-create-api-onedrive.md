@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 7cfce34cb2d6002dba5ec570bf859ec47e894c65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149750"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186571"
 ---
 #### <a name="prerequisites"></a>Requisitos previos
 * Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)

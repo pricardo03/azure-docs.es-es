@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: eb2555cdc163ee0f88149248b9e7d83a51d34a1b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150263"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186161"
 ---
 1. En [Azure Portal](http://portal.azure.com), seleccione la red virtual de Resource Manager para la que quiere crear una puerta de enlace de red virtual.
 

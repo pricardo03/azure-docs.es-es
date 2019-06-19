@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149588"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186514"
 ---
 #### <a name="to-download-hotfixes"></a>Descargar revisiones
 
@@ -92,7 +92,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     > [!NOTE]
     > En ocasiones, el cmdlet notifica `False` cuando la actualización está todavía en curso. Para garantizar que la revisión está completada, espere unos minutos, vuelva a ejecutar este comando y compruebe que `RunInProgress` es `False`. Si es así, se habrá completado la revisión.
 
-6. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba: 
+6. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba:
    
     `Get-HcsSystem`
    
@@ -123,7 +123,7 @@ Tenga en cuenta que, si el firmware del disco ya está actualizado, no será nec
 
 Para instalar las actualizaciones de firmware de disco, siga las instrucciones a continuación.
 
-1. Active el modo de mantenimiento del dispositivo. **Tenga en cuenta que no debe usar la conexión remota de Windows PowerShell al conectarse a un dispositivo en modo de mantenimiento. En su lugar, ejecute este cmdlet en el controlador del dispositivo cuando esté conectado a través de la consola serie del dispositivo.** Escriba: 
+1. Active el modo de mantenimiento del dispositivo. **Tenga en cuenta que no debe usar la conexión remota de Windows PowerShell al conectarse a un dispositivo en modo de mantenimiento. En su lugar, ejecute este cmdlet en el controlador del dispositivo cuando esté conectado a través de la consola serie del dispositivo.** Escriba:
    
     `Enter-HcsMaintenanceMode`
    
@@ -164,7 +164,7 @@ Para instalar las actualizaciones de firmware de disco, siga las instrucciones a
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Supervise el progreso de la instalación con el comando `Get-HcsUpdateStatus` . La actualización se habrá completado cuando `RunInProgress` cambie a `False`.
-4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión con la opción 1, **Iniciar sesión con acceso completo**, y compruebe la versión de firmware del disco. Escriba: 
+4. Una vez completada la instalación, se reiniciará el controlador en el que se haya instalado la revisión de modo de mantenimiento. Inicie sesión con la opción 1, **Iniciar sesión con acceso completo**, y compruebe la versión de firmware del disco. Escriba:
    
    `Get-HcsFirmwareVersion`
    

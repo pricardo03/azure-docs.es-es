@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122524"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186985"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificación de la definición de la estructura de los conjuntos de datos rectangulares
 La sección structure de JSON de los conjuntos de datos es una sección **opcional** para tablas rectangulares (con filas y columnas) y contiene una colección de columnas de la tabla. Se usará la sección structure para proporcionar información de tipo para las conversiones de tipos o para realizar asignaciones de columnas. En las siguientes secciones se describen estas configuraciones con más detalle. 
@@ -18,10 +18,10 @@ Cada columna contiene las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la columna. |Sí |
-| type |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |No |
-| culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «en-us». |No |
-| format |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |No |
+| Nombre |Nombre de la columna. |Sí |
+| Tipo |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |Sin |
+| culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «en-us». |Sin |
+| formato |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |Sin |
 
 En el ejemplo siguiente se muestra el JSON de la sección structure de una tabla con tres columnas userid, name y lastlogindate.
 
@@ -39,7 +39,7 @@ Utilice las siguientes directrices sobre cuándo incluir la información de la "
 * **Para los orígenes de datos estructurados** que almacenan el esquema de datos e información de tipo junto con los mismos datos (orígenes como SQL Server, Oracle, tabla de Azure etc.), debe especificar la sección "structure" solo si desea realizar una asignación de columna de las columnas de orígenes específicos en columnas específicas de receptor y sus nombres no son iguales (consulte los detalles en la siguiente sección de asignación de columna). 
   
     Como se ha mencionado antes, la información de tipo es opcional en la sección «structure». En los orígenes estructurados, ya está disponible la información de tipo como parte de la definición del conjunto de datos en el almacén de datos, por lo que no debería incluir la información de tipo cuando se incluye la sección "structure".
-* **En cuanto al esquema en los orígenes de datos de lectura (específicamente, el blob de Azure)**, puede elegir guardar datos sin almacenar el esquema o la información de tipo con ellos. Para estos tipos de orígenes de datos debe incluir la sección "structure" en los dos casos siguientes:
+* **En cuanto al esquema en los orígenes de datos de lectura (específicamente, el blob de Azure)** , puede elegir guardar datos sin almacenar el esquema o la información de tipo con ellos. Para estos tipos de orígenes de datos debe incluir la sección "structure" en los dos casos siguientes:
   * Quiere realizar una asignación de columna.
   * Cuando el conjunto de datos es un origen en una actividad de copia, puede proporcionar la información de tipo en la «estructura» y Factoría de datos usará esta información de tipo para la conversión a tipos nativos para el receptor. Consulte el artículo [Mover datos a y desde el blob de Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) para obtener más información.
 
@@ -54,7 +54,7 @@ Factoría de datos admite los siguientes valores de tipo basados en .NET compati
 * Decimal
 * Byte[]
 * Bool
-* String 
+* Cadena 
 * Guid
 * Datetime
 * Datetimeoffset

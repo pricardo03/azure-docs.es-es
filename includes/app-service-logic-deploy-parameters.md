@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: f188f2c7bea511f1109d37ef49563e0f745a770e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167433"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186734"
 ---
 Con Azure Resource Manager, puede definir los parámetros de los valores que se usan al implementar la plantilla. La plantilla incluye una sección `parameters` que contiene todos los valores de los parámetros. La plantilla usa cada uno de estos valores de los parámetros para definir los recursos que se desea implementar.
 
