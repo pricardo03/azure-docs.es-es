@@ -21,14 +21,14 @@ ms.locfileid: "65071332"
 
 Durable Functions es una extensión de [Azure Functions](../functions-overview.md) y [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md). Puede utilizar Durable Functions para escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre. 
 
-Este artículo se ofrece información detallada acerca de los comportamientos de la extensión Durable Functions para Azure Functions y patrones comunes de implementación. La información puede ayudarle a determinar cómo utilizar Durable Functions para ayudar a solucionar los desafíos de desarrollo.
+Este artículo ofrece información detallada acerca de los comportamientos de la extensión Durable Functions para Azure Functions y patrones comunes de implementación. La información puede ayudarle a determinar cómo utilizar Durable Functions para ayudar a solucionar los desafíos de desarrollo.
 
 > [!NOTE]
-> Durable Functions es una extensión avanzada para Azure Functions que no es adecuada para todas las aplicaciones. En este artículo se supone que tiene está muy familiarizado con conceptos de [Azure Functions](../functions-overview.md) y los desafíos implicados en el desarrollo de aplicaciones sin servidor.
+> Durable Functions es una extensión avanzada para Azure Functions que no es adecuada para todas las aplicaciones. En este artículo se supone que está muy familiarizado con conceptos de [Azure Functions](../functions-overview.md) y los desafíos implicados en el desarrollo de aplicaciones sin servidor.
 
 ## <a name="patterns"></a>Patrones
 
-Esta sección describen algunos patrones comunes de aplicaciones que Durable Functions puede resultar útil.
+Esta sección describe algunos patrones comunes de aplicaciones en los que Durable Functions puede resultar útil.
 
 ### <a name="chaining"></a>Patrón 1: Diagrama de encadenamiento de funciones
 
