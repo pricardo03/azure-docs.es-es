@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 24576a46b47b22ef447793b4105730ed2755701d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050635"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionamiento de nodos de proceso de Linux en grupos de Batch
 
@@ -48,7 +48,7 @@ Al configurar una referencia de la imagen de máquina virtual, especifique las p
 | Publicador |Canonical |
 | Oferta |UbuntuServer |
 | SKU |14.04.4-LTS |
-| `Version` |más reciente |
+| Versión |más reciente |
 
 > [!TIP]
 > Puede obtener más información sobre estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con la CLI o PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Batch. Para más información, consulte [SKU del agente de nodo](#node-agent-sku).
@@ -91,8 +91,8 @@ node_count = 1
 
 # Initialize the Batch client
 creds = batchauth.SharedKeyCredentials(account, key)
-config = batch.BatchServiceClientConfiguration(creds, base_url = batch_url)
-client = batch.BatchServiceClient(config)
+config = batch.BatchServiceClientConfiguration(creds, batch_url)
+client = batch.BatchServiceClient(creds, batch_url)
 
 # Create the unbound pool
 new_pool = batchmodels.PoolAddParameter(id = pool_id, vm_size = vm_size)

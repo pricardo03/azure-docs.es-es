@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: 1db7be902c768889dbc82bef0adc0310b9fac02c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161654"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186214"
 ---
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 La manera más fácil de crear la primera cuenta de almacenamiento de Azure es mediante [Azure Portal](https://portal.azure.com). Para obtener más información, consulte [Crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).

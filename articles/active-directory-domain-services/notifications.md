@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: fab680e8e26584e6beeaf4bdb205c721e1b0b91e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246965"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Configuración de notificaciones de Azure AD Domain Services
@@ -80,7 +80,7 @@ Puede agregar hasta cinco correos electrónicos adicionales para las notificacio
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-#### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>He recibido una notificación por correo electrónico de una alerta, pero cuando inicié sesión en Azure Portal no había ninguna. ¿Qué ocurre?
+#### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>He recibido una notificación por correo electrónico de una alerta, pero cuando inicié sesión en Azure Portal no había ninguna. ¿Qué ha ocurrido?
 
 Si se resuelve una alerta, la alerta desaparece de Azure Portal. El motivo más probable es que alguien que recibe notificaciones de correo electrónico resolviera la alerta en el dominio administrado, o bien que Azure AD Domain Services la resolviera automáticamente.
 

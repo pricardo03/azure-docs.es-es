@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159221"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186205"
 ---
 En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado por SKU de puerta de enlace. Esta tabla se aplica a los modelos de implementación tanto clásico como Resource Manager. 
 
@@ -23,7 +23,7 @@ Tenga en cuenta que la SKU de la puerta de enlace de UltraPerformance no se repr
 
 |  | **Rendimiento de VPN Gateway (1)** | **Túneles IPsec máx. de VPN Gateway (2)** | **Rendimiento de puerta de enlace de ExpressRoute** | **VPN Gateway y ExpressRoute coexisten** |
 | --- | --- | --- | --- | --- |
-| **SKU básica (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
+| **SKU básica (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Sin |
 | **SKU estándar (4)(5)** |100 Mbps |10 |1000 Mbps |Sí |
 | **SKU de alto rendimiento (4)** |200 Mbps |30 |2000 Mbps |Sí |
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 43bca65810d09c87f7f473b3bbac71ca6a7f9bc2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389007"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Punto de conexión de Bing Entity Search API
@@ -35,6 +35,6 @@ Para obtener resultados de entidades mediante **Bing API**, envíe una solicitud
 > [!div class="nextstepaction"]
 > [¿Qué es Bing Entity Search API?](overview.md)
 
-## <a name="see-also"></a>Vea también 
+## <a name="see-also"></a>Otras referencias 
 
 Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc, consulte la referencia sobre [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

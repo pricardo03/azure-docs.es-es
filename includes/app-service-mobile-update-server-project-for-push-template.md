@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140145"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186816"
 ---
 En esta sección, se actualiza el código del proyecto de back-end de Mobile Apps existente con el objetivo de enviar una notificación push cada vez que se agrega un nuevo elemento. Este proceso funciona con la característica de [plantillas](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) de Azure Notification Hubs, que permite inserciones multiplataforma. Los diversos clientes se registran para recibir notificaciones push mediante plantillas, y una solo notificación push puede acceder a todas las plataformas de cliente.
 

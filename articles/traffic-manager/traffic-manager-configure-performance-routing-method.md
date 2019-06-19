@@ -2,21 +2,22 @@
 title: Configuración del método de enrutamiento del tráfico de rendimiento con Azure Traffic Manager | Microsoft Docs
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico al punto de conexión con latencia más baja.
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048464"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configuración del método de enrutamiento del tráfico de rendimiento
 
@@ -31,7 +32,7 @@ El método de enrutamiento de tráfico Rendimiento permite dirigir el tráfico a
     1. En la **configuración del método de enrutamiento de tráfico**, seleccione **Rendimiento** en **Método de enrutamiento**.
     2. Establezca la misma **configuración de supervisión de puntos de conexión** para todos los puntos de conexión dentro de este perfil de esta forma:
         1. Seleccione el **protocolo** adecuado y especifique el número de **puerto**. 
-        2. En el tipo de **ruta de acceso**, escriba una barra diagonal */*. Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
+        2. En el tipo de **ruta de acceso**, escriba una barra diagonal */* . Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
         3. Haga clic en **Guardar** en la parte superior de la página.
 5.  Pruebe los cambios de la configuración de la siguiente forma:
     1.  En la barra de búsqueda del Portal, busque el nombre del perfil de Traffic Manager y haga clic en él en los resultados que se muestran.

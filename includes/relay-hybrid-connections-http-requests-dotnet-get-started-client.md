@@ -9,17 +9,17 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116175"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186904"
 ---
 ### <a name="create-a-console-application"></a>Creación de una aplicación de consola
 
 Si ha desactivado la opción que indica que se requiere la autorización del cliente al crear la retransmisión, puede enviar solicitudes a la dirección URL de conexiones híbridas con un explorador. Para acceder a los puntos de conexión protegidos, debe crear y pasar un token en el encabezado `ServiceBusAuthorization`, que se muestra aquí.
 
-En Visual Studio, cree un nuevo proyecto de **Aplicación de consola (.NET Framework)**.
+En Visual Studio, cree un nuevo proyecto de **Aplicación de consola (.NET Framework)** .
 
 ### <a name="add-the-relay-nuget-package"></a>Adición del paquete Relay NuGet
 

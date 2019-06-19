@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512743"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
@@ -33,7 +33,7 @@ La directiva puede enviar notificaciones de entrada a la API REST. La API REST t
 - **Perfil técnico de validación**: un perfil técnico de validación llama al servicio RESTful. El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada y se devuelve en las notificaciones de salida.
 - **Intercambio de notificaciones**: se realiza una llamada al servicio RESTful a través de un paso de orquestación. En este escenario, no hay ninguna interfaz de usuario para representar el mensaje de error. Si la API REST devuelve un error, se redirige al usuario a la aplicación de usuario de confianza con el mensaje de error.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -88,8 +88,8 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 | ServiceUrl | Sí | La dirección URL del punto de conexión de la API REST. | 
 | AuthenticationType | Sí | El tipo de autenticación realizada por el proveedor de notificaciones RESTful. Valores posibles: `None`, `Basic` o `ClientCertificate`. El valor `None` indica que la API REST no es anónima. El valor `Basic` indica que la API REST se protege con autenticación básica HTTP. Solo los usuarios verificados, incluido Azure AD B2C, pueden acceder a la API. El valor `ClientCertificate` (recomendado) indica que la API REST restringe el acceso mediante la autenticación de certificado de cliente. Solo pueden acceder al servicio los servicios que tengan los certificados adecuados, como Azure AD B2C. | 
 | SendClaimsIn | Sin | Especifica cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de entrada que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de entrada que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de entrada que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de entrada que se envía en la cadena de consulta de la solicitud. | 
-| ClaimsFormat | No | Especifica el formato de las notificaciones de salida. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de salida que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de salida que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de salida que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de salida que se envía en la cadena de consulta de la solicitud. | 
-| DebugMode | No | Ejecuta el perfil técnico en modo de depuración. En el modo de depuración, la API REST puede devolver más información. Vea la sección sobre devolución de mensajes de error. | 
+| ClaimsFormat | Sin | Especifica el formato de las notificaciones de salida. Valores posibles: `Body` (predeterminado), `Form`, `Header` o `QueryString`. El valor `Body` es la notificación de salida que se envía en el cuerpo de la solicitud en formato JSON. El valor `Form` es la notificación de salida que se envía en el cuerpo de la solicitud en un formato de valor de clave separado por "&" (Y comercial). El valor `Header` es la notificación de salida que se envía en el cuerpo de la solicitud. El valor `QueryString` es la notificación de salida que se envía en la cadena de consulta de la solicitud. | 
+| DebugMode | Sin | Ejecuta el perfil técnico en modo de depuración. En el modo de depuración, la API REST puede devolver más información. Vea la sección sobre devolución de mensajes de error. | 
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
@@ -161,7 +161,7 @@ Es posible la API REST tenga que devolver un mensaje de error, como "No se encue
 | --------- | -------- | ----------- |
 | version | Sí | 1.0.0 | 
 | status | Sí | 409 | 
-| code | No | Código de error del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. | 
+| código | Sin | Código de error del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. | 
 | requestId | Sin | Identificador de solicitud del proveedor de punto de conexión RESTful, que se muestra cuando `DebugMode` está habilitado. | 
 | userMessage | Sí | Mensaje de error que se muestra al usuario. | 
 | developerMessage | Sin | Descripción detallada del problema y cómo corregirlo, que se muestra cuando `DebugMode` está habilitado. | 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657499"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071950"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -128,24 +128,24 @@ En este ejemplo se muestra cómo admitir solicitudes preparatorias, como aquella
 |cors|Elemento raíz.|Sí|N/D|
 |allowed-origins|Contiene elementos `origin` que describen los orígenes permitidos para las solicitudes entre dominios. `allowed-origins` puede contener un único elemento `origin` que especifica `*` para permitir cualquier origen, o uno o varios elementos `origin` que contienen un identificador URI.|Sí|N/D|
 |origin|El valor puede ser `*` para permitir todos los orígenes o un identificador URI que especifica un único origen. El URI debe incluir un esquema, un host y un puerto.|Sí|Si se omite el puerto en un identificador URI, se usa el puerto 80 para HTTP y el puerto 443 para HTTPS.|
-|allowed-methods|Este elemento es necesario si se permiten métodos distintos de GET o POST. Contiene elementos `method` que especifican los verbos HTTP admitidos.|Sin |Si esta sección no está presente, se admiten GET y POST.|
+|allowed-methods|Este elemento es necesario si se permiten métodos distintos de GET o POST. Contiene elementos `method` que especifican los verbos HTTP admitidos.|Sin|Si esta sección no está presente, se admiten GET y POST.|
 |method|Especifica un verbo HTTP.|Al menos un elemento `method` es necesario si la sección `allowed-methods` está presente.|N/D|
-|allowed-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados que pueden incluirse en la solicitud.|Sin |N/D|
-|expose-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados a los que tendrá acceso el cliente.|Sin |N/D|
+|allowed-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados que pueden incluirse en la solicitud.|Sin|N/D|
+|expose-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados a los que tendrá acceso el cliente.|Sin|N/D|
 |encabezado|Especifica un nombre de encabezado.|Al menos un elemento `header` es necesario en `allowed-headers` o `expose-headers` si está presente la sección.|N/D|
 
 ### <a name="attributes"></a>Atributos
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|El encabezado `Access-Control-Allow-Credentials` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el cliente pueda enviar credenciales en solicitudes entre dominios.|Sin |false|
-|preflight-result-max-age|El encabezado `Access-Control-Max-Age` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el agente del usuario pueda almacenar en caché la respuesta preparatoria.|Sin |0|
+|allow-credentials|El encabezado `Access-Control-Allow-Credentials` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el cliente pueda enviar credenciales en solicitudes entre dominios.|Sin|false|
+|preflight-result-max-age|El encabezado `Access-Control-Max-Age` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el agente del usuario pueda almacenar en caché la respuesta preparatoria.|Sin|0|
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
-- **Secciones de la directiva:** inbound (entrada)
-- **Ámbitos de la directiva:** global, API, operación
+- **Secciones de la directiva:** entrante
+- **Ámbitos de la directiva:** global, producto, API, operación
 
 ## <a name="JSONP"></a> JSONP
 La directiva `jsonp` agrega JSON con compatibilidad con relleno (JSONP) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript. JSONP es un método utilizado en los programas JavaScript para solicitar datos desde un servidor en un dominio diferente. JSONP sortea la limitación exigida por la mayoría de los exploradores web donde el acceso a las páginas web debe estar en el mismo dominio.

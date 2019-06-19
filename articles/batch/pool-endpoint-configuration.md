@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071531"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar o deshabilitar el acceso remoto a nodos de proceso en un grupo de Azure Batch
 
@@ -27,7 +27,7 @@ La configuración de punto de conexión consta de uno o varios [grupos de traduc
 Cada configuración de grupo NAT incluye una o varias [reglas de grupo de seguridad de red (NSG)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regla NSG permite o deniega cierto tráfico de red al punto de conexión. Puede elegir permitir o denegar todo el tráfico, el tráfico identificado por una [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) (por ejemplo, "Internet") o el tráfico procedente de subredes o direcciones IP específicas.
 
 ### <a name="considerations"></a>Consideraciones
-* La configuración de punto de conexión del grupo forma parte de la [configuración de red](/rest/api/batchservice/pool/add#NetworkConfiguration) del grupo. La configuración de red puede incluir, opcionalmente, una configuración para unir el grupo a una [red virtual de Azure](batch-virtual-network.md). Si configura el grupo en una red virtual, puede crear reglas NSG que usen la configuración de dirección de la red virtual.
+* La configuración de punto de conexión del grupo forma parte de la [configuración de red](/rest/api/batchservice/pool/add#networkconfiguration) del grupo. La configuración de red puede incluir, opcionalmente, una configuración para unir el grupo a una [red virtual de Azure](batch-virtual-network.md). Si configura el grupo en una red virtual, puede crear reglas NSG que usen la configuración de dirección de la red virtual.
 * Puede configurar varias reglas NSG al configurar un grupo NAT. Las reglas se comprueban por orden de prioridad. Una vez que se aplica una regla, no se comprueba si las demás coinciden.
 
 

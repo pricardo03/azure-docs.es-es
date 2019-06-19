@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417836"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
@@ -104,7 +104,7 @@ Servicios de Escritorio remoto (RDS) habilita Infraestructura de escritorio virt
 | **RDS** |**Replicación de máquinas virtuales de Azure en Azure** | **Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure** | **Replicación de servidores físicos en un sitio secundario** | **Replicación de servidores físicos a Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
 | **Escritorio virtual agrupado (no administrado)** |Sin|Sí |Sin |Sí |Sin |Sí |Sin |
-| **Escritorio virtual agrupado (administrado y sin UPD)** |Sin|Sí |No |Sí |Sin |Sí |Sin |
+| **Escritorio virtual agrupado (administrado y sin UPD)** |Sin|Sí |Sin |Sí |Sin |Sí |Sin |
 | **Aplicaciones remotas y sesiones de escritorio (sin UPD)** |Sí|Sí |Sí |Sí |Sí |Sí |Sí |
 
 [Configuración de la recuperación ante desastres para RDS mediante Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).

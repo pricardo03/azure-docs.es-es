@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241687"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
@@ -36,10 +36,10 @@ Cada instancia del servicio de API Management tiene una colección de propiedade
 
 Los valores de propiedad pueden contener cadenas literales y [expresiones de directiva](/azure/api-management/api-management-policy-expressions). Por ejemplo, el valor de `ExpressionProperty` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. La propiedad `ContosoHeaderValue` está marcada como secreta, por lo que no se muestra su valor.
 
-| NOMBRE | `Value` | `Secret` | `Tags` |
+| NOMBRE | Valor | Secret | Etiquetas |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
 ## <a name="to-add-and-edit-a-property"></a>Incorporación y edición de una propiedad

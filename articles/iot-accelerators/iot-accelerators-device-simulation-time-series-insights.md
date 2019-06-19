@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834825"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Time Series Insights para visualizar los datos de telemetría que se envíen desde el acelerador de soluciones de simulación de dispositivos
@@ -68,7 +68,7 @@ Los pasos siguientes utilizan la CLI de Azure en Azure Cloud Shell para crear el
     | Nombre del entorno | En la captura de pantalla siguiente se usa el nombre **Contoso-TSI**. Elija un nombre exclusivo de su elección al completar este paso. |
     | Subscription | Seleccione la suscripción de Azure en el menú desplegable. |
     | Grupos de recursos | **contoso-simulation**. Use el nombre del acelerador de la soluciones. |
-    | Ubicación | En este ejemplo se utiliza **Este de EE. UU.**. Cree el entorno en la misma región que el acelerador de simulación de dispositivos. |
+    | Ubicación | En este ejemplo se utiliza **Este de EE. UU.** . Cree el entorno en la misma región que el acelerador de simulación de dispositivos. |
     | SKU |**S1** |
     | Capacity | **1** |
 

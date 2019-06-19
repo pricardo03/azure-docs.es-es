@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512654"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
@@ -23,7 +23,7 @@ ms.locfileid: "66512654"
 
 Todas las interacciones realizadas en Azure Active Directory (Azure AD) B2C en las que se espera que el usuario proporcione una entrada son perfiles técnicos autoafirmados. Por ejemplo, una página de registro, de inicio de sesión o de restablecimiento de la contraseña.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C para la autoafirmación: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -129,11 +129,11 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | No | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.showCancelButton | No | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.operatingMode | No | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`. |
+| setting.showContinueButton | Sin | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showCancelButton | Sin | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.operatingMode | Sin | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`. |
 | ContentDefinitionReferenceId | Sí | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este perfil técnico. |
-| EnforceEmailVerification | No | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. | 
+| EnforceEmailVerification | Sin | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. | 
 | setting.showSignupLink | Sin | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.retryLimit | Sin | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
 | SignUpTarget | Sin | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |

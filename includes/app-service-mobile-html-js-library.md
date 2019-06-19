@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140877"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186825"
 ---
 ## <a name="create-client"></a>Creación de conexiones de cliente
 Cree una conexión de cliente mediante la generación de un objeto `WindowsAzure.MobileServiceClient` .  Sustituya `appUrl` por la dirección URL de la aplicación móvil.
@@ -168,7 +168,7 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Instrucciones: Eliminar datos
+### <a name="deleting"></a>Instrucciones: Eliminación de datos
 Para eliminar un registro, llame al método `.del()`.  Pase el identificador de una referencia de objeto:
 
 ```javascript

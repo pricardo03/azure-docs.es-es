@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964399"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
@@ -116,7 +116,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
   * Admite caracteres no latinos, espacios y mayúsculas y minúsculas. 
   
-  * La puntuación permitida incluye puntos, caracteres de subrayado, guiones, apóstrofes, corchetes (por ejemplo, **( [ { } ] )**) y separadores (por ejemplo, **, / ;**).
+  * La puntuación permitida incluye puntos, caracteres de subrayado, guiones, apóstrofes, corchetes (por ejemplo, **( [ { } ] )** ) y separadores (por ejemplo, **, / ;** ).
   
   * Solo se actualiza si estos dos parámetros están configurados en el área de trabajo y organización de Slack - **La sincronización de perfiles está habilitada** y **Los usuarios no pueden cambiar su nombre para mostrar**.
   

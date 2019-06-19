@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509972"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solución de problemas de directivas personalizadas de Azure AD B2C y el marco de experiencia de identidad
@@ -57,7 +57,7 @@ Fragmento de código de error: `Reason: User is currently logged as a user of 'y
 
 * Use `Run Now` y `https://jwt.io` para probar sus directivas con independencia de su aplicación web o móvil. Este sitio web actúa como una aplicación de usuario de confianza. Muestra el contenido del JSON Web Token (JWT) que genera la directiva de Azure AD B2C. Para crear una aplicación de prueba en el marco de experiencia de identidad, use los valores siguientes:
     * Nombre: TestApp
-    * Aplicación web/API web: No
+    * Aplicación web/API web: Sin
     * Cliente nativo: Sin
 
 * Use [Fiddler](https://www.telerik.com/fiddler) para realizar un seguimiento del intercambio de mensajes entre su explorador cliente y Azure AD B2C. Puede ayudarle a detectar un error en el recorrido del usuario en los pasos de la orquestación.

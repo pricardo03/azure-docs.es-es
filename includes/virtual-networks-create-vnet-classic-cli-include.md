@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116908"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186233"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Cómo crear una red virtual clásica mediante la CLI de Azure
 Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el símbolo del sistema de cualquier equipo que ejecute Windows, Linux o bien OSX.
@@ -32,12 +32,12 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
             info:    network vnet create command OK
    
    * **--vnet**. Nombre de la red virtual que se va a crear. En este escenario, *TestVNet*
-   * **-e (o --address-space)**. Espacio de direcciones de red virtual. Para este escenario, *192.168.0.0*
-   * **-i (o -cidr)**. Máscara de red en formato CIDR. Para este escenario, *16*
+   * **-e (o --address-space)** . Espacio de direcciones de red virtual. Para este escenario, *192.168.0.0*
+   * **-i (o -cidr)** . Máscara de red en formato CIDR. Para este escenario, *16*
    * **-n (o --subnet-name**). Nombre de la primera subred. Para este escenario, *FrontEnd*
-   * **-p (or --subnet-start-ip)**. Dirección IP inicial de la subred o el espacio de direcciones de la subred. Para este escenario, *192.168.1.0*
-   * **-r (o --subnet-cidr)**. Máscara de red en formato CIDR para subred. Para este escenario, *24*
-   * **-l (or --location)**. Región de Azure donde se crea la red virtual. Para este escenario, *Centro de EE. UU.*
+   * **-p (or --subnet-start-ip)** . Dirección IP inicial de la subred o el espacio de direcciones de la subred. Para este escenario, *192.168.1.0*
+   * **-r (o --subnet-cidr)** . Máscara de red en formato CIDR para subred. Para este escenario, *24*
+   * **-l (or --location)** . Región de Azure donde se crea la red virtual. Para este escenario, *Centro de EE. UU.*
 3. Para crear una subred, ejecute el comando **azure network subnet create**:
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -55,8 +55,8 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
             info:    network vnet subnet create command OK
    
    * **-t (o --vnet-name**. Nombre de la red virtual donde se creará la subred. Para este escenario, *TestVNet*.
-   * **-n (o --name)**. Nombre de la nueva subred. Para este escenario, *BackEnd*.
-   * **-a (o --address-prefix)**. Bloque CIDR de subred. Para este escenario, *192.168.2.0/24*.
+   * **-n (o --name)** . Nombre de la nueva subred. Para este escenario, *BackEnd*.
+   * **-a (o --address-prefix)** . Bloque CIDR de subred. Para este escenario, *192.168.2.0/24*.
 4. Para ver las propiedades de la nueva red virtual, ejecute el comando **azure network vnet show**:
    
             azure network vnet show

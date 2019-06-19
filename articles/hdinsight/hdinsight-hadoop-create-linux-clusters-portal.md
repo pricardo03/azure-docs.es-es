@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393992"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
@@ -80,7 +80,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
      ![Defina la configuración de almacenamiento](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Creación de un clúster en Azure Portal")
 
-     | Almacenamiento                                      | DESCRIPCIÓN |
+     | Storage                                      | DESCRIPCIÓN |
      |----------------------------------------------|-------------|
      | **Blobs de Azure Storage como almacenamiento predeterminado**   | <ul><li>En **Tipo de almacenamiento principal**, seleccione **Azure Storage**. Como **Método de selección**, elija **Mis suscripciones** si desea especificar una cuenta de almacenamiento que forme parte de su suscripción de Azure. Después, seleccione la cuenta de almacenamiento. De lo contrario, seleccione **Clave de acceso**. A continuación, proporcione la información de la cuenta de almacenamiento que desee elegir fuera de la suscripción de Azure.</li><li>En **Contenedor predeterminado**, elija el nombre de contenedor predeterminado que se sugiere en el portal o especifique uno propio.</li><li>Si Azure Blob Storage es el almacenamiento predeterminado, puede también seleccionar **Cuentas de almacenamiento adicionales** para especificar cuentas de almacenamiento adicionales que se van a asociar con el clúster. Para **Claves de Azure Storage**, seleccione **Add a storage key** (Agregar una clave de almacenamiento). A continuación, puede proporcionar una cuenta de almacenamiento de las suscripciones de Azure o de otras. Proporcione la clave de acceso de la cuenta de almacenamiento.</li><li>Si Blob Storage es el almacenamiento predeterminado, puede también seleccionar **Data Lake Storage access** (Acceso a Data Lake Storage) para especificar Azure Data Lake Storage como almacenamiento adicional. Para más información, consulte [Inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage como almacenamiento predeterminado** | Para **Tipo de almacenamiento principal**, seleccione **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2**. A continuación, consulte el artículo [Inicio rápido: Creación de un clúster de HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para más información. |

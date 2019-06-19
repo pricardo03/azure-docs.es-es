@@ -2,7 +2,7 @@
 title: Habilitación del registro de diagnóstico en Azure Traffic Manager
 description: Aprenda a habilitar el registro de diagnóstico para su perfil de Traffic Manager y acceda a los archivos de registro que se crean como resultado.
 services: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
-ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: b2ebeb41e69b7edfd43c38cc3b828069a1b3401a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071244"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitación del registro de diagnóstico en Azure Traffic Manager
 
@@ -72,8 +72,8 @@ En la tabla siguiente se incluye el esquema de registros específico del recurso
 |||||
 |----|----|---|---|
 |**Nombre del campo**|**Tipo de campo**|**Definición**|**Ejemplo**|
-|EndpointName|string|El nombre del punto de conexión de Traffic Manager cuyo mantenimiento se está registrando.|*myPrimaryEndpoint*|
-|Status|string|El estado de mantenimiento del punto de conexión de Traffic Manager que se sondeó. El estado puede ser **Up** (Arriba) o **Down** (Abajo).|**Up** (Arriba)|
+|EndpointName|Cadena|El nombre del punto de conexión de Traffic Manager cuyo mantenimiento se está registrando.|*myPrimaryEndpoint*|
+|Status|Cadena|El estado de mantenimiento del punto de conexión de Traffic Manager que se sondeó. El estado puede ser **Up** (Arriba) o **Down** (Abajo).|**Up** (Arriba)|
 |||||
 
 ## <a name="next-steps"></a>Pasos siguientes

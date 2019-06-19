@@ -3,20 +3,21 @@ title: Configuración del método de enrutamiento de tráfico por prioridad con 
 description: En este artículo se explica cómo configurar el método de enrutamiento de tráfico por prioridad en Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884000"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048490"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de tráfico por prioridad en Traffic Manager
 
@@ -33,7 +34,7 @@ Un patrón común para la conmutación por error del servicio es proporcionar un
     1. En **Configuración del método de enrutamiento de tráfico**, compruebe que dicho método sea **Prioridad**. De no ser así, haga clic en **Prioridad** en la lista desplegable.
     2. Establezca la misma **configuración de supervisión de puntos de conexión** para todos los puntos de conexión dentro de este perfil de esta forma:
         1. Seleccione el **protocolo** adecuado y especifique el número de **puerto**. 
-        2. En el tipo de **ruta de acceso**, escriba una barra diagonal */*. Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
+        2. En el tipo de **ruta de acceso**, escriba una barra diagonal */* . Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
         3. Haga clic en **Guardar** en la parte superior de la página.
 5. En la sección **Configuración**, haga clic en **Puntos de conexión**.
 6. En la hoja **Puntos de conexión**, revise el orden de prioridad de los puntos de conexión. Cuando selecciona el método de enrutamiento de tráfico de **Prioridad**, el orden de los extremos seleccionados es importante. Compruebe el orden de prioridad de los puntos de conexión.  El extremo principal se encuentra en primer lugar. Vuelva a comprobar el orden en que se muestra. En este caso, todas las solicitudes se enrutarán al primer punto de conexión y si Traffic Manager detecta que no funciona correctamente, se hace conmutación por error del tráfico automáticamente al siguiente punto de conexión. 

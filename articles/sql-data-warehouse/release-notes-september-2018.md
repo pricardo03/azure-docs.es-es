@@ -11,17 +11,17 @@ ms.date: 10/08/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912163"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Septiembre de 2018
 Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo se describen las nuevas características y los cambios que se han incluido en septiembre de 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Nuevo punto de entrada inferior para SQL Data Warehouse Gen2
-En abril de 2018, [Microsoft anunció](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2, que ofrece el mismo rendimiento x5, la escalabilidad de proceso x5, la simultaneidad x4 y almacenamiento ilimitado. Como se indicó en el artículo [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) (Prueba comparativa de Data Warehouse en la nube) de Gigaom, SQL Data Warehouse Gen2 **supera a Amazon Redshift en un 42 %**.
+En abril de 2018, [Microsoft anunció](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2, que ofrece el mismo rendimiento x5, la escalabilidad de proceso x5, la simultaneidad x4 y almacenamiento ilimitado. Como se indicó en el artículo [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) (Prueba comparativa de Data Warehouse en la nube) de Gigaom, SQL Data Warehouse Gen2 **supera a Amazon Redshift en un 42 %** .
 
 Gen2 ya está disponible con carácter general en un punto de entrada inferior de DWU500c, por lo que puede ejecutar en entornos de desarrollo y pruebas o de almacenamiento de datos de menor tamaño con las mejoras más recientes del servicio. El nuevo punto de entrada conserva todas las características de Gen2, incluido el [almacenamiento en caché adaptativo](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), el [aligeramiento de la reestructuración rápida de datos](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/) y compatibilidad para el [almacenamiento de datos en tiempo real](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 
@@ -99,7 +99,7 @@ Por último, la mejora reduce la ejecución general de las instrucciones que se 
 
 ## <a name="bug-fixes"></a>Corrección de errores
 
-| Puesto | DESCRIPCIÓN |
+| Título | DESCRIPCIÓN |
 |:---|:---|
 | **Corrección al crear las estadísticas en las distribuciones para las restricciones únicas** | Esta revisión soluciona un error que los usuarios experimentan al ejecutar UPDATE STATISTICS al especificar solo la tabla, cuando esta tiene una restricción única definida. |
 | **Corrección al compilar las consultas en tablas externas** | Esta revisión corrige un defecto que afecta el tiempo de compilación de consultas que implican tablas externas.|

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 467af776af95cf035121250fdcadd2fee65d9805
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66118166"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186360"
 ---
 #### <a name="to-create-a-volume-container"></a>Para crear un contenedor de volúmenes
 1. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. En la lista tabular de dispositivos, seleccione un dispositivo y haga clic en él. 

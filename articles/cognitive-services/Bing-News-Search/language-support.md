@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384986"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Compatibilidad de idiomas y regiones para Bing News Search API
@@ -31,7 +31,7 @@ En la tabla siguiente se listan los valores de código de mercado para el punto 
 
 Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
 
-|País/región|Lenguaje|Código de mercado|  
+|País/región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Danés|da-DK|
 |Austria|Alemán|de-AT|
@@ -64,7 +64,7 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 |Suiza|Francés|fr-CH|
 |Francia|Francés|fr-FR|  
 |Italia|Italiano|it-IT|
-|Hong Kong SAR|Chino tradicional|zh-HK|  
+|RAE de Hong Kong|Chino tradicional|zh-HK|  
 |Taiwán|Chino tradicional|zh-TW|
 |Japón|Japonés|ja-JP|  
 |Corea|Coreano|ko-KR|  
@@ -80,7 +80,7 @@ En la tabla siguiente se listan los valores de código de mercado para el punto 
 
 Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
 
-|País/región|Lenguaje|Código de mercado|  
+|País/región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Danés|da-DK|
 |Alemania|Alemán|de-DE|
@@ -103,7 +103,7 @@ En la tabla siguiente se listan los valores de código de mercado para el punto 
 
 Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
 
-|País/región|Lenguaje|Código de mercado|  
+|País/región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemania|Alemán|de-DE|
 |Australia|English|en-AU|
@@ -133,9 +133,9 @@ Los códigos de país o región siguientes se pueden especificar en el parámetr
 |Chile|CL|  
 |Dinamarca|DK|  
 |Finlandia|FI|  
-|Francia|FR|  
+|Francia|VF|  
 |Alemania|DE|  
-|Hong Kong SAR|HK|  
+|RAE de Hong Kong|HK|  
 |India|IN|  
 |Indonesia|ID|  
 |Italia|IT|  

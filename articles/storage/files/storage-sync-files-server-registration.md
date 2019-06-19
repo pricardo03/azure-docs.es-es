@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991825"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
@@ -152,7 +152,7 @@ Ahora que todos los datos se han recuperado y que el servidor se ha quitado de t
 1. En Azure Portal, vaya a la sección *Servidores registrados* del servicio de sincronización de almacenamiento.
 2. Haga clic con el botón derecho en el servidor cuyo registro desea anular y haga clic en "Cancelar registro de servidor".
 
-    ![Cancelar registro de servidor](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Anulación del registro del servidor](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Configuración de Azure File Sync para que sea un buen vecino en el centro de datos 
 Puesto que Azure File Sync rara vez será el único servicio en ejecución en el centro de datos, es posible que le interese limitar el uso de red y de almacenamiento de Azure File Sync.
@@ -188,7 +188,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Uso de la calidad de servicio de almacenamiento de Windows Server 
 Cuando Azure File Sync se hospeda en una máquina virtual que se ejecuta en un host de virtualización de Windows Server, puede usar la calidad de servicio de almacenamiento (QoS de almacenamiento) para regular el consumo de E/S de almacenamiento. La directiva de QoS de almacenamiento puede establecerse como un valor máximo (o límite, como el límite StorageSyncNetwork aplicado anteriormente) o como un valor mínimo (o reserva). Al establecer un mínimo en lugar de un máximo, Azure File Sync puede usar el ancho de banda de almacenamiento disponible si otras cargas de trabajo no lo están utilizando. Para más información, consulte [Calidad de servicio de almacenamiento](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
 - [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)

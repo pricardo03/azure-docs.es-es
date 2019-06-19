@@ -5,13 +5,13 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140680"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187001"
 ---
-**Back-end de .NET (C#)**:
+**Back-end de .NET (C#)** :
   
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes de NuGet**, busque `Microsoft.Azure.NotificationHubs` y, por último, haga clic en **Instalar**. Esto instala la biblioteca de Notification Hubs para enviar notificaciones desde el back-end.
 2. En el proyecto de Visual Studio del back-end, abra **Controladores** > **TodoItemController.cs**. Al principio del archivo, agregue la siguiente instrucción `using` :

@@ -11,10 +11,10 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873494"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos del lenguaje T-SQL admitidos en Azure SQL Data Warehouse
@@ -26,7 +26,7 @@ Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en A
 * [palabras clave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
 * [intercalaciones](https://msdn.microsoft.com/library/ff848763.aspx)
 * [comentarios](https://msdn.microsoft.com/library/ms181627.aspx)
-* [constants](https://msdn.microsoft.com/library/ms179899.aspx)
+* [constantes](https://msdn.microsoft.com/library/ms179899.aspx)
 * [tipos de datos](https://msdn.microsoft.com/library/ms187752.aspx)
 * [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)
 * [expresiones](https://msdn.microsoft.com/library/ms190286.aspx)
@@ -81,7 +81,7 @@ Vínculos a la documentación de los elementos del lenguaje T-SQL admitidos en A
 * [|= (OR EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&amp;= (AND EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Funciones
+## <a name="functions"></a>Functions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)

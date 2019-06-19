@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512277"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
@@ -85,7 +85,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | Dominio | 0:1 | Nombre de dominio del perfil técnico. Por ejemplo, si el perfil técnico especifica el proveedor de identidades de Facebook, el nombre de dominio será Facebook.com. |
 | DisplayName | 0:1 | Nombre del perfil técnico que puede mostrarse a los usuarios. |
 | DESCRIPCIÓN | 0:1 | Descripción del perfil técnico que puede mostrarse a los usuarios. |
-| Protocol | 0:1 | Protocolo usado para la comunicación con la otra parte. |
+| Protocolo | 0:1 | Protocolo usado para la comunicación con la otra parte. |
 | Metadatos | 0:1 | Colección de pares de clave y valor usada por el protocolo para comunicarse con el punto de conexión durante una transacción. |
 | InputTokenFormat | 0:1 | Formato del token de entrada. Valores posibles: `JSON`, `JWT`, `SAML11` o `SAML2`. El valor `JWT` representa un token de JSON Web Token según la especificación IETF. El valor `SAML11` representa un token de seguridad SAML 1.1 según la especificación OASIS.  El valor `SAML2` representa un token de seguridad SAML 2.0 según la especificación OASIS. |
 | OutputTokenFormat | 0:1 | Formato del token de salida. Valores posibles: `JSON`, `JWT`, `SAML11` o `SAML2`. |
@@ -102,14 +102,14 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | UseTechnicalProfileForSessionManagement | 0:1 | Perfil técnico distinto que se usará para la administración de sesiones. |
 |EnabledForUserJourneys| 0:1 |Controla si el perfil técnico se ejecuta en un recorrido del usuario.  |
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocolo
 
 El elemento **Protocol** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | Name | Sí | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` o `None`. |
-| Controlador | No | Cuando el nombre del protocolo se establece en `Proprietary`, especifique el nombre completo del ensamblado que usará Azure AD B2C para determinar el controlador de protocolo. |
+| Controlador | Sin | Cuando el nombre del protocolo se establece en `Proprietary`, especifique el nombre completo del ensamblado que usará Azure AD B2C para determinar el controlador de protocolo. |
 
 ### <a name="metadata"></a>Metadatos
 
@@ -175,8 +175,8 @@ El elemento **InputClaim** contiene los atributos siguientes:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
-| DefaultValue | No | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
-| PartnerClaimType | No | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
+| DefaultValue | Sin | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
+| PartnerClaimType | Sin | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
 ### <a name="persistedclaims"></a>PersistedClaims
 

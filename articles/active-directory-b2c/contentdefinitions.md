@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511312"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -101,7 +101,7 @@ El elemento **LocalizedResourcesReferences** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Lenguaje | Sí | Una cadena que contiene un idioma admitido para la directiva según RFC 5646 (etiquetas para identificar idiomas). |
+| Idioma | Sí | Una cadena que contiene un idioma admitido para la directiva según RFC 5646 (etiquetas para identificar idiomas). |
 | LocalizedResourcesReferenceId | Sí | El identificador del elemento **LocalizedResources**. |
 
 En el ejemplo siguiente, se muestra una definición de contenido de registro o inicio de sesión:

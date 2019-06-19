@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: conceptual
 ms.openlocfilehash: 99538fd18067377efcc9e744e9ec611e0f685273
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389598"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparejamiento y alineación de oraciones en documentos paralelos
@@ -36,9 +36,9 @@ Para que un entrenamiento se realice correctamente, la tabla que se muestra a co
 
 | Conjunto de datos   | Número mínimo sugerido de oraciones extraídas | Número mínimo sugerido de oraciones alineadas | Número máximo de oraciones alineadas |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Cursos   | 10 000                                     | 2.000                                    | No hay límite superior                 |
-| Ajuste     | 2.000                                      | 500                                      | 2500                          |
-| Pruebas    | 2.000                                      | 500                                      | 2500                          |
+| Cursos   | 10 000                                     | 2\.000                                    | No hay límite superior                 |
+| Ajuste     | 2\.000                                      | 500                                      | 2500                          |
+| Prueba    | 2\.000                                      | 500                                      | 2500                          |
 | Diccionario | 0                                          | 0                                        | No hay límite superior                 |
 
 ## <a name="next-steps"></a>Pasos siguientes

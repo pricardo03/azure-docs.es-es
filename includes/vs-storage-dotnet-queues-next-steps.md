@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: c118ba581aa23bd1647e4dce26c035e6591d07dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123276"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186212"
 ---
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas de Azure, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 

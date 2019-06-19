@@ -19,10 +19,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71585c178efbc30892cf95c5c2149818f0dcb3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65764583"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticación de Azure Active Directory
@@ -82,7 +82,7 @@ En este escenario, un desarrollador tiene una aplicación en ejecución en un se
 
 En este escenario, un desarrollador tiene una aplicación web en ejecución en un servidor que necesita acceso a un recurso remoto, como una API web. La API no admite llamadas anónimas, por lo que debe llamarse desde un servicio autorizado en nombre de un usuario autenticado. La API web está preconfigurada para confiar en los tokens de acceso emitidos por un inquilino de Azure determinado, y Azure AD está preconfigurado para emitir tokens de acceso para ese recurso a un servicio con las credenciales del cliente. Cuando el usuario se autentica en la aplicación web, la aplicación puede obtener un código de autorización para el usuario de Azure AD. La aplicación web puede luego usar ADAL para obtener un token de acceso y un token de actualización en nombre del usuario con las credenciales de cliente y el código de autorización asociados a la aplicación de Azure AD. Cuando la aplicación web está en posesión del token de acceso, puede llamar a la API web hasta que el token expire. Cuando el token expira, la aplicación web puede usar ADAL para obtener un nuevo token de acceso con el token de actualización que recibió anteriormente. Para un código de ejemplo que muestra este escenario, vea [Cliente nativo de API web a API web](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Guía del desarrollador de Azure Active Directory](v1-overview.md)
 - [Escenarios de autenticación para Azure Active Directory](authentication-scenarios.md)

@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 7987e8a7a9db06608f663b6ae414788ba8330f65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124994"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186646"
 ---
 ## <a name="publish-or-revert"></a>Publicar o revertir
 Los cambios que realice en una instancia de Custom Search se llevarán a cabo en la pestaña **Configuración** para que pueda validar los cambios. Cuando haya terminado de realizar cambios y listo para publicarlos, haga clic en **Publicar**. Los cambios no se reflejan en los puntos de conexión de producción hasta que se lleva a cabo la publicación.

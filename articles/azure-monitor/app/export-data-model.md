@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053296"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de exportación de datos de Application Insights
 En esta tabla se enumeran las propiedades de telemetría enviadas desde los SDK de [Application Insights](../../azure-monitor/app/app-insights-overview.md) al portal.
@@ -301,7 +301,7 @@ Generado por TrackMetric().
 
 El valor de la métrica se encuentra en context.custom.metrics[0].
 
-Por ejemplo: 
+Por ejemplo:
 
     {
      "metric": [ ],
@@ -327,7 +327,7 @@ Por ejemplo:
     }
 
 ## <a name="about-metric-values"></a>Acerca de los valores de métrica
-Los valores de métrica, tanto en los informes de métrica como en otros lugares, se notifican con una estructura de objeto estándar. Por ejemplo: 
+Los valores de métrica, tanto en los informes de métrica como en otros lugares, se notifican con una estructura de objeto estándar. Por ejemplo:
 
       "durationMetric": {
         "name": "contoso.org",
@@ -351,7 +351,7 @@ En lugar de la agregación previa de las métricas, puede usar el [muestreo](../
 ### <a name="durations"></a>Duraciones
 Excepto donde se indique lo contrario, las duraciones se representan en décimas de microsegundo, por lo que 10000000,0 equivalen a 1 segundo.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Exportación continua](export-telemetry.md)
 * [Ejemplos de código](export-telemetry.md#code-samples)

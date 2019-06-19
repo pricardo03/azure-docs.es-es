@@ -9,11 +9,11 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d635c7bdc6602c662ea6b91aad7e3f7a5e726547
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 01ac02ca0e449dcac8fcd05450566fd8138acba3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64696684"
 ---
 # <a name="common-parameters-and-headers"></a>Parámetros y encabezados comunes
@@ -46,5 +46,5 @@ El servicio usará códigos de estado HTTP para indicar el éxito o el error. Ad
 
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
  [Referencia de la API REST de Azure Key Vault](/rest/api/keyvault/)

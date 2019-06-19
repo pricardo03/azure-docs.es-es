@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4b3c51898e26be5c502dbe4575daadf8694ff3d1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: f2803edf3f6a989f9b33543de9eb33f30ad2bfa8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071978"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Cómo usar la API REST de QnA Maker con Java 
 <a name="HOLTop"></a>
@@ -2133,6 +2133,6 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Referencia de QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)
 
-## <a name="see-also"></a>Vea también 
+## <a name="see-also"></a>Otras referencias 
 
 [Introducción de QnA Maker](../Overview/overview.md)

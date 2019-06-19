@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
 ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473581"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Claves de creación y del punto de conexión de consulta de predicciones en LUIS
@@ -58,7 +58,7 @@ Cuando finalice el proceso de creación del recurso de Azure, [asigne la clave](
 ## <a name="use-endpoint-key-in-query"></a>Usar la clave de punto de conexión en consultas
 El punto de conexión de LUIS acepta dos estilos de consulta; ambos usan el punto de conexión, pero en distintos lugares:
 
-|Verb|Ejemplo de URL y ubicación de la clave|
+|Verbo|Ejemplo de URL y ubicación de la clave|
 |--|--|
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>Valor de cadena de consulta de `subscription-key`<br><br>Cambie el valor de la consulta de punto de conexión de `subscription-key` de la clave de creación (inicio) a la nueva clave de punto de conexión para usar la tasa de cuota de la clave de punto de conexión de LUIS. Si crea la clave y la asigna, pero no cambia el valor de la consulta de punto de conexión de `subscription-key`, no está usando la cuota de la clave de punto de conexión.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> Valor de encabezado de `Ocp-Apim-Subscription-Key`<br><br>Cambie el valor de la consulta de punto de conexión de `Ocp-Apim-Subscription-Key` de la clave de creación (inicio) a la nueva clave de punto de conexión para usar la tasa de cuota de la clave de punto de conexión de LUIS. Si crea la clave y la asigna, pero no cambia el valor de la consulta de punto de conexión de `Ocp-Apim-Subscription-Key`, no está usando la cuota de la clave de punto de conexión.|

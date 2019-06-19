@@ -3,7 +3,7 @@ title: Configuración del método de enrutamiento de tráfico de subred con Azur
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico desde subredes concretas.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: kumud
-ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060962"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -56,7 +56,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupos de recursos| Seleccione **Nuevo** y luego escriba *myResourceGroupTM1*.|
-    |Location| Seleccione **Este de EE. UU**.|
+    |Ubicación| Seleccione **Este de EE. UU**.|
     |||
 
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
@@ -76,7 +76,7 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
     |Configuración|Valor|
     |---|---|
     |Grupos de recursos | Seleccione **Nuevo** y, a continuación, escriba *myResourceGroupTM2*|
-    |Location|Europa occidental|
+    |Ubicación|Europa occidental|
     |Nombre de la máquina virtual | myIISVMWEurope|
     |Virtual network | Seleccione **Red virtual**, en **Crear red virtual**, para **Nombre**, escriba *myVNet2*, para cada subred, escriba *mySubnet*.|
     |||
@@ -209,7 +209,7 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 En esta sección, probará cómo Traffic Manager enruta el tráfico de usuario desde una subred determinada a un punto de conexión específico. Para ver a Traffic Manager en acción, complete los pasos siguientes:
 1. Determine el nombre DNS del perfil de Traffic Manager.
 2. Vea a Traffic Manager en acción de la siguiente manera:
-    - Desde la máquina virtual de prueba (*myVMEastUS*) que se encuentra en la región **Este de EE. UU.**, en un explorador web, busque el nombre DNS del perfil de Traffic Manager.
+    - Desde la máquina virtual de prueba (*myVMEastUS*) que se encuentra en la región **Este de EE. UU.** , en un explorador web, busque el nombre DNS del perfil de Traffic Manager.
     - Desde la máquina virtual de prueba (*myVMEastUS*) que se encuentra en la región **Europa Occidental**, en un explorador web, busque el nombre DNS del perfil de Traffic Manager.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinación del nombre DNS del perfil de Traffic Manager

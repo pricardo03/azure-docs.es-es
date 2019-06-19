@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 author: wmengmsft
 ms.author: wmeng
 ms.openlocfilehash: a26e69d756c0f5b8bb26d85d2901e686aba50771
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480153"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK de Table API de Azure Cosmos DB para Python: Notas de la versión y recursos
@@ -51,7 +51,7 @@ Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK a
 
 <br/>
 
-| Version | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de noviembre de 2017 |--- |
 | [0.37.1](#0.37.1) |5 de octubre de 2017 |--- |

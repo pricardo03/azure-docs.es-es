@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-pawal
 ms.openlocfilehash: 27138fc82515983bb07df845e1204fe04dff915a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389669"
 ---
 # <a name="how-to-return-n-best-translations"></a>Devolución de las N mejores traducciones
@@ -39,7 +39,7 @@ La firma es:
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | text | **Obligatorio** Una cadena que representa el texto que se va a traducir. El tamaño del texto no debe superarlos 10 000 caracteres.|
-| from | **Obligatorio** Una cadena que representa el código de idioma del texto que se va a traducir. |
+| De | **Obligatorio** Una cadena que representa el código de idioma del texto que se va a traducir. |
 | to | **Obligatorio** Una cadena que representa el código de idioma al que se va a traducir el texto. |
 | maxTranslations | **Obligatorio** Un entero que representa el número máximo de traducciones que se van a devolver. |
 | options | **Opcional** Un objeto TranslateOptions que contiene los valores que se enumeran a continuación. Son todos opcionales y toman como valor predeterminado las opciones de configuración más comunes.

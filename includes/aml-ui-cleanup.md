@@ -9,11 +9,11 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123162"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186732"
 ---
 >[!IMPORTANT]
 >Los recursos que creó pueden usarse como requisitos previos de otros tutoriales y artículos de procedimientos de Azure Machine Learning Service.
@@ -29,7 +29,7 @@ Si no va a usar nada de lo que ha creado, elimine el grupo de recursos completo 
 
 1. En la lista, seleccione el grupo de recursos que creó.
 
-1. En la parte derecha de la ventana, seleccione el botón de puntos suspensivos (**...** ).
+1. En la parte derecha de la ventana, seleccione el botón de puntos suspensivos ( **...** ).
 
 1. Seleccione **Eliminar grupo de recursos**.
 

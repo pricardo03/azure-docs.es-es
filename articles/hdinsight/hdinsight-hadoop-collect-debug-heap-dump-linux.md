@@ -8,21 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 62c9dcc039c68b0b6c8b8bf29ed9f13f88936723
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719608"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059547"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Los volcados de montón contienen una instantánea de la memoria de la aplicación, incluidos los valores de variables en el momento en el que se creó el volcado de memoria. Por ello, estos volcados resultan útiles a la hora de diagnosticar cualquier problema que ocurra en tiempo de ejecución.
-
-> [!IMPORTANT]  
-> Los pasos de este documento solo funcionan con clústeres de HDInsight que usan Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Servicios
 
@@ -95,7 +92,7 @@ Para modificar la configuración de un servicio, siga estos pasos:
 
     ![Imagen de la web de Ambari web con la ficha de configuración HDFS seleccionada](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
 
-3. Mediante la entrada **Filtrar...**, escriba **opciones**. Solo se muestran los elementos que contienen este texto.
+3. Mediante la entrada **Filtrar...** , escriba **opciones**. Solo se muestran los elementos que contienen este texto.
 
     ![Lista filtrada](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 

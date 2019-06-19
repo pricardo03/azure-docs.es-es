@@ -11,10 +11,10 @@ ms.date: 08/13/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912213"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Agosto de 2018
@@ -30,7 +30,7 @@ Puede profundizar en cada categoría para ver las recomendaciones para la alerta
 
 ## <a name="bug-fixes"></a>Corrección de errores
 
-| Puesto | DESCRIPCIÓN |
+| Título | DESCRIPCIÓN |
 |:---|:---|
 | **Potential Query failures when the split count exceeds max limit (Posibles errores de consulta cuando el recuento dividido supera el límite máximo)** |Cuando se supera el límite de división del archivo superior de 1 millón, una excepción no atendida provocó el volcado del motor de SQL y el error de todas las consultas. Esta corrección abordó el problema al controlar la excepción correctamente y devolver un error sin provocar el error en las consultas. |
 | **Increased ExternalMoveReadersPerNode default value to improve load perfomance** (Valor predeterminado ExternalMoveReadersPerNode aumentado para mejorar el rendimiento de carga) |Este problema se debía a que la configuración de la propiedad ExternalMoveReadersPerNode no estaba sincronizada con la configuración de Service Fabric. Esta regresión provocaba una disminución del rendimiento de carga de Gen2. La corrección devuelve el rendimiento de carga de Gen2 a los parámetros de diseño optimizados.|
