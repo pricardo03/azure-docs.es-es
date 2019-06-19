@@ -38,14 +38,14 @@ La extensión del agente de Network Watcher puede configurarse para las siguient
 
 | Distribución | Versión |
 |---|---|
-| Ubuntu | 12 (o posterior) |
-| Debian | 7 y 8 |
-| Red Hat | 6 y 7 |
-| Oracle Linux | 6.8 (o posterior) y 7 |
-| SUSE Linux Enterprise Server | 11 y 12 |
-| OpenSUSE Leap | 42.3 (o posterior) |
-| CentOS | 6.5 (o posterior) y 7 |
-| CoreOS | 899.17.0 (o posterior) |
+| Ubuntu | 12+ |
+| Debian | 7 and 8 |
+| Red Hat | 6 and 7 |
+| Oracle Linux | 6.8+ and 7 |
+| SUSE Linux Enterprise Server | 11 and 12 |
+| OpenSUSE Leap | 42.3+ |
+| CentOS | 6.5+ and 7 |
+| CoreOS | 899.17.0+ |
 
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
@@ -80,7 +80,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de Network Wa
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| Tipo | NetworkWatcherAgentLinux |
+| type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>Implementación de plantilla
