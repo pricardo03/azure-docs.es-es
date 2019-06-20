@@ -28,7 +28,7 @@ ms.locfileid: "64573824"
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -212,11 +212,11 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
    | Propiedad | Anidada en | DESCRIPCIÓN |
    |:--- |:--- |:--- |
    | type | properties |La propiedad type se establece en **AzureBlob**, ya que los datos residen en el almacenamiento de blobs. |
-   | linkedServiceName | formato |Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
+   | linkedServiceName | format |Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
    | folderPath | typeProperties | Especifica el contenedor de blobs y la carpeta que contiene los blobs de entrada. | 
    | fileName | typeProperties |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, solo se procesa el archivo input.log. |
-   | type | formato |Los archivos de registro están en formato de texto, así que use **TextFormat**. |
-   | columnDelimiter | formato |Las columnas de los archivos de registro están delimitadas por una coma (`,`). |
+   | type | format |Los archivos de registro están en formato de texto, así que use **TextFormat**. |
+   | columnDelimiter | format |Las columnas de los archivos de registro están delimitadas por una coma (`,`). |
    | frequency/interval | availability |La frecuencia se establece en **Mes** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
    | external | properties | Esta propiedad se establece en **true** si esta canalización no ha generado los datos de entrada. En este tutorial, esta canalización no genera el archivo input.log, por lo que la propiedad se establece en **true**. |
 
