@@ -254,11 +254,11 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadena | opción 1 |
+| stringOutput | String | opción 1 |
 | intOutput | Int | 1 |
-| objectOutput | Objeto | {"one": "a", "two": "b"} |
-| arrayOutput | Matriz | [1, 2, 3] |
-| crossOutput | Cadena | opción 1 |
+| objectOutput | Object | {"one": "a", "two": "b"} |
+| arrayOutput | Array | [1, 2, 3] |
+| crossOutput | String | opción 1 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -283,7 +283,7 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| variableName |Sí |Cadena |El nombre de la variable que se va a devolver. |
+| variableName |Sí |String |El nombre de la variable que se va a devolver. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -357,10 +357,10 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | Cadena | myVariable |
-| exampleOutput2 | Matriz | [1, 2, 3, 4] |
-| exampleOutput3 | Cadena | myVariable |
-| exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
+| exampleOutput1 | String | myVariable |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
