@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
 ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963482"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solución Network Performance Monitor: Supervisión de rendimiento
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solución Network Performance Monitor: Supervisión del rendimiento
 
 La funcionalidad Monitor de rendimiento de [Network Performance Monitor](network-performance-monitor.md) ayuda a supervisar la conectividad de red en varios puntos de esta. Puede supervisar la conectividad de red en implementaciones en la nube y ubicaciones locales, varios centros de datos y sucursales, y aplicaciones o microservicios críticos de varios niveles. Con el Monitor de rendimiento, puede detectar problemas de red antes de recibir quejas de los usuarios. Las principales ventajas son que se puede: 
 

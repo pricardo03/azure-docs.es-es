@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: ''
 ms.openlocfilehash: 2553d08b55aff45e52b9d8c5a64db141a668eb62
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967116"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Creación de una solicitud de soporte técnico para Cloudyn
@@ -34,7 +34,7 @@ Puede abrir una solicitud de soporte técnico si no se puede encontrar la inform
 9. En **Tipo de problema**, seleccione **Cloudyn Legacy** (Cloudyn heredado) y, a continuación, seleccione una **Categoría**.
 10. En el cuadro **Título**, escriba un título que describa la solicitud.
 11. En el cuadro **Detalles**, escriba la información adicional.
-12. En **¿Cuándo se inició el problema?**, seleccione una fecha y hora aproximadas y, a continuación, haga clic en **Siguiente**.  
+12. En **¿Cuándo se inició el problema?** , seleccione una fecha y hora aproximadas y, a continuación, haga clic en **Siguiente**.  
 14. En el área **Información de contacto**, seleccione el método de contacto preferido, proporcione la información de contacto y haga clic en **Crear**.  
 
 Cuando se crea el vale de soporte técnico, se agrega a la cola de soporte técnico. El tiempo de respuesta varía según el plan de soporte técnico y la gravedad (impacto para la empresa) del problema. Para obtener más información, visite [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/support/plans/response/).

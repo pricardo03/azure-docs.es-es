@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234122"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
@@ -339,7 +339,7 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Mantenimiento 
+### <a name="maintenance"></a>Mantenimiento
 
 - **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
 - **Agregar tabla nuevas**: agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones cada vez que se cree una tabla nueva. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
