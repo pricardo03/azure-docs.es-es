@@ -1,0 +1,43 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación sobre Azure Bastion
+metadata:
+  document_id: null
+  title: Bastion
+  meta.description: Learn how to use Azure Bastion
+  author: cherylmc
+  ms.service: Bastion
+  ms.topic: landing-page
+  ms.date: 06/13/2019
+  ms.author: cherylmc
+abstract:
+  description: 'Aprenda a usar Azure Bastion para conectarse a una máquina virtual. Configure una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de SSL. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: 'https://go.microsoft.com/fwlink/?linkid=2095604'
+      width: 250
+    title: 'Uso de Azure Bastion (1:03)'
+    href: 'https://go.microsoft.com/fwlink/?linkid=2095517'
+    width: 250
+sections:
+  - title: Creación y administración de Azure Bastion (versión preliminar)
+    items:
+      - type: paragraph
+        text: 'Aprenda a configurar un host de Azure Bastion y, a continuación, conéctese a una máquina virtual.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/bastion/bastion-create-host-portal">Creación y modificación de un host de Azure Bastion</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Conexión a una máquina virtual Windows</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Conexión a una máquina virtual Linux</a>
+          - html: <a href="/azure/bastion/bastion-faq">Leer las preguntas más frecuentes de Azure Bastion</a>
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">Referencia de API de REST</a></p>'

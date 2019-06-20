@@ -7,8 +7,28 @@
       href: Welcome.md
     - name: Compatibilidad con idiomas
       href: language-support.md
+- name: Compatibilidad con los contenedores
+  items:
     - name: Compatibilidad con los contenedores
       href: cognitive-services-container-support.md
+    - name: Recetas de contenedor
+      items:
+        - name: Reutilización del contenedor
+          href: ./containers/container-reuse-recipe.md
+        - name: Implementación en Azure Container Instances
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Implementación en Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Implementación con Docker Compose
+          href: ./containers/docker-compose-recipe.md
+    - name: Otros servicios de contenedor
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Guías de inicio rápido
   items:
     - name: Crear una cuenta

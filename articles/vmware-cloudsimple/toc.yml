@@ -10,7 +10,7 @@
     - name: Guía de inicio rápido
       expanded: true
       items:
-        - name: Inicialización y adquisición de capacidad
+        - name: Inicialización y aprovisionamiento de capacidad
           href: quickstart-create-cloudsimple-service.md
         - name: Configuración del entorno de la nube privada
           href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
           href: access-cloudsimple-portal.md
         - name: Administración de nodos
           items:
-            - name: Adquisición de nodos
+            - name: Aprovisionamiento de nodos
               href: create-nodes.md
         - name: Administración de recursos de la nube privada
           items:
