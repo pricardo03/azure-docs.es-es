@@ -4,6 +4,12 @@
   items:
     - name: ¿Qué es Enterprise Security Package en HDInsight?
       href: apache-domain-joined-introduction.md
+- name: Tutoriales
+  items:
+    - name: Control de acceso basado en rol de Apache HBase con Apache Ranger
+      href: apache-domain-joined-run-hbase.md
+    - name: Control de acceso basado en rol de Apache Kafka con Apache Ranger
+      href: apache-domain-joined-run-kafka.md
 - name: Conceptos
   items:
     - name: Plan para los clústeres de ESP
@@ -16,10 +22,6 @@
       href: ../hdinsight-sync-aad-users-to-cluster.md
     - name: Configuración de directivas de Apache Hive
       href: apache-domain-joined-run-hive.md
-    - name: Control de acceso basado en rol de Apache HBase con Apache Ranger
-      href: apache-domain-joined-run-hbase.md
-    - name: Control de acceso basado en rol de Apache Kafka con Apache Ranger
-      href: apache-domain-joined-run-kafka.md
     - name: Uso de VSCode para vincular al clúster de ESP
       href: ../hdinsight-for-vscode.md
     - name: Uso de IntelliJ para vincular al clúster de ESP
