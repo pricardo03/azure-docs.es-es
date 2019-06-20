@@ -104,7 +104,7 @@ No es necesario especificar parámetros. Se aplica el valor predeterminado.
 | `CommitMode`     | Enum  | Determina si los objetos se confirmarán en lotes o solo cuando hayan finalizado. Los modos incluyen: default, transactional y partialBatch.  |  transactional       |
 | `MaxParallelism` | Int   | Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Este valor se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
 | `RetryCount`     | Int   | Indica el número de veces que se volverá a intentar la operación antes de un error.      |     0    |
-| `Objects`        | Matriz | Una matriz de objetos que se va a procesar. Cada objeto incluye: "table" al procesar la tabla completa o "table" y "partition" al procesar una partición. Si no se especifica ningún objeto, se actualiza el modelo completo. |   Process the entire model      |
+| `Objects`        | Array | Una matriz de objetos que se va a procesar. Cada objeto incluye: "table" al procesar la tabla completa o "table" y "partition" al procesar una partición. Si no se especifica ningún objeto, se actualiza el modelo completo. |   Process the entire model      |
 
 CommitMode es igual a partialBatch. Se utiliza cuando se realiza una carga inicial de grandes conjuntos de datos que podría tardar horas. Si se produce un error en la operación de actualización después de confirmar correctamente uno o varios lotes, los lotes confirmados correctamente permanecerán confirmados (no se revertirán los lotes confirmados correctamente).
 
