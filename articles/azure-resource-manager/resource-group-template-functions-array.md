@@ -136,8 +136,8 @@ Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las ma
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |entero, cadena, matriz u objeto |El primer valor para comprobar si hay valores nulos. |
-| argumentos adicionales |Sin |entero, cadena, matriz u objeto |Valores adicionales para probar si hay valores nulos. |
+| arg1 |Sí |int, string, array u object |El primer valor para comprobar si hay valores nulos. |
+| argumentos adicionales |Sin |int, string, array u object |Valores adicionales para probar si hay valores nulos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
