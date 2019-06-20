@@ -58,7 +58,7 @@ Convierte el valor en una matriz.
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Sí |entero, cadena, matriz u objeto |Valor que se convierte en matriz. |
+| convertToArray |Sí |int, string, array u object |Valor que se convierte en matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
