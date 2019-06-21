@@ -66,11 +66,11 @@ La actividad de la condición IF proporciona la misma funcionalidad que proporci
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad de la condición IF. | Cadena | Sí
-Tipo | Debe establecerse en **IfCondition** | Cadena | Sí
+name | Nombre de la actividad de la condición IF. | String | Sí
+type | Debe establecerse en **IfCondition** | Cadena | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión con resultado de tipo booleano | Sí
-ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Matriz | Sí
-ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Matriz | Sí
+ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Array | Sí
+ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Array | Sí
 
 ## <a name="example"></a>Ejemplo
 La canalización de este ejemplo copia los datos de una carpeta de entrada a una carpeta de salida. La carpeta de salida viene determinada por el valor del parámetro de canalización routeSelection. Si el valor de routeSelection es true, los datos se copian en outputPath1. Y si el valor de routeSelection es false, los datos se copian en outputPath2. 
