@@ -256,7 +256,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | stringOutput | String | opción 1 |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"one": "a", "two": "b"} |
+| objectOutput | Objeto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | opción 1 |
 
@@ -360,7 +360,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
+| exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
