@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5- Eliminación de un clúster
           href: service-fabric-tutorial-delete-cluster.md
-    - name: Creación de un clúster independiente en AWS
+    - name: Creación de un clúster independiente
       items:
-        - name: 1- Creación de la infraestructura en AWS
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1- Creación de la infraestructura
+          items:
+            - name: Uso de AWS
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Uso de Azure
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2- Configuración de una instancia de Service Fabric
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3- Implementación de una aplicación en el clúster
@@ -695,6 +699,8 @@
       items:
         - name: Diagnóstico en escenarios comunes
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: Diagnóstico de errores de paquetes de código
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: Supervisión de aplicaciones
           items:
             - name: Adición de un registro a la aplicación

@@ -624,10 +624,12 @@
         - name: Registro de aplicaciones con Logic Apps
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: Supervisión
+    - name: Supervisión con métricas
       items:
-        - name: Supervisión con métricas
+        - name: Visualización de métricas desde la cuenta de Cosmos DB
           href: use-metrics.md
+        - name: Visualización de métricas desde Azure Monitor
+          href: cosmos-db-azure-monitor-metrics.md
         - name: Supervisión del Acuerdo de Nivel de Servicio
           href: monitor-accounts.md
     - name: Desarrollo local

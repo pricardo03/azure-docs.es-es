@@ -43,6 +43,10 @@
       href: deploy-cli.md
     - name: Implementación mediante una plantilla
       href: deploy-template.md
+    - name: Implementación con varias direcciones IP
+      href: deploy-multi-public-ip-powershell.md
+    - name: Implementación con Availability Zones
+      href: deploy-availability-zone-powershell.md
     - name: Integración con Load Balancer
       href: integrate-lb.md
 - name: Referencia

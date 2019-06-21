@@ -33,6 +33,9 @@
     - name: Uso de grandes conjuntos de datos
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
+    - name: Guía para solicitudes limitadas
+      displayName: 'pagination, batching, throttling, parallel'
+      href: ./concepts/guidance-for-throttled-requests.md
 - name: Guías de procedimientos
   items:
     - name: Obtención de los cambios del recurso

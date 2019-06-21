@@ -17,6 +17,15 @@ metadata:
 ms.custom: seodec18
 abstract:
   description: 'Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo comprenda el diseño y las relaciones entre los campos y las entradas sin necesidad de un etiquetado de datos manual o de una codificación y un mantenimiento intensivos.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: ../media/index/form-recognizer-landing-page-video.png
+      width: 250
+    title: 'Automatización de procesos con inteligencia artificial con Form Recognizer (2:15)'
+    href: 'https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer'
+    width: 250
 sections:
   - items:
       - type: list

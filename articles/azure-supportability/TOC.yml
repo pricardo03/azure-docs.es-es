@@ -11,6 +11,8 @@
       href: per-vm-quota-requests.md
     - name: Aumento del límite de vCPU regionales totales
       href: regional-quota-requests.md
+    - name: Aumento del límite de redes
+      href: networking-quota-requests.md
 - name: Solución de problemas de regiones o suscripciones de SKU
   href: sku-series-unavailable.md
 - name: Referencia

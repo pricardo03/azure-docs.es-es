@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación sobre Lector inmersivo
+metadata:
+  title: 'Documentación sobre Lector inmersivo: inicios rápidos, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
+  description: Aprenda a usar Lector inmersivo en su aplicación.
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: 'Lector inmersivo es una herramienta que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con diferencias de aprendizaje. Puede usar Lector inmersivo en la aplicación web mediante el SDK correspondiente.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/immersive-reader/overview
+            html: <p>Más información sobre Lector inmersivo y cómo integrarlo en sus aplicaciones</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: ¿Qué es Lector inmersivo?
+          - href: /azure/cognitive-services/immersive-reader/reference
+            html: <p>Más información sobre el SDK de Javascript para Lector inmersivo</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Uso del SDK de Lector inmersivo
+  - title: Inicio rápido en 5 minutos
+    items:
+      - type: paragraph
+        text: 'Introducción a Lector inmersivo:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            alt: 'Logotipo de C#'
+            href: quickstart
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: 'Aprenda a desarrollar aplicaciones mediante Lector inmersivo:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial.md">Iniciar Lector inmersivo mediante Node.js</a>
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: SDK
+            html: <p><a href="reference.md">Javascript</a></p>
