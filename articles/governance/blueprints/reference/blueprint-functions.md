@@ -27,7 +27,7 @@ Se admiten las siguientes funciones:
 - [resourceGroups](#resourcegroups)
 - [suscripción](#subscription)
 
-## <a name="artifacts"></a>Artefactos
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
@@ -109,7 +109,7 @@ Algunos ejemplos de recuperación de datos desde el _myTemplateArtifact_ ejemplo
 
 | Expresión | Type | Valor |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "primero" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | string | "Mi valor de cadena" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
@@ -324,7 +324,7 @@ A continuación, utilice el `resourceGroups()` función desde el contexto de cua
 }
 ```
 
-## <a name="subscription"></a>suscripción
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
