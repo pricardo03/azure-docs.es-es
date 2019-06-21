@@ -67,7 +67,7 @@ La actividad de la condición IF proporciona la misma funcionalidad que proporci
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad de la condición IF. | String | Sí
-type | Debe establecerse en **IfCondition** | Cadena | Sí
+type | Debe establecerse en **IfCondition** | String | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión con resultado de tipo booleano | Sí
 ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Array | Sí
 ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Array | Sí
