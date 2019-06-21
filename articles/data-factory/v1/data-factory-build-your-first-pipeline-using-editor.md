@@ -156,7 +156,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
     Tenga en cuenta los siguientes puntos:
 
-      a. La factoría de datos crea un clúster de HDInsight basado en Linux con las propiedades de JSON. Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+     a. La factoría de datos crea un clúster de HDInsight basado en Linux con las propiedades de JSON. Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
      b. Puede usar su propio clúster de HDInsight, en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
@@ -368,7 +368,7 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
     Para volver a la vista anterior, seleccione **Data Factory** en el menú superior.
 
-1. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo**. Es posible que el segmento tarde un par de minutos en aparecer con ese estado. Si no aparece después de un tiempo, compruebe si el archivo de entrada (**input.log**) está en el contenedor (**adfgetstarted**) y en la carpeta (**inputdata**) correctos.
+1. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo**. Es posible que el segmento tarde un par de minutos en aparecer con ese estado **.** Si no aparece después de un tiempo, compruebe si el archivo de entrada (**input.log**) está en el contenedor (**adfgetstarted**) y en la carpeta (**inputdata**) correctos.
 
    ![Segmento de entrada en estado Listo](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
