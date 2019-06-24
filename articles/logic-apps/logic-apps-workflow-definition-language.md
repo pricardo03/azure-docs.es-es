@@ -80,7 +80,7 @@ Esta es la estructura general de una definición de salida:
 |-----------|----------|------|-------------|
 | <*key-name*> | Sí | String | El nombre de clave del valor devuelto de salida. |
 | <*key-type*> | Sí | int, float, string, securestring, bool, array, JSON object | El tipo del valor devuelto de salida. |
-| <*valor-de-la-clave*> | Sí | Igual que <*tipo de clave*> | El valor devuelto de salida. |
+| <*key-value*> | Sí | Igual que <*key-type*> | El valor devuelto de salida. |
 |||||
 
 Para obtener el resultado de ejecutar un flujo de trabajo, revise el historial de ejecución y los detalles en el portal de Azure de la aplicación lógica o usar el [API de REST de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). También puede pasar la salida a sistemas externos, por ejemplo, a Power BI, para crear paneles.
@@ -112,7 +112,7 @@ Esta es la estructura general de una definición de parámetro:
 |-----------|----------|------|-------------|
 | <*parameter-type*> | Sí | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Con todas las contraseñas, claves y secretos, use los tipos `securestring` y `secureobject` porque la operación `GET` no los devuelve. Para obtener más información acerca de cómo proteger los parámetros, vea [proteger la aplicación lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | El tipo del parámetro. |
 | <*default-parameter-values*> | Sí | Igual que `type`. | El valor de parámetro predeterminado cuando no se especifica ningún valor al crear una instancia del flujo de trabajo. |
-| <*array-with-permitted-parameter-values*> | No | Matriz | Una matriz con valores que puede aceptar el parámetro. |
+| <*array-with-permitted-parameter-values*> | No | Array | Una matriz con valores que puede aceptar el parámetro. |
 | `metadata` | No | Objeto JSON | Cualquier otro detalle del parámetro, por ejemplo, el nombre o una descripción legible de la aplicación lógica o flujo o los datos de tiempo de diseño usados por Visual Studio u otras herramientas |
 ||||
 
@@ -145,11 +145,11 @@ En el `staticResults` atributo, defina la simulación de una acción `outputs` y
 
 | Atributo | Obligatorio | Type | DESCRIPCIÓN |
 |-----------|----------|------|-------------|
-| <*definición de nombres estático de resultado*> | Sí | string | El nombre de una definición estática de resultado que puede hacer referencia a una definición de la acción a través de un `runtimeConfiguration.staticResult` objeto. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Puede usar cualquier nombre único que desee. De forma predeterminada, este nombre único se anexa con un número, que se incrementa según sea necesario. |
+| <*static-result-definition-name*> | Sí | string | El nombre de una definición estática de resultado que puede hacer referencia a una definición de la acción a través de un `runtimeConfiguration.staticResult` objeto. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Puede usar cualquier nombre único que desee. De forma predeterminada, este nombre único se anexa con un número, que se incrementa según sea necesario. |
 | <*output-attributes-and-values-returned*> | Sí | Varía | Los requisitos para estos atributos varían en función de diferentes condiciones. Por ejemplo, cuando el `status` es `Succeeded`, el `outputs` atributo incluye los atributos y valores devueltos como simulacro salidas por la acción. Si el `status` es `Failed`, el `outputs` atributo incluye los `errors` atributo, que es una matriz con uno o varios errores `message` objetos que tienen información de error. |
 | <*header-values*> | No | JSON | Los valores de encabezado devueltos por la acción |
 | <*status-code-returned*> | Sí | String | El código de estado devuelto por la acción |
-| <*estado de la acción*> | Sí | String | Estado de la acción, por ejemplo, `Succeeded` o `Failed` |
+| <*action-status*> | Sí | String | Estado de la acción, por ejemplo, `Succeeded` o `Failed` |
 |||||
 
 Por ejemplo, en esta definición de la acción HTTP, el `runtimeConfiguration.staticResult.name` las referencias de atributo `HTTP0` dentro de la `staticResults` atributo donde se definen las salidas ficticias para la acción. El `runtimeConfiguration.staticResult.staticResultOptions` atributo especifica que la configuración de resultado estático es `Enabled` en la acción HTTP.
