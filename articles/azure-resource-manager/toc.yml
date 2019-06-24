@@ -212,7 +212,7 @@
 - name: Referencia
   items:
     - name: Referencia de plantilla
-      href: subtoc/toc.yml
+      href:  /azure/templates/
     - name: Funciones de plantillas
       items:
         - name: Todas las funciones
