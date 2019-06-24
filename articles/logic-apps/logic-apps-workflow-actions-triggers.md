@@ -156,9 +156,9 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
  
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------|
-| encabezados | Objeto JSON | Encabezados de la respuesta |
-| cuerpo | Objeto JSON | Cuerpo de la respuesta |
-| Código de estado | Integer | El código de estado de la respuesta |
+| headers | Objeto JSON | Encabezados de la respuesta |
+| body | Objeto JSON | Cuerpo de la respuesta |
+| status code | Integer | El código de estado de la respuesta |
 |||| 
 
 *Ejemplo*
