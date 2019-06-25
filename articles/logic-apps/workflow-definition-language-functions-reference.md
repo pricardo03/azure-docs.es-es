@@ -148,7 +148,7 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 
 | Función de conversión | Tarea |
 | ------------------- | ---- |
-| [matriz](../logic-apps/workflow-definition-language-functions-reference.md#array) | Devuelve una matriz a partir de una única entrada especificada. Para varias entradas, consulte [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). |
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Devuelve una matriz a partir de una única entrada especificada. Para varias entradas, consulte [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). |
 | [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Devuelve la versión de una cadena codificada en base64. |
 | [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Devuelve la versión binaria de una cadena codificada en base64. |
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Devuelve la versión de cadena de una cadena codificada en base64. |
@@ -165,7 +165,7 @@ Para obtener la referencia completa sobre cada función, consulte la [lista en o
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Devuelve un número de punto flotante de un valor de entrada. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Devuelve la versión como número entero de una cadena. |
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Devuelve el valor o el objeto de tipo Notación de objetos JavaScript (JSON) de una cadena o XML. |
-| [cadena](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devuelve la versión de cadena de un valor de entrada. |
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devuelve la versión de cadena de un valor de entrada. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Devuelve la versión codificada con el URI de un valor de entrada mediante la sustitución de los caracteres no seguros de la dirección URL por caracteres de escape. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Devuelve la versión binaria de una cadena codificada con el URI. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Devuelve la versión de cadena de una cadena codificada con el URI. |
