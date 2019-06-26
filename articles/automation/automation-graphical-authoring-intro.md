@@ -142,7 +142,7 @@ La condición de reintento puede utilizar una variable denominada $RetryData que
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | NumberOfAttempts |Número de veces que se ha ejecutado la actividad. |
-| Salida |Salida de la última ejecución de la actividad. |
+| Output |Salida de la última ejecución de la actividad. |
 | TotalDuration |Tiempo transcurrido desde la primera vez que se inició la actividad. |
 | StartedAt |Hora en formato UTC a la que se inició la actividad por primera vez. |
 
@@ -324,10 +324,10 @@ Las propiedades de la siguiente tabla definen los parámetros de entrada:
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| NOMBRE |El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
-| DESCRIPCIÓN |Una descripción opcional del parámetro de entrada. |
+| Name |El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
+| Description |Una descripción opcional del parámetro de entrada. |
 | Type |El tipo de datos que se espera para el valor del parámetro. Azure Portal proporciona un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
-| Obligatorio |Especifica si se debe proporcionar un valor para el parámetro. No es posible iniciar el runbook si no se proporciona un valor para cada parámetro obligatorio que no tiene definido un valor predeterminado. |
+| Mandatory |Especifica si se debe proporcionar un valor para el parámetro. No es posible iniciar el runbook si no se proporciona un valor para cada parámetro obligatorio que no tiene definido un valor predeterminado. |
 | Valor predeterminado |Especifica el valor que se usa para el parámetro si no se brinda alguno. Puede ser Null o un valor específico. |
 
 ### <a name="runbook-output"></a>Salida de runbook
