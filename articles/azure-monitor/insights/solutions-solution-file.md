@@ -70,7 +70,7 @@ En la tabla siguiente se describen los atributos de un parámetro.
 
 | Atributo | DESCRIPCIÓN |
 |:--- |:--- |
-| Tipo |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
+| type |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
 | category |Categoría opcional para el parámetro.  Los parámetros de la misma categoría se agrupan juntos. |
 | control |Funcionalidad adicional para los parámetros de cadena.<br><br>datetime: se muestra el control de fecha y hora.<br>guid: el valor del GUID se genera automáticamente y no se muestra el parámetro. |
 | description |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
@@ -224,8 +224,8 @@ La entidad **plan** del recurso de la solución tiene las propiedades en la tabl
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |Nombre de la solución. |
-| versión |Versión de la solución según determine el autor. |
+| name |Nombre de la solución. |
+| version |Versión de la solución según determine el autor. |
 | product |Cadena única para identificar la solución. |
 | publisher |Publicador de la solución. |
 
