@@ -127,17 +127,17 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 
 | Parámetro | DESCRIPCIÓN | Valor predeterminado |
 | --- | --- | --- |
-| NOMBRE |Nombre de la memoria caché | |
-| Ubicación |Ubicación de la memoria caché | |
+| Name |Nombre de la memoria caché | |
+| Location |Ubicación de la memoria caché | |
 | ResourceGroupName |Nombre del grupo de recursos en el que se va a crear la memoria caché | |
-| Tamaño |El tamaño de la memoria caché. Los valores válidos son: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1 GB |
+| Size |El tamaño de la memoria caché. Los valores válidos son: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1 GB |
 | ShardCount |El número de particiones para crear durante la creación de una memoria caché premium con clúster habilitado. Los valores válidos son: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Especifica la SKU de la memoria caché. Los valores válidos son: Básico, Estándar, Premium |Estándar |
 | RedisConfiguration |Especifica la configuración de Redis. Para ver detalles sobre cada opción de configuración, consulte la siguiente tabla [Propiedades de RedisConfiguration](#redisconfiguration-properties) . | |
 | EnableNonSslPort |Indica si el puerto no SSL está habilitado. |False |
 | MaxMemoryPolicy |Este parámetro está en desuso; utilice RedisConfiguration en su lugar. | |
 | StaticIP |Si hospeda la memoria caché en una red virtual, especifica una dirección IP única en la subred de la memoria caché. Si no se ofrece, elija una para usted en la subred. | |
-| Subred |Si hospeda la memoria caché en una red virtual, especifica el nombre de la subred en la que se va a implementar la memoria caché. | |
+| Subnet |Si hospeda la memoria caché en una red virtual, especifica el nombre de la subred en la que se va a implementar la memoria caché. | |
 | VirtualNetwork |Si hospeda la memoria caché en una red virtual, especifica el identificador de recurso de la red virtual en la que se va a implementar la memoria caché. | |
 | KeyType |Especifica la clave de acceso que hay que volver a generar cuando se renueven las claves de acceso. Los valores válidos son: Principal, secundario | |
 
