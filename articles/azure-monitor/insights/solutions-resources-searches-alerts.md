@@ -123,7 +123,7 @@ En la tabla siguiente se describen las propiedades para los recursos de programa
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
+| enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
 | interval      | Sí | Frecuencia con la que se ejecuta la consulta en minutos. |
 | queryTimeSpan | Sí | Período de tiempo en minutos en el que se evalúan los resultados. |
 
@@ -176,10 +176,10 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Type | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
-| NOMBRE | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
-| DESCRIPCIÓN | Sin  | Descripción opcional de la alerta. |
-| Gravedad | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
+| type | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
+| name | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
+| description | Sin  | Descripción opcional de la alerta. |
+| severity | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 
 #### <a name="threshold"></a>Umbral
