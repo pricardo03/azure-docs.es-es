@@ -10,10 +10,10 @@ ms.date: 05/11/2017
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.openlocfilehash: 1953a0af89e5ea018bd3654c3b82087331b3d565
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65141278"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Uso de Blob Storage desde Xamarin
@@ -30,7 +30,7 @@ En este tutorial, crearemos una aplicación destinada a Android, iOS y Windows. 
 Para crear la aplicación, siga estos pasos:
 
 1. Si aún no lo ha hecho, descargue e instale o [Xamarin para Visual Studio](https://www.xamarin.com/download).
-2. Abra Visual Studio y cree una aplicación en blanco (nativa portátil): **Archivo > Nuevo > proyecto > multiplataforma > Blank App (Native Portable)**.
+2. Abra Visual Studio y cree una aplicación en blanco (nativa y portátil): **Archivo > Nuevo > Proyecto > Multiplataforma > Aplicación en blanco (nativa y portátil)** .
 3. Haga clic con el botón derecho en la solución en el panel del Explorador de soluciones y seleccione **Administrar paquetes NuGet para la solución**. Busque **WindowsAzure.Storage** e instale la versión estable más reciente para todos los proyectos de su solución.
 4. Compile y ejecute el proyecto.
 

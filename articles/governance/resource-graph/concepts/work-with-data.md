@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137855"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Uso de grandes conjuntos de datos de recursos de Azure
@@ -23,7 +23,7 @@ Azure Resource Graph está diseñado para trabajar con el entorno de Azure y obt
 De forma predeterminada, en Resource Graph hay un límite en el número de registros que se pueden devolver en una consulta, y son **100** registros. Este control protege tanto al usuario como al servicio de consultas no intencionadas que darían lugar a grandes conjuntos de datos. Este caso suele suceder cuando un cliente experimenta con consultas para buscar y filtrar los recursos de la manera en que se adapte a sus necesidades concretas. Este control es diferente a usar los operadores de lenguaje [top](/azure/kusto/query/topoperator) o [limit](/azure/kusto/query/limitoperator) de Azure Data Explorer para limitar los resultados.
 
 > [!NOTE]
-> Cuando se usa **primera**, se recomienda para ordenar los resultados por al menos una columna con `asc` o `desc`. Sin clasificación, los resultados devueltos sean aleatorias y no repetibles.
+> Al usar la opción **Primero**, se recomienda ordenar los resultados con al menos una columna con `asc` o `desc`. Si los resultados están sin clasificar, los resultados devueltos son aleatorios y no se pueden repetir.
 
 El límite predeterminado se puede invalidar mediante todos los métodos de interacción con Resource Graph. En los ejemplos siguientes se muestra cómo cambiar el límite de tamaño del conjunto de datos a _200_:
 
@@ -46,7 +46,7 @@ El control que sea _más restrictivo_ ganará. Por ejemplo, si la consulta usa l
 La siguiente opción para trabajar con grandes conjuntos de datos es el control **Skip**. Este control permite que la consulta salte u omita el número definido de registros antes de devolver los resultados. **Skip** es útil con consultas que ordenan los resultados de una manera significativa donde la intención es obtener los recursos que se encuentran hacia la mitad del conjunto de resultados. Si los resultados necesarios están al final del conjunto de datos devuelto, es mejor usar una configuración de ordenación diferente y recuperar los resultados del principio del conjunto de datos.
 
 > [!NOTE]
-> Cuando se usa **omitir**, se recomienda para ordenar los resultados por al menos una columna con `asc` o `desc`. Sin clasificación, los resultados devueltos sean aleatorias y no repetibles.
+> Al usar la opción **Omitir**, se recomienda ordenar los resultados con al menos una columna con `asc` o `desc`. Si los resultados están sin clasificar, los resultados devueltos son aleatorios y no se pueden repetir.
 
 En los ejemplos siguientes se muestra cómo omitir los primeros _10_ registros que devolvería una consulta, en lugar de comenzar el conjunto de resultados devuelto con el registro número 11:
 
@@ -62,12 +62,12 @@ En la [API REST](/rest/api/azureresourcegraph/resources/resources), el control e
 
 ## <a name="paging-results"></a>Paginación de resultados
 
-Cuando es necesario dividir un conjunto de resultados en conjuntos más pequeños de registros para el procesamiento o porque un conjunto de resultados, se superará el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**.
+Cuando sea necesario dividir un conjunto de resultados en conjuntos de registros más pequeños para su procesamiento, o porque un conjunto de resultados superaría el valor máximo permitido de _1000_ registros devueltos, use la paginación. La [API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** proporciona valores para indicar que un conjunto de resultados se ha dividido: **resultTruncated** y **$skipToken**.
 **resultTruncated** es un valor booleano que informa al consumidor si existen registros adicionales no devueltos en la respuesta. Esta condición también se puede identificar cuando la propiedad **count** es menor que la propiedad **totalRecords**. **totalRecords** define cuántos registros coinciden con la consulta.
 
 Cuando **resultTruncated** es **true**, la propiedad **$skipToken** se establece en la respuesta. Este valor se usa con los mismos valores de consulta y suscripción para obtener el siguiente conjunto de registros que coinciden con la consulta.
 
-Los ejemplos siguientes muestran cómo **omitir** la primera 3000 registros y devolver el **primera** 1000 registros en esas funciones se omiten con la CLI de Azure y Azure PowerShell:
+Los ejemplos siguientes muestran cómo **omitir** los primeros 3000 registros y cómo devolver los **primeros** 1000 registros después de los omitidos con la CLI de Azure y Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
@@ -78,7 +78,7 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 ```
 
 > [!IMPORTANT]
-> La consulta debe **proyectar** el campo **id** para que la paginación funcione. Si no aparece en la consulta, la respuesta no incluirá el **$skipToken**.
+> La consulta debe **proyectar** el campo **id** para que la paginación funcione. Si no aparece en la consulta, la respuesta no incluirá **$skipToken**.
 
 Para ver un ejemplo, consulte [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query) (Consulta de página siguiente) en la documentación de la API REST.
 

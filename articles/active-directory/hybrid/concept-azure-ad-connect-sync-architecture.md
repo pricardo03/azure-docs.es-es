@@ -1,5 +1,5 @@
 ---
-title: 'Sincronización de Azure AD Connect: Descripción de la arquitectura: Azure'
+title: 'Sincronización de Azure AD Connect: Descripción de la arquitectura - Azure'
 description: En este tema se describe la arquitectura de sincronización de Azure AD Connect y se explican los términos usados.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138597"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronización de Azure AD Connect: Comprensión de la arquitectura

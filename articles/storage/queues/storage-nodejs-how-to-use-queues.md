@@ -1,5 +1,5 @@
 ---
-title: Cómo usar Queue storage en Node.js - almacenamiento de Azure
+title: Cómo usar Queue Storage de Node.js - Azure Storage
 description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js.
 services: storage
 author: mhopkins-msft
@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 01afe1ab7b9028f3f77d52f7d6f8ced27f6a79c7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142712"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js

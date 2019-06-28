@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f9d68af12f6b2e98c77d0bd1b65a82c69588f203
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147615"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
@@ -168,7 +168,7 @@ Las siguientes características o servicios no son compatibles con la conmutaci�
 - No se pueden conmutar por error las cuentas de almacenamiento que usan el espacio de nombres jerárquico de Azure Data Lake Storage Gen2.
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs archivados. Mantenga los blobs archivados en otra cuenta de almacenamiento que no planee conmutar por error.
 - No se puede conmutar por error una cuenta de almacenamiento que contiene blobs en bloques Premium. Las cuentas de almacenamiento que admiten los blobs en bloques Premium actualmente no admiten la redundancia geográfica.
-- Una vez completada la conmutación por error las siguientes características dejará de funcionar si originalmente habilitado: [Suscripciones a eventos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [las directivas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [registro de Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Una vez completada la conmutación por error, las siguientes características dejarán de funcionar si estaban habilitadas originalmente: [Suscripciones a eventos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [Directivas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [Registro de Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia de datos como alternativa a la conmutación por error
 
@@ -178,7 +178,7 @@ Si la cuenta de almacenamiento está configurada para RA-GRS es porque tiene acc
 
 En casos extremos en los que se pierde una región debido a un desastre importante, Microsoft puede iniciar una conmutación por error regional. En este caso, no se requieren acciones por su parte. No tendrá acceso de escritura a la cuenta de almacenamiento hasta que se complete la conmutación por error administrada por Microsoft. Las aplicaciones pueden leer de la región secundaria si la cuenta de almacenamiento está configurada para RA-GRS. 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Initiate an account failover (preview)](storage-initiate-account-failover.md) (Iniciación de la conmutación por error de una cuenta [versión preliminar])
 * [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md)
