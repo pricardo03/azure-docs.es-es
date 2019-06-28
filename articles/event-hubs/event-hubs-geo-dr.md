@@ -15,17 +15,17 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754752"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
 Cuando hay regiones de Azure completas o centros de datos (si no se utilizan [zonas de disponibilidad](../availability-zones/az-overview.md)) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
 
-La característica de recuperación ante desastres está disponible globalmente para Event Hubs estándar y SKU dedicado. Tenga en cuenta que puede solo espacios de nombres de par de replicación geográfica en el mismo nivel de SKU. Por ejemplo, si tiene un espacio de nombres en un clúster que se ofrece solo en nuestra SKU dedicado, solo se puede emparejar con un espacio de nombres en otro clúster. 
+La característica de recuperación ante desastres con localización geográfica está disponible globalmente para los SKU estándar y dedicado de Event Hubs. Tenga en cuenta que solo puede emparejar geográficamente espacio de nombres que estén en el mismo nivel de SKU. Por ejemplo, si hay un espacio de nombres en un clúster que se ofrece solo en nuestra SKU dedicada, solo se puede emparejar con un espacio de nombres que se encuentre en otro clúster. 
 
 ## <a name="outages-and-disasters"></a>Interrupciones y desastres
 

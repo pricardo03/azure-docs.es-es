@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
 ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755323"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamaños de máquina virtual de informática de alto rendimiento
@@ -35,12 +35,12 @@ ms.locfileid: "66755323"
 
 * **MPI** : Microsoft MPI (MS-MPI) 2012 R2 o versiones posteriores, MPI Intel Library 5.x.
 
-  En máquinas virtuales habilitadas-SR-IOV, implementaciones de MPI compatibles usan la interfaz Microsoft Network Direct (ND) para comunicarse entre instancias. Lo tamaños de máquina virtual habilitados (HB y HC-series) en Azure permiten casi cualquier versión de MPI para usarse con Mellanox OFED SR-IOV. 
+  En las máquinas virtuales en que no está habilitado SR-IOV, las implementaciones de MPI compatibles usan la interfaz Microsoft Network Direct (ND) para comunicarse entre las instancias. Lo tamaños de las máquinas virtuales con SR-IOV habilitado (series HB y HC) en Azure permiten el uso de casi cualquier versión de MPI con Mellanox OFED. 
 
-* **Extensión de VM InfiniBandDriverWindows** : en las máquinas virtuales compatibles con RDMA, agregue la extensión InfiniBandDriverWindows para habilitar InfiniBand. Esta extensión de máquina virtual de Windows instala Windows Network Direct controladores (en máquinas virtuales que no sean SR-IOV) o los controladores Mellanox OFED (en máquinas virtuales de SR-IOV) para la conectividad RDMA.
-En algunas implementaciones de instancias A8 y A9, la extensión HpcVmDrivers se agrega automáticamente. Tenga en cuenta que la extensión HpcVmDrivers VM está en desuso; no se actualizará. Para agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azure/overview). 
+* **Extensión de VM InfiniBandDriverWindows**: en las máquinas virtuales compatibles con RDMA, agregue la extensión InfiniBandDriverWindows para habilitar InfiniBand. Esta extensión de máquina virtual instala controladores Windows Network Direct (en máquinas virtuales sin SR-IOV) o controladores Mellanox OFED (en máquinas virtuales con SR-IOV) para la conectividad RDMA.
+En algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDrivers se agrega automáticamente. Tenga en cuenta que la extensión de máquina virtual HpcVmDrivers está en desuso, por lo que no se actualizará. Para agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azure/overview). 
 
-  El comando siguiente instala la extensión de InfiniBandDriverWindows versión 1.0 más reciente en una máquina virtual compatibles con RDMA existente denominada *myVM* implementados en el grupo de recursos denominado *myResourceGroup* en el  *Oeste de Estados Unidos* región:
+  El comando siguiente instala la versión más reciente de la extensión InfiniBandDriverWindows, la versión 1.0, en una máquina virtual compatible con RDMA existente denominada *myVM* implementada en el grupo de recursos denominado *myResourceGroup* de la región *Oeste de EE. UU.* :
 
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
@@ -65,7 +65,7 @@ Azure ofrece varias opciones para crear clústeres de máquinas virtuales de HPC
 
 * **Máquinas virtuales**: implemente las máquinas virtuales de HPC compatibles con RDMA en el mismo conjunto de disponibilidad (cuando use el modelo de implementación de Azure Resource Manager). Si usa el modelo de implementación clásica, implemente las máquinas virtuales en el mismo servicio en la nube. 
 
-* **Conjuntos de escalado de máquinas virtuales** - escalado de máquinas virtuales en el conjunto, asegúrese de limitar la implementación en un único grupo. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad `singlePlacementGroup` en `true`. 
+* **Conjuntos de escalado de máquinas virtuales**: en un conjunto de escalado de máquinas virtuales, asegúrese de limitar la implementación a un único grupo de selección de ubicación. Por ejemplo, en una plantilla de Resource Manager, establezca la propiedad `singlePlacementGroup` en `true`. 
 
 * **Azure CycleCloud**: cree un clúster de HPC en [Azure CycleCloud](/azure/cyclecloud/) para ejecutar trabajos MPI en nodos de Windows.
 

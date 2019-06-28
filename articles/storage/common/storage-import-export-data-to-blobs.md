@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
-ms.translationtype: MT
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808586"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -31,7 +31,7 @@ Antes de crear un trabajo de importación para transferir datos a Azure Blob Sto
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems). 
 - Habilitar BitLocker en el sistema de Windows. Consulte [Cómo habilitar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Descargar la versión 1 de WAImportExport](https://aka.ms/waiev1) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexportv1`. Por ejemplo, `C:\WaImportExportV1`.
-- Tener una cuenta de FedEx o DHL. Si desea usar un operador distinto de FedEx o DHL, póngase en contacto con el equipo de operaciones de cuadro de datos de Azure en `adbops@microsoft.com`.  
+- Tener una cuenta de FedEx o DHL. Si quiere usar alguna empresa de mensajería que no sea FedEx o DHL, póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com`.  
     - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
     - Generar un número de seguimiento del trabajo de exportación.
     - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento.
@@ -58,7 +58,7 @@ Realice los pasos siguientes para preparar las unidades de disco.
 6.  Para preparar el disco, ejecute el siguiente comando. **Dependiendo del tamaño de los datos, esto puede tardar desde varias horas a días.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     Se crea un archivo de diario en la misma carpeta en la que se ejecutó la herramienta. También se crean otros dos archivos: un archivo *.xml* (la carpeta en la que se ejecuta la herramienta) y un archivo *drive-manifest.xml* (la carpeta en la que residen los datos).
     
@@ -72,9 +72,9 @@ Realice los pasos siguientes para preparar las unidades de disco.
     |/bk:     |clave de BitLocker de la unidad. Su contraseña numérica de salida de `manage-bde -protectors -get D:`      |
     |/srcdir:     |letra de unidad del disco que se va a enviar seguida de `:\`. Por ejemplo, `D:\`.         |
     |/dstdir:     |El nombre del contenedor de destino en Azure Storage.         |
-    |/blobtype:     |Esta opción especifica el tipo de blobs que desea importar los datos. Los blobs en bloques, se trata de `BlockBlob` y para los blobs en páginas, es `PagaBlob`.         |
+    |/blobtype:     |Esta opción especifica el tipo de blobs en que desea importar los datos. En el caso de los blobs en bloques, es `BlockBlob`, mientras que en el caso de los blobs en páginas es `PagaBlob`.         |
     |/skipwrite:     |Se debe preparar la opción que especifica que no es necesario copiar nuevos datos y que se deben preparar los datos existentes en el disco.          |
-    |/enablecontentmd5:     |La opción cuando se habilita, se garantiza que MD5 se calcula durante la carga de blobs en bloques en Azure.          |
+    |/enablecontentmd5:     |Cuando esta opción está habilitada, garantiza que se calcula MD5 y se establece como propiedad `Content-md5` en todos los blobs. Esta opción solo se utiliza si se desea usar el campo `Content-md5` después de cargar los datos en Azure. <br> Esta opción no afecta a la comprobación de la integridad de datos (que se produce de forma predeterminada). El valor de aumenta el tiempo necesario para cargar datos en la nube.          |
 7. Repita el paso anterior para cada disco que vaya a enviar. Se crea un archivo de diario con el nombre proporcionad para cada ejecución de la línea de comandos.
     
     > [!IMPORTANT]
@@ -114,7 +114,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
 4. En **Información de envío de devolución**:
 
-   - Seleccione el transportista en la lista desplegable. Si desea usar un operador distinto de FedEx o DHL, elija una opción existente en la lista desplegable. Parte del equipo de operaciones de cuadro de datos de Azure contacto `adbops@microsoft.com` con la información relacionada con el transportista que se va a usar.
+   - Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
    - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. Si no tiene un número de cuenta, cree una cuenta de transportista [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
    - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región. 
         

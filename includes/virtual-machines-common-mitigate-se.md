@@ -9,13 +9,13 @@ ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735219"
 ---
-**Última actualización del documento**: 4 de junio de 2019 3:00 P.M. hora del Pacífico.
+**Última actualización del documento**: 4 de junio de 2019 3:00 p. m. hora del Pacífico.
 
 La divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
@@ -28,21 +28,21 @@ Encontrará más información acerca de cómo integrar la seguridad en todos los
 > [!NOTE] 
 > Desde que este documento se publicó por primera vez, se han divulgado varias variantes de esta clase de vulnerabilidad. Microsoft continúa realizando grandes esfuerzos por proteger a nuestros clientes y proporcionarles orientación. Esta página se actualizará a medida que se publiquen más correcciones. 
 > 
-> En el 14 de mayo de 2019 [Intel revelada](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) un nuevo conjunto de vulnerabilidad de canal lateral de ejecución especulativa conocido como muestreo de datos de la microarquitectura (MDS consulte las instrucciones de seguridad de Microsoft [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), que se ha asignado varios identificadores: 
-> - CVE-2019-11091 - datos de la microarquitectura muestreo de memoria Uncacheable (MDSUM)
-> - CVE-2018-12126 - Store microarquitectura búfer los datos de muestreo (MSBDS) 
-> - CVE-2018-12127 - los datos de puerto de carga de la microarquitectura de muestreo (MLPDS)
-> - CVE-2018-12130 - relleno de la microarquitectura búfer los datos de muestreo (MFBDS)
+> El 14 de mayo de 2019 [Intel reveló](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) un nuevo conjunto de vulnerabilidad de canal lateral de ejecución especulativa conocido como Muestreo de datos de microarquitectura (MDS) (consulte las instrucciones de seguridad de Microsoft [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), al que se han asignado varios identificadores: 
+> - CVE-2019-11091: Memoria sin caché de muestreo de datos de microarquitectura (MDSUM)
+> - CVE-2018-12126: Muestreo de datos de búfer de almacén de microarquitectura (MSBDS) 
+> - CVE-2018-12127: Muestreo de datos de puerto de carga microarquitectura (MLPDS)
+> - CVE-2018-12130: Muestreo de datos de búfer de relleno de microarquitectura (MFBDS)
 >
-> Esta vulnerabilidad afecta a los procesadores Intel® Core® y los procesadores Intel® Xeon®.  Microsoft Azure ha publicado actualizaciones del sistema operativo y se está implementando nuevas microcódigo, cuando vaya a estar disponible por Intel, en toda nuestra flota para proteger a nuestros clientes contra estas nuevas vulnerabilidades.   Azure está trabajando estrechamente con Intel para probar y validar la nueva habilitación del microcódigo antes de su lanzamiento oficial en la plataforma. 
+> Esta vulnerabilidad afecta a los procesadores Intel® Core® y los procesadores Intel® Xeon®.  Microsoft Azure ha publicado actualizaciones del sistema operativo y está implementando nuevo microcódigo, a medida que Intel reveló lo anterior, en toda nuestra flota para proteger a nuestros clientes contra estos nuevos puntos vulnerables.   Azure está trabajando estrechamente con Intel para probar y validar el nuevo microcódigo antes de su lanzamiento oficial en la plataforma. 
 >
-> **Los clientes que ejecutan confianza código dentro de su máquina virtual** deba tomar medidas para protegerse frente a estas vulnerabilidades, se lee a continuación para obtener instrucciones acerca de todas las vulnerabilidades de canal lateral de ejecución especulativa (ADV de avisos de Microsoft [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), y [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+> **Los clientes que ejecutan código que no es de confianza dentro de su máquina virtual** deben tomar medidas para protegerse frente a estos puntos vulnerables; para ello, lea a continuación para obtener instrucciones acerca de todas las vulnerabilidades de canal lateral de ejecución especulativa (ADV de Avisos de Microsoft [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018) y [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
-> Otros clientes deben evaluar estas vulnerabilidades de una defensa de la perspectiva de profundidad y tenga en cuenta las implicaciones de seguridad y el rendimiento de su configuración elegida.
+> Otros clientes deben evaluar estos puntos vulnerables desde la perspectiva de la defensa en profundidad y considerar las implicaciones en la seguridad y el rendimiento de la configuración que han elegido.
 
 
 
-## <a name="keeping-your-operating-systems-up-to-date"></a>Mantener actualizados sus sistemas operativos
+## <a name="keeping-your-operating-systems-up-to-date"></a>Mantener actualizados los sistemas operativos
 
 Aunque no se necesita una actualización del sistema operativo para aislar de otros clientes las aplicaciones que se ejecutan en Azure, mantener el software actualizado siempre es un procedimiento recomendado. Los últimos paquetes acumulativos de actualizaciones de seguridad para Windows contienen mitigaciones para varias vulnerabilidades de canal lateral de ejecución especulativa. De forma similar, las distribuciones de Linux han publicado varias actualizaciones para corregir estas vulnerabilidades. Estas son las acciones recomendadas para actualizar el sistema operativo:
 
@@ -70,32 +70,32 @@ Los clientes que no implementan un escenario relacionado con código que no es d
 
 ## <a name="enabling-additional-security"></a>Habilitación de la seguridad adicional 
 
-Puede habilitar características de seguridad adicionales dentro de la máquina virtual o servicio en la nube si está ejecutando código no seguro. En paralelo, asegúrese de que el sistema operativo está actualizado para habilitar las características de seguridad dentro de la máquina virtual o servicio en la nube
+Puede habilitar características de seguridad adicionales en la máquina virtual o en el servicio en la nube si ejecuta código que no sea de confianza. Al mismo tiempo, asegúrese de que el sistema operativo está actualizado para habilitar las características de seguridad dentro de la máquina virtual o el servicio en la nube
 
 ### <a name="windows"></a>Windows 
 
 El sistema operativo de destino debe estar actualizado para habilitar estas características de seguridad adicionales. Aunque hay habilitadas numerosas mitigaciones del canal lateral de ejecución especulativa de forma predeterminada, las características adicionales que se describen aquí deben habilitarse manualmente y pueden afectar al rendimiento. 
 
 
-**Paso 1: Deshabilitar hyper-threading en la máquina virtual** -clientes que ejecutan código no seguro en una máquina virtual de hyper-threading debe deshabilitar hyper-threading o mover a un tamaño de máquina virtual que no sea hyper-Threading. Referencia [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene hyper-threading habilitado, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
+**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a un tamaño de máquina virtual que no sea hyper-threading. Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene habilitada la característica de hyper-threading, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
 
-Tipo `wmic` para entrar en la interfaz interactiva. A continuación, escriba el siguiente para ver la cantidad de física y lógica procesadores en la máquina virtual.
+Escriba `wmic` para especificar la interfaz interactiva. A continuación, escriba lo siguiente para ver la cantidad de procesadores físicos y lógicos en la máquina virtual.
 
 ```console
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Si el número de procesadores lógicos es mayor de procesadores físicos (núcleos), a continuación, hyper-threading está habilitada.  Si está ejecutando una máquina virtual de hyper-threading, por favor, [póngase en contacto con soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obtener hyperthreading deshabilitado.  Una vez que hyper-threading está deshabilitada, **soporte requerirá un reinicio de máquina virtual completo**. Consulte [Core recuento](#core-count) para entender por qué se reduce el número de núcleos de máquina virtual.
+Si el número de procesadores lógicos es mayor que el de procesadores físicos (núcleos), la característica de hyper-threading está habilitada.  Si está ejecutando una máquina virtual de hyper-threading, [póngase en contacto con el soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para deshabilitar la característica de hyper-threading.  Una vez que el hyper-threading esté deshabilitado, **se requerirá un reinicio completo de la máquina virtual**. Consulte [Número de núcleos](#core-count) para saber por qué se reduce el número de núcleos de máquina virtual.
 
 
-**Paso 2**: En paralelo al paso 1, siga las instrucciones de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para comprobar las protecciones se habilitan mediante la [SpeculationControl](https://aka.ms/SpeculationControlPS) módulo de PowerShell.
+**Paso 2**: A la vez que el paso 1, siga las instrucciones descritas en [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para comprobar que las protecciones se habilitan con el módulo de PowerShell [SpeculationControl](https://aka.ms/SpeculationControlPS).
 
 > [!NOTE]
 > Si descargó este módulo anteriormente, deberá instalar la versión más reciente.
 >
 
 
-La salida del script de PowerShell debe tener el siguiente para validar los valores habilitados protecciones frente a estas vulnerabilidades:
+La salida del script de PowerShell debe tener los siguientes valores para validar las protecciones habilitadas frente a estos puntos vulnerables:
 
 ```
 Windows OS support for branch target injection mitigation is enabled: True
@@ -105,17 +105,17 @@ Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
 ```
 
-Si el resultado muestra `MDS mitigation is enabled: False`, por favor, [póngase en contacto con soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para las opciones de mitigación disponibles.
+Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contacto con el soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para conocer las opciones de mitigación disponibles.
 
 
 
-**Paso 3**: Para habilitar el sombreado de dirección Virtual (KVAS) de Kernel y soporte técnico de inyección de código de destino de rama (BTI) del sistema operativo, siga las instrucciones de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar la protección mediante el `Session Manager` claves del registro. Es necesario reiniciar.
+**Paso 3**: Para habilitar la compatibilidad del sistema operativo con la copia paralela de direcciones virtuales de kernel (KVAS) y la inserción de destino de rama (BTI), siga las instrucciones de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones con las claves del Registro de `Session Manager`. Es necesario reiniciar.
 
 
-**Paso 4**: Para las implementaciones que usan [virtualización anidada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 y E3 solo): Estas instrucciones se aplican dentro de la máquina virtual que se va a usar como un host de Hyper-V.
+**Paso 4**: Para las implementaciones que usan la [virtualización anidada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (solo D3 y E3): Estas instrucciones se aplican dentro de la máquina virtual que se va a usar como un host de Hyper-V.
 
-1.  Siga las instrucciones de [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar la protección mediante el `MinVmVersionForCpuBasedMitigations` claves del registro.
-2.  Establezca el tipo de hipervisor programador en `Core` siguiendo las instrucciones [aquí](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+1.  Siga las instrucciones descritas en el artículo [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones mediante las claves del Registro `MinVmVersionForCpuBasedMitigations`.
+2.  Establezca el tipo de programador del hipervisor en `Core` mediante las instrucciones descritas [aquí](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -123,11 +123,11 @@ Si el resultado muestra `MDS mitigation is enabled: False`, por favor, [póngase
 <a name="linux"></a>Se requiere que el sistema operativo de destino esté completamente actualizado para habilitar el conjunto de características de seguridad adicionales. Algunas de las mitigaciones estarán habilitadas de forma predeterminada. La siguiente sección describe las características que están desactivadas de forma predeterminada y sujetas a la compatibilidad de hardware (microcódigo). La habilitación de estas características puede afectar al rendimiento. Consulte la documentación del proveedor de su sistema operativo para más instrucciones
 
 
-**Paso 1: Deshabilitar hyper-threading en la máquina virtual** -clientes que ejecutan código no seguro en una máquina virtual de hyper-threading debe deshabilitar hyper-threading o mover a una máquina virtual que no sea hyper-Threading.  Referencia [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el `lscpu` comando en la VM de Linux. 
+**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a una máquina virtual que no sea hyper-threading.  Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el comando `lscpu` en la máquina virtual de Linux. 
 
-Si `Thread(s) per core = 2`, a continuación, hyper-threading se ha habilitado. 
+Si `Thread(s) per core = 2`, el hyper-threading se ha habilitado. 
 
-Si `Thread(s) per core = 1`, a continuación, hyper-threading se ha deshabilitado. 
+Si `Thread(s) per core = 1`, el hyper-threading se ha deshabilitado. 
 
  
 Salida de ejemplo para una máquina virtual con hyper-threading habilitado: 
@@ -145,40 +145,40 @@ NUMA node(s):          1
 
 ```
 
-Si está ejecutando una máquina virtual de hyper-threading, por favor, [póngase en contacto con soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obtener hyperthreading deshabilitado.  Una vez que hyper-threading está deshabilitada, **soporte requerirá un reinicio de máquina virtual completo**. Consulte [Core recuento](#core-count) para entender por qué se reduce el número de núcleos de máquina virtual.
+Si está ejecutando una máquina virtual de hyper-threading, [póngase en contacto con el soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para deshabilitar la característica de hyper-threading.  Una vez que el hyper-threading esté deshabilitado, **se requerirá un reinicio completo de la máquina virtual**. Consulte [Número de núcleos](#core-count) para saber por qué se reduce el número de núcleos de máquina virtual.
 
 
 
-**Paso 2**: Para mitigar el riesgo cualquiera de las siguientes vulnerabilidades de canal lateral de ejecución especulativa, consulte la documentación del proveedor de su sistema operativo:   
+**Paso 2**: Para mitigar cualquiera de los siguientes puntos vulnerables de canal lateral de ejecución especulativa, consulte la documentación del proveedor de su sistema operativo:   
  
 - [RedHat y CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 
-### <a name="core-count"></a>Núm. de núcleos
+### <a name="core-count"></a>Recuento de núcleos
 
-Cuando se crea una máquina virtual de hyper-threading, Azure asigna 2 subprocesos por núcleo: se denominan vCPU. Cuando hyper-threading está deshabilitada, Azure quita un subproceso y superficies de núcleos de subprocesos únicos (núcleos físicos). La proporción de vCPU en la CPU es 2:1, así que después hyper-threading está deshabilitada, el número de la CPU en la máquina virtual aparecerá disminuido a la mitad. Por ejemplo, una máquina virtual de D8_v3 es una máquina virtual de hyper-threading que se ejecutan en 8 vCPU (2 subprocesos por núcleos core x 4).  Cuando hyper-threading está deshabilitada, las CPU caerá hasta 4 núcleos físicos con 1 subproceso por núcleo. 
+Cuando se crea una máquina virtual de hyper-threading, Azure asigna dos subprocesos por núcleo, que se denominan vCPU. Cuando el hyper-threading está deshabilitado, Azure quita un subproceso y usa los núcleos de subprocesos únicos (núcleos físicos). La proporción de vCPU y CPU es 2:1, de modo que, una vez que el hyper-threading se deshabilite, el número de CPU en la máquina virtual aparecerá reducido a la mitad. Por ejemplo, una máquina virtual D8_v3 es una máquina virtual de hyper-threading que se ejecuta en 8 vCPU (2 subprocesos por núcleo, por 4 núcleos).  Cuando el hyper-threading se deshabilite, las CPU caerán hasta 4 núcleos físicos con 1 subproceso por núcleo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo proporcionan instrucciones para la debajo de los ataques de canal lateral de ejecución especulativa que afectan a muchos de los procesadores modernos:
+Este artículo proporciona instrucciones para los siguientes ataques de canal lateral de ejecución especulativa que afectan a muchos de los procesadores modernos:
 
 [Spectre Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
-- CVE-2017-5715 - inserción de rama de destino (BTI)  
-- CVE-2017-5754 - aislamiento de la tabla de páginas de Kernel (KPTI)
-- CVE-2018-3639 – Store especulativa omisión (KPTI) 
+- CVE-2017-5715: inserción de destino de rama (BTI)  
+- CVE-2017-5754: aislamiento de tabla de páginas de kernel (KPTI)
+- CVE-2018-3639: omisión especulativa de almacén (KPTI) 
  
-[L1 Error de Terminal (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
-- CVE-2018-3615 - Intel Software Guard Extensions (SGX de Intel)
-- CVE-2018-3620 - sistemas operativos (SO) y modo de administración del sistema (SMM)
-- CVE-2018-3646 – impactos de Virtual Machine Manager (VMM)
+[Error de terminal L1 (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
+- CVE-2018-3615: extensiones de protección de software de Intel (Intel SGX)
+- CVE-2018-3620: sistemas operativos (SO) y modo de administración del sistema (SMM)
+- CVE-2018-3646: afecta a Virtual Machine Manager (VMM)
 
-[Muestreo de datos de la microarquitectura](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
-- CVE-2019-11091 - datos de la microarquitectura muestreo de memoria Uncacheable (MDSUM)
-- CVE-2018-12126 - Store microarquitectura búfer los datos de muestreo (MSBDS)
-- CVE-2018-12127 - los datos de puerto de carga de la microarquitectura de muestreo (MLPDS)
-- CVE-2018-12130 - relleno de la microarquitectura búfer los datos de muestreo (MFBDS)
+[Muestreo de datos de microarquitectura](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091: Memoria sin caché de muestreo de datos de microarquitectura (MDSUM)
+- CVE-2018-12126: Muestreo de datos de búfer de almacén de microarquitectura (MSBDS)
+- CVE-2018-12127: Muestreo de datos de puerto de carga microarquitectura (MLPDS)
+- CVE-2018-12130: Muestreo de datos de búfer de relleno de microarquitectura (MFBDS)
 
 
 

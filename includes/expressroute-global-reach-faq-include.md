@@ -9,11 +9,11 @@ ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170687"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186051"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>¿Qué es Global Reach de ExpressRoute?
 
@@ -33,15 +33,15 @@ ExpressRoute permite la conectividad de la red local con los servicios en la nub
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>¿Dónde se admite Global Reach de ExpressRoute?
 
-Alcance Global de ExpressRoute se admite en [seleccionar países o regiones o lugares](../articles/expressroute/expressroute-global-reach.md). Los circuitos de ExpressRoute se deben crear en las ubicaciones de emparejamiento en dichos países o regiones o en lugares.
+Global Reach de ExpressRoute se admite en [algunos países/regiones o lugares](../articles/expressroute/expressroute-global-reach.md). Los circuitos de ExpressRoute se deben crear en las ubicaciones de emparejamiento de estos países/regiones o lugares.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Tengo más de dos redes locales, cada una conectada a un circuito de ExpressRoute. ¿Puedo habilitar Global Reach de ExpressRoute para conectar todas mis redes locales entre sí?
 
-Sí, puede hacerlo, siempre y cuando los circuitos se encuentran en los países o regiones admitidos. Debe conectar dos circuitos de ExpressRoute cada vez. Para crear una red totalmente integrada, debe enumerar todos los pares de circuitos y repetir la configuración. 
+Sí, puede hacerlo, siempre y cuando los circuitos se encuentren en los países/regiones admitidos. Debe conectar dos circuitos de ExpressRoute cada vez. Para crear una red totalmente integrada, debe enumerar todos los pares de circuitos y repetir la configuración. 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>¿Puedo habilitar Global Reach de ExpressRoute entre dos circuitos de ExpressRoute en la misma ubicación de emparejamiento?
 
-No. Los dos circuitos deben estar en distintas ubicaciones de emparejamiento. Si un metro en un país o región admitidas tiene más de una ubicación de emparejamiento de ExpressRoute, se pueden conectar los circuitos ExpressRoute creados en distintas ubicaciones de emparejamiento en ese metro. 
+No. Los dos circuitos deben estar en distintas ubicaciones de emparejamiento. Si un metro en un país/región admitido tiene más de una ubicación de emparejamiento de ExpressRoute, es posible conectar los circuitos de ExpressRoute creados en distintas ubicaciones de emparejamiento de ese metro. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Si Global Reach de ExpressRoute está habilitado entre el circuito X y el circuito Y y también entre el circuito Y y el circuito Z, ¿se comunicarán entre sí las redes locales conectadas al circuito X y al circuito Z a través de la red de Microsoft?
 
@@ -49,7 +49,7 @@ No. Para habilitar la conectividad entre dos de las redes locales, se deben cone
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>¿Cuál es el rendimiento de red que puedo esperar entre mis redes locales después de habilitar Global Reach de ExpressRoute?
 
-El rendimiento de red entre las redes locales habilitado por Global Reach de ExpressRoute está limitado por el menor de los dos circuitos de ExpressRoute. El tráfico local a Azure y tráfico local a local comparten el mismo circuito y están sujetos al mismo extremo de ancho de banda. 
+El rendimiento de red entre las redes locales habilitado por Global Reach de ExpressRoute está limitado por el menor de los dos circuitos de ExpressRoute. El tráfico local a Azure y el tráfico entre entornos locales comparten el mismo circuito y están sujetos al mismo límite de ancho de banda. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Con ExpressRoute Global Reach, ¿cuáles son los límites en el número de rutas que puedo anunciar y el número de rutas que recibiré?
 

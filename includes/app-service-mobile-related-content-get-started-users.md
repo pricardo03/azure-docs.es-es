@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ed8aa7db1fa47cbcf5150fc0abfe5f552f2b57ea
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755585"
 ---
-* [Autenticación de App Service / información general de la autorización](../articles/app-service/overview-authentication-authorization.md).
-* Agregar autenticación a la aplicación móvil: [iOS][ios-get-started-users], [Android][android-get-started-users], [Windows Universal] [ windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users], [Xamarin.Forms] [ xamarin-forms-get-started-users], [Cordova][cordova-get-started-users].  
+* [Introducción a la autenticación y autorización en App Service](../articles/app-service/overview-authentication-authorization.md).
+* Incorporación de la autenticación a Mobile App: [iOS][ios-get-started-users], [Android][android-get-started-users], [Windows Universal][windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users], [Xamarin.Forms][xamarin-forms-get-started-users], [Cordova][cordova-get-started-users].  
 
 [android-get-started-users]: ../articles/app-service-mobile/app-service-mobile-android-get-started-users.md
 [cordova-get-started-users]: ../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md

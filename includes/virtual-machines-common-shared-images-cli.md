@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 841027fe8d6b97e661faa038dc9381edbb3d4cd8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 57736a3cd553e83294d5290867e261b626cb035f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226029"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814865"
 ---
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para completar el ejemplo de este artículo, debe tener una imagen administrada existente de una VM generalizada. Para más información, consulte [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Si la imagen administrada contiene un disco de datos, el tamaño del disco de datos no puede tener más de 1 TB.
+Para completar el ejemplo de este artículo, debe tener una imagen administrada existente de una VM generalizada. Para más información, consulte [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Si la imagen administrada contiene un disco de datos, el tamaño de este no puede ser mayor de 1 TB.
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
@@ -25,11 +25,11 @@ Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar 
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com/bash](https://shell.azure.com/bash) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione Entrar para ejecutarlos.
 
-Si prefiere instalar y usar la CLI localmente, consulte [instalar la CLI de Azure](/cli/azure/install-azure-cli).
+Para instalar y usar la CLI de forma local, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-image-gallery"></a>Creación de una galería de imágenes 
 
-Una galería de imágenes es el recurso principal que se usa para habilitar el uso compartido de imágenes. Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la Galería no puede contener guiones.   Los nombres de las galerías deben ser únicos dentro de su suscripción. 
+Una galería de imágenes es el recurso principal que se usa para habilitar el uso compartido de imágenes. Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede contener guiones.   Los nombres de las galerías deben ser únicos dentro de su suscripción. 
 
 Cree una galería de imágenes mediante [az sig az create](/cli/azure/sig#az-sig-create). En el ejemplo siguiente se crea una galería denominada *myGallery* en *myGalleryRG*.
 
@@ -40,7 +40,7 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="create-an-image-definition"></a>Creación de la definición de una imagen
 
-Las definiciones de la imagen creación una agrupación lógica de imágenes. Se utilizan para administrar la información sobre las versiones de la imagen que se crean dentro de ellos. Los nombres de definición de imagen pueden estar formados por letras en mayúsculas o minúsculas, dígitos, puntos, guiones y períodos. Para obtener más información acerca de los valores que se puede especificar para una definición de la imagen, consulte [definiciones de la imagen](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Las definiciones de imagen crean una agrupación lógica de imágenes. Estas se usan para administrar la información sobre las versiones de la imagen que se crean dentro de ellas. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Cree la definición de una imagen inicial en la galería mediante [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -60,9 +60,9 @@ az sig image-definition create \
 
 Cree versiones de la imagen según sea necesario con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). Deberá pasar el identificador de la imagen administrada que se usará como base para crear la versión de la imagen. Puede usar [az image list](/cli/azure/image?view#az-image-list) para obtener información sobre las imágenes que se encuentran en un grupo de recursos. 
 
-Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Revisión*.
+Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
-En este ejemplo, es la versión de nuestra imagen *1.0.0* y vamos a crear 2 réplicas en el *centro occidental de Ee.uu.* región, 1 réplica en el *South Central US* región y 1 réplica en el *East US 2* región mediante almacenamiento con redundancia de zona.
+En este ejemplo, es la versión de la imagen es la *1.0.0* y vamos a crear dos réplicas en la región *Centro-oeste de EE. UU.* , una réplica en la región *Centro-sur de EE. UU.* y una réplica en la región *Este de EE. UU. 2* región mediante almacenamiento con redundancia de zona.
 
 
 ```azurecli-interactive 
@@ -77,14 +77,14 @@ az sig image-version create \
 ```
 
 > [!NOTE]
-> Deberá esperar a que finalice por completo que se compila y se replican para poder usar la misma imagen administrada para crear otra versión de la imagen la versión de imagen.
+> Deberá esperar a que la versión de la imagen termine de compilarse y replicarse por completo antes de poder usar la misma imagen administrada para crear otra versión de la imagen.
 >
-> También puede almacenar todas las réplicas de la versión de imagen en [almacenamiento con redundancia de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) agregando `--storage-account-type standard_zrs` al crear la versión de la imagen.
+> También puede almacenar todas las réplicas de la versión de la imagen en [almacenamiento con redundancia de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) si agrega `--storage-account-type standard_zrs` al crear la versión de la imagen.
 >
 
-## <a name="share-the-gallery"></a>Compartir la Galería
+## <a name="share-the-gallery"></a>Uso compartido de la galería
 
-Se recomienda que comparta con otros usuarios en el nivel de la galería. Para obtener el identificador de objeto de la galería, use [show de az sig](/cli/azure/sig#az-sig-show).
+Se recomienda que el uso compartido con otros usuarios se realice en el nivel de la galería. Para obtener el identificador de objeto de la galería, use [az sig show](/cli/azure/sig#az-sig-show).
 
 ```azurecli-interactive
 az sig show \
@@ -93,7 +93,7 @@ az sig show \
    --query id
 ```
 
-Use el identificador de objeto como un ámbito, junto con una dirección de correo electrónico y [crear asignación de roles az](/cli/azure/role/assignment#az-role-assignment-create) otorgar a un usuario acceso a la Galería de imágenes compartidas.
+Use el identificador de objeto como ámbito, junto con una dirección de correo electrónico y [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para dar a un usuario acceso a la galería de imágenes compartidas.
 
 ```azurecli-interactive
 az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>

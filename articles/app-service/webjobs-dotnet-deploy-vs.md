@@ -14,65 +14,65 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.openlocfilehash: 9f4d3ff6fa02369c0e4a01949cc686b842a63a12
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808471"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service
 
-En este artículo se explica cómo usar Visual Studio para implementar un proyecto de aplicación de consola en una aplicación web en [App Service](overview.md) como un [WebJob de Azure](https://go.microsoft.com/fwlink/?LinkId=390226). Para información sobre cómo implementar WebJobs con [Azure Portal](https://portal.azure.com), consulte [Ejecución de tareas en segundo plano con WebJobs](webjobs-create.md).
+En este artículo, se explica cómo usar Visual Studio para implementar un proyecto de aplicación de consola en una aplicación web de [App Service](overview.md) como [WebJob de Azure](https://go.microsoft.com/fwlink/?LinkId=390226). Para información sobre cómo implementar WebJobs con [Azure Portal](https://portal.azure.com), consulte [Ejecución de tareas en segundo plano con WebJobs](webjobs-create.md).
 
-Puede publicar varios WebJobs en una sola aplicación web. Asegúrese de que cada trabajo Web en una aplicación web tiene un nombre único.
+Puede publicar varios trabajos web en una sola aplicación web. Asegúrese de que cada uno de los trabajos web de una aplicación web tenga un nombre único.
 
-Versión 3.x de la [SDK de Azure WebJobs](webjobs-sdk-how-to.md) le permite desarrollar WebJobs que se ejecutan como aplicaciones de .NET Core o .NET Framework aplicaciones durante la versión 2.x es compatible con el .NET Framework. La manera en que se implementa un proyecto de WebJobs es diferente para los proyectos de .NET Core frente a los de .NET Framework.
+La versión 3.x del [SDK de Azure WebJobs](webjobs-sdk-how-to.md) permite implementar trabajos web que se ejecutan como aplicaciones de .NET Core o como aplicaciones de .NET Framework, mientras que la versión 2.x solo es compatible con .NET Framework. El modo en que se implementa un proyecto de WebJobs es diferente en el caso de los proyectos de .NET Core y de los proyectos de .NET Framework.
 
-## <a name="webjobs-as-net-core-console-apps"></a>WebJobs como aplicaciones de consola .NET Core
+## <a name="webjobs-as-net-core-console-apps"></a>Trabajos web como aplicaciones de consola de .NET
 
-Cuando se usa la versión 3.x de los trabajos Web, puede crear y publicar WebJobs como aplicaciones de consola .NET Core. Para que obtener instrucciones paso a paso crear y publicar una aplicación de consola .NET Core en Azure como un trabajo Web, consulte [empezar a trabajar con el SDK de WebJobs de Azure para el procesamiento en segundo plano basado en eventos](webjobs-sdk-get-started.md).
+Si usa la versión 3.x de WebJobs, puede crear y publicar trabajos web como aplicaciones de consola de .NET Core. Si desea obtener instrucciones paso a paso para crear y publicar una aplicación de consola de .NET Core en Azure como un trabajo web, consulte [Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> Trabajos Web de .NET core no se puede vincular con los proyectos web. Si tiene que implementar su trabajo Web con una aplicación web, debería [crear su trabajo Web como una aplicación de consola de .NET Framework](#webjobs-as-net-framework-console-apps).  
+> Los trabajos web de .NET Core no se pueden vincular con proyectos web. Si necesita implementar el trabajo web con una aplicación web, debe [crearlo como una aplicación de consola de .NET Framework](#webjobs-as-net-framework-console-apps).  
 
-### <a name="deploy-to-azure-app-service"></a>Implementar en Azure App Service
+### <a name="deploy-to-azure-app-service"></a>Implementación en Azure App Service
 
-Publicación de un WebJob de .NET Core en App Service desde Visual Studio utiliza las mismas herramientas como publicación de una aplicación ASP.NET Core.
+Para publicar un trabajo web de .NET Core en App Service desde Visual Studio, se utilizan las mismas herramientas que para publicar una aplicación de ASP.NET Core.
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)] 
 
 ### <a name="webjob-types"></a>Tipos de WebJob
 
-De forma predeterminada, un trabajo Web publicados desde un proyecto de consola se ejecuta solo cuando se desencadena de .NET Core o a petición. También puede actualizar el proyecto a [ejecutar según una programación](#scheduled-execution) ejecutar de forma continuada.
+De forma predeterminada, los trabajos web publicados desde un proyecto de consola de .NET Core solamente se ejecutan cuando se desencadenan o a petición. También puede actualizar el proyecto para que se [ejecute en función de una programación](#scheduled-execution) o de forma continuada.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 #### <a name="scheduled-execution"></a>Ejecución programada
 
-Al publicar una aplicación de consola .NET Core en Azure, un nuevo *settings.job* archivo se agrega al proyecto. Use este archivo para establecer una programación de ejecución para el trabajo Web. Para obtener más información, consulte [programar un trabajo Web desencadenado](#scheduling-a-triggered-webjob).
+Cuando se publica una aplicación de consola de .NET Core en Azure, se agrega un nuevo archivo *settings.job* al proyecto. Utilice este archivo para programar la ejecución del trabajo web. Para obtener más información, consulte [Programar un trabajo Web desencadenado](#scheduling-a-triggered-webjob).
 
 #### <a name="continuous-execution"></a>Ejecución continua
 
-Puede usar Visual Studio para cambiar el trabajo Web se ejecute continuamente cuando Always On está habilitada en Azure.
+Puede usar Visual Studio para cambiar el trabajo web de forma que se ejecute continuamente cuando Always On esté habilitado en Azure.
 
-1. Si no ya lo ha hecho, [publicar el proyecto en Azure](#deploy-to-azure-app-service).
+1. Si todavía no lo ha hecho, [publique el proyecto en Azure](#deploy-to-azure-app-service).
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
-1. En el **publicar** ficha, elija **configuración**. 
+1. En la pestaña **Publicar**, seleccione **Configuración**. 
 
-1. En el **configuración del perfil** cuadro de diálogo, elija **Continuous** para **tipo de WebJob**y elija **guardar**.
+1. En el cuadro de diálogo **Configuración de perfil**, seleccione **Continua** en **Tipo de WebJob**  y haga clic en **Guardar**.
 
-    ![Cuadro de diálogo de configuración de publicación para un trabajo Web](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
+    ![Cuadro de diálogo de configuración de publicación de un trabajo web](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
 
-1. Seleccione **publicar** para volver a publicar el trabajo Web con la configuración actualizada.
+1. Seleccione **Publicar** para volver a publicar el trabajo web con la configuración actualizada.
 
-## <a name="webjobs-as-net-framework-console-apps"></a>WebJobs como aplicaciones de consola de .NET Framework  
+## <a name="webjobs-as-net-framework-console-apps"></a>Trabajos web como aplicaciones de consola de .NET Framework  
 
-Cuando Visual Studio implementa un proyecto con funcionalidad WebJobs de aplicación de consola de .NET Framework, realiza dos tareas:
+Cuando Visual Studio implementa un proyecto de una aplicación de consola de .NET Framework habilitado para WebJobs, realiza dos tareas:
 
-* Copia los archivos de tiempo de ejecución a la carpeta correspondiente en la aplicación web (*App_Data/trabajos/continuous* para WebJobs continuos y *App_Data/trabajos/triggered* para WebJobs programados o bajo demanda).
+* Copia los archivos del entorno de ejecución en la carpeta apropiada de la aplicación web (*App_Data/jobs/continuous* en los trabajos web continuos y *App_Data/jobs/triggered* en los trabajos web programados y a petición).
 * Configura trabajos de [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) para WebJobs que se programan para ejecutarse en momentos concretos. (Esto no se necesita para WebJobs continuos.)
 
 Un proyecto con funcionalidad WebJobs tiene los siguientes elementos agregados:
@@ -92,7 +92,7 @@ Puede implementar un proyecto como un WebJob por sí mismo o vincularlo a un pro
 
 Si usa Visual Studio 2015, instale el [Azure SDK para .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Si usa Visual Studio de 2019, instale el [carga de trabajo de desarrollo de Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+Si usa Visual Studio 2019, instale la [carga de trabajo de desarrollo de Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Habilitación de la implementación de WebJobs para un proyecto de aplicación de consola existente
 
@@ -212,9 +212,9 @@ Para implementar un proyecto de WebJobs por sí mismo, haga clic con el botón d
 
 Para un trabajo web independiente, aparece el mismo asistente **Publicación web** que se usa para los proyectos web, pero con menos configuraciones disponibles para cambiar.
 
-## <a name="scheduling-a-triggered-webjob"></a>Programar un trabajo Web desencadenado
+## <a name="scheduling-a-triggered-webjob"></a>Programación de un trabajo web desencadenado
 
-WebJobs utiliza un *settings.job* archivo para determinar cuándo se ejecuta un trabajo Web. Use este archivo para establecer una programación de ejecución para el trabajo Web. En el siguiente ejemplo se ejecuta cada hora de 9: 00 a 17:
+WebJobs utiliza un archivo *settings.job* para determinar cuándo se ejecuta un trabajo web. Utilice este archivo para programar la ejecución del trabajo web. El siguiente ejemplo se ejecuta cada hora de 9: 00 a 17:00:
 
 ```json
 {
@@ -222,26 +222,26 @@ WebJobs utiliza un *settings.job* archivo para determinar cuándo se ejecuta un 
 }
 ```
 
-Este archivo debe estar ubicado en la raíz de la carpeta de WebJobs, a lo largo del lado script del WebJob, como `wwwroot\app_data\jobs\triggered\{job name}` o `wwwroot\app_data\jobs\continuous\{job name}`. Cuando implemente un WebJob desde Visual Studio, marque las propiedades del archivo `settings.job` como **Copiar si es posterior**. 
+Este archivo debe estar ubicado en la raíz de la carpeta de WebJobs, junto con el script de WebJob; por ejemplo, `wwwroot\app_data\jobs\triggered\{job name}` o `wwwroot\app_data\jobs\continuous\{job name}`. Cuando implemente un WebJob desde Visual Studio, marque las propiedades del archivo `settings.job` como **Copiar si es posterior**. 
 
-Cuando se [creación de un WebJob de Azure portal](webjobs-create.md), se crea el archivo settings.job.
+Si [crea un trabajo web en Azure Portal](webjobs-create.md), el archivo settings.job se crea automáticamente.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="cron-expressions"></a>Expresiones CRON
 
-WebJobs usa las mismas expresiones CRON para programar como el desencadenador de temporizador en Azure Functions. Para más información sobre la compatibilidad de CRON, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions).
+WebJobs usa las mismas expresiones CRON para realizar la programación que el desencadenador de temporizador de Azure Functions. Para más información sobre la compatibilidad de CRON, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions).
 
-### <a name="settingjob-reference"></a>referencia de Setting.job
+### <a name="settingjob-reference"></a>Referencia de setting.job
 
-WebJobs admite las siguientes opciones:
+WebJobs admite las siguientes opciones de configuración:
 
 | **Configuración** | **Tipo**  | **Descripción** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Todo | Permite que el trabajo se ejecute en su lugar sin que se copian primero a una carpeta temporal. Para obtener más información, consulte [directorio de trabajo de WebJobs](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Continuo | Solo puede ejecutar los trabajos Web en una sola instancia al escalar horizontalmente. Para obtener más información, consulte [establecer un trabajo continuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Desencadenado | Ejecutar el trabajo Web en una programación de CRON. Para obtener más información, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
-| `stopping_wait_time`| Todo | Permite controlar el comportamiento de apagado. Para obtener más información, consulte [cierre estable](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `is_in_place` | Todo | Permite que el trabajo se ejecute donde está, sin necesidad de copiarlo primero en una carpeta temporal. Para más información, consulte [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory) (Directorio de trabajo de WebJobs). |
+| `is_singleton` | Continuo | Solo debe ejecutar los trabajos web en una única instancia cuando escale horizontalmente. Para más información, consulte [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton) (Establecer un trabajo continuo como singleton). |
+| `schedule` | Desencadenado | Ejecute el trabajo web utilizando una programación basada en CRON. Para más información, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `stopping_wait_time`| Todo | Permite controlar el comportamiento de apagado. Para más información, consulte [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown) (Cierre estable). |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

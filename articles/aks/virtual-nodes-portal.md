@@ -8,15 +8,15 @@ ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742809"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
-Para implementar rápidamente las cargas de trabajo en un clúster de Azure Kubernetes Service (AKS), puede usar nodos virtuales. Con los nodos virtuales, tiene un aprovisionamiento rápido de pods y solo paga por segundo para el tiempo de ejecución. En un escenario de escalado, no es necesario que espere a que el escalador automático del clúster de Kubernetes implemente nodos de proceso de máquina virtual para ejecutar los pods adicionales. Los nodos virtuales solo se admiten con los nodos y los pods de Linux.
+Para implementar rápidamente las cargas de trabajo en un clúster de Azure Kubernetes Service (AKS), puede usar nodos virtuales. Con los nodos virtuales, tiene un aprovisionamiento rápido de pods y solo paga por segundo para el tiempo de ejecución. En un escenario de escalado, no es necesario que espere a que el escalador automático del clúster de Kubernetes implemente nodos de proceso de máquina virtual para ejecutar los pods adicionales. Los nodos virtuales solo son compatibles con los nodos y pods de Linux.
 
 En este artículo se muestra cómo crear y configurar los recursos de red virtual y un clúster de AKS con nodos virtuales habilitados.
 
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Si el proveedor se muestra como *NotRegistered*, registrar el proveedor con [az registrar proveedor] [az-proveedor de registro] como se muestra en el ejemplo siguiente:
+Si el proveedor se muestra como *NotRegistered*, registre el proveedor mediante el [registro de proveedor de az][az-provider-register] tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -46,30 +46,30 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-Para las implementaciones de nodo virtual, se admiten las siguientes regiones:
+Se admiten las siguientes regiones para las implementaciones de nodos virtuales:
 
 * Este de Australia (australiaeast)
-* EE. UU. (centralus)
+* Centro de EE. UU. (centralus)
 * Este de EE. UU. (eastus)
-* East US 2 (eastus2)
-* Este de Japón (estejapón)
+* Este de EE. UU. 2 (eastus2)
+* Este de Japón (japaneast)
 * Europa del Norte (northeurope)
-* Sudeste asiático (southeastasia)
-* Centro occidental de Ee.uu. (oeste)
+* Sudeste Asiático (southeastasia)
+* Centro-oeste de EE. UU. (westcentralus)
 * Europa Occidental (westeurope)
 * Oeste de EE. UU. (westus)
 * Oeste de EE. UU. 2 (westus2)
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
-Funcionalidad de los nodos virtual es depende en gran medida en el conjunto de características de ACI. Los escenarios siguientes no se admiten aún con los nodos virtuales
+La funcionalidad de nodos virtuales es muy dependiente del conjunto de características de ACI. Los escenarios siguientes no se admiten aún con los nodos virtuales
 
-* Con la entidad de servicio para extraer imágenes ACR. [Solución alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitaciones de la red virtual](../container-instances/container-instances-vnet.md) incluidos emparejamiento de redes virtuales, las directivas de red de Kubernetes y el tráfico saliente a internet con grupos de seguridad de red.
-* Contenedores de init
-* [Alias de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para exec en ACI
+* Uso de entidad de servicio para extraer imágenes de ACR. La [solución alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitaciones de la red virtual](../container-instances/container-instances-vnet.md) entre las que se incluyen el emparejamiento de redes virtuales, las directivas de red de Kubernetes y el tráfico saliente a Internet con grupos de seguridad de red.
+* Iniciar contenedores
+* [Hospedaje de alias](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para la ejecución en ACI
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) no implementará los pods en el nodo virtual
-* [Nodos de Windows Server (actualmente en versión preliminar de AKS)](windows-container-cli.md) no se admiten junto con los nodos virtuales. Puede usar los nodos virtuales para programar los contenedores de Windows Server sin necesidad de nodos de Windows Server en un clúster de AKS.
+* Los [nodos de Windows Server (actualmente en versión preliminar en AKS)](windows-container-cli.md) no son compatibles con los nodos virtuales. Puede usar los nodos virtuales para programar los contenedores de Windows Server sin necesidad de nodos de Windows Server en un clúster de AKS.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -83,12 +83,12 @@ En la página **Datos básicos**, configure las siguientes opciones:
 
 - *DETALLES DEL PROYECTO*: seleccione una suscripción de Azure y, a continuación, seleccione o cree un grupo de recursos de Azure, como *myResourceGroup*. Escriba un **Nombre del clúster de Kubernetes**, como *myAKSCluster*.
 - *DETALLES DEL CLÚSTER*: seleccione la región, la versión de Kubernetes y el prefijo del nombre DNS para el clúster de AKS.
-- *GRUPO DE NODOS PRINCIPALES*: seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS.
+- *GRUPO DE NODOS PRINCIPAL*: seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS.
      - Seleccione el número de nodos que se van a implementar en el clúster. Para este artículo, establezca **Número de nodos** en *1*. El número de nodos **puede** ajustarse después de implementar el clúster.
 
-Haga clic en **Siguiente: Escala**.
+Haga clic en **Siguiente: Escalado**.
 
-En el **escala** página, seleccione *habilitado* en **nodos virtuales**.
+En la página **Escalado**, seleccione *Habilitado* en **Nodos virtuales**.
 
 ![Creación del clúster de AKS y habilitación de los nodos virtuales](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -181,7 +181,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Se asigna una dirección IP interna al pod de la subred de red virtual de Azure delegada para su uso con los nodos virtuales.
 
 > [!NOTE]
-> Si usa imágenes almacenadas en Azure Container Registry, [configure y use un secreto de Kubernetes][acr-aks-secrets]. Una limitación actual de los nodos virtuales es que no se puede usar Azure integrado autenticación de entidad de servicio de AD. Si no usa un secreto, los pods programados en los nodos virtuales no se pueden iniciar y se notifica el error `HTTP response status code 400 error code "InaccessibleImage"`.
+> Si usa imágenes almacenadas en Azure Container Registry, [configure y use un secreto de Kubernetes][acr-aks-secrets]. Una limitación actual de los nodos virtuales es que no se puede usar la autenticación de entidad de servicio de Azure AD integrada. Si no usa un secreto, los pods programados en los nodos virtuales no se pueden iniciar y se notifica el error `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Prueba del pod del nodo virtual
 
@@ -225,8 +225,8 @@ Los nodos virtuales son un componente de una solución de escalado en AKS. Para 
 
 - [Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)][aks-hpa]
 - [Escalador automático en Azure Kubernetes Service (AKS): Versión preliminar][aks-cluster-autoscaler]
-- [Consulte el ejemplo de escalado automático para los nodos virtuales][virtual-node-autoscale]
-- [Obtenga más información acerca de la biblioteca de código abierto Virtual Kubelet][virtual-kubelet-repo]
+- [Consulte el ejemplo de escalado automático para los nodos virtuales][virtual-node-autoscale].
+- [Obtenga más información acerca de la biblioteca virtual de código abierto de Kubelet][virtual-kubelet-repo].
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

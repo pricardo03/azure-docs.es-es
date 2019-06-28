@@ -1,6 +1,6 @@
 ---
-title: Obtener acceso y personalizar el nuevo portal para desarrolladores - Azure API Management | Microsoft Docs
-description: Obtenga información sobre cómo usar el nuevo portal de desarrollador en API Management.
+title: Acceso y personalización del nuevo portal para desarrolladores en Azure API Management | Microsoft Docs
+description: Aprenda a usar el nuevo portal para desarrolladores de API Management.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
 ms.openlocfilehash: deb3fdf3069aaad4982d71806c209fe516e3c3d6
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743581"
 ---
-# <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Obtener acceso y personalizar el nuevo portal para desarrolladores en Azure API Management
+# <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Acceso y personalización del nuevo portal para desarrolladores en Azure API Management
 
-Este artículo muestra cómo acceder al nuevo portal para desarrolladores de Azure API Management. Le guiará a través de la experiencia del editor visual - agregar y editar contenido, así como personalizar el aspecto del sitio Web.
+Este artículo muestra cómo acceder al nuevo portal para desarrolladores de Azure API Management. Le guiará a través de la experiencia del editor visual: incorporación y edición de contenido, así como personalización del aspecto del sitio web.
 
 ![Nuevo portal para desarrolladores de API Management](media/api-management-howto-developer-portal/cover.png)
 
@@ -36,33 +36,33 @@ Este artículo muestra cómo acceder al nuevo portal para desarrolladores de Azu
 > [!NOTE]
 > El nuevo portal para desarrolladores está actualmente en versión preliminar.
 
-## <a name="managed-and-self-hosted-versions"></a>Versiones autohospedadas y no administrados
+## <a name="managed-and-self-hosted-versions"></a>Versiones administradas y autohospedadas
 
 Puede crear su portal para desarrolladores de dos maneras:
 
-- **Versión administrada** - de edición y personalización del portal integrada en la instancia de API Management y accesible a través de la dirección URL `<your-api-management-instance-name>.developer.azure-api.net`.
-- **Versión autohospedado** : implementando y autoalojamiento su portal fuera de una instancia de API Management. Este enfoque le permite editar el portal de la base de código y ampliar la funcionalidad principal proporcionado. Para obtener información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1].
+- **Versión administrada**: mediante la edición y personalización del portal integrado en la instancia de API Management y accesible a través de la dirección URL `<your-api-management-instance-name>.developer.azure-api.net`.
+- **Versión autohospedada**: mediante la implementación y autohospedaje del portal fuera de una instancia de API Management. Este enfoque le permite editar el código base del portal y ampliar la funcionalidad principal proporcionada. Para obtener información detallada e instrucciones, consulte el [repositorio de GitHub con el código fuente del portal][1].
 
-## <a name="access-the-managed-version-of-the-portal"></a>Obtener acceso a la versión administrada del portal
+## <a name="access-the-managed-version-of-the-portal"></a>Acceso a la versión administrada del portal
 
-Siga los pasos siguientes para tener acceso a la versión administrada del portal.
+Siga los pasos siguientes para acceder a la versión administrada del portal.
 
-1. Vaya a la instancia del servicio API Management en Azure portal.
-1. Haga clic en el **nuevo portal para desarrolladores (versión preliminar)** botón en la barra de navegación superior. Se abrirá una nueva pestaña del explorador con una versión del portal de administración. Si tiene acceso al portal por primera vez, se aprovisionará automáticamente el contenido predeterminado.
+1. Vaya a la instancia de servicio de API Management en Azure Portal.
+1. Haga clic en el botón **New developer portal (preview)** (Nuevo portal para desarrolladores: versión preliminar) en la barra de navegación superior. Se abrirá una nueva pestaña del explorador con una versión administrativa del portal. Si accede al portal por primera vez, se aprovisionará automáticamente el contenido predeterminado.
 
-## <a name="edit-and-customize-the-managed-version-of-the-portal"></a>Editar y personalizar la versión administrada del portal
+## <a name="edit-and-customize-the-managed-version-of-the-portal"></a>Edición y personalización de la versión administrada del portal
 
-En el siguiente vídeo se muestra cómo editar el contenido del portal, personalizar el aspecto del sitio Web y publicar los cambios.
+En el siguiente vídeo se muestra cómo editar el contenido del portal, personalizar el aspecto del sitio web y publicar los cambios.
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el nuevo portal para desarrolladores:
+Más información acerca del nuevo portal para desarrolladores:
 
 - [Repositorio de GitHub con el código fuente][1]
-- [Obtener instrucciones sobre cómo autoalojamiento del portal][2]
-- [Guía básica pública del proyecto][3]
+- [Instrucciones sobre el autohospedaje del portal][2]
+- [Hoja de ruta pública del proyecto][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki

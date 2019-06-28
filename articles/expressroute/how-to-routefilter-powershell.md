@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: e5d94fad5ddcfd0b34e36cb96727cff48b62ea0b
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730228"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell
@@ -120,7 +120,7 @@ Un filtro de ruta puede tener una única regla y la regla debe ser de tipo "Perm
 
 ### <a name="1-create-a-route-filter"></a>1. Creación de un filtro de ruta
 
-En primer lugar, cree el filtro de ruta. El comando 'New-AzRouteFilter' solo crea un recurso de filtro de ruta. Después de crear el recurso, debe crear una regla y asociarla al objeto de filtro de ruta. Ejecute el comando siguiente para crear un recurso de filtro de ruta:
+En primer lugar, cree el filtro de ruta. El comando "New-AzRouteFilter" solamente crea un recurso de filtro de ruta. Después de crear el recurso, debe crear una regla y asociarla al objeto de filtro de ruta. Ejecute el comando siguiente para crear un recurso de filtro de ruta:
 
 ```azurepowershell-interactive
 New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"

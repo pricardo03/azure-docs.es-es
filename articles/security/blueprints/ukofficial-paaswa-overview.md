@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753862"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
@@ -57,7 +57,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Aplicación de API
 - Azure DNS
 - Key Vault
-- Monitor de Azure (registros)
+- Azure Monitor (registros)
 - Application Insights
 - Azure Resource Manager
 - Azure Security Center
@@ -95,7 +95,7 @@ Los datos en tránsito desde el exterior y entre los componentes de Azure están
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) es un consultor en la nube personalizado que le ayudará a seguir los procedimientos recomendados para optimizar las implementaciones de Azure. Analiza la configuración de recursos y la telemetría de uso, y recomienda soluciones que pueden ayudar a mejoran la rentabilidad, el rendimiento, la alta disponibilidad y la seguridad de los recursos de Azure.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) es una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Esto de forma predeterminada se instala en la infraestructura subyacente de máquinas virtuales de PaaS y se administra mediante el tejido de Azure transparente para el cliente.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) es una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Se instala en la infraestructura subyacente de máquinas virtuales de PaaS de forma predeterminada y se administra mediante el tejido de Azure de forma transparente para el cliente.
 
 ### <a name="paas-services-in-this-blueprint"></a>Servicios de PaaS de este plano técnico
 
@@ -170,9 +170,9 @@ Encontrará información detallada acerca de cómo proteger Azure Storage en la 
 
 #### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-[Registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) es un servicio de Azure que le ayuda a recopilar y analizar datos generados por los recursos en la nube y entornos locales.
+Los [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) son un servicio de Azure que le ayuda a recopilar y analizar los datos generados por los recursos en los entornos locales o en la nube.
 
-#### <a name="azure-monitor-logs-in-this-blueprint"></a>Registros de Azure Monitor en este plano técnico
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Registros de Azure Monitor en este proyecto
 
 - Evaluación de SQL
 - Diagnósticos de Key Vault

@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar y solucionar problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
-description: Problemas comunes, las soluciones alternativas y pasos de diagnóstico cuando se usa el desencadenador de Azure Cosmos DB con Azure Functions
+title: Diagnóstico y solución de problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
+description: Problemas comunes, soluciones alternativas y pasos de diagnóstico cuando se usa el desencadenador de Azure Cosmos DB con Azure Functions
 author: ealsur
 ms.service: cosmos-db
 ms.date: 05/23/2019
@@ -8,94 +8,94 @@ ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734514"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar y solucionar problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
 
-Este artículo tratan problemas comunes, las soluciones alternativas y pasos de diagnóstico cuando se usa el [desencadenador de Azure Cosmos DB](change-feed-functions.md) con Azure Functions.
+En este artículo se tratan problemas comunes, soluciones alternativas y pasos de diagnóstico cuando se usa el [desencadenador de Azure Cosmos DB](change-feed-functions.md) con Azure Functions.
 
 ## <a name="dependencies"></a>Dependencias
 
-El desencadenador de Azure Cosmos DB y los enlaces dependen de los paquetes de extensión a través de la base Azure Functions en tiempo de ejecución. Mantenga siempre estos paquetes actualizados, ya que es posible que incluyen correcciones y características nuevas que pueden solucionar los posibles problemas que pueden producirse:
+El desencadenador de Azure Cosmos DB y los enlaces dependen de los paquetes de extensión a través del entorno de ejecución básico de Azure Functions. Mantenga siempre estos paquetes actualizados, ya que es posible que incluyan correcciones y características nuevas que puedan solucionar los posibles problemas:
 
-* Para Azure Functions V2, consulte [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
-* Para Azure Functions V1, consulte [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+* Para Azure Functions V2, consulte [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+* Para Azure Functions V1, consulte [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
-En este artículo siempre hará referencia a Azure Functions V2 cada vez que se menciona el tiempo de ejecución, a menos que especifique explícitamente.
+En este artículo siempre se hará referencia a Azure Functions V2 cada vez que se menciona el entorno de ejecución, a menos que se especifique explícitamente.
 
-## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumir de forma independiente el SDK de Azure Cosmos DB
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumo independiente del SDK de Azure Cosmos DB
 
-Es la funcionalidad clave del paquete de extensión proporcionar compatibilidad con el desencadenador de Azure Cosmos DB y los enlaces. También incluye el [.NET SDK de Azure Cosmos DB](sql-api-sdk-dotnet-core.md), lo que resulta útil si desea interactuar con Azure Cosmos DB mediante programación sin usar el desencadenador y enlaces.
+La funcionalidad clave del paquete de extensión consiste en proporcionar compatibilidad con el desencadenador de Azure Cosmos DB y los enlaces. También incluye el [SDK de Azure Cosmos DB .NET](sql-api-sdk-dotnet-core.md), lo que resulta útil si desea interactuar con Azure Cosmos DB mediante programación sin usar el desencadenador ni enlaces.
 
-Si desea usar el SDK de Azure Cosmos DB, asegúrese de que no agregue al proyecto otra referencia de paquete de NuGet. En su lugar, **permiten la referencia del SDK resolver a través del paquete de extensión de Azure Functions**. Usar el SDK de Azure Cosmos DB por separado de los desencadenadores y enlaces
+Si desea usar el SDK de Azure Cosmos DB, asegúrese de no agregar al proyecto otra referencia de paquete de NuGet. En su lugar, **permita que la referencia del SDK se resuelva mediante el paquete de extensión de Azure Functions**. Uso del SDK de Azure Cosmos DB por separado de los desencadenadores y enlaces
 
-Además, si va a crear manualmente su propia instancia de la [cliente SDK de Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), debe seguir el patrón de tener solo una instancia del cliente [mediante un enfoque de patrón Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Este proceso evita los problemas potenciales de socket en sus operaciones.
+Además, si va a crear manualmente su propia instancia del [cliente del SDK de Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), debe seguir el patrón de tener solo una instancia del cliente [mediante una solución de patrón Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c). Este proceso evitará posibles problemas con el socket en sus operaciones.
 
 ## <a name="common-scenarios-and-workarounds"></a>Escenarios comunes y soluciones alternativas
 
-### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>No existe la función de Azure no con la colección de mensajes de error
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>La función de Azure emite un mensaje de error que indica que la colección no existe
 
-Se produce un error en la función de Azure con el mensaje de error "en la colección de origen 'nombre de la colección' (en la base de datos 'nombre de la base de datos') o la colección de concesión"colección2-name"(en la base de datos 'nombre de la base de datos2') no existe. Ambas colecciones deben existir antes de que se inicia el agente de escucha. Para crear automáticamente la colección de concesión, establezca 'CreateLeaseCollectionIfNotExists' en 'true' "
+La función de Azure emite un mensaje de error similar a "O la colección de origen "nombre de la colección" (en la base de datos "nombre de la base de datos") o la colección de concesión"colección2-name"(en la base de datos "nombre de la base de datos2") no existen. Ambas colecciones deben existir antes de que se inicia el agente de escucha. Para crear automáticamente la colección de concesión, establezca "CreateLeaseCollectionIfNotExists" en "true"
 
-Esto significa que uno o ambos de los contenedores de Azure Cosmos necesarios para que el desencadenador de trabajo no existen o no son accesibles para la función de Azure. **El propio error le indicará qué base de datos de Azure Cosmos y contenedores es el desencadenador buscando** según su configuración.
+Esto significa que uno de los contenedores de Azure Cosmos o ambos necesarios para que funcione el desencadenador de trabajo no existen o no son accesibles para la función de Azure. **El propio error le indicará qué base de datos y qué contenedores de Azure Cosmos son el desencadenador que se busca**, según la configuración.
 
-1. Compruebe el `ConnectionStringSetting` atributo y que **hace referencia a una configuración que existe en la aplicación de función de Azure**. El valor de este atributo no debe ser la propia cadena de conexión, pero el nombre de la opción de configuración.
-2. Compruebe que la `databaseName` y `collectionName` existe en su cuenta de Azure Cosmos. Si usas el reemplazo de valor automático (mediante `%settingName%` patrones), asegúrese de que existe el nombre de la configuración de la aplicación de función de Azure.
-3. Si no especifica un `LeaseCollectionName/leaseCollectionName`, el valor predeterminado es "contratos". Compruebe que existe tal contenedor. Opcionalmente, puede establecer el `CreateLeaseCollectionIfNotExists` atributo en el desencadenador para `true` crearlo automáticamente.
-4. Compruebe su [configuración del Firewall de la cuenta de Azure Cosmos](how-to-configure-firewall.md) para ver que no está no está bloqueando la función de Azure.
+1. Compruebe el `ConnectionStringSetting` atributo y que **hace referencia a una configuración que existe en la aplicación de la función de Azure**. El valor de este atributo no debe ser la propia cadena de conexión, sino el nombre de la opción de configuración.
+2. Compruebe que `databaseName` y `collectionName` existen en su cuenta de Azure Cosmos. Si usa el reemplazo de valor automático (mediante los patrones `%settingName%`), asegúrese de que el nombre de la configuración existe en la aplicación de la función de Azure.
+3. Si no especifica un `LeaseCollectionName/leaseCollectionName`, el valor predeterminado es "leases". Compruebe que este contenedor exista. Si lo desea, puede establecer el atributo `CreateLeaseCollectionIfNotExists` en el desencadenador como `true` para crearlo automáticamente.
+4. Compruebe la [configuración del Firewall de la cuenta de Azure Cosmos](how-to-configure-firewall.md) para ver que no está bloqueando la función de Azure.
 
-### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Función de Azure no puede comenzar con "recopilación de rendimiento compartido debe tener una clave de partición"
+### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>La función de Azure no puede iniciarse e indica que "la colección con rendimiento compartido debe tener una clave de partición"
 
-Las versiones anteriores de la extensión de Azure Cosmos DB no admitía mediante un contenedor de las concesiones que se creó un [base de datos de rendimiento compartido](./set-throughput.md#set-throughput-on-a-database). Para resolver este problema, actualice el [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) extensión para obtener la versión más reciente.
+Las versiones anteriores de la extensión de Azure Cosmos DB no permitían usar un contenedor de concesión que se creara dentro de una [base de datos de rendimiento compartido](./set-throughput.md#set-throughput-on-a-database). Para resolver este problema, actualice la extensión [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) para obtener la versión más reciente.
 
-### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Función de Azure no puede comenzar con "la colección de concesión, si tiene particiones, debe tener igual al identificador de clave de partición".
+### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>La función de Azure no puede iniciarse e indica que "la colección de concesión, si tiene particiones, debe tener la clave de partición igual que el identificador".
 
-Este error significa que el contenedor de las concesiones actual tiene particiones, pero la ruta de acceso de clave de partición no es `/id`. Para resolver este problema, debe volver a crear el contenedor de concesiones con `/id` como clave de partición.
+Este error significa que el contenedor de concesiones actual tiene particiones, pero la ruta de acceso de clave de partición no es `/id`. Para resolver este problema, debe volver a crear el contenedor de concesiones con `/id` como clave de partición.
 
-### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Verá un "valor no puede ser null. Nombre de parámetro: o "en los registros de Azure Functions cuando se intenta ejecutar el desencadenador
+### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Aparece un mensaje que indica "El valor no puede ser null. Nombre de parámetro: o" en los registros de Azure Functions cuando se intenta ejecutar el desencadenador
 
-Este problema aparece si utilizas el portal de Azure y se vuelva a seleccionar la **ejecutar** botón en la pantalla al inspeccionar una función de Azure que usa el desencadenador. El desencadenador no se requiere para que seleccionar ejecutar para iniciar, se iniciará automáticamente cuando se implementa la función de Azure. Si desea comprobar la secuencia de registro de la función de Azure en Azure portal, simplemente vaya al contenedor supervisado e insertar algunos nuevos elementos, verá automáticamente la ejecución del desencadenador.
+Este problema aparece si se usa Azure Portal y se intenta seleccionar el botón **Ejecutar** en la pantalla al inspeccionar una función de Azure que usa el desencadenador. El desencadenador no requiere que seleccione Ejecutar para iniciarse, se iniciará automáticamente cuando se implemente la función de Azure. Si desea comprobar la secuencia de registro de la función de Azure en Azure Portal, basta con que vaya al contenedor supervisado e inserte algunos elementos nuevos; verá automáticamente el desencadenador ejecutándose.
 
-### <a name="my-changes-take-too-long-be-received"></a>Recibir mi participación cambios demasiado largo
+### <a name="my-changes-take-too-long-be-received"></a>Mis cambios tardan demasiado en recibirse
 
-Este escenario puede haber varias causas y todos ellos deben comprobarse:
+Este escenario puede tener varias causas y todas deben comprobarse:
 
-1. ¿La función de Azure se implementa en la misma región que la cuenta de Azure Cosmos? Óptimo latencia de red, la función de Azure y su cuenta de Azure Cosmos deben estar colocadas en la misma región de Azure.
-2. ¿Se producen los cambios en el contenedor de Azure Cosmos continua o esporádico?
-Si trata del último caso, podría haber algún retraso entre los cambios que se almacena y seleccionarlos la función de Azure. Esto es porque internamente, cuando el desencadenador comprueba si hay cambios en el contenedor de Azure Cosmos y no encuentra ninguno pendientes para leerse, estará en suspensión durante un periodo de tiempo (5 segundos, de forma predeterminada) configurable antes de comprobar los cambios nuevo (evitar el elevado consumo de RU). Puede configurar este tiempo de suspensión a través de la `FeedPollDelay/feedPollDelay` en el [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del desencadenador (se espera el valor en milisegundos).
-3. Podría ser el contenedor de Azure Cosmos [velocidad limitada](./request-units.md).
-4. Puede usar el `PreferredLocations` atributo en el desencadenador para especificar una lista separada por comas de las regiones de Azure para definir un orden personalizado de conexión preferido.
+1. ¿La función de Azure se implementa en la misma región que su cuenta de Azure Cosmos? Para que la latencia de red se a óptima, la función de Azure y su cuenta de Azure Cosmos deben estar colocadas en la misma región de Azure.
+2. ¿Se producen los cambios en el contenedor de Azure Cosmos de forma continua o esporádica?
+Si ocurre lo segundo, podría haber algún retraso entre los cambios que se almacenan y el momento en que la función de Azure los recoge. Esto se debe a que, internamente, cuando el desencadenador comprueba si hay cambios en el contenedor de Azure Cosmos y no encuentra ninguno pendientes para leerse, se suspende durante un periodo (5 segundos, de forma predeterminada) configurable antes de comprobar si hay nuevos cambios (para evitar un consumo elevado de RU). Puede configurar este tiempo de suspensión en la opción `FeedPollDelay/feedPollDelay` de la [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del desencadenador (el valor debe especificarse en milisegundos).
+3. El contenedor de Azure Cosmos podría tener una [velocidad limitada](./request-units.md).
+4. Puede usar el atributo `PreferredLocations` en el desencadenador para especificar una lista separada por comas de las regiones de Azure y definir un orden personalizado preferido de conexión.
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Faltan algunos cambios en mi desencadenador
 
-Si observa que algunos de los cambios producidos en el contenedor de Azure Cosmos no se recogen la función de Azure, hay un paso de investigación inicial que debe llevar a cabo.
+Si observa que algunos de los cambios producidos en el contenedor de Azure Cosmos no son recogidos por la función de Azure, debe llevar a cabo una investigación inicial.
 
-Cuando la función de Azure recibe los cambios, a menudo los procesa y opcionalmente, enviar el resultado a otro destino. Cuando se está investigando los cambios que faltan, asegúrese de **medida los cambios que se reciben en el punto de ingesta** (cuando se inicia la función de Azure), no en el destino.
+Cuando la función de Azure recibe los cambios, a menudo los procesa y, opcionalmente, envía el resultado a otro destino. Cuando investigue los cambios que faltan, asegúrese de **medir los cambios que se reciben en el punto de ingesta** (cuando se inicia la función de Azure), no en el destino.
 
-Si faltan algunos cambios en el destino, esto podría significar que es algún error que ocurre durante la ejecución de la función de Azure después de que los cambios se han recibido.
+Si faltan algunos cambios en el destino, esto podría significar que se trata de algún error que sucede durante la ejecución de la función de Azure después de recibir los cambios.
 
-En este escenario, la mejor forma de acción consiste en agregar `try/catch blocks` en el código y dentro de los bucles que podrían estar procesando los cambios, para detectar cualquier error para un subconjunto determinado de elementos y controlarlos según corresponda (enviarlos a otro almacenamiento adicional análisis o vuelva a intentarlo). 
+En este escenario, la mejor forma de proceder consiste en agregar `try/catch blocks` en el código y dentro de los bucles que podrían estar procesando los cambios, para detectar errores en un subconjunto determinado de elementos y controlarlos según corresponda (enviarlos a otro almacenamiento adicional para seguir con el análisis o volver a intentarlo). 
 
 > [!NOTE]
-> El desencadenador de Azure Cosmos DB, de forma predeterminada, no vuelva a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios en el destino es ya que se producen errores al procesarlos.
+> El desencadenador de Azure Cosmos DB, de forma predeterminada, no volverá a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios al destino es que se producen errores al procesarlos.
 
-Si encuentra que algunos cambios no han recibido en absoluto el desencadenador, el escenario más común es que hay **se está ejecutando otra instancia de Azure Functions**. Es posible que otra función de Azure implementados en Azure o una función de Azure que se ejecuta localmente en un desarrollador de la máquina que tiene **exactamente la misma configuración** (mismo supervisados y contenedores de la concesión), y esta función de Azure se robe un subconjunto de los cambios que se esperaría que la función de Azure para procesar.
+Si aprecia que algunos cambios no se han recibido en el desencadenador, el escenario más común es que hay **otra función de Azure en ejecución**. Es posible que otra función de Azure implementada en Azure o que se ejecute localmente en la máquina del desarrollador tenga **exactamente la misma configuración** (mismos contenedores de concesión y supervisados), y esta función de Azure esté robando un subconjunto de los cambios que se espera que la función de Azure procesase.
 
-Además, se puede validar el escenario, si sabe cuántas instancias de Azure Function App tiene ejecutando. Si inspeccionar el contenedor de las concesiones y contar el número de elementos del arrendamiento dentro de los distintos valores de la `Owner` propiedad en ellos debe ser igual al número de instancias de la aplicación de función. Si hay más propietarios de las instancias de Azure Function App conocidos, significa que estos propietarios adicionales son el uno "adquiriendo" los cambios.
+Además, el escenario se puede validar, si sabe cuántas instancias de la aplicación de función de Azure están ejecutándose. Si inspecciona el contenedor de concesión y cuenta el número de elementos de concesión que contiene, los distintos valores de la propiedad `Owner` en ellos debería ser igual al número de instancias de la aplicación de función. Si hay más propietarios de las instancias de la aplicación de función de Azure conocidas, significa que estos propietarios adicionales son los que están "robando" los cambios.
 
-Una manera fácil para solucionar esta situación, es aplicar un `LeaseCollectionPrefix/leaseCollectionPrefix` a la función con un valor nuevo o diferente o, como alternativa, pruebe con un nuevo contenedor de las concesiones.
+Una manera fácil de solucionar esta situación es aplicar un `LeaseCollectionPrefix/leaseCollectionPrefix` a la función con un valor nuevo o diferente, o bien probar con un nuevo contenedor de concesión.
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Solo se puede realizar el enlace con IReadOnlyList<Document> o JArray
 
-Este error se produce si el proyecto de Azure Functions (o cualquier proyecto que se hace referencia) contiene una referencia de NuGet manual para el SDK de Azure Cosmos DB con una versión diferente a la proporcionada por el [funciones de Azure Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+Este error se produce si el proyecto de Azure Functions (o cualquier proyecto al que se haga referencia) contiene una referencia de NuGet manual al SDK de Azure Cosmos DB con una versión diferente de la proporcionada por la [Extensión Cosmos DB de Azure Functions](./troubleshoot-changefeed-functions.md#dependencies).
 
-Para solucionar esta situación, remove resolver la referencia de NuGet manual que se ha agregado y dejar que la referencia del SDK de Azure Cosmos DB mediante el paquete de extensión de Azure Functions Cosmos DB.
+Para solucionar esta situación, quite la referencia manual de NuGet que se ha agregado y deje que la referencia del SDK de Azure Cosmos DB se resuelva con el paquete de la Extensión de Azure Functions de Cosmos DB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Habilitar la supervisión de las funciones de Azure](../azure-functions/functions-monitoring.md)
-* [Azure Cosmos DB .NET SDK solución de problemas](./troubleshoot-dot-net-sdk.md)
+* [Habilitación de la supervisión para Azure Functions](../azure-functions/functions-monitoring.md)
+* [Solución de problemas del SDK de .NET para Azure Cosmos DB](./troubleshoot-dot-net-sdk.md)

@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753985"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
@@ -68,7 +68,7 @@ Para más información sobre la API de creación de origen de datos, consulte [C
 
 Puede proporcionar las credenciales para el contenedor de blobs de una de estas maneras:
 
-- **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Puede obtener la cadena de conexión desde Azure portal, vaya a la hoja de la cuenta de almacenamiento > Configuración > claves (para cuentas de almacenamiento clásico) o los valores > las teclas de acceso (cuentas de almacenamiento de Azure Resource Manager).
+- **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Para obtener la cadena de conexión de Azure Portal, vaya a la hoja de la cuenta de almacenamiento > Configuración > Claves (para las cuentas de almacenamiento del modelo clásico) o Configuración > Claves de acceso (para las cuentas de almacenamiento de Azure Resource Manager).
 - Cadena de conexión de la **firma de acceso compartido de la cuenta de almacenamiento** (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores y objetos (en este caso, los blobs).
 -  **Firma de acceso compartido del contenedor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` La firma de acceso compartido debe tener permisos de enumeración y lectura sobre el contenedor.
 
@@ -116,14 +116,14 @@ Este indizador se ejecutará cada dos horas (el intervalo de programación se es
 
 Para más información sobre la API Create Indexer, consulte [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Para obtener más información acerca de cómo definir programaciones de indizador vea [cómo programar los indizadores para Azure Search](search-howto-schedule-indexers.md).
+Para más información acerca de cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="how-azure-search-indexes-blobs"></a>Proceso mediante el cual Azure Search indiza los blobs
 
 En función de la [configuración del indizador](#PartsOfBlobToIndex), el indizador de blob puede indizar solo los metadatos de almacenamiento (resulta útil cuando solo le interesan los metadatos y no necesita indizar el contenido de los blobs), los metadatos de almacenamiento y contenido, o bien el contenido textual y los metadatos. De forma predeterminada, el indizador extrae los metadatos y el contenido.
 
 > [!NOTE]
-> De forma predeterminada, se indexan blobs con contenido estructurado como JSON o CSV como un único fragmento de texto. Si desea indizar blobs CSV y JSON en una forma estructurada, consulte [indexación de blobs JSON](search-howto-index-json-blobs.md) y [indexación de blobs CSV](search-howto-index-csv-blobs.md) para obtener más información.
+> De forma predeterminada, se indexan blobs con contenido estructurado como JSON o CSV como un único fragmento de texto. Si desea indexar blobs CSV y JSON de forma estructurada, consulte [Indexación de blobs JSON](search-howto-index-json-blobs.md) e [Indexación de blobs CSV](search-howto-index-csv-blobs.md) para más información.
 >
 > Un documento compuesto o insertado (por ejemplo, un archivo ZIP o un documento de Word con correo electrónico de Outlook insertado que contiene datos adjuntos) también se indexa como un solo documento.
 
@@ -141,7 +141,7 @@ En función de la [configuración del indizador](#PartsOfBlobToIndex), el indiza
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): La última marca de tiempo modificada para el blob. Azure Search usa esta marca de tiempo para identificar los blobs modificados para evitar volver a indexar todo después de la indexación inicial.
   * **metadata\_storage\_size** (Edm.Int64): Tamaño del blob en bytes.
   * **metadata\_storage\_content\_md5** (Edm.String): Hash MD5 del contenido del blob, si está disponible.
-  * **metadatos\_almacenamiento\_sas\_token** (Edm.String): un token SAS temporal que puede usarse por [habilidades personalizadas](cognitive-search-custom-skill-interface.md) para obtener acceso al blob. No se debe almacenar este token para su uso posterior es posible que expire.
+  * **metadata\_storage\_sas\_token** (Edm.String): un token de SAS temporal que pueden utilizar las [aptitudes personalizadas](cognitive-search-custom-skill-interface.md) para obtener acceso al blob. Este token no se debe almacenar para su uso posterior, ya que podría expirar.
 
 * Se extraen las propiedades de metadatos específicos de cada formato de documento en los campos enumerados [aquí](#ContentSpecificMetadata).
 
@@ -337,7 +337,7 @@ La indización de blobs puede ser un proceso lento. En los casos donde hay millo
 
 Es posible que quiera "ensamblar" documentos de varios orígenes en el índice. Por ejemplo, puede que quiera combinar texto de blobs con otros metadatos almacenados en Cosmos DB. Incluso puede usar la API de indexación de inserción junto con varios indexadores para crear documentos de búsqueda a partir de varias partes. 
 
-Para que funcione, todos los indexadores y demás componentes deben coincidir con la clave del documento. Para obtener un tutorial detallado, consulte este artículo externo: [Combinar documentos con otros datos en Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para que funcione, todos los indexadores y demás componentes deben coincidir con la clave del documento. Para obtener un tutorial detallado, consulte este artículo externo: [Combine documents with other data in Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinación de documentos con otros datos en Azure Search).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexación de texto sin formato 

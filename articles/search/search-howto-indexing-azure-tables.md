@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755089"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexación de Azure Table Storage con Azure Search
@@ -115,7 +115,7 @@ Este indexador se ejecuta cada dos horas. (El intervalo de programación se esta
 
 Para más información sobre la API de creación de indexador, consulte [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de un indexador).
 
-Para obtener más información acerca de cómo definir programaciones de indizador vea [cómo programar los indizadores para Azure Search](search-howto-schedule-indexers.md).
+Para más información acerca de cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Trabajo con distintos nombres de campos
 A veces, los nombres de los campos de un índice existente no coincidirán con los nombres de las propiedades de la tabla. Puede usar asignaciones de campos para asignar los nombres de propiedad procedentes de la tabla a los nombres de campo del índice de búsqueda. Para aprender más sobre las asignaciones de campos, consulte [Las asignaciones de campos de indexador de Azure Search salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).

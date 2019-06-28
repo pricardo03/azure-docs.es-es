@@ -15,10 +15,10 @@ ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: de9ae8e5c0cbf0997811db9624f6c6b92e03a5df
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742936"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
@@ -37,13 +37,13 @@ Sin importar el número de instancias escaladas horizontalmente, cada aplicació
 
 ## <a name="find-the-inbound-ip"></a>Buscar la dirección IP de entrada
 
-Simplemente ejecute el siguiente comando en un terminal local:
+Solo ejecute el siguiente comando en un terminal local:
 
 ```bash
 nslookup <app-name>.azurewebsites.net
 ```
 
-## <a name="get-a-static-inbound-ip"></a>Obtener una dirección IP de entrada estática
+## <a name="get-a-static-inbound-ip"></a>Obtención de una dirección IP de entrada estática
 
 En ocasiones, podría desear una dirección IP estática dedicada para la aplicación. Para obtener una dirección IP de entrada estática, debe configurar un [enlace SSL basado en IP](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Si realmente no necesita la funcionalidad SSL para proteger la aplicación, puede cargar incluso un certificado autofirmado para este enlace. En un enlace SSL basado en IP, el certificado se enlaza a la dirección IP propiamente dicha, de modo que App Service aprovisiona una dirección IP estática para conseguir que esto ocurra. 
 
@@ -53,11 +53,11 @@ Sin importar el número de instancias escaladas horizontalmente, cada aplicació
 
 El conjunto de direcciones IP de salida de la aplicación cambia cuando se escala la aplicación entre los niveles inferiores (**Básica**, **Estándar**, **Premium**) y **Premium V2**.
 
-Puede encontrar el conjunto de todas las posibles direcciones IP de salida puede utilizar la aplicación, independientemente de la tarifa, buscando el `possibleOutboundIPAddresses` propiedad o en el **más direcciones IP salientes** campo el **propiedades**  hoja en el portal de Azure. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ips).
+Puede encontrar el conjunto de todas las posibles direcciones IP de salida que puede utilizar la aplicación, independientemente de los planes de tarifa, buscando la propiedad `possibleOutboundIPAddresses` o en el campo **Direcciones IP salientes adicionales** de la hoja **Propiedades** de Azure Portal. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Búsqueda de las direcciones IP de salida
 
-Para buscar las direcciones IP de salida que usa actualmente su aplicación en Azure Portal, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en la **direcciones IP de salida** campo.
+Para buscar las direcciones IP de salida que usa actualmente su aplicación en Azure Portal, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP de salida**.
 
 Puede encontrar la misma información si ejecuta el comando siguiente en [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -69,7 +69,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Para buscar _todas_ posibles direcciones IP de salida para la aplicación, con independencia de tarifa, haga clic en **propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en la **más direcciones IP salientes** campo.
+Para buscar _todas_ las posibles direcciones IP de salida para la aplicación, con independencia de los planes de tarifa, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP salientes adicionales**.
 
 Puede encontrar la misma información si ejecuta el comando siguiente en [Cloud Shell](../cloud-shell/quickstart.md).
 

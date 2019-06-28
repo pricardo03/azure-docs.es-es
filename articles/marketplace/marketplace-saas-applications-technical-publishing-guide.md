@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
 ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752727"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
@@ -138,7 +138,7 @@ Microsoft hospeda la transacción comercial. Microsoft factura al cliente en su 
 | API de suscripción | Usted expone un servicio que puede interactuar con la suscripción SaaS para crear, actualizar y eliminar una cuenta de usuario y un plan de servicio. Los cambios importantes en la API deben admitirse dentro de un plazo de 24 horas. Los cambios no importantes en la API se publicarán de forma periódica. |  
 
 >[!Note]
->Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](./cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
+>La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible.  Consulte [Proveedores de soluciones en la nube](./cloud-solution-providers.md) para obtener más información sobre el marketing que ofrece a través de los canales de asociados de CSP de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho,

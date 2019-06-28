@@ -1,32 +1,32 @@
 ---
-title: Arquitectura de conectividad en Azure Database for MariaDB
-description: Describe la arquitectura de conectividad para su servidor Azure Database for MariaDB.
+title: Arquitectura de la conectividad en Azure Database for MariaDB
+description: Describe la arquitectura de conectividad para el servidor de Azure Database for MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: mariaDB
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.openlocfilehash: 126e7ce4d9784a2f6a59f39562dff9a0b9d60ea0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735397"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitectura de conectividad en Azure Database for MariaDB
-Este artículo explica la base de datos de Azure para la arquitectura de conectividad de MariaDB, así como la que el tráfico se dirige a la base de datos de Azure para la instancia de MariaDB de clientes, tanto dentro como fuera de Azure.
+# <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitectura de la conectividad en Azure Database for MariaDB
+En este artículo se explica la arquitectura de la conectividad de Azure Database for MariaDB y cómo se dirige el tráfico a la instancia de Azure Database for MariaDB desde los clientes de dentro y de fuera de Azure.
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 
-Conexión a Azure Database for MariaDB se establece a través de una puerta de enlace que se encarga de enrutamiento de las conexiones entrantes a la ubicación física del servidor en nuestros clústeres. El diagrama siguiente ilustra el flujo de tráfico.
+La conexión a la base de datos de Azure Database for MariaDB se establece a través de una puerta de enlace que se encarga de enrutamiento de las conexiones entrantes a la ubicación física del servidor en nuestros clústeres. En el siguiente diagrama se muestra este flujo de tráfico.
 
-![Información general sobre la arquitectura de conectividad](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+![Información general de la arquitectura de conectividad](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Como cliente conectarse a la base de datos, obtiene una cadena de conexión que se conecta a la puerta de enlace. Esta puerta de enlace tiene una dirección IP pública que escucha el puerto 3306. Dentro del clúster de base de datos, el tráfico se reenvía a la base de datos de Azure adecuada para MariaDB. Por lo tanto, para conectarse a su servidor, como en redes corporativas, es necesario abrir el firewall del lado cliente para permitir el tráfico saliente poder tener acceso a las puertas de enlace. A continuación encontrará una lista completa de las direcciones IP usadas por las puertas de enlace por región.
+Al conectarse a la base de datos, los clientes obtienen una cadena de conexión para conectarse a la puerta de enlace. Esta puerta de enlace tiene una dirección IP pública que escucha el puerto 3306. Dentro, el tráfico del clúster se reenvía a la instancia de Azure Database for MariaDB adecuada. Por lo tanto, para conectarse a su servidor, como en las redes corporativas, es necesario abrir el firewall del lado cliente para permitir que el tráfico saliente llegue a nuestras puertas de enlace. A continuación encontrará una lista completa de las direcciones IP que usan nuestras puertas de enlace por región.
 
-## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>Base de datos de Azure para las direcciones IP de puerta de enlace de MariaDB
+## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure Database for MariaDB
 
-En la tabla siguiente se enumera las direcciones de IP principal y secundaria de la puerta de enlace de MariaDB para todas las regiones de datos de la base de datos de Azure. La dirección IP principal es la dirección IP actual de la puerta de enlace y la segunda dirección IP es una dirección IP de conmutación por error en caso de error de la réplica principal. Como se mencionó, los clientes deben permitir salientes a ambas direcciones IP. La segunda dirección IP no escuche en cualquier servicio hasta que se active por-Azure Database for MariaDB Aceptar conexiones.
+En la siguiente tabla se enumeran las direcciones IP principales y secundarias de la puerta de enlace de Azure Database for MariaDB para todas las regiones de datos. La dirección IP principal es la dirección IP actual de la puerta de enlace y la dirección IP secundaria es una dirección IP de conmutación por error en caso de que falle la principal. Como ya se ha mencionado, los clientes deben permitir el tráfico saliente a ambas direcciones IP. La dirección IP secundaria no escucha en ningún servicio hasta que Azure Database for MariaDB la activa para aceptar conexiones.
 
 | **Nombre de la región** | **Dirección IP principal** | **Dirección IP secundaria** |
 |:----------------|:-------------|:------------------------|
@@ -69,4 +69,4 @@ En la tabla siguiente se enumera las direcciones de IP principal y secundaria de
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md) (Creación y administración de reglas de firewall de Azure Database for MariaDB mediante Azure Portal)
-* [Creación y administración de Azure Database for MariaDB reglas de firewall mediante la CLI de Azure](./howto-manage-firewall-cli.md)
+* [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-cli.md) (Creación y administración de reglas de firewall de Azure Database for MariaDB mediante la CLI de Azure)

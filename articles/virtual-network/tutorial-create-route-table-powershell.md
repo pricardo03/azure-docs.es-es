@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: cd13b3a7a3bc4d5a80e44d146e08c14e81ffdb60
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730066"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante PowerShell
@@ -46,13 +46,13 @@ Si decide instalar y usar PowerShell de forma local, para realizar los pasos de 
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
-Para poder crear una tabla de rutas, cree un grupo de recursos con [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* para todos los recursos creados en este artículo.
+Para poder crear una tabla de rutas, debe crear un grupo de recursos con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* para todos los recursos creados en este artículo.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Crear una tabla de rutas con [New AzRouteTable](/powershell/module/az.network/new-azroutetable). En el ejemplo siguiente se crea una tabla de rutas denominada *myRouteTablePublic*.
+Cree una tabla de rutas con [New-AzRouteTable](/powershell/module/az.network/new-azroutetable). En el ejemplo siguiente se crea una tabla de rutas denominada *myRouteTablePublic*.
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzRouteTable `
@@ -63,7 +63,7 @@ $routeTablePublic = New-AzRouteTable `
 
 ## <a name="create-a-route"></a>Creación de una ruta
 
-Cree una ruta al recuperar el objeto de tabla de ruta con [Get AzRouteTable](/powershell/module/az.network/get-azroutetable), cree una ruta con [agregar AzRouteConfig](/powershell/module/az.network/add-azrouteconfig), a continuación, escriba la configuración de ruta en la tabla de rutas con [ Conjunto AzRouteTable](/powershell/module/az.network/set-azroutetable).
+Cree una ruta recuperando el objeto de la tabla de rutas con [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable), cree una ruta con [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) y luego escriba la configuración de la ruta para la tabla de rutas con [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable).
 
 ```azurepowershell-interactive
 Get-AzRouteTable `
@@ -89,7 +89,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Cree tres subredes mediante la creación de tres configuraciones de subred con [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crean tres configuraciones de subred para las subredes *Pública*, *Privada* y *DMZ*:
+Cree tres subredes a partir de tres configuraciones de subred con [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crean tres configuraciones de subred para las subredes *Pública*, *Privada* y *DMZ*:
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -108,13 +108,13 @@ $subnetConfigDmz = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Escribir las configuraciones de subred en la red virtual con [conjunto AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), que crea las subredes de la red virtual:
+Escriba las configuraciones de subred en la red virtual con [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), lo que crea las subredes en la red virtual:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-Asociar el *myRouteTablePublic* tabla de rutas a la *pública* subred con [conjunto AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) y, a continuación, escriba la configuración de subred a la red virtual con [conjunto AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
+Asocie la tabla de rutas *myRouteTablePublic* a la subred *Pública* con [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) y escriba la configuración de subred en la red virtual con [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -133,7 +133,7 @@ Antes de crear una máquina virtual, cree una interfaz de red.
 
 ### <a name="create-a-network-interface"></a>Crear una interfaz de red
 
-Antes de crear una interfaz de red, tiene que recuperar el virtual con identificador de red [Get AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), a continuación, el Id. de subred con [Get AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Cree una interfaz de red con [New AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) en el *DMZ* subred con el reenvío IP habilitado:
+Para poder crear una interfaz de red, tiene que recuperar el identificador de red virtual con [Get AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) y el identificador de subred con [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Cree una interfaz de red con [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) en la subred *DMZ* con el reenvío IP habilitado:
 
 ```azurepowershell-interactive
 # Retrieve the virtual network object into a variable.
@@ -157,7 +157,7 @@ $nic = New-AzNetworkInterface `
 
 ### <a name="create-a-vm"></a>Crear una VM
 
-Para crear una máquina virtual y asociarle una interfaz de red existente a ella, primero debe crear una configuración de máquina virtual con [New AzVMConfig](/powershell/module/az.compute/new-azvmconfig). La configuración incluye la interfaz de red que creó en el paso anterior. Cuando se le pida un nombre de usuario y una contraseña, seleccione el nombre de usuario y la contraseña con los que quiere iniciar sesión en la máquina virtual.
+Para crear una máquina virtual y asociarle una interfaz de red existente, primero debe crear una configuración de máquina virtual con [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). La configuración incluye la interfaz de red que creó en el paso anterior. Cuando se le pida un nombre de usuario y una contraseña, seleccione el nombre de usuario y la contraseña con los que quiere iniciar sesión en la máquina virtual.
 
 ```azurepowershell-interactive
 # Create a credential object.
@@ -178,7 +178,7 @@ $vmConfig = New-AzVMConfig `
   Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Crear la máquina virtual mediante la configuración de máquina virtual con [New-AzVM](/powershell/module/az.compute/new-azvm). En el ejemplo siguiente se crea una máquina virtual denominada *myVmNva*.
+Cree la máquina virtual utilizando su configuración con [New-AzVM](/powershell/module/az.compute/new-azvm). En el ejemplo siguiente se crea una máquina virtual denominada *myVmNva*.
 
 ```azurepowershell-interactive
 $vmNva = New-AzVM `
@@ -194,7 +194,7 @@ La opción `-AsJob` crea la máquina virtual en segundo plano, así que puede co
 
 Cree dos máquinas virtuales en la red virtual para que pueda validar que el tráfico que procede de la subred *Pública* se enruta a la subred *Privada* mediante la aplicación virtual de red de un paso posterior.
 
-Crear una máquina virtual en el *pública* subred con [New-AzVM](/powershell/module/az.compute/new-azvm). En el ejemplo siguiente se crea una máquina virtual llamada *myVmPublic* en la subred *Public* de la red virtual *myVirtualNetwork*.
+Cree una máquina virtual en la subred *Pública* con [New-AzVM](/powershell/module/az.compute/new-azvm). En el ejemplo siguiente se crea una máquina virtual llamada *myVmPublic* en la subred *Public* de la red virtual *myVirtualNetwork*.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -223,7 +223,7 @@ La máquina virtual tarda en crearse unos minutos. No continúe con el paso sigu
 
 ## <a name="route-traffic-through-an-nva"></a>Enrutamiento del tráfico a través de una aplicación virtual de red
 
-Use [Get AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para devolver la dirección IP pública de la *myVmPrivate* máquina virtual. En el siguiente ejemplo se devuelve la dirección IP pública de la máquina virtual *myVmPrivate*:
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para devolver la dirección IP pública de la máquina virtual *myVmPrivate*. En el siguiente ejemplo se devuelve la dirección IP pública de la máquina virtual *myVmPrivate*:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `
@@ -242,7 +242,7 @@ Abra el archivo RDP descargado. Cuando se le pida, seleccione **Conectar**.
 
 Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual (puede que deba seleccionar **Más opciones** y luego **Usar una cuenta diferente**, para especificar las credenciales que escribió cuando creó la máquina virtual). A continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión.
 
-En un paso posterior, el `tracert.exe` comando se usa para probar el enrutamiento. Tracert usa el Protocolo de mensajes de control de Internet (ICMP), que se deniega a través del Firewall de Windows. Para habilitar ICMP mediante el Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
+En el último paso, se usa el comando `tracert.exe` para probar el enrutamiento. Tracert usa el Protocolo de mensajes de control de Internet (ICMP), que se deniega a través del Firewall de Windows. Para habilitar ICMP mediante el Firewall de Windows, escriba el comando siguiente desde PowerShell en la máquina virtual *myVmPrivate*:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -323,7 +323,7 @@ Cierre la sesión de Escritorio remoto a la máquina virtual *myVmPrivate*.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no es necesario, utilice [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene.
+Cuando ya no lo necesite, utilice [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

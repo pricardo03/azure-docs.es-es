@@ -1,6 +1,6 @@
 ---
-title: Integrar Microsoft Azure con la infraestructura de nube de Oracle | Microsoft Docs
-description: Obtenga información sobre las soluciones que integran las aplicaciones de Oracle que se ejecutan en Microsoft Azure con bases de datos de infraestructura de nube de Oracle (OCI).
+title: Integración de Microsoft Azure con Oracle Cloud Infrastructure | Microsoft Docs
+description: Obtenga información acerca de las soluciones que integran las aplicaciones de Oracle que se ejecutan en Microsoft Azure con bases de datos de Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -15,64 +15,64 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 711fce9627537e68171c3b170121900d6b14ca1e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808620"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluciones de aplicación de Oracle, la integración de Microsoft Azure y la infraestructura de nube de Oracle (versión preliminar)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluciones de aplicaciones de Oracle que integran Microsoft Azure y Oracle Cloud Infrastructure (versión preliminar)
 
-Microsoft y Oracle se han asociado para proporcionar baja latencia, conectividad de toda la nube de alto rendimiento, lo que le permite aprovechar lo mejor de ambas nubes. 
+Microsoft y Oracle se han asociado para proporcionar baja latencia y conectividad de alto rendimiento entre nubes, lo que permite sacar provecho de lo mejor de ambas nubes. 
 
-Con esta conectividad entre la nube, puede dividir una aplicación de niveles múltiples para ejecutar su nivel de base de datos de infraestructura de nube de Oracle (OCI) y la aplicación y otros niveles en Microsoft Azure. La experiencia es similar a la ejecución de la pila de toda la solución en una nube única. 
+Mediante esta conectividad entre nubes, puede particionar una aplicación de niveles múltiples para que ejecute su nivel de base de datos en Oracle Cloud Infrastructure (OCI) y la aplicación y los restantes niveles en Microsoft Azure. La experiencia es similar a ejecutar la pila de toda la solución en una nube individual. 
 
 > [!IMPORTANT]
-> Esta capacidad de toda la nube está actualmente en versión preliminar y algunos [limitaciones se aplican](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Esta funcionalidad está actualmente en versión preliminar y se [aplican ciertas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
-Si está interesado en implementar las soluciones de Oracle por completo en la infraestructura de Azure, consulte [imágenes de máquina virtual de Oracle y su implementación en Microsoft Azure](oracle-vm-solutions.md).
+Si está interesado en implementar soluciones de Oracle por completo en la infraestructura de Azure, consulte [Imágenes de máquina virtual de Oracle y su implementación en Microsoft Azure](oracle-vm-solutions.md).
 
 ## <a name="scenario-overview"></a>Información general de escenario
 
-Conectividad entre la nube proporciona una solución para ejecutar aplicaciones de tecnología de vanguardia de Oracle y sus propias aplicaciones personalizadas, en Azure virtual machines mientras disfruta las ventajas de servicios de base de datos hospedada en OCI. 
+La conectividad entre nubes proporciona una solución para ejecutar no solo las aplicaciones líderes del sector de Oracle, sino también sus propias aplicaciones personalizadas, en máquinas virtuales de Azure y disfrutar de las ventajas de servicios de base de datos hospedada en OCI. 
 
-Puede ejecutar en una configuración de la nube entre las aplicaciones incluyen:
+Entre las aplicaciones que se pueden ejecutar en una configuración entre nubes se incluyen:
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
 * PeopleSoft
 * Aplicaciones comerciales de Oracle
-* Administración financiera de Oracle Hyperion
+* Oracle Hyperion Financial Management
 
-El diagrama siguiente es una descripción general de la solución conectada. Por motivos de simplicidad, el diagrama muestra solo una capa de aplicación y una capa de datos. Dependiendo de la aplicación architecutre, la solución podría incluir capas adicionales, como un nivel web en Azure. Para más información, consulte las siguientes secciones:
+El siguiente diagrama es una introducción de alto nivel de la solución conectada. Por motivos de simplicidad, el diagrama muestra solo una capa de aplicación y una capa de datos. En función de la arquitectura de la aplicación, la solución puede incluir niveles adicionales, como un nivel web en Azure. Para más información, consulte las siguientes secciones:
 
-![Introducción a la solución OCI Azure](media/oracle-oci-overview/crosscloud.png)
+![Introducción a la solución OCI de Azure](media/oracle-oci-overview/crosscloud.png)
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-* Conectividad entre nubes en versión preliminar se limita a la región de Azure East US (eastus) y la región de Ashburn OCI (us-ashburn-1).
+* La conectividad entre nubes en versión preliminar está limitada a las regiones de Este de EE. UU. (eastus) de Azure y OCI de Ashburn OCI (us-ashburn-1).
 
 ## <a name="networking"></a>Redes
 
-Los clientes empresariales a menudo deciden diversificar e implementar las cargas de trabajo a través de varias nubes para varias empresas y razones operativas. Para diversificar, los clientes interconexión de redes de nube mediante VPN de IPSec, internet o con soluciones de conectividad directa del proveedor de nube a través de la red local. Interconexión de redes en la nube puede requerir grandes inversiones en tiempo, dinero, diseño, adquisición, instalación, pruebas y operaciones. 
+Los clientes empresariales a menudo deciden diversificar e implementar las cargas de trabajo a través de varias nubes por motivos empresariales y de funcionamiento. Para diversificar, los clientes interconectan las redes en la nube mediante Internet, IPSec VPN, Internet o mediante la solución de conectividad directa del proveedor de la nube a través de su red local. La interconexión de redes en la nube puede requerir considerables inversiones de tiempo, dinero, diseño, adquisición, instalación, pruebas y operaciones. 
 
-Para abordar los desafíos del cliente, Oracle y Microsoft han habilitado una experiencia integrada de varias nubes. Las redes de toda la nube se establece mediante la conexión una [ExpressRoute](../../../expressroute/expressroute-introduction.md) circuito en Microsoft Azure con un [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuito en OCI. Esta conectividad es posible, donde una ubicación de emparejamiento de ExpressRoute de Azure está cerca o en la misma ubicación de emparejamiento que el FastConnect OCI. Esta configuración permite conectividad rápida y segura, entre las dos nubes sin necesidad de un proveedor de servicio intermedia.
+Para abordar los desafíos de los clientes, Oracle y Microsoft han integrado varias nubes. Las redes entre nubes se establecen mediante la conexión de un circuito [ExpressRoute](../../../expressroute/expressroute-introduction.md) de Microsoft Azure con un circuito [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) de OCI. Esta conectividad es posible donde una ubicación de emparejamiento de Azure ExpressRoute está cerca o en la misma ubicación de emparejamiento que FastConnect de OCI. Esta configuración permite una conectividad rápida y segura entre las dos nubes sin necesidad de que haya ningún proveedor de servicios intermedio.
 
-Con ExpressRoute y FastConnect, los clientes pueden emparejar una red virtual en Azure con una red virtual en la nube en OCI, siempre que no se superpone con el espacio de direcciones IP privadas. Emparejamiento de las dos redes permite que un recurso en la red virtual para comunicarse con un recurso en la red virtual en la nube OCI como si ambos están en la misma red.
+Con ExpressRoute y FastConnect, los clientes pueden emparejar una red virtual de Azure con una red virtual en la nube de OCI, siempre que el espacio de direcciones IP privado no se solape. El emparejamiento de las dos redes permite que un recurso de la red virtual se comunique con un recurso de la red virtual en la nube de OCI como si ambos estuvieran en la misma red.
 
 ## <a name="network-security"></a>Seguridad de las redes
 
-Seguridad de red es un componente fundamental de cualquier aplicación empresarial y es fundamental para esta solución en varias nubes. Todo el tráfico a través de ExpressRoute y FastConnect pasa a través de una red privada. Esta configuración permite una comunicación segura entre una red virtual de Azure y una red virtual en la nube de Oracle. No es necesario proporcionar una dirección IP pública a las máquinas virtuales de Azure. De forma similar, no necesita una puerta de enlace de internet en OCI. Toda la comunicación se produce a través de la dirección IP privada de las máquinas.
+La seguridad de la red es un componente fundamental de cualquier aplicación empresarial y es clave para esta solución de varias nubes. Todo el tráfico que atraviesa ExpressRoute y FastConnect pasa por una red privada. Esta configuración permite una comunicación segura entre una red virtual de Azure y una red virtual en la nube de Oracle. No es necesario proporcionar una dirección IP pública a las máquinas virtuales de Azure. Tampoco se necesita una puerta de enlace de Internet en OCI. Toda la comunicación se produce mediante la dirección IP privada de las máquinas.
 
-Además, puede configurar [listas seguridad](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) en las reglas de seguridad de red y de nube virtual OCI (conectado a Azure [grupos de seguridad de red](../../../virtual-network/security-overview.md)). Utilice estas reglas para controlar el tráfico que fluye entre las máquinas en las redes virtuales. En un nivel de equipo, en un nivel de subred, así como en el nivel de red virtual, se pueden agregar reglas de seguridad de red.
+Además, puede configurar [listas de seguridad](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) en la red virtual en la nube de OCI y en las reglas de seguridad (adjuntas a los[grupos de seguridad de red](../../../virtual-network/security-overview.md) de Azure). Dichas reglas se usan para controlar el tráfico que fluye entre las máquinas en las redes virtuales. Las reglas de seguridad de red se pueden agregar a nivel de máquina, a nivel de subred y a nivel de red virtual.
  
-## <a name="identity"></a>identidad
+## <a name="identity"></a>Identidad
 
-Identidad es uno de los pilares principales de la asociación entre Microsoft y Oracle. Se ha realizado un esfuerzo importante para integrar [servicio en la nube de Oracle identidad](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) con [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD es en la nube identidad y acceso de servicio de administración. de Microsoft Ayuda a los usuarios iniciar sesión y acceso a varios recursos. Azure AD también permite administrar los usuarios y sus permisos.
+La identidad es uno de los pilares principales de la asociación entre Microsoft y Oracle. Se ha realizado un trabajo considerable para integrar [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) con [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD es un servicio de administración de acceso y de identidades basado en la nube de Microsoft. Ayuda a los usuarios a iniciar sesión y a acceder a varios recursos. Azure AD también permite administrar los usuarios y sus permisos.
 
-Actualmente, esta integración le permite administrar en una ubicación central, que es Azure Active Directory. Azure AD sincroniza los cambios en el directorio con el directorio correspondiente de Oracle y se usa para el inicio de sesión único para la nube entre soluciones de Oracle.
+Actualmente, esta integración permite realizar la adminsitración en ubicación central, que es Azure Active Directory. Azure AD sincroniza los cambios en el directorio con el directorio correspondiente de Oracle y se usa para el inicio de sesión único en las soluciones de Oracle entre nubes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información y las notas del producto sobre OCI, consulte el [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentación.
+Para más información y las notas del producto acerca de OCI, consulte la documentación de [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm).

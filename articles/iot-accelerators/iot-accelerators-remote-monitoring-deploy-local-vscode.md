@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730160"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implementación local del acelerador de soluciones de supervisión remota con Visual Studio Code
@@ -59,17 +59,17 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Implementación de los demás microservicios en la máquina local
 
-Los pasos siguientes muestran cómo ejecutar los microservicios de supervisión remota en Visual Studio Code:
+En los pasos siguientes, se muestra cómo se ejecutan los microservicios de supervisión remota en Visual Studio Code:
 
 1. Inicie Visual Studio Code.
-1. En VS Code, abra el **azure-iot-pcs-remote-monitoring-dotnet** carpeta.
-1. Cree una carpeta nueva denominada **.vscode** en el **azure-iot-pcs-remote-monitoring-dotnet** carpeta.
-1. Copie los archivos **launch.json** y **tasks.json** desde services\scripts\local\launch\idesettings\vscode a la **.vscode** carpeta recién creada.
-1. Abra el **panel de depuración** en VS Code y ejecute el **ejecutar todos los microservicios** configuración. Esta configuración ejecuta el microservicio de simulación de dispositivos en Docker y ejecuta los demás microservicios en el depurador.
+1. En VS Code, abra la carpeta **azure-iot-pcs-remote-monitoring-dotnet**.
+1. Cree una nueva carpeta llamada **.vscode** en **azure-iot-pcs-remote-monitoring-dotnet**.
+1. Copie los archivos **launch.json** y **tasks.json** de services\scripts\local\launch\idesettings\vscode en la carpeta **.vscode** que acaba de crear.
+1. Abra el **panel de depuración** en VS Code y ejecute la opción **Run All microservices** (Ejecutar todos los microservicios). Esta configuración ejecuta el microservicio de simulación de dispositivos en Docker y ejecuta los demás microservicios en el depurador.
 
-El resultado de ejecución **ejecutar todos los microservicios** en la consola de depuración es similar al siguiente:
+Después de ejecutar **Run All microservices** (Ejecutar todos los microservicios) en la Consola de depuración, el resultado debería ser similar al siguiente:
 
-[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Implementación de microservicios locales](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Ejecución de la interfaz de usuario web
 
@@ -80,7 +80,7 @@ npm install
 npm start
 ```
 
-Una vez completado el inicio, el explorador muestra la página **http:\//localhost:3000 / panel**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
+Una vez completado el inicio, aparecerá en el explorador la página **http:\//localhost:3000/dashboard**. Los errores de esta página son de esperar. Para ver la aplicación sin errores, complete el paso siguiente.
 
 ### <a name="configure-and-run-nginx"></a>Configuración y ejecución de NGINX
 
@@ -93,7 +93,7 @@ Para obtener más información acerca de cómo ejecutar **nginx**, consulte [ngi
 
 ### <a name="connect-to-the-dashboard"></a>Conexión al panel
 
-Para acceder al panel de solución de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
+Para acceder al panel de soluciones de supervisión remota, vaya a http:\//localhost:9000 en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
 

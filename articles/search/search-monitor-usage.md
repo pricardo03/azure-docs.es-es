@@ -12,10 +12,10 @@ ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755066"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
@@ -60,12 +60,12 @@ En la tabla siguiente se comparan las opciones para almacenar registros, agregar
 
 | Recurso | Usado para |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes, se correlacionan con los eventos de usuario en la aplicación. Esta es la única solución que tiene en cuenta las acciones o señales del usuario, y asigna eventos desde la búsqueda iniciada por el usuario, por oposición al filtrado de las solicitudes enviadas por el código de aplicación. Para usar este enfoque, copie y pegue el código de instrumentación en los archivos de código fuente para enrutar la información de solicitud a Application Insights. Para más información, consulte [Análisis de tráfico de búsqueda](search-traffic-analytics.md). |
-| [Registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes. Los eventos se registran en un área de trabajo de Log Analytics. Puede ejecutar consultas en un área de trabajo para devolver información detallada del registro. Para obtener más información, consulte [empezar a trabajar con registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes. Los eventos se registran en un contenedor de blobs y se almacenan en archivos JSON. Use un editor de JSON para ver el contenido del archivo.|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventos registrados y métricas de consulta, según los esquemas siguientes, correlacionados con los eventos de usuario de la aplicación. Esta es la única solución que tiene en cuenta las acciones o señales del usuario, y asigna eventos desde la búsqueda iniciada por el usuario, por oposición al filtrado de las solicitudes enviadas por el código de aplicación. Para usar este enfoque, copie y pegue el código de instrumentación en los archivos de código fuente para enrutar la información de solicitud a Application Insights. Para más información, consulte [Análisis de tráfico de búsqueda](search-traffic-analytics.md). |
+| [Registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados y métricas de consulta, según los esquemas siguientes. Los eventos se registran en un área de trabajo de Log Analytics. Puede ejecutar consultas en un área de trabajo para devolver información detallada del registro. Para más información, consulte [Introducción a los registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados y métricas de consulta, según los esquemas siguientes. Los eventos se registran en un contenedor de blobs y se almacenan en archivos JSON. Use un editor de JSON para ver el contenido del archivo.|
 | [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados y métricas de consulta, según los esquemas documentados en este artículo. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
 
-Los registros de Azure Monitor y Blob storage están disponibles como un servicio compartido gratuito, por lo que puede probarlo sin ningún costo para la duración de la suscripción de Azure. La suscripción a Application Insights y su uso son gratuitos siempre y cuando el tamaño de los datos de aplicación esté por debajo de determinados límites (consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) para más información).
+Tanto los registros de Azure Monitor como Blob Storage están disponibles como un servicio compartido gratuito, por lo que puede probarlos sin ningún costo el tiempo que dure su suscripción a Azure. La suscripción a Application Insights y su uso son gratuitos siempre y cuando el tamaño de los datos de aplicación esté por debajo de determinados límites (consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) para más información).
 
 La siguiente sección le guía por los pasos necesarios para habilitar y usar Azure Blob Storage para recopilar datos de registro creados por las operaciones de Azure Search, y acceder a ellos.
 
@@ -83,9 +83,9 @@ En esta sección, aprenderá a usar Blob Storage para almacenar datos de métric
 
    ![Habilitar supervisión](./media/search-monitor-usage/enable-monitoring.png "Enable monitoring")
 
-3. Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarla en una cuenta de almacenamiento, enviarla a un centro de eventos o exportarlo a los registros de Azure Monitor.
+3. Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarlos en una cuenta de almacenamiento, enviarlos a un centro de eventos o exportarlo a los registros de Azure Monitor.
 
-   Para el archivado en Blob Storage, solo debe existir la cuenta de almacenamiento. Contenedores y blobs se creará según sea necesario cuando se exportan datos de registro.
+   Para el archivado en Blob Storage, solo debe existir la cuenta de almacenamiento. Los contenedores y blobs se crearán a medida que sean necesarios cuando se exporten los datos de registro.
 
    ![Configuración del archivado de Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure blob storage archive")
 
@@ -98,7 +98,7 @@ El registro se habilita después de guardar el perfil. Los contenedores solo se 
 * insights-logs-operationlogs: para los registros del tráfico de búsqueda
 * insights-metrics-pt1m: para las métricas
 
-**Se tarda una hora antes de que aparezcan los contenedores de Blob storage. Hay un blob, por hora y por contenedor.**
+**Transcurre una hora antes de que los contenedores aparezcan en Blob Storage. Hay un blob, por hora y por contenedor.**
 
 Puede usar [Visual Studio Code](#download-and-open-in-visual-studio-code) u otro editor de JSON para ver los archivos. 
 
@@ -111,7 +111,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Esquema de registro
 Los blobs que contienen los registros de tráfico del servicio de búsqueda se estructuran como se describe en esta sección. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro. Cada blob contiene registros de todas las operaciones que tuvieron lugar durante la misma hora.
 
-| NOMBRE | Escriba | Ejemplo | Notas |
+| NOMBRE | Type | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
@@ -125,7 +125,7 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 **Esquema de propiedades**
 
-| NOMBRE | Escriba | Ejemplo | Notas |
+| NOMBRE | Type | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | DESCRIPCIÓN |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
 | Consultar |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Los parámetros de consulta |
@@ -136,7 +136,7 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 Se capturan las métricas de solicitudes de consulta.
 
-| NOMBRE | Escriba | Ejemplo | Notas |
+| NOMBRE | Type | Ejemplo | Notas |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |

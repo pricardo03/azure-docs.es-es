@@ -1,6 +1,6 @@
 ---
-title: Información general del grado de enriquecimiento del mensaje de Azure IoT Hub
-description: Información general del grado de enriquecimiento del mensaje para los mensajes de IoT Hub de Azure
+title: Introducción al enriquecimiento de mensajes de Azure IoT Hub
+description: Introducción al enriquecimiento de mensajes para los mensajes de IoT Hub de Azure
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,80 +9,80 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754548"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Grado de enriquecimiento del mensaje para mensajes de IoT Hub del dispositivo a nube (versión preliminar)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enriquecimiento de mensajes para mensajes de IoT Hub del dispositivo a la nube (versión preliminar)
 
-*Mensaje enriquecimientos* es la capacidad de IoT Hub a *marca* mensajes con información adicional antes de que los mensajes se envían al punto de conexión designado. Una razón para utilizar el grado de enriquecimiento del mensaje es incluir datos que se pueden usar para simplificar el procesamiento de bajada. Por ejemplo, enriquecimiento de mensajes de telemetría de dispositivo con una etiqueta de dispositivo gemelo puede reducir la carga en los clientes para realizar llamadas de API para obtener esta información de dispositivo gemelo.
+*El enriquecimiento de mensajes* es la capacidad de IoT Hub para *marcar* los mensajes con información adicional antes de que los mensajes se envíen al punto de conexión designado. Una razón para utilizar el enriquecimiento de mensajes es incluir datos que se pueden usar para simplificar el procesamiento descendente. Por ejemplo, el enriquecimiento de mensajes de telemetría de dispositivos con una etiqueta de dispositivo gemelo puede reducir la carga de los clientes para realizar llamadas API de dispositivos gemelos para obtener esta información.
 
-![Flujo de mensajes enriquecimientos](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
+![Flujo del enriquecimiento de mensajes](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
 El enriquecimiento de mensajes tiene tres elementos clave:
 
-* Enriquecimiento nombre o la clave
+* Nombre o clave de enriquecimiento
 
-* Un valor
+* Valor A
 
-* Uno o varios [extremos](iot-hub-devguide-endpoints.md) para que se debe aplicar el enriquecimiento.
+* Uno o varios [puntos de conexión](iot-hub-devguide-endpoints.md) a los que debe aplicarse el enriquecimiento.
 
 La clave puede ser cualquier cadena.
 
 El valor puede ser cualquiera de los ejemplos siguientes:
 
-* Cualquier cadena estática. No se permiten valores dinámicos como condiciones, lógica, las operaciones y funciones. Por ejemplo, si desarrolla una aplicación SaaS que usa varios clientes, puede asignar un identificador a cada cliente y asegúrese de que el identificador disponible en la aplicación. Cuando se ejecuta la aplicación, IoT Hub se marca el dispositivo de mensajes de telemetría con el identificador del cliente, lo que permite procesar los mensajes de forma diferente para cada cliente.
+* Cualquier cadena estática. No se permiten valores dinámicos como condiciones, lógica, operaciones y funciones. Por ejemplo, si desarrolla una aplicación SaaS que la utilizan varios clientes, puede asignar un identificador a cada cliente y hacer que ese identificador esté disponible en la aplicación. Cuando se ejecuta la aplicación, IoT Hub marcará los mensajes de telemetría de los dispositivos con el identificador del cliente, haciendo posible procesar los mensajes de forma diferente para cada cliente.
 
-* Información del dispositivo gemelo, como su ruta de acceso. Algunos ejemplos serían *$twin.tags.field* y *$twin.tags.latitude*.
+* Información del dispositivo gemelo, como la ruta de acceso. Algunos ejemplos serían *$twin.tags.field* y *$twin.tags.latitude*.
 
-* El nombre de IoT hub envía el mensaje. Este valor es *$iothubname*.
+* El nombre del centro de IoT que envía el mensaje. Este valor es *$iothubname*.
 
-## <a name="applying-enrichments"></a>Aplicar enriquecimientos
+## <a name="applying-enrichments"></a>Aplicación de enriquecimientos
 
-Los mensajes pueden proceder de cualquier origen de datos admitido por [enrutamiento de mensajes de IoT Hub](iot-hub-devguide-messages-d2c.md), incluidos los ejemplos siguientes:
+Los mensajes pueden proceder de cualquier origen de datos admitido por el [enrutamiento de mensajes de IoT Hub](iot-hub-devguide-messages-d2c.md), incluidos los ejemplos siguientes:
 
-* telemetría del dispositivo, como temperatura, presión
+* telemetría del dispositivo, como la temperatura o la presión
 * notificaciones de cambio de dispositivo gemelo: cambios en el dispositivo gemelo
-* eventos de ciclo de vida de dispositivo, como cuando se crea o elimina el dispositivo
+* eventos de ciclo de vida del dispositivo, como cuando se crea o elimina el dispositivo
 
-Puede agregar enriquecimientos a mensajes que se van a punto de conexión integrado de un centro de IoT, o que se están enrutando a puntos de conexión personalizados, como Azure Blob storage, una cola de Service Bus o un tema de Service Bus.
+Puede agregar enriquecimientos a los mensajes que van al punto de conexión incorporado de una instancia de IoT Hub, o mensajes que se enrutan a puntos de conexión personalizados, como Azure Blob Storage, una cola de Service Bus o un tema de Service Bus.
 
-También puede agregar enriquecimientos a los mensajes que se publican en Event Grid, seleccione el punto de conexión como Event Grid. Para obtener más información, consulte [Iot Hub y Event Grid](iot-hub-event-grid.md).
+También puede agregar enriquecimientos a los mensajes que se publican en Event Grid, como la selección del punto de conexión como Event Grid. Para más información, consulte [Iot Hub y Event Grid](iot-hub-event-grid.md).
 
-Se aplican enriquecimientos de cada punto de conexión. Si especifica cinco enriquecimientos de que se marcarán para un extremo específico, todos los mensajes que se va a ese punto de conexión se marcan con el mismos enriquecimientos de cinco.
+Se aplican los enriquecimientos de punto de conexión. Si especifica cinco enriquecimientos que se van a marcar para un punto de conexión específico, todos los mensajes que lleguen a ese punto de conexión se marcan con los mismos cinco enriquecimientos.
 
-Para ver cómo probar el grado de enriquecimiento del mensaje, consulte el [tutorial enriquecimientos de mensaje](tutorial-message-enrichments.md)
+Para ver cómo probar el enriquecimiento de mensajes, consulte el [tutorial de enriquecimiento de mensajes](tutorial-message-enrichments.md).
 
 ## <a name="limitations"></a>Limitaciones
 
-* Puede agregar hasta 10 enriquecimientos por IoT Hub para esos centros en el nivel estándar o básico. Centros de IoT en el nivel gratis, puede agregar hasta 2 enriquecimientos.
+* Puede agregar hasta 10 enriquecimientos por instancia de IoT Hub para esos centros en el nivel Estándar o Básico. Para las instancias de IoT Hub de nivel Gratis, puede agregar hasta dos enriquecimientos.
 
-* En algunos casos, si está aplicando un enriquecimiento con un valor establecido en una etiqueta o una propiedad en el dispositivo gemelo, el valor se marcarán como un valor de cadena. Por ejemplo, si se establece un valor de enriquecimiento en $twin.tags.field, los mensajes se marcarán con la cadena "$twin.tags.field" en lugar del valor de ese campo desde el gemelo. Esto sucede en los casos siguientes:
+* En algunos casos, si está aplicando un enriquecimiento con un valor establecido en una etiqueta o propiedad en el dispositivo gemelo, el valor se marcará como un valor de cadena. Por ejemplo, si se establece un valor de enriquecimiento en $twin.tags.field, los mensajes se marcarán con la cadena "$twin.tags.field" en lugar del valor de ese campo del gemelo. Esto sucede en los casos siguientes:
 
-   * IoT Hub no está en el nivel básico. Centros de IoT de nivel básico no admiten a los dispositivos gemelos.
+   * El centro de IoT está en el nivel Básico. Los centros de IoT de nivel Básico no admiten dispositivos gemelos.
 
-   * IoT Hub no está en el nivel estándar, pero el dispositivo que envía el mensaje no tiene ningún dispositivo gemelo.
+   * El centro de IoT está en el nivel Estándar, pero el dispositivo que envía el mensaje no tiene ningún dispositivo gemelo.
 
-   * IoT Hub no está en el nivel estándar, pero no existe la ruta de acceso de dispositivo gemelo usa para el valor del enriquecimiento. Por ejemplo, si se establece el valor de enriquecimiento en $twin.tags.location y el dispositivo gemelo no tiene una propiedad de ubicación en las etiquetas, el mensaje está marcado con la cadena "$twin.tags.location". 
+   * El centro de IoT está en el nivel Estándar, pero no existe la ruta de acceso que usa el dispositivo gemelo para el valor del enriquecimiento. Por ejemplo, si el valor de enriquecimiento se establece en $twin.tags.location y el dispositivo gemelo no tiene una propiedad de ubicación bajo las etiquetas, el mensaje se marca con la cadena "$twin.tags.location". 
 
-* Las actualizaciones de un dispositivo gemelo pueden tardar hasta cinco minutos en quedar reflejados en el valor correspondiente de enriquecimiento.
+* Las actualizaciones de un dispositivo gemelo pueden tardar hasta cinco minutos en quedar reflejadas en el valor de enriquecimiento correspondiente.
 
-* El tamaño total del mensaje, incluido el grado de enriquecimiento del, no puede superar los 256 KB. Si el tamaño del mensaje supera los 256 KB, el centro de IoT se quitará el mensaje. Puede usar [métricas de IoT Hub](iot-hub-metrics.md) para identificar y depurar errores cuando se quitan los mensajes. Por ejemplo, puede supervisar d2c.telemetry.egress.invalid.
+* El tamaño total del mensaje, incluidos los enriquecimientos, no puede superar los 256 KB. Si el tamaño del mensaje supera los 256 KB, el centro de IoT eliminará el mensaje. Puede usar [métricas de IoT Hub](iot-hub-metrics.md) para identificar y depurar errores cuando se eliminan los mensajes. Por ejemplo, puede supervisar d2c.telemetry.egress.invalid.
 
 ## <a name="pricing"></a>Precios
 
-Grado de enriquecimiento del mensaje está disponible sin ningún cargo adicional. Actualmente, se le cobra cuando envía un mensaje a IoT Hub. Solo se cobran una vez para ese mensaje, incluso si el mensaje llega a varios puntos de conexión.
+El enriquecimiento de mensajes está disponible sin ningún cargo adicional. Actualmente, se le cobra cuando envía un mensaje a un centro de IoT. Solo se le cobrará una vez por ese mensaje, incluso si el mensaje va a varios puntos de conexión.
 
 ## <a name="availability"></a>Disponibilidad
 
-Esta funcionalidad está disponible en versión preliminar y está disponible en todas las regiones excepto este de Estados Unidos, oeste de Estados Unidos, Europa occidental, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), y [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Esta funcionalidad está en versión preliminar pública y está disponible en todas las regiones excepto en Este de EE. UU., Oeste de EE. UU., Oeste de Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china) y [Azure Alemania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte estos artículos para obtener más información sobre el enrutamiento de mensajes a IoT Hub:
+Consulte estos artículos para obtener más información sobre el enrutamiento de mensajes en una instancia de IoT Hub:
 
-* [Usar el enrutamiento de mensajes de IoT Hub para enviar mensajes de dispositivo a nube a distintos puntos de conexión](iot-hub-devguide-messages-d2c.md)
+* [Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión](iot-hub-devguide-messages-d2c.md)
 
 * [Tutorial: Enrutamiento de IoT Hub](tutorial-routing.md)

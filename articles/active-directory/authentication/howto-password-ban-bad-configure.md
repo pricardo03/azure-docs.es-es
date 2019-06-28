@@ -1,5 +1,5 @@
 ---
-title: 'Cómo prohibir las contraseñas en Azure AD: Azure Active Directory'
+title: 'Prohibición de contraseñas inseguras en Azure AD: Azure Active Directory'
 description: Prohibición de contraseñas no seguras del entorno con las contraseñas prohibidas dinámicamente de Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742290"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuración de la lista personalizada de contraseñas prohibidas
@@ -24,9 +24,9 @@ Los usuarios de muchas organizaciones emplean palabras locales comunes, como un 
 
 ## <a name="add-to-the-custom-list"></a>Adición a la lista personalizada
 
-La configuración de la lista personalizada de contraseñas prohibidas requiere una licencia P1 o P2 de Azure Active Directory Premium. Para obtener más información acerca de las licencias de Azure Active Directory, consulte el [precios de Azure Active Directory página](https://azure.microsoft.com/pricing/details/active-directory/).
+La configuración de la lista personalizada de contraseñas prohibidas requiere una licencia P1 o P2 de Azure Active Directory Premium. Para más información acerca de las licencias de Azure Active Directory, consulte la página [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com) y vaya a **Azure Active Directory**, **métodos de autenticación**, a continuación, **protección con contraseña**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory**, **Métodos de autenticación** y **Protección con contraseña**.
 1. En **Enforce custom list** (Exigir lista personalizada), seleccione la opción **Yes** (Sí).
 1. Agregue cadenas a la **lista personalizada de contraseñas prohibidas**, una cadena por línea
    * La lista personalizada de contraseñas prohibidas puede contener hasta 1000 palabras.

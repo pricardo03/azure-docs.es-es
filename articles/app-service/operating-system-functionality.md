@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808393"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
@@ -61,11 +61,11 @@ Principalmente, App Service es un servicio que se ejecuta en la parte superior d
 - Una unidad de aplicación que contiene archivos cspkg del paquete de Azure que App Service usa de forma exclusiva (y que no son accesibles para los clientes)
 - Una unidad de "usuario" (la unidad C:\), cuyo tamaño varía según el tamaño de la máquina virtual. 
 
-Es importante supervisar el uso del disco a medida que la aplicación crece. Si se alcanza la cuota de disco, puede tener efectos negativos para la aplicación. Por ejemplo:  
+Es importante supervisar el uso del disco a medida que la aplicación crece. Si se alcanza la cuota de disco, puede tener efectos negativos para la aplicación. Por ejemplo: 
 
 - Se puede producir un error en la aplicación que indica que no hay suficiente espacio en disco.
 - Es posible que vea errores de disco al ir a la consola de Kudu.
-- La implementación desde VSTS o Visual Studio puede producir un error con `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- La implementación desde Azure DevOps o Visual Studio puede producir el siguiente error `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - La aplicación puede experimentar un rendimiento lento.
 
 <a id="NetworkDrives"></a>

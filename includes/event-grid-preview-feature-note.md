@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814701"
 ---
 Esta característica se encuentra en su versión preliminar. Para usarlo, debe instalar una extensión o módulo de la versión preliminar.
 
@@ -28,11 +28,9 @@ En [CloudShell](/azure/cloud-shell/quickstart):
 
 Para una instalación local:
 
-1. Desinstale la CLI de Azure localmente.
-1. Instale la [versión más reciente](/cli/azure/install-azure-cli) de la CLI de Azure.
-1. Inicie la ventana de comando.
+1. [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Asegúrese de que tiene la última versión. Para ello, debe comprobarlo con `az --version`.
 1. Desinstale las versiones anteriores de la extensión `az extension remove -n eventgrid`.
-1. Instale la extensión `az extension add -n eventgrid`.
+1. Instale la extensión `eventgrid` con `az extension add -n eventgrid`
 
 ### <a name="install-module-for-powershell"></a>Instalación del módulo para PowerShell
 

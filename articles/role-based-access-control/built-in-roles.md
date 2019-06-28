@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755114"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
@@ -38,7 +38,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Propietario](#owner) | Permite administrarlo todo, incluso el acceso a los recursos. |
 | [Colaborador](#contributor) | Permite administrarlo todo excepto el acceso a los recursos. |
 | [Lector](#reader) | Permite ver todo el contenido, pero no realizar cambios. |
-| [AcrDelete](#acrdelete) | eliminación de Acr |
+| [AcrDelete](#acrdelete) | Eliminar artefacto |
 | [AcrImageSigner](#acrimagesigner) | Firmante de imagen de ACR |
 | [AcrPull](#acrpull) | extracción de ACR |
 | [AcrPush](#acrpush) | inserción de ACR |
@@ -52,18 +52,18 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Operador de trabajos de Automation](#automation-job-operator) | Permite crear y administrar trabajos con los runbooks de Automation. |
 | [Operador de Automation](#automation-operator) | Los operadores de automatización pueden iniciar, detener, suspender y reanudar trabajos. |
 | [Operador de runbooks de Automation](#automation-runbook-operator) | Permite leer las propiedades de runbook para poder crear trabajos del runbook. |
-| [Colaborador de Avere](#avere-contributor) | Puede crear y administrar un clúster de vFXT Avere. |
-| [Operador Avere](#avere-operator) | Usa el clúster de vFXT Avere para administrar el clúster |
+| [Colaborador de Avere](#avere-contributor) | Puede crear y administrar un clúster de Avere vFXT. |
+| [Operador de Avere](#avere-operator) | Lo usa el clúster de Avere vFXT para su administración. |
 | [Rol de administrador de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Enumerar la acción de credenciales administrativas del clúster. |
 | [Rol de usuario de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Enumerar la acción de credenciales de usuario del clúster. |
-| [Lector de datos de Azure Maps (versión preliminar)](#azure-maps-data-reader-preview) | Concede acceso de lectura se asignan datos relacionados de una cuenta de Azure maps. |
+| [Lector de datos de Azure Maps (versión preliminar)](#azure-maps-data-reader-preview) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. |
 | [Propietario del registro de Azure Stack](#azure-stack-registration-owner) | Permite administrar los registros de Azure Stack. |
 | [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes y conceder acceso a otros usuarios |
 | [Operador de copias de seguridad](#backup-operator) | Permite administrar los servicios de copias de seguridad, excepto la eliminación de copias de seguridad, la creación de almacenes y la concesión de acceso a otros usuarios |
 | [Lector de copias de seguridad](#backup-reader) | Puede ver servicios de copia de seguridad, pero no puede realizar cambios. |
 | [Lector de facturación](#billing-reader) | Permite acceso de lectura a los datos de facturación. |
 | [Colaborador de BizTalk](#biztalk-contributor) | Permite administrar los servicios de BizTalk, pero no acceder a ellos. |
-| [Acceso al nodo de miembro de la cadena de bloques (versión preliminar)](#blockchain-member-node-access-preview) | Permite obtener acceso a los nodos de miembro de la cadena de bloques |
+| [Acceso al nodo de miembro de la cadena de bloques (versión preliminar)](#blockchain-member-node-access-preview) | Permite acceder a los nodos de miembro de la cadena de bloques. |
 | [Colaborador de punto de conexión de CDN](#cdn-endpoint-contributor) | Puede administrar puntos de conexión de CDN, pero no conceder acceso a otros usuarios. |
 | [Lector de punto de conexión de CDN](#cdn-endpoint-reader) | Puede ver puntos de conexión de CDN, pero no hacer cambios. |
 | [Colaborador de perfil de CDN](#cdn-profile-contributor) | Puede administrar perfiles de CDN y sus puntos de conexión, pero no conceder acceso a otros usuarios. |
@@ -73,10 +73,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Rol de servicio de operador de claves de cuentas de almacenamiento clásicas](#classic-storage-account-key-operator-service-role) | Los operadores de claves de cuentas de almacenamiento clásicas pueden enumerar y regenerar claves en cuentas de almacenamiento clásicas |
 | [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. |
 | [Colaborador de Cognitive Services](#cognitive-services-contributor) | Le permite crear, leer, actualizar, eliminar y administrar las claves de Cognitive Services. |
-| [Lector de datos de servicios cognitivos (versión preliminar)](#cognitive-services-data-reader-preview) | Le permite leer los datos de Cognitive Services. |
+| [Lector de datos de Cognitive Services (versión preliminar)](#cognitive-services-data-reader-preview) | Permite leer los datos de Cognitive Services. |
 | [Usuario de Cognitive Services](#cognitive-services-user) | Le permite leer y mostrar las claves de Cognitive Services. |
 | [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. |
-| [Operador de COSMOS DB](#cosmos-db-operator) | Le permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos en ellas. Impide el acceso a las claves de cuenta y las cadenas de conexión. |
+| [Operador de Cosmos DB](#cosmos-db-operator) | Permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos que contienen. Evita el acceso a las claves de cuenta y a las cadenas de conexión. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Puede enviar una solicitud de restauración para una base de datos de Cosmos DB o un contenedor de una cuenta |
 | [Colaborador de Cost Management](#cost-management-contributor) | Puede ver los costos y administrar la configuración de estos (por ejemplo, presupuestos, exportaciones) |
 | [Lector de Cost Management](#cost-management-reader) | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) |
@@ -88,10 +88,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a sus máquinas virtuales, así como iniciarlas, reiniciarlas y apagarlas, en su instancia de Azure DevTest Labs. |
 | [Colaborador de zona DNS](#dns-zone-contributor) | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. |
 | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB. |
-| [Propietario de los datos de Event Hubs](#event-hubs-data-owner) | Concede acceso completo a los recursos de Azure Event Hubs | 
+| [Propietario de los datos de Event Hubs](#event-hubs-data-owner) | Concede acceso total a los recursos de Azure Event Hubs. | 
 | [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
 | [Lector de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite leer las suscripciones de eventos de EventGrid. |
-| [Operador de clústeres de HDInsight](#hdinsight-cluster-operator) | Le permite leer y modificar las configuraciones de clúster de HDInsight. |
+| [Operador de clústeres de HDInsight](#hdinsight-cluster-operator) | Permite leer y modificar las configuraciones de clúster de HDInsight. |
 | [Colaborador de Domain Services para HDInsight](#hdinsight-domain-services-contributor) | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Permite administrar las cuentas de Intelligent Systems, pero no acceder a ellas. |
 | [Colaborador de almacén de claves](#key-vault-contributor) | Le permite administrar almacenes de claves, pero no acceder a ellos. |
@@ -119,15 +119,15 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Administrador de seguridad](#security-admin) | Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. |
 | [Administrador de seguridad (heredado)](#security-manager-legacy) | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. |
 | [Lector de seguridad](#security-reader) | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios |
-| [Propietario de datos de Service Bus](#service-bus-data-owner) | Permite el acceso completo a los recursos de Azure Service Bus |
+| [Propietario de los datos de Service Bus](#service-bus-data-owner) | Concede acceso total a los recursos de Azure Service Bus. |
 | [Colaborador de Site Recovery](#site-recovery-contributor) | Permite administrar el servicio Site Recovery, excepto la creación de almacenes y la asignación de roles. |
 | [Operador de Site Recovery](#site-recovery-operator) | Permite realizar una conmutación por error o una conmutación por recuperación, pero no otras operaciones de administración de Site Recovery. |
 | [Lector de Site Recovery](#site-recovery-reader) | Permite visualizar el estado de Site Recovery, pero no realizar otras operaciones de administración. |
-| [Colaborador de la cuenta de delimitadores espacial](#spatial-anchors-account-contributor) | Permite administrar espaciales anclajes en su cuenta, pero no eliminarlas |
-| [Propietario de la cuenta de delimitadores espacial](#spatial-anchors-account-owner) | Le permite administrar espaciales delimitadores en su cuenta, incluida su eliminación |
-| [Lector de cuenta de delimitadores espacial](#spatial-anchors-account-reader) | Le permite ubicar y leer las propiedades espaciales anclajes en su cuenta de |
+| [Colaborador de la cuenta de Spatial Anchors](#spatial-anchors-account-contributor) | Permite administrar los anclajes espaciales en su cuenta, pero no eliminarlos. |
+| [Propietario de la cuenta de Spatial Anchors](#spatial-anchors-account-owner) | Permite administrar los anclajes espaciales en su cuenta y eliminarlos. |
+| [Lector de la cuenta de Spatial Anchors](#spatial-anchors-account-reader) | Permite encontrar y leer propiedades de los anclajes espaciales en la cuenta. |
 | [Colaborador de Base de datos de SQL](#sql-db-contributor) | Permite administrar las bases de datos de SQL, pero no acceder a ellas. Además, no puede administrar sus directivas relacionadas con la seguridad ni los servidores SQL primarios. |
-| [Colaborador de la instancia administrada de SQL](#sql-managed-instance-contributor) | Permite administrar las instancias administradas de SQL y requiere la configuración de red, pero no puede conceder acceso a otros usuarios. |
+| [Colaborador de Instancia administrada de SQL](#sql-managed-instance-contributor) | Permite administrar las instancias administradas de SQL y requiere configuración de red, pero no puede conceder acceso a otros usuarios. |
 | [Administrador de seguridad SQL](#sql-security-manager) | Permite administrar las directivas relacionadas con seguridad de bases de datos y servidores SQL, pero no acceder a ellas. |
 | [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. |
 | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite administrar cuentas de almacenamiento, pero no acceder a ellas. |
@@ -135,10 +135,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Colaborador de datos de blobs de almacenamiento](#storage-blob-data-contributor) | Permite el acceso de lectura, escritura y eliminación a los contenedores de blobs y a los datos de Azure Storage |
 | [Propietario de datos de blobs de almacenamiento](#storage-blob-data-owner) | Permite acceso total a los contenedores de blobs y los datos de Azure Storage, incluida la asignación de control de acceso POSIX. |
 | [Lector de datos de blobs de almacenamiento](#storage-blob-data-reader) | Permite el acceso de lectura a los contenedores de blobs y a los datos de Azure Storage. |
-| [Colaborador de datos de cola de almacenamiento](#storage-queue-data-contributor) | Permite el acceso de lectura, escritura y eliminación a los mensajes de la cola y a la cola de Azure Storage. |
-| [Procesador de mensajes de datos de cola de almacenamiento](#storage-queue-data-message-processor) | Permite para peek, recibir y eliminar el acceso a los mensajes de cola de Azure Storage |
-| [Remitente del mensaje de datos de cola de almacenamiento](#storage-queue-data-message-sender) | Permite el envío de mensajes de cola de Azure Storage |
-| [Lector de datos de cola de almacenamiento](#storage-queue-data-reader) | Permite el acceso de lectura a los mensajes de la cola y a las colas de Azure Storage. |
+| [Colaborador de datos de la cola de Storage](#storage-queue-data-contributor) | Permite el acceso de lectura, escritura y eliminación a los mensajes de la cola y a la cola de Azure Storage. |
+| [Procesador de mensajes de datos de la cola de Storage](#storage-queue-data-message-processor) | Permite el acceso para ojear, recibir y eliminar los mensajes de la cola de Azure Storage. |
+| [Emisor de mensajes de datos de la cola de Storage](#storage-queue-data-message-sender) | Permite el envío de mensajes de la cola de Azure Storage. |
+| [Lector de datos de la cola de Storage](#storage-queue-data-reader) | Permite el acceso de lectura a los mensajes de la cola y a las colas de Azure Storage. |
 | [Colaborador de la solicitud de soporte técnico](#support-request-contributor) | Permite crear y administrar solicitudes de soporte técnico. |
 | [Colaborador de Traffic Manager](#traffic-manager-contributor) | Le permite administrar perfiles de Traffic Manager, pero no controlar los usuarios que tienen acceso a ellos. |
 | [Administrador de acceso de usuario](#user-access-administrator) | Permite administrar el acceso de usuario a los recursos de Azure. |
@@ -202,10 +202,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | eliminación de Acr |
+> | **Descripción** | Eliminar artefacto |
 > | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | **Acciones** |  |
-> | Microsoft.ContainerRegistry/registries/artifacts/delete | Eliminar artefacto en un registro de contenedor. |
+> | Microsoft.ContainerRegistry/registries/artifacts/delete | Eliminar artefacto de un registro de contenedor. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -334,7 +334,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario |
+> | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario. |
 > | **DataActions** |  |
 > | *Ninguna* |  |
 > | **NotDataActions** |  |
@@ -356,7 +356,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario |
+> | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario. |
 > | **DataActions** |  |
 > | *Ninguna* |  |
 > | **NotDataActions** |  |
@@ -490,7 +490,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Puede crear y administrar un clúster de vFXT Avere. |
+> | **Descripción** | Puede crear y administrar un clúster de Avere vFXT. |
 > | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
@@ -521,11 +521,11 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="avere-operator"></a>Operador Avere
+## <a name="avere-operator"></a>Operador de Avere
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Usa el clúster de vFXT Avere para administrar el clúster |
+> | **Descripción** | Lo usa el clúster de Avere vFXT para su administración. |
 > | **Id** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | **Acciones** |  |
 > | Microsoft.Compute/virtualMachines/read | Obtiene las propiedades de una máquina virtual |
@@ -582,7 +582,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Concede acceso de lectura se asignan datos relacionados de una cuenta de Azure maps. |
+> | **Descripción** | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. |
 > | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | **Acciones** |  |
 > | *Ninguna* |  |
@@ -838,14 +838,14 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite obtener acceso a los nodos de miembro de la cadena de bloques |
+> | **Descripción** | Permite acceder a los nodos de miembro de la cadena de bloques. |
 > | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **Acciones** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtiene o enumera los nodos de transacción de miembro de cadena de bloques existentes. |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtiene o enumera los nodos de transacción de miembro de la cadena de bloques existentes. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Se conecta a un nodo de miembro de la cadena de bloques de transacciones. |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Se conecta a un nodo de transacción de miembro de la cadena de bloques. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -1057,11 +1057,11 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="cognitive-services-data-reader-preview"></a>Lector de datos de servicios cognitivos (versión preliminar)
+## <a name="cognitive-services-data-reader-preview"></a>Lector de datos de Cognitive Services (versión preliminar)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Le permite leer los datos de Cognitive Services. |
+> | **Descripción** | Permite leer los datos de Cognitive Services. |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **Acciones** |  |
 > | *Ninguna* |  |
@@ -1120,11 +1120,11 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="cosmos-db-operator"></a>Operador de COSMOS DB
+## <a name="cosmos-db-operator"></a>Operador de Cosmos DB
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Le permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos en ellas. Impide el acceso a las claves de cuenta y las cadenas de conexión. |
+> | **Descripción** | Permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos que contienen. Evita el acceso a las claves de cuenta y a las cadenas de conexión. |
 > | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
 > | **Acciones** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
@@ -1346,14 +1346,14 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Toma la propiedad de una máquina virtual existente |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Muestra, si las hay, las programaciones de inicio y detención aplicables. |
 > | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Obtiene una cadena que representa el contenido del archivo RDP para la máquina virtual. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end de equilibrador de carga. No genera alertas. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Se une a una regla de nat de entrada del equilibrador de carga. No genera alertas. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end del equilibrador de carga. No genera alertas. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Se une a una regla NAT de entrada del equilibrador de carga. No genera alertas. |
 > | Microsoft.Network/networkInterfaces/*/read | Leer las propiedades de una interfaz de red (por ejemplo, todos los equilibradores de carga de los que forma parte de la interfaz de red) |
-> | Microsoft.Network/networkInterfaces/join/action | Una máquina Virtual se une a una interfaz de red. No genera alertas. |
+> | Microsoft.Network/networkInterfaces/join/action | Une una máquina virtual a una interfaz de red. No genera alertas. |
 > | Microsoft.Network/networkInterfaces/read | Obtiene una definición de interfaz de red.  |
 > | Microsoft.Network/networkInterfaces/write | Crea una interfaz de red o actualiza una interfaz de red existente.  |
 > | Microsoft.Network/publicIPAddresses/*/read | Leer las propiedades de una dirección IP pública |
-> | Microsoft.Network/publicIPAddresses/join/action | Se une a una dirección ip pública. No genera alertas. |
+> | Microsoft.Network/publicIPAddresses/join/action | Se une a una dirección IP pública. No genera alertas. |
 > | Microsoft.Network/publicIPAddresses/read | Obtiene una definición de la dirección ip pública. |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Se une a una red virtual. No genera alertas. |
 > | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
@@ -1414,14 +1414,14 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite el acceso completo a los recursos de Azure Event Hubs. |
+> | **Descripción** | Concede acceso total a los recursos de Azure Event Hubs. |
 > | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | **Acciones** |  |
-> | Microsoft.EventHubs/* | Permite el acceso de administración completa al espacio de nombres de Event Hubs |
+> | Microsoft.EventHubs/* | Permite el acceso de administración total al espacio de nombres de Event Hubs. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.EventHubs/* | Permite el acceso de datos completa al espacio de nombres de Event Hubs |
+> | Microsoft.EventHubs/* | Permite el acceso total a los datos del espacio de nombres de Event Hubs. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -1456,7 +1456,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.EventGrid/eventSubscriptions/read | Leer una clase eventsubscription. |
+> | Microsoft.EventGrid/eventSubscriptions/read | Lee una clase eventSubscription. |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos globales por tipo de tema. |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Enumera las suscripciones de eventos regionales. |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos regionales por tipo de tema. |
@@ -1472,12 +1472,12 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Le permite leer y modificar las configuraciones de clúster de HDInsight. |
-> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Descripción** | Permite leer y modificar las configuraciones de clúster de HDInsight. |
+> | **Id** | 61ed4efc-Fab3-44fd-b111-e24485cc132a |
 > | **Acciones** |  |
 > | Microsoft.HDInsight/*/read |  |
-> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obtener la configuración de puerta de enlace para el HDInsight clúster |
-> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Actualizar la configuración de puerta de enlace para el HDInsight clúster |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obtiene la configuración de puerta de enlace para el clúster de HDInsight. |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Actualiza la configuración de puerta de enlace para el clúster de HDInsight. |
 > | Microsoft.HDInsight/clusters/configurations/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
@@ -1814,11 +1814,11 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Insights/Register/Action | Registra el proveedor de Microsoft Insights. |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Leer, escribir o eliminar pruebas web de Application Insights. |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Paquetes de solución de análisis de registro de lectura, escritura y eliminación. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Las búsquedas guardan de análisis de registro de lectura, escritura y eliminación. |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Lee, escribe o elimina paquetes de soluciones de Log Analytics. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lee, escribe o elimina búsquedas guardadas de Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Ejecuta una consulta de búsqueda |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera las claves compartidas del área de trabajo. Estas claves se utilizan para conectar los agentes de Microsoft Operational Insights al área de trabajo. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Configuraciones de visión de almacenamiento de registro de lectura, escritura y eliminación analytics. |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Lee, escribe o elimina configuraciones de visión de almacenamiento de Log Analytics. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -2018,7 +2018,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Authorization/policySetDefinitions/* | Crear y administrar conjuntos de directivas |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
-> | Microsoft.operationalInsights/workspaces/*/read | Ver datos de análisis de registro |
+> | Microsoft.operationalInsights/workspaces/*/read | Consulta datos de Log Analytics. |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Security/* |  |
@@ -2063,7 +2063,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
-> | Microsoft.operationalInsights/workspaces/*/read | Ver datos de análisis de registro |
+> | Microsoft.operationalInsights/workspaces/*/read | Consulta datos de Log Analytics. |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Security/*/read | Leer directivas y componentes de seguridad |
@@ -2076,19 +2076,19 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="service-bus-data-owner"></a>Propietario de datos de Service Bus
+## <a name="service-bus-data-owner"></a>Propietario de los datos de Service Bus
 
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite el acceso completo a los recursos de Azure Service Bus. |
+> | **Descripción** | Concede acceso total a los recursos de Azure Service Bus. |
 > | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
 > | **Acciones** |  |
-> | Microsoft.ServiceBus/* | Permite el acceso administrativo completo a los nombres de Service Bus |
+> | Microsoft.ServiceBus/* | Permite el acceso de administración total al espacio de nombres de Service Bus. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.ServiceBus/* | Permite el acceso de datos completa al espacio de nombres de Service Bus |
+> | Microsoft.ServiceBus/* | Permite el acceso total a los datos del espacio de nombres de Service Bus. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -2249,62 +2249,62 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="spatial-anchors-account-contributor"></a>Colaborador de la cuenta de delimitadores espacial
+## <a name="spatial-anchors-account-contributor"></a>Colaborador de la cuenta de Spatial Anchors
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite administrar espaciales anclajes en su cuenta, pero no eliminarlas |
+> | **Descripción** | Permite administrar los anclajes espaciales en su cuenta, pero no eliminarlos. |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **Acciones** |  |
 > | *Ninguna* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Crear delimitadores espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Detectar cercanas delimitadores espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtiene las propiedades de los anclajes espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Busque los anclajes espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar datos de diagnóstico para ayudar a mejorar la calidad del servicio Azure espacial delimitadores |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Actualizar las propiedades espaciales delimitadores |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Crea anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Detecta anclajes espaciales próximos. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtiene las propiedades de los anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ubica anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Envía datos de diagnóstico para ayudar a mejorar la calidad del servicio Azure Spatial Anchors. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Actualiza las propiedades de los anclajes espaciales. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="spatial-anchors-account-owner"></a>Propietario de la cuenta de delimitadores espacial
+## <a name="spatial-anchors-account-owner"></a>Propietario de la cuenta de Spatial Anchors
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Le permite administrar espaciales delimitadores en su cuenta, incluida su eliminación |
+> | **Descripción** | Permite administrar los anclajes espaciales en su cuenta y eliminarlos. |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **Acciones** |  |
 > | *Ninguna* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Crear delimitadores espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Eliminar anclajes espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Detectar cercanas delimitadores espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtiene las propiedades de los anclajes espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Busque los anclajes espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar datos de diagnóstico para ayudar a mejorar la calidad del servicio Azure espacial delimitadores |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Actualizar las propiedades espaciales delimitadores |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Crea anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Elimina anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Detecta anclajes espaciales próximos. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtiene las propiedades de los anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ubica anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Envía datos de diagnóstico para ayudar a mejorar la calidad del servicio Azure Spatial Anchors. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Actualiza las propiedades de los anclajes espaciales. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="spatial-anchors-account-reader"></a>Lector de cuenta de delimitadores espacial
+## <a name="spatial-anchors-account-reader"></a>Lector de la cuenta de Spatial Anchors
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Le permite ubicar y leer las propiedades espaciales anclajes en su cuenta de |
+> | **Descripción** | Permite encontrar y leer propiedades de los anclajes espaciales en la cuenta. |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **Acciones** |  |
 > | *Ninguna* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Detectar cercanas delimitadores espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtiene las propiedades de los anclajes espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Busque los anclajes espaciales |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Enviar datos de diagnóstico para ayudar a mejorar la calidad del servicio Azure espacial delimitadores |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Detecta anclajes espaciales próximos. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Obtiene las propiedades de los anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Ubica anclajes espaciales. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Envía datos de diagnóstico para ayudar a mejorar la calidad del servicio Azure Spatial Anchors. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -2356,11 +2356,11 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="sql-managed-instance-contributor"></a>Colaborador de la instancia administrada de SQL
+## <a name="sql-managed-instance-contributor"></a>Colaborador de Instancia administrada de SQL
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite administrar las instancias administradas de SQL y requiere la configuración de red, pero no puede conceder acceso a otros usuarios. |
+> | **Descripción** | Permite administrar las instancias administradas de SQL y requiere configuración de red, pero no puede conceder acceso a otros usuarios. |
 > | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | **Acciones** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
@@ -2417,10 +2417,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Recupera los detalles de la directiva de auditoría de blobs extendida y configurada en una base de datos determinada. |
 > | Microsoft.Sql/servers/databases/read | Devuelve la lista de bases de datos u obtiene las propiedades de una base de datos específica. |
 > | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/read | Obtener un esquema de base de datos. |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obtenga una columna de base de datos. |
+> | Microsoft.Sql/servers/databases/schemas/read | Obtiene un esquema de la base de datos. |
+> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obtiene una columna de la base de datos. |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/tables/read | Obtener una tabla de base de datos. |
+> | Microsoft.Sql/servers/databases/schemas/tables/read | Obtiene una tabla de la base de datos. |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Crear y administrar directivas de alerta de seguridad de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | Crear y administrar métricas de seguridad de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
@@ -2517,11 +2517,11 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite enumerar y regenerar claves de acceso de cuenta de almacenamiento. |
+> | **Descripción** | Permite enumerar y regenerar claves de acceso de la cuenta de almacenamiento. |
 > | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **Acciones** |  |
-> | Microsoft.Storage/storageAccounts/listkeys/action | Devolver las claves de acceso para la cuenta de almacenamiento especificada. |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | Volver a generar las claves de acceso para la cuenta de almacenamiento especificada. |
+> | Microsoft.Storage/storageAccounts/listkeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
+> | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenera las claves de acceso de la cuenta de almacenamiento especificada. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -2529,33 +2529,33 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="storage-blob-data-contributor"></a>Colaborador de datos de Blob de almacenamiento
+## <a name="storage-blob-data-contributor"></a>Colaborador de datos de blobs de almacenamiento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Leer, escribir y eliminar blobs y contenedores de Azure Storage. Para obtener información sobre las acciones que son necesarias para una operación de datos determinada, consulte [permisos para llamar al blob y cola de operaciones de datos](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Descripción** | Lee, escribe y elimina blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Acciones** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Eliminar un contenedor. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Elimina un contenedor. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devuelve un contenedor o una lista de contenedores. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Modificar los metadatos o las propiedades de un contenedor. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Modifica los metadatos o las propiedades de un contenedor. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Eliminar un blob. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve una lista de blobs o un blob. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Escribir en un blob. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve un blob o una lista de blobs. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Escribe en un blob. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="storage-blob-data-owner"></a>Propietario del almacenamiento de datos Blob
+## <a name="storage-blob-data-owner"></a>Propietario de datos de blobs de almacenamiento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Proporciona acceso completo a los datos, incluida la asignación de control de acceso POSIX y contenedores de blobs de Azure Storage. Para obtener información sobre las acciones que son necesarias para una operación de datos determinada, consulte [permisos para llamar al blob y cola de operaciones de datos](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Descripción** | Proporciona acceso total a los contenedores de blobs y los datos de Azure Storage, incluida la asignación de control de acceso POSIX. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Acciones** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Todos los permisos en contenedores. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Todos los permisos en los contenedores. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -2563,83 +2563,83 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="storage-blob-data-reader"></a>Lector de datos de Blob de almacenamiento
+## <a name="storage-blob-data-reader"></a>Lector de datos de blobs de almacenamiento
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Leer y enumerar los blobs y contenedores de Azure Storage. Para obtener información sobre las acciones que son necesarias para una operación de datos determinada, consulte [permisos para llamar al blob y cola de operaciones de datos](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Descripción** | Lee y enumera blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devuelve un contenedor o una lista de contenedores. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve una lista de blobs o un blob. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve un blob o una lista de blobs. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="storage-queue-data-contributor"></a>Colaborador de datos de cola de almacenamiento
+## <a name="storage-queue-data-contributor"></a>Colaborador de datos de la cola de Storage
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Leer, escribir y eliminar colas de Azure Storage y mensajes en cola. Para obtener información sobre las acciones que son necesarias para una operación de datos determinada, consulte [permisos para llamar al blob y cola de operaciones de datos](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Descripción** | Lee, escribe y elimina los mensajes de la cola y a la cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Acciones** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Eliminar una cola. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devolver una cola o una lista de colas. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Modificar las propiedades o metadatos de la cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Elimina una cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devuelve una cola o una lista de colas. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Modifica las propiedades o los metadatos de la cola. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Eliminar uno o más mensajes de una cola. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Inspeccionar o recuperar uno o más mensajes de una cola. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Agregar un mensaje a una cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Elimina uno o más mensajes de una cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Consulta o recupera uno o más mensajes de una cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Agrega un mensaje a una cola. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="storage-queue-data-message-processor"></a>Procesador de mensajes de datos de cola de almacenamiento
+## <a name="storage-queue-data-message-processor"></a>Procesador de mensajes de datos de la cola de Storage
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Peek, recuperar y eliminar un mensajes de una cola de Azure Storage. Para obtener información sobre las acciones que son necesarias para una operación de datos determinada, consulte [permisos para llamar al blob y cola de operaciones de datos](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Descripción** | Consulta, recupera y elimina mensajes de una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **Acciones** |  |
 > | *Ninguna* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Inspeccionar un mensaje. |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Recuperar y eliminar un mensaje. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Consulta un mensaje. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Recupera y elimina un mensaje. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="storage-queue-data-message-sender"></a>Remitente del mensaje de datos de cola de almacenamiento
+## <a name="storage-queue-data-message-sender"></a>Emisor de mensajes de datos de la cola de Storage
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Agregar mensajes a una cola de Azure Storage. Para obtener información sobre las acciones que son necesarias para una operación de datos determinada, consulte [permisos para llamar al blob y cola de operaciones de datos](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Descripción** | Agrega mensaje a una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **Acciones** |  |
 > | *Ninguna* |  |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Agregar un mensaje a una cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Agrega un mensaje a una cola. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
-## <a name="storage-queue-data-reader"></a>Lector de datos de cola de almacenamiento
+## <a name="storage-queue-data-reader"></a>Lector de datos de la cola de Storage
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Lectura y lista de colas de Azure Storage y mensajes en cola. Para obtener información sobre las acciones que son necesarias para una operación de datos determinada, consulte [permisos para llamar al blob y cola de operaciones de datos](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+> | **Descripción** | Lee y enumera los mensajes de la cola y las colas de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devuelve una cola o una lista de colas. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Inspeccionar o recuperar uno o más mensajes de una cola. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Consulta o recupera uno o más mensajes de una cola. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -2732,17 +2732,17 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Compute/virtualMachineScaleSets/* | Crear y administrar conjuntos de escalado de máquinas virtuales |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end de puerta de enlace de aplicaciones. No genera alertas. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end de equilibrador de carga. No genera alertas. |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Se une a un equilibrador de carga grupo NAT de entrada. No genera alertas. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Se une a una regla de nat de entrada del equilibrador de carga. No genera alertas. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end de una puerta de enlace de aplicaciones. No genera alertas. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Se une a un grupo de direcciones de back-end del equilibrador de carga. No genera alertas. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Se une a conjuntos NAT de entrada del equilibrador de carga. No genera alertas. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Se une a una regla NAT de entrada del equilibrador de carga. No genera alertas. |
 > | Microsoft.Network/loadBalancers/probes/join/action | Permite usar sondeos de un equilibrador de carga. Por ejemplo, con este permiso, la propiedad healthProbe de un conjunto de escalado de máquinas virtuales puede hacer referencia al sondeo. No genera alertas. |
 > | Microsoft.Network/loadBalancers/read | Obtiene una definición del equilibrador de carga |
 > | Microsoft.Network/locations/* | Crear y administrar ubicaciones de red |
 > | Microsoft.Network/networkInterfaces/* | Crear y administrar interfaces de red |
 > | Microsoft.Network/networkSecurityGroups/join/action | Se une a un grupo de seguridad de red. No genera alertas. |
 > | Microsoft.Network/networkSecurityGroups/read | Obtiene una definición de grupo de seguridad de red |
-> | Microsoft.Network/publicIPAddresses/join/action | Se une a una dirección ip pública. No genera alertas. |
+> | Microsoft.Network/publicIPAddresses/join/action | Se une a una dirección IP pública. No genera alertas. |
 > | Microsoft.Network/publicIPAddresses/read | Obtiene una definición de la dirección ip pública. |
 > | Microsoft.Network/virtualNetworks/read | Obtiene la definición de red virtual |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Se une a una red virtual. No genera alertas. |
@@ -2803,7 +2803,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Web/serverFarms/* | Crear y administrar granjas de servidores |
-> | Microsoft.Web/hostingEnvironments/Join/Action | Se une a un entorno de App Service |
+> | Microsoft.Web/hostingEnvironments/Join/Action | Se une a App Service Environment. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |

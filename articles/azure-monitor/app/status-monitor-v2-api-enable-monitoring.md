@@ -1,6 +1,6 @@
 ---
-title: 'Referencia de API v2 de Azure Monitor de estado: Habilitar la supervisión | Microsoft Docs'
-description: Referencia de API v2 de Monitor de estado. Enable-ApplicationInsightsMonitoring. Supervisar el rendimiento del sitio Web sin volver a implementar el sitio Web. Funciona con las aplicaciones web ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
+title: 'Referencia de la API del Monitor de estado de Azure v2: Habilitación de la supervisión | Microsoft Docs'
+description: Referencia de la API del Monitor de estado de Azure v2. Enable-ApplicationInsightsMonitoring. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -13,44 +13,44 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734181"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>API de v2 del Monitor de estado: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>API del Monitor de estado v2: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Este artículo describe un cmdlet que forme parte del [módulo de Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Este artículo describe un cmdlet que forma parte del [módulo Az.ApplicationMonitor de PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
-> V2 de Monitor de estado está actualmente en versión preliminar pública.
-> Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no es aconsejable para cargas de trabajo de producción. Podrían no admitir algunas características, y algunas pueden tener funcionalidades limitadas.
+> Monitor de estado v2 está actualmente en la versión preliminar pública.
+> Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>DESCRIPCIÓN
 
-Sin código permite adjuntar la supervisión de aplicaciones IIS en un equipo de destino.
+Permite adjuntar sin código la supervisión de aplicaciones IIS en un equipo de destino.
 
-Este cmdlet modificará applicationHost.config IIS y establecer algunas claves del registro.
+Este cmdlet modificará el archivo IIS applicationHost.config y establecerá algunas claves del Registro.
 También creará un archivo applicationinsights.ikey.config, que define la clave de instrumentación usada por cada aplicación.
-IIS cargará el RedfieldModule durante el inicio, que se introducen los SDK de Application Insights en aplicaciones como las aplicaciones de inicio.
+IIS cargará RedfieldModule durante el inicio, lo que insertará los SDK de Application Insights en aplicaciones como las de inicio.
 Reinicie IIS para que los cambios surtan efecto.
 
 Después de habilitar la supervisión, se recomienda que use [Live Metrics](live-stream.md) para comprobar rápidamente si la aplicación enviaba telemetría.
 
 
 > [!NOTE] 
-> - Para empezar, necesita una clave de instrumentación. Para obtener más información, consulte [crear un recurso](create-new-resource.md#copy-the-instrumentation-key).
-> - Este cmdlet requiere que revise y acepte la licencia y declaración de privacidad.
+> - Para empezar, necesita una clave de instrumentación. Para más información, consulte [Crear un recurso](create-new-resource.md#copy-the-instrumentation-key).
+> - Este cmdlet requiere que revise y acepte la licencia, y la declaración de privacidad.
 
 > [!IMPORTANT] 
-> Este cmdlet requiere una sesión de PowerShell con permisos de administrador y una directiva de ejecución con privilegios elevados. Para obtener más información, consulte [ejecutar PowerShell como administrador con una directiva de ejecución con privilegios elevados](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
+> Este cmdlet requiere una sesión de PowerShell con permisos de administrador y una directiva de ejecución elevada. Para más información, consulte [Ejecute PowerShell como administrador con una directiva de ejecución con privilegios elevados](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ## <a name="examples"></a>Ejemplos
 
 ### <a name="example-with-a-single-instrumentation-key"></a>Ejemplo con una única clave de instrumentación
-En este ejemplo, todas las aplicaciones en el equipo actual se asignan a una única clave de instrumentación.
+En este ejemplo, a todas las aplicaciones en el equipo actual se les asigna una única clave de instrumentación.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -58,11 +58,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Ejemplo con un mapa de claves de instrumentación
 En este ejemplo:
-- `MachineFilter` coincide con el equipo actual usando el `'.*'` comodín.
-- `AppFilter='WebAppExclude'` Proporciona un `null` clave de instrumentación. No se puede instrumentar la aplicación especificada.
-- `AppFilter='WebAppOne'` asigna una clave de instrumentación única de la aplicación especificada.
-- `AppFilter='WebAppTwo'` asigna una clave de instrumentación única de la aplicación especificada.
-- Por último, `AppFilter` también usa el `'.*'` comodín que coincide con todas las aplicaciones web que no estén asignadas por las reglas anteriores y asignación una clave de instrumentación de forma predeterminada.
+- `MachineFilter` busca la correspondencia con el equipo actual usando el comodín `'.*'`.
+- `AppFilter='WebAppExclude'` proporciona una clave de instrumentación `null`. No se puede instrumentar la aplicación especificada.
+- `AppFilter='WebAppOne'` asigna una clave de instrumentación única a la aplicación especificada.
+- `AppFilter='WebAppTwo'` asigna una clave de instrumentación única a la aplicación especificada.
+- Por último, `AppFilter` también usa el comodín `'.*'` para buscar la correspondencia de todas las aplicaciones web que no coincidan según las reglas anteriores y les asigna una clave de instrumentación predeterminada.
 - Se agregan espacios para mejorar la legibilidad.
 
 ```powershell
@@ -78,38 +78,38 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ## <a name="parameters"></a>Parámetros
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Requerido.** Use este parámetro para proporcionar una única clave de instrumentación para su uso por todas las aplicaciones en el equipo de destino.
+**Requerido.** Use este parámetro para proporcionar una única clave de instrumentación para que la usen todas las aplicaciones en el equipo de destino.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Requerido.** Use este parámetro para proporcionar varias claves de instrumentación y una asignación de las claves de instrumentación utilizados por cada aplicación.
-Puede crear un script de instalación única para varios equipos estableciendo `MachineFilter`.
+**Requerido.** Use este parámetro para proporcionar varias claves de instrumentación y una asignación de las claves de instrumentación utilizadas por cada aplicación.
+Puede crear un solo script de instalación para varios equipos si establece `MachineFilter`.
 
 > [!IMPORTANT]
-> Las aplicaciones se harán coincidir con las reglas en el orden en que se proporcionan las reglas. Por lo que debe especificar las reglas más específicas en primer lugar y la última de las reglas más genéricas.
+> Las aplicaciones se harán coincidir con las reglas en el orden en que estas se proporcionan. Por tanto, debe especificar las reglas más específicas en primer lugar y las más genéricas las últimas.
 
 #### <a name="schema"></a>Esquema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** es obligatoria C# regex del equipo o el nombre de la máquina virtual.
-    - ". *" coincide con todos
-    - 'ComputerName' coincidirá con solo los equipos con el nombre exacto especificado.
-- **AppFilter** es obligatoria C# regex del equipo o el nombre de la máquina virtual.
-    - ". *" coincide con todos
-    - 'ApplicationName' hará coincidir solo las aplicaciones IIS con el nombre exacto especificado.
-- **InstrumentationKey** se requiere para habilitar la supervisión de aplicaciones que coinciden con los dos filtros anteriores.
-    - Deje este valor null si desea definir reglas para excluir de la supervisión.
+- **MachineFilter** es una expresión regular de C# requerida del nombre de la máquina virtual o del equipo.
+    - ".*" coincidirá con todos
+    - "ComputerName" coincidirá solo son aquellos equipos que tengan el nombre exacto especificado.
+- **AppFilter** es una expresión regular de C# requerida del nombre de la máquina virtual o del equipo.
+    - ".*" coincidirá con todos
+    - "ApplicationName" coincidirá solo son aquellas aplicaciones IIS que tengan el nombre especificado.
+- **InstrumentationKey** se requiere para habilitar la supervisión de las aplicaciones que coincidan con los dos filtros anteriores.
+    - Deje este valor como null si desea definir reglas para excluir la supervisión.
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Opcional.** Utilice este modificador para habilitar el motor de instrumentación recopilar eventos y mensajes sobre lo que sucede durante la ejecución de un proceso administrado. Estos eventos y mensajes incluyen códigos de resultado de la dependencia, verbos HTTP y texto de comando SQL.
+**Opcional.** Utilice este modificador para habilitar el motor de instrumentación y recopilar eventos y mensajes sobre lo que sucede durante la ejecución de un proceso administrado. Estos eventos y mensajes incluyen códigos de resultado de la dependencia, verbos HTTP y texto de comando SQL.
 
-El motor de instrumentación se sobrecarga y está desactivada de forma predeterminada.
+El motor de instrumentación se sobrecarga y está desactivado de forma predeterminada.
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**Opcional.** Use este modificador para aceptar la licencia y declaración de privacidad en las instalaciones sin periféricos.
+**Opcional.** Use este modificador para aceptar la licencia y la declaración de privacidad en las instalaciones sin periféricos.
 
 ### <a name="-verbose"></a>-Verbose
-**Parámetro común.** Utilice este modificador para mostrar los registros detallados.
+**Parámetro común.** Utilice este modificador para mostrar registros detallados.
 
 ### <a name="-whatif"></a>-WhatIf 
 **Parámetro común.** Utilice este modificador para probar y validar los parámetros de entrada sin habilitar realmente la supervisión.
@@ -153,17 +153,17 @@ Successfully enabled Application Insights Status Monitor
 ## <a name="next-steps"></a>Pasos siguientes
 
   Vea la telemetría:
- - [Explorar métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y uso.
-- [Busque eventos y registros](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
-- [Uso de Analytics](../../azure-monitor/app/analytics.md) para obtener más consultas avanzadas.
-- [Crear paneles](../../azure-monitor/app/overview-dashboard.md).
+ - [Explore las métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y el uso.
+- [Busque en los eventos y los registros](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+- [Use Analytics](../../azure-monitor/app/analytics.md) para consultas más avanzadas.
+- [Cree paneles](../../azure-monitor/app/overview-dashboard.md).
  
  Agregue más telemetría:
  - [Cree pruebas web](monitor-web-app-availability.md) para asegurarse de que el sitio permanece activo.
 - [Agregue telemetría de cliente web](../../azure-monitor/app/javascript.md) para ver las excepciones de código de la página web y para habilitar las llamadas de seguimiento.
-- [Agregue el SDK de Application Insights al código](../../azure-monitor/app/asp-net.md) para que pueda insertar seguimiento y registrar las llamadas.
+- [Agregue el SDK de Application Insights al código](../../azure-monitor/app/asp-net.md) para que pueda insertar llamadas de seguimiento y registro.
  
- Hacer más con el Monitor de estado v2:
- - Use nuestra guía para [solucionar](status-monitor-v2-troubleshoot.md) v2 del Monitor de estado.
- - [Obtener la configuración](status-monitor-v2-api-get-config.md) para confirmar que la configuración se registraron correctamente.
- - [Obtener el estado](status-monitor-v2-api-get-status.md) para inspeccionar la supervisión.
+ Hacer más con el Monitor de estado v2:
+ - Use nuestra guía para [solucionar problemas](status-monitor-v2-troubleshoot.md) del Monitor de estado v2.
+ - [Obtenga la configuración](status-monitor-v2-api-get-config.md) para confirmar que sus opciones se registraron correctamente.
+ - [Obtenga el estado](status-monitor-v2-api-get-status.md) para inspeccionar la supervisión.

@@ -9,15 +9,15 @@ ms.date: 06/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: db2557bd34cace220b1c9e5f7e6932dd63d9f89c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734531"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para la conexión a Azure Analysis Services
 
-Se requieren bibliotecas de cliente para que las aplicaciones cliente y las herramientas de cliente se puedan conectar a servidores de Analysis Services. Las aplicaciones cliente de Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) y SQL Server Data Tools (SSDT) instalan las bibliotecas de cliente de tres y actualizarlas junto con las actualizaciones de aplicación normal. En algunos casos, es posible que deba instalar las versiones más recientes de las bibliotecas de cliente. Aplicaciones de cliente personalizadas requieren también se instalan las bibliotecas de cliente.
+Se requieren bibliotecas de cliente para que las aplicaciones cliente y las herramientas de cliente se puedan conectar a servidores de Analysis Services. Las aplicaciones cliente de Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) y SQL Server Data Tools (SSDT) instalan las tres bibliotecas de cliente y las actualizan junto con las actualizaciones de aplicaciones normales. En algunos casos, es posible que deba instalar las versiones más recientes de las bibliotecas de cliente. Las aplicaciones de cliente personalizadas también requieren la instalación de las bibliotecas de cliente.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Descargar las bibliotecas de cliente más recientes (Windows Installer)  
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 6b5f0e96b90ee0515c0a86f41c6ee2161d6c54a6
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752717"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
@@ -51,7 +51,7 @@ Cualquier cambio que se realice en los recursos de Azure, ya sea directamente en
 
 ![](media/features-powershell/azure-drive.png)
 
-### <a name="manage-exchange-online"></a>Manage Exchange Online
+### <a name="manage-exchange-online"></a>Administración de Exchange Online
 
 PowerShell en Cloud Shell contiene una compilación privada del módulo de Exchange Online.  Ejecute `Connect-EXOPSSession` para obtener los cmdlets de Exchange.
 
@@ -59,7 +59,7 @@ PowerShell en Cloud Shell contiene una compilación privada del módulo de Excha
 
  Ejecute `Get-Command -Module tmp_*`
 > [!NOTE]
-> El nombre del módulo debe comenzar por `tmp_`, si ha instalado módulos con el mismo prefijo, también se expone sus cmdlets. 
+> El nombre del módulo debe comenzar por `tmp_`. Si ha instalado los módulos con el mismo prefijo, también se expondrán los cmdlets. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -69,7 +69,7 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 
 ## <a name="tools"></a>Herramientas
 
-|Categoría   |Name   |
+|Categoría   |NOMBRE   |
 |---|---|
 |Herramientas de Linux            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Herramientas de Azure            |[CLI de Azure](https://github.com/Azure/azure-cli) y [CLI de Azure clásica](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [CLI de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -82,9 +82,9 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
-|Lenguaje   |Version   |
+|Idioma   |Versión   |
 |---|---|
-|Núcleo de .NET  |2.0.0       |
+|.NET Core  |2.0.0       |
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |

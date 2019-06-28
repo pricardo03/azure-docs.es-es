@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 2ed74a4ba19af3a441bcf26a48890f033e6c365f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: a4af53e035929a44f74a95b8e9897cb1dc0c6d8e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151693"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814855"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
@@ -29,7 +29,7 @@ Puede cambiar el número de nodos de agente en un clúster DC/OS, Docker Swarm o
 
 ## <a name="scale-with-the-azure-cli"></a>Escalado con la CLI de Azure
 
-Asegúrese de que [ha instalado](/cli/azure/install-az-cli2) la CLI de Azure más reciente y que ha iniciado sesión en una cuenta de Azure (`az login`).
+[Instale la CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con `az login`.
 
 ### <a name="see-the-current-agent-count"></a>Consulta del recuento actual de agentes
 Para ver el número de agentes actualmente en el clúster, ejecute el comando `az acs show`. Esta acción muestra la configuración del clúster. Por ejemplo, el comando siguiente muestra la configuración del servicio de contenedores llamada `containerservice-myACSName` en el grupo de recursos `myResourceGroup`:

@@ -1,6 +1,6 @@
 ---
-title: 'Empezar a trabajar con directivas personalizadas: Azure Active Directory B2C | Microsoft Docs'
-description: Obtenga información sobre cómo empezar a trabajar con directivas personalizadas en Azure Active Directory B2C.
+title: 'Introducción a las directivas personalizadas: Azure Active Directory B2C | Microsoft Docs'
+description: Obtenga información sobre cómo empezar a usar directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,10 +11,10 @@ ms.date: 05/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 2929c033b4744ea89f8e3d711a5e2e0df6301c14
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730011"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
@@ -26,12 +26,12 @@ Las [directivas personalizadas](active-directory-b2c-overview-custom.md) son arc
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Si todavía no tiene uno, debe [crear un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
-- [Registrar la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
+- [Registre la aplicación](tutorial-register-applications.md) en el inquilino que ha creado para que pueda comunicarse con Azure AD B2C.
 
 ## <a name="add-signing-and-encryption-keys"></a>Agregar claves de firma y cifrado
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
-2. Asegúrese de que usa el directorio que contiene al inquilino de Azure AD B2C. Haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino. 
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Haga clic en el **filtro de directorio y suscripciones** del menú superior y elija el directorio que contiene la suscripción. 
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 4. En la página de introducción, seleccione **Identity Experience Framework**.
 
@@ -60,7 +60,7 @@ Si ya tiene un [secreto de aplicación de Facebook](active-directory-b2c-setup-f
 1. Seleccione **Claves de directiva** y luego **Agregar**.
 2. En **Opciones**, elija `Manual`.
 3. En **Nombre**, escriba `FacebookSecret`. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-4. En **Secreto**, escriba el secreto de Facebook de developers.facebook.com o `0` como marcador de posición. Este valor es el secreto, no el identificador de aplicación.
+4. En **Secreto**, escriba el secreto de Facebook de developers.facebook.com o `0` como marcador de posición. Este valor es el secreto, no el identificador de la aplicación.
 5. En **Uso de claves**, seleccione **Firma**.
 6. Haga clic en **Create**(Crear).
 
@@ -70,8 +70,8 @@ Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar u
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar la aplicación IdentityExperienceFramework
 
-1. Elija **todos los servicios** en la esquina superior izquierda de Azure portal, busque y seleccione **Azure Active Directory**.
-2. En el menú, seleccione **registros de aplicaciones (heredado)** .
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure Active Directory**.
+2. En el menú, seleccione **Registros de aplicaciones (característica heredada)** .
 3. Seleccione **Nuevo registro de aplicaciones**.
 4. En **Nombre**, escriba `IdentityExperienceFramework`.
 5. En **Tipo de aplicación**, elija **Aplicación web o API**.
@@ -80,13 +80,13 @@ Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar u
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrar la aplicación ProxyIdentityExperienceFramework
 
-1. En **registros de aplicaciones (heredado)** , seleccione **nuevo registro de aplicaciones**.
+1. En **Registros de aplicaciones (característica heredada)** , seleccione **Nuevo registro de aplicaciones**.
 2. En **Nombre**, escriba `ProxyIdentityExperienceFramework`.
 3. En **Tipo de aplicación**, elija **Nativa**.
 4. En **URI de redirección**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, donde `your-tenant-name` es el inquilino de Azure AD B2C.
 5. Haga clic en **Create**(Crear). Una vez creada, copie el identificador de aplicación y guárdelo para usarlo más adelante.
 6. En la página Configuración, seleccione **Permisos necesarios** y luego **Agregar**.
-7. Elija **seleccionar una API**, busque y seleccione **IdentityExperienceFramework**y, a continuación, haga clic en **seleccione**.
+7. Elija **Seleccionar una API**, busque y seleccione **IdentityExperienceFramework** y, después, haga clic en **Seleccionar**.
 9. Active la casilla situada junto a **Access IdentityExperienceFramework** (Acceder a IdentityExperienceFramework), haga clic en **Seleccionar** y luego en **Listo**.
 10. Seleccione **Conceder permisos** y haga clic en **Sí** para confirmar.
 
@@ -132,7 +132,7 @@ Agregue los identificadores de aplicación al archivo de extensiones *TrustFrame
 ## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
 
 1. En la página Directivas personalizadas, seleccione **B2C_1A_signup_signin**.
-2. Para **seleccione aplicación** en la página información general de la directiva personalizada, seleccione la aplicación web denominada *webapp1* que registró anteriormente. Asegúrese de que el **dirección URL de respuesta** es `https://jwt.ms`.
+2. Para **Seleccionar aplicación** en la página Información general de la directiva personalizada, seleccione la aplicación web denominada *webapp1* que ha registrado antes. Asegúrese de que la **URL de respuesta** sea `https://jwt.ms`.
 3. Seleccione **Ejecutar ahora**.
 4. Debe poder registrarse con una dirección de correo electrónico.
 5. Inicie sesión con la misma cuenta para confirmar que tiene una configuración correcta.

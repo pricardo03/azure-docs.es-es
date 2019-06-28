@@ -1,6 +1,6 @@
 ---
-title: Casos de uso de la puerta de enlace de cuadro de datos de Microsoft Azure | Microsoft Docs
-description: Describe los casos de uso para la puerta de enlace de Azure datos de cuadro, una solución de almacenamiento del dispositivo virtual que le permite transferir datos a Azure
+title: Casos de uso de Microsoft Azure Data Box Gateway | Microsoft Docs
+description: Describe los casos de uso de Azure Data Box Gateway, una solución de almacenamiento de aplicaciones virtuales que permite transferir datos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
 ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754186"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso de Azure Data Box Gateway

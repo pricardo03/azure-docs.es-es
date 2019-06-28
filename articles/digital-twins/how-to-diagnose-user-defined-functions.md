@@ -9,43 +9,43 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 4d772b8cad64f138d93d91e87f6e6364c5a5d602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808890"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
-En este artículo se resume cómo diagnosticar y depurar las funciones definidas por el usuario en Digital gemelos de Azure. A continuación, se identifican algunos de los escenarios más comunes que se producen al depurarlas.
+En este artículo se resume cómo diagnosticar y depurar las funciones definidas por el usuario en Azure Digital Twins. A continuación, se identifican algunos de los escenarios más comunes que se producen al depurarlas.
 
 >[!TIP]
 > Lea [Configuración de la supervisión y el registro](./how-to-configure-monitoring.md) para obtener más información sobre cómo configurar las herramientas de depuración en Azure Digital Twins mediante registros de actividad, registros de diagnóstico y Azure Monitor.
 
 ## <a name="debug-issues"></a>Depuración de problemas
 
-Saber cómo diagnosticar problemas de gemelos Digital de Azure le permite analizar los problemas eficazmente, identificar las causas de problemas y proporcionar soluciones adecuadas para ellos.
+Saber cómo diagnosticar problemas en Azure Digital Twins permite analizarlos de forma eficaz, identificar sus causas y proporcionar soluciones adecuadas a los mismos.
 
-Una variedad de herramientas de diagnóstico, análisis y registro se proporcionan con ese fin.
+Para tal fin se proporcionan varias herramientas de diagnóstico, análisis y registro.
 
-### <a name="enable-logging-for-your-instance"></a>Habilitar el registro para la instancia
+### <a name="enable-logging-for-your-instance"></a>Habilitación del registro en la instancia
 
-Azure Digital Twins es compatible con un eficaz sistema de registro, supervisión y análisis. Los programadores de soluciones pueden usar los registros, registros de diagnóstico, registros de actividad y otros servicios de Azure Monitor para admitir las complejas necesidades de supervisión de una aplicación de IoT. Las opciones de registro se pueden combinar para consultar o mostrar registros en diferentes servicios y ofrecer una cobertura de registro pormenorizada para muchos servicios.
+Azure Digital Twins es compatible con un eficaz sistema de registro, supervisión y análisis. Los desarrolladores de soluciones pueden usar los registros de Azure Monitor, los registros de diagnóstico, el registro de actividad y otros servicios para dar soporte a las complejas necesidades de supervisión de una aplicación de IoT. Las opciones de registro se pueden combinar para consultar o mostrar registros en diferentes servicios y ofrecer una cobertura de registro pormenorizada para muchos servicios.
 
-* Para la configuración de registro específica de gemelos Digital de Azure, lea [cómo configurar la supervisión y registro](./how-to-configure-monitoring.md).
-* Consulte el la [Azure Monitor](../azure-monitor/overview.md) información general para obtener información sobre la configuración del registro eficaz habilitada a través de Azure Monitor.
-* Consulte el artículo [recopile y consuma datos de registro de los recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para configurar las opciones de registro de diagnóstico en Azure gemelos Digital a través del Portal de Azure, CLI de Azure o PowerShell.
+* Para ver una configuración de registro específica de Azure Digital Twins, lea [Configuración de la supervisión y el registro](./how-to-configure-monitoring.md).
+* Consulte la introducción a [Azure Monitor](../azure-monitor/overview.md) para obtener información acerca de la eficaz configuración del registro que se habilita a través de Azure Monitor.
+* Lea el artículo [Recopilación y consumo de datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para configurar el registro de diagnóstico en Azure Digital Twins mediante Azure Portal, la CLI de Azure o PowerShell.
 
-Una vez configurado, podrá seleccionar todas las categorías de registro, métricas y usar áreas de trabajo del análisis de registro Azure Monitor eficaz para admitir los esfuerzos de depuración.
+Una vez configurado, podrá seleccionar todas las categorías de registro y métricas, así como usar áreas de trabajo del análisis del registro de Azure Monitor para dar soporte a sus esfuerzos de depuración.
 
 ### <a name="trace-sensor-telemetry"></a>Seguimiento de la telemetría del sensor
 
-Para hacer un seguimiento de la telemetría del sensor, verifique que la configuración de diagnóstico esté habilitada para su instancia de Azure Digital Twins. A continuación, asegúrese de que todas las categorías de registro deseadas están seleccionadas. Por último, confirme que se envían los registros deseados a los registros de Azure Monitor.
+Para hacer un seguimiento de la telemetría del sensor, verifique que la configuración de diagnóstico esté habilitada para su instancia de Azure Digital Twins. A continuación, asegúrese de que todas las categorías de registro deseadas están seleccionadas. Por último, confirme que los registros deseados se envían a los registros de Azure Monitor.
 
 Para hacer coincidir un mensaje de telemetría de sensor con sus registros correspondientes, puede especificar un identificador de correlación en los datos del evento que se envían. Para ello, establezca la propiedad `x-ms-client-request-id` en un GUID.
 
-Después de enviar la telemetría, abrir log analytics para consultar los registros con el conjunto de Id. de correlación:
+Después de enviar los datos de telemetría, abra los análisis de registros para consultar los registros mediante el identificador de correlación establecido:
 
 ```Kusto
 AzureDiagnostics
@@ -56,7 +56,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | El identificador de correlación que se especificó en los datos del evento |
 
-Si habilita el registro para la función definida por el usuario, los registros aparecen en la instancia de log analytics con la categoría `UserDefinedFunction`. Para recuperarlos, escriba la siguiente condición de consulta de log analytics:
+Si habilita el registro para su función definida por el usuario, los registros aparecen en su instancia de análisis de registros con la categoría `UserDefinedFunction`. Para recuperarlos, escriba la siguiente condición de consulta en el análisis de registros:
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +209,4 @@ Si habilita la configuración de diagnóstico, es posible que se produzcan estas
 
 - Obtenga información sobre cómo habilitar [la supervisión y los registros](./how-to-configure-monitoring.md) en Azure Digital Twins.
 
-- Leer el [registro de información general de la actividad de Azure](../azure-monitor/platform/activity-logs-overview.md) artículo para más opciones de registro.
+- Lea el artículo [Información general del registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md) para conocer más opciones de registro.

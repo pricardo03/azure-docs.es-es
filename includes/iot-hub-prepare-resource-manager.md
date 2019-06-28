@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 74f15452c7def068403b97b11e784170835edc18
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156322"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133623"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepararse para autenticar solicitudes de Azure Resource Manager
 Debe autenticar todas las operaciones que se realizan en los recursos mediante [Azure Resource Manager][lnk-authenticate-arm] con Azure Active Directory (AD). La manera más sencilla de configurar esto es usar PowerShell o CLI de Azure.
@@ -40,8 +40,8 @@ En los pasos siguientes se muestra cómo configurar la autenticación de contras
 2. Anote los valores de **TenantId** y **SubscriptionId**. Los necesitará más adelante.
 3. Cree una nueva aplicación de Azure Active Directory con el siguiente comando, reemplazando los marcadores de posición:
    
-   * **{Nombre para mostrar}**: nombre para mostrar de la aplicación, por ejemplo, **MySampleApp**.
-   * **{Dirección URL de la página principal}:** la dirección URL de la página principal de la aplicación, como **http:\//mysampleapp/home**. Esta dirección URL no tiene que señalar a una aplicación real.
+   * **{Nombre para mostrar}** : nombre para mostrar de la aplicación, por ejemplo, **MySampleApp**.
+   * **{Dirección URL de la página principal}:** la dirección URL de la página principal de la aplicación, por ejemplo, **http:\//mysampleapp/home**. Esta dirección URL no tiene que señalar a una aplicación real.
    * **{Application identifier}:** Un identificador único, como **http:\//mysampleapp**. Esta dirección URL no tiene que señalar a una aplicación real.
    * **{Password}:** una contraseña que se usa para autenticarse en la aplicación.
      
@@ -69,4 +69,4 @@ Ahora ha terminado de crear la aplicación de Azure AD que le permitirá autenti
 * Contraseña
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: /powershell/azure/install-Az-ps
+[lnk-powershell-install]: /powershell/azure/install-az-ps

@@ -10,10 +10,10 @@ ms.date: 10/10/2016
 ms.author: osamam
 ms.custom: seodec18
 ms.openlocfilehash: 2b2b678cad50e45660fb763c2a1f9194500edf8d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730200"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Enrutamiento asimétrico con varias rutas de acceso de red
@@ -50,7 +50,7 @@ Para comprender el efecto que estos dos cambios tienen en una red, veamos alguno
 
 A continuación, ya puede activar ExpressRoute y consumir los servicios ofrecidos por Microsoft a través de ExpressRoute. Todos los demás servicios de Microsoft se consumen a través de Internet. Implemente un servidor de firewall independiente en su perímetro que se conecte a ExpressRoute. Microsoft anuncia prefijos más específicos en la red a través de ExpressRoute para servicios específicos. La infraestructura de enrutamiento elige ExpressRoute como ruta de acceso preferida para estos prefijos. Si no va a anunciar direcciones IP públicas en Microsoft a través de ExpressRoute, Microsoft se comunicará con las direcciones IP públicas a través de Internet. Por lo tanto, al reenviar el tráfico de la red a Microsoft, se usará ExpressRoute mientras que el tráfico inverso desde Microsoft utilizará Internet. Si el firewall en el perímetro ve un paquete de respuesta de un flujo que no se encuentra en la tabla de estado, descartará el tráfico de retorno.
 
-Si lo desea anunciar el mismo grupo de translation (NAT) de direcciones de red para ExpressRoute e Internet, verá problemas similares con los clientes en la red en las direcciones IP privadas. La solicitud de servicios como Windows Update pasará a través de Internet ya que las direcciones IP de estos servicios no se anuncian a través de ExpressRoute. Sin embargo, el tráfico de retorno volverá a través de ExpressRoute. Si Microsoft recibe una dirección IP con la misma máscara de subred de Internet y ExpressRoute, dará preferencia a ExpressRoute en lugar de a Internet. Si un firewall u otro dispositivo con estado en el perímetro de la red, orientado a ExpressRoute, no tiene ninguna información previa sobre el flujo, descartará los paquetes que pertenecen a ese flujo.
+Si decide mostrar el mismo grupo de traducción de direcciones de red (NAT) para ExpressRoute e Internet, tendrá problemas similares con los clientes en las direcciones IP privadas de la red. La solicitud de servicios como Windows Update pasará a través de Internet ya que las direcciones IP de estos servicios no se anuncian a través de ExpressRoute. Sin embargo, el tráfico de retorno volverá a través de ExpressRoute. Si Microsoft recibe una dirección IP con la misma máscara de subred de Internet y ExpressRoute, dará preferencia a ExpressRoute en lugar de a Internet. Si un firewall u otro dispositivo con estado en el perímetro de la red, orientado a ExpressRoute, no tiene ninguna información previa sobre el flujo, descartará los paquetes que pertenecen a ese flujo.
 
 ## <a name="asymmetric-routing-solutions"></a>Soluciones de enrutamiento asimétrico
 Tiene dos opciones principales para solucionar el problema del enrutamiento asimétrico. Una es a través del enrutamiento y la otra es mediante el uso de NAT basada en origen (SNAT).

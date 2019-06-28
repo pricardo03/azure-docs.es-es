@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: adfc96d2d7abf38c00f32a5d53615bb7c99c320e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742383"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Error en la página de aplicación después de iniciar sesión
@@ -67,11 +67,11 @@ Para agregar un atributo en la configuración de Azure AD para enviarlo en la re
 
 La próxima vez que el usuario inicie sesión en la aplicación, Azure AD enviará el nuevo atributo en la respuesta de SAML.
 
-## <a name="the-application-doesnt-identify-the-user"></a>La aplicación no identifica el usuario
+## <a name="the-application-doesnt-identify-the-user"></a>La aplicación no identifica al usuario
 
-El inicio de sesión a la aplicación tiene errores porque la respuesta de SAML no tiene atributos, como los roles o porque la aplicación espera un formato diferente o un valor para el atributo EntityID.
+El inicio de sesión en la aplicación falla porque la respuesta de SAML no encuentra los atributos, por ejemplo, los roles, o porque la aplicación espera un formato o valor diferentes para el atributo EntityID.
 
-Si usas [Azure AD aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para crear, mantener y quitar usuarios de la aplicación. A continuación, compruebe que el usuario se ha aprovisionado correctamente a la aplicación de SaaS. Para obtener más información, consulte [no se está aprovisionando ningún usuario a una aplicación de galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+Si usa el [aprovisionamiento automático de usuarios de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) para crear, mantener y quitar usuarios de la aplicación, compruebe que el usuario se haya aprovisionado correctamente en la aplicación de SaaS. Para más información, consulte [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
 
 ## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Incorporación de un atributo en la configuración de la aplicación de Azure AD:
 

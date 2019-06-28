@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66455207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056494"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 
@@ -42,9 +42,9 @@ Azure admite tres tipos de opciones de VPN de punto a sitio:
 
 * Protocolo de túnel de sockets seguros (SSTP). SSTP es una solución basada en SSL propietaria de Microsoft que puede atravesar firewalls, puesto que la mayoría de los firewalls abren el puerto TCP 443 que utiliza SSL.
 
-* OpenVPN. OpenVPN es una solución basada en SSL que puede atravesar firewalls, puesto que la mayoría de ellos abre el puerto TCP 443 que utiliza SSL.
+* OpenVPN. OpenVPN es una solución basada en SSL que puede atravesar firewalls, puesto que la mayoría de los firewalls abren el puerto TCP 443 de salida que utiliza SSL.
 
-* VPN IKEv2. VPN IKEv2 es una solución de VPN con IPsec basada en estándares que utiliza los puertos UDP 500 y 4500 y protocolo IP. 50. Los firewalls no siempre abren estos puertos, por lo que hay una posibilidad de que la VPN IKEv2 no pueda atravesar servidores proxy y firewalls.
+* VPN IKEv2. VPN IKEv2 es una solución de VPN con IPsec basada en estándares que utiliza los puertos UDP 500 y 4500 de salida y el protocolo IP no. 50. Los firewalls no siempre abren estos puertos, por lo que hay una posibilidad de que la VPN IKEv2 no pueda atravesar servidores proxy y firewalls.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>¿Si reinicio un equipo cliente con configuración de punto a sitio, se volverá a conectar la VPN de forma automática?
 
@@ -68,11 +68,11 @@ Es difícil de mantener el rendimiento exacto de los túneles VPN. IPsec y SSTP 
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>¿Puedo usar cualquier software de cliente VPN para punto a sitio que admita SSTP o IKEv2?
 
-No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Sin embargo, puede usar al cliente OpenVPN en todas las plataformas para conectarse a través del protocolo OpenVPN. Consulte la lista de sistemas operativos cliente compatibles.
+No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Sin embargo, puede utilizar el cliente OpenVPN en todas las plataformas para conectarse a través del protocolo OpenVPN. Consulte la lista de sistemas operativos cliente compatibles.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>¿Azure admite VPN IKEv2 con Windows?
 
-IKEv2 se admite en Windows 10 y Server 2016. Sin embargo, para poder usar IKEv2, debe instalar las actualizaciones y establecer un valor de clave del Registro localmente. Versiones del sistema operativo anteriores a Windows 10 no se admiten y solo se pueden usar SSTP o **OpenVPN® protocolo**.
+IKEv2 se admite en Windows 10 y Server 2016. Sin embargo, para poder usar IKEv2, debe instalar las actualizaciones y establecer un valor de clave del Registro localmente. No se admiten las versiones de sistemas operativos anteriores a Windows 10 y solo se puede usar el **protocolo OpenVPN®** o SSTP.
 
 Para preparar Windows 10 o Server 2016 para IKEv2:
 

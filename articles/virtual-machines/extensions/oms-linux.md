@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2019
 ms.author: roiyz
 ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755143"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Azure Monitor para Linux
 
 ## <a name="overview"></a>Información general
 
-Registros de Azure Monitor proporciona funcionalidades de corrección de alertas, supervisión y alertas en los activos en la nube y locales. Microsoft, como editor de la extensión de máquina virtual del agente de Log Analytics para Linux, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. Este documento detalla las plataformas compatibles, configuraciones y opciones de implementación para la extensión de máquina virtual de Azure Monitor para Linux.
+Los registros de Azure Monitor proporcionan funcionalidades de supervisión, generación de alertas y corrección de alertas a los recursos locales y en la nube. Microsoft, como editor de la extensión de máquina virtual del agente de Log Analytics para Linux, es quien presta los servicios de soporte técnico para esta solución. La extensión instala el agente de Log Analytics en Azure Virtual Machines e inscribe las máquinas virtuales en un área de trabajo de Log Analytics. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de Azure Monitor para Linux.
 
 >[!NOTE]
 >Como parte de la transición en curso de Microsoft Operations Management Suite (OMS) a Azure Monitor, se hará referencia al agente de OMS para Windows o Linux como el agente de Log Analytics para Windows y el agente de Log Analytics para Linux.
@@ -39,7 +39,7 @@ Registros de Azure Monitor proporciona funcionalidades de corrección de alertas
 
 La extensión del agente de Log Analytics puede ejecutarse en estas distribuciones de Linux.
 
-| Distribución | Version |
+| Distribución | Versión |
 |---|---|
 | CentOS Linux | 6 (x86/x64) y 7 (x64) |
 | Amazon Linux | 2017.09 (x64) | 
@@ -53,14 +53,14 @@ La extensión del agente de Log Analytics puede ejecutarse en estas distribucion
 >OpenSSL anterior a la versión 1.x no es compatible con ninguna plataforma y la versión 1.10 solo es compatible con plataformas x86_64 (64 bits).  
 >
 
-### <a name="agent-prerequisites"></a>Requisitos previos del agente
+### <a name="agent-prerequisites"></a>Requisitos del agente
 
-En la tabla siguiente se resalta los paquetes necesarios para las distribuciones de Linux compatibles que se instalará el agente en.
+En la tabla siguiente se indican los paquetes necesarios para las distribuciones de Linux compatibles en las que se instalará el agente.
 
 |Paquete necesario |DESCRIPCIÓN |Versión mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
-|Openssl    | Bibliotecas OpenSSL | 1.0 o 1.1 |
+|Openssl    | Bibliotecas OpenSSL | 1.0.x o 1.1.x |
 |Curl | Cliente web de cURL | 7.15.5 |
 |Python ctypes | | 
 |PAM | Módulos de autenticación conectables | | 
@@ -69,9 +69,9 @@ En la tabla siguiente se resalta los paquetes necesarios para las distribuciones
 >Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar configurar el demonio de Rsyslog para reemplazar Sysklog.
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
-En la tabla siguiente proporciona una asignación de la versión de la extensión de máquina virtual de Azure Monitor y el paquete del agente de Log Analytics para cada versión. Se incluye un vínculo a las notas de la versión del paquete del agente de Log Analytics. Las notas de versión incluyen detalles sobre corrección de errores y nuevas características que están disponibles para una versión de agente determinada.  
+En la tabla siguiente se proporciona una asignación de la versión de la extensión de máquina virtual de Azure Monitor y el paquete del agente de Log Analytics para cada versión. Se incluye un vínculo a las notas de la versión del paquete del agente de Log Analytics. Las notas de versión incluyen detalles sobre corrección de errores y nuevas características que están disponibles para una versión de agente determinada.  
 
-| Versión de la extensión de máquina virtual Linux de Monitor Azure | Versión del paquete del agente de Log Analytics | 
+| Versión de extensión de máquina virtual Linux de Azure Monitor | Versión del paquete del agente de Log Analytics | 
 |--------------------------------|--------------------------|
 |1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
@@ -144,7 +144,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación, como la incorporación a los registros de Azure Monitor. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de VM del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales cuando se implementan una o varias máquinas virtuales que requieren configuración tras la implementación, como por ejemplo, su incorporación a los registros de Azure Monitor. Puede encontrar una plantilla de Resource Manager de ejemplo que incluye la extensión de VM del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
@@ -212,7 +212,7 @@ az vm extension set \
   --settings '{"workspaceId": "omsid"}'
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
+## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
@@ -239,7 +239,7 @@ El resultado de la ejecución de las extensiones se registra en el archivo sigui
 | 19 | Error al instalar el paquete de OMI | 
 | 20 | Error al instalar el paquete de SCX |
 | 51 | Esta extensión no se admite en el sistema operativo de la máquina virtual | |
-| 55 | No se puede conectar al servicio de Azure Monitor o los paquetes necesarios Administrador de paquetes que faltan o dpkg está bloqueado| Compruebe que el sistema tiene acceso a Internet o que se ha proporcionado un servidor proxy HTTP válido. Además, compruebe la validez del identificador del área de trabajo y compruebe que las utilidades curl y tar está instaladas. |
+| 55 | No se puede conectar al servicio Azure Monitor o faltan los paquetes necesarios o el administrador de paquetes dpkg está bloqueado| Compruebe que el sistema tiene acceso a Internet o que se ha proporcionado un servidor proxy HTTP válido. Además, compruebe la validez del identificador del área de trabajo y compruebe que las utilidades curl y tar está instaladas. |
 
 Puede encontrar información adicional para solucionar problemas en la [Guía de solución de problemas del agente de Log Analytics para Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

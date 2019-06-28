@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
 ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752574"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Windows Defender con Azure Security Center
@@ -25,9 +25,9 @@ ms.locfileid: "66752574"
 Azure Security Center va a ampliar su oferta de plataformas de protección de cargas de trabajo en la nube mediante la integración con la [Protección contra amenazas avanzada de Windows Defender](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
 Este cambio ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Con la integración de ATP de Windows Defender, puede detectar anomalías. También puede detectar y responder a ataques avanzados en los puntos de conexión de servidor que Azure Security Center supervisa.
 
-## <a name="windows-defender-atp-features-in-security-center"></a>Características de Windows Defender ATP en Security Center
+## <a name="windows-defender-atp-features-in-security-center"></a>Características de ATP de Windows Defender en Security Center
 
-Al usar Windows Defender ATP obtendrá:
+Cuando usa ATP de Windows Defender, obtiene lo siguiente:
 
 - **Sensores de detección de brechas de próxima generación**: los sensores de ATP de Windows Defender para los servidores Windows recopilan una amplia variedad de señales de comportamiento.
 
@@ -51,10 +51,10 @@ Puede investigar más la alerta basándose en ATP de Windows Defender. Allí pue
 
 ## <a name="platform-support"></a>Compatibilidad con plataformas
 
-Windows Defender ATP en Security Center admite la detección en los sistemas de operativos Windows Server 2012 R2 y Windows Server 2016 que pertenecen a una suscripción de servicio estándar.
+ATP de Windows Defender en Security Center admite la detección en los sistemas operativos Windows Server 2012 R2 y Windows Server 2016 que pertenecen a una suscripción de servicio estándar.
 
 > [!NOTE]
-> Al usar Azure Security Center para supervisar los servidores, se crea automáticamente un inquilino de ATP de Windows Defender y los datos de ATP de Windows Defender se almacenan en Europa de forma predeterminada. Si tiene que mover los datos a otra ubicación, deberá ponerse en contacto con Microsoft Support para restablecer al inquilino.
+> Al usar Azure Security Center para supervisar los servidores, se crea automáticamente un inquilino de ATP de Windows Defender y los datos de este se almacenan en Europa de forma predeterminada. Si necesita mover los datos a otra ubicación, deberá ponerse en contacto con el Soporte técnico de Microsoft para restablecer el inquilino.
 
 ## <a name="onboarding-servers-to-security-center"></a>Incorporación de servidores a Security Center 
 

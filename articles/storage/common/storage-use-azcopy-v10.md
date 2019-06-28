@@ -1,6 +1,6 @@
 ---
-title: Copiar o mover datos a Azure Storage mediante AzCopy v10 | Microsoft Docs
-description: AzCopy es una utilidad de línea de comandos que puede usar para copiar datos a, desde o entre cuentas de almacenamiento. En este artículo le ayuda a descargar AzCopy, conectarse a su cuenta de almacenamiento y, a continuación, transferir archivos.
+title: Copia o transferencia de datos a Azure Storage con AzCopy v10 | Microsoft Docs
+description: AzCopy es una utilidad de línea de comandos que puede usar para copiar datos entre cuentas de almacenamiento. En este artículo sirve de ayuda para descargar AzCopy, conectarse a la cuenta de almacenamiento y, a continuación, transferir archivos.
 services: storage
 author: normesta
 ms.service: storage
@@ -9,63 +9,63 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735023"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
-AzCopy es una utilidad de línea de comandos que puede usar para copiar los blobs o archivos a o desde una cuenta de almacenamiento. En este artículo le ayuda a descargar AzCopy, conectarse a su cuenta de almacenamiento y, a continuación, transferir archivos.
+AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o archivos a una cuenta de almacenamiento o desde una cuenta de almacenamiento. En este artículo sirve de ayuda para descargar AzCopy, conectarse a la cuenta de almacenamiento y, a continuación, transferir archivos.
 
 > [!NOTE]
-> AzCopy **V10** es la versión actualmente admitida de AzCopy.
+> AzCopy **V10** es la versión admitida actualmente de AzCopy.
 >
-> Si necesita usar AzCopy **v8.1**, consulte el [usar la versión anterior de AzCopy](#previous-version) sección de este artículo.
+> Si necesita usar AzCopy **v8.1**, consulte la sección [Uso de la versión anterior de AzCopy](#previous-version) de este artículo.
 
 <a id="download-and-install-azcopy" />
 
 ## <a name="download-azcopy"></a>Descargar AzCopy
 
-En primer lugar, descargue el archivo ejecutable AzCopy V10 en cualquier directorio en el equipo. 
+En primer lugar, descargue el archivo ejecutable de AzCopy V10 en cualquier directorio en el equipo. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 > [!NOTE]
-> Si desea copiar datos desde y hacia su [de Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) de servicio y volver a instalar [AzCopy versión 7.3](https://aka.ms/downloadazcopynet).
+> Si desea copiar datos desde y hacia su servicio de [almacenamiento de Azure Table](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), instale [AzCopy versión 7.3](https://aka.ms/downloadazcopynet).
 
 ## <a name="run-azcopy"></a>Ejecución de AzCopy
 
-Para mayor comodidad, considere la posibilidad de agregar la ubicación del directorio del ejecutable de AzCopy a la ruta del sistema para facilitar su uso. De este modo puede escribir `azcopy` desde cualquier directorio del sistema.
+Para mayor comodidad, considere la posibilidad de agregar la ubicación del directorio del ejecutable de AzCopy a la ruta de acceso del sistema para facilitar su uso. De este modo, puede escribir `azcopy` desde cualquier directorio del sistema.
 
-Si decide no agregar el directorio de AzCopy a la ruta de acceso, tendrá que cambie los directorios a la ubicación de su archivo ejecutable de AzCopy y el tipo `azcopy` o `.\azcopy` en los mensajes de comando de Windows PowerShell.
+Si decide no agregar el directorio de AzCopy a la ruta de acceso, tendrá que cambiar los directorios a la ubicación de su archivo ejecutable de AzCopy y escribir `azcopy` o `.\azcopy` en los símbolos del sistema de Windows PowerShell.
 
-Para ver una lista de comandos, escriba `azcopy -h` y, a continuación, presione la tecla ENTRAR.
+Para ver una lista de los comandos, escriba `azcopy -h` y, a continuación, presione la tecla ENTRAR.
 
-Para obtener información acerca de un comando específico, simplemente puede incluir el nombre del comando (por ejemplo: `azcopy list -h`).
+Para obtener información acerca de un comando específico, basta con que incluya el nombre del comando (por ejemplo: `azcopy list -h`).
 
 ![Ayuda en línea](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-Antes de hacer nada significativo con AzCopy, debe decidir cómo proporcionará las credenciales de autorización para el servicio de almacenamiento.
+Antes de hacer nada significativo con AzCopy, debe decidir cómo proporcionará las credenciales de autorización al servicio de almacenamiento.
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Elegir cómo deberá proporcionar las credenciales de autorización
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Elección del modo de proporcionar las credenciales de autorización
 
-Puede proporcionar las credenciales de autorización mediante el uso de Azure Active Directory (AD), o mediante un token de firma de acceso compartido (SAS).
+Puede proporcionar las credenciales de autorización mediante Azure Active Directory (AD) o mediante un token de firma de acceso compartido (SAS).
 
 Use esta tabla como guía:
 
-| Tipo de almacenamiento | Método admitido actualmente de autorización |
+| Tipo de almacenamiento | Método de autorización admitido actualmente |
 |--|--|
-|**Blob Storage** | Azure AD & SAS |
-|**Almacenamiento de blobs (espacio de nombres de series temporales jerárquicas)** | Solo Azure AD |
+|**Blob Storage** | Azure AD y SAS |
+|**Almacenamiento de blobs (espacio de nombres jerárquico)** | Solo Azure AD |
 |**Almacenamiento de archivos** | SAS solo |
 
-### <a name="option-1-use-azure-ad"></a>Opción 1: Usar Azure AD
+### <a name="option-1-use-azure-ad"></a>Opción 1: Use Azure AD
 
-El nivel de autorización que necesita se basa en si va a cargar los archivos o simplemente descargarlos.
+El nivel de autorización que necesita se basa en si va a cargar los archivos o solo a descargarlos.
 
 #### <a name="authorization-to-upload-files"></a>Autorización para cargar archivos
 
@@ -81,11 +81,11 @@ Estos roles pueden asignarse a la identidad en cualquiera de estos ámbitos:
 - Grupos de recursos
 - Subscription
 
-Para obtener información sobre cómo comprobar y asignar roles, consulte [conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para aprender a verificar y asignar roles, consulte [Conceder acceso a datos blob y cola de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-No es necesario tener uno de estos roles asignados a la identidad si la identidad se agrega a la lista de control de acceso (ACL) del directorio o contenedor de destino. En la ACL, su identidad necesita permiso de escritura en el directorio de destino y permiso de ejecución en el contenedor y cada directorio primario.
+No es necesario tener asignado uno de estos roles a su identidad, si la identidad se agrega a la lista de control de acceso (ACL) del directorio o contenedor de destino. En la ACL, su identidad necesita permiso de escritura en el directorio de destino y permiso de ejecución en el contenedor y cada directorio primario.
 
-Para obtener más información, consulte [control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+Para más información, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 #### <a name="authorization-to-download-files"></a>Autorización para descargar archivos
 
@@ -102,15 +102,15 @@ Estos roles pueden asignarse a la identidad en cualquiera de estos ámbitos:
 - Grupos de recursos
 - Subscription
 
-Para obtener información sobre cómo comprobar y asignar roles, consulte [conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para aprender a verificar y asignar roles, consulte [Conceder acceso a datos blob y cola de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-No es necesario tener uno de estos roles asignados a la identidad si la identidad se agrega a la lista de control de acceso (ACL) del directorio o contenedor de destino. En la ACL, su identidad necesita permiso de lectura en el directorio de destino y permiso de ejecución en el contenedor y cada directorio primario.
+No es necesario tener asignado uno de estos roles a su identidad, si la identidad se agrega a la lista de control de acceso (ACL) del directorio o contenedor de destino. En la ACL, su identidad necesita permiso de lectura en el directorio de destino y permiso de ejecución en el contenedor y cada directorio primario.
 
-Para obtener más información, consulte [control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+Para más información, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authenticate-your-identity"></a>Autenticar la identidad
+#### <a name="authenticate-your-identity"></a>Autenticación de la identidad
 
-Después de haber comprobado que la identidad se ha dado el nivel de autorización necesaria, abra un símbolo del sistema, escriba el siguiente comando y, a continuación, presione la tecla ENTRAR.
+Después de comprobar que se le ha dado el nivel de autorización necesario a su identidad, abra un símbolo del sistema, escriba el siguiente comando y, a continuación, presione la tecla ENTRAR.
 
 ```azcopy
 azcopy login
@@ -124,19 +124,19 @@ Aparece una ventana de inicio de sesión. En esa ventana, inicie sesión en la c
 
 ### <a name="option-2-use-a-sas-token"></a>Opción 2: Uso de un token de SAS
 
-Puede anexar un token de SAS a cada dirección URL de origen o destino que usan en los comandos de AzCopy.
+Puede anexar un token de SAS a cada dirección URL de origen o destino que use en los comandos de AzCopy.
 
-Recursivamente ejecutando comandos en el ejemplo copia datos desde un directorio local en un contenedor de blobs. Un token de SAS ficticio se anexa al final de la de la dirección URL del contenedor.
+El comando de este ejemplo copia recursivamente los datos desde un directorio local a un contenedor de blobs. Un token de SAS ficticio se anexa al final de la dirección URL del contenedor.
 
 ```azcopy
 azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Para obtener más información sobre los tokens de SAS y cómo obtener uno, vea [mediante firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Para más información sobre los tokens de SAS y de cómo obtener uno, consulte [Uso de firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
 ## <a name="transfer-files"></a>Transferencia de archivos
 
-Después de autenticar la identidad u obtenido un token SAS, puede comenzar la transferencia de archivos.
+Después de autenticar la identidad o de obtener un token de SAS, puede comenzar la transferencia de archivos.
 
 Para obtener ejemplos de comandos, consulte cualquiera de estos artículos.
 
@@ -146,30 +146,30 @@ Para obtener ejemplos de comandos, consulte cualquiera de estos artículos.
 
 - [Transferencia de datos con AzCopy y cubos de Amazon S3](storage-use-azcopy-s3.md)
 
-## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, optimizar y solucionar problemas de AzCopy
+## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
-Consulte [configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
+Consulte [Configuración, optimización y solución de problemas de AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="use-azcopy-in-storage-explorer"></a>Uso de AzCopy en el Explorador de almacenamiento
+## <a name="use-azcopy-in-storage-explorer"></a>Uso de AzCopy en el Explorador de Storage
 
-Si desea aprovechar las ventajas de rendimiento de AzCopy, pero prefiere usar el Explorador de Storage en lugar de la línea de comandos para interactuar con los archivos, a continuación, habilite AzCopy en el Explorador de almacenamiento.
+Si desea aprovechar las ventajas de rendimiento de AzCopy, pero prefiere usar el Explorador de Storage en lugar de la línea de comandos para interactuar con los archivos, habilite AzCopy en el Explorador de Storage.
 
-En el Explorador de Storage, elija **Preview**->**utilizar AzCopy para descarga y carga de blobs mejorado**.
+En el Explorador de Storage, elija **Versión preliminar**->**Use AzCopy for Improved Blob Upload and Download** (Usar AzCopy para mejorar la carga y la descarga de blobs).
 
-![Habilitar AzCopy como un motor de transferencia en el Explorador de Storage de Azure](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+![Habilitación de AzCopy como un motor de transferencia en el Explorador de Azure Storage](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 > [!NOTE]
-> No debe habilitar a esta opción si ha habilitado un espacio de nombres jerárquico en su cuenta de almacenamiento. Eso es porque el Explorador de almacenamiento utiliza automáticamente AzCopy en cuentas de almacenamiento que tienen un espacio de nombres jerárquico.  
+> No debe habilitar esta opción si ha habilitado un espacio de nombres jerárquico en su cuenta de almacenamiento. Esto se debe a que el Explorador de Storage utiliza automáticamente AzCopy en las cuentas de almacenamiento que tienen un espacio de nombres jerárquico.  
 
 <a id="previous-version" />
 
-## <a name="use-the-previous-version-of-azcopy"></a>Usar la versión anterior de AzCopy
+## <a name="use-the-previous-version-of-azcopy"></a>Uso de la versión anterior de AzCopy
 
-Si necesita usar la versión anterior de AzCopy (AzCopy v8.1), consulte cualquiera de los siguientes vínculos:
+Si necesita usar la versión anterior de AzCopy (AzCopy v8.1), consulte alguno de los vínculos siguientes:
 
 - [AzCopy en Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 - [AzCopy en Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene preguntas, problemas o comentarios generales, enviarlas [en GitHub](https://github.com/Azure/azure-storage-azcopy) página.
+Si tiene alguna pregunta, problemas o comentarios generales, envíelos en [la página GitHub](https://github.com/Azure/azure-storage-azcopy).

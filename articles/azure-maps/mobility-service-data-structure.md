@@ -1,6 +1,6 @@
 ---
-title: Las estructuras de datos del servicio de movilidad en Azure Maps | Microsoft Docs
-description: Estructuras de datos en el servicio de movilidad de Azure Maps
+title: Estructuras de datos de Mobility Service en Azure Maps | Microsoft Docs
+description: Estructuras de datos de Mobility Service en Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 06/05/2019
@@ -9,62 +9,62 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 29e8a9d7555ca836b6266879f3b3c1e32ffd3980
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735562"
 ---
-# <a name="data-structures-in-azure-maps-mobility-service"></a>Estructuras de datos en el servicio de movilidad de Azure Maps
+# <a name="data-structures-in-azure-maps-mobility-service"></a>Estructuras de datos de Mobility Service en Azure Maps
 
-En este artículo se presenta el concepto de área de Metro en [Mobility Service de Azure Maps](https://aka.ms/AzureMapsMobilityService) y algunos de los campos comunes devuelven a través de los servicios, cuando se consulta para tránsito pública deja de líneas. Se recomienda pasar a través de este artículo antes de empezar a usar las API de servicio de movilidad. Trataremos estos campos comunes siguientes.
+En este artículo se presenta el concepto de área metropolitana en [Mobility Service de Azure Maps](https://aka.ms/AzureMapsMobilityService) y algunos de los campos habituales que se devuelven mediante los servicios cuando se consultan las paradas y las líneas de transporte público. Se recomienda consultar este artículo antes de empezar a usar las API Mobility Service. A continuación se tratarán estos campos típicos.
 
-## <a name="metro-area"></a>Área metropolitana de
+## <a name="metro-area"></a>Área metropolitana
 
-Datos del servicio de movilidad se dividen en áreas de metro compatibles. Metropolitana no sigue los límites de la ciudad, un área metropolitana de puede contener varias ciudades, por ejemplo, city densamente poblada y sus ciudades adyacentes; y un país o región puede ser un área metropolitana. 
+Los datos de Mobility Service se dividen en las áreas metropolitanas admitidas. Las áreas metropolitanas no tienen límites urbanos, pueden contener varias ciudades, como una densamente poblada y las ciudades de los alrededores; un país o una región también pueden constituir un área metropolitana. 
 
-El `metroID` es identificador de un área metropolitana que puede usarse para llamar a la [obtener Metro área información API](https://aka.ms/AzureMapsMobilityMetroAreaInfo) para tipos de solicitud admitida tránsito y detalles adicionales para el área metropolitana como alertas activas y las agencias de tránsito. Puede usar la API de Azure Maps obtener Metro para solicitar el metropolitana admitido y metroIDs. Id. del área metropolitana está sujetos a cambios.
+`metroID` es el identificador de un área metropolitana que puede usarse para llamar a la [Get Metro Area Info API](https://aka.ms/AzureMapsMobilityMetroAreaInfo) para solicitar tipos de transporte admitidos y otros detalles del área metropolitana, como empresas de transporte y alertas activas. Puede usar Get Metro API de Azure Maps para solicitar las áreas metropolitanas admitidas y sus identificadores. Los identificadores de área metropolitana están sujetos a cambios.
 
-**metroID:** 522 **nombre:** Seattle-Tacoma-Bellevue
+**metroID:** 522   **Nombre:** Seattle-Tacoma-Bellevue
 
 ![Área metropolitana de Seattle](./media/mobility-service-data-structure/seattle-metro.png)
 
-## <a name="stop-ids"></a>Detener el Id.
+## <a name="stop-ids"></a>Identificadores de parada
 
-Delimitadores de tránsito pueden hacer referencia a dos tipos de identificadores, el [especificación General de fuente de tránsito (GFTS)](https://gtfs.org/) ID (denominadas stopKey) y el Azure Maps detener ID (denominada stopId). Al hacer referencia a se detiene con el tiempo, se recomienda utilizar el Id. de detención de Azure Maps, como este identificador es más estable y probablemente no cambiará siempre y cuando exista la detención física. El Id. de detención GTFS se actualiza con más frecuencia, por ejemplo, en caso de proveedor GTFS necesita cambiarla o GTFS versión nueva, aunque la detención física no tenía ningún cambio.
+Se puede hacer referencia a las paradas de transporte con dos tipos de identificador, la [especificación de la fuente de tráfico general (GFTS)](https://gtfs.org/) (denominada stopKey) y el identificador de parada de Azure Maps (denominado stopId). Para hacer referencia a las paradas a lo largo del tiempo, se sugiere usar el identificador de parada de Azure Maps, ya que es más estable y no cambiará en tanto en cuanto la parada física siga existiendo. La especificación GTFS se actualiza con más frecuencia, por ejemplo, en caso de que el proveedor necesite cambiar la GTFS o que se publique una nueva versión, aunque la parada física no cambie.
 
-Para empezar, puede solicitar deja de tránsito cercano mediante el uso de [obtener API de tránsito cercanos](https://aka.ms/AzureMapsMobilityNearbyTransit).
+Para empezar, puede solicitar las paradas próximas mediante [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
-## <a name="line-groups-and-lines"></a>Grupos de líneas y líneas
+## <a name="line-groups-and-lines"></a>Líneas y grupos de líneas
 
-El servicio de movilidad usa un modelo de datos en paralelo para las líneas y grupos de líneas para abordar mejor los cambios que se hereda de [GTFS](https://gtfs.org/) modelo de datos de carreras y rutas.
+Mobility Service usa un modelo de datos paralelo para las líneas y los grupos de líneas para encajar mejor los cambios derivados del modelo de datos de trayectos y rutas [GTFS](https://gtfs.org/).
 
 
 ### <a name="line-groups"></a>Grupos de líneas
 
-Un grupo de la línea es una entidad, que agrupa todas las líneas que lógicamente forman parte del mismo grupo. Normalmente, un grupo de líneas contendrá dos líneas, uno va desde el punto al B y otros devolver desde el punto B a, ambas pertenecientes a la misma Agencia de transporte público y tener el mismo número de línea. Sin embargo, puede haber casos en que un grupo de líneas tiene más de dos líneas o una sola línea dentro de él.
+Un grupo de líneas es una entidad que reúne todas las líneas que lógicamente forman parte del mismo grupo. Normalmente, un grupo de líneas contiene dos líneas, una que va desde el punto A al punto B y la otra que vuelve del punto B al punto A (ambas pertenecen a la misma empresa de transporte público y tienen el mismo número de línea). Sin embargo, puede haber casos en los que un grupo de líneas tenga más de dos o solo una línea.
 
 
 ### <a name="lines"></a>Líneas
 
-Como se explicó anteriormente, cada grupo de líneas se compone de un conjunto de líneas. A menudo describe cada línea de una dirección y cada línea de grupo se compone de dos líneas. Sin embargo, hay casos en qué líneas más componen un grupo de líneas, por ejemplo existe es una línea que a veces desvía a través de un entorno determinado y, a veces no lo hace y opera en ambos casos, en el mismo número de línea, y hay otros casos en los que una línea g rupo se compone de una sola línea, por ejemplo una línea circular con una dirección única.
+Como se explicó anteriormente, cada grupo de líneas se compone de un conjunto de líneas. A menudo, cada línea describe una dirección y cada grupo de líneas está compuesto de dos. Sin embargo, en ocasiones un grupo de líneas lo componen más, por ejemplo, si hay una línea que a veces se desvía por un barrio y otras, no y en ambos casos opera con el mismo número de línea; en otros casos, el grupo puede formarlo solo una línea, por ejemplo, una circular con dirección única.
 
-Para empezar, puede solicitar los grupos de líneas mediante el [obtener API de línea de tránsito](https://aka.ms/AzureMapsMobilityTransitLine) y posterior vaya a las líneas.
+Para empezar, puede solicitar grupos de líneas mediante [Get Transit Line API](https://aka.ms/AzureMapsMobilityTransitLine) y después explorar las líneas.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo solicitar datos de tránsito mediante el servicio de movilidad:
+Aprenda a solicitar datos de tránsito mediante Mobility Service:
 
 > [!div class="nextstepaction"]
 > [Cómo solicitar datos de tránsito](how-to-request-transit-data.md)
 
-Obtenga información sobre cómo solicitar datos en tiempo real mediante el servicio de movilidad:
+Aprenda a solicitar datos en tiempo real mediante Mobility Service:
 
 > [!div class="nextstepaction"]
 > [Cómo solicitar datos en tiempo real](how-to-request-real-time-data.md)
 
-Explore la documentación de API del servicio de movilidad de Azure Maps
+Explore la documentación de la API Mobility Service de Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Documentación de API del servicio de movilidad](https://aka.ms/AzureMapsMobilityService)
+> [Documentación de Mobility Service API](https://aka.ms/AzureMapsMobilityService)

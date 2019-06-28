@@ -1,6 +1,6 @@
 ---
-title: Ejecutar cargas de trabajo en máquinas virtuales en Azure | Microsoft Docs
-description: Obtenga información sobre cómo ejecutar cargas de trabajo en Azure virtual machines.
+title: Ejecución de cargas de trabajo en máquinas virtuales de Azure | Microsoft Docs
+description: Aprenda a ejecutar cargas de trabajo en máquinas virtuales de Azure.
 services: virtual-machines
 documentationcenter: ''
 author: cynthn
@@ -12,26 +12,26 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/21/2019
+ms.date: 06/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 98bc10377dff8f06cd02d4a384ca14b364a73e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 167370a4eebded3dba898ed47dede7a36900d976
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713778"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808220"
 ---
-# <a name="workloads-on-azure-virtual-machines"></a>Cargas de trabajo en Azure Virtual Machines
+# <a name="workloads-on-azure-virtual-machines"></a>Cargas de trabajo en máquinas virtuales de Azure
 
-Máquinas virtuales en Azure puede admitir muchas cargas de trabajo. Cada carga de trabajo puede especializar una guía sobre el diseño óptimo para las implementaciones en las máquinas virtuales en Azure. Le presentamos algunas de las instrucciones que podemos ofrecer para cargas de trabajo especializadas.
+Las máquinas virtuales de Azure puede admitir muchas cargas de trabajo. Cada carga de trabajo puede tener una guía especializada sobre el diseño óptimo para las implementaciones en las máquinas virtuales de Azure. Aquí encontrará una guía que le podemos ofrecer para las cargas de trabajo especializadas.
 
-
-- [SAP](./sap/get-started.md) en Azure puede ejecutar sus cargas SAP críticas y escenarios en una plataforma escalable, compatible y demostrado en la empresa.
-- [Oracle](./oracle/oracle-considerations.md) admite que se ejecutan las ediciones Oracle DB 12.1 Standard y Enterprise de Azure en imágenes de máquina virtual basada en Oracle Linux. 
+- [Informática de alto rendimiento](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) en Azure usa máquinas virtuales con CPU o GPU optimizadas para solucionar problemas complejos y que conllevan un proceso intensivo. 
+- [SAP](./sap/get-started.md) en Azure puede ejecutar de forma confiable los escenarios y las cargas de trabajo SAP críticas en una plataforma compatible, ampliable y de uso demostrado en la empresa.
+- [Oracle](./oracle/oracle-considerations.md) admite la ejecución de las ediciones Oracle DB 12.1 Standard y Enterprise en Azure en imágenes de máquina virtual basadas en Oracle Linux. 
 - [Rehospedaje del sistema central](./mainframe-rehosting/overview.md) 
 
 
 
 **Pasos siguientes**
 
-Conozca las máquinas virtuales de Azure con las guías de inicio rápido de la máquina virtual de Azure para [Linux](../linux/quick-create-cli-nodejs.md) y [Windows](../windows/quick-create-powershell.md).
+Conozca las máquinas virtuales de Azure con las guías de inicio rápido de máquinas virtuales de Azure para [Linux](../linux/quick-create-cli-nodejs.md) y [Windows](../windows/quick-create-powershell.md).

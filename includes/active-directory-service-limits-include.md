@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 3b1019d45f4fee60e0e197f283ef38f4f3fca875
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133653"
 ---
 Estas son las restricciones de uso y otros límites de servicio para el servicio Azure Active Directory (Azure AD).
 
@@ -25,8 +25,8 @@ Estas son las restricciones de uso y otros límites de servicio para el servicio
 | Extensiones de esquema |<ul><li>Las extensiones de tipo String pueden tener un máximo de 256 caracteres. </li><li>Las extensiones de tipo Binary están limitadas a 256 bytes.</li><li>Los valores de extensión 100 (entre *todos* los tipos y *todas* las aplicaciones) son los únicos que se pueden escribir en cualquier objeto único.</li><li>Las entidades User, Group, TenantDetail, Device, Application y ServicePrincipal son las únicas que se pueden ampliar con atributos de valor único de tipo String o de tipo Binary.</li><li>Las extensiones de esquema solo están disponibles en la versión preliminar de la versión 1.21 de Graph API. La aplicación debe tener acceso de escritura para registrar una extensión.</li></ul> |
 | APLICACIONES |Un máximo de 100 usuarios pueden ser propietarios de una sola aplicación. |
 | Grupos |<ul><li>Un máximo de 100 usuarios pueden ser propietarios de un solo grupo.</li><li>Cualquier número de objetos puede ser miembro de un solo grupo.</li><li>Un usuario puede ser un miembro de cualquier número de grupos.</li><li>El número de miembros de un grupo que pueden realizar la sincronización desde su instancia local de Active Directory a Azure Active Directory mediante Azure AD Connect se limita a 50 000 miembros.</li></ul> |
-| Proxy de la aplicación | <ul><li>Un máximo de 500 transacciones por segundo por la aplicación de Proxy de aplicación</li><li>Un máximo de 750 transacciones por segundo para el inquilino</li></ul><br/>Una transacción se define como una única solicitud y respuesta http para un único recurso. Cuando limitado, los clientes recibirán una respuesta 429 (demasiadas solicitudes). |
+| Proxy de aplicación | <ul><li>Un máximo de 500 transacciones por segundo por aplicación de proxy de aplicaciones</li><li>Un máximo de 750 transacciones por segundo para el inquilino</li></ul><br/>Una transacción se define como una única solicitud y respuesta http para un único recurso. Cuando se limitan, los clientes recibirán una respuesta 429 (demasiadas solicitudes). |
 | Panel de acceso |<ul><li>No hay límite en el número de aplicaciones que se pueden ver en el Panel de acceso por usuario. Esto se aplica a los usuarios con licencias para Azure AD Premium o Enterprise Mobility Suite.</li><li>Cada usuario puede ver un máximo de 10 iconos de aplicación en el Panel de acceso. Este límite se aplica a los usuarios que tienen licencias para las ediciones Azure AD Basic o gratuita de Azure Active Directory. Algunos ejemplos de iconos de aplicación son Box, Salesforce o Dropbox. Este límite no se aplica a las cuentas de administrador.</li></ul> |
 | Informes | Se puede ver o descargar en cualquier informe un máximo de 1.000 filas. Los datos adicionales se truncan. |
 | Unidades administrativas | Un objeto puede ser un miembro de como máximo 30 unidades administrativas. |
-| Roles y permisos de administrador | <li>No se puede agregar un grupo como propietario.<li>No se puede asignar un grupo a un rol.<li>Los permisos predeterminados de los usuarios no se puede cambiar, excepto los modificadores de inquilino, que son los valores de los usuarios en Azure AD. |
+| Roles y permisos de administrador | <ul><li>No se puede agregar un grupo como [propietario](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>No se puede asignar un grupo a un [rol](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>La capacidad de los usuarios para leer la información del directorio de otros usuarios no puede restringirse fuera del modificador de todo los inquilinos para desactivar el acceso de todos los usuarios no administradores a toda la información del directorio (no recomendado). Mas información sobre los permisos predeterminados [aquí](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pueden pasar hasta 15 minutos o el cierre o inicio de sesión antes de que surtan efecto las adiciones y revocaciones de los miembros del rol de administrador.</li></ul> |

@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755101"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Azure Search
@@ -158,7 +158,7 @@ También puede disponer que el indizador se ejecute periódicamente según una p
 
 El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-Para obtener más información acerca de cómo definir programaciones de indizador vea [cómo programar los indizadores para Azure Search](search-howto-schedule-indexers.md).
+Para más información acerca de cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

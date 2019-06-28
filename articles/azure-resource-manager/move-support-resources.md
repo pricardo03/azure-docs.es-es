@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 6/6/2019
 ms.author: tomfitz
 ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752355"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
@@ -31,7 +31,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| actionrules | Sí | Sí |
+| actionRules | Sí | Sí |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -51,7 +51,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| apiapps | No | Sin |
+| apiapps | Sin | Sin |
 | appidentities | Sin | Sin |
 | gateways | Sin | Sin |
 
@@ -80,7 +80,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| backupvault | No | No |
+| backupvault | Sin | Sin |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -90,10 +90,10 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| clusters | Sin | No |
-| fileservers | No | No |
-| jobs | Sin | No |
-| workspaces | No | No |
+| clusters | Sin | Sin |
+| fileservers | Sin | Sin |
+| jobs | Sin | Sin |
+| workspaces | Sin | Sin |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -146,13 +146,13 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | networksecuritygroups | Sin | Sin |
-| reservedips | No | Sin |
-| virtualnetworks | Sin | No |
+| reservedips | Sin | Sin |
+| virtualnetworks | Sin | Sin |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| storageaccounts | Sí | No |
+| storageaccounts | Sí | Sin |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -165,15 +165,15 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | availabilitysets | Sí | Sí |
 | disks | Sí | Sí |
 | galleries | Sin | Sin |
-| galleries/images | No | Sin |
-| galleries/images/versions | No | Sin |
-| hostgroups | No | Sin |
+| galleries/images | Sin | Sin |
+| galleries/images/versions | Sin | Sin |
+| hostgroups | Sin | Sin |
 | hostgroups/hosts | Sin | Sin |
 | images | Sí | Sí |
-| proximityplacementgroups | Sin | No |
+| proximityplacementgroups | Sin | Sin |
 | restorepointcollections | Sin | Sin |
 | sharedvmimages | Sin | Sin |
-| sharedvmimages/versions | Sin | No |
+| sharedvmimages/versions | Sin | Sin |
 | snapshots | Sí | Sí |
 | virtualmachines | Sí | Sí |
 | virtualmachines/extensions | Sí | Sí |
@@ -182,7 +182,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| containergroups | Sin | No |
+| containergroups | Sin | Sin |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -201,9 +201,9 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| containerservices | Sin | No |
+| containerservices | Sin | Sin |
 | managedclusters | Sin | Sin |
-| openshiftmanagedclusters | No | No |
+| openshiftmanagedclusters | Sin | Sin |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -228,12 +228,12 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| jobs | No | Sin |
+| jobs | Sin | Sin |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| databoxedgedevices | Sin | No |
+| databoxedgedevices | Sin | Sin |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -244,7 +244,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | catalogs | Sí | Sí |
-| datacatalogs | No | No |
+| datacatalogs | Sin | Sin |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -254,8 +254,8 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| packages | Sin | No |
-| plans | Sin | No |
+| packages | Sin | Sin |
+| plans | Sin | Sin |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -281,9 +281,9 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| services | Sin | No |
+| services | Sin | Sin |
 | services/projects | Sin | Sin |
-| slots | No | Sin |
+| slots | Sin | Sin |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -298,7 +298,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| servergroups | No | Sin |
+| servergroups | Sin | Sin |
 | servers | Sí | Sí |
 | serversv2 | Sí | Sí |
 
@@ -316,37 +316,37 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | elasticpools | Sin | Sin |
-| elasticpools/iothubtenants | Sin | No |
+| elasticpools/iothubtenants | Sin | Sin |
 | iothubs | Sí | Sí |
 | provisioningservices | Sí | Sí |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| controllers | Sin | No |
+| controllers | Sin | Sin |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| labcenters | No | Sin |
+| labcenters | Sin | Sin |
 | labs | Sí | Sin |
-| laboratorios y entornos | Sí | Sí |
+| labs/environments | Sí | Sí |
 | labs/servicerunners | Sí | Sí |
-| labs/virtualmachines | Sí | No |
+| labs/virtualmachines | Sí | Sin |
 | schedules | Sí | Sí |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | dnszones | Sin | Sin |
-| dnszones/a | No | Sin |
-| dnszones/aaaa | Sin | No |
+| dnszones/a | Sin | Sin |
+| dnszones/aaaa | Sin | Sin |
 | dnszones/cname | Sin | Sin |
 | dnszones/mx | Sin | Sin |
 | dnszones/ptr | Sin | Sin |
-| dnszones/srv | Sin | No |
+| dnszones/srv | Sin | Sin |
 | dnszones/txt | Sin | Sin |
-| trafficmanagerprofiles | Sin | No |
+| trafficmanagerprofiles | Sin | Sin |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -378,7 +378,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| accounts | No | Sin |
+| accounts | Sin | Sin |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -398,7 +398,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| Máquinas | Sin | No |
+| machines | Sin | Sin |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -419,10 +419,10 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | alertrules | Sí | Sí |
 | autoscalesettings | Sí | Sí |
 | components | Sí | Sí |
-| guestdiagnosticsettings | No | Sin |
-| metricalerts | Sin | No |
+| guestdiagnosticsettings | Sin | Sin |
+| metricalerts | Sin | Sin |
 | notificationgroups | Sin | Sin |
-| notificationrules | Sin | No |
+| notificationrules | Sin | Sin |
 | scheduledqueryrules | Sí | Sí |
 | webtests | Sí | Sí |
 | workbooks | Sí | Sí |
@@ -441,7 +441,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| hsmpools | No | Sin |
+| hsmpools | Sin | Sin |
 | vaults | Sí | Sí |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
@@ -462,7 +462,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| accounts | Sin | No |
+| accounts | Sin | Sin |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -470,14 +470,14 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | hostingenvironments | Sin | Sin |
 | integrationaccounts | Sí | Sí |
 | integrationserviceenvironments | Sin | Sin |
-| isolatedenvironments | No | No |
+| isolatedenvironments | Sin | Sin |
 | workflows | Sí | Sí |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | commitmentplans | Sí | Sí |
-| webservices | Sí | No |
+| webservices | Sí | Sin |
 | workspaces | Sí | Sí |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
@@ -490,10 +490,10 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | ------------- | ----------- | ---------- |
 | accounts | Sin | Sin |
 | accounts/workspaces | Sin | Sin |
-| accounts/workspaces/projects | Sin | No |
+| accounts/workspaces/projects | Sin | Sin |
 | teamaccounts | Sin | Sin |
 | teamaccounts/workspaces | Sin | Sin |
-| teamaccounts/workspaces/projects | Sin | No |
+| teamaccounts/workspaces/projects | Sin | Sin |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -503,12 +503,12 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| hostingaccounts | No | Sin |
+| hostingaccounts | Sin | Sin |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| workspaces | Sin | No |
+| workspaces | Sin | Sin |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -535,35 +535,35 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| assessmentprojects | No | Sin |
+| assessmentprojects | Sin | Sin |
 | migrateprojects | Sin | Sin |
-| projects | Sin | No |
+| projects | Sin | Sin |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | netappaccounts | Sin | Sin |
-| netappaccounts/capacitypools | Sin | No |
-| netappaccounts/capacitypools/volumes | No | Sin |
+| netappaccounts/capacitypools | Sin | Sin |
+| netappaccounts/capacitypools/volumes | Sin | Sin |
 | netappaccounts/capacitypools/volumes/mounttargets | Sin | Sin |
-| netappaccounts/capacitypools/volumes/snapshots | No | Sin |
+| netappaccounts/capacitypools/volumes/snapshots | Sin | Sin |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| applicationgateways | No | Sin |
+| applicationgateways | Sin | Sin |
 | applicationgatewaywebapplicationfirewallpolicies | Sin | Sin |
 | applicationsecuritygroups | Sí | Sí |
 | azurefirewalls | Sí | Sí |
-| bastionhosts | No | Sin |
+| bastionhosts | Sin | Sin |
 | connections | Sí | Sí |
 | ddoscustompolicies | Sí | Sí |
-| ddosprotectionplans | No | Sin |
+| ddosprotectionplans | Sin | Sin |
 | dnszones | Sí | Sí |
-| expressroutecircuits | Sin | No |
-| expressroutecrossconnections | No | Sin |
+| expressroutecircuits | Sin | Sin |
+| expressroutecrossconnections | Sin | Sin |
 | expressroutegateways | Sin | Sin |
-| expressrouteports | No | Sin |
+| expressrouteports | Sin | Sin |
 | frontdoors | Sí | Sí |
 | frontdoorwebapplicationfirewallpolicies | Sí | Sí |
 | loadbalancers | Sí | Sí |
@@ -577,22 +577,22 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | networkwatchers/connectionmonitors | Sí | Sí |
 | networkwatchers/lenses | Sí | Sí |
 | networkwatchers/pingmeshes | Sí | Sí |
-| p2svpngateways | No | Sin |
+| p2svpngateways | Sin | Sin |
 | privatednszones | Sí | Sí |
 | privatednszones/virtualnetworklinks | Sí | Sí |
-| privateendpoints | No | No |
-| privatelinkservices | No | No |
+| privateendpoints | Sin | Sin |
+| privatelinkservices | Sin | Sin |
 | publicipaddresses | Sí | Sí |
 | publicipprefixes | Sí | Sí |
-| routefilters | No | Sin |
+| routefilters | Sin | Sin |
 | routetables | Sí | Sí |
 | securegateways | Sí | Sí |
 | serviceendpointpolicies | Sí | Sí |
 | trafficmanagerprofiles | Sí | Sí |
-| virtualhubs | No | Sin |
+| virtualhubs | Sin | Sin |
 | virtualnetworkgateways | Sí | Sí |
 | virtualnetworks | Sí | Sí |
-| virtualnetworktaps | No | Sin |
+| virtualnetworktaps | Sin | Sin |
 | virtualwans | Sin | Sin |
 | vpngateways | Sin | Sin |
 | vpnsites | Sin | Sin |
@@ -619,7 +619,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| emparejamientos | Sin | No |
+| peerings | Sin | Sin |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -644,7 +644,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| accounts | No | Sin |
+| accounts | Sin | Sin |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -659,7 +659,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| applications | Sí | No |
+| applications | Sí | Sin |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -693,18 +693,18 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | ------------- | ----------- | ---------- |
 | applications | Sin | Sin |
 | clusters | Sí | Sí |
-| containergroups | No | Sin |
+| containergroups | Sin | Sin |
 | containergroupsets | Sin | Sin |
-| edgeclusters | Sin | No |
+| edgeclusters | Sin | Sin |
 | networks | Sin | Sin |
-| secretstores | Sin | No |
+| secretstores | Sin | Sin |
 | volumes | Sin | Sin |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | applications | Sí | Sí |
-| containergroups | Sin | No |
+| containergroups | Sin | Sin |
 | gateways | Sí | Sí |
 | networks | Sí | Sí |
 | secrets | Sí | Sí |
@@ -723,11 +723,11 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| appliancedefinitions | No | Sin |
+| appliancedefinitions | Sin | Sin |
 | appliances | Sin | Sin |
 | applicationdefinitions | Sin | Sin |
 | applications | Sin | Sin |
-| jitrequests | No | Sin |
+| jitrequests | Sin | Sin |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -749,7 +749,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| dwvm | No | Sin |
+| dwvm | Sin | Sin |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -759,7 +759,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| Memorias caché | Sin | Sin |
+| caches | Sin | Sin |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -769,12 +769,12 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | Sin | No |
+| storagesyncservices | Sin | Sin |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | No | No |
+| storagesyncservices | Sin | Sin |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -792,8 +792,8 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | environments | Sin | Sin |
 | environments/eventsources | Sin | Sin |
 | instances | Sin | Sin |
-| instances/environments | No | Sin |
-| instances/environments/eventsources | No | No |
+| instances/environments | Sin | Sin |
+| instances/environments/eventsources | Sin | Sin |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -811,12 +811,12 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsofttoken"></a>Microsoft.Token
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| almacenes | Sin | No |
+| almacenes | Sin | Sin |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| imagetemplates | No | Sin |
+| imagetemplates | Sin | Sin |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -835,11 +835,11 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| certificates | No | Sí |
+| certificates | Sin | Sí |
 | connectiongateways | Sí | Sí |
 | connections | Sí | Sí |
 | customapis | Sí | Sí |
-| hostingenvironments | No | Sin |
+| hostingenvironments | Sin | Sin |
 | serverfarms | Sí | Sí |
 | sites | Sí | Sí |
 | sites/premieraddons | Sí | Sí |
@@ -848,13 +848,13 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
-| deviceservices | No | Sin |
+| deviceservices | Sin | Sin |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | ----------- | ---------- |
 | applicationgroups | Sin | Sin |
-| hostpools | No | Sin |
+| hostpools | Sin | Sin |
 | workspaces | Sin | Sin |
 
 ## <a name="third-party-services"></a>Servicios de terceros

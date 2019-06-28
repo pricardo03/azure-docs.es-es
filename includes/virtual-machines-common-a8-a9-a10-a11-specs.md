@@ -9,10 +9,10 @@ ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
 ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755197"
 ---
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
@@ -29,11 +29,11 @@ ms.locfileid: "66755197"
 * **Cambio de tamaño**: debido a su hardware especializado, solo se puede cambiar el tamaño de las instancias de proceso intensivo dentro de la misma familia de tamaño (serie H o serie A de proceso intensivo). Por ejemplo, una máquina virtual de la serie H solo se puede cambiar de un tamaño de serie H a otro. Además, no se admite el cambio de tamaño de un tamaño que no sea de proceso intensivo a un tamaño que sí lo sea.  
 
 ## <a name="rdma-capable-instances"></a>Instancias compatibles con RDMA
-Un subconjunto de las instancias de proceso intensivo (A8, A9, H16r, H16mr, HB y HC) incluye una interfaz de red para la conectividad de memoria directa remota (RDMA) de acceso. Tamaños seleccionados de la serie N designados con "r", como las configuraciones de NC24rs (NC24rs_v2 y NC24rs_v3) también son compatibles con RDMA. Esta interfaz se añade a la interfaz de red estándar de Azure disponible para otros tamaños de máquina virtual. 
+Un subconjunto de las instancias de proceso intensivo (A8, A9, H16r, H16mr, HB y HC) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Tamaños seleccionados de la serie N designados con la letra "r", como las configuraciones de NC24rs (NC24rs_v2 y NC24rs_v3) también son compatibles con RDMA. Esta interfaz se añade a la interfaz de red estándar de Azure disponible para otros tamaños de máquina virtual. 
   
-Esta interfaz permite que las instancias compatibles con RDMA se comuniquen a través de una red de InfiniBand (IB), funcionando a velocidades EDR para HB, HC, FDR según las tarifas de máquinas virtuales H16r, H16mr y serie N compatibles con RDMA y QDR para máquinas virtuales A8 y A9. Estas funcionalidades RDMA pueden mejorar la escalabilidad y el rendimiento de determinadas aplicaciones de la Interfaz de paso de mensajes (MPI). Para obtener más información sobre la velocidad, consulte los detalles en las tablas en esta página.
+Esta interfaz permite que las instancias compatibles con RDMA se comuniquen través de una red InfiniBand (IB), que funciona a velocidades EDR en las series HB y HC, a velocidades FDR en máquinas virtuales H16r, H16mr y de la serie N compatibles con RDMA, y a velocidades QDR en máquinas virtuales A8 y A9. Estas funcionalidades RDMA pueden mejorar la escalabilidad y el rendimiento de determinadas aplicaciones de la Interfaz de paso de mensajes (MPI). Para más información acerca de la velocidad, consulte los detalles en las tablas de esta página.
 
 > [!NOTE]
-> En Azure, solo se admite IP sobre IB en máquinas virtuales (actualmente HB y HC) habilitadas para SR-IOV. Para todas las instancias compatibles con RDMA se admite RDMA sobre IB.
+> En Azure, solo se admite IP sobre IB en máquinas virtuales habilitadas para SR-IOV (actualmente HB y HC). RDMA a través de IB se admite en todas las instancias compatibles con RDMA.
 >
 

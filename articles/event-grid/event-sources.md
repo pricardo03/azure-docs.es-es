@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735003"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
@@ -74,7 +74,7 @@ Para ejemplos de Event Hubs como controlador, consulte este artículo sobre el [
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Suscribirse a eventos de telemetría y eventos de IoT Hub para responder a dispositivo creado, eliminado, conectados o desconectados.
+Suscríbase a eventos de IoT Hub para responder a eventos de telemetría y de dispositivo creado, eliminado, conectado y desconectado.
 
 |Título  |DESCRIPCIÓN  |
 |---------|---------|
@@ -117,7 +117,7 @@ Suscríbase a eventos de Service Bus para responder a mensajes sin un agente de 
 | [Información general: Integración de Azure Service Bus en Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Información general de la integración de Service Bus con Event Grid. |
 | [Esquema del evento](event-schema-service-bus.md) | Muestra los campos de los eventos de Service Bus. |
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 Suscríbase a eventos de Blob Storage para responder a eventos creados y eliminados del blob.
 
@@ -142,13 +142,13 @@ Suscribirse a eventos de Azure Maps para responder a eventos de la geovalla. Por
 | [Esquema del evento](event-schema-azure-maps.md) | Muestra los campos en los eventos de Azure Maps. |
 
 ## <a name="app-configuration"></a>Configuración de la aplicación
-Suscribirse a eventos de configuración de la aplicación de Azure para responder a los eventos de modificación de pares clave-valor.
+Suscríbase a eventos Azure App Configuration para responder a los eventos de modificación de pares clave-valor.
 
 |Título | DESCRIPCIÓN |
 |---------|---------|
-| [Reacción a eventos de configuración de aplicación de Azure usando Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de configuración de la aplicación de Azure con Event Grid. |
-| [Inicio rápido: enrutamiento de eventos de configuración de la aplicación de Azure a un punto de conexión web personalizado con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo usar la CLI de Azure para enviar eventos de configuración de aplicación de Azure a un WebHook. |
-| [Esquema del evento](event-schema-app-configuration.md) | Muestra los campos de eventos de configuración de aplicación de Azure. |
+| [Reacción a eventos de Azure App Configuration con Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure App Configuration con Event Grid. |
+| [Inicio rápido: enrutamiento de eventos de Azure App Configuration a un endpoint web personalizado con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar la CLI de Azure para enviar eventos de Azure App Configuration a un webhook. |
+| [Esquema del evento](event-schema-app-configuration.md) | Muestra los campos de eventos de Azure App Configuration. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

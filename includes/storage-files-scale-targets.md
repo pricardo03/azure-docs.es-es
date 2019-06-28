@@ -1,28 +1,28 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: tamram
-ms.openlocfilehash: 213ecee34df46c0a408e7034a07ab864c96b340b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: df5d8ff941c742d546208c27c7af4e7bcbeec08a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073748"
 ---
 | Recurso | Recursos compartidos de archivos estándar | Recursos compartidos de archivos Premium (versión preliminar) |
 |----------|---------------|------------------------------------------|
-| Tamaño máximo de un recurso compartido de archivos | No hay ningún mínimo; pago por uso | 100 GB; aprovisionado |
-| Tamaño máximo de un recurso compartido de archivos | 5 TiB | 100 TB |
+| Tamaño máximo de un recurso compartido de archivos | Sin mínimo; pago por uso | 100 GiB; aprovisionado |
+| Tamaño máximo de un recurso compartido de archivos | 5 TiB | 100 TiB |
 | Tamaño máximo de un archivo en un recurso compartido de archivos | 1 TiB | 1 TiB |
 | Número máximo de archivos en un recurso compartido de archivos | Sin límite | Sin límite |
-| Número máximo de IOPS por recurso compartido | 1000 E/S POR SEGUNDO | 100.000 IOPS |
-| Número máximo de directivas de acceso almacenadas por cada archivo de recurso compartido | 5 | 5 |
-| Rendimiento de un único recurso compartido de destino | Hasta 60 MiB/s | Vea los valores de entrada y salida de la cuota del archivo premium|
-| Salida máxima para un recurso compartido de archivo único | Ver el rendimiento de destino de recurso compartido de archivos estándar | Hasta 6,204 MiB/s |
-| Entrada máxima para un recurso compartido de archivo único | Ver el rendimiento de destino de recurso compartido de archivos estándar | Hasta 4.136 MiB/s |
-| Número máximo de identificadores abiertos por archivo | 2.000 identificadores abiertos | 2.000 identificadores abiertos |
+| Número máximo de IOPS por recurso compartido | 1000 IOPS | 100.000 IOPS |
+| Número máximo de directivas de acceso almacenadas por recurso compartido de archivos | 5 | 5 |
+| Rendimiento de destino para un único recurso compartido de archivos | Hasta 60 MiB/s | Consulte los valores de entrada y salida del recurso compartido de archivos Premium|
+| Salida máxima para un único recurso compartido de archivos | Consulte el rendimiento de destino del recurso compartido de archivos estándar. | Hasta 6204 MiB/s |
+| Entrada máxima para un único recurso compartido de archivos | Consulte el rendimiento de destino del recurso compartido de archivos estándar. | Hasta 4136 MiB/s |
+| Número máximo de identificadores abiertos por archivo | 2\.000 identificadores abiertos | 2\.000 identificadores abiertos |
 | Número máximo de instantáneas de recurso compartido | 200 instantáneas de recurso compartido | 200 instantáneas de recurso compartido |
-| Longitud máxima del nombre de objeto (archivos y directorios) | 2.048 caracteres | 2.048 caracteres |
+| Longitud máxima del nombre de objeto (archivos y directorios) | 2048 caracteres | 2048 caracteres |
 | Número máximo de componentes de la ruta de acceso (en la ruta de acceso \A\B\C\D, cada letra es un componente) | 255 caracteres | 255 caracteres |

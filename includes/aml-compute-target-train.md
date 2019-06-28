@@ -10,17 +10,17 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/30/2019
 ms.openlocfilehash: 50905eb987defac612f1055b450b682726f0a56f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752956"
 ---
-|Entrenamiento &nbsp;destinos| Compatibilidad con GPU |[ML automatizada](../articles/machine-learning/service/concept-automated-ml.md) | [Canalizaciones de ML](../articles/machine-learning/service/concept-ml-pipelines.md) | [Interfaz Visual](../articles/machine-learning/service/ui-concept-visual-interface.md)
+|&nbsp;Objetivos del aprendizaje| Compatibilidad con GPU |[Machine Learning automatizado](../articles/machine-learning/service/concept-automated-ml.md) | [Canalizaciones de Machine Learning](../articles/machine-learning/service/concept-ml-pipelines.md) | [Interfaz visual](../articles/machine-learning/service/ui-concept-visual-interface.md)
 |----|:----:|:----:|:----:|:----:|
-|[Equipo local](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| Quizás | Sí | &nbsp; | &nbsp; |
-|[Proceso de Azure Machine Learning](../articles/machine-learning/service/how-to-set-up-training-targets.md#amlcompute)| Sí | Sí & <br/>hiperparámetros&nbsp;optimización | Sí | Sí |
-|[Máquina virtual remota](../articles/machine-learning/service/how-to-set-up-training-targets.md#vm) |Sí | Sí & <br/>ajuste de hiperparámetros | Sí | &nbsp; |
+|[Equipo local](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| es posible | Sí | &nbsp; | &nbsp; |
+|[Proceso de Azure Machine Learning](../articles/machine-learning/service/how-to-set-up-training-targets.md#amlcompute)| Sí | Sí <br/>&nbsp;ajuste de hiperparámetros | Sí | Sí |
+|[Máquina virtual remota](../articles/machine-learning/service/how-to-set-up-training-targets.md#vm) |Sí | Sí <br/>ajuste de hiperparámetros | Sí | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#databricks)| &nbsp; | Sí | Sí | &nbsp; |
 |[Análisis con Azure Data Lake](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | Sí | &nbsp; |
 |[HDInsight de Azure](../articles/machine-learning/service/how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | Sí | &nbsp; |

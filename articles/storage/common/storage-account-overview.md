@@ -9,15 +9,15 @@ ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754989"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
-Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de almacenamiento de Azure que sea accesibles desde cualquier lugar del mundo a través de HTTP o HTTPS. Datos de la cuenta de almacenamiento de Azure están duradero y altamente disponible, seguro y escalable a gran escala.
+Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
 
 Para obtener información sobre cómo crear una cuenta de Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
@@ -60,17 +60,17 @@ Si bien se recomienda usar las cuentas de uso general v2 en la mayoría de los c
 
 * Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x y no puede actualizar la aplicación.
 
-### <a name="block-blob-storage-accounts"></a>Cuentas de almacenamiento de blobs de bloque
+### <a name="block-blob-storage-accounts"></a>Cuentas de almacenamiento de blob en bloques
 
-Una cuenta de almacenamiento de blobs de bloque es una cuenta de almacenamiento especializada para almacenar datos de objetos no estructurados como blobs en bloques. Esta cuenta de almacenamiento admite blobs en bloques de tipo y anexar blobs, pero no los blobs en páginas, tablas o colas.
+Una cuenta de almacenamiento de blob en bloques es una aquella especializada en almacenar datos de objetos no estructurados como blobs de bloques. Admiten el almacenamiento de blobs en bloques y de blobs adjuntos, pero no de blobs en páginas, tablas ni colas.
 
-En comparación con las cuentas de almacenamiento de blobs y de uso general v2, proporcionan las cuentas de almacenamiento de blobs de bloque coherente y baja latencia y mayores tasas de transacción.
+En comparación con las cuentas de almacenamiento de blobs y de uso general v2, proporcionan cuentas de almacenamiento de blob en bloques coherentes y baja latencia y mayores tasas de transacción.
 
-Las cuentas de almacenamiento de blobs de bloque no admiten actualmente niveles para frecuente, esporádico o niveles de acceso de archivo.
+Las cuentas de almacenamiento de blob en bloques no admiten actualmente los niveles de acceso frecuente, esporádico ni de archivo.
 
 ### <a name="filestorage-preview-storage-accounts"></a>Cuentas de almacenamiento FileStorage (versión preliminar)
 
-Una cuenta de almacenamiento FileStorage es una cuenta de almacenamiento especializada que se utiliza para almacenar y crear recursos compartidos de archivos de premium. Las cuentas de almacenamiento FileStorage ofrecen características de rendimiento único dedicado, como la ampliación de e/s por segundo. Para obtener más información sobre estas características, consulte el [niveles de rendimiento del recurso compartido de archivo](../files/storage-files-planning.md#file-share-performance-tiers) sección de los archivos en la Guía de planeación.
+Una cuenta de almacenamiento FileStorage es una cuenta de almacenamiento especializada que se utiliza para almacenar y crear recursos compartidos de archivos de prémium. Las cuentas de almacenamiento FileStorage ofrecen características dedicadas de rendimiento único, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
 
 ## <a name="naming-storage-accounts"></a>Nomenclatura de las cuentas de almacenamiento
 
@@ -86,9 +86,9 @@ Las cuentas de almacenamiento de uso general pueden configurarse para cada uno d
 * Un nivel de rendimiento estándar para almacenar blobs, archivos, tablas, colas y discos de máquina virtual de Azure.
 * Un nivel de rendimiento prémium para almacenar solo los discos de máquina virtual no administrados.
 
-Las cuentas de almacenamiento de blobs de bloque proporcionan un nivel de rendimiento premium para almacenar blobs en bloques y blobs en anexos.
+Las cuentas de almacenamiento de blob en bloques proporcionan un nivel de rendimiento prémium para almacenar blobs en bloques y blobs en anexos.
 
-Las cuentas de almacenamiento FileStorage (versión preliminar) proporcionan un nivel de rendimiento premium para los recursos compartidos de archivos de Azure.
+Las cuentas de almacenamiento FileStorage (versión preliminar) proporcionan un nivel de rendimiento prémium para los recursos compartidos de archivos de Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveles de acceso a datos de blob en bloques
 
@@ -96,11 +96,11 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 
 Los niveles de acceso disponibles son:
 
-* El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Acceso a datos en el nivel de acceso frecuente es más rentable, mientras que los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
-* El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. Almacenar datos en el nivel de acceso esporádico es más rentable, pero el acceso a datos puede ser más costoso que el acceso a datos en el nivel de acceso frecuente.
-* El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. El nivel de archivo está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y permanecerán en el nivel de archivo para al menos 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico.
+* El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
+* El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
+* El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico.
 
-Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para obtener más información acerca de los niveles de acceso, consulte [Azure Blob storage: niveles de acceso de archivo y frecuente, esporádico](../blobs/storage-blob-storage-tiers.md).
+Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Si cambia el nivel de acceso de una cuenta de almacenamiento o blob existente es posible que deba pagar cargos adicionales. Para más información, consulte la sección [Facturación de la cuenta de almacenamiento](#storage-account-billing).
@@ -127,7 +127,7 @@ Por ejemplo, si la cuenta de almacenamiento de uso general se llama *mystorageac
 * Azure Files: http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
-> Blob en bloques y cuentas de blob storage exponen solo el extremo de blob service.
+> Las cuentas de almacenamiento de blob y de blob en bloques solo exponen el punto de conexión del servicio de blob.
 
 La dirección URL para obtener acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al punto de conexión. Por ejemplo, una dirección de blob podría tener este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -141,7 +141,7 @@ Toda solicitud realizada en la cuenta de almacenamiento debe estar autorizada. E
 
 Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquiera de los siguientes métodos:
 
-- **Azure Active Directory:** Usar credenciales de Azure Active Directory (Azure AD) para autenticar un usuario, grupo u otra identidad para el acceso a datos blob y cola. Si la autenticación de una identidad se realiza con éxito, entonces Azure AD devuelve un token para autorizar la solicitud a Azure Blob Storage o a Queue Storage. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory:** Use las credenciales de Azure Active Directory (Azure AD) para autenticar a un usuario, grupo u otra identidad, y que así pueda obtener acceso a los datos de blobs y colas (versión preliminar). Si la autenticación de una identidad se realiza con éxito, entonces Azure AD devuelve un token para autorizar la solicitud a Azure Blob Storage o a Queue Storage. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de clave compartida:** use la clave de acceso de la cuenta de almacenamiento para crear una cadena de conexión que la aplicación pueda usar en el tiempo de ejecución para obtener acceso a Azure Storage. Los valores en la cadena de conexión se usan para construir el encabezado *Autorización* que se pasa a Azure Storage. Para obtener más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md).
 - **Firma de acceso compartido:** use una Firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autenticación de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -185,6 +185,6 @@ También se puede usar este servicio Import/Export para transferir datos desde A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información sobre cómo crear una cuenta de almacenamiento de Azure de propósito general, consulte [crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
-* Para obtener información sobre cómo crear una cuenta de almacenamiento de blobs de bloque, consulte [crear una cuenta de almacenamiento de blobs de bloque](../blobs/storage-blob-create-account-block-blob.md).
+* Para aprender a crear una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
+* Para más información acerca de cómo crear una cuenta de almacenamiento de blob en bloques, consulte [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md).
 * Para administrar o eliminar una cuenta de almacenamiento, consulte [Manage Azure storage accounts](storage-account-manage.md) (Administrar cuentas de Azure Storage).

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2019
 ms.author: Kumud
 ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754714"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métricas y diagnóstico de mantenimiento de Load Balancer Estándar
@@ -31,14 +31,14 @@ En este artículo se proporciona una introducción a estas funcionalidades y man
 
 ## <a name = "MultiDimensionalMetrics"></a>Métricas multidimensionales
 
-Azure Load Balancer proporciona nuevas métricas multidimensionales mediante las nuevas métricas de Azure en Azure portal y le ayuda a obtener información de diagnóstico en tiempo real en la carga de recursos de equilibrador. 
+Azure Load Balancer proporciona las nuevas métricas multidimensionales en la nueva página Métricas de Azure (versión preliminar) de Azure Portal y le ayuda a obtener información detallada de diagnóstico en tiempo real sobre los recursos del equilibrador de carga. 
 
 Las distintas configuraciones de Load Balancer Estándar proporcionan las siguientes métricas:
 
 | Métrica | Tipo de recurso | DESCRIPCIÓN | Agregación recomendada |
 | --- | --- | --- | --- |
-| Disponibilidad de la ruta de acceso de datos (disponibilidad de VIP)| Equilibrador de carga público | Load Balancer Estándar usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end del equilibrador de carga y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos que usan los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.| Media |
-| Estado de sondeo de mantenimiento (disponibilidad de DIP) |  Equilibrador de carga interno y público | Load Balancer Estándar usa un servicio de sondeo de mantenimiento distribuido que supervisa el mantenimiento del punto de conexión de la aplicación de acuerdo con la configuración. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia del grupo del equilibrador de carga. Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado. |  Media |
+| Disponibilidad de ruta de acceso de datos (disponibilidad VIP)| Equilibrador de carga público | Load Balancer Estándar usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end del equilibrador de carga y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos que usan los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.| Media |
+| Estado de sondeo de mantenimiento (disponibilidad DIP) |  Equilibrador de carga interno y público | Load Balancer Estándar usa un servicio de sondeo de mantenimiento distribuido que supervisa el mantenimiento del punto de conexión de la aplicación de acuerdo con la configuración. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia del grupo del equilibrador de carga. Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado. |  Media |
 | Paquetes SYN (sincronizar) |  Equilibrador de carga público | Load Balancer Estándar no finaliza las conexiones de Protocolo de control de transmisión (TCP) ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.| Media |
 | Conexiones SNAT |  Equilibrador de carga público |Load Balancer Estándar informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos de traducción de direcciones de red de origen (SNAT) son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados. Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.| Media |
 | Contadores de bytes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los datos procesados por front-end.| Media |
@@ -46,18 +46,18 @@ Las distintas configuraciones de Load Balancer Estándar proporcionan las siguie
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visualización de las métricas del equilibrador de carga en Azure Portal
 
-El portal de Azure expone las métricas de equilibrador de carga a través de la página de métricas, que está disponible en la página de recursos de equilibrador de carga para un recurso determinado y la página de Azure Monitor. 
+Azure Portal expone las métricas del equilibrador de carga en la página Métricas, que está disponible en la página de recursos del equilibrador de carga de un recurso específico y también en la página de Azure Monitor. 
 
 Para ver las métricas de los recursos de Load Balancer Estándar:
-1. Vaya a la página de métricas y realice una de las siguientes acciones:
+1. Vaya a la página Métricas y realice una de las siguientes acciones:
    * En la página de recursos de equilibrador de carga, seleccione el tipo de métrica en la lista desplegable.
    * En la página de Azure Monitor, seleccione el recurso del equilibrador de carga.
 2. Configure el tipo de agregación adecuado.
 3. Opcionalmente, configure el filtrado y la agrupación necesarios.
 
-    ![Métricas de Load Balancer estándar](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+    ![Métricas para Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-    *Ilustración: Métrica de disponibilidad de la ruta de acceso de datos para estándar de equilibrador de carga*
+    *Ilustración: Métrica de disponibilidad de la ruta de acceso de datos para Standard Load Balancer*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperación de las métricas multidimensionales mediante programación con API
 
@@ -72,15 +72,15 @@ La métrica de disponibilidad de VIP describe el mantenimiento de la ruta de acc
 - Profundizar y decidir si la plataforma en la que se implementa el servicio es correcta o si el sistema operativo invitado o la instancia de la aplicación son correctas.
 - Determinar si un evento está relacionado con el servicio o con el plano de datos subyacente. No debe confundirse esta métrica con el estado de sondeo de mantenimiento ("disponibilidad de DIP").
 
-Para obtener la disponibilidad de la ruta de acceso de datos para los recursos de Load Balancer estándar:
+Para obtener la disponibilidad de la ruta de acceso de los datos de los recursos de Standard Load Balancer:
 1. Asegúrese de que está seleccionado el recurso del equilibrador de carga correcto. 
-2. En el **métrica** lista desplegable, seleccione **disponibilidad de la ruta de acceso de datos**. 
+2. En la lista desplegable **Métrica**, seleccione **Disponibilidad de la ruta de acceso de datos**. 
 3. En la lista desplegable **Agregación**, seleccione **Promedio**. 
-4. Además, agregue un filtro en la dirección IP de Frontend o puerto de front-end como dimensión con la dirección IP de front-end necesaria o puerto front-end y, a continuación, agruparlas por la dimensión seleccionada.
+4. Además, agregue un filtro en la dirección VIP de Frontend o el puerto de Frontend como dimensión con la dirección IP de front-end o puerto de front-end requerido, y agrúpelos por la dimensión seleccionada.
 
 ![Sondeo de VIP](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Ilustración: Detalles de sondeo de front-end de equilibrador de carga*
+*Ilustración: Detalles de sondeo del front-end del equilibrador de carga*
 
 La métrica se genera mediante una medición activa en la banda. Un servicio de sondeo dentro de la región origina el tráfico para la medida. El servicio se activa tan pronto como cree una implementación con un front-end público, y continúa hasta que quite el front-end. 
 
@@ -93,7 +93,7 @@ Se produce un error en la disponibilidad de VIP por las razones siguientes:
 - Para la implementación no queda ninguna máquina virtual correcta en el grupo de servidores back-end. 
 - Se ha producido una interrupción de la infraestructura.
 
-Para fines de diagnóstico, puede usar el [métrica de disponibilidad de la ruta de acceso de datos junto con el estado de sondeo de estado](#vipavailabilityandhealthprobes).
+Puede usar la [métrica de disponibilidad de ruta de acceso a datos junto con el estado de sondeo de mantenimiento](#vipavailabilityandhealthprobes) con fines de diagnóstico.
 
 Use **Average** (Promedio) como agregación para la mayoría de los escenarios.
 
@@ -101,9 +101,9 @@ Use **Average** (Promedio) como agregación para la mayoría de los escenarios.
 
 La métrica de estado de sondeo de mantenimiento describe el mantenimiento de la implementación de la aplicación según la configurara al configurar el sondeo de mantenimiento del equilibrador de carga. El equilibrador de carga usa el estado de sondeo de mantenimiento para determinar dónde se deben enviar flujos nuevos. Los sondeos de mantenimiento se originan en una dirección de infraestructura de Azure y se ven en el sistema operativo invitado de la máquina virtual.
 
-Para obtener el estado de sondeo de mantenimiento para los recursos de Load Balancer estándar:
-1. Seleccione el **de sondeo de estado de mantenimiento** métricas con **Avg** tipo de agregación. 
-2. Aplicar un filtro en la dirección necesaria de Frontend IP o puerto (o ambos).
+Para obtener el estado de sondeo de mantenimiento para los recursos de Standard Load Balancer:
+1. Seleccione la métrica **Estado de sondeo de mantenimiento** con el tipo de agregación **Promedio**. 
+2. Aplique un filtro en el puerto o la dirección IP de Frontend (o ambos) necesarios.
 
 Se producirá un error en el sondeo de mantenimiento por los motivos siguientes:
 - Se configura un sondeo de mantenimiento en un puerto que no está escuchando o no responde, o que usa un protocolo incorrecto. Si el servicio utiliza reglas DSR (IP flotante), debe asegurarse de que el servicio está escuchando en la dirección IP de la configuración de IP de la NIC y no solo en el bucle invertido configurado con la dirección IP de front-end.
@@ -161,13 +161,13 @@ Puede utilizar las métricas de sondeo de mantenimiento para entender cómo Azur
 
 Puede dar otro paso y usar las métricas de disponibilidad de VIP para comprender mejor cómo Azure ve el mantenimiento del plano de datos subyacente responsable de la implementación específica. Cuando se combinan ambas métricas, se puede determinar el lugar del error, como se ilustra en este ejemplo:
 
-![Combinar las métricas de disponibilidad de la ruta de acceso de datos y el estado de sondeo de mantenimiento](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
+![Combinación de las métricas de disponibilidad de ruta de acceso a datos y de estado de sondeo de mantenimiento](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
-*Ilustración: Combinar las métricas de disponibilidad de la ruta de acceso de datos y el estado de sondeo de mantenimiento*
+*Ilustración: Combinación de las métricas de disponibilidad de ruta de acceso a datos y de estado de sondeo de mantenimiento*
 
 En este gráfico se muestra la siguiente información:
-- La infraestructura que hospeda las máquinas virtuales era no está disponible y en 0 por ciento al principio del gráfico. Más adelante, la infraestructura estaba correcta estaban accesibles a las máquinas virtuales y más de una máquina virtual se colocó en el back-end. Esta información se indica mediante el seguimiento azul para la disponibilidad de ruta de acceso de datos (disponibilidad de VIP), que era más adelante al 100 por cien. 
-- Es el estado de sondeo de mantenimiento (disponibilidad de DIP), indicado por el seguimiento de color púrpura en 0 por ciento al principio del gráfico. El área en un círculo verde resalta donde el estado de sondeo de mantenimiento (disponibilidad de DIP) se convirtió en buen estado, y en ese momento la implementación del cliente pudo aceptar nuevos flujos.
+- La infraestructura que hospeda las máquinas virtuales no estaba disponible y estaba en el 0 por ciento al principio del gráfico. Después, la infraestructura era correcta y las máquinas virtuales eran alcanzables, y más de una máquina virtual se colocó en el back-end. Esta información se indica mediante el seguimiento azul para la disponibilidad de la ruta de acceso de datos (disponibilidad VIP), que se muestra al 100 %. 
+- El estado de sondeo de mantenimiento (disponibilidad de DIP) indicada por el seguimiento de color púrpura, es del 0 % al principio del gráfico. El área en un círculo verde resalta dónde el estado de sondeo de mantenimiento (disponibilidad de DIP) cambió a correcto y en qué momento la implementación del cliente pudo aceptar nuevos flujos.
 
 El gráfico permite a los clientes solucionar los problemas de la implementación por sí mismos, sin necesidad de adivinar o solicitar soporte técnico si se produjeron otros problemas. El servicio no estaba disponible porque los sondeos de mantenimiento producían errores debidos a una configuración incorrecta o errores en la aplicación.
 

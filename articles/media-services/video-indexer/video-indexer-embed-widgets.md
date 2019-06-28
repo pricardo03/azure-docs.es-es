@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: juliako
 ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735068"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
@@ -29,9 +29,9 @@ A partir de la versión 2, la dirección URL base del widget incluye la región 
 
 El widget **Cognitive Insights** incluye toda la información detallada visual que se extrajo del proceso de indexación de vídeo. El widget de información detallada admite los siguientes parámetros de URL opcionales:
 
-|Name|Definición|DESCRIPCIÓN|
+|NOMBRE|Definición|DESCRIPCIÓN|
 |---|---|---|
-|widgets|Cadenas separadas por coma|Le permite controlar la información detallada que desea representar. <br/>Ejemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` representará solo la información detallada de la interfaz de usuario de personas y marcas<br/>Opciones disponibles: personas, palabras clave, anotaciones, marcas, opiniones, transcripción y búsqueda.<br/>No se admite a través de la dirección URL en la versión=2<br/><br/>**Nota:** No se admite el parámetro de dirección URL de widgets en la versión 2. |
+|widgets|Cadenas separadas por coma|Le permite controlar la información detallada que desea representar. <br/>Ejemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` representará solo la información detallada de la interfaz de usuario de personas y marcas<br/>Opciones disponibles: personas, palabras clave, anotaciones, marcas, opiniones, transcripción y búsqueda.<br/>No se admite a través de la dirección URL en la versión=2<br/><br/>**Nota:** El parámetro de dirección URL de widgets no se admite si se utiliza la versión 2. |
 
 ### <a name="player-widget"></a>Widget Player
 
@@ -63,7 +63,7 @@ El widget **Player** le permite transmitir el vídeo con velocidad de bits adapt
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> Si tiene problemas con el uso compartido de las direcciones URL de vídeo, pruebe a agregar el parámetro 'location' para el vínculo. El parámetro debe establecerse en el [regiones de Azure en el que existe el Video Indexer](regions.md). Por ejemplo, `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> Si tiene problemas con el uso compartido de las direcciones URL de vídeo, pruebe a agregar el parámetro "location" al vínculo. El parámetro debe establecerse en las [regiones de Azure en las que existe Video Indexer](regions.md). Por ejemplo, `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Inserción de contenido privado
 
@@ -258,4 +258,4 @@ Reproducción automática: de forma predeterminada, el reproductor iniciará la 
 
 Para obtener información sobre cómo ver y editar la información detallada de Video Indexer, consulte [este](video-indexer-view-edit.md) artículo.
 
-Asimismo, consulte [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).
+Además, consulte [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

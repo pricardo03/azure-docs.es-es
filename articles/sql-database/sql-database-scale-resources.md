@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743102"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
@@ -36,7 +36,7 @@ No es necesario preocuparse de comprar hardware ni cambiar la infraestructura su
 Azure SQL Database ofrece el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 - El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: básico, estándar y prémium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
-- El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. Este modelo de compra ofrece tres niveles de servicio: Uso general, crítico para la empresa y a gran escala.
+- El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. Este modelo de compra ofrece tres niveles de servicio: Uso general, Crítico para la empresa e Hiperescala.
 
 La primera aplicación se puede compilar en una base de datos pequeña con un costo muy bajo al mes en los niveles de servicio Básico, Estándar o Uso general y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento al nivel de servicio Premium o Crítico para la empresa para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
@@ -57,7 +57,7 @@ Las tres versiones de Azure SQL Database ofrecen la posibilidad de escalar diná
 - Los [grupos elásticos](sql-database-elastic-pool-scale.md) permiten definir el límite máximo de recursos por grupo de bases de datos en el grupo.
 
 > [!NOTE]
-> Puede esperar un salto short conexión cuando el escalado vertical o proceso de reducción está terminado. Si ha implementado [lógica de reintento para errores transitorios estándares](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), no observará la conmutación por error.
+> Puede esperar una pequeña interrupción de la conexión cuando el proceso de escalado o reducción vertical haya terminado. Si ha implementado la [lógica de reintentos para errores transitorios estándar](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), no notará la conmutación por error.
 
 ## <a name="alternative-scale-methods"></a>Métodos de escala alternativos
 

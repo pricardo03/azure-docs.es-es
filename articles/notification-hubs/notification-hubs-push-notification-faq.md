@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
 ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730457"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
@@ -69,7 +69,7 @@ Hay SDK de servidor para .NET, Java, Node.js, PHP y Python. Las API de Notificat
 
 ### <a name="which-client-platforms-do-you-support"></a>¿Qué plataformas de cliente se admiten?
 
-Se admiten las notificaciones de inserción para [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (con Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) y Android, y [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para más información, vaya a la página [Tutoriales de introducción a Notification Hubs].
+Las notificaciones push son compatibles con [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (mediante Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) y Android) y [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para más información, vaya a la página [Tutoriales de introducción a Notification Hubs].
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>¿Se admiten notificaciones por mensaje de texto, correo electrónico o web?
 
@@ -195,11 +195,11 @@ Azure Notification Hubs proporciona varias características de solución de prob
 
 Azure Notification Hubs le permite ver los datos de telemetría en [Azure Portal]. Puede encontrar detalles sobre las métricas en la página [Métricas de Notification Hubs].
 
-Puede acceder mediante programación a las métricas. Para más información, consulte los siguientes artículos.
+También puede acceder a las métricas mediante programación. Para más información, consulte los siguientes artículos.
 
-- [Recuperar las métricas de Azure Monitor con. NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Este ejemplo utiliza el nombre de usuario y la contraseña. Para usar un certificado, sobrecargar el método FromServicePrincipal para proporcionar un certificado como se muestra en [en este ejemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
-- [Obtención de métricas y registros de actividad para un recurso](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Tutorial de API de REST de supervisión de Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperación de métricas de Azure Monitor con .NET). En este ejemplo, se utiliza el nombre de usuario y la contraseña. Si quiere usar un certificado, sobrecargue el método FromServicePrincipal para proporcionar un certificado, tal y como se muestra en [este ejemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Getting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/) (Obtención de métricas y registros de actividad de un recurso)
+- [Tutorial sobre la API de REST de supervisión de Azure](../azure-monitor/platform/rest-api-walkthrough.md)
 
 
 > [!NOTE]

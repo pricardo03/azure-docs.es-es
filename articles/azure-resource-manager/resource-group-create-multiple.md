@@ -2,35 +2,60 @@
 title: Implementación de varias instancias de recursos de Azure | Microsoft Docs
 description: Use la operación de copia y matrices en una plantilla del Administrador de recursos de Azure para iterar varias veces al implementar recursos.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205971"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807371"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propiedad o iteración de variables en las plantillas de Azure Resource Manager
 
-En este artículo se muestra cómo iterar en la plantilla de Azure Resource Manager para crear varias instancias de un recurso. Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](resource-group-authoring-templates.md#condition).
+En este artículo se muestra cómo crear más de una instancia de un recurso, variable o propiedad en una plantilla de Azure Resource Manager. Para crear varias instancias, agregue el objeto `copy` a la plantilla.
 
-Para obtener un tutorial, consulte [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager).
+Cuando se usa con un recurso, el objeto copy tiene el formato siguiente:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Cuando se usa con una variable o una propiedad, el objeto copy tiene el formato siguiente:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Ambos usos se describen con más detalle en este artículo. Para obtener un tutorial, consulte [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager).
+
+Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Límites de copia
+
+Para especificar el número de iteraciones, proporcione un valor para la propiedad count. El valor de count no puede superar 800.
+
+El valor de count no puede ser un número negativo. Si implementa una plantilla con la versión de API REST **2019-05-10**, o cualquier versión posteriores, puede establecer recuento a cero. Las versiones anteriores a la API REST no admiten cero en count. Actualmente, PowerShell o la CLI de Azure no admiten el valor cero en count, pero que se agregará compatibilidad en una versión futura.
+
+Los límites del valor de count son los mismos si se usa con un recurso, variable o propiedad.
 
 ## <a name="resource-iteration"></a>Iteración de recursos
 
-Si durante la implementación debe decidir si crear una o varias instancias de un recurso, agregue un elemento `copy` al tipo de recurso. En el elemento de copia, especifique el número de iteraciones y un nombre para este bucle. El valor de recuento debe ser un número entero positivo y no puede ser superior a 800. 
+Si durante la implementación debe decidir si crear una o varias instancias de un recurso, agregue un elemento `copy` al tipo de recurso. En el elemento copy, especifique el número de iteraciones y un nombre para este bucle.
 
 El recurso para crear varias veces tiene el formato siguiente:
 
@@ -71,7 +96,7 @@ Crea estos nombres:
 * storage1
 * storage2.
 
-Para desplazar el valor de índice, puede pasar un valor de la función copyIndex(). El número de iteraciones que se deben realizar todavía se especifica en el elemento copy, pero el valor de copyIndex se desplaza el valor especificado. Así, en el ejemplo siguiente:
+Para desplazar el valor de índice, puede pasar un valor de la función copyIndex(). El número de iteraciones que se especifica en el elemento copy, pero el valor de copyIndex se desplaza el valor especificado. Así, en el ejemplo siguiente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -149,14 +174,14 @@ Por ejemplo, para implementar en serie dos cuentas de almacenamiento a la vez, u
 
 La propiedad mode también acepta **parallel**, que es el valor predeterminado.
 
-Para obtener información sobre el uso de copia con las plantillas anidadas, vea [mediante copia](resource-group-linked-templates.md#using-copy).
+Para obtener información acerca del uso de copy con plantillas anidadas, consulte [Uso de copy](resource-group-linked-templates.md#using-copy).
 
 ## <a name="property-iteration"></a>Iteración de propiedades
 
 Para crear varios valores para una propiedad de un recurso, agregue una matriz `copy` en el elemento properties. Esta matriz contiene objetos, y cada objeto tiene las siguientes propiedades:
 
 * nombre: el nombre de la propiedad para la que se van a crear varios valores.
-* recuento: el número de valores que se van a crear. El valor de recuento debe ser un número entero positivo y no puede ser superior a 800.
+* recuento: el número de valores que se van a crear.
 * entrada: un objeto que contiene los valores que se van a asignar a la propiedad  
 
 En el ejemplo siguiente se muestra cómo aplicar `copy` a la propiedad dataDisks en una máquina virtual:
@@ -277,7 +302,7 @@ Puede usar la iteración de recursos y propiedades conjuntamente. Haga referenci
 
 Para crear varias instancias de una variable, use la propiedad `copy` en la sección de variables. Tiene que crear una matriz de elementos construida a partir del valor de la propiedad `input`. Puede utilizar una propiedad `copy` que esté dentro de una variable o en el nivel superior de la sección de variables. Si usa `copyIndex` dentro de una iteración de variables, debe proporcionar el nombre de la iteración.
 
-Para obtener un ejemplo sencillo de creación de una matriz de valores de cadena, vea [copiar la plantilla de matriz](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+Para obtener un ejemplo sencillo de creación de una matriz de valores de cadena, consulte [Plantilla de copy array](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 
 En el ejemplo siguiente se muestran varias formas de crear las variables de matriz con elementos creados dinámicamente. Muestra cómo usar la copia dentro de una variable para crear matrices de objetos y cadenas. También muestra cómo usar la copia en el nivel superior para crear matrices de objetos, cadenas y enteros.
 
@@ -353,7 +378,7 @@ En el ejemplo siguiente se muestran varias formas de crear las variables de matr
 }
 ```
 
-El tipo de variable que se crea depende el objeto de entrada. Por ejemplo, la variable denominada **top-multinivel--matriz de objetos** en el ejemplo anterior devuelve:
+El tipo de variable que se crea depende el objeto de entrada. Por ejemplo, la variable denominada **top-level-object-array** del ejemplo anterior devuelve:
 
 ```json
 [
@@ -385,7 +410,7 @@ El tipo de variable que se crea depende el objeto de entrada. Por ejemplo, la va
 ]
 ```
 
-Y, en la variable denominada **top-multinivel--matriz de cadenas** devuelve:
+Y la variable denominada **top-level-string-array** devuelve:
 
 ```json
 [

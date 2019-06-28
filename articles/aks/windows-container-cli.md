@@ -1,6 +1,6 @@
 ---
-title: 'Obtener una vista previa: creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS)'
-description: Aprenda a crear un clúster de Kubernetes rápidamente, implementar una aplicación en un contenedor de Windows Server en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
+title: 'Versión preliminar: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS)'
+description: Aprenda a crear rápidamente un clúster de Kubernetes y a implementar una aplicación en un contenedor de Windows Server en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
 author: tylermsft
 ms.service: container-service
@@ -8,59 +8,59 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: twhitney
 ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752395"
 ---
-# <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Obtener una vista previa: creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
+# <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Versión preliminar: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
-Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le permite implementar y administrar clústeres rápidamente. En este artículo, implemente un clúster de AKS mediante la CLI de Azure. También implementa una aplicación de ejemplo ASP.NET en un contenedor de Windows Server en el clúster.
+Azure Kubernetes Service (AKS) es un servicio de Kubernetes administrado que le permite implementar y administrar clústeres rápidamente. En este artículo, implementará un clúster de AKS mediante la CLI de Azure. También implementará una aplicación de ejemplo de ASP.NET en un contenedor de Windows Server en el clúster.
 
 Esta funcionalidad actualmente está en su versión preliminar.
 
-![Imagen de desplazamiento a la aplicación de ejemplo ASP.NET](media/windows-container/asp-net-sample-app.png)
+![Imagen de cómo llegar a la aplicación de ejemplo de ASP.NET](media/windows-container/asp-net-sample-app.png)
 
-En este artículo se da por supuesto un conocimiento básico de los conceptos de Kubernetes. Para más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts].
+En este artículo se presupone un conocimiento básico de los conceptos de Kubernetes. Para más información, consulte [Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, este artículo se requiere que se está ejecutando la CLI de Azure versión 2.0.61 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.61 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Debe agregar un grupo de nodos adicionales después de crear el clúster que se puede ejecutar contenedores de Windows Server. Agregar un grupo de nodos adicionales se trata en un paso posterior, pero primero deberá habilitar algunas características de vista previa.
+Debe agregar un grupo de nodos adicionales después de crear el clúster que puede ejecutar contenedores de Windows Server. La adición de un grupo de nodos adicionales se trata en el último paso, pero primero deberá habilitar varias características en versión preliminar.
 
 > [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio, participación. Se proporcionan para recopilar comentarios y los errores de nuestra comunidad. En la vista previa, estas características no están diseñadas para su uso en producción. Características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Asistencia de los equipos de soporte técnico de AKS está disponible durante el horario comercial del Pacífico (PST) solo timezone. Para obtener más información, consulte los siguientes artículos de soporte técnico:
+> Las características en versión preliminar de AKS son de autoservicio y se tienen que habilitar. Se proporcionan para recopilar comentarios y errores de nuestra comunidad. En la versión preliminar, estas características no están diseñadas para su uso en producción. Las características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Los equipos de soporte técnico de AKS ofrecen asistencia solo durante el horario laboral en la zona horaria del Pacífico (PST). Para más información, consulte los siguientes artículos de soporte:
 >
-> * [Directivas de soporte técnico AKS][aks-support-policies]
+> * [Directivas de soporte técnico para Azure Kubernetes Service][aks-support-policies]
 > * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
     
-Los comandos de CLI para crear y administrar varios grupos de nodos que están disponibles en el *-versión preliminar de aks* extensión de la CLI. Instalar el *-versión preliminar de aks* extensión de CLI de Azure mediante el [Agregar extensión az] [ az-extension-add] de comandos, tal como se muestra en el ejemplo siguiente:
+Los comandos de la CLI para crear y administrar varios grupos de nodos están disponibles en la extensión *aks-preview* de la CLI. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add], tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Si ha instalado anteriormente el *-versión preliminar de aks* instalar haya disponible de extensión, actualizaciones utilizando el `az extension update --name aks-preview` comando.
+> Si ha instalado anteriormente la extensión *aks-preview*, instale todas las actualizaciones disponibles con el comando `az extension update --name aks-preview`.
 
-### <a name="register-windows-preview-feature"></a>Registrar la característica de vista previa de Windows
+### <a name="register-windows-preview-feature"></a>Registro de las características en versión preliminar de Windows
 
-Para crear un clúster de AKS que puede usar varios grupos de nodos y ejecutar contenedores de Windows Server, primero hay que habilitar la *WindowsPreview* marcas en su suscripción de características. El *WindowsPreview* característica también usa clústeres de grupo de varios nodos y escalado de máquinas virtuales que se establezca para administrar la implementación y configuración de los nodos de Kubernetes. Registrar el *WindowsPreview* característica marca mediante el [register de la característica de az] [ az-feature-register] comando tal como se muestra en el ejemplo siguiente:
+Para crear un clúster de AKS que pueda usar varios grupos de nodos y ejecutar contenedores de Windows Server, primero hay que habilitar las marcas de la característica *WindowsPreview* en la suscripción. La característica *WindowsPreview* también usa clústeres de grupos de varios nodos y conjuntos de escalado de máquinas virtuales para administrar la implementación y configuración de los nodos de Kubernetes. Para registrar la marca de característica *WindowsPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
-> Cualquier clúster de AKS crea después de que se ha registrado correctamente el *WindowsPreview* marca de características usa esta experiencia de clúster de versión preliminar. Para seguir creando clústeres normales, totalmente compatible, no habilite características de vista previa en las suscripciones de producción. Utilice una prueba independiente o la suscripción de Azure de desarrollo para probar características de vista previa.
+> Todos los clústeres que cree una vez que haya registrado satisfactoriamente la marca de característica *WindowsPreview* usarán la versión preliminar de esta experiencia de clúster. Para seguir creando clústeres normales, totalmente compatibles, no habilite características en versión preliminar en las suscripciones de producción. Utilice una suscripción independiente de prueba o de desarrollo de Azure para probar características en versión preliminar.
 
 Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado del registro con el comando [az feature list][az-feature-list]:
 
@@ -76,15 +76,15 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="limitations"></a>Limitaciones
 
-Al crear y administrar clústeres AKS que admiten varios grupos de nodos, se aplican las siguientes limitaciones:
+Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten varios grupos de nodos:
 
-* Varios grupos de nodos están disponibles para los clústeres creados después de registrar correctamente el *WindowsPreview*. Varios grupos de nodos también están disponibles si se registra el *MultiAgentpoolPreview* y *VMSSPreview* características para su suscripción. No se puede agregar o administrar grupos de nodos con un clúster de AKS existente creado antes de que estas características se han registrado correctamente.
-* No se puede eliminar el primer grupo de nodos.
+* Hay varios grupos de nodos disponibles para los clústeres creados después de haber registrado correctamente *WindowsPreview*. También hay varios grupos de nodos disponibles si registra las características *MultiAgentpoolPreview* y *VMSSPreview* para la suscripción. No se pueden agregar ni administrar grupos de nodos con un clúster de AKS existente creado antes de que estas características se registraran satisfactoriamente.
+* No puede eliminar el primer grupo de nodos.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
 
 * El clúster de AKS puede tener un máximo de ocho grupos de nodos.
-* El clúster de AKS puede tener un máximo de 400 nodos entre esos grupos de ocho nodos.
+* El clúster de AKS puede tener un máximo de 400 nodos distribuidos entre esos ocho grupos de nodos.
 * El nombre del grupo de nodos de Windows Server tiene un límite de 6 caracteres.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -114,11 +114,11 @@ En la siguiente salida de ejemplo se muestra que los recursos se crearon correct
 ```
 
 ## <a name="create-aks-cluster"></a>Creación de un clúster de AKS
-Para ejecutar un clúster de AKS que admite grupos de nodos para contenedores de Windows Server, debe usar una directiva de red que usa el clúster [Azure CNI] [ azure-cni-about] complemento de red (avanzada). Para obtener más información para ayudarle a planear los intervalos de subred necesarios y las consideraciones de red, consulte [configurar redes de Azure CNI][use-advanced-networking]. Use la [crear az aks] [ az-aks-create] comando para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red es necesario si no existen.
-  * El clúster está configurado con un nodo
-  * El *windows-admin-password* y *windows-admin-username* parámetros establecen las credenciales de administrador para los contenedores de Windows Server creados en el clúster.
+Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, consulte [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
+  * El clúster se configura con un nodo
+  * Los parámetros *windows-admin-password* y *windows-admin-username* establecen las credenciales de administrador de todos los contenedores de Windows Server creados en el clúster.
 
-Proporcione sus propios segura *PASSWORD_WIN*.
+Proporcione su propia variable segura *PASSWORD_WIN*.
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -138,9 +138,9 @@ az aks create \
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster.
 
-## <a name="add-a-windows-server-node-pool"></a>Agregar un grupo de nodos de Windows Server
+## <a name="add-a-windows-server-node-pool"></a>Adición de un grupo de nodos de Windows Server
 
-De forma predeterminada, se crea un clúster de AKS con un grupo de nodos que se puede ejecutar contenedores de Linux. Use `az aks nodepool add` comando para agregar un grupo de nodos adicionales que se puede ejecutar contenedores de Windows Server.
+De forma predeterminada, se crea un clúster de AKS con un grupo de nodos que puede ejecutar contenedores de Linux. Use el comando `az aks nodepool add` para agregar un grupo de nodos adicionales que pueda ejecutar contenedores de Windows Server.
 
 ```azurecli
 az aks nodepool add \
@@ -152,7 +152,7 @@ az aks nodepool add \
     --kubernetes-version 1.14.0
 ```
 
-El comando anterior crea un nuevo grupo de nodo denominado *npwin* y lo agrega a la *myAKSCluster*. Al crear un grupo de nodos para ejecutar contenedores de Windows Server, el valor predeterminado para *tamaño de máquina virtual de nodo* es *Standard_D2s_v3*. Si decide establecer la *tamaño de máquina virtual de nodo* parámetro, compruebe la lista de [restringida de tamaños de máquina virtual][restricted-vm-sizes]. El tamaño mínimo recomendado es *Standard_D2s_v3*. El comando anterior también usa la subred predeterminada en la red virtual predeterminado creada al ejecutar `az aks create`.
+El comando anterior crea un nuevo grupo de nodos denominado *npwin* y lo agrega a *myAKSCluster*. Al crear un grupo de nodos para ejecutar contenedores de Windows Server, el valor predeterminado para *node-vm-size* es *Standard_D2s_v3*. Si decide establecer el parámetro *node-vm-size*, compruebe la lista de [tamaños de máquina virtual restringidos][restricted-vm-sizes]. El tamaño mínimo recomendado es *Standard_D2s_v3*. El comando anterior también usa la subred predeterminada en la red virtual predeterminada que se crea al ejecutar `az aks create`.
 
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 
@@ -184,9 +184,9 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. En este artículo, se utiliza un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación de ejemplo ASP.NET en un contenedor de Windows Server. Este manifiesto se incluye un [implementación de Kubernetes] [ kubernetes-deployment] para la aplicación de ejemplo ASP.NET y una referencia externa [servicio Kubernetes] [ kubernetes-service] a acceso a la aplicación desde internet.
+Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. En este artículo, se utiliza un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación de ejemplo de ASP.NET en un contenedor de Windows Server. Este manifiesto incluye una [implementación de Kubernetes][kubernetes-deployment] para la aplicación de ejemplo de ASP.NET y un [servicio de Kubernetes][kubernetes-service] externo para acceder a la aplicación desde Internet.
 
-La aplicación de ejemplo ASP.NET se proporciona como parte de la [ejemplos de .NET Framework] [ dotnet-samples] y se ejecuta en un contenedor de Windows Server. AKS requiere contenedores de Windows Server se base en las imágenes de *Windows Server 2019* o superior. También debe definir el archivo de manifiesto de Kubernetes un [selector del nodo] [ node-selector] para indicar a su clúster AKS para ejecutar el pod de la aplicación de ejemplo ASP.NET en un nodo que se puede ejecutar contenedores de Windows Server.
+La aplicación de ejemplo de ASP.NET se proporciona como parte de los [ejemplos de .NET Framework][dotnet-samples] y se ejecuta en un contenedor de Windows Server. AKS requiere contenedores de Windows Server que se basen en las imágenes de *Windows Server 2019* u otra versión posterior. El archivo de manifiesto de Kubernetes también debe definir un [selector de nodos][node-selector] que le indique al clúster de AKS que ejecute el pod de la aplicación de ejemplo de ASP.NET en un nodo que pueda ejecutar contenedores de Windows Server.
 
 Cree un archivo denominado `sample.yaml` y cópielo en la siguiente definición de código YAML. Si usa Azure Cloud Shell, este archivo se puede crear mediante `vi` o `nano` como si funcionara en un sistema físico o virtual:
 
@@ -242,7 +242,7 @@ Implemente la aplicación mediante el comando [kubectl apply][kubectl-apply] y e
 kubectl apply -f sample.yaml
 ```
 
-La salida del ejemplo siguiente muestra la implementación y el servicio que se creó correctamente:
+En la salida de ejemplo siguiente se muestran las implementaciones y los servicios creados correctamente:
 
 ```
 deployment.apps/sample created
@@ -259,7 +259,7 @@ Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-ge
 kubectl get service sample --watch
 ```
 
-Inicialmente el *EXTERNAL-IP* para el *ejemplo* servicio se muestra como *pendiente*.
+En un primer momento, el parámetro *EXTERNAL-IP* del servicio de *ejemplo* se muestra como *pendiente*.
 
 ```
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -272,9 +272,9 @@ Cuando la dirección *EXTERNAL-IP* cambie de *pendiente* a una dirección IP pú
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Para ver la aplicación de ejemplo en acción, abra un explorador web para la dirección IP externa del servicio.
+Para ver la aplicación de ejemplo en acción, abra un explorador web en la dirección IP externa del servicio.
 
-![Imagen de desplazamiento a la aplicación de ejemplo ASP.NET](media/windows-container/asp-net-sample-app.png)
+![Imagen de cómo llegar a la aplicación de ejemplo de ASP.NET](media/windows-container/asp-net-sample-app.png)
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
 
@@ -289,7 +289,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, implementó un clúster de Kubernetes y había implementado una aplicación de ejemplo ASP.NET en un contenedor de Windows Server en ella. [Acceda al panel web de Kubernetes][kubernetes-dashboard] del clúster que acaba de crear.
+En este artículo, ha implementado un clúster de Kubernetes y una aplicación de ejemplo de ASP.NET en un contenedor de Windows Server de este. [Acceda al panel web de Kubernetes][kubernetes-dashboard] del clúster que acaba de crear.
 
 Para obtener más información sobre AKS y un ejemplo completo desde el código hasta la implementación, continúe con el tutorial del clúster de Kubernetes.
 

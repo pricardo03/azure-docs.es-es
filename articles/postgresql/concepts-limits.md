@@ -1,20 +1,20 @@
 ---
-title: 'Limitaciones en Azure Database for PostgreSQL: servidor único'
-description: 'En este artículo se describe las limitaciones de Azure Database for PostgreSQL: servidor único, como el número de conexiones y opciones de motor de almacenamiento.'
+title: Limitaciones de Azure Database for PostgreSQL con un único servidor
+description: En este artículo, se describen las limitaciones de Azure Database for PostgreSQL con un único servidor, como el número de opciones del motor de almacenamiento y de conexión.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66732861"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitaciones en Azure Database for PostgreSQL: servidor único
-En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Si desea obtener información acerca de los niveles de recursos (proceso, memoria, almacenamiento), consulte el [planes de tarifa](concepts-pricing-tiers.md) artículo.
+# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitaciones de Azure Database for PostgreSQL con un único servidor
+En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para más información sobre los niveles de recursos (proceso, memoria, almacenamiento), consulte el artículo acerca de los [planes de tarifa](concepts-pricing-tiers.md).
 
 
 ## <a name="maximum-connections"></a>Número máximo de conexiones
@@ -28,7 +28,7 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |Uso general| 4| 250|
 |Uso general| 8| 480|
 |Uso general| 16| 950|
-|Uso general| 32| 1.500|
+|Uso general| 32| 1\.500|
 |Uso general| 64| 1900|
 |Memoria optimizada| 2| 300|
 |Memoria optimizada| 4| 500|

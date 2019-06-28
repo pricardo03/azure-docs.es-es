@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 6ab701adcc2122270c607604f222ac5edbceeb37
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730505"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configuración de una puerta de enlace de red virtual para ExpressRoute con PowerShell
@@ -24,11 +24,11 @@ ms.locfileid: "66730505"
 > 
 > 
 
-Este artículo lo ayuda a agregar, cambiar el tamaño y quitar una puerta de enlace de red virtual para una red virtual existente previamente. Los pasos de esta configuración se aplican a las redes virtuales creadas mediante el modelo de implementación de Resource Manager para una configuración ExpressRoute. Para más información, consulte [Puertas de enlace de red virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
+Este artículo lo ayuda a agregar, cambiar el tamaño y quitar una puerta de enlace de red virtual para una red virtual existente previamente. Los pasos de esta configuración se aplican a redes virtuales creadas con el modelo de implementación de Resource Manager de una configuración ExpressRoute. Para más información, consulte [Puertas de enlace de red virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 ## <a name="before-beginning"></a>Antes de comenzar
 
-### <a name="working-with-powershell"></a>Trabajar con PowerShell
+### <a name="working-with-powershell"></a>Uso de PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

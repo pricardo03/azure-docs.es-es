@@ -2,19 +2,21 @@
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jroth
-ms.openlocfilehash: cab85410ec0cc0d63b27cd03daf6a398daeb4f68
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.date: 6/15/2019
+ms.author: victorh
+ms.openlocfilehash: ed0a73e6a47e08b974dc9900ead2da9b9a2690a8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149948"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080018"
 ---
+**Zonas DNS públicas**
+
 | Recurso | Límite predeterminado |
 | --- | --- |
 | Zonas por suscripción |100 <sup>1</sup> |
-| Conjuntos de registros por zona |5,000 <sup>1</sup> |
+| Conjuntos de registros por zona |5000 <sup>1</sup> |
 | Registros por conjunto de registros |20 |
 
-<sup>1</sup>si necesita aumentar estos límites, póngase en contacto con soporte técnico de Azure.
+<sup>1</sup>Si necesita aumentar estos límites, póngase en contacto con el soporte técnico de Azure.
