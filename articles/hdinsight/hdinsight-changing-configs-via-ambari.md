@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60698991"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Uso de Apache Ambari para optimizar configuraciones de clúster de HDInsight
@@ -51,7 +51,7 @@ Para modificar el tamaño del montón de Java NameNode:
 
     ![Editar el tamaño del montón de Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. El tamaño del montón de NameNode Java se cambia a 1 GB de 2 GB.
+1. El tamaño del montón de Java NameNode ha cambiado de 1 GB a 2 GB.
 
     ![Tamaño del montón de Java NameNode editado](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Una consulta de Hive se ejecuta en una o varias fases. Si las fases independient
 
 1.  Para habilitar la ejecución de consultas en paralelo, navegue hasta la pestaña **Configs** (Configuraciones) de Hive y busque la propiedad `hive.exec.parallel`. El valor predeterminado es false. Cambie el valor a true y, a continuación, presione **ENTRAR** para guardar el valor.
  
-1.  Para limitar el número de trabajos para su ejecución en paralelo, modifique el `hive.exec.parallel.thread.number` propiedad. El valor predeterminado es 8.
+1.  Para limitar el número de trabajos que se van a ejecutar en paralelo, modifique la propiedad `hive.exec.parallel.thread.number`. El valor predeterminado es 8.
 
     ![Ejecución de Hive en paralelo](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -178,10 +178,10 @@ Los tipos de compresión disponibles son:
 
 | Formato | Herramienta | Algoritmo | Extensión de archivo | ¿Divisible? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | Sin  |
+| Gzip | Gzip | DEFLATE | .gz | Sin |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Sí |
 | LZO | Lzop | LZO | .lzo | Sí, si está indexado |
-| Snappy | N/D | Snappy | Snappy | Sin  |
+| Snappy | N/D | Snappy | Snappy | Sin |
 
 Como norma general, es importante tener un método de compresión divisible, ya que, de lo contrario, se crearán muy pocos asignadores. Si los datos de entrada son texto, `bzip2` es la mejor opción. Para el formato ORC, Snappy es la opción de compresión más rápida.
 
@@ -196,7 +196,7 @@ Como norma general, es importante tener un método de compresión divisible, ya 
 
 1. Para agregar un valor personalizado:
 
-     a. Navegue hasta la pestaña **Configs** (Configuraciones) de Hive y seleccione la pestaña **Avanzadas**.
+    a. Navegue hasta la pestaña **Configs** (Configuraciones) de Hive y seleccione la pestaña **Avanzadas**.
 
     b. En la pestaña **Avanzadas**, busque y expanda el panel **Custom hive-site** (Sitio de Hive personalizado).
 
@@ -282,7 +282,7 @@ Recomendaciones adicionales para optimizar el motor de ejecución de Hive:
 | Configuración | Recomendado | Valor predeterminado de HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = más seguro y más lento; false = más rápido | false |
-| `tez.am.resource.memory.mb` | Límite superior de 4 GB para la mayor parte | Ajustado automáticamente |
+| `tez.am.resource.memory.mb` | Límite superior de 4 GB para la mayor parte | Ajustado automáticamente |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -295,7 +295,7 @@ Las propiedades de [Apache Pig](https://pig.apache.org/) se pueden modificar des
 
 1. Busque, quite la marca de comentario y cambie el valor de la propiedad que quiera modificar.
 
-1. Seleccione **guardar** en la parte superior derecha de la ventana para guardar el nuevo valor. Algunas propiedades pueden requerir un reinicio del servicio.
+1. Seleccione **Guardar** en la parte superior derecha de la ventana para guardar el nuevo valor. Algunas propiedades pueden requerir un reinicio del servicio.
 
     ![Propiedades de Pig avanzadas](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  

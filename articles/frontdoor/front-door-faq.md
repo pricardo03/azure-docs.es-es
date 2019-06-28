@@ -1,6 +1,6 @@
 ---
-title: 'Servicio de Azure puerta delantera: puerta de preguntas más frecuentes | Microsoft Docs'
-description: Esta página proporciona respuestas a las preguntas más frecuentes sobre el servicio de puerta de entrada de Azure
+title: 'Azure Front Door Service: preguntas más frecuentes para Front Door | Microsoft Docs'
+description: Esta página proporciona respuestas a las preguntas más frecuentes acerca de Azure Front Door Service (AFD).
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,139 +12,139 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736673"
 ---
-# <a name="frequently-asked-questions-for-azure-front-door-service"></a>Preguntas más frecuentes para el servicio de puerta de entrada de Azure
+# <a name="frequently-asked-questions-for-azure-front-door-service"></a>Preguntas más frecuentes sobre Azure Front Door Service
 
-En este artículo se responde preguntas comunes sobre la funcionalidad y las características del servicio de puerta de entrada de Azure. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
+En este artículo se responden preguntas comunes sobre la funcionalidad y las características de Azure Front Door Service. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
 1. La sección Comentarios de este artículo.
-2. [UserVoice de servicio de Azure puerta delantera](https://feedback.azure.com/forums/217313-networking?category_id=345025).
+2. [UserVoice de Azure Front Door Service](https://feedback.azure.com/forums/217313-networking?category_id=345025).
 3. **Soporte técnico de Microsoft:** Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
 ## <a name="general"></a>General
 
 ### <a name="what-is-azure-front-door-service"></a>¿Qué es Azure Front Door Service?
 
-Servicio de puerta de Azure es una red de entrega de aplicaciones (ADN) como un servicio, que ofrece diversas funcionalidades de equilibrio de carga de nivel 7 para sus aplicaciones. Proporciona la aceleración de sitios dinámicos (DSA), junto con equilibrio de carga global con casi en tiempo real de conmutación por error. Es un servicio altamente disponible y escalable, que es completamente administrado por Azure.
+Azure Front Door Service es una red de entrega de aplicaciones (ADN) como servicio, que ofrece diversas funcionalidades de equilibrio de carga de capa 7 para sus aplicaciones. Proporciona aceleración de sitios dinámicos (DSA), junto con equilibrio de carga global con conmutación por error casi en tiempo real. Es un servicio altamente disponible y escalable que está completamente administrado por Azure.
 
-### <a name="what-features-does-azure-front-door-service-support"></a>¿Qué características admite Azure puerta delantera Service?
+### <a name="what-features-does-azure-front-door-service-support"></a>¿Qué características admite Azure Front Door Service?
 
-Servicio de puerta de Azure es compatible con la aceleración de sitios dinámicos (DSA), la descarga de SSL y SSL de extremo a otro, Firewall de aplicaciones Web, afinidad de sesión basada en cookies, enrutamiento basado en ruta de acceso url, gratuita certificados y administración de dominios múltiples y otros. Para obtener una lista completa de las características admitidas, consulte [información general de Azure Service puerta delantera](front-door-overview.md).
+Azure Front Door Service admite la aceleración de sitios dinámicos, la descarga de SSL y SSL de un extremo a otro, firewall de aplicaciones web, afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, certificados gratuitos y administración de múltiples dominios, entre otras características. Para obtener una lista completa de las características admitidas, consulte [Overview of Azure Front Door Service](front-door-overview.md) (Información general de Azure Front Door Service).
 
-### <a name="what-is-the-difference-between-azure-front-door-service-and-azure-application-gateway"></a>¿Cuál es la diferencia entre el servicio de puerta de entrada de Azure y Azure Application Gateway?
+### <a name="what-is-the-difference-between-azure-front-door-service-and-azure-application-gateway"></a>¿Cuál es la diferencia entre Azure Front Door Service y Azure Application Gateway?
 
-Mientras la puerta delantera y Application Gateway son de capa 7 equilibradores de carga (HTTP/HTTPS), la principal diferencia es que la puerta delantera es un servicio global, mientras que Application Gateway es un servicio regional. Mientras la puerta delantera puede equilibrar la carga entre las unidades de unidades/clústeres/marca de escalado diferente entre regiones, Application Gateway le permite equilibrar la carga entre los etc. máquinas virtuales y contenedores que se encuentra dentro de la unidad de escalado.
+Si bien tanto Front Door como Application Gateway son equilibradores de carga de capa 7 (HTTP/HTTPS), la principal diferencia es que Front Door es un servicio global, mientras que Application Gateway es un servicio regional. Front Door puede equilibrar la carga entre las diferentes unidades de escalado/clústeres/unidades de marca entre regiones, y Application Gateway, por su parte, le permite equilibrar la carga entre las máquinas virtuales y contenedores, entre otros, que se encuentran dentro de la unidad de escalado.
 
-### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>¿Debemos cuando se implementa una puerta de enlace de aplicaciones detrás de la puerta de entrada?
+### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>¿Cuándo se debe implementar una instancia de Application Gateway detrás de Front Door?
 
-Los escenarios claves, ¿por qué uno debe usar la puerta de enlace de aplicaciones detrás de la puerta de entrada son:
+Los principales escenarios en que se debería usar Application Gateway detrás de Front Door son los siguientes:
 
-- Puerta de entrada puede realizar solo en el nivel global, pero si uno desea la carga del tráfico de equilibrio aún dentro de su red virtual (VNET), a continuación, debe usar la puerta de enlace de aplicaciones de equilibrio de carga basada en ruta de acceso.
-- Puesto que la puerta de entrada no funciona en un nivel de máquina virtual o el contenedor, por lo que no puede hacer drenaje de conexiones. Sin embargo, Application Gateway le permite hacer drenaje de conexiones. 
-- Con una puerta de enlace de aplicaciones detrás de AFD, uno puede lograr el 100% la descarga de SSL y enrutar solicitudes HTTP solo dentro de su red virtual (VNET).
-- Puerta delantera y Application Gateway admiten la afinidad de sesión. Mientras la puerta delantera puede dirigir el tráfico posterior desde una sesión de usuario en el mismo clúster o back-end en una región determinada, Application Gateway direct pueden establecer afinidad con el tráfico en el mismo servidor en el clúster.  
+- Front Door puede realizar el equilibrio de carga basado en rutas solo a nivel global, pero si se desea equilibrar la carga del tráfico incluso a nivel de la red virtual, debería utilizarse Application Gateway.
+- Puesto que Front Door no funciona en un nivel de máquina virtual o el contenedor, no puede hacer purga de conexiones. Por contra, Application Gateway sí le permite hacer purga de conexiones. 
+- Con una instancia de Application Gateway detrás de AFD, es posible lograr el 100 % de la descarga de SSL y enrutar solo solicitudes HTTP dentro de su red virtual (VNET).
+- Tanto Front Door como Application Gateway admiten la afinidad de la sesión. Mientras que Front Door puede dirigir el tráfico posterior desde una sesión de usuario en el mismo clúster o back-end en una región determinada, Application Gateway puede establecer la afinidad del tráfico al mismo servidor en el clúster.  
 
-### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>¿Podemos implementar equilibrador de carga de Azure detrás de la puerta de entrada?
+### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>¿Es posible implementar Azure Load Balancer detrás de Front Door?
 
-Servicio de puerta de Azure necesita una VIP pública o un nombre DNS disponible públicamente para enrutar el tráfico. Implementar un equilibrador de carga de Azure detrás de la puerta delantera es el caso de uso común.
+Azure Front Door Service necesita una VIP pública o un nombre DNS disponible públicamente al que enrutar el tráfico. La implementación de Azure Load Balancer detrás de Front Door es un caso de uso común.
 
-### <a name="what-protocols-does-azure-front-door-service-support"></a>¿Qué protocolos admite Azure puerta delantera Service?
+### <a name="what-protocols-does-azure-front-door-service-support"></a>¿Qué protocolos admite Azure Front Door Service?
 
-Servicio de puerta de Azure es compatible con HTTP, HTTPS y HTTP/2.
+Azure Front Door Service admite HTTP, HTTPS y HTTP/2.
 
-### <a name="how-does-azure-front-door-service-support-http2"></a>¿Cómo admite HTTP/2 servicio de puerta de entrada de Azure?
+### <a name="how-does-azure-front-door-service-support-http2"></a>¿Cómo admite HTTP/2 el servicio Azure Front Door Service?
 
-Compatibilidad con el protocolo HTTP/2 está disponible para los clientes se conectan al servicio de puerta de entrada de Azure solo. La comunicación con los backends en el grupo de back-end es a través de HTTP/1.1. Compatibilidad con HTTP/2 está habilitado de forma predeterminada.
+La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los clientes que se conectan a Azure Front Door Service. La comunicación con los back-end en el grupo de back-end se produce a través de HTTP/1.1. La compatibilidad con HTTP/2 está habilitada de forma predeterminada.
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>¿Qué recursos son compatibles actualmente como parte del grupo de back-end?
 
-Los grupos de back-end se pueden componer de almacenamiento, aplicaciones Web, las instancias de Kubernetes o cualquier otro nombre de host personalizado que tenga conectividad pública. Servicio de puerta de Azure requiere que el back-ends se definen a través de una dirección IP pública o un nombre de host DNS que pueda resolverse públicamente. Los miembros de grupos de back-end pueden ser en distintas zonas, regiones, o incluso fuera de Azure, siempre tengan conectividad pública.
+Los grupos de back-end pueden estar compuestos de instancias de Storage, aplicaciones web, Kubernetes o cualquier otro nombre de host personalizado que tenga conectividad pública. Azure Front Door Service requiere que los back-end se definan a través de una dirección IP pública o un nombre de host DNS que pueda resolverse públicamente. Los miembros de grupos de back-end pueden estar entre zonas, regiones e incluso fuera de Azure, siempre y cuando dispongan de conectividad pública.
 
 ### <a name="what-regions-is-the-service-available-in"></a>¿En qué regiones está disponible el servicio?
 
-Servicio de puerta de Azure es un servicio global y no está asociado a cualquier región de Azure específica. La única ubicación, que debe especificar al crear una puerta de entrada es la ubicación del grupo de recursos, que es básicamente que especifica donde se almacenarán los metadatos para el grupo de recursos. Se crea el propio recurso de puerta principal como un recurso global y la configuración se implementará globalmente a todos los puntos de presencia (punto de presencia). 
+Azure Front Door Service es un servicio global y no está asociado a ninguna región de Azure específica. La única ubicación que debe especificar al crear una instancia de Front Door es la ubicación del grupo de recursos, que es básicamente dónde se almacenarán los metadatos para el grupo de recursos. El propio recurso de Front Door se crea como un recurso global, y la configuración se implementa globalmente en todos los puntos de presencia. 
 
-### <a name="what-are-the-pop-locations-for-azure-front-door-service"></a>¿Cuáles son las ubicaciones POP para el servicio de puerta de entrada de Azure?
+### <a name="what-are-the-pop-locations-for-azure-front-door-service"></a>¿Cuáles son las ubicaciones de los puntos de presencia para Azure Front Door Service?
 
-Servicio de puerta de Azure tiene la misma lista de ubicaciones de POP (punto de presencia) que Azure CDN de Microsoft. Para obtener una lista completa de nuestros puntos de presencia, consulte póngase [ubicaciones POP de Azure CDN de Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
+Azure Front Door Service tiene la misma lista de ubicaciones de puntos de presencia que Azure CDN de Microsoft. Para obtener una lista completa de nuestros puntos de presencia, consulte [Azure CDN POP locations from Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations) (Ubicaciones de puntos de presencia de Azure CDN de Microsoft).
 
-### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>¿Es una implementación dedicada para mi aplicación de servicio de puerta de entrada de Azure o se comparte entre los clientes?
+### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>¿Azure Front Door Service es una implementación dedicada para mi aplicación o se comparte entre los clientes?
 
-Servicio de puerta de Azure es un servicio multiempresa distribuido globalmente. Por lo tanto, la infraestructura para la puerta de entrada se comparte entre todos sus clientes. Sin embargo, definir la configuración específica necesaria para la aplicación mediante la creación de una puerta de entrada y 
+Azure Front Door Service es un servicio multiinquilino distribuido globalmente. Por lo tanto, la infraestructura de Front Door se comparte entre todos sus clientes. Sin embargo, al crear una instancia de Front Door se define la configuración específica requerida para su aplicación. 
 
 ### <a name="is-http-https-redirection-supported"></a>¿Se admite el redireccionamiento HTTP->HTTPS?
 
-Puerta de entrada actualmente no admite la redirección de URL.
+Front Door actualmente no admite el redireccionamiento URL.
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>¿En qué orden se procesan las reglas de enrutamiento?
 
-No se ordenan las rutas para la puerta de entrada y se selecciona una ruta específica en función de la mejor coincidencia. Obtenga más información sobre [cómo puerta de entrada coincide con las solicitudes a una regla de enrutamiento](front-door-route-matching.md).
+Las rutas de Front Door no están ordenadas y se selecciona una ruta específica en función de la mejor coincidencia. Obtenga más información sobre [cómo hace coincidir Front Door las solicitudes con una regla de enrutamiento](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>¿Cómo bloquear el acceso a mi back-end al servicio de puerta de entrada de Azure solo?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>¿Cómo puedo hacer que Azure Front Door Service sea el único que tenga acceso a mi back-end?
 
-Puede configurar la creación de ACL de IP para los back-end para que acepte tráfico solo desde el servicio de puerta de entrada de Azure. Puede restringir la aplicación acepte las conexiones entrantes sólo desde el espacio IP de back-end del servicio de puerta de entrada de Azure. Estamos trabajando para la integración con [intervalos de IP de Azure y las etiquetas de servicio](https://www.microsoft.com/download/details.aspx?id=56519) pero por ahora puede consultar los intervalos de IP como sigue:
+Puede configurar la creación de ACL de IP para los back-end para que acepten tráfico solo desde Azure Front Door Service. Puede restringir la aplicación de modo que acepte las conexiones entrantes solo desde el espacio IP de back-end de Azure Front Door Service. Estamos trabajando para la integración con [intervalos de IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519), pero por ahora puede consultar los intervalos de IP como sigue:
  
 - **IPv4** - `147.243.0.0/16`
 - **IPv6** - `2a01:111:2050::/44`
 
 > [!WARNING]
-> Nuestro espacio IP de back-end puede cambiar más adelante, sin embargo, se garantizará que antes de que suceda, que se habría integrado con [intervalos de direcciones IP de Azure y las etiquetas de servicio](https://www.microsoft.com/download/details.aspx?id=56519). Se recomienda que se suscribe a [intervalos de direcciones IP de Azure y las etiquetas de servicio](https://www.microsoft.com/download/details.aspx?id=56519) para los cambios o actualizaciones. 
+> Nuestro espacio de back-end IP puede cambiar más adelante; sin embargo, nos aseguraremos de que antes de que eso suceda nos hayamos integrado con los [intervalos de IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que se suscriba a los [intervalos de IP y etiquetas de servicio de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para conocer los cambios o actualizaciones. 
 
-### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>¿Se puede cambiar la dirección IP de difusión por proximidad durante la vigencia de mi casa?
+### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>¿Puede cambiar la dirección IP de difusión por proximidad durante la vigencia de mi instancia de Front Door?
 
-La dirección IP de difusión por proximidad de front-end para la puerta de entrada normalmente no debería cambiar y es posible que permanezca estática durante la vigencia de la puerta. Sin embargo, hay **ninguna garantía** para el mismo. Póngase no tienen ninguna dependencia directa en la dirección IP.  
+La dirección IP de difusión por proximidad de su instancia de Front Door normalmente no debería cambiar y es posible que permanezca estática durante la vigencia de Front Door. Sin embargo, esto no se puede **garantizar**. No asuma ninguna dependencia directa de la dirección IP.  
 
-### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>¿Es servicio de puerta de entrada de Azure es compatible con las direcciones IP estática o dedicada?
+### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>¿Azure Front Door Service admite direcciones IP estáticas o dedicadas?
 
-No, servicio de puerta de entrada de Azure actualmente no admite anycast direcciones IP de front-end dedicado o estático. 
+No, Azure Front Door Service actualmente no admite direcciones IP de difusión por proximidad de front-end estáticas o dedicadas. 
 
-### <a name="does-azure-front-door-service-support-x-forwarded-for-headers"></a>¿Azure puerta delantera Service admite encabezados x-forwarded-for?
+### <a name="does-azure-front-door-service-support-x-forwarded-for-headers"></a>¿Azure Front Door Service admite encabezados x-forwarded-for?
 
-Sí, el servicio de puerta de entrada de Azure admite los encabezados X-Forwarded-For, Host reenviados X y X-Forwarded-Proto. A continuación, para X-Forwarded-For if ya estaba presente el encabezado puerta delantera anexa la dirección IP de socket de cliente a ella. En caso contrario, agrega el encabezado con la dirección IP de socket de cliente como el valor. Para Host reenviados X y X-Forwarded-Proto, se invalida el valor.
+Sí, Azure Front Door Service admite los encabezados X-Forwarded-For, X-Forwarded-Host y X-Forwarded-Proto. Para X-Forwarded-For, si el encabezado ya estaba presente, Front Door le agrega la dirección IP del socket del cliente. En caso contrario, agrega el encabezado con la dirección IP del socket del cliente como valor. En el caso de For X-Forwarded-Host y X-Forwarded-Proto, el valor se invalida.
 
-Obtenga más información sobre la [puerta delantera admiten encabezados HTTP](front-door-http-headers-protocol.md).  
+Obtenga más información sobre los [encabezados HTTP que admite Front Door](front-door-http-headers-protocol.md).  
 
-### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-service-does-my-front-door-still-work-when-being-updated"></a>¿Cuánto tarda para implementar un servicio de puerta de entrada de Azure? ¿Mi puerta delantera todavía funciona cuando se actualiza?
+### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-service-does-my-front-door-still-work-when-being-updated"></a>¿Cuánto tiempo se tarda en implementar una instancia de Azure Front Door Service? ¿Mi Front Door sigue funcionando mientras se actualiza?
 
-Creación de un nuevo puerta delantera o las actualizaciones de una puerta de entrada existente tarda aproximadamente 3 a 5 minutos para la implementación global. En aproximadamente 3 a 5 minutos, que significa la configuración de puerta de entrada se implementarán en todos nuestros puntos de presencia global.
+La creación de una instancia de Front Door o cualquier actualización a la que se someta una instancia de Front Door tarda entre 3 y 5 minutos en implementarse globalmente. Esto significa que, en un tiempo de entre 3 y 5 minutos, la configuración de Front Door se implementará en sus puntos de presencia de manera global.
 
-Nota: personalizar las actualizaciones de certificados SSL de unos 30 minutos para que se implementará globalmente.
+Nota: La personalización de las actualizaciones de certificados SSL tarda unos 30 minutos en implementarse globalmente.
 
 ## <a name="configuration"></a>Configuración
 
-### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>¿Ruta o equilibrio de carga de la puerta delantera Azure el tráfico dentro de una red virtual?
+### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>¿Puede Azure Front Door equilibrar la carga o enrutar el tráfico dentro de una red virtual?
 
-Azure puerta delantera (AFD) requiere una dirección IP pública o el nombre DNS que pueda resolverse públicamente para enrutar el tráfico. Por lo tanto, la respuesta es no AFD no se puede enrutar directamente dentro de una red virtual, pero uso un equilibrador de carga de Azure o Application Gateway entre resolverá este escenario.
+Azure Front Door (AFD) requiere una dirección IP pública o un nombre DNS que pueda resolverse públicamente para enrutar el tráfico. Por lo tanto, la respuesta es que ninguna instancia de AFD puede enrutar directamente dentro de una red virtual, pero el uso de Application Gateway o Azure Load Balancer en medio resolverá este escenario.
 
-### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door-service"></a>¿Cuáles son los distintos tiempos de espera y los límites de servicio de puerta de entrada de Azure?
+### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door-service"></a>¿Cuáles son los distintos tiempos de espera y límites del servicio Azure Front Door Service?
 
-Obtener información sobre todos los documentados [tiempos de espera y los límites de servicio de puerta de entrada de Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+Conozca todos los [tiempos de espera y límites documentados del servicio Azure Front Door Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## <a name="performance"></a>Rendimiento
 
-### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>¿Cómo admite Azure puerta delantera Service alta disponibilidad y escalabilidad?
+### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>¿Cómo admite Azure Front Door Service la alta disponibilidad y la escalabilidad?
 
-Servicio de puerta de Azure es una plataforma distribuida globalmente de varios inquilinos con grandes volúmenes de capacidad a fin de satisfacer las necesidades de escalabilidad de la aplicación. Entregar desde el borde de la red global de Microsoft, puerta delantera proporciona funcionalidad de equilibrio de carga global que permite la conmutación por error la aplicación entera o microservicios incluso individuales a través de nubes diferentes o regiones.
+Azure Front Door Service es una plataforma multiinquilino distribuida globalmente con grandes volúmenes de capacidad para satisfacer las necesidades de escalabilidad de la aplicación. Ofrecida desde el perímetro de la red global de Microsoft, Front Door proporciona una funcionalidad de equilibrio de carga global que le permite conmutar por error la aplicación entera o incluso microservicios individuales a través de regiones o nubes diferentes.
 
 ## <a name="ssl-configuration"></a>Configuración de SSL
 
-### <a name="what-tls-versions-are-supported-by-azure-front-door-service"></a>¿Qué versiones TLS son compatibles con el servicio de puerta de entrada de Azure?
+### <a name="what-tls-versions-are-supported-by-azure-front-door-service"></a>¿Qué versiones de TLS son compatibles con Azure Front Door Service?
 
-Puerta delantera es compatible con las versiones 1.0, 1.1 y 1.2 de TLS. Aún no se admite TLS 1.3.
+Front Door admite las versiones 1.0, 1.1 y 1.2 de TLS. Aún no se admite TLS 1.3.
 
-### <a name="what-certificates-are-supported-on-azure-front-door-service"></a>¿Qué certificados son compatibles con el servicio de puerta de entrada de Azure?
+### <a name="what-certificates-are-supported-on-azure-front-door-service"></a>¿Qué certificados se admiten en Azure Front Door Service?
 
-Para habilitar el protocolo HTTPS para entregar contenido en un dominio personalizado de la puerta de entrada de forma segura, puede elegir usar un certificado que está administrado por servicio de puerta de entrada de Azure o su propio certificado.
-La puerta delantera administrados disposiciones de opción de un certificado SSL estándar a través de Digicert y almacenados en la parte delantera de Key Vault de puerta. Si decide usar su propio certificado, a continuación se puede incorporar un certificado de una entidad de certificación compatible y puede ser un SSL estándar, el certificado de validación extendida o incluso un certificado comodín. No se admiten certificados autofirmados. Obtenga información sobre [cómo habilitar HTTPS para un dominio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
+Para habilitar el protocolo HTTPS para distribuir de forma segura el contenido en un dominio personalizado de Front Door, puede optar por usar un certificado administrado por un servicio Azure Front Door Service o utilizar su propio certificado.
+La opción administrada de Front Door aprovisiona un certificado SSL estándar mediante Digicert y se almacena en el almacén Key Vault de Front Door. Si decide usar su propio certificado, puede incorporar un certificado de una entidad de certificación compatible y puede ser un SSL estándar, un certificado de validación extendido o incluso un certificado comodín. No se admiten certificados autofirmados. Aprenda a [habilitar HTTPS para un dominio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
-### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>¿Cuáles son los conjuntos de cifrado actuales admitidos por el servicio de puerta de entrada de Azure?
+### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>¿Cuáles son los conjuntos de cifrado actuales que admite Azure Front Door Service?
 
-Estos son los conjuntos de cifrado actuales admitidos por el servicio de puerta de entrada de Azure:
+A continuación se presentan los conjuntos de cifrado actuales que admite Azure Front Door Service:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -165,35 +165,35 @@ Estos son los conjuntos de cifrado actuales admitidos por el servicio de puerta 
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
 
-### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>¿Servicio de puerta de entrada de Azure también admite el recifrado del tráfico para el back-end?
+### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>¿Admite Azure Front Door Service también volver a cifrar el tráfico dirigido al back-end?
 
-Sí, servicio de puerta de entrada de Azure es compatible con la descarga de SSL y SSL de extremo a extremo, que vuelve a cifra el tráfico de back-end. De hecho, puesto que realizará las conexiones con el back-end a través de es la dirección IP pública, se recomienda que configure la puerta de entrada para que use HTTPS como protocolo de reenvío.
+Sí, Azure Front Door Service admite la descarga de SSL y SSL de extremo a extremo, lo cual permite volver a cifrar el tráfico dirigido al back-end. De hecho, puesto que las conexiones con el back-end se producen a través de la dirección IP pública, se recomienda que configure Front Door para que use HTTPS como protocolo de reenvío.
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>¿Se puede configurar la directiva SSL para controlar las versiones del protocolo SSL?
 
-No, actualmente no admite la puerta delantera para denegar a versiones específicas de TLS no puede establecer las versiones TLS mínima. 
+No, Front Door actualmente no admite la denegación de versiones específicas de TLS ni puede establecer las versiones de TLS mínimas. 
 
-### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>¿Puedo configurar la puerta delantera para admitir únicamente conjuntos de cifrado específico?
+### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>¿Puedo configurar Front Door para admitir únicamente determinados conjuntos de cifrado?
 
-No, no se admite la configuración de puerta de entrada para conjuntos de cifrado específico. 
+No, no se admite la configuración de Front Door para determinados conjuntos de cifrado. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnósticos y registro
 
-### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door-service"></a>¿Qué tipos de registros y métricas están disponibles con el servicio de puerta de entrada de Azure?
+### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door-service"></a>¿Qué tipos de registros y métricas están disponibles con Azure Front Door Service?
 
-Para obtener información sobre los registros y otras funcionalidades de diagnóstico, consulte [métricas y registros de supervisión para la puerta delantera](front-door-diagnostics.md).
+Para obtener información sobre los registros y otras funcionalidades de diagnóstico, consulte [Monitoring metrics and logs for Front Door](front-door-diagnostics.md) (Supervisión de métricas y registros para Front Door).
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>¿Qué es la directiva de retención en los registros de diagnóstico?
 
-Los registros de diagnóstico fluyen hacia la cuenta de almacenamiento de los clientes y estos pueden establecer la directiva de retención según sus preferencias. Los registros de diagnóstico también se pueden enviar a un centro de eventos o a registros de Azure Monitor. Para obtener más información, consulte [diagnósticos de servicio de Azure puerta delantera](front-door-diagnostics.md).
+Los registros de diagnóstico fluyen hacia la cuenta de almacenamiento de los clientes y estos pueden establecer la directiva de retención según sus preferencias. Los registros de diagnóstico también se pueden enviar a un centro de eventos o a registros de Azure Monitor. Para más información, consulte [Azure Front Door Service Diagnostics](front-door-diagnostics.md) (Diagnósticos de Azure Front Door Service).
 
-### <a name="how-do-i-get-audit-logs-for-azure-front-door-service"></a>¿Cómo se puede obtener los registros de auditoría para el servicio de puerta de entrada de Azure?
+### <a name="how-do-i-get-audit-logs-for-azure-front-door-service"></a>¿Cómo puedo obtener registros de auditoría para Azure Front Door Service?
 
-Los registros de auditoría están disponibles para el servicio de puerta de entrada de Azure. En el portal, haga clic en **registro de actividad** en la hoja del menú de la puerta de entrada para obtener acceso al registro de auditoría. 
+Los registros de auditoría están disponibles para Azure Front Door Service. En el portal, haga clic en **Registro de actividad** en la hoja de menú de su instancia de Front Door para acceder al registro de auditoría. 
 
-### <a name="can-i-set-alerts-with-azure-front-door-service"></a>¿Puedo establecer alertas con el servicio de puerta de entrada de Azure?
+### <a name="can-i-set-alerts-with-azure-front-door-service"></a>¿Puedo establecer alertas con Azure Front Door Service?
 
-Sí, servicio de puerta de entrada de Azure es compatible con las alertas. Las alertas se configuran en métricas. 
+Sí, Azure Front Door Service admite las alertas. Las alertas se configuran en métricas. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

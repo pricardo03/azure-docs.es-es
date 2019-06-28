@@ -12,10 +12,10 @@ ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
 ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148162"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adición de intenciones para determinar la intención de las expresiones del usuario
@@ -44,29 +44,29 @@ Las expresiones de ejemplo son ejemplos de texto de preguntas de los usuarios o 
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
-## <a name="intent-prediction-errors"></a>Errores de predicción de intención 
+## <a name="intent-prediction-errors"></a>Errores de predicción de intenciones 
 
-Una declaración de ejemplo en una intención podría tener un error de predicción de intención entre la intención de en que la declaración de ejemplo está actualmente y la intención de predicción determinado durante el entrenamiento. 
+Una expresión de ejemplo en una intención podría tener un error de predicción de intención entre la intención en la que se encuentra actualmente la expresión de ejemplo y la intención de predicción determinada durante el entrenamiento. 
 
-Para buscar errores de predicción de utterance (dictado) y corregirlos, utilice el **filtro** la opción **evaluación** las opciones de incorrecta y Unclear combinan con la **vista** opción de **Vista detallada**. 
+Para encontrar errores de predicción de expresiones y corregirlos, use las opciones de **evaluación** Incorrect (Incorrecto) y Unclear (Poco claro) de la opción **Filter** (Filtro) en combinación con la opción de **vista** **Detailed view** (Vista detallada). 
 
-![Para buscar errores de predicción de utterance (dictado) y corregirlos, utilice la opción de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![Para encontrar errores de predicción de expresiones y corregirlos, use la opción de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Cuando se aplican los filtros y la vista, y hay declaraciones de ejemplo con errores, la lista de declaración de ejemplo muestra las grabaciones de voz y los problemas.
+Cuando se aplican los filtros y la vista, y hay expresiones de ejemplo con errores, la lista de expresiones de ejemplo muestra las expresiones y los problemas.
 
-![! [Cuando se aplican los filtros y la vista, y hay declaraciones de ejemplo con errores, la lista de declaración de ejemplo muestra las grabaciones de voz y los problemas.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![[Cuando se aplican los filtros y la vista, y hay expresiones de ejemplo con errores, la lista de expresiones de ejemplo muestra las expresiones y los problemas.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-Cada fila muestra la puntuación de predicción del entrenamiento actual para la declaración de ejemplo, la puntuación del rival más cercano, que es la diferencia entre estas dos puntuaciones. 
+En cada fila se muestra la puntuación de predicción del entrenamiento actual de la expresión de ejemplo y la puntuación del rival más cercano, que es la diferencia entre estas dos puntuaciones. 
 
 ### <a name="fixing-intents"></a>Corrección de intenciones
 
-Para obtener información sobre cómo solucionar errores de predicción intención, use el [panel de resumen de](luis-how-to-use-dashboard.md). El panel de resumen proporciona un análisis para el entrenamiento de la versión activa último y ofrece las principales sugerencias para corregir el modelo.  
+Para saber cómo solucionar errores de predicción de intenciones, use el [panel de resumen](luis-how-to-use-dashboard.md). El panel de resumen proporciona un análisis del último entrenamiento de la versión activa y ofrece las principales sugerencias para corregir el modelo.  
 
 ## <a name="add-a-custom-entity"></a>Incorporación de una entidad personalizada
 
 Una vez agregada una expresión a una intención, podrá seleccionar texto de ella para crear una entidad personalizada. Una entidad personalizada es una manera de etiquetar texto para la extracción, junto con la intención correcta. 
 
-Consulte [Agregar entidad a utterance](luis-how-to-add-example-utterances.md) para obtener más información.
+Consulte [Incorporación de una entidad a una expresión](luis-how-to-add-example-utterances.md) para más información.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Errores de discrepancia de predicción de entidades 
 
@@ -82,7 +82,7 @@ Para más información, consulte la sección sobre [entidades precompiladas](lui
 
 ## <a name="using-the-contextual-toolbar"></a>Uso de la barra de herramientas contextual
 
-Cuando se seleccionan uno o más declaraciones de ejemplo en la lista, activando la casilla a la izquierda de una declaración, la barra de herramientas encima de la lista utterance (dictado) le permite realizar las siguientes acciones:
+Cuando se selecciona una o más expresiones de ejemplo en la lista, al activar la casilla a la izquierda de una expresión, la barra de herramientas de encima de la lista de expresiones permite realizar las siguientes acciones:
 
 * Reasignar intenciones: mover expresiones a distintas intenciones
 * Eliminar expresiones

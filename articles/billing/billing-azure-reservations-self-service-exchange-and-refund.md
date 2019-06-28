@@ -1,6 +1,6 @@
 ---
-title: Intercambios de autoservicio y los reembolsos para las reservas de Azure | Microsoft Docs
-description: Obtenga información sobre cómo pueden intercambiar o reembolso reservas de Azure.
+title: Autoservicio de cambios y reembolsos de reservas de Azure | Microsoft Docs
+description: Obtenga información sobre cómo puede obtener cambios o reembolsos para las reservas de Azure.
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -13,71 +13,71 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615994"
 ---
-# <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Intercambios de autoservicio y los reembolsos para las reservas de Azure
+# <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
-Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante evolución. Puede intercambiar una reserva por otra del mismo tipo. También puede devolver una reserva, hasta 50 000 USD al año, si ya no la necesita.
+Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante cambio. Puede intercambiar una reserva por otra del mismo tipo. También puede devolver una reserva, hasta 50 000 USD al año, si ya no la necesita.
 
-El autoservicio de intercambio y la funcionalidad de cancelación no están disponible para los clientes de Contrato Enterprise de US Government. Se admiten otros tipos de suscripción de US Government incluidos pago por uso y CSP.
+El autoservicio de intercambio y la funcionalidad de cancelación no están disponible para los clientes de Contrato Enterprise de US Government. Otros tipos de suscripción de US Government, como Pago por uso y CSP, sí se admiten.
 
-Debe tener acceso de propietario en el pedido de reserva para intercambiar o reembolso una reserva existente.
+Debe tener acceso de propietario en el pedido de reserva para realizar un cambio o reembolso en relación con una reserva existente.
 
-## <a name="exchange-an-existing-reserved-instance"></a>Una instancia reservada existente de Exchange
+## <a name="exchange-an-existing-reserved-instance"></a>Cambio de una instancia reservada existente
 
-Puede intercambiar la reserva con tres pasos rápidos en el [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Puede cambiar la reserva con tres pasos rápidos en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Seleccione las reservas de direcciones que desea de reembolso y haga clic en **Exchange**.  
-    ![Imagen de ejemplo que muestra las reservas de direcciones para devolver](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Seleccione el producto de máquina virtual que quiere comprar y escriba la cantidad. Asegúrese de que el nuevo total de compra es mayor que el total de devolución. [Determinar el tamaño adecuado antes de adquirir](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+1. Seleccione las reservas que quiere devolver y haga clic en **Intercambiar**.  
+    ![Imagen de ejemplo que muestra las reservas para devolver](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
+2. Seleccione el producto de máquina virtual que quiere comprar y escriba la cantidad. Asegúrese de que el nuevo total de compra es mayor que el total de devolución. [Determine el tamaño adecuado antes de la compra](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Imagen de ejemplo que muestra el producto de la máquina virtual para comprar con un intercambio](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
-3. Revise y complete la transacción.  
-    ![Imagen de ejemplo que muestra el producto de la máquina virtual para comprar con un intercambio, completar el valor devuelto](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+3. Revise y finalice la transacción.  
+    ![Imagen de ejemplo que muestra el producto de la máquina virtual para comprar con un intercambio, completando la devolución](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
-Una reserva de reembolso, vaya a **detalles de la reserva** y haga clic en **reembolso**.
+Para devolver una reserva, vaya a **Detalles de la reserva** y haga clic en **Devolver**.
 
-## <a name="how-transactions-are-processed"></a>Cómo se procesan las transacciones
+## <a name="how-transactions-are-processed"></a>Procesamiento de las transacciones
 
-En primer lugar, Microsoft cancela la reserva existente y reembolsos de la cantidad proporcional para esa reserva. Si se produce un intercambio, se procesa la compra nuevo. Microsoft procesa reembolsos mediante uno de los métodos siguientes, según el tipo de cuenta y el método de pago:
+En primer lugar, Microsoft cancela la reserva existente y reembolsa la cantidad proporcional para esa reserva. Si hay un cambio, se procesa la compra nueva. Microsoft procesa los reembolsos mediante uno de los métodos siguientes, según el tipo de cuenta y el método de pago:
 
 ### <a name="enterprise-agreement-customers"></a>Clientes con contrato Enterprise
 
-Dinero se agrega para el compromiso monetario para los intercambios y reembolsos si se realizó la compra original con uno. Se usa ninguna factura por encima del límite, ya que las compras originales se vuelve a abrir y rerated para asegurarse de que el compromiso monetario. Si ya no está activo se compró la reserva de uso de término de compromiso monetario, crédito se agrega a su plazo de compromiso monetario del contrato enterprise actual.
+Se agrega el dinero al compromiso monetario para los cambios y devoluciones en caso de que se utilizara alguno en la compra original. Todas las facturas por encima del límite en relación con las compras originales se reabren y se vuelven a evaluar para asegurarse de que se utiliza el compromiso monetario. Si el término de compromiso monetario que se compró con la reserva ya no está activo, se agregará crédito al término de compromiso monetario de su contrato Entreprise actual.
 
-Si se realizó la compra original como un exceso, Microsoft publica una nota de crédito.
+Si la compra original se realizó como un uso por encima del límite, Microsoft emite una nota de crédito.
 
-### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Los pagos mediante factura de pago por uso y el programa CSP
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Pagos mediante factura de pago por uso y programa CSP
 
-Se ha cancelado la factura de compra de reserva original y, a continuación, se crea una nueva factura para obtener el reembolso. Para los intercambios, muestra la nueva factura el reembolso y la compra nuevo. La cantidad de reembolso se ajusta con la compra. Si solo se devolverá una reserva, la cantidad prorrateada permanece con Microsoft y se ajusta con una compra de reserva futuras.
+La factura de compra de la reserva original se cancela y luego se crea una nueva factura para el reembolso. En el caso de los cambios, la nueva factura muestra el reembolso y la nueva compra. El importe del reembolso se ajusta con la compra. Si solo reembolsó una reserva, Microsoft se queda con la cantidad prorrateada y se ajusta a una futura compra de reserva.
 
-### <a name="pay-as-you-go-credit-card-customers"></a>Clientes de tarjeta de crédito de pago por uso
+### <a name="pay-as-you-go-credit-card-customers"></a>Clientes con tarjeta de crédito de pago por uso
 
-Se ha cancelado la factura original y se crea una nueva factura. Se devuelve el dinero a la tarjeta de crédito que se usó para la compra original. Si ha cambiado la tarjeta, [póngase en contacto con soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+La factura original se cancela y se crea una nueva factura. El dinero se devuelve a la tarjeta de crédito que se utilizó para la compra original. Si ha cambiado la tarjeta, [póngase en contacto con el soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="exchange-policies"></a>Directivas de Exchange
+## <a name="exchange-policies"></a>Directivas de intercambio
 
-- Puede devolver varias de las reservas existentes para comprar una reserva nueva del mismo tipo. No se puede intercambiar las reservas de un tipo por otro. Por ejemplo, no puede devolver una reserva de la máquina virtual para comprar una reserva de SQL.
-- Solo los propietarios de reserva pueden procesar un intercambio. [Obtenga información sobre cómo agregar o cambiar los usuarios pueden administrar una reserva](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
-- Un intercambio se procesa como un reembolso y recompra: distintas transacciones se crean para la cancelación y la compra nuevo. El importe de reserva prorrateado se devuelve para las reservas se permuta. Se le cobrará por completo para la compra nuevo. La cantidad de reserva prorrateado es el valor residual prorrateo diario de la reserva que se devuelve.
-- Puede intercambiar o reembolso reservas incluso si usa el contrato enterprise para comprar la reserva expira y se ha renovado como un nuevo contrato.
-- Puede cambiar cualquier propiedad de reserva, como el tamaño, región, quantity y término con un intercambio.
-- El nuevo total de compra debe igual o ser mayor que la cantidad devuelta.
-- La reserva de nuevas adquirida como parte de exchange tiene un nuevo término a partir de la hora de exchange.
-- Hay ninguna penalización o límites anuales para los intercambios.
+- Puede devolver varias de las reservas existentes para comprar una reserva nueva del mismo tipo. No puede intercambiar las reservas de un tipo por otro. Por ejemplo, no puede devolver una reserva de máquina virtual para comprar una reserva de SQL.
+- Solo los propietarios de una reserva pueden procesar un intercambio. [Obtenga información sobre cómo agregar o cambiar los usuarios que pueden administrar una reserva](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+- Un intercambio se procesa como un reembolso y una recompra: se crean diferentes transacciones para la cancelación y la nueva compra. El importe de la reserva prorrateada se reembolsa por las reservas que canjee. Se le cobrará por completo la nueva compra. El importe de la reserva prorrateada es el valor residual prorrateado diario de la reserva que se devuelve.
+- Puede intercambiar o reembolsar reservas incluso si el contrato Enterprise utilizado para comprar la reserva ha expirado y se ha renovado como un nuevo contrato.
+- Puede cambiar cualquier propiedad de reserva, como el tamaño, la región, la cantidad y el plazo, con un intercambio.
+- El nuevo total de compra debe igual o mayor que la cantidad devuelta.
+- La nueva reserva comprada en el marco del intercambio tiene un nuevo plazo a partir del momento del intercambio.
+- No hay ninguna penalización ni límites anuales para los intercambios.
 
 ## <a name="refund-policies"></a>Directivas de reembolso
 
-- La cantidad total de reembolso no puede superar los 50.000 USD en una ventana con desplazamiento 12 meses.
-- Solo los propietarios de reserva pueden procesar un reembolso. [Obtenga información sobre cómo agregar o cambiar los usuarios pueden administrar una reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft reserva el derecho a cobrar una reducción del 12% para las devoluciones, aunque actualmente no se le cobrará la penalización.
+- La cantidad total de reembolso no puede superar los 50 000 dólares estadounidenses en una ventana gradual de 12 meses.
+- Solo los propietarios de una reserva pueden procesar un reembolso. [Obtenga información sobre cómo agregar o cambiar los usuarios que pueden administrar una reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Microsoft se reserva el derecho a cobrar una penalización del 12 % para las devoluciones, aunque actualmente no se aplica.
 
-## <a name="exchange-non-premium-storage-for-premium-storage"></a>Exchange sin premium storage para premium storage
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Intercambio de almacenamiento no premium por almacenamiento premium
 
-Puede intercambiar una reserva de compra para un tamaño de máquina virtual que no es compatible con premium storage para un tamaño de máquina virtual correspondiente que hace. Por ejemplo, un _F1_ para un _F1s_. Para hacer el intercambio, vaya a detalles de la reserva y haga clic en **Exchange**. El intercambio no restablece el término de la instancia reservada o cree una nueva transacción.
+Puede intercambiar una reserva comprada para un tamaño de máquina virtual que no es compatible con el almacenamiento premium por un tamaño de máquina virtual que sí lo es. Por ejemplo, un _F1_ por un _F1s_. Para hacer el intercambio, vaya a los detalles de la reserva y haga clic en **Intercambiar**. El intercambio no restablece el plazo de la instancia reservada ni crea una nueva transacción.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

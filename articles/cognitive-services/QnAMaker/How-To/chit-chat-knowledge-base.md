@@ -12,30 +12,30 @@ ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541003"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
 La incorporación de charlas al bot lo hace más atractivo y conversacional. La característica de charla de QnA Maker permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la base de conocimiento (KB). Esto puede ser un punto de partida para la personalidad del bot y permite ahorrar el tiempo y el costo que supone escribirlas desde cero.  
 
-Este conjunto de datos tiene aproximadamente 100 escenarios de chit chat en la voz de varios roles, como Professional, sencillo y Witty. Elija el rol que más se parezca a la voz del bot. Dada una consulta de usuario, QnA Maker intenta hacerla coincidir con la QnA de charla conocida más parecida.  
+Este conjunto de datos tiene aproximadamente 100 escenarios de charla en la voz de varias personas, como profesional, amigable e ingenioso. Elija el rol que más se parezca a la voz del bot. Dada una consulta de usuario, QnA Maker intenta hacerla coincidir con la QnA de charla conocida más parecida.  
 
-Algunos ejemplos de las personalidades diferentes están por debajo. Puede ver toda la personalidad [conjuntos de datos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) junto con los detalles de las personalidades.
+A continuación se muestran algunos ejemplos de las distintas personalidades: Puede ver todos los [conjuntos de datos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) de personalidades junto con los detalles de las personalidades.
 
-Para la consulta de usuario de `When is your birthday?`, cada personalidad tiene una respuesta con estilo:
+Para la consulta del usuario `When is your birthday?`, cada personalidad tiene una respuesta con estilo:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personalidad|Ejemplo|
 |--|--|
-|Profesional|Edad realmente no se aplica a mí.|
+|Profesional|La edad no va conmigo.|
 |Descriptiva|Realmente no tengo una edad.|
-|Astuto|Soy libre de edad.|
-|Preocuparse|No tengo una edad.|
-|Entusiasta|Soy un bot, por lo que no tengo una edad.|
+|Ingenioso|No tengo caducidad.|
+|Cariñoso|No tengo edad.|
+|Entusiasta|Soy un bot, así que no tengo edad.|
 ||
 
 > [!NOTE]
@@ -56,12 +56,12 @@ Cuando edite la base de conocimiento, verá un nuevo origen para la charla, seg�
 
 ![Edición de preguntas y respuestas de la charla](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-Para ver los metadatos, seleccione **opciones de vista** en la barra de herramientas, a continuación, seleccione **muestran metadatos**.
+Para ver los metadatos, seleccione **View Options** (Opciones de vista) en la barra de herramientas y, luego, **Show metadata** (Mostrar metadatos).
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Adición de preguntas y respuestas adicionales de la charla
 Puede agregar nuevas preguntas y respuestas de la charla que no estén en el conjunto predefinido. Asegúrese de que no va a duplicar un par de QnA que ya esté presente en el conjunto de la charla. Cuando se agregan nuevas preguntas y respuestas de charla, se agregan al origen **Editorial**. Para asegurarse de que el clasificador comprende que se trata de charla, agregue el par de clave y valor de metadatos "Editorial: chit-chat", como se muestra en la imagen siguiente:
    
-![![Add chit-chat QnAs](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![![Agregar preguntas y respuestas de charla](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Eliminación de la charla de una base de conocimiento existente
 Seleccione la base de conocimiento y vaya hasta la página **Settings** (Configuración). El origen de charla específico aparece como un archivo, con el nombre de la personalidad seleccionado. Puede eliminarlo como un archivo de origen.
@@ -73,6 +73,6 @@ Seleccione la base de conocimiento y vaya hasta la página **Settings** (Configu
 > [!div class="nextstepaction"]
 > [Importación de una base de conocimiento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Vea también 
+## <a name="see-also"></a>Otras referencias 
 
 [Introducción de QnA Maker](../Overview/overview.md)

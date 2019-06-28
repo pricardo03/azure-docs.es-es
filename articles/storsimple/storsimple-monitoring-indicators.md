@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630655"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de supervisión de StorSimple para administrar su dispositivo
@@ -36,7 +36,7 @@ Existen tres estados de LED para indicar el estado de un módulo: verde, intermi
 En lo que resta de artículo se describen los distintos indicadores LED de supervisión, sus ubicaciones en el dispositivo StorSimple, el estado del dispositivo en función de los estados de LED y las alarmas audibles asociadas.
 
 ## <a name="front-panel-indicator-leds"></a>Indicadores LED en el panel frontal
-El panel frontal, también conocido como *panel de* *operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
+El panel frontal, también conocido como ** panel de operaciones ** , muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
 
    ![Panel frontal del dispositivo][1]
 
@@ -110,7 +110,7 @@ El estado del PCM se indica en el panel de LED. El panel de LED de PCM del dispo
 ## <a name="pcm-leds-for-the-ebod-enclosure"></a>LED de PCM del revestimiento de EBOD
 El revestimiento de EBOD tiene un PCM de 580 W sin batería adicional. El panel del PCM del revestimiento de EBOD tiene LED únicamente para las fuentes de alimentación y el ventilador. En la siguiente ilustración se muestran estos indicadores.
 
-   ![ LED de PCM del revestimiento de EBOD][3] 
+   ![LED de PCM del revestimiento de EBOD][3] 
 
 Use la siguiente tabla para conocer el estado del PCM.  
 

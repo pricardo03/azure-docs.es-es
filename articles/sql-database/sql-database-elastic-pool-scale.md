@@ -13,57 +13,57 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 3/14/2019
 ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848104"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 
 En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para los grupos elásticos y las bases de datos agrupadas en Azure SQL Database.
 
-## <a name="change-compute-resources-vcores-or-dtus"></a>Cambiar los recursos de proceso (núcleos virtuales o Dtu)
+## <a name="change-compute-resources-vcores-or-dtus"></a>Cambio de los recursos de proceso (núcleos virtuales o DTU)
 
-Después de elegir inicialmente el número de núcleos virtuales o Edtu, puede escalar un grupo elástico o reducir verticalmente dinámicamente en función de la experiencia real mediante la [portal Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), el [CLI de Azure ](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), o el [API de REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Después de elegir inicialmente el número de núcleos virtuales o de eDTU, puede escalar o reducir un grupo elástico verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto de cambiar el tamaño de proceso de nivel o cambiar la escala de servicio
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto de cambiar el nivel de servicio o la escala del tamaño de proceso
 
-Cambiar el servicio de nivel o calcular el tamaño de un grupo elástico sigue un patrón similar en cuanto a bases de datos únicas e implica principalmente el servicio siguiendo estos pasos:
+El cambio en el nivel de servicio o el tamaño de proceso de un grupo elástico sigue un patrón similar en cuanto a bases de datos únicas y principalmente implica que el servicio realice los pasos siguientes:
 
-1. Crear nueva instancia de proceso para el grupo elástico  
+1. Creación de una instancia de proceso nueva para el grupo elástico  
 
-    Se crea una nueva instancia de proceso para el grupo elástico con el tamaño de proceso y el nivel de servicio solicitado. Para algunas combinaciones de nivel de servicio y los cambios de tamaño de proceso, una réplica de cada base de datos debe crearse en la nueva instancia de proceso que implica copiar los datos y puede influir notoriamente en la latencia total. En cualquier caso, las bases de datos permanezcan en línea durante este paso y continuarán de conexiones para que se dirijan a las bases de datos en la instancia de proceso original.
+    Se crea una instancia de proceso nueva para el grupo elástico con el tamaño de proceso y el nivel de servicio solicitados. Para algunas combinaciones de cambios en el nivel de servicio y el tamaño de proceso, se debe crear una réplica de cada base de datos en la nueva instancia de proceso que implique copiar los datos y pueda influir en gran medida en la latencia general. En cualquier caso, las bases de datos permanecen en línea durante este paso y las conexiones se continúan dirigiendo a las bases de datos en la instancia de proceso original.
 
-2. Cambiar el enrutamiento de conexiones a la nueva instancia de proceso
+2. Cambio en el enrutamiento de conexiones a la nueva instancia de proceso
 
-    Se quitan las conexiones existentes con las bases de datos en la instancia de proceso original. Las nuevas conexiones se establecen en las bases de datos en la nueva instancia de proceso. Para algunas combinaciones de nivel de servicio y los cambios de tamaño de proceso, los archivos de base de datos se separa y volver a adjuntar durante la conmutación.  No obstante, el conmutador puede provocar una breve interrupción del servicio cuando las bases de datos no están disponibles con carácter general para menos de 30 segundos y a menudo solo unos segundos. Si no hay de larga ejecución transacciones que se ejecutan cuando se quitan conexiones, la duración de este paso puede tardar más tiempo con el fin de recuperar las transacciones anuladas. [Acelerado de recuperación de base de datos](sql-database-accelerated-database-recovery.md) puede reducir el impacto de anulación de transacciones de larga ejecución.
+    Se colocan las conexiones existentes en las bases de datos en la instancia de proceso original. En la nueva instancia de proceso las nuevas conexiones se establecen en las bases de datos. Para algunas combinaciones de cambios de nivel de servicio y de tamaño de proceso, los archivos de base de datos se desasocian y se vuelven a asociar durante la modificación.  No obstante, el modificador puede provocar una breve interrupción del servicio cuando las bases de datos no estén disponibles de forma general durante menos de 30 segundos y, a menudo, durante solo unos segundos. Si hay transacciones de larga duración que se ejecutan cuando se colocan las conexiones, la duración de este paso puede ser mayor con el fin de recuperar las transacciones anuladas. La [Recuperación de base de datos acelerada](sql-database-accelerated-database-recovery.md) puede reducir el impacto de la anulación de transacciones de larga duración.
 
 > [!IMPORTANT]
-> No se pierden datos durante los pasos del flujo de trabajo.
+> Durante los pasos del flujo de trabajo no se pierden datos.
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latencia del cambio de tamaño de proceso de nivel o cambiar la escala de servicio
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latencia de cambiar el nivel de servicio o la escala del tamaño de proceso
 
-La latencia para cambiar el nivel de servicio o cambiar el tamaño de proceso de una sola base de datos o el grupo elástico se parametriza como sigue:
+La latencia de cambiar el nivel de servicio o la escala del tamaño de proceso de una base de datos única o un grupo elástico se parametriza como sigue:
 
-|Nivel de servicio|Básica única base de datos</br>Estándar (S0-S1)|Grupo elástico básico,</br>Estándar (S2-S12) </br>A gran escala, </br>Finalidad única base de datos general o del grupo elástico|Base de datos única Premium o crítico para la empresa o el grupo elástico|
+|Nivel de servicio|Base de datos única básica,</br>estándar (S0-S1)|Grupo elástico básico,</br>estándar (S2-S12), </br>hiperescala, </br>base de datos única o grupo elástico de uso general|Base de datos única o grupo elástico Premium o Crítico para la empresa|
 |:---|:---|:---|:---|
-|**Base de datos único básica,</br> estándar (S0-S1)**|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio utilizado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
-|**Grupo elástico básico, </br>estándar (S2-S12) </br>a gran escala, </br>única base de datos de uso General o el grupo elástico**|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio utilizado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
-|**Base de datos única Premium o crítico para la empresa o el grupo elástico**|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio de base de datos puede utilizar debido a copiar los datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
+|**Base de datos único básica,</br> estándar (S0-S1)**|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
+|**Grupo elástico básico, </br>estándar (S2-S12) </br>hiperescala, </br>base de datos única o grupo elástico de uso general**|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia de tiempo constante independientemente del espacio usado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
+|**Base de datos única o grupo elástico Premium o Crítico para la empresa**|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|&bull; &nbsp;Latencia proporcional al espacio usado en la base de datos debido a la copia de datos</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espacio usado|
 
 > [!NOTE]
 >
-> - En el caso de cambiar el nivel de servicio o cambiar la escala de proceso para un grupo elástico, la suma del espacio utilizado en todas las bases de datos en el grupo debe usarse para calcular la estimación.
-> - En el caso de mover una base de datos de un grupo elástico, solo el espacio usado por la base de datos afecta a la latencia, no el espacio utilizado por el grupo elástico.
+> - En caso de cambiar el nivel de servicio o la escala de proceso para un grupo elástico, para calcular la estimación se debe usar la suma del espacio usado en todas las bases de datos en el grupo.
+> - En caso de mover una base de datos a un grupo elástico o desde este, solo el espacio que usa la base de datos, y no el del grupo elástico, afecta a la latencia.
 >
 > [!TIP]
 > Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) y [Stop AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia de servicio de nivel o cambiar la escala de tamaño de proceso
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia el nivel de servicio o la escala de tamaño de proceso
 
-- Al reducir el tamaño de Edtu para un grupo elástico o núcleos virtuales, el espacio de grupo usado debe ser menor que el tamaño máximo permitido de las Edtu de grupo y del servicio de destino.
-- Al cambiar la escala de núcleos virtuales o Edtu para un grupo elástico, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de almacenamiento del grupo es compatible con el grupo de destino, y (2) el tamaño máximo de almacenamiento supera la cantidad de almacenamiento incluido del grupo de destino. Por ejemplo, si un grupo Estándar de 100 eDTU con un tamaño máximo de 100 GB se reduce a un grupo Estándar de 50 eDTU, se aplica un costo de almacenamiento adicional porque el grupo de destino admite un tamaño máximo de 100 GB y su cantidad de almacenamiento incluido es solo de 50 GB. Por lo tanto, la cantidad de almacenamiento adicional es 100 GB – 50 GB = 50 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida.
+- Cuando se reducen los núcleos virtuales o las eDTU del grupo elástico, el grupo que se utilice debe ser menor que el tamaño máximo permitido del nivel de servicio de destino y de las eDTU de grupo.
+- Cuando se cambia la escala de los núcleos virtuales y las eDTU de un grupo elástico, se aplica un costo de almacenamiento adicional si (1) el tamaño máximo de almacenamiento del grupo es compatible con el grupo de destino y (2) el tamaño máximo de almacenamiento supera la cantidad de almacenamiento incluida del grupo de destino. Por ejemplo, si un grupo Estándar de 100 eDTU con un tamaño máximo de 100 GB se reduce a un grupo Estándar de 50 eDTU, se aplica un costo de almacenamiento adicional porque el grupo de destino admite un tamaño máximo de 100 GB y su cantidad de almacenamiento incluido es solo de 50 GB. Por lo tanto, la cantidad de almacenamiento adicional es 100 GB – 50 GB = 50 GB. Para conocer el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Si la cantidad de espacio real utilizada es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida.
 
 ### <a name="billing-during-rescaling"></a>Facturación durante el cambio de escala
 

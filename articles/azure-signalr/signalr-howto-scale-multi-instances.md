@@ -1,30 +1,30 @@
 ---
-title: Cómo escalar con varias instancias de Azure SignalR Service
-description: En muchos escenarios de escalado, el cliente necesita a menudo aprovisionar varias instancias y configurar para poder utilizarlos juntos, para crear una implementación a gran escala. Por ejemplo, particionamiento requiere compatibilidad con varias instancias.
+title: Escalado con varias instancias de Azure SignalR Service
+description: En muchos escenarios de escalado, el cliente necesita a menudo aprovisionar varias instancias y configurarlas para usarlas juntas, a fin de crear una implementación a gran escala. Por ejemplo, el particionamiento requiere compatibilidad con varias instancias.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60809145"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>¿Cómo escalar SignalR Service con varias instancias?
-El SDK más reciente del servicio SignalR admite varios puntos de conexión para las instancias de SignalR Service. Puede usar esta característica para escalar las conexiones simultáneas, o usarlo para la mensajería entre regiones.
+El SDK más reciente de SignalR Service admite varios puntos de conexión para las instancias de SignalR Service. Puede usar esta característica para escalar las conexiones simultáneas, o usarla para la mensajería entre regiones.
 
 ## <a name="for-aspnet-core"></a>Para ASP.NET Core
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>¿Cómo agregar varios puntos de conexión desde la configuración?
+### <a name="how-to-add-multiple-endpoints-from-config"></a>¿Cómo se agrega varios puntos de conexión desde la configuración?
 
-La configuración con la clave `Azure:SignalR:ConnectionString` o `Azure:SignalR:ConnectionString:` para la cadena de conexión de SignalR Service.
+Configuración con la clave `Azure:SignalR:ConnectionString` o `Azure:SignalR:ConnectionString:` para la cadena de conexión de SignalR Service.
 
-Si la clave empieza por `Azure:SignalR:ConnectionString:`, debe estar en formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, donde `Name` y `EndpointType` son propiedades de la `ServiceEndpoint` de objetos y son accesibles desde el código.
+Si la clave empieza por `Azure:SignalR:ConnectionString:`, debe estar en formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, donde `Name` y `EndpointType` son propiedades del objeto `ServiceEndpoint` y son accesibles desde el código.
 
-Puede agregar varias cadenas de conexión de la instancia con los siguientes `dotnet` comandos:
+Puede agregar varias cadenas de conexión de instancias con los siguientes comandos `dotnet`:
 
 ```batch
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
@@ -32,10 +32,10 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <Co
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>¿Cómo agregar varios puntos de conexión desde el código?
+### <a name="how-to-add-multiple-endpoints-from-code"></a>¿Cómo se agregan varios puntos de conexión desde el código?
 
-Un `ServicEndpoint` clase se introdujo para describir las propiedades de un punto de conexión de Azure SignalR Service.
-Puede configurar varios puntos de conexión de instancia cuando se usa el SDK de Azure SignalR Service a través de:
+Una clase `ServicEndpoint` se introdujo para describir las propiedades de un punto de conexión de Azure SignalR Service.
+Puede configurar varios puntos de conexión de instancia al usar el SDK de Azure SignalR Service mediante:
 ```cs
 services.AddSignalR()
         .AddAzureSignalR(options => 
@@ -53,23 +53,23 @@ services.AddSignalR()
         });
 ```
 
-### <a name="how-to-customize-endpoint-router"></a>¿Cómo personalizar el enrutador de punto de conexión?
+### <a name="how-to-customize-endpoint-router"></a>¿Cómo se personaliza el enrutador de punto de conexión personalizado?
 
-De forma predeterminada, el SDK usa el [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) para recoger los puntos de conexión.
+De forma predeterminada, el SDK usa [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) para seleccionar los puntos de conexión.
 
 #### <a name="default-behavior"></a>Comportamiento predeterminado 
-1. Enrutamiento de solicitud de cliente
+1. Enrutamiento de solicitudes de cliente
 
-    Cuando cliente `/negotiate` con el servidor de aplicaciones. De forma predeterminada, el SDK **selecciona aleatoriamente** un punto de conexión del conjunto de puntos de conexión de servicio disponibles.
+    Cuando el cliente negocia (acción `/negotiate`) con el servidor de aplicaciones. De forma predeterminada, el SDK **selecciona aleatoriamente** un punto de conexión del conjunto de puntos de conexión de servicio disponibles.
 
-2. Enrutamiento de mensajes de servidor
+2. Selección del enrutamiento de mensajes
 
-    Cuando * enviar mensaje a un determinado ** conexión *** y la conexión de destino se enruta al servidor actual, el mensaje va directamente a ese extremo conectado. En caso contrario, los mensajes se difunden a cada punto de conexión de Azure SignalR.
+    Al *enviar mensajes a una **conexión*** específica, si la conexión de destino se enruta al servidor actual, el mensaje va directamente a ese punto de conexión conectado. En caso contrario, los mensajes se difunden a cada punto de conexión de Azure SignalR.
 
-#### <a name="customize-routing-algorithm"></a>Personalizar el algoritmo de enrutamiento
-Puede crear su propio enrutador cuando tenga un conocimiento especial para identificar los mensajes deben ir a qué puntos de conexión.
+#### <a name="customize-routing-algorithm"></a>Personalización del algoritmo de enrutamiento
+Puede crear su propio enrutador cuando tenga conocimientos especiales para identificar los puntos de conexión a los que deberían ir los mensajes.
 
-Un enrutador personalizado se define a continuación, por ejemplo cuando grupos que empiecen por `east-` siempre vaya al punto de conexión denominado `east`:
+A continuación se define como ejemplo un enrutador personalizado cuando los grupos comienzan por `east-` ir siempre al punto de conexión denominado `east`:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -87,7 +87,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-A continuación, otro ejemplo que reemplaza el valor predeterminado negociar el comportamiento seleccionar los puntos de conexión depende de dónde se encuentra el servidor de aplicaciones.
+Este otro ejemplo, que invalida el comportamiento de negociación predeterminado para seleccionar los puntos de conexión, depende de dónde se encuentre el servidor de aplicaciones.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -110,7 +110,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-No olvide registrar el enrutador para el contenedor de DI mediante:
+No olvide registrar el enrutador en el contenedor de DI mediante:
 
 ```cs
 services.AddSingleton(typeof(IEndpointRouter), typeof(CustomRouter));
@@ -129,11 +129,11 @@ services.AddSignalR()
 
 ## <a name="for-aspnet"></a>Para ASP.NET
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>¿Cómo agregar varios puntos de conexión desde la configuración?
+### <a name="how-to-add-multiple-endpoints-from-config"></a>¿Cómo se agrega varios puntos de conexión desde la configuración?
 
-La configuración con la clave `Azure:SignalR:ConnectionString` o `Azure:SignalR:ConnectionString:` para la cadena de conexión de SignalR Service.
+Configuración con la clave `Azure:SignalR:ConnectionString` o `Azure:SignalR:ConnectionString:` para la cadena de conexión de SignalR Service.
 
-Si la clave empieza por `Azure:SignalR:ConnectionString:`, debe estar en formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, donde `Name` y `EndpointType` son propiedades de la `ServiceEndpoint` de objetos y son accesibles desde el código.
+Si la clave empieza por `Azure:SignalR:ConnectionString:`, debe estar en formato `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, donde `Name` y `EndpointType` son propiedades del objeto `ServiceEndpoint` y son accesibles desde el código.
 
 Puede agregar varias cadenas de conexión de instancia a `web.config`:
 
@@ -150,10 +150,10 @@ Puede agregar varias cadenas de conexión de instancia a `web.config`:
 </configuration>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>¿Cómo agregar varios puntos de conexión desde el código?
+### <a name="how-to-add-multiple-endpoints-from-code"></a>¿Cómo se agregan varios puntos de conexión desde el código?
 
-Un `ServicEndpoint` clase se introdujo para describir las propiedades de un punto de conexión de Azure SignalR Service.
-Puede configurar varios puntos de conexión de instancia cuando se usa el SDK de Azure SignalR Service a través de:
+Una clase `ServicEndpoint` se introdujo para describir las propiedades de un punto de conexión de Azure SignalR Service.
+Puede configurar varios puntos de conexión de instancia al usar el SDK de Azure SignalR Service mediante:
 
 ```cs
 app.MapAzureSignalR(
@@ -171,11 +171,11 @@ app.MapAzureSignalR(
         });
 ```
 
-### <a name="how-to-customize-router"></a>¿Cómo personalizar el enrutador?
+### <a name="how-to-customize-router"></a>¿Cómo se personaliza el enrutador?
 
-La única diferencia entre ASP.NET SignalR y ASP.NET Core SignalR es el tipo de contexto http para `GetNegotiateEndpoint`. Para SignalR de ASP.NET, es de [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) tipo.
+La única diferencia entre ASP.NET SignalR y ASP.NET Core SignalR es el tipo de contexto http para `GetNegotiateEndpoint`. En ASP.NET SignalR, es de tipo [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19).
 
-A continuación es personalizado negociar ejemplo para ASP.NET SignalR:
+A continuación se muestra el ejemplo de negociación personalizada para ASP.NET SignalR:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -197,7 +197,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-No olvide registrar el enrutador para el contenedor de DI mediante:
+No olvide registrar el enrutador en el contenedor de DI mediante:
 
 ```cs
 var hub = new HubConfiguration();
@@ -215,31 +215,31 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 ## <a name="configuration-in-cross-region-scenarios"></a>Configuración en escenarios entre regiones
 
-El `ServiceEndpoint` objeto tiene un `EndpointType` propiedad con valor `primary` o `secondary`.
+El objeto `ServiceEndpoint` tiene una propiedad `EndpointType` con valor `primary` o `secondary`.
 
-`primary` los puntos de conexión son puntos de conexión preferidos para recibir el tráfico de cliente y se consideran que tienen conexiones de red más confiables; `secondary` puntos de conexión se considera que tienen menos confiables conexiones de red y se usan solo para el servidor de la toma de al tráfico del cliente, por ejemplo, difundir mensajes, pero no para la toma de cliente para el tráfico del servidor.
+Los puntos de conexión `primary` son los preferidos para recibir el tráfico de cliente y se considera que tienen conexiones de red más confiables; los puntos de conexión `secondary` se considera que tienen menos conexiones de red confiables y solo se usan para llevar el tráfico del servidor al cliente, por ejemplo, difundir mensajes, pero no del cliente al servidor.
 
-En los casos entre regiones, la red puede ser inestable. Para el servidor de una aplicación que se encuentra en *East US*, el punto de conexión de SignalR Service ubicada en el mismo *East US* región puede configurarse como `primary` y puntos de conexión en otras regiones marcan como `secondary`. En esta configuración, los puntos de conexión de servicio en otras regiones pueden **recibir** mensajes desde este *East US* del servidor de aplicaciones, pero habrá ninguna **entre regiones** enrutan los clientes a Este servidor de aplicaciones. La arquitectura se muestra en el diagrama siguiente:
+En los casos entre regiones, la red puede ser inestable. Para un servidor de aplicaciones ubicado en *Este de EE. UU.* , el punto de conexión de SignalR Service ubicado en esta misma región puede configurarse como `primary` y los puntos de conexión de otras regiones marcarse como `secondary`. En esta configuración, los puntos de conexión de servicio de otras regiones pueden **recibir** mensajes de este servidor de aplicaciones de *Este de EE. UU.* , pero no habrá ningún cliente **entre regiones** enrutado a este servidor de aplicaciones. La arquitectura se muestra en el diagrama siguiente:
 
-![Geográfica cruzada Infra](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
+![Infraestructura entre regiones geográficas](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Cuando un cliente intenta `/negotiate` con el servidor de aplicaciones, con el enrutador predeterminado, el SDK **selecciona aleatoriamente** un punto de conexión del conjunto de disponibilidad `primary` puntos de conexión. Cuando el punto de conexión está disponible, SDK, a continuación, **selecciona aleatoriamente** desde todos los disponibles `secondary` puntos de conexión. El punto de conexión está marcada como **disponibles** cuando la conexión entre el servidor y el punto de conexión de servicio está activa.
+Cuando un cliente intenta una acción de negociación (`/negotiate`) con el servidor de aplicaciones, con el enrutador predeterminado, el SDK **selecciona aleatoriamente** un punto de conexión del conjunto de puntos de conexión `primary` disponibles. Cuando el punto de conexión está disponible, el SDK **selecciona aleatoriamente** de todos los puntos de conexión `secondary` disponibles. El punto de conexión se marca como **disponible** cuando la conexión entre el servidor y el punto de conexión de servicio está activa.
 
-En el escenario entre regiones, cuando un cliente intenta `/negotiate` con el servidor de aplicaciones hospedada en *East US*, de manera predeterminada, siempre devuelve el `primary` punto de conexión que se encuentra en la misma región. Cuando todos los *East US* puntos de conexión no están disponibles, el cliente se redirige a puntos de conexión en otras regiones. Sección de conmutación por error a continuación describe detalladamente el escenario.
+En el escenario entre regiones, cuando un cliente intenta la acción de negociación (`/negotiate`) con el servidor de aplicaciones hospedado en *Este de EE. UU.* , siempre devuelve de forma predeterminada el punto de conexión `primary` ubicado en la misma región. Cuando no todos los puntos de conexión de *Este de EE. UU.* están disponibles, el cliente se redirige a los puntos de conexión de otras regiones. En la siguiente sección de conmutación por error se describe detalladamente el escenario.
 
-![Negociar normal](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
+![Negociación normal](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
 ## <a name="fail-over"></a>Conmutación por error
 
-Cuando todos los `primary` no están disponibles, los puntos de conexión del cliente `/negotiate` elige uno de los contadores `secondary` puntos de conexión. Este mecanismo de conmutación por error requiere que cada punto de conexión debe actuar como `primary` punto de conexión al servidor de al menos una aplicación.
+Cuando no todos los puntos de conexión `primary` están disponibles, la acción de negociación (`/negotiate`) del cliente selecciona de entre los puntos de conexión `secondary` disponibles. Este mecanismo de conmutación por error requiere que cada punto de conexión sirva como punto de conexión `primary` para al menos un servidor de aplicaciones.
 
 ![Conmutación por error](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha aprendido acerca de cómo configurar varias instancias en la misma aplicación para escenarios entre regiones, particionamiento y escalado.
+En esta guía, ha aprendido a configurar varias instancias de la misma aplicación para escenarios de escalado, particionamiento y entre regiones.
 
-Admite varios de los puntos de conexión también puede usarse en escenarios de recuperación ante desastres y disponibilidad alta.
+La compatibilidad con varios puntos de conexión también puede usarse en escenarios de recuperación ante desastres y alta disponibilidad.
 
 > [!div class="nextstepaction"]
-> [El programa de instalación de SignalR Service para la recuperación ante desastres y alta disponibilidad](./signalr-concept-disaster-recovery.md)
+> [Configuración de SignalR Service para la recuperación ante desastres y la alta disponibilidad](./signalr-concept-disaster-recovery.md)

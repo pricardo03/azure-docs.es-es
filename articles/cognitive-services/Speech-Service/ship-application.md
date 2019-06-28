@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
 ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66808458"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
@@ -28,7 +28,7 @@ En función de la plataforma, existen otras dependencias para ejecutar la aplica
 
 El SDK de Voz de Cognitive Services se ha probado en Windows 10 y en Windows Server 2016.
 
-Cognitive Services Speech SDK requiere la [Microsoft Visual C++ Redistributable para Visual Studio de 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) en el sistema. Puede descargar los instaladores para la versión más reciente de `Microsoft Visual C++ Redistributable for Visual Studio 2019` aquí:
+Speech SDK de Cognitive Services requiere [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) en el sistema. Puede descargar los instaladores para la versión más reciente de `Microsoft Visual C++ Redistributable for Visual Studio 2019` aquí:
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -39,17 +39,17 @@ Para la entrada de micrófono, las bibliotecas de Media Foundation deben estar i
 
 Los archivos necesarios del SDK de Voz se pueden implementar en el mismo directorio que la aplicación. De esta forma la aplicación puede acceder directamente a las bibliotecas. Asegúrese de seleccionar la versión correcta (Win32/x64) que coincida con la aplicación.
 
-| Name | Función
+| NOMBRE | Función
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK básico, necesario para la implementación nativa y administrada
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necesario para la implementación administrada
 
 >[!NOTE]
-> Comenzando con la versión 1.3.0 el archivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (incluido en versiones anteriores) ya no es necesario. La funcionalidad está ahora integrada en el SDK de core.
+> A partir de la versión 1.3.0, ya no es necesario incluir el archivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (incluido en versiones anteriores). La funcionalidad está ahora integrada en el SDK principal.
 
 ## <a name="linux"></a>Linux
 
-Speech SDK es compatible actualmente con las distribuciones de Ubuntu 16.04, 18.04 Ubuntu y Debian 9.
+Speech SDK admite actualmente distribuciones Ubuntu 16.04 y 18.04 y Debian 9.
 Para una aplicación nativa, se debe distribuir la biblioteca de Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Asegúrese de seleccionar la versión (x86, x64) que coincida con la aplicación. Según la versión de Linux, es posible que también tenga que incluir las dependencias siguientes:
 

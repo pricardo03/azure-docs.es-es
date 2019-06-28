@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
 ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808766"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
@@ -71,8 +71,8 @@ Las propiedades se describen más adelante en este artículo. La propiedad items
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad for-each. | string | Sí
-Tipo | Se debe establecer en **ForEach** | string | Sí
+Nombre | Nombre de la actividad for-each. | Cadena | Sí
+Tipo | Se debe establecer en **ForEach** | Cadena | Sí
 isSequential | Especifica si el bucle se debe ejecutar en secuencia o en paralelo.  Se puede ejecutar un máximo de 20 iteraciones de bucle a la vez en paralelo. Por ejemplo, si tiene una actividad ForEach que itera una actividad de copia con 10 conjuntos de datos de origen y receptor distintos con **isSequential** establecido en False, todas las copias se ejecutan a la vez. El valor predeterminado es False. <br/><br/> Si "isSequential" está establecido en False, asegúrese de que haya una configuración correcta para ejecutar varios archivos ejecutables. De lo contrario, esta propiedad se debe usar con precaución para no incurrir en conflictos de escritura. Para más información, consulte la sección [Ejecución en paralelo](#parallel-execution). | Boolean | No. El valor predeterminado es False.
 batchCount | Número de lotes que se usará para controlar el número de la ejecución en paralelo (cuando isSequential está establecido en false). | Entero (50 como máximo) | No. El valor predeterminado es 20.
 Elementos | Una expresión que devuelve una matriz JSON que se iterará. | Expresión (que devuelve una matriz JSON) | Sí
@@ -474,7 +474,7 @@ Es posible iterar varias actividades (por ejemplo: actividades de copia y web) e
 
 ## <a name="aggregating-outputs"></a>Agregación de salidas
 
-A las salidas agregadas de __foreach__ actividad,. Utilice _Variables_ y _anexar Variable_ actividad.
+Para agregar salidas de la actividad __foreach__, utilice _Variables_ y la actividad _Append Variable_.
 
 Primero, declare una _variable_ `array` en la canalización. A continuación, invoque la actividad _Append Variable_ dentro de cada bucle __foreach__. Posteriormente, puede recuperar la agregación de la matriz.
 

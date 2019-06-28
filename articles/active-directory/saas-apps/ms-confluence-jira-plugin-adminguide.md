@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935772"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
@@ -112,11 +112,11 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
 * **Metadata URL** (Dirección URL de metadatos): Dirección URL para obtener los metadatos de federación de Azure AD.
 
-* **Identifiers** (Identificadores): Dirección URL que Azure AD usa para validar el origen de la solicitud. Se asigna al elemento **Identificador** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*\<dominio: puerto >*/.
+* **Identifiers** (Identificadores): Dirección URL que Azure AD usa para validar el origen de la solicitud. Se asigna al elemento **Identificador** de Azure AD. El complemento obtiene automáticamente esta dirección URL como https:// *\<dominio:puerto>* /.
 
-* **Reply URL** (URL de respuesta): Dirección URL de respuesta en el proveedor de identidades (IdP) que inicia el inicio de sesión de SAML. Se asigna al elemento **Dirección URL de respuesta** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*\<dominio: puerto >*/plugins/servlet/saml/auth.
+* **Reply URL** (URL de respuesta): Dirección URL de respuesta en el proveedor de identidades (IdP) que inicia el inicio de sesión de SAML. Se asigna al elemento **Dirección URL de respuesta** de Azure AD. El complemento deduce automáticamente esta dirección URL como https:// *\<dominio:puerto>* /plugins/servlet/saml/auth.
 
-* **Sign On URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión en el IdP que inicia el inicio de sesión de SAML. Se asigna al elemento **Inicio de sesión** de Azure AD. El complemento deduce automáticamente esta dirección URL como https://*\<dominio: puerto >*/plugins/servlet/saml/auth.
+* **Sign On URL** (Dirección URL de inicio de sesión): Dirección URL de inicio de sesión en el IdP que inicia el inicio de sesión de SAML. Se asigna al elemento **Inicio de sesión** de Azure AD. El complemento deduce automáticamente esta dirección URL como https:// *\<dominio:puerto>* /plugins/servlet/saml/auth.
 
 * **IdP Entity ID** (Id. de entidad de IdP): Identificador de entidad que el IdP usa. Este campo se rellena cuando se resuelve la dirección URL de metadatos.
 
@@ -144,7 +144,7 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
 * **Un certificado está a punto de expirar en Azure AD**: Los complementos se encargan de sustituir automáticamente el certificado. Cuando hay un certificado a punto de expirar, se debe marcar como activo un certificado nuevo y se deben eliminar los certificados sin usar. Cuando un usuario intenta iniciar sesión en Jira en este escenario, el complemento captura el certificado nuevo y lo guarda.
 
-* **Desea deshabilitar WebSudo (deshabilitar la sesión segura del administrador)**:
+* **Desea deshabilitar WebSudo (deshabilitar la sesión segura del administrador)** :
 
   * En Jira, las sesiones seguras del administrador (es decir, con confirmación de contraseña antes de acceder a las funciones de administración) están habilitadas de manera predeterminada. Si desea quitar esta capacidad en la instancia de Jira, especifique la siguiente línea en el archivo jira-config.properties: `ira.websudo.is.disabled = true`
 

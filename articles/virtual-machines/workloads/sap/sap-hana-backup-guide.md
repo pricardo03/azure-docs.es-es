@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60937089"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guía de copia de seguridad de SAP HANA en Azure Virtual Machines
@@ -90,7 +90,7 @@ SAP no da preferencia a las copias de seguridad de HANA frente a instantáneas d
 
 En Azure, tenga en cuenta el hecho de que la característica de instantáneas de blobs de Azure no garantiza la coherencia del sistema de archivos (vea [Uso de instantáneas con PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). La siguiente sección _Coherencia de datos de SAP HANA al tomar instantáneas de almacenamiento_ describe algunas consideraciones relacionadas con esta característica.
 
-Además, tiene que entender las implicaciones de facturación cuando se trabaja con frecuencia con instantáneas de blob como se describe en este artículo: [Comprender cómo las instantáneas pueden incrementar los](/rest/api/storageservices/understanding-how-snapshots-accrue-charges),&#39;tan obvias como cuando el uso de discos virtuales de Azure.
+Además, es necesario que comprenda las implicaciones que tiene para la facturación trabajar con frecuencia con instantáneas de blobs como se describe en este artículo: [Comprender cómo las instantáneas incrementan los costos](/rest/api/storageservices/understanding-how-snapshots-accrue-charges) no es tan obvio como cuando se usan discos virtuales de Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Coherencia de datos de SAP HANA al tomar instantáneas de almacenamiento
 

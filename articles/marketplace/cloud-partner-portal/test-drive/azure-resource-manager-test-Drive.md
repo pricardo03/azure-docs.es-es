@@ -1,5 +1,5 @@
 ---
-title: Versión de prueba de administrador de recursos de Azure | Azure Marketplace
+title: Versión de prueba de Azure Resource Manager | Azure Marketplace
 description: Compilación de una versión de prueba de Marketplace con Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606439"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
 Este artículo se dirige a los publicadores que tienen su oferta en Azure Marketplace, o que están en AppSource, pero solo quieren compilar su versión de prueba con recursos de Azure.
 
-Una plantilla de Azure Resource Manager (Resource Manager) es un contenedor codificado de recursos de Azure que diseñe para representar mejor la solución. Si no está familiarizado con lo que es una plantilla de Resource Manager, lectura en [descripción de las plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) y [creación de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para asegurarse de que sabe cómo compilar y probar sus propias plantillas.
+Una plantilla de Azure Resource Manager (Resource Manager) consiste en un contenedor codificado de recursos de Azure que el usuario diseña para que represente mejor su solución. Si no está familiarizado con lo que son las plantillas de Resource Manager, lea las secciones de [descripción de las plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) y [creación de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para asegurarse de que sabe cómo compilar y probar sus propias plantillas.
 
 Lo que la versión de prueba hace es utilizar la plantilla de Resource Manager suministrada y realizar la implementación de todos los recursos necesarios en esa plantilla en un grupo de recursos.
 
@@ -31,25 +31,25 @@ Si decide compilar una versión de prueba de Azure Resource Manager, los requisi
 
 ## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Compilación de una versión de prueba de Azure Resource Manager
 
-Este es el proceso para la creación de una unidad de prueba de Azure Resource Manager:
+Este es el proceso de compilación de una versión de prueba de Azure Resource Manager.
 
-1. Diseño de qué desea hacer en un diagrama de flujo a los clientes.
-1. Defina qué experiencias desea que sus clientes a compilar.
-1. En función de las definiciones anteriores, decidir qué partes y los recursos necesarios para que los clientes a lograr esa experiencia: por ejemplo, D365 instancia o un sitio Web con una base de datos.
-1. Compilar localmente el diseño y la experiencia de prueba.
-1. Paquete de la experiencia en implementación de una plantilla ARM y, a partir de ahí:
-    1. Defina qué partes de los recursos son parámetros de entrada;
-    1. ¿Cuáles son las variables;
-    1. ¿Qué salidas se les proporciona la experiencia del cliente.
-1. Publicar, probar y lanzarla.
+1. Diseñe lo que quiere que hagan los clientes en un diagrama de flujo.
+1. Defina las experiencias que quiere que los clientes creen.
+1. En función de las definiciones anteriores, decida qué elementos y recursos son necesarios para que los clientes logren esa experiencia (por ejemplo, una instancia de D365 o un sitio web con una base de datos).
+1. Compile el diseño localmente y compruebe la experiencia.
+1. Empaquete la experiencia en implementación de plantilla ARM y, a partir de ahí:
+    1. Defina qué partes de los recursos son parámetros de entrada.
+    1. Defina qué son variables.
+    1. Establezca qué salidas se van a proporcionar a la experiencia del cliente.
+1. Publique, compruebe y lance el producto.
 
 El aspecto más importante sobre la compilación de una versión de prueba de Azure Resource Manager consiste en definir los escenarios que quiere que experimenten sus clientes. ¿Se trata de un producto de firewall y quiere demostrar lo bien que controla los ataques por inyección de script? ¿Se trata de un producto de almacenamiento y quiere demostrar la rapidez y sencillez con que la solución comprime archivos?
 
-Asegúrese de que dedicar una cantidad suficiente de tiempo a evaluar cuáles son las mejores formas de hacer alarde de su producto. Específicamente en torno a todos los recursos necesarios necesitaría, ya que facilita el empaquetado de la plantilla de Resource Manager lo suficientemente más fácil.
+Asegúrese de dedicar el tiempo suficiente a evaluar cuáles son las mejores maneras de mostrar su producto. Concretamente, en lo que respecta a todos los recursos necesarios que puedan requerirse, ya que simplifica bastante el empaquetado de la plantilla de Resource Manager.
 
 Para continuar con nuestro ejemplo de firewall, es posible que la arquitectura necesite una dirección URL de IP pública para el servicio y otra dirección URL de IP pública para el sitio web que el firewall protege. Cada dirección IP se implementa en una máquina virtual y se conecta con un grupo de seguridad de red y la interfaz de red.
 
-Una vez haya diseñado el paquete de recursos deseado, ahora viene la escritura y la creación de la plantilla de Resource Manager de la unidad de prueba.
+Cuando haya diseñado el paquete de recursos que quiere, continúe con la escritura y compilación de la plantilla de Resource Manager de la versión de prueba.
 
 ## <a name="writing-test-drive-resource-manager-templates"></a>Escritura de plantillas de Resource Manager de la versión de prueba
 
@@ -89,7 +89,7 @@ También es importante tener en cuenta que **todos los parámetros son opcionale
 | **password**    | cadena segura    | Nueva contraseña aleatoria. | Lp!ACS\^2kh     |
 | **Id. de sesión**   | string          | Identificador único (GUID) de sesión de la versión de prueba    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>username
+#### <a name="username"></a>nombre de usuario
 
 La versión de prueba inicializa este parámetro con un identificador **Uri base** del paquete de implementación, por lo que puede usar este parámetro para construir el Uri de los archivos incluidos en el paquete.
 
@@ -116,7 +116,7 @@ En la plantilla, puede usar este parámetro para construir un Uri de cualquier a
 }
 ```
 
-#### <a name="username"></a>username
+#### <a name="username"></a>nombre de usuario
 
 La versión de prueba inicializa este parámetro con un nuevo nombre de usuario aleatorio:
 
@@ -140,7 +140,7 @@ Valor de ejemplo:
 
 Puede usar nombres de usuario aleatorios o constantes en la solución.
 
-#### <a name="password"></a>password
+#### <a name="password"></a>contraseña
 
 La versión de prueba inicializa este parámetro con una nueva contraseña aleatoria:
 
@@ -209,7 +209,7 @@ Por ejemplo, la mayoría de los nombres de recursos no pueden empezar con un dí
 
 Puede encontrar información adicional sobre las reglas y restricciones de nomenclatura de recursos en [este artículo](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
-### <a name="deployment-location"></a>Ubicación de la implementación
+### <a name="deployment-location"></a>Ubicación de implementación
 
 Puede poner la versión de prueba a disposición de los usuarios en distintas regiones de Azure. La idea es permitir que un usuario elija la región más cercana, para ofrecer la mejor experiencia del usuario.
 
@@ -362,7 +362,7 @@ En este momento se calcula el número total de posibles versiones de prueba simu
 
 **Test Drive Resource Manager template:** (Plantilla de Resource Manager de la versión de prueba) *obligatorio* cargue aquí la plantilla de Resource Manager. Se trata del archivo compilado en la sección anterior. Asigne al archivo de plantilla principal "main-template.json" y asegúrese de que la plantilla de Resource Manager contiene los parámetros de salida para las variables clave que se necesitan. (Debe ser un archivo .zip)
 
-**Información de acceso:** *obligatorio* cuando un cliente obtiene su versión de prueba, se le presenta la información de acceso. Estas instrucciones tienen por objeto compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}**) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la representación en el front-end).
+**Información de acceso:** *obligatorio* cuando un cliente obtiene su versión de prueba, se le presenta la información de acceso. Estas instrucciones tienen por objeto compartir los parámetros de salida útiles de la plantilla de Resource Manager de la versión de prueba. Para incluir parámetros de salida, use corchetes dobles (por ejemplo, **{{outputname}}** ) y se insertarán correctamente en la ubicación. (En este caso se recomienda usar el formato de cadena HTML para la representación en el front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Detalles de suscripción de la implementación de la versión de prueba
 
@@ -382,7 +382,7 @@ En caso contrario, cree un inquilino en Azure Active Directory.
 
 ![Lista de inquilinos de Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definir la organización, el dominio y el país o región para el inquilino de Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definición de la organización, el dominio y el país/región del inquilino de Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirmación de la selección](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -403,7 +403,7 @@ Haga clic en Guardar. El último paso consiste en copiar el identificador de apl
 Dado que vamos a usar la aplicación para implementar en la suscripción, es necesario agregar la aplicación como colaborador en la suscripción. Las instrucciones son las siguientes:
 
 1. Vaya a la hoja Suscripciones y seleccione la suscripción adecuada que va a usar solo para la versión de prueba.
-1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en **Control de acceso (IAM)** .
 1. Haga clic en la pestaña **Asignaciones de roles**.  ![Adición de una nueva entidad de seguridad de Access Control](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Haga clic en **Agregar asignación de roles**.
 1. Establezca el rol en **Colaborador**.
@@ -419,7 +419,7 @@ Dado que vamos a usar la aplicación para implementar en la suscripción, es nec
 
 Ahora que ha rellenado todos los campos de la versión de prueba, revíselos y elija **Volver a publicar** la oferta. Una vez que la versión de prueba ha superado la certificación, debe comprobar ampliamente la experiencia del cliente en la **versión preliminar** de la oferta. Inicie una versión de prueba en la interfaz de usuario y luego abra su suscripción de Azure dentro de Azure Portal y compruebe que las versiones de prueba se han implementado por completo.
 
-![Azure Portal](./media/azure-resource-manager-test-drive/subdetails9.png)
+![Portal de Azure](./media/azure-resource-manager-test-drive/subdetails9.png)
 
 Es importante tener en cuenta que no ha eliminado ninguna instancia de la versión de prueba ya que están aprovisionadas para los clientes, por lo que el servicio Versión de prueba limpiará automáticamente estos grupos de recursos una vez que el cliente haya finalizado.
 

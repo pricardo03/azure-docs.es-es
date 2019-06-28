@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60651772"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -196,7 +196,7 @@ ms.locfileid: "60651772"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidad con varios identificadores de seguridad de instancia SAP ASCS/SCS para los clústeres de conmutación por error de Windows Server y los recursos compartidos de archivos en Azure
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 Puede administrar varias direcciones IP virtuales mediante un [equilibrador de carga interno][load-balancer-multivip-overview]. 
@@ -222,7 +222,7 @@ Para más información sobre los límites del equilibrador de carga, consulte la
 
 Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
 
-![Figura 1: Instancia de SAP ASCS/SCS y SOFS implementados en dos clústeres][sap-ha-guide-figure-8007]
+![Ilustración 1: Instancia de SAP ASCS/SCS y SOFS implementados en dos clústeres][sap-ha-guide-figure-8007]
 
 _**Ilustración 1:** Instancia de SAP ASCS/SCS y SOFS implementados en dos clústeres_
 
@@ -241,7 +241,7 @@ El objetivo es poder instalar varias instancias en clúster de SAP Advanced Busi
 
 _**Ilustración 2:** Configuración de varios identificadores de seguridad para SAP en dos clústeres_
 
-La instalación de más **SAP \<SID2 >** es idéntico a la instalación de un sistema \<SID > sistema. Se necesitan dos pasos de preparación adicionales en el clúster de ASCS/SCS y en el de SOFS con recurso compartido de archivos.
+La instalación de un sistema **SAP \<SID2>** adicional es idéntica a la de un sistema \<SID>. Se necesitan dos pasos de preparación adicionales en el clúster de ASCS/SCS y en el de SOFS con recurso compartido de archivos.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Preparación de la infraestructura para un escenario de varios identificadores de seguridad de SAP
 
@@ -261,17 +261,17 @@ Estos pasos se describen en [Preparación de la infraestructura para el escenari
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparación de la infraestructura en un clúster de SOFS mediante el host global de SAP existente
 
-Puede reutilizar los existentes \<SAPGlobalHost > y Volume1 de la primera SAP \<SID1 > sistema.
+Puede reutilizar \<SAPGlobalHost> y Volume1 existentes del primer sistema SAP \<SID1>.
 
 ![Ilustración 3: SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP][sap-ha-guide-figure-8014]
 
 _**Ilustración 3:** SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP_
 
 > [!IMPORTANT]
->Para el segundo sistema **SAP \<SID2>**, se usan los mismos Volume1 y nombre de red **\<SAPGlobalHost>**.
->Dado que ya ha definido **SAPMNT** como nombre del recurso compartido para los distintos sistemas de SAP, para volver a usar el nombre de red **\<SAPGlobalHost>**, debe utilizar el mismo **Volume1**.
+>Para el segundo sistema **SAP \<SID2>** , se usan los mismos Volume1 y nombre de red **\<SAPGlobalHost>** .
+>Dado que ya ha definido **SAPMNT** como nombre del recurso compartido para los distintos sistemas de SAP, para volver a usar el nombre de red **\<SAPGlobalHost>** , debe utilizar el mismo **Volume1**.
 >
->La ruta de acceso del \<SID2 > host global es C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
+>La ruta de acceso de archivo para el host global de \<SID2> es: C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\\.
 >
 
 Para el sistema \<SID2>, debe preparar la carpeta ..\SYS\.. del host global de SAP en el clúster de SOFS.
@@ -327,7 +327,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Preparación de la infraestructura en un clúster de SOFS mediante otro host global de SAP
 
-Puede configurar el segundo SOFS (por ejemplo, el rol del clúster de SOFS con **\<SAPGlobalHost2>** y diferentes **Volume2** para el segundo **\<SID2>**).
+Puede configurar el segundo SOFS (por ejemplo, el rol del clúster de SOFS con **\<SAPGlobalHost2>** y diferentes **Volume2** para el segundo **\<SID2>** ).
 
 ![Ilustración 4: SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP 2][sap-ha-guide-figure-8015]
 
@@ -394,7 +394,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-Para crear el recurso compartido de archivos SAPMNT en Volume2 con el nombre de host *\<SAPGlobalHost2>*, para el segundo sistema SAP \<SID2>, inicie el asistente **Agregar recurso compartido de archivos** del Administrador de clústeres de conmutación por error.
+Para crear el recurso compartido de archivos SAPMNT en Volume2 con el nombre de host *\<SAPGlobalHost2>* , para el segundo sistema SAP \<SID2>, inicie el asistente **Agregar recurso compartido de archivos** del Administrador de clústeres de conmutación por error.
 
 Haga clic con el botón derecho en el grupo de clústeres de SOFS **saoglobal2** y seleccione **Agregar recurso compartido de archivos**.
 
@@ -404,25 +404,25 @@ _**Figura 6:** Inicio del asistente "Agregar recurso compartido de archivos"_
 
 <br>
 
-![Figura 7: "Seleccione el recurso compartido SMB-rápido"][sap-ha-guide-figure-8018]
+![Figura 7: Selección del "recurso compartido de SMB: rápido"][sap-ha-guide-figure-8018]
 
 _**Figura 7:** Selección del "recurso compartido de SMB: rápido"_
 
 <br>
 
-![Figura 8: Seleccione "sapglobalhost2" y especifique la ruta de acceso en Volume2][sap-ha-guide-figure-8019]
+![Figura 8: Selección de "sapglobalhost2" y especificación de la ruta de acceso en Volume2][sap-ha-guide-figure-8019]
 
 _**Figura 8:** Selección de "sapglobalhost2" y especificación de la ruta de acceso en Volume2_
 
 <br>
 
-![Figura 9: Establezca el nombre del recurso compartido de archivos en "sapmnt"][sap-ha-guide-figure-8020]
+![Figura 9: Establecimiento del nombre del recurso compartido de archivos en "sapmnt"][sap-ha-guide-figure-8020]
 
 _**Figura 9:** Establecimiento del nombre del recurso compartido de archivos en "sapmnt"_
 
 <br>
 
-![Figura 10: Deshabilite todas las opciones][sap-ha-guide-figure-8021]
+![Figura 10: Deshabilitación de toda la configuración][sap-ha-guide-figure-8021]
 
 _**Figura 10:** Deshabilitación de toda la configuración_
 
@@ -444,7 +444,7 @@ _**Figura 12:** Selección de "Crear"_
 
 <br>
 
-![Figura 13: El segundo enlazado de sapmnt al host sapglobal2 y volume2][sap-ha-guide-figure-8024]
+![Figura 13: El segundo enlace sapmnt al host sapglobal2 y se crea Volume2][sap-ha-guide-figure-8024]
 
 _**Figura 13:** El segundo enlace sapmnt al host sapglobal2 y se crea Volume2_
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947227"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos mediante Azure Site Recovery Deployment Planner 
@@ -107,7 +107,7 @@ Para agregar las máquinas virtuales manualmente:
 
 1. Rellene las columnas siguientes en función del tamaño aproximado de máquina virtual y del número de máquinas virtuales que coincidan con esta configuración: 
 
-     a. **Number of VMs** (Número de máquinas virtuales)
+    a. **Number of VMs** (Número de máquinas virtuales)
 
     b. **IaaS size (Your selection)** (Tamaño de IaaS [su selección])
 
@@ -157,7 +157,7 @@ Para agregar las máquinas virtuales manualmente:
 
 **Total DR-Drill cost (average)** (Costo total de simulacro de recuperación ante desastres [medio]): el costo de almacenamiento y proceso de simulacros de recuperación ante desastres.
 
-**Costos de licencia de Azure Site Recovery**: el costo de licencia de Site Recovery.
+**Costo de la licencia de Azure Site Recovery**: el costo de licencia de Site Recovery.
 
 ## <a name="supported-target-regions"></a>Regiones de destino admitidas
 Azure Site Recovery Deployment Planner proporciona una estimación de los costos para las siguientes regiones de Azure. Si su región no aparece en la lista, puede usar cualquiera de las siguientes cuyo precio sea más parecido al de la suya:

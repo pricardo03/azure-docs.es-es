@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609678"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
@@ -48,7 +48,7 @@ Este proyecto está diseñado para servir como base modular para que los cliente
 
 -   **Diagrama de arquitectura.** El diagrama muestra la arquitectura de referencia utilizada en el proyecto y el escenario del caso de uso de ejemplo.
 
--   [IaaS Extensión](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) esta solución demostrará cómo migrar una solución SQL basándose en el entorno local a Azure e implementar una estación de trabajo con privilegios de acceso para administrar de forma segura los servicios basados en la nube y soluciones. 
+-   [Extensión de IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   Esta solución mostrará cómo migrar una solución SQL local a Azure y cómo implementar una estación de trabajo de acceso con privilegios para administrar de forma segura soluciones y servicios basados en la nube. 
 
 ## <a name="solution-components"></a>Componentes de soluciones
 
@@ -272,7 +272,7 @@ Cuando se utiliza el script de demostración. .\\HealthcareDemo.ps1 con el modif
 
 **2. Key Vault** Se solicita un secreto que está asociado al token solicitado.
 
-**3. Roles de Azure** validará la solicitud y autorizar la solicitud de acceso al almacén de claves.
+**3. Los roles de Azure** validan la solicitud y autorizan la solicitud de acceso a Key Vault.
 
 **4. Key Vault** devuelve el secreto, en este caso, la cadena de conexión de la base de datos SQL.
 
@@ -359,10 +359,10 @@ La solución es compatible con Azure Event Grid, un único servicio para adminis
 - [Application Insights](/azure/application-insights/app-insights-overview) es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Detecta las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación. Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
 
 ### <a name="azure-alerts"></a>Alertas de Azure
-- [Alertas](/azure/azure-monitor/platform/alerts-metric) ofrecen un método de supervisión de servicios de Azure y permiten configurar condiciones en los datos. Las alertas también proporcionan notificaciones cuando una condición de alerta coincide con los datos supervisados.
+- Las [alertas](/azure/azure-monitor/platform/alerts-metric) ofrecen un método de supervisar los servicios de Azure y le permiten configurar condiciones en los datos. Las alertas también proporcionan notificaciones cuando una condición de alerta coincide con los datos supervisados.
 
 ### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
-[Registros de Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) es una colección de servicios de administración.
+Los [registros de Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) son una colección de servicios de administración.
 
 -   El área de trabajo está habilitada para Security Center
 

@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936272"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
@@ -250,7 +250,7 @@ La alta disponibilidad SAP en Azure se puede dividir en tres tipos:
 
 * **Alta disponibilidad de las aplicaciones de SAP**: 
 
-    Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo: 
+    Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo:
     * Los servidores de aplicaciones de SAP redundantes.
     * Componentes únicos. Un ejemplo podría ser un componente de único punto de error (SPOF), como una instancia de ASCS/SCS de SAP o un sistema de administración de bases de datos (DBMS).
 
@@ -268,7 +268,7 @@ La base para el cálculo es de 30 días al mes o 43 200 minutos. Por ejemplo, u
 
 (Servicio de disponibilidad n.º 1/100) * (servicio de disponibilidad n.º 2/100) * (servicio de disponibilidad n.º 3/100) \*…
 
-Por ejemplo: 
+Por ejemplo:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 o una disponibilidad general del 99,75 %.
 
@@ -335,7 +335,7 @@ Para más información sobre este enfoque consulte [Utilización del reinicio de
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Alta disponibilidad de las aplicaciones de SAP en IaaS de Azure
 
-Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo: 
+Para lograr la alta disponibilidad completa del sistema SAP, es necesario proteger todos los componentes críticos de este. Por ejemplo:
   * Los servidores de aplicaciones de SAP redundantes.
   * Componentes únicos. Un ejemplo podría ser un componente de único punto de error (SPOF), como una instancia de ASCS/SCS de SAP o un sistema de administración de bases de datos (DBMS).
 
@@ -345,12 +345,12 @@ En la siguiente sección se tratara el tema de cómo lograr alta disponibilidad 
 
 > Esta sección es aplicable a:
 >
-> ![ Windows][Logo_Windows] Windows como para ![Linux][Logo_Linux] Linux
+> ![Windows][Logo_Windows] Windows como para ![Linux][Logo_Linux] Linux
 >
 
 Por lo general, no se necesita una solución de alta disponibilidad específica para las instancias de diálogo y servidores de aplicaciones de SAP. La alta disponibilidad se obtiene mediante redundancia y se configuran varias instancias de diálogo en distintas instancias de Azure Virtual Machines. Debe tener, como mínimo, dos instancias de aplicaciones de SAP instaladas en dos instancias de Azure Virtual Machines.
 
-![Figura 1: Alta disponibilidad en los servidores de aplicaciones de SAP][sap-ha-guide-figure-2000]
+![Ilustración 1: Alta disponibilidad en los servidores de aplicaciones de SAP][sap-ha-guide-figure-2000]
 
 _**Ilustración 1:** Alta disponibilidad en los servidores de aplicaciones de SAP_
 
@@ -369,7 +369,7 @@ El número de dominios de error y de actualización que puede utilizar un conjun
 Si se implementan unas cuantas instancias del servidor de aplicaciones de SAP en sus máquinas virtuales dedicadas, y se parte de la base de que hay cinco dominios de actualización, al final se obtendrá la imagen siguiente. El número máximo real de dominios de error y de actualización dentro de un conjunto de disponibilidad podría cambiar en el futuro:
 
 ![Figura 2: Alta disponibilidad de servidores de aplicaciones de SAP en un conjunto de disponibilidad de Azure][planning-guide-figure-3000]
-_**Figura 2:** Alta disponibilidad de servidores de aplicaciones de SAP en un conjunto de disponibilidad de Azure_
+ _**Figura 2:** Alta disponibilidad de servidores de aplicaciones de SAP en un conjunto de disponibilidad de Azure_
 
 Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure][azure-virtual-machines-manage-availability].
 
@@ -383,7 +383,7 @@ Para más información, consulte la sección [Conjuntos de disponibilidad de Azu
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arquitectura de alta disponibilidad para una instancia de ASCS/SCS de SAP en Windows
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 Puede usar una solución WSFC para proteger la instancia de ASCS/SCS de SAP. La solución tiene dos variantes:
@@ -396,14 +396,14 @@ Puede usar una solución WSFC para proteger la instancia de ASCS/SCS de SAP. La 
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Para más información acerca de la agrupación en clústeres de la instancia de ASCS/SCS de SAP usando el marco de clústeres de SLES consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications][sap-suse-ascs-ha]. Para la arquitectura de alta disponibilidad alternativa en SLES, que no requiere altamente disponibles NFS vea [Guía de alta disponibilidad para SAP NetWeaver en SUSE Linux Enterprise Server con Azure Files de NetApp para SAP applications] [ sap-suse-ascs-ha-anf].
+> Para más información acerca de la agrupación en clústeres de la instancia de ASCS/SCS de SAP usando el marco de clústeres de SLES consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications][sap-suse-ascs-ha]. Para información sobre la arquitectura de alta disponibilidad alternativa en SLES, que no requiere NFS de alta disponibilidad, consulte [Guía de alta disponibilidad para SAP NetWeaver en SUSE Linux Enterprise Server con Azure NetApp Files para aplicaciones SAP][sap-suse-ascs-ha-anf].
 
 Para más información acerca de la agrupación en clústeres de la instancia de ASCS/SCS de SAP mediante la plataforma de Red Hat, consulte [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel).
 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuración de varios identificadores de seguridad de SAP NetWeaver para una instancia de ASCS/SCS de SAP agrupada en clúster
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > Actualmente, el uso de varios identificadores de seguridad es compatible solo con WSFC. Se admiten varios identificadores de seguridad con los recursos compartidos de archivos y los discos compartidos.
 > 

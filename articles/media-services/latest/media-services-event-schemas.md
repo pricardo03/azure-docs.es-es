@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322240"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
@@ -87,9 +87,9 @@ Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 Los eventos de nivel de seguimiento se generan por pista. 
 
 > [!NOTE]
-> Todos los eventos de nivel de seguimiento se producen después de que está conectado a un codificador en directo.
+> Todos los eventos de nivel de seguimiento se generan después de conectarse un codificador en directo.
 
-Los tipos de eventos de nivel de seguimiento son:
+Los tipos de evento de nivel de seguimiento son:
 
 | Tipo de evento | DESCRIPCIÓN |
 | ---------- | ----------- |
@@ -97,7 +97,7 @@ Los tipos de eventos de nivel de seguimiento son:
 | Microsoft.Media.LiveEventIncomingStreamReceived | El servidor multimedia recibe el primer fragmento de datos de cada pista en la transmisión o la conexión. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | El servidor multimedia detecta que las transmisiones de audio y vídeo no están sincronizadas. Se usa como advertencia porque la experiencia del usuario no se verá afectada. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | El servidor multimedia detecta que cualquiera de las dos transmisiones de vídeo provenientes del codificador externo no está sincronizada. Se usa como advertencia porque la experiencia del usuario no se verá afectada. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Se publica cada 20 segundos para cada pista cuando se está ejecutando el evento en directo. Proporciona resumen de mantenimiento de la ingesta.<br/><br/>Después de que el codificador se conectará inicialmente, continúa el evento de latido emitir cada 20 s si el codificador aún está conectado o no. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Se publica cada 20 segundos para cada pista cuando se está ejecutando el evento en directo. Proporciona resumen de mantenimiento de la ingesta.<br/><br/>Después de conectarse inicialmente el codificador, el evento de latido continúa emitiéndose cada 20 seg. independientemente de si el codificador sigue conectado o no. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | El servidor multimedia detecta una discontinuidad en la pista entrante. |
 
 Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
@@ -319,7 +319,7 @@ El objeto data tiene las siguientes propiedades:
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
 | encoderIp | string | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | resultCode | string | El motivo por el que se rechazó la conexión. En la tabla siguiente se muestran los códigos de resultados: |
 
 Los códigos de resultados son:
@@ -366,7 +366,7 @@ El objeto data tiene las siguientes propiedades:
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de proporcionar este id. en la URL de introducción. |
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |
 | encoderIp | string | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -400,7 +400,7 @@ El objeto data tiene las siguientes propiedades:
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
 | encoderIp | string | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | resultCode | string | La razón por la cual el codificador se desconecta. Podría ser un cierre estable o un error. En la tabla siguiente se muestran los códigos de resultados: |
 
 Los códigos de resultado del error son:
@@ -499,7 +499,7 @@ El objeto data tiene las siguientes propiedades:
 | bitrate | integer | Velocidad de bits de la pista. |
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |
 | encoderIp | string  | Dirección IP del codificador. |
-| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | timestamp | string | Primera marca de tiempo del fragmento de datos recibido. |
 | timescale | string | Escala temporal en la que se representa la marca de tiempo. |
 
@@ -682,7 +682,7 @@ Un evento tiene los siguientes datos de nivel superior:
 
 [Regístrese para los eventos de cambio de estado del trabajo](job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (SDK de .NET en EventGrid que incluye eventos de Media Services)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json) (Definición de eventos de Media Services)

@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366324"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creación y modificación de un circuito ExpressRoute mediante PowerShell
@@ -44,7 +44,7 @@ Revise los [requisitos previos](expressroute-prerequisites.md) y los [flujos de 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
 Para crear un circuito ExpressRoute, necesita la lista de proveedores de conectividad, ubicaciones y opciones de ancho de banda admitidas.
 
-El cmdlet de PowerShell **Get AzExpressRouteServiceProvider** devuelve esta información, que se usará en pasos posteriores:
+El cmdlet de PowerShell **Get-AzExpressRouteServiceProvider** devuelve esta información, que se usará en pasos posteriores:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -52,7 +52,7 @@ Get-AzExpressRouteServiceProvider
 
 Compruebe si aparece su proveedor de conectividad. Tome nota de la información siguiente, ya que la va a necesitar para crear un circuito:
 
-* Name
+* NOMBRE
 * PeeringLocations
 * BandwidthsOffered
 
@@ -89,7 +89,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Lista de todos los circuitos ExpressRoute
-Para obtener una lista de todos los circuitos ExpressRoute que creó, ejecute el **Get AzExpressRouteCircuit** comando:
+Para obtener una lista de todos los circuitos ExpressRoute que haya creado, ejecute el comando **Get-AzExpressRouteCircuit**:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -215,7 +215,7 @@ Consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute
 A continuación, vincule una red virtual a su circuito ExpressRoute. Consulte el artículo [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md) al trabajar con el modelo de implementación de Resource Manager.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtención del estado de un circuito ExpressRoute
-Puede recuperar esta información en cualquier momento mediante el **Get AzExpressRouteCircuit** cmdlet. Si se realiza la llamada sin parámetros, se obtendrá una lista de todos los circuitos.
+Esta información se puede recuperar en cualquier momento con el cmdlet **Get-AzExpressRouteCircuit**. Si se realiza la llamada sin parámetros, se obtendrá una lista de todos los circuitos.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

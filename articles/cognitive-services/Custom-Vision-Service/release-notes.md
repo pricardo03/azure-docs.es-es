@@ -10,46 +10,46 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787950"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de la versión de Custom Vision Service
 
 ## <a name="may-2-2019-and-may-10-2019"></a>2 de mayo de 2019 y 10 de mayo de 2019
 
-- Mejoras de correcciones de errores y de back-end
+- Corrección de errores y mejoras del back-end
 
 ## <a name="may-23-2019"></a>23 de mayo de 2019
 
-- Portal mejorada experiencia UX relacionados con las suscripciones de Azure, lo que facilita seleccionar los directorios de Azure.
+- Experiencia de usuario mejorada en el portal relativa a las suscripciones de Azure, que facilita la selección de los directorios de Azure.
 
 ## <a name="april-18-2019"></a>18 de abril de 2019 
 
-- Se ha agregado la exportación de detección de objetos para la visión de inteligencia artificial Dev Kit.
-- Ajustes de la interfaz de usuario, incluidos la búsqueda de proyecto.
+- Se ha agregado la exportación de detección de objetos para el kit de desarrollo de Vision AI.
+- Ajustes de la interfaz de usuario, incluida la búsqueda de proyectos
 
 ## <a name="april-3-2019"></a>3 de abril de 2019
 
-- Aumento del límite del número de rectángulos por imagen a 200. 
-- Correcciones de errores, incluida la actualización de rendimiento sustancial para los modelos exportado a TensorFlow. 
+- Aumento del límite en el número de rectángulos delimitadores por imagen a 200. 
+- Correcciones de errores, que incluye una importante actualización del rendimiento para los modelos exportados a TensorFlow. 
 
 ## <a name="march-26-2019"></a>26 de marzo de 2019
 
-- Custom Vision Service ha entrado en Disponibilidad General en Azure.
-- Se ha agregado la característica de aprendizaje avanzado con un nuevo back-end para mejorar el rendimiento, especialmente en un desafío de conjuntos de datos y clasificación específica de aprendizaje automático. Con los cursos avanzados, puede especificar que un presupuesto de tiempo de proceso para el entrenamiento y Custom Vision empíricamente identificará la mejor configuración de formación y aumento. Para las iteraciones rápidas, aún puede usar el aprendizaje rápido existente.
-- Introducido en 3.0 API. Anunciado en desuso próximo API pre-3.0 en el 1 de octubre de 2019. Vea los tutoriales de documentación para [.Net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [nodo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), o [vaya](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) para obtener ejemplos acerca de cómo empezar a trabajar.
-- Reemplaza "Iteraciones predeterminado" con publicar o cancelar la publicación en la versión 3.0 de API.
-- Se han agregado nuevos destinos de exportación del modelo. Exportación de Dockerfile se ha actualizado para admitir ARM para Raspberry Pi 3. Compatibilidad con la exportación se ha agregado a la [Vision AI Dev Kit.](https://visionaidevkit.com/).
-- Mayor límite de etiquetas por proyecto a 500 para el nivel S0. Mayor límite de imágenes de cada proyecto de 100.000 para nivel S0.
-- Quitar dominio para adultos. Dominio general se recomienda en su lugar.
-- Anunciado [precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) para Disponibilidad General.  
+- Custom Vision Service ya se encuentra disponible con carácter general en Azure.
+- Se ha agregado la característica de entrenamiento avanzado con un nuevo back-end de aprendizaje automático que mejora el rendimiento, en especial con conjuntos de datos difíciles y clasificaciones pormenorizadas. Con el entrenamiento avanzado, puede especificar un presupuesto de tiempo de proceso para el entrenamiento y Custom Vision identificará de forma experimental la mejor configuración de entrenamiento y aumento. Para iteraciones rápidas, puede seguir usando el entrenamiento rápido existente.
+- Se han introducido las API 3.0. Se ha anunciado la próxima entrada en desuso de las API anteriores a 3.0 el 1 de octubre de 2019. Consulte los inicios rápidos de documentación de [.Net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [nodo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial) o [Go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) para obtener ejemplos sobre cómo empezar a trabajar.
+- Se han reemplazado las iteraciones predeterminadas por la opción para publicar o cancelar la publicación en las API 3.0.
+- Se han agregado nuevos destinos de exportación de modelos. La exportación de Dockerfile se ha actualizado para admitir ARM para Raspberry Pi 3. Se ha agregado compatibilidad con la exportación al [kit de desarrollo de Vision AI](https://visionaidevkit.com/).
+- Se ha aumentado el límite de etiquetas por proyecto a 500 para el nivel S0. Se ha aumentado el límite de imágenes por proyecto a 100 000 para el nivel S0.
+- Se ha quitado el dominio para adultos. Se recomienda en su lugar el dominio general.
+- Se han anunciado los [precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) de disponibilidad general.  
 
 ## <a name="february-25-2019"></a>25 de febrero de 2019
 
-- Anunció el final de la versión de prueba limitado proyectos (no está asociado con un recurso de Azure), como Custom Vision se acerque la finalización de su migración a vista previa pública de Azure. A partir del 25 de marzo de 2019, el sitio CustomVision.ai solo admite proyectos de visualización asociados con un recurso de Azure, como el recurso de Custom Vision gratuito. A través del 1 de octubre de 2019, aún podrá tener acceso a los proyectos de prueba limitados existentes a través de la API de visión personalizado. Esto le dará tiempo para las claves de API de actualización para las aplicaciones que ha escrito con Custom Vision. Después del 1 de octubre de 2019, se eliminarán los proyectos de prueba limitados no ha movido a Azure.
+- Se ha anunciado el final de los proyectos de prueba limitada (no asociados con un recurso de Azure), dado que Custom Vision se acerca al final de su migración a la versión preliminar pública de Azure. A partir del 25 de marzo de 2019, el sitio CustomVision.ai solo admite proyectos de visualización asociados con un recurso de Azure, como el recurso gratuito de Custom Vision. Hasta el 1 de octubre de 2019, podrá acceder a los proyectos de prueba limitada existentes mediante las API de Custom Vision. De modo que tiene tiempo para actualizar las claves de API de las aplicaciones escritas con Custom Vision. Después del 1 de octubre de 2019, todos los proyectos de prueba limitada que no haya migrado a Azure se eliminarán.
 
 ## <a name="january-22-2019"></a>22 de enero de 2019
 
@@ -72,7 +72,7 @@ ms.locfileid: "65787950"
 - Detección de objetos entra en la versión preliminar de pago. Ahora puede crear proyectos de detección de objetos con un recurso de Azure.
 - La característica "Mover a Azure" se ha agregado al sitio web, para que resulte más fácil actualizar un proyecto de prueba limitado para vincular a un proyecto de recursos vinculados de Azure (F0 o S0). Puede encontrarlo en la página Configuración del producto.  
 - Se ha agregado exportación a ONNX 1.2, para admitir la versión Actualización de octubre de 2018 de Windows de Windows ML.
-Correcciones de errores, incluidos para la exportación ONNX con caracteres especiales.
+Correcciones de errores, incluida la exportación ONNX con caracteres especiales.
 
 ## <a name="august-14-2018"></a>14 de agosto de 2018
 
@@ -81,8 +81,8 @@ Correcciones de errores, incluidos para la exportación ONNX con caracteres espe
 
 ## <a name="june-28-2018"></a>28 de junio de 2018
 
-- Correcciones de errores y mejoras de back-end.
-- Habilitar clasificación multiclase, para los proyectos donde las imágenes tienen exactamente una etiqueta. En las predicciones para el modo de varias clases, las probabilidades se sumará a uno (todas las imágenes se clasifican entre las etiquetas especificadas).
+- Corrección de errores y mejoras del back-end.
+- Clasificación multiclase habilitada, para proyectos en los que las imágenes tienen exactamente una etiqueta. En las predicciones para el modo multiclase, las probabilidades suman uno (todas las imágenes se clasifican entre las etiquetas especificadas).
 
 ## <a name="june-13-2018"></a>13 de junio de 2018
 
@@ -102,7 +102,7 @@ Correcciones de errores, incluidos para la exportación ONNX con caracteres espe
 
 ## <a name="march-1-2018"></a>1 de marzo de 2018
 
-- Vista preliminar de pago especificado e incorporarla en Azure portal. Ahora, los proyectos pueden vincularse a recursos de Azure utilizando un nivel F0 (gratis) o S0 (estándar). Se han incorporado proyectos en el nivel S0, lo que permite tener hasta 100 etiquetas y 25 000 imágenes.
+- Se ha incorporado una versión preliminar de pago y se ha integrado en Azure Portal. Ahora, los proyectos pueden vincularse a recursos de Azure utilizando un nivel F0 (gratis) o S0 (estándar). Se han incorporado proyectos en el nivel S0, lo que permite tener hasta 100 etiquetas y 25 000 imágenes.
 - Se han realizado cambios en los componentes back-end del parámetro de normalización y la canalización de aprendizaje automático. De este modo, los clientes tendrán un mayor control sobre el equilibrio entre precisión y exhaustividad al ajustar el umbral de probabilidad. Como parte de estos cambios, el umbral de probabilidad predeterminado del portal CustomVision.ai se ha establecido en 50 %.
 
 ## <a name="december-19-2017"></a>19 de diciembre de 2017

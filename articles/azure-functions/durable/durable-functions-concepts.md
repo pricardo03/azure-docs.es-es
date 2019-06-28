@@ -28,7 +28,7 @@ En este artículo se proporciona información detallada sobre los comportamiento
 
 ## <a name="patterns"></a>Patrones
 
-En esta sección se describen algunos patrones de aplicación comunes en los que Durable Functions puede resultar útil.
+En esta sección se describen algunos patrones comunes de aplicaciones en los que Durable Functions puede resultar útil.
 
 ### <a name="chaining"></a>Patrón 1: Diagrama de encadenamiento de funciones
 

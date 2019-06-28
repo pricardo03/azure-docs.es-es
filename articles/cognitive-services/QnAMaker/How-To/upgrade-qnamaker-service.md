@@ -1,7 +1,7 @@
 ---
 title: 'Actualización del servicio QnA Maker: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Compartir o actualización de los servicios de QnA Maker con el fin de administrar los recursos mejor.
+description: Comparta o actualice los servicios de QnA Maker para administrar mejor los recursos.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: tulasim
 ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61372363"
 ---
-# <a name="share-or-upgrade-your-qna-maker-service"></a>Compartir o actualice el servicio QnA Maker
-Compartir o actualización de los servicios de QnA Maker con el fin de administrar los recursos mejor. 
+# <a name="share-or-upgrade-your-qna-maker-service"></a>Uso compartido o actualización del servicio de QnA Maker
+Comparta o actualice los servicios de QnA Maker para administrar mejor los recursos. 
 
 Puede elegir actualizar componentes individuales de la pila de QnA Maker tras la creación inicial. Consulte los detalles de los componentes dependientes y de la selección de la SKU [aquí](https://aka.ms/qnamaker-docs-capacity).
 
-## <a name="share-existing-services-with-qna-maker"></a>Compartir los servicios existentes con QnA Maker
+## <a name="share-existing-services-with-qna-maker"></a>Uso compartido de los servicios existentes con QnA Maker
 
-QnA Maker crea varios recursos de Azure. Con el fin de simplificar la administración y beneficiarse de costo de uso compartido, utilice la siguiente tabla para comprender qué puede y no se puede compartir:
+QnA Maker crea varios recursos de Azure. Con el fin de simplificar la administración y beneficiarse del uso compartido de los costos, use la siguiente tabla para comprender lo que puede y no puede compartir:
 
 |Servicio|Compartir|
 |--|--|

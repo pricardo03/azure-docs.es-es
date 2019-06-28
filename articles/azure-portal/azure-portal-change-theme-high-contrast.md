@@ -11,21 +11,21 @@ ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
 ms.openlocfilehash: 59824c4a10c50265ea0a15be69755748b87d4a3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60690413"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Activación del contraste alto o cambio del tema en Azure Portal
 
-Configuración de contraste alto facilitan la lectura de Azure portal. También puede elegir un tema que cambia los colores de fondo del portal.
+La configuración de contraste alto facilita a lectura en Azure Portal. También puede elegir un tema que cambia los colores de fondo del portal.
 
 Si necesita más contraste o desea cambiar la combinación de colores en Azure Portal, vaya a la configuración del portal para realizar el cambio.
 
 ## <a name="turn-on-high-contrast"></a>Activación del contraste alto
 
-1. En el encabezado de la [portal Azure](https://portal.azure.com), seleccione **configuración**.
+1. En la parte superior de [Azure Portal](https://portal.azure.com), seleccione **Configuración**.
 
     ![Captura de pantalla que muestra el icono de advertencia de la configuración del portal en Azure Portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 1. Elija **Blanco** o **Negro**.
@@ -40,7 +40,7 @@ Si necesita más contraste o desea cambiar la combinación de colores en Azure P
 
 ## <a name="change-theme"></a>Cambio del tema
 
-1. En el encabezado de la [portal Azure](https://portal.azure.com), seleccione **configuración**.
+1. En la parte superior de [Azure Portal](https://portal.azure.com), seleccione **Configuración**.
 
     ![Captura de pantalla que muestra el icono de advertencia de la configuración del portal en Azure Portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 

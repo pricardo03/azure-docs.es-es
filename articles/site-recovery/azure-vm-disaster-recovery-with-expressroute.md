@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772422"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de Azure ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
@@ -93,7 +93,7 @@ Normalmente, las implementaciones empresariales tienen cargas de trabajo reparti
 - **vNet de concentrador**. Hay una vNet de concentrador que es la **vNet de concentrador de origen**: 10.10.10.0/24.
   - Esta red virtual de concentrador actúa como equipo selector.
   - Todas las comunicaciones a través de las subredes pasan por este concentrador.
-    - **Subredes de red virtual de concentrador**. La vNet de concentrador tiene dos subredes:
+    - **Subredes de vNet de concentrador**. La vNet de concentrador tiene dos subredes:
     - **Subred de NVA**: 10.10.10.0/25. Esta subred contiene una aplicación virtual de red (10.10.10.10).
     - **Subred de puerta de enlace**: 10.10.10.128/25. Esta subred contiene una puerta de enlace de ExpressRoute conectada a una conexión de ExpressRoute que se enruta al sitio local a través de un dominio de enrutamiento de emparejamiento privado.
 - El centro de datos local tiene una conexión de circuito ExpressRoute a través de un servidor perimetral asociado en Hong Kong.
@@ -193,7 +193,7 @@ Para automatizar la recuperación en este ejemplo, debe hacer lo siguiente:
 1. Siga los pasos para configurar la replicación.
 2. [Conmute por error las máquinas virtuales de Azure](azure-to-azure-tutorial-failover-failback.md) con estos pasos adicionales durante o después de la conmutación por error.
 
-     a. Cree la puerta de enlace de Azure ExpressRoute en la red virtual de concentrador de la región de destino. Esto es necesario para conectar la red virtual de concentrador de destino al circuito ExpressRoute.
+    a. Cree la puerta de enlace de Azure ExpressRoute en la red virtual de concentrador de la región de destino. Esto es necesario para conectar la red virtual de concentrador de destino al circuito ExpressRoute.
 
     b. Cree la conexión desde la red virtual de concentrador de destino hasta el circuito ExpressRoute de destino.
 

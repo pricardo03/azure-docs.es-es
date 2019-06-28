@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787312"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
@@ -71,7 +71,7 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
 | properties |Sí |el valor debe ser {} vacío o puede contener pares clave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticación en Webhook
-El webhook puede realizar la autenticación con un método basado en token, en el que el URI del webhook se guarda con un identificador de token como un parámetro de consulta. Por ejemplo, https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = somevalue
+El webhook puede realizar la autenticación con un método basado en token, en el que el URI del webhook se guarda con un identificador de token como un parámetro de consulta. Por ejemplo, https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Esquema de carga de Webhook de notificación de escalado automático
 Cuando se genera la notificación de escalado automático, los metadatos siguientes se incluyen en la carga de Webhook:
@@ -108,7 +108,7 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | status |Sí |Estado que indica que se ha generado una acción de escalado automático. |
 | operación |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
 | contexto |Sí |Contexto de la acción de escalado automático. |
-|  timestamp |Sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
+| timestamp |Sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
 | id |Sí |Id. de Resource Manager de la configuración de escalado automático |
 | Nombre |Sí |Nombre de la configuración de escalado automático. |
 | details |Sí |Explicación de la acción que realizó el servicio de escalado automático y el cambio en el recuento de instancias. |
@@ -120,5 +120,5 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | portalLink |Sí |Vínculo del portal de Azure a la página de resumen del recurso de destino. |
 | oldCapacity |Sí |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
-| Properties (Propiedades) |Sin  |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
+| Properties (Propiedades) |Sin |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
 

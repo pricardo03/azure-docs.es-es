@@ -1,5 +1,5 @@
 ---
-title: OpenCensus de Azure Application Insights distribuidas seguimiento local reenviador (versión preliminar) | Documentos de Microsoft
+title: Reenviador local de seguimiento distribuido de Azure Application Insights OpenCensus (versión preliminar)| Microsoft Docs
 description: Reenvío de seguimientos e intervalos distribuidos desde lenguajes como Python y Go a Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699347"
 ---
 # <a name="local-forwarder-preview"></a>Reenviador local (versión preliminar)
@@ -27,7 +27,7 @@ Un reenviador local es un agente que recopila datos de telemetría de Applicatio
 
 El reenviador local es un [proyecto de código abierto en GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Hay diferentes formas de ejecutar el reenviador local en varias plataformas.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 #### <a name="windows-service"></a>Servicio de Windows
 
@@ -35,7 +35,7 @@ La manera más fácil de ejecutar el reenviador local en Windows es mediante su 
 
 > [!NOTE]
 > El servicio del reenviador local requiere .NET Framework 4.7 como mínimo. Si no tiene .NET Framework 4.7 el servicio se instalará pero no se iniciará. Para acceder a la versión más reciente de .NET Framework **[visite la página descarga de .NET Framework](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Descargue el archivo LF.WindowsServiceHost.zip file de la [página de la versión del reenviador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) de GitHub.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Para supervisar el servicio, inspeccione los archivos **.log* del directorio /home/USUARIO_EJEMPLO/LOCALFORWARDER_DIR.
+* Para supervisar el servicio, inspeccione los archivos * *.log* del directorio /home/USUARIO_EJEMPLO/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 El reenviador local puede funcionar con macOS, pero, en la actualidad, no está oficialmente admitido.
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>Supervisión del reenviador local
 
-Los seguimientos se escriben en el sistema de archivos junto al ejecutable que ejecuta el reenviador local (busque archivos **.log*). Puede colocar un archivo con el nombre de *NLog.config* junto al archivo ejecutable para proporcionar su propia configuración en lugar del predeterminado. Consulte la [documentación](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) para obtener la descripción del formato.
+Los seguimientos se escriben en el sistema de archivos junto al ejecutable que ejecuta el reenviador local (busque archivos * *.log*). Puede colocar un archivo con el nombre de *NLog.config* junto al archivo ejecutable para proporcionar su propia configuración en lugar del predeterminado. Consulte la [documentación](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) para obtener la descripción del formato.
 
 Si no se proporciona ningún archivo de configuración (que es el valor predeterminado), el reenviador local usará la configuración predeterminada, que puede encontrar [aquí](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 

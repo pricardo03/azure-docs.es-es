@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786078"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introducción a Azure Cache for Redis de nivel Prémium
@@ -27,13 +27,13 @@ Azure Cache for Redis es una memoria caché distribuida y administrada que ayuda
 Premium es un nuevo nivel destinado a las empresas que incluye todas las características del nivel Estándar y otras adicionales, como un mejor rendimiento, cargas de trabajo más grandes, recuperación ante desastres, importación/exportación y seguridad mejorada. Siga leyendo para obtener más información acerca de las características adicionales de la memoria caché del nivel Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Mejor rendimiento en comparación con el nivel Estándar o Básico
-**Mejor rendimiento respecto a los niveles Standard o Basic.**  Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Standard o Basic. Además, el rendimiento de dichas memorias caché es superior y sus latencias son más bajas. 
+**Mejor rendimiento respecto a los niveles Standard o Basic.** Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Standard o Basic. Además, el rendimiento de dichas memorias caché es superior y sus latencias son más bajas. 
 
-**El rendimiento de una memoria caché de nivel Premium es superior al de una memoria caché de nivel Standard del mismo tamaño .**  Por ejemplo, el rendimiento de una memoria caché de 53 GB P4 (Premium) es de 250 000 solicitudes por segundo, en comparación con 150 000 para una memoria C6 (Standard).
+**El rendimiento de una memoria caché de nivel Premium es superior al de una memoria caché de nivel Standard del mismo tamaño .** Por ejemplo, el rendimiento de una memoria caché de 53 GB P4 (Premium) es de 250 000 solicitudes por segundo, en comparación con 150 000 para una memoria C6 (Standard).
 
 Para más información sobre el tamaño, la transferencia y el ancho de banda de las memorias caché de nivel Prémium, consulte el artículo [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (Preguntas más frecuentes de Azure Cache for Redis).
 
-## <a name="redis-data-persistence"></a>Persistencia de los datos en Redis
+## <a name="redis-data-persistence"></a>Persistencia de datos de Redis
 El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En las memorias caché de nivel Basic o Standard, todos los datos se almacenan únicamente en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (próximamente) en la [persistencia de Redis](https://redis.io/topics/persistence). 
 
 Para instrucciones sobre cómo configurar la persistencia, consulte [Configuración de la persistencia para Azure Cache for Redis de nivel Prémium](cache-how-to-premium-persistence.md).
@@ -50,7 +50,7 @@ Las memorias caché creadas en los niveles Basic o Standard están disponibles e
 
 Para más información, consulte [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md) (Configuración de la compatibilidad con Virtual Network para una instancia de Azure Cache for Redis de nivel Prémium).
 
-## <a name="importexport"></a>Importar o exportar
+## <a name="importexport"></a>Import/Export
 Import/Export es una operación de administración de datos de Azure Cache for Redis que permite importar datos en Azure Cache for Redis o exporta datos de Azure Cache for Redis mediante la importación y exportación de una instantánea de base de datos de Azure Cache for Redis (RDB) desde una memoria caché prémium a un blob en páginas en una cuenta de Azure Storage. Permite migrar entre diferentes instancias de Azure Cache for Redis o rellenar la memoria caché de datos antes de su uso.
 
 La importación se puede usar para traer los archivos RDB compatibles de Redis desde cualquier servidor de Redis que se ejecute en cualquier nube o entorno, incluidas las instancias de Redis que se ejecutan en Linux, Windows o cualquier proveedor en la nube como, por ejemplo, Amazon Web Services. La importación de datos supone una manera fácil de crear una caché con datos rellenados previamente. Durante el proceso de importación, Azure Cache for Redis carga los archivos RDB desde Azure Storage en la memoria y, luego, inserta las claves en la memoria caché.
@@ -59,13 +59,13 @@ La exportación permite exportar los datos almacenados en Azure Cache for Redis 
 
 Para más información, consulte [How to import data into and export data from Azure Cache for Redis](cache-how-to-import-export-data.md)(Importación de datos en Azure Cache for Redis y exportación de datos desde este servicio).
 
-## <a name="reboot"></a>Reiniciar
+## <a name="reboot"></a>Reboot
 El nivel premium permite reiniciar uno o varios nodos de la memoria caché a petición. De este modo, podrá probar la resiliencia de la aplicación en caso de error. Puede reiniciar los siguientes nodos.
 
 * Nodo maestro de la memoria caché
-* Nodo secundario de la memoria caché
-* Nodos principales y secundarios de la memoria caché
-* Cuando se usa una caché premium con agrupación en clústeres, puede reiniciar el servidor principal, secundario o ambos nodos para particiones individuales en la memoria caché
+* Nodo secundario de la caché
+* Nodos principales y secundarios de la caché
+* Cuando se usa una caché premium con agrupación en clústeres, puede reiniciar el nodo principal, el secundario, o ambos nodos, para particiones individuales en la caché.
 
 Para más información, consulte [Reboot](cache-administration.md#reboot) y [Preguntas más frecuentes sobre el reinicio](cache-administration.md#reboot-faq).
 

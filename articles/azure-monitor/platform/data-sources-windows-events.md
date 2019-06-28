@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236898"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Orígenes de datos de registros de eventos de Windows en Azure Monitor
@@ -28,7 +28,7 @@ Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que co
 ## <a name="configuring-windows-event-logs"></a>Configuración de registros de eventos de Windows
 Configure los registros de eventos de Windows en el [menú Datos en Configuración avanzada](agent-data-sources.md#configuring-data-sources).
 
-Azure Monitor solo recopila eventos de los registros de eventos de Windows que se especifican en la configuración.  Para agregar un registro nuevo, escriba el nombre y haga clic en **+**.  Para cada registro, solo se recopilan los eventos con los niveles de gravedad seleccionados.  Compruebe las gravedades del registro determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar eventos.
+Azure Monitor solo recopila eventos de los registros de eventos de Windows que se especifican en la configuración.  Para agregar un registro nuevo, escriba el nombre y haga clic en **+** .  Para cada registro, solo se recopilan los eventos con los niveles de gravedad seleccionados.  Compruebe las gravedades del registro determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar eventos.
 
 A medida que escribe el nombre de un registro de eventos, Azure Monitor da sugerencias de nombres comunes de este tipo de registros. Aun cuando el registro que desea agregar no aparezca en la lista, puede incluirlo escribiendo su nombre completo. Encontrará el nombre completo del registro en el Visor de eventos. En el Visor de eventos, abra la página *Propiedades* del registro y copie la cadena del campo *Nombre completo*.
 
@@ -54,10 +54,10 @@ Los registros de eventos de Windows tienen un tipo **Event** y las propiedades q
 | EventLevelName |La gravedad del evento en formato de texto. |
 | EventLog |El nombre del registro de eventos desde el que se recopiló el evento. |
 | ParameterXml |Los valores de parámetro de evento en formato XML. |
-| ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  Los otros agentes, este valor es `AOI-<workspace ID>` |
+| ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, este valor es `AOI-<workspace ID>`. |
 | RenderedDescription |La descripción del evento con valores de parámetro. |
 | Origen |El origen del evento. |
-| SourceSystem |El tipo de agente desde el que se recopiló el evento. <br> OpsManager: agente de Windows, ya sea una conexión directa o administrado por Operations Manager <br>  Linux: todos los agentes de Linux.  <br>  AzureStorage: Diagnósticos de Azure |
+| SourceSystem |El tipo de agente desde el que se recopiló el evento. <br> OpsManager: agente de Windows, ya sea una conexión directa o administrado por Operations Manager <br> Linux: todos los agentes de Linux.  <br> AzureStorage: Diagnósticos de Azure |
 | TimeGenerated |La fecha y la hora de creación del evento en Windows. |
 | UserName |El nombre de usuario de la cuenta que registró el evento. |
 
