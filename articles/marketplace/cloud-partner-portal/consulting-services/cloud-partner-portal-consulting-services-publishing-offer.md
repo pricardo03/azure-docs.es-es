@@ -1,5 +1,5 @@
 ---
-title: Oferta de servicio de consultoría de Dynamics 365 y Azure | Azure Marketplace
+title: Oferta de servicios de consultoría de Azure y Dynamics 365 | Azure Marketplace
 description: Guía para definir y publicar una oferta de servicios de consultoría de Azure o Dynamics 365 en Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
 ms.openlocfilehash: a033ad80b59dc29b6d08624dee400d496eb28005
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942847"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de servicios de consultoría de Azure y Dynamics 365

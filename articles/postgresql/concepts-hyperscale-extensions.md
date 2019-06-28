@@ -1,5 +1,5 @@
 ---
-title: Extensiones de PostgreSQL en Azure Database for PostgreSQL - hiperescala (Citus) (versión preliminar)
+title: Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hyperscale (Citus) (versión preliminar)
 description: Describe la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones en Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
@@ -8,13 +8,13 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 4022c95bfda8cbdaed75876793bfbba4254a5c54
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410245"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql---hyperscale-citus-preview"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - hiperescala (Citus) (versión preliminar)
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---hyperscale-citus-preview"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL - Hyperscale (Citus) (versión preliminar)
 
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información sobre las extensiones de PostgreSQL, vea  [Empaquetar objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
@@ -37,10 +37,10 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Proporciona un tipo de datos para los cubos multidimensionales. |
 > | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Proporciona un tipo de datos para almacenar conjuntos de pares clave/valor. |
 > | [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Proporciona tipos de datos para los estándares internacionales de numeración de productos. |
-> | [lo](https://www.postgresql.org/docs/current/lo.html) | Mantenimiento de objetos grande. |
+> | [lo](https://www.postgresql.org/docs/current/lo.html) | Mantenimiento de objetos grandes. |
 > | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Proporciona un tipo de datos para las estructuras de árbol jerárquicas. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Tipo de datos para representar los segmentos de línea o intervalos de punto flotante. |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | Tipo de JSONB n superiores. |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | Tipo para JSONB de n principales. |
 
 ### <a name="functions-extensions"></a>Extensiones de funciones
 
@@ -51,17 +51,17 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | Proporciona un medio para calcular distancias de círculo máximo en la superficie de la Tierra. |
 > | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Proporciona varias funciones para determinar las similitudes y la distancia entre las cadenas. |
 > | [insert\_username](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.8) | Funciones para el seguimiento de quién cambió una tabla. |
-> | [intagg](https://www.postgresql.org/docs/current/intagg.html) | El agregador de entero y enumerador (obsoleto). |
+> | [intagg](https://www.postgresql.org/docs/current/intagg.html) | El agregador y enumerador de enteros (obsoleto). |
 > | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Proporciona funciones y operadores para manipular matrices de enteros sin valores nulos. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Funciones para el seguimiento de la hora de última modificación. |
 > | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Proporciona funciones de cifrado. |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Administra las tablas con particiones por hora o identificador. |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Proporciona funciones y operadores para determinar la similitud del texto alfanumérico basado en la coincidencia de trigrama. |
-> | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funciones para implementar la integridad referencial (obsoleta). |
-> | sesión\_analytics | Funciones para realizar consultas hstore matrices. |
+> | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Funciones para implementar la integridad referencial (obsoleto). |
+> | session\_analytics | Funciones para realizar consultas a matrices hstore. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Proporciona funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas. |
-> | [tcn](https://www.postgresql.org/docs/current/tcn.html) | Desencadena notificaciones de cambio. |
-> | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Funciones para implementar el tiempo de viaje. |
+> | [tcn](https://www.postgresql.org/docs/current/tcn.html) | Desencadenó notificaciones de cambio. |
+> | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Funciones para implementar el viaje en el tiempo. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Genera identificadores únicos universales (UUID). |
 
 ### <a name="full-text-search-extensions"></a>Extensiones de búsqueda de texto completo
@@ -70,7 +70,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | **Extensión** | **Descripción** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Proporciona una plantilla de diccionario de búsqueda de texto para números enteros. |
-> | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Plantilla de diccionario de búsqueda de texto para el procesamiento extendido sinónimo. |
+> | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Plantilla de diccionario de búsqueda de texto para el procesamiento de sinónimos extendido. |
 > | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Un diccionario de búsqueda de texto que quita los acentos (signos diacríticos) de lexemas. |
 
 ### <a name="index-types-extensions"></a>Extensiones de tipos de índices
@@ -78,7 +78,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > [!div class="mx-tableFixed"]
 > | **Extensión** | **Descripción** |
 > |---|---|
-> | [bloom](https://www.postgresql.org/docs/current/bloom.html) | Método de acceso de Bloom - archivo de signatura de índice de base. |
+> | [bloom](https://www.postgresql.org/docs/current/bloom.html) | Método de acceso de bloom: índice basado en archivos de firma. |
 > | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | Proporciona clases de operador GIN de ejemplo que implementan el comportamiento similar al del árbol B para determinados tipos de datos. |
 > | [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | Proporciona clases de operador de índice de GiST que implementan el árbol B. |
 
@@ -94,18 +94,18 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > [!div class="mx-tableFixed"]
 > | **Extensión** | **Descripción** |
 > |---|---|
-> | [citus](https://github.com/citusdata/citus) | Base de datos distribuida Citus. |
-> | partición\_rebalancer | Volver a equilibrar con seguridad los datos en un grupo de servidores en el caso de nodo adición o eliminación. |
+> | [citus](https://github.com/citusdata/citus) | Base de datos distribuida de Citus. |
+> | shard\_rebalancer | Volver a equilibrar los datos con seguridad en un grupo de servidores en el caso de adición o eliminación del nodo. |
 
 ### <a name="miscellaneous-extensions"></a>Extensiones variadas
 
 > [!div class="mx-tableFixed"]
 > | **Extensión** | **Descripción** |
 > |---|---|
-> | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Funciones administrativas de PostgreSQL. |
-> | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funciones de comprobación de integridad de la relación. |
-> | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Contenedor de datos externo para el acceso de archivo sin formato. |
-> | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspeccionar el contenido de páginas de base de datos en un nivel bajo. |
+> | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Funciones administrativas para PostgreSQL. |
+> | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Funciones de comprobación de la integridad de la relación. |
+> | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Contenedor de datos externo para el acceso de archivos planos. |
+> | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspeccione el contenido de páginas de bases de datos a un nivel bajo. |
 > | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Proporciona un medio para examinar lo que sucede en la caché del búfer compartido en tiempo real. |
 > | [pg\_cron](https://github.com/citusdata/pg_cron) | Programador de trabajos para PostgreSQL. |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine la asignación de espacio libre (FSM). |
@@ -115,9 +115,9 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Proporciona un medio para mostrar información de bloqueo a nivel de fila. |
 > | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Proporciona un medio para mostrar estadísticas de nivel de tupla. |
 > | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Se trata de un contenedor de datos externo utilizado para tener acceso a los datos almacenados en los servidores externos de PostgreSQL. (Vea a continuación una nota sobre esta extensión).|
-> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Información acerca de los certificados SSL. |
+> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Información sobre los certificados SSL. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Método TABLESAMPLE que acepta el número de filas como un límite. |
-> | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | Método TABLESAMPLE que acepta como un límite de tiempo en milisegundos. |
+> | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | Método TABLESAMPLE que acepta el tiempo en milisegundos como un límite. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Proporciona un medio de creación de índices hipotéticos que no consume CPU ni disco. |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Módulo que admite conexiones a otras bases de datos de PostgreSQL desde una sesión de base de datos. (Vea a continuación una nota sobre esta extensión). |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | Consulta de XPath y XSLT. |
@@ -131,8 +131,8 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciales y geográficos para PostgreSQL. |
 > | address\_standardizer, address\_standardizer\_data\_us | Se utilizan para analizar una dirección en los elementos que la componen. Se utilizan para admitir el paso de normalización de la dirección de geocodificación. |
 > | postgis\_sfcgal | Funciones de PostGIS SFCGAL. |
-> | postgis\_tiger\_geocoder | PostGIS tiger geocoder y geocoder inverso. |
-> | postgis\_topología | Funciones y tipos espaciales de PostGIS topología. |
+> | postgis\_tiger\_geocoder | Geocoder de PostGIS tiger y geocoder inverso. |
+> | postgis\_topology | Funciones y tipos espaciales de topología PostGIS. |
 
 
 ## <a name="pgstatstatements"></a>pg_stat_statements
@@ -141,7 +141,7 @@ La configuración `pg_stat_statements.track`, que controla las instrucciones que
 
 Hay un equilibrio entre la información de ejecución de consulta que pg_stat_statements proporciona y el impacto en el rendimiento del servidor al registrar cada instrucción SQL. Si no está usando activamente la extensión pg_stat_statements, le recomendamos que establezca `pg_stat_statements.track` en `none`. Tenga en cuenta que algunos servicios de supervisión de terceros pueden basarse en pg_stat_statements para entregar información de rendimiento de consultas, por lo que debe confirmar si este es el caso para usted o no.
 
-## <a name="dblink-and-postgresfdw"></a>dblink y postgres_fdw
+## <a name="dblink-and-postgresfdw"></a>dblink and postgres_fdw
 dblink y postgres_fdw le permiten conectarse de un servidor PostgreSQL a otro, o a otra base de datos en el mismo servidor. El servidor de recepción debe permitir conexiones del servidor de envío a través de su firewall. Cuando se usan estas extensiones para conectarse entre servidores de Azure Database for PostgreSQL, esto se puede realizar mediante el establecimiento de "Permitir acceso a servicios de Azure" en Activado. Esto también es necesario si desea utilizar las extensiones para volver al mismo servidor. La opción "Permitir el acceso a servicios de Azure" puede encontrarse en la página de Azure Portal para el servidor de Postgres, en Seguridad de la conexión. Si se activa "Permitir el acceso a servicios de Azure", se permitirá en todas las direcciones IP de Azure.
 
-Actualmente, las conexiones salientes desde la base de datos de Azure Database for PostgreSQL no se admiten, excepto para las conexiones a otra base de datos de Azure para servidores de PostgreSQL.
+Actualmente no se admiten las conexiones salientes desde Azure Database for PostgreSQL, excepto para las conexiones a otros servidores de Azure Database for PostgreSQL.

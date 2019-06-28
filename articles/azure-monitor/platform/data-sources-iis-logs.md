@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604362"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recopilación de registros de IIS en Azure Monitor
 Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar y almacenar como [datos de registro](data-platform.md).
 
-![Registros de IIS](media/data-sources-iis-logs/overview.png)
+![Registros IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configuración de registros de IIS
 Azure Monitor recopila entradas de archivos de registro creados por IIS, por lo que debe [configurar IIS para el registro](https://technet.microsoft.com/library/hh831775.aspx).
@@ -72,7 +72,7 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 | W3CIISLog |Todos los registros de IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todas las entradas de registro IIS con un estado de retorno de 500. |
 | W3CIISLog &#124; summarize count() by cIP |Contador de entradas de registro de IIS por dirección IP del cliente. |
-| W3CIISLog &#124; donde csHost == "www\.contoso.com" &#124; resumir count() por csUriStem |Entradas de registro de recuento de IIS por dirección URL para el host de World Wide Web\.contoso.com. |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Número de entradas de registro de IIS por dirección URL para el host www\.contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recibidos por cada equipo de IIS |
 
 ## <a name="next-steps"></a>Pasos siguientes

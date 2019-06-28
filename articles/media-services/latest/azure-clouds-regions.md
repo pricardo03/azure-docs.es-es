@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409280"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nubes y regiones donde existe Azure Media Services v3
@@ -35,7 +35,7 @@ Azure Media Services v3 está disponible a través del manifiesto de Azure Resou
 
 ## <a name="regionsgeographieslocations"></a>Regiones, zonas geográficas y ubicaciones
 
-[Regiones en que se implementa el servicio de Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Regiones en las que se implementa el servicio Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nombre de código de región 
 
@@ -96,7 +96,7 @@ Es importante conocer los siguientes puntos de conexión al conectarse a cuentas
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Público del token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [Regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/)

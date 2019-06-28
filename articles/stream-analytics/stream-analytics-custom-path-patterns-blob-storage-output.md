@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789418"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
@@ -26,7 +26,7 @@ Los campos o atributos de entrada personalizados mejoran los flujos de trabajo d
 
 ### <a name="partition-key-options"></a>Opciones de clave de partición
 
-La clave de partición o nombre de columna que se usa para particionar los datos de entrada puede contener caracteres alfanuméricos, guiones, guiones bajos y espacios. No es posible usar los campos anidados como clave de partición, a menos que se usen junto con los alias. La clave de partición debe ser nvarchar (max).
+La clave de partición o nombre de columna que se usa para particionar los datos de entrada puede contener caracteres alfanuméricos, guiones, guiones bajos y espacios. No es posible usar los campos anidados como clave de partición, a menos que se usen junto con los alias. La clave de partición debe ser NVARCHAR(MAX).
 
 ### <a name="example"></a>Ejemplo
 

@@ -1,6 +1,6 @@
 ---
 title: Implementación de Azure Databricks en la red virtual (versión preliminar)
-description: En este artículo se describe cómo implementar Azure Databricks a la red virtual, también conocida como inserción de red virtual.
+description: En este artículo se describe cómo implementar Azure Databricks en la red virtual, también conocido como inserción de red virtual.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -9,35 +9,35 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126688"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Implementación de Azure Databricks en la red virtual (versión preliminar)
 
-La implementación predeterminada de Azure Databricks es un servicio totalmente administrado en Azure: todos los recursos del plano de datos, incluida una red virtual (VNet), se implementan en un grupo de recursos bloqueados. Si necesita personalizar de red, sin embargo, puede implementar los recursos de Azure Databricks en su propia red virtual (también llamado inyección de red virtual), cuando le permite:
+La implementación predeterminada de Azure Databricks es un servicio totalmente administrado en Azure: todos los recursos del plano de datos, incluida una red virtual (VNet), se implementan en un grupo de recursos bloqueados. Sin embargo, si necesita personalizar la red, puede implementar los recursos de Azure Databricks en su propia red virtual (también llamado inyección VNet), cuando le permite lo siguiente:
 
-* Conectar Azure Databricks con otros servicios de Azure (por ejemplo, el almacenamiento de Azure) de forma más segura con los puntos de conexión de servicio.
-* Conectarse a datos en el entorno local orígenes para su uso con Azure Databricks, que aprovecha las rutas definidas por el usuario.
-* Conectar Azure Databricks a un dispositivo de red virtual para inspeccionar todo el tráfico saliente y realizar acciones según permitir y denegar las reglas.
+* Conectar Azure Databricks con otros servicios de Azure (por ejemplo, Azure Storage) de forma más segura mediante puntos de conexión de servicio.
+* Conectarse a orígenes de datos en el entorno local orígenes para su uso con Azure Databricks, aprovechando las rutas definidas por el usuario.
+* Conectar Azure Databricks a un dispositivo de red virtual para inspeccionar todo el tráfico saliente y tomar medidas en función de reglas que permitan o denieguen el acceso.
 * Configurar Azure Databricks para usar DNS personalizado.
-* Configurar reglas de grupo (NSG) de seguridad de red para especificar las restricciones de tráfico de salida.
+* Configurar reglas de grupo de seguridad de red (NSG) para especificar las restricciones de tráfico de salida.
 * Implementar clústeres de Azure Databricks en la red virtual existente.
 
-Implementar recursos de Azure Databricks en su propia red virtual también le permite aprovechar las ventajas de los intervalos CIDR flexibles (en cualquier lugar entre /16-/ 24 para la red virtual y entre /18-/ 26 para las subredes).
+Implementar recursos de Azure Databricks en su propia red virtual también le permite sacar provecho de rangos CIDR flexibles (entre /16-/24 para la red virtual y entre /18-/26 para las subredes).
 
   > [!NOTE]
-  > No se puede reemplazar la red virtual para un área de trabajo. Si el área de trabajo actual no puede contener al número necesario de nodos de clúster activo, cree otra área de trabajo en una red virtual más grande. Siga [estos pasos de migración de detallados](howto-regional-disaster-recovery.md#detailed-migration-steps) para copiar recursos (blocs de notas, las configuraciones de clúster, los trabajos) de la antigua a la nueva área de trabajo.
+  > No se puede reemplazar la red virtual para un área de trabajo existente. Si el área de trabajo actual no puede aceptar al número necesario de nodos de clúster activos, cree otra área de trabajo en una red virtual de mayor tamaño. Siga [estos pasos de migración detallados](howto-regional-disaster-recovery.md#detailed-migration-steps) para copiar recursos (blocs de notas, configuraciones de clúster, trabajos, etc.) del área de trabajo antigua a la nueva.
 
 ## <a name="virtual-network-requirements"></a>Requisitos de red virtual
 
-Puede usar la interfaz de implementación del área de trabajo de Azure Databricks en Azure portal para configurar automáticamente una red virtual existente con las subredes necesarias, el grupo de seguridad de red y configuración de creación de listas blancas, o puede usar Azure Resource Manager plantillas para configurar la red virtual e implementar el área de trabajo.
+Puede usar la interfaz de implementación del área de trabajo de Azure Databricks en Azure Portal para configurar automáticamente una red virtual existente con las subredes, grupo de seguridad de red y configuración de listas blancas necesarios o puede usar plantillas de Azure Resource Manager para configurar la red virtual e implementar el área de trabajo.
 
-La red virtual que se implementa en el área de trabajo Azure Databricks debe cumplir los siguientes requisitos:
+La red virtual que se implementa en el área de trabajo de Azure Databricks debe cumplir los siguientes requisitos:
 
-### <a name="location"></a>Location
+### <a name="location"></a>Ubicación
 
 La red virtual debe residir en la misma ubicación que el área de trabajo de Azure Databricks.
 
@@ -45,13 +45,13 @@ La red virtual debe residir en la misma ubicación que el área de trabajo de Az
 
 La red virtual debe incluir dos subredes dedicadas a Azure Databricks:
 
-   1. Una subred privada con un grupo de seguridad de red preconfiguradas que permite la comunicación interna del clúster
+   1. Una subred privada con un grupo de seguridad de red preconfiguradas que permite la comunicación interna del clúster.
 
    2. Una subred pública con un grupo de seguridad de red preconfiguradas que permite la comunicación con el plano de control de Azure Databricks.
 
 ### <a name="address-space"></a>Espacio de direcciones
 
-Un bloque CIDR entre /16-/ 24 para la red virtual y un bloque CIDR entre /18-/26 para las subredes públicas y privadas.
+Un bloque CIDR entre /16-/24 para la red virtual y un bloque CIDR entre /18-/26 para las subredes públicas y privadas.
 
 ### <a name="whitelisting"></a>Lista blanca
 
@@ -59,142 +59,142 @@ Todo el tráfico entrante y saliente entre las subredes y el plano de control de
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 
-En esta sección se describe cómo crear un área de trabajo de Azure Databricks en Azure portal e implementarlo en su propia red virtual existente. Azure Databricks actualiza la red virtual con dos nuevas subredes y grupos de seguridad de red mediante intervalos CIDR proporcionados por el usuario, las listas blancas de entrada y el tráfico de subred de salida e implementa el área de trabajo a la red virtual actualizada.
+En esta sección se describe cómo crear un área de trabajo de Azure Databricks en Azure Portal e implementarlo en su propia red virtual existente. Azure Databricks actualiza la red virtual con dos subredes y grupos de seguridad de red nuevos mediante rangos CIDR proporcionados por el usuario, pone en la lista blanca el tráfico de subred entrante y saliente, e implementa el área de trabajo en la red virtual actualizada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener una red virtual a la que se implementará el área de trabajo de Azure Databricks. Puede usar una red virtual existente o crear uno nuevo, pero la red virtual debe estar en la misma región que el área de trabajo de Azure Databricks que va a crear. Un intervalo CIDR entre /16 /24 es necesario para la red virtual.
+Debe tener una red virtual a la que se implementará el área de trabajo de Azure Databricks. Puede usar una red virtual existente o crear una nueva, pero la red virtual debe estar en la misma región que el área de trabajo de Azure Databricks que va a crear. Para la red virtual se necesita un rango CIDR entre /16-/24.
 
   > [!Warning]
-  > Un área de trabajo con una red virtual más pequeña: es decir, un intervalo CIDR inferior: puede ejecutar fuera de las direcciones IP (espacio de red) más rápidamente que un área de trabajo con una red virtual más grande. Por ejemplo, un área de trabajo con/24 red virtual y /26 las subredes pueden tener un máximo de 64 nodos activos a la vez, mientras que un área de trabajo con un /20 de red virtual y /22 subredes pueden alojar un máximo de nodos de 1024.
+  > Un área de trabajo con una red virtual más pequeña; es decir, un rango CIDR inferior, puede quedarse sin direcciones IP (espacio de red) más rápidamente que un área de trabajo con una red virtual de mayor tamaño. Por ejemplo, un área de trabajo con una red virtual /24 red virtual y subredes /26 puede tener un máximo de 64 nodos activos a la vez, mientras que un área de trabajo con una red virtual /20 y subredes /22 puede alojar un máximo de 1024 nodos.
 
-  Las subredes se crearán automáticamente al configurar el área de trabajo, y tendrá la oportunidad de proporcionar el intervalo CIDR para las subredes durante la configuración.
+  Las subredes se crearán automáticamente al configurar el área de trabajo, y tendrá la oportunidad de proporcionar el rango CIDR para las subredes durante la configuración.
 
 ## <a name="configure-the-virtual-network"></a>Configuración de la red virtual
 
-1. En el portal de Azure, seleccione **+ crear un recurso > Análisis > Azure Databricks** para abrir el cuadro de diálogo del servicio de Azure Databricks.
+1. En Azure Portal, seleccione **+ Crear un recurso > Análisis > Azure Databricks** para abrir el cuadro de diálogo del servicio de Azure Databricks.
 
-2. Siga los pasos de configuración se describe en el paso 2: Crear un área de trabajo de Azure Databricks en la Guía de introducción y seleccione el área de trabajo de implementación de Azure Databricks en las opciones de red Virtual.
+2. Siga las etapas de configuración que se describen en el paso 2: Cree un área de trabajo de Azure Databricks en la Guía de introducción y seleccione el área de trabajo de implementación de Azure Databricks en las opciones de red virtual.
 
-   ![Crear servicio de Azure Databricks](./media/vnet-injection/create-databricks-service.png)
+   ![Crear un servicio de Azure Databricks](./media/vnet-injection/create-databricks-service.png)
 
-3. Seleccione la red virtual que desea usar.
+3. Seleccione la red virtual que desee usar.
 
    ![Opciones de red virtual](./media/vnet-injection/select-vnet.png)
 
-4. Proporcionar intervalos CIDR en un bloque entre /18-/26 para las dos subredes, dedicadas a Azure Databricks:
+4. Proporcione los rangos CIDR en un bloque entre /18-/26 para las dos subredes, dedicadas a Azure Databricks:
 
-   * Se creará una subred pública con un grupo de seguridad de red asociados que permite la comunicación con el plano de control de Azure Databricks.
-   * Se creará una subred privada con un grupo de seguridad de red asociados que permite la comunicación interna del clúster.
+   * Se creará una subred pública con un grupo de seguridad de red asociado que permite la comunicación con el plano de control de Azure Databricks.
+   * Se creará una subred privada con un grupo de seguridad de red asociado que permite la comunicación interna del clúster.
 
-5. Haga clic en **crear** para implementar el área de trabajo de Azure Databricks a la red virtual.
+5. Haga clic en **Crear** para implementar el área de trabajo de Azure Databricks a la red virtual.
 
-## <a name="advanced-resource-manager-configurations"></a>Configuraciones de administrador de recursos avanzada
+## <a name="advanced-resource-manager-configurations"></a>Configuraciones avanzadas de administrador de recursos
 
-Si desea más control sobre la configuración de la red virtual: por ejemplo, desea utilizar las subredes existentes, utilice grupos de seguridad de red existentes o crear sus propias reglas de seguridad: puede usar las siguientes plantillas de Azure Resource Manager en lugar de la implementación de área de trabajo y la configuración de red virtual del portal.
+Si quiere más control sobre la configuración de la red virtual, por ejemplo, quiere usar las subredes existentes, usar grupos de seguridad de red existentes o crear sus propias reglas de seguridad, puede usar las siguientes plantillas de Azure Resource Manager en lugar de la configuración de red virtual del portal e implementación de área de trabajo.
 
 ### <a name="all-in-one"></a>Todo en uno
 
-Para crear una red virtual, grupos de seguridad de red y el área de trabajo de Azure Databricks todo en uno, use el [All-in-one plantilla para áreas de trabajo de Databricks VNet insertado](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
+Para crear una red virtual, grupos de seguridad de red y el área de trabajo de Azure Databricks todo en uno, use la plantilla disponible en [All-in-one Template for Databricks VNet Injected Workspaces](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/) (Plantilla Todo en uno para áreas de trabajo inyectadas de red virtual de Azure Databricks).
 
-Cuando use esta plantilla, no es necesario hacer cualquier whitelisting manual de tráfico de subred.
+Cuando use esta plantilla, no es necesario crear manualmente ninguna lista blanca de tráfico de subred.
 
 ### <a name="network-security-groups"></a>Grupos de seguridad de red
 
-Para crear grupos de seguridad de red con las reglas necesarias para una red virtual existente, use el [plantilla de grupo de seguridad de red para la inserción de la red virtual de Databricks](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
+Para crear grupos de seguridad de red con las reglas necesarias para una red virtual existente, use la plantilla disponible en [Network Security Group Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection) (Plantilla de grupo de seguridad de red para la inyección de red virtual de Azure Databricks).
 
-Cuando use esta plantilla, no es necesario hacer cualquier whitelisting manual de tráfico de subred.
+Cuando use esta plantilla, no es necesario crear manualmente ninguna lista blanca de tráfico de subred.
 
 ### <a name="virtual-network"></a>Virtual network
 
-Para crear una red virtual con las subredes públicas y privadas adecuadas, use la [plantilla de red Virtual para la inserción de la red virtual de Databricks](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection).
+Para crear una red virtual con las subredes públicas y privadas adecuadas, use la plantilla disponible en [Virtual Network Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection) (Plantilla de red virtual para la inyección de red virtual de Azure Databricks).
 
-Si usa esta plantilla sin usar también la plantilla de grupos de seguridad de red, debe agregar manualmente reglas de inclusión para los grupos de seguridad de red que use con la red virtual.
+Si usa esta plantilla sin también usar la plantilla de grupos de seguridad de red, debe agregar manualmente reglas de inclusión en la lista blanca a los grupos de seguridad de red que use con la red virtual.
 
-### <a name="azure-databricks-workspace"></a>El área de trabajo de Azure Databricks
+### <a name="azure-databricks-workspace"></a>Área de trabajo de Azure Databricks
 
-Para implementar un área de trabajo de Azure Databricks en una red virtual existente con subredes públicas y privadas y los grupos de seguridad de red configurados adecuadamente ya configurados, utilice el [plantilla del área de trabajo para la inserción de la red virtual de Databricks](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection).
+Para implementar un área de trabajo de Azure Databricks en una red virtual existente con subredes públicas y privadas, y los grupos de seguridad de red correctamente configurados ya establecidos, use la plantilla disponible en [Workspace Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-workspace-with-vnet-injection) (Plantilla de área de trabajo para la inyección de red virtual de Azure Databricks).
 
-Si usa esta plantilla sin usar también la plantilla de grupos de seguridad de red, debe agregar manualmente reglas de inclusión para los grupos de seguridad de red que use con la red virtual.
+Si usa esta plantilla sin también usar la plantilla de grupos de seguridad de red, debe agregar manualmente reglas de inclusión en la lista blanca a los grupos de seguridad de red que use con la red virtual.
 
-## <a name="whitelisting-subnet-traffic"></a>Inclusión en lista blanca el tráfico de subred
+## <a name="whitelisting-subnet-traffic"></a>Inclusión en lista blanca del tráfico de subred
 
-Si no usa el [portal Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) o [plantillas Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para crear grupos de seguridad de la red, debe manualmente tráfico de la siguiente lista de permitidos en las subredes.
+Si no usa [Azure Portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) o las [plantillas de Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para crear grupos de seguridad de red, debe colocar manualmente en la lista blanca el siguiente tráfico en las subredes.
 
 |Dirección|Protocolo|Origen|Puerto de origen|Destino|Puerto de destino|
 |---------|--------|------|-----------|-----------|----------------|
 |Entrada|\*|VirtualNetwork|\*|\*|\*|
 |Entrada|\*|Dirección IP de NAT de plano de control|\*|\*|22|
-|Entrada|\*|Dirección IP de NAT de plano de control|\*|\*|5557|
-|Salida|\*|\*|\*|IP de la aplicación Web|\*|
+|Entrada|\*|Dirección IP de NAT del plano de control|\*|\*|5557|
+|Salida|\*|\*|\*|IP de la aplicación web|\*|
 |Salida|\*|\*|\*|SQL (etiqueta de servicio)|\*|
 |Salida|\*|\*|\*|Almacenamiento (etiqueta de servicio)|\*|
 |Salida|\*|\*|\*|VirtualNetwork|\*|
 
-Direcciones en la lista blanca el tráfico de subred mediante la siguiente dirección IP. (Tienda de metadatos) de SQL y Storage (almacenamiento de registro y artefacto), debe usar el Sql y Storage [etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Colocar en la lista blanca el tráfico de subred con las siguientes direcciones IP. Para SQL (metastore) y Storage (almacenamiento de artefactos y registros), debe usar las [etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de SQL y Storage.
 
 |Región de Azure Databricks|Servicio|Dirección IP pública|
 |-----------------------|-------|---------|
-|Este de EE. UU|Plano de control de NAT </br></br>Aplicación Web|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Este de EE. UU. 2|Plano de control de NAT </br></br>Aplicación Web|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Centro-Norte de EE. UU|Plano de control de NAT </br></br>Aplicación Web|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Centro de EE. UU.|Plano de control de NAT </br></br>Aplicación Web|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Centro-Sur de EE. UU|Plano de control de NAT </br></br>Aplicación Web|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Oeste de EE. UU.|Plano de control de NAT </br></br>Aplicación Web|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Oeste de EE. UU. 2|Plano de control de NAT </br></br>Aplicación Web|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Centro de Canadá|Plano de control de NAT </br></br>Aplicación Web|40.85.223.25/32 </br></br>13.71.184.74/32|
-|Este de Canadá|Plano de control de NAT </br></br>Aplicación Web|40.85.223.25/32 </br></br>13.71.184.74/32|
-|Oeste de Reino Unido|Plano de control de NAT </br></br>Aplicación Web|51.140.203.27/32 </br></br>51.140.204.4/32|
-|Sur de Reino Unido 2|Plano de control de NAT </br></br>Aplicación Web|51.140.203.27/32 </br></br>51.140.204.4/32|
-|Europa occidental|Plano de control de NAT </br></br>Aplicación Web|23.100.0.135/32 </br></br>52.232.19.246/32|
-|Europa del Norte|Plano de control de NAT </br></br>Aplicación Web|23.100.0.135/32 </br></br>52.232.19.246/32|
-|India Central|Plano de control de NAT </br></br>Aplicación Web|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Sur de la India|Plano de control de NAT </br></br>Aplicación Web|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Oeste de la India|Plano de control de NAT </br></br>Aplicación Web|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Sudeste de Asia|Plano de control de NAT </br></br>Aplicación Web|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Asia oriental|Plano de control de NAT </br></br>Aplicación Web|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Este de Australia|Plano de control de NAT </br></br>Aplicación Web|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Sudeste de Australia|Plano de control de NAT </br></br>Aplicación Web|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Centro de Australia|Plano de control de NAT </br></br>Aplicación Web|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Centro de Australia 2|Plano de control de NAT </br></br>Aplicación Web|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Este de Japón|Plano de control de NAT </br></br>Aplicación Web|13.78.19.235/32 </br></br>52.246.160.72/32|
-|Oeste de Japón|Plano de control de NAT </br></br>Aplicación Web|13.78.19.235/32 </br></br>52.246.160.72/32|
+|Este de EE. UU|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Este de EE. UU. 2|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Centro-Norte de EE. UU|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Centro de EE. UU.|NAT del plano de control </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Centro-Sur de EE. UU|NAT del plano de control </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|Oeste de EE. UU.|NAT del plano de control </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|Oeste de EE. UU. 2|NAT del plano de control </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|Centro de Canadá|NAT del plano de control </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
+|Este de Canadá|NAT del plano de control </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
+|Oeste de Reino Unido|NAT del plano de control </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
+|Sur de Reino Unido 2|NAT del plano de control </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
+|Europa occidental|NAT del plano de control </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Europa del Norte|NAT del plano de control </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|India Central|NAT del plano de control </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Sur de la India|NAT del plano de control </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Oeste de la India|NAT del plano de control </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Sudeste de Asia|NAT del plano de control </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
+|Asia oriental|NAT del plano de control </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
+|Este de Australia|NAT del plano de control </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Sudeste de Australia|NAT del plano de control </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Centro de Australia|NAT del plano de control </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Centro de Australia 2|NAT del plano de control </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Este de Japón|NAT del plano de control </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
+|Oeste de Japón|NAT del plano de control </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
 ## <a name="troubleshooting"></a>solución de problemas
 
 ### <a name="workspace-launch-errors"></a>Errores de inicio del área de trabajo
 
-Iniciar un área de trabajo en una red virtual personalizada se produce un error en el Azure Databricks pantalla con el siguiente error de inicio de sesión: **"Nos hemos encontrado un error al crear el área de trabajo. Asegúrese de que la configuración de red personalizada es correcta y vuelva a intentarlo."**
+Se produce el siguiente error al iniciar un área de trabajo en una red virtual personalizada en la pantalla de inicio de sesión de Azure Databricks: **"We've encountered an error creating your workspace. Make sure the custom network configuration is correct and try again" (Hubo un error al crear el área de trabajo. Asegúrese de que la configuración de red personalizada sea correcta y pruebe otra vez).**
 
-Este error se debe a una configuración de red no cumple los requisitos. Confirme que ha seguido las instrucciones de este tema cuando creó el área de trabajo.
+Este error se debe a una configuración de red que no cumple los requisitos. Confirme que siguió las instrucciones de este tema al crear el área de trabajo.
 
 ### <a name="cluster-creation-errors"></a>Errores de creación de clúster
 
-**Instancias inaccesibles: Los recursos no son accesibles a través de SSH.**
+**Instancias inaccesibles: los recursos no son accesibles a través de SSH.**
 
-Causa posible: se bloquea el tráfico del plano de control a los trabajadores. Corregir asegurándose de que las reglas de seguridad de entrada cumplen los requisitos. Si va a implementar en una red virtual existente conectada a la red local, revise la configuración con la información proporcionada en el área de trabajo de Azure Databricks al conectar a la red local.
+Causa posible: el tráfico del plano de control a los trabajos está bloqueado. Para corregirlo, asegúrese de que las reglas de seguridad de entrada cumplan los requisitos. Si va a implementar en una red virtual existente conectada a la red local, revise la configuración con la información que se proporciona en Connecting your Azure Databricks Workspace to your On-Premises Network.
 
-**Error de inicio inesperado: Se detectó un error inesperado al configurar el clúster. Vuelva a intentar y póngase en contacto con Azure Databricks si el problema persiste. Mensaje de error interno: Tiempo de espera mientras se coloca el nodo.**
+**Error de inicio inesperado: hubo un error inesperado al configurar el clúster. Pruebe otra vez y póngase en contacto con Azure Databricks si el problema persiste. Mensaje de error interno: tiempo de espera al colocar el nodo.**
 
-Causa posible: se bloquea el tráfico de los trabajadores a puntos de conexión de Azure Storage. Corregir asegurándose de que las reglas de seguridad de salida cumplen los requisitos. Si usa servidores DNS personalizados, compruebe también el estado de los servidores DNS de la red virtual.
+Causa posible: el tráfico de los trabajados a los puntos de conexión de Azure Storage está bloqueado. Para corregirlo, asegúrese de que las reglas de seguridad de salida cumplan los requisitos. Si usa servidores DNS personalizados, compruebe también el estado de los servidores DNS de la red virtual.
 
-**Error de inicio del proveedor de nube: Se encontró un error de proveedor en la nube al configurar el clúster. Consulte a la Guía de Azure Databricks para obtener más información. Código de error de Azure: AuthorizationFailed/InvalidResourceReference.**
+**Error de inicio del proveedor de nube: hubo un error de proveedor de nube al configurar el clúster. Consulte la guía de Azure Databricks para obtener más información. Código de error de Azure: AuthorizationFailed/InvalidResourceReference.**
 
-Posible causa: la red virtual o las subredes ya no existe. Asegúrese de que existen la red virtual y subredes.
+Posible causa: la red virtual o las subredes ya no existen. Asegúrese de la red virtual y las subredes existen.
 
-**Se terminó el clúster. Motivo: Error de inicio de Spark: Spark no pudo iniciarse en el tiempo. Este problema puede deberse a una tienda de metadatos de Hive que no funciona correctamente, las configuraciones de Spark no válidas o scripts de init no funciona correctamente. Consulte los registros de controlador de Spark para solucionar este problema y póngase en contacto con Databricks si el problema persiste. Mensaje de error interno: No se pudo iniciar Spark: El controlador no pudo iniciar en el tiempo.**
+**Clúster terminado. Motivo: error de inicio de Spark. Spark no pudo iniciarse a tiempo. Este problema puede deberse a Hive Metastore que no funciona correctamente, configuraciones de Spark no válidas o scripts de init que no funcionan correctamente. Consulte los registros de controlador de Spark para solucionar este problema y póngase en contacto con Azure Databricks si el problema persiste. Mensaje de error interno: no se pudo iniciar Spark. El controlador no se inició a tiempo.**
 
-Causa posible: Contenedor no puede comunicarse con la instancia que hospeda o cuenta de almacenamiento DBFS. Corregir mediante la adición de una ruta personalizada para las subredes de la cuenta de almacenamiento DBFS con el próximo salto que se va a Internet.
+Causa posible: el contenedor no puede comunicarse con la instancia que hospeda o la cuenta de almacenamiento DBFS. Para corregirlo, agregue una ruta personalizada a las subredes de la cuenta de almacenamiento DBFS con el próximo salto siendo Internet.
 
-### <a name="notebook-command-errors"></a>Errores del comando de Bloc de notas
+### <a name="notebook-command-errors"></a>Errores del comando de Notebook
 
-**Comando no responde**
+**El comando no responde**
 
-Causa posible: se bloquea la comunicación de trabajo para el trabajo. Corregir asegurándose de que las reglas de seguridad de entrada cumplen los requisitos.
+Causa posible: la comunicación de trabajo a trabajo está bloqueada. Para corregirlo, asegúrese de que las reglas de seguridad de entrada cumplan los requisitos.
 
-**Se produce un error en el flujo de trabajo de Bloc de notas con la excepción: com.databricks.WorkflowException: org.apache.http.conn.ConnectTimeoutException**
+**Se produce un error en el flujo de trabajo de Notebook con la excepcióncom.databricks.WorkflowException: org.apache.http.conn.ConnectTimeoutException**
 
-Causa posible: se bloquea el tráfico de los trabajadores a Webapp de Azure Databricks. Corregir asegurándose de que los requisitos de las reglas de seguridad de salida.
+Causa posible: el tráfico de los trabajos a Azure Databricks Webapp está bloqueado. Para corregirlo, asegúrese de que las reglas de seguridad de salida cumplan los requisitos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

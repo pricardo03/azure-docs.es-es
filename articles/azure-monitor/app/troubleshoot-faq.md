@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
 ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604284"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas más frecuentes
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
 
 ## <a name="configuration-problems"></a>Problemas de configuración
 *Tengo problemas con la configuración de:*
@@ -132,7 +132,7 @@ Sí, en el servidor puede escribir:
 
 Más información sobre [ASP.NET](api-filtering-sampling.md) o [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>¿Cómo se calculan ciudad, país o región y otros datos de ubicación geográfica?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>¿Cómo se calculan los datos de ciudad, país o región y otra información de ubicación geográfica?
 
 Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
@@ -153,7 +153,7 @@ Es posible si el código envía tales datos. También puede ocurrir si las varia
 
 **Todos** los octetos de la dirección web del cliente siempre se establecen en 0 después de que se buscan los atributos de ubicación geográfica.
 
-## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mi clave de instrumentación es visible en mi página web de origen. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mi clave de instrumentación es visible en el origen de mi página web. 
 
 * Esta es una práctica común en las soluciones de supervisión.
 * No se puede usar para robar sus datos.
@@ -162,7 +162,7 @@ Es posible si el código envía tales datos. También puede ocurrir si las varia
 
 Podría:
 
-* Use dos diferentes claves de instrumentación (separe los recursos de Application Insights), para los datos de cliente y servidor. O
+* Usar dos claves de instrumentación independientes (recursos independientes de Application Insights) para los datos de cliente y servidor. o
 * Escribir un servidor proxy que se ejecute en el servidor y hacer que el cliente web envíe datos a través de dicho servidor proxy.
 
 ## <a name="post"></a>¿Cómo puedo ver datos POST en Búsqueda de diagnóstico?
@@ -288,12 +288,12 @@ La puerta de enlace debe redirigir el tráfico a la dirección base del punto de
 
 _Tenga en cuenta que ApplicationIdProvider está disponible a partir de la versión 2.6.0_
 
-### <a name="proxy-passthrough"></a>Paso a través del proxy
+### <a name="proxy-passthrough"></a>Paso a través de proxy
 
-Paso a través del proxy se puede lograr mediante la configuración de un nivel de equipo o en el nivel de aplicación proxy.
-Para obtener más información consulte el artículo de dotnet en [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+El paso a través de proxy se puede lograr mediante la configuración de un proxy de nivel de equipo o de nivel de aplicación.
+Para obtener más información, vea el artículo de dotnet sobre [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
- Ejemplo Web.config:
+ Ejemplo de Web.config:
  ```xml
 <system.net>
     <defaultProxy>

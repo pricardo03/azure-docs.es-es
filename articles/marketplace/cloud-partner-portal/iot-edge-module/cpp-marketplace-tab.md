@@ -1,5 +1,5 @@
 ---
-title: Descripción de Marketplace para un módulo de Azure IoT Edge | Azure Marketplace
+title: Descripción de Marketplace de un módulo Azure IoT Edge | Azure Marketplace
 description: Cree la descripción de Marketplace de un módulo IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942414"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Pestaña Marketplace de módulo IoT Edge
 
-La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este formato largo se divide en cuatro secciones: **Información general sobre**, **artefactos de Marketing**, **administración de clientes potenciales**, y **Legal**.
+La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este largo formulario se divide en cuatro secciones: **Información general**, **Artefactos de Marketing**, **Administración de clientes potenciales** e **Información legal**.
 
 
 ## <a name="overview"></a>Información general
@@ -32,8 +32,8 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos. 
 | **Título\***                 | Título de la oferta. Se muestra de forma destacada en Marketplace.  La longitud máxima es de 50 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Resumen\***               | Breve resumen de la oferta. Tiene una longitud máxima de 100 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Resumen largo\***          | Resumen más largo de la oferta (aunque podría ser igual que el **resumen**).  Tiene una longitud máxima de 256 caracteres. <!--ADD PICTURE IN ACTION-->|
-| **Descripción\***           | Descripción de la oferta.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple.<br/> Debe incluir un párrafo de *requisitos mínimos de hardware* en la parte inferior. Por ejemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> X64 de Linux y OS arm32, 1 GB de RAM, 500 Mb de almacenamiento</p>
-| **Identificador de marketing\***  | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres.  Por ejemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Descripción\***           | Descripción de la oferta.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple.<br/> Debe incluir un párrafo de *requisitos mínimos de hardware* en la parte inferior. Por ejemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Sistema operativo Linux x64 y arm32, 1 GB de RAM, 500 MB de almacenamiento</p>
+| **Identificador de marketing\***  | Dirección URL única para asociar a esta oferta, normalmente incluye la organización y el nombre de la solución, longitud máxima de 50 caracteres.  Por ejemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Id. de suscripción de versión preliminar** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
 | **Vínculos útiles**          | Selección múltiple de categorías empresariales y técnicas con las que mejor se puede asociar la oferta.  Se permite un máximo de diez. Asegúrese de agregar al menos un vínculo a la documentación y un vínculo a los dispositivos de IoT Edge compatibles desde el [catálogo de dispositivos de IoT de Azure](https://catalog.azureiotsolutions.com/). |
 | **Categorías sugeridas\*** | Elija un máximo de cinco categorías. Se muestran en la página de detalles del producto. En las páginas de exploración, todos los módulos IoT Edge aparecen en la categoría *Internet de las cosas \>Módulo IoT Edge*.|
@@ -75,7 +75,7 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos. 
 
 ## <a name="marketing-artifacts"></a>Artefactos de marketing
 
-En esta sección tiene las siguientes subsecciones: **Logotipos**, **captura de pantalla**, y **vídeos**. 
+Esta sección incluye las siguientes subsecciones: **Logotipos**, **Captura de pantalla** y **Vídeos**. 
 
 >[!Note]
 >Los logotipos son los únicos artefactos de marketing obligatorios, aunque todos son muy recomendables para atraer al consumidor.
@@ -88,7 +88,7 @@ En esta sección tiene las siguientes subsecciones: **Logotipos**, **captura de 
 | **Pequeña\***                 | Formato PNG de 40 x 40 píxeles                                                     |
 | **Mediana\***                | Formato PNG de 90 x 90 píxeles                                                     |
 | **Grande\***                 | Formato PNG de 115 x 115 píxeles                                                  |
-| **Wide\***                  | Formato PNG de 255 x 115 píxeles                                                   |
+| **Ancho\***                  | Formato PNG de 255 x 115 píxeles                                                   |
 | **Imagen prominente**                  | Formato PNG de 815 x 290 píxeles.  Opcional, aunque una vez cargado, el icono de la imagen prominente no se puede eliminar. |
 | *Capturas de pantalla*  | Las capturas de pantalla se muestran en la página de detalles del producto. Son una excelente forma de comunicar de manera visual lo que hace el módulo IoT Edge y cómo funciona. Por ejemplo, puede mostrar diagramas de arquitectura o ilustraciones de casos de uso. Opcional, aunque un máximo de cinco capturas de pantalla por SKU. |
 | **Nombre**                  | Nombre o título. Tiene una longitud máxima de 100 caracteres.                             |
@@ -160,13 +160,13 @@ Después de publicar correctamente la oferta, se comprueba la conexión de clien
 
 ## <a name="legal"></a>Información legal
 
-En esta sección le permite ofrecer los dos documentos legales que son necesarios para cada oferta: Directiva de privacidad y Términos de uso.
+Esta sección permite ofrecer los dos documentos legales que son necesarios para cada oferta: Directiva de privacidad y Términos de uso.
 
 |  **Campo**                    |     **Descripción**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **URL de la política de privacidad\***      | Dirección URL de la directiva de privacidad publicada                                            |
-| **Usar Constract estándar\***  | Si se utiliza la plantilla estándar de contrato de Microsoft.  Para obtener más información, consulte [contrato estándar](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Términos de uso\***            | *Términos de uso* como en línea simple HTML o un vínculo a sus expuestos página términos de uso     |
+| **Dirección URL de la directiva de privacidad\***      | Dirección URL de la directiva de privacidad publicada                                            |
+| **Usar el Contrato estándar\***  | Si se usa la plantilla de contrato estándar de Microsoft.  Para más información, consulte [Contrato estándar](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Términos de uso\***            | *Términos de uso* como HTML simple insertado o vínculo a la página de términos de uso publicados     |
 |  |  |
 
 

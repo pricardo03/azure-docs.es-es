@@ -12,10 +12,10 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510062"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
@@ -26,7 +26,7 @@ En este artículo se analiza la habilitación de Hyper-V en una máquina virtual
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Creación de una máquina virtual de Azure compatible con el anidamiento
 
-Cree una nueva máquina virtual de Azure con Windows Server 2016.  Como referencia rápida, todas las máquinas virtuales de v3 admiten la virtualización anidada. Para una lista completa de los tamaños de máquina virtual que admiten anidamiento, visite el artículo [Unidad de proceso de Azure (ACU)](acu.md).
+Cree una nueva máquina virtual de Azure con Windows Server 2016.  Como referencia rápida, todas las máquinas virtuales v3 admiten la virtualización anidada. Para una lista completa de los tamaños de máquina virtual que admiten anidamiento, visite el artículo [Unidad de proceso de Azure (ACU)](acu.md).
 
 Recuerde elegir un tamaño de máquina virtual lo suficientemente grande para admitir las exigencias de una invitada. En este ejemplo, se usa una máquina virtual con tamaño D3_v3. 
 

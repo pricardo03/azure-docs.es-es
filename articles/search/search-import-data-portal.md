@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024775"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Asistente para la importación de datos de Azure Search
@@ -27,7 +27,7 @@ Azure Portal incluye un asistente para **importar datos** en el panel de Azure S
 
 El asistente no puede conectarse a un índice predefinido ni ejecutar un indexador existente, pero en el propio asistente puede configurar un nuevo índice o indexador para admitir la estructura y los comportamientos que necesite.
 
-¿Es la primera vez que usa Azure Search? Consulte el artículo [Inicio rápido: Importar, indexar y consultar mediante herramientas de portal](search-get-started-portal.md) prueben importando y utilizando la indización **importar datos** y el conjunto de datos de ejemplo inmobiliarias.
+¿Es la primera vez que usa Azure Search? Consulte el artículo [Inicio rápido: Uso de herramientas del portal para la importación, indexación y consultas](search-get-started-portal.md) para probar la importación e indexación mediante la opción **Importar datos** y el conjunto de datos real estate de ejemplo integrado.
 
 ## <a name="start-importing-data"></a>Inicio de la importación de datos
 
@@ -77,17 +77,17 @@ El asistente para la **importación de datos** crea un objeto de origen de datos
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (no es compatible con canalizaciones de [búsquedas cognitivas](cognitive-search-concept-intro.md))
 
-Solo se puede importar desde una sola tabla, vista de base de datos o estructura de datos equivalente, sin embargo, la estructura puede incluir subestructuras jerárquicas o anidadas. Para obtener más información, consulte [modelado de tipos complejos](search-howto-complex-data-types.md).
+Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente; sin embargo, la estructura puede incluir subestructuras jerárquicas o anidadas. Para más información, consulte el artículo sobre la [Cómo modelar tipos complejos](search-howto-complex-data-types.md).
 
-Debe crear esta estructura de datos antes de ejecutar al asistente y debe contener contenido. No ejecute la **importar datos** asistente en un origen de datos vacía.
+Debe crear esta estructura de datos antes de ejecutar el asistente y debe incluir contenido. No ejecute el asistente para **Importar datos** en un origen de datos vacío.
 
 |  Número de selección | DESCRIPCIÓN |
 | ---------- | ----------- |
 | **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, puede seleccionar una definición de origen de datos existente para otra importación. En Azure Search, solo los indexadores usan objetos de origen de datos. Puede crear un objeto de origen de datos mediante programación o con el asistente para la **importación de datos**.|
-| **Muestras**| Búsqueda de Azure hospeda libre global Azure SQL database que puede usar para obtener información acerca de las solicitudes de importación y la consulta en Azure Search. Consulte [Quickstart: Uso de herramientas del portal para la importación, indexación y consultas](search-get-started-portal.md) para ver un tutorial. |
-| **Azure SQL Database** |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
+| **Muestras**| Azure Search hospeda una base de datos de Azure SQL global y gratuita que puede usar para obtener información acerca de las solicitudes de importación y consulta en Azure Search. Consulte [Quickstart: Uso de herramientas del portal para la importación, indexación y consultas](search-get-started-portal.md) para ver un tutorial. |
+| **Azure SQL Database** |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
-| **Cosmos DB** |Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas, o dejar en blanco la consulta. No se requiere una consulta en este asistente.|
+| **Cosmos DB** |Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas o dejar en blanco la consulta. No se requiere una consulta en este asistente.|
 | **Azure Blob Storage** |Los requisitos incluyen la cuenta de almacenamiento y un contenedor. Opcionalmente, si los nombres de blobs siguen una convención de nomenclatura virtual con fines de agrupación, puede especificar la parte del directorio virtual del nombre como una carpeta en el contenedor. Consulte [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md) para más información. |
 | **Azure Table Storage** |Los requisitos incluyen la cuenta de almacenamiento y un nombre de tabla. Opcionalmente, puede especificar una consulta para recuperar un subconjunto de las tablas. Consulte [Indexación de Table Storage](search-howto-indexing-azure-tables.md) para más información. |
 

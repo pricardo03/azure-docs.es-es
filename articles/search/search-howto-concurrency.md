@@ -10,10 +10,10 @@ ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025334"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Cómo administrar la simultaneidad en Azure Search
@@ -27,7 +27,7 @@ Al administrar recursos de Azure Search, como los índices y los orígenes de da
 
 La simultaneidad optimista se implementa mediante comprobaciones de condiciones de acceso en las llamadas de API que se escriben en índices, indexadores, orígenes de datos y recursos de synonymMap.
 
-Todos los recursos tienen una [*etiqueta de entidad (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) que proporciona información sobre la versión del objeto. Si comprueba primero la etiqueta ETag, puede evitar que se produzcan actualizaciones simultáneas en un flujo de trabajo típico (obtener, modificar localmente, actualizar, etc.) asegurándose de que la etiqueta ETag del recurso coincida con la copia local.
+Todos los recursos tienen una [*etiqueta de entidad (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) que proporciona información sobre la versión del objeto. Si comprueba primero la etiqueta ETag, puede evitar que se produzcan actualizaciones simultáneas en un flujo de trabajo típico (obtener, modificar localmente, actualizar, etc.) asegurándose de que la etiqueta ETag del recurso coincida con la copia local.
 
 + La API de REST usa una etiqueta [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) en el encabezado de solicitud.
 + El SDK de .NET establece la etiqueta ETag mediante un objeto accessCondition, estableciendo el [encabezado If-Match | If-Match-None](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) en el recurso. Todos los objetos heredados de [IResourceWithETag (SDK de .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) tienen un objeto accessCondition.
@@ -170,7 +170,7 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
 
 Los modelos de diseño para la implementación de la simultaneidad optimista deben incluir un bucle que vuelva a intentar efectuar la comprobación de la condición de acceso, una prueba para la condición de acceso y, opcionalmente, que recupere un recurso actualizado antes de intentar aplicar de nuevo los cambios.
 
-En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [sinónimo C# ejemplo para Azure Search](search-synonyms-tutorial-sdk.md).
+En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [ejemplo C# de sinónimos para Azure Search](search-synonyms-tutorial-sdk.md).
 
 El fragmento de código obtiene el índice "hotels", comprueba la versión del objeto en una operación de actualización, genera una excepción si se produce un error en la condición y, después, vuelve a intentar efectuar la operación (hasta tres veces) a partir de la recuperación del índice desde el servidor para obtener la versión más reciente.
 
@@ -215,7 +215,7 @@ Intente modificar cualquiera de los ejemplos siguientes para que incluyan etique
 + [Ejemplo de API REST en GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Ejemplo de .NET SDK en GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solución incluye el proyecto "DotNetEtagsExplainer", que contiene el código presentado en este artículo.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Encabezados de solicitud y respuesta HTTP comunes](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [Códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

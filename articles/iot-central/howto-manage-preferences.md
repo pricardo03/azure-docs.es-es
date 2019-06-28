@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236323"
 ---
 # <a name="manage-your-application-preferences"></a>Administración de las preferencias de las aplicaciones
@@ -23,20 +23,20 @@ IoT Central proporciona la flexibilidad de personalizar las aplicaciones para qu
 
 ## <a name="changing-language"></a>Cambio de idioma
 
-IoT Central es compatible con varios idiomas. Puede cambiar su idioma preferido mediante la **selector de idioma** en el icono de configuración en la barra de navegación superior. Una vez que haya cambiado su idioma, IoT Central recordará su selección y lo aplica en todas sus aplicaciones. Personalización dentro de la aplicación que no están localizados a dichas imágenes del panel.
+IoT Central está disponible en varios idiomas. Puede cambiar el idioma preferido con el **selector de idioma** situado en el icono de configuración en la barra de navegación superior. Cuando haya cambiado el idioma, se IoT Central recordará su selección y se usará en todas las aplicaciones. La personalización dentro de la aplicación, como las imágenes del panel, no se localizará.
 
 ## <a name="changing-theme"></a>Cambio de tema
 
-Se admite el tema oscuro y el tema claro. Aunque el tema claro es el valor predeterminado, puede cambiar el tema seleccionando el icono de configuración en la barra de navegación superior.
+Se admite el tema oscuro y el tema claro. Aunque el tema claro es el valor predeterminado, puede cambiarlo si selecciona el icono de configuración en la barra de navegación superior.
 
 ![Selector de temas de IoT Central](media/howto-manage-preferences/settings.png)
 
 > [!NOTE]
-> La opción de elegir entre temas claros y oscuros no está disponible si el administrador ha configurado un tema personalizado para la aplicación.
+> La opción de elegir entre temas claros y oscuros no está disponible si su administrador ha configurado un tema personalizado para la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a administrar el perfil en Azure IoT Central, este es el paso siguiente sugerido:
 
 > [!div class="nextstepaction"]
-> [Chat en directo de alternancia](howto-show-hide-chat.md)
+> [Alternancia de chat en directo](howto-show-hide-chat.md)

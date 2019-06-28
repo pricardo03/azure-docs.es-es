@@ -67,19 +67,15 @@
         - name: Administración de recursos de la nube privada
           items:
             - name: Creación de una nube privada
-              href: 'https://docs.azure.cloudsimple.com/create-private-cloud/'
+              href: create-private-cloud.md
             - name: Administración de nubes privadas
-              href: 'https://docs.azure.cloudsimple.com/manage-private-cloud/'
+              href: manage-private-cloud.md
             - name: Expansión de una nube privada
-              href: 'https://docs.azure.cloudsimple.com/expand-private-cloud/'
-            - name: Reducción de una nube privada
-              href: 'https://docs.azure.cloudsimple.com/shrink-private-cloud/'
-            - name: Ver la lista de bastidores de la nube privada
-              href: 'https://docs.azure.cloudsimple.com/view-cloud-racks/'
+              href: expand-private-cloud.md
             - name: Asignación de la suscripción a Azure
-              href: 'https://docs.azure.cloudsimple.com/azure-subscription-mapping/'
+              href: azure-subscription-mapping.md
             - name: Escalado de privilegios
-              href: 'https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/'
+              href: escalate-private-cloud-privileges.md
         - name: Supervisión de una actividad de CloudSimple
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: Configuración de redes de la nube privada

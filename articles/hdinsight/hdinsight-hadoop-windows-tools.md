@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/24/2019
 ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926030"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabajo en el ecosistema de Apache Hadoop en HDInsight desde un equipo con Windows
@@ -33,7 +33,7 @@ Siga los pasos para [instalar y configurar Azure PowerShell](https://docs.micros
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilidades que puede ejecutar en un explorador
 Las utilidades siguientes tienen una interfaz de usuario web que se ejecuta en un explorador:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  es un shell interactivo, línea de comandos que se ejecuta en el explorador y desde el portal de Azure.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** es un shell de línea de comandos interactivo que se ejecuta en el explorador y desde Azure Portal.
 * **[Interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)** es una utilidad de administración y supervisión disponible en Azure Portal que se puede usar para administrar diferentes tipos de trabajos, como:
     * [Uso de Ambari con la API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Vista de Apache Hive en Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -78,13 +78,13 @@ Los clústeres de Apache Spark en HDInsight incluyen notebooks y kernels de Apac
 
 Si se da una situación en que debe usar una herramienta o tecnología que solo está disponible en Linux, tenga en cuenta las siguientes opciones:
 
-* **Bash en Ubuntu en Windows 10** proporciona un subsistema de Linux en Windows. Bash permite ejecutar utilidades de Linux directamente sin tener que mantener una instalación de Linux dedicada. Consulte [subsistema de Windows para la Guía de instalación de Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionan correctamente.
+* **Bash en Ubuntu en Windows 10** proporciona un subsistema de Linux en Windows. Bash permite ejecutar utilidades de Linux directamente sin tener que mantener una instalación de Linux dedicada. Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionarán.
 * **Docker para Windows** proporciona acceso a muchas herramientas basadas en Linux y se puede ejecutar directamente desde Windows. Por ejemplo, puede usar Docker para ejecutar al cliente Beeline para Hive directamente desde Windows. También puede usar Docker para ejecutar un notebook de Jupyter local y conectarse de forma remota con Spark en HDInsight. [Introducción a Docker para Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** permite examinar gráficamente el sistema de archivos del clúster a través de una conexión SSH.
 
-## <a name="cross-platform-tools"></a>Las herramientas multiplataforma
+## <a name="cross-platform-tools"></a>Herramientas multiplataforma
 
-La interfaz de la línea de comandos (CLI) de Azure es la experiencia de línea de comandos multiplataforma de Microsoft para administrar los recursos de Azure.  Para obtener más información, consulte [interfaz de línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+La interfaz de la línea de comandos (CLI) de Azure es la experiencia de línea de comandos multiplataforma de Microsoft para administrar los recursos de Azure.  Para obtener más información, consulte [Interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si no ha trabajado antes en clústeres basados en Linux, consulte los artículos siguientes:

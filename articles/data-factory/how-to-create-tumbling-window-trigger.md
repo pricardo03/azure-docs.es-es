@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
 ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152921"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
@@ -76,16 +76,16 @@ En la tabla siguiente se muestra una descripción general de los elementos JSON 
 
 | Elemento JSON | DESCRIPCIÓN | Type | Valores permitidos | Obligatorio |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Tipo de desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sí |
-| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | String | "Started," "Stopped," "Disabled" | Sí |
-| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute", "hour"  | Sí |
-| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. | Integer | Un número entero positivo. | Sí |
-| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | DateTime | Un valor DateTime. | Sí |
-| **endTime**| La última repetición, que puede ser en el pasado. | DateTime | Un valor DateTime. | Sí |
-| **delay** | La cantidad de tiempo para retrasar el inicio del procesamiento de datos de la ventana. La ejecución de la canalización se inicia después del tiempo de ejecución esperado más el tiempo de retraso establecido en **delay**. **delay** define el tiempo de espera del desencadenador antes de desencadenar una nueva ejecución. El valor de **delay** no altera el valor de **startTime** de la ventana. Por ejemplo, un valor **delay** de 00:10:00 implica un retraso de diez minutos. | TimeSpan<br/>(hh:mm:ss)  | Un valor de intervalo de tiempo donde el valor predeterminado es 00:00:00. | No |
-| **maxConcurrency** | Número de ejecuciones simultáneas del desencadenador que se activan para las ventanas que están listas. Por ejemplo, reponer las ejecuciones cada hora para el día de ayer genera veinticuatro ventanas. Si **maxConcurrency** = 10, los eventos del desencadenador se activan solo para las diez primeras ventanas (00:00-01:00 - 09:00-10:00). Una vez completadas las diez primeras ejecuciones de canalización desencadenadas, se activan las ejecuciones del desencadenador para las diez siguientes (10:00-11:00 - 19:00-20:00). Siguiendo con el ejemplo de **maxConcurrency** = 10, si hay diez ventanas listas, habrá también diez ejecuciones de canalización en total. Si solo hay una ventana lista, solo se producirá una ejecución de canalización. | Integer | Un número entero comprendido entre uno y cincuenta. | Sí |
-| **retryPolicy: Count** | El número de reintentos antes de que la ejecución de la canalización se marque como "error".  | Integer | Un entero, donde el valor predeterminado es 0 (ningún reintento). | No |
-| **retryPolicy: intervalInSeconds** | El retraso entre intentos de reintentos, especificado en segundos. | Integer | El número de segundos, donde el valor predeterminado es 30. | No |
+| **type** | Tipo de desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | Cadena | "TumblingWindowTrigger" | Sí |
+| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | Cadena | "Started," "Stopped," "Disabled" | Sí |
+| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Cadena | "minute", "hour"  | Sí |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. | Entero | Un número entero positivo. | Sí |
+| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | Datetime | Un valor DateTime. | Sí |
+| **endTime**| La última repetición, que puede ser en el pasado. | Datetime | Un valor DateTime. | Sí |
+| **delay** | La cantidad de tiempo para retrasar el inicio del procesamiento de datos de la ventana. La ejecución de la canalización se inicia después del tiempo de ejecución esperado más el tiempo de retraso establecido en **delay**. **delay** define el tiempo de espera del desencadenador antes de desencadenar una nueva ejecución. El valor de **delay** no altera el valor de **startTime** de la ventana. Por ejemplo, un valor **delay** de 00:10:00 implica un retraso de diez minutos. | TimeSpan<br/>(hh:mm:ss)  | Un valor de intervalo de tiempo donde el valor predeterminado es 00:00:00. | Sin |
+| **maxConcurrency** | Número de ejecuciones simultáneas del desencadenador que se activan para las ventanas que están listas. Por ejemplo, reponer las ejecuciones cada hora para el día de ayer genera veinticuatro ventanas. Si **maxConcurrency** = 10, los eventos del desencadenador se activan solo para las diez primeras ventanas (00:00-01:00 - 09:00-10:00). Una vez completadas las diez primeras ejecuciones de canalización desencadenadas, se activan las ejecuciones del desencadenador para las diez siguientes (10:00-11:00 - 19:00-20:00). Siguiendo con el ejemplo de **maxConcurrency** = 10, si hay diez ventanas listas, habrá también diez ejecuciones de canalización en total. Si solo hay una ventana lista, solo se producirá una ejecución de canalización. | Entero | Un número entero comprendido entre uno y cincuenta. | Sí |
+| **retryPolicy: Count** | El número de reintentos antes de que la ejecución de la canalización se marque como "error".  | Entero | Un entero, donde el valor predeterminado es 0 (ningún reintento). | Sin |
+| **retryPolicy: intervalInSeconds** | El retraso entre intentos de reintentos, especificado en segundos. | Entero | El número de segundos, donde el valor predeterminado es 30. | Sin |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variables del sistema WindowStart y WindowEnd
 
@@ -170,31 +170,31 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     }
     ```
 
-2. Crear un desencadenador mediante el **conjunto AzDataFactoryV2Trigger** cmdlet:
+2. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger**:
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Confirme que el estado del desencadenador es **detenido** utilizando el **Get AzDataFactoryV2Trigger** cmdlet:
+3. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Inicie el desencadenador mediante el **inicio AzDataFactoryV2Trigger** cmdlet:
+4. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**:
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme que el estado del desencadenador es **iniciado** utilizando el **Get AzDataFactoryV2Trigger** cmdlet:
+5. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Obtenga ejecuciones del desencadenador en Azure PowerShell mediante el uso de la **Get AzDataFactoryV2TriggerRun** cmdlet. Para obtener información sobre cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
+6. Haga que el desencadenador se ejecute en Azure PowerShell mediante el cmdlet **Get-AzDataFactoryV2TriggerRun**. Para obtener información sobre cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"

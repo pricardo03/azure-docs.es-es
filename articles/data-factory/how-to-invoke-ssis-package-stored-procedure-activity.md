@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154936"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
@@ -108,7 +108,7 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
         ```
 
         ![Servicio vinculado de Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
+6. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>** .
 
     ![Comprobar la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Publique la canalización en Data Factory con un clic en el botón **Publish All** (Publicar todo). 
@@ -258,7 +258,7 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
     }
     ```
 
-2. Para crear la canalización: **RunSSISPackagePipeline**, ejecute el **conjunto AzDataFactoryV2Pipeline** cmdlet.
+2. Para crear la canalización: **RunSSISPackagePipeline**, ejecute el cmdlet **Set-AzDataFactoryV2Pipeline**.
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -275,7 +275,7 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
     ```
 
 ### <a name="create-a-pipeline-run"></a>Creación de una ejecución de canalización
-Use la **Invoke AzDataFactoryV2Pipeline** para ejecutar la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
+Use el cmdlet **Invoke-AzDataFactoryV2Pipeline** para ejecutar la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
 
 ```powershell
 $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
@@ -332,17 +332,17 @@ En el paso anterior, invocó la canalización a petición. También puede crear 
     }    
     ```
 2. En **Azure PowerShell**, cambie a la carpeta **C:\ADF\RunSSISPackage**.
-3. Ejecute el **conjunto AzDataFactoryV2Trigger** cmdlet, que crea el desencadenador. 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2Trigger**, que crea el desencadenador. 
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. De manera predeterminada, el desencadenador está en estado detenido. Inicio del desencadenador mediante la ejecución de la **inicio AzDataFactoryV2Trigger** cmdlet. 
+4. De manera predeterminada, el desencadenador está en estado detenido. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**. 
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. Confirme que el desencadenador se inicia ejecutando el **Get AzDataFactoryV2Trigger** cmdlet. 
+5. Confirme que el desencadenador se ha iniciado al ejecutar el cmdlet **Get-AzDataFactoryV2Trigger**. 
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     

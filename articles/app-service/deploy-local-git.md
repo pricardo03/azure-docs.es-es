@@ -15,10 +15,10 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956073"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local a Azure App Service
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-with-kudu-builds"></a>Implementar con compilaciones de Kudu
+## <a name="deploy-with-kudu-builds"></a>Implementación con compilaciones de Kudu
 
 La manera más fácil de habilitar la implementación de GIT local para la aplicación con el servidor de compilación Kudu es utilizar Cloud Shell.
 
@@ -102,7 +102,7 @@ Es posible que vea la automatización específica para el entorno de tiempo de e
 
 Vaya a la aplicación para comprobar que se implementó el contenido.
 
-## <a name="deploy-with-azure-devops-builds"></a>Implementar con compilaciones de Azure DevOps
+## <a name="deploy-with-azure-devops-builds"></a>Implementación con compilaciones de Azure DevOps
 
 > [!NOTE]
 > Para que App Service cree las instancias necesarias de Azure Pipelines en la organización de Azure DevOps Services, la cuenta de Azure debe tener el rol de **propietario** en la suscripción a Azure.
@@ -114,14 +114,14 @@ En el panel de navegación de la izquierda de la página de la aplicación, haga
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Haga clic en **canalizaciones de Azure (versión preliminar)** > **continuar**.
+Haga clic en **Azure Pipelines (versión preliminar)**  > **Continuar**.
 
 ![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-En el **configurar** página, configurar una nueva organización de DevOps de Azure o especificar una organización existente. Cuando haya terminado, haga clic en **Continuar**.
+En la página **Configurar**, cree una organización de Azure DevOps o especifique una organización existente. Cuando haya terminado, haga clic en **Continuar**.
 
 > [!NOTE]
-> Si desea utilizar una organización existente de DevOps de Azure que no aparece, deberá [vincular la organización de servicios de DevOps de Azure a su suscripción de Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Si quiere usar una organización existente de Azure DevOps que no aparece, debe [vincular la organización de Azure DevOps Services a la suscripción de Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea habilitar ranuras de implementación y después haga clic en **Continuar**.
 

@@ -12,13 +12,13 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541731"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Capacidades de búsqueda cognitiva en desuso
+# <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
 
 En este documento se describen las aptitudes cognitivas que se consideran en desuso. Use la siguiente guía para el contenido:
 
@@ -31,7 +31,7 @@ En este documento se describen las aptitudes cognitivas que se consideran en des
 
 ### <a name="last-available-api-version"></a>Última versión de API disponible
 
-2019-05-06-preview
+2019-05-06-Preview
 
 ### <a name="end-of-support"></a>Finalización del soporte técnico
 
@@ -148,7 +148,7 @@ Para migrar a la [aptitud de reconocimiento de entidades con nombre](cognitive-s
         }
         ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

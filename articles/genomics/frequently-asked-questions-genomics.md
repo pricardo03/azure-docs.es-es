@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics: Preguntas frecuentes: preguntas más frecuentes | Microsoft Docs'
+title: 'Microsoft Genomics: Preguntas frecuentes (P+F) | Microsoft Docs'
 titleSuffix: Azure
 description: Aquí encontrará respuestas a las preguntas que hicieron los clientes sobre Microsoft Genomics.
 services: genomics
@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792633"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Preguntas frecuentes
@@ -28,7 +28,7 @@ A continuación, se incluye una lista de errores comunes que pueden surgir y su 
 
 | **Mensaje**                                                                                                                                                                                    | **Causa**                                                                                                    | **Resolución**                                                                                                                                                                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo` no está habilitado para la cuenta. Para obtener más información, vea https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics.                               | Está intentando ejecutar flujos de trabajo de GATK4 sin que el servicio de Microsoft Genomics esté activado.       | Vaya [aquí](https://aka.ms/msgatk4) para activar la cuenta. Tenga en cuenta que la versión de prueba caduca el 30 de junio de 2019. Tras esta fecha, no podrá activar la cuenta para las ejecuciones promocionales. |
+| `gatk4-promo` no está habilitado para la cuenta. Para obtener más información, vea https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics.                               | Está intentando ejecutar flujos de trabajo de GATK4 sin que el servicio de Microsoft Genomics esté activado.       | Vaya [aquí](https://aka.ms/msgatk4) para activar la cuenta. Tenga en cuenta que la versión de prueba expira el 30 de junio de 2019. Tras esta fecha, no podrá activar la cuenta para las ejecuciones promocionales. |
 | Gracias por probar `gatk4-promo`. Ha finalizado el período de prueba. Para obtener más información, https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics.                  | El período de prueba de GATK4 ha expirado a finales del año natural y esta intentando invocar el process_name `gatk4-promo`.  | Cambie el parámetro process_name por `gatk4`, en lugar de `gatk4-promo`. Esta es la versión oficial de GATK4 y, si usa este parámetro, se facturará el flujo de trabajo.                                         |
 | Gracias por probar `gatk4-promo`. Ha utilizado todas las ejecuciones asignadas. Para obtener más información, vea https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics. | Ha enviado correctamente las 20 ejecuciones promocionales para GATK4.                               | Envíe cualquier ejecución nueva de GATK4 con el argumento process_name establecido en `gatk4`, en lugar de `gatk4-promo`. El flujo de trabajo se facturará cuando use este parámetro.                                                          |        
 
@@ -91,13 +91,13 @@ msgen comprende los archivos de configuración en el formato siguiente:
 
   |Argumento de línea de comandos            | Línea del archivo de configuración |
   |:-------------                   |:-------------                 |
-  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
   |`-k/--access-key KEY`            | *access_key:KEY*              |      
   |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Use los siguientes recursos para empezar a trabajar con Microsoft Genomics:
-- Ejecutar el primer flujo de trabajo mediante el servicio de Microsoft Genomics. [Ejecutar un flujo de trabajo a través del servicio Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Ejecutar el primer flujo de trabajo mediante el servicio de Microsoft Genomics. [Ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Enviar sus propios datos para que el servicio de Microsoft Genomics los procese: [FASTQ emparejados](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [varios FASTQ o BAM](quickstart-input-multiple.md) 
 

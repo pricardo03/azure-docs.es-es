@@ -14,36 +14,36 @@ ms.workload: infrastructure-services
 ms.date: 05/01/219
 ms.author: bwren
 ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234205"
 ---
-# <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar datos de registro de Azure Monitor en Power BI
+# <a name="import-azure-monitor-log-data-into-power-bi"></a>Importación de datos de registro de Azure Monitor en Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es un servicio de análisis empresarial basado en la nube de Microsoft que proporciona unos excelentes informes y visualizaciones para el análisis de los distintos conjuntos de datos.  Puede importar los resultados de una consulta de registro de Azure Monitor en un conjunto de datos de Power BI para que pueda sacar provecho de sus características, como combinar datos de orígenes diferentes y compartir informes en la web y dispositivos móviles.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es un servicio de análisis empresarial basado en la nube de Microsoft que proporciona unos excelentes informes y visualizaciones para el análisis de los distintos conjuntos de datos.  Puede importar los resultados de una consulta de registro de Azure Monitor en un conjunto de datos de Power BI para poder beneficiarse de sus características, como la combinación de datos de diferentes orígenes y el uso compartido de informes en dispositivos web y móviles.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Información general
-Para importar datos desde un [área de trabajo de Log Analytics](manage-access.md) en Azure Monitor en Power BI, se crea un conjunto de datos en Power BI según un [consulta de registro](../log-query/log-query-overview.md) en Azure Monitor.  La consulta se ejecuta cada vez que se actualiza el conjunto de datos.  Después, puede crear informes de Power BI que usen datos del conjunto de datos.  Para crear el conjunto de datos en Power BI, exporte la consulta de Log Analytics al [lenguaje de Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Después, use esto para crear una consulta en Power BI Desktop y publíquela en Power BI como un conjunto de datos.  A continuación se describen los detalles de este proceso.
+Para importar en Power BI datos de un [área de trabajo de Log Analytics](manage-access.md) en Azure Monitor, debe crear un conjunto de datos en Power BI basado en una [consulta de registro](../log-query/log-query-overview.md) en Azure Monitor.  La consulta se ejecuta cada vez que se actualiza el conjunto de datos.  Después, puede crear informes de Power BI que usen datos del conjunto de datos.  Para crear el conjunto de datos en Power BI, exporte la consulta de Log Analytics al [lenguaje de Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Después, use esto para crear una consulta en Power BI Desktop y publíquela en Power BI como un conjunto de datos.  A continuación se describen los detalles de este proceso.
 
 ![Log Analytics a Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Exportación de consultas
-Comience creando un [consulta registros](../log-query/log-query-overview.md) que devuelve los datos que desea rellenar el conjunto de datos de Power BI.  Después, exporte dicha consulta al [lenguaje de Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx), que es el que Power BI Desktop puede utilizar.
+Empiece por crear una [consulta de registro](../log-query/log-query-overview.md) que devuelva los datos con los que quiera rellenar el conjunto de datos de Power BI.  Después, exporte dicha consulta al [lenguaje de Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx), que es el que Power BI Desktop puede utilizar.
 
-1. [Crear la consulta de registros en Log Analytics](../log-query/get-started-portal.md) para extraer los datos para el conjunto de datos.
-2. Seleccione **exportar** > **Power BI Query (M)**.  Exporta la consulta a un archivo de texto denominado **PowerBIQuery.txt**. 
+1. [Cree la consulta de registro en Log Analytics](../log-query/get-started-portal.md) para extraer los datos para el conjunto de datos.
+2. Seleccione **Exportar** > **Power BI (M Query)** .  De este modo, se exporta la consulta a un archivo de texto denominado **PowerBIQuery.txt**. 
 
     ![Exportación de la búsqueda de registros](media/powerbi/export-analytics.png)
 
 3. Abra el archivo de texto y copie su contenido.
 
 ## <a name="import-query-into-power-bi-desktop"></a>Importación de consultas en Power BI Desktop
-Power BI Desktop es una aplicación de escritorio que le permite crear conjuntos de datos e informes que se pueden publicar en Power BI.  También puede usar para crear una consulta mediante el lenguaje de Power Query exportado desde Azure Monitor. 
+Power BI Desktop es una aplicación de escritorio que le permite crear conjuntos de datos e informes que se pueden publicar en Power BI.  También puede usarlo para crear una consulta mediante el lenguaje de Power Query exportado de Azure Monitor. 
 
 1. Instale [Power BI Desktop](https://powerbi.microsoft.com/desktop/) si aún no lo tiene y después abra la aplicación.
 2. Seleccione **Obtener datos** > **Consulta en blanco** para abrir una consulta nueva.  Después, seleccione **Editor avanzado** y pegue el contenido del archivo exportado en la consulta. Haga clic en **Done**(Listo).
@@ -70,12 +70,12 @@ Al publicar en Power BI, se crean un conjunto de datos y un informe.  Si crea un
 
 
 ### <a name="configure-scheduled-refresh"></a>Configuración de la actualización programada
-El conjunto de datos creado en Power BI tendrá los mismos datos que vio anteriormente en Power BI Desktop.  Deberá actualizar el conjunto de datos periódicamente para que vuelva a ejecutar la consulta y rellenarlo con los datos más recientes de Azure Monitor.  
+El conjunto de datos creado en Power BI tendrá los mismos datos que vio anteriormente en Power BI Desktop.  Debe actualizar el conjunto de datos periódicamente para volver a ejecutar la consulta y rellenarlo con los últimos datos de Azure Monitor.  
 
 1. Haga clic en el área de trabajo donde se cargó el informe y seleccione el menú **Conjuntos de datos**. 
 1. Seleccione el menú contextual junto a su nuevo conjunto de datos y seleccione **Configuración**. 
 1. En **Credenciales de origen de datos** debe aparecer un mensaje que indica que las credenciales no son válidas.  Esto se debe a que aún no ha proporcionado las credenciales para el conjunto de datos que se deben usar cuando se actualizan los datos.  
-1. Haga clic en **editar credenciales** y especifique las credenciales con acceso al área de trabajo de Log Analytics en Azure Monitor. Si necesita autenticación en dos fases, seleccione **OAuth2** para el **método de autenticación** se le pida que inicie sesión con sus credenciales.
+1. Haga clic en **Editar credenciales** y especifique las credenciales con acceso al área de trabajo de Log Analytics en Azure Monitor. Si necesita autenticación en dos fases, seleccione **OAuth2** como **Método de autenticación** para se le pida que inicie sesión con sus credenciales.
 
     ![Programación de Power BI](media/powerbi/powerbi-schedule.png)
 
@@ -87,4 +87,4 @@ El conjunto de datos creado en Power BI tendrá los mismos datos que vio anterio
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre de las [búsquedas de registro](../log-query/log-query-overview.md) para crear consultas que se puedan exportar a Power BI.
-* Obtenga más información sobre [Power BI](https://powerbi.microsoft.com) para generar visualizaciones basadas en exportaciones de registro de Azure Monitor.
+* Obtenga más información sobre [Power BI](https://powerbi.microsoft.com) para generar visualizaciones basadas en exportaciones de registros de Azure Monitor.

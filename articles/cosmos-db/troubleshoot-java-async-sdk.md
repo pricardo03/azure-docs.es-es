@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519978"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Solución de problemas al usar el SDK de Java Async con las cuentas de la API de SQL de Azure Cosmos DB
@@ -58,15 +58,15 @@ Si la aplicación está implementada en Azure Virtual Machines sin una direcció
     Cuando se habilita el punto de conexión de servicio, las solicitudes ya no se envían desde una dirección IP pública a Azure Cosmos DB. En su lugar, se envían la red virtual y la identidad de la subred. Este cambio puede producir caídas de firewall si solo se permiten direcciones IP públicas. Si usa un firewall, cuando se habilite el punto de conexión de servicio, agregue una subred al firewall mediante las [ACL de Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Asignar una dirección IP pública a la máquina virtual de Azure.
 
-##### <a name="cant-connect"></a>No se puede alcanzar el servicio: firewall
-``ConnectTimeoutException`` indica que el SDK no puede alcanzar el servicio.
-Es posible que obtenga un error similar al siguiente cuando se usa el modo directo:
+##### <a name="cant-connect"></a>No se puede conectar con el servicio: firewall
+``ConnectTimeoutException`` indica que el SDK no puede conectar con el servicio.
+Es posible que obtenga un error similar al siguiente cuando use el modo directo:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-Si tiene un firewall que se ejecuta en el equipo de la aplicación, abra el intervalo de puertos de 10 000 a 20.000, que son usadas por el modo directo.
-Siga también las [límite de conexiones en un equipo host](#connection-limit-on-host).
+Si tiene un firewall que se ejecuta en el equipo de la aplicación, abra el intervalo de puertos de 10 000 a 20 000, que son los que usa el modo directo.
+Consulte también las indicaciones de [Límite de conexiones en una máquina host](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Proxy HTTP
 
@@ -161,23 +161,23 @@ Se trata de un error de servidor. Indica que consumió el rendimiento aprovision
 
 El certificado HTTPS del emulador de Azure Cosmos DB es un certificado autofirmado. Para que SDK funcione con el emulador, importe el certificado del emulador a Java TrustStore. Para obtener más información, consulte [Exportación de los certificados del emulador de Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
-### <a name="dependency-conflict-issues"></a>Problemas de conflictos de dependencia
+### <a name="dependency-conflict-issues"></a>Problemas de conflictos de dependencias
 
 ```console
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-La excepción anterior sugiere que tiene una dependencia en una versión anterior de RxJava lib (p. ej., 1.2.2). Nuestro SDK se basa en RxJava 1.3.8 que tenga las API no está disponibles en la versión anterior de RxJava. 
+La excepción anterior sugiere que tiene una dependencia en una versión anterior de la biblioteca RxJava (por ejemplo, 1.2.2). Nuestro SDK se basa en RxJava 1.3.8, que tiene API no disponibles en la versión anterior de RxJava. 
 
-La solución alternativa para este tipo issuses consiste en identificar qué otra dependencia trae RxJava 1.2.2 y excluir la dependencia transitiva de RxJava 1.2.2 y permitir CosmosDB SDK poner la versión más reciente.
+La solución alternativa para este tipo de problemas consiste en identificar qué otra dependencia incorpora RxJava-1.2.2, excluir la dependencia transitiva de RxJava-1.2.2 y permitir que el SDK de CosmosDB incorpore la versión más reciente.
 
-Para identificar qué biblioteca trae RxJava-1.2.2, ejecute el siguiente comando junto el archivo pom.xml del proyecto:
+Para identificar qué biblioteca incluye RxJava-1.2.2, ejecute el siguiente comando junto el archivo pom.xml del proyecto:
 ```bash
 mvn dependency:tree
 ```
-Para obtener más información, consulte el [Guía de árbol de dependencia de maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+Para obtener más información, vea la [guía sobre el árbol de dependencia de Maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Una vez que identifique RxJava 1.2.2 es dependencia transitiva de qué otra dependencia del proyecto, puede modificar la dependencia en que lib en el archivo pom y excluir dependencia transitiva de RxJava:
+Una vez que identifique con qué otra dependencia del proyecto mantiene RxJava-1.2.2 una dependencia transitiva, puede modificar la dependencia de esa biblioteca en el archivo pom y excluir la dependencia transitiva de RxJava:
 
 ```xml
 <dependency>
@@ -193,7 +193,7 @@ Una vez que identifique RxJava 1.2.2 es dependencia transitiva de qué otra depe
 </dependency>
 ```
 
-Para obtener más información, consulte el [excluir de la Guía de dependencias transitivas](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
+Para obtener más información, vea la [guía sobre cómo excluir dependencias transitivas](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sice-logging"></a>Habilitar el registro del SDK de cliente

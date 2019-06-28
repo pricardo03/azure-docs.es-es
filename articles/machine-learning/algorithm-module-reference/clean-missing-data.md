@@ -1,7 +1,7 @@
 ---
-title: 'Limpiar datos que faltan: Referencia de módulo'
+title: 'Limpiar datos que faltan: Referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de limpiar datos que faltan en el servicio de Azure Machine Learning para quitar, reemplazar o deducir los valores que faltan.
+description: Obtenga información sobre cómo usar el módulo Limpiar datos que faltan en Azure Machine Learning Service para quitar, reemplazar o deducir los valores que faltan.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,139 +11,139 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: de81204219a102734f1820258a3c32e59a64c685
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028791"
 ---
-# <a name="clean-missing-data-module"></a>Módulo de limpiar datos que faltan
+# <a name="clean-missing-data-module"></a>Módulo Limpiar datos que faltan
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) para el servicio Azure Machine Learning.
+En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
 Utilice este módulo para quitar, reemplazar o deducir los valores que faltan. 
 
-Los científicos de datos a menudo comprobación los datos para los valores que faltan y, a continuación, realizan varias operaciones para corregir los datos o insertar nuevos valores. El objetivo de estas operaciones de limpieza es evitar problemas causados por falta de datos que pueden surgir al entrenar un modelo. 
+Los científicos de datos a menudo comprueban los datos para ver si faltan valores y, a continuación, realizan varias operaciones para corregir los datos o insertar nuevos valores. El objetivo de estas operaciones de limpieza es evitar los problemas causados por falta de datos, que pueden surgir al entrenar un modelo. 
 
-Este módulo admite varios tipo de operaciones para "limpiar" valores que faltan, incluidos:
+Este módulo admite varios tipos de operaciones para "limpiar" los valores que faltan, entre los que se incluyen:
 
-+ Reemplace los valores que faltan con un marcador de posición, promedio u otro valor
-+ Eliminación completa de las filas y columnas que tienen valores ausentes
-+ Deducir los valores en función de los métodos estadísticos
++ Reemplazar los valores que faltan por un marcador de posición, una media u otro valor
++ Eliminar completamente las filas y columnas que tienen valores que faltan
++ Deducir valores en función de métodos estadísticos
 
 
-Con este módulo no cambia el conjunto de datos de origen. En su lugar, crea un nuevo conjunto de datos en el área de trabajo que puede usar en el flujo de trabajo posterior. También puede guardar el conjunto de datos nuevo y limpio para reutilizarlo.
+El uso de este módulo no cambia el conjunto de datos de origen. En su lugar, crea un nuevo conjunto de datos en el área de trabajo que puede usar en el flujo de trabajo posterior. También puede guardar el conjunto de datos nuevo y limpio para reutilizarlo.
 
-Este módulo también genera una definición de la transformación que usó para limpiar los valores que faltan. Puede volver a usar esta transformación en otros conjuntos de datos que tengan el mismo esquema, mediante el [aplicar transformación](./apply-transformation.md) módulo.  
+Este módulo también genera una definición de la transformación usada para limpiar los valores que faltan. Puede volver a usar esta transformación en otros conjuntos de datos que tengan el mismo esquema, mediante el módulo [Aplicar transformación](./apply-transformation.md).  
 
-## <a name="how-to-use-clean-missing-data"></a>Uso de limpiar datos que faltan
+## <a name="how-to-use-clean-missing-data"></a>Procedimiento para usar Limpiar datos que faltan
 
-Este módulo le permite definir una operación de limpieza. También puede guardar la operación de limpieza para que pueda aplicar adelante a los nuevos datos. Vea los siguientes vínculos para obtener una descripción de cómo crear y guardar un proceso de limpieza: 
+Este módulo permite definir una operación de limpieza. También puede guardar la operación de limpieza para aplicarla más adelante a nuevos datos. Vea los siguientes vínculos para obtener una descripción de cómo crear y guardar un proceso de limpieza: 
  
-+ Para reemplazar los valores que faltan
++ Reemplazar los valores que faltan
   
-+ Para aplicar una transformación de limpieza a los nuevos datos
++ Aplicar una transformación de limpieza aplicar nuevos datos
  
 > [!IMPORTANT]
-> El método de limpieza que usa para controlar los valores que faltan puede afectar drásticamente a los resultados. Se recomienda que experimente con diferentes métodos. Tenga en cuenta la justificación para su uso de un método concreto y la calidad de los resultados.
+> El método de limpieza que use para controlar los valores que faltan puede afectar drásticamente a los resultados. Se recomienda que experimente con diferentes métodos. Tenga en cuenta tanto la justificación para el uso de un método concreto como la calidad de los resultados.
 
-### <a name="replace-missing-values"></a>Reemplace los valores que faltan  
+### <a name="replace-missing-values"></a>Reemplazar los valores que faltan  
 
-Cada vez que se aplica los [Clean Missing Data](./clean-missing-data.md) módulo a un conjunto de datos, la misma operación de limpieza se aplica a todas las columnas que seleccione. Por lo tanto, si tiene que limpiar mediante distintos métodos de distintas columnas, utilice instancias independientes del módulo.
+Cada vez que se aplica el módulo [Limpiar datos que faltan](./clean-missing-data.md) a un conjunto de datos, se aplica la misma operación de limpieza a todas las columnas que seleccione. Por lo tanto, si tiene que limpiar distintas columnas mediante diferentes métodos, utilice instancias independientes del módulo.
 
-1.  Agregar el [Clean Missing Data](./clean-missing-data.md) módulo para el experimento y conecte el conjunto de datos que tiene valores que faltan.  
+1.  Agregue el módulo [Limpiar los datos que faltan](./clean-missing-data.md) al experimento y conecte el conjunto de datos que tiene valores que faltan.  
   
-2.  Para **columnas que desea limpiar**, elija las columnas que contienen los valores que faltan que desee cambiar. Puede elegir varias columnas, pero debe usar el mismo método de reemplazo en todas las columnas seleccionadas. Por lo tanto, normalmente deberá limpiar las columnas de cadena y las columnas numéricas por separado.
+2.  Para **Columns to be cleaned** (Columnas que se deben limpiar), elija las columnas que contienen los valores que faltan que desee cambiar. Puede elegir varias columnas, pero debe usar el mismo método de reemplazo en todas las columnas seleccionadas. Por lo tanto, normalmente deberá limpiar las columnas de cadena y las columnas numéricas por separado.
 
     Por ejemplo, para comprobar si hay valores que faltan en todas las columnas numéricas:
 
-    1. Abra el Selector de columnas y seleccione **con reglas**.
-    2. Para **comenzar con**, seleccione **columnas n**.
+    1. Abra el selector de columnas y seleccione **WITH RULES** (CON REGLAS).
+    2. Para **BEGIN WITH**, seleccione **NO COLUMNS** (NINGUNA COLUMNA).
 
-        Puede también iniciar con todas las columnas y, a continuación, excluir columnas. Inicialmente, las reglas no se muestran si haga clic primero en **todas las columnas**, pero puede hacer clic en **columnas n** y, a continuación, haga clic en **todas las columnas** nuevo para comenzar con todas las columnas y, a continuación, filtrar las columnas de (excluir) según el nombre, tipo de datos, o índice de columnas.
+        También puede empezar con ALL COLUMNS (TODAS LAS COLUMNAS) y, a continuación, excluir columnas. Inicialmente, las reglas no se muestran si primero hace clic en **ALL COLUMNS** (TODAS LAS COLUMNAS), pero puede hacer clic en **NO COLUMNS** (NINGUNA COLUMNA) y, a continuación, hacer clic en **ALL COLUMNS** (TODAS LAS COLUMNAS) de nuevo para comenzar con todas las columnas y, a continuación, filtrar (excluir) las columnas según el nombre, tipo de datos o índice de columnas.
 
-    3. Para **Include**, seleccione **tipo de columna** desde la lista desplegable y, a continuación, seleccione **numérico**, o un tipo numérico más específico. 
+    3. Para **Incluir**, seleccione **Tipo de columna** en la lista desplegable y, a continuación, seleccione **Numérico** o un tipo numérico más específico. 
   
-    Cualquier método de limpieza o de reemplazo que elija debe ser aplicable a **todas** columnas de la selección. Si los datos de cualquier columna no están compatibles con la operación especificada, el módulo devuelve un error y detiene el experimento.
+    Cualquier método de limpieza o de reemplazo que elija debe ser aplicable a **todas** las columnas de la selección. Si los datos de cualquier columna no son compatibles con la operación especificada, el módulo devuelve un error y detiene el experimento.
   
-3.  Para **mínimo valor proporción que faltan**, especifique el número mínimo de valores que faltan necesarios para que realizar la operación.  
+3.  Para **Minimum missing value ratio** (Índice mínimo de valores que faltan), especifique el número mínimo de valores que faltan necesarios para que realizar la operación.  
   
-    Use esta opción en combinación con **máximo valor proporción que faltan** para definir las condiciones en las que se realiza una operación de limpieza en el conjunto de datos. Si hay demasiados o muy pocas filas que son valores que faltan, no se puede realizar la operación. 
+    Use esta opción en combinación con **Maximum missing value ratio** (Índice máximo de valores que faltan) para definir las condiciones en las que se realiza una operación de limpieza en el conjunto de datos. Si hay demasiadas o insuficientes filas que tienen valores que faltan, no se puede realizar la operación. 
   
-    El número que especifique representa el **proporción** de valores que faltan para todos los valores de la columna. De forma predeterminada, el **proporción de valores que faltan mínimo** propiedad está establecida en 0. Esto significa que los valores que faltan se limpian incluso si hay solo un valor que falta. 
+    El número que escriba representa el **índice** de valores que faltan para todos los valores de la columna. De forma predeterminada, la propiedad **Minimum missing value ratio** (Índice mínimo de valores que faltan) está establecida en 0. Esto significa que los valores que faltan se limpian incluso si hay solo un valor que falta. 
 
     > [!WARNING]
-    > Esta condición debe cumplirse por cada columna en orden para la operación especificada aplicar. Por ejemplo, supongamos que tres de las columnas seleccionadas y, a continuación, establezca la relación mínima de valores que faltan.2 (20%), pero en realidad, solo una columna tiene 20% de valores que faltan. En este caso, la operación de limpieza se aplicaría solo a la columna con más del 20% los valores que faltan. Por lo tanto, las demás columnas sería sin cambios.
+    > Esta condición debe cumplirse para cada columna a fin de que se aplique la operación especificada. Por ejemplo, supongamos que ha seleccionado tres columnas y, a continuación, establece el índice mínimo de valores que faltan en ,2 (20 %), pero en realidad, solo una columna tiene el 20 % de valores que faltan. En este caso, la operación de limpieza se aplicaría solo a la columna con más del 20 % de valores que faltan. Por lo tanto, las demás columnas no cambiarían.
     > 
-    > Si tiene alguna duda sobre si han cambiado los valores que faltan, seleccione la opción **generar columna de indicador de valor que falta**. Una columna se anexa al conjunto de datos para indicar si cada columna cumplen los criterios especificados para los intervalos mínimos y máximo.  
+    > Si tiene alguna duda sobre si han cambiado los valores que faltan, seleccione la opción **Generate missing value indicator column** (Generar columna de indicador de valores que faltan). Se anexa una columna al conjunto de datos para indicar si cada la columna cumple los criterios especificados para los intervalos mínimos y máximo o no.  
   
-4. Para **máximo valor proporción que faltan**, especifique el número máximo de valores que faltan que pueden estar presentes para que se puede realizar la operación.   
+4. Para **Maximum missing value ratio** (Índice máximo de valores que faltan), especifique el número máximo de valores que faltan necesarios para que realizar la operación.   
   
-    Por ejemplo, desea realizar la sustitución de valores ausentes solo si el 30% o menos de las filas contienen valores que faltan, pero deje los valores como-es si más del 30% de las filas tienen valores que faltan.  
+    Por ejemplo, si desea realizar la sustitución de valores que faltan solo si el 30 % o menos de las filas contienen valores que faltan, pero dejar los valores tal cual si más del 30 % de las filas tienen valores que faltan.  
   
-    El número se define como la proporción de valores que faltan para todos los valores de la columna. De forma predeterminada, el **máximo valor proporción que faltan** está establecido en 1. Esto significa que los valores que faltan se limpian incluso si faltan 100% de los valores de la columna.  
+    El número se define como el índice de valores que faltan para todos los valores de la columna. De forma predeterminada, la propiedad **Maximum missing value ratio** (Índice máximo de valores que faltan) está establecida en 1. Esto significa que los valores que faltan se limpian incluso si falta el 100 % de los valores de la columna.  
   
    
   
-5. Para **modo de limpieza**, seleccione una de las siguientes opciones para reemplazar o quitar faltan valores:  
+5. Para **Cleaning Mode** (Modo de limpieza), seleccione una de las siguientes opciones para reemplazar o quitar los valores que faltan:  
   
   
-    + **Valor de sustitución personalizado**: Utilice esta opción para especificar un valor de marcador de posición (por ejemplo, un valor 0 o NA) que se aplica a todos los valores que faltan. El valor que especifique como un valor de reemplazo debe ser compatible con el tipo de datos de la columna.
+    + **Custom substitution value** (Valor de sustitución personalizado): Utilice esta opción para especificar un valor de marcador de posición (por ejemplo, un valor 0 o NA) que se aplica a todos los valores que faltan. El valor que especifique como reemplazo debe ser compatible con el tipo de datos de la columna.
   
-    + **Reemplazar por la Media**: Calcula la media de la columna y la media se utiliza como valor de reemplazo para cada valor que falta en la columna.  
+    + **Replace with mean** (Reemplazar por media): Calcula la media de la columna y la utiliza como valor de reemplazo para cada valor que falta en la columna.  
   
-        Solo se aplica a las columnas que tienen Integer, Double o tipos de datos booleanos.  
+        Solo se aplica a las columnas que tienen tipos de datos entero, doble o booleano.  
   
-    + **Reemplazar por la mediana**: Calcula el valor medio de la columna y usa el valor medio como el valor de reemplazo para cualquier valor que falta en la columna.  
+    + **Replace with median** (Reemplazar por mediana): Calcula el valor de mediana de la columna y lo utiliza como valor de reemplazo para cada valor que falta en la columna.  
   
-        Solo se aplica a las columnas que tienen tipos de datos Integer o Double. 
+        Solo se aplica a las columnas que tienen tipos de datos entero o doble. 
   
-    + **Reemplazar por el modo**: Calcula el modo de la columna y usa el modo como el valor de reemplazo para cada valor que falta en la columna.  
+    + **Replace with mode** (Reemplazar por modo): Calcula el modo de la columna y lo utiliza como valor de reemplazo para cada valor que falta en la columna.  
   
-        Se aplica a las columnas que tienen tipos de datos Integer, Double, Boolean o Categorical. 
+        Se aplica a las columnas que tienen tipos de datos entero, doble, booleano o categorical. 
   
-    + **Quitar la fila entera**: Quita completamente cualquier fila del conjunto de datos que tiene uno o más valores que faltan. Esto es útil si el valor que falta puede considerarse como ausente de forma aleatoria.  
+    + **Remove entire row** (Quitar toda la fila): Quita completamente cualquier fila del conjunto de datos que tiene uno o más valores que faltan. Es útil si el valor que falta puede considerarse que falta de forma aleatoria.  
   
-    + **Quitar toda la columna**: Quita completamente cualquier columna del conjunto de datos que tiene uno o más valores que faltan.  
+    + **Remove entire column** (Quitar toda la columna): Quita completamente cualquier columna del conjunto de datos que tiene uno o más valores que faltan.  
   
     
   
-6. La opción **valor de reemplazo** está disponible si ha seleccionado la opción **valor de sustitución personalizado**. Escriba un nuevo valor que se usará como el valor de reemplazo para todos los valores que faltan en la columna.  
+6. La opción **Replacement value** está disponible si ha seleccionado la opción **Custom substitution value** (Valor de sustitución personalizado). Escriba un nuevo valor que se usará como el valor de reemplazo para todos los valores que faltan en la columna.  
   
-    Tenga en cuenta que puede usar esta opción únicamente en las columnas que tienen los tipos de datos Integer, Double, Boolean o Date. Para las columnas de fecha, el valor de reemplazo también se puede introducir como el número de pasos de 100 nanosegundos desde el 1/1/0001 12:00 A.M.  
+    Tenga en cuenta que puede usar esta opción únicamente en las columnas que tienen los tipos datos entero, doble, booleano o fecha. Para las columnas de fecha, el valor de reemplazo también se puede introducir como el número de tics de 100 nanosegundos desde 1/1/0001 12:00 A.M.  
   
-7. **Generar columna de indicador de valor que falta**: Seleccione esta opción si desea dar salida alguna indicación de si los valores de la columna cumplen los criterios para la limpieza de valores que faltan. Esta opción es especialmente útil cuando va a configurar una nueva operación de limpieza y desea asegurarse de que funciona según lo previsto.
+7. **Generate missing value indicator column** (Generar columna de indicador de valores que faltan): Seleccione esta opción si desea producir alguna indicación de si los valores de la columna cumplen los criterios para la limpieza de valores que faltan. Esta opción es especialmente útil cuando va a configurar una nueva operación de limpieza y desea asegurarse de que funciona según lo diseñado.
   
 8. Ejecute el experimento.
 
 ### <a name="results"></a>Results
 
-El módulo devuelve dos resultados:  
+El módulo devuelve dos salidas:  
 
--   **Conjunto de datos limpio**: Un conjunto de datos consta de las columnas seleccionadas con los valores que faltan se trata como especificado, junto con una columna de indicador, si selecciona dicha opción.  
+-   **Conjunto de datos limpio**: Un conjunto de datos que consta de las columnas seleccionadas, cuyos valores que faltan se han tratado según lo especificado, junto con una columna de indicador, si selecciona dicha opción.  
 
-    Las columnas no seleccionadas para la limpieza también se "pasan a través de".  
+    Las columnas no seleccionadas para la limpieza también se "pasan a través".  
   
--  **Transformación de limpieza**: Una transformación de datos utilizada para la limpieza, que se puede guardar en el área de trabajo y aplican a los datos nuevo más tarde.
+-  **Transformación de limpieza**: Una transformación de datos utilizada para la limpieza, que se puede guardar en el área de trabajo y se aplica a datos nuevos más tarde.
 
-### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Una operación de limpieza guardada se aplican a los nuevos datos  
+### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Aplicar una operación de limpieza guardada a datos nuevos  
 
-Si necesita repetir operaciones de limpieza a menudo, se recomienda que guarde la receta para la limpieza de datos como un *transformar*, para volver a usar con el mismo conjunto de datos. Guardar una transformación de limpieza es especialmente útil si debe volver a importar con frecuencia y, a continuación, limpiar datos que tiene el mismo esquema.  
+Si necesita repetir operaciones de limpieza a menudo, se recomienda que guarde la receta para la limpieza de datos como una *transformación*, para volverla a usar con el mismo conjunto de datos. Guardar una transformación de limpieza es especialmente útil si debe volver a importar con frecuencia y, a continuación, limpiar datos que tienen el mismo esquema.  
       
-1.  Agregar el [aplicar transformación](./apply-transformation.md) módulo al experimento.  
+1.  Agregue el módulo [Aplicar transformación](./apply-transformation.md) al experimento.  
   
 2.  Agregue el conjunto de datos que desea limpiar y conecte el conjunto de datos al puerto de entrada derecho.  
   
-3.  Expanda el **transforma** grupo en el panel izquierdo de la interfaz. Busque la transformación guardada y arrástrela hasta el experimento.  
+3.  Expanda el grupo **Transformaciones** en el panel izquierdo de la interfaz. Localice la transformación guardada y arrástrela hasta el experimento.  
   
-4.  Conecte la transformación guardada en el puerto de entrada izquierdo [aplicar transformación](./apply-transformation.md). 
+4.  Conecte la transformación guardada al puerto de entrada izquierdo de [Aplicar transformación](./apply-transformation.md). 
 
-    Al aplicar una transformación guardada, no puede seleccionar las columnas a la que se aplica la transformación. Eso es porque la transformación ya se ha definido y se aplica automáticamente a las columnas especificadas en la operación original.
+    Al aplicar una transformación guardada, no puede seleccionar las columnas a las que se aplica la transformación. Eso es porque la transformación ya se ha definido y se aplica automáticamente a las columnas especificadas en la operación original.
 
-    Sin embargo, supongamos que ha creado una transformación en un subconjunto de las columnas numéricas. Puede aplicar esta transformación a un conjunto de datos de tipos de columna mixto sin provocar un error, porque se cambian los valores que faltan sólo en las columnas numéricas coincidentes.
+    Sin embargo, supongamos que ha creado una transformación en un subconjunto de columnas numéricas. Puede aplicar esta transformación a un conjunto de datos de tipos de columna mixtos sin provocar un error, porque se cambian los valores que faltan solo en las columnas numéricas coincidentes.
 
 6.  Ejecute el experimento.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [conjunto de módulos disponibles](module-reference.md) al servicio de Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132804"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Creación de una instancia de Azure Cache for Redis mediante una plantilla
@@ -38,7 +38,7 @@ Para ver la plantilla completa, consulte [Azure Cache for Redis template](https:
 > 
 > * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con agrupación en clústeres](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con persistencia de datos](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Crear Redis Cache Premium implementadas en una red Virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Creación de una instancia de Redis Cache premium implementada en una red virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > Para buscar las últimas plantillas, diríjase a [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y busque `Azure Cache for Redis`.
 > 

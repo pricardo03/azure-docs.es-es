@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408771"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP
@@ -160,7 +160,7 @@ ms.locfileid: "65408771"
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 Este artículo describe los pasos a seguir para preparar la infraestructura de Azure para instalar y configurar un sistema SAP de alta disponibilidad en un clúster de conmutación por error de Windows mediante el uso de un *disco compartido de clúster* como una opción de agrupación en clústeres de una instancia de ASCS de SAP.
@@ -187,7 +187,7 @@ Para preparar la plantilla 1 de arquitectura, siga estos pasos:
 
 - En Azure Portal, en el panel **Parámetros**, en el cuadro **SYSTEMAVAILABILITY**, seleccione **Alta disponibilidad**.
 
-  ![Figura 1: Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP][sap-ha-guide-figure-3000]
+  ![Ilustración 1: Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP][sap-ha-guide-figure-3000]
 
 _**Ilustración 1:** Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP_
 
@@ -204,7 +204,7 @@ _**Ilustración 1:** Configuración de los parámetros de Azure Resource Manage
     * \<SID del sistema SAP\>-nic-ascs-\<Número\>
     * \<SID del sistema SAP\>-nic-db-\<Número\>
 
-  * **Cuentas de Azure Storage (solo discos no administrados)**:
+  * **Cuentas de Azure Storage (solo discos no administrados)** :
 
   * **Grupos de disponibilidad** para:
     * Máquinas virtuales del servidor de aplicaciones de SAP: \<SAPSystemSID\>-avset-di
@@ -551,7 +551,7 @@ Azure Load Balancer tiene un equilibrador de carga interno que cierra las conexi
 
 Para agregar entradas de registro en los dos nodos de clúster de la instancia de ASCS/SCS de SAP, en primer lugar, agregue estas entradas del registro de Windows en ambos nodos de clúster de Windows para ASCS/SCS de SAP:
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveTime` |
 | Tipo de variable |REG_DWORD (Decimal) |
@@ -562,7 +562,7 @@ Para agregar entradas de registro en los dos nodos de clúster de la instancia d
 
 Luego, agregue estas entradas del registro de Windows en ambos nodos del clúster de Windows para ASCS/SCS de SAP:
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Ruta de acceso | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nombre de la variable |`KeepAliveInterval` |
 | Tipo de variable |REG_DWORD (Decimal) |

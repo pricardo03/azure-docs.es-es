@@ -17,10 +17,10 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: c002e7c107c4dcbcd7eeff9579fae6893483392e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156168"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Creación y uso de imágenes compartidas personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure 2.0
@@ -34,7 +34,7 @@ Al crear el conjunto de escalado, se especifica la imagen que se usará cuando s
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Creación de un conjunto de escalado a partir de la imagen de máquina virtual personalizada
-Crear un conjunto de escalado con [ `az vmss create` ](/cli/azure/vmss#az-vmss-create). En lugar de una imagen de plataforma, como *UbuntuLTS* o *CentOS*, especifique el nombre de la imagen de la máquina virtual personalizada. En el ejemplo siguiente, se crea un conjunto de escalado denominado *myScaleSet* que usa la imagen personalizada llamada *myImage* del paso anterior:
+Cree un conjunto de escalado con [`az vmss create`](/cli/azure/vmss#az-vmss-create). En lugar de una imagen de plataforma, como *UbuntuLTS* o *CentOS*, especifique el nombre de la imagen de la máquina virtual personalizada. En el ejemplo siguiente, se crea un conjunto de escalado denominado *myScaleSet* que usa la imagen personalizada llamada *myImage* del paso anterior:
 
 ```azurecli-interactive
 az vmss create \
