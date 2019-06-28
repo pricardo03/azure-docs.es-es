@@ -1,5 +1,5 @@
 ---
-title: Eliminar las ofertas de marketplace | Azure Marketplace
+title: Eliminación de las ofertas de Marketplace | Azure Marketplace
 description: Eliminación de las ofertas de los Marketplaces de Azure y AppSource mediante Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
 ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942125"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminación de las ofertas o SKU de Azure Marketplace y AppSource
@@ -21,7 +21,7 @@ Por diversas razones, puede decidir retirar su oferta del Marketplace de Microso
 - La *eliminación de ofertas* garantiza que los clientes nuevos ya no puedan adquirir ni implementar la oferta, pero no afecta a los clientes existentes, a quienes debe ofrecer soporte técnico según su contrato de licencia y las leyes aplicables. 
 - La *finalización de la oferta* es el proceso de terminación del servicio o contrato de licencia entre usted y los clientes existentes. 
 
-Orientación y las directivas relacionadas con la eliminación y la terminación de la oferta se rigen por [contrato del anunciante de Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) y [directivas de participación](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sección [oferta suspensión y eliminación](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Las guías y las directivas relacionadas con la eliminación y la terminación de ofertas se rigen por el [contrato del anunciante de Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) y las [directivas de participación](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sección [Suspensión y eliminación de la oferta](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 En este artículo se habla de los diferentes escenarios de eliminación admitidos y los pasos necesarios para llevarlos a cabo.  
 

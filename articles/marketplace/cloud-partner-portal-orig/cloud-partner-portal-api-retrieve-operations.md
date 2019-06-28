@@ -1,5 +1,5 @@
 ---
-title: Recuperar las operaciones de API | Azure Marketplace
+title: API Recuperar operaciones | Azure Marketplace
 description: Recupera todas las operaciones en la oferta u obtiene una determinada operación para el operationId especificado.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935778"
 ---
 <a name="retrieve-operations"></a>Retrieve operations
@@ -33,10 +33,10 @@ Recupera todas las operaciones en la oferta u obtiene una determinada operación
 
 |  **Nombre**          |      **Descripción**                                                                                           | **Tipo de datos** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador del publicador, por ejemplo `Contoso`.                                                                   |  string       |
-|  offerId           |  Identificador de la oferta.                                                                                              |  string       |
+|  publisherId       |  Identificador del publicador, por ejemplo `Contoso`.                                                                   |  Cadena       |
+|  offerId           |  Identificador de la oferta.                                                                                              |  Cadena       |
 |  operationId       |  GUID que identifica de manera única la operación de la oferta. El operationId se puede recuperar mediante el uso de esta API y también se puede devolver en el encabezado HTTP de la respuesta para cualquier operación de larga ejecución, como la API de [publicación de oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Parámetro de consulta opcional que se utiliza para filtrar por estado (por ejemplo `running`) en la colección devuelta por esta API.  |   string |
+|  filteredStatus    | Parámetro de consulta opcional que se utiliza para filtrar por estado (por ejemplo `running`) en la colección devuelta por esta API.  |   Cadena |
 |  api-version       | Última versión de la API.                                                                                           |    Date      |
 |  |  |  |
 

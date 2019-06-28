@@ -1,53 +1,53 @@
 ---
-title: 'Administrar las réplicas de lectura para Azure Database for PostgreSQL: servidor único de Azure portal'
-description: 'Obtenga información sobre cómo administrar réplicas de lectura de Azure Database for PostgreSQL: servidor único de Azure portal.'
+title: 'Administración de réplicas de lectura mediante Azure Portal para Azure Database for PostgreSQL: servidor único'
+description: 'Obtenga información sobre cómo administrar réplicas de lectura mediante Azure Portal para Azure Database for PostgreSQL: servidor único.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510385"
 ---
-# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Crear y administrar las réplicas de lectura en Azure Database for PostgreSQL: servidor único de Azure portal
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Cree y administre mediante Azure Portal réplicas de lectura en el servicio Azure Database for PostgreSQL: servidor único.
 
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servicio Azure Database for PostgreSQL mediante Azure Portal. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
 > [!IMPORTANT]
-> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure de su elección. La replicación entre regiones está actualmente en versión preliminar pública.
+> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure que prefiera. La replicación entre regiones se encuentra actualmente en versión preliminar pública.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md) que se usará como servidor maestro.
 
 ## <a name="prepare-the-master-server"></a>Preparación del servidor maestro
-Estos pasos se deben utilizar para preparar un servidor maestro en los niveles de uso general u optimizado para memoria. El servidor maestro está preparado para la replicación, establezca el parámetro azure.replication_support. Cuando se cambia el parámetro de replicación, un reinicio del servidor es necesario para que el cambio surta efecto. En el portal de Azure, estos dos pasos están encapsulados en un solo botón, **habilitar la compatibilidad con replicación**.
+Estos pasos se deben utilizar para preparar un servidor maestro en los niveles de uso general u optimizado para memoria. El servidor maestro se prepara para la replicación mediante el parámetro azure.replication_support. Cuando se cambia el parámetro de replicación, es necesario reiniciar el servidor para que el cambio surta efecto. En Azure Portal, estos dos pasos están encapsulados en un solo botón, denominado **Habilitar compatibilidad con la replicación**.
 
 1. En Azure Portal, seleccione el servidor de Azure Database for PostgreSQL existente para utilizar como servidor maestro.
 
-2. En la barra lateral del servidor, bajo **configuración**, seleccione **replicación**.
+2. En la barra lateral del servidor, en **CONFIGURACIÓN**, seleccione **Replicación**.
 
-3. Seleccione **habilitar la compatibilidad con replicación**. 
+3. Seleccione **Habilitar compatibilidad con la replicación**. 
 
-   ![Habilitar la compatibilidad con la replicación](./media/howto-read-replicas-portal/enable-replication-support.png)
+   ![Habilitar compatibilidad con la replicación](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Confirme que desea habilitar la compatibilidad con la replicación. Esta operación reiniciará el servidor maestro. 
+4. Confirme que quiere habilitar la compatibilidad con la replicación. Esta operación reiniciará el servidor maestro. 
 
-   ![Confirmar la compatibilidad de habilitar la replicación](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   ![Confirmación de Habilitar compatibilidad con la replicación](./media/howto-read-replicas-portal/confirm-enable-replication.png)
    
-5. Recibirá dos notificaciones de Azure portal una vez completada la operación. Hay una notificación para actualizar el parámetro de servidor. Hay otra notificación para el reinicio del servidor que sigue inmediatamente.
+5. Recibirá dos notificaciones de Azure Portal una vez que se haya completado la operación: una notificación sobre la actualización del parámetro de servidor y otra sobre el reinicio del servidor, que se producirá inmediatamente después.
 
-   ![Habilitar notificaciones de éxito:](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Notificaciones habilitadas sobre operaciones realizadas correctamente](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-6. Actualice la página de portal de Azure para actualizar la barra de herramientas de replicación. Ahora puede crear las réplicas de lectura para este servidor.
+6. Actualice la página de Azure Portal para actualizar la barra de herramientas de replicación. Ahora puede crear réplicas de lectura para este servidor.
 
    ![Barra de herramientas actualizada](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-Habilitar la compatibilidad de replicación es una operación única por el servidor maestro. Un **deshabilitar la compatibilidad con la replicación** botón se proporciona para su comodidad. No se recomienda deshabilitar la compatibilidad con la replicación, a menos que esté seguro de que nunca creará una réplica en este servidor principal. No se puede deshabilitar la compatibilidad con la replicación mientras el servidor maestro tiene réplicas existentes.
+La habilitación de la compatibilidad con la replicación es una operación que se realiza una sola vez por cada servidor maestro. Para mayor comodidad, se proporciona el botón **Deshabilitar compatibilidad con la replicación**. No se recomienda deshabilitar la compatibilidad con la replicación, a menos que esté seguro de que nunca creará una réplica en este servidor principal. No se puede deshabilitar la compatibilidad con la replicación si el servidor maestro tiene réplicas existentes.
 
 
 ## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
@@ -55,7 +55,7 @@ Para crear una réplica de lectura, siga estos pasos:
 
 1. Seleccione el servidor de Azure Database for PostgreSQL existente para utilizar como servidor maestro. 
 
-2. En la barra lateral del servidor, bajo **configuración**, seleccione **replicación**.
+2. En la barra lateral del servidor, en **CONFIGURACIÓN**, seleccione **Replicación**.
 
 3. Seleccione **Agregar réplica**.
 
@@ -65,7 +65,7 @@ Para crear una réplica de lectura, siga estos pasos:
 
     ![Asignación de un nombre a la réplica](./media/howto-read-replicas-portal/name-replica.png)
 
-5. Seleccione una ubicación para la réplica. Puede crear una réplica en cualquier región de Azure. La ubicación predeterminada es el mismo que el servidor maestro.
+5. Seleccione una ubicación para la réplica. Puede crear una réplica en cualquier región de Azure. La ubicación predeterminada es la misma que la del servidor maestro.
 
     ![Seleccionar una ubicación](./media/howto-read-replicas-portal/location-replica.png)
 
@@ -81,7 +81,7 @@ Después de crear la réplica de lectura, puede verla en la ventana **Replicaci�
 ![Visualización de la nueva réplica en la ventana Replicación](./media/howto-read-replicas-portal/list-replica.png)
  
 
-## <a name="stop-replication"></a>Detener replicación
+## <a name="stop-replication"></a>Detención replicación
 Puede detener la replicación entre un servidor maestro y una réplica de lectura.
 
 > [!IMPORTANT]

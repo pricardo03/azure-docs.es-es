@@ -11,15 +11,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65152627"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Actualice el archivo de configuración del demonio de seguridad y el entorno de ejecución de IoT Edge.
 
-Como el servicio de IoT Edge versiones nuevas versiones, desea actualizar dispositivos de IoT Edge para las últimas características y mejoras de seguridad. En este artículo se proporciona información sobre cómo actualizar los dispositivos IoT Edge cuando hay una versión nueva disponible. 
+Dado que el servicio de IoT Edge lanza versiones nuevas, querrá actualizar los dispositivos IoT Edge para tener las últimas características y mejoras de seguridad. En este artículo se proporciona información sobre cómo actualizar los dispositivos IoT Edge cuando hay una versión nueva disponible. 
 
 Es necesario actualizar dos componentes de un dispositivo IoT Edge si quiere pasar a una versión más reciente. El primero es el demonio de seguridad, que se ejecuta en el dispositivo e inicia los módulos en tiempo de ejecución cuando se inicia el dispositivo. Actualmente, el demonio de seguridad solo puede actualizarse desde el propio dispositivo. El segundo componente es el entorno de ejecución, formado por los módulos Centro de IoT Edge y Agente de IoT Edge. En función del modo de estructurar la implementación, el entorno de ejecución puede actualizarse desde el dispositivo o de forma remota. 
 
@@ -30,7 +30,7 @@ Para obtener la versión más reciente de Azure IoT Edge, consulte [Versiones de
 >* No ha actualizado el dispositivo a la compilación 17763 de Windows. La versión 1.0.5 de IoT Edge no es compatible con compilaciones de Windows anteriores a 17763.
 >* Ejecuta los módulos de Java o Node.js en el dispositivo de Windows. Omita la versión 1.0.5 incluso si ha actualizado el dispositivo de Windows a la compilación más reciente. 
 >
->Para obtener más información acerca de la versión 1.0.5 de IoT Edge, consulte las [notas de la versión 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obtener más información acerca de cómo evitar que las herramientas de desarrollo de la actualización a la versión más reciente, consulte [el blog de desarrolladores de IoT](https://devblogs.microsoft.com/iotdev/).
+>Para obtener más información acerca de la versión 1.0.5 de IoT Edge, consulte las [notas de la versión 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obtener más información sobre cómo impedir que sus herramientas de desarrollo se actualicen a la versión más reciente, consulte el [blog para desarrolladores de IoT](https://devblogs.microsoft.com/iotdev/).
 
 
 ## <a name="update-the-security-daemon"></a>Actualización del demonio de seguridad
@@ -50,15 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Dispositivos Windows
 
-En los dispositivos de Windows, utilice el script de PowerShell para actualizar el demonio de seguridad. El script extrae automáticamente la versión más reciente del demonio de seguridad. 
+En los dispositivos Windows, use el script de PowerShell para actualizar el demonio de seguridad. El script extrae automáticamente la versión más reciente del demonio de seguridad. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Ejecutando el comando Update-IoTEdge quita el demonio de seguridad de su dispositivo, junto con las dos imágenes de contenedor en tiempo de ejecución. El archivo config.yaml se mantiene en el dispositivo, así como los datos desde el motor de contenedor Moby (si usa contenedores de Windows). Mantener la información de configuración significa que no tendrá que proporcionar la cadena de conexión o la información del servicio Device Provisioning para el dispositivo nuevo durante el proceso de actualización. 
+Al ejecutar el comando Update-IoTEdge se quita el demonio de seguridad del dispositivo, junto con las dos imágenes de contenedor en tiempo de ejecución. El archivo config.yaml se mantiene en el dispositivo, así como los datos del motor de contenedor Moby (si usa contenedores de Windows). Si conserva la información de configuración, no tendrá que volver a proporcionar la cadena de conexión o información de Device Provisioning Service para el dispositivo durante el proceso de actualización. 
 
-Si desea instalar una versión específica del demonio de seguridad, descargue el archivo de Microsoft-Azure-IoTEdge.cab apropiado de [IoT Edge libera](https://github.com/Azure/azure-iotedge/releases). A continuación, use el parámetro `-OfflineInstallationPath` para que apunte a la ubicación del archivo. Para más información, consulte la [Instalación sin conexión](how-to-install-iot-edge-windows.md#offline-installation).
+Si quiere instalar una versión específica del demonio de seguridad, descargue el archivo adecuado Microsoft-Azure-IoTEdge.cab de las [versiones de IoT Edge](https://github.com/Azure/azure-iotedge/releases). A continuación, use el parámetro `-OfflineInstallationPath` para que apunte a la ubicación del archivo. Para más información, consulte la [Instalación sin conexión](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## <a name="update-the-runtime-containers"></a>Actualización de los contenedores del entorno de ejecución
 
@@ -96,7 +96,7 @@ Si usa etiquetas específicas en la implementación (por ejemplo, mcr.microsoft.
 
 En Azure Portal, las imágenes de implementación del entorno de ejecución se declaran en la sección **Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge**. 
 
-![Configurar opciones de tiempo de ejecución de edge avanzadas](./media/how-to-update-iot-edge/configure-runtime.png)
+![Configuración de las opciones avanzadas del entorno en tiempo de ejecución de Edge](./media/how-to-update-iot-edge/configure-runtime.png)
 
 En un manifiesto de implementación de JSON, actualice las imágenes del módulo en la sección **systemModules**. 
 

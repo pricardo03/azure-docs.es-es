@@ -1,6 +1,6 @@
 ---
-title: Integrar los registros de Azure Active Directory con Splunk mediante Azure Monitor | Microsoft Docs
-description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con SumoLogic con Azure Monitor
+title: Integración de los registros de Azure Active Directory con Splunk mediante Azure Monitor | Microsoft Docs
+description: Aprender a integrar los registros de Azure Active Directory con SumoLogic mediante Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f30e19a351f7b25f995a85cfd566bcba091ac27
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597827"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procedimientos para: Integrar los registros de Azure Active Directory con Splunk mediante Azure Monitor
@@ -34,7 +34,7 @@ Para usar esta característica, necesita:
 * Un centro de eventos de Azure que contenga registros de actividad de Azure AD. Aprenda cómo [transmitir los registros de actividad a un centro de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * El complemento de Azure Monitor para Splunk. [Descargue y configure la instancia de Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md).
 
-## <a name="integrate-azure-active-directory-logs"></a>Integrar los registros de Azure Active Directory 
+## <a name="integrate-azure-active-directory-logs"></a>Integración de registros de Azure Active Directory 
 
 1. Abra la instancia de Splunk y seleccione **Data Summary** (Resumen de datos).
 

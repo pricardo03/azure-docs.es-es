@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
 ms.openlocfilehash: 709b59d257dd974e81d8b4058983f6e264ba0708
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925852"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
@@ -74,7 +74,7 @@ La plantilla que se usa está disponible en las [plantillas de ejemplo de Azure 
 El comando siguiente puede crear clústeres Windows o Linux; debe especificar el sistema operativo según corresponda. Los comandos de PowerShell y de la CLI también generan el certificado en la *CertificateOutputFolder* especificada; no obstante, asegúrese de que la carpeta de certificados ya esté creada. El comando toma también otros parámetros, como la SKU de VM.
 
 > [!NOTE]
-> El siguiente comando de PowerShell solo funciona con Azure PowerShell `Az` módulo. Para comprobar la versión actual de la versión de PowerShell de Azure Resource Manager, ejecute el siguiente comando de PowerShell "Get-Module Az". Siga [este vínculo](/powershell/azure/install-Az-ps) para actualizar la versión de PowerShell de Azure Resource Manager. 
+> El siguiente comando de PowerShell solo funciona con el módulo `Az` de Azure PowerShell. Para comprobar la versión actual de PowerShell de Azure Resource Manager, ejecute el siguiente comando de PowerShell "Get-Module Az". Siga [este vínculo](/powershell/azure/install-Az-ps) para actualizar la versión de PowerShell de Azure Resource Manager. 
 >
 >
 

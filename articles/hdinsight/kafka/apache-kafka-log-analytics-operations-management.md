@@ -1,6 +1,6 @@
 ---
-title: Registros de Azure Monitor para Apache Kafka - Azure HDInsight
-description: Obtenga información sobre cómo usar los registros de Azure Monitor para analizar los registros de clúster de Apache Kafka en HDInsight de Azure.
+title: 'Registros de Azure Monitor para Apache Kafka: Azure HDInsight'
+description: Aprenda a usar registros de Azure Monitor para analizar registros de clúster de Apache Kafka en Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,36 +9,36 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.openlocfilehash: 1e141aea3b22bfdcb981513f03e595b6c2f15466
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147985"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
-Obtenga información sobre cómo usar los registros de Azure Monitor para analizar los registros generados por Apache Kafka en HDInsight.
+Aprenda a usar registros de Azure Monitor para analizar registros generados por Apache Kafka en HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Habilitar los registros de Azure Monitor para Apache Kafka
+## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Habilitar registros de Azure Monitor para Apache Kafka
 
-Los pasos para habilitar los registros de Azure Monitor para HDInsight son los mismos para todos los clústeres de HDInsight. Use los vínculos siguientes para aprender a crear y configurar los servicios necesarios:
+Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismos que para todos los clústeres de HDInsight. Use los vínculos siguientes para aprender a crear y configurar los servicios necesarios:
 
-1. Cree un área de trabajo de Log Analytics. Para obtener más información, consulte el [inicia sesión en Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) documento.
+1. Cree un área de trabajo de Log Analytics. Para obtener más información, vea el documento [Registros en Azure Monitor](../../azure-monitor/platform/data-platform-logs.md).
 
 2. Cree Kafka en un clúster de HDInsight. Para obtener más información, consulte el documento [Introducción a Apache Kafka (versión preliminar) en HDInsight](apache-kafka-get-started.md).
 
-3. Configurar el clúster de Kafka para usar los registros de Azure Monitor. Para obtener más información, consulte el [los registros de uso de Azure Monitor para supervisar HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) documento.
+3. Configure el clúster de Kafka para usar registros de Azure Monitor. Para obtener más información, vea el documento [Uso de registros de Azure Monitor para supervisar HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 > [!IMPORTANT]  
-> Puede tardar unos 20 minutos antes de datos estén disponibles para los registros de Azure Monitor.
+> Pueden pasar unos 20 minutos hasta que los datos estén disponibles para los registros de Azure Monitor.
 
 ## <a name="query-logs"></a>Registros de consultas
 
 1. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo de Log Analytics.
 
-2. En el menú izquierdo, bajo **General**, seleccione **registros**. Aquí podrá buscar los datos recopilados de Kafka. Escriba una consulta en la ventana de consulta y, a continuación, seleccione **ejecutar**. A continuación se presentan algunos ejemplos de búsqueda:
+2. En el menú izquierdo, en **General**, seleccione **Registros**. Aquí podrá buscar los datos recopilados de Kafka. Escriba una consulta en la ventana de consulta y seleccione **Ejecutar**. A continuación se presentan algunos ejemplos de búsqueda:
 
 * Uso de disco:
 
@@ -95,7 +95,7 @@ Los pasos para habilitar los registros de Azure Monitor para HDInsight son los m
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre Azure Monitor, consulte [información general de Azure Monitor](../../log-analytics/log-analytics-get-started.md), y [de registros de consulta de Azure Monitor para supervisar clústeres de HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+Para obtener más información sobre Azure Monitor, vea [Introducción a Azure Monitor](../../log-analytics/log-analytics-get-started.md) y [Uso de consultas con registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 Para información sobre cómo trabajar con Apache Kafka, consulte los documentos siguientes:
 

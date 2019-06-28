@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413934"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Copia de seguridad a petición en Azure Service Fabric
@@ -30,13 +30,13 @@ Azure Service Fabric incluye características para la [copia de seguridad perió
 Las características de copia de seguridad a petición son útiles para capturar el estado de los servicios antes de cualquier operación desencadenada manualmente relacionada con el servicio o el entorno de este. Por ejemplo, si realiza un cambio en los binarios del servicio al actualizarlo o degradarlo. En tal caso, la copia de seguridad a petición puede ayudar a proteger los datos de daños causados por errores de código de las aplicaciones.
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [preliminar] para realizar llamadas de la configuración.
+- Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Asegúrese de que el clúster está conectado mediante el `Connect-SFCluster` comando antes de realizar cualquier solicitud de configuración mediante el módulo Microsoft.ServiceFabric.Powershell.Http.
+- Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -63,7 +63,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
 
 Use [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
@@ -88,7 +88,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
 
 Use [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Incluya la siguiente información de Azure Storage:
 
@@ -125,7 +125,7 @@ Particiones distintas pueden desencadenar solicitudes de copia de seguridad a pe
 Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"

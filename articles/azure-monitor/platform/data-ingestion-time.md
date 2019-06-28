@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605609"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tiempo de la ingesta de datos de registro en Azure Monitor
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-Use la siguiente consulta para mostrar la hora del equipo ingesta por el país o región que están ubicados en el que se basa en su dirección IP: 
+Use la siguiente consulta para mostrar la hora de ingesta del equipo por el país o región en el que está ubicado basándose en su dirección IP: 
 
 ``` Kusto
 Heartbeat 

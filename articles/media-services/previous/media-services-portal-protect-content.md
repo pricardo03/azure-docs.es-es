@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866967"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configuración de directivas de protección de contenido mediante Azure Portal
 
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).   > Características o funcionalidades nuevas no se agregan a Media Services v2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).   > No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 >
 
  Con Azure Media Services, puede proteger su contenido multimedia desde el momento en que deja el equipo a través de almacenamiento, procesamiento y entrega. Puede usar Media Services para entregar el contenido cifrado de forma dinámica con el Estándar de cifrado avanzado (AES) mediante claves de cifrado de 128 bits. También puede usarlo con el cifrado común (CENC) mediante el uso de PlayReady o administración de derechos digitales (DRM) Widevine y Apple FairPlay. 
@@ -105,7 +105,7 @@ El cifrado de claves sin cifrado AES se habilita en todos los protocolos de stre
 #### <a name="drm"></a>DRM
 1. Al seleccionar **DRM**, verá distintas directivas de protección de contenido (que se deben configurar según este punto) y un conjunto de protocolos de streaming:
 
-     a. **PlayReady y Widevine con MPEG-DASH**: cifra dinámicamente su transmisión MPEG-DASH con DRM de PlayReady y Widevine.
+    a. **PlayReady y Widevine con MPEG-DASH**: cifra dinámicamente su transmisión MPEG-DASH con DRM de PlayReady y Widevine.
 
     b. **PlayReady y Widevine con MPEG-DASH más FairPlay con HLS**: cifra dinámicamente su transmisión MPEG-DASH con DRM de PlayReady y Widevine. Esta opción también cifra las transmisiones HLS con FairPlay.
 

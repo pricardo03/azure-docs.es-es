@@ -1,5 +1,5 @@
 ---
-title: Configurar la replicación en una base de datos de instancia administrada de Azure SQL Database | Microsoft Docs
+title: Configuración de la replicación de una base de datos de instancia administrada de Azure SQL Database | Microsoft Docs
 description: Aprenda a configurar la replicación transaccional en una base de datos de instancia administrada de Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -13,36 +13,36 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: c72c4d21f948d6d6c4d1d4598efa0e13de9705a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926194"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database
 
 La replicación transaccional permite replicar datos en una base de datos de instancia administrada de Azure SQL Database desde una base de datos de SQL Server u otro tipo de bases de datos de instancias. 
 
-También puede usar la replicación transaccional para insertar los cambios realizados en una instancia de la base de datos en la instancia administrada de Azure SQL Database para:
+También puede usar la replicación transaccional para insertar los cambios realizados en una base de datos de instancia en la instancia administrada de Azure SQL Database para:
 
 - Una base de datos de SQL Server.
-- Una sola base de datos en Azure SQL Database.
+- Una base de datos única en Azure SQL Database.
 - Una base de datos agrupada en un grupo elástico de Azure SQL Database.
  
-La replicación transaccional está en versión preliminar pública en [instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar bases de datos del publicador, distribuidor y suscriptor. Consulte las [configuraciones de la replicación transaccional](sql-database-managed-instance-transactional-replication.md#common-configurations) para ver las opciones disponibles.
+La replicación transaccional está disponible en versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar bases de datos del publicador, distribuidor y suscriptor. Consulte las [configuraciones de la replicación transaccional](sql-database-managed-instance-transactional-replication.md#common-configurations) para ver las opciones disponibles.
 
   > [!NOTE]
-  > Este artículo está pensado para orientar a un usuario en la configuración de replicación con una base de datos de Azure a instancia administrada de un extremo a extremo, empezando por la creación del grupo de recursos. Si ya ha administrado instancias implementadas, ir directamente a [paso 4](#4---create-a-publisher-database) para crear la base de datos del publicador o [paso 6](#6---configure-distribution) si ya tiene una base de datos del publicador y el suscriptor y está listo para comenzar configurar la replicación.  
+  > Este artículo está pensado para orientar a un usuario en la configuración de la replicación con una instancia administrada de Azure Database de extremo a extremo, empezando por la creación del grupo de recursos. Si ya ha implementado instancias administradas, vaya directamente al [paso 4](#4---create-a-publisher-database) para crear la base de datos del publicador o al [paso 6](#6---configure-distribution) si ya tiene una base de datos del publicador y del suscriptor y está listo para empezar a configurar la replicación.  
 
 ## <a name="requirements"></a>Requisitos
 
-Se requiere la configuración de una instancia administrada para que funcione como un publicador o un distribuidor:
+Para configurar una instancia administrada de forma que funcione como un publicador o distribuidor, deben darse las siguientes condiciones:
 
 - La instancia administrada no debe participar actualmente en una relación de replicación geográfica.
-- Que el publicador de la instancia administrada está en la misma red virtual como el distribuidor y el suscriptor, o [emparejamiento de vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) se ha establecido entre las redes virtuales de las tres entidades. 
+- La instancia administrada del publicador se encuentra en la misma red virtual que el distribuidor y el suscriptor o se ha establecido el [emparejamiento de red virtual](../virtual-network/tutorial-connect-virtual-networks-powershell.md) entre las redes virtuales de las tres entidades. 
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación.
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo de replicación.
-- El puerto 445 (salida TCP) está abierto en las reglas de seguridad de NSG para las instancias administradas para acceder al recurso compartido de archivos de Azure. 
+- El puerto 445 (salida TCP) está abierto en las reglas de seguridad del grupo de seguridad de red de la instancia administrada para tener acceso al recurso compartido de archivos de Azure. 
 
 
  > [!NOTE]
@@ -54,40 +54,40 @@ Se requiere la configuración de una instancia administrada para que funcione co
 Admite:
 
 - Una combinación de la replicación de instantáneas y la replicación transaccional de instancias locales de SQL Server e instancias administradas de Azure SQL Database.
-- Los suscriptores pueden ser en bases de datos de SQL Server local, solo las bases de datos administrados/de instancias en Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
+- Los suscriptores pueden ser bases de datos locales de SQL Server, bases de datos únicas o instancias administradas de Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
 - Replicación unidireccional o bidireccional.
 
 La siguientes características no pueden utilizarse en las instancias administradas de Azure SQL Database:
 
 - [Suscripciones actualizables](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
-- [Replicación geográfica activa](sql-database-active-geo-replication.md) y [grupos de conmutación por error automática](sql-database-auto-failover-group.md) no debe usarse si se configura la replicación transaccional.
+- No se deben usar [grupos de replicación geográfica activa](sql-database-active-geo-replication.md) ni [grupos de conmutación por error automática](sql-database-auto-failover-group.md) si se configura la replicación transaccional.
  
-## <a name="1---create-a-resource-group"></a>1 - crear un grupo de recursos
+## <a name="1---create-a-resource-group"></a>1 - Creación de un grupo de recursos
 
-Use la [portal Azure](https://portal.azure.com) para crear un grupo de recursos con el nombre `SQLMI-Repl`.  
+Use [Azure Portal](https://portal.azure.com) para crear un grupo de recursos denominado `SQLMI-Repl`.  
 
 ## <a name="2---create-managed-instances"></a>2 - Creación de instancias administradas
 
-Use la [portal Azure](https://portal.azure.com) para crear dos [las instancias administradas](sql-database-managed-instance-create-tutorial-portal.md) en la misma red virtual y subred. Las dos instancias administradas deben tener un nombre:
+Use [Azure Portal](https://portal.azure.com) para crear dos [instancias administradas](sql-database-managed-instance-create-tutorial-portal.md) en la misma red virtual y subred. Las dos instancias administradas deben tener un nombre:
 
 - `sql-mi-pub`
 - `sql-mi-sub`
 
-También deberá [configurar una máquina virtual de Azure para conectar](sql-database-managed-instance-configure-vm.md) a Azure SQL Database de las instancias administradas. 
+También deberá [configurar una VM de Azure para la conexión](sql-database-managed-instance-configure-vm.md) a instancias administradas de Azure SQL Database. 
 
-## <a name="3---create-azure-storage-account"></a>3 - Creación de cuenta de Azure Storage
+## <a name="3---create-azure-storage-account"></a>3 - Creación de una cuenta de Azure Storage
 
-[Crear una cuenta de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo y, a continuación, cree un [recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md) dentro de la cuenta de almacenamiento. 
+[Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo y, a continuación, cree un [recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md) dentro de la cuenta de almacenamiento. 
 
-Copie la ruta de acceso del recurso compartido de archivo en el formato: `\\storage-account-name.file.core.windows.net\file-share-name`
+Copie la ruta de acceso del recurso compartido de archivos en el formato `\\storage-account-name.file.core.windows.net\file-share-name`.
 
-Copie las claves de acceso de almacenamiento con el formato: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copie las claves de acceso de almacenamiento en el formato `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`.
 
  Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys). 
 
 ## <a name="4---create-a-publisher-database"></a>4 - Creación de una base de datos del publicador
 
-Conectarse a su `sql-mi-pub` administra la instancia mediante SQL Server Management Studio y ejecute el siguiente código Transact-SQL (T-SQL) para crear la base de datos del publicador:
+Conéctese a la instancia administrada de `sql-mi-pub` mediante SQL Server Management Studio y ejecute el siguiente código de Transact-SQL (T-SQL) para crear la base de datos del publicador:
 
 ```sql
 USE [master]
@@ -119,9 +119,9 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="5---create-a-subscriber-database"></a>5: creación de una base de datos de suscriptor
+## <a name="5---create-a-subscriber-database"></a>5 - Creación de una base de datos del suscriptor
 
-Conectarse a su `sql-mi-sub` administra la instancia mediante SQL Server Management Studio y ejecute el siguiente código de T-SQL para crear la base de datos de suscriptor vacía:
+Conéctese a la instancia administrada de `sql-mi-sub` mediante SQL Server Management Studio y ejecute el siguiente código de T-SQL para crear la base de datos del suscriptor vacía:
 
 ```sql
 USE [master]
@@ -140,9 +140,9 @@ CREATE TABLE ReplTest (
 GO
 ```
 
-## <a name="6---configure-distribution"></a>6: configurar la distribución
+## <a name="6---configure-distribution"></a>6 - Configuración de la distribución
 
-Conectarse a su `sql-mi-pub` administra la instancia mediante SQL Server Management Studio y ejecute el siguiente código Transact-SQL para configurar la base de datos de distribución. 
+Conéctese a la instancia administrada de `sql-mi-pub` mediante SQL Server Management Studio y ejecute el siguiente código de T-SQL para configurar la base de datos de distribución. 
 
 ```sql
 USE [master]
@@ -153,9 +153,9 @@ EXEC sp_adddistributiondb @database = N'distribution';
 GO
 ```
 
-## <a name="7---configure-publisher-to-use-distributor"></a>7: configurar el publicador para utilizar el distribuidor 
+## <a name="7---configure-publisher-to-use-distributor"></a>7 - Configuración del publicador para usar el distribuidor 
 
-En el publicador de la instancia administrada `sql-mi-pub`, cambiar la ejecución de consultas en [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) modo y ejecute el código siguiente para registrar el distribuidor nuevo con el publicador. 
+En la instancia administrada `sql-mi-pub` del publicador, cambie la ejecución de consultas al modo [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) y ejecute el código siguiente para registrar el distribuidor nuevo con el publicador. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -175,11 +175,11 @@ EXEC sp_adddistpublisher
   @storage_connection_string = N'$(file_storage_key)';
 ```
 
-Este script configura un publicador local en la instancia administrada, se agrega un servidor vinculado y crea un conjunto de trabajos del Agente SQL Server. 
+Este script configura un publicador local en la instancia administrada, agrega un servidor vinculado y crea un conjunto de trabajos del Agente SQL Server. 
 
-## <a name="8---create-publication-and-subscriber"></a>8 - crear la publicación y suscriptor
+## <a name="8---create-publication-and-subscriber"></a>8 - Creación de la publicación y el suscriptor
 
-Uso de [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) modo, ejecute el siguiente script de Transact-SQL para habilitar la replicación de la base de datos y configurar la replicación entre el publicador, distribuidor y suscriptor. 
+A través del modo [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor), ejecute el siguiente script de T-SQL para habilitar la replicación de la base de datos y configure la replicación entre el publicador, el distribuidor y el suscriptor. 
 
 ```sql
 -- Set variables
@@ -256,11 +256,11 @@ EXEC sp_startpublication_snapshot
   @publication = N'$(publication_name)';
 ```
 
-## <a name="9---modify-agent-parameters"></a>9 - modificar parámetros del agente
+## <a name="9---modify-agent-parameters"></a>9 - Modificación de los parámetros del agente
 
-Instancia administrada de Azure SQL Database está experimentando algunos problemas de back-end con la conectividad con los agentes de replicación. Aunque este problema es que se redirige dirigido, la solución para aumentar el valor de tiempo de espera de inicio de sesión para los agentes de replicación. 
+Instancia administrada de Azure SQL Database está experimentando algunos problemas de back-end con la conectividad con los agentes de replicación. Mientras se aborda este problema, la solución consiste en aumentar el valor de tiempo de espera de inicio de sesión para los agentes de replicación. 
 
-Ejecute el siguiente comando de Transact-SQL en el publicador para aumentar el tiempo de espera de inicio de sesión: 
+Ejecute el siguiente comando de T-SQL en el publicador para aumentar el tiempo de espera de inicio de sesión: 
 
 ```sql
 -- Increase login timeout to 150s
@@ -268,7 +268,7 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 150'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-Ejecute el siguiente comando de Transact-SQL para establecer el tiempo de espera de inicio de sesión en el valor predeterminado, si necesita hacerlo:
+Ejecute de nuevo el siguiente comando de T-SQL para volver a establecer el tiempo de espera de inicio de sesión en el valor predeterminado, en caso de que lo necesite:
 
 ```sql
 -- Increase login timeout to 30
@@ -278,17 +278,17 @@ where subsystem in ('Distribution','LogReader','Snapshot') and command not like 
 
 Reinicie los tres agentes para aplicar estos cambios. 
 
-## <a name="10---test-replication"></a>10 - probar la replicación
+## <a name="10---test-replication"></a>10 - Prueba de la replicación
 
-Una vez que se ha configurado la replicación, puede probarla insertando nuevos elementos en el publicador y observar los cambios se propagan al suscriptor. 
+Una vez que se ha configurado la replicación, puede probarla mediante la inserción de nuevos elementos en el publicador y la observación de los cambios que se propagan al suscriptor. 
 
-Ejecute el siguiente fragmento de Transact-SQL para ver las filas en el suscriptor:
+Ejecute el siguiente fragmento de código de T-SQL para ver las filas en el suscriptor:
 
 ```sql
 select * from dbo.ReplTest
 ```
 
-Ejecute el siguiente fragmento de Transact-SQL para insertar filas adicionales en el publicador y, a continuación, compruebe las filas de nuevo en el suscriptor. 
+Ejecute el siguiente fragmento de código de T-SQL para insertar filas adicionales en el publicador y, a continuación, compruebe las filas de nuevo en el suscriptor. 
 
 ```sql
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
@@ -296,7 +296,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para quitar la publicación, ejecute el siguiente comando de T-SQL:
+Para anular la publicación, ejecute el siguiente comando de T-SQL:
 
 ```sql
 -- Drops the publication
@@ -314,7 +314,7 @@ EXEC sp_removedbreplication
 GO
 ```
 
-Para deshabilitar la publicación y distribución, ejecute el siguiente comando de T-SQL:
+Para deshabilitar la publicación y la distribución, ejecute el siguiente comando de T-SQL:
 
 ```sql
 -- Drops the distributor
@@ -323,10 +323,10 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Puede limpiar los recursos de Azure por [eliminar los recursos de la instancia administrada desde el grupo de recursos](../azure-resource-manager/manage-resources-portal.md#delete-resources) y, a continuación, eliminar el grupo de recursos `SQLMI-Repl`. 
+Para limpiar los recursos de Azure, [elimine los recursos de la instancia administrada del grupo de recursos](../azure-resource-manager/manage-resources-portal.md#delete-resources) y, a continuación, elimine el grupo de recursos `SQLMI-Repl`. 
 
    
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
 - [¿Qué es la Instancia administrada?](sql-database-managed-instance.md)

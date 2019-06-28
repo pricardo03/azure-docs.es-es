@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
 ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540925"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Actualizaciones del servicio Azure Site Recovery
@@ -67,7 +67,7 @@ Si ha elegido administrar las actualizaciones manualmente, siga estos pasos:
     
     *Hay una nueva actualización del agente de replicación de Site recovery disponible. Haga clic para instalar*
     
-    *Haga clic para instalar ->*.
+    *Haga clic para instalar ->* .
 
 4. Seleccione las máquinas virtuales a las que desea aplicar la actualización y haga clic en **Aceptar**.
 
@@ -118,8 +118,8 @@ Se recomienda reiniciar después de cada actualización del agente de Mobility S
 
 |Paquete acumulativo de actualizaciones  |Proveedor  |Instalación unificada| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[Paquete acumulativo de actualizaciones 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
-|[Paquete acumulativo de actualizaciones 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
+|[Paquete acumulativo de actualizaciones 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
+|[Paquete acumulativo de actualizaciones 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Paquete acumulativo de actualizaciones 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery): revisión     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Paquete acumulativo de actualizaciones 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Paquete acumulativo de actualizaciones 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
@@ -129,7 +129,7 @@ Se recomienda reiniciar después de cada actualización del agente de Mobility S
 
 - [Paquete acumulativo de actualizaciones 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Paquete acumulativo de actualizaciones 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
-- [Paquete acumulativo de actualizaciones 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
+- [Paquete acumulativo de actualizaciones 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
 - [Paquete acumulativo de actualizaciones 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
 - [Paquete acumulativo de actualizaciones 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [Paquete acumulativo de actualizaciones 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 

@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de Azure Blockchain Workbench
-description: Cómo solucionar problemas de una aplicación de Azure Blockchain Workbench.
+description: Procedimientos para la solución de problemas de una aplicación de Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510088"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Solución de problemas de Azure Blockchain Workbench
@@ -50,11 +50,11 @@ El script acepta los siguientes parámetros:
 |---------|---------|----|
 | SubscriptionID | Identificador de suscripción para crear o ubicar todos los recursos. | Sí |
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se haya implementado Blockchain Workbench. | Sí |
-| OutputDirectory | Ruta de acceso para crear el archivo .ZIP de salida. Si no se especifica, tiene como valor predeterminado el directorio actual. | No |
-| LookbackHours | Número de horas que se usará al extraer la telemetría. El valor predeterminado es 24 horas. El valor máximo es 90 horas. | No |
-| OmsSubscriptionId | Se implementa en Azure Monitor registra el identificador de suscripción. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench.| No |
-| OmsResourceGroup |Se implementa el grupo de recursos donde se registra Azure Monitor. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench.| No |
-| OmsWorkspaceName | Nombre del área de trabajo de Log Analytics. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench | No |
+| OutputDirectory | Ruta de acceso para crear el archivo .ZIP de salida. Si no se especifica, tiene como valor predeterminado el directorio actual. | Sin |
+| LookbackHours | Número de horas que se usará al extraer la telemetría. El valor predeterminado es 24 horas. El valor máximo es 90 horas. | Sin |
+| OmsSubscriptionId | El identificador de la suscripción donde se han implementado registros de Azure Monitor. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin |
+| OmsResourceGroup |Grupo de recursos donde se han implementado registros de Azure Monitor. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin |
+| OmsWorkspaceName | Nombre del área de trabajo de Log Analytics. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench. | Sin |
 
 ## <a name="what-is-collected"></a>¿Qué información se recopila?
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
 ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233924"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
@@ -21,7 +21,7 @@ ms.locfileid: "65233924"
 En este artículo se explica y muestra el modelo de precios de Azure Data Factory con ejemplos detallados.
 
 > [!NOTE]
-> Los precios usados en estos ejemplos siguientes son hipotéticos y no pretende implica precios reales.
+> Los precios usados en los ejemplos siguientes son hipotéticos y no pretenden reflejar precios reales.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copia de datos desde AWS S3 a Azure Blob Storage cada hora
 
@@ -125,21 +125,21 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
   - Actividad de canalización = 0,00003 $ (prorrateo durante 1 minuto de tiempo de ejecución. 0,002 $/hora en Azure Integration Runtime)
   - Actividad de canalización externa = 0,000041 $ (prorrateo durante 10 minutos de tiempo de ejecución. 0,00025 $/hora en Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Con la depuración de flujo de datos de asignación para un día laboral normal (precios de vista previa)
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Uso de la depuración de Mapping Data Flow para un día laboral normal (precios de la versión preliminar)
 
-Como ingeniero de datos, usted es responsable de diseñar, compilar y probar la asignación de flujos de datos cada día. Inicie sesión en la UI ADF por la mañana y habilitar el modo de depuración de flujos de datos. El TTL predeterminado para las sesiones de depuración es de 60 minutos. Funcionan a lo largo del día durante 10 horas, por lo que nunca expira la sesión de depuración. Por lo tanto, el precio del día será:
+Como ingeniero de datos, es responsable de diseñar, compilar y probar Mapping Data Flow cada día. Pongamos por caso que inicia sesión en la interfaz de usuario de ADF por la mañana y habilita el modo de depuración de Data Flow. El TTL predeterminado para las sesiones de depuración es de 60 minutos. Trabaja a lo largo del día durante 10 horas, por lo que la sesión de depuración no expira nunca. Por lo tanto, el precio del día será:
 
-**10 (horas) x 8 (núcleos) x $0.112 = $8.96**
+**10 (horas) x 8 (núcleos) x 0,112 USD = 8,96 USD**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformación de datos en el almacén de blobs con la asignación de los flujos de datos (precios de vista previa)
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformación de datos del almacén de blobs con Mapping Data Flow (precios de la versión preliminar)
 
-En este escenario, desea transformar los datos de Blob Store visualmente en ADF asignación fluyen los datos en una programación por hora.
+En este escenario, le interesa transformar los datos del almacén de blobs visualmente en Mapping Data Flow de ADF según una programación por hora.
 
 Para lograr el escenario, es preciso crear una canalización con los siguientes elementos:
 
-1. Una actividad de flujo de datos con la lógica de transformación.
+1. Una actividad de Data Flow con la lógica de transformación.
 
-2. Un conjunto de datos de entrada para los datos en Azure Storage.
+2. Un conjunto de datos de entrada para los datos de Azure Storage.
 
 3. Un conjunto de datos de salida para los datos de Azure Storage.
 
@@ -152,17 +152,17 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 | Creación de una canalización | 3 entidades de lectura y escritura (1 para la creación de la canalización y 2 para las referencias del conjunto de datos) |
 | Obtención de la canalización | 1 entidad de lectura y escritura |
 | Ejecución de la canalización | 2 ejecuciones de actividad (1 para la ejecución del desencadenador y 1 para ejecuciones de la actividad) |
-| Tiempo de ejecución de flujo de datos las suposiciones son: = 10 min + TTL de 10 minutos | 10 \* 8 núcleos de proceso General con TTL de 10 |
+| Suposiciones de Data Flow: tiempo de ejecución = 10 min + TTL de 10 minutos | 10 \* 8 núcleos de proceso general con TTL de 10 |
 | Asunción de la supervisión de la canalización: solo se produjo 1 ejecución | 2 registros de ejecución de supervisión reintentados (1 para la ejecución de la canalización y 1 para la ejecución de la actividad) |
 
-**Total de los precios de escenario: $0.3011**
+**Precio total del escenario: 0,3011 USD**
 
 - Operaciones de Data Factory = **0,0001 $**
   - Lectura y escritura = 10\*00001 = 0,0001 $ [1 L/E = 0,50 $/50000 = 0,00001]
   - Supervisión = 2\*000005 = 0,00001 $ [1 supervisión = 0,25 $/50000 = 0,000005]
-- Orquestación de canalizaciones &amp; ejecución = **0.301 $**
+- Orquestación &amp; ejecución de canalizaciones = **0,301 USD**
   - Ejecuciones de actividad = 001\*2 = 0,002 [1 ejecución = 1 $/1000 = 0,001]
-  - Actividades de flujo de datos = $0.299 prorrateo durante 20 minutos (10 minutos el tiempo de ejecución + TTL de 10 minutos). proceso 0.112 $/ hora en tiempo de ejecución de integración de Azure con 8 núcleos generales
+  - Actividades de Data Flow = 0,299 USD prorrateados por 20 minutos (tiempo de ejecución de 10 minutos + TTL de 10 minutos). 0,112 USD/hora en Azure Integration Runtime con un proceso general de 8 núcleos
 
 ## <a name="next-steps"></a>Pasos siguientes
 

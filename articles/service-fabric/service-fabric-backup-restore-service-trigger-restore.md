@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413729"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauración de una copia de seguridad en Azure Service Fabric
@@ -37,13 +37,13 @@ Por ejemplo, puede configurar un servicio para realizar una copia de seguridad d
 - Para desencadenar la restauración, el _servicio de análisis de errores (FAS)_ debe estar habilitado para el clúster.
 - El _servicio de restauración de copia de seguridad (BRS)_ creó la copia de seguridad.
 - La restauración solo se puede desencadenar en una partición.
-- Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [preliminar] para realizar llamadas de la configuración.
+- Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Asegúrese de que el clúster está conectado mediante el `Connect-SFCluster` comando antes de realizar cualquier solicitud de configuración mediante el módulo Microsoft.ServiceFabric.Powershell.Http.
+- Asegúrese de que el clúster esté conectado mediante el comando `Connect-SFCluster` antes de realizar una solicitud de configuración con el módulo Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -72,7 +72,7 @@ Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
 
 Ejecute un script de PowerShell para usar la API REST para devolver una lista de copias de seguridad creadas para todas las particiones dentro de la aplicación `SampleApp`. La API requiere la información de almacenamiento de copia de seguridad para enumerar las copias de seguridad disponibles.
 
@@ -161,7 +161,7 @@ Para la API de restauración, debe proporcionar los detalles _BackupId_ y _Backu
 
 También debe elegir una partición de destino en el clúster alternativo, como se detalla en el [esquema de partición](service-fabric-concepts-partitioning.md#get-started-with-partitioning). La copia de seguridad del clúster alternativo se restaura en la partición especificada en el esquema de partición del clúster perdido original.
 
-Si el identificador de partición del clúster alternativo es `1c42c47f-439e-4e09-98b9-88b8f60800c6`, puede asignarlo al identificador de partición del clúster original `974bd92a-b395-4631-8a7f-53bd4ae9cf22`; simplemente compare la clave superior e inferior para la _creación de particiones por rango (UniformInt64Partition)_.
+Si el identificador de partición del clúster alternativo es `1c42c47f-439e-4e09-98b9-88b8f60800c6`, puede asignarlo al identificador de partición del clúster original `974bd92a-b395-4631-8a7f-53bd4ae9cf22`; simplemente compare la clave superior e inferior para la _creación de particiones por rango (UniformInt64Partition)_ .
 
 Para la _creación de particiones con nombre_, el valor de nombre se compara para identificar la partición de destino en el clúster alternativo.
 
@@ -173,7 +173,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
 
 La restauración se solicita en la partición del clúster de copia de seguridad mediante la siguiente [API de restauración](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
@@ -233,7 +233,7 @@ Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
 
 ```powershell
 $RestorePartitionReference = @{
@@ -259,7 +259,7 @@ Una partición de un servicio de confianza con estado o de Reliable Actors acept
     Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"

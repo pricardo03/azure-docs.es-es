@@ -1,5 +1,5 @@
 ---
-title: Dynamics 365 para la pestaña de información técnica de Customer Engagement | Azure Marketplace
+title: Pestaña Información técnica de Dynamics 365 for Customer Engagement | Azure Marketplace
 description: Especificación de la información técnica para una aplicación de Dynamics 365 for Customer Engagement en AppSource Marketplace.
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: df7f3be5a92a183176da7851ce1943793b8b57d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942402"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Pestaña Información técnica de Dynamics 365 for Customer Engagement
@@ -29,9 +29,9 @@ En la siguiente tabla se describen estos campos. Los campos obligatorios se indi
 
 |      Campo                    |    DESCRIPCIÓN                  |
 |    ---------                  |  ---------------                |
-|   Modelo de licencia básica\*          |  El modelo de licencia determina cómo se asignan los clientes a la aplicación en el centro de administración de Dynamics 365. Las licencias de **recurso** se basan en instancias, mientras que las de **usuario** se asignan una por cada inquilino.  |
-|  Salida de S2S & CRM Secure Store Access\* |  Permite la configuración del acceso al almacenamiento seguro de CRM o del acceso saliente de servidor a servidor (S2S). *Esta característica requiere una atención especial por parte del equipo de Dynamics 365 durante la fase de certificación.* Microsoft se pondrá en contacto con usted para completar los pasos adicionales para admitir esta característica.  |
-| Suscribirse a eventos de ciclo de vida CRM\* | La integración con los eventos del ciclo de vida de Dynamics 365 requiere que proporcione un servicio dedicado que se registra mediante un acuerdo especial con Microsoft. *Esta característica requiere una atención especial por parte del equipo de Dynamics 365 durante la fase de certificación.* Microsoft se pondrá en contacto con usted para completar los pasos adicionales para admitir esta funcionalidad.  |
+|   Modelo de licencia básico\*          |  El modelo de licencia determina cómo se asignan los clientes a la aplicación en el centro de administración de Dynamics 365. Las licencias de **recurso** se basan en instancias, mientras que las de **usuario** se asignan una por cada inquilino.  |
+|  Acceso saliente de S2S y acceso al almacenamiento seguro de CRM\* |  Permite la configuración del acceso al almacenamiento seguro de CRM o del acceso saliente de servidor a servidor (S2S). *Esta característica requiere una atención especial por parte del equipo de Dynamics 365 durante la fase de certificación.* Microsoft se pondrá en contacto con usted para completar los pasos adicionales para admitir esta característica.  |
+| Suscripción a los eventos del ciclo de vida del CRM\* | La integración con los eventos del ciclo de vida de Dynamics 365 requiere que proporcione un servicio dedicado que se registra mediante un acuerdo especial con Microsoft. *Esta característica requiere una atención especial por parte del equipo de Dynamics 365 durante la fase de certificación.* Microsoft se pondrá en contacto con usted para completar los pasos adicionales para admitir esta funcionalidad.  |
 | Dirección URL de configuración de la aplicación | Dirección URL de la página web que permite al usuario configurar la aplicación |
 | Productos de Dynamics 365 a los que se aplica  | Seleccione los productos de Dynamics 365 a los que se aplica esta oferta. Esta oferta aparecerá en los productos seleccionados en AppSource.  |
 | Cambios solo de marketing         | Si establece esta opción en Sí, indicará que solo se han realizado cambios de marketing o descriptivos en la oferta ya existente.  Estos cambios permiten que la oferta pueda omitir las etapas de certificación y aprovisionamiento.  |
@@ -49,9 +49,9 @@ En la siguiente tabla se describen estos campos.  Los campos obligatorios se ind
 |      Campo                    |    DESCRIPCIÓN                  |
 |    ---------                  |  ---------------                |
 |  Nombre de archivo del paquete\*     |  Nombre de archivo del paquete (.zip).  Este nombre *no* es público y lo usará internamente el equipo de certificación de Dynamics 365.  |
-|  Dirección URL de ubicación del paquete\*      |  Dirección URL de una cuenta de Azure Storage que contiene el archivo de paquete cargado. Esta dirección URL debe incluir una clave SAS de solo lectura para permitir que nuestro equipo pueda recoger el paquete para su comprobación.  |
-| Más de un paquete de crm\*     | Seleccione Sí SOLO si admite varias versiones de CRM con distintos paquetes.  Cada versión tendrá el correspondiente archivo de paquete que debe crear de manera individual.  |
-| Escenario y el uso activo case\*   | Permite la carga de un documento de especificación funcional de la aplicación para que lo use el equipo de validación de Dynamics 365.  El formato preferido para esta especificación es la [plantilla de escenario para usuarios E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
+|  Url of your package location\* (Dirección URL de la ubicación del paquete)      |  Dirección URL de una cuenta de Azure Storage que contiene el archivo de paquete cargado. Esta dirección URL debe incluir una clave SAS de solo lectura para permitir que nuestro equipo pueda recoger el paquete para su comprobación.  |
+| Más de un paquete CRM\*     | Seleccione Sí SOLO si admite varias versiones de CRM con distintos paquetes.  Cada versión tendrá el correspondiente archivo de paquete que debe crear de manera individual.  |
+| Recurso de escenarios y casos de uso\*   | Permite la carga de un documento de especificación funcional de la aplicación para que lo use el equipo de validación de Dynamics 365.  El formato preferido para esta especificación es la [plantilla de escenario para usuarios E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

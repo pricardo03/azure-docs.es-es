@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
 ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510638"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: notas de la versión y recursos
@@ -52,17 +52,17 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* Versión SDK System.Net.Http coincide con lo que se define en el paquete NuGet
-* Aumentar el tamaño de la precisión decimal para las consultas LINQ.
-* Se ha agregado nuevas clases CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType y PartitionKeyDefinitionVersion
-* Se ha agregado TimeToLivePropertyPath a DocumentCollection
-* Se ha agregado CompositeIndexes y SpatialIndexes a IndexPolicy
-* Versión se ha agregado a PartitionKeyDefinition
-* Agregar ninguno para la PartitionKey
+* La versión de System.Net.Http del SDK coincide con lo definido en el paquete NuGet
+* Mayor tamaño de precisión decimal para consultas de LINQ.
+* Incorporación de nuevas clases CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType y PartitionKeyDefinitionVersion
+* Incorporación de TimeToLivePropertyPath a DocumentCollection
+* Incorporación de CompositeIndexes y SpatialIndexes a IndexPolicy
+* Incorporación de Version a PartitionKeyDefinition
+* Incorporación de None a PartitionKey
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * Se ha agregado IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection y MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
+ * Incorporación de IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection y MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
  
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -249,12 +249,12 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en [StackOverflow](ht
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
 
-| Version | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
-| [2.4.0](#2.4.0) |05 de mayo de 2019 |--- |
-| [2.3.0](#2.3.0) |04 de abril de 2019 |--- |
+| [2.4.0](#2.4.0) |5 de mayo de 2019 |--- |
+| [2.3.0](#2.3.0) |4 de abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de marzo de 2019 |--- |
-| [2.2.2](#2.2.2) |06 de febrero de 2019 |--- |
+| [2.2.2](#2.2.2) |6 de febrero de 2019 |--- |
 | [2.2.1](#2.2.1) |24 de diciembre de 2018 |--- |
 | [2.2.0](#2.2.0) |7 de diciembre de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de octubre de 2018 |--- |
@@ -284,6 +284,6 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en [StackOverflow](ht
 | [1.0.0](#1.0.0) |21 de diciembre de 2016 |--- |
 | [0.1.0-preview](#0.1.0-preview) |15 de noviembre de 2016 |31 de diciembre de 2016 |
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

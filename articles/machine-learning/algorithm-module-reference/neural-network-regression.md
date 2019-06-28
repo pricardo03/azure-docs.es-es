@@ -1,7 +1,7 @@
 ---
-title: 'Regresión de red neuronal: Referencia de módulo'
+title: 'Regresión de red neuronal: Referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de regresión de red neuronal en el servicio Azure Machine Learning para crear un modelo de regresión usando un algoritmo de red neuronal personalizable...
+description: Obtenga información sobre cómo usar el módulo Regresión de red neuronal en Azure Machine Learning Service para crear un modelo de regresión usando un algoritmo de red neuronal personalizable.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,92 +11,92 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: bc6a7505ab09e929e5add61eea687f871aedf242
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029316"
 ---
-# <a name="neural-network-regression-module"></a>Módulo de regresión de red neuronal
+# <a name="neural-network-regression-module"></a>Módulo Regresión de red neuronal
 
 *Crea un modelo de regresión usando un algoritmo de red neuronal*  
   
- Categoría: Machine Learning / inicializar modelo / regresión
+ Categoría: Machine Learning/Inicializar modelo/Regresión
   
-## <a name="module-overview"></a>Información general del módulo  
+## <a name="module-overview"></a>Información general sobre el módulo  
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) para el servicio Azure Machine Learning.
+En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
 Utilice este módulo para crear un modelo de regresión usando un algoritmo de red neuronal personalizable.
   
- Aunque las redes neuronales son ampliamente conocidas para su uso en problemas complejos, como el reconocimiento de imágenes de modelado y aprendizaje profundo, se adaptan fácilmente a los problemas de regresión. Cualquier clase de modelos estadísticos puede denominarse una red neuronal si utiliza pesos adaptables y puede aproximar funciones no lineales de sus entradas. Por lo tanto regresión de red neuronal es adecuada para que un modelo de regresión más tradicional no logra una solución de problemas.
+ Aunque las redes neuronales son ampliamente conocidas por su uso en problemas complejos de aprendizaje profundo y modelado, como el reconocimiento de imágenes, se adaptan fácilmente a los problemas de regresión. Cualquier clase de modelo estadístico puede denominarse red neuronal si utiliza pesos adaptables y puede aproximar funciones no lineales de sus entradas. Por lo tanto, la regresión de red neuronal es adecuada en los problemas para los que un modelo de regresión más tradicional no puede encontrar una solución.
   
- Regresión de red neuronal es un método de aprendizaje supervisado y, por lo tanto, requiere una *etiquetados dataset*, que incluye una columna de etiqueta. Dado que un modelo de regresión predice un valor numérico, la columna de etiqueta debe ser un tipo de datos numéricos.  
+ La regresión de red neuronal es un método de aprendizaje supervisado y, por lo tanto, requiere un *conjunto de datos etiquetado*, que incluya una columna de etiqueta. Dado que un modelo de regresión predice un valor numérico, la columna de etiqueta debe ser de un tipo de datos numérico.  
   
- Puede entrenar el modelo, ya que proporciona el modelo y el conjunto de datos etiquetado como entrada para [entrenar modelo](./train-model.md). El modelo entrenado, a continuación, puede utilizarse para predecir valores para los nuevos ejemplos de entrada.  
+ Puede entrenar el modelo proporcionando el modelo y el conjunto de datos etiquetado como entrada para [Entrenar modelo](./train-model.md). Después, el modelo entrenado puede utilizarse para predecir valores para los nuevos ejemplos de entrada.  
   
 ## <a name="configure-neural-network-regression"></a>Configurar la regresión de red neuronal 
 
-Las redes neuronales se pueden personalizar ampliamente. Esta sección describe cómo crear un modelo mediante dos métodos:
+Las redes neuronales se pueden personalizar ampliamente. En esta sección se describe cómo crear un modelo mediante dos métodos:
   
 + [Crear un modelo de red neuronal con la arquitectura predeterminada](#bkmk_DefaultArchitecture)  
   
-    Si acepta la arquitectura de red neuronal de forma predeterminada, use el **propiedades** panel para establecer los parámetros que controlan el comportamiento de la red neuronal, como el número de nodos de la capa oculta, velocidad de aprendizaje y la normalización.
+    Si acepta la arquitectura predeterminada de red neuronal, use el panel **Propiedades** para establecer los parámetros que controlan el comportamiento de la red neuronal, como el número de nodos de la capa oculta, la velocidad de aprendizaje y la normalización.
 
-    Comience aquí si está familiarizado con las redes neuronales. El módulo admite muchas personalizaciones, así como modelo de optimización, sin un conocimiento profundo de las redes neuronales. 
+    Empiece aquí si no está familiarizado con las redes neuronales. El módulo admite muchas personalizaciones, así como el ajuste de modelos, sin un conocimiento profundo de las redes neuronales. 
 
-+ Definir una arquitectura para una red neuronal personalizada 
++ Definir una arquitectura personalizada para una red neuronal 
 
-    Use esta opción si desea agregar niveles ocultos adicionales o personalizar completamente las funciones de arquitectura, sus conexiones y la activación de la red.
+    Use esta opción si desea agregar capas ocultas adicionales o personalizar completamente la arquitectura de red, sus conexiones y las funciones de activación.
     
-    Esta opción es mejor si ya es un poco familiarizado con las redes neuronales. Use el lenguaje Net # para definir la arquitectura de red.  
+    Esta opción es mejor si ya está un poco familiarizado con las redes neuronales. Use el lenguaje Net# para definir la arquitectura de red.  
 
-##  <a name="bkmk_DefaultArchitecture"></a> Crear un modelo de red neuronal con la arquitectura predeterminada
+##  <a name="bkmk_DefaultArchitecture"></a>Crear un modelo de red neuronal con la arquitectura predeterminada
   
-1.  Agregar el **regresión de red neuronal** módulo al experimento en la interfaz. Puede encontrar este módulo en **Machine Learning**, **inicializar**, en el **regresión** categoría. 
+1.  Agregue el módulo **Regresión de red neuronal** al experimento en la interfaz. Puede encontrar este módulo en **Machine Learning**, **Inicializar**, en la categoría **Regresión**. 
   
-2. Indicar cómo desea que el modelo se entrene, estableciendo el **crear modo de entrenador** opción.  
+2. Para indicar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Único parámetro**: Elija esta opción si ya sabe cómo desea configurar el modelo.  
+    -   **Single Parameter** (Parámetro único): Elija esta opción si ya sabe cómo desea configurar el modelo.  
 
-3.  En **oculta la especificación de niveles**, seleccione **completamente conectado caso**. Esta opción crea un modelo mediante la arquitectura de red neuronal de forma predeterminada, lo que, para un modelo de regresión de red neuronal tiene estos atributos:  
+3.  En **Hidden layer specification** (Especificación de capa oculta), seleccione **Fully connected case** (Caso completamente conectado). Esta opción crea un modelo mediante la arquitectura predeterminada de red neuronal, lo que, para un modelo de regresión de red neuronal, tiene estos atributos:  
   
-    + La red tiene exactamente una capa oculta.
-    + La capa de salida está completamente conectada a la capa oculta y está conectada por completo la capa oculta a la capa de entrada.
-    + Se puede establecer el número de nodos de la capa oculta por el usuario (valor predeterminado es 100).  
+    + La red tiene una sola capa oculta.
+    + La capa de salida está completamente conectada a la capa oculta, y esta a la capa de entrada.
+    + El usuario puede establecer el número de nodos de la capa oculta (el valor predeterminado es 100).  
   
-    Dado que el número de nodos en el nivel de entrada viene determinada por el número de características de los datos de entrenamiento, en un modelo de regresión puede haber solo un nodo del nivel de salida.  
+    Dado que el número de nodos de la capa de entrada viene determinado por el número de características de los datos de entrenamiento, en un modelo de regresión solo puede haber un nodo en la capa de salida.  
   
-4. Para **número de nodos ocultos**, escriba el número de nodos ocultos. El valor predeterminado es una capa oculta con 100 nodos. (Esta opción no está disponible si se define una arquitectura personalizada con Net #).
+4. Para **Número de nodos ocultos**, escriba el número de nodos ocultos. El valor predeterminado es una capa oculta con 100 nodos. (Esta opción no está disponible si se define una arquitectura personalizada con Net#).
   
-5.  Para **velocidad de aprendizaje**, escriba un valor que define el paso llevadas a cabo en cada iteración, antes de la corrección. Un valor mayor para la velocidad de aprendizaje puede hacer que el modelo converja con mayor rapidez, pero puede pasar por alto los mínimos locales.
+5.  Para **Velocidad de aprendizaje**, escriba un valor que defina el paso llevado a cabo en cada iteración, antes de la corrección. Un valor mayor para la velocidad de aprendizaje puede hacer que el modelo converja con mayor rapidez, pero puede superar los mínimos locales.
 
-6.  Para **número de iteraciones de aprendizaje**, especifique el número máximo de veces que el algoritmo procesa los casos de entrenamiento.
+6.  Para **Number of learning iterations** (Número de iteraciones de aprendizaje), especifique el número máximo de veces que el algoritmo procesa los casos de entrenamiento.
 
-7.  Para ** diámetro, escriba un valor que determina los pesos de nodo al principio del proceso de aprendizaje de los pesos del aprendizaje inicial.
+7.  Para **El diámetro de pesos de aprendizaje inicial, escriba un valor que determine los pesos de nodo en el inicio del proceso de aprendizaje.
 
-8.  Para **el impulso**, escriba un valor que se aplican durante el aprendizaje como un peso en nodos de iteraciones anteriores.
+8.  Para **The momentum** (El momentum), escriba el valor que se debe aplicar durante el aprendizaje como peso en los nodos de iteraciones anteriores.
 
-10. Seleccione la opción **ordenar ejemplos aleatoriamente**, para cambiar el orden de los casos entre iteraciones. Si desactiva esta opción, se procesan casos en exactamente el mismo orden cada vez que ejecute el experimento.
+10. Seleccione la opción **Shuffle examples** (Ejemplos de orden aleatorio), para cambiar el orden de los casos entre iteraciones. Si anuló la selección de esta opción, los casos se procesan en el mismo orden exactamente cada vez que ejecuta el experimento.
   
-11. Para **valor de inicialización aleatorio número**, también puede escribir un valor que se usará como valor de inicialización. Especificar un valor de inicialización valor es útil cuando desea asegurar la repetibilidad entre ejecuciones del mismo experimento.
+11. Para **Random number seed** (Inicialización de número aleatorio), puede escribir opcionalmente un valor que se usará como inicialización. Especificar un valor de inicialización es útil cuando desea asegurar la repetibilidad entre ejecuciones del mismo experimento.
   
-13. Conectar un conjunto de datos de entrenamiento y uno de los [módulos de formación](module-reference.md): 
+13. Conecte un conjunto de datos de entrenamiento y uno de los [módulos de entrenamiento](module-reference.md): 
   
-    -   Si establece **crear modo de entrenador** a **único parámetro**, utilice [Train Model](./train-model.md).  
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use [Entrenar modelo](./train-model.md).  
   
    
 14. Ejecute el experimento.  
 
 ## <a name="results"></a>Results
 
-Una vez completada la formación:
+Una vez completado el entrenamiento:
 
-+ Para ver un resumen de los parámetros del modelo, junto con la característica ponderaciones aprendidas de aprendizaje y otros parámetros de la red neuronal, haga clic en la salida de [Train Model](./train-model.md)y seleccione **visualizar**.  
++ Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento y otros parámetros de la red neuronal, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo) y seleccione **Visualizar**.  
 
-+ Para guardar una instantánea del modelo entrenado, haga clic en el **calificado modelo** de salida y seleccione **Guardar como modelo entrenado**. Este modelo no se actualiza en las ejecuciones sucesivas del mismo experimento.
++ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado de **Trained model** (Modelo entrenado) y seleccione **Save As Trained Model** (Guardar como modelo entrenado). El modelo no se actualiza en las ejecuciones sucesivas del mismo experimento.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [conjunto de módulos disponibles](module-reference.md) al servicio de Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 

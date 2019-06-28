@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024494"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Seguridad y privacidad de datos en Azure Search
@@ -44,7 +44,7 @@ El cifrado se extiende a lo largo de la canalización de indización: desde las 
 |----------------|-------------|
 | Cifrado en tránsito <br>(HTTPS/SSL/TLS) | Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Search de cliente a servicio son compatibles con los protocolos SSL o TLS 1.2.  Asegúrese de usar TLSv1.2 para las conexiones SSL con el servicio.|
 | Cifrado en reposo <br>Claves administradas por Microsoft | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.<br><br> El cifrado es interno para Azure Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación.<br><br>El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluidos los servicios (gratis) compartidos, y en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.|
-| Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente es un **preview** de servicios de función que no está disponible de forma gratuita. Para servicios de pago, solo está disponible para los servicios de búsqueda creados en o después de enero de 2019, utilizando la versión más reciente api-versión preliminar (api-version = 2019-05-06-versión preliminar).<br><br>Índices de búsqueda de Azure y las asignaciones de sinónimos ahora se cifran en reposo con claves administradas de las claves de cliente en Azure Key Vault. Para obtener más información, consulte [administrar claves de cifrado en Azure Search](search-security-manage-encryption-keys.md).<br>Esta característica no reemplaza el cifrado de forma predeterminada en reposo, pero en su lugar se aplica además de él.<br>Si habilita esta característica aumentará el tamaño del índice y degradar el rendimiento de las consultas. Según las observaciones hasta la fecha, puede esperar a ver un aumento del 30-60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, recomendamos que sólo habilitar esta característica en los índices que efectivamente necesitan.
+| Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente es una característica en **vista previa** (GB) que no está disponible para servicios gratuitos. En el caso de servicios de pago, solo está disponible para los servicios de búsqueda creados en enero de 2019 o posteriormente mediante la versión de API de versión preliminar más reciente (api-version=2019-05-06-Preview).<br><br>Las asignaciones de sinónimos y los índices de Azure Search ya se pueden cifran en reposo con claves administradas por el cliente en Azure Key Vault. Para obtener más información, consulte [Administración de claves de cifrado en Azure Search](search-security-manage-encryption-keys.md).<br>Esta característica no reemplaza el cifrado en reposo de forma predeterminada, sino que se aplica además de este.<br>Si habilita esta característica, aumentará el tamaño del índice y reducirá el rendimiento de las consultas. Según las observaciones hechas hasta la fecha, puede esperar un aumento del 30 al 60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, se recomienda habilitar esta característica solo en los índices que realmente la necesitan.
 
 ## <a name="azure-wide-user-access-controls"></a>Controles de acceso de usuario en todo Azure
 
@@ -64,11 +64,11 @@ Mientras Azure Search hereda las medidas de seguridad de la plataforma Azure, ta
 Hay dos niveles de acceso al servicio de búsqueda, habilitados por dos tipos de claves:
 
 * Acceso de administración (válido para cualquier operación de lectura y escritura en el servicio)
-* Acceso a la consulta (válida para operaciones de solo lectura, como consultas, en la colección de documentos de un índice)
+* Acceso de consulta (válido para operaciones de solo lectura, como las consultas en la colección de documentos de un índice)
 
-Las *claves de administración* se crean cuando se aprovisiona el servicio. Hay dos claves de administración, designadas como *principal* y *secundaria*, pero en realidad son intercambiables. Todos los servicios tienen dos claves de administración, con el fin de que se pueda dejar de usar una de ellas sin perder el acceso al servicio. También puede [admin Regenerar clave](search-security-api-keys.md#regenerate-admin-keys) periódicamente por seguridad de Azure los procedimientos recomendados, pero no se puede agregar para el recuento de claves de administrador total. Hay un máximo de dos claves de administración por servicio de búsqueda.
+Las *claves de administración* se crean cuando se aprovisiona el servicio. Hay dos claves de administración, designadas como *principal* y *secundaria*, pero en realidad son intercambiables. Todos los servicios tienen dos claves de administración, con el fin de que se pueda dejar de usar una de ellas sin perder el acceso al servicio. También puede [regenerar la clave de administrador](search-security-api-keys.md#regenerate-admin-keys) periódicamente para seguir los procedimientos recomendados de seguridad de Azure, pero no se puede agregar al número total de claves de administrador. Hay un máximo de dos claves de administrador por servicio de búsqueda.
 
-*Claves de consulta* se crean según sea necesario y están diseñados para aplicaciones cliente que emiten consultas. Puede crear hasta 50 claves de consulta. En el código de aplicación, especifique la dirección URL de búsqueda y una clave de api de consulta para permitir el acceso de solo lectura a la colección de documentos de un índice específico. Juntos, el punto de conexión, una clave de API para el acceso de solo lectura y un índice de destino definen el nivel de acceso y ámbito de la conexión desde la aplicación cliente.
+Las *claves de consulta* se crean a medida que son necesarias y están diseñadas para las aplicaciones cliente que emiten consultas. Puede crear hasta 50 claves de consulta. En el código de la aplicación, especifique la dirección URL de búsqueda y una clave de API de consulta para permitir el acceso de solo lectura a la colección de documentos de un índice específico. Juntos, el punto de conexión, una clave de API para el acceso de solo lectura y un índice de destino definen el nivel de acceso y ámbito de la conexión desde la aplicación cliente.
 
 Se requiere autenticación en cada solicitud, y cada solicitud se compone de una clave obligatoria, una operación y un objeto. Cuando se encadenan, los dos niveles de permisos (completo y de solo lectura) y el contexto (por ejemplo, una operación de consulta en un índice) son suficientes para proporcionar seguridad en la gama completa de las operaciones del servicio. Para más información acerca de las claves, vea [Create and manage api-keys](search-security-api-keys.md) (Creación y administración de claves de API).
 
@@ -84,7 +84,7 @@ Para soluciones multiinquilino que requieren límites de seguridad en el nivel d
 
 ## <a name="admin-access"></a>Acceso de administrador
 
-[Acceso basado en roles (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina si tienen acceso a los controles sobre el servicio y su contenido. Si es propietario o colaborador en un servicio Azure Search, puede usar el portal o PowerShell **Az.Search** módulo para crear, actualizar o eliminar objetos en el servicio. También puede usar el [API de REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+El [acceso basado en roles (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina si tiene acceso a los controles del servicio y su contenido. Si es propietario o colaborador en un servicio de Azure Search, puede usar el módulo **Az.Search** de PowerShell o el portal para crear, actualizar o eliminar objetos en el servicio. También puede usar la [API REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ## <a name="user-access"></a>Acceso de usuarios
 
@@ -119,7 +119,7 @@ Los centros de datos de Microsoft proporcionan una seguridad física líder en l
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Introducción a .NET (se muestra el uso de una clave de administración para crear un índice)](search-create-index-dotnet.md)
 + [Introducción a REST (se muestra el uso de una clave de administración para crear un índice)](search-create-index-rest-api.md)

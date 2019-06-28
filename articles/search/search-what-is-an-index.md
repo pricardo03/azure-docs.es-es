@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024442"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creación de un índice básico en Azure Search
@@ -30,7 +30,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
 1. Determine si puede usar un [indexador](search-indexer-overview.md#supported-data-sources). Si los datos externos son uno de los orígenes de datos admitidos, puede crear un prototipo y cargar un índice mediante el [**Asistente para importar datos**](search-import-data-portal.md).
 
-2. Si no puede usar dicho asistente, puede [crear un índice inicial en el portal](search-create-index-portal.md), y agregar campos y tipos de datos y asignar atributos mediante los controles de la página **Add Index** (Agregar índice)**.** El portal muestra los atributos que están disponibles para diferentes tipos de datos. Si no está familiarizado con el diseño de índices, esta información resulta útil.
+2. Si no puede usar dicho asistente, puede [crear un índice inicial en el portal](search-create-index-portal.md), y agregar campos y tipos de datos y asignar atributos mediante los controles de la página **Add Index** (Agregar índice). El portal muestra los atributos que están disponibles para diferentes tipos de datos. Si no está familiarizado con el diseño de índices, esta información resulta útil.
 
    ![Agregar página de índice que muestra atributos por tipo de datos](media/search-create-index-portal/field-attributes.png "Add index page showing attributes by data type")
   
@@ -46,7 +46,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
 6. Continúe usando código para recorrer en iteración su diseño.  
 
-Dado que se crean estructuras físicas en el servicio, [quitar y volver a crear índices](search-howto-reindex.md) es necesario siempre que realice cambios sustanciales en una definición de campo existente. Esto significa que durante el desarrollo, debe estar preparado para recompilaciones frecuentes. Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
+Como se crean estructuras físicas en el servicio, cada vez que realiza cambios materiales en una definición de campo existente, es necesario [quitar y volver a crear los índices](search-howto-reindex.md). Esto significa que durante el desarrollo, debe estar preparado para recompilaciones frecuentes. Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
 
 Para un diseño iterativo, se recomienda código, en lugar del portal. Si confía en el portal para la definición del índice, tendrá que rellenar la definición del índice en cada recompilación. Como alternativa, herramientas como [Postman y la API REST](search-fiddler.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
 
@@ -54,7 +54,7 @@ Para un diseño iterativo, se recomienda código, en lugar del portal. Si confí
 
 De forma esquemática, un índice de Azure Search se compone de los siguientes elementos. 
 
-La [*recopilación de campos*](#fields-collection) es normalmente el elemento más grande de un índice, en el que cada campo recibe un nombre, se escribe y se le asignan unos atributos con los comportamientos permitidos que determinan cómo se usa. Otros elementos incluyen [proveedores de sugerencias](#suggesters), [perfiles de puntuación](#scoring-profiles), [analizadores](#analyzers) con partes de componentes para admitir la personalización, [CORS](#cors) y [clave de cifrado](#encryption-key) opciones.
+La [*recopilación de campos*](#fields-collection) es normalmente el elemento más grande de un índice, en el que cada campo recibe un nombre, se escribe y se le asignan unos atributos con los comportamientos permitidos que determinan cómo se usa. Otros elementos incluyen [proveedores de sugerencias](#suggesters), [perfiles de puntuación](#scoring-profiles), [analizadores](#analyzers) con elementos de componentes que admitan personalización y opciones de [CORS](#cors) y [clave de cifrado](#encryption-key).
 
 ```json
 {
@@ -175,7 +175,7 @@ Puede encontrar información más detallada sobre los [atributos de índice de A
 
 Los atributos seleccionados tienen un efecto sobre el almacenamiento. La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos.
 
-El índice se basa en el [ejemplo inmobiliarias](search-get-started-portal.md) origen de datos que se puede indizar y consulta en el portal. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo **searchable** y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo **retrievable** y nada más y así sucesivamente.
+El índice se basa en el origen de datos [ejemplo de real estate integrado](search-get-started-portal.md), que se puede indexar y consultar en el portal. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo **searchable** y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo **retrievable** y nada más y así sucesivamente.
 
 ![Tamaño de índice según la selección de atributos](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
@@ -215,7 +215,7 @@ Se pueden establecer las opciones siguientes para CORS:
 
 ## <a name="encryption-key"></a>Clave de cifrado
 
-Mientras todos los índices de búsqueda de Azure se cifran mediante claves administradas por Microsoft de forma predeterminada, los índices se pueden configurar para cifrarse con **claves administradas por el cliente** en Key Vault. Para obtener más información, consulte [administrar claves de cifrado en Azure Search](search-security-manage-encryption-keys.md).
+Mientras todos los índices de búsqueda de Azure se cifran mediante claves administradas por Microsoft de manera predeterminada, los índices se pueden configurar para cifrarse con **claves administradas por el cliente** en Key Vault. Para obtener más información, consulte [Administración de claves de cifrado en Azure Search](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,10 +12,10 @@ ms.author: pahusban
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023974"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service 
@@ -232,28 +232,28 @@ Se pueden obtener orígenes de datos mediante:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>Eliminar los recursos de la interfaz visual
+## <a name="delete-visual-interface-assets"></a>Eliminación de los recursos de la interfaz visual
 
-En la interfaz visual, donde se ha creado el experimento, eliminar recursos individuales:
+En la interfaz visual donde se ha creado el experimento, elimine los recursos individuales:
 
-1. En el lado izquierdo, seleccione el tipo de recurso que desee eliminar.
+1. En el lado izquierdo, seleccione el tipo de recurso que quiere eliminar.
 
     ![Eliminación de recursos](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. En la lista, seleccione los recursos individuales para eliminar.
+1. En la lista, seleccione los recursos individuales que se van a eliminar.
 
-1. En la parte inferior, seleccione **eliminar**.
+1. En la parte inferior, seleccione **Eliminar**.
 
-## <a name="export-visual-interface-data"></a>Exportar datos de la interfaz visual
+## <a name="export-visual-interface-data"></a>Exportación de datos de la interfaz visual
 
-En la interfaz visual, donde se ha creado el experimento, exporte los datos que ha agregado:
+En la interfaz visual donde se ha creado el experimento, exporte los datos que ha agregado:
 
-1. En el lado izquierdo, seleccione **datos**.
+1. En el lado izquierdo, seleccione **Datos**.
 
-1. En la parte superior, seleccione **Mis conjuntos de datos** o **ejemplos** para localizar los datos que desea exportar.
+1. En la parte superior, seleccione **Mis conjuntos de datos** o **Ejemplos** para localizar los datos que quiere exportar.
 
-    ![Descargar datos](media/how-to-export-delete-data.md/download-data.png)
+    ![Descarga de datos](media/how-to-export-delete-data.md/download-data.png)
 
-1. En la lista, seleccione los conjuntos de datos individuales para exportar.
+1. En la lista, seleccione los recursos individuales que se van a exportar.
 
-1. En la parte inferior, seleccione **descargar**.
+1. En la parte inferior, seleccione **Descargar**.

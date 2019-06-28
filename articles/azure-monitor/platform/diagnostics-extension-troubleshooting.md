@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471783"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Componentes lógicos
-**Diagnostics Plugin Launcher (DiagnosticsPluginLauncher.exe)**: inicia la extensión Azure Diagnostics. Funciona como el proceso de punto de entrada.
+**Diagnostics Plugin Launcher (DiagnosticsPluginLauncher.exe)** : inicia la extensión Azure Diagnostics. Funciona como el proceso de punto de entrada.
 
-**Diagnostics Plugin (DiagnosticsPlugin.exe)**: configura, inicia y administra la duración del agente de supervisión. Es el proceso principal que ejecuta el iniciador.
+**Diagnostics Plugin (DiagnosticsPlugin.exe)** : configura, inicia y administra la duración del agente de supervisión. Es el proceso principal que ejecuta el iniciador.
 
-**Agente de supervisión (procesos de MonAgent\*.exe)**: supervisa, recopila y transfiere los datos de diagnóstico.  
+**Agente de supervisión (procesos de MonAgent\*.exe)** : supervisa, recopila y transfiere los datos de diagnóstico.  
 
 ## <a name="logartifact-paths"></a>Rutas de acceso de registro y de artefacto
 Estas son las rutas de acceso a algunos de los registros y artefactos más importantes. Se tendrá en cuenta esta información a lo largo del documento.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Artefacto | Path |
+| Artefacto | Ruta de acceso |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Archivos de registro** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Estas son las rutas de acceso a algunos de los registros y artefactos más impor
 | **Archivo de registro de MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-| Artefacto | Path |
+| Artefacto | Ruta de acceso |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Archivos de registro** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -81,7 +81,7 @@ Si no hay ningún dato para la métrica específica, compruebe la opción **Conf
 Si la configuración se ha establecido correctamente, pero todavía no puede ver los datos métricos, siga las instrucciones siguientes para solucionar cualquier problema que tenga.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>No se inicia el diagnóstico de Azure
+## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics no se inicia
 Examine los archivos **DiagnosticsPluginLauncher.log** y **DiagnosticsPlugin.log** en la ubicación de los archivos de registro proporcionada anteriormente, para obtener información sobre por qué Azure Diagnostics no se pudo iniciar.
 
 Si estos registros indican `Monitoring Agent not reporting success after launch`, significa que hubo un error al iniciar MonAgentHost.exe. Examine los registros en la ubicación que se indicó para `MonAgentHost log file` en la sección anterior.
@@ -104,15 +104,15 @@ La razón más común para que los datos de evento no aparezcan en absoluto, es 
 
 Solución: corrija la configuración de Diagnostics y vuelva a instalar esta extensión.
 
-Si la cuenta de almacenamiento está configurado correctamente, acceso remoto en el equipo y compruebe que *DiagnosticsPlugin.exe* y *MonAgentCore.exe* se ejecutan. Si no se están ejecutando, siga las instrucciones de la sección [Azure Diagnostics no se inicia](#azure-diagnostics-is-not-starting).
+Si la cuenta de almacenamiento está configurada correctamente, conéctese a la máquina mediante acceso remoto y asegúrese de que *DiagnosticsPlugin.exe* y *MonAgentCore.exe* se están ejecutando. Si no se están ejecutando, siga las instrucciones de la sección [Azure Diagnostics no se inicia](#azure-diagnostics-is-not-starting).
 
 Si los procesos están en ejecución, vaya a [¿Se capturan los datos localmente?](#is-data-getting-captured-locally) y siga las instrucciones que se detallan allí.
 
-Si esto no resuelve el problema, intente:
+Si el problema no se soluciona, pruebe a llevar a cabo las acciones siguientes:
 
 1. Desinstalación del agente
-2. Quitar directorio C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
-3. Vuelva a instalar el agente
+2. Eliminación del directorio C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Instalación del agente de nuevo
 
 
 ### <a name="part-of-the-data-is-missing"></a>No están todos los datos
@@ -232,7 +232,7 @@ El complemento devuelve los siguientes códigos de salida:
 
 | Código de salida | DESCRIPCIÓN |
 | --- | --- |
-| 0 |Correcto. |
+| 0 |Correcta. |
 | -1 |Error genérico. |
 | -2 |No se puede cargar el archivo rcf.<p>Este error interno solo debería ocurrir si el iniciador del complemento del agente invitado se invoca manualmente de forma incorrecta en la máquina virtual. |
 | -3 |No se puede cargar el archivo de configuración de Diagnósticos.<p><p>Solución: Esto se debe a que un archivo de configuración no supera la validación del esquema. La solución es proporcionar un archivo de configuración que cumpla el esquema. |

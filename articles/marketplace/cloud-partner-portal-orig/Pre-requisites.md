@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
 ms.openlocfilehash: 0219d7e8a94dd6710c553f2133442867e39f6870
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935543"
 ---
 # <a name="prerequisites-for-application-curation"></a>Requisitos previos para la protección de aplicaciones
@@ -36,5 +36,5 @@ Actualmente, los asociados deben demostrar que se cumplen estos requisitos reali
 - Modelos (código y pruebas)
 - Contenido de marketing
 
-Para obtener más información sobre los requisitos técnicos y de procesos, consulte [validar aplicaciones de finanzas y operaciones](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Además, si aún no lo ha hecho, revise el [Office 365, Dynamics 365, PowerApps y Power BI ofrecen guía para la publicación](../appsource-offer-publishing-guide.md).
+Para obtener más información sobre los requisitos técnicos y de procesos, consulte [Validate applications for Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) (Validación de aplicaciones para Finance and Operations).  Además, si aún no lo ha hecho, revise la [Guía de publicación de ofertas de Office 365, Dynamics 365, PowerApps y Power BI](../appsource-offer-publishing-guide.md).
 

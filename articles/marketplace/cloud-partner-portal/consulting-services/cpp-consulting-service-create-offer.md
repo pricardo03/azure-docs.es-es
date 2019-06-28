@@ -1,6 +1,6 @@
 ---
-title: Crear una oferta de consultoría | Azure Marketplace
-description: Cree una oferta de servicio de consultoría de Azure o Dynamics 365 en Cloud Partner Portal para Azure Marketplace.
+title: Creación de una oferta de consultoría | Azure Marketplace
+description: Cree una oferta de servicios de consultoría de Azure o Dynamics 365 en Cloud Partner Portal para Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
 ms.openlocfilehash: 09b9dce8e30ed3ba5ad0bac58929cd2c6d71793c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942829"
 ---
-# <a name="create-a-consulting-offer"></a>Crear una oferta de consultoría
+# <a name="create-a-consulting-offer"></a>Creación de una oferta de consultoría
 
 En este artículo se describe cómo crear y publicar una oferta de servicios de consultoría.
 

@@ -9,10 +9,10 @@ ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
 ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789316"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
@@ -39,7 +39,7 @@ Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y
 | correlationId | Opcional | GUID que se usa para agrupar un conjunto de eventos relacionados. Normalmente, si dos eventos tienen el mismo valor operationName pero dos estados diferentes (p. ej. "Started" y "Succeeded"), comparten el mismo identificador de correlación. Esto también puede representar otras relaciones entre los eventos. |
 | identidad | Opcional | Blob JSON que describe la identidad del usuario o la aplicación que realizó la operación. Normalmente esto incluirá la autorización y las notificaciones o el token JWT de Active Directory. |
 | Nivel | Opcional | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
-| ubicación | Opcional | Región del recurso que emite el evento, por ejemplo, "Este de EE. UU." o "Sur de Francia". |
+| location | Opcional | Región del recurso que emite el evento, por ejemplo, "Este de EE. UU." o "Sur de Francia". |
 | properties | Opcional | Todas las propiedades extendidas relacionadas con esta categoría de eventos determinada. Todas las propiedades personalizadas o únicas se deben colocar dentro de esta "Parte B" del esquema. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Esquemas específicos del servicio para los registros de diagnóstico de recursos
@@ -47,7 +47,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 
 | Servicio | Esquema y documentos |
 | --- | --- |
-| Azure Active Directory | [Información general sobre](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [esquema de registro de auditoría](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) y [esquema inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Información general](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Esquema de registros de auditoría](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) y [Esquema de inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Registros de diagnóstico de API Management](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Puertas de enlace de aplicaciones |[Registro de diagnóstico para Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
@@ -66,7 +66,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Azure Firewall | Esquema no disponible. |
 | IoT Hub | [Operaciones de IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registro de Azure Key Vault](../../key-vault/key-vault-logging.md) |
-| Equilibrador de carga |[Log Analytics para Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log Analytics para Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | [Administración de Azure DDoS Protection estándar](../../virtual-network/manage-ddos-protection.md) |
@@ -75,7 +75,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../../search/search-traffic-analytics.md) |
 | Azure Service Bus |[Registros de diagnóstico de Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registro de diagnóstico de Azure SQL Database](../../sql-database/sql-database-metrics-diag-logging.md) |
-| Análisis de transmisiones |[Registros de diagnósticos de trabajos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Stream Analytics |[Registros de diagnósticos de trabajos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Esquema de registro de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Esquema no disponible. |
 | Puertas de enlace de red virtual | Esquema no disponible. |
@@ -90,13 +90,13 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Automation/automationAccounts|JobStreams|Flujos de trabajo|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Estado del nodo de DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Registros de servicios|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtiene la métrica del punto de conexión, por ejemplo, ancho de banda, salida, etc.|
-|Microsoft.ClassicNetwork/networkSecurityGroups|Evento de flujo de la regla del grupo de seguridad de red|Evento de flujo de la regla del grupo de seguridad de red|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtiene las métricas del punto de conexión; por ejemplo, ancho de banda, salida, etc.|
+|Microsoft.ClassicNetwork/networkSecurityGroups|Evento de flujo de reglas de grupo de seguridad de red|Evento de flujo de reglas de grupo de seguridad de red|
 |Microsoft.CognitiveServices/accounts|Auditoría|Registros de auditoría|
 |Microsoft.CognitiveServices/accounts|RequestResponse|Registros de solicitud y respuesta|
-|Microsoft.ContainerService/managedClusters|kube-apiserver|Servidor de API de Kubernetes|
-|Microsoft.ContainerService/managedClusters|kube-controller-manager|Administrador de controladores de Kubernetes|
-|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Escalabilidad automática de clústeres de Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Servidor de la API de Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Administrador del controlador de Kubernetes|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Cluster Autoscaler de Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Programador de Kubernetes|
 |Microsoft.ContainerService/managedClusters|guard|Webhook de autenticación|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -106,7 +106,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.DataLakeAnalytics/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeAnalytics/accounts|Solicitudes|Registros de solicitud|
 |Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
-|Microsoft.DataLakeStore/accounts|Solicitudes|Registros de solicitud|
+|Microsoft.DataLakeStore/accounts|Requests|Registros de solicitud|
 |Microsoft.DBforMySQL/servers|MySqlSlowLogs|Registros de MySQL Server|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Registros del servidor PostgreSQL|
 |Microsoft.Devices/IotHubs|Conexiones|Conexiones|
@@ -121,7 +121,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Devices/IotHubs|JobsOperations|Operaciones de trabajos|
 |Microsoft.Devices/IotHubs|DirectMethods|Métodos directos|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|Diagnóstico de E2E (versión preliminar)|
-|Microsoft.Devices/IotHubs|Configuraciones|Configuraciones|
+|Microsoft.Devices/IotHubs|Configurations|Configurations|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operaciones de dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operaciones del servicio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -139,7 +139,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.IoTSpaces/Graph|Entrada|Entrada|
 |Microsoft.IoTSpaces/Graph|Salida|Salida|
 |Microsoft.KeyVault/vaults|AuditEvent|Registros de auditoría|
-|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico en tiempo de ejecución del flujo de trabajo|
+|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico en tiempo de ejecución de flujo de trabajo|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventos de seguimiento de la cuenta de integración|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Evento de grupo de seguridad de red|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de reglas de grupo de seguridad de red|

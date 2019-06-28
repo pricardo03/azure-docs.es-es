@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938255"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidad geográfica y soporte técnico de moneda
 
-Se pueden adquirir ofertas de Azure Marketplace en 141 geografías tal como se define mediante la dirección de facturación del cliente y las transacciones se pueden completar en 17 monedas. La tabla siguiente enumera cada admite la ubicación geográfica, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)y la moneda asignada.
+Se pueden adquirir ofertas de Azure Marketplace en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente, y las transacciones se pueden completar en 17 monedas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
 
-|   Nombre de país o región               |   ISO-2   |   Moneda   |
+|   Nombre del país o región               |   ISO-2   |   Moneda   |
 |-------------------------------------|-----------|--------------|
 | Afganistán                         | AF        | USD          |
 | Albania                             | AL        | USD          |
@@ -86,7 +86,7 @@ Se pueden adquirir ofertas de Azure Marketplace en 141 geografías tal como se d
 | Jordania                              | JO        | USD          |
 | Kazajistán                          | KZ        | USD          |
 | Kenia                               | KE        | USD          |
-| Corea del sur                       | KR        | KRW          |
+| Corea (Sur)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
 | Kirguistán                          | KG        | USD          |
 | Letonia                              | LV        | EUR          |
@@ -147,7 +147,7 @@ Se pueden adquirir ofertas de Azure Marketplace en 141 geografías tal como se d
 | Túnez                             | TN        | USD          |
 | Turquía                              | TR        | USD          |
 | Turkmenistán                        | TM        | USD          |
-| Ciudad del Vaticano (Santa sede)             | VA        | EUR          |
+| Ciudad del Vaticano (Santa Sede)             | VA        | EUR          |
 | Islas Vírgenes de los Estados Unidos | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucrania                             | UA        | USD          |
@@ -163,4 +163,4 @@ Se pueden adquirir ofertas de Azure Marketplace en 141 geografías tal como se d
 | Zimbabue                            | ZW        | USD          |
 |   |   |   |
 
-\* Para los clientes de Brasil, Marketplace a través de proveedores de soluciones de nube (CSP) usa USD.
+\* Para los clientes de Brasil, Marketplace a través de Proveedores de soluciones en la nube (CSP) usa USD.

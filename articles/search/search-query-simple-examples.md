@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de consultas mediante la sintaxis de búsqueda "simple" - Azure Search
+title: 'Ejemplos de consultas mediante la sintaxis de búsqueda "simple": Azure Search'
 description: Ejemplos de consultas simplificadas para búsqueda de texto completo, búsqueda filtrada, búsqueda geográfica, búsqueda por facetas y otras cadenas de consulta que se usan para consultar un índice de Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024530"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Ejemplos de consultas mediante la sintaxis de búsqueda "simple" en Azure Search
@@ -35,7 +35,7 @@ Lo que necesita es Postman o una herramienta equivalente para emitir la solicitu
 
 2. Agregue un valor de **clave-api** y establézcala en esta cadena: `252044BE3886FE4A8E3BAA4F595114BB`. Se trata de una clave de consulta para el servicio de búsqueda de espacio aislado que hospeda el índice de trabajos de Nueva York.
 
-Después de especificar el encabezado de solicitud, puede volver a usarlo para todas las consultas de este artículo, cambiando solo la cadena **search=**. 
+Después de especificar el encabezado de solicitud, puede volver a usarlo para todas las consultas de este artículo, cambiando solo la cadena **search=** . 
 
   ![Encabezado de solicitud de Postman](media/search-query-lucene-examples/postman-header.png)
 
@@ -57,13 +57,13 @@ La composición de dirección URL tiene los siguientes elementos:
 
 Como paso de comprobación, pegue la siguiente solicitud en GET y haga clic en **Enviar**. Los resultados se devuelven como documentos JSON detallados. Se devuelven documentos completos, lo que permite ver todos los campos y todos los valores.
 
-Pegue esta dirección URL en un cliente REST como paso de validación y ver la estructura del documento.
+Pegue esta URL en un cliente REST como paso de validación y para ver la estructura del documento.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-La cadena de consulta, **`search=*`**, es una búsqueda sin especificar equivalente a la búsqueda vacía o NULL. No resulta especialmente útil, pero es la búsqueda más sencilla que se puede hacer.
+La cadena de consulta, **`search=*`** , es una búsqueda sin especificar equivalente a la búsqueda vacía o NULL. No resulta especialmente útil, pero es la búsqueda más sencilla que se puede hacer.
 
 Si lo desea, puede agregar **`$count=true`** a la dirección URL para devolver un recuento de los documentos que coinciden con los criterios de búsqueda. En una cadena de búsqueda vacía, se trata de todos los documentos del índice (unos 2800 en el caso de los trabajos de Nueva York).
 
@@ -89,7 +89,7 @@ Esta es la misma consulta con varios campos en una lista delimitada por comas.
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
-### <a name="full-url"></a>Dirección URL completa
+### <a name="full-url"></a>URL completa
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=business_title&$select=business_title&search=*
@@ -211,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-Para obtener resultados más legibles, se recortan los resultados de búsqueda para incluir un Id. de trabajo, puesto de trabajo y la ubicación de trabajo. Las coordenadas iniciales se obtuvieron de un documento aleatorio del índice (en este caso, para una ubicación de trabajo en la isla Staten).
+Para obtener resultados más legibles, los resultados de búsqueda se recortan para incluir el identificador, el puesto y la ubicación de trabajo. Las coordenadas iniciales se obtuvieron de un documento aleatorio del índice (en este caso, para una ubicación de trabajo en la isla Staten).
 
 También puede probarlo en Postman mediante GET:
 

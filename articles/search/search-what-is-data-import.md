@@ -10,17 +10,17 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024356"
 ---
-# <a name="data-import-overview---azure-search"></a>Información general: importar datos de Azure Search
+# <a name="data-import-overview---azure-search"></a>Introducción a la importación de datos: Azure Search
 
 En Azure Search, las consultas se ejecutan sobre el contenido cargado y guardado en un [índice de búsqueda](search-what-is-an-index.md). Este artículo examina los dos enfoques básicos para rellenar un índice: *insertar* los datos en el índice mediante programación o apuntar un [indexador de Azure Search](search-indexer-overview.md) en un origen de datos admitido para *extraer* en los datos.
 
-Con cualquier enfoque, el objetivo es *cargar datos* desde un origen de datos externo en un índice de Azure Search. Azure Search le permitirá crear un índice vacío, pero hasta que se insertar o extraer datos en él, no es consultable.
+Con cualquier enfoque, el objetivo consiste en *cargar datos* de un origen de datos externo en un índice de Azure Search. Azure Search le permitirá crear un índice vacío, pero, hasta que se inserten o extraigan datos en él, no es consultable.
 
 ## <a name="pushing-data-to-an-index"></a>Inserción de datos en un índice
 El modelo de inserción, que se usa para enviar a Azure Search los datos mediante programación, es el enfoque más flexible. En primer lugar, no tiene ninguna restricción en el tipo de origen de datos. Cualquier conjunto de datos que se compone de documentos JSON se puede insertar en un índice de Azure Search si cada documento en el conjunto de datos tiene campos asignados a los campos definidos en el esquema de índice. En segundo lugar, no tiene ninguna restricción en la frecuencia de ejecución. Puede insertar los cambios a un índice tantas veces como desee. En el caso de las aplicaciones con requisitos de latencia muy baja (por ejemplo, si se necesita que las operaciones de búsqueda estén sincronizadas con las bases de datos dinámicas del inventario), la única opción es un modelo de inserción.
@@ -36,28 +36,28 @@ Puede usar las siguientes API para cargar uno o varios documentos en un índice:
 
 Actualmente no se admite ninguna herramienta para insertar datos mediante el portal.
 
-Para obtener una introducción a cada metodología, consulte [inicio rápido: Crear un índice de Azure Search con PowerShell y la API de REST](search-create-index-rest-api.md) o [inicio rápido: Crear un índice de Azure Search en C# ](search-import-data-dotnet.md).
+Para obtener una introducción a cada metodología, consulte [Quickstart: Create an Azure Search index using PowerShell and the REST API](search-create-index-rest-api.md) (Inicio rápido: Creación de un índice de Azure Search mediante PowerShell y la API REST) o [Quickstart: Create an Azure Search index in C#](search-import-data-dotnet.md) (Inicio rápido: Creación de un índice de Azure Search en C#).
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Acciones de indexación: cargar, combinar, combinar eliminar
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Acciones de indexación: carga, combinación, mergeOrUpload y eliminación
 
-Puede controlar el tipo de acción de indexación en una base por documento, especificando si se debe cargar el documento en completas, combinada con el contenido del documento existente o eliminado.
+Puede controlar el tipo de acción de indexación por documento, especificando si se debe cargar el documento totalmente, combinarlo con el contenido del documento existente o eliminarlo.
 
-En la API de REST, emitirá solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del extremo del índice de Azure Search. Cada objeto JSON en la matriz de "value" contiene la clave del documento y especifica una acción de indexación incorporaciones, actualizaciones, o elimina el contenido del documento. Para obtener un ejemplo de código, vea [cargar documentos](search-create-index-rest-api.md#load-documents).
+En la API REST, emita solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del punto de conexión del índice de Azure Search. Cada objeto JSON de la matriz "value" contiene la clave del documento y especifica una acción de indexación de incorporación, actualización o eliminación del contenido del documento. Para obtener un ejemplo de código, consulte [Carga de documentos](search-create-index-rest-api.md#load-documents).
 
-En el SDK. NET, empaquetar los datos en un `IndexBatch` objeto. Un `IndexBatch` encapsula una colección de `IndexAction` objetos, cada uno de los cuales contiene un documento y una propiedad que indica qué acción se debe realizar en el documento de Azure Search. Para obtener un ejemplo de código, vea [IndexBatch construir](search-import-data-dotnet.md#construct-indexbatch).
+En el SDK de .NET, empaquete los datos en un objeto `IndexBatch`. Un `IndexBatch` encapsula una colección de objetos `IndexAction`, cada uno de los cuales contiene un documento y una propiedad que indica a Azure Search qué acción debe realizar en el documento. Para obtener un ejemplo de código, consulte [Construcción de IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
 
 
 | @search.action | DESCRIPCIÓN | Campos necesarios para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Una acción `upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. |la clave, además de cualquier otro campo que desee definir |Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo. |
-| `merge` |Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. |la clave, además de cualquier otro campo que desee definir |Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. En el SDK. NET, esto incluye los campos de tipo `DataType.Collection(DataType.String)`. En la API de REST, esto incluye los campos de tipo `Collection(Edm.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`. |
+| `merge` |Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. |la clave, además de cualquier otro campo que desee definir |Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. En el SDK de .NET se incluyen los campos de tipo `DataType.Collection(DataType.String)`. En la API REST se incluyen los campos de tipo `Collection(Edm.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Esta acción se comporta como `merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `upload` con un nuevo documento. |la clave, además de cualquier otro campo que desee definir |- |
 | `delete` |Quita el documento especificado del índice. |solo la clave |Todos los campos que especifique que no sean el campo de clave, se omitirán. Si desea quitar un campo individual de un documento, use `merge` en su lugar y establezca el campo explícitamente con el valor NULL. |
 
 ## <a name="decide-which-indexing-action-to-use"></a>Elección de la acción de indexación que va a usar
-Para importar datos mediante el SDK de .NET (carga, merge, delete y mergeOrUpload). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
+Importar datos mediante el SDK de .NET (carga, combinación, eliminación y mergeOrUpload). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
 
 
 ### <a name="formulate-your-query"></a>Formulación de la consulta
@@ -76,7 +76,7 @@ El modelo de extracción rastrea un origen de datos compatible y carga automáti
 + [Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Table storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
-+ [Azure SQL Database y SQL Server en máquinas virtuales de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Azure SQL Database y SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Los indexadores conectan un índice a un origen de datos (normalmente una tabla, vista o estructura equivalente) y asignan campos de origen a los campos equivalentes del índice. Durante la ejecución, el conjunto de filas se transforma automáticamente en JSON y se carga en el índice especificado. Todos los indexadores admiten la programación, de modo que se puede especificar con qué frecuencia se deben actualizar los datos. La mayoría de los indexadores proporcionan seguimiento de cambios, siempre el origen de datos lo admita. Mediante el seguimiento de cambios y eliminaciones en documentos existentes, además de reconocer nuevos documentos, los indexadores eliminan la necesidad de administrar activamente los datos del índice. 
 
@@ -94,7 +94,7 @@ Una forma rápida de realizar una comprobación preliminar en la carga de docume
 > [!TIP]
 > Muchos [ejemplos de código de Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluyen conjuntos de datos incrustados o rápidamente disponibles, lo que supone una forma sencilla de empezar a trabajar. El portal también proporciona un indexador de ejemplo y un origen de datos que consta del conjunto de datos de una pequeña inmobiliaria (denominado "realestate-us-sample"). Al ejecutar el indexador preconfigurado en el origen de datos de ejemplo, se crea un índice que se carga con documentos que, luego, se pueden consultar en el Explorador de búsqueda o mediante un código creado por usted.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Información general del indexador](search-indexer-overview.md)
 + [Tutorial del portal: crear, cargar, consultar un índice](search-get-started-portal.md)

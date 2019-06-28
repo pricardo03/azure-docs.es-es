@@ -1,5 +1,5 @@
 ---
-title: Crear imagen de contenedores de Azure activos técnicos | Azure Marketplace
+title: Creación de recursos técnicos de imagen de contenedor de Azure | Azure Marketplace
 description: Cree los recursos técnicos para un contenedor de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794339"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Preparación de los recursos técnicos de contenedor
@@ -55,8 +55,8 @@ También se recomienda revisar las herramientas disponibles en la página [Herra
 
 Para obtener más información, consulte los temas siguientes:
 
-* [Tutorial: Crear una imagen de contenedor para la implementación en Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [Tutorial: Compilar e implementar imágenes de contenedor en la nube con las tareas del registro de contenedor de Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [Tutorial: Creación de una imagen de contenedor para su implementación en Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

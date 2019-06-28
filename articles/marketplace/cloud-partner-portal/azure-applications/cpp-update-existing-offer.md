@@ -1,5 +1,5 @@
 ---
-title: Actualizar una oferta existente de la aplicación de Azure | Azure Marketplace
+title: Actualización de una oferta de aplicación de Azure existente | Azure Marketplace
 description: Cómo actualizar una oferta de aplicación de Azure existente en Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pabutler
 ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942815"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Actualización de una oferta de aplicación de Azure existente
@@ -70,7 +70,7 @@ Use los pasos siguientes para actualizar los metadatos de Marketplace asociados 
 4. Seleccione **Publicar** para iniciar el flujo de trabajo para publicar los cambios.
  
 >[!Note]
->Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
+>La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible.  Consulte [Proveedores de soluciones en la nube](../../cloud-solution-providers.md) para obtener más información sobre el marketing que ofrece a través de los canales de asociados de CSP de Microsoft.
 
 ## <a name="deleting-an-existing-offer"></a>Eliminación de una oferta existente
 

@@ -1,7 +1,7 @@
 ---
-title: 'Entrenar el modelo de clúster: Referencia de módulo'
+title: 'Entrenamiento del modelo de agrupación en clústeres: Referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo entrenar modelo de agrupación en clústeres en el servicio de Azure Machine Learning para entrenar modelos de agrupación en clústeres.
+description: Aprenda a usar el módulo Entrenamiento del modelo de agrupación en clústeres en Azure Machine Learning Service para entrenar un modelo de clasificación o regresión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,54 +11,54 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 41cdec1d7f1c3932b17da6f9b1de518071f3f542
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028086"
 ---
-# <a name="train-clustering-model"></a>Entrenar el modelo de agrupación en clústeres
+# <a name="train-clustering-model"></a>Entrenamiento del modelo de agrupación en clústeres
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) para el servicio Azure Machine Learning.
+En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
 Utilice este módulo para entrenar un modelo de agrupación en clústeres.
 
-El módulo toma un modelo de agrupación en clústeres no entrenado que ya ha configurado mediante el [agrupación en clústeres K-Means](k-means-clustering.md) módulo y se entrena el modelo utilizando un conjunto de datos sin etiqueta o con la etiqueta. El módulo crea tanto un modelo entrenado que puede usar para la predicción y un conjunto de asignaciones de clúster para cada caso de los datos de entrenamiento.
+El módulo toma un modelo de agrupación en clústeres no entrenado que ya ha configurado mediante el módulo [Agrupación en clústeres k-means](k-means-clustering.md) y entrena el modelo utilizando un conjunto de datos sin etiqueta o con etiqueta. El módulo crea un modelo entrenado que puede usar para la predicción y un conjunto de asignaciones de clúster para cada caso de los datos de entrenamiento.
 
 > [!NOTE]
-> Ser una agrupación en clústeres modelo entrenado con el [Train Model](train-model.md) módulo, que es el módulo genérico para el entrenamiento de modelos de aprendizaje automático. Eso es porque [Train Model](train-model.md) solo funciona con algoritmos de aprendizaje supervisado. K-means y otros algoritmos de agrupación en clústeres permiten aprendizaje no supervisado, lo que significa que el algoritmo puede aprender de los datos sin etiqueta.  
+> No se puede entrenar un modelo de agrupación en clústeres con el módulo [Entrenar modelo](train-model.md), que es el módulo genérico para el entrenamiento de modelos de Machine Learning. Es debido a que [Entrenar modelo](train-model.md) solo funciona con algoritmos de aprendizaje supervisado. K-means y otros algoritmos de agrupación en clústeres permiten el aprendizaje no supervisado, lo que significa que el algoritmo puede aprender de los datos sin etiqueta.  
   
-## <a name="how-to-use-train-clustering-model"></a>Uso de entrenar el modelo de agrupación en clústeres  
+## <a name="how-to-use-train-clustering-model"></a>Procedimiento para usar el modelo de entrenamiento de almacenamiento en clúster  
   
-1.  Agregar el **entrenar el modelo de agrupación en clústeres** módulo al experimento en Studio. Puede encontrar el módulo en **módulos de aprendizaje automático**, en el **Train** categoría.  
+1.  Agregue el módulo **Entrenamiento del modelo de agrupación en clústeres** al experimento en Studio. Puede encontrar el módulo en **Módulos de Machine Learning** de la categoría **Entrenar**.  
   
-2. Agregar el [agrupación en clústeres K-Means](k-means-clustering.md) módulo o en otro módulo personalizado que crea una agrupación compatible del modelo y establezca los parámetros del modelo de agrupación en clústeres.  
+2. Agregue el módulo [Agrupación en clústeres k-means](k-means-clustering.md) u otro módulo personalizado que cree un modelo de agrupación en clústeres compatible y establezca los parámetros del modelo de agrupación en clústeres.  
     
-3.  Asociar un conjunto de datos de entrenamiento a la entrada derecha de **entrenar el modelo de agrupación en clústeres**.
+3.  Adjunte un conjunto de datos de entrenamiento a la entrada de la derecha de **Entrenamiento del modelo de agrupación en clústeres**.
   
-5.  En **conjunto de columnas**, seleccione las columnas del conjunto de datos desea utilizar para generar clústeres. Asegúrese de seleccionar las columnas que hacen que las características de buena: por ejemplo, evite utilizar identificadores u otras columnas que tienen valores únicos o columnas que tienen los mismos valores.
+5.  En **Conjunto de columnas**, seleccione las columnas del conjunto de datos que desea utilizar para compilar clústeres. Asegúrese de seleccionar columnas que sean buenas características: por ejemplo, evite utilizar id. u otras columnas que tengan valores únicos o columnas que tengan todos los mismos valores.
 
-    Si hay una etiqueta, puede usarlo como una característica o dejarlo.  
+    Si hay una etiqueta, puede usarla como una característica u omitirla.  
   
-6. Seleccione la opción **comprobar para anexar o desactive la casilla resultado solo**, si desea enviar los datos de entrenamiento junto con la nueva etiqueta de clúster.
+6. Seleccione la opción **Check for Append or Uncheck for Result Only** (Marcar para anexar o no marcar para resultados solo), si desea producir los datos de entrenamiento junto con la nueva etiqueta de clúster.
 
-    Si desactiva esta opción, solo las asignaciones de clúster son de salida. 
+    Si anula la selección de esta opción, la salida solo contiene las asignaciones de clúster. 
 
-7. Ejecute el experimento, o haga clic en el **entrenar el modelo de agrupación en clústeres** módulo y seleccione **ejecutar seleccionado**.  
+7. Ejecute el experimento, o haga clic en el módulo **Entrenamiento del modelo de agrupación en clústeres** y seleccione **Ejecutar seleccionados**.  
   
 ### <a name="results"></a>Results
 
-Una vez completada la formación:
+Una vez completado el entrenamiento:
 
 
-+  Para ver los valores del conjunto de datos, haga clic en el módulo, seleccione **como resultado conjuntos de datos**y haga clic en **visualizar**.
++  Para ver los valores del conjunto de datos, haga clic con el botón derecho en el módulo, seleccione **Result datasets** (Conjuntos de datos del resultado) y haga clic en **Visualizar**.
 
-+ Para guardar el modelo entrenado para volver a usarlo más adelante, haga clic en el módulo, seleccione **calificado modelo**y haga clic en **Guardar como modelo entrenado**.
++ Para guardar el modelo entrenado a fin de volver a usarlo más adelante, haga clic con el botón derecho en el módulo, seleccione **Modelo formado** y haga clic en **Save As Trained Model** (Guardar como modelo entrenado).
 
-+ Para generar puntuaciones a partir del modelo, utilice [asignar datos a clústeres](assign-data-to-clusters.md).
++ Para generar puntuaciones a partir del modelo, utilice [Asignación de datos a clústeres](assign-data-to-clusters.md).
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [conjunto de módulos disponibles](module-reference.md) al servicio de Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 

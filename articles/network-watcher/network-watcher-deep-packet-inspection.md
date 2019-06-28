@@ -41,7 +41,7 @@ En este escenario, podrá:
 
 En este escenario, se muestra cómo ver el tiempo de ida y vuelta (RTT) inicial de una conversación de Protocolo de control de transmisión (TCP) que se produce entre dos puntos de conexión.
 
-Cuando se establece una conexión TCP, los primeros tres paquetes enviados en la conexión siguen un patrón que se conoce comúnmente como protocolo de enlace de tres vías. Mediante el examen de los dos primeros paquetes enviados en este protocolo de enlace, una solicitud inicial del cliente y una respuesta del servidor, es posible calcular la latencia de cuando se estableció esta conexión. Esta latencia se conoce como tiempo de ida y vuelta (RTT). Para más información sobre el protocolo TCP y el protocolo de enlace de tres vías, consulte el siguiente recurso. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Cuando se establece una conexión TCP, los primeros tres paquetes enviados en la conexión siguen un patrón que se conoce comúnmente como protocolo de enlace de tres vías. Mediante el examen de los dos primeros paquetes enviados en este protocolo de enlace, una solicitud inicial del cliente y una respuesta del servidor, es posible calcular la latencia de cuando se estableció esta conexión. Esta latencia se conoce como tiempo de ida y vuelta (RTT). Para más información sobre el protocolo TCP y el protocolo de enlace de tres vías, consulte el siguiente recurso. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
 
 ### <a name="step-1"></a>Paso 1
 

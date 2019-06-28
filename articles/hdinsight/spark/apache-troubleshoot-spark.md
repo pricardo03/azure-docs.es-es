@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721159"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solución de problemas de Apache Spark mediante Azure HDInsight
@@ -22,7 +22,7 @@ Conozca los principales problemas y sus soluciones al trabajar con cargas útile
 
 ### <a name="resolution-steps"></a>Pasos de la solución
 
-Se pueden ajustar los valores de configuración de Spark ayudar a evitar una excepción OutofMemoryError de aplicación de Apache Spark. Los pasos siguientes muestran la forma predeterminada los valores de configuración de Spark en HDInsight de Azure: 
+Los valores de configuración de Spark se pueden ajustar para ayudar a evitar una excepción OutofMemoryError de aplicación de Apache Spark. Los pasos siguientes muestran los valores de configuración predeterminados de Spark en Azure HDInsight: 
 
 1. En la lista de clústeres, seleccione **Spark2**.
 
@@ -202,12 +202,12 @@ La causa más probable de esta excepción es que no se asigna suficiente memoria
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Para calcular la memoria total usada por todos los ejecutores: 
+    Para calcular la memoria total utilizada por todos los ejecutores: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   Para calcular la memoria total usada por el controlador:
+   Para calcular la memoria total utilizada por el controlador:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -219,5 +219,5 @@ La causa más probable de esta excepción es que no se asigna suficiente memoria
 - [Depuración de una aplicación de Apache Spark en un clúster de HDInsight](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Otras referencias
 [Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

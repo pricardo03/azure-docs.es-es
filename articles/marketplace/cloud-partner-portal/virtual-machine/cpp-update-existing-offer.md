@@ -1,5 +1,5 @@
 ---
-title: Actualizar una oferta de máquina virtual existente en Azure Marketplace
+title: Actualización de una oferta de VM existente en Azure Marketplace
 description: Se explica cómo actualizar una oferta de máquina virtual existente en Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
 ms.openlocfilehash: 4a75d706d55512201786b2b74376047ff75380a7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938130"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Actualización de una oferta de máquina virtual existente en Azure Marketplace
@@ -29,7 +29,7 @@ Hay una serie de motivos comunes para actualizar la oferta, incluidos los siguie
 Para ayudarle con estas modificaciones, el portal ofrece las características **Comparar** e **Historial**.  
 
 >[!Note]
->Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](../../cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
+>La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible.  Consulte [Proveedores de soluciones en la nube](../../cloud-solution-providers.md) para obtener más información sobre el marketing que ofrece a través de los canales de asociados de CSP de Microsoft.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Cambios no permitidos en la oferta de máquina virtual o la SKU
 

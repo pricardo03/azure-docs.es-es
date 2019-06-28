@@ -1,5 +1,5 @@
 ---
-title: Cancelar la operación de API | Azure Marketplace
+title: API Cancelar operación | Azure Marketplace
 description: Cancele las operaciones.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935564"
 ---
 # <a name="cancel-operation"></a>Cancelar operación 
@@ -27,8 +27,8 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 
 |  **Nombre**    |      **Descripción**                                  |    **Tipo de datos**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   string          |
-| offerId      |  Identificador de la oferta.                                     |   string          |
+| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   Cadena          |
+| offerId      |  Identificador de la oferta.                                     |   Cadena          |
 | api-version  |  Versión actual de la API                               |    Date           |
 |  |  |  |
 

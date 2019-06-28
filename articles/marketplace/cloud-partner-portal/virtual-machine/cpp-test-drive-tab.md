@@ -1,5 +1,5 @@
 ---
-title: Pestaña de la versión de prueba de máquina virtual en Cloud Partner Portal para Azure Marketplace
+title: Pestaña Versión de prueba de máquina virtual en Cloud Partner Portal para Azure Marketplace
 description: Se describe la pestaña Versión de prueba que se usa en la creación de una oferta de máquina virtual de Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
 ms.openlocfilehash: 31c7968d0d96a44ff166444f73807e0ccb5dc583
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937997"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Pestaña Versión de prueba de máquina virtual
@@ -37,11 +37,11 @@ En la tabla siguiente se describen la finalidad y el contenido de estos campos. 
 | *Configuración técnica* |  |
 | **Instancias\***             | Especifica la disponibilidad de la región y la disponibilidad relativa de la instancia de máquina virtual (haga clic en el icono de información para obtener más detalles).  <br/>Las sesiones simultáneas posibles de Versión de prueba no deben superar el límite de cuota para la suscripción.  Lo anterior se calcula de esta forma: [Número de regiones seleccionadas] x [Instancias activas] + [Número de regiones seleccionadas] x [Instancias semiactivas] + [Número de regiones seleccionadas] x [Instancias inactivas] |
 | **Duración de la versión de prueba\***   | Duración máxima de la sesión en horas. La sesión de la versión de prueba finaliza de forma automática cuando finaliza este período de tiempo.  |
-|**Plantilla de ARM de unidad de prueba\***| Carga la plantilla de Azure Resource Manager asociada con esta versión de prueba. Para obtener más información, vea [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive) (Transformación de la plantilla de implementación de máquina virtual para la versión de prueba). |
+|**Plantilla ARM de la versión de prueba\***| Carga la plantilla de Azure Resource Manager asociada con esta versión de prueba. Para obtener más información, vea [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive) (Transformación de la plantilla de implementación de máquina virtual para la versión de prueba). |
 | **Información de acceso\***    | Información de acceso de Azure Resource Manager e inicio de sesión de prueba, escrita como texto sin formato o HTML simple. |
 | *Detalles de la suscripción de implementación de la versión de prueba* |  |
-| **Id. de suscripción de Azure\*** | Se puede obtener al iniciar sesión en [Microsoft Azure Portal](https://ms.portal.azure.com) y hacer clic en **Suscripciones** en la barra de menús de la izquierda. (Ejemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")    Este identificador debe ser un GUID con el formato `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
-| **Id. de inquilino de Azure AD\***    | Identificador del inquilino de Azure Active Directory.  Se puede obtener si inicia sesión en [Microsoft Azure Portal](https://ms.portal.azure.com), hace clic en **Azure Active Directory** en la barra de menús de la izquierda, luego en **Propiedades** en la barra de menús central y, después, copia el **Id. de directorio** desde el formulario.  Este identificador también debe ser un GUID.  Si está en blanco, debe crear un identificador de inquilino para la organización. |
+| **Identificador de suscripción de Azure\*** | Se puede obtener al iniciar sesión en [Microsoft Azure Portal](https://ms.portal.azure.com) y hacer clic en **Suscripciones** en la barra de menús de la izquierda. (Ejemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")    Este identificador debe ser un GUID con el formato `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
+| **Identificador de inquilino de Azure AD\***    | Identificador del inquilino de Azure Active Directory.  Se puede obtener si inicia sesión en [Microsoft Azure Portal](https://ms.portal.azure.com), hace clic en **Azure Active Directory** en la barra de menús de la izquierda, luego en **Propiedades** en la barra de menús central y, después, copia el **Id. de directorio** desde el formulario.  Este identificador también debe ser un GUID.  Si está en blanco, debe crear un identificador de inquilino para la organización. |
 | **Identificador de aplicación de Azure AD\***       | Identificador de la solución de máquina virtual de Azure registrada  |
 | **Clave de aplicación de Azure AD\***      | Clave de autenticación para la solución registrada |
 |   |   |

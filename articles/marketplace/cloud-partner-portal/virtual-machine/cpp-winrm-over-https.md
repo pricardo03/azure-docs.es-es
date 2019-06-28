@@ -1,6 +1,6 @@
 ---
 title: Administración remota de Windows a través de HTTPS para Azure | Azure Marketplace
-description: Explica cómo configurar una máquina virtual hospedada en Azure, basada en Windows para que puedan administrar de forma remota con PowerShell.
+description: Se explica cómo configurar una máquina virtual basada en Windows hospedada en Azure para que pueda administrarse de forma remota con PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
 ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938224"
 ---
 # <a name="windows-remote-management-over-https"></a>Administración remota de Windows a través de HTTPS

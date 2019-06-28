@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412825"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
@@ -42,7 +42,7 @@ Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación 
 
 Los ejemplos de código que aparecen en este tutorial son para una aplicación web C# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
 
-El tutorial supone que está utilizando Visual Studio de 2019. 
+En el tutorial se supone que está usando Visual Studio 2019. 
 
 La característica de registros de streaming solo funciona para aplicaciones dirigidas a .NET Framework 4 o superior.
 
@@ -264,7 +264,7 @@ Una aplicación ASP.NET que se ejecuta en una aplicación de App Service puede c
 * **Registros de mensaje de error detallados**<br/>
   El servidor web crea una página HTML con algo de información adicional para solicitudes HTTP con error (las solicitudes que generan el código de error 400 o superior).
 * **Registros de seguimiento de solicitudes con error**<br/>
-   El servidor web crea un archivo XML con información de seguimiento detallada para solicitudes HTTP con error. El servidor web también proporciona un archivo XSL para dar formato al XML en un explorador.
+  El servidor web crea un archivo XML con información de seguimiento detallada para solicitudes HTTP con error. El servidor web también proporciona un archivo XSL para dar formato al XML en un explorador.
 
 El registro afecta el rendimiento de la aplicación, por lo que Azure le ofrece la posibilidad de habilitar o deshabilitar cada tipo de registro según sea necesario. En el caso de registros de aplicaciones, puede especificar que solo se escriban los registros por encima de un determinado nivel de gravedad. Cuando crea una aplicación, todos los registros están deshabilitados de manera predeterminada.
 
@@ -346,7 +346,7 @@ public ActionResult Contact()
 ```       
 
 1. Presione CTRL+F5 para ejecutar la aplicación.
-1. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y, a continuación, presione ENTRAR (la dirección URL es similar a `http://localhost:53370/trace.axd`).
+1. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y, luego, presione ENTRAR (la dirección URL es similar a `http://localhost:53370/trace.axd`).
 1. En la página **Seguimiento de la aplicación**, haga clic en **Ver detalles** en la primera línea (no en la línea BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -649,15 +649,15 @@ Si su aplicación utiliza una API web de Azure o el back-end de Mobile Services 
 No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET disponibles en Internet. Lo mejor que puede hacer es comenzar con materiales de introducción antiguos escritos para Web Forms, porque MVC todavía no existía, y complementarlos con las publicaciones más recientes en blogs que se centran en temas específicos. Algunos buenos sitios para comenzar son los siguientes recursos:
 
 * [Supervisión y telemetría (crear aplicaciones en la nube para el mundo real con Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-   Capítulo de un libro electrónico con recomendaciones para realizar seguimiento en aplicaciones de la nube de Azure.
+  Capítulo de un libro electrónico con recomendaciones para realizar seguimiento en aplicaciones de la nube de Azure.
 * [Seguimiento de ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-   Un recurso antiguo, pero siempre útil, con una introducción básica al tema.
+  Un recurso antiguo, pero siempre útil, con una introducción básica al tema.
 * [Agentes de escucha de seguimiento](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Brinda información acerca de los agentes de escucha de seguimiento, pero no menciona [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Tutorial: Integración del seguimiento de ASP.NET con el seguimiento de System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Este artículo también es antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
 * [Seguimiento en vistas Razor de ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](/previous-versions/bb397417(v=vs.140)) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
+  Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](/previous-versions/bb397417(v=vs.140)) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
 
 ``` c#
 try
@@ -672,9 +672,9 @@ catch (Exception ex)
 ```
 
 * [Registro de seguimiento de diagnóstico de streaming desde la línea de comandos de Azure (con Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   Uso de la línea de comandos para hacer lo que muestra este tutorial en Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) es una herramienta de depuración de aplicaciones ASP.NET.
+  Uso de la línea de comandos para hacer lo que muestra este tutorial en Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) es una herramienta de depuración de aplicaciones ASP.NET.
 * [Uso de diagnósticos y registro de Web Apps - con David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) y [Registros de streaming desde Web Apps - con David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-   Vídeos de Scott Hanselman y David Ebbo.
+  Vídeos de Scott Hanselman y David Ebbo.
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](https://nuget.org/packages/elmah/). Para obtener más información, consulte [Publicaciones de blog de Scott Hanselman sobre ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
@@ -685,7 +685,7 @@ Para obtener más información acerca del análisis de registros de servidor web
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Una herramienta para visualizar datos en registros de servidor web (archivos *.log* ).
-* [Solucionar problemas de rendimiento de IIS o errores de aplicación al usar LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Solución de problemas de rendimiento de IIS o errores de aplicación al usar LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.
 * [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [El código de estado HTTP en IIS 7.0, IIS 7.5 y IIS 8.0](https://support.microsoft.com/kb/943891)

@@ -1,5 +1,5 @@
 ---
-title: Usar una plantilla de Azure Resource Manager para crear un área de trabajo
+title: Uso de una plantilla de Azure Resource Manager para crear un área de trabajo
 titleSuffix: Azure Machine Learning service
 description: Aprenda a usar una plantilla de Azure Resource Manager para crear una nueva área de trabajo de Azure Machine Learning Service.
 services: machine-learning
@@ -11,13 +11,13 @@ author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: abe497ed96515e8194fb2ddefd8e7f4cb9908758
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205121"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usar una plantilla de Azure Resource Manager para crear un área de trabajo para el servicio Azure Machine Learning
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning Service
 
 En este artículo aprenderá varias formas de crear un área de trabajo de Azure Machine Learning Service mediante plantillas de Azure Resource Manager. Una plantilla de Resource Manager facilita la creación de recursos en una única operación coordinada. Una plantilla es un documento JSON que define los recursos que son necesarios para una implementación. También puede especificar los parámetros de implementación. Los parámetros se emplean para proporcionar valores de entrada cuando se usa la plantilla.
 
@@ -31,7 +31,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
-La siguiente plantilla de Resource Manager puede usarse para crear un área de trabajo del servicio de Azure Machine Learning y recursos de Azure asociados:
+La siguiente plantilla de Resource Manager se puede usar para crear un área de trabajo de Azure Machine Learning Service y los recursos de Azure asociados:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 

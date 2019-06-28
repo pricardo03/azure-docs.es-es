@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
 ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074034"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
@@ -51,13 +51,13 @@ Es posible que deba ajustar estos valores de recuperación. Los valores de recup
 
 ## <a name="cluster-autoscaler"></a>Cluster Autoscaler
 
-Para responder a las cambiantes exigencias de pod, Kubernetes tiene un clúster Escalador automático (actualmente en versión preliminar de AKS) que ajusta el número de nodos en función de los recursos de proceso solicitado en el grupo de nodos. De forma predeterminada, Cluster Autoscaler comprueba en el servidor de API cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
+Para responder a las distintas exigencias de pods, Kubernetes tiene un componente Cluster Autoscaler (actualmente en versión preliminar en AKS) que ajusta el número de nodos según los recursos de proceso solicitados en el grupo de nodos. De forma predeterminada, Cluster Autoscaler comprueba en el servidor de API cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
 
 ![Cluster Autoscaler de Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
 Cluster Autoscaler se usa normalmente junto con Horizontal Pod Autoscaler. Cuando se combinan, Horizontal Pod Autoscaler aumenta o disminuye el número de pods según la demanda de la aplicación, mientras que Cluster Autoscaler ajusta el número de nodos según sea necesario para ejecutar los pods adicionales en consecuencia.
 
-Solo se debe probar el Escalador automático del clúster en versión preliminar en clústeres AKS con un grupo de nodo único.
+Solo se debe probar Cluster Autoscaler en versión preliminar en clústeres AKS con un grupo de nodo único.
 
 Para empezar a usar Cluster Autoscaler en AKS, consulte [Cluster Autoscaler on AKS][aks-cluster-autoscaler] (Cluster Autoscaler en AKS).
 
@@ -83,7 +83,7 @@ Para escalar rápidamente el clúster de AKS, puedes realizar la integración co
 
 ![Escalado de ráfaga de Kubernetes en ACI](media/concepts-scale/burst-scaling.png)
 
-ACI le permite implementar rápidamente instancias de contenedor sin sobrecarga de infraestructura adicional. Cuando se conecta con AKS, ACI se convierte en una extensión lógica y segura de su clúster de AKS. El componente Virtual Kubelet se instala en el clúster de AKS que presenta ACI como un nodo de Kubernetes virtual. Kubernetes puede programar pods que se ejecuten como instancias de ACI a través de los nodos virtuales, no como pods en nodos de máquina virtual directamente en el clúster de AKS. Los nodos virtuales están actualmente en versión preliminar de AKS.
+ACI le permite implementar rápidamente instancias de contenedor sin sobrecarga de infraestructura adicional. Cuando se conecta con AKS, ACI se convierte en una extensión lógica y segura de su clúster de AKS. El componente Virtual Kubelet se instala en el clúster de AKS que presenta ACI como un nodo de Kubernetes virtual. Kubernetes puede programar pods que se ejecuten como instancias de ACI a través de los nodos virtuales, no como pods en nodos de máquina virtual directamente en el clúster de AKS. Los nodos virtuales se encuentran actualmente en versión preliminar en AKS.
 
 La aplicación no requiere ninguna modificación para usar los nodos virtuales. Puede escalar las implementaciones en AKS y ACI sin ningún retraso, ya que Cluster Autoscaler implementa los nodos nuevos en el clúster de AKS.
 

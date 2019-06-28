@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
 ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203616"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Análisis de datos de registro en Azure Monitor
@@ -28,7 +28,7 @@ Requiere una consulta de registros para recuperar todos los datos de registro de
 
 ## <a name="where-log-queries-are-used"></a>Dónde se usan las consultas de registros
 
-Las distintas formas en que va a utilizar las consultas en Azure Monitor incluyen lo siguiente:
+Entre las distintas formas en que usará las consultas en Azure Monitor se incluyen las siguientes:
 
 - **Portal.** Puede realizar análisis interactivos de los datos de registro en [Azure Portal](portals.md).  Esto le permite modificar la consulta y analizar los resultados en una gran variedad de formatos y visualizaciones.  
 - **Reglas de alertas.** [Las reglas de alertas](../platform/alerts-overview.md) identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una búsqueda de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
@@ -36,7 +36,7 @@ Las distintas formas en que va a utilizar las consultas en Azure Monitor incluye
 - **Vistas.**  Puede crear visualizaciones de datos que se incluyan en los paneles de usuario con el [diseñador de vistas](../platform/view-designer.md).  Las consultas de registros proporcionan los datos utilizados por [iconos](../platform/view-designer-tiles.md) y [elementos de visualización](../platform/view-designer-parts.md) en cada vista.  
 
 - **Exportación.**  Cuando importe datos de registro de Azure Monitor en Excel o [Power BI](../platform/powerbi.md), cree una consulta de registros para definir los datos que se van a exportar.
-- **PowerShell.** Puede ejecutar un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que use [Get AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) para recuperar datos de registro de Azure Monitor.  Este cmdlet requiere una consulta para determinar los datos que se van a recuperar.
+- **PowerShell.** Puede ejecutar un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que use [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) para recuperar los datos de registro de Azure Monitor.  Este cmdlet requiere una consulta para determinar los datos que se van a recuperar.
 - **API de registros de Azure Monitor.**  La [API de registros de Azure Monitor](../platform/alerts-overview.md) permite que cualquier cliente de API REST recupere datos de registro del área de trabajo.  La solicitud de API incluye una consulta que se ejecuta en Azure Monitor para determinar los datos que se van a recuperar.
 
 ![Búsqueda de registros](media/log-query-overview/queries-overview.png)
@@ -97,5 +97,5 @@ Mientras que [Application Insights](../app/app-insights-overview.md) almacena lo
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Aprenda a usar [búsquedas de registros de Log Analytics para crear y editar](../log-query/portals.md).
+- Aprenda a usar [Log Analytics para crear y editar búsquedas de registros](../log-query/portals.md).
 - Consulte un [tutorial sobre cómo escribir consultas](../log-query/get-started-queries.md) mediante el nuevo lenguaje de consulta.

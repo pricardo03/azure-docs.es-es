@@ -1,6 +1,6 @@
 ---
 title: Optimización del rendimiento para los clústeres de Apache Kafka HDInsight
-description: Proporciona información general sobre técnicas para optimizar las cargas de trabajo de Apache Kafka en HDInsight de Azure.
+description: Proporciona una introducción a las técnicas para optimizar las cargas de trabajo de Apache Kafka en Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,78 +8,78 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689358"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimización del rendimiento para los clústeres de Apache Kafka HDInsight
 
-Este artículo proporcionan algunas sugerencias para optimizar el rendimiento de las cargas de trabajo de Apache Kafka en HDInsight. Es el enfoque sobre el ajuste de productor y configuración de Service broker. Hay diferentes maneras de medir el rendimiento y las optimizaciones que aplicar dependerá de sus necesidades empresariales.
+En este artículo se proporcionan algunas sugerencias para optimizar el rendimiento de las cargas de trabajo de Apache Kafka en HDInsight. El enfoque es sobre el ajuste de la configuración del productor y agente. Hay diferentes maneras de medir el rendimiento, y las optimizaciones que aplique dependerá de sus necesidades empresariales.
 
 ## <a name="architecture-overview"></a>Introducción a la arquitectura
 
-Los temas de Kafka se utilizan para organizar los registros. Registros son generados por los productores y consumidores reciben los. Los productores envían registros a los agentes de Kafka, que, a continuación, almacenarán los datos. Cada nodo de trabajo del clúster de HDInsight es un agente de Kafka.
+Los temas de Kafka se usan para organizar los registros. Los registros los generan productores y los consumen consumidores. Los productores envían registros a los agentes de Kafka, que luego almacenan los datos. Cada nodo de trabajo del clúster de HDInsight es un agente de Kafka.
 
 Los temas particionan los registros entres los agentes. Al consumir registros, puede usar hasta un consumidor por partición para lograr el procesamiento en paralelo de los datos.
 
-La replicación se utiliza para duplicar las particiones entre nodos. Esto protege contra las desconexiones de nodos (agente). Una sola partición entre el grupo de réplicas se designa como el líder de la partición. El tráfico del productor se enruta al líder de cada nodo, con el estado administrado por ZooKeeper.
+La replicación se usa para duplicar las particiones entre nodos. Esto protege contra las desconexiones de nodos (agente). Una sola partición entre el grupo de réplicas se designa como el líder de particiones. El tráfico del productor se enruta al líder de cada nodo, con el estado administrado por ZooKeeper.
 
 ## <a name="identify-your-scenario"></a>Identificación del escenario
 
-Rendimiento de Apache Kafka tiene dos aspectos principales: rendimiento y latencia. Rendimiento es la velocidad máxima a la que se pueden procesar los datos. Un mayor rendimiento es mejor. La latencia es el tiempo necesario para que los datos que se almacena o recupera. Una latencia menor es mejor. Puede resultar complicado encontrar el equilibrio correcto entre el rendimiento, latencia y el costo de infraestructura de la aplicación. Los requisitos de rendimiento es probable que coincidirá con uno de las siguientes tres situaciones comunes, en función de si requiere un alto rendimiento, baja latencia o ambos:
+El rendimiento general de Apache Kafka tiene dos aspectos principales: rendimiento y latencia. El rendimiento es la velocidad máxima a la que se pueden procesar los datos. Cuando más alto sea el rendimiento, mejor. La latencia es el tiempo que se necesita para que los datos que se almacena o recuperen. Cuando más baja sea la latencia, mejor. Encontrar el equilibrio correcto entre el rendimiento, latencia y coste de la infraestructura de la aplicación puede ser algo desafiante. Los requisitos de rendimiento probablemente coincidirán con una de las siguientes tres situaciones comunes, en función de si requiere alto rendimiento, baja latencia o ambos:
 
-* Alto rendimiento, baja latencia. Este escenario requiere un alto rendimiento y baja latencia (~ 100 milisegundos). Un ejemplo de este tipo de aplicación es servicio de supervisión de disponibilidad.
-* Alto rendimiento, alta latencia. Este escenario requiere un rendimiento alto (~1.5 GBps), pero puede tolerar una latencia mayor (< 250 ms). Un ejemplo de este tipo de aplicación es la ingesta de datos de telemetría para cerca de los procesos en tiempo real, como aplicaciones de detección de intrusiones y seguridad.
-* Bajo rendimiento, baja latencia. Este escenario requiere una latencia baja (< 10 ms) para el procesamiento en tiempo real, pero puede tolerar un menor rendimiento. Un ejemplo de este tipo de aplicación es comprobaciones de ortografía y gramática en línea.
+* Alto rendimiento, baja latencia. Este escenario requiere un alto rendimiento y baja latencia (~ 100 milisegundos). Un ejemplo de este tipo de aplicación es la supervisión de la disponibilidad del servicio.
+* Alto rendimiento, alta latencia. Este escenario requiere un alto rendimiento (~1,5 GBps), pero puede tolerar una latencia mayor (< 250 ms). Un ejemplo de este tipo de aplicación es la ingesta de datos de telemetría para procesos casi en tiempo real, como aplicaciones de seguridad y detección de intrusiones.
+* Bajo rendimiento, baja latencia. Este escenario requiere una latencia baja (< 10 ms) para el procesamiento en tiempo real, pero puede tolerar un menor rendimiento. Un ejemplo de este tipo de aplicación es las comprobaciones de ortografía y gramática en línea.
 
 ## <a name="producer-configurations"></a>Configuraciones de productor
 
-Las secciones siguientes resaltan algunas de las propiedades de configuración más importantes para optimizar el rendimiento de los productores de Kafka. Para obtener una explicación detallada de todas las propiedades de configuración, consulte [documentación de Apache Kafka en configuraciones de productor](https://kafka.apache.org/documentation/#producerconfigs).
+En las secciones siguientes se resaltan algunas de las propiedades de configuración más importantes para optimizar el rendimiento de los productores de Kafka. Para obtener una explicación detallada de todas las propiedades de configuración, consulte la [documentación de Apache Kafka sobre las configuraciones de productor](https://kafka.apache.org/documentation/#producerconfigs).
 
 ### <a name="batch-size"></a>Tamaño de lote
 
-Los productores de Apache Kafka reunir grupos de mensajes (denominados lotes) que se envían como una unidad que se almacenará en una partición de almacenamiento único. Tamaño del lote, significa que el número de bytes que deben estar presentes antes de que se transmite a ese grupo. Aumentar el `batch.size` parámetro puede aumentar el rendimiento, ya que reduce el procesamiento de sobrecarga de red y las solicitudes de E/S. Bajo una carga ligera, tamaño de lote mayor puede aumentar la latencia de envío de Kafka como el productor espera a que un lote estar preparado. Con mucha carga, se recomienda para aumentar el tamaño del lote para mejorar el rendimiento y latencia.
+Los productores de Apache Kafka reúnen grupos de mensajes (denominados lotes) que se envían como una unidad que se almacenará en una partición de almacenamiento único. El tamaño de lote corresponde al número de bytes que deben estar presentes antes de que se transmita ese grupo. Aumentar el parámetro `batch.size` puede aumentar el rendimiento, ya que reduce la sobrecarga de procesamiento de red y las solicitudes de E/S. Bajo una carga ligera, un mayor tamaño de lote puede aumentar la latencia de envío de Kafka mientras el productor espera a que un lote esté preparado. Bajo una carga elevada, se recomienda aumentar el tamaño de lote para mejorar el rendimiento y la latencia.
 
-### <a name="producer-required-acknowledgements"></a>Confirmaciones de productor necesario
+### <a name="producer-required-acknowledgements"></a>Confirmaciones requeridas por el productor
 
-El productor necesario `acks` configuración determina el número de confirmaciones requeridas por el líder de la partición antes de que una solicitud de escritura se considera completado. Esta configuración afecta a la confiabilidad de los datos y toma los valores de `0`, `1`, o `-1`. El valor de `-1` significa que se debe recibir una confirmación desde todas las réplicas antes de que finalice la operación de escritura. Establecer `acks = -1` proporciona mayores garantías contra la pérdida de datos, pero también los resultados en una latencia mayor y menor rendimiento. Si los requisitos de su aplicación exigen un mayor rendimiento, pruebe a establecer `acks = 0` o `acks = 1`. Tenga en cuenta, que puede reducir la confiabilidad de los datos no reconocer todas las réplicas.
+La configuración `acks` requerida por el productor determina el número de confirmaciones que necesita el líder de particiones antes de que una solicitud de escritura se considere completada. Este valor afecta a la confiabilidad de los datos y toma los valores de `0`, `1`, o `-1`. El valor de `-1` significa que se debe recibir una confirmación de todas las réplicas antes de que se complete la operación de escritura. El valor `acks = -1` proporciona mayores garantías contra la pérdida de datos, pero también resulta en mayor latencia y menor rendimiento. Si los requisitos de la aplicación exigen un mayor rendimiento, pruebe a establecer `acks = 0` o `acks = 1`. Tenga en cuenta que no reconocer todas las réplicas puede reducir la confiabilidad de los datos.
 
 ### <a name="compression"></a>Compresión
 
-Un productor de Kafka puede configurarse para comprimir los mensajes antes de enviarlos a los agentes. El `compression.type` configuración especifica el códec de compresión que se usará. Códecs de compresión admitidos son "gzip", "snappy" y "lz4." La compresión es beneficiosa y se debe considerar si hay una limitación en la capacidad de disco.
+Un productor de Kafka puede configurarse para comprimir los mensajes antes de enviarlos a los agentes. El valor `compression.type` especifica el códec de compresión que se usará. Los códecs de compresión admitidos son "gzip", "snappy" y "lz4". La compresión es beneficiosa y se debe tener en cuenta si hay una limitación en la capacidad de disco.
 
-Entre los dos códecs de compresión frecuente, `gzip` y `snappy`, `gzip` tiene una mayor proporción de compresión, que da como resultado una menor uso de disco a costa de una carga más elevada de CPU. El `snappy` códec proporciona una compresión menos con menos sobrecarga de CPU. Puede decidir qué códec para usar en función de limitaciones de CPU de disco o el productor de broker. `gzip` puede comprimir los datos a una velocidad cinco veces mayor que `snappy`.
+Entre los dos códecs de compresión que se usan con frecuencia, `gzip` y `snappy`, `gzip` tiene una razón de compresión, lo que resulta en un menor uso de disco a costa de una carga más elevada de la CPU. El códec `snappy` proporciona menos compresión con menos sobrecarga de la CPU. Puede decidir qué códec usar en función de las limitaciones de CPU del disco de agente o productor. `gzip` puede comprimir los datos a una velocidad cinco veces mayor que `snappy`.
 
-Usar la compresión de datos, aumentará el número de registros que se pueden almacenar en un disco. También puede aumentar CPU sobrecarga en casos donde hay una discrepancia entre los formatos de compresión, el productor y el agente usando. como los datos se deben comprimir antes de enviar y luego descomprimirlos antes del procesamiento.
+El uso de la compresión de datos aumentará el número de registros que se pueden almacenar en un disco. También puede aumentar la sobrecarga de la CPU en los casos en los que hay una discrepancia entre los formatos de compresión que usan el productor y el agente, ya que los datos se deben comprimir antes del envío y luego descomprimir antes del procesamiento.
 
 ## <a name="broker-settings"></a>Configuración del agente
 
-Las secciones siguientes resaltan algunas de las opciones más importantes para optimizar el rendimiento de los agentes de Kafka. Para obtener una explicación detallada de todos los valores de broker, vea [documentación de Apache Kafka en configuraciones de productor](https://kafka.apache.org/documentation/#producerconfigs).
+En las secciones siguientes se resaltan algunas de las opciones de configuración más importantes para optimizar el rendimiento de los agentes de Kafka. Para obtener una explicación detallada de todos los valores del agente, consulte la [documentación de Apache Kafka sobre las configuraciones de productor](https://kafka.apache.org/documentation/#producerconfigs).
 
 
 ### <a name="number-of-disks"></a>Número de discos
 
-Discos de almacenamiento limitada (entrada/salida operaciones por segundo) de e/s por segundo y bytes por segundo de lectura/escritura. Al crear nuevas particiones, Kafka almacena cada nueva partición en el disco con el menor número de las particiones existentes para el equilibrio entre ellos a través de los discos disponibles. A pesar de la estrategia de almacenamiento, al procesar cientos de réplicas de particiones en cada disco, Kafka puede saturar fácilmente el rendimiento de disco disponible. Es aquí el equilibrio entre rendimiento y costo. Si la aplicación requiere un rendimiento mayor, crear un clúster con más administrada discos por agente. HDInsight no admite actualmente la adición de discos administrados a un clúster en ejecución. Para obtener más información sobre cómo configurar el número de discos administrados, consulte [configurar el almacenamiento y la escalabilidad de Apache Kafka en HDInsight](apache-kafka-scalability.md). Entender las implicaciones de coste de creciente espacio de almacenamiento para los nodos del clúster.
+Los discos de almacenamiento tienen un valor de IOPS (operaciones de entrada/salida por segundo) y de bytes de lectura/escritura por segundo limitado. Al crear nuevas particiones, Kafka almacena cada nueva partición en el disco con el menor número de particiones existentes para equilibrarlas entre todos los discos disponibles. A pesar de la estrategia de almacenamiento, al procesar cientos de réplicas de particiones en cada disco, Kafka puede saturar fácilmente el rendimiento de disco disponible. Aquí el término medio es entre el rendimiento y el coste. Si la aplicación requiere mayor rendimiento, cree un clúster con más discos administrados por agente. Actualmente, HDInsight no admite la adición de discos administrados a un clúster en ejecución. Para más información sobre cómo configurar el número de discos administrados, consulte [Configuración del almacenamiento y la escalabilidad de Apache Kafka en HDInsight](apache-kafka-scalability.md). Debe comprender las implicaciones de coste de aumentar el espacio de almacenamiento para los nodos del clúster.
 
 ### <a name="number-of-topics-and-partitions"></a>Número de temas y particiones
 
-Los productores Kafka escriben en los temas. Los consumidores de Kafka se leen de temas. Un tema está asociado con un registro, que es una estructura de datos en el disco. Kafka anexa al final del registro de un tema de los registros desde un productor, productores. Un registro de tema consta del número de particiones que se distribuyen en varios archivos. Estos archivos a su vez, se, distribuyen entre varios nodos de clúster de Kafka. Los consumidores leen los temas de Kafka a su ritmo y pueden elegir su posición (desplazamiento) en el registro de tema.
+Los productores de Kafka escriben en los temas. Los consumidores de Kafka leen de los temas. Un tema está asociado con un registro, que es una estructura de datos en el disco. Kafka anexa los registros de un productor al final de un registro de tema. Un registro de tema consta varias particiones distribuidas entre varios archivos. A su vez, estos archivos se distribuyen entre varios nodos de clúster de Kafka. Los consumidores leen los temas de Kafka a su ritmo y pueden elegir su posición (desplazamiento) en el registro de tema.
 
-Cada partición de Kafka es un archivo de registro en el sistema y subprocesos de productor pueden escribir simultáneamente en varios registros. De forma similar, ya que cada subproceso de consumidor lee mensajes de una partición, consumo de varias particiones se controla en paralelo también.
+Cada partición de Kafka es un archivo de registro en el sistema y los subprocesos de productor pueden escribir en varios registros de manera simultánea. De forma similar, dado que cada subproceso de consumidor lee mensajes de una partición, el consumo desde varias particiones también se controla en paralelo.
 
-Aumentar la densidad de la partición (el número de particiones por broker) agrega una sobrecarga relacionada con las operaciones de metadatos y por partición solicitud/respuesta entre el líder de la partición y sus seguidores. Incluso en ausencia de datos que fluyen a través, réplicas de la partición aún capturar datos de los líderes, lo que da como resultado un procesamiento adicional para enviar y recibir solicitudes a través de la red.
+Aumentar la densidad de la partición (el número de particiones por agente) agrega una sobrecarga relacionada con las operaciones de metadatos y solicitud/respuesta por partición entre el líder de particiones y sus seguidores. Incluso si no hay datos que fluyen, las réplicas de partición aún capturar datos de los líderes, lo que resulta en un procesamiento adicional para enviar y recibir solicitudes a través de la red.
 
-Clústeres de Apache Kafka de 1.1 y anteriormente en HDInsight, se recomienda tener un máximo de 1000 particiones por agente, incluidas las réplicas. Aumentar el número de particiones por broker reduce el rendimiento y también puede provocar la falta de disponibilidad de tema. Para obtener más información sobre la compatibilidad con particiones de Kafka, consulte [la entrada de blog oficial de Apache Kafka en el aumento del número de particiones compatibles en la versión 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). Para obtener más información acerca de cómo modificar temas, consulte [Apache Kafka: modificar temas](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
+Para clústeres 1.1 de Apache Kafka y superiores en HDInsight, recomendamos tener un máximo de 1000 particiones por agente, incluidas las réplicas. Aumentar el número de particiones por agente reduce el rendimiento y también puede provocar la falta de disponibilidad de temas. Para más información sobre la compatibilidad con particiones de Kafka, consulte la [entrada de blog oficial de Apache Kafka sobre el aumento del número de particiones compatibles en la versión 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). Para más información sobre cómo modificar temas, consulte [Apache Kafka: modifying topics](https://kafka.apache.org/documentation/#basic_ops_modify_topic) (Apache Kafka: modificar temas).
 
 ### <a name="number-of-replicas"></a>Número de réplicas
 
-Factor de replicación mayor da como resultado solicitudes adicionales entre el líder de la partición y seguidores. Por lo tanto, un factor de replicación más alto consume más disco y CPU para controlar las solicitudes adicionales, latencia y reduce el rendimiento de escritura de aumentar.
+Un mayor factor de replicación resulta en solicitudes adicionales entre el líder de particiones y los seguidores. Como consecuencia, un factor de replicación más alto consume más recursos de disco y CPU para controlar las solicitudes adicionales, lo que aumenta la latencia de escritura y reduce el rendimiento.
 
-Se recomienda utilizar la replicación de al menos 3 x para Kafka en HDInsight de Azure. Regiones de Azure más tienen tres dominios de error, pero en regiones con solo dos dominios de error, los usuarios deben utilizar la replicación de 4 x.
+Recomendamos usar un factor de replicación de al menos 3x para Kafka en Azure HDInsight. La mayoría de las regiones de Azure tienen tres dominios de error, pero en regiones con solo dos dominios de error, los usuarios deben usar un factor de replicación de 4x.
 
-Para obtener más información sobre la replicación, vea [Apache Kafka: replicación](https://kafka.apache.org/documentation/#replication) y [Apache Kafka: aumentar el factor de replicación](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
+Para más información sobre la replicación, consulte [Apache Kafka: replication](https://kafka.apache.org/documentation/#replication) (Apache Kafka: replicación) y [Apache Kafka: increasing replication factor](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor) (Apache Kafka: aumentar el factor de replicación).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

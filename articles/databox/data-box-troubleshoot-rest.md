@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box para solucionar problemas mediante la interfaz REST | Microsoft Docs
-description: Describe cómo solucionar problemas que se ven en Azure Data Box se copia de datos a través de la interfaz REST.
+title: Solución de problemas de Azure Data Box mediante la interfaz REST | Microsoft Docs
+description: Se describe cómo solucionar los problemas observados en Azure Data Box cuando la copia de los datos se realiza a través de la interfaz REST.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,63 +9,63 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204218"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solucionar problemas relacionados con el cuadro de datos de Azure Blob storage
+# <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solución de problemas relacionados con el almacenamiento de blobs de Azure Data Box
 
-Esta información de detalles del artículo sobre cómo solucionar problemas, puede que vea cuando se usa el almacenamiento de blobs de cuadro de datos a través de la interfaz REST en el cuadro de datos para copiar los datos. Superficie de estos problemas cuando se usa almacenamiento de blobs de cuadro de datos con otras aplicaciones o bibliotecas de cliente como explorador de Azure Storage, AzCopy o Azure Storage para Python.
+En este artículo se detalla información sobre cómo solucionar problemas con que se puede encontrar al utilizar el almacenamiento de blobs de Data Box a través de la interfaz REST del Data Box para copiar datos. Estos problemas surgen al utilizar el almacenamiento de blobs de Data Box con otras aplicaciones o bibliotecas de cliente como el Explorador de Azure Storage, AzCopy o la biblioteca de Azure Storage para Python.
 
-## <a name="errors-seen-in-azure-storage-explorer"></a>Errores detectados en el Explorador de Storage de Azure
+## <a name="errors-seen-in-azure-storage-explorer"></a>Errores observados en el Explorador de Azure Storage
 
-Esta sección detallan algunos de los problemas que surgen cuando mediante el Explorador de Storage de Azure con almacenamiento de blobs de cuadro de datos.
-
-|Mensaje de error  |Acción recomendada |
-|---------|---------|
-|No se puede recuperar los recursos secundarios. El valor de uno de los encabezados HTTP no está en el formato correcto.|Desde el **editar** menú, seleccione **API de Azure Stack de destino**. <br>Reinicie el Explorador de Azure Storage.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Compruebe que el nombre del extremo `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se agrega al archivo de hosts en esta ruta de acceso: <li>`C:\Windows\System32\drivers\etc\hosts` en Windows, o </li><li> `/etc/hosts` en Linux.</li>|
-|No se puede recuperar los recursos secundarios. <br>Detalles: certificado autofirmado |Importar el certificado SSL para el dispositivo en el Explorador de Azure Storage: <li>Descargue el certificado desde el portal de Azure. Para obtener más información, vaya a [descargar el certificado](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Desde el **editar** menú, seleccione **certificados SSL** y, a continuación, seleccione **importar certificados**.</li>|
-
-## <a name="errors-seen-in-azcopy-for-windows"></a>Errores detectados en AzCopy para Windows
-
-Esta sección detallan algunos de los problemas que surgen cuando el uso de AzCopy para Windows con almacenamiento de blobs de cuadro de datos.
+En esta sección se detallan algunos de los problemas que surgen al utilizar el Explorador de Azure Storage con el almacenamiento de blobs de Data Box.
 
 |Mensaje de error  |Acción recomendada |
 |---------|---------|
-|Comando de AzCopy parece que se bloquea durante un minuto antes de mostrar este error: <br>Error al enumerar directorios https://... No se pudo resolver el nombre remoto `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Compruebe que el nombre del extremo `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se agrega al archivo hosts en: `C:\Windows\System32\drivers\etc\hosts`.|
-|Comando de AzCopy parece que se bloquea durante un minuto antes de mostrar este error: <br>Error al analizar la ubicación de origen. Se cerró la conexión subyacente: No se pudo establecer la relación de confianza para el canal seguro SSL/TLS.|Importar el certificado SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [descargar el certificado](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|No se han podido recuperar los recursos secundarios. El valor de uno de los encabezados HTTP no tiene el formato correcto.|En el menú **Editar**, seleccione **API de Azure Stack de destino**. <br>Reinicie el Explorador de Azure Storage.|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Compruebe que el nombre del punto de conexión `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se haya agregado al archivo de hosts en esta ruta de acceso: <li>`C:\Windows\System32\drivers\etc\hosts` en Windows, o </li><li> `/etc/hosts` en Linux.</li>|
+|No se han podido recuperar los recursos secundarios. <br>Detalles: un certificado autofirmado |Importe el certificado SSL para el dispositivo en el Explorador de Azure Storage: <li>Descargue el certificado de Azure Portal. Para obtener más información, vaya a [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate) (Descargar el certificado).</li><li>En el menú **Editar**, seleccione **Certificados SSL** y, después, **Importar certificados**.</li>|
 
+## <a name="errors-seen-in-azcopy-for-windows"></a>Errores observados en AzCopy para Windows
 
-## <a name="errors-seen-in-azcopy-for-linux"></a>Errores detectados en AzCopy para Linux
-
-Esta sección detallan algunos de los problemas que surgen cuando usa AzCopy para Linux con almacenamiento de blobs de cuadro de datos.
+En esta sección se detallan algunos de los problemas que surgen al utilizar AzCopy para Windows con el almacenamiento de blobs de Data Box.
 
 |Mensaje de error  |Acción recomendada |
 |---------|---------|
-|Comando de AzCopy parece que se bloquea durante 20 minutos antes de mostrar este error: <br>Error al analizar la ubicación de origen `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. No existe tal dispositivo o dirección|Compruebe que el nombre del extremo `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se agrega al archivo hosts en: `/etc/hosts`.|
-|Comando de AzCopy parece que se bloquea durante 20 minutos antes de mostrar este error: <br>Ubicación de origen de análisis de errores... No se pudo establecer la conexión SSL.|Importar el certificado SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [descargar el certificado](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|El comando de AzCopy se bloquea durante un minuto antes de mostrar este error: <br>No se ha podido enumerar el directorio https://… No se ha podido resolver el nombre remoto `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Compruebe que el nombre del punto de conexión `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se haya agregado al archivo de hosts en: `C:\Windows\System32\drivers\etc\hosts`.|
+|El comando de AzCopy se bloquea durante un minuto antes de mostrar este error: <br>Error al analizar la ubicación de origen. Se ha cerrado la conexión subyacente: No se ha podido establecer la relación de confianza para el canal seguro SSL/TLS.|Importe el certificado SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate) (Descargar el certificado).|
 
-## <a name="errors-seen-in-azure-storage-library-for-python"></a>Errores detectados en la biblioteca de Azure Storage para Python
+
+## <a name="errors-seen-in-azcopy-for-linux"></a>Errores observados en AzCopy para Linux
+
+En esta sección se detallan algunos de los problemas que surgen al utilizar AzCopy para Linux con el almacenamiento de blobs de Data Box.
+
+|Mensaje de error  |Acción recomendada |
+|---------|---------|
+|El comando de AzCopy se bloquea durante 20 minutos antes de mostrar este error: <br>Error al analizar la ubicación de origen `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. No existe tal dispositivo o dirección|Compruebe que el nombre del punto de conexión `<accountname>.blob.<serialnumber>.microsoftdatabox.com` se haya agregado al archivo de hosts en `/etc/hosts`.|
+|El comando de AzCopy se bloquea durante 20 minutos antes de mostrar este error: <br>Error al analizar la ubicación de origen… No se ha podido establecer la conexión SSL.|Importe el certificado SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, vaya a [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate) (Descargar el certificado).|
+
+## <a name="errors-seen-in-azure-storage-library-for-python"></a>Errores observados en la biblioteca de Azure Storage para Python
 
 En esta sección se detallan algunos de los principales problemas que se enfrentan durante la implementación de Data Box Disk cuando se usa un cliente Linux para la copia de datos.
 
 |Mensaje de error  |Acción recomendada |
 |---------|---------|
-|El valor de uno de los encabezados HTTP no está en el formato correcto. |No se admite la versión instalada de la biblioteca de Microsoft Azure Storage para Python en el cuadro de datos. Consulte los requisitos de almacenamiento de blobs de cuadro de datos de Azure para las versiones compatibles.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Antes de ejecutar Python, establezca la variable de entorno REQUESTS_CA_BUNDLE a la ruta de acceso del archivo de certificado SSL con codificación Base64 (vea cómo [descargar el certificado](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Por ejemplo: <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>O bien, agregue el certificado al almacén de certificados del sistema y, a continuación, se establece esta variable de entorno en la ruta de acceso de dicho almacén. <br> Por ejemplo, en Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|El valor de uno de los encabezados HTTP no tiene el formato correcto. |Data Box no admite la versión instalada de la biblioteca de Microsoft Azure Storage para Python. Consulte los requisitos de almacenamiento de blobs de Azure Data Box para las versiones compatibles.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]…|Antes de ejecutar Python, establezca la variable de entorno REQUESTS_CA_BUNDLE a la ruta de acceso del archivo de certificado SSL con codificación Base64 (consulte [Descargar el certificado](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Por ejemplo:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>O bien, agregue el certificado al almacén de certificados del sistema y, a continuación, establezca esta variable de entorno a la ruta de acceso de dicho almacén. <br> Por ejemplo, en Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Errores comunes
 
-Estos errores no son específicos para cualquier aplicación.
+Estos errores no son específicos de cualquier aplicación.
 
 |Mensaje de error  |Acción recomendada |
 |---------|---------|
-|La conexión agota el tiempo de espera. |Inicie sesión en el dispositivo Data Box y compruebe que está desbloqueada. Cada vez que se reinicie el dispositivo, permanece bloqueada hasta que alguien inicia sesión.|
+|Se agota el tiempo de espera de conexión. |Inicie sesión en el dispositivo Data Box y compruebe que está desbloqueado. Cada vez que se reinicia el dispositivo, permanece bloqueado hasta que alguien inicia sesión.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre la [los requisitos del sistema de almacenamiento Blob de datos cuadro](data-box-system-requirements-rest.md).
+- Obtenga información sobre los [requisitos de sistema del almacenamiento de blobs de Data Box](data-box-system-requirements-rest.md).

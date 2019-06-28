@@ -10,10 +10,10 @@ ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: a222b9e506988929c25a560361611b8f78142053
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024366"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de seguridad para restringir los resultados en Azure Search
@@ -152,9 +152,9 @@ Debería obtener los documentos en que `group_ids` contenga "group_id1" o "group
 ```
 ## <a name="conclusion"></a>Conclusión
 
-Se explica cómo puede filtrar los resultados según la identidad del usuario y la función `search.in()` de Azure Search. Puede usar esta función para pasar los identificadores de entidad de seguridad para el usuario solicitante que debe coincidir con los identificadores de entidad de seguridad asociados con cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
+Se explica cómo puede filtrar los resultados según la identidad del usuario y la función `search.in()` de Azure Search. Puede usar esta función para pasar los identificadores de principio del usuario solicitante para que coincidan con los identificadores de entidad de seguridad asociados a cada documento de destino. Cuando se controla una solicitud de búsqueda, la función `search.in` filtra los resultados de la búsqueda para los que ninguna de las entidades de seguridad del usuario tiene acceso de lectura. Los identificadores de entidad de seguridad pueden representar elementos como los grupos de seguridad, los roles o incluso la identidad del usuario.
  
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Control de acceso basado en identidades de Active Directory mediante filtros de Azure Search](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros de Azure Search](search-filters.md)
