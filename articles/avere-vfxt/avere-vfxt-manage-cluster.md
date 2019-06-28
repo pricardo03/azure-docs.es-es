@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409777"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Administración del clúster de Avere de vFXT
@@ -21,7 +21,7 @@ Dependiendo de la tarea de administración del clúster, es posible que deba usa
 
 Esta tabla ofrece una descripción general de las herramientas que se pueden usar para cada tarea. 
 
-| . | Panel de control de Avere | vfxt.py  | Azure Portal |
+| . | Panel de control de Avere | vfxt.py  | Portal de Azure |
 | --- | --- | --- | --- |
 | Agregar nodos de clúster | no | Sí | no |
 | Quitar nodos de clúster | Sí | no | no |
@@ -98,7 +98,7 @@ Use los valores siguientes:
 * Nombre del grupo de recursos del clúster, y también de los recursos de red y almacenamiento si no son los mismos que los del clúster
 * Ubicación del clúster
 * Red y subred del clúster 
-* Rol de acceso del nodo de clúster (usar el rol integrado [Avere operador](../role-based-access-control/built-in-roles.md#avere-operator))
+* Rol de acceso del nodo de clúster (use el rol integrado [Operador de Avere](../role-based-access-control/built-in-roles.md#avere-operator))
 * Dirección IP de administración del clúster y contraseña administrativa 
 * Número de nodos que se va a agregar (1, 2 o 3)
 * Valores de tamaño de la caché y tipo de instancia del nodo 
@@ -187,7 +187,7 @@ Para destruir instancias de nodo permanentemente, las puede eliminar en Azure Po
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Eliminación de recursos de clúster adicionales desde Azure Portal
 
-Si ha creado recursos adicionales específicamente para el clúster de vFXT, puede quitarlos como parte de la destrucción del clúster. No destruir los elementos que contienen datos que necesita, o todos los elementos que se comparten con otros proyectos.
+Si ha creado recursos adicionales específicamente para el clúster de vFXT, puede quitarlos como parte de la destrucción del clúster. No destruya los elementos que contienen datos que necesita ni elementos compartidos con otros proyectos.
 
 Además de eliminar los nodos de clúster, considere la posibilidad de quitar estos componentes: 
 

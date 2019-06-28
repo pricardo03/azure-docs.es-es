@@ -10,10 +10,10 @@ manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
 ms.openlocfilehash: b6bb70e4c56adb162006d2597d301c73b12d2a8a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540887"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Búsqueda en Blob Storage con Azure Search
@@ -38,7 +38,7 @@ Una práctica común que permite ordenar fácilmente blobs con cualquier tipo de
 ## <a name="image-search"></a>Búsqueda de imágenes
 Ahora, la búsqueda de texto completo, la navegación por facetas y las funcionalidades de ordenación de Azure Search se pueden aplicar a los metadatos de las imágenes almacenadas en blobs.
 
-Búsqueda cognitiva incluye capacidades de procesamiento de imagen como [reconocimiento óptico de caracteres (OCR)](cognitive-search-skill-ocr.md) e identificación de [características visuales](cognitive-search-skill-image-analysis.md) que hacen posible indizar el contenido visual encontrado en cada uno imagen.
+La búsqueda cognitiva incluye capacidades de procesamiento de imágenes, como el [Reconocimiento óptico de caracteres (OCR)](cognitive-search-skill-ocr.md) y la identificación de [características visuales](cognitive-search-skill-image-analysis.md) que hacen posible indizar el contenido visual encontrado en cada imagen.
 
 ## <a name="index-and-search-through-json-blobs"></a>Indexar y buscar en blobs JSON
 Es posible configurar Azure Search para que extraiga el contenido estructurado que se encuentra en los blobs que contienen JSON. Azure Search puede leer blobs JSON y analizar el contenido estructurado en los campos correspondientes de un documento de Azure Search. Azure Search también puede tomar los blobs que contienen una matriz de objetos JSON y asignar cada elemento a un documento independiente de Azure Search.

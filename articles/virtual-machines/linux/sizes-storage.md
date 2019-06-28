@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/15/2019
 ms.author: jonbeck
 ms.openlocfilehash: 6e206763101bdf4d1e4180f8c9f4bc467a39f90d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510353"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para almacenamiento
@@ -39,4 +39,4 @@ ms.locfileid: "65510353"
 
 Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
 
-Obtenga información sobre cómo [optimizar el rendimiento en las máquinas virtuales de serie Lsv2](storage-performance.md).
+Aprenda a [Optimizar el rendimiento en las máquinas virtuales de la serie Lsv2](storage-performance.md).

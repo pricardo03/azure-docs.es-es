@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443032"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integración de Azure Time Series Insights con Supervisión remota
@@ -28,7 +28,7 @@ El acelerador de soluciones de supervisión remota proporciona ahora la implemen
 
 Para completar este procedimiento, es preciso ya haber implementado una solución de Supervisión remota:
 
-* [Implementación del acelerador de soluciones de Supervisión remota](quickstart-remote-monitoring-deploy.md)
+* [Implementación del acelerador de soluciones de supervisión remota](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Creación de un grupo de consumidores
 
@@ -136,7 +136,7 @@ El siguiente paso es configurar el microservicio del Administrador de Azure Stre
 
 1. Elija el grupo de recursos **ContosoRM**.
 
-1. Busque el trabajo de streaming de Azure Stream Analytics (ASA) en la lista de recursos. El nombre del recurso comienza con **streamingjobs-**.
+1. Busque el trabajo de streaming de Azure Stream Analytics (ASA) en la lista de recursos. El nombre del recurso comienza con **streamingjobs-** .
 
 1. En la parte superior, haga clic en el botón para detener los trabajos de streaming de ASA.
 
@@ -238,7 +238,7 @@ Configure el entorno de la implementación `basic` para los microservicios actua
 1. Reinicie los contenedores de Docker con `sudo ./start.sh` desde la VM.
 
 > [!NOTE]
-> La configuración de variables de entorno anterior es válida para las versiones de supervisión remota antes de la versión 1.0.2
+> La configuración de variables de entorno de arriba es válida para las versiones de Supervisión remota anteriores a la 1.0.2
 
 ### <a name="standard-deployments"></a>Implementaciones estándar
 

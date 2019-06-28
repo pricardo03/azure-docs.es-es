@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;cenkdin;juliako
 ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407323"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Actualización de Media Services después de sustituir las claves de acceso de almacenamiento 
@@ -44,7 +44,7 @@ Media Services depende de una clave de almacenamiento que se le ofrece. En concr
 ## <a name="steps-to-rotate-storage-keys"></a>Pasos para rotar claves de almacenamiento 
  
  1. Cambie la clave principal de la cuenta de almacenamiento mediante el cmdlet de PowerShell o en [Azure](https://portal.azure.com/) Portal.
- 2. Llame al cmdlet Sync-AzMediaServiceStorageKeys con los parámetros adecuados para forzar la cuenta multimedia a seleccionar las claves de cuenta de almacenamiento
+ 2. Llame al cmdlet Sync-AzMediaServiceStorageKeys con los parámetros adecuados para forzar que la cuenta multimedia seleccione las claves de la cuenta de almacenamiento.
  
     En el ejemplo siguiente se muestra cómo sincronizar las claves para las cuentas de almacenamiento.
   
@@ -52,7 +52,7 @@ Media Services depende de una clave de almacenamiento que se le ofrece. En concr
   
  3. Espere una hora más o menos. Verifique que los escenarios de streaming estén funcionando.
  4. Cambie la clave secundaria de la cuenta de almacenamiento con el cmdlet de PowerShell o en Azure Portal.
- 5. Llame a powershell AzMediaServiceStorageKeys de sincronización con los parámetros adecuados para forzar la cuenta de media para recoger nuevas claves de cuenta de almacenamiento. 
+ 5. Llame al cmdlet Sync-AzMediaServiceStorageKeys de PowerShell con los parámetros adecuados para forzar que la cuenta multimedia seleccione las nuevas claves de la cuenta de almacenamiento. 
  6. Espere una hora más o menos. Verifique que los escenarios de streaming estén funcionando.
  
 ### <a name="a-powershell-cmdlet-example"></a>Un ejemplos de cmdlet de PowerShell 

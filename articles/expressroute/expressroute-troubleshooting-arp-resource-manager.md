@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151583"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtención de tablas ARP en el modelo de implementación de Resource Manager
@@ -61,7 +61,7 @@ Asegúrese de que cumple los siguientes requisitos previos antes de seguir adela
 * Debe tener como mínimo el módulo más reciente de PowerShell para Azure (versión 1.50 o superior).
 
 > [!NOTE]
-> Si el proveedor de servicios proporciona el nivel 3 y las tablas ARP están en blanco en el portal y salida a continuación, actualice la configuración del circuito mediante el botón Actualizar en el portal. Esta operación aplicará la configuración de enrutamiento correcta a su circuito. 
+> Si el proveedor de servicio proporciona la capa 3 y las tablas ARP están en blanco en el portal o en la salida siguiente, actualice la configuración del circuito mediante el botón de actualización del portal. Esta operación aplicará la configuración de enrutamiento correcta a su circuito. 
 >
 >
 
@@ -148,7 +148,7 @@ La tabla ARP de un emparejamiento se puede usar para determinar o validar la con
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabla ARP cuando el lado del proveedor de conectividad o local tiene problemas
-Si hay problemas con la red local o es posible que vea que ya sea una sola entrada aparecerá en la tabla ARP o la dirección MAC de localmente en el proveedor de conectividad se muestra incompleto. En ella se mostrará la asignación entre la dirección MAC y la dirección IP usadas en el lado de Microsoft. 
+Si hay problemas con el proveedor de conectividad o local, es posible que solo vea una entrada en la tabla ARP o que la dirección MAC local se muestre incompleta. En ella se mostrará la asignación entre la dirección MAC y la dirección IP usadas en el lado de Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

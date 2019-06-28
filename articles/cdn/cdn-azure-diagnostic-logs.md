@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126274"
 ---
 # <a name="azure-diagnostic-logs"></a>Registros de diagnósticos de Azure
@@ -35,7 +35,7 @@ Los registros de Azure Diagnostics le permiten exportar métricas básicas de us
 
 - Exportar datos a Blob Storage, exportar a CSV y generar gráficos en Excel.
 - Exportar datos a Event Hubs y correlacionarlos con los datos de otros servicios de Azure.
-- Exportar datos a los registros de Azure Monitor y ver los datos en su propia área de trabajo de Log Analytics
+- Exportar datos a los registros de Azure Monitor y verlos en su propia área de trabajo de Log Analytics
 
 En el siguiente diagrama se muestra una vista habitual del análisis básico de red CDN de los datos.
 
@@ -73,7 +73,7 @@ Para usar una cuenta de almacenamiento y almacenar los registros, siga estos pas
  
 2. Seleccione **Archivar en una cuenta de almacenamiento** y luego seleccione **CoreAnalytics**. 
 
-2. En **Retención (días)**, elija el número de días de retención. Con una retención de cero días, los registros se almacenan indefinidamente. 
+2. En **Retención (días)** , elija el número de días de retención. Con una retención de cero días, los registros se almacenan indefinidamente. 
 
     ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
@@ -89,13 +89,13 @@ Para usar una cuenta de almacenamiento y almacenar los registros, siga estos pas
 
 ### <a name="logging-with-azure-monitor"></a>Registro con Azure Monitor
 
-Para usar a Azure Monitor para almacenar los registros, siga estos pasos:
+Para usar Azure Monitor para almacenar los registros, siga estos pasos:
 
 1. En la página **Registros de diagnóstico**, seleccione **Enviar a Log Analytics**. 
 
     ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Seleccione **configurar** para configurar el registro de Azure Monitor. 
+2. Seleccione **Configurar** para configurar el registro de Azure Monitor. 
 
    Se muestra la página **Áreas de trabajo de Log Analytics**.
 
@@ -135,7 +135,7 @@ Para usar a Azure Monitor para almacenar los registros, siga estos pasos:
 
     ![Portal: Registros de diagnóstico](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    El área de trabajo de Log Analytics ahora está lista para registrar datos. Para consumir estos datos, debe usar un [Azure Monitor registra solución](#consuming-diagnostics-logs-from-a-log-analytics-workspace), descrito más adelante en este artículo.
+    El área de trabajo de Log Analytics ahora está lista para registrar datos. Para consumir estos datos, debe utilizar una [solución de Azure Monitor](#consuming-diagnostics-logs-from-a-log-analytics-workspace), que se describe más adelante en este artículo.
 
 Para más información sobre los retrasos de los datos de registro, consulte [Retrasos en el registro de datos](#log-data-delays).
 
@@ -176,7 +176,7 @@ Antes de poder acceder a los datos de análisis básico desde una cuenta de alma
 2.  Busque la cuenta de almacenamiento.
 3.  Expanda el nodo **Contenedores de blob** en esta cuenta de almacenamiento.
 4.  Seleccione el contenedor llamado *insights-logs-coreanalytics*.
-5.  Los resultados se muestran en el panel derecho, comenzando por el primer nivel, como *resourceId=*. Siga seleccionando cada nivel hasta encontrar el archivo *PT1H.json*. Para obtener una explicación de la ruta de acceso, consulte [Formato de las rutas de acceso de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
+5.  Los resultados se muestran en el panel derecho, comenzando por el primer nivel, como *resourceId=* . Siga seleccionando cada nivel hasta encontrar el archivo *PT1H.json*. Para obtener una explicación de la ruta de acceso, consulte [Formato de las rutas de acceso de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Cada archivo blob *PT1H.json* representa los registros de análisis durante una hora de un punto de conexión de red CDN concreto o de su dominio personalizado.
 7.  El esquema del contenido de este archivo JSON se describe en la sección de esquema de los registros de análisis básico.
 
@@ -213,9 +213,9 @@ A continuación, se muestra cómo puede usar la herramienta:
 5.  El archivo CSV resultante muestra los datos de análisis en una jerarquía sencilla plana.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumo de registros de diagnóstico desde un área de trabajo de Log Analytics
-Azure Monitor es un servicio de Azure que supervisa y la nube en entornos locales para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes. 
+Azure Monitor es un servicio de Azure que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes. 
 
-Para usar Azure Monitor, debe [habilitar el registro](#enable-logging-with-azure-storage) en el área de trabajo de Azure Log Analytics, que se describe anteriormente en este artículo.
+Para usar Azure Monitor, debe [habilitar el registro](#enable-logging-with-azure-storage) en el área de trabajo de Log Analytics de Azure, que se describe anteriormente en este artículo.
 
 ### <a name="using-the-log-analytics-workspace"></a>Uso del área de trabajo de Log Analytics
 
@@ -227,9 +227,9 @@ Para usar Azure Monitor, debe [habilitar el registro](#enable-logging-with-azure
 
 Puede mostrar los datos en una variedad de formas mediante el uso de Soluciones de administración. Puede obtener Soluciones de administración en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Puede instalar las soluciones de supervisión de Azure marketplace seleccionando el **obtenerla ahora** vínculo en la parte inferior de cada solución.
+Puede instalar las soluciones de supervisión de Azure Marketplace mediante la selección del vínculo **Obtenerla ahora** en la parte inferior de cada solución.
 
-### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Agregar una solución de supervisión de Azure Monitor CDN
+### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Incorporación de una solución de supervisión de CDN de Azure Monitor
 
 Siga estos pasos para agregar una solución de supervisión de Azure Monitor:
 
@@ -242,55 +242,55 @@ Siga estos pasos para agregar una solución de supervisión de Azure Monitor:
 
 3. En la página **Supervisión y administración**, seleccione **Ver todo**.
 
-    ![Ver todo](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Ver todos](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. Busque CDN en el cuadro de búsqueda.
 
-    ![Ver todo](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Ver todos](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Seleccione **Análisis Básico de Azure CDN**. 
 
-    ![Ver todo](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Ver todos](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. Después de seleccionar **Crear**, se le pide que cree una nueva área de trabajo de Log Analytics o que utilice una ya existente. 
 
-    ![Ver todo](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Ver todos](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. Seleccione el área de trabajo que creó antes. A continuación, debe agregar una cuenta de Automation.
 
-    ![Ver todo](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Ver todos](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. La siguiente pantalla muestra el formulario de la cuenta de Automation que debe rellenar. 
 
-    ![Ver todo](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Ver todos](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. Una vez haya creado la cuenta de Automation, está listo para agregar la solución. Seleccione el botón **Crear**.
 
-    ![Ver todo](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Ver todos](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. La solución se ha agregado al área de trabajo. Vuelva al panel de Azure Portal.
 
-    ![Ver todo](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Ver todos](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Seleccione el área de trabajo de Log Analytics que ha creado para ir al área de trabajo. 
 
 11. Seleccione el icono del **Portal de OMS** para ver la nueva solución.
 
-    ![Ver todo](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Ver todos](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. El portal debería tener un aspecto similar al de la siguiente captura de pantalla:
 
-    ![Ver todo](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Ver todos](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Seleccione uno de los iconos para ver las distintas vistas de los datos.
 
-    ![Ver todo](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Ver todos](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     Puede desplazarse a izquierda o derecha para ver más iconos que representan vistas individuales de los datos. 
 
     Seleccione uno de los iconos para ver más detalles sobre los datos.
 
-     ![Ver todo](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Ver todos](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Ofertas y planes de tarifa
 
@@ -300,11 +300,11 @@ Puede ver ofertas y planes de tarifa de las soluciones de administración [aquí
 
 Puede personalizar la vista de los datos mediante el **Diseñador de vistas**. Para comenzar a diseñar, vaya al área de trabajo de Log Analytics y seleccione el icono **Diseñador de vistas**.
 
-![Diseñador de vistas](./media/cdn-diagnostics-log/27_Designer.png)
+![Ver diseñador](./media/cdn-diagnostics-log/27_Designer.png)
 
 Arrastre y coloque los tipos de gráficos y rellene los detalles de los datos que quiere analizar.
 
-![Diseñador de vistas](./media/cdn-diagnostics-log/28_Designer.png)
+![Ver diseñador](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Retrasos en el registro de datos
@@ -331,27 +331,27 @@ En la tabla siguiente se muestra una lista de métricas disponibles en los regis
 | RequestCountHttpStatus4xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 4xx (por ejemplo, 400, 404). | Sí | Sí |Sí |
 | RequestCountHttpStatus5xx | Recuento de todas las solicitudes que dieron lugar a un código HTTP 5xx (por ejemplo, 500, 504). | Sí | Sí |Sí |
 | RequestCountHttpStatusOthers | Recuento de todos los demás códigos HTTP (fuera del intervalo 2xx-5xx). | Sí | Sí |Sí |
-| RequestCountHttpStatus200 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 200. | Sí | No  |Sí |
-| RequestCountHttpStatus206 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 206. | Sí | No  |Sí |
-| RequestCountHttpStatus302 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 302. | Sí | No  |Sí |
-| RequestCountHttpStatus304 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 304. | Sí | No  |Sí |
-| RequestCountHttpStatus404 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 404. | Sí | No  |Sí |
-| RequestCountCacheHit | Recuento de todas las solicitudes que dieron lugar a un acierto de caché. El recurso se atendió directamente desde el servidor POP al cliente. | Sí | Sí | No  |
-| RequestCountCacheMiss | Recuento de todas las solicitudes que dieron lugar a un error de caché. Un error de caché significa que el recurso no se encontró en el servidor POP más cercano al cliente y, por tanto, se recupera del origen. | Sí | Sí | No |
-| RequestCountCacheNoCache | Recuento de todas las solicitudes a un recurso a las que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | Sí | Sí | No |
-| RequestCountCacheUncacheable | Recuento de todas las solicitudes a recursos cuyos encabezados Cache-Control y Expires impiden que se almacenen en caché. Estos encabezados indican que no se deben almacenar en caché en un servidor POP o por el cliente HTTP. | Sí | Sí | No |
-| RequestCountCacheOthers | Recuento de todas las solicitudes con un estado de caché no cubierto por lo anterior. | No | Sí | No  |
+| RequestCountHttpStatus200 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 200. | Sí | Sin  |Sí |
+| RequestCountHttpStatus206 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 206. | Sí | Sin  |Sí |
+| RequestCountHttpStatus302 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 302. | Sí | Sin  |Sí |
+| RequestCountHttpStatus304 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 304. | Sí | Sin  |Sí |
+| RequestCountHttpStatus404 | Recuento de todas las solicitudes que dieron lugar a una respuesta de código HTTP 404. | Sí | Sin  |Sí |
+| RequestCountCacheHit | Recuento de todas las solicitudes que dieron lugar a un acierto de caché. El recurso se atendió directamente desde el servidor POP al cliente. | Sí | Sí | Sin  |
+| RequestCountCacheMiss | Recuento de todas las solicitudes que dieron lugar a un error de caché. Un error de caché significa que el recurso no se encontró en el servidor POP más cercano al cliente y, por tanto, se recupera del origen. | Sí | Sí | Sin |
+| RequestCountCacheNoCache | Recuento de todas las solicitudes a un recurso a las que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | Sí | Sí | Sin |
+| RequestCountCacheUncacheable | Recuento de todas las solicitudes a recursos cuyos encabezados Cache-Control y Expires impiden que se almacenen en caché. Estos encabezados indican que no se deben almacenar en caché en un servidor POP o por el cliente HTTP. | Sí | Sí | Sin |
+| RequestCountCacheOthers | Recuento de todas las solicitudes con un estado de caché no cubierto por lo anterior. | Sin | Sí | Sin  |
 | EgressTotal | Transferencia de datos salientes en GB | Sí |Sí |Sí |
-| EgressHttpStatus2xx | Transferencia de datos salientes* para respuestas con códigos de estado HTTP 2xx en GB. | Sí | Sí | No  |
-| EgressHttpStatus3xx | Transferencia de datos salientes para respuestas con códigos de estado HTTP 3xx en GB. | Sí | Sí | No  |
-| EgressHttpStatus4xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 4xx en GB. | Sí | Sí | No  |
-| EgressHttpStatus5xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 5xx en GB. | Sí | Sí | No |
-| EgressHttpStatusOthers | Transferencia de datos de salida para respuestas con otros códigos de estado HTTP en GB. | Sí | Sí | No  |
-| EgressCacheHit | Transferencia de datos de salida para respuestas que se entregaron directamente desde la caché de CDN en los servidores POP/perimetrales de CDN. | Sí | Sí | No |
-| EgressCacheMiss. | Transferencia de datos de salida para respuestas que no se encontraron en el servidor POP más cercano y que se recuperaron del servidor de origen. | Sí | Sí | No |
-| EgressCacheNoCache | Transferencia de datos de salida para recursos a los que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | Sí | Sí | No |
-| EgressCacheUncacheable | Transferencia de datos de salida para recursos cuyos encabezados Cache-Control o Expires impiden que se almacenen en caché. Indica que no se debería almacenar en caché en un servidor POP o por el cliente HTTP. | Sí | Sí | No |
-| EgressCacheOthers | Transferencias de datos de salida para otros escenarios de caché. | No | Sí | No |
+| EgressHttpStatus2xx | Transferencia de datos salientes* para respuestas con códigos de estado HTTP 2xx en GB. | Sí | Sí | Sin  |
+| EgressHttpStatus3xx | Transferencia de datos salientes para respuestas con códigos de estado HTTP 3xx en GB. | Sí | Sí | Sin  |
+| EgressHttpStatus4xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 4xx en GB. | Sí | Sí | Sin  |
+| EgressHttpStatus5xx | Transferencia de datos de salida para respuestas con códigos de estado HTTP 5xx en GB. | Sí | Sí | Sin |
+| EgressHttpStatusOthers | Transferencia de datos de salida para respuestas con otros códigos de estado HTTP en GB. | Sí | Sí | Sin  |
+| EgressCacheHit | Transferencia de datos de salida para respuestas que se entregaron directamente desde la caché de CDN en los servidores POP/perimetrales de CDN. | Sí | Sí | Sin |
+| EgressCacheMiss. | Transferencia de datos de salida para respuestas que no se encontraron en el servidor POP más cercano y que se recuperaron del servidor de origen. | Sí | Sí | Sin |
+| EgressCacheNoCache | Transferencia de datos de salida para recursos a los que se les impide almacenarse en caché debido a una configuración de usuario en el servidor perimetral. | Sí | Sí | Sin |
+| EgressCacheUncacheable | Transferencia de datos de salida para recursos cuyos encabezados Cache-Control o Expires impiden que se almacenen en caché. Indica que no se debería almacenar en caché en un servidor POP o por el cliente HTTP. | Sí | Sí | Sin |
+| EgressCacheOthers | Transferencias de datos de salida para otros escenarios de caché. | Sin | Sí | Sin |
 
 \*Con transferencia de datos de salida nos referimos al tráfico entregado al cliente desde los servidores POP de la red CDN.
 

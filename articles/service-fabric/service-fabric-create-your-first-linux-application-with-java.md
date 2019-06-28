@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/18/2018
 ms.author: aljo
 ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394054"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creación de su primera aplicación Java de Reliable Actors de Service Fabric en Linux
@@ -243,7 +243,7 @@ Los actores no hacen nada por sí solos, necesitan que otro servicio o cliente l
     watch -n 1 ./testclient.sh
     ```
 
-2. En Service Fabric Explorer, busque el nodo que hospeda la réplica principal del servicio de actor. En la captura de pantalla siguiente, es el nodo 3. La réplica de servicio principal gestiona las operaciones de lectura y escritura.  Los cambios de estado del servicio se replican entonces a las réplicas secundarias, que se ejecutan en los nodos 0 y 1 en la captura de pantalla siguiente.
+2. En Service Fabric Explorer, busque el nodo que hospeda la réplica principal del servicio de actor. En la captura de pantalla siguiente, es el nodo 3. La réplica de servicio principal gestiona las operaciones de lectura y escritura.  Los cambios en el estado del servicio se replican entonces en las réplicas secundarias, que se ejecutan en los nodos 0 y 1 en la siguiente captura de pantalla.
 
     ![Búsqueda de la réplica principal en Service Fabric Explorer][sfx-primary]
 

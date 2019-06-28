@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: 6d5169d8ea4480e95e09228f9eb02bd78fdd0be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393510"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparación de clústeres de Service Fabric en Azure e independientes en Windows Server y Linux
@@ -33,7 +33,7 @@ En Azure se proporciona integración con otras características y servicios de A
 * **Azure Resource Manager:** el uso de Azure Resource Manager permite una administración sencilla de todos los recursos que usa el clúster como una unidad y simplifica el costo del seguimiento y la facturación.
 * **Clúster de Service Fabric como recurso de Azure** Un clúster de Service Fabric es un recurso de Azure, de modo que puede ajustarlo como hace con otros recursos en Azure.
 * **Integración con la infraestructura de Azure** : Service Fabric se coordina con la infraestructura de Azure subyacente para el SO, la red y otras actualizaciones con el fin de mejorar la disponibilidad y la confiabilidad de las aplicaciones.  
-* **Diagnósticos:** En Azure, ofrecemos integración con diagnósticos de Azure y los registros de Azure Monitor.
+* **Diagnósticos:** en Azure se proporciona la integración con Azure Diagnostics y los registros de Azure Monitor.
 * **Escalado automático:** para los clústeres hospedados en Azure, proporcionamos una funcionalidad integrada de escalado automático gracias a los conjuntos de escalas de la máquina virtual. En los entornos locales y otros entornos en la nube, hay que crear una característica propia de escalado automático o realizar el escalado manualmente mediante las API que ofrece Service Fabric para escalar los clústeres.
 
 ## <a name="benefits-of-standalone-clusters"></a>Ventajas de los clústeres independientes

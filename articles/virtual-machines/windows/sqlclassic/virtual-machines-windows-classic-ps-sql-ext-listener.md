@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101632"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
@@ -123,11 +123,11 @@ Cree el agente de escucha de grupo de disponibilidad en dos pasos. En primer lug
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Prueba del agente de escucha del grupo de disponibilidad (por Internet)
-Para tener acceso a la escucha de fuera de la red virtual, debe usar Equilibrio de carga público o externo (descrito en este tema) en lugar de ILB, que está accesible únicamente en la misma red virtual. En la cadena de conexión, especifique el nombre del servicio en la nube. Por ejemplo, si tiene un servicio en la nube denominado *mycloudservice*, la instrucción sqlcmd sería tal como sigue:
+Para obtener acceso al cliente de escucha desde el exterior de la red virtual, debe usar equilibrio de carga público o externo (descrito en este tema) en lugar de ILB, que es accesible únicamente dentro de la misma red virtual. En la cadena de conexión, especifique el nombre del servicio en la nube. Por ejemplo, si tiene un servicio en la nube denominado *mycloudservice*, la instrucción sqlcmd sería tal como sigue:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-A diferencia del ejemplo anterior, se debe usar autenticación de SQL, ya que el autor de la llamada no puede usar la autenticación de Windows por Internet. Para obtener más información, consulte [grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure: Escenarios de conectividad de cliente](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Al usar la autenticación de SQL, asegúrese de que crea el mismo inicio de sesión en ambas réplicas. Para obtener más información sobre cómo solucionar problemas de inicio de sesión con grupos de disponibilidad, consulte [Asignar inicios de sesión o usar un usuario de base de datos SQL contenido para conectar con otras réplicas y asignarlas a las bases de datos de disponibilidad](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+A diferencia del ejemplo anterior, se debe usar autenticación de SQL, ya que el autor de la llamada no puede usar la autenticación de Windows por Internet. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure: escenarios de conectividad de cliente](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Al usar la autenticación de SQL, asegúrese de que crea el mismo inicio de sesión en ambas réplicas. Para obtener más información sobre cómo solucionar problemas de inicio de sesión con grupos de disponibilidad, consulte [Asignar inicios de sesión o usar un usuario de base de datos SQL contenido para conectar con otras réplicas y asignarlas a las bases de datos de disponibilidad](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán que especificar **MultisubnetFailover=True** en la cadena de conexión. Esto se traduce en intentos de conexión en paralelo con las réplicas de las diferentes subredes. Tenga en cuenta que este escenario incluye una implementación de grupo de disponibilidad AlwaysOn entre regiones.
 

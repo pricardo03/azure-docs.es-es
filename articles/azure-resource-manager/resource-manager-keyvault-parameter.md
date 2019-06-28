@@ -7,21 +7,21 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507986"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
-En lugar de colocar un valor seguro (por ejemplo, una contraseña) directamente en el archivo de plantilla o un parámetro, puede recuperar el valor de un [Azure Key Vault](../key-vault/key-vault-whatis.md) durante la implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en el grupo de recursos que se va a implementar en una suscripción diferente.
+En lugar de pasar un valor seguro (como una contraseña) directamente en la plantilla o el archivo de parámetro, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-whatis.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en una suscripción distinta a la que usa para implementar el grupo de recursos.
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implementación de almacenes de claves y secretos
 
-Para acceder a un almacén de claves durante la implementación de plantilla, establezca `enabledForTemplateDeployment` en el almacén de claves a `true`.
+Para acceder a un almacén de claves durante la implementación de plantilla, establezca `enabledForTemplateDeployment` en el almacén de claves en `true`.
 
-Los siguientes ejemplos de CLI de Azure y Azure PowerShell muestran cómo crear el almacén de claves e incorporación de un secreto.
+En los ejemplos de la CLI de Azure y Azure PowerShell siguientes se muestra cómo crear el almacén de claves y agregar un secreto.
 
 ```azurecli
 az group create --name $resourceGroupName --location $location
@@ -44,7 +44,7 @@ $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
 $secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
-Como el propietario del almacén de claves, automáticamente tiene acceso a la creación de secretos. Si el usuario trabaja con secretos no es el propietario del almacén de claves, conceda acceso con:
+Como propietario del almacén de claves, tiene acceso de forma automática a la creación de secretos. Si el usuario que trabaja con los secretos no es el propietario del almacén de claves, conceda acceso con:
 
 ```azurecli
 az keyvault set-policy \
@@ -62,7 +62,7 @@ Set-AzKeyVaultAccessPolicy `
   -PermissionsToSecrets set,delete,get,list
 ```
 
-Para obtener más información sobre cómo crear los almacenes de claves y adición de secretos, consulte:
+Para más información sobre cómo crear almacenes de claves y agregar secretos, vea:
 
 - [Establecimiento y recuperación de un secreto mediante la CLI](../key-vault/quick-create-cli.md)
 - [Establecimiento y recuperación de un secreto mediante Powershell](../key-vault/quick-create-powershell.md)
@@ -72,7 +72,7 @@ Para obtener más información sobre cómo crear los almacenes de claves y adici
 
 ## <a name="grant-access-to-the-secrets"></a>Concesión de acceso a los secretos
 
-El usuario que implementa la plantilla debe tener la `Microsoft.KeyVault/vaults/deploy/action` permiso para el ámbito del grupo de recursos y almacén de claves. Los roles [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) conceden este acceso. Si ha creado el almacén de claves, es el propietario, por lo que tiene el permiso.
+El usuario que implementa la plantilla debe tener el permiso `Microsoft.KeyVault/vaults/deploy/action` en el ámbito del grupo de recursos y el almacén de claves. Los roles [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) conceden este acceso. Si ha creado el almacén de claves, es el propietario, por lo que tiene el permiso.
 
 El siguiente procedimiento muestra cómo crear un rol con los permisos mínimos y cómo asignar el usuario:
 
@@ -114,7 +114,7 @@ El siguiente procedimiento muestra cómo crear un rol con los permisos mínimos 
       -SignInName $userPrincipalName
     ```
 
-    Los ejemplos de asignación el rol personalizado para el usuario en el nivel de grupo de recursos.  
+    En los ejemplos se asigna el rol personalizado al usuario en el nivel de grupo de recursos.  
 
 Cuando se usa una instancia de Key Vault con la plantilla para una [aplicación administrada](../managed-applications/overview.md), debe conceder acceso a la entidad de servicio del **proveedor de recursos de dispositivo**. Para más información, consulte [Acceso al secreto de Key Vault al implementar Azure Managed Applications](../managed-applications/key-vault-access.md).
 
@@ -126,7 +126,7 @@ Con este enfoque, se hace referencia al almacén de claves del archivo de parám
 
 [Tutorial: Integración de Azure Key Vault en Template Deployment de Resource Manager](./resource-manager-tutorial-use-key-vault.md) usa este método.
 
-La siguiente plantilla implementa un servidor SQL server que incluye una contraseña de administrador. El parámetro de contraseña se establece en una cadena segura. Sin embargo, la plantilla no especifica de dónde procede ese valor.
+En la plantilla siguiente se implementa un servidor SQL que incluye una contraseña de administrador. El parámetro de contraseña se establece en una cadena segura. Pero en la plantilla no se especifica de dónde procede ese valor.
 
 ```json
 {
@@ -164,7 +164,7 @@ La siguiente plantilla implementa un servidor SQL server que incluye una contras
 
 Ahora, cree un archivo de parámetros para la plantilla anterior. En el archivo de parámetros, especifique un parámetro que coincida con el nombre del parámetro de la plantilla. Para el valor del parámetro, haga referencia al secreto del almacén de claves. Se hace referencia al secreto pasando el identificador de recurso de almacén de claves y el nombre del secreto:
 
-En el siguiente archivo de parámetros, ya debe existir el secreto del almacén de claves y proporcionar un valor estático para su identificador de recurso.
+En el siguiente archivo de parámetros, debe existir el secreto del almacén de claves y tendrá que proporcionar un valor estático para su identificador de recurso.
 
 ```json
 {

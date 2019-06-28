@@ -1,5 +1,5 @@
 ---
-title: Acerca de la supervisión de red en Azure Monitor registra | Microsoft Docs
+title: Acerca de la supervisión de redes en registros de Azure Monitor | Microsoft Docs
 description: Introducción a las soluciones de supervisión de redes, como es NPM, para administrar redes en entornos en la nube, locales e híbridos.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
 ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620415"
 ---
 # <a name="network-monitoring-solutions"></a>Soluciones de supervisión de redes 
@@ -37,11 +37,11 @@ Network Performance Monitor (NPM) es un conjunto de funcionalidades, cada una or
 
 Monitor de rendimiento, Supervisión de ExpressRoute y Monitor de conectividad de servicio son funcionalidades de supervisión dentro de NPM y se describen a continuación.
 
-## <a name="performance-monitor"></a>Monitor de rendimiento
+## <a name="performance-monitor"></a>Supervisión del rendimiento
 
 Performance Monitor es parte de NPM y supervisa la red en entornos en la nube, locales e híbridos. Puede supervisar la conectividad de red entre oficinas locales y sucursales remotas, tiendas, centros de datos y nubes. Puede detectar problemas de red antes de que los usuarios se quejen. Las principales ventajas son:
 
-* Supervisar la pérdida y la latencia en varias subredes y establecer alertas
+* Supervisar la latencia y la pérdida a través de varias redes virtuales y establecer alertas
 * Supervisar todas las rutas de acceso (incluidas las rutas de acceso redundantes) en la red
 * Solucionar problemas de red transitorios y puntuales que resultan difíciles de replicar
 * Determinar un segmento específico de la red que es responsable de la degradación del rendimiento
@@ -51,9 +51,9 @@ Performance Monitor es parte de NPM y supervisa la red en entornos en la nube, l
 
 Para más información, consulte los siguientes artículos:
 
-* [Configurar una solución Network Performance Monitor en registros de Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
+* [Solución Network Performance Monitor en Azure](../azure-monitor/insights/network-performance-monitor.md) 
 * [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-* Actualizaciones del producto:
+* Actualizaciones de producto:
   * [Febrero de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
   * [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
@@ -73,7 +73,7 @@ NPM para ExpressRoute ofrece una supervisión completa de ExpressRoute para cone
 Para más información, consulte los siguientes artículos.
 
 * [Configuración de Network Performance Monitor para ExpressRoute](../expressroute/how-to-npm.md)
-* [Entradas del blog](https://aka.ms/NPMExRmonitorGA)
+* [Entrada de blog](https://aka.ms/NPMExRmonitorGA)
 
 ## <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -89,7 +89,7 @@ Con el Monitor de conectividad de servicio, ahora puede probar la accesibilidad 
 Para más información, consulte los siguientes artículos.
 
 * [Configurar Network Performance Monitor para la supervisión de puntos de conexión de servicio](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
-* [Entradas del blog](https://aka.ms/svcendptmonitor)
+* [Entrada de blog](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Análisis de tráfico
 Análisis de tráfico es una solución basada en la nube que proporciona visibilidad sobre la actividad de usuarios y aplicaciones en las redes en la nube. Los registros del flujo de NSG se analizan para proporcionar información sobre:
@@ -122,6 +122,6 @@ Creada para los administradores de DNS, esta solución recopila, analiza y corre
 Vínculos relacionados:
 * [Entrada de blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentación](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>Miscelánea
+## <a name="miscellaneous"></a>Varios
 
 * [Nuevos precios](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

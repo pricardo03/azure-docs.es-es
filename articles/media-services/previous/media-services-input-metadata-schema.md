@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463783"
 ---
 # <a name="input-metadata"></a>Metadatos de entrada 
@@ -70,7 +70,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 | **Programs**<br /><br /> minOccurs="0" | |Colección de todos los [elementos Programs](media-services-input-metadata-schema.md#Programs) cuando el archivo de recursos está en formato MPEG-TS. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Cada archivo de recursos físico puede contener cero o más pistas de vídeos intercaladas en un formato de contenedor adecuado. Este elemento contiene una colección de todos los [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) que forman parte del archivo de recursos. |
 | **AudioTracks**<br /><br /> minOccurs="0" | |Cada archivo de recursos físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. Este elemento contiene una colección de todos los [AudioTracks](media-services-input-metadata-schema.md#AudioTracks) que forman parte del archivo de recursos. |
-| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Metadatos del archivo de recursos representados como cadenas de clave-valor. Por ejemplo: <br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
+| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Metadatos del archivo de recursos representados como cadenas de clave-valor. Por ejemplo:<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
 Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
@@ -179,7 +179,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 | **Lyrics**<br /><br /> Obligatorio |**xs:int** |Establezca este atributo en 1 para indicar que esta pista contiene letras. |
 | **Karaoke**<br /><br /> Obligatorio |**xs:int** |Establezca este atributo en 1 para indicar que esto representa la pista de karaoke (música de fondo, sin voz). |
 | **Forced**<br /><br /> Obligatorio |**xs:int** |Establezca este atributo en 1 para indicar que se trata de la presentación forzada. |
-| **HearingImpaired**<br /><br /> Obligatorio |**xs:int** |Establezca este atributo en 1 para indicar que esta pista es para personas con problemas duros audición. |
+| **HearingImpaired**<br /><br /> Obligatorio |**xs:int** |Establezca este atributo en 1 para indicar que esta pista es para personas con discapacidad auditiva. |
 | **VisualImpaired**<br /><br /> Obligatorio |**xs:int** |Establezca este atributo en 1 para indicar que esta pista es para personas con discapacidad visual. |
 | **CleanEffects**<br /><br /> Obligatorio |**xs: int** |Establezca este atributo en 1 para indicar que esta pista contiene efectos limpios. |
 | **AttachedPic**<br /><br /> Obligatorio |**xs: int** |Establezca este atributo en 1 para indicar que esta pista contiene imágenes. |

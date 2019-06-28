@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754347"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120500"
 ---
-- **Detalles de pedidos**. Cuando se crea un pedido, la dirección de envío, la dirección de correo electrónico y la información de contacto del usuario se almacena en el portal de Azure. Entre la información guardada se incluyen los siguientes datos:
+- **Detalles de pedido**. Una vez creado el pedido, la dirección de envío, la dirección de correo electrónico y la información de contacto del usuario se almacenan en Azure Portal. Entre la información guardada se incluyen los siguientes datos:
   - Nombre de contacto
   - Número de teléfono
   - Dirección de correo electrónico
   - Dirección
   - City
-  - Código de código postal
+  - Código postal
   - Estado
-  - Provincia o país/región
+  - País/provincia/región
   - Número de seguimiento del envío
 
-    Detalles del pedido se cifran y almacenan en el servicio. El servicio conserva la información hasta que se elimina explícitamente el recurso o el orden. Se bloquea la eliminación del recurso y el orden correspondiente desde el momento en que el dispositivo se envía hasta que el dispositivo vuelve a Microsoft.
+    Los detalles del pedido se cifran y almacenan en el servicio. El servicio conserva la información hasta que elimine explícitamente el recurso o el pedido. La eliminación del recurso y el pedido correspondiente se bloquea desde el momento en que se envía el dispositivo hasta que el dispositivo vuelve a Microsoft.
 
-- **Dirección de envío**. Después de que se coloca un pedido, el servicio de Data Box proporciona la dirección de envío a empresas de terceros SAI (UPS).
+- **Dirección de envío**. Después de realizar el pedido, el servicio Data Box proporciona la dirección de envío a compañías de transporte como UPS.
 
-- **Compartir usuarios**. Los usuarios en el dispositivo también pueden acceder a los datos que se encuentran en los recursos compartidos. Se puede ver una lista de usuarios que pueden acceder a los datos del recurso compartido. Cuando se eliminan los recursos compartidos, también se elimina esta lista.
+- **Usuarios de los recursos compartidos**. Los usuarios en el dispositivo también pueden acceder a los datos que se encuentran en los recursos compartidos. Se puede ver una lista de los usuarios que pueden acceder a los datos del recurso compartido. Cuando los recursos compartidos se eliminan, esta lista también se elimina.

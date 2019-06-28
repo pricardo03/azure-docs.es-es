@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60389583"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
@@ -42,7 +42,7 @@ Puede superar algunos límites de plantilla utilizando una plantilla anidada. Pa
 
 ## <a name="resource-group"></a>Grupos de recursos
 
-Al implementar recursos en un grupo de recursos, el grupo de recursos almacena metadatos sobre los recursos. Los metadatos se almacenan en la ubicación del grupo de recursos.
+Al implementar recursos en un grupo de recursos, este almacena metadatos sobre los recursos. Estos metadatos se almacenan en la ubicación del grupo de recursos.
 
 Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para minimizar el riesgo, busque el grupo de recursos y los recursos en la misma región.
 

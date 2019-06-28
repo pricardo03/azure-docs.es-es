@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: acd70bacd23755cd764bc782a297d80db3622424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135244"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones de Azure mediante PowerShell en el Administrador de recursos de Azure
@@ -204,5 +204,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a configurar la descarga de SSL, visite: [Configuración de la descarga SSL](application-gateway-ssl-arm.md)
+Aprenda a configurar la descarga de SSL visitando: [Configuración de la descarga SSL](application-gateway-ssl-arm.md)
 

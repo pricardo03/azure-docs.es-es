@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60411838"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
@@ -299,7 +299,7 @@ Cuando cree conexiones adicionales, es importante asegurarse de que el espacio d
 
 ### <a name="TestVNet5"></a>Paso 7: Creación y configuración de TestVNet5
 
-Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 5. Es posible que esta parte la realice el administrador de otra organización que posea la suscripción. Para cambiar entre suscripciones, use `az account list --all` para enumerar las suscripciones disponibles para su cuenta, a continuación, use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
+Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 5. Es posible que esta parte la realice el administrador de otra organización que posea la suscripción. Para cambiar entre suscripciones, use `az account list --all` para obtener una lista de las suscripciones disponibles para su cuenta y después use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
 
 1. Asegúrese de que está conectados a Suscripción 5 y cree un grupo de recursos.
 
@@ -338,7 +338,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 
 
 ### <a name="connections5"></a>Paso 8: Creación de las conexiones
 
-Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]**, ya que las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use `az account list --all` para enumerar las suscripciones disponibles para su cuenta, a continuación, use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
+Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]** , ya que las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use `az account list --all` para obtener una lista de las suscripciones disponibles para su cuenta y después use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
 
 1. **[Suscripción 1]** Inicie sesión y conéctese a Suscripción 1. Ejecute el siguiente comando para obtener el nombre y el identificador de la puerta de enlace de la salida:
 

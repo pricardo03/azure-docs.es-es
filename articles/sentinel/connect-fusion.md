@@ -1,6 +1,6 @@
 ---
-title: Habilitar fusión en versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo habilitar fusión en Centinela de Azure.
+title: Habilitar la fusión en Azure Sentinel, versión preliminar | Microsoft Docs
+description: Aprenda a habilitar la fusión en Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: bf9a78006d13614a73a3fccfc57f28ce850456d9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204468"
 ---
 # <a name="enable-fusion"></a>Habilitar fusión
@@ -28,37 +28,37 @@ ms.locfileid: "65204468"
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Machine Learning en Azure Sentinel está integrada directamente desde el principio. Hemos diseñado cuidadosamente el sistema con las innovaciones de Machine Learning destinadas a productivo de analistas de seguridad, los científicos de datos de seguridad e ingenieros. Una la innovación es que Azure Sentinel Fusion creado especialmente para reducir la fatiga de la alerta.
+Las capacidades de Machine Learning en Azure Sentinel están integradas directamente desde el principio. Hemos diseñado cuidadosamente el sistema con innovaciones de Machine Learning con el propósito de que los analistas de seguridad, los científicos de datos de seguridad y los ingenieros sean más productivos. Una de estas innovaciones es la fusión de Azure Sentinel, creada concretamente para reducir el exceso de alertas.
 
-Fusión utiliza algoritmos de aprendizaje automático de gráfico con la tecnología para correlacionar entre millones de menor actividad anómala de fidelidad de diferentes productos como Azure AD Identity Protection y Microsoft Cloud App Security, combinarlos en un número manejable de casos de seguridad interesantes.
+La fusión utiliza algoritmos de Machine Learning basados en gráficos para correlacionar millones actividades anómalas de baja fidelidad de diferentes productos (como Azure AD Identity Protection y Microsoft Cloud App Security) a fin de combinarlas en un número asumible de casos de seguridad de interés.
 
 ## <a name="enable-fusion"></a>Habilitar fusión
 
-1. En el portal de Azure, seleccione el icono para abrir Cloud Shell.
+1. En Azure Portal, seleccione el icono para abrir Cloud Shell.
   ![Cloud Shell](./media/connect-fusion/cloud-shell.png)
 
-2.  En el **Bienvenido a Cloud Shell** windows que se abre a continuación, seleccione PowerShell.
+2.  En la ventana **Welcome to Cloud Shell** (Bienvenido a Cloud Shell) que se abre, seleccione PowerShell.
 
-3.  Elija la suscripción en el que ha implementado Azure Sentinel, y **crear almacenamiento**.
+3.  Elija la suscripción en la que haya implementado Azure Sentinel y seleccione **Create storage** (Crear almacenamiento).
 
-4. Una vez se haya autenticado y se ha creado la unidad de Azure, en el símbolo del sistema, ejecute los siguientes comandos:
+4. Una vez que se haya autenticado y se haya creado la unidad de Azure, ejecute los siguientes comandos en el símbolo del sistema:
 
             az resource update --ids /subscriptions/{Subscription Guid}/resourceGroups/{Log analytics resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Log analytics workspace Name}/providers/Microsoft.SecurityInsights/settings/Fusion --api-version 2019-01-01-preview --set properties.IsEnabled=true --subscription "{Subscription Guid}"
 
 ## <a name="disable-fusion"></a>Deshabilitar la fusión
 
-Siga el procedimiento anterior y ejecute el siguiente comando:
+Realice el mismo procedimiento anterior y ejecute el siguiente comando:
 
             az resource update --ids /subscriptions/{Subscription Guid}/resourceGroups/{Log analytics resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Log analytics workspace Name}/providers/Microsoft.SecurityInsights/settings/Fusion --api-version 2019-01-01-preview --set properties.IsEnabled=false --subscription "{Subscription Guid}"
 
-## <a name="view-the-status-of-fusion"></a>Ver el estado de fusión
+## <a name="view-the-status-of-fusion"></a>Ver el estado de la fusión
 
             az resource show --ids /subscriptions/{Subscription Guid}/resourceGroups/{Log analytics resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Log analytics workspace Name}/providers/Microsoft.SecurityInsights/settings/Fusion --api-version 2019-01-01-preview --subscription "{Subscription Guid}"
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, aprendió a habilitar fusión en Centinela de Azure. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Obtenga información sobre cómo [Obtenga visibilidad sobre sus datos y las posibles amenazas](quickstart-get-visibility.md).
-- Introducción a [detección de amenazas con Azure Sentinel](tutorial-detect-threats.md).
+En este documento, ha aprendido a habilitar la fusión en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).
 

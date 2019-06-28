@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 7d8997b6c4ee68ae6857d2a1605277fc7d5f7a0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122226"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Creación de un equilibrador de carga público mediante una plantilla
@@ -43,7 +43,7 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
-2. Ejecute el **New AzResourceGroupDeployment** para crear un grupo de recursos mediante la plantilla.
+2. Ejecute el cmdlet **New-AzResourceGroupDeployment** para crear un grupo de recursos mediante la plantilla.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `

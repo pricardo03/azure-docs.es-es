@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146925"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Movimiento de datos hacia y desde Tabla de Azure mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-azure-table-connector.md)
 > * [Versión 2 (versión actual)](../connector-azure-table-storage.md)
 
@@ -82,8 +82,8 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. | No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
-| azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente. |TRUE<br/>FALSE |Sin  |
+| AzureTableSourceQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. |No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
+| azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente. |TRUE<br/>FALSE |Sin |
 
 ### <a name="azuretablesourcequery-examples"></a>ejemplos de azureTableSourceQuery
 Si la columna de la Tabla de Azure es de tipo cadena:
@@ -102,10 +102,10 @@ Si la columna de la Tabla de Azure es de tipo datetime:
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |Valor de cadena. |Sin  |
-| azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. |Un nombre de columna. |Sin  |
-| azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Un nombre de columna. |Sin  |
-| azureTableInsertType |Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. |merge (predeterminado)<br/>replace |Sin  |
+| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |Valor de cadena. |Sin |
+| azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. |Un nombre de columna. |Sin |
+| azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Un nombre de columna. |Sin |
+| azureTableInsertType |Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. |merge (predeterminado)<br/>replace |Sin |
 | writeBatchSize |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. |Entero (número de filas) |No (valor predeterminado: 10000) |
 | writeBatchTimeout |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. |timespan<br/><br/>Ejemplo: "00:20:00" (20 minutos) |No (el valor predeterminado de intervalo de tiempo del cliente de almacenamiento es 90 segundos) |
 
@@ -479,12 +479,12 @@ Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones defin
 | --- | --- | --- |
 | Edm.Binary |byte[] |Matriz de bytes de hasta 64 KB. |
 | Edm.Boolean |booleano |Valor booleano. |
-| Edm.DateTime |DateTime |Valor de 64 bits expresado como hora universal coordinada (UTC). El intervalo admitido de DateTime comienza a las 12:00 de la noche del 1 de enero de 1601 D.C. (E.C.), UTC. El intervalo finaliza el 31 de diciembre de 9999. |
+| Edm.DateTime |Datetime |Valor de 64 bits expresado como hora universal coordinada (UTC). El intervalo admitido de DateTime comienza a las 12:00 de la noche del 1 de enero de 1601 D.C. (E.C.), UTC. El intervalo finaliza el 31 de diciembre de 9999. |
 | Edm.Double |double |Valor de punto flotante de 64 bits. |
 | Edm.Guid |Guid |Identificador único global de 128 bits. |
 | Edm.Int32 |Int32 |Entero de 32 bits. |
 | Edm.Int64 |Int64 |Entero de 64 bits. |
-| Edm.String |string |Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
+| Edm.String |Cadena |Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Ejemplo de conversión de tipo
 El siguiente es un ejemplo de la copia de datos desde un blob de Azure a una tabla de Azure con conversiones de tipo.

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
 ms.openlocfilehash: 60603bb4d2d29a9e2f0c4fe10130f56db93bfb92
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65202803"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure PowerShell
@@ -69,7 +69,7 @@ Export-PfxCertificate `
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Crear un grupo de recursos de Azure denominado *myResourceGroupAG* mediante [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure denominado *myResourceGroupAG* con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -103,7 +103,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creación de las configuraciones IP y el puerto de front-end
 
-Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Asigne el elemento *myAGPublicIPAddress* a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Y, a continuación, puede crear el puerto HTTPS mediante [New AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
+Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Asigne el elemento *myAGPublicIPAddress* a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Luego puede crear el puerto HTTPS mediante [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `
@@ -140,7 +140,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 Es necesario un agente de escucha para permitir que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este ejemplo, creará un agente de escucha básico que escucha el tráfico HTTPS en la dirección URL raíz. 
 
-Crear un objeto de certificado mediante [New AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) y, a continuación, cree un agente de escucha llamado *appGatewayHttpListener* mediante [ Nuevo AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end, el puerto front-end y el certificado que creó anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica llamada *rule1* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Cree un objeto de certificado mediante [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) y luego cree un cliente de escucha denominado *appGatewayHttpListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end, el puerto de front-end y el certificado creados anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica llamada *rule1* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -193,7 +193,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-the-http-port"></a>Adición del puerto HTTP
 
-Agregue el puerto HTTP a la puerta de enlace de aplicaciones con [agregar AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
+Agregue el puerto HTTP a la puerta de enlace de aplicaciones con [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
 
 ```powershell
 $appgw = Get-AzApplicationGateway `
@@ -207,7 +207,7 @@ Add-AzApplicationGatewayFrontendPort `
 
 ### <a name="add-the-http-listener"></a>Adición del agente de escucha HTTP
 
-Agregar el agente de escucha HTTP llamado *myListener* a la puerta de enlace de aplicaciones con [agregar AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
+Agregue el cliente de escucha HTTP denominado *myListener* a la puerta de enlace de aplicaciones con [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
 ```powershell
 $fipconfig = Get-AzApplicationGatewayFrontendIPConfig `
@@ -226,7 +226,7 @@ Add-AzApplicationGatewayHttpListener `
 
 ### <a name="add-the-redirection-configuration"></a>Adición de la configuración de redireccionamiento
 
-Agregue la HTTP a la configuración de redireccionamiento de HTTPS a la puerta de enlace de aplicaciones con [agregar AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
+Agregue la configuración de redirección de HTTP a HTTPS a la puerta de enlace de aplicaciones con [Add-AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
 
 ```powershell
 $defaultListener = Get-AzApplicationGatewayHttpListener `
@@ -242,7 +242,7 @@ Add-AzApplicationGatewayRedirectConfiguration -Name httpToHttps `
 
 ### <a name="add-the-routing-rule"></a>Adición de la regla de enrutamiento
 
-Agregar la regla de enrutamiento con la configuración de redireccionamiento a la puerta de enlace de aplicaciones con [agregar AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+Agregue la regla de enrutamiento con la configuración de redirección a la puerta de enlace de aplicaciones con [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $myListener = Get-AzApplicationGatewayHttpListener `

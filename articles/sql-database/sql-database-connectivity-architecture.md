@@ -1,6 +1,6 @@
 ---
 title: Dirección del tráfico de Azure a Azure SQL Database y SQL Data Warehouse | Microsoft Docs
-description: Este documento explica la arquitectura de onnectivity Azcure SQL para las conexiones de base de datos de Azure o desde fuera de Azure.
+description: En este documento, se explica la arquitectura de conectividad de Azure SQL para las conexiones de bases de datos desde dentro o desde fuera de Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164437"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
@@ -39,7 +39,7 @@ En los pasos siguientes se describe cómo se establece una conexión a una base 
 
 Azure SQL Database admite las siguientes tres opciones para la configuración de directiva de conexión de un servidor de SQL Database:
 
-- **Redirigir (recomendado):** los clientes establecen conexiones directamente con el nodo que hospeda la base de datos. Para habilitar la conectividad, los clientes deben permitir las reglas de firewall de salida a todas las direcciones IP de Azure en la región con grupos de seguridad de red (NSG) con [etiquetas de servicio](../virtual-network/security-overview.md#service-tags)) para los puertos 11000-11999, no solo la IP de puerta de enlace de Azure SQL Database direcciones en el puerto 1433. Como los paquetes van directamente a la base de datos, la latencia y la capacidad de proceso mejoran.
+- **Redirigir (recomendado):** los clientes establecen conexiones directamente con el nodo que hospeda la base de datos. Para habilitar la conectividad, los clientes tienen que permitir las reglas de firewall de salida a todas las direcciones IP de Azure en la región utilizando los grupos de seguridad de red (NSG) con [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) para los puertos 11000-11999, no solo las direcciones IP de puerta de enlace de Azure SQL Database en el puerto 1433. Como los paquetes van directamente a la base de datos, la latencia y la capacidad de proceso mejoran.
 - **Proxy:** en este modo, el proxy procesa todas las conexiones a través de las puertas de enlace de Azure SQL Database. Para habilitar la conectividad, el cliente tiene que tener reglas de firewall de salida que permiten solo las direcciones IP de puerta de enlace de Azure SQL Database (normalmente dos direcciones IP por región). La elección de este modo puede producir una latencia mayor y un rendimiento inferior, según la naturaleza de la carga de trabajo. Es muy recomendable utilizar la directiva de conexión `Redirect` frente a `Proxy` para obtener la menor latencia y el mayor rendimiento.
 - **Predeterminado:** esta es la directiva de conexión en vigor en todos los servidores después de su creación, a menos que se modifique explícitamente cambiándola a `Proxy` o `Redirect`. La directiva efectiva depende de si las conexiones se originan desde dentro de Azure (`Redirect`) o fuera de Azure (`Proxy`).
 
@@ -111,7 +111,7 @@ Para cambiar la directiva de conexión de Azure SQL Database de un servidor de A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, vea [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 > [!IMPORTANT]
 > Este script requiere el [módulo Azure PowerShell](/powershell/azure/install-az-ps).

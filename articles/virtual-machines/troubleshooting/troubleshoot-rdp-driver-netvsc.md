@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362261"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys le impide conectarse de forma remota a una máquina virtual de Windows 10 o Windows Server 2016 en Azure
@@ -26,7 +26,7 @@ En este artículo se explica cómo solucionar un problema en que no existe ningu
 
 ## <a name="symptoms"></a>Síntomas
 
-No se puede conectar a un Azure Windows 10 o una máquina virtual de Windows Server 2016 mediante el uso de protocolo de escritorio remoto (RDP). En [Diagnósticos de arranque](boot-diagnostics.md), la pantalla muestra una cruz roja sobre la tarjeta de interfaz de red (NIC). Esta indica que la máquina virtual no tiene conectividad cuando el sistema operativo se ha cargado completamente.
+No se puede conectar a una máquina virtual de Windows 10 o Windows Server 2016 de Azure mediante el Protocolo de escritorio remoto (RDP). En [Diagnósticos de arranque](boot-diagnostics.md), la pantalla muestra una cruz roja sobre la tarjeta de interfaz de red (NIC). Esta indica que la máquina virtual no tiene conectividad cuando el sistema operativo se ha cargado completamente.
 
 Normalmente, este problema se produce en la [compilación 14393](https://support.microsoft.com/help/4093120/) y la [compilación 15063](https://support.microsoft.com/help/4015583/) de Windows. Si la versión del sistema operativo es posterior a estas versiones, en este artículo no se aplica a su caso. Para comprobar la versión del sistema, abra una sesión de CMD en [la característica de consola serie](serial-console-windows.md) y, a continuación, ejecute **Ver**.
 

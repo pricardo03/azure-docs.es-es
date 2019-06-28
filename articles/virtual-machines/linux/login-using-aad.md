@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
 ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155956"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
@@ -43,7 +43,7 @@ Usar la autenticación de Azure AD para iniciar sesión en máquinas virtuales L
 
 La versión preliminar de esta característica actualmente admite estas distribuciones de Linux:
 
-| Distribución | Version |
+| Distribución | Versión |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -64,7 +64,7 @@ La versión preliminar de esta característica actualmente admite estas regiones
 
 Si elige instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.31 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-linux-virtual-machine"></a>Crear una máquina virtual con Linux
+## <a name="create-a-linux-virtual-machine"></a>Creación de una máquina virtual con Linux
 
 Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create) y luego cree una máquina virtual con [az vm create](/cli/azure/vm#az-vm-create), mediante una distribución compatible en una región compatible. En el ejemplo siguiente se implementa una máquina virtual denominada *myVM* que usa *Ubuntu 16.04 LTS* en un grupo de recursos denominado *myResourceGroup* en la región *southcentralus*. En los ejemplos siguientes, puede proporcionar sus propios nombres de máquinas virtuales y grupos de recursos según sea necesario.
 
@@ -83,7 +83,7 @@ La creación de la máquina virtual y los recursos auxiliares tarda unos minutos
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Instalación de la extensión de máquina virtual para el inicio de sesión de Azure AD
 
-Para iniciar sesión en una VM de Linux con credenciales de Azure AD, instale la extensión de máquina virtual de inicio de sesión de Azure Active Directory. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión *AADLoginForLinux* en la máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*:
+Para iniciar sesión en una máquina virtual Linux con credenciales de Azure AD, instale la extensión de máquina virtual de inicio de sesión de Azure Active Directory. Las extensiones de máquina virtual son aplicaciones pequeñas que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar la extensión *AADLoginForLinux* en la máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 az vm extension set \

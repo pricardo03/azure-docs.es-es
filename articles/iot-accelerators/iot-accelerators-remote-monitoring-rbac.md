@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443134"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configuración de controles de acceso basado en rol en el acelerador de soluciones de supervisión remota
@@ -21,26 +21,26 @@ En este artículo se proporciona información sobre cómo configurar los control
 
 ## <a name="default-settings"></a>Configuración predeterminada
 
-Al implementar la solución de supervisión remota en primer lugar, hay dos funciones: **Administrador** y **de sólo lectura**.
+Al implementar la solución de supervisión remota por primera vez, hay dos roles: **Administrador** y **Solo lectura**.
 
 Cualquier usuario en el rol **Administrador** tiene acceso completo a la solución, incluidos los permisos siguientes. Un usuario en el rol **Solo lectura** solo tendrá acceso a la vista de la solución.
 
 | Permiso            | Administración | Solo lectura |
 |----------------       |-------|-----------|
 | Vista de la solución         | Sí   | Sí       |
-| Actualizar alarmas         | Sí   | Sin         |
-| Eliminar alarmas         | Sí   | Sin         |
-| Crear dispositivos        | Sí   | Sin         |
-| Actualizar dispositivos        | Sí   | Sin         |
-| Eliminar dispositivos        | Sí   | Sin         |
-| Crear grupos de dispositivos  | Sí   | Sin         |
-| Actualizar grupos de dispositivos  | Sí   | Sin         |
-| Eliminar grupos de dispositivos  | Sí   | Sin         |
-| Creación de reglas          | Sí   | Sin         |
-| Actualizar reglas          | Sí   | Sin         |
-| Eliminar reglas          | Sí   | Sin         |
-| Creación de trabajos           | Sí   | Sin         |
-| Actualizar la administración de SIM | Sí   | Sin         |
+| Actualizar alarmas         | Sí   | Sin        |
+| Eliminar alarmas         | Sí   | Sin        |
+| Crear dispositivos        | Sí   | Sin        |
+| Actualizar dispositivos        | Sí   | Sin        |
+| Eliminar dispositivos        | Sí   | Sin        |
+| Crear grupos de dispositivos  | Sí   | Sin        |
+| Actualizar grupos de dispositivos  | Sí   | Sin        |
+| Eliminar grupos de dispositivos  | Sí   | Sin        |
+| Creación de reglas          | Sí   | Sin        |
+| Actualizar reglas          | Sí   | Sin        |
+| Eliminar reglas          | Sí   | Sin        |
+| Creación de trabajos           | Sí   | Sin        |
+| Actualizar la administración de SIM | Sí   | Sin        |
 
 De manera predeterminada, al usuario que implementa la solución se le asigna automáticamente el rol **Administrador** y es propietario de la aplicación de Azure Active Directory. Como propietario de la aplicación, puede asignar roles a otros usuarios en Azure Portal. Si quiere que otros usuarios asignen roles en la solución, también se deben establecer como propietarios de la aplicación en Azure Portal.
 

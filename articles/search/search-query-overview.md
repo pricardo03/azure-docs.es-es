@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595984"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Cómo crear una consulta en Azure Search
@@ -51,11 +51,11 @@ Los ejemplos son útiles para introducir nuevos conceptos. Esta consulta represe
 
 + **`queryType`** establece el analizador, que en Azure Search puede ser el [analizador de consultas sencillo predeterminado](search-query-simple-examples.md) (óptimo para la búsqueda de texto completo) o el [analizador completo de consultas de Lucene](search-query-lucene-examples.md) utilizado para construcciones de consultas avanzadas como las expresiones regulares, la búsqueda de proximidad, la búsqueda aproximada y por caracteres comodín, por nombrar algunas.
 
-+ **`search`** proporciona los criterios de coincidencia, normalmente texto, pero a menudo acompañado por operadores booleanos. Los términos individuales y sencillos constituyen las consultas por *término*. Las consultas entrecomilladas de varias partes son las consultas de *frases clave*. Búsqueda puede ser indefinida, como en **`search=*`**, pero es más probable que consta de operadores comunes similares a lo que aparece en el ejemplo, frases y términos.
++ **`search`** proporciona los criterios de coincidencia, normalmente texto, pero a menudo acompañado por operadores booleanos. Los términos individuales y sencillos constituyen las consultas por *término*. Las consultas entrecomilladas de varias partes son las consultas de *frases clave*. Búsqueda puede ser indefinida, como en **`search=*`** , pero es más probable que consta de operadores comunes similares a lo que aparece en el ejemplo, frases y términos.
 
 + **`searchFields`** es opcional, se usa para restringir la ejecución de consultas a campos específicos.
 
-Las respuestas también están formadas por los parámetros que incluya en la consulta. En el ejemplo, el conjunto de resultados se compone de campos que aparecen en la instrucción **`select`**. En esta consulta se devuelven solo los 10 primeros puestos, pero **`count`** indica cuántos documentos coinciden en general. En esta consulta, las filas se ordenan por daysOnMarket.
+Las respuestas también están formadas por los parámetros que incluya en la consulta. En el ejemplo, el conjunto de resultados se compone de campos que aparecen en la instrucción **`select`** . En esta consulta se devuelven solo los 10 primeros puestos, pero **`count`** indica cuántos documentos coinciden en general. En esta consulta, las filas se ordenan por daysOnMarket.
 
 En Azure Search, la ejecución de la consulta se realiza siempre en un índice, que se autentica mediante una clave de API proporcionada en la solicitud. En REST, ambos se proporcionan en los encabezados de solicitud.
 
@@ -76,7 +76,7 @@ Los atributos de índice de un campo establecen las operaciones permitidas: si e
 La captura de pantalla anterior es una lista parcial de atributos de índice para el ejemplo de bienes inmuebles. En el portal puede ver el esquema de índice completo. Para más información acerca de los atributos de índice, consulte el artículo sobre la [creación de índices con la API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Algunas funcionalidades de consulta están habilitadas para todo el índice en lugar de por campo. Estas funcionalidades incluyen: [asignaciones de sinónimos](search-synonyms.md), [analizadores personalizados](index-add-custom-analyzers.md), [construcciones de proveedor de sugerencias (para Autocompletar y las consultas sugeridas)](index-add-suggesters.md), [lógica de puntuación para clasificar los resultados](index-add-scoring-profiles.md).
+> Algunas funcionalidades de consulta están habilitadas para todo el índice en lugar de por campo. Estas son algunas de las que se incluyen: [asignaciones de sinónimos](search-synonyms.md), [analizadores personalizados](index-add-custom-analyzers.md), [construcciones del proveedor de sugerencias (para Autocompletar y consultas sugeridas)](index-add-suggesters.md), [puntuación lógica para la clasificación de resultados](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Elementos de una solicitud de consulta
 
@@ -86,8 +86,8 @@ Entre los elementos obligatorios en una solicitud de consulta se incluyen los si
 
 + Punto de conexión de servicio y colección de los documentos del índice, expresado como dirección URL con los componentes fijos y los definidos por el usuario: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + Se necesita **`api-version`** (solo REST), ya que siempre hay más de una versión de la API disponible. 
-+ **`api-key`**, clave de API de consulta o administrador que autentique la solicitud en el servicio.
-+ **`queryType`**, simplificada o completa, que se puede omitir si usa la sintaxis simplificada predeterminada integrada.
++ **`api-key`** , clave de API de consulta o administrador que autentique la solicitud en el servicio.
++ **`queryType`** , simplificada o completa, que se puede omitir si usa la sintaxis simplificada predeterminada integrada.
 + **`search`** o **`filter`** proporcionan los criterios de coincidencia, pueden dejarse sin especificar si se desea realizar una búsqueda vacía. Ambos tipos de consulta se describen en términos del analizador sencillo, pero incluso las consultas avanzadas requieren el parámetro de búsqueda para pasar las expresiones de consulta complejas.
 
 Todos los demás parámetros de búsqueda son opcionales. Para la lista completa de atributos, consulte el artículo de [creación de índices (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Para una visión más detallada de cómo se usan los parámetros durante el procesamiento, consulte [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).
@@ -122,7 +122,7 @@ Azure Search admite una amplia gama de tipos de consulta.
 | Búsqueda filtrada | [Expresión de filtro de OData](query-odata-filter-orderby-syntax.md) y cualquier analizador | Las consultas de filtro evalúan una expresión booleana en todos los campos *filtrables* de un índice. A diferencia de la búsqueda, una consulta de filtro busca el contenido exacto de un campo, incluidas las mayúsculas y minúsculas de los campos de cadena. Otra diferencia es que las consultas de filtro se expresan con sintaxis de OData. <br/>[Ejemplo de expresión de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Búsqueda georreferenciada | [Tipo Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en el campo, la expresión de filtro y cualquier analizador | Las coordenadas que se almacenan en un campo con Edm.GeographyPoint se utilizan para "buscar cerca de mí" o los controles de búsqueda con mapas. <br/>[Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-5-geo-search)|
 | Búsqueda de intervalo | Expresión de filtro y analizador básico | En Azure Search, las consultas de intervalo se compilan con el parámetro de filtro. <br/>[Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
-| [Clasificada por campos de búsqueda](query-lucene-syntax.md#bkmk_fields) | Parámetro de búsqueda y analizador completo | Compila una expresión de consulta compuesta con un único campo como destino. <br/>[Ejemplo de búsqueda clasificada por campos](search-query-lucene-examples.md#example-2-fielded-search) |
+| [Búsqueda clasificada por campos](query-lucene-syntax.md#bkmk_fields) | Parámetro de búsqueda y analizador completo | Compila una expresión de consulta compuesta con un único campo como destino. <br/>[Ejemplo de búsqueda clasificada por campos](search-query-lucene-examples.md#example-2-fielded-search) |
 | [Búsqueda aproximada](query-lucene-syntax.md#bkmk_fuzzy) | Parámetro de búsqueda y analizador completo | Coincidencias en términos con construcción u ortografía similares. <br/>[Ejemplo de búsqueda aproximada](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [Búsqueda por proximidad](query-lucene-syntax.md#bkmk_proximity) | Parámetro de búsqueda y analizador completo | Busca términos que están cerca uno del otro en un documento. <br/>[Ejemplo de búsqueda por proximidad](search-query-lucene-examples.md#example-4-proximity-search) |
 | [Priorización de términos](query-lucene-syntax.md#bkmk_termboost) | Parámetro de búsqueda y analizador completo | Clasifica un documento superior si contiene el término prioritario con respecto a otros que no lo tienen. <br/>[Ejemplo de priorización de términos](search-query-lucene-examples.md#example-5-term-boosting) |
@@ -146,23 +146,23 @@ En ocasiones, la sustancia, y no la estructura de los resultados, no es la esper
 
 + Cambie **`searchMode=any`** (predeterminado) a **`searchMode=all`** para requerir coincidencias en todos los criterios en lugar de en cualquiera de ellos. Esto sucede especialmente cuando se incluyen operadores booleanos en la consulta.
 
-+ Cambie la técnica de la consulta si se necesita análisis léxico o de texto, pero el tipo de consulta impide el procesamiento lingüístico. En la búsqueda de texto completo, texto o análisis léxico autocorrects para errores de ortografía, formas de palabras de singular a plural y verbos incluso irregulares o sustantivos. En algunas consultas, como la búsqueda aproximada o la búsqueda con caracteres comodín, el análisis de texto no forma parte de la canalización de análisis de la consulta. En algunos escenarios, se han utilizado expresiones regulares como solución alternativa. 
++ Cambie la técnica de la consulta si se necesita análisis léxico o de texto, pero el tipo de consulta impide el procesamiento lingüístico. En la búsqueda de texto completo, el análisis léxico o de texto corrige de forma automática errores de ortografía, formas de palabras con errores de concordancia de número e incluso sustantivos o verbos irregulares. En algunas consultas, como la búsqueda aproximada o la búsqueda con caracteres comodín, el análisis de texto no forma parte de la canalización de análisis de la consulta. En algunos escenarios, se han utilizado expresiones regulares como solución alternativa. 
 
 ### <a name="paging-results"></a>Paginación de resultados
-Azure Search facilita la implementación de la paginación de los resultados de búsqueda. Mediante el uso de los parámetros **`top`** y **`skip`**, puede emitir fácilmente solicitudes de búsqueda que le permitan recibir el conjunto total de resultados de búsqueda dividido en subconjuntos ordenados, sencillos de administrar que permitan habilitar fácilmente prácticas eficaces de interfaz de usuario de búsqueda. Al recibir estos subconjuntos más pequeños de resultados, también puede recibir el número de documentos del conjunto total de resultados de la búsqueda.
+Azure Search facilita la implementación de la paginación de los resultados de búsqueda. Mediante el uso de los parámetros **`top`** y **`skip`** , puede emitir fácilmente solicitudes de búsqueda que le permitan recibir el conjunto total de resultados de búsqueda dividido en subconjuntos ordenados, sencillos de administrar que permitan habilitar fácilmente prácticas eficaces de interfaz de usuario de búsqueda. Al recibir estos subconjuntos más pequeños de resultados, también puede recibir el número de documentos del conjunto total de resultados de la búsqueda.
 
 Para más información acerca de la paginación de resultados de búsqueda, consulte el artículo [Cómo paginar los resultados de la búsqueda en Azure Search](search-pagination-page-layout.md).
 
 ### <a name="ordering-results"></a>Ordenación de los resultados
 Al recibir los resultados de una consulta de búsqueda, puede solicitar que Azure Search muestre los resultados ordenados según los valores de un campo específico. De forma predeterminada, Azure Search ordena los resultados de búsqueda basándose en el rango de puntuación de búsqueda de cada documento, que se deriva del valor [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Si desea que Azure Search devuelva los resultados ordenados según un valor distinto de la puntuación de búsqueda, puede usar el parámetro **`orderby`**. Puede especificar el valor del parámetro **`orderby`** para que incluya nombres de campo y llamadas a la [**`geo.distance()` función**](query-odata-filter-orderby-syntax.md) para los valores geoespaciales. Cada expresión puede ir seguida de `asc` para indicar que se solicitan los resultados en orden ascendente y de **`desc`** para indicar que se solicitan los resultados en orden descendente. El valor predeterminado es el orden ascendente.
+Si desea que Azure Search devuelva los resultados ordenados según un valor distinto de la puntuación de búsqueda, puede usar el parámetro **`orderby`** . Puede especificar el valor del parámetro **`orderby`** para que incluya nombres de campo y llamadas a la [ **`geo.distance()` función**](query-odata-filter-orderby-syntax.md) para los valores geoespaciales. Cada expresión puede ir seguida de `asc` para indicar que se solicitan los resultados en orden ascendente y de **`desc`** para indicar que se solicitan los resultados en orden descendente. El valor predeterminado es el orden ascendente.
 
 
 ### <a name="hit-highlighting"></a>Resaltado de referencias
-En Azure Search, resaltar la parte exacta de los resultados de búsqueda que coincide con la consulta de búsqueda es fácil mediante el uso de los parámetros **`highlight`**, **`highlightPreTag`**, y **`highlightPostTag`**. Puede especificar qué campos *habilitados para búsquedas* deben tener su texto coincidente resaltado, así como especificar las etiquetas de cadena exactas que se anexarán al comienzo y al final del texto coincidente que devuelve Azure Search.
+En Azure Search, resaltar la parte exacta de los resultados de búsqueda que coincide con la consulta de búsqueda es fácil mediante el uso de los parámetros **`highlight`** , **`highlightPreTag`** , y **`highlightPostTag`** . Puede especificar qué campos *habilitados para búsquedas* deben tener su texto coincidente resaltado, así como especificar las etiquetas de cadena exactas que se anexarán al comienzo y al final del texto coincidente que devuelve Azure Search.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Cómo funciona la búsqueda de texto completo en Azure Search (arquitectura de análisis de consultas)](search-lucene-query-architecture.md)
 + [Explorador de búsqueda](search-explorer.md)

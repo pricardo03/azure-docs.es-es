@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60873399"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 
 En la actualidad, las empresas están pasando cada vez más hacia la creación de aplicaciones móviles para sus usuarios finales (externos) o para los empleados (internos). Disponen de sistemas back-end como grandes sistemas (mainframes) o algunas aplicaciones de línea de negocio (LoB) que deben estar integradas en la arquitectura de aplicaciones móviles. En esta guía se habla acerca de la mejor manera de realizar esta integración y recomendaremos soluciones posibles a escenarios comunes.
 
-Un requisito frecuente es el envío de notificaciones de inserción a los usuarios a través de su aplicación móvil cuando se produce un evento de interés en los sistemas back-end. Por ejemplo, un cliente de banco que tiene la aplicación del banco en un iPhone desea recibir una notificación cuando se efectúe por encima de un importe determinado desde la cuenta o un escenario de intranet donde desea que un empleado del departamento financiero que tiene una aplicación de aprobación de presupuestos en un Windows Phone  para recibir una notificación cuando se recibe la solicitud de aprobación.
+Un requisito frecuente es el envío de notificaciones de inserción a los usuarios a través de su aplicación móvil cuando se produce un evento de interés en los sistemas back-end. Por ejemplo, el cliente de un banco que tiene la aplicación del banco en un iPhone quiere recibir una notificación cuando se efectúe un cargo por encima de un importe determinado desde su cuenta, o un escenario de intranet en el que un empleado del departamento financiero que tiene una aplicación de aprobación de presupuestos en un Windows Phone quiere recibir una notificación cuando obtenga una solicitud de aprobación.
 
 El procesamiento de la cuenta bancaria o de la solicitud de aprobación se realiza probablemente en algún sistema back-end que debe iniciar una inserción al usuario. Podría haber muchos sistemas back-end de este tipo que deben crear todos el mismo tipo de lógica para realizar la inserción cuando un evento desencadena una notificación. Aquí la complejidad reside en la integración de varios back-ends juntos con un único sistema de inserción donde los usuarios finales podrían haberse suscrito a diferentes notificaciones e incluso podría haber varias aplicaciones móviles. Por ejemplo, en el caso de aplicaciones móviles de intranet donde una aplicación móvil puede querer recibir notificaciones de varios de estos sistemas back-end. Los sistemas back-end no conocen o no necesitan conocer la semántica/tecnología de inserción, de modo que una solución común aquí ha sido tradicionalmente introducir un componente que sondea los sistemas back-end en busca de eventos de interés y que es responsable de enviar los mensajes de inserción al cliente.
 
@@ -69,7 +69,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 1. **EnterprisePushBackendSystem**
 
-     a. Este proyecto usa el paquete de NuGet **WindowsAzure.ServiceBus** y se basa en la [programación Pub/Sub de Service Bus].
+    a. Este proyecto usa el paquete de NuGet **WindowsAzure.ServiceBus** y se basa en la [programación Pub/Sub de Service Bus].
 
     b. Se trata de una aplicación de consola C# sencilla para simular un sistema LoB que inicia el mensaje que se entrega a la aplicación móvil.
 
@@ -138,7 +138,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
     ```
 2. **ReceiveAndSendNotification**
 
-     a. Este proyecto usa los paquetes de NuGet *WindowsAzure.ServiceBus* y **Microsoft.Web.WebJobs.Publish** y se basa en la [programación Pub/Sub de Service Bus].
+    a. Este proyecto usa los paquetes de NuGet *WindowsAzure.ServiceBus* y **Microsoft.Web.WebJobs.Publish** y se basa en la [programación Pub/Sub de Service Bus].
 
     b. La siguiente aplicación de consola se ejecuta como un [trabajo web de Azure] dado que se tiene que ejecutar continuamente para escuchar mensajes de los sistemas LoB/back-end. Esta aplicación forma parte de su back-end móvil.
 
@@ -238,7 +238,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 3. **EnterprisePushMobileApp**
 
-     a. Se trata de una aplicación de la Tienda Windows que recibe notificaciones del sistema del trabajo web que se ejecuta como parte de su back-end móvil y las mostrará. Este código se basa en el [tutorial sobre Notification Hubs: Windows Universal].  
+    a. Se trata de una aplicación de la Tienda Windows que recibe notificaciones del sistema del trabajo web que se ejecuta como parte de su back-end móvil y las mostrará. Este código se basa en el [tutorial sobre Notification Hubs: Windows Universal].  
 
     b. Asegúrese de que su aplicación está habilitada para recibir notificaciones del sistema.
 
@@ -265,7 +265,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 ### <a name="running-the-sample"></a>Ejecución del ejemplo
 
 1. Asegúrese de que su trabajo web se ejecuta correctamente y está programado para ejecutarse continuamente.
-2. Ejecute el **EnterprisePushMobileApp**, que inicia la aplicación de Windows Store.
+2. Ejecute **EnterprisePushMobileApp**, que inicia la aplicación de la Tienda Windows.
 3. Ejecute la aplicación de consola **EnterprisePushBackendSystem** que simula el back-end LoB e inicia el envío de mensajes, de modo que verá que aparecen notificaciones del sistema como la siguiente imagen:
 
     ![][5]

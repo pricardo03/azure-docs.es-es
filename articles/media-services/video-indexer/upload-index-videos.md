@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799203"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
@@ -23,7 +23,7 @@ Al cargar vídeos con Video Indexer API, tiene las siguientes opciones de carga:
 
 * cargar el vídeo desde una dirección URL (opción preferida);
 * enviar el archivo de vídeo como una matriz de bytes en el cuerpo de la solicitud.
-* Usar el recurso de Azure Media Services existente proporcionando el [Id. de recurso](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (compatible con solo cuentas de pago).
+* Para usar el recurso de Azure Media Services existente, proporcione el [identificador del recurso](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (solo se admite en cuentas de pago).
 
 En el artículo se muestra cómo usar la API [Cargar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para cargar e indexar los vídeos según una dirección URL. En el ejemplo de código del artículo se incluye el código con comentarios que muestra cómo cargar la matriz de bytes. <br/>En el artículo también se explican algunos de los parámetros que puede establecer en la API para cambiar el proceso y la salida de la API.
 
@@ -32,13 +32,13 @@ Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cu
 ## <a name="uploading-considerations"></a>Consideraciones de la carga
 
 - Al cargar el vídeo según la dirección URL (opción preferida) el punto de conexión debe estar protegido con TLS 1.2 (o una versión posterior).
-- El tamaño de carga con la opción de dirección URL se limita a 30GB
+- El tamaño de carga con la opción de dirección URL se limita a 30 GB
 - La longitud de la dirección URL de solicitud se limita a 2048 caracteres
 - El tamaño de carga con la opción de matriz de bytes se limita a 2 GB
 - La opción de matriz de bytes agota el tiempo de espera a los 30 minutos
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
-- Indización de recursos de Media Services tiene la misma limitación que la indización de dirección URL
-- Indexador de vídeo tiene un límite de duración máxima de 4 horas para un solo archivo
+- La indexación de los recursos de Media Services tiene la misma limitación que la indexación desde la dirección URL
+- Video Indexer tiene una duración máxima de 4 horas por archivo
 
 > [!Tip]
 > Es recomendable que use .NET Framework versión 4.6.2 o superior porque las versiones anteriores de .NET Framework no usan de forma predeterminada TLS 1.2.
@@ -62,7 +62,7 @@ Una dirección URL que se usa para notificar al cliente (mediante una solicitud 
     
         |NOMBRE|Descripción|
         |---|---|
-        |id|Id. de vídeo|
+        |id|Identificador del vídeo|
         |state|El estado del vídeo|  
     - Ejemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificada en el vídeo:
@@ -70,7 +70,7 @@ Una dirección URL que se usa para notificar al cliente (mediante una solicitud 
     
       |NOMBRE|Descripción|
       |---|---|
-      |id| Id. de vídeo|
+      |id| Identificador del vídeo|
       |faceId|El identificador de caras que aparece en el índice de vídeo|
       |knownPersonId|El identificador de persona que es único dentro de un modelo de cara|
       |personName|El nombre de la persona|
@@ -291,4 +291,4 @@ La operación Upload puede devolver los códigos de estado que aparecen en la si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Examine la salida de Azure Video Indexer producida por la API](video-indexer-output-json-v2.md)
+[Examen de la salida de Azure Video Indexer producida por la API](video-indexer-output-json-v2.md)

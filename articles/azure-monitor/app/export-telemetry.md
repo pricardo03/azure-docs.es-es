@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899424"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
@@ -33,13 +33,13 @@ Antes de configurar la exportación continua, hay algunas alternativas que convi
 
 Cuando la exportación continua copie sus datos en el almacenamiento (donde pueden permanecer tanto tiempo como quiera), seguirán estando disponibles en Application Insights durante el [período de retención](../../azure-monitor/app/data-retention-privacy.md) habitual.
 
-## <a name="continuous-export-advanced-storage-configuration"></a>Configuración de almacenamiento avanzado de exportación continua
+## <a name="continuous-export-advanced-storage-configuration"></a>Configuración avanzada del almacenamiento de exportación continua
 
-La exportación continua **no admite** las siguientes características y configuraciones de almacenamiento de Azure:
+La exportación continua **no admite** las siguientes características o configuraciones del almacenamiento de Azure:
 
-* El uso de [los firewalls de red virtual, Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) junto con Azure Blob storage.
+* El uso de [los firewalls de VNET o Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) junto con Azure Blob Storage.
 
-* [Almacenamiento inmutable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) para Azure Blob storage.
+* [Almacenamiento inmutable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) para Azure Blob Storage.
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
@@ -128,7 +128,7 @@ Las duraciones de tiempo son tics, donde 10 000 tics = 1 ms. Por ejemplo, estos 
 [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Procesamiento de los datos
-En una pequeña escala, puede escribir código para separar sus datos, leerlos en una hoja de cálculo, etc. Por ejemplo: 
+En una pequeña escala, puede escribir código para separar sus datos, leerlos en una hoja de cálculo, etc. Por ejemplo:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -150,7 +150,7 @@ En una pequeña escala, puede escribir código para separar sus datos, leerlos e
 Para obtener un ejemplo de código más grande, consulte el [uso de un rol de trabajo][exportasa].
 
 ## <a name="delete"></a>Eliminación de los datos antiguos
-Usted es responsable de administrar la capacidad de almacenamiento y eliminar los datos antiguos si es necesario.
+Es responsable de administrar la capacidad de almacenamiento y de eliminar los datos antiguos, si fuera necesario.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Si vuelve a generar la clave de almacenamiento...
 Si cambia la clave para el almacenamiento, la exportación continua dejará de funcionar. Verá una notificación en su cuenta de Azure.

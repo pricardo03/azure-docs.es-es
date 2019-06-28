@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111128"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Service Bus con las plantillas de Azure Resource Manager
@@ -181,7 +181,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Configuración del grupo de recursos
 
-Si no tiene un recurso existente de grupo, cree un nuevo grupo de recursos con el **New AzResourceGroup** comando. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo:
+Si no tiene un grupo de recursos existente, cree uno nuevo con el comando **New-AzResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"

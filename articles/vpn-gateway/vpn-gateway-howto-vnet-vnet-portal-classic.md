@@ -1,5 +1,5 @@
 ---
-title: 'Crear una conexión entre redes virtuales: clásico: Azure Portal | Microsoft Docs'
+title: 'Creación de una conexión entre redes virtuales: clásico: Azure Portal | Microsoft Docs'
 description: Conexión entre sí de las redes virtuales de Azure mediante PowerShell y Azure Portal.
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407991"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
@@ -212,7 +212,7 @@ Una vez que se crean las puertas de enlace de red virtual para ambas redes virtu
 
 ## <a name="getvalues"></a>Paso 7: Recuperación de valores desde el archivo de configuración de red
 
-Cuando crea redes virtuales clásicas en Azure Portal, el nombre que ve no es el nombre completo que usa para PowerShell. Por ejemplo, una red virtual que pareciera tener el nombre **TestVNet1** en el portal podría tener un nombre mucho más largo en el archivo de configuración de red. El nombre debería parecerse al siguiente: **Grupo ClassicRG TestVNet1**. Cuando cree conexiones, es importante usar los valores que ve en el archivo de configuración de red.
+Cuando crea redes virtuales clásicas en Azure Portal, el nombre que ve no es el nombre completo que usa para PowerShell. Por ejemplo, una red virtual que pareciera tener el nombre **TestVNet1** en el portal podría tener un nombre mucho más largo en el archivo de configuración de red. El nombre debería parecerse al siguiente: **Group ClassicRG TestVNet1**. Cuando cree conexiones, es importante usar los valores que ve en el archivo de configuración de red.
 
 En los pasos siguientes, se conectará a la cuenta de Azure y descargará y verá el archivo de configuración de red para obtener los valores requeridos para las conexiones.
 

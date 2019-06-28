@@ -1,27 +1,26 @@
 ---
-title: Aprovisionar automáticamente dispositivos de Linux con DPS - Azure IoT Edge | Microsoft Docs
+title: 'Aprovisionamiento automático de dispositivos Linux con DPS: Azure IoT Edge | Microsoft Docs'
 description: Usar un TPM simulado en una máquina virtual con Linux para probar Device Provisioning Service en Azure para Azure IoT Edge
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/01/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248120"
 ---
-# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creación y aprovisionamiento de un dispositivo de IoT Edge con un TPM virtual en una máquina virtual Linux
+# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Cree y aprovisione un dispositivo IoT Edge con un TPM virtual en una máquina virtual de Linux.
 
-Dispositivos de Azure IoT Edge se pueden aprovisionar automáticamente mediante el [servicio Device Provisioning](../iot-dps/index.yml). Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar. 
+Los dispositivos Azure IoT Edge pueden aprovisionarse automáticamente con el [Servicio de aprovisionamiento de dispositivos](../iot-dps/index.yml). Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar. 
 
-Este artículo muestra cómo probar el aprovisionamiento automático en un dispositivo de IoT Edge simulado con los pasos siguientes: 
+En este artículo se muestra cómo probar el aprovisionamiento automático en un dispositivo IoT Edge simulado con los pasos siguientes: 
 
 * Cree una máquina virtual (VM) con Linux en Hyper-V con un Módulo de plataforma segura (TPM) simulado para la seguridad de hardware.
 * Cree una instancia de IoT Hub Device Provisioning Service (DPS).
@@ -37,13 +36,13 @@ Los pasos descritos en este artículo están destinados a la prueba.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Crear una máquina virtual con Linux con TPM virtual
 
-En esta sección, creará una nueva máquina virtual de Linux en Hyper-V. Configurar esta máquina virtual con un TPM simulado para que se puede usar para las pruebas automática funciona el aprovisionamiento con IoT Edge. 
+En esta sección, se va a crear una nueva máquina virtual con Linux en Hyper-V. Se ha configurado esta máquina virtual con un TPM simulado con el fin de que se pueda usar para probar cómo funciona el aprovisionamiento automático con IoT Edge. 
 
 ### <a name="create-a-virtual-switch"></a>Crear un conmutador virtual
 
 Un conmutador virtual permite que la máquina virtual se conecte a una red física.
 
-1. Abra el Administrador de Hyper-V en el equipo de Windows. 
+1. Abra el administrador de Hyper-V en la máquina Windows. 
 
 2. En el menú **Acciones**, seleccione **Administrador de conmutadores virtuales**. 
 
@@ -59,23 +58,23 @@ Si ve errores al crear el nuevo conmutador virtual, asegúrese de que ningún ot
 
 1. Descargue un archivo de imagen de disco para usarlo para la máquina virtual y guárdelo localmente. Por ejemplo, [Servidor de Ubuntu](https://www.ubuntu.com/download/server). 
 
-2. En el Administrador de Hyper-V de nuevo, seleccione **New** > **Máquina Virtual** en el **acciones** menú.
+2. De nuevo en el administrador de Hyper-V, en el menú **Acciones**, seleccione **Nuevo** > **Máquina virtual**.
 
 3. Complete el **Asistente para crear nueva máquina virtual** con las siguientes configuraciones específicas:
 
-   1. **Especificación de la generación**: seleccione **Generación 2**. Máquinas virtuales de generación 2 ha virtualización anidada habilitada, lo cual es necesario para ejecutar IoT Edge en una máquina virtual.
+   1. **Especificación de la generación**: seleccione **Generación 2**. Las máquinas virtuales de generación 2 tienen la virtualización anidada habilitada, lo cual es necesario para ejecutar IoT Edge en una máquina virtual.
    2. **Configurar funciones de red**: establezca el valor de **Conexión** en el conmutador virtual que creó en la sección anterior. 
    3. **Opciones de instalación**: seleccione **Instalar un sistema operativo desde un archivo de imagen de arranque** y busque el archivo de imagen de disco que ha guardado localmente.
 
-4. Seleccione **finalizar** del Asistente para crear la máquina virtual.
+4. Seleccione **Finalizar** en el asistente para crear la máquina virtual.
 
 La creación de la máquina virtual puede tardar unos minutos. 
 
 ### <a name="enable-virtual-tpm"></a>Habilitar TPM virtual
 
-Una vez creada la máquina virtual, abra su configuración para habilitar el módulo de plataforma segura virtual (TPM) que le permita autoprovision del dispositivo. 
+Una vez creada la máquina virtual, abra la configuración para habilitar el módulo de plataforma segura (TPM) virtual, que permite aprovisionar de forma automática el dispositivo. 
 
-1. Seleccione la máquina virtual, a continuación, abra su **configuración**.
+1. Seleccione la máquina virtual y luego abra la **Configuración**.
 
 2. Navegue hasta **Seguridad**. 
 
@@ -89,14 +88,14 @@ Una vez creada la máquina virtual, abra su configuración para habilitar el mó
 
 En la máquina virtual, cree una herramienta de SDK de C que se pueda utilizar para recuperar la **Id. de registro** y la **clave de aprobación** del dispositivo. 
 
-1. Inicie la máquina virtual y conectarse a ella.
+1. Inicie la máquina virtual y conéctese.
 
-2. Siga las indicaciones de la máquina virtual para finalizar el proceso de instalación y reinicie el equipo. 
+2. Siga las indicaciones en la máquina virtual para finalizar el proceso de instalación y reinicie la máquina. 
 
-3. Inicie sesión en la máquina virtual, a continuación, siga los pasos de [configurar un entorno de desarrollo de Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) instalar y compilar el SDK de dispositivo IoT de Azure para C. 
+3. Inicie sesión en la máquina virtual y luego siga los pasos de [Configurar un entorno de desarrollo con Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) para instalar y compilar el SDK de dispositivo IoT de Azure para C. 
 
    >[!TIP]
-   >En el transcurso de este artículo, deberá copiar en y pegar desde la máquina virtual, que no es fácil, gracias a la aplicación de conexión de administrador de Hyper-V. Es posible que desee conectarse a la máquina virtual a través del Administrador de Hyper-V una vez para recuperar su dirección IP: `ifconfig`. A continuación, puede usar la dirección IP para conectarse a través de SSH: `ssh <username>@<ipaddress>`.
+   >Durante este artículo, copiará en la máquina virtual y pegará desde esta, cosa que no es sencilla, a través de la aplicación de conexión de administrador de Hyper-V. Es posible que quiera conectarse a la máquina virtual a través del administrador de Hyper-V una vez para recuperar su dirección IP: `ifconfig`. Después, puede usar la dirección IP para conectarse a través de SSH: `ssh <username>@<ipaddress>`.
 
 4. Ejecute los comandos siguientes para crear una herramienta de SDK de C que recupere la información de aprovisionamiento de dispositivos. 
 
@@ -131,15 +130,15 @@ Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado i
 
    1. En **Mecanismo**, seleccione **TPM**. 
    
-   2. Proporcione el **clave de aprobación** y **Id. de registro** que copió de la máquina virtual.
+   2. Proporcione la **Clave de aprobación** y la **Id. de registro** que se ha copiado de la máquina virtual.
    
-   3. Seleccione **True** para declarar que esta máquina virtual es un dispositivo IoT Edge. 
+   3. Seleccione **Verdadero** para declarar que esta máquina virtual es un dispositivo IoT Edge. 
    
    4. Elija la instancia de **IoT Hub** vinculada a la que quiere conectar el dispositivo. Puede elegir varios centros y el dispositivo se asignará a uno de ellos según la directiva de asignación seleccionada. 
    
-   5. Si lo desea, proporcione un identificador para el dispositivo. Puede usar identificadores de dispositivo para dirigirse a un dispositivo individual para la implementación del módulo. Si no proporciona un identificador de dispositivo, se usa el identificador de registro.
+   5. Si lo desea, proporcione un identificador para el dispositivo. Puede usar identificadores de dispositivo para dirigirse a un dispositivo individual para la implementación del módulo. Si no proporciona un id. de dispositivo, se usará el id. de registro.
    
-   6. Agregue un valor de etiqueta a **Estado inicial de dispositivo gemelo**, si lo desea. Puede usar etiquetas para los grupos de dispositivos de destino para la implementación del módulo. Por ejemplo:  
+   6. Agregue un valor de etiqueta a **Estado inicial de dispositivo gemelo**, si lo desea. Puede usar etiquetas para los grupos de dispositivos de destino para la implementación del módulo. Por ejemplo: 
 
       ```json
       {
@@ -154,7 +153,7 @@ Al crear una inscripción en DPS, tiene la oportunidad de declarar un **Estado i
 
    7. Seleccione **Guardar**. 
 
-Ahora que existe una inscripción para este dispositivo, el tiempo de ejecución de IoT Edge puede aprovisionar automáticamente el dispositivo durante la instalación. 
+Ahora que existe una inscripción para este dispositivo, el entorno de ejecución de Azure IoT Edge puede aprovisionar automáticamente el dispositivo durante la instalación. 
 
 ## <a name="install-the-iot-edge-runtime"></a>Instalación del entorno de ejecución de IoT Edge
 
@@ -163,7 +162,7 @@ El runtime de IoT Edge se implementa en todos los dispositivos de IoT Edge. Sus 
 Averigüe el **Ámbito de id.** de DPS y la **Id. de registro** del dispositivo antes de comenzar el artículo que coincide con el tipo de su dispositivo. Si instaló el servidor de Ubuntu de ejemplo, use las instrucciones de **x64**. Asegúrese de configurar el entorno de ejecución de IoT Edge para el aprovisionamiento automático, no manual. 
 
 * [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Instalar el runtime de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+* [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Conceder acceso a IoT Edge en el TPM
 
@@ -291,7 +290,7 @@ Enumere los módulos en ejecución.
 iotedge list
 ```
 
-Puede comprobar que se ha utilizado la inscripción individual que creó en el servicio Device Provisioning. Vaya a la instancia de servicio Device Provisioning en Azure portal. Abra los detalles de inscripción para la inscripción individual que ha creado. Tenga en cuenta que el estado de la inscripción es **asignado** y el dispositivo se muestra el identificador. 
+Puede comprobar que la inscripción individual que ha creado se ha utilizado en el servicio Device Provisioning. En Azure Portal, vaya a la instancia del servicio Device Provisioning. Abra los detalles de la inscripción para la inscripción individual que ha creado. Tenga en cuenta que el estado de la inscripción está **asignado** y se muestra el id. de dispositivo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

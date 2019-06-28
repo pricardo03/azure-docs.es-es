@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150703"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
@@ -170,17 +170,17 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    
 1. En la cuenta de Automation, haga clic en **Variables** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación que creará en el paso siguiente se denomina TestPlan, las variables deben ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName y así sucesivamente.
 
-   - **BaseUrl**: Dirección URL de Resource Manager para la nube de Azure. Obtener utilizando **Get AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName***-ResourceGroupName**: El grupo de Resource Manager que tiene el recurso de StorSimple.
-   - *RecoveryPlanName***-ManagerName**: El recurso de StorSimple que tiene el dispositivo StorSimple.
-   - *RecoveryPlanName***-DeviceName**: El dispositivo StorSimple que debe conmutarse por error.
-   - *RecoveryPlanName***-DeviceIpAddress**: La dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS**).
-   - *RecoveryPlanName***-VolumeContainers**: Una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName***-TargetDeviceName**: Dispositivo de nube StorSimple en el que se deben conmutar por error los contenedores.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: La dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt; **Configuración** pestaña &gt; **Red**).
-   - *RecoveryPlanName***-StorageAccountName**: El nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la VM conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
-   - *RecoveryPlanName***-StorageAccountKey**: La clave de acceso para la cuenta de almacenamiento anterior.
-   - *RecoveryPlanName***-VMGUIDS**: Al proteger una VM, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la VM conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido**&gt;**Grupos de protección**&gt;**Máquinas**&gt;**Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
+   - **BaseUrl**: Dirección URL de Resource Manager para la nube de Azure. Se obtiene mediante el cmdlet **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl**.
+   - *RecoveryPlanName* **-ResourceGroupName**: El grupo de Resource Manager que tiene el recurso de StorSimple.
+   - *RecoveryPlanName* **-ManagerName**: El recurso de StorSimple que tiene el dispositivo StorSimple.
+   - *RecoveryPlanName* **-DeviceName**: El dispositivo StorSimple que debe conmutarse por error.
+   - *RecoveryPlanName* **-DeviceIpAddress**: La dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS**).
+   - *RecoveryPlanName* **-VolumeContainers**: Una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo: volcon1, volcon2, volcon3.
+   - *RecoveryPlanName* **-TargetDeviceName**: Dispositivo de nube StorSimple en el que se deben conmutar por error los contenedores.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress**: La dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt; **Configuración** pestaña &gt; **Red**).
+   - *RecoveryPlanName* **-StorageAccountName**: El nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la VM conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
+   - *RecoveryPlanName* **-StorageAccountKey**: La clave de acceso para la cuenta de almacenamiento anterior.
+   - *RecoveryPlanName* **-VMGUIDS**: Al proteger una VM, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la VM conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido**&gt;**Grupos de protección**&gt;**Máquinas**&gt;**Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
 
      Por ejemplo, si el nombre del plan de recuperación es fileServerpredayRP, las pestañas **Variables**, **Conexiones** y **Certificados** deberían aparecer de la siguiente forma después de agregar todos los recursos.
 
@@ -323,7 +323,7 @@ Durante una conmutación por recuperación, los contenedores de volúmenes de St
 
 ## <a name="best-practices"></a>Prácticas recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Evaluación de disponibilidad y planeamiento de capacidad
-#### <a name="hyper-v-site"></a>Sitio Hyper-V
+#### <a name="hyper-v-site"></a>Sitio de Hyper-V
 Utilice la [herramienta de planeamiento de capacidad de usuario](https://www.microsoft.com/download/details.aspx?id=39057) para diseñar el servidor, el almacenamiento y la infraestructura de red de su entorno de réplica de Hyper-V.
 
 #### <a name="azure"></a>Azure

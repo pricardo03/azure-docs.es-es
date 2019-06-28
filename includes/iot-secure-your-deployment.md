@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166319"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Protección de la implementación de Internet de las cosas (IoT)
@@ -21,11 +21,11 @@ En este artículo se proporciona el siguiente nivel de detalle para proteger la 
 
 La protección de la implementación de IoT de Azure se puede dividir en las siguientes tres áreas de seguridad:
 
-* **Seguridad de los dispositivos**: Proteger el dispositivo de IoT mientras se implementa en su entorno natural.
+* **Seguridad de los dispositivos**: la protección del dispositivo IoT mientras se implementa en su entorno natural.
 
-* **Seguridad de conexión**: Asegurarse de todos los datos transmitidos entre el dispositivo de IoT y IoT Hub es confidenciales y a prueba de manipulaciones.
+* **Seguridad de la conexión**: garantía de que todos los datos transmitidos entre el dispositivo IoT e IoT Hub son confidenciales y a prueba de manipulaciones.
 
-* **Seguridad de la nube**: Proporcionar un medio para proteger los datos mientras se mueve a través y se almacena en la nube.
+* **Seguridad en la nube**: proporcionar un medio de proteger los datos mientras se trasladan a la nube y se almacenan allí.
 
 ![Tres áreas de seguridad](./media/iot-secure-your-deployment/overview.png)
 
@@ -53,11 +53,11 @@ Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/i
 
 [IoT Hub admite protocolos como MQTT, AMQP y HTTP](../articles//iot-hub/iot-hub-devguide-security.md). Cada uno de estos protocolos usa tokens de seguridad entre el dispositivo IoT y IoT Hub de manera diferente:
 
-* AMQP: SASL PLAIN y la seguridad basada en notificaciones AMQP (`{policyName}@sas.root.{iothubName}` con tokens de nivel de centro de IoT; `{deviceId}` con tokens con ámbito de dispositivo).
+* AMQP: seguridad basada en notificaciones SASL PLAIN y AMQP (`{policyName}@sas.root.{iothubName}` con tokens en el nivel de IoT Hub, `{deviceId}` con tokens con ámbito de dispositivo).
 
-* MQTT: Usa el paquete CONNECT `{deviceId}` como el `{ClientId}`, `{IoThubhostname}/{deviceId}` en el **Username** campo y una token SAS en el **contraseña** campo.
+* MQTT: el paquete CONNECT usa `{deviceId}` como `{ClientId}`, `{IoThubhostname}/{deviceId}` en el campo de **nombre de usuario** y un token SAS en el campo de **contraseña**.
 
-* HTTP: Es un token válido en el encabezado de solicitud de autorización.
+* HTTP: el token válido está en el encabezado de la solicitud de autorización.
 
 Puede usar el Registro de identidad de IoT Hub para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución de IoT ya tiene una inversión importante en un [Registro de identidad del dispositivo o un esquema de autenticación personalizados](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), se puede integrar en una infraestructura existente con IoT Hub mediante la creación de un servicio de token.
 
@@ -101,15 +101,15 @@ Azure IoT Hub y otros servicios que pueden formar parte de la solución permiten
 
 Los datos consumidos por Azure IoT Hub se pueden usar en una gran variedad de servicios, como Azure Stream Analytics, Azure Blob Storage, etc. Estos servicios permiten el acceso de administración. Lea más sobre estos servicios y las opciones disponibles:
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Un servicio de base de datos escalable indexado por completo para datos semiestructurados que administra los metadatos para los dispositivos aprovisionados, como atributos, configuración y las propiedades de seguridad. Azure Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): servicio de base de datos completamente indexado y escalable destinado a datos semiestructurados que administra los metadatos de los dispositivos aprovisionados, como los atributos, la configuración y las propiedades de seguridad. Azure Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): En la nube que le permite desarrollar e implementar con rapidez una solución de análisis de bajo costo para desvelar datos en tiempo real desde dispositivos, sensores, infraestructura y aplicaciones de procesamiento de transmisiones en tiempo real. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): Una plataforma de nube para crear eficaces aplicaciones web y móviles que se conectan a datos en cualquier lugar; en la nube o local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede obtener acceso a datos desde cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
 
-* [Las aplicaciones lógicas](https://azure.microsoft.com/services/app-service/logic/): La característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
+* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y para automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
 
-* [Almacenamiento de blobs de Azure](https://azure.microsoft.com/services/storage/): Almacenamiento confiable y económico para los datos que los dispositivos envían a la nube.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): almacenamiento en la nube confiable y económico para los datos que los dispositivos envían a la nube.
 
 ## <a name="conclusion"></a>Conclusión
 

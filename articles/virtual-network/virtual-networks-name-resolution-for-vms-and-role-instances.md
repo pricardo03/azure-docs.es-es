@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411353"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
@@ -74,7 +74,7 @@ Puntos que deben considerarse cuando se utiliza la resolución de nombres de Azu
 * Los nombres de host deben ser compatibles con DNS. Los nombres solamente pueden contener los caracteres 0-9, a-z y "-", y no pueden comenzar ni terminar por "-".
 * El tráfico de consultas de DNS está limitado por cada máquina virtual. La limitación no debería afectar a la mayoría de las aplicaciones. Si se observa una limitación de solicitudes, asegúrese de que está habilitado el almacenamiento en caché del lado cliente. Para más información, consulte [Configuración de cliente DNS](#dns-client-configuration).
 * En un modelo de implementación clásico, solo se registran las máquinas virtuales de los 180 primeros servicios en la nube para cada red virtual clásica. Este límite no se aplica a las redes virtuales en Azure Resource Manager.
-* La dirección IP de DNS de Azure es 168.63.129.16. Esto es una dirección IP estática y no cambiará.
+* La dirección IP de Azure DNS es 168.63.129.16. Es una dirección IP estática y no cambiará.
 
 ## <a name="dns-client-configuration"></a>Configuración del cliente DNS
 
@@ -88,15 +88,15 @@ El cliente DNS de Windows predeterminado tiene una memoria caché DNS integrada.
 
 Hay una serie de diferentes paquetes de caché DNS disponibles, como dnsmasq. Aquí se indica cómo instalar dnsmasq en las distribuciones más habituales:
 
-* **Ubuntu (usa resolvconf)**:
+* **Ubuntu (usa resolvconf)** :
   * Instale el paquete dnsmasq con `sudo apt-get install dnsmasq`.
-* **SUSE (usa netconf)**:
+* **SUSE (usa netconf)** :
   * Instale el paquete dnsmasq con `sudo zypper install dnsmasq`.
   * Habilite el servicio dnsmasq con `systemctl enable dnsmasq.service`. 
   * Inicie el servicio dnsmasq con `systemctl start dnsmasq.service`. 
   * Edite **/etc/sysconfig/network/config** y cambie *NETCONFIG_DNS_FORWARDER=""* por *dnsmasq*.
   * Actualice resolv.conf con `netconfig update` para establecer la memoria caché como la resolución DNS local.
-* **CentOS (usa NetworkManager)**:
+* **CentOS (usa NetworkManager)** :
   * Instale el paquete dnsmasq con `sudo yum install dnsmasq`.
   * Habilite el servicio dnsmasq con `systemctl enable dnsmasq.service`.
   * Inicie el servicio dnsmasq con `systemctl start dnsmasq.service`.
@@ -154,11 +154,11 @@ El reenvío de DNS también habilita la resolución de DNS entre redes virtuales
 
 ![Diagrama de DNS entre redes virtuales](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Cuando se utiliza la resolución de nombres proporcionada con Azure, el Protocolo dinámico de configuración de host (DHCP) de Azure proporciona un sufijo DNS interno (**. internal.cloudapp.net**) a cada máquina virtual. Este sufijo permite la resolución de nombres de host, dado que los registros de nombre de host están en la zona **internal.cloudapp.net**. Si usa su propia solución de resolución de nombres, no se proporciona este sufijo a las máquinas virtuales puesto que interfiere con otras arquitecturas DNS (como es el caso de los escenarios con unión a un dominio). En su lugar, Azure proporciona un marcador de posición no funcional (*reddog.microsoft.com*).
+Cuando se utiliza la resolución de nombres proporcionada con Azure, el Protocolo dinámico de configuración de host (DHCP) de Azure proporciona un sufijo DNS interno ( **. internal.cloudapp.net**) a cada máquina virtual. Este sufijo permite la resolución de nombres de host, dado que los registros de nombre de host están en la zona **internal.cloudapp.net**. Si usa su propia solución de resolución de nombres, no se proporciona este sufijo a las máquinas virtuales puesto que interfiere con otras arquitecturas DNS (como es el caso de los escenarios con unión a un dominio). En su lugar, Azure proporciona un marcador de posición no funcional (*reddog.microsoft.com*).
 
 Si es necesario, el sufijo DNS interno se puede determinar con PowerShell o la API:
 
-* Para las redes virtuales en modelos de implementación de Azure Resource Manager, el sufijo está disponible a través de la [API de REST de interfaz de red](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), el [Get AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) cmdlet de PowerShell y la [ presentación de AZ network nic](/cli/azure/network/nic#az-network-nic-show) comando de CLI de Azure.
+* En el caso de redes virtuales en modelos de implementación de Azure Resource Manager, el sufijo está disponible con el recurso de la [API REST de interfaz de red](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces) o del cmdlet [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) de PowerShell y del comando de la CLI de Azure [az network nic show](/cli/azure/network/nic#az-network-nic-show).
 * En los modelos de implementación clásica, el sufijo está disponible mediante la llamada a la [API de Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o por medio del cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
 
 Si el reenvío de consultas a Azure no satisface sus necesidades, debería proporcionar su propia solución DNS. La solución DNS debe:

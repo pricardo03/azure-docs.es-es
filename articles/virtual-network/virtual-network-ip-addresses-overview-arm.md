@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236360"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
@@ -43,7 +43,7 @@ En el Administrador de recursos de Azure, una dirección [IP pública](virtual-n
 
 * Interfaces de red de máquinas virtuales
 * Equilibradores de carga accesibles desde Internet
-* Puertas de enlace VPN
+* Puertas de enlace de VPN
 * Puertas de enlace de aplicaciones
 
 ### <a name="ip-address-version"></a>Versión de la dirección IP
@@ -81,7 +81,7 @@ Las direcciones IP públicas de SKU estándar:
 > Para evitar que se produzca un error en la comunicación de entrada con el recurso SKU estándar, debe crear un [grupo de seguridad de red](security-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.
 
 > [!NOTE]
-> Solo direcciones IP públicas de SKU de nivel básico están disponibles al utilizar [la instancia de servicio de metadatos de IMDS](../virtual-machines/windows/instance-metadata-service.md). No se admite la SKU estándar.
+> Cuando se usa el [servicio de metadatos de instancia IMDS](../virtual-machines/windows/instance-metadata-service.md), solo hay direcciones IP públicas con SKU básica disponibles. No se admiten las SKU estándar.
 
 ### <a name="allocation-method"></a>Método de asignación
 
@@ -111,8 +111,8 @@ Puede especificar una etiqueta de nombre de dominio DNS para un recurso de IP p�
 > Cada etiqueta de nombre de dominio que se cree debe ser única dentro de su ubicación de Azure.  
 >
 
-### <a name="dns-best-practices"></a>Procedimientos recomendados DNS
-Si alguna vez necesita migrar a una región distinta, no puede migrar el FQDN de la dirección IP pública. Como práctica recomendada, puede usar el FQDN para crear un registro CNAME de dominio personalizado que apunte a la dirección IP pública en Azure. Si tiene que mover a otra dirección IP pública, requerirán una actualización para el registro CNAME en lugar de tener que actualizar manualmente el FQDN a la nueva dirección. Puede usar [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un proveedor DNS externo para el registro de DNS. 
+### <a name="dns-best-practices"></a>Procedimientos recomendados para DNS
+Si alguna vez necesita migrar a otra región, no podrá migrar el FQDN de la dirección IP pública. Como procedimiento recomendado, puede usar el FQDN para crear un registro CNAME de dominio personalizado que apunte a la dirección IP pública en Azure. Si tiene que mover a otra dirección IP pública, se necesitará una actualización del registro CNAME en lugar de tener que actualizar de forma manual el FQDN a la nueva dirección. Puede usar [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un proveedor de DNS externo para el registro DNS. 
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
 
@@ -122,13 +122,13 @@ Puede asociar una dirección IP pública con una máquina virtual [Windows](../v
 
 Puede asociar una dirección IP pública creada con una [SKU](#sku) o con una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. La dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , como un entorno de varios inquilinos con sitios web basados en SSL. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
 
-### <a name="vpn-gateways"></a>Puertas de enlace VPN
+### <a name="vpn-gateways"></a>Puertas de enlace de VPN
 
 Una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) permite conectar una red virtual de Azure a otras redes virtuales de Azure o a una red local. Se asigna una dirección IP pública a la instancia de VPN Gateway para habilitar la comunicación con la red remota. Solo puede asignar una dirección IP pública *dinámica* de nivel básico a una puerta de enlace de VPN.
 
 ### <a name="application-gateways"></a>Puertas de enlace de aplicaciones
 
-Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Solo se puede asignar un *dinámica* básica dirección IP pública a una configuración de front-end de V1 de puerta de enlace de aplicaciones y solo un *estático* direcciones SKU estándar a una configuración de front-end de V2.
+Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Solo puede asignar una dirección IP pública básica *dinámica* a una configuración de front-end V1 de Application Gateway y solo una dirección SKU *estática* estándar a una configuración de front-end V2.
 
 ### <a name="at-a-glance"></a>De un vistazo
 La siguiente tabla muestra la propiedad específica a través de la cual una dirección IP pública se puede asociar a un recurso de nivel superior y los métodos de asignación posibles (dinámicos o estáticos) que se pueden usar.
@@ -137,8 +137,8 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga accesible desde Internet |Configuración de front-end |Sí |Sí |
-| VPN Gateway |Configuración de dirección IP de puerta de enlace |Sí |No |
-| Puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
+| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |Sin |
+| puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en una [red virtual](virtual-networks-overview.md) , o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
@@ -185,9 +185,9 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga |Configuración de front-end |Sí |Sí |
-| Puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sí |
+| puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sí |
 
-## <a name="limits"></a>Límites
+## <a name="limits"></a>límites
 Los límites impuestos en una dirección IP se indican en el conjunto completo de [límites de red](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) de Azure. Los límites son por región y suscripción. Puede [ponerse en contacto con el servicio de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
 ## <a name="pricing"></a>Precios

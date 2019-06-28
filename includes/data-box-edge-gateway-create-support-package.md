@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161137"
 ---
-Si experimenta los problemas del dispositivo, puede crear un paquete de soporte técnico de los registros del sistema. Microsoft Support usa este paquete para solucionar los problemas. Siga estos pasos para crear un paquete de soporte:
+Si experimenta problemas con el dispositivo, puede crear un paquete de soporte técnico de los registros del sistema. El servicio de soporte técnico de Microsoft usa este paquete para solucionar los problemas. Siga estos pasos para crear un paquete de soporte técnico:
 
-1. [Conectarse a la interfaz de PowerShell del dispositivo](#connect-to-the-powershell-interface).
-2. Use el `Get-HcsNodeSupportPackage` comando para crear un paquete de soporte técnico. El uso del cmdlet es como sigue:
+1. [Conéctese a la interfaz de PowerShell del dispositivo](#connect-to-the-powershell-interface).
+2. Use el comando `Get-HcsNodeSupportPackage` para crear un paquete de soporte técnico. El uso del cmdlet es de esta manera:
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
@@ -27,15 +27,15 @@ Si experimenta los problemas del dispositivo, puede crear un paquete de soporte 
             [-IncludeArchived] [-IncludePeriodicStats] [-Credential <pscredential>]  [<CommonParameters>]
     ```
 
-    El cmdlet recopila registros de su dispositivo y copia esos registros en una red especificada o un recurso compartido local.
+    El cmdlet recopila registros de su dispositivo y copia esos registros en una red o un recurso compartido local especificados.
 
-    Los parámetros utilizados son como sigue:
+    Los parámetros usados son los siguientes:
 
-    - `-Path` -Especifique la red o la ruta de acceso local para copiar el paquete de soporte. (obligatorio)
-    - `-Credential` -Especifique las credenciales para tener acceso a la ruta de acceso protegido.
-    - `-Zip` -Especifique para generar un archivo zip.
-    - `-Include` -Especificar para incluir los componentes que se incluirán en el paquete de soporte técnico. Si no se especifica, `Default` se da por hecho.
-    - `-IncludeArchived` -Especificar para incluir los registros archivados en el paquete de soporte técnico.
-    - `-IncludePeriodicStats` -Especifique esta opción para incluir registros stat periódicos en el paquete de soporte técnico.
+    - `-Path`: especifica la red o la ruta de acceso local donde copiar el paquete de soporte técnico. (necesario)
+    - `-Credential`: especifica las credenciales para acceder a la ruta de acceso protegida.
+    - `-Zip`: especifica que se genere un archivo ZIP.
+    - `-Include`: especifica los componentes que se incluirán en el paquete de soporte técnico. Si no se especifica, se da por hecho el valor `Default`.
+    - `-IncludeArchived`: especifica que se incluyan los registros archivados en el paquete de soporte técnico.
+    - `-IncludePeriodicStats`: especifica que se incluyan registros estadísticos periódicos en el paquete de soporte técnico.
 
     

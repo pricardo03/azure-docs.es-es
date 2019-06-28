@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
 ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155214"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versión actual](concepts-pipeline-execution-triggers.md)
 
@@ -281,9 +281,9 @@ En la tabla siguiente se muestra información general de los elementos del esque
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Sí | None | Fechas y horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | de serie | No | 1 | 1 a 1000 | `"interval":10` |
+| **interval** | número | Sin | 1 | 1 a 1000 | `"interval":10` |
 | **endTime** | string | Sí | None | Valor de fecha y hora que representa un período de tiempo en el futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | objeto | No | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | objeto | Sin | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propiedad startTime
 En la tabla siguiente se muestra cómo la propiedad **startTime** controla una ejecución de desencadenador:
@@ -370,10 +370,10 @@ En la siguiente tabla se muestra una comparación entre el desencadenador de ven
 
 |  | Desencadenador de ventana de saltos de tamaño constante | Desencadenador de programación |
 |:--- |:--- |:--- |
-| **Escenarios de reposición** |  Se admite. Las ejecuciones de canalización se pueden programar para ventanas en el pasado. | No compatible. Se pueden realizar las ejecuciones de canalización solo en períodos de tiempo del momento actual y en el futuro. |
+| **Escenarios de reposición** | Se admite. Las ejecuciones de canalización se pueden programar para ventanas en el pasado. | No compatible. Se pueden realizar las ejecuciones de canalización solo en períodos de tiempo del momento actual y en el futuro. |
 | **Confiabilidad** | 100 % confiabilidad. Las ejecuciones de canalización se pueden programar para todas las ventanas de una fecha de inicio especificada sin intervalos. | Menos confiable. |
-| **Funcionalidad de reintento** |  Se admite. Las ejecuciones de canalización erróneas tienen una directiva de reintentos predeterminada de 0 u otra especificada por el usuario en la definición del desencadenador. Realiza un reintento automáticamente cuando se produce un error en la ejecución de la canalización debido a los límites de simultaneidad/servidor/limitación (es decir, códigos de estado 400: Error de usuario, 429: Demasiadas solicitudes y 500: Error interno del servidor). | No compatible. |
-| **Concurrency** |  Se admite. Los usuarios pueden establecer explícitamente límites de simultaneidad para el desencadenador. Permite entre 1 y 50 ejecuciones simultáneas de canalizaciones desencadenadas. | No compatible. |
+| **Funcionalidad de reintento** | Se admite. Las ejecuciones de canalización erróneas tienen una directiva de reintentos predeterminada de 0 u otra especificada por el usuario en la definición del desencadenador. Realiza un reintento automáticamente cuando se produce un error en la ejecución de la canalización debido a los límites de simultaneidad/servidor/limitación (es decir, códigos de estado 400: Error de usuario, 429: Demasiadas solicitudes y 500: Error interno del servidor). | No compatible. |
+| **Concurrency** | Se admite. Los usuarios pueden establecer explícitamente límites de simultaneidad para el desencadenador. Permite entre 1 y 50 ejecuciones simultáneas de canalizaciones desencadenadas. | No compatible. |
 | **Variables del sistema** | Admite el uso de las variables del sistema **WindowStart** y **WindowEnd**. Los usuarios pueden acceder a `triggerOutputs().windowStartTime` y `triggerOutputs().windowEndTime` como variables del sistema del desencadenador en la definición del desencadenador. Los valores se utilizan como la hora de inicio y la hora de finalización de la ventana, respectivamente. Por ejemplo, para un desencadenador de la ventana de saltos de tamaño constante que se ejecuta cada hora, para la ventana de 1:00 a. m. a 2:00 a. m., la definición es `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` y `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | No compatible. |
 | **Relación de canalización a desencadenador** | Admite las relaciones uno a uno. Solo se puede desencadenar una canalización. | Admite relaciones muchos a muchos. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones. |
 

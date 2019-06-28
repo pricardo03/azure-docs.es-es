@@ -1,6 +1,6 @@
 ---
-title: Clasificación y detección de datos de SQL Database y SQL Data Warehouse de Azure | Microsoft Docs
-description: Clasificación y detección de datos y la base de datos de SQL Azure
+title: Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse | Microsoft Docs
+description: Clasificación y detección de datos y Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,13 +13,13 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
 ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142654"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Clasificación y detección de datos de SQL Database y SQL Data Warehouse de Azure
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse
 
 La clasificación y detección de datos (actualmente en versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
 Las funciones de detección y clasificación de la información confidencial más importante [empresarial, financiera, médica, información personal identificable (PII), etc.] desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
@@ -28,10 +28,10 @@ Las funciones de detección y clasificación de la información confidencial má
 - Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.
 
-Clasificación y detección de datos forma parte de la [seguridad avanzada de datos](sql-database-advanced-data-security.md) (ADS) oferta, que es un paquete unificado para funcionalidades avanzadas de seguridad SQL. Se puede acceder y administrar la clasificación y detección de datos desde el portal de ADS de SQL.
+La clasificación y detección de datos forma parte de la oferta de [Advanced Data Security (ADS)](sql-database-advanced-data-security.md). Dicha oferta es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Se puede acceder y administrar la clasificación y detección de datos desde el portal de ADS de SQL.
 
 > [!NOTE]
-> Este documento se relaciona con Azure SQL Database y Azure SQL Data Warehouse. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. Para SQL Server (local), consulte [clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> En este documento se mencionan Azure SQL Database y Azure SQL Data Warehouse. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. Para SQL Server (local), consulte [Clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>¿Qué es la clasificación y detección de datos?
 
@@ -77,7 +77,7 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de su base de datos de Azure SQL. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Clasificación y detección de datos (versión preliminar)**.
+2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de su base de datos de Azure SQL. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Clasificación y detección de datos (versión preliminar)** .
 
    ![Examen de una base de datos](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -144,13 +144,13 @@ También puede usar las API de REST para administrar las clasificaciones mediant
 - [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de una columna determinada
 - [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de una columna determinada
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) (Enumerar actuales por base de datos): enumera las etiquetas de confidencialidad actuales de una base de datos determinada
-- [Lista recomendada por la base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Obtiene las etiquetas de confidencialidad recomendados de una base de datos
+- [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) (Enumerar recomendadas por base de datos): enumera las etiquetas de confidencialidad recomendadas de una base de datos determinada
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Administrar la detección de datos y clasificación con Azure PowerShell
+## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Administrar la detección y clasificación de datos con Azure PowerShell
 
-Puede usar PowerShell para obtener todas las columnas recomendadas en una base de datos SQL de Azure y una instancia administrada.
+Puede usar PowerShell para obtener todas las columnas recomendadas en una base de datos Azure SQL y una instancia administrada.
 
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets de PowerShell para Azure SQL database
+### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets de PowerShell para la base de datos de Azure SQL
 
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
@@ -166,11 +166,11 @@ Puede usar PowerShell para obtener todas las columnas recomendadas en una base d
 
 ## <a name="permissions"></a>Permisos
 
-Los siguientes roles integrados pueden leer la clasificación de datos de Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` y `User Access Administrator`.
+Los siguientes roles integrados pueden leer la clasificación de datos de la base de datos de Azure SQL: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` y `User Access Administrator`.
 
-Los siguientes roles integrados pueden modificar la clasificación de datos de Azure SQL database: `Owner`, `Contributor`, `SQL Security Manager`.
+Los siguientes roles integrados pueden modificar la clasificación de datos de la base de datos de Azure SQL: `Owner`, `Contributor`, `SQL Security Manager`.
 
-Obtenga más información sobre [RBAC para recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Obtenga más información acerca de los [recursos de Azure para RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a id="subheading-5"></a>Pasos siguientes
 

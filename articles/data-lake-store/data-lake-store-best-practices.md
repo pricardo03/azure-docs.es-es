@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878957"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Azure HDInsight suele usar entidades de servicio de Azure Active Directory para 
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Habilitación del firewall de Data Lake Storage Gen1 para el acceso de servicios de Azure
 
-Data Lake Storage Gen1 admite la opción de activar un firewall y limitar el acceso solo a los servicios de Azure, lo que se recomienda para reducir los vectores de ataque procedentes de intrusiones externas. El firewall se puede habilitar en la cuenta de Data Lake Storage Gen1 en Azure Portal a través de las opciones **Firewall** > **Habilitar firewall (ON)** > **Permitir el acceso a servicios de Azure**.
+Data Lake Storage Gen1 admite la opción de activar un firewall y limitar el acceso solo a los servicios de Azure, lo que se recomienda para reducir los vectores de ataque procedentes de intrusiones externas. El firewall se puede habilitar en la cuenta de Data Lake Storage Gen1 en Azure Portal a través de las opciones **Firewall** > **Habilitar firewall (ON)**  > **Permitir el acceso a servicios de Azure**.
 
 ![Configuración del firewall en Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewall settings in Data Lake Storage Gen1")
 
@@ -101,7 +101,7 @@ A continuación se indican las tres opciones principales recomendadas para orque
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Límites de escalado**     | Limitado por los nodos de trabajo        | Limitado por el número máximo de unidades de movimiento de datos en la nube        | Limitado por las unidades de análisis        |
-|**Admite la copia de valores delta**     |   Sí      | No         | Sin          |
+|**Admite la copia de valores delta**     |   Sí      | No         | Sin         |
 |**Orquestación integrada**     |  No (use Oozie Airflow o trabajos cron)       | Sí        | No (use Azure Automation o el programador de tareas de Windows)         |
 |**Sistemas de archivos admitidos**     | ADL, HDFS, WASB, S3, GS, CFS        |Varios, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL a ADL, WASB a ADL (solo en la misma región)        |
 |**SO compatible**     |Cualquier sistema operativo que ejecute Hadoop         | N/D          | Windows 10         |
@@ -140,7 +140,7 @@ Si el trasvase de registros de Data Lake Storage Gen1 no está activado, Azure H
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Una vez que se establece la propiedad y se reinician los nodos, se escriben los diagnósticos de Data Lake Storage Gen1 en los registros de YARN en los nodos (/tmp/\<user\>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también puede supervisarse en los registros de Azure Monitor o se trasvasen los registros a en el [diagnósticos](data-lake-store-diagnostic-logs.md) hoja de la cuenta de Data Lake Storage Gen1. Se recomienda tener activado al menos el registro del lado cliente o usar la opción de trasvase de registros con Data Lake Storage Gen1 para una mayor visibilidad operativa y una depuración más sencilla.
+Una vez que se establece la propiedad y se reinician los nodos, se escriben los diagnósticos de Data Lake Storage Gen1 en los registros de YARN en los nodos (/tmp/\<user\>/yarn.log) y se pueden supervisar detalles importantes como los errores o las limitaciones (código de error HTTP 429). Esta misma información también se puede supervisar en registros de Azure Monitor o en cualquier ubicación a la que se trasvasen los registros en la hoja [Diagnóstico](data-lake-store-diagnostic-logs.md) de la cuenta de Data Lake Storage Gen1. Se recomienda tener activado al menos el registro del lado cliente o usar la opción de trasvase de registros con Data Lake Storage Gen1 para una mayor visibilidad operativa y una depuración más sencilla.
 
 ### <a name="run-synthetic-transactions"></a>Ejecutar transacciones sintéticas
 

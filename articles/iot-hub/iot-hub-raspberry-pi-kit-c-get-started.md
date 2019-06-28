@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 6a895d7978f1af3914bbb9dee3594dbfffd9f317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569844"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar Raspberry Pi a Azure IoT Hub (C)
 
@@ -76,7 +76,7 @@ Los elementos siguientes son opcionales:
 * Un LED difuso de 10 mm.
 
 > [!NOTE]
-> Estos elementos son opcionales porque el código de ejemplo es compatible con los datos de sensor simulados.
+> Estos elementos son opcionales porque el ejemplo de código simula los datos del sensor.
 >
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
@@ -121,7 +121,7 @@ Prepare la tarjeta microSD para instalar la imagen de Raspbian.
 
 ### <a name="enable-ssh-and-spi"></a>Habilitar SSH y SPI
 
-1. Conecte Pi al monitor, teclado y mouse, inicie Pi y, a continuación, inicie sesión Raspbian con `pi` como el nombre de usuario y `raspberry` como contraseña.
+1. Conecte Pi al monitor, el teclado y el mouse, inicie Pi y luego inicie sesión en Raspbian con `pi` como nombre de usuario y `raspberry` como contraseña.
  
 2. Haga clic en el icono de Raspberry > **Preferencias** > **Configuración de Raspberry Pi**.
 
@@ -170,7 +170,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
 
 ## <a name="run-a-sample-application-on-pi"></a>Ejecutar una aplicación de ejemplo en Pi
 
-### <a name="sign-into-your-raspberry-pi"></a>Inicio de sesión en su Raspberry Pi
+### <a name="sign-into-your-raspberry-pi"></a>Inicie sesión en Raspberry Pi
 
 1. Use uno de los siguientes clientes SSH del equipo host para conectar con Raspberry Pi.
    
@@ -232,11 +232,11 @@ Debería ver el resultado siguiente, que muestra los datos del sensor y los mens
 
 ![Resultado: datos de sensor enviados desde Raspberry Pi a IoT Hub](./media/iot-hub-raspberry-pi-kit-c-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>Leer los mensajes recibidos por el centro
+## <a name="read-the-messages-received-by-your-hub"></a>Lectura de los mensajes recibidos por IoT Hub
 
-Es una forma de supervisar los mensajes recibidos por IoT hub del dispositivo usar las herramientas de IoT de Azure para Visual Studio Code. Para obtener más información, consulte [uso de herramientas de IoT de Azure para Visual Studio Code para enviar y recibir mensajes entre su dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Una forma de supervisar los mensajes recibidos por la instancia de IoT Hub desde el dispositivo consiste en usar Azure IoT Tools para Visual Studio Code. Para más información, vea [Uso de Azure IoT Tools para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para que conocer más formas procesar los datos enviados por el dispositivo, continúe con la siguiente sección.
+Para obtener más formas de procesar los datos enviados por el dispositivo, continúe con la sección siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

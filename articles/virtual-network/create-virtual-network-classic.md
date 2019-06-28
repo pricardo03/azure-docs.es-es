@@ -17,16 +17,16 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098123"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creación de una red virtual (clásica) con varias subredes
 
 > [!IMPORTANT]
-> Azure tiene dos [diferentes modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para crear y trabajar con recursos: Resource Manager y clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda crear las redes virtuales más nuevas a través del modelo de implementación de [Resource Manager](quick-create-portal.md).
+> Azure tiene dos [modelos distintos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para crear recursos y trabajar con ellos: Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda crear las redes virtuales más nuevas a través del modelo de implementación de [Resource Manager](quick-create-portal.md).
 
 En este tutorial, aprenderá a crear una red virtual (clásica) básica de Azure con subredes públicas y privadas independientes. Puede crear recursos de Azure, como máquinas virtuales y servicios en la nube en una subred. Los recursos creados en las redes virtuales (clásicas) se pueden comunicar entre sí y con los recursos de otras redes conectadas a una red virtual.
 
@@ -60,7 +60,7 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
 6. Haga clic en **+Agregar** en el panel **myVnet: subredes** que aparece.
 7. Especifique **Privado** en **Nombre** en el panel **Agregar subred**. Especifique **10.0.1.0/24** para **Intervalo de direcciones**.  Haga clic en **OK**.
 8. En el panel **myVnet: subredes**, puede ver las subredes **Pública** y **Privada** que ha creado.
-9. **Opcional**: Cuando termine este tutorial, es posible que desee eliminar los recursos que ha creado, por lo que no se incurre en gastos de uso:
+9. **Opcional**: Cuando termine este tutorial, es posible que quiera eliminar los recursos que ha creado para no incurrir en cargos de utilización:
     - Haga clic en **Información general** en el panel **myVnet**.
     - Haga clic en el icono **Eliminar** en el panel **myVnet**.
     - Para confirmar la eliminación, haga clic en **Sí** en el cuadro **Eliminar red virtual**.
@@ -98,7 +98,7 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
     azure network vnet show --vnet myVnet
     ```
 
-7. **Opcional**: Es posible que desee eliminar los recursos que creó cuando termine este tutorial, de modo que no se incurre en gastos de uso:
+7. **Opcional**: cuando termine este tutorial, es posible que quiera eliminar los recursos que ha creado para no incurrir en cargos de utilización:
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **Opcional**: Es posible que desee eliminar los recursos que creó cuando termine este tutorial, de modo que no se incurre en gastos de uso. Para eliminar la red virtual, complete los pasos del 4 al 6 de nuevo. Esta vez quitando el elemento **VirtualNetworkSite** agregado en el paso 5.
+8. **Opcional**: cuando termine este tutorial, es posible que quiera eliminar los recursos que ha creado para no incurrir en cargos de utilización. Para eliminar la red virtual, complete los pasos del 4 al 6 de nuevo. Esta vez quitando el elemento **VirtualNetworkSite** agregado en el paso 5.
  
 > [!NOTE]
 > Aunque no puede especificar un grupo de recursos para crear una red virtual (clásica) en el uso de PowerShell, Azure crear la red virtual en un grupo de recursos con el nombre *Redes predeterminadas*.

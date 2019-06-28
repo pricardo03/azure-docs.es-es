@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900435"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
@@ -42,7 +42,7 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="export-an-analytics-query"></a>Exportación de una consulta de Analytics
 1. [Abra Analytics y escriba la consulta](../../azure-monitor/log-query/get-started-portal.md).
 2. Pruebe y refine la consulta hasta que esté satisfecho con los resultados. Asegúrese de que la consulta se ejecuta correctamente en Analytics antes de exportarla.
-3. En el menú **Exportar**, elija **Power BI (M)**. Guarde el archivo de texto.
+3. En el menú **Exportar**, elija **Power BI (M)** . Guarde el archivo de texto.
    
     ![Captura de pantalla de Analytics, con el menú Exportar resaltado](./media/export-power-bi/analytics-export-power-bi.png)
 4. En Power BI Desktop, seleccione **Obtener datos** > **Consulta en blanco**. A continuación, en el editor de consultas, en **Ver**, seleccione **Editor avanzado**.
@@ -106,7 +106,7 @@ Si la reducción del conjunto de datos que procede de la consulta de Analytics n
 1. Cree una [clave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Actualice el script M de Power BI que exportó desde Analytics reemplazando la dirección URL de Azure Resource Manager por la API de Application Insights.
    * Reemplace **https:\//management.azure.com/subscriptions/...**
-   * con, **https:\//api.applicationinsights.io/beta/apps/...**
+   * con **https:\//api.applicationinsights.io/beta/apps/...**
 3. Por último, actualice las credenciales al modo básico y use su clave de API.
 
 **Script existente**

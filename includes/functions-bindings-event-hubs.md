@@ -5,36 +5,36 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132459"
 ---
 ## <a name="trigger"></a>Desencadenador
 
-Use el desencadenador de función para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos subyacente para configurar el desencadenador. Cuando se desencadena la función, se escribe el mensaje pasado a la función como una cadena.
+Use el desencadenador de funciones para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos subyacente para configurar el desencadenador. Cuando esta función se desencadena, el mensaje que se pasa a la función se escribe como una cadena.
 
 ## <a name="trigger---scaling"></a>Desencadenador: escalado
 
-Cada instancia de una función de evento desencadenado está respaldado por una sola [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instancia. El desencadenador (con tecnología de Event Hubs) garantiza que solo uno [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instancia puede obtener una concesión en una partición determinada.
+Cada instancia de una función de desencadenador de eventos está respaldada por una única instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). El desencadenador (con tecnología de Event Hubs) garantiza que solo una instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) puede obtener una concesión en una partición determinada.
 
 Por ejemplo, considere una instancia de Event Hubs con las siguientes características:
 
-* 10 particiones
-* 1000 eventos distribuidos uniformemente en todas las particiones, con 100 mensajes en cada partición
+* 10 particiones.
+* 1000 eventos distribuidos uniformemente en todas las particiones, con 100 mensajes en cada partición.
 
-Cuando se habilita la función por primera vez, solo hay una instancia de la función. Vamos a llamar a la primera instancia de la función `Function_0`. El `Function_0` función tiene una sola instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que tenga una concesión en todas las particiones de diez. Esta instancia lee eventos de las particiones 0-9. A partir de este punto, se producirá una de las siguientes acciones:
+Cuando se habilita la función por primera vez, solo hay una instancia de la función. Vamos a llamar a esta instancia de función `Function_0`. Laq función `Function_0` tiene una sola instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que contiene una concesión en las diez particiones. Esta instancia lee eventos de las particiones 0-9. A partir de este punto, se producirá una de las siguientes acciones:
 
-* **No se necesitan nuevas instancias de función**: `Function_0` es capaz de procesar todos los 1000 eventos para las funciones de lógica de escalado surtan efecto. En este caso, se procesan todos los 1.000 mensajes por `Function_0`.
+* **No se necesitan nuevas instancias de función**: `Function_0` puede procesar los 1000 eventos antes de que la lógica de escalado de Azure Functions surta efecto. En este caso, `Function_0` procesa los 1000 mensajes.
 
-* **Se agrega una instancia de función adicional**: Si las funciones de lógica de escalado determina que `Function_0` tiene más mensajes que puede procesar, una nueva instancia de la aplicación de función (`Function_1`) se crea. Esta nueva función también tiene una instancia asociada de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Como los centros de eventos subyacente detecta que una nueva instancia de host está tratando de leer los mensajes, carga equilibra las particiones a través de la sus instancias de host. Por ejemplo, las particiones 0-4 pueden asignarse a `Function_0` y las particiones 5-9, a `Function_1`.
+* **Se agrega una instancia de función adicional**: Si la lógica de escalado de Azure Functions determina que `Function_0` tiene más mensajes de los que puede procesar, se crea una nueva instancia de la aplicación de función (`Function_1`). Esta nueva función también tiene asociada una instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Como la instancia de Event Hubs subyacente detecta que una nueva instancia de host está tratando de leer mensajes, efectúa un equilibrio de carga en las particiones a través de las instancias de host. Por ejemplo, las particiones 0-4 pueden asignarse a `Function_0` y las particiones 5-9, a `Function_1`.
 
-* **Se agregan N instancias de función más**: Si las funciones de lógica de escalado determina que ambos `Function_0` y `Function_1` tiene más mensajes que puede procesar, nuevo `Functions_N` se crean instancias de function app.  Las aplicaciones se crean en el punto donde `N` es mayor que el número de particiones de event hubs. En nuestro ejemplo, Event Hubs vuelve a equilibrar la carga de las particiones, en este caso, entre las instancias `Function_0`...`Functions_9`.
+* **Se agregan N instancias de función más**: Si la lógica de escalado de Azure Functions determina que tanto `Function_0` como `Function_1` tienen más mensajes de los que pueden procesar, se crean más instancias de aplicaciones de función de `Functions_N`.  Se van creando aplicaciones hasta llegar a un punto en el que `N` es mayor que el número de particiones de centro de eventos. En nuestro ejemplo, Event Hubs vuelve a equilibrar la carga de las particiones, en este caso, entre las instancias `Function_0`...`Functions_9`.
 
-Cuando las funciones de las escalas, `N` instancias es un número mayor que el número de particiones de event hubs. Esto se hace para garantizar [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instancias están disponibles para obtener bloqueos en las particiones cuando estén disponibles de otras instancias. Solo se le cobrará por los recursos usados cuando se ejecuta la instancia de la función. En otras palabras, no se cobrará este aprovisionamiento en exceso.
+Cuando Functions escale, `N` instancias es un número mayor que el número de particiones de centro de eventos. Esto se hace para garantizar que va a haber instancias de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) disponibles para obtener bloqueos de las particiones a medida que estén disponibles en otras instancias. Solo se le cobra por los recursos usados cuando se ejecuta la instancia de la función. En otras palabras, no se le cobrará por este aprovisionamiento en exceso.
 
-Cuando se completa la ejecución de todas las funciones con o sin errores, se agregan puntos de comprobación a la cuenta de almacenamiento asociada. Cuando los puntos de comprobación se realiza correctamente, todos los 1000 mensajes nunca se recuperan de nuevo.
+Cuando se completa la ejecución de todas las funciones con o sin errores, se agregan puntos de comprobación a la cuenta de almacenamiento asociada. Cuando estos puntos de conexión se agregan correctamente, los 1000 mensajes ya no se vuelven a recuperar.
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
@@ -385,13 +385,13 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Se debe establecer en `eventHubTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**direction** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**dirección** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el elemento de evento en el código de la función. |
 |**path** |**EventHubName** | Solo Functions 1.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
 |**eventHubName** |**EventHubName** | Solo Functions 2.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
-|**consumerGroup** |**ConsumerGroup** | Una propiedad opcional que establece el [grupo de consumidores](../articles/event-hubs/event-hubs-features.md)los consumidores de eventos de #) utilizado para suscribirse a eventos en el concentrador. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. |
+|**consumerGroup** |**ConsumerGroup** | Propiedad opcional que establece el [grupo de consumidores](../articles/event-hubs/event-hubs-features.md)#event-consumers) que se usará para suscribirse a los eventos del centro. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. |
 |**cardinalidad** | N/D | Para JavaScript. Defínalo como `many` para permitir el procesamiento por lotes.  Si se omite o se define como `one`, se pasa un único mensaje a la función. |
-|**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión, haga clic en el **información de conexión** botón el [espacio de nombres](../articles/event-hubs/event-hubs-create.md)#create un-event-hubs-espacio de nombres), no el propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.|
+|**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del [espacio de nombres](../articles/event-hubs/event-hubs-create.md)#create-an-event-hubs-namespace), no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.|
 |**path**|**EventHubName**|El nombre del centro de eventos. Puede hacer referencia al nombre a través de la configuración de la aplicación `%eventHubName%`|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -449,7 +449,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-El ejemplo siguiente muestra cómo usar el `IAsyncCollector` interfaz para enviar un lote de mensajes. Este escenario es común cuando se procesan los mensajes procedentes de un centro de eventos y enviar el resultado a otro centro de eventos.
+En el siguiente ejemplo se muestra cómo usar la interfaz `IAsyncCollector` para enviar un lote de mensajes. Este escenario es habitual cuando se procesan mensajes procedentes de un centro de eventos y el resultado se envía a otro centro de eventos.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -675,7 +675,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "eventHub". |
-|**direction** | N/D | Debe establecerse en "out". Este parámetro se establece automáticamente cuando se crea el enlace en Azure Portal. |
+|**dirección** | N/D | Debe establecerse en "out". Este parámetro se establece automáticamente cuando se crea el enlace en Azure Portal. |
 |**name** | N/D | Nombre de la variable que se usa en el código de la función que representa el evento. |
 |**path** |**EventHubName** | Solo Functions 1.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
 |**eventHubName** |**EventHubName** | Solo Functions 2.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
@@ -693,7 +693,7 @@ En JavaScript, puede obtener acceso al evento de salida usando `context.bindings
 
 | Enlace | Referencia |
 |---|---|
-| Event Hub | [Guía de operaciones](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+| Centro de eventos | [Guía de operaciones](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 <a name="host-json"></a>  
 

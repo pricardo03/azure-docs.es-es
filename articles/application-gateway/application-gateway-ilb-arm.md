@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
 ms.openlocfilehash: 70b350e228785e47a41cb83ce0d80b93c8a601c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135236"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)
@@ -31,7 +31,7 @@ Este artículo le guía por los pasos necesarios para configurar una puerta de e
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Instale la versión más reciente del módulo Azure PowerShell siguiendo los [las instrucciones de instalación](/powershell/azure/install-az-ps).
+1. Instale la versión más reciente del módulo de Azure PowerShell siguiendo las [instrucciones de instalación](/powershell/azure/install-az-ps).
 2. Tendrá que crear una red virtual y una subred para Puerta de enlace de aplicaciones. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La puerta de enlace de aplicaciones debe encontrarse en una subred de una red virtual.
 3. Los servidores que configure para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
@@ -83,7 +83,7 @@ Elección de la suscripción de Azure que se va a usar.
 Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
@@ -149,7 +149,7 @@ $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -
 
 Este paso configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 ```powershell
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80

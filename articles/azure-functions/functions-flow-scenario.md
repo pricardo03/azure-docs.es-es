@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787686"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Llamada a una función desde Microsoft Flow
@@ -51,9 +51,9 @@ Para comenzar, cree una lista que usará como origen de datos en el flujo. La li
 |-----------------|---------------------|------------------------------------------|
 | **Título**           | Línea de texto única | Nombre de la turbina                      |
 | **LastServiceDate** | Date                |                                          |
-| **MaxOutput**       | Número              | Salida de la turbina, en KwH            |
+| **MaxOutput**       | Number              | Salida de la turbina, en KwH            |
 | **ServiceRequired** | Sí/No              |                                          |
-| **EstimatedEffort** | Número              | Tiempo estimado de la reparación, en horas |
+| **EstimatedEffort** | Number              | Tiempo estimado de la reparación, en horas |
 
 1. En el sitio de SharePoint, pulse o haga clic en **Nuevo** y, luego, **Lista**.
 
@@ -134,7 +134,7 @@ Primero creará un flujo partiendo de cero (sin una plantilla) y agregará un *d
 
     ![Agregar una condición](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow agrega dos ramas al flujo: **En caso afirmativo** y **si no hay ningún**. Después de definir la condición para la que quiere buscar coincidencia, puede agregar pasos a una o ambas ramas.
+    Microsoft Flow agrega dos ramas al flujo: **En caso positivo** y **En caso negativo**. Después de definir la condición para la que quiere buscar coincidencia, puede agregar pasos a una o ambas ramas.
 
     ![Ramas de la condición](media/functions-flow-scenario/condition-branches.png)
 
@@ -230,7 +230,7 @@ Ahora que se ha completado el flujo, agregará una fila a la lista de SharePoint
     |-----------------|---------------------|
     | **Título**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
-    | **MaxOutput**       | 2.500 |
+    | **MaxOutput**       | 2\.500 |
     | **ServiceRequired** | Sí |
     | **EstimatedEffort** | 10 |
 
@@ -246,7 +246,7 @@ Ahora que se ha completado el flujo, agregará una fila a la lista de SharePoint
 
 5. En **Historial de ejecución**, haga clic en la ejecución de flujo.
 
-    ![Hist. de eje.](media/functions-flow-scenario/run-history.png)
+    ![Historial de ejecuciones](media/functions-flow-scenario/run-history.png)
 
     Si la ejecución se realizó correctamente, puede revisar las operaciones de flujo en la siguiente página. Si por algún motivo se produce un error en la ejecución, en la página siguiente se proporciona información de solución de problemas.
 

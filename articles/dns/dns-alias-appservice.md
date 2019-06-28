@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790749"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 
-El protocolo DNS evita la asignación de cualquier elemento que no sea un registro D o AAAA en el vértice de la zona. Un vértice de zona de ejemplo es contoso.com. Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de Traffic Manager. No es posible señalar al perfil de Traffic Manager desde el registro de vértice de zona. Como consecuencia, los propietarios de aplicaciones deben usar una solución alternativa. Un redireccionamiento en la capa de la aplicación debe redirigirse desde el vértice de zona a otro dominio. Un ejemplo es un redireccionamiento de contoso.com a www\.contoso.com. Esa organización presenta un único punto de error en cuanto a la función de redireccionamiento.
+El protocolo DNS evita la asignación de cualquier elemento que no sea un registro D o AAAA en el vértice de la zona. Un vértice de zona de ejemplo es contoso.com. Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de Traffic Manager. No es posible señalar al perfil de Traffic Manager desde el registro de vértice de zona. Como consecuencia, los propietarios de aplicaciones deben usar una solución alternativa. Un redireccionamiento en la capa de la aplicación debe redirigirse desde el vértice de zona a otro dominio. Un ejemplo es el redireccionamiento de contoso.com a www\.contoso.com. Esa organización presenta un único punto de error en cuanto a la función de redireccionamiento.
 
 Con los registros de alias, este problema ya no existe. Ahora los propietarios de aplicaciones pueden apuntar su registro de vértice de zona a un perfil de Traffic Manager que tenga puntos de conexión externos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Traffic Manager que se utilice para cualquier otro dominio dentro de su zona DNS.
 
-Por ejemplo, contoso.com y www\.contoso.com puede apuntar al mismo perfil de Traffic Manager. Esto ocurre siempre que el perfil de Traffic Manager solo tenga configurados puntos de conexión externos.
+Por ejemplo, contoso.com y www\.contoso.com pueden apuntar al mismo perfil de Traffic Manager. Esto ocurre siempre que el perfil de Traffic Manager solo tenga configurados puntos de conexión externos.
 
 En este artículo, aprenderá a crear un registro de alias para el vértice de dominio y a configurar los puntos de conexión del perfil de Traffic Manager para sus aplicaciones web.
 
@@ -43,10 +43,10 @@ Cree un grupo de recursos que contenga todos los recursos usados en este artícu
 Cree dos planes web de App Service en el grupo de recursos, con la siguiente tabla para consultar la información de configuración. Para más información sobre cómo crear un plan de App Service, consulte [Administración de un plan de App Service en Azure](../app-service/app-service-plan-manage.md).
 
 
-|NOMBRE  |Sistema operativo  |Location  |Nivel de precios  |
+|NOMBRE  |Sistema operativo  |Ubicación  |Nivel de precios  |
 |---------|---------|---------|---------|
-|ASP-01     | Windows|Este de EE. UU|D1-Shared para desarrollo/pruebas|
-|ASP-02     | Windows|Centro de EE. UU.|D1-Shared para desarrollo/pruebas|
+|ASP-01     |Windows|Este de EE. UU|D1-Shared para desarrollo/pruebas|
+|ASP-02     |Windows|Centro de EE. UU.|D1-Shared para desarrollo/pruebas|
 
 ## <a name="create-app-services"></a>Creación de servicios de aplicaciones
 
@@ -76,7 +76,7 @@ Ahora debe anotar la dirección IP y el nombre de host de las aplicaciones.
 
 Cree un perfil de Traffic Manager en el grupo de recursos. Use los valores predeterminados y escriba un nombre único dentro del espacio de nombres trafficmanager.net.
 
-Para obtener información acerca de cómo crear un perfil de Traffic Manager, consulte [inicio rápido: Crear un perfil de Traffic Manager para una aplicación web de alta disponibilidad](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Para obtener información sobre cómo crear un perfil de Traffic Manager, consulte [Inicio rápido: crear un perfil de Traffic Manager para una aplicación web de alta disponibilidad](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Creación de puntos de conexión
 
@@ -87,14 +87,14 @@ Ahora puede crear los puntos de conexión de las dos aplicaciones web.
 3. Haga clic en **Agregar**.
 4. Use la tabla siguiente para configurar los puntos de conexión:
 
-   |Type  |NOMBRE  |Destino  |Location  |Configuración de encabezado personalizado|
+   |Type  |NOMBRE  |Destino  |Ubicación  |Configuración de encabezado personalizado|
    |---------|---------|---------|---------|---------|
    |Punto de conexión externo     |End-01|Dirección IP que anotó para App-01|Este de EE. UU|host:\<la dirección URL que anotó para App-01\><br>Ejemplo: **host:app-01.azurewebsites.net**|
    |Punto de conexión externo     |End-02|Dirección IP que anotó para App-02|Centro de EE. UU.|host:\<la dirección URL que anotó para App-02\><br>Ejemplo: **host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Creación de una zona DNS
 
-Puede usar una zona DNS existente para las pruebas o puede crear una zona. Para crear y delegar una zona DNS en Azure, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
+Puede usar una zona DNS existente para las pruebas o puede crear una zona. Para crear y delegar una nueva zona DNS en Azure, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
 
 ### <a name="add-the-alias-record-set"></a>Incorporación del conjunto de registros de alias
 
@@ -106,7 +106,7 @@ Cuando la zona DNS esté lista, puede agregar un registro de alias para el vért
 
    |NOMBRE  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recurso de Azure|
    |---------|---------|---------|---------|-----|
-   |@     |Una |Sí|Recurso de Azure|Traffic Manager: su perfil|
+   |@     |Una|Sí|Recurso de Azure|Traffic Manager: su perfil|
 
 ## <a name="add-custom-hostnames"></a>Incorporación de nombres de host personalizados
 

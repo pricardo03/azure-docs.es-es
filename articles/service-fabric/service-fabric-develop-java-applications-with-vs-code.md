@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394004"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desarrollo de aplicaciones de C# para Service Fabric con Visual Studio Code
@@ -62,7 +62,7 @@ Después de haber compilado la aplicación, se puede implementar en el clúster 
 > [!IMPORTANT]
 > No se permite implementar aplicaciones de Java en el clúster local en equipos Windows.
 
-1. En la **paleta de comandos**, seleccione el comando **Service Fabric: Deploy Application (Localhost)**. La salida del proceso de instalación se envía al terminal integrado.
+1. En la **paleta de comandos**, seleccione el comando **Service Fabric: Deploy Application (Localhost)** . La salida del proceso de instalación se envía al terminal integrado.
 
    ![Comando de implementación de la aplicación en VS Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +74,7 @@ Después de haber compilado la aplicación, se puede implementar en el clúster 
 
    ![Aplicación Voting en el explorador](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. Para quitar la aplicación desde el clúster, seleccione el **Service Fabric: Quitar aplicación** comando desde el **paleta de comandos**. La salida del proceso de desinstalación se envía al terminal integrado. Puede usar Service Fabric Explorer para comprobar que la aplicación se ha quitado del clúster local.
+5. Para quitar la aplicación del clúster, seleccione el comando **Service Fabric: Remove Application**  (Service Fabric: quitar aplicación) de la **paleta de comandos**. La salida del proceso de desinstalación se envía al terminal integrado. Puede usar Service Fabric Explorer para comprobar que la aplicación se ha quitado del clúster local.
 
 ## <a name="debug-the-application"></a>Depuración de la aplicación
 Al depurar aplicaciones en VS Code, debe ejecutar la aplicación en un clúster local. A continuación, se pueden agregar puntos de interrupción en el código.
@@ -101,11 +101,11 @@ Marque como comentario la línea 6 (use '#') y agregue el siguiente comando en l
 
    ![Icono Depurar en el área de trabajo de VS Code](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
 
-3. En el archivo launch.json, en la opción de configuración llamada **Debug (Attach)**, establezca el valor del puerto en **8001**. Guarde el archivo.
+3. En el archivo launch.json, en la opción de configuración llamada **Debug (Attach)** , establezca el valor del puerto en **8001**. Guarde el archivo.
 
    ![Configuración de depuración para launch.json](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. Implementar la aplicación en el clúster local mediante el **Service Fabric: Implementación de aplicación (Localhost)** comando. Compruebe que la aplicación se está ejecutando en Service Fabric Explorer. La aplicación ya está lista para depurar.
+4. Implemente la aplicación en el clúster local mediante el comando **Service Fabric: Deploy Application (Localhost)** (Service Fabric: implementar aplicación [Localhost]). Compruebe que la aplicación se está ejecutando en Service Fabric Explorer. La aplicación ya está lista para depurar.
 
 Para establecer un punto de interrupción, complete los pasos siguientes:
 
@@ -127,7 +127,7 @@ Para establecer un punto de interrupción, complete los pasos siguientes:
    
    ![Desconexión del depurador](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. Cuando la depuración haya terminado, puede usar el comando **Service Fabric: Quitar aplicación** comando para quitar la aplicación de votación desde el clúster local. 
+5. Cuando la depuración haya terminado, puede usar el comando **Service Fabric: Remove Application** (Service Fabric: quitar aplicación) para quitar la aplicación Voting del clúster local. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

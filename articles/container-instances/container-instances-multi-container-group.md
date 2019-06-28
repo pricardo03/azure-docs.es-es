@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: implementar un grupo de varios contenedor en Azure Container Instances: plantilla'
-description: En este tutorial, aprenderá a implementar un grupo de contenedores con varios contenedores en Azure Container Instances mediante una plantilla de Azure Resource Manager con la CLI de Azure.
+title: 'Tutorial: Implementación de un grupo de varios contenedores en Azure Container Instances (plantilla)'
+description: En este tutorial, obtendrá información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances mediante una plantilla de Azure Resource Manager con la CLI de Azure.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -9,28 +9,28 @@ ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: f769beda1654dc9f58ecff733741fb1ab9118031
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152298"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementar un grupo de varios contenedor mediante una plantilla de Resource Manager
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [Resource Manager](container-instances-multi-container-group.md)
 
-Azure Container Instances admite la implementación de varios contenedores en un solo host mediante un [grupo de contenedores](container-instances-container-groups.md). Un grupo de contenedores es útil cuando se crea un sidecar de aplicación para el registro, supervisión o cualquier otra configuración donde un servicio necesita un segundo proceso asociado.
+Azure Container Instances admite la implementación de varios contenedores en un solo host mediante un [grupo de contenedores](container-instances-container-groups.md). Un grupo de contenedores es útil cuando se crea un sidecar de aplicación para el registro, la supervisión o cualquier otra configuración donde un servicio necesite un segundo proceso asociado.
 
-En este tutorial, siga los pasos para ejecutar una configuración de sidecar de dos contenedores sencilla mediante la implementación de una plantilla de Azure Resource Manager mediante la CLI de Azure. Aprenderá a:
+En este tutorial, seguirá los pasos para ejecutar una configuración de sidecar de dos contenedores sencilla mediante la implementación de una plantilla de Azure Resource Manager con la CLI de Azure. Aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar una plantilla de grupo de varios contenedores
 > * Implementación del grupo de contenedores
 > * Ver los registros de los contenedores
 
-Una plantilla de Resource Manager se puede adaptar fácilmente para escenarios cuando necesite implementar recursos de servicio de Azure adicionales (por ejemplo, un recurso compartido de archivos de Azure o una red virtual) con el grupo de contenedores. 
+Una plantilla de Resource Manager se puede adaptar rápidamente para escenarios en los que es necesario implementar recursos de un servicio de Azure adicionales (por ejemplo, un recurso compartido de Azure Files o una red virtual) con el grupo de contenedores. 
 
 > [!NOTE]
 > Los grupos de varios contenedores están restringidos actualmente a los contenedores Linux. 
@@ -39,9 +39,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="configure-a-template"></a>Configurar una plantilla
+## <a name="configure-a-template"></a>Configuración de una plantilla
 
-Comience por copiar el siguiente JSON en un nuevo archivo denominado `azuredeploy.json`. En Azure Cloud Shell, puede usar Visual Studio Code para crear el archivo en el directorio de trabajo:
+Para empezar, copie el siguiente código JSON en un nuevo archivo denominado `azuredeploy.json`. En Azure Cloud Shell, puede usar Visual Studio Code para crear el archivo en el directorio de trabajo:
 
 ```
 code azuredeploy.json
@@ -179,9 +179,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-container-logs"></a>Ver registros del contenedor
+## <a name="view-container-logs"></a>Visualización de registros de contenedores
 
-Visualice la salida del registro de un contenedor con el comando [az container logs][az-container-logs]. El argumento `--container-name` especifica el contenedor del que se van a extraer registros. En este ejemplo, el `aci-tutorial-app` se especifica el contenedor.
+Visualice la salida del registro de un contenedor con el comando [az container logs][az-container-logs]. El argumento `--container-name` especifica el contenedor del que se van a extraer registros. En este ejemplo, se especifica el contenedor `aci-tutorial-app`.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -196,7 +196,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Para ver los registros para el contenedor sidecar, ejecute un comando similar que especifica el `aci-tutorial-sidecar` contenedor.
+Para ver los registros para el contenedor sidecar, ejecute un comando similar en el que se especifique el contenedor `aci-tutorial-sidecar`.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -222,20 +222,20 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Como puede ver, el sidecar realiza periódicamente una solicitud HTTP a la aplicación web principal a través de la red local del grupo para asegurarse de que se está ejecutando. En este ejemplo de sidecar podría ampliarse para desencadenar una alerta si recibe un código de respuesta HTTP distinto `200 OK`.
+Como puede ver, el sidecar realiza periódicamente una solicitud HTTP a la aplicación web principal a través de la red local del grupo para asegurarse de que se está ejecutando. Este ejemplo de sidecar se podría ampliar para desencadenar una alerta si recibe un código de respuesta HTTP distinto de `200 OK`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha utilizado una plantilla de Azure Resource Manager para implementar un grupo de varios contenedor en Azure Container Instances. Ha aprendido a:
+En este tutorial, ha usado una plantilla de Azure Resource Manager para implementar un grupo de varios contenedores en Azure Container Instances. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Configurar una plantilla de grupo de varios contenedores
 > * Implementación del grupo de contenedores
 > * Ver los registros de los contenedores
 
-Para obtener ejemplos de plantilla adicional, consulte [plantillas Azure Resource Manager para Azure Container Instances](container-instances-samples-rm.md).
+Para obtener ejemplos de plantilla adicionales, vea [Plantillas de Azure Resource Manager para Azure Container Instances](container-instances-samples-rm.md).
 
-También puede especificar un grupo de varios contenedor mediante una [archivo YAML](container-instances-multi-container-yaml.md). Debido a la naturaleza de más concisa del formato YAML, la implementación con un archivo YAML es una buena elección cuando su implementación incluye solo las instancias de contenedor.
+También puede especificar un grupo de varios contenedores mediante un [archivo YAML](container-instances-multi-container-yaml.md). Dada la naturaleza más concisa del formato YAML, la implementación con un archivo YAML es una buena opción cuando la implementación solo incluye instancias de contenedor.
 
 
 <!-- LINKS - Internal -->

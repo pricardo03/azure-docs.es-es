@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
 ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551890"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
@@ -26,12 +26,12 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |Uso general| 2| 300|
 |Uso general| 4| 625|
 |Uso general| 8| 1250|
-|Uso general| 16| 2.500|
+|Uso general| 16| 2\.500|
 |Uso general| 32| 5000|
 |Uso general| 64| 10000|
 |Memoria optimizada| 2| 600|
 |Memoria optimizada| 4| 1250|
-|Memoria optimizada| 8| 2.500|
+|Memoria optimizada| 8| 2\.500|
 |Memoria optimizada| 16| 5000|
 |Memoria optimizada| 32| 10000|
 
@@ -82,7 +82,7 @@ Si las conexiones superan el límite, puede que reciba el error siguiente:
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
-- Consulte [planes de tarifa](concepts-pricing-tiers.md) para los límites de tamaño de almacenamiento por cada plan de tarifa.
+- Consulte [Planes de tarifa](concepts-pricing-tiers.md) para obtener los límites de tamaño de almacenamiento para cada plan de tarifa.
 
 ## <a name="current-known-issues"></a>Problemas conocidos actualmente
 - Instancia del servidor MySQL muestra una versión de servidor errónea después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.

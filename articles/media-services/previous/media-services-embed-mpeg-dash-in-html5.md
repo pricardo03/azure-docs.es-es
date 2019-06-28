@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464205"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incrustación de un vídeo de streaming adaptativo MPEG-DASH en una aplicación HTML5 con DASH.js  
@@ -55,7 +55,7 @@ El primer paso es crear una página HTML estándar con el elemento de **vídeo**
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Adición del reproductor dash.js
-Para agregar la implementación de referencia de dash.js a la aplicación, deberá incluir el archivo dash.all.js desde la última versión del proyecto dash.js. Este se debe guardar en la carpeta de JavaScript de la aplicación. Este archivo es un archivo de conveniencia que reúne todo el código de dash.js necesario en un solo archivo. Si echa un vistazo al repositorio dash.js, observará los archivos individuales, probará código y mucho más, pero si todo lo que quiere hacer es usar dash.js, el archivo dash.all.js es lo que necesita.
+Para agregar la implementación de referencia de dash.js a la aplicación, deberá obtener el archivo dash.all.js de la versión más reciente del proyecto dash.js. Este se debe guardar en la carpeta de JavaScript de la aplicación. Este archivo es un archivo de conveniencia que reúne todo el código de dash.js necesario en un solo archivo. Si echa un vistazo al repositorio dash.js, observará los archivos individuales, probará código y mucho más, pero si todo lo que quiere hacer es usar dash.js, el archivo dash.all.js es lo que necesita.
 
 Para agregar el reproductor de dash.js a sus aplicaciones, agregue una etiqueta de script a la sección de encabezado del archivo basicPlayer.html:
 
@@ -112,7 +112,7 @@ Para reproducir un vídeo, dirija el explorador al archivo basicPlayback.html y 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js) 

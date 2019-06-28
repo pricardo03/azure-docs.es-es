@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400157"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guía del desarrollador de Azure IoT Hub
@@ -55,7 +55,7 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
 
 * En [Control de acceso a IoT Hub](iot-hub-devguide-security.md) se describe el modelo de seguridad que se usa para conceder acceso a las funciones de IoT Hub tanto para los dispositivos como para los componentes de la nube. El artículo incluye información acerca del uso de tokens y certificados X.509, y los detalles de los permisos que puede conceder.
 
-* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones](iot-hub-devguide-device-twins.md) se describe el concepto de *dispositivo gemelo*. El artículo también describe el dispositivo de funcionalidad gemelos exponen, como la sincronización de un dispositivo con su dispositivo gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
+* En [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones](iot-hub-devguide-device-twins.md) se describe el concepto de *dispositivo gemelo*. En el artículo también se describe la funcionalidad que los dispositivos gemelos exponen, como la sincronización de un dispositivo con su dispositivo gemelo. El artículo incluye información acerca de los datos almacenados en un dispositivo gemelo.
 
 * En [Invocación de un método directo en un dispositivo](iot-hub-devguide-direct-methods.md) se describe el ciclo de vida de un método directo. En el artículo se describe cómo invocar métodos en un dispositivo desde la aplicación de back-end y cómo controlar el método directo en el dispositivo.
 

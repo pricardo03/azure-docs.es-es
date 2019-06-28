@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 1f20818f0b899eede9fff05d71e98c8bffb94b0a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101967"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configuración de direcciones IP públicas tras la conmutación por error
@@ -44,7 +44,7 @@ La configuración es la siguiente:
 Azure Traffic Manager permite el enrutamiento de nivel de DNS entre los extremo y puede ayudarle a [reducir el RTO](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) para un escenario de recuperación ante desastres. 
 
 Lea más sobre los escenarios de conmutación por error con Traffic Manager:
-1. [De local a Azure conmutación por error](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) con Traffic Manager 
+1. [Conmutación por error del entorno local a Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) con Traffic Manager 
 2. [Conmutación por error de Azure a Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) con Traffic Manager 
 
 La configuración es la siguiente:

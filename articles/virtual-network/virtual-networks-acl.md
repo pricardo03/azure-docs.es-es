@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 3a7155380a51273d376226c6be7a004f386181ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035256"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>¿Qué es una lista de control de acceso de puntos de conexión?
 
 > [!IMPORTANT]
-> Azure tiene dos diferentes [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para crear y trabajar con recursos: Resource Manager y clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación Resource Manager. 
+> Azure tiene dos [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para crear recursos y trabajar con ellos: Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación Resource Manager. 
 
 Una lista de control de acceso (ACL) de puntos de conexión es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual. Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Al utilizar los grupos de seguridad de red, se reemplazará la lista de control de acceso del punto de conexión y ya no se aplicará más. Para obtener más información sobre los grupos de seguridad de red, consulte [Información general de los grupos de seguridad de red](security-overview.md).
 

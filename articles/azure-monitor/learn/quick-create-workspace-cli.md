@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: 4be33b809ee2e620a565c9907a5b77833a279567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130376"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creación de un área de trabajo de Log Analytics con la CLI de Azure 2.0
@@ -44,7 +44,7 @@ Si decide instalar y usar la CLI en un entorno local, en esta guía de inicio r�
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 Cree un área de trabajo con [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). En el ejemplo siguiente se creará un área de trabajo denominada *TestWorkspace* en el grupo de recursos *Lab* en la ubicación *Este de EE. UU.* mediante una plantilla de Resource Manager desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno. O bien, puede almacenar la plantilla en una cuenta de Azure Storage para el acceso compartido en su organización. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 
-Para obtener información sobre las regiones compatibles, consulte [regiones está disponible en Log Analytics](https://azure.microsoft.com/regions/services/) y busque Azure Monitor desde la **busque un producto** campo. 
+Para obtener información sobre las regiones compatibles, consulte [las regiones en las que Log Analytics está disponible](https://azure.microsoft.com/regions/services/) y busque Azure Monitor desde el campo **Buscar un producto**. 
 
 Los siguientes parámetros establecen un valor predeterminado:
 

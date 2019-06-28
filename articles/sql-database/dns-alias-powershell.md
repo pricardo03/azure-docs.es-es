@@ -1,6 +1,6 @@
 ---
 title: PowerShell con alias DNS en Azure SQL | Microsoft Docs
-description: Cmdlets de PowerShell como New-AzSqlServerDNSAlias le permiten redirigir las nuevas conexiones de cliente a un servidor de base de datos de SQL de Azure diferentes, sin tener que tocar cualquier configuración de cliente.
+description: Los cmdlets de PowerShell como New-AzSqlServerDNSAlias permiten redirigir las nuevas conexiones de cliente a otro servidor de Azure SQL Database sin tener que tocar la configuración de cliente.
 keywords: dns sql database
 services: sql-database
 ms.service: sql-database
@@ -13,10 +13,10 @@ ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
 ms.date: 05/14/2019
 ms.openlocfilehash: 4318e6557dc72dff7200beb8783575131659b77f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797701"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell con alias DNS para Azure SQL Database
@@ -43,7 +43,7 @@ Para conectarse a un servidor determinado de Azure SQL Database, un cliente como
 Si quiere ejecutar el script de PowerShell dado en este artículo, se aplican los siguientes requisitos previos:
 
 - Una suscripción y una cuenta de Azure. Para obtener una evaluación gratuita, haga clic en [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
-- Módulo de PowerShell de Azure, con el cmdlet **New AzSqlServerDNSAlias**.
+- Módulo de Azure PowerShell, con el cmdlet **New-AzSqlServerDNSAlias**.
   - Si necesita instalarlo o actualizarlo, consulte [Instalación del módulo de Azure PowerShell][install-Az-ps-84p].
   - Ejecute `Get-Module -ListAvailable Az;` en powershell\_ise.exe, para encontrar la versión.
 - Dos servidores de Azure SQL Database.

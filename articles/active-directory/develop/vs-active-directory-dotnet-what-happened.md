@@ -14,10 +14,10 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413997"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio)?
@@ -145,7 +145,7 @@ Cambios adicionales si seleccionó la opción **Leer datos de directorio**:
 
 ### <a name="file-backup-visual-studio-2015"></a>Copia de seguridad de archivos (Visual Studio 2015)
 
-Al agregar el servicio conectado, Visual Studio 2015 hace una copia de seguridad de los archivos modificados y eliminados. Todos los archivos afectados se guardan en la carpeta `Backup/AzureAD`. Visual Studio 2017 y versiones posterior no crea copias de seguridad.
+Al agregar el servicio conectado, Visual Studio 2015 hace una copia de seguridad de los archivos modificados y eliminados. Todos los archivos afectados se guardan en la carpeta `Backup/AzureAD`. En Visual Studio 2017 y versiones posteriores no se crean copias de seguridad.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400089"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciencia de datos escalables con Azure Data Lake: tutorial completo
@@ -148,7 +148,7 @@ Para ejecutar U-SQL, abra Visual Studio, haga clic en **Archivo --> Nuevo --> Pr
 
 ### <a name="ingest"></a>Ingesta de datos: leer datos de un blob público
 
-Se hace referencia a la ubicación de los datos en el blob de Azure como **wasb://container\_nombre\@blob\_almacenamiento\_cuenta\_name.blob.core.windows.net/blob_name**y puede extraerse mediante **extractors.csv ()**. Sustituya su propio nombre del contenedor y el nombre de cuenta de almacenamiento para el contenedor de secuencias de comandos siguientes\_nombre\@blob\_almacenamiento\_cuenta\_nombre en la dirección wasb. Dado que los nombres de archivo se encuentran en el mismo formato, es posible usar **recorridos\_datos\_\{\*\}.csv** para leer todos los archivos de carreras 12.
+A la ubicación de los datos en el blob de Azure se hace referencia como **wasb://container\_name\@blob\_storage\_account\_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()** . Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container\_name\@blob\_storage\_account\_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_\{\*\}.csv** para leer los 12 archivos de carreras.
 
     ///Read in Trip data
     @trip0 =
@@ -171,7 +171,7 @@ Se hace referencia a la ubicación de los datos en el blob de Azure como **wasb:
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Azure Data Lake Storage mediante **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en la cuenta de almacenamiento de blobs de Azure mediante **wasb: / / container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Azure Data Lake Storage mediante **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en la cuenta de Azure Blob Storage mediante **wasb://container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
     // change data types
     @trip =

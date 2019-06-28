@@ -1,6 +1,6 @@
 ---
-title: 'Crear una cuenta de almacenamiento blob de bloque: almacenamiento de Azure | Microsoft Docs'
-description: Muestra cómo crear una cuenta de almacenamiento de blobs de bloques de Azure con las características de rendimiento premium.
+title: 'Crear una cuenta de almacenamiento de blob en bloques: Azure Storage| Microsoft Docs'
+description: Aquí se muestra cómo crear una cuenta de almacenamiento de blob en bloques de Azure con las características de rendimiento Premium.
 author: tamram
 services: storage
 ms.service: storage
@@ -9,59 +9,59 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65141015"
 ---
 # <a name="create-a-block-blob-storage-account"></a>Creación de una cuenta de almacenamiento de blobs en bloques
 
-El tipo de cuenta de almacenamiento de blobs de bloque le permite crear blobs en bloques con características de rendimiento premium. Este tipo de cuenta de almacenamiento está optimizado para cargas de trabajo con las tarifas de transacciones elevadas o que requieren tiempos de acceso muy rápidos. En este artículo se muestra cómo crear una cuenta de almacenamiento de blobs de bloque mediante el portal de Azure, la CLI de Azure o Azure PowerShell.
+El tipo de cuenta de almacenamiento de blob en bloques le permite crear blobs en bloques con características de rendimiento Premium. Este tipo de cuenta de almacenamiento está optimizado para cargas de trabajo con altas tasas de transacciones o que requieren tiempos de acceso muy rápidos. En este artículo se muestra cómo crear una cuenta de almacenamiento de blob en bloques mediante Azure Portal, la CLI de Azure o Azure PowerShell.
 
-Para obtener más información acerca de las cuentas de almacenamiento de blobs de bloque, consulte [Introducción a la cuenta de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Para obtener más información sobre las cuentas de almacenamiento de blob en bloques, consulte [Introducción a las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-## <a name="create-account-in-the-azure-portal"></a>Crear la cuenta en el portal de Azure
+## <a name="create-account-in-the-azure-portal"></a>Crear una cuenta en Azure Portal
 
-Para crear una cuenta de almacenamiento de blobs de bloque en el portal de Azure, siga estos pasos:
+Para crear una cuenta de almacenamiento de blob en bloques en Azure Portal, siga estos pasos:
 
-1. En el portal de Azure, seleccione **todos los servicios** > el **almacenamiento** categoría > **cuentas de almacenamiento**.
+1. En Azure Portal, seleccione **Todos los servicios** > la categoría **Almacenamiento** > **Cuentas de almacenamiento**.
 
-1. En **cuentas de almacenamiento**, seleccione **agregar**.
+1. En **Cuentas de almacenamiento**, seleccione **Agregar**.
 
-1. En el **suscripción** , seleccione la suscripción en la que se va a crear la cuenta de almacenamiento.
+1. Seleccione la suscripción en la que se va a crear la cuenta de almacenamiento en el campo **Suscripción**.
 
-1. En el **grupo de recursos** campo, seleccione un grupo de recursos existente o seleccione **crear nuevo**y escriba un nombre para el nuevo grupo de recursos.
+1. En el campo del **Grupo de recursos**, seleccione un grupo de recursos existente o **Crear nuevo** y escriba un nombre para el grupo de recursos.
 
-1. En el **nombredecuentadealmacenamiento** , escriba un nombre para la cuenta. Tenga en cuenta las siguientes directrices:
+1. En el campo **Nombre de la cuenta de almacenamiento**, escriba un nombre para la cuenta. Tenga en cuenta estas directrices:
 
    - El nombre debe ser único en Azure.
    - El nombre debe tener entre tres y 24 caracteres.
-   - El nombre puede incluir solo números y letras minúsculas.
+   - El nombre solo puede contener números y letras minúsculas.
 
-1. En el **ubicación** campo, seleccione una ubicación para la cuenta de almacenamiento o usar la ubicación predeterminada.
+1. En el campo **Ubicación**, seleccione una ubicación para la cuenta de almacenamiento o utilice la ubicación predeterminada.
 
-1. Para el resto de la configuración, configure lo siguiente:
+1. Defina la configuración de los siguientes valores:
 
-   |Campo     |`Value`  |
+   |Campo     |Valor  |
    |---------|---------|
    |**Rendimiento**    |  Seleccione **Premium**.   |
    |**Tipo de cuenta**    | Seleccione **BlockBlobStorage**.      |
-   |**Replicación**    |  Deje la configuración predeterminada de **almacenamiento con redundancia local (LRS)**.      |
+   |**Replicación**    |  Deje el valor predeterminado de **Almacenamiento con redundancia local (LRS)** .      |
 
-   ![Muestra el portal de interfaz de usuario para crear una cuenta de almacenamiento de blobs de bloque](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
+   ![Se muestra la interfaz de usuario del portal para crear una cuenta de almacenamiento de blob en bloques](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
-1. Seleccione **revisar + crear** para revisar la configuración de la cuenta de almacenamiento.
+1. Seleccione **Revisar y crear** para revisar la configuración de la cuenta de almacenamiento.
 
 1. Seleccione **Crear**.
 
-## <a name="create-account-using-azure-powershell"></a>Creación de cuenta mediante Azure PowerShell
+## <a name="create-account-using-azure-powershell"></a>Creación de una cuenta con Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-1. Abra una sesión de Windows PowerShell con privilegios elevados (ejecutar como administrador).
+1. Abra una sesión de Windows PowerShell con privilegios elevados (ejecución como administrador).
 
-1. Ejecute el siguiente comando para asegurarse de que la versión más reciente de la `Az` está instalado el módulo de PowerShell.
+1. Ejecute el siguiente comando para asegurarse de que la versión más reciente del módulo de PowerShell `Az` esté instalada.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
@@ -73,7 +73,7 @@ Para crear una cuenta de almacenamiento de blobs de bloque en el portal de Azure
    Connect-AzAccount -SubscriptionId <SubscriptionID>
    ```
 
-1. Si es necesario, cree un nuevo grupo de recursos. Reemplace los valores entre comillas y ejecute el siguiente comando.
+1. Si es necesario, cree un grupo de recursos. Reemplace los valores por expresiones de código delimitadas y ejecute el siguiente comando.
 
    ```powershell
    $resourcegroup = "new_resource_group_name"
@@ -81,7 +81,7 @@ Para crear una cuenta de almacenamiento de blobs de bloque en el portal de Azure
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. Cree la cuenta de almacenamiento de blobs de bloque. Reemplace los valores entre comillas y ejecute el siguiente comando.
+1. Cree una cuenta de almacenamiento de blob en bloques. Reemplace los valores por expresiones de código delimitadas y ejecute el siguiente comando.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -91,9 +91,9 @@ Para crear una cuenta de almacenamiento de blobs de bloque en el portal de Azure
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
 
-## <a name="create-account-using-azure-cli"></a>Creación de cuenta mediante la CLI de Azure
+## <a name="create-account-using-azure-cli"></a>Crear una cuenta con la CLI de Azure
 
-Para crear una cuenta de blob de bloque mediante el uso de la CLI de Azure, primero debe instalar CLI de Azure. 2.0.46 o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Para crear una cuenta de blob en bloques con la CLI de Azure, debe instalar primero la CLI de Azure en su versión 2.0.46 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 1. Inicie sesión en la suscripción de Azure.
 
@@ -101,7 +101,7 @@ Para crear una cuenta de blob de bloque mediante el uso de la CLI de Azure, prim
    az login
    ```
 
-1. Si es necesario, cree un nuevo grupo de recursos. Reemplace los valores en corchetes (incluidos los corchetes) y ejecute el siguiente comando.
+1. Si es necesario, cree un grupo de recursos. Reemplace los valores entre corchetes (incluidos los corchetes) y ejecute el siguiente comando.
 
    ```azurecli
    az group create \
@@ -109,7 +109,7 @@ Para crear una cuenta de blob de bloque mediante el uso de la CLI de Azure, prim
     --location "<location>"
    ```
 
-1. Cree la cuenta de almacenamiento de blobs de bloque. Reemplace los valores en corchetes (incluidos los corchetes) y ejecute el siguiente comando.
+1. Cree una cuenta de almacenamiento de blob en bloques. Reemplace los valores entre corchetes (incluidos los corchetes) y ejecute el siguiente comando.
 
    ```azurecli
    az storage account create \

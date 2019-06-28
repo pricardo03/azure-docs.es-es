@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 31e8e65b382a3a6bcad2998a0babdf9605dc4968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023951"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
@@ -24,7 +24,7 @@ Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Ana
 > 
 > 
 
-Las copias de seguridad se guardan con una extensión abf. Para los modelos tabulares en memoria, se almacenan los datos y los metadatos del modelo. Para los modelos tabulares de consulta directa, solo se almacenan los metadatos del modelo. Las copias de seguridad se pueden comprimir y cifrar, según las opciones que elija.
+Las copias de seguridad se guardan con una extensión .abf. Para los modelos tabulares en memoria, se almacenan los datos y los metadatos del modelo. Para los modelos tabulares de consulta directa, solo se almacenan los metadatos del modelo. Las copias de seguridad se pueden comprimir y cifrar, según las opciones que elija.
 
 
 ## <a name="configure-storage-settings"></a>Configuración de los valores de almacenamiento

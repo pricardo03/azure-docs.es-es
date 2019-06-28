@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115387"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creación e instalación de archivos de configuración de cliente VPN para la autenticación P2S RADIUS
@@ -48,16 +48,16 @@ Al configurar la autenticación de nombre de usuario y contraseña, solo se pued
 
 ### <a name="usernamefiles"></a> 1. Generación de archivos de configuración de cliente VPN
 
-Puede generar los archivos de configuración de cliente VPN mediante el portal de Azure, o mediante Azure PowerShell.
+Puede generar los archivos de configuración del cliente VPN a través de Azure Portal o de Azure PowerShell.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
-1. Vaya a la puerta de enlace de red virtual.
-2. Haga clic en **configuraciónpuntoasitio**.
-3. Haga clic en **cliente VPN descargar**.
-4. Seleccione al cliente y rellene toda la información que se solicita.
-5. Haga clic en **descargar** para generar el archivo zip.
-6. Se descargará el archivo .zip, normalmente en la carpeta de descargas.
+1. Navegue a la puerta de enlace de red virtual.
+2. Haga clic en **Configuración de punto a sitio**.
+3. Haga clic en **Descargar cliente VPN**.
+4. Seleccione el cliente y rellene toda la información que se pide.
+5. Haga clic en **Descargar** para generar el archivo ZIP.
+6. Se descargará el archivo ZIP, normalmente en la carpeta Descargas.
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 

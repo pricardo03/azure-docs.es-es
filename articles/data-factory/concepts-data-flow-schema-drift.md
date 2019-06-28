@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61262166"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desfase del esquema de Mapping Data Flow
@@ -26,7 +26,7 @@ Con el fin de protegerse contra el desfase de esquema, es importante disponer de
 * Definir parámetros de transformación que pueden funcionar con modelos de datos en lugar de con campos y valores codificados de forma rígida
 * Definir expresiones que comprenden los patrones para que coincidan con los campos de entrada, en lugar de utilizar campos con nombre
 
-## <a name="how-to-implement-schema-drift"></a>Cómo implementar la desviación en el esquema
+## <a name="how-to-implement-schema-drift"></a>Cómo implementar el desfase de esquema
 
 * Elija "Allow Schema Drift" (Permitir desfase de esquema) en la transformación de origen.
 
@@ -69,8 +69,8 @@ Puede probarlo con el ejemplo de flujo de datos de Azure Data Factory "Taxi Demo
 
 ## <a name="access-new-columns-downstream"></a>Acceso a nuevas columnas de nivel inferior
 
-Al generar nuevas columnas con los patrones de columnas, puede acceder a esas columnas nuevo más tarde en sus transformaciones de flujo de datos mediante la función de la expresión "byName".
+Al generar nuevas columnas con patrones de columnas, puede acceder a esas columnas nuevas más tarde en las transformaciones del flujo de datos mediante la función de la expresión "byName".
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En el [lenguaje de expresiones de flujo de datos](data-flow-expression-functions.md) encontrará características adicionales para patrones de columnas y la desviación en el esquema incluido "byName" y "byPosition".
+En el [lenguaje de expresiones de Data Flow](data-flow-expression-functions.md) encontrará características adicionales para patrones de columnas y desfase de esquema incluidas las funciones "byName" y "byPosition".

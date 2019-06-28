@@ -1,6 +1,6 @@
 ---
 title: Desencadenadores y enlaces en Azure Functions
-description: Aprenda a utilizar desencadenadores y enlaces para conectarse a la función de Azure a eventos en línea y servicios en la nube.
+description: Obtenga información sobre cómo usar desencadenadores y enlaces para conectar Azure Functions a eventos en línea y servicios basados en la nube.
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -8,53 +8,52 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020969"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
-En este artículo obtendrá información sobre los conceptos de alto nivel que rodean los enlaces y desencadenadores de functions.
+En este artículo obtendrá información sobre los conceptos de alto nivel que rodean los enlaces y desencadenadores de Azure Functions.
 
-Los desencadenadores son lo que ocasionar una función que se ejecuta. Un desencadenador define cómo se invoca una función y una función debe tener exactamente un desencadenador. Los desencadenadores tienen datos asociados, que a menudo se proporcionan como la carga de la función. 
+Los desencadenadores son lo que provocan que una función se ejecute. Un desencadenador define cómo se invoca una función y cada función debe tener exactamente un desencadenador. Los desencadenadores tienen datos asociados, que a menudo son la carga de la función. 
 
-Enlace a una función es una manera de conectarse mediante declaración otro recurso a la función; los enlaces pueden estarlo como *enlaces de entrada*, *enlaces de salida*, o ambos. Datos de los enlaces se proporcionan a la función como parámetros.
+El enlace a una función es una manera de conectar otro recurso a la función mediante declaración. Los enlaces pueden estar conectados como *enlaces de entrada*, *enlaces de salida* o ambos. Los datos de los enlaces se proporcionan a la función como parámetros.
 
-Puede mezclar y coincidir con enlaces diferentes para satisfacer sus necesidades. Los enlaces son opcionales y una función puede tener uno o varios de entrada o enlaces de salida.
+Puede mezclar y asignar enlaces diferentes para satisfacer sus necesidades. Los enlaces son opcionales y cada función puede tener uno o varios enlaces de entrada y de salida.
 
-Desencadenadores y enlaces permiten evitar codificar acceso a otros servicios. La función recibe los datos (por ejemplo, el contenido de un mensaje de cola) en parámetros de función. El usuario envía datos (por ejemplo, para crear un mensaje de la cola) mediante el valor devuelto de la función. 
+Los desencadenadores y enlaces evitan codificar el acceso a otros servicios. La función recibe los datos (por ejemplo, el contenido de un mensaje de cola) en parámetros de función. El usuario envía datos (por ejemplo, para crear un mensaje de la cola) mediante el valor devuelto de la función. 
 
-Considere los siguientes ejemplos de cómo puede implementar las distintas funciones.
+Tenga en cuenta los siguientes ejemplos de cómo se pueden implementar las distintas funciones.
 
 | Escenario de ejemplo | Desencadenador | Enlace de entrada | Enlace de salida |
 |-------------|---------|---------------|----------------|
-| Llega un nuevo mensaje de cola que ejecuta una función para escribir a otra cola. | Queue<sup>*</sup> | *None* | Queue<sup>*</sup> |
-|Un trabajo programado lee el contenido de almacenamiento de blobs y crea un nuevo documento de Cosmos DB. | Temporizador | Blob Storage | Cosmos DB |
-|La cuadrícula de eventos se utiliza para leer una imagen en Blob Storage y un documento de Cosmos DB para enviar un correo electrónico. | Event Grid | BLOB Storage y Cosmos DB | SendGrid |
+| Llega un nuevo mensaje de cola que ejecuta una función para escribir en otra cola. | Cola<sup>*</sup> | *None* | Cola<sup>*</sup> |
+|Un trabajo programado lee los contenidos de Blob Storage y crea un nuevo documento de Cosmos DB. | Temporizador | Blob Storage | Cosmos DB |
+|Event Grid se utiliza para leer una imagen en Blob Storage y un documento de Cosmos DB con el fin de enviar un correo. | Event Grid | Blob Storage y Cosmos DB | SendGrid |
 | Un webhook que usa Microsoft Graph para actualizar una hoja de Excel. | HTTP | *None* | Microsoft Graph |
 
 <sup>\*</sup> Representa diferentes colas
 
-Estos ejemplos no pretende ser exhaustivo, pero sirven para ilustrar cómo se pueden utilizar desencadenadores y enlaces juntos.
+Estos ejemplos no pretenden ser exhaustivos, pero sirven para ilustrar cómo se pueden utilizar desencadenadores y enlaces de forma conjunta.
 
-###  <a name="trigger-and-binding-definitions"></a>Definiciones de desencadenadores y enlaces
+###  <a name="trigger-and-binding-definitions"></a>Definiciones de desencadenador y enlace
 
-Desencadenadores y enlaces se definen de forma diferente según el enfoque de desarrollo.
+Los desencadenadores y enlaces se definen de forma diferente en función del enfoque de desarrollo.
 
-| Plataforma | Desencadenadores y enlaces se configuran por... |
+| Plataforma | Los desencadenadores y enlaces se configuran por... |
 |-------------|--------------------------------------------|
-| C#biblioteca de clases | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decoración de métodos y parámetros con C# atributos |
-| Todos los demás (incluido Azure portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actualizando [function.json](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
+| Biblioteca de clases de C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la decoración de métodos y parámetros con atributos de C# |
+| Todos los demás (incluido Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la actualización de [function.json](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
 
-El portal proporciona una interfaz de usuario para esta configuración, pero puede editar el archivo directamente abriendo el **editor avanzado** disponible a través de la **integrar** pestaña de la función.
+El portal proporciona una interfaz de usuario para esta configuración, pero puede editar el archivo directamente; para ello, abra el **Editor avanzado** disponible mediante la pestaña **Integrar** de la función.
 
-En. NET, el tipo de parámetro define el tipo de datos para datos de entrada. Por ejemplo, use `string` para enlazar con el texto de un desencadenador de cola, una matriz de bytes que se lee como binaria y un tipo personalizado para deserializar un objeto.
+En .NET, el tipo de parámetro define el tipo de datos de entrada. Por ejemplo, use `string` para enlazar al texto de un desencadenador de cola, una matriz de bytes que se lee como binaria y un tipo personalizado para deserializar a un objeto.
 
 Para los lenguajes que se escriben dinámicamente, como JavaScript, use la propiedad `dataType` del archivo *function.json*. Por ejemplo, para leer el contenido de una solicitud HTTP en formato binario, establezca `dataType` en `binary`:
 
@@ -75,7 +74,7 @@ Todos los desencadenadores y enlaces tienen una propiedad `direction` en el arch
 
 - En el caso de los desencadenadores, esta propiedad siempre aparece como `in`
 - Los enlaces de entrada y de salida usan `in` y `out`
-- Algunos enlaces admiten la dirección especial `inout`. Si usas `inout`, solo el **editor avanzado** está disponible a través de la **integrar** ficha en el portal.
+- Algunos enlaces admiten la dirección especial `inout`. Si utiliza `inout`, solo estará disponible la opción **Editor avanzado** mediante la pestaña **Integrar** en el portal.
 
 Cuando se usan [atributos en una biblioteca de clases](functions-dotnet-class-library.md) para configurar los desencadenadores y los enlaces, la dirección se proporciona en un constructor de atributos o se deduce del tipo de parámetro.
 
@@ -87,7 +86,7 @@ Para información sobre qué enlaces están en versión preliminar o aprobados p
 
 ## <a name="resources"></a>Recursos
 - [Patrones y expresiones de enlace](./functions-bindings-expressions-patterns.md)
-- [Utilice el valor devuelto de función de Azure](./functions-bindings-return-value.md)
+- [Uso del valor devuelto de Azure Functions](./functions-bindings-return-value.md)
 - [Cómo registrar una expresión de enlace](./functions-bindings-register.md)
 - Prueba:
   - [Estrategias para probar el código en Azure Functions](functions-test-a-function.md)
@@ -97,5 +96,3 @@ Para información sobre qué enlaces están en versión preliminar o aprobados p
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Registrar las extensiones de enlace de Azure Functions](./functions-bindings-register.md)
-
-<!-- Update_Description: wording update -->

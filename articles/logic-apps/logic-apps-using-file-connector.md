@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846771"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conexión a sistemas de archivos locales con Azure Logic Apps
@@ -34,9 +34,9 @@ Para seguir el ejemplo, necesita estos elementos:
 
 * Antes de que pueda conectar las aplicaciones lógicas con sistemas locales como el servidor del sistema de archivos, tiene que [instalar y configurar una puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). De este modo, cuando cree la conexión del sistema de archivos desde la aplicación lógica, puede especificar que se use esta instalación de puerta de enlace.
 
-* Un [cuenta de Dropbox](https://www.dropbox.com/), que puede registrarse de forma gratuita. Las credenciales de cuenta son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Dropbox. 
+* Una [cuenta de Dropbox](https://www.dropbox.com/), que se puede registrar de forma gratuita. Las credenciales de la cuenta son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Dropbox. 
 
-* Acceso al equipo que tiene el sistema de archivos que desea usar. Por ejemplo, si instala la puerta de enlace de datos en el mismo equipo que el sistema de archivos, necesita las credenciales de cuenta para ese equipo. 
+* Acceda al equipo que tiene el sistema de archivos que quiere usar. Por ejemplo, si instala la puerta de enlace de datos en el mismo equipo que el sistema de archivos, necesita las credenciales de la cuenta para ese equipo. 
 
 * Una cuenta de correo de un proveedor de correo compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta aplicación lógica usa una cuenta de Office 365 Outlook. Si usa otra cuenta de correo electrónico, los pasos generales serán los mismos, pero su interfaz de usuario puede ser ligeramente distinta. 
 
@@ -72,7 +72,7 @@ Para seguir el ejemplo, necesita estos elementos:
    | -------- | -------- | ----- | ----------- | 
    | **Nombre de la conexión** | Sí | <*connection-name*> | El nombre que quiere para la conexión | 
    | **Carpeta raíz** | Sí | <*root-folder-name*> | La carpeta raíz para el sistema de archivos, por ejemplo, si ha instalado la puerta de enlace de datos local, como una carpeta local en el equipo donde está instalada la puerta de enlace de datos local, o la carpeta para un recurso compartido de red al que el equipo puede acceder. <p>Por ejemplo: `\\PublicShare\\DropboxFiles` <p>La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. | 
-   | **Tipo de autenticación** | Sin  | <*auth-type*> | El tipo de autenticación que usa el sistema de archivos, por ejemplo, **Windows** | 
+   | **Tipo de autenticación** | Sin | <*auth-type*> | El tipo de autenticación que usa el sistema de archivos, por ejemplo, **Windows** | 
    | **Nombre de usuario** | Sí | <*domain*>\\<*username*> | El nombre de usuario para el equipo donde tiene el sistema de archivos | 
    | **Contraseña** | Sí | <*your-password*> | La contraseña para el equipo donde tiene el sistema de archivos | 
    | **puerta de enlace** | Sí | <*installed-gateway-name*> | El nombre de la puerta de enlace instalada previamente | 

@@ -9,17 +9,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479146"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Escalado del trabajo de Análisis de transmisiones con funciones de Azure Machine Learning
 Resulta sencillo configurar un trabajo de Stream Analytics y ejecutar algunos datos de ejemplo mediante él. ¿Qué debemos hacer cuando tengamos que ejecutar el mismo trabajo con un volumen de datos más alto? Será necesario comprender cómo configurar el trabajo de Stream Analytics para escalarlo. En este documento, nos centraremos en los aspectos especiales de escalar trabajos de Stream Analytics con funciones de Machine Learning. Para más información sobre cómo escalar trabajos de Stream Analytics en general, consulte el artículo [Escalado de trabajos de Azure Stream Analytics para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>¿Qué es una función de Azure Machine Learning en Análisis de transmisiones?
-Una función de Machine Learning en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Azure Machine Learning. Los servicios web de Machine Learning admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API del servicio web, con el fin de mejorar el rendimiento en general. Para obtener más información, consulte [servicios Web de Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Una función de Machine Learning en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Azure Machine Learning. Los servicios web de Machine Learning admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API del servicio web, con el fin de mejorar el rendimiento en general. Para más información, consulte [Servicios web de Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configuración de un trabajo de Análisis de transmisiones con funciones de Machine Learning
 Al configurar una función de Machine Learning para el trabajo de Stream Analytics, hay dos parámetros a tener en cuenta: el tamaño de lote de las llamadas de función de Machine Learning y las unidades de streaming (SU) aprovisionadas para el trabajo de Stream Analytics. Para determinar los valores adecuados de estas SU, será necesario en primer lugar decidir entre latencia y rendimiento, es decir, entre la latencia del trabajo de Stream Analytics y el rendimiento de cada SU. Siempre se pueden agregar SU a un trabajo para aumentar el rendimiento de una consulta de Stream Analytics bien particionada, aunque las SU adicionales aumentarán el costo de ejecución del trabajo.
@@ -74,10 +74,10 @@ A continuación se muestra una tabla del rendimiento del trabajo de Stream Analy
 
 | Tamaño del lote (latencia de Aprendizaje automático) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unidad de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
-| **3 unidades de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
-| **6 unidades de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
-| **12 unidades de búsqueda** |5.000 |10 000 |40.000 |60 000 |100 000 |
+| **1 unidad de búsqueda** |2500 |5\.000 |20.000 |30 000 |50.000 |
+| **3 unidades de búsqueda** |2500 |5\.000 |20.000 |30 000 |50.000 |
+| **6 unidades de búsqueda** |2500 |5\.000 |20.000 |30 000 |50.000 |
+| **12 unidades de búsqueda** |5\.000 |10 000 |40.000 |60 000 |100 000 |
 | **18 unidades de búsqueda** |7500 |15 000 |60 000 |90 000 |150 000 |
 | **24 unidades de búsqueda** |10 000 |20.000 |80 000 |120 000 |200 000 |
 | **…** |… |… |… |… |… |

@@ -1,6 +1,6 @@
 ---
-title: Cómo usar el almacenamiento en cola (C++)-almacenamiento de Azure
-description: Obtenga información sobre cómo usar el servicio de Queue storage en Azure. Los ejemplos están escritos en C++.
+title: Uso del almacenamiento de colas (C++) - Azure Storage
+description: Aprenda a usar el servicio de almacenamiento de colas en Azure. Los ejemplos están escritos en C++.
 services: storage
 author: mhopkins-msft
 ms.service: storage
@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 440033233bbd60421cc3245a04544cd04caec6f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153124"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Uso de Queue Storage de C++

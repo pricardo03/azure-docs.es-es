@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522172"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
-Visualización de los componentes de aplicaciones detectadas en Windows y Linux máquinas virtuales que se ejecutan en Azure de su entorno se puede observar en dos formas con Azure Monitor para las máquinas virtuales, desde una máquina virtual directamente o a través de grupos de máquinas virtuales de Azure Monitor. 
+Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
 
 En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y a usar la característica de asignación. Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](vminsights-enable-overview.md) (Habilitar Azure Monitor para máquinas virtuales).
 
-## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="introduction-to-map-experience"></a>Introducción a la experiencia de asignación
@@ -39,11 +39,11 @@ Al hacer clic en la máquina virtual, el panel **Propiedades** se expande hacia 
 
 ![Propiedades del sistema del equipo](./media/vminsights-maps/properties-pane-01.png)
 
-En el lado derecho del panel, haga clic en el **eventos de registro** icono para cambiar el foco del panel para mostrar una lista de tablas que recopilan datos de la máquina virtual ha enviado a Azure Monitor y está disponible para las consultas.  Al hacer clic en cualquiera de los tipos de registro enumerados se abrirá la página **Registros** para ver los resultados de ese tipo con una consulta configurada previamente que se filtra para una máquina virtual específica.  
+En el lado derecho del panel, haga clic en el icono **Eventos de registro** para cambiar el foco del panel y mostrar una lista de tablas que recopilan los datos que la máquina virtual ha enviado a Azure Monitor y están disponible para consulta.  Al hacer clic en cualquiera de los tipos de registro enumerados se abrirá la página **Registros** para ver los resultados de ese tipo con una consulta configurada previamente que se filtra para una máquina virtual específica.  
 
 ![Lista de búsqueda de registros en el panel Propiedades](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Cerrar **registros** y volver a la **propiedades** panel y seleccione **alertas** para ver las alertas que alerta se genera para la máquina virtual de los criterios de estado. La asignación se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de alertas del equipo enumera las alertas. 
+Cierre la página **Registros**, vuelva al panel **Propiedades** y seleccione **Alertas** para ver las alertas que Alertas generó para la máquina virtual a partir de los criterios de mantenimiento. La asignación se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de alertas del equipo enumera las alertas. 
 
 ![Alertas de equipo en el panel Propiedades](./media/vminsights-maps/properties-pane-alerts-01.png)
 
@@ -90,27 +90,27 @@ Si el grupo incluye a los servidores supervisados y sin supervisión, puede sele
 Para obtener acceso a Azure Monitor para máquinas virtuales directamente desde una máquina virtual, realice lo siguiente.
 
 1. En Azure Portal, seleccione **Virtual Machines**. 
-2. En la lista, elija una máquina virtual y, en la sección **Monitor**, elija **Conclusiones (versión preliminar)**.  
+2. En la lista, elija una máquina virtual y, en la sección **Monitor**, elija **Conclusiones (versión preliminar)** .  
 3. Seleccione la pestaña **Asignación**.
 
 La asignación muestra, durante un intervalo de tiempo determinado, las máquinas virtuales que están ejecutando procesos y grupos de procesos con conexiones de red activas.  De forma predeterminada, la asignación muestra los últimos 30 minutos.  Mediante el selector **Intervalo de tiempo** de la esquina superior izquierda, se pueden consultar intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio).  
 
 ![Visión general directa de una asignación de máquina virtual](./media/vminsights-maps/map-direct-vm-01.png)
 
-## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Visualización del mapa de escalado de máquinas virtuales establece directamente
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Visualización de la asignación directamente desde un conjunto de escalado de máquinas virtuales
 
-Para obtener acceso a Azure Monitor para las máquinas virtuales directamente desde un conjunto de escalado de máquinas virtuales, realice lo siguiente.
+Para obtener acceso a Azure Monitor para VM directamente desde un conjunto de escalado de máquinas virtuales, realice lo siguiente.
 
-1. En el portal de Azure, seleccione **conjuntos de escalado de máquinas virtuales**.
-2. En la lista, elija una máquina virtual y, en la sección **Monitor**, elija **Conclusiones (versión preliminar)**.  
+1. En Azure Portal, seleccione **Conjuntos de escalado de máquinas virtuales**.
+2. En la lista, elija una máquina virtual y, en la sección **Monitor**, elija **Conclusiones (versión preliminar)** .  
 3. Seleccione la pestaña **Asignación**.
 
-Mapa muestra todas las instancias en el conjunto de escalado como un nodo de grupo junto con las dependencias del grupo. El nodo expandido enumera las instancias del conjunto de escalado, que puede desplazarse a través de diez a la vez. Para cargar un mapa para una instancia concreta, seleccione esa instancia en el mapa y, a continuación, haga clic en los puntos suspensivos para es adecuado y elija **cargar mapa del servidor**. Esto cargará el mapa para esa instancia, lo que permite ver los grupos de procesos y los procesos con conexiones de red activas durante un intervalo de tiempo especificado. De forma predeterminada, la asignación muestra los últimos 30 minutos. Mediante el **TimeRange** selector puede consultar los intervalos de tiempo históricos de hasta una hora para mostrar cómo se buscan dependencias en el pasado (por ejemplo, durante un incidente o antes de que se ha producido un cambio).  
+La asignación muestra todas las instancias del conjunto de escalado como un nodo de grupo junto con las dependencias del grupo. El nodo expandido enumera las instancias del conjunto de escalado, por las que puede desplazarse de diez en diez. Para cargar una asignación para una instancia concreta, seleccione esa instancia en la asignación y, a continuación, haga clic en los puntos suspensivos de la derecha y elija **Cargar mapa del servidor**. Esto cargará la asignación de esa instancia, lo que le permitirá ver los procesos y grupos de procesos con conexiones de red activas durante un intervalo de tiempo determinado. De forma predeterminada, la asignación muestra los últimos 30 minutos. Mediante el selector **Intervalo de tiempo**, se pueden consultar intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio).  
 
 ![Visión general directa de una asignación de máquina virtual](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->También puede acceder a un mapa para una instancia específica de la vista de instancias para el conjunto de escalado de máquina virtual. Vaya a **instancias** bajo el **configuración** sección y, a continuación, elija **Insights (versión preliminar)**.
+>También puede acceder a una asignación de una instancia específica desde la vista Instancias de su conjunto de escalado de máquinas virtuales. Vaya a **Instancias** en la sección **Configuración** y, a continuación, elija **Insights (versión preliminar)** .
 
 ## <a name="view-map-from-azure-monitor"></a>Visualización de la asignación desde Azure Monitor
 Desde Azure Monitor, la característica de asignación proporciona una visión global de las máquinas virtuales y sus dependencias.  Para obtener acceso a la característica de asignación de Azure Monitor, realice lo siguiente. 
@@ -121,7 +121,7 @@ Desde Azure Monitor, la característica de asignación proporciona una visión g
 
 ![Visión general de una asignación de varias máquinas virtuales en Azure Monitor](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Desde el selector de **áreas de trabajo** en la parte superior de la página, si tiene más de un área de trabajo de Log Analytics, elija el área de trabajo que esté habilitada con la solución y tenga máquinas virtuales que dependan de ella. El **grupo** selector devolverá las suscripciones, grupos de recursos, [grupos de equipos](../../azure-monitor/platform/computer-groups.md)y conjuntos de escalado de máquinas virtuales de los equipos relacionados con el área de trabajo seleccionada. La selección solo se aplica a la característica de asignación y no se aplica a las secciones de rendimiento o asignación.
+Desde el selector de **áreas de trabajo** en la parte superior de la página, si tiene más de un área de trabajo de Log Analytics, elija el área de trabajo que esté habilitada con la solución y tenga máquinas virtuales que dependan de ella. El selector de **grupos** devolverá las suscripciones, los grupos de recursos, los [grupos de equipos](../../azure-monitor/platform/computer-groups.md) y los conjuntos de escalado de máquinas virtuales de los equipos relacionados con el área de trabajo seleccionada. La selección solo se aplica a la característica de asignación y no se aplica a las secciones de rendimiento o asignación.
 
 De forma predeterminada, la asignación muestra los últimos 30 minutos. Mediante el selector **Intervalo de tiempo**, se pueden consultar intervalos de tiempo históricos de hasta una hora para mostrar el aspecto de las dependencias en el pasado (por ejemplo, durante un incidente o antes de un cambio).   
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
 ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597421"
 ---
 # <a name="get-started-with-device-twins-node"></a>Introducción a los dispositivos gemelos (Node)
@@ -31,7 +31,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Node.js versión 10.0 o posterior.
+* Versión 10.0.x de Node.js o posterior.
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
@@ -136,7 +136,7 @@ En esta sección, creará una aplicación de consola de Node.js que agrega metad
 
    Debería ver un dispositivo en los resultados de la consulta que pregunta por todos los dispositivos que se encuentran en **Redmond43** y ninguno para la consulta que restringe los resultados a los dispositivos que utilizan una red de telefonía móvil.
    
-    ![Ver el dispositivo de uno en los resultados de consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
+    ![Visualización del dispositivo en los resultados de la consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 En la siguiente sección, creará una aplicación de dispositivo que notifica la información de conectividad y cambia el resultado de la consulta en la sección anterior.
 
@@ -216,7 +216,7 @@ En esta sección, creará una aplicación de consola de Node.js que se conecta a
 
     Esta vez **myDeviceId** debe aparecer en los resultados de ambas consulta.
 
-    ![Mostrar myDeviceId en los resultados de consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
+    ![Representación de myDeviceId en los resultados de las dos consultas](media/iot-hub-node-node-twin-getstarted/service2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -224,8 +224,8 @@ En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después,
 
 Use los siguientes recursos para obtener información sobre cómo:
 
-* Enviar telemetría desde dispositivos con el [empezar a trabajar con IoT Hub](quickstart-send-telemetry-node.md) tutorial,
+* Enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub](quickstart-send-telemetry-node.md).
 
 * Configurar dispositivos mediante las propiedades deseadas del dispositivo gemelo con el tutorial [Uso de las propiedades deseadas para configurar dispositivos](tutorial-device-twins.md).
 
-* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el [usar métodos directos](quickstart-control-device-node.md) tutorial.
+* Controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el tutorial [Uso de métodos directos](quickstart-control-device-node.md).

@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784338"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
@@ -37,9 +37,9 @@ En este artículo se proporciona una introducción de ambos correos electrónico
 
 ## <a name="users-at-risk-detected-email"></a>Correo electrónico de los usuarios en riesgo detectados
 
-En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection genera una alerta de correo electrónico con el asunto **Usuarios en riesgo detectados**. El correo electrónico incluye un vínculo al informe **[Usuarios marcados en riesgo](../reports-monitoring/concept-user-at-risk.md)**. Como práctica recomendada, debería investigar inmediatamente los usuarios en peligro.
+En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection genera una alerta de correo electrónico con el asunto **Usuarios en riesgo detectados**. El correo electrónico incluye un vínculo al informe **[Usuarios marcados en riesgo](../reports-monitoring/concept-user-at-risk.md)** . Como práctica recomendada, debería investigar inmediatamente los usuarios en peligro.
 
-La configuración de esta alerta permite especificar a qué nivel de riesgo del usuario que desea que se genere la alerta. Se generará el correo electrónico al alcanzar el nivel de riesgo del usuario especificado; Sin embargo, no recibirá nuevos usuarios a alertas de correo electrónico de riesgo detectado para este usuario se muevan a este nivel de riesgo del usuario. Por ejemplo, si establece la directiva para alertar en riesgo de usuario medio y el usuario que John se mueve a riesgo medio, recibirán los usuarios de correo electrónico de riesgo detectado para John. Sin embargo, no recibirá un segundo usuarios alerta riesgo detectado si Juan, a continuación, se mueve a alto riesgo o tiene los eventos de riesgo adicional.
+La configuración de esta alerta permite especificar a qué nivel de riesgo del usuario desea que se genere la alerta. Se generará el correo electrónico al alcanzar el nivel de riesgo del usuario especificado. Sin embargo, no recibirá nuevas alertas por correo electrónico de usuarios en riesgo detectados para este usuario una vez que pase a este nivel de riesgo del usuario. Por ejemplo, si establece la directiva para alertar en el riesgo de usuario medio y el usuario John pasa a riesgo medio, recibirá el correo electrónico de usuarios en riesgo detectados para John. Sin embargo, no recibirá una segunda alerta de usuarios en riesgo detectados si John pasa a riesgo alto o tiene eventos de riesgo adicionales.
 
 ![Correo electrónico de los usuarios en riesgo detectados](./media/notifications/01.png)
 
@@ -48,7 +48,7 @@ La configuración de esta alerta permite especificar a qué nivel de riesgo del 
 
 Como administrador, puede establecer:
 
-- **El nivel de riesgo de usuario que desencadena la generación de este correo electrónico** : de forma predeterminada, el nivel de riesgo se establece en "Alto" riesgo.
+- **El nivel de riesgo de usuario que desencadena la generación de este correo electrónico**: de forma predeterminada, el nivel de riesgo se establece en "Alto" riesgo.
 - **Los destinatarios de este correo electrónico**: de forma predeterminada, los destinatarios incluyen todos los administradores globales. Los administradores globales también pueden agregar otros administradores globales, administradores de seguridad y Lectores de seguridad como destinatarios.  
 
 
@@ -60,7 +60,7 @@ Para abrir el cuadro de diálogo relacionado, haga clic en **Alertas** en la sec
 ## <a name="weekly-digest-email"></a>Correo electrónico de resumen semanal
 
 El correo electrónico de resumen semanal contiene un sumario de nuevos eventos de riesgo.  
- Incluye:
+Incluye:
 
 - Usuarios en riesgo
 
@@ -83,6 +83,6 @@ Para abrir el cuadro de diálogo relacionado, haga clic en **Resumen semanal** e
 ![Correo electrónico de los usuarios en riesgo detectados](./media/notifications/04.png)
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

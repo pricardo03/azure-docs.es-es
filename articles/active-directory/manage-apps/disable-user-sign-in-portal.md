@@ -17,22 +17,22 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90000f34ff247fdd5939dc19971c170aa4b70386
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824658"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory
-Es fácil deshabilitar una aplicación empresarial, por lo que ningún usuario puede iniciar sesión en ella en Azure Active Directory (Azure AD). Necesita los permisos adecuados para administrar la aplicación empresarial. Y debe ser administrador global en el directorio.
+Deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en Azure Active Directory (Azure AD) es fácil. Tiene que tener los permisos adecuados para administrar la aplicación empresarial. Y tiene que ser el administrador global del directorio.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>¿Cómo puedo deshabilitar los inicios de sesión de usuario?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 1. Seleccione **Todos los servicios**, escriba **Azure Active Directory** en el cuadro de texto y, después, seleccione **Entrar**.
-1. En el **Azure Active Directory** -  ***nombredeldirectorio*** panel (es decir, el panel de Azure AD para el directorio que se está administrando), seleccione **aplicaciones empresariales**.
-1. En el **aplicaciones empresariales - todas las aplicaciones** panel, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
+1. En el panel **Azure Active Directory** -  ***nombreDelDirectorio*** (es decir, el panel de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
+1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
 1. En el panel ***nombreDeLaAplicación*** (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione **Propiedades**.
-1. En el panel ***nombreDeLaAplicación*** - **Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?**, seleccione **No**.
+1. En el panel ***nombreDeLaAplicación*** - **Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?** , seleccione **No**.
 1. Haga clic en el comando **Guardar** .
 
 ## <a name="next-steps"></a>Pasos siguientes

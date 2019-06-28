@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400633"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
@@ -22,7 +22,7 @@ Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft
 
 ## <a name="data-box-service-limits"></a>Límites de servicio de Data Box
 
- - El servicio Data Box está disponible en las regiones de Azure aparecen en [disponibilidad por región](data-box-disk-overview.md#region-availability).
+ - El servicio Data Box está disponible en las regiones de Azure incluidas en [Disponibilidad en regiones](data-box-disk-overview.md#region-availability).
  - Solo se admite una cuenta de almacenamiento con Data Box Disk.
 
 ## <a name="data-box-disk-performance"></a>Rendimiento de Data Box Disk
@@ -44,9 +44,9 @@ Para conocer la información más reciente sobre los límites del servicio de al
 
 ## <a name="data-upload-caveats"></a>Advertencias al cargar los datos
 
-- No copie los datos directamente en los discos. Copiar datos a creada previamente *BlockBlob*,*PageBlob*, y *AzureFile* carpetas.
+- No copie los datos directamente en los discos. Copie los datos en las carpetas *BlockBlob*, *PageBlob* y *AzureFile* creadas previamente.
 - Una carpeta en las carpetas *BlockBlob* y *PageBlob* es un contenedor. Por ejemplo, los contenedores se crean como *BlockBlob/contenedor* y *PageBlob/contenedor*.
-- Si tiene un objeto existente de Azure (por ejemplo, un blob) en la nube con el mismo nombre que el objeto que se está copiando, discos de Data Box cambiará el nombre del archivo como file(1) en la nube.
+- Si tiene un objeto existente de Azure (por ejemplo, un blob) en la nube con el mismo nombre que el objeto que se está copiando, Data Box Disk cambiará el nombre del archivo a archivo(1) en la nube.
 - Todos los archivos escritos en los recursos compartidos *BlockBlob* y *PageBlob* se cargan como blob en bloques y blob en páginas, respectivamente.
 - Todas las jerarquías de directorios vacías (sin archivos) que creó en las carpetas *BlockBlob* y *PageBlob* no se cargan.
 - Si se han producido errores al cargar datos en Azure, se crea un registro de errores en la cuenta de almacenamiento de destino. La ruta de acceso a este registro de errores está disponible en el portal cuando se completa la carga. Puede revisar el registro para realizar acciones correctivas. No elimine los datos del origen sin comprobar los datos cargados.
@@ -72,25 +72,25 @@ Estos son los tamaños de los objetos de Azure que se pueden escribir. Asegúres
 | Tipo de objeto de Azure | Límite predeterminado                                             |
 |-------------------|-----------------------------------------------------------|
 | Blob en bloques        | ~4,75 TiB                                                 |
-| Blob en páginas         | 8 TiB <br> (Todos los archivos cargados en el formato Blob de página deben ser de 512 bytes alineados, lo contrario, se produce un error en la carga. <br> El VHD y VHDX tienen alineados de 512 bytes.) |
-|Archivos de Azure        | 1 TiB <br> Máx. tamaño del recurso compartido es de 5 TB     |
-| Discos administrados     |4 TiB <br> Para obtener más información sobre el tamaño y los límites, consulte: <li>[Objetivos de escalabilidad para discos administrados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Blob en páginas         | 8 TiB <br> Todos los archivos cargados en formato de blob en páginas deben tener 512 bytes alineados; de lo contrario, se produce un error en la carga. <br> VHD y VHDX tienen 512 bytes alineados. |
+|Archivos de Azure        | 1 TiB <br> Máx. tamaño del recurso compartido es de 5 TiB     |
+| Discos administrados     |4 TiB <br> Para más información sobre el tamaño y los límites, consulte: <li>[Objetivos de escalabilidad para discos administrados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Convenciones de nomenclatura de archivos, blobs en páginas y blobs en bloques de Azure
 
 | Entidad                                       | Convenciones                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nombres de contenedor de blob en bloques y blob en páginas <br> Nombres de recurso compartido de archivos para archivos de Azure | Debe ser un nombre DNS válido que tenga entre 3 y 63 caracteres. <br>  Debe empezar por una letra o un número. <br> Solo puede contener letras minúsculas, números y el guion (-). <br> Los caracteres de guión (-) deben estar inmediatamente precedidos y seguidos por una letra o un número. <br> No se permiten guiones consecutivos en nombres. |
-| Nombres de archivos y directorios para archivos de Azure     |<li> No distingue mayúsculas y minúsculas, mantiene las mayúsculas y minúsculas, y no debe superar los 255 caracteres. </li><li> No puede terminar en una barra diagonal (/). </li><li>Si se proporciona, se quitará automáticamente. </li><li> No se permiten los caracteres siguientes: <code>" \\ / : \| < > * ?</code></li><li> Los caracteres de URL reservadas deben convertirse correspondientemente. </li><li> No se permiten caracteres no válidos en la ruta de acceso de la dirección URL. Puntos de código como \\uE000 no son caracteres Unicode válidos. Algunos caracteres ASCII o Unicode, como los caracteres de control (0 x 00 a 0x1F, \\u0081, etc.), tampoco están permitidos. Para conocer las reglas que rigen las cadenas Unicode en HTTP/1.1, consulte RFC 2616, sección 2.2: Basic Rules y RFC 3987. </li><li> No se permiten los siguientes nombres de archivo: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, carácter de punto (.) y caracteres de dos puntos (..).</li>|
+| Nombres de contenedor de blob en bloques y blob en páginas <br> Nombres de recursos compartidos de archivos de Azure | Debe ser un nombre DNS válido que tenga entre 3 y 63 caracteres. <br>  Debe empezar por una letra o un número. <br> Solo puede contener letras minúsculas, números y el guion (-). <br> Los caracteres de guión (-) deben estar inmediatamente precedidos y seguidos por una letra o un número. <br> No se permiten guiones consecutivos en nombres. |
+| Nombres de archivos y directorios para archivos de Azure     |<li> No distingue mayúsculas y minúsculas, mantiene las mayúsculas y minúsculas, y no debe superar los 255 caracteres. </li><li> No puede terminar en una barra diagonal (/). </li><li>Si se proporciona, se quitará automáticamente. </li><li> No se permiten los caracteres siguientes: <code>" \\ / : \| < > * ?</code></li><li> Los caracteres de URL reservadas deben convertirse correspondientemente. </li><li> No se permiten caracteres no válidos en la ruta de acceso de la dirección URL. Los puntos de código como \\uE000 no son caracteres Unicode válidos. Tampoco se permiten algunos caracteres ASCII o Unicode, como los caracteres de control (0x00 a 0x1F, \\u0081, etc.). Para conocer las reglas que rigen las cadenas Unicode en HTTP/1.1, consulte RFC 2616, sección 2.2: Basic Rules y RFC 3987. </li><li> No se permiten los siguientes nombres de archivo: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, carácter de punto (.) y caracteres de dos puntos (..).</li>|
 | Nombres de blob para blob en bloques y blob en páginas      | Los nombres de blob distinguen mayúsculas de minúsculas y pueden contener cualquier combinación de caracteres. <br> Un nombre de blob debe tener entre 1 y 1024 caracteres. <br> Los caracteres de URL reservadas deben convertirse correspondientemente. <br>El número de segmentos de ruta de acceso que componen el nombre del blob no puede superar los 254. Un segmento de ruta de acceso es la cadena entre caracteres delimitadores consecutivos (por ejemplo, la barra diagonal "/") que se corresponden con el nombre de un directorio virtual. |
 
-## <a name="managed-disk-naming-conventions"></a>Administra las convenciones de nomenclatura de disco
+## <a name="managed-disk-naming-conventions"></a>Convenciones de nomenclatura de discos administrados
 
 | Entidad | Convenciones                                             |
 |-------------------|-----------------------------------------------------------|
-| Los nombres de discos administrados       | <li> El nombre debe ser 1 y 80 caracteres. </li><li> El nombre debe comenzar con una letra o un número, terminar con una letra, número o un carácter de subrayado. </li><li> El nombre puede contener solo letras, números, caracteres de subrayado, puntos o guiones. </li><li>   El nombre no debe tener espacios o `/`.                                              |
+| Nombres de discos administrados       | <li> El nombre debe tener una longitud de entre 1 y 80 caracteres. </li><li> El nombre debe comenzar con una letra o un número y terminar con una letra, un número o un carácter de subrayado. </li><li> El nombre solo puede contener letras, números, caracteres de subrayado, puntos o guiones. </li><li>   El nombre no debe tener espacios ni `/`.                                              |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revisión [requisitos del sistema de discos de Data Box](data-box-disk-system-requirements.md)
+- Revise los [requisitos del sistema de Azure Data Box Disk](data-box-disk-system-requirements.md).

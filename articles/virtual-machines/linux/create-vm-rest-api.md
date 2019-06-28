@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391368"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
@@ -63,7 +63,7 @@ Para obtener información general sobre cómo trabajar con solicitudes de la API
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes:
 
-| Name                       | Obligatorio | Type                                                                                | DESCRIPCIÓN  |
+| NOMBRE                       | Obligatorio | Type                                                                                | DESCRIPCIÓN  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Ubicación del recurso |
 | Nombre                       |          | string                                                                              | Escriba un nombre para la máquina virtual. |
@@ -127,7 +127,7 @@ A continuación se muestra un ejemplo de cuerpo de la solicitud. Asegúrese de e
 }
 ```
 
-Para obtener una lista completa de las definiciones disponibles en el cuerpo de solicitud, consulte [máquinas virtuales, crear o actualizar las definiciones de cuerpos de solicitud](/rest/api/compute/virtualmachines/createorupdate#definitions).
+Para obtener una lista completa de las definiciones disponibles en el cuerpo de la solicitud, consulte las [definiciones del cuerpo de la solicitud de creación o actualización de máquinas virtuales](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Envío de la solicitud
 
@@ -137,7 +137,7 @@ Puede usar al cliente de su preferencia para enviar esta solicitud HTTP. Tambié
 
 Hay dos respuestas correctas a la operación para crear o actualizar una máquina virtual:
 
-| Name        | Type                                                                              | DESCRIPCIÓN |
+| NOMBRE        | Type                                                                              | DESCRIPCIÓN |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Creado     |

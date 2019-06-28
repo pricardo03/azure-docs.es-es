@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
 ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60425423"
 ---
 # <a name="check-resource-usage-against-limits"></a>Comparación del uso de recursos con los límites
@@ -41,7 +41,7 @@ En este artículo, aprenderá a ver el número de cada tipo de recurso de red qu
 
      En el ejemplo de la siguiente ilustración se muestran todos los recursos de red con al menos un recurso implementado en la región Este de EE. UU.:
 
-       ![Ver datos de uso](./media/check-usage-against-limits/view-usage.png)
+       ![Vista de datos de uso](./media/check-usage-against-limits/view-usage.png)
 
      Si quiere ordenar las columnas, seleccione el encabezado de columna. Los límites mostrados son los límites de su suscripción. Si necesita aumentar el límite predeterminado, seleccione **Solicitar aumento** y luego complete y envíe la solicitud de soporte técnico. Todos los recursos tienen un límite máximo enumerado en los [límites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) de Azure. Si el límite actual ya es el número máximo, no se puede aumentar el límite.
 
@@ -49,9 +49,9 @@ En este artículo, aprenderá a ver el número de cada tipo de recurso de red qu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell, versión 1.0.0 o versiones posteriores. Ejecute `Get-Module -ListAvailable Az` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzAccount` para iniciar sesión en Azure.
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell, versión 1.0.0 o posterior. Ejecute `Get-Module -ListAvailable Az` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzAccount` para iniciar sesión en Azure.
 
-Ver el uso de los límites con [Get AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). En el ejemplo siguiente se obtiene el uso de recursos donde al menos un recurso está implementado en la ubicación Este de EE. UU.:
+Para ver el uso con respecto a los límites, ejecute [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). En el ejemplo siguiente se obtiene el uso de recursos donde al menos un recurso está implementado en la ubicación Este de EE. UU.:
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `

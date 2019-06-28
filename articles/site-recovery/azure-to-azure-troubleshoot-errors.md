@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796425"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
@@ -175,7 +175,7 @@ Para que la replicación de Site Recovery funcione, la máquina virtual debe dis
       - Si en el futuro se agregan nuevas direcciones a Azure Active Directory (AAD), tendrá que crear nuevas reglas de grupos de seguridad de red.
 
 > [!NOTE]
-> Si las máquinas virtuales se encuentran detrás **estándar** equilibrador de carga interno, a continuación, que no podrá tener acceso a las direcciones IP de Office 365, es decir, Login.micorsoftonline.com de forma predeterminada. Cambie a **básica** interno el tipo de equilibrador de carga o crear acceso salientes como se mencionó en el [artículo](https://aka.ms/lboutboundrulescli).
+> Si las máquinas virtuales se encuentran detrás de un equilibrador de carga interno **estándar**, no tendría acceso a direcciones IP de O365, es decir, login.micorsoftonline.com de forma predeterminada. Cambie a un tipo de equilibrador de carga interno **básico** o cree acceso de salida como se ha mencionado en el [artículo](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: error de configuración de Site Recovery (151197)
 - **Causa posible** </br>
@@ -185,7 +185,7 @@ Para que la replicación de Site Recovery funcione, la máquina virtual debe dis
   - Azure Site Recovery necesita tener acceso a [intervalos de IP de Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) en función de la región. Asegúrese de que los intervalos de IP están accesibles desde la máquina virtual.
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: Error en la replicación A2A cuando sale el tráfico de red a través del servidor de proxy de forma local (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: error de replicación A2A cuando el tráfico de red pasa por el servidor proxy local (151072)
 - **Causa posible** </br>
   - La configuración de proxy personalizada no es válida y el agente de Mobility Service de ASR no detectó automáticamente la configuración de proxy de Internet Explorer
 
@@ -221,21 +221,21 @@ Asegúrese de que se hayan inicializado los discos de datos y, a continuación, 
 
 Si el problema persiste, póngase en contacto con el soporte técnico.
 
-## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Uno o más discos que están disponibles para la protección (código de error 153039)
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Hay uno o más discos disponibles para protección (código de error 153039)
 - **Causa posible** </br>
-  - Si uno o varios de los discos agregados recientemente a la máquina virtual después de la protección. 
-  - Si se han inicializado uno o varios discos más adelante después de la protección de la máquina virtual.
+  - si uno o más de discos se han agregado recientemente a la máquina virtual después de la protección. 
+  - si uno o más discos se han inicializado después de la protección de la máquina virtual.
 
 ### <a name="fix-the-problem"></a>Corrección del problema
-Puede elegir proteger los discos o ignorar la advertencia para que el estado de replicación de la máquina virtual correcto de nuevo.</br>
-1. Para proteger los discos. Vaya a elementos replicados > máquina virtual > discos > haga clic en el disco no protegido > habilitar la replicación.
+Puede optar por proteger los discos o pasar por alto la advertencia para que el estado de replicación de la máquina virtual sea correcto de nuevo.</br>
+1. Para proteger los discos. Vaya a Elementos replicados > Máquina virtual > Discos > haga clic en disco no protegido > Habilitar replicación.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
-2. Para descartar la advertencia. Vaya a elementos replicados > máquina virtual > haga clic en la alerta de descartar bajo la sección de información general.
+2. Para descartar la advertencia. Vaya a Elementos replicados > Máquina virtual > Haga clic en la alerta de descarte de la sección de información general.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>No se puede ver la máquina virtual de Azure o grupo de recursos para la selección en "Habilitar replicación"
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>No se puede ver la máquina virtual o el grupo de recursos de Azure para su selección en "Habilitar replicación"
 
  **Causa 1:  el grupo de recursos y la máquina virtual de origen están en ubicaciones distintas** <br>
-Azure Site Recovery actualmente mandatos que las máquinas virtuales y grupo de recursos de la región de origen deben estar en la misma ubicación. Si no es así, no podrá encontrar la máquina virtual durante el momento de la protección. Como alternativa, puede habilitar la replicación de la máquina virtual en lugar de almacén de Recovery services. Vaya a Sourece VM > Propiedades > habilitar la replicación y recuperación ante desastres.
+Actualmente, Azure Site Recovery requiere que el grupo de recursos y las máquinas virtuales de la región de origen estén en la misma ubicación. Si no es así, no podrá encontrar la máquina virtual durante el momento de la protección. Como solución alternativa, puede habilitar la replicación desde la máquina virtual en lugar del almacén de Recovery Services. Vaya a Máquina virtual de origen > Propiedades > Recuperación ante desastres y habilite la replicación.
 
 **Causa 2: el grupo de recursos no forma parte de la suscripción seleccionada** <br>
 Es posible que no pueda encontrar el grupo de recursos en el momento de la protección si no forma parte de la suscripción especificada. Asegúrese de que el grupo de recursos pertenece a la suscripción que se usa.
@@ -327,7 +327,7 @@ Si observa la cadena en negrita anterior, GRUB tiene nombres de dispositivos rea
 Los nombres de dispositivo se deben reemplazar con el UUID correspondiente.<br>
 
 
-1. Buscar el UUID del dispositivo, ejecute el comando "blkid \<nombre del dispositivo >". Por ejemplo:<br>
+1. Para buscar el UUID del dispositivo, ejecute el comando "blkid \<nombre de dispositivo>". Por ejemplo:<br>
    ```
    blkid /dev/sda1
    ```<br>

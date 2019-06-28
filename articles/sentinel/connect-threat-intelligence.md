@@ -1,6 +1,6 @@
 ---
-title: Conectarse a datos de inteligencia de amenazas a la versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo conectar los datos de inteligencia de amenazas a Centinela de Azure.
+title: Conectar datos de inteligencia sobre amenazas a Azure Sentinel, versión preliminar | Microsoft Docs
+description: Obtenga información sobre cómo conectar datos de inteligencia sobre amenazas a Azure Sentinel.
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
@@ -14,46 +14,46 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233748"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>Conectar los datos de los proveedores de inteligencia de amenazas 
+# <a name="connect-data-from-threat-intelligence-providers"></a>Conectar datos de proveedores de inteligencia sobre amenazas 
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Después de transmitir los datos en Azure Sentinel, se puede enriquecer, con la fuente de inteligencia de amenazas que usan en toda la organización. 
+Después de transmitir los datos a Azure Sentinel, pueden enriquecerse con la fuente de inteligencia sobre amenazas que se use en toda la organización. 
 
-Para permitirle cross Compruebe las reglas y alertas con inteligencia de amenazas es true, por ejemplo, si recibe una alerta de una dirección IP específica, la integración del proveedor de inteligencia de amenazas podrán informarle si recientemente encontró esa dirección IP malintencionada , Permite la integración con azure centinela [proveedores de inteligencia de amenazas](https://aka.ms/graphsecuritytips). 
+Azure Sentinel permite la integración con [proveedores de inteligencia sobre amenazas](https://aka.ms/graphsecuritytips) con el propósito de que se puedan comprobar las reglas y alertas con una inteligencia sobre amenazas genuina, así, por ejemplo, si se recibe una alerta de una dirección IP específica, la integración del proveedor de inteligencia sobre amenazas podrá informarle de si esa dirección IP se ha detectado recientemente como malintencionada. 
 
-Puede transmitir los registros de proveedores de inteligencia de amenazas en Azure Sentinel con un solo clic. Esta conexión le permite incorporar los indicadores que contiene varios tipos de objetos observables como dirección IP, dominio, dirección URL y hash de archivo para buscar y crear personalizado le alerta de reglas en Azure Sentinel.  
+Se pueden transmitir registros desde los proveedores de inteligencia sobre amenazas a Azure Sentinel con tan solo un clic. Esta conexión le permite incorporar indicadores que contienen varios tipos de objetos observables (como direcciones IP, dominios, direcciones URL y hash de archivos) para buscar y crear reglas de alertas personalizadas en Azure Sentinel.  
 > [!NOTE]
-> Puede escribir indicadores de amenazas personalizado en Azure Centinela para su uso en escenarios de búsqueda, paneles y las reglas de alerta mediante la integración con el [tiIndicator de seguridad de Microsoft Graph](https://aka.ms/graphsecuritytiindicators) entidad o mediante un [Microsoft Gráfico seguridad integrada de plataforma de inteligencia de amenazas](https://aka.ms/graphsecuritytips).
+> Para especificar indicadores de amenaza personalizados en Azure Sentinel para usarlos en reglas de alertas, paneles y escenarios de búsqueda, se puede integrar la entidad [tiIndicator de Microsoft Graph Security](https://aka.ms/graphsecuritytiindicators) o usar una [plataforma de inteligencia sobre amenazas integrada de Microsoft Graph Security](https://aka.ms/graphsecuritytips).
 
 ## <a name="prerequisites"></a>Requisitos previos  
 
-- Usuario con permisos de administrador de seguridad o de administrador global 
+- Un usuario que sea administrador global o que tenga permisos de administrador de seguridad 
 
-- Aplicación de inteligencia de amenazas integrada con Microsoft Intelligent Security Graph 
+- Aplicación de inteligencia sobre amenazas integrada con Microsoft Intelligent Security Graph 
 
-## <a name="connect-to-threat-intelligence"></a>Conectarse a la inteligencia sobre amenazas 
+## <a name="connect-to-threat-intelligence"></a>Conectar con la inteligencia sobre amenazas 
 
-1. Si ya usa un proveedor de inteligencia de amenazas, asegúrese de examinar la aplicación de la sugerencia y conceder permiso para enviar los indicadores a Microsoft y especifique el servicio como Centinela de Azure.  
+1. Si ya usa un proveedor de inteligencia sobre amenazas, asegúrese de examinar esa aplicación y concederle permiso para enviar indicadores a Microsoft, así como especificar el servicio Azure Sentinel.  
 
-2. En Azure Sentinel, seleccione **conectores de datos** y, a continuación, haga clic en el **inteligencia sobre amenazas** icono.
+2. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **inteligencia sobre amenazas**.
 
 3. Haga clic en **Conectar**. 
 
-4. Para usar el esquema correspondiente en Log Analytics para las fuentes de inteligencia de amenazas, busque **ThreatIntelligenceIndicator**. 
+4. Para usar el esquema correspondiente en Log Analytics para encontrar fuentes de inteligencia sobre amenazas, busque **ThreatIntelligenceIndicator**. 
 
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido cómo conectar el proveedor de inteligencia de amenazas a Centinela de Azure. Para obtener más información acerca de Centinela de Azure, consulte los siguientes artículos.
+En este documento, ha aprendido a conectar su proveedor de inteligencia sobre amenazas a Azure Sentinel. Para obtener más información sobre Azure Sentinel, consulte los siguientes artículos.
 
 - Para empezar a trabajar con Azure Sentinel, necesita una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [incorporar los datos en Azure Sentinel](quickstart-onboard.md), [obtenga visibilidad sobre ellos y aprenda a defenderse de posibles amenazas](quickstart-get-visibility.md).

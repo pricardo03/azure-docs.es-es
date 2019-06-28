@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570588"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Linux con el comando Ejecutar
@@ -52,7 +52,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 > [!NOTE]
 > Para ejecutar comandos como un usuario diferente, puede usar `sudo -u` para especificar la cuenta de usuario que se utilizará.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 Navegue a una máquina virtual en [Azure](https://portal.azure.com) y seleccione **Ejecutar comando** en **OPERATIONS**. Se mostrará una lista de los comandos disponibles para ejecutarse en la máquina virtual.
 
@@ -78,9 +78,9 @@ Esta tabla muestra la lista de comandos disponibles para máquinas virtuales Lin
 
 ## <a name="limiting-access-to-run-command"></a>Limitación del acceso al comando Ejecutar
 
-Enumera los comandos de ejecución o que muestra los detalles de un comando requieren el `Microsoft.Compute/locations/runCommands/read` permiso en el nivel de suscripción que integrado [lector](../../role-based-access-control/built-in-roles.md#reader) rol y versiones posteriores.
+Para enumerar los comandos Ejecutar o mostrar los detalles de un comando, se requiere el permiso `Microsoft.Compute/locations/runCommands/read` en el nivel de suscripción, que tienen el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) integrado y otros superiores.
 
-Ejecutar un comando requiere el `Microsoft.Compute/virtualMachines/runCommand/action` permiso en el nivel de suscripción que la [colaborador de máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol y versiones posteriores tienen.
+Para ejecutar un comando, se requiere el permiso `Microsoft.Compute/virtualMachines/runCommand/action` en el nivel de suscripción, que tienen el rol [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y otros superiores.
 
 Puede usar uno de los roles [integrados](../../role-based-access-control/built-in-roles.md) o crear uno [personalizado](../../role-based-access-control/custom-roles.md) para usar el comando Ejecutar.
 

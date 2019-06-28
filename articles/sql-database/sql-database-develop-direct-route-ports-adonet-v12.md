@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075509"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Puertos más allá de 1433 para ADO.NET 4.5
@@ -43,11 +43,11 @@ La secuencia es la siguiente:
 
 1. ADO.NET 4.5 (o posterior) inicia una breve interacción con la nube de Azure y recibe un número de puerto identificado dinámicamente.
 
-   * Es el número de puerto identificado dinámicamente en el intervalo de 11000 a 11999.
+   * El número de puerto identificado dinámicamente se encuentra en el intervalo de 11000-11999.
 2. Luego, ADO.NET se conecta al servidor de SQL Database directamente, sin ningún middleware entre ellos.
 3. Las consultas se envían directamente a la base de datos y los resultados se devuelven directamente al cliente.
 
-Asegúrese de que el puerto de intervalos de 11000 a 11999 en el equipo cliente de Azure se encuentran disponibles para las interacciones de cliente de ADO.NET 4.5 con SQL Database.
+Asegúrese de que los intervalos de puertos de 11000 a 11999 en la máquina cliente de Azure queden disponibles para las interacciones de cliente de ADO.NET 4.5 con SQL Database.
 
 * En concreto, los puertos del intervalo deben estar libres de cualquier otro bloqueador de salida.
 * En la máquina virtual de Azure, **Firewall de Windows con seguridad avanzada** controla la configuración de puertos.

@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545275"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | ID | Obligatorio | Azure AD usa este atributo para rellenar el atributo `InResponseTo` de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, `id6c1c178c166d486687be4aaf5e482730` es un id. válido. |
-| Version | Obligatorio | Este parámetro debe establecerse en **2.0**. |
+| Versión | Obligatorio | Este parámetro debe establecerse en **2.0**. |
 | IssueInstant | Obligatorio | Se trata de una cadena DateTime con un valor de hora UTC y un [formato de tiempo de ida y vuelta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera un valor DateTime de este tipo, pero no evalúa ni utiliza el valor. |
 | AssertionConsumerServiceUrl | Opcional | Si se proporciona, este parámetro debe coincidir con el elemento `RedirectUri` del servicio en la nube de Azure AD. |
 | ForceAuthn | Opcional | Se trata de un elemento booleano. Si es true, significa que el usuario se verá forzado a volver a autenticarse, incluso si tiene una sesión válida con Azure AD. |
@@ -90,7 +90,7 @@ Si se proporciona `NameIDPolicy`, puede incluir su atributo `Format` opcional. E
 Azure AD omite el atributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-El elemento `RequestedAuthnContext` especifica los métodos de autenticación deseados. Es opcional en los elementos `AuthnRequest` enviados a Azure AD. Azure AD admite `AuthnContextClassRef` valores como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+El elemento `RequestedAuthnContext` especifica los métodos de autenticación deseados. Es opcional en los elementos `AuthnRequest` enviados a Azure AD. Azure AD admite valores de `AuthnContextClassRef` como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Ámbito
 El elemento `Scoping`, que incluye una lista de proveedores de identidades, es opcional en los elementos `AuthnRequest` enviados a Azure AD.
@@ -100,10 +100,10 @@ Si se proporciona, no incluya el atributo `ProxyCount` ni el elemento `IDPListOp
 ### <a name="signature"></a>Firma
 No incluya un elemento `Signature` en los elementos `AuthnRequest`, ya que Azure AD no es compatible con la firma de solicitudes de autenticación.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Asunto
 Azure AD omite el elemento `Subject` de los elementos `AuthnRequest`.
 
-## <a name="response"></a>Respuesta
+## <a name="response"></a>Response
 Cuando un proceso de inicio de sesión solicitado se completa correctamente, Azure AD envía una respuesta al servicio en la nube. Una respuesta a un intento de inicio de sesión correcto tiene este aspecto:
 
 ```
@@ -149,7 +149,7 @@ Cuando un proceso de inicio de sesión solicitado se completa correctamente, Azu
 </samlp:Response>
 ```
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 
 El elemento `Response` incluye el resultado de la solicitud de autorización. Azure AD configura los valores `ID`, `Version` y `IssueInstant` en el elemento `Response`. También establece los siguientes atributos:
 
@@ -158,7 +158,7 @@ El elemento `Response` incluye el resultado de la solicitud de autorización. Az
 
 ### <a name="issuer"></a>Emisor
 
-Azure AD establece el `Issuer` elemento `https://login.microsoftonline.com/<TenantIDGUID>/` donde \<TenantIDGUID > es el identificador del inquilino del inquilino de Azure AD.
+Azure AD establece el elemento `Issuer` en `https://login.microsoftonline.com/<TenantIDGUID>/`, donde \<TenantIdGUID> es el identificador del inquilino de Azure AD.
 
 Por ejemplo, una respuesta con el elemento Issuer podría ser similar a la siguiente:
 
@@ -193,7 +193,7 @@ Además de `ID`, `IssueInstant` y `Version`, Azure AD establece los elementos si
 
 #### <a name="issuer"></a>Emisor
 
-Se establece en `https://sts.windows.net/<TenantIDGUID>/`donde \<TenantIDGUID > es el identificador del inquilino del inquilino de Azure AD.
+Se establece en `https://sts.windows.net/<TenantIDGUID>/`, donde \<TenantIDGUID> es el identificador del inquilino de Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -211,7 +211,7 @@ Para generar esta firma digital, Azure AD utiliza la clave de firma del elemento
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Subject
+#### <a name="subject"></a>Asunto
 
 Especifica la entidad que es el firmante de las instrucciones de la aserción. Contiene un elemento `NameID` , que representa al usuario autenticado. El valor de `NameID` es un identificador de destino que se dirige únicamente al proveedor de servicios que es la audiencia del token. Es persistente; es decir se puede revocar, pero nunca volver a asignar. También es opaco, ya que no revela ningún dato del usuario y no se puede utilizar como identificador en las consultas de atributo.
 

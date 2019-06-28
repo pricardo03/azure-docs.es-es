@@ -17,10 +17,10 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160265"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
@@ -36,7 +36,7 @@ Este artículo proporciona información general sobre las extensiones de máquin
 Varias extensiones de máquina virtual de Azure diferentes están disponibles, cada una con un caso de uso específico. Estos son algunos ejemplos:
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual con la extensión DSC para Windows. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](dsc-overview.md).
-- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para obtener más información, consulte [conectar máquinas virtuales de Azure a los registros de Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para más información, consulte el artículo sobre la [conexión de máquinas virtuales de Azure a registros de Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configure una máquina virtual de Azure con Chef. Para más información, consulte el artículo sobre [automatización de la implementación de máquinas virtuales de Azure con Chef](../windows/chef-automation.md).
 - Configure la supervisión de su infraestructura de Azure con la extensión de Datadog. Para obtener más información, consulte el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -62,7 +62,7 @@ Para brindar la mejor experiencia posible, se requieren versiones mínimas del a
 Windows Guest Agent se ejecuta en varios sistemas operativos, pero el marco de las extensiones tiene un límite para los sistemas operativos de esas extensiones. Para obtener más información, consulte [este artículo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Algunas extensiones no son compatibles con todos los sistemas operativos y puede aparecer el *código de error 51, "Sistema operativo no compatible"*. Revise la documentación de cada una de las extensiones para información sobre la compatibilidad.
+Algunas extensiones no son compatibles con todos los sistemas operativos y puede aparecer el *código de error 51, "Sistema operativo no compatible"* . Revise la documentación de cada una de las extensiones para información sobre la compatibilidad.
 
 #### <a name="network-access"></a>Acceso de red
 
@@ -141,7 +141,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 El comando `Set-AzVMExtension` se puede usar para iniciar cualquier extensión de máquina virtual. Para más información, consulte la [referencia de Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Seleccione la máquina virtual en el portal, elija **Extensiones** y, luego, **Agregar**. Elija la extensión que quiera en la lista de extensiones disponibles y siga las instrucciones del asistente.
 
@@ -291,7 +291,7 @@ Para comprobar qué versión ejecuta, consulte el artículo sobre [cómo detecta
 
 #### <a name="extension-updates"></a>Actualizaciones de extensiones
 
-Cuando hay disponible una actualización de extensión, Windows Guest Agent la descarga y actualiza. Las actualizaciones de extensiones automáticas son *secundarias* o *revisiones*. Puede decidir si desea recibir o no las actualizaciones *secundarias* de las extensiones cuando aprovisiona la extensión. En el ejemplo siguiente se muestra cómo actualizar automáticamente las versiones secundarias en una plantilla de Resource Manager con *autoUpgradeMinorVersion": true,'*:
+Cuando hay disponible una actualización de extensión, Windows Guest Agent la descarga y actualiza. Las actualizaciones de extensiones automáticas son *secundarias* o *revisiones*. Puede decidir si desea recibir o no las actualizaciones *secundarias* de las extensiones cuando aprovisiona la extensión. En el ejemplo siguiente se muestra cómo actualizar automáticamente las versiones secundarias en una plantilla de Resource Manager con *autoUpgradeMinorVersion": true,'* :
 
 ```json
     "properties": {
@@ -368,7 +368,7 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 ### <a name="view-extension-status"></a>Consulta del estado de la extensión
 
-Después de una extensión de máquina virtual se haya ejecutado en una máquina virtual, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver el estado de la extensión. *Substatuses[0]* muestra que el aprovisionamiento de la extensión se realizó correctamente, lo que significa que se implementó de manera correcta en la máquina virtual, pero la ejecución de la extensión dentro de la máquina virtual presentó un error, *Substatuses[1]*.
+Después de que una extensión de máquina virtual se ejecuta en una máquina virtual, use [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver el estado de la extensión. *Substatuses[0]* muestra que el aprovisionamiento de la extensión se realizó correctamente, lo que significa que se implementó de manera correcta en la máquina virtual, pero la ejecución de la extensión dentro de la máquina virtual presentó un error, *Substatuses[1]* .
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

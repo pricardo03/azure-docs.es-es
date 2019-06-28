@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409263"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparación para la creación de Avere vFXT
@@ -30,16 +30,16 @@ Para crear una nueva suscripción de Azure en Azure Portal:
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurar los permisos de propietario de la suscripción
 
-Un usuario con permisos de propietario de la suscripción debe encargarse de crear el clúster de vFXT. Acepte los términos de servicio y realizar otras acciones, se necesitan permisos de propietario de la suscripción. 
+Un usuario con permisos de propietario de la suscripción debe encargarse de crear el clúster de vFXT. Los permisos del propietario de la suscripción son necesarios para aceptar los términos del servicio del software y realizar otras acciones. 
 
-Hay algunos escenarios de solución que permiten que no sea el propietario crear un vFTX Avere para el clúster de Azure. Estos escenarios implican restringir los recursos y la asignación de roles adicionales al creador. En ambos casos, un propietario de la suscripción debe también [acepte los términos de vFXT Avere](#accept-software-terms) antes de tiempo. 
+Hay algunos escenarios con soluciones alternativas que permiten a un no-propietario crear una instancia de Avere vFXT para el clúster de Azure. Estos escenarios implican restringir los recursos y asignar roles adicionales al creador. En ambos casos, un propietario de la suscripción también debe [aceptar los términos de Avere vFXT](#accept-software-terms) con antelación. 
 
 | Escenario | Restricciones | Roles de acceso necesarios para crear el clúster de vFXT Avere | 
 |----------|--------|-------|
-| Administrador del grupo de recursos | La red virtual, controlador de clústeres y nodos de clúster deben crearse en el grupo de recursos | [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [colaborador](../role-based-access-control/built-in-roles.md#contributor) roles, ambos con ámbito en el grupo de recursos de destino | 
-| Red virtual externa | El controlador de clústeres y nodos de clúster se crean dentro del grupo de recursos, pero se usa una red virtual existente en otro grupo de recursos | (1) [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [colaborador](../role-based-access-control/built-in-roles.md#contributor) roles con ámbito en el grupo de recursos vFXT; y (2) [colaborador de máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [acceso de usuario Administrador](../role-based-access-control/built-in-roles.md#user-access-administrator), y [Avere colaborador](../role-based-access-control/built-in-roles.md#avere-contributor) roles con ámbito en el grupo de recursos de red virtual. |
+| Administrador del grupo de recursos | La red virtual, el controlador de clúster y los nodos de clúster deben crearse en el grupo de recursos. | Roles [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor), ambos con ámbito en el grupo de recursos de destino. | 
+| Red virtual externa | El controlador de clúster y los nodos de clúster se crean dentro del grupo de recursos, pero se usa una red virtual existente en otro grupo de recursos. | (1) Roles [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) con ámbito en el grupo de recursos de vFXT; y (2) Roles [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator), y [Colaborador de Avere](../role-based-access-control/built-in-roles.md#avere-contributor) con ámbito en el grupo de recursos de la red virtual. |
  
-Una alternativa es crear un rol de acceso personalizado basado en roles (RBAC) de control antes de tiempo y asignar los privilegios al usuario, como se explica en [en este artículo](avere-vfxt-non-owner.md). Este método proporciona permisos significativos a estos usuarios. 
+Una alternativa es crear un rol de control de acceso basado en rol (RBAC) personalizado con antelación y asignar privilegios al usuario, como se explica en [este artículo](avere-vfxt-non-owner.md). Este método proporciona permisos significativos a estos usuarios. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Cuota del clúster de vFXT
 
@@ -77,19 +77,19 @@ Para aceptar los términos de software de antemano:
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
 
-## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Crear un punto de conexión de servicio de almacenamiento en la red virtual (si es necesario)
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Creación de un punto de conexión de servicio de almacenamiento en la red virtual (si es necesario)
 
-Un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene el tráfico de Azure Blob local en lugar de enrutarlo fuera de la red virtual. Se recomienda para cualquier vFXT Avere para el clúster de Azure que usa Azure Blob para el almacenamiento de datos back-end. 
+Un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene el tráfico del blob de Azure de manera local, en lugar de enrutarlo fuera de la red virtual. Se recomienda para cualquier clúster de Avere vFXT for Azure que utilice el blob de Azure para el almacenamiento de datos de back-end. 
 
-Si va a proporcionar una red virtual existente y crear un nuevo contenedor de blobs de Azure para su almacenamiento back-end como parte de la creación del clúster, debe tener un extremo de servicio en la red virtual para el almacenamiento de Microsoft. Este punto de conexión debe existir antes de crear el clúster, o se producirá un error en la creación. 
+Si va a proporcionar una red virtual existente y crear un nuevo contenedor de blobs de Azure para su almacenamiento de back-end como parte de la creación del clúster, debe tener un punto de conexión de servicio en la red virtual para el almacenamiento de Microsoft. Este punto de conexión debe existir antes de crear el clúster o se producirá un error en la creación. 
 
-Se recomienda un punto de conexión de servicio de almacenamiento para cualquier vFXT Avere para el clúster de Azure que usa Azure Blob storage, incluso si agrega el almacenamiento más adelante. 
+Se recomienda un punto de conexión de servicio de almacenamiento para cualquier clúster de Avere vFXT for Azure que usa Azure Blob Storage, incluso si agrega el almacenamiento más adelante. 
 
 > [!TIP] 
-> * Omita este paso si va a crear una nueva red virtual como parte de la creación del clúster. 
-> * Este paso es opcional si no va a crear el almacenamiento de Blob durante la creación del clúster. En ese caso, puede crear el punto de conexión de servicio más adelante si decide usar Azure Blob.
+> * Omita este paso si va a crear una red virtual como parte de la creación del clúster. 
+> * Este paso es opcional si no va a crear el almacenamiento de blob durante la creación del clúster. En ese caso, puede crear el punto de conexión de servicio más adelante si decide utilizar un blob de Azure.
 
-Crear el punto de conexión de servicio de almacenamiento desde el portal de Azure. 
+Cree el punto de conexión de servicio de almacenamiento desde Azure Portal. 
 
 1. En el portal, haga clic en **Redes virtuales** a la izquierda.
 1. Seleccione la red virtual para el clúster. 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606922"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
@@ -37,9 +37,9 @@ El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa 
 | --- | --- | --- |
 | Potencia de salida máxima |580 W |764 |
 | Frecuencia |50/60 Hz |50/60 Hz |
-| Selección del intervalo de voltaje |Intervalo automático: 90 – 264 V CA, 47/63 Hz |Intervalo automático: 90 - 264 V CA, 47/63 Hz |
+| Selección del intervalo de voltaje |Intervalo automático: 90-264 V CA, 47/63 Hz |Intervalo automático: 90-264 V CA, 47/63 Hz |
 | Corriente de entrada máxima |20 A |20 A |
-| Corrección del factor de potencia |>95% del voltaje de entrada nominal  |>95% del voltaje de entrada nominal  |
+| Corrección del factor de potencia |>95% del voltaje de entrada nominal |>95% del voltaje de entrada nominal |
 | Armónicos |Cumple la norma EN 61000-3-2 |Cumple la norma EN 61000-3-2 |
 | Salida |Voltaje en espera de 5 V \@ 2,0 A |Voltaje en espera de 5 V \@ 2,7 A |
 | +5 V \@ 42 A |+5 V \@ 40 A | |
@@ -93,7 +93,7 @@ En la tabla siguiente se enumeran las dimensiones del revestimiento en milímetr
 
 | Revestimiento | Milímetros | Pulgadas |
 | --- | --- | --- |
-| Altura |87,9 |3,46 |
+| Alto |87,9 |3,46 |
 | Ancho en brida de montaje |483 |19,02 |
 | Ancho en el cuerpo del revestimiento |443 |17,44 |
 | Profundidad desde la brida de montaje frontal hasta el extremo del cuerpo del revestimiento |577 |22,72 |
@@ -149,7 +149,7 @@ El dispositivo de Microsoft Azure StorSimple cumple los estándares internaciona
 
 El dispositivo de Microsoft Azure StorSimple cumple las clasificaciones de seguridad siguientes:
 
-* Aprobación de tipo de producto del sistema: UL, cUL, CE
+* Homologación del tipo de producto de sistema: UL, cUL, CE
 * Cumplimiento de seguridad: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Cumplimiento de normas de CEM
@@ -160,8 +160,8 @@ El dispositivo de Microsoft Azure StorSimple cumple las siguientes clasificacion
 
 El dispositivo es compatible con las exigencias de CEM para los niveles de emisiones radiadas y conducidas.
 
-* Lleva a cabo niveles límite de emisiones: CFR 47 parte 15B clase A EN55022 Clase A CISPR clase A
-* Niveles límite de emisiones de radiadas: CFR 47 parte 15B clase A EN55022 Clase A CISPR clase A
+* Niveles límite de emisiones conducidas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A
+* Niveles límite de emisiones radiadas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A
 
 ### <a name="harmonics-and-flicker"></a>Armónicos y parpadeo
 
@@ -173,7 +173,7 @@ El dispositivo cumple con la norma EN 55024.
 
 ## <a name="ac-power-cord-compliance"></a>Cumplimiento de cable de alimentación de CA
 
-El enchufe y el cable toda la eficacia deben cumplir los estándares apropiados para el país o región en la que se usa el dispositivo, y deben tener las aprobaciones de seguridad que son aceptables en ese país o región. Las tablas siguientes enumeran los estándares de los Estados Unidos y Europa.
+El enchufe y el conjunto completo del cable de alimentación deben cumplir los estándares apropiados del país o región en el que se usa el dispositivo, y deben contar con las homologaciones de seguridad aceptables en dicho país o región. Las tablas siguientes enumeran los estándares de los Estados Unidos y Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cables de alimentación de CA - Estados Unidos (debe estar contemplado por NRTL)
 
@@ -188,7 +188,7 @@ El enchufe y el cable toda la eficacia deben cumplir los estándares apropiados 
 | Componente | Especificación |
 | --- | --- |
 | Tipo de cable |Armonizado, H05-VVF-3G1.0 |
-| Socket |CEI 320 C-13, 250 V, 10 A |
+| Toma de corriente |CEI 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cables de red admitidos
 

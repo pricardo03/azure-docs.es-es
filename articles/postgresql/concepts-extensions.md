@@ -1,19 +1,19 @@
 ---
-title: 'Usar las extensiones de PostgreSQL en Azure Database for PostgreSQL: servidor único'
-description: 'Describe la capacidad de ampliar la funcionalidad de la base de datos mediante extensiones de Azure Database for PostgreSQL: servidor único.'
+title: 'Uso de extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor'
+description: 'Describe la capacidad de ampliar la funcionalidad de la base de datos mediante extensiones en Azure Database for PostgreSQL: un solo servidor.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410268"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: servidor único
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información sobre las extensiones de PostgreSQL, vea  [Empaquetar objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>¿Cómo se utilizan las extensiones de PostgreSQL?
@@ -104,7 +104,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 > [!div class="mx-tableFixed"]
 > | **Extensión** | **Descripción** |
 > |---|---|
-> | [TimescaleDB](https://docs.timescale.com/latest) | Ver una base de datos de series temporales SQL que admite automatizada con mayor rapidez de partición para ingesta y consulta. Proporciona funciones analíticas orientados al tiempo, las optimizaciones y escala de PostgreSQL para cargas de trabajo de serie temporal. Se desarrolla TimescaleDB y una marca registrada de [escala de tiempo, Inc.](https://www.timescale.com/) (Vea a continuación una nota sobre esta extensión). |
+> | [TimescaleDB](https://docs.timescale.com/latest) | Una base de datos SQL de serie temporal que admite la creación de particiones automatizada para acelerar la ingesta y la consulta. Proporciona funciones analíticas orientadas al tiempo, optimizaciones y escala PostgreSQL para las cargas de trabajo de serie temporal. TimescaleDB se desarrolla y es una marca registrada de [Timescale, Inc.](https://www.timescale.com/) (Vea a continuación una nota sobre esta extensión). |
 
 
 ## <a name="pgstatstatements"></a>pg_stat_statements
@@ -116,45 +116,45 @@ Hay un equilibrio entre la información de ejecución de consulta que pg_stat_st
 ## <a name="dblink-and-postgresfdw"></a>dblink y postgres_fdw
 dblink y postgres_fdw le permiten conectarse de un servidor PostgreSQL a otro, o a otra base de datos en el mismo servidor. El servidor de recepción debe permitir conexiones del servidor de envío a través de su firewall. Cuando se usan estas extensiones para conectarse entre servidores de Azure Database for PostgreSQL, esto se puede realizar mediante el establecimiento de "Permitir acceso a servicios de Azure" en Activado. Esto también es necesario si desea utilizar las extensiones para volver al mismo servidor. La opción "Permitir el acceso a servicios de Azure" puede encontrarse en la página de Azure Portal para el servidor de Postgres, en Seguridad de la conexión. Si se activa "Permitir el acceso a servicios de Azure", se permitirá en todas las direcciones IP de Azure.
 
-Actualmente, las conexiones salientes desde la base de datos de Azure Database for PostgreSQL no se admiten, excepto para las conexiones a otra base de datos de Azure para servidores de PostgreSQL.
+En la actualidad, no se admiten las conexiones salientes desde Azure Database for PostgreSQL, excepto para las conexiones a otros servidores de Azure Database for PostgreSQL.
 
 ## <a name="timescaledb"></a>TimescaleDB
-TimescaleDB es una base de datos de serie temporal que se empaqueta como una extensión para PostgreSQL. TimescaleDB proporciona funciones analíticas orientados al tiempo, las optimizaciones y se escala Postgres para cargas de trabajo de serie temporal.
+TimescaleDB es una base de datos de serie temporal que se empaqueta como una extensión para PostgreSQL. TimescaleDB proporciona funciones analíticas orientadas al tiempo, optimizaciones y escala Postgres para las cargas de trabajo de serie temporal.
 
-[Más información sobre TimescaleDB](https://docs.timescale.com/latest), una marca registrada de [escala de tiempo, Inc.](https://www.timescale.com/)
+[Más información sobre TimescaleDB](https://docs.timescale.com/latest), una marca registrada de [Timescale, Inc.](https://www.timescale.com/)
 
-### <a name="installing-timescaledb"></a>Instalar TimescaleDB
-Para instalar TimescaleDB, deberá incluirlo en las bibliotecas de precarga compartidas del servidor. Un cambio en las bibliotecas compartidas de precarga de Postgres requiere un **el reinicio del servidor** surta efecto.
+### <a name="installing-timescaledb"></a>Instalación de TimescaleDB
+Para instalar TimescaleDB, tendrá que incluirlo en las bibliotecas de carga previa compartidas del servidor. Para que un cambio en las bibliotecas de carga previa compartidas de Postgres surta efecto, es necesario un **reinicio del servidor**.
 
 > [!NOTE]
-> TimescaleDB puede habilitarse en la base de datos de Azure para las versiones de PostgreSQL 9.6 y 10
+> TimescaleDB se puede habilitar en las versiones 9.6 y 10 de Azure Database for PostgreSQL.
 
-Mediante el [portal Azure](https://portal.azure.com/):
+Mediante [Azure Portal](https://portal.azure.com/):
 
 1. Seleccione su servidor de Azure Database for PostgreSQL.
 
-2. En la barra lateral, seleccione **los parámetros del servidor**.
+2. En la barra lateral, seleccione **Parámetros del servidor**.
 
 3. Busque el parámetro `shared_preload_libraries`.
 
-4. Copie y pegue lo siguiente como el valor de `shared_preload_libraries`
+4. Copie y pegue lo siguiente como valor para `shared_preload_libraries`.
    ```
    timescaledb
    ```
 
-5. Seleccione **guardar** para conservar los cambios. Recibirá una notificación una vez que se guarda el cambio. 
+5. Seleccione **Guardar** para conservar los cambios. Recibirá una notificación una vez que se haya guardado el cambio. 
 
-6. Después de la notificación, **reiniciar** el servidor para aplicar estos cambios. Para aprender a reiniciar un servidor, consulte [Reinicio de un servidor de Azure Database for PostgreSQL mediante Azure Portal](howto-restart-server-portal.md).
+6. Después de la notificación, **reinicie** el servidor para aplicar estos cambios. Para aprender a reiniciar un servidor, consulte [Reinicio de un servidor de Azure Database for PostgreSQL mediante Azure Portal](howto-restart-server-portal.md).
 
 
-Ahora puede habilitar TimescaleDB en la base de datos de Postgres. Conéctese a la base de datos y emita el siguiente comando:
+Ahora puede habilitar TimescaleDB en la base de datos de Postgres. Conéctese a la base de datos y ejecute el comando siguiente:
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
 > [!TIP]
-> Si ve un error, confirme que ha [reinicia el servidor](howto-restart-server-portal.md) después de guardar shared_preload_libraries. 
+> Si ve un error, confirme que ha [reiniciado el servidor](howto-restart-server-portal.md) después de guardar shared_preload_libraries. 
 
-Ahora puede crear un hypertable TimescaleDB [desde cero](https://docs.timescale.com/getting-started/creating-hypertables) o migrar [datos existentes de series temporales de PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
+Ahora puede crear una hipertabla de TimescaleDB [desde cero](https://docs.timescale.com/getting-started/creating-hypertables) o migrar [datos de serie temporal existentes en PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

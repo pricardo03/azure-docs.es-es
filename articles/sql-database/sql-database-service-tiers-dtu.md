@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 5/10/2019
 ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546454"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
@@ -45,7 +45,7 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |||||
 
 > [!NOTE]
-> Puede obtener una base de datos SQL de Azure gratuita en el nivel de servicio básico, junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Puede obtener una base de datos de Azure SQL gratuita en el nivel de servicio Básico junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Límites de DTU de una sola base de datos y almacenamiento
 

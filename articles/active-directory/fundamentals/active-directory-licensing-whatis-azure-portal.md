@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248295"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>¿En qué consisten las licencias basadas en grupos de Azure Active Directory?
@@ -49,7 +49,7 @@ A continuación se indican las características principales de las licencias bas
 
 - Se admiten todos los Servicios en la nube de Microsoft que requieren licencias a nivel de usuario. Esta compatibilidad incluye todos los productos de Office 365, Enterprise Mobility + Security y Dynamics 365.
 
-- Las licencias basadas en grupo actualmente solo está disponible en el [portal Azure](https://portal.azure.com). Si usa principalmente otros portales de administración de usuario y la administración de grupos, como el [centro de administración de Microsoft 365](https://admin.microsoft.com), puede seguir haciéndolo. Sin embargo, debe usar Azure Portal para administrar las licencias en el nivel de grupo.
+- Las licencias basadas en grupos actualmente solo están disponibles mediante [Azure Portal](https://portal.azure.com). Si usa principalmente otros portales de administración para la administración de usuarios y grupos, como [Centro de administración de Microsoft 365](https://admin.microsoft.com), puede seguir haciéndolo. Sin embargo, debe usar Azure Portal para administrar las licencias en el nivel de grupo.
 
 - Azure AD administra automáticamente las modificaciones de licencia resultantes de los cambios de pertenencia a grupos. Habitualmente, las modificaciones de licencia entran en vigor minutos después de un cambio en la pertenencia.
 

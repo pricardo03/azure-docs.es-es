@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61325285"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps
@@ -35,7 +35,7 @@ Para recibir notificaciones sobre errores u otros posibles problemas, configure 
 
 2. Seleccione la aplicación lógica y luego elija **Información general**.
 
-   Azure Portal muestra el historial de ejecuciones y desencadenadores de la aplicación lógica. Por ejemplo: 
+   Azure Portal muestra el historial de ejecuciones y desencadenadores de la aplicación lógica. Por ejemplo:
 
    ![Historial de ejecuciones e historial de desencadenadores de la aplicación lógica](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +49,7 @@ Para recibir notificaciones sobre errores u otros posibles problemas, configure 
 
 3. Para ver los pasos de una ejecución concreta, en **Historial de ejecuciones**, seleccione esa ejecución. 
 
-   La vista de supervisión muestra cada paso de esa ejecución. Por ejemplo: 
+   La vista de supervisión muestra cada paso de esa ejecución. Por ejemplo:
 
    ![Acciones de una ejecución concreta](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +59,7 @@ Para recibir notificaciones sobre errores u otros posibles problemas, configure 
 
    Por ejemplo, puede obtener el **Id. de correlación** de la ejecución, que podría necesitar al usar la [API de REST para aplicaciones lógicas](https://docs.microsoft.com/rest/api/logic).
 
-5. Para obtener detalles sobre un paso concreto, elija ese paso. Ahora puede revisar detalles como las entradas, las salidas y los errores acontecidos en ese paso. Por ejemplo: 
+5. Para obtener detalles sobre un paso concreto, elija ese paso. Ahora puede revisar detalles como las entradas, las salidas y los errores acontecidos en ese paso. Por ejemplo:
 
    ![Detalles del paso](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -74,13 +74,13 @@ Para recibir notificaciones sobre errores u otros posibles problemas, configure 
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Activación del registro de diagnósticos de la aplicación lógica
 
-Para una depuración más rica con detalles de tiempo de ejecución y eventos, puede configurar el registro de diagnósticos con [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Azure Monitor es un servicio de Azure que supervisa y la nube en entornos locales para ayudarle a mantener su disponibilidad y rendimiento. 
+Para una depuración más rica con detalles y eventos de runtime, se puede configurar el registro de diagnóstico con [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Azure Monitor es un servicio de Azure que supervisa los entornos local y en la nube para ayudarlo a mantener su disponibilidad y rendimiento. 
 
 Antes de empezar, necesita un área de trabajo de Log Analytics. Aprenda a [crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione la aplicación lógica. 
 
-2. En el menú de hoja de aplicación lógica, en **supervisión**, elija **diagnósticos** > **configuración de diagnóstico**.
+2. En el menú de la hoja de la aplicación lógica, en **Supervisión**, elija **Diagnóstico** > **Configuración de diagnóstico**.
 
    ![Supervisión, Diagnóstico, Configuración de diagnóstico](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -155,12 +155,12 @@ Para refinar la consulta con un filtro, elija **+Agregar**.
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Extensión de cómo y dónde usa los datos de diagnóstico con otros servicios
 
-Junto con los registros de Azure Monitor, puede ampliar cómo usar datos de diagnóstico de la aplicación lógica con otros servicios de Azure, por ejemplo: 
+Además de con registros de Azure Monitor, puede usar los datos de diagnóstico de la aplicación lógica con otros servicios de Azure, por ejemplo: 
 
 * [Archivar registros de Diagnósticos de Azure en Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Transmitir registros de Diagnósticos de Azure a Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-Luego puede obtener supervisión en tiempo real mediante la telemetría y los análisis de otros servicios, como [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) y [Power BI](../azure-monitor/platform/powerbi.md). Por ejemplo: 
+Luego puede obtener supervisión en tiempo real mediante la telemetría y los análisis de otros servicios, como [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) y [Power BI](../azure-monitor/platform/powerbi.md). Por ejemplo:
 
 * [Transmitir datos de Event Hubs a Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizar datos que se están transmitiendo con Stream Analytics y crear un panel de análisis en tiempo real en Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -178,7 +178,7 @@ Según las opciones que quiera configurar, primero asegúrese de [crear una cuen
 
 Para supervisar métricas concretas o umbrales superados de la aplicación lógica, configure [alertas de Azure](../azure-monitor/platform/alerts-overview.md). Más información sobre [métricas de Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Para configurar las alertas sin [registros de Azure Monitor](../log-analytics/log-analytics-overview.md), siga estos pasos. Criterios de alertas y acciones, más avanzadas [configurar registros de Azure Monitor](#azure-diagnostics) demasiado.
+Para configurar alertas sin [registros de Azure Monitor](../log-analytics/log-analytics-overview.md), siga estos pasos. Para usar criterios y acciones de alerta más avanzados, [configure registros de Azure Monitor](#azure-diagnostics) también.
 
 1. En el menú de la hoja de la aplicación lógica, en **Supervisión**, elija **Diagnóstico** > **Reglas de alerta** > **Agregar alerta** como se muestra aquí:
 

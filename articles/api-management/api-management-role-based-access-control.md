@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 2e53b0d582a69e10de22e85720833800d44058e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141487"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Uso del control de acceso basado en rol en Azure API Management
@@ -52,7 +52,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 Si ninguno de los roles integrados satisface sus necesidades específicas, se pueden crear roles personalizados para proporcionar administración de acceso más pormenorizada para entidades de API Management. Por ejemplo, puede crear un rol personalizado que tenga acceso de solo lectura a un servicio de API Management, pero que tenga acceso de escritura solamente a una API específica. Para más información sobre los roles personalizados, consulte [Roles personalizados para RBAC de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
 > [!NOTE]
-> Para poder ver una instancia de API Management en Azure portal, debe incluir un rol personalizado la ```Microsoft.ApiManagement/service/read``` acción.
+> Para poder ver una instancia de API Management en Azure Portal, un rol personalizado debe incluir la acción ```Microsoft.ApiManagement/service/read```.
 
 A la hora de crear un rol personalizado, es más fácil comenzar con uno de los roles integrados. Edite los atributos para agregar los elementos **Actions**, **NotActions** o **AssignableScopes** y guarde los cambios como un nuevo rol. El ejemplo siguiente comienza con el rol "Azure API Management Service Reader" y crea un rol personalizado denominado "Calculator API Editor". Puede asignar el rol personalizado a una API concreta. De ese modo, el rol solamente tendrá acceso a esa API. 
 

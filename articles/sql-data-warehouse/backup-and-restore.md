@@ -11,25 +11,25 @@ ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236579"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 
-Aprenda a usar la copia de seguridad y restauración en Azure SQL Data Warehouse. Use puntos de restauración de almacenamiento de datos para devolver el almacenamiento a un estado anterior o copiarlo en la región primaria. Utilice copias de seguridad con redundancia geográfica del almacenamiento de datos para restaurarlo en otra región geográfica.
+Obtenga información sobre cómo usar las copias de seguridad y las restauraciones en Azure SQL Data Warehouse. Use puntos de restauración de almacenamiento de datos para devolver el almacenamiento a un estado anterior o copiarlo en la región primaria. Utilice copias de seguridad con redundancia geográfica del almacenamiento de datos para restaurarlo en otra región geográfica.
 
-## <a name="what-is-a-data-warehouse-snapshot"></a>¿Qué es una instantánea de almacenamiento de datos
+## <a name="what-is-a-data-warehouse-snapshot"></a>Qué es una instantánea de almacenamiento de datos
 
 Una *instantánea de almacenamiento de datos* crea un punto de restauración que se puede aprovechar para recuperar o copiar el almacenamiento de datos en un estado anterior.  Dado que SQL Data Warehouse es un sistema distribuido, una instantánea de almacenamiento de datos consta de muchos archivos que se almacenan en Azure Storage. Las instantáneas capturan los cambios incrementales de los datos almacenados en el almacenamiento de datos.
 
-Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  Tarifas de restauración de SQL Data Warehouse pueden variar según el tamaño de la base de datos y la ubicación del almacén de datos de origen y de destino. Promedio de la misma región, las tasas de restauración suelen tardar unos 20 minutos. 
+Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  Las tasas de restauración de SQL Data Warehouse pueden variar según el tamaño de la base de datos y la ubicación del almacenamiento de datos de origen y de destino. Como media en la misma región, las tasas de restauración suelen durar unos 20 minutos. 
 
-## <a name="automatic-restore-points"></a>Puntos de restauración automática
+## <a name="automatic-restore-points"></a>Puntos de restauración automáticos
 
-Las instantáneas son una característica integrada del servicio que crea los puntos de restauración. No es necesario habilitar esta funcionalidad. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática cuando el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
+Las instantáneas son una característica integrada del servicio que crea puntos de restauración. No es necesario habilitar esta funcionalidad. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática cuando el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
 
 SQL Data Warehouse toma instantáneas del almacenamiento de datos a lo largo del día que crean puntos de restauración que están disponibles durante siete días. No se puede cambiar este período de retención. SQL Data Warehouse admite un objetivo de punto de recuperación (RPO) de ocho horas. Puede restaurar el almacenamiento de datos de la región primaria a partir de cualquiera de las instantáneas capturadas en los últimos siete días.
 
@@ -44,14 +44,14 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Puntos de restauración definidos por el usuario
 
-Esta característica permite a manualmente las instantáneas de desencadenador para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración son lógicamente coherentes, que proporciona protección de datos adicionales en el caso de las interrupciones de la carga de trabajo o errores de usuario para el tiempo de recuperación rápida. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Se garantizan **42 puntos de restauración definidos por el usuario** en un momento dado, por lo que deben [eliminarse](https://go.microsoft.com/fwlink/?linkid=875299) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) o Azure Portal.
+Esta característica permite desencadenar instantáneas manualmente para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración sean lógicamente coherentes, lo que proporciona una protección de datos adicional en caso de interrupciones de la carga de trabajo o de errores del usuario para un tiempo de recuperación rápido. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Se garantizan **42 puntos de restauración definidos por el usuario** en un momento dado, por lo que deben [eliminarse](https://go.microsoft.com/fwlink/?linkid=875299) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) o Azure Portal.
 
 > [!NOTE]
 > Si necesita más de siete días de puntos de restauración, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). También puede crear un punto de restauración definido por el usuario y restaurar desde el punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Si necesita una copia activa del almacenamiento de datos restaurado, puede reanudarlo, lo que sólo le llevará unos minutos.
 
 ### <a name="restore-point-retention"></a>Retención de punto de recuperación
 
-Los detalles de las listas siguientes para períodos de retención de punto de restauración:
+A continuación se indican los detalles sobre los períodos de retención de punto de restauración:
 
 1. SQL Data Warehouse elimina un punto de restauración cuando alcanza el período de retención de 7 días **y** cuando hay al menos 42 puntos de restauración totales (incluidos los definidos por el usuario y los automáticos).
 2. Las instantáneas no se toman cuando un almacenamiento de datos está en pausa.
@@ -83,7 +83,7 @@ El costo total del almacenamiento de datos principal y de los siete días de cam
 
 Si usa almacenamiento con redundancia geográfica, recibirá un cargo de almacenamiento por separado. El almacenamiento con redundancia geográfica se factura según la tarifa estándar de almacenamiento geográficamente redundante con acceso de lectura (RA-GRS).
 
-Para obtener más información sobre los precios de SQL Data Warehouse, consulte [precios de almacenamiento de datos SQL]. No se cobran por la salida de datos al restaurar entre regiones.
+Para obtener más información sobre los precios de SQL Data Warehouse, vea [Precios de SQL Data Warehouse]. La salida de datos no se cobra al restaurar entre regiones.
 
 ## <a name="restoring-from-restore-points"></a>Restauración a partir de puntos de restauración
 
@@ -95,9 +95,9 @@ Para restaurar un almacenamiento de datos, consulte [Restauración de un almacen
 
 Para restaurar un almacenamiento de datos eliminado o en pausa, puede [crear una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="cross-subscription-restore"></a>Entre la restauración de la suscripción
+## <a name="cross-subscription-restore"></a>Restauración entre suscripciones
 
-Si necesita restaurar directamente a través de la suscripción, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaurar a un servidor lógico diferente y ['Mover'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) el servidor a través de suscripciones para realizar una restauración de suscripción cruzado. 
+Si necesita restaurar directamente entre suscripciones, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaure en otro servidor lógico y ["mueva"](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) el servidor entre suscripciones para realizar una restauración entre suscripciones. 
 
 ## <a name="geo-redundant-restore"></a>Restauración con redundancia geográfica
 

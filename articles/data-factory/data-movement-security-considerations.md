@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153305"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 >
 > * [Versión 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Versión actual](data-movement-security-considerations.md)
@@ -112,9 +112,9 @@ Las credenciales de los almacenes de datos locales se almacenan y se cifran siem
 
 - **Almacenar credenciales localmente**. Si desea cifrar y almacenar las credenciales localmente en el entorno de ejecución de integración autohospedado, siga los pasos descritos en [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos los conectores admiten esta opción. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales. 
 
-   Use la **New AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet para cifrar las credenciales de servicio vinculado y la información confidencial en el servicio vinculado. A continuación, puede usar el JSON devuelto (con el **EncryptedCredential** elemento de la cadena de conexión) para crear un servicio vinculado con el **conjunto AzDataFactoryV2LinkedService** cmdlet.  
+   Use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** para cifrar las credenciales del servicio vinculado e información confidencial en el servicio vinculado. Después, puede usar el código JSON devuelto (con el elemento **EncryptedCredential** en la cadena de conexión) para crear un servicio vinculado mediante el cmdlet **Set-AzDataFactoryV2LinkedService**.  
 
-- **Almacenar en almacenamiento administrador de Azure Data Factory**. Si utiliza directamente el **conjunto AzDataFactoryV2LinkedService** cadenas de cmdlet con la conexión y credenciales insertada en JSON, se cifra y almacena en el almacenamiento de Azure Data Factory administra el servicio vinculado. La información confidencial todavía se cifrará por certificado y Microsoft administra dichos certificados.
+- **Almacenar en almacenamiento administrador de Azure Data Factory**. Si usa directamente el cmdlet **Set-AzDataFactoryV2LinkedService** con las cadenas de conexión y las credenciales insertadas en JSON, el servicio vinculado se cifra y almacena en el almacenamiento administrado de Azure Data Factory. La información confidencial todavía se cifrará por certificado y Microsoft administra dichos certificados.
 
 
 
@@ -137,9 +137,9 @@ En la tabla siguiente, se resumen las recomendaciones de configuración de red y
 
 | Origen      | Destino                              | Network configuration (Configuración de red)                    | Configuración de Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | El entorno integration runtime autohospedado debe instalarse en una máquina virtual de Azure en la red virtual.  |
-| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado)           | El entorno integration runtime autohospedado debe instalarse en una máquina virtual de Azure en la red virtual.  |
-| Local | Servicios basados en Azure que tienen un punto de conexión público | ExpressRoute (emparejamiento de Microsoft)            | El entorno integration runtime autohospedado puede ser instalado en el entorno local o en una máquina virtual de Azure. |
+| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | El entorno de ejecución de integración autohospedado se debe instalar en una máquina virtual de Azure en una red virtual.  |
+| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado)           | El entorno de ejecución de integración autohospedado se debe instalar en una máquina virtual de Azure en una red virtual.  |
+| Local | Servicios basados en Azure que tienen un punto de conexión público | ExpressRoute (emparejamiento de Microsoft)            | El entorno de ejecución de integración autohospedado se puede instalar de forma local o en una máquina virtual de Azure. |
 
 Las siguientes imágenes muestran el uso del entorno de ejecución de integración autohospedado para mover datos entre una base de datos local y servicios de Azure mediante ExpressRoute e IPSec VPN (con Azure Virtual Network):
 
@@ -183,7 +183,7 @@ Algunos almacenes de datos en la nube también requieren listas de direcciones I
 
 Los siguientes almacenes de datos en la nube necesitan una lista de direcciones IP admitidas por la máquina de Integration Runtime autohospedado. De forma predeterminada, algunos de estos almacenes de datos no necesitan listas de direcciones IP admitidas. 
 
-- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)

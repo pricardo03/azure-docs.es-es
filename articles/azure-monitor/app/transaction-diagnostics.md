@@ -13,10 +13,10 @@ ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60783711"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnósticos de transacción entre componentes unificados
@@ -74,9 +74,9 @@ En este panel contraíble se muestran los otros resultados que cumplen los crite
 
 [Application Insights Profiler](../../azure-monitor/app/profiler.md) y [Snapshot Debugger](snapshot-debugger.md) le ayudan a realizar diagnósticos al nivel de código para conocer los problemas de rendimiento y errores. Con esta experiencia, podrá ver seguimientos de Profiler o instantáneas de cualquier componente con tan solo un clic.
 
-Si no se pudo obtener Profiler funciona, póngase en contacto con **serviceprofilerhelp\@microsoft.com**
+Si no pudo conseguir que Profiler funcionara, póngase en contacto con **serviceprofilerhelp\@microsoft.com**.
 
-Si no se pudo obtener el trabajo de Snapshot Debugger, póngase en contacto con **snapshothelp\@microsoft.com**
+Si no pudo conseguir que Snapshot Debugger funcionara, póngase en contacto con **snapshothelp\@microsoft.com**.
 
 ![Integración del generador de perfiles](media/transaction-diagnostics/profilerTraces.png)
 

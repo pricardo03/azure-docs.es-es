@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: 11962d8958811bc87fb94dc6fe78cb760fdaa20e
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729709"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure PowerShell
@@ -98,7 +98,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pools-and-settings"></a>Creación de la configuración y los grupos de servidores back-end
 
-Crear grupos de back-end denominados *contosoPool* y *fabrikamPool* para la puerta de enlace de aplicaciones mediante [New AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure los valores del grupo mediante [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Cree los grupos de back-end *contosoPool* y *fabrikamPool* para la instancia de Application Gateway mediante [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure los valores del grupo mediante [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -117,7 +117,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada a los grupos de servidores back-end. En este tutorial, creará los agentes de escucha para cada uno de los dos dominios. En este ejemplo, se crean los agentes de escucha para los dominios de *www.contoso.com* y *www.fabrikam.com*.
 
-Crear agentes de escucha llamados *contosoListener* y *fabrikamListener* mediante [New AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end y front-end puerto que creó anteriormente. Se requieren reglas para que los agentes de escucha sepan qué grupo de servidores back-end se usa para el tráfico entrante. Crear las reglas básicas denominadas *contosoRule* y *fabrikamRule* mediante [New AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Cree los agentes de escucha *contosoListener* y *fabrikamListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración y el puerto de front-end que ha creado antes. Se requieren reglas para que los agentes de escucha sepan qué grupo de servidores back-end se usa para el tráfico entrante. Cree las reglas básicas *contosoRule* y *fabrikamRule* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

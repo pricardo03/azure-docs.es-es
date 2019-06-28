@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198468"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker
@@ -36,7 +36,7 @@ Para instalar y configurar una instancia de Hybrid Runbook Worker en Windows, se
 
 |SO  |Tipos de implementación  |
 |---------|---------|
-| Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Puede quitar una o varias instancias de Hybrid Runbook Worker de un grupo o pued
 1. En Azure Portal, abra su cuenta de Automation.
 2. En **Configuración de la cuenta**, seleccione **Claves** y anote los valores de **URL** y **Clave de acceso primaria**. Esta información la necesita para el siguiente paso.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Abra una sesión de PowerShell en modo Administrador y ejecute el comando siguiente. Use el modificador **-Verbose** para ver un registro detallado del proceso de eliminación.
 
@@ -97,11 +97,11 @@ Para quitar un grupo, primero debe quitar el Hybrid Runbook Worker de todos los 
 
 ### <a name="hybrid-worker-role"></a>Rol de Hybrid Worker
 
-Para que el Hybrid Runbook Worker se conecte y se registre con Azure Automation, debe tener acceso al número de puerto y las direcciones URL que se describen en esta sección. Este acceso se encuentra en la parte superior para el [puertos y direcciones URL necesarias para Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para conectarse a los registros de Azure Monitor.
+Para que Hybrid Runbook Worker se conecte y se registre con Azure Automation, debe tener acceso al número de puerto y a las direcciones URL que se describen en esta sección. Este acceso se agrega a los [puertos y las direcciones URL necesarios para que Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) se conecte a los registros de Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Si usa un servidor proxy para la comunicación entre el agente y el servicio Azure Automation, asegúrese de que los recursos adecuados son accesibles. El tiempo de espera para las solicitudes de Hybrid Runbook Worker y los servicios de automatización es 30 segundos. Después de 3 intentos se producirá un error en la solicitud. Si usa un firewall para restringir el acceso a Internet, tendrá que configurarlo para que permita el acceso. Si usa la puerta de enlace de Log Analytics como proxy, asegúrese de que está configurada para instancias de Hybrid Worker. Para obtener instrucciones sobre cómo hacerlo, vea [Configuración de Hybrid Workers de Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Si usa un servidor proxy para realizar la comunicación entre el agente y el servicio Azure Automation, asegúrese de que los recursos adecuados son accesibles. El tiempo de espera para las solicitudes de Hybrid Runbook Worker y los servicios de Automation es de 30 segundos. Después de tres intentos se producirá un error en la solicitud. Si usa un firewall para restringir el acceso a Internet, tendrá que configurarlo para que permita el acceso. Si usa la puerta de enlace de Log Analytics como proxy, asegúrese de que está configurada para instancias de Hybrid Worker. Para obtener instrucciones sobre cómo hacerlo, vea [Configuración de Hybrid Workers de Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Los siguientes puertos y direcciones URL son necesarios para que el rol Hybrid Runbook Worker se comunique con Automation:
 
@@ -146,9 +146,9 @@ Además de las direcciones y los puertos estándar que necesita Hybrid Runbook W
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|* .ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|\* .ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|\* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|\* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

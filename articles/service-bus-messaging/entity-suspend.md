@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170800"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
@@ -28,7 +28,7 @@ Normalmente la suspensión de una entidad se realiza por motivos administrativos
 
 El usuario o el sistema pueden realizar la suspensión o la reactivación. El sistema solo suspende las entidades por motivos administrativos graves como haber alcanzado el límite de gasto de suscripción. El usuario no puede reactivar las entidades deshabilitadas por el sistema, pero se restauran cuando se ha solucionado la causa de la suspensión.
 
-En el portal, la **propiedades** ; sección de la entidad respectiva permite cambiar el estado de la captura de pantalla siguiente muestra el botón de alternancia de una cola:
+En el portal, la sección **Propiedades** de la entidad respectiva permite cambiar el estado; en la captura de pantalla siguiente se muestra la alternancia en una cola:
 
 ![][1]
 

@@ -9,32 +9,32 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166208"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente
 
-Las empresas que implementan Azure IoT Hub esperan que sus recursos ofrezcan un rendimiento confiable. Para ayudarle a mantener una estrecha vigilancia de las operaciones, IoT Hub está totalmente integrado con [Azure Monitor](../azure-monitor/index.yml) y [Azure Resource Health](../service-health/resource-health-overview.md). Estos dos servicios trabajan para proporcionarle los datos que necesita para mantener las soluciones de IoT y que se ejecuta en un estado correcto.
+Las empresas que implementan Azure IoT Hub esperan que sus recursos ofrezcan un rendimiento confiable. Para ayudar a mantener una estrecha vigilancia de las operaciones, IoT Hub está totalmente integrado con [Azure Monitor](../azure-monitor/index.yml) y [Azure Resource Health](../service-health/resource-health-overview.md). Estos dos servicios sirven para proporcionar los datos necesarios para que las soluciones de IoT se ejecuten con un estado correcto.
 
-Azure Monitor es un único origen para supervisar y registrar todos los servicios de Azure. Puede enviar los registros de diagnóstico que genera Azure Monitor para los registros de Azure Monitor, Event Hubs o Azure Storage para el procesamiento personalizado. La configuración de métricas y diagnósticos de Azure Monitor ofrece una visibilidad del rendimiento de los recursos. Continúe leyendo este artículo para obtener información sobre cómo [usar Azure Monitor](#use-azure-monitor) con IoT Hub. 
+Azure Monitor es un único origen para supervisar y registrar todos los servicios de Azure. Puede enviar los registros de diagnóstico que Azure Monitor genera a registros de Azure Monitor, Event Hubs o Azure Storage para un procesamiento personalizado. La configuración de métricas y diagnósticos de Azure Monitor ofrece una visibilidad del rendimiento de los recursos. Continúe leyendo este artículo para obtener información sobre cómo [usar Azure Monitor](#use-azure-monitor) con IoT Hub. 
 
 > [!IMPORTANT]
 > No se garantiza que los eventos que emite el servicio IoT Hub mediante registros de diagnóstico de Azure Monitor sean confiables u ordenados. Algunos eventos podrían perderse o entregarse fuera del pedido. Los registros de diagnóstico tampoco están diseñados para que tengan lugar en tiempo real y los eventos pueden tardar varios minutos en registrarse en el destino elegido.
 
-Azure Resource Health ayuda a diagnosticar si un problema de Azure afecta a los recursos y, en su caso, a obtener soporte técnico. Un panel proporciona el estado actual y pasado para cada uno de los centros de IoT. Continúe con la sección en la parte inferior de este artículo para obtener información sobre cómo [usar Azure Resource Health](#use-azure-resource-health) con IoT hub. 
+Azure Resource Health ayuda a diagnosticar si un problema de Azure afecta a los recursos y, en su caso, a obtener soporte técnico. Un panel proporciona el estado de mantenimiento actual y anterior de cada una de las instancias de IoT Hub. Continúe con la sección de la parte inferior de este artículo para aprender a [usar Azure Resource Health](#use-azure-resource-health) con IoT Hub. 
 
-IoT Hub también proporciona sus propias métricas que puede utilizar para consultar el estado de los recursos de IoT. Para obtener más información, consulte [métricas de IoT Hub de comprender](iot-hub-metrics.md).
+IoT Hub también proporciona sus propias métricas que puede utilizar para consultar el estado de los recursos de IoT. Para más información, consulte [Comprender las métricas de IoT Hub](iot-hub-metrics.md).
 
 ## <a name="use-azure-monitor"></a>Uso de Azure Monitor
 
 Azure Monitor proporciona información de diagnóstico para los recursos de Azure, lo que significa que puede supervisar las operaciones que tienen lugar dentro del centro de IoT.
 
-La configuración de diagnóstico de Azure Monitor reemplaza al monitor de operaciones de IoT Hub. Si usa la supervisión de operaciones actualmente, debe migrar los flujos de trabajos. Para obtener más información, consulte [migrar desde las operaciones de configuración de supervisión para diagnósticos](iot-hub-migrate-to-diagnostics-settings.md).
+La configuración de diagnóstico de Azure Monitor reemplaza al monitor de operaciones de IoT Hub. Si usa la supervisión de operaciones actualmente, debe migrar los flujos de trabajos. Para más información, consulte [Migración de la supervisión de operaciones a la configuración de diagnóstico](iot-hub-migrate-to-diagnostics-settings.md).
 
-Para obtener más información acerca de las métricas específicas y eventos que supervisa el Monitor de Azure, consulte [métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md) y [compatible de servicios, esquemas y categorías para los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
+Para más información sobre métricas y eventos específicos que Azure Monitor supervisa, consulte [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md) y [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -47,7 +47,7 @@ Azure Monitor supervisa diferentes operaciones que tienen lugar en IoT Hub. Cada
 La categoría de conexiones realiza un seguimiento de eventos de conexión y desconexión de dispositivos desde un centro de IoT, y también de los errores. Esta categoría es útil para identificar intentos de conexión no autorizados o alertas cuando se pierde la conexión a dispositivos.
 
 > [!NOTE]
-> Comprobación de estado de conexión confiable de los dispositivos [latido de dispositivo](iot-hub-devguide-identity-registry.md#device-heartbeat).
+> Para obtener el estado de conexión confiable de los dispositivos, consulte [Latido de dispositivo](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
 ```json
 {
@@ -312,9 +312,9 @@ La categoría de métodos directos realiza un seguimiento de las interacciones d
 
 #### <a name="distributed-tracing-preview"></a>Seguimiento distribuido (versión preliminar)
 
-La categoría de seguimiento distribuido realiza un seguimiento de los identificadores de correlación correspondientes a los mensajes que contienen el encabezado de contexto de seguimiento. Para habilitar estos registros, el código de cliente debe actualizarse siguiendo [analizar y diagnosticar IoT aplicaciones-to-end con seguimiento distribuido de IoT Hub (versión preliminar)](iot-hub-distributed-tracing.md).
+La categoría de seguimiento distribuido realiza un seguimiento de los identificadores de correlación correspondientes a los mensajes que contienen el encabezado de contexto de seguimiento. Para habilitar completamente estos registros, se debe actualizar el código del lado cliente mediante los pasos que se indican en [Análisis y diagnóstico de aplicaciones de IoT de un extremo a otro con el seguimiento distribuido de IoT Hub [versión preliminar]](iot-hub-distributed-tracing.md).
 
-Tenga en cuenta que `correlationId` se ajusta a la [contexto de seguimiento de W3C](https://github.com/w3c/trace-context) propuesta, que contiene un `trace-id` , así como un `span-id`.
+Observe que `correlationId` se ajusta a la propuesta de [contexto de seguimiento de W3C](https://github.com/w3c/trace-context), donde contiene un elemento `trace-id`, así como un elemento `span-id`.
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Registros D2C (dispositivo a nube) de IoT Hub
 
@@ -345,7 +345,7 @@ En este caso, no se calcula `durationMs` dado que es posible que el reloj de IoT
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Integer | Tamaño del mensaje de dispositivo a nube en bytes. |
+| **messageSize** | Entero | Tamaño del mensaje de dispositivo a nube en bytes. |
 | **deviceId** | Cadena de caracteres alfanuméricos ASCII de 7 bits. | Identidad del dispositivo |
 | **callerLocalTimeUtc** | Marca de tiempo UTC | Hora de creación del mensaje según el reloj local del dispositivo. |
 | **calleeLocalTimeUtc** | Marca de tiempo UTC | Hora de llegada del mensaje a la puerta de enlace de IoT Hub según el reloj del lado de servicio de IoT Hub. |
@@ -375,12 +375,12 @@ IoT Hub anota este registro cuando un mensaje que contiene propiedades de seguim
 }
 ```
 
-En la `properties` sección, este registro contiene información adicional sobre la entrada de mensajes.
+En la sección `properties`, este registro contiene información adicional sobre la entrada de mensajes.
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | Verdadero o falso, indica si está habilitado el enrutamiento de mensajes en IoT Hub. |
-| **parentSpanId** | String | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes D2C. |
+| **isRoutingEnabled** | Cadena | Verdadero o falso, indica si está habilitado el enrutamiento de mensajes en IoT Hub. |
+| **parentSpanId** | Cadena | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes D2C. |
 
 ##### <a name="iot-hub-egress-logs"></a>Registros de salida de IoT Hub
 
@@ -407,13 +407,13 @@ IoT Hub anota este registro cuando está habilitado el [enrutamiento](iot-hub-de
 }
 ```
 
-En la `properties` sección, este registro contiene información adicional sobre la entrada de mensajes.
+En la sección `properties`, este registro contiene información adicional sobre la entrada de mensajes.
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | Nombre del punto de conexión de enrutamiento. |
-| **endpointType** | String | Tipo del punto de conexión de enrutamiento. |
-| **parentSpanId** | String | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes de entrada de IoT Hub. |
+| **endpointName** | Cadena | Nombre del punto de conexión de enrutamiento. |
+| **endpointType** | Cadena | Tipo del punto de conexión de enrutamiento. |
+| **parentSpanId** | Cadena | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes de entrada de IoT Hub. |
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lectura de registros de Azure Event Hubs
 
@@ -488,7 +488,7 @@ class Program
 
 Use Azure Resource Health para supervisar si IoT Hub está en funcionamiento. También permite saber si una interrupción regional está afectando al mantenimiento de IoT Hub. Para conocer los detalles específicos sobre el estado de mantenimiento de Azure IoT Hub, se recomienda [utilizar Azure Monitor](#use-azure-monitor).
 
-Azure IoT Hub indica el estado de mantenimiento a nivel regional. Si una interrupción regional afecta al centro de IoT, el estado de mantenimiento aparece como **Desconocido**. Para obtener más información, consulte [tipos de recursos y comprobaciones de estado en Azure resource health](../service-health/resource-health-checks-resource-types.md).
+Azure IoT Hub indica el estado de mantenimiento a nivel regional. Si una interrupción regional afecta al centro de IoT, el estado de mantenimiento aparece como **Desconocido**. Para más información, consulte [Tipos de recursos y comprobaciones de estado en Azure Resource Health](../service-health/resource-health-checks-resource-types.md).
 
 Para comprobar el mantenimiento de los recursos de IoT Hub, siga estos pasos:
 
@@ -496,11 +496,11 @@ Para comprobar el mantenimiento de los recursos de IoT Hub, siga estos pasos:
 
 2. Vaya a **Estado del servicio** > **Resource Health**.
 
-3. En los cuadros de lista desplegable, seleccione su suscripción, a continuación, seleccione **IoT Hub** como el tipo de recurso.
+3. En los cuadros de lista desplegable, seleccione su suscripción y, luego, seleccione **IoT Hub** como el tipo de recurso.
 
-Para obtener más información acerca de cómo interpretar los datos de estado, vea [información general sobre el estado de recursos de Azure](../service-health/resource-health-overview.md).
+Para más información sobre cómo interpretar los datos de estado, consulte [Información general sobre Azure Resource Health](../service-health/resource-health-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Descripción de las métricas de IoT Hub](iot-hub-metrics.md)
-* [Supervisión remota de IoT y notificaciones con Azure Logic Apps conectando IoT hub y el buzón de correo](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Comprender las métricas de IoT Hub](iot-hub-metrics.md)
+* [Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

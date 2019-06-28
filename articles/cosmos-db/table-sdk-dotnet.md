@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: db7cc556525ab57f14984232bf1797764865fca3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606266"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API Table de .NET de Azure Cosmos DB: descarga y notas de la versión
@@ -33,7 +33,7 @@ ms.locfileid: "65606266"
 |**Plataforma admitida actualmente**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
-> El SDK de .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) está en mantenimiento modo y dejará de utilizarse pronto. Actualice a la nueva biblioteca de .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar recibiendo las últimas características compatibles con la API de tabla.
+> El SDK de .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) se encuentra en modo de mantenimiento y dejará de utilizarse pronto. Actualice a la nueva biblioteca de .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar recibiendo las últimas características compatibles con Table API.
 
 > Si ha creado una cuenta de Table API durante la versión preliminar, cree una [nueva cuenta de Table API](create-table-dotnet.md#create-a-database-account) para trabajar con los SDK de Table API disponibles con carácter general.
 >
@@ -77,20 +77,20 @@ ms.locfileid: "65606266"
 
 Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-El `Microsoft.Azure.CosmosDB.Table` biblioteca está disponible actualmente para .NET Framework y está en modo de mantenimiento y dejará de utilizarse pronto. Nuevas características y funcionalidades y optimizaciones solo se agregan a la biblioteca .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), tal y como tal es recomendable que actualice a [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
+En la actualidad, la biblioteca `Microsoft.Azure.CosmosDB.Table` solo está disponible para .NET Framework, está en modo de mantenimiento y dejará pronto de usarse. Las nuevas características y funcionalidades y las optimizaciones solo se agregan a la biblioteca [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) de .NET Standard, por lo que se recomienda actualizar a [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-El [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) paquete de versión preliminar está desusado. El SDK de WindowsAzure.Storage PremiumTable se retirará el 15 de noviembre de 2018, momento en el cual las solicitudes al SDK retirado no se permitirán. 
+El paquete de versión preliminar [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) está en desuso. El SDK de WindowsAzure.Storage PremiumTable se retirará el 15 de noviembre de 2018, momento en el cual las solicitudes al SDK retirado no se permitirán. 
 
 El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un SDK retirado.
 <br/>
 
-| Version | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
-| [2.1.0](#2.1.0) |22 de enero de 2019|01 de abril de 2020 |
-| [2.0.0](#2.0.0) |26 de septiembre de 2018|01 de marzo de 2020 |
-| [1.1.3](#1.1.3) |17 de julio de 2018|01 de diciembre de 2019 |
-| [1.1.1](#1.1.1) |26 de marzo de 2018|01 de diciembre de 2019 |
-| [1.1.0](#1.1.0) |21 de febrero de 2018|01 de diciembre de 2019 |
+| [2.1.0](#2.1.0) |22 de enero de 2019|1 de abril de 2020 |
+| [2.0.0](#2.0.0) |26 de septiembre de 2018|1 de marzo de 2020 |
+| [1.1.3](#1.1.3) |17 de julio de 2018|1 de diciembre de 2019 |
+| [1.1.1](#1.1.1) |26 de marzo de 2018|1 de diciembre de 2019 |
+| [1.1.0](#1.1.0) |21 de febrero de 2018|1 de diciembre de 2019 |
 | [1.0.0](#1.0.0) |15 de noviembre de 2017|15 de noviembre de 2019 |
 | 0.9.0-preview |11 de noviembre de 2017 |11 de noviembre de 2019 |
 
@@ -118,6 +118,6 @@ al intentar usar el paquete de NuGet Microsoft.Azure.CosmosDB.Table, tiene dos o
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 Para obtener más información sobre Table API de Azure Cosmos DB, consulte [Introducción a Table API de Azure Cosmos DB](table-introduction.md). 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
 ms.openlocfilehash: bfac14c598b405a398cad916787aa3312589bfd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393570"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaquetado e implementación de un ejecutable existente en Service Fabric
@@ -73,7 +73,7 @@ El proceso de empaquetado manual de un ejecutable invitado se basa en los siguie
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Crear la estructura de directorios del paquete
-Puede iniciar mediante la creación de la estructura de directorios, como se describe en [empaquetar una aplicación de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Puede empezar creando la estructura de directorios del modo descrito en [Empaquetado de una aplicación de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Agregar archivos de código y la configuración de la aplicación
 Después de haber creado la estructura de directorios, puede agregar los archivos de código y configuración de la aplicación en los directorios de código y configuración. También puede crear directorios adicionales o subdirectorios en los directorios code o config.

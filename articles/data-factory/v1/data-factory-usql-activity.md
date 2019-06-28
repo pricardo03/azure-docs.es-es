@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248154"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
 > * [Versión 1](data-factory-usql-activity.md)
 > * [Versión 2 (versión actual)](../transform-data-using-data-lake-analytics.md)
 
@@ -50,7 +50,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que
 | --- | --- | --- |
 | **type** |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
 | **accountName** |Nombre de la cuenta de Análisis de Azure Data Lake |Sí |
-| **dataLakeAnalyticsUri** |Identificador URI de Análisis de Azure Data Lake. |Sin  |
+| **dataLakeAnalyticsUri** |Identificador URI de Análisis de Azure Data Lake. |Sin |
 | **subscriptionId** |Identificador de suscripción de Azure |No (si no se especifica, se usa la suscripción de Data Factory). |
 | **resourceGroupName** |Nombre del grupo de recursos de Azure. |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 
@@ -213,11 +213,11 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | No (si se utiliza el script)                   |
 | scriptLinkedService | Servicio vinculado que se vincula al almacenamiento que contiene el script para la factoría de datos | No (si se utiliza el script)                   |
 | script              | Especifique el script en línea en lugar de scriptPath y scriptLinkedService. Por ejemplo: `"script": "CREATE DATABASE test"`. | No (si usa scriptPath y scriptLinkedService) |
-| degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | Sin                                        |
-| prioridad            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | Sin                                        |
-| parameters          | Parámetros del script SQL U          | Sin                                        |
-| runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usa | Sin                                        |
-| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de los valores siguientes:</p> <ul><li>**Semantic:** solo realiza comprobaciones semánticas y comprobaciones de integridad necesarias.</li><li>**Full:** realiza la compilación completa (comprobación de sintaxis, optimización, generación de código, etc.).</li><li>**SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox.</li></ul><p>Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. </p> | Sin                                        |
+| degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | Sin                                       |
+| prioridad            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | Sin                                       |
+| parameters          | Parámetros del script SQL U          | Sin                                       |
+| runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usa | Sin                                       |
+| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de los valores siguientes:</p> <ul><li>**Semantic:** solo realiza comprobaciones semánticas y comprobaciones de integridad necesarias.</li><li>**Full:** realiza la compilación completa (comprobación de sintaxis, optimización, generación de código, etc.).</li><li>**SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox.</li></ul><p>Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. </p> | Sin                                       |
 
 Para ver la definición del script, vea [Definición del script SearchLogProcessing.txt](#sample-u-sql-script) . 
 
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Los valores de  **\@en** y  **\@out** parámetros en el script U-SQL se ADF pasa dinámicamente mediante la sección "parameters". Consulte la sección parameters de la definición de canalización.
+ADF pasa dinámicamente los valores de los parámetros de **\@entrada** y **\@salida** del script de U-SQL usando la sección "parámetros". Consulte la sección parameters de la definición de canalización.
 
 También puede especificar otras propiedades como degreeOfParallelism y priority en la definición de canalización de los trabajos que se ejecutan en el servicio Azure Data Lake Analytics.
 
@@ -331,7 +331,7 @@ En la definición de canalización de ejemplo, se asignan los parámetros in y o
 }
 ```
 
-Es posible usar los parámetros dinámicos en su lugar. Por ejemplo:  
+Es posible usar los parámetros dinámicos en su lugar. Por ejemplo: 
 
 ```json
 "parameters": {

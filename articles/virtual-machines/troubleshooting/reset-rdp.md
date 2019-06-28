@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60921225"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows
@@ -45,7 +45,7 @@ En primer lugar, inicie sesión en [Azure Portal](https://portal.azure.com) y, e
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Restablecer la configuración de los Servicios de Escritorio remoto**
 
-Este proceso se habilitar servicios de escritorio remoto en la máquina virtual y crear una regla de firewall para el puerto RDP predeterminado 3389.
+Este proceso habilitará el servicio de Escritorio remoto en la máquina virtual y creará una regla de firewall para el puerto RDP predeterminado 3389.
 
 1. Seleccione su máquina virtual Windows y, a continuación, seleccione **Restablecer contraseña** en **Support + Troubleshooting** (Soporte técnico y solución de problemas). Aparecerá la ventana para **restablecer la contraseña**. 
 

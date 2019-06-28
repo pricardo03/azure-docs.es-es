@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 6057fa52cd2f1e9b9fd525723f96ab66983fb5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020305"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Solución de problemas de acceso a Azure Functions Runtime
@@ -66,7 +66,7 @@ En el paso anterior, si no tenía una cadena de conexión de la cuenta de almace
 ### <a name="guidance"></a>Guía
 
 * No busque esta configuración en la configuración de las ranuras. Al intercambiar ranuras de implementación, la función se interrumpe.
-* No modifique esta configuración como parte de las implementaciones automatizadas.
+* No modifique esta configuración como parte de implementaciones automatizadas.
 * Esta configuración debe ser válida y proporcionarse en el momento de la creación. Una implementación automatizada que no contiene esta configuración genera una aplicación no funcional, aunque esta se añada después.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciales de la cuenta de almacenamiento no válidas
@@ -97,7 +97,7 @@ Ahora que volvemos a tener la aplicación de función y funciona, veamos las gu�
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
   Proporciona información técnica sobre el tiempo de ejecución de Azure Functions y una referencia para las funciones de codificación y la definición de enlaces y desencadenadores.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
-   describe las diversas herramientas y técnicas para probar sus funciones.
+  describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
   Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
 * [¿Qué es Azure App Service?](../app-service/overview.md)  

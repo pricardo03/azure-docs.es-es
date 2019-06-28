@@ -13,15 +13,15 @@ ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551771"
 ---
 # <a name="assets"></a>Recursos
 
-En Azure Media Services, un [activos](https://docs.microsoft.com/rest/api/media/assets) contiene información acerca de los archivos digitales almacenados en Azure Storage (incluidos el vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos). 
+En Azure Media Services, un [recurso](https://docs.microsoft.com/rest/api/media/assets) contiene información sobre archivos digitales almacenados en Azure Storage (como vídeos, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos). 
 
 Un recurso se asigna a un contenedor de blobs en la [cuenta de Azure Storage](storage-account-concept.md) y los archivos del recurso se almacenan como blobs en bloques en ese contenedor. Azure Media Services admite los niveles de blob cuando la cuenta usa el almacenamiento de uso general v2 (GPv2). Con GPv2, puede mover los archivos al [almacenamiento de acceso esporádico o al almacenamiento en frío](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). El almacenamiento de **archivos** es adecuado para guardar archivos de origen cuando ya no son necesarios (por ejemplo, una vez codificados).
 
@@ -29,10 +29,10 @@ El nivel de almacenamiento de **archivos** solo se recomienda para archivos de o
 
 ## <a name="upload-digital-files-into-assets"></a>Cargar los archivos digitales en recursos
 
-Después de que los archivos digitales se cargan en el almacenamiento y asociados con un recurso, se puede usar en los servicios de multimedia, codificación, streaming, análisis de flujos de trabajo de contenido. Uno de los flujos de trabajo más comunes de Media Services es cargar, codificar y hacer streaming de un archivo. En esta sección se describen los pasos generales.
+Una vez que los archivos digitales se cargan en el almacenamiento y se asocian a un recurso, se pueden usar en los flujos de trabajo de codificación, transmisión y análisis de contenido de Media Services. Uno de los flujos de trabajo más comunes de Media Services es cargar, codificar y hacer streaming de un archivo. En esta sección se describen los pasos generales.
 
 > [!TIP]
-> Antes de empezar a desarrollar, revise [desarrollar con las API de Media Services v3](media-services-apis-overview.md) (incluye información sobre cómo acceder a las API, las convenciones de nomenclatura, etcetera.)
+> Antes de comenzar con el desarrollo, vea [Desarrollo con las API de Media Services v3](media-services-apis-overview.md) (incluye información sobre cómo acceder a las API, convenciones de nomenclatura, etc.).
 
 1. Use la API de Media Services v3 para crear un nuevo recurso de "entrada". Esta operación crea un contenedor en la cuenta de almacenamiento asociada a su cuenta de Media Services. La API devuelve el nombre del contenedor (por ejemplo, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    

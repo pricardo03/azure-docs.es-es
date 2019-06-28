@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: 5490149f199c2d7887716ceae3f035527ad33961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170050"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Aprenda a configurar la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell.
@@ -26,7 +26,7 @@ Aprenderá a:
 > - Configurar la replicación, incluida una directiva de replicación. Agregar una instancia de vCenter Server y detectar máquinas virtuales.
 > - Agregar una instancia de vCenter Server y detectarla
 > - Crear cuentas de almacenamiento para almacenar los datos de replicación y replicar las máquinas virtuales.
-> - Realizar una conmutación por error. Configurar opciones de conmutación por error, lleve a cabo una configuración para la replicación de máquinas virtuales.
+> - Realizar una conmutación por error. Configurar los valores de conmutación por error para la replicación de máquinas virtuales.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,16 +37,16 @@ Antes de comenzar:
 
 - Asegúrese de entender la [arquitectura y los componentes del escenario](vmware-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.
-- Tiene Azure PowerShell `Az` módulo. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
+- Tiene el módulo `Az` de Azure PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en su suscripción de Azure mediante el cmdlet Connect-AzAccount:
+Inicie sesión en su suscripción de Azure con el cmdlet Connect-AzAccount:
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Seleccione la suscripción de Azure en la que quiere replicar sus máquinas virtuales de VMware. Use el cmdlet Get-AzSubscription para obtener la lista de las suscripciones de Azure que se tiene acceso a. Seleccione la suscripción de Azure para trabajar con el cmdlet Select-AzSubscription.
+Seleccione la suscripción de Azure en la que quiere replicar sus máquinas virtuales de VMware. Use el cmdlet Get-AzSubscription para obtener la lista de suscripciones de Azure a las que tiene acceso. Seleccione la suscripción de Azure con la que quiere trabajar mediante el cmdlet Select-AzSubscription.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Establezca el contexto de almacén mediante el cmdlet Set-ASRVaultContext. Una vez establecido, las operaciones posteriores de Azure Site Recovery de la sesión de PowerShell se realizan en el contexto de almacén seleccionado.
 
 > [!TIP]
-> El módulo de PowerShell de Azure Site Recovery (módulo Az.RecoveryServices) viene con alias fáciles de usar para la mayoría de los cmdlets. Los cmdlets del módulo adoptan la forma  *\<operación >-**AzRecoveryServicesAsr**\<objeto >* y tienen alias equivalentes que adoptan la forma  *\< Operación >-**ASR**\<objeto >*. En este artículo se usan alias de cmdlet para facilitar la lectura.
+> El módulo PowerShell de Azure Site Recovery (módulo Az.RecoveryServices) viene con alias fáciles de usar para la mayoría de los cmdlets. Los cmdlets del módulo adoptan la forma *\<Operación>-**AzRecoveryServicesAsr**\<Objeto>* y tienen alias equivalentes que adoptan la forma *\<Operación>-**ASR**\<Objeto>* . En este artículo se usan alias de cmdlet para facilitar la lectura.
 
 En el ejemplo siguiente, los detalles del almacén desde la variable $vault se usan para especificar el contexto de almacén para la sesión de PowerShell.
 
@@ -118,7 +118,7 @@ En el ejemplo siguiente, los detalles del almacén desde la variable $vault se u
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Como alternativa al cmdlet Set-ASRVaultContext, uno también puede usar el cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile para establecer el contexto de almacén. Especifique la ruta de acceso a la que el archivo de clave de registro de almacén como el parámetro - path al cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Por ejemplo:
+Como alternativa al cmdlet Set-ASRVaultContext, también puede usarse el cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile para establecer el contexto de almacén. Especifique la ruta de acceso donde se encuentra el archivo de clave de registro del almacén como el parámetro -path para el cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Por ejemplo:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -339,7 +339,7 @@ Necesitará los siguientes detalles para proteger una máquina virtual detectada
 
 * El elemento que se puede proteger y que se va a replicar.
 * La cuenta de almacenamiento en la que se va a replicar la máquina virtual. Además, se necesita un almacenamiento de registros para proteger las máquinas virtuales en una cuenta de almacenamiento Premium.
-* El servidor de procesos que se usará para la replicación. La lista de servidores de procesos disponibles se ha recuperado y guardado en las variables ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* y ***$ProcessServers[1]*** *(ConfigurationServer)*.
+* El servidor de procesos que se usará para la replicación. La lista de servidores de procesos disponibles se ha recuperado y guardado en las variables ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* y ***$ProcessServers[1]*** *(ConfigurationServer)* .
 * La cuenta que se usará para la instalación de inserción el software Mobility Service en las máquinas. La lista de cuentas disponibles se ha recuperado y almacenado en la variable ***$AccountHandles***.
 * La asignación de contenedor de protección para la directiva de replicación que se usará para la replicación.
 * El grupo de recursos en el que las máquinas virtuales deben crearse en la conmutación por error.
@@ -490,4 +490,4 @@ En este paso, se conmuta por error la máquina virtual Win2K12VM1 en un punto de
 2. Después de realizar la conmutación por error correctamente, puede confirmar la operación y configurar la replicación inversa desde Azure nuevamente en el sitio de VMware local.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga información sobre cómo automatizar las tareas más mediante la [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Aprenda a automatizar más tareas mediante la [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

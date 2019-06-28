@@ -16,10 +16,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127510"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
@@ -46,34 +46,34 @@ Los requisitos adicionales de red virtual difieren en función de si el grupo de
 
 **Permisos**: compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos de un usuario para administrar la red virtual.
 
-**Recursos de red adicionales**: Batch asigna automáticamente los recursos de red adicionales del grupo de recursos que contiene la red virtual. Para cada 50 nodos dedicados (o cada 20 nodos de prioridad baja), se asigna por lotes: grupo de seguridad 1 red (NSG), 1 dirección IP pública y 1, el equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-subscription-service-limits.md) de la suscripción. Para los grupos grandes puede que deba solicitar un aumento de cuota para uno o más de estos recursos.
+**Recursos de red adicionales**: Batch asigna automáticamente los recursos de red adicionales del grupo de recursos que contiene la red virtual. Por cada 50 nodos dedicados (o cada 20 nodos de prioridad baja), Batch asigna: 1 grupo de seguridad de red (NSG), 1 dirección IP pública y 1 equilibrador de carga. Estos recursos están limitados por las [cuotas de recursos](../articles/azure-subscription-service-limits.md) de la suscripción. Para los grupos grandes puede que deba solicitar un aumento de cuota para uno o más de estos recursos.
 
 #### <a name="network-security-groups"></a>Grupos de seguridad de red
 
 La subred debe permitir las comunicaciones entrantes desde el servicio Batch para poder programar tareas en los nodos de proceso y la comunicación saliente para comunicarse con Azure Storage u otros recursos. Respecto a los grupos en la configuración de máquina virtual, Batch agrega los grupos de seguridad de red a nivel de las interfaces de red (NIC) conectadas a las máquinas virtuales. Estos grupos de seguridad de red configuran automáticamente las reglas de entrada y salida para permitir el siguiente tráfico:
 
 * Tráfico TCP de entrada en los puertos 29876 y 29877 desde las direcciones IP del rol del servicio Batch. 
-* Tráfico TCP de entrada en el puerto 22 (nodos de Linux) o el puerto 3389 (nodos de Windows) para permitir el acceso remoto. Para determinados tipos de tareas de instancias múltiples en Linux (por ejemplo, MPI), deberá también permiten el tráfico del puerto 22 de SSH para las direcciones IP en la subred que contiene los nodos de proceso por lotes.
+* Tráfico TCP de entrada en el puerto 22 (nodos de Linux) o el puerto 3389 (nodos de Windows) para permitir el acceso remoto. Para determinados tipos de tareas de instancias múltiples en Linux (como MPI), tendrá que permitir también el tráfico del puerto 22 de SSH para las direcciones IP en la subred que contiene los nodos de ejecución de Batch.
 * Tráfico saliente en cualquier puerto para la red virtual.
 * Tráfico saliente en cualquier puerto para Internet.
 
 > [!IMPORTANT]
 > Tenga cuidado si modifica reglas de entrada o salida en los grupos de seguridad de red configurados para Batch o las agrega a ellos. Si un NSG deniega la comunicación con los nodos de proceso en la subred especificada, el servicio Batch establece el estado de dichos nodos en **No utilizable**.
 
-No es necesario especificar los grupos de seguridad de red a nivel de subred, porque Batch configura los suyos propios. Sin embargo, si la subred especificada tiene asociados grupos de seguridad de red o un firewall, configure las reglas de seguridad de entrada y salida como se muestra en las tablas siguientes. Configurar el tráfico entrante en el puerto 3389 (Windows) o 22 (Linux) solo si tiene que permitir el acceso remoto a las máquinas virtuales de grupo desde orígenes externos. No es necesario para que se puedan usar las máquinas virtuales del grupo. Tenga en cuenta que deberá habilitar el tráfico de subred de red virtual en el puerto 22 para Linux si usa determinados tipos de tareas de instancias múltiples, como de MPI.
+No es necesario especificar los grupos de seguridad de red a nivel de subred, porque Batch configura los suyos propios. Sin embargo, si la subred especificada tiene asociados grupos de seguridad de red o un firewall, configure las reglas de seguridad de entrada y salida como se muestra en las tablas siguientes. Configure el tráfico entrante en el puerto 3389 (Windows) o 22 (Linux) solo si tiene que permitir el acceso remoto a las máquinas virtuales del grupo desde orígenes externos. No es necesario para que se puedan usar las máquinas virtuales del grupo. Tenga en cuenta que tendrá que habilitar el tráfico de subred de red virtual en el puerto 22 para Linux si usa determinados tipos de tareas de instancias múltiples, como MPI.
 
 **Reglas de seguridad de entrada**
 
-| Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destino | Puertos de destino | Protocol | . |
+| Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement` [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | * | Cualquiera | 29876-29877 | TCP | PERMITIR |
-| Usuario direcciones IP de origen para tener acceso remoto a los nodos de proceso o la subred de nodo de proceso para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Cualquiera | 3389 (Windows), 22 (Linux) | TCP | PERMITIR |
+| Las direcciones IP de origen de usuario para tener acceso remoto a los nodos de ejecución o la subred de nodo de ejecución para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Cualquiera | 3389 (Windows), 22 (Linux) | TCP | PERMITIR |
 
 **Reglas de seguridad de salida**
 
-| Origen | Puertos de origen | Destino | Etiqueta de servicio de destino | Protocol | . |
+| Origen | Puertos de origen | Destino | Etiqueta de servicio de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- |
-| Cualquiera | 443 | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y una red virtual)  | Cualquiera | PERMITIR |
+| Cualquiera | 443 | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y la red virtual)  | Cualquiera | PERMITIR |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Grupos de la configuración de servicios en la nube
 
@@ -93,17 +93,17 @@ La subred debe permitir las comunicaciones entrantes desde el servicio Batch par
 
 No es necesario especificar un grupo de seguridad de red, ya que Batch configura la comunicación de entrada únicamente de las direcciones IP de Batch a los nodos del grupo. Sin embargo, si la subred especificada tiene asociados grupos de seguridad de red o un firewall, configure las reglas de seguridad de entrada y salida como se muestra en las tablas siguientes. Si un NSG deniega la comunicación con los nodos de proceso en la subred especificada, el servicio Batch establece el estado de dichos nodos en **No utilizable**.
 
-Configurar el tráfico entrante en el puerto 3389 para Windows si necesita permitir el acceso RDP a los nodos de grupo. No es necesario para que se puedan usar los nodos del grupo.
+Configure el tráfico entrante en el puerto 3389 para Windows si tiene que permitir el RDP a los nodos del grupo. No es necesario para que se puedan usar los nodos del grupo.
 
 **Reglas de seguridad de entrada**
 
-| Direcciones IP de origen | Puertos de origen | Destino | Puertos de destino | Protocol | . |
+| Direcciones IP de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- |
 Cualquiera <br /><br />Aunque esto requiere "permitir todo" realmente, el servicio Batch aplica una regla de lista de control de acceso a nivel de cada nodo que filtra todas las direcciones IP de servicio que no sean de Batch. | * | Cualquiera | 10100, 20100, 30100 | TCP | PERMITIR |
-| Opcional, para permitir el acceso RDP en nodos de proceso. | * | Cualquiera | 3389 | TCP | PERMITIR |
+| Opcional, para permitir el acceso RDP en nodos de ejecución. | * | Cualquiera | 3389 | TCP | PERMITIR |
 
 **Reglas de seguridad de salida**
 
-| Origen | Puertos de origen | Destino | Puertos de destino | Protocol | . |
+| Origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
 | --- | --- | --- | --- | --- | --- |
 | Cualquiera | * | Cualquiera | 443  | Cualquiera | PERMITIR |

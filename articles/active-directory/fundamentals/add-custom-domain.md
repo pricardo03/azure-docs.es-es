@@ -14,14 +14,14 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248435"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory
-Cada nuevo inquilino de Azure AD incluye un nombre de dominio inicial, *nombre_de_dominio*.onmicrosoft.com. No se puede cambiar o eliminar el nombre de dominio inicial, pero puede agregar nombres de la organización a la lista. Agregar nombres de dominio personalizados le ayuda a crear los nombres de usuario que resultan familiares a los usuarios, como *alain\@contoso.com*.
+Cada nuevo inquilino de Azure AD incluye un nombre de dominio inicial, *nombre_de_dominio*.onmicrosoft.com. No se puede cambiar o eliminar el nombre de dominio inicial, pero puede agregar nombres de la organización a la lista. La incorporación de nombres de dominio personalizados le ayuda a crear nombres de usuario que resultan familiares a los usuarios, como *alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Para poder agregar un nombre de dominio personalizado, debe crear el nombre de dominio con un registrador de dominios. Para un registrador de dominios acreditado, consulte [ICANN: Registradores acreditados](https://www.icann.org/registrar-reports/accredited-list.html).
@@ -31,7 +31,7 @@ Después de obtener el nombre de dominio, puede crear su primer directorio de Az
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) para su directorio con una cuenta que tenga el rol **Propietario** de la suscripción y luego seleccione **Azure Active Directory**. Para más información sobre los roles de suscripción, vea [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Pantalla del portal Azure, que muestra la opción de Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Pantalla de Azure Portal, que muestra la opción de Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Si tiene previsto federar la instancia local de Windows Server AD en Azure AD, tiene que activar la casilla **Voy a configurar este dominio para el inicio de sesión único con mi Active Directory local** cuando ejecute la herramienta Azure AD Connect para sincronizar los directorios. También tiene que registrar el mismo nombre de dominio que seleccione para la federación con su directorio local en el paso **Dominio de Azure AD** del asistente. Puede comprobar cómo es ese paso del asistente [en estas instrucciones](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Si no tiene la herramienta Azure AD Connect, [descárguela aquí](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ Después de crear el directorio, puede agregar el nombre de dominio personalizad
 
 1. Seleccione **Nombres de dominio personalizados** y, a continuación, seleccione **Agregar dominio personalizado**.
 
-    ![Página de los nombres de dominio personalizado, con Agregar dominio personalizado que se muestra](media/add-custom-domain/add-custom-domain.png)
+    ![Página de nombres de dominio personalizados, con Agregar un dominio personalizado](media/add-custom-domain/add-custom-domain.png)
 
 2. Escriba el nuevo nombre de dominio de la organización en el cuadro de texto **Nombre de dominio personalizado** (por ejemplo, _contoso.com_) y, a continuación, seleccione **Agregar dominio**.
 
@@ -55,7 +55,7 @@ Después de crear el directorio, puede agregar el nombre de dominio personalizad
     >[!Important]
     >Debe incluir .com, .net o cualquier otra extensión de nivel superior para un correcto funcionamiento.
 
-    ![Página de los nombres de dominio personalizado, con la página Agregar dominio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Página de nombres de dominio personalizados, con la página Agregar un dominio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Copie la información de DNS de la página **Contoso**. Por ejemplo, MS=ms64983159.
 

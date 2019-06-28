@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
 ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394326"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creación de la primera aplicación de Azure Service Fabric
@@ -108,7 +108,7 @@ Los proyectos de actor no hacen nada por sí solos. Necesitan que otro servicio 
 
 1. Ejecute el script con la utilidad de inspección para ver la salida del servicio de actor.
 
-   En el caso de MAC OS X, también deberá copiar la carpeta myactorsvcTestClient en la misma ubicación dentro del contenedor mediante la ejecución de los siguientes comandos adicionales.
+   En el caso de MAC OS X, debe copiar la carpeta myactorsvcTestClient en la misma ubicación dentro del contenedor; para ello, ejecute los siguientes comandos adicionales.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

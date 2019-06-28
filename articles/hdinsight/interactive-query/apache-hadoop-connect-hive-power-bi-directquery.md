@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65801007"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualización de datos de Interactive Query Apache Hive con Microsoft Power BI mediante DirectQuery en Azure HDInsight
 
-En este artículo se describe cómo conectar Microsoft Power BI a clústeres de Interactive Query de Azure HDInsight y cómo visualizar los datos de Apache Hive mediante DirectQuery. El ejemplo proporcionado carga los datos de un `hivesampletable` tabla de Hive a Power BI. El `hivesampletable` tabla de Hive contiene algunos datos de uso de teléfono móvil. Luego se trazan los datos de uso en un mapamundi:
+En este artículo se describe cómo conectar Microsoft Power BI a clústeres de Interactive Query de Azure HDInsight y cómo visualizar los datos de Apache Hive mediante DirectQuery. En el ejemplo proporcionado se cargan los datos de una tabla de Hive `hivesampletable` en Power BI. La tabla de Hive `hivesampletable` contiene algunos datos de uso de teléfonos móviles. Luego se trazan los datos de uso en un mapamundi:
 
 ![Informe de mapa de Power BI en HDInsight](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
@@ -27,39 +27,39 @@ Puede aprovechar el [controlador ODBC de Apache Hive](../hadoop/apache-hadoop-co
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
 
 * **Clúster de HDInsight**. El clúster puede ser un clúster de HDInsight con Apache Hive o un clúster de Interactive Query recién lanzado. Para crear clústeres, vea [Crear clúster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. Puede descargar una copia desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=45331).
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Puede descargar una copia desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Carga de datos desde HDInsight
 
-El `hivesampletable` tabla de Hive incluye todos los clústeres de HDInsight.
+La tabla de Hive `hivesampletable` incluye todos los clústeres de HDInsight.
 
 1. Inicie Power BI Desktop.
 
-2. En la barra de menús, vaya a **inicio** > **obtener datos** > **más...** .
+2. En la barra de menús, vaya a **Inicio** > **Obtener datos** > **Más...** .
 
     ![Datos abiertos de Power BI en HDInsight](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
-3. Desde el **obtener datos** ventana, escriba **hdinsight** en el cuadro de búsqueda.  
+3. Desde la ventana **Obtener datos**, escriba **hdinsight** en el cuadro de búsqueda.  
 
-4. En los resultados de búsqueda, seleccione **HDInsight Interactive Query**y, a continuación, seleccione **Connect**.  Si no ve **HDInsight Interactive Query**, deberá actualizar su Power BI Desktop a la versión más reciente.
+4. En los resultados de la búsqueda, seleccione **HDInsight Interactive Query** y, después, **Conectar**.  Si no ve **HDInsight Interactive Query**, tiene que actualizar Power BI Desktop a la versión más reciente.
 
-5. Seleccione **continuar** para cerrar el **conecta a un servicio de terceros** cuadro de diálogo.
+5. Seleccione **Continuar** para cerrar el cuadro de diálogo **Conectándose a un servicio externo**.
 
-6. En el **HDInsight Interactive Query** ventana, escriba la información siguiente y, a continuación, seleccione **Aceptar**:
+6. En la ventana **HDInsight Interactive Query**, escriba la información siguiente y luego seleccione **Aceptar**:
 
     |Propiedad | Valor |
     |---|---|
-    |Server |Escriba el nombre del clúster, por ejemplo *myiqcluster.azurehdinsight.net*.|
-    |Base de datos |Escriba **predeterminada** para este artículo.|
-    |Modo de conectividad de datos |Seleccione **DirectQuery** para este artículo.|
+    |Server |Escriba el nombre de clúster, por ejemplo,  *myiqcluster.azurehdinsight.net*.|
+    |Base de datos |Escriba **Predeterminada** para este artículo.|
+    |Modo Conectividad de datos |Seleccione **DirectQuery** para este artículo.|
 
     ![Conexión de HDInsight Interactive Query y Power BI con DirectQuery](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 
-7. Escriba las credenciales HTTP y, a continuación, seleccione **Connect**. El nombre de usuario predeterminado es **admin**.
+7. Escriba las credenciales HTTP y, a continuación, seleccione **Conectar**. El nombre de usuario predeterminado es **admin**.
 
-8. Desde el **navegador** ventana en el panel izquierdo, seleccione **hivesampletale**.
+8. En el panel izquierdo, en la ventana del **Navegador** seleccione **hivesampletale**.
 
-9. Seleccione **carga** desde la ventana principal.
+9. Seleccione **Carga** desde la ventana principal.
 
     ![HDInsight Interactive Query y Power BI con hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
@@ -67,7 +67,7 @@ El `hivesampletable` tabla de Hive incluye todos los clústeres de HDInsight.
 
 Continúe a partir del último procedimiento.
 
-1. En el panel visualizaciones, seleccione **mapa**, el icono de globo. Un mapa genérico, a continuación, aparece en la ventana principal.
+1. En el panel Visualizaciones, seleccione **Mapa**, el icono del globo. Aparece un mapa genérico en la ventana principal.
 
     ![HDInsight Power BI personaliza el informe](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
 

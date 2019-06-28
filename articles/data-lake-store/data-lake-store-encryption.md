@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878449"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
@@ -21,8 +21,8 @@ El cifrado en Azure Data Lake Storage Gen1 le ayuda a proteger sus datos, implem
 
 Data Lake Storage Gen1 admite el cifrado de datos tanto en reposo como en tránsito. En el caso de datos en reposo, Data Lake Storage Gen1 admite el cifrado transparente "activado de forma predeterminada". Con más detalle, esto significa:
 
-* **De forma predeterminada**: Cuando se crea una nueva cuenta de Data Lake Storage Gen1, la configuración predeterminada habilita el cifrado. Por lo tanto, los datos que se almacenan en Data Lake Storage Gen1 siempre se cifran antes de almacenarlos en un medio persistente. Este es el comportamiento para todos los datos y no se puede cambiar después de crear una cuenta.
-* **Transparente**: Data Lake Storage Gen1 automáticamente cifra los datos antes de guardarlos y descifra los datos antes de recuperarlos. Un administrador configura y administra el cifrado de cada instancia de Data Lake Storage Gen1. No se realizan cambios en las API de acceso a datos. Por lo tanto, no se requiere ningún cambio en las aplicaciones y los servicios que interactúan con Data Lake Storage Gen1 a causa del cifrado.
+* **Activado de forma predeterminada**: cuando se crea una cuenta de Data Lake Storage Gen1, la configuración predeterminada habilita el cifrado. Por lo tanto, los datos que se almacenan en Data Lake Storage Gen1 siempre se cifran antes de almacenarlos en un medio persistente. Este es el comportamiento para todos los datos y no se puede cambiar después de crear una cuenta.
+* **Transparente**: Data Lake Storage Gen1 cifra automáticamente los datos antes de guardarlos y los descifra antes de recuperarlos. Un administrador configura y administra el cifrado de cada instancia de Data Lake Storage Gen1. No se realizan cambios en las API de acceso a datos. Por lo tanto, no se requiere ningún cambio en las aplicaciones y los servicios que interactúan con Data Lake Storage Gen1 a causa del cifrado.
 
 Los datos en tránsito (también conocidos como datos en movimiento) también se cifran siempre en Data Lake Storage Gen1. Además de que los datos se cifran antes de almacenarse en un medio persistente, también se protegen cuando están en tránsito mediante HTTPS. HTTPS es el único protocolo admitido para las interfaces de REST de Data Lake Storage Gen1. En el diagrama siguiente se muestra cómo se cifran los datos en Data Lake Storage Gen1:
 
@@ -56,11 +56,11 @@ Esta es una breve comparación de las funcionalidades que proporcionan ambos mod
 | --- | --- | --- |
 |¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse.|Siempre se cifran antes de almacenarse.|
 |¿Dónde se almacena la clave de cifrado maestra?|Key Vault|Key Vault|
-|¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |Sin |Sin |
+|¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |Sin|Sin|
 |¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
 |¿Quién posee la instancia de Key Vault y la clave de cifrado maestra?|Servicio de Data Lake Storage Gen1|Usted es el propietario de la instancia de Key Vault, que pertenece a su propia suscripción de Azure. La clave de cifrado maestra de Key Vault se puede administrar mediante software o hardware.|
-|¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Storage Gen1?|Sin |Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Storage Gen1.|
-|¿Puede eliminar permanentemente la clave de cifrado maestra?|Sin |Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Storage Gen1, incluido el servicio Data Lake Storage Gen1. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Storage Gen1 nunca se podrán cifrar después.|
+|¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Storage Gen1?|Sin|Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Storage Gen1.|
+|¿Puede eliminar permanentemente la clave de cifrado maestra?|Sin|Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Storage Gen1, incluido el servicio Data Lake Storage Gen1. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Storage Gen1 nunca se podrán cifrar después.|
 
 
 Aparte de esta diferencia sobre quién administra la clave de cifrado maestra y la instancia de Key Vault en la que reside, el resto del diseño es igual en ambos modos.

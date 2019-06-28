@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: a6c32058c68adbfd11a4cede6332b42076bea015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952090"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Supervisión y diagnóstico para Azure Service Fabric
@@ -52,7 +52,7 @@ Service Fabric proporciona un conjunto completo de eventos listos para usar. Est
 
 Los diagnósticos se proporcionan en forma de un conjunto completo de eventos predefinidos. Estos [eventos de Service Fabric](service-fabric-diagnostics-events.md) muestran las acciones que realiza la plataforma en entidades diferentes, como nodos, aplicaciones, servicios, particiones, etc. En el último escenario de los anteriores, si un nodo dejara de funcionar, la plataforma emitiría un evento `NodeDown` y podría recibir una notificación inmediatamente de la herramienta de supervisión de su elección. Otros ejemplos comunes son `ApplicationUpgradeRollbackStarted` o `PartitionReconfigured` durante una conmutación por error. **Los mismos eventos están disponibles en los clústeres de Windows y Linux.**
 
-Los eventos se envían a través de canales estándar en Windows y Linux, y se pueden leer con cualquier herramienta de supervisión que los admita. La solución de supervisión de Azure es registros de Azure Monitor. No dude en leer más sobre nuestras [integración de registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) que incluye un panel personalizado operativo para el clúster y algunos ejemplos de consultas desde el que puede crear alertas. Existen más conceptos de supervisión del clúster disponibles en [Generación de eventos y registros de nivel de plataforma](service-fabric-diagnostics-event-generation-infra.md).
+Los eventos se envían a través de canales estándar en Windows y Linux, y se pueden leer con cualquier herramienta de supervisión que los admita. La solución de Azure Monitor son los registros de Azure Monitor. Puede obtener más información sobre nuestra [integración de registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md), que incluye un panel operativo personalizado para el clúster y algunas consultas de ejemplo a partir de las que puede crear alertas. Existen más conceptos de supervisión del clúster disponibles en [Generación de eventos y registros de nivel de plataforma](service-fabric-diagnostics-event-generation-infra.md).
 
 ### <a name="health-monitoring"></a>Supervisión del estado
 La plataforma Service Fabric incluye un modelo de estado, el cual proporciona informes de estado extensibles para el estado de las entidades de un clúster. Cada nodo, aplicación, servicio, participación, réplica o instancia tiene un estado de mantenimiento que se actualiza continuamente. El estado de mantenimiento puede ser "Correcto", "Advertencia" o "Error". Piense en los eventos de Service Fabric como verbos de acciones que realiza el clúster en varias entidades y en el estado como un adjetivo para cada entidad. Cada vez que cambie el estado de una entidad determinada, también se emitirá un evento. De esta forma, puede configurar consultas y alertas para eventos de estado en la herramienta de supervisión de su elección, al igual que cualquier otro evento. 
@@ -73,22 +73,22 @@ Ahora que hemos analizado los diagnósticos en la aplicación y la plataforma, �
 
 Encontrará una lista de contadores de rendimiento que deberían recopilarse en el nivel de infraestructura en el artículo sobre [Métricas de rendimiento](service-fabric-diagnostics-event-generation-perf.md). 
 
-Service Fabric también proporciona un conjunto de contadores de rendimiento para los modelos de programación de Reliable Services y Actors. Si usa alguno de estos modelos, estos contadores de rendimiento pueden proporcionar información para garantizar que los actores se aceleran y desaceleran correctamente, o que las solicitudes de servicio de confianza se están gestionando lo suficientemente rápido. Para más información al respecto, consulte [Supervisión de comunicación remota de Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) y [Supervisión de rendimiento para Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
+Service Fabric también proporciona un conjunto de contadores de rendimiento para los modelos de programación de Reliable Services y Reliable Actors. Si usa alguno de estos modelos, estos contadores de rendimiento pueden proporcionar información para garantizar que los actores se aceleran y desaceleran correctamente, o que las solicitudes de servicio de confianza se están gestionando lo suficientemente rápido. Para más información al respecto, consulte [Supervisión de comunicación remota de Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) y [Supervisión de rendimiento para Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
 
-La solución de Azure Monitor para recopilar estos es registros de Azure Monitor como supervisión de nivel de plataforma. Debe usar el [agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) para recopilar los contadores de rendimiento adecuado y verlos en los registros de Azure Monitor.
+La solución de Azure Monitor para recopilarlos son los registros de Azure Monitor, del mismo modo que la supervisión de nivel de plataforma. Use el [agente de Log Analytics](service-fabric-diagnostics-oms-agent.md) para recopilar los contadores de rendimiento correspondientes y verlos en los registros de Azure Monitor.
 
 ## <a name="recommended-setup"></a>Configuración recomendada
 Después de repasar cada área de los escenarios de supervisión y ejemplo, aquí tiene un resumen de las herramientas de supervisión de Azure y la configuración necesarias para supervisar todas las áreas anteriores. 
 
 * Supervisión de aplicaciones con [Application Insights](service-fabric-tutorial-monitoring-aspnet.md)
-* Supervisión de clústeres con [agente de Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) y [los registros de Azure Monitor](service-fabric-diagnostics-oms-setup.md)
-* Supervisión de infraestructuras con [registros de Azure Monitor](service-fabric-diagnostics-oms-agent.md)
+* Supervisión de clústeres con el [agente de Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) y [registros de Azure Monitor](service-fabric-diagnostics-oms-setup.md)
+* Supervisión de la infraestructura con [registros de Azure Monitor](service-fabric-diagnostics-oms-agent.md)
 
 También puede utilizar y modificar la plantilla de ARM de ejemplo disponible [aquí](service-fabric-diagnostics-oms-setup.md#deploy-azure-monitor-logs-with-azure-resource-manager) para automatizar la implementación de todos los recursos y agentes necesarios. 
 
 ## <a name="other-logging-solutions"></a>Otras soluciones de registro
 
-Aunque las dos soluciones se recomienda, [registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) y [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) tienen integrada la integración con Service Fabric, muchos eventos se escriben a través de proveedores ETW y son extensible con otras soluciones de registro. También necesita consultar [Elastic Stack](https://www.elastic.co/products) (especialmente, si planea ejecutar un clúster en un entorno sin conexión), [Dynatrace](https://www.dynatrace.com/) o cualquier otra plataforma que prefiera. [Aquí](service-fabric-diagnostics-partners.md) encontrará una lista de los partners integrados.
+Aunque las dos soluciones recomendadas ([registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) y [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)) tienen incorporada la integración con Service Fabric, muchos eventos se escriben mediante proveedores de ETW y pueden ampliarse a otras soluciones de registro. También necesita consultar [Elastic Stack](https://www.elastic.co/products) (especialmente, si planea ejecutar un clúster en un entorno sin conexión), [Dynatrace](https://www.dynatrace.com/) o cualquier otra plataforma que prefiera. [Aquí](service-fabric-diagnostics-partners.md) encontrará una lista de los partners integrados.
 
 Los puntos clave para cualquier plataforma que elija deben incluir su grado de comodidad con la interfaz de usuario, las funcionalidades de consulta, las visualizaciones y los paneles personalizados disponibles, y las herramientas adicionales que proporcionen para mejorar la experiencia de supervisión. 
 
@@ -97,8 +97,8 @@ Los puntos clave para cualquier plataforma que elija deben incluir su grado de c
 * Para empezar a trabajar con la instrumentación de las aplicaciones, consulte [Generación de eventos y registros de nivel de aplicación](service-fabric-diagnostics-event-generation-app.md).
 * Consulte los pasos necesarios para configurar Application Insights para una aplicación en [Supervisión y diagnóstico de una aplicación de ASP.NET Core de Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Obtenga más información acerca de la supervisión de la plataforma y los eventos que proporciona Service Fabric en [Generación de eventos y registros de nivel de plataforma](service-fabric-diagnostics-event-generation-infra.md)
-* Configurar la integración de registros de Azure Monitor con Service Fabric en [configurar registros de Azure Monitor para un clúster](service-fabric-diagnostics-oms-setup.md)
-* Aprenda a configurar registros de Azure Monitor para supervisar los contenedores- [supervisión y diagnóstico para contenedores de Windows en Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Configure la integración de los registros de Azure Monitor con Service Fabric en [Configurar registros de Azure Monitor para un clúster](service-fabric-diagnostics-oms-setup.md)
+* Aprenda a configurar registros de Azure Monitor para supervisar contenedores. Consulte el tema sobre la [supervisión y el diagnóstico de contenedores Windows en Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Vea problemas y soluciones de diagnóstico de ejemplo con Service Fabric en [Escenarios comunes de diagnóstico](service-fabric-diagnostics-common-scenarios.md).
 * Vea otros productos de diagnóstico que se integran con Service Fabric en [Partners de diagnóstico de Service Fabric](service-fabric-diagnostics-partners.md).
 * Más información acerca de las recomendaciones generales de supervisión para los recursos de Azure: [Procedimientos recomendados: supervisión y diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

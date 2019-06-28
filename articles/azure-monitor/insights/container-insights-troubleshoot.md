@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521769"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Solución de problemas de Azure Monitor para contenedores
@@ -25,21 +25,21 @@ ms.locfileid: "65521769"
 Al configurar la supervisión del clúster de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores, puede encontrar un problema que impida la recopilación de datos o el informe del estado. En este artículo se detallan algunos problemas comunes y los pasos para solucionarlos.
 
 ## <a name="authorization-error-during-onboarding-or-update-operation"></a>Error de autorización durante la operación de incorporación o actualización
-Durante la habilitación de Azure Monitor para contenedores o actualizar un clúster para que admiten recopilar métricas, puede recibir un error similar al siguiente: *el cliente < identidad del usuario >' con el objeto no tiene Id. '< objectId del usuario >' autorización para realizar la acción 'Microsoft.Authorization/roleAssignments/write' en el ámbito*
+Durante la habilitación de Azure Monitor para los contenedores o la actualización de un clúster para que admita la recopilación de métricas, puede recibir un error similar al siguiente: *El cliente <identidad del usuario >" con Id. de objeto "< objectId del usuario >"no tiene autorización para realizar la acción "Microsoft.Authorization/roleAssignments/write" en el ámbito*
 
-Durante el proceso de incorporación o actualización, conceder la **Publisher de métricas de supervisión** se intenta la asignación de roles en el recurso de clúster. El usuario que inicia el proceso para habilitar Azure Monitor para contenedores o la actualización admitir la colección de métricas debe tener acceso a la **Microsoft.Authorization/roleAssignments/write** permiso en el clúster de AKS ámbito de recurso. Solo los miembros de la **propietario** y **Administrador de acceso de usuario** roles integrados tienen acceso a este permiso. Si las directivas de seguridad requieren asignar permisos a nivel granulares, le recomendamos que visualice [roles personalizados](../../role-based-access-control/custom-roles.md) y asignarla a los usuarios que lo necesiten. 
+Durante el proceso de incorporación o de actualización, se intenta la asignación del rol **Publicador de métricas de supervisión** en el recurso de clúster. El usuario que inicia el proceso para habilitar Azure Monitor para contenedores o la actualización para admitir la recopilación de métricas debe tener acceso al permiso **Microsoft.Authorization/roleAssignments/write** en el ámbito de recurso de clúster de AKS. Solo a los miembros de los roles integrados **Propietario** y **Administrador de acceso de usuario** se les ha concedido acceso a este permiso. Si las directivas de seguridad requieren la asignación de permisos a un nivel específico, se recomienda consultar los [roles personalizados](../../role-based-access-control/custom-roles.md) y asignarlos a los usuarios que lo necesiten. 
 
-Puede conceder este rol también manualmente desde el portal de Azure realizando los pasos siguientes:
+También puede conceder este rol de forma manual desde Azure Portal siguiendo estos pasos:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 2. En Azure Portal, haga clic en **Todos los servicios**, en la esquina superior izquierda. En la lista de recursos, escriba **Kubernetes**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Azure Kubernetes**.
-3. En la lista de clústeres de Kubernetes, seleccione uno de la lista.
-2. En el menú izquierdo, haga clic en **control de acceso (IAM)**.
-3. Seleccione **+ agregar** para agregar una asignación de roles y seleccione el **Publisher de métricas de supervisión** rol y, en el **seleccione** cuadro, escriba **AKS** a filtro de entidades definidas en la suscripción de servicio de los resultados en solo los clústeres. Seleccione aquella en la lista que es específica de ese clúster.
+3. En la lista de clústeres de Kubernetes, seleccione uno.
+2. En el menú de la izquierda, haga clic en **Control de acceso (IAM)** .
+3. Seleccione **+ Agregar** para agregar una asignación de roles, seleccione el cuadro **Publicador de métricas de supervisión** y, en el cuadro **Seleccionar**, escriba **AKS** para filtrar los resultados en las entidades de servicio de clústeres definidas en la suscripción. Seleccione aquella en la lista que sea específica de ese clúster.
 4. Haga clic en **Guardar** para finalizar la asignación del rol. 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor para contenedores está habilitado, pero no proporciona ninguna información
-Si está habilitado y configurado, correctamente Azure Monitor para los contenedores, pero no se puede ver información de estado o se devuelve ningún resultado de una consulta de registro, diagnosticar el problema siguiendo estos pasos: 
+Si Azure Monitor para contenedores está habilitado y configurado correctamente, pero no puede ver la información de estado o no se devuelve ningún resultado de una consulta de registros, siga estos pasos para diagnosticar el problema: 
 
 1. Ejecute este comando para comprobar el estado del agente: 
 
@@ -111,9 +111,9 @@ En la tabla siguiente se resumen los errores conocidos que pueden producirse al 
 
 | mensajes de error  | . |  
 | ---- | --- |  
-| Mensaje de error `No data for selected filters`  | Puede tardar algún tiempo en establecer el flujo de datos de supervisión de clústeres recién creados. Permitir al menos 10 a 15 minutos para los datos que aparecerá para el clúster. |   
-| Mensaje de error `Error retrieving data` | Mientras el clúster de Azure Kubernetes Service se configura para la supervisión de rendimiento y de mantenimiento, se establece una conexión entre el clúster y el área de trabajo de Azure Log Analytics. Se utiliza un área de trabajo de Log Analytics para almacenar todos los datos de supervisión del clúster. Este error puede producirse cuando el área de trabajo de Log Analytics se ha eliminado o perdido. Revise [administrar acceso](../platform/manage-access.md#view-workspace-details) para comprobar si el área de trabajo está disponible. Si falta el área de trabajo, deberá volver a habilitar la supervisión del clúster con Azure Monitor para contenedores. Para volver a habilitar, deberá [deshabilitar](container-insights-optout.md) supervisión para el clúster y [habilitar](container-insights-enable-new-cluster.md) Azure Monitor para los contenedores de nuevo. |  
-| `Error retrieving data` después de agregar Azure Monitor para contenedores mediante az aks cli | Al habilitar la supervisión mediante `az aks cli`, Azure Monitor para los contenedores no se pueden implementar correctamente. Compruebe si se ha implementado la solución. Para ello, vaya al área de trabajo de Log Analytics y vea si la solución está disponible seleccionado **Soluciones** en el panel de la izquierda. Para resolver este problema, tendrá que volver a implementar la solución siguiendo las instrucciones de [Cómo incorporar Azure Monitor para contenedores](container-insights-onboard.md). |  
+| Mensaje de error `No data for selected filters`  | Puede tardar algún tiempo en establecer el flujo de datos de supervisión de clústeres recién creados. Espere de 10 a 15 minutos como mínimo para que aparezcan los datos del clúster. |   
+| Mensaje de error `Error retrieving data` | Mientras el clúster de Azure Kubernetes Service se configura para la supervisión de rendimiento y de mantenimiento, se establece una conexión entre el clúster y el área de trabajo de Azure Log Analytics. Se utiliza un área de trabajo de Log Analytics para almacenar todos los datos de supervisión del clúster. Este error puede producirse cuando el área de trabajo de Log Analytics se ha eliminado o perdido. Revise [administrar acceso](../platform/manage-access.md#view-workspace-details) para comprobar si el área de trabajo está disponible. Si falta el área de trabajo, deberá volver a habilitar el clúster mediante Azure Monitor para contenedores. Para volver a habilitarlo, tiene que [deshabilitar](container-insights-optout.md) la supervisión del clúster y [habilitar](container-insights-enable-new-cluster.md) de nuevo Azure Monitor para contenedores. |  
+| `Error retrieving data` después de agregar Azure Monitor para contenedores mediante az aks cli | Al habilitar la supervisión mediante `az aks cli`, Azure Monitor para contenedores puede que no se implemente correctamente. Compruebe que la solución se ha implementado. Para ello, vaya al área de trabajo de Log Analytics y vea si la solución está disponible seleccionado **Soluciones** en el panel de la izquierda. Para resolver este problema, tendrá que volver a implementar la solución siguiendo las instrucciones de [Cómo incorporar Azure Monitor para contenedores](container-insights-onboard.md). |  
 
 Para ayudar a diagnosticar el problema, hemos incluido un script de solución de problemas que está disponible [aquí](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

@@ -18,10 +18,10 @@ ms.date: 05/15/2019
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: a38d5b44aaca0aa28e7ecd32543d2b0563964b3d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797442"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configuraciones y certificaciones de SAP que se ejecutan en Microsoft Azure
@@ -48,22 +48,22 @@ Tenga en cuenta que SAP utiliza el término "agrupación en clústeres" en las [
 Microsoft Azure cuenta con certificación para los siguientes productos de SAP, con soporte técnico completo de Microsoft y SAP.
 Referencias:
 
-- [1928533 - aplicaciones de SAP en Azure: Productos admitidos y tipos de máquinas virtuales de Azure](https://launchpad.support.sap.com/#/notes/1928533) para todas las aplicaciones basadas en SAP NetWeaver, incluidas SAP TREX, SAP LiveCache y SAP Content Server. Y todas las bases de datos, excluida SAP HANA.
+- [1928533 - Aplicaciones de SAP en Azure: tipos de máquina virtual de Azure y productos compatibles](https://launchpad.support.sap.com/#/notes/1928533) para todas las aplicaciones basadas en SAP NetWeaver, incluidas SAP TREX, SAP LiveCache y SAP Content Server. Y todas las bases de datos, excluida SAP HANA.
 
 
 | Producto de SAP | SO invitado | RDBMS | Tipos de máquinas virtuales |
 | --- | --- | --- | --- |
 | Software SAP Business Suite | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows y Oracle Linux), DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, DS11_v2 a DS15_v2, GS1 a GS5, D2s_v3 a D64s_v3, E2s_v3 a E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 | SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows y Oracle Linux), DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, DS11_v2 a DS15_v2, GS1 a GS5, D2s_v3 a D64s_v3, E2s_v3 a E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
-| SAP BusinessObjects BI |  Windows |N/D |A5 a A11, D11 a D14, DS11 a DS14, DS11_v2 a DS15_v2, GS1 a GS5, D2s_v3 a D64s_v3, E2s_v3 a E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
+| SAP BusinessObjects BI | Windows |N/D |A5 a A11, D11 a D14, DS11 a DS14, DS11_v2 a DS15_v2, GS1 a GS5, D2s_v3 a D64s_v3, E2s_v3 a E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 | SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows y Oracle Linux), DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, DS11_v2 a DS15_v2, GS1 a GS5, D2s_v3 a D64s_v3, E2s_v3 a E64s_v3, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Otras cargas de trabajo de SAP admitidas en Azure
 
 | Producto de SAP | SO invitado | RDBMS | Tipos de máquinas virtuales |
 | --- | --- | --- | --- |
-| SAP Business One on SQL Server |  Windows  | SQL Server | Todos los tipos de máquina virtual con certificado NetWeaver<br /> [Nota de SAP #928839](https://launchpad.support.sap.com/#/notes/928839) |
+| SAP Business One on SQL Server | Windows  | SQL Server | Todos los tipos de máquina virtual con certificado NetWeaver<br /> [Nota de SAP #928839](https://launchpad.support.sap.com/#/notes/928839) |
 | SAP BPC 10.01 MS SP08 | Windows y Linux | | Todos los tipos de máquina virtual con certificado NetWeaver<br /> Nota de SAP 2451795 |
 | SAP Business Objects BI platform | Windows y Linux | | Nota de SAP 2145537 |
 | SAP Data Services 4.2 | | | Nota de SAP 2288344 |
-| Plataforma de comercio de Hybris SAP 5.x y 6.x |  Windows | SQL Server, Oracle | Todos los tipos de máquina virtual con certificado NetWeaver<br /> [Wiki de Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |
+| Plataforma de comercio de Hybris SAP 5.x y 6.x | Windows | SQL Server, Oracle | Todos los tipos de máquina virtual con certificado NetWeaver<br /> [Wiki de Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
 ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127920"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adición de la autenticación a la aplicación Xamarin.Android
@@ -96,7 +96,7 @@ La aplicación se actualiza para requerir a los usuarios que pulsen el botón **
     Esto crea un método nuevo para autenticar un usuario y un controlador de método para un nuevo botón **Iniciar sesión** . El usuario del código de ejemplo anterior se autentica mediante el inicio de sesión en Facebook. Se usa un cuadro de diálogo para mostrar el identificador de usuario una vez autenticado.
    
    > [!NOTE]
-   > Si usa un proveedor de identidades que no sea Facebook, cambie el valor pasado a **LoginAsync** anteriormente a uno de los siguientes: *MicrosoftAccount*, *Twitter*, *Google* o *WindowsAzureActiveDirectory*.
+   > Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que usó con **LoginAsync** por uno de los siguientes: *MicrosoftAccount*, *Twitter*, *Google* o *WindowsAzureActiveDirectory*.
    > 
    > 
 2. En el método **OnCreate** , elimine o convierta en comentario la siguiente línea de código:

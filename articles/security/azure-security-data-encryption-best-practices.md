@@ -1,5 +1,5 @@
 ---
-title: 'Seguridad de los datos y cifrado de procedimientos recomendados: Microsoft Azure'
+title: Procedimientos recomendados de cifrado y seguridad de datos - Microsoft Azure
 description: Este artículo proporciona un conjunto de procedimientos recomendados para el cifrado y la seguridad de los datos con funcionalidades de Azure integradas.
 services: security
 documentationcenter: na
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190708"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de seguridad de datos de Azure y cifrado
-En este artículo describe procedimientos recomendados para seguridad de los datos y el cifrado.
+# <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
+En este artículo se describen los procedimientos recomendados para el cifrado y la seguridad de datos.
 
-Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Las opiniones y las tecnologías cambian con el tiempo y en este artículo se actualiza de forma periódica para reflejar dichos cambios.
+Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Como las opiniones y las tecnologías cambian con el tiempo, este artículo se actualiza de forma periódica para reflejar dichos cambios.
 
 ## <a name="protect-data"></a>Protección de datos
 Para contribuir a proteger los datos en la nube, debe tener en cuenta los posibles estados que pueden tener los datos y los controles disponibles para ese estado. Los procedimientos recomendados para el cifrado y seguridad de datos de Azure están relacionados con los siguientes estados de datos:
@@ -110,7 +110,7 @@ Estos son los procedimientos recomendados específicos para usar Azure VPN Gatew
 **Detalles**: use [ExpressRoute](../expressroute/expressroute-introduction.md). Si decide usar ExpressRoute, también puede cifrar los datos en el nivel de aplicación mediante [SSL/TLS](https://support.microsoft.com/kb/257591) u otros protocolos para una mayor protección.
 
 **Procedimiento recomendado**: interactúe con Azure Storage a través de Azure Portal.   
-**Detalles**: todas las transacciones se realizan a través de HTTPS. También puede usar [API de REST de almacenamiento](https://msdn.microsoft.com/library/azure/dd179355.aspx) a través de HTTPS para interactuar con [Azure Storage](https://azure.microsoft.com/services/storage/).
+**Detalles**: todas las transacciones se realizan a través de HTTPS. También se puede usar la [API de REST Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) a través de HTTPS para interactuar con [Azure Storage](https://azure.microsoft.com/services/storage/).
 
 Las organizaciones que no protegen los datos en tránsito son más susceptibles a los [ataques del tipo "Man in the middle"](https://technet.microsoft.com/library/gg195821.aspx), a la [interceptación](https://technet.microsoft.com/library/gg195641.aspx) y al secuestro de sesión. Estos ataques pueden ser el primer paso para obtener acceso a datos confidenciales.
 

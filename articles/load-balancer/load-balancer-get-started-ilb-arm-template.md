@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 339183dabf67abb43d6fc99bbe5258a39f12b14a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122291"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Creación del equilibrador de carga interno con una plantilla
@@ -45,7 +45,7 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Descargue el archivo de parámetros en el disco local.
 3. Edite el archivo y guárdelo.
-4. Ejecute el **New AzResourceGroupDeployment** para crear un grupo de recursos mediante la plantilla.
+4. Ejecute el cmdlet **New-AzResourceGroupDeployment** para crear un grupo de recursos mediante la plantilla.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `

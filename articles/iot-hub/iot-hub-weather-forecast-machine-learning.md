@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
 ms.openlocfilehash: ffc2e5fb588ce6861f5df6cefdf810c1a015c043
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61441090"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
@@ -41,7 +41,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-- Completar la [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial o uno de los tutoriales de dispositivo; por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos cubren los siguientes requisitos:
+- Completar el tutorial [Simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos abarcan los requisitos siguientes:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
@@ -97,11 +97,11 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 1. En **Topología de trabajo**, haga clic en **Entradas**.
 1. En el panel **Entradas**, haga clic en **Agregar** y, a continuación, escriba la siguiente información:
 
-   **Alias de entrada**: El alias único para la entrada.
+   **Alias de entrada**: el alias único para la entrada.
 
    **Origen**: seleccione **Centro de IoT**.
 
-   **Grupo de consumidores**: Seleccione el grupo de consumidores que creó.
+   **Grupo de consumidores**: seleccione el grupo de consumidores que se ha creado.
 
    ![Adición de una entrada al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -114,11 +114,11 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    **Alias de salida**: el alias único para la salida.
 
-   **Receptor**: Seleccione **el almacenamiento de blobs**.
+   **Receptor**: Seleccione **Blob Storage**.
 
-   **Cuenta de almacenamiento**: La cuenta de almacenamiento para el almacenamiento de blobs. Puede crear una cuenta de almacenamiento o usar una existente.
+   **Cuenta de almacenamiento**: la cuenta de almacenamiento para el almacenamiento de blobs. Puede crear una cuenta de almacenamiento o usar una existente.
 
-   **Contenedor**: El contenedor donde se guarda el blob. Puede crear un contenedor o usar uno existente.
+   **Contenedor**: el contenedor donde se guarda el blob. Puede crear un contenedor o usar uno existente.
 
    **Formato de serialización de eventos**: Seleccione **CSV**.
 
@@ -135,11 +135,11 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
    **Tipo de función**: Seleccione **Azure ML**.
 
-   **Opción de importación**: Seleccione **importar desde otra suscripción**.
+   **Opción de importación**: seleccione **Importar de una suscripción distinta**.
 
-   **URL**: Escriba la dirección URL del servicio WEB que anotó del libro de Excel.
+   **URL**: escriba la DIRECCIÓN URL DEL SERVICIO WEB que ha anotado del libro de Excel.
 
-   **Clave**: Escriba la clave de acceso que anotó del libro de Excel.
+   **Clave**: escriba la CLAVE DE ACCESO que ha anotado del libro de Excel.
 
    ![Adición de una función al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 

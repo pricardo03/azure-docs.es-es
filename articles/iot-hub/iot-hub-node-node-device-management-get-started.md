@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596631"
 ---
 # <a name="get-started-with-device-management-node"></a>Introducción a la administración de dispositivos (Node)
@@ -21,7 +21,7 @@ ms.locfileid: "65596631"
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
-* Use la [portal Azure](https://portal.azure.com) para crear un IoT Hub y crear una identidad de dispositivo en IoT hub.
+* Usar [Azure Portal](https://portal.azure.com) para crear una instancia de IoT Hub y una identidad de dispositivo en ella.
 
 * Crear una aplicación de dispositivo simulado que contiene un método directo que reinicia ese dispositivo. Los métodos directos se invocan desde la nube.
 
@@ -35,7 +35,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Node.js versión 10.0 o posterior. [Preparar el entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
+* Versión 10.0.x de Node.js o posterior. En [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
@@ -51,7 +51,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="create-a-simulated-device-app"></a>Creación de una aplicación de dispositivo simulado
 
-En esta sección, llevará a cabo los pasos siguientes:
+En esta sección, realizará los pasos siguientes:
 
 * Creará una aplicación de consola de Node.js que responda a un método directo que se llama desde la nube.
 

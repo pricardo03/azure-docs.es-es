@@ -1,6 +1,6 @@
 ---
-title: Obtener una vista previa en durable Functions características - Azure Functions
-description: Obtenga información acerca de las características de vista previa para Durable Functions.
+title: 'Características en versión preliminar de Durable Functions: Azure Functions'
+description: Obtenga información sobre las características en versión preliminar para Durable Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
@@ -11,32 +11,32 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596085"
 ---
-# <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 preview (Azure Functions)
+# <a name="durable-functions-20-preview-azure-functions"></a>Versión preliminar de Durable Functions 2.0 (Azure Functions)
 
-*Durable Functions* es una extensión de [Azure Functions](../functions-overview.md) y [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre. Si no todavía está familiarizado con Durable Functions, consulte el [documentación Descripción general de](durable-functions-overview.md).
+*Durable Functions* es una extensión de [Azure Functions](../functions-overview.md) y [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre. Si todavía no está familiarizado con Durable Functions, vea la [documentación de introducción](durable-functions-overview.md).
 
-Durable Functions es una característica de GA (disponible con carácter general) de Azure Functions, pero también contiene varias características secundarias que se encuentran actualmente en versión preliminar pública. En este artículo se describe las características más recientes de versión preliminar y entra en detalles sobre cómo funcionan y cómo puede comenzar a usarlos.
+Durable Functions es una característica GA (disponible con carácter general) de Azure Functions, pero también contiene varias características secundarias que se encuentran actualmente en versión preliminar pública. En este artículo se describen las características de versión preliminar más recientes y se detalla cómo funcionan y cómo puede comenzar a usarlas.
 
 > [!NOTE]
-> Estas características forman parte de una versión de Durable Functions 2.0, que es actualmente un **versión alfa de calidad** con varios cambios importantes. Azure funciones duraderas compila el paquete de extensión puede encontrarse en nuget.org con las versiones en forma de **2.0.0-alpha**. Estas compilaciones no son adecuadas para las cargas de trabajo de producción, y versiones posteriores pueden contener cambios adicionales.
+> Estas características en versión preliminar forman parte de una versión 2.0 de Durable Functions, que actualmente es una **versión de calidad alfa** con varios cambios importantes. En nuget.org puede encontrar compilaciones de paquete de la extensión Durable de Azure Functions, con el formato **2.0.0-alpha** para las versiones. Estas compilaciones no son adecuadas para cargas de trabajo de producción, y es posible que las versiones posteriores contengan cambios adicionales.
 
-## <a name="breaking-changes"></a>Cambios importantes
+## <a name="breaking-changes"></a>Cambios drásticos
 
-Se presentan varios cambios importantes en Durable Functions 2.0. No se esperan que las aplicaciones existentes para que sean compatibles con Durable Functions 2.0 sin cambios de código. En esta sección se enumera algunos de los cambios:
+En Durable Functions 2.0 se han presentado varios cambios importantes. No se espera que las aplicaciones existentes sean compatibles con Durable Functions 2.0 sin cambios de código. En esta sección se enumeran algunos de los cambios:
 
-### <a name="dropping-net-framework-support"></a>Quitar la compatibilidad de .NET Framework
+### <a name="dropping-net-framework-support"></a>Eliminación de la compatibilidad con .NET Framework
 
-Se ha quitado la compatibilidad con .NET Framework (y, por tanto, las funciones 1.0) para Durable Functions 2.0. Es la razón principal habilitar los colaboradores que no sean Windows fácilmente compilar y probar los cambios que realicen a Durable Functions desde las plataformas macOS y Linux. La razón secundaria es ayudar a los desarrolladores a desplazarse a la última versión del runtime de Azure Functions.
+En Durable Functions 2.0 se ha quitado la compatibilidad con .NET Framework (y, por tanto, con Functions 1.0). La razón principal es para permitir que los colaboradores que no usen Windows tengan facilidad para compilar y probar los cambios que realicen en Durable Functions desde las plataformas macOS y Linux. La razón secundaria es para animar a los desarrolladores a que cambien a la versión más reciente del runtime de Azure Functions.
 
-### <a name="hostjson-schema"></a>Host.json schema
+### <a name="hostjson-schema"></a>Esquema de host.json
 
-El fragmento de código siguiente muestra el nuevo esquema de host.json. Tenga en cuenta el cambio principal es la nueva `"storageProvider"` sección y el `"azureStorage"` sección debajo de ella. Este cambio se realizó para admitir [alternativos de proveedores de almacenamiento](durable-functions-preview.md#alternate-storage-providers).
+En el fragmento siguiente se muestra el nuevo esquema para host.json. El cambio principal que tener en cuenta es la nueva sección `"storageProvider"` y la sección `"azureStorage"` debajo de ella. Este cambio se ha realizado para admitir [proveedores de almacenamiento alternativos](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -73,27 +73,27 @@ El fragmento de código siguiente muestra el nuevo esquema de host.json. Tenga e
 }
 ```
 
-A medida que Durable Functions 2.0 se estabiliza, se introducirán más cambios a la `durableTask` sección host.json. Para obtener más información sobre estos cambios, consulte [este problema de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/641).
+A medida que Durable Functions 2.0 se estabilice, se introducirán más cambios en la sección `durableTask` de host.json. Para más información sobre estos cambios, vea [este problema de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/641).
 
 ### <a name="public-interface-changes"></a>Cambios en la interfaz pública
 
-Los distintos objetos de "contexto" compatibles con Durable Functions tenían clases base abstractas destinadas a usarse en las pruebas unitarias. Como parte de Durable Functions 2.0, se han reemplazado con interfaces de estas clases base abstractas. Código de función que usa directamente los tipos concretos no se ven afectados.
+Los distintos objetos de "contexto" compatibles con Durable Functions tenían clases base abstractas destinadas a usarse en pruebas unitarias. Como parte de Durable Functions 2.0, estas clases base abstractas se han reemplazado con interfaces. El código de función que usa directamente los tipos concretos no se ve afectado.
 
-La siguiente tabla representa los cambios principales:
+En la tabla siguiente se representan los cambios principales:
 
-| Tipo anterior | Nuevo tipo |
+| Tipo anterior | Tipo nuevo |
 |----------|----------|
 | DurableOrchestrationClientBase | IDurableOrchestrationClient |
 | DurableOrchestrationContextBase | IDurableOrchestrationContext |
 | DurableActivityContextBase | IDurableActivityContext |
 
-En el caso donde una clase base abstracta contiene métodos virtuales, se han reemplazado por los métodos de extensión definidos en estos métodos virtuales `DurableContextExtensions`.
+Si una clase base abstracta contiene métodos virtuales, estos métodos virtuales se han reemplazado por los métodos de extensión definidos en `DurableContextExtensions`.
 
-## <a name="entity-functions"></a>Funciones de la entidad
+## <a name="entity-functions"></a>Funciones de entidad
 
-Las funciones de entidad definen las operaciones de lectura y actualización de pequeños fragmentos de estado, conocido como *entidades duraderas*. Al igual que las funciones de orquestador, las funciones de entidad son funciones con un tipo especial de desencadenador, *desencadenador entidad*. A diferencia de las funciones de orquestador, funciones de la entidad no tiene las restricciones de código específico. Funciones de la entidad administran también el estado de forma explícita en lugar de forma implícita que representa el estado a través del flujo de control.
+Las funciones de entidad definen las operaciones de lectura y actualización de pequeños fragmentos de estado, denominados *entidades duraderas*. Al igual que las funciones de orquestador, las de entidad son funciones con un tipo especial de desencadenador, el *desencadenador de entidad*. A diferencia de las funciones de orquestador, las funciones de entidad no tienen restricciones de código específicas. Las funciones de entidad también administran el estado de forma explícita, en lugar de representarlo de forma implícita a través del flujo de control.
 
-El código siguiente es un ejemplo de una función de entidad simple que define un *contador* entidad. La función define tres operaciones `add`, `subtract`, y `reset`, cada uno de los que actualizar un valor entero, `currentValue`.
+El código siguiente es un ejemplo de una función de entidad simple que define una entidad *Counter*. La función define tres operaciones (`add`, `subtract` y `reset`) y cada una actualiza un valor entero, `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]
@@ -121,84 +121,84 @@ public static async Task Counter(
 }
 ```
 
-Entidad *instancias* se accede a través de un identificador único, el *Id. de entidad*. Un identificador de entidad es simplemente un par de cadenas que identifica una instancia de entidad. Consta de:
+A las *instancias* de entidad se accede a través de un identificador único, el *id. de entidad*. Un identificador de entidad es simplemente un par de cadenas que identifica de forma exclusiva una instancia de entidad. Consta de:
 
-1. un **nombre de entidad**: un nombre que identifica el tipo de la entidad (por ejemplo, "Contador")
-2. un **clave de entidad**: una cadena que identifica la entidad entre todas las demás entidades del mismo nombre (por ejemplo, un GUID)
+1. un **nombre de entidad**: un nombre que identifica el tipo de la entidad (por ejemplo, "Counter")
+2. una **clave de entidad**: una cadena que identifica de forma exclusiva la entidad entre todas las demás entidades del mismo nombre (por ejemplo, un GUID)
 
-Por ejemplo, un *contador* función entidad podría utilizarse para mantener la puntuación en un juego en línea. Cada instancia del juego tendrá un identificador de entidad única, como `@Counter@Game1`, `@Counter@Game2`, y así sucesivamente.
+Por ejemplo, se podría usar una función de entidad de *contador* para mantener la puntuación en un juego en línea. Cada instancia del juego tendrá un identificador de entidad único, como `@Counter@Game1`, `@Counter@Game2` y así sucesivamente.
 
-### <a name="comparison-with-virtual-actors"></a>Comparación con los actores virtuales
+### <a name="comparison-with-virtual-actors"></a>Comparación con actores virtuales
 
-El diseño de entidades duradero se ve influenciado por el [modelo de actor](https://en.wikipedia.org/wiki/Actor_model). Si ya está familiarizado con los actores, los conceptos de entidades duraderas deben ser familiares para usted. En concreto, son similares a las entidades duraderas [actores virtuales](https://research.microsoft.com/en-us/projects/orleans/) de muchas maneras:
+El [modelo de actor](https://en.wikipedia.org/wiki/Actor_model) tiene una gran influencia en el diseño de las entidades duraderas. Si ya tiene experiencia con los actores, los conceptos subyacentes a las entidades duraderas deberían resultarle familiares. En concreto, las entidades duraderas son similares a los [actores virtuales](https://research.microsoft.com/en-us/projects/orleans/) en muchos aspectos:
 
-* Entidades duraderas son direccionables a través de un *Id. de entidad*.
-* Las operaciones de entidad duradero ejecutan en serie, una vez, para evitar condiciones de carrera.
-* Entidades duraderas se crean automáticamente cuando se llama o se señala.
-* Cuando no está ejecutando las operaciones, durable se descargan las entidades en modo silencioso desde la memoria.
+* Las entidades duraderas son direccionables a través de un *id. de entidad*.
+* Las operaciones de las entidades duraderas se ejecutan en serie, una cada vez, para evitar condiciones de carrera.
+* Las entidades duraderas se crean de forma automática cuando se las llama o se señalan.
+* Cuando no ejecutan operaciones, las entidades duraderas se descargan en modo silencioso de la memoria.
 
-Hay algunas diferencias importantes, sin embargo, que son cabe destacar:
+Pero hay algunas diferencias importantes que conviene destacar:
 
-* Entidades duraderas se modelan como funciones puras. Este diseño es diferente de la mayoría marcos orientada a objetos que representan actores con compatibilidad específica del idioma para las clases, propiedades y métodos.
-* Dar prioridad entidades duraderas *durabilidad* sobre *latencia*y, por tanto, no puede ser adecuado para las aplicaciones con requisitos estrictos de latencia.
+* Las entidades duraderas se modelan como funciones puras. Este diseño es diferente al de la mayoría de marcos orientados a objetos que representan actores mediante compatibilidad específica del lenguaje para clases, propiedades y métodos.
+* Las entidades duraderas priorizan la *durabilidad* sobre la *latencia* y, por tanto, es posible que no sean adecuadas para aplicaciones con requisitos estrictos de latencia.
 * Los mensajes enviados entre las entidades se entregan en orden y de forma confiable.
-* Entidades duraderas pueden utilizarse junto con las orquestaciones durable y pueden servir como bloqueos distribuidos, que se describen más adelante en este artículo.
-* Patrones de solicitud/respuesta en las entidades están limitadas a las orquestaciones. Para la comunicación de la entidad a la entidad, se permiten solo mensajes unidireccionales (también conocido como "señalización"), como se muestra en el modelo de actor original. Este comportamiento evita los interbloqueos distribuidos.
+* Las entidades duraderas se pueden usar junto con las orquestaciones duraderas y pueden servir como bloqueos distribuidos, que se describen más adelante en este artículo.
+* Los patrones de solicitud y respuesta en las entidades se limitan a las orquestaciones. Para la comunicación entre entidades, solo se permiten mensajes unidireccionales (lo que también se conoce como "señalización"), como en el modelo de actor original. Este comportamiento evita los interbloqueos distribuidos.
 
-### <a name="durable-entity-apis"></a>API de Entity duradero
+### <a name="durable-entity-apis"></a>API de entidades de Durable
 
-Compatibilidad con Entity implica varias API. En primer lugar, hay una nueva API para definir funciones de la entidad, como se indicó anteriormente, que especifica qué debe ocurrir cuando se invoca una operación en una entidad. Además, las API existentes para los clientes y las orquestaciones se han actualizado con nueva funcionalidad para la interacción con las entidades.
+La compatibilidad con las entidades implica varias API. En primer lugar, hay una nueva API para definir funciones de entidad, como se ha mostrado antes, que especifica lo que debe ocurrir cuando se invoca una operación en una entidad. Además, las API existentes para clientes y orquestaciones se han actualizado con nuevas funciones para la interacción con las entidades.
 
 ### <a name="implementing-entity-operations"></a>Implementación de operaciones de entidad
 
 La ejecución de una operación en una entidad puede llamar a estos miembros del objeto de contexto (`IDurableEntityContext` en. NET):
 
-* **OperationName**: Obtiene el nombre de la operación.
-* **GetInput\<T >**: Obtiene la entrada para la operación.
-* **GetState\<T >**: Obtiene el estado actual de la entidad.
+* **OperationName**: obtiene el nombre de la operación.
+* **GetInput\<T>** : obtiene la entrada para la operación.
+* **GetState\<T>** : obtiene el estado actual de la entidad.
 * **SetState**: actualiza el estado de la entidad.
 * **SignalEntity**: envía un mensaje unidireccional a una entidad.
-* **Self**: Obtiene el identificador de la entidad.
-* **Devolver**: devuelve un valor para el cliente o una orquestación que llamó a la operación.
+* **Self**: obtiene el identificador de la entidad.
+* **Return**: devuelve un valor al cliente o la orquestación que ha llamado a la operación.
 * **IsNewlyConstructed**: devuelve `true` si la entidad no existía antes de la operación.
 * **DestructOnExit**: elimina la entidad después de finalizar la operación.
 
 Las operaciones tienen menos restricciones que las orquestaciones:
 
-* Las operaciones pueden llamar a E/S externo, mediante las API sincrónicas o asincrónicas (se recomienda usar solo las asincrónicas).
-* Las operaciones pueden ser no deterministas. Por ejemplo, resulta seguro llamar a `DateTime.UtcNow`, `Guid.NewGuid()` o `new Random()`.
+* Las operaciones pueden llamar a E/S externa, mediante API sincrónicas o asincrónicas (se recomienda usar solo las asincrónicas).
+* Las operaciones pueden ser no deterministas. Por ejemplo, es seguro llamar a `DateTime.UtcNow`, `Guid.NewGuid()` o `new Random()`.
 
-### <a name="accessing-entities-from-clients"></a>Acceder a las entidades de clientes
+### <a name="accessing-entities-from-clients"></a>Acceso a entidades desde clientes
 
-Entidades duraderas se pueden invocar desde las funciones normales a través de la `orchestrationClient` enlace (`IDurableOrchestrationClient` en. NET). Se admiten los siguientes métodos:
+Las entidades duraderas se pueden invocar desde funciones normales a través del enlace `orchestrationClient` (`IDurableOrchestrationClient` en .NET). Se admiten los métodos siguientes:
 
-* **ReadEntityStateAsync\<T >**: lee el estado de una entidad.
-* **SignalEntityAsync**: envía un mensaje unidireccional a una entidad y espera a que poner en cola.
+* **ReadEntityStateAsync\<T >** : lee el estado de una entidad.
+* **SignalEntityAsync**: envía un mensaje unidireccional a una entidad y espera a que se ponga en cola.
 
-Estos métodos priorizan el rendimiento a través de coherencia: `ReadEntityStateAsync` puede devolver un valor obsoleto, y `SignalEntityAsync` puede devolver antes de que haya finalizado la operación. En cambio, una llamada a las entidades desde las orquestaciones (como se describe a continuación) es altamente coherente.
+Estos métodos priorizan el rendimiento a la coherencia: `ReadEntityStateAsync` puede devolver un valor obsoleto, y `SignalEntityAsync` puede devolver antes de que haya finalizado la operación. En cambio, la llamada a entidades desde orquestaciones (como se describe a continuación) es altamente coherente.
 
-### <a name="accessing-entities-from-orchestrations"></a>Acceder a las entidades desde las orquestaciones
+### <a name="accessing-entities-from-orchestrations"></a>Acceso a entidades desde orquestaciones
 
-Las orquestaciones pueden acceder a las entidades mediante el objeto de contexto. Puede elegir entre una comunicación unidireccional (desencadenar y omitir) y la comunicación bidireccional (solicitud y respuesta). Los métodos respectivos son
+Las orquestaciones pueden acceder a las entidades mediante el objeto de contexto. Pueden elegir entre la comunicación unidireccional ("desencadenar y olvidar") y la comunicación bidireccional (solicitud y respuesta). Los métodos correspondientes son
 
 * **SignalEntity**: envía un mensaje unidireccional a una entidad.
-* **CallEntityAsync**: envía un mensaje a una entidad y espera una respuesta que indica que se ha completado la operación.
-* **CallEntityAsync\<T >**: envía un mensaje a una entidad y espera una respuesta que contiene un resultado de tipo T.
+* **CallEntityAsync**: envía un mensaje a una entidad y espera una respuesta en la que se indique que se ha completado la operación.
+* **CallEntityAsync\<T>** : envía un mensaje a una entidad y espera una respuesta que contenga un resultado de tipo T.
 
-Cuando se usa la comunicación bidireccional, las excepciones producidas durante la ejecución de la operación también se transmiten a la orquestación de llamada y se vuelve a iniciar. En cambio, cuando se usa fire and forget, no se observan las excepciones.
+Al usar la comunicación bidireccional, las excepciones iniciadas durante la ejecución de la operación también se devuelven a la orquestación que realiza la llamada y se vuelven a iniciar. En cambio, cuando se usa "desencadenar y olvidar", las excepciones no se observan.
 
-### <a name="locking-entities-from-orchestrations"></a>Bloqueo de las entidades desde las orquestaciones
+### <a name="locking-entities-from-orchestrations"></a>Bloqueado de entidades desde orquestaciones
 
-Las orquestaciones pueden bloquear las entidades. Esta capacidad proporciona una manera sencilla de evitar las carreras no deseadas mediante *secciones críticas*.
+Las orquestaciones pueden bloquear las entidades. Esta capacidad proporciona una manera sencilla de evitar carreras no deseadas mediante *secciones críticas*.
 
 El objeto de contexto proporciona los métodos siguientes:
 
 * **LockAsync**: adquiere bloqueos en una o más entidades.
 * **IsLocked**: devuelve true si actualmente se encuentra en una sección crítica, false en caso contrario.
 
-La sección crítica se liberan los extremos y todos los bloqueos, cuando finaliza la orquestación. En. NET, `LockAsync` devuelve un `IDisposable` que finaliza la sección crítica cuando se elimina, que puede utilizarse junto con un `using` cláusula para obtener una representación sintáctica de la sección crítica.
+La sección crítica finaliza, y se liberan todos los bloqueos, cuando finaliza la orquestación. En .NET, `LockAsync` devuelve un objeto `IDisposable` que finaliza la sección crítica cuando se elimina, que se puede usar junto con una cláusula `using` para obtener una representación sintáctica de la sección crítica.
 
-Por ejemplo, considere la posibilidad de una orquestación que necesita para probar si dos jugadores deben estar disponibles y, a continuación, asignarlos a un juego. Esta tarea puede implementarse mediante una sección crítica como sigue:
+Por ejemplo, imagine una orquestación que necesita probar si dos jugadores deben estar disponibles y, después, asignarlos a un juego. Esta tarea se puede implementar mediante una sección crítica como sigue:
 
 ```csharp
 [FunctionName("Orchestrator")]
@@ -224,26 +224,26 @@ public static async Task RunOrchestrator(
 }
 ```
 
-En la sección crítica, ambas entidades Reproductor están bloqueadas, lo que significa que no se ejecutan las operaciones que no sean las que se llaman desde dentro de la sección crítica). Este comportamiento impide que las carreras con operaciones en conflicto, como reproductores que se asigna a otro juego o firma desactivado.
+En la sección crítica, las dos entidades de jugador están bloqueadas, lo que significa que no ejecutan ninguna operación que no sea las que se llaman desde dentro de la sección crítica. Este comportamiento impide carreras con operaciones en conflicto, como que se asigne a los jugadores a otro juego o que se cierre la sesión.
 
-Se imponen varias restricciones en las secciones críticas de cómo se pueden usar. Estas restricciones se sirven para evitar los interbloqueos y la reentrada.
+Se imponen varias restricciones a la forma de usar las secciones críticas. Estas restricciones sirven para evitar interbloqueos y reentradas.
 
-* No se puede anidar las secciones críticas.
-* Las secciones críticas no pueden crear suborchestrations.
-* Las secciones críticas pueden llamar a solo las entidades que haya bloqueado.
-* Secciones críticas no pueden llamar a la misma entidad utilizando varias llamadas paralelas.
-* Las secciones críticas pueden señalar solo las entidades que no han bloqueado.
+* Las secciones críticas no se pueden anidar.
+* Las secciones críticas no pueden crear suborquestaciones.
+* Las secciones críticas solo pueden llamar a las entidades que hayan bloqueado.
+* Las secciones críticas no pueden llamar a la misma entidad mediante varias llamadas paralelas.
+* Las secciones críticas solo pueden señalar a las entidades que no hayan bloqueado.
 
-## <a name="alternate-storage-providers"></a>Proveedores de almacenamiento alternativo
+## <a name="alternate-storage-providers"></a>Proveedores de almacenamiento alternativos
 
-Durable Task Framework admite varios proveedores de almacenamiento de hoy en día, incluidos [Azure Storage](https://github.com/Azure/durabletask/tree/master/src/DurableTask.AzureStorage), [Azure Service Bus](https://github.com/Azure/durabletask/tree/master/src/DurableTask.ServiceBus), un [emulador en memoria](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Emulator)y un experimental [Redis](https://github.com/Azure/durabletask/tree/redis/src/DurableTask.Redis) proveedor. Sin embargo, hasta ahora, la extensión Durable Task para Azure Functions solo admite el proveedor de almacenamiento de Azure. A partir de Durable Functions 2.0, compatibilidad con proveedores de almacenamiento alternativo se agrega, empezando por el proveedor de Redis.
+En la actualidad, Durable Task Framework admite varios proveedores de almacenamiento incluidos [Azure Storage](https://github.com/Azure/durabletask/tree/master/src/DurableTask.AzureStorage), [Azure Service Bus](https://github.com/Azure/durabletask/tree/master/src/DurableTask.ServiceBus), un [emulador en memoria](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Emulator) y un proveedor [Redis](https://github.com/Azure/durabletask/tree/redis/src/DurableTask.Redis) experimental. Pero hasta ahora, la extensión Durable Task para Azure Functions solo admitía el proveedor Azure Storage. A partir de Durable Functions 2.0, se va a agregar compatibilidad con proveedores de almacenamiento alternativos, empezando por el proveedor de Redis.
 
 > [!NOTE]
-> Durable Functions 2.0 sólo es compatible con proveedores de .NET Standard 2.0 compatible. En el momento de escribir este artículo, el proveedor de Azure Service Bus no admite .NET Standard 2.0 y, por lo tanto, no está disponible como un proveedor de almacenamiento alternativo.
+> Durable Functions 2.0 solo admite proveedores compatibles con .NET Standard 2.0. En el momento de escribir este artículo, el proveedor de Azure Service Bus no admite .NET Standard 2.0 y, por tanto, no está disponible como un proveedor de almacenamiento alternativo.
 
 ### <a name="emulator"></a>Emulador
 
-El [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Emulator/) proveedor es una memoria local, el proveedor de almacenamiento no duradero adecuado para escenarios de pruebas locales. Puede configurarse con los mínimos siguientes **host.json** esquema:
+[DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Emulator/) es un proveedor de almacenamiento no duradero en memoria local adecuado para escenarios de pruebas locales. Se puede configurar mediante el esquema mínimo de **host.json** siguiente:
 
 ```json
 {
@@ -261,7 +261,7 @@ El [DurableTask.Emulator](https://www.nuget.org/packages/Microsoft.Azure.Durable
 
 ### <a name="redis-experimental"></a>Redis (experimental)
 
-El [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Redis/) proveedor conserva todos los Estados de orquestación a un clúster de Redis configurado.
+El proveedor [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Redis/) conserva todos los estados de orquestación en un clúster de Redis configurado.
 
 ```json
 {
@@ -279,7 +279,7 @@ El [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTas
 }
 ```
 
-El `connectionStringName` debe hacer referencia al nombre de una variable de entorno o configuración de aplicación. Esa variable de entorno o configuración de la aplicación debe contener un valor de cadena de conexión de Redis en forma de *servidor: puerto*. Por ejemplo, `localhost:6379` para conectarse a un clúster de Redis local.
+`connectionStringName` debe hacer referencia al nombre de una configuración de aplicación o variable de entorno. Esa variable de entorno o configuración de aplicación debe contener un valor de cadena de conexión de Redis con el formato *servidor:puerto*. Por ejemplo, `localhost:6379` para conectarse a un clúster de Redis local.
 
 > [!NOTE]
-> El proveedor de Redis es experimental actualmente y solo es compatible con aplicaciones de función que se ejecutan en un único nodo.
+> En la actualidad, el proveedor de Redis es experimental y solo es compatible con aplicaciones de función que se ejecutan en un único nodo.

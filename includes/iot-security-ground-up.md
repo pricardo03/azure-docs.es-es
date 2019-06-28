@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166303"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Seguridad de Internet de las cosas (IoT) desde el principio
@@ -33,7 +33,7 @@ A la vista de estos problemas de seguridad, privacidad, transparencia y cumplimi
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Infraestructura segura desde el principio
 
-El [Microsoft Cloud](https://azure.microsoft.com) infraestructura admite más de mil millones de clientes de 127 países o regiones. Gracias a las décadas de experiencia de Microsoft en la creación de software empresarial y en la ejecución de algunos de los servicios en línea más grandes del mundo, Microsoft Cloud proporciona mayores niveles de seguridad mejorada, privacidad, cumplimiento y prácticas de reducción de amenazas que los que la mayoría de los clientes podrían conseguir por su cuenta.
+La infraestructura de [Microsoft Cloud](https://azure.microsoft.com) tiene cabida para más de mil millones de clientes de 127 países o regiones. Gracias a las décadas de experiencia de Microsoft en la creación de software empresarial y en la ejecución de algunos de los servicios en línea más grandes del mundo, Microsoft Cloud proporciona mayores niveles de seguridad mejorada, privacidad, cumplimiento y prácticas de reducción de amenazas que los que la mayoría de los clientes podrían conseguir por su cuenta.
 
 El [Ciclo de vida de desarrollo de seguridad (SDL)](https://www.microsoft.com/sdl/) de Microsoft proporciona un proceso de desarrollo obligatorio en toda la empresa que incorpora los requisitos de seguridad en el ciclo de vida entero del software. Para tener la seguridad de que las actividades operativas siguen prácticas de seguridad del mismo nivel, SDL usa rigurosas directrices de seguridad basadas en el proceso de Garantía de la seguridad operacional (OSA) de Microsoft. Microsoft también trabaja con empresas de auditoría de terceros para comprobar sistemáticamente que cumple con las obligaciones normativas y realiza esfuerzos por mejorar la seguridad a través de la creación de centros de excelencia, como la unidad de delitos digitales de Microsoft, el Centro de respuestas de seguridad de Microsoft y el Centro de protección contra malware de Microsoft.
 
@@ -49,7 +49,7 @@ La instancia de [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) que se enc
 
 Para comunicar mejor las características de privacidad y seguridad integradas en los aceleradores de soluciones de Azure IoT, en este artículo se divide el conjunto de aplicaciones en tres áreas de seguridad principales.
 
-![Aceleradores de soluciones de Azure IoT](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Aceleradores de soluciones de IoT de Azure](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Seguridad en el aprovisionamiento y la autenticación de dispositivos
 
@@ -103,14 +103,14 @@ Los aceleradores de soluciones incorporan medidas de seguridad en su diseño, lo
 
 Cada acelerador de soluciones crea instancias de los servicios de Azure, tales como:
 
-* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): La puerta de enlace que se conecta a la nube a dispositivos. Se puede escalar a millones de conexiones por centro y procesar volúmenes masivos de datos gracias a la compatibilidad con la autenticación individual de cada dispositivo, lo que ayuda a proteger la solución.
+* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): la puerta de enlace que conecta la nube con los dispositivos. Se puede escalar a millones de conexiones por centro y procesar volúmenes masivos de datos gracias a la compatibilidad con la autenticación individual de cada dispositivo, lo que ayuda a proteger la solución.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): Un servicio de base de datos escalable indexado por completo para datos semiestructurados que administra los metadatos para los dispositivos aprovisionados, como atributos, configuración y las propiedades de seguridad. Azure Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): servicio de base de datos completamente indexado y escalable destinado a datos semiestructurados que administra los metadatos de los dispositivos aprovisionados, como los atributos, la configuración y las propiedades de seguridad. Azure Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
 
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): En la nube que le permite desarrollar e implementar con rapidez una solución de análisis de bajo costo para desvelar datos en tiempo real desde dispositivos, sensores, infraestructura y aplicaciones de procesamiento de transmisiones en tiempo real. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): Una plataforma de nube para crear eficaces aplicaciones web y móviles que se conectan a datos en cualquier lugar; en la nube o local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede obtener acceso a datos desde cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
 
-* [**Las aplicaciones lógicas**](https://azure.microsoft.com/services/app-service/logic/): La característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y para automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
 
-* [**Almacenamiento de blobs de Azure**](https://azure.microsoft.com/services/storage/): Almacenamiento confiable y económico para los datos que los dispositivos envían a la nube.
+* [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): almacenamiento en la nube confiable y económico para los datos que los dispositivos envían a la nube.

@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784828"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
@@ -249,12 +249,12 @@ Si completó la configuración, estos servicios deben aparecer ya en ejecución.
 
 ![Comprobación de Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
-### <a name="quick-agent-installation-in-multiple-servers"></a>Instalación del agente rápido en varios servidores
+### <a name="quick-agent-installation-in-multiple-servers"></a>Rápida instalación del agente en varios servidores
 
-1. Crear una cuenta de usuario en Azure AD con una contraseña.
-2. Asignar el **propietario** rol para esta cuenta AAD local en Azure AD Connect Health a través del portal. Siga los pasos [aquí](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Asigne el rol para todas las instancias de servicio. 
+1. Cree una cuenta de usuario en Azure AD con una contraseña.
+2. Asigne el rol **Propietario** para esta cuenta de AAD local en Azure AD Connect Health en el portal. Siga [estos](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) pasos. Asigne el rol a todas las instancias de servicio. 
 3. Descargue el archivo MSI .exe en el controlador de dominio local para la instalación.
-4. Ejecute el siguiente script para el registro. Reemplace los parámetros con la nueva cuenta de usuario creada y su contraseña. 
+4. Ejecute el siguiente script para el registro. Reemplace los parámetros por la nueva cuenta de usuario creada y su contraseña. 
 
 ```powershell
 AdHealthAddsAgentSetup.exe /quiet
@@ -268,11 +268,11 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 
 ```
 
-1. Cuando haya terminado, puede quitar el acceso para la cuenta local, realice una o varias de las siguientes acciones: 
-    * Quitar la asignación de roles para la cuenta local para AAD Connect Health
-    * Rotar la contraseña para la cuenta local. 
-    * Deshabilitar la cuenta local de AAD
-    * Eliminar la cuenta local de AAD  
+1. Cuando haya terminado, puede quitar el acceso a la cuenta local de una de estas maneras: 
+    * Quite la asignación de rol de la cuenta local para AAD Connect Health.
+    * Cambie la contraseña de la cuenta local. 
+    * Deshabilite la cuenta local de AAD.
+    * Elimine la cuenta local de AAD.  
 
 ## <a name="agent-registration-using-powershell"></a>Registro del agente con PowerShell
 
@@ -313,7 +313,7 @@ Tiene las siguientes opciones para configurar el agente de Azure AD Connect Heal
 
 > [!NOTE]
 > Debe reiniciar todos los servicios del agente de Azure AD Connect Health para que se actualice la configuración de proxy. Ejecute el siguiente comando:<br />
->  Restart-Service AdHealth*
+> Restart-Service AdHealth*
 >
 >
 

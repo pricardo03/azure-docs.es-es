@@ -10,10 +10,10 @@ ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
 ms.openlocfilehash: e2c3c3988193242cd0afe0135b019c7e6f73b59c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596722"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Node)
@@ -30,7 +30,7 @@ Este tutorial se basa en la [introducción al Centro de IoT](quickstart-send-tel
 * Reciba mensajes de nube a dispositivo en un dispositivo.
 * Desde el back-end de la nube de la aplicación, solicite confirmación de entrega (*comentarios*) para los mensajes enviados a un dispositivo desde IoT Hub.
 
-Puede encontrar más información sobre los mensajes de nube a dispositivo en el [Guía del desarrollador de IoT Hub](iot-hub-devguide-messaging.md).
+Encontrará más información sobre los mensajes de nube a dispositivo en la [Guía para desarrolladores de IoT Hub](iot-hub-devguide-messaging.md).
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
@@ -44,7 +44,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Node.js versión 10.0 o posterior.
+* Node.js versión 10.0.x o posteriores.
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial) en tan solo unos minutos).
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Recepción de mensajes en la aplicación de dispositivo simulado
@@ -80,7 +80,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
     ```
   
    > [!NOTE]
-   > Si usa HTTPS en lugar de MQTT o AMQP como transporte, la instancia de **DeviceClient** busca mensajes de IoT Hub con menos frecuencia (menos de 25 minutos). Para obtener más información sobre las diferencias entre la compatibilidad con MQTT, AMQP y HTTPS y la limitación de IoT Hub, consulte el [Guía del desarrollador de IoT Hub](iot-hub-devguide-messaging.md).
+   > Si usa HTTPS en lugar de MQTT o AMQP como transporte, la instancia de **DeviceClient** busca mensajes de IoT Hub con menos frecuencia (menos de 25 minutos). Para más información sobre las diferencias entre la compatibilidad con MQTT, AMQP y HTTPS, y la limitación de IoT Hub, vea la [Guía del desarrollador de IoT Hub](iot-hub-devguide-messaging.md).
    >
 
 ## <a name="send-a-cloud-to-device-message"></a>Envío de mensajes de nube a dispositivo

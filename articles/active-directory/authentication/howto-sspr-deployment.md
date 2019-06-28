@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190361"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
@@ -34,7 +34,7 @@ Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento d
       * Restablecimiento: https://aka.ms/sspr
 
    > [!WARNING]
-   > No se admite el uso de la casilla de verificación "el usuario debe cambiar la contraseña en el siguiente inicio de sesión" en Herramientas administrativas de Active Directory local, como usuarios de Active Directory y los equipos o el centro de administración de Active Directory. Al cambiar una contraseña en el entorno local no Active esta opción. 
+   > No se admite el uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory. Al cambiar una contraseña en local no active esta opción. 
 
 1. Ofrezca cursos a sus usuarios.
    * En las siguientes secciones de este documento se repasan ejemplos de comunicación, portales de contraseñas, aplicación del registro y relleno de los datos de autenticación.
@@ -53,7 +53,7 @@ Muchos clientes opinan que una campaña de correo electrónico, con instruccione
 * **Tiendas de mesa de SSPR**: tarjetas de mesa que se pueden colocar en el comedor, en salas de conferencias o en mesas para animar a los usuarios a completar el registro.
 * **Adhesivos de SSPR**: plantillas de adhesivo que puede personalizar e imprimir para colocar en equipos portátiles, monitores, teclados o teléfonos móviles para recordar cómo se obtiene acceso a SSPR.
 
-![Ejemplos de correo electrónico SSPR para la implementación a los usuarios][Email]
+![Ejemplos de correo electrónico SSPR para implementación en usuarios][Email]
 
 ## <a name="create-your-own-password-portal"></a>Creación de su propio portal de contraseñas
 

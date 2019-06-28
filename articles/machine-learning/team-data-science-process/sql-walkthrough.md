@@ -12,10 +12,10 @@ ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606515"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
@@ -376,7 +376,7 @@ También podemos comprobar la relación entre **rate\_code** y **trip\_distance*
 ![Diagrama 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Submuestreo de los datos en SQL
-Al preparar los datos para la creación del modelo en [Azure Machine Learning Studio](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo Importar datos** o conservar los datos de ingeniería y de muestreo en una tabla nueva, que puede utilizar en el módulo [Importar datos][import-data] con una única instrucción **SELECT * FROM <nuevo\_nombre\_de\_tabla>**.
+Al preparar los datos para la creación del modelo en [Azure Machine Learning Studio](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo Importar datos** o conservar los datos de ingeniería y de muestreo en una tabla nueva, que puede utilizar en el módulo [Importar datos][import-data] con una única instrucción **SELECT * FROM <nuevo\_nombre\_de\_tabla>** .
 
 En esta sección se creará una nueva tabla para almacenar los datos de ingeniería y muestreados. En la sección [Exploración de datos e ingeniería de características en SQL Server](#dbexplore) se proporciona un ejemplo de una consulta SQL directa para la creación del modelo.
 
@@ -515,7 +515,7 @@ En este ejemplo se transforma un campo numérico continuo en intervalos de categ
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Ingeniería de características: Extraer las características de ubicación a partir de una latitud o longitud decimal
-En este ejemplo divide la representación decimal de un campo de longitud o latitud en varios campos de región de granularidad diferente, por ejemplo, país o región, ciudad, localidad, bloque, etcetera. Tenga en cuenta que los nuevos campos geográficos no están asignados a ubicaciones reales. Para obtener información sobre la asignación de ubicaciones de códigos geográficos, consulte [Servicios REST de Mapas de Bing](https://msdn.microsoft.com/library/ff701710.aspx).
+En este ejemplo se desglosa la representación decimal de un campo de longitud o latitud en varios campos de región de granularidad diferente, como país o región, provincia, localidad, bloque, etc. Tenga en cuenta que los nuevos campos geográficos no están asignados a ubicaciones reales. Para obtener información sobre la asignación de ubicaciones de códigos geográficos, consulte [Servicios REST de Mapas de Bing](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447937"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
@@ -76,7 +76,7 @@ Si ha implementado la solución de www.azureiotsolutions.com, no puede iniciar s
 1. Para comprobar qué contenedores están activos, ejecute: `docker ps`.
 1. Para detener todos los contenedores de simulación, ejecute: `./stopsimulation`.
 1. Para iniciar todos los contenedores de simulación:
-    * Exporte una variable de shell con el nombre **IOTHUB_CONNECTIONSTRING**. Utilice el valor de la configuración **IotHubOwnerConnectionString** en el archivo `<name of your deployment>.config.user`. Por ejemplo: 
+    * Exporte una variable de shell con el nombre **IOTHUB_CONNECTIONSTRING**. Utilice el valor de la configuración **IotHubOwnerConnectionString** en el archivo `<name of your deployment>.config.user`. Por ejemplo:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -148,7 +148,7 @@ Al realizar la implementación mediante el script `build.ps1` del repositorio de
 
 También puede agregar una clave de cuenta de Azure Maps al acelerador de soluciones después de la implementación. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Factoría conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca **MapApiQueryKey** como la [clave de la cuenta de Azure Maps](../azure-maps/how-to-manage-account-keys.md). Guarde la configuración, vaya a la **información general** y reinicie App Service.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>¿Cómo se puede crear una cuenta de Azure Maps?
+### <a name="how-do-i-create-an-azure-maps-account"></a>¿Cómo se crea una cuenta de Azure Maps?
 
 Consulte [Procedimientos de administración de la cuenta y las claves de Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 

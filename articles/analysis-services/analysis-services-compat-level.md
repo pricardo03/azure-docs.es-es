@@ -9,10 +9,10 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 67a6c99253c549f0b8d3b55809b35b81756843eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61032616"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Nivel de compatibilidad para los modelos tabulares de Analysis Services
@@ -29,7 +29,7 @@ Azure Analysis Services admite modelos tabulares en los niveles de compatibilida
 *  Mejoras en el rendimiento y la supervisión.
 
 > [!NOTE]
-> Azure Analysis Services es compatible con archivos de Power BI Desktop importados en el nivel de compatibilidad 1465. Sin embargo, la importación de la funcionalidad de Power BI Desktop, que siempre se había sido una característica de vista previa, se suspendido y se quitó desde el servicio de marzo de 2019. Los modelos existentes en el nivel de compatibilidad 1465 siguen siendo compatibles.  
+> Azure Analysis Services admite archivos de Power BI Desktop en el nivel de compatibilidad 1465. Sin embargo, la importación desde la funcionalidad de Power BI Desktop, que siempre había sido una característica en versión preliminar, se suspendió y se quitó del servicio en marzo de 2019. Los modelos existentes en el nivel de compatibilidad 1465 siguen siendo compatibles.  
 
 
 ## <a name="set-compatibility-level"></a>Establecimiento del nivel de compatibilidad
@@ -53,7 +53,7 @@ Azure Analysis Services admite modelos tabulares en los niveles de compatibilida
  Esta propiedad especifica el máximo nivel de compatibilidad de una base de datos que se ejecutará en el servidor (excepto la versión preliminar). El nivel de compatibilidad admitido no se puede cambiar.  
 
 > [!NOTE]
-> En SSMS, cuando se conecta a un servidor de Azure Analysis Services, el **nivel de compatibilidad admitido** propiedad mostrará **1200**. Esto es un problema conocido y se resolverá en una próxima SSMS update. Cuando se resuelva, esta propiedad mostrará el máximo nivel de compatibilidad admitido.
+> En SSMS, cuando se conecta a un servidor de Azure Analysis Services, la propiedad **Nivel de compatibilidad admitido** mostrará **1200**. Este es un problema conocido y se resolverá en una próxima actualización de SSMS. Cuando se resuelva, esta propiedad mostrará el máximo nivel de compatibilidad admitido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161170"
 ---
-1. [Conectarse a la interfaz de PowerShell](#connect-to-the-powershell-interface).
-2. Use la `Get-HcsApplianceInfo` para obtener la información del dispositivo.
+1. [Conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface).
+2. Use `Get-HcsApplianceInfo` para obtener la información del dispositivo.
 
-    El ejemplo siguiente muestra el uso de este cmdlet:
+    En el ejemplo siguiente se muestra el uso de este cmdlet:
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
@@ -43,16 +43,16 @@ ms.locfileid: "66161170"
     IsRegistered                  : False
     ```
 
-    Esta es una tabla que resume la información de dispositivo importantes:
+    Esta es una tabla que resume alguna de la información importante del dispositivo:
     
     | Parámetro                             | DESCRIPCIÓN                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | El nombre descriptivo del dispositivo, configurada mediante la interfaz de usuario web local durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo.  |   |
+    | FriendlyName                   | El nombre descriptivo del dispositivo, tal y como se configuró mediante la interfaz de usuario web local durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo.  |   |
     | SerialNumber                   | El número de serie del dispositivo es un número único asignado en la fábrica.                                                                             |   |
-    | Modelo                          | El modelo para el dispositivo de borde del cuadro de datos o la puerta de enlace de datos de cuadro. El modelo es virtual para la puerta de enlace de datos de cuadro y físicos para el borde del cuadro de datos.                   |   |
-    | FriendlySoftwareVersion        | La cadena descriptiva que corresponde a la versión de software del dispositivo. Para un sistema que ejecuta la versión preliminar, la versión de software descriptiva sería 1902 de datos de cuadro de borde. |   |
-    | HcsVersion                     | La versión de software HCS que se ejecuta en el dispositivo. Por ejemplo, la versión de software HCS correspondiente a los datos de cuadro de borde 1902 es 1.4.771.324.            |   |
-    | LocalCapacityInMb              | La capacidad total local del dispositivo en Megabits.                                                                                                        |   |
+    | Modelo                          | El modelo del dispositivo de Data Box Edge o Data Box Gateway. El modelo es virtual para Data Box Gateway y físico para Data Box Edge.                   |   |
+    | FriendlySoftwareVersion        | La cadena descriptiva que corresponde a la versión de software del dispositivo. Para un sistema que ejecuta la versión preliminar, la versión de software descriptiva sería Data Box Edge 1902. |   |
+    | HcsVersion                     | La versión de software HCS que se ejecuta en el dispositivo. Por ejemplo, la versión de software HCS correspondiente a Data Box Edge 1902 es 1.4.771.324.            |   |
+    | LocalCapacityInMb              | La capacidad total local del dispositivo en megabits.                                                                                                        |   |
     | IsRegistered                   | Este valor indica si el dispositivo se activa con el servicio.                                                                                         |   |
 
 

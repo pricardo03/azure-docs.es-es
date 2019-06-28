@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236470"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparación y carga de imágenes a una aplicación de Azure IoT Central
@@ -30,11 +30,11 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 Puede agregar imágenes personalizadas a las siguientes ubicaciones en una aplicación de Azure IoT Central:
 
-* El **mis aplicaciones** página
+* Página **Mis aplicaciones**
 
     ![Imagen en la página del administrador de aplicaciones](media/howto-prepare-images/applicationmanager.png)
 
-* El panel de la aplicación
+* Panel de la aplicación
 
     ![Imagen en el panel de la aplicación](media/howto-prepare-images/homepage.png)
 
@@ -70,21 +70,21 @@ En las secciones siguientes se describe cómo cargar las imágenes que se usan e
 
 ### <a name="application-manager"></a>Administrador de aplicaciones
 
-Para cargar una imagen que se usará en el **mis aplicaciones** página, vaya a la **configuración de la aplicación** página en el **administración** sección. Debe ser un administrador para completar esta tarea:
+Para cargar una imagen que se vaya a usar en la página **Mis aplicaciones**, vaya a la página **Configuración de la aplicación** de la sección **Administración**. Debe ser un administrador para completar esta tarea:
 
 ![Carga de imagen en la aplicación](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Seleccione el **imagen de la aplicación** icono para cargar una imagen (268 x 160 px) desde el equipo local.
+Seleccione el icono **Imagen de aplicación** para cargar una imagen (268 x 160 píxeles) desde el equipo local.
 
 ### <a name="application-dashboard"></a>Panel de la aplicación
 
-Para cargar una imagen en el panel de la aplicación, vaya a la **panel** página de la aplicación y seleccione **editar**. Debe ser un generador para completar esta tarea:
+Para cargar una imagen en el panel de la aplicación, vaya a la página **Panel** de la aplicación y seleccione **Editar**. Debe ser un generador para completar esta tarea:
 
-![Cargar imagen de panel](media/howto-prepare-images/uploadhomepage.png)
+![Carga de imagen del panel](media/howto-prepare-images/uploadhomepage.png)
 
-En **configurar imagen**, seleccione el **imagen** icono para cargar una imagen desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
+En **Configurar la imagen**, seleccione el icono **Imagen** para cargar una imagen desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Guarde** la imagen cargada. Puede cambiar su tamaño mientras está en modo de edición. Seleccione **realiza** cuando termine.
+**Guarde** la imagen cargada. Puede cambiar su tamaño mientras está en modo de edición. Cuando haya terminado, seleccione **Listo**.
 
 ### <a name="device-template"></a>Plantilla de dispositivo
 
@@ -92,7 +92,7 @@ Para cargar una imagen en una plantilla de dispositivo, vaya a **Plantillas de d
 
 ![Carga de la imagen de plantilla de dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Seleccione el icono de imagen para cargar una imagen (64 x 64 píxeles) de la máquina local.
+Seleccione el icono de imagen para cargar una imagen (64 x 64 píxeles) desde el equipo local.
 
 ### <a name="device-dashboard"></a>Panel del dispositivo
 
@@ -100,23 +100,23 @@ Para cargar una imagen en un panel de dispositivo, vaya a **Plantillas de dispos
 
 ![Carga de imagen del panel de dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-En **configurar imagen**, seleccione el **imagen** icono y, a continuación, elija el archivo para cargar desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
+En **Configurar la imagen**, seleccione el icono **Imagen** y luego el archivo que se va a cargar desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Seleccione **realiza** cuando termine.
+**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Cuando haya terminado, seleccione **Listo**.
 
 ### <a name="device-set-dashboard"></a>Panel de conjunto de dispositivos
 
-Para cargar una imagen en un panel de conjunto de dispositivos, vaya a **Device Sets** (Conjuntos de dispositivos), elija el conjunto de dispositivos y luego un dispositivo. A continuación, elija el **panel** página y seleccione **editar**:
+Para cargar una imagen en un panel de conjunto de dispositivos, vaya a **Device Sets** (Conjuntos de dispositivos), elija el conjunto de dispositivos y luego un dispositivo. Luego seleccione la página **Panel** y **Editar**:
 
 ![Carga de imagen del panel de conjunto de dispositivos](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-En **configurar imagen**, seleccione el **imagen** icono para cargar una imagen desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
+En **Configurar la imagen**, seleccione el icono **Imagen** para cargar una imagen desde el equipo local. El icono de tamaño más pequeño es 200 x 200 px, los iconos más grandes pueden ser múltiplos cuadrados o rectangulares de los iconos pequeños. Por ejemplo, 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Seleccione **realiza** cuando termine.
+**Guarde** la imagen cargada. Puede cambiar el tamaño y la posición mientras está en modo de edición. Cuando haya terminado, seleccione **Listo**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido cómo preparar y cargar imágenes en su aplicación de Azure IoT Central, estos son los siguientes pasos sugeridos:
+Ahora que ha aprendido a preparar y cargar imágenes en la aplicación de Azure IoT Central, estos son los siguientes pasos que se sugieren:
 
 * [Personalizar la interfaz de usuario de Azure IoT Central](./howto-customize-ui.md)
 * [Configurar el panel de la aplicación](./howto-configure-homepage.md)

@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785938"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 
 Cuando busca una ubicación con Azure Maps, el servicio de búsqueda toma los términos de su búsqueda y devuelve las coordenadas de latitud y longitud mediante un proceso denominado geocodificación. Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región. 
 
-La capacidad de código geográfico en un país o región depende de la cobertura de datos de la carretera y la precisión de codificación geográfica del servicio de geocodificación. Se usan las siguientes clasificaciones de especificar el nivel de compatibilidad de geocodificación en cada país o región.
+La capacidad de obtener las coordenadas geográficas en un país o una región depende de la cobertura de los datos de las carreteras y la precisión de la codificación geográfica del servicio de geocodificación. Las siguientes clasificaciones se usan para especificar el nivel de geocodificación en cada país o región.
 * **Puntos de dirección**: Los datos de direcciones se pueden resolver en una coordenada de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). Este nivel de precisión, a veces llamada de azotea, es el mayor disponible para las direcciones. 
 * **Números de casa**: Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
 * **Nivel de calle**: Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
@@ -27,14 +27,14 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 
 ## <a name="americas"></a>América
 
-| País o región                                       | Puntos de dirección | Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País/región                                       | Puntos de dirección | Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguila                                            |                 |                |              |      ✓     |          ✓         |
 | Antártida                                          |                 |                |              |      ✓     |          ✓         |
 | Antigua y Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Argentina                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
-| Las Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belice                                              |                 |                |              |      ✓     |          ✓         |
 | Bermudas                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -88,31 +88,31 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 
 ## <a name="asia-pacific"></a>Asia Pacífico
 
-| País o región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País/región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Samoa Americana                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladés                                          |                 |                |              |      ✓     |          ✓         |
-| Bhután                                              |                 |                |              |      ✓     |          ✓         |
+| Bután                                              |                 |                |              |      ✓     |          ✓         |
 | Territorio Británico del Océano Índico                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Camboya                                            |                 |                |              |      ✓     |          ✓         |
 | China                                               |                 |                |              |      ✓     |          ✓         |
 | Isla Christmas                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Islas Cocos                             |                 |                |              |      ✓     |          ✓         |
+| Islas Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
 | Comores                                             |                 |                |              |      ✓     |          ✓         |
 | Islas Cook                                        |                 |                |              |      ✓     |          ✓         |
-| Fiji                                                |                  |                |              |      ✓     |          ✓        |
-| Polinesia Francesa                                    |                 |                |              |      ✓     |          ✓         |
-| Islas Heard y McDonald                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong RAE                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Islas Fiji                                                |                  |                |              |      ✓     |          ✓        |
+| Polinesia francesa                                    |                 |                |              |      ✓     |          ✓         |
+| Isla Heard e Islas McDonald                   |                 |                |              |      ✓     |          ✓         |
+| RAE de Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japón                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Corea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao RAE                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| RAE de Macao                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malasia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronesia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolia                                            |                 |                |              |      ✓     |          ✓         |
@@ -129,8 +129,8 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 | Papúa Nueva Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Paracelso                                     |                 |                |              |      ✓     |                    |
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Estado Independiente de Samoa                                               |                 |                |              |      ✓     |          ✓         |
+| Islas Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
+| Samoa                                               |                 |                |              |      ✓     |          ✓         |
 | Islas Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapur                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islas Salomón                                     |                 |                |              |      ✓     |          ✓         |
@@ -141,7 +141,7 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 | Tailandia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelau                                             |                 |                |              |      ✓     |          ✓         |
 | Tonga                                               |                 |                |              |      ✓     |          ✓         |
-| Islas Turks y Caicos                            |                 |                |              |      ✓     |          ✓         |
+| Islas Turcas y Caicos                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -149,7 +149,7 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 
 ## <a name="europe"></a>Europa
 
-| País o región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País/región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albania                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -160,7 +160,7 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 | Bosnia y Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Belarús                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Croacia (Hrvatska)                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Croacia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chipre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | República Checa                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Dinamarca                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -190,15 +190,15 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Macedonia del Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldavia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montenegro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Países bajos                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Países Bajos                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Noruega                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Polonia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | +Azores y Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Rumanía                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Rumania                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Federación Rusa                                  |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Serbia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -219,12 +219,12 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 
 ## <a name="middle-east-and-africa"></a>Oriente Medio y África
 
-| País o región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País/región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afganistán                                         |                 |                |              |      ✓     |          ✓         |
 | Argelia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Reino de Baréin                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
+| Bahréin                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benín                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botsuana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Isla Bouvet                                       |                 |                |              |      ✓     |          ✓         |
@@ -247,7 +247,7 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guinea                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Guinea-Bisáu                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Irán                                                |                 |                |              |      ✓     |          ✓         |
 | Iraq                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Israel                                              |        ✓        |       ✓        |              |      ✓     |          ✓         |
@@ -273,7 +273,7 @@ La capacidad de código geográfico en un país o región depende de la cobertur
 | Níger                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Nigeria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Omán                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Catar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Qatar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Reunión                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ruanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Santa Elena                                        |                 |                |              |      ✓     |          ✓         |

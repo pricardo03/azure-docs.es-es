@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787284"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API de HTTP en Durable Functions (Azure Functions)
@@ -104,9 +104,9 @@ Las siguientes secciones tratan las API de HTTP específicas que admite la exten
 
 Para obtener el estado de una instancia de orquestación específica:
 
-#### <a name="request"></a>Solicitar
+#### <a name="request"></a>Solicitud
 
-Para la versión 1.x de Functions runtime, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -118,7 +118,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showInput=[true|false]
 ```
 
-En versión 2.x de Functions runtime, el formato de dirección URL tiene los mismos parámetros, pero con un prefijo ligeramente diferente:
+En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/{instanceId}
@@ -134,23 +134,23 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 
 | Campo                   | Tipo de parámetro  | DESCRIPCIÓN |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | Dirección URL             | Identificador de la instancia de orquestación. |
-| **`showInput`**         | Cadena de consulta    | Parámetro opcional. Si establece en `false`, la función de entrada no se incluirán en la carga de respuesta.|
+| **`instanceId`**        | URL             | Identificador de la instancia de orquestación. |
+| **`showInput`**         | Cadena de consulta    | Parámetro opcional. Si se establece en `false`, la entrada de la función no se incluye en la carga de respuesta.|
 | **`showHistory`**       | Cadena de consulta    | Parámetro opcional. Si se establece en `true`, el historial de ejecución de orquestación se incluirá en la carga de respuesta.|
-| **`showHistoryOutput`** | Cadena de consulta    | Parámetro opcional. Si establece en `true`, la función genera se incluirán en el historial de ejecución de la orquestación.|
-| **`createdTimeFrom`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon en o después de la marca de tiempo ISO8601 determinado.|
-| **`createdTimeTo`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon en o antes de la marca de tiempo ISO8601 determinado.|
+| **`showHistoryOutput`** | Cadena de consulta    | Parámetro opcional. Si se establece en `true`, las salidas de la función se incluyen en el historial de ejecución de la orquestación.|
+| **`createdTimeFrom`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante la marca de tiempo ISO8601 especificada o después de esta.|
+| **`createdTimeTo`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante la marca de tiempo ISO8601 especificada o antes de esta.|
 | **`runtimeStatus`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el tema [Consulta de instancias](durable-functions-instance-management.md). |
 
-#### <a name="response"></a>Respuesta
+#### <a name="response"></a>Response
 
 Se pueden devolver varios valores de código de estado.
 
-* **HTTP 200 (correcto)**: la instancia especificada está en estado completado.
-* **HTTP 202 (aceptado)**: la instancia especificada está en curso.
-* **HTTP 400 (solicitud incorrecta)**: se produjo un error en la instancia especificada o esta se ha finalizado.
-* **HTTP 404 (no se encuentra)**: la instancia especificada no existe o no ha empezado a ejecutarse.
-* **HTTP 500 (error interno del servidor)**: error de la instancia especificada con una excepción no controlada.
+* **HTTP 200 (correcto)** : la instancia especificada está en estado completado.
+* **HTTP 202 (aceptado)** : la instancia especificada está en curso.
+* **HTTP 400 (solicitud incorrecta)** : se produjo un error en la instancia especificada o esta se ha finalizado.
+* **HTTP 404 (no se encuentra)** : la instancia especificada no existe o no ha empezado a ejecutarse.
+* **HTTP 500 (error interno del servidor)** : error de la instancia especificada con una excepción no controlada.
 
 La carga de respuesta para los casos **HTTP 200** y **HTTP 202** es un objeto JSON con los siguientes campos:
 
@@ -223,14 +223,14 @@ La respuesta **HTTP 202** también incluye un encabezado de respuesta **Location
 
 ### <a name="get-all-instances-status"></a>Obtención de todos los estados de instancias
 
-También puede consultar el estado de todas las instancias mediante la eliminación de la `instanceId` de la solicitud "Obtener estado de la instancia". En este caso, los parámetros básicos son el mismo que el estado de la instancia de Get. También se admiten parámetros de cadena de consulta para filtrar.
+También puede consultar el estado de todas las instancias mediante la eliminación de `instanceId` de la solicitud "Obtener el estado de la instancia". En este caso, los parámetros básicos son los mismos que en "Obtener el estado de la instancia". También se admiten parámetros de cadena de consulta para filtrar.
 
 Es importante recordar que `connection` y `code` son parámetros opcionales. Si tiene la autenticación anónima en la función, no es necesario usar código.
-Si no desea usar una cadena de conexión de almacenamiento diferente distinto definida en la configuración de la aplicación AzureWebJobsStorage, a continuación, puede ignorar el parámetro de cadena de consulta de conexión.
+Puede ignorar el parámetro de la cadena de consulta de conexión si solo quiere usar la cadena de conexión de almacenamiento definida en la configuración de la aplicación AzureWebJobsStorage.
 
-#### <a name="request"></a>Solicitar
+#### <a name="request"></a>Solicitud
 
-Para la versión 1.x de Functions runtime, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances
@@ -244,7 +244,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &top={integer}
 ```
 
-En versión 2.x de Functions runtime, el formato de dirección URL tiene los mismos parámetros, pero con un prefijo ligeramente diferente:
+En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
 
 ```http
 GET /runtime/webhooks/durableTask/instances?
@@ -262,16 +262,16 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 
 | Campo                   | Tipo de parámetro  | DESCRIPCIÓN |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | Dirección URL             | Identificador de la instancia de orquestación. |
-| **`showInput`**         | Cadena de consulta    | Parámetro opcional. Si establece en `false`, la función de entrada no se incluirán en la carga de respuesta.|
+| **`instanceId`**        | URL             | Identificador de la instancia de orquestación. |
+| **`showInput`**         | Cadena de consulta    | Parámetro opcional. Si se establece en `false`, la entrada de la función no se incluye en la carga de respuesta.|
 | **`showHistory`**       | Cadena de consulta    | Parámetro opcional. Si se establece en `true`, el historial de ejecución de orquestación se incluirá en la carga de respuesta.|
-| **`showHistoryOutput`** | Cadena de consulta    | Parámetro opcional. Si establece en `true`, la función genera se incluirán en el historial de ejecución de la orquestación.|
-| **`createdTimeFrom`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon en o después de la marca de tiempo ISO8601 determinado.|
-| **`createdTimeTo`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon en o antes de la marca de tiempo ISO8601 determinado.|
+| **`showHistoryOutput`** | Cadena de consulta    | Parámetro opcional. Si se establece en `true`, las salidas de la función se incluyen en el historial de ejecución de la orquestación.|
+| **`createdTimeFrom`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante la marca de tiempo ISO8601 especificada o después de esta.|
+| **`createdTimeTo`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante la marca de tiempo ISO8601 especificada o antes de esta.|
 | **`runtimeStatus`**     | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el tema [Consulta de instancias](durable-functions-instance-management.md). |
-| **`top`**               | Cadena de consulta    | Parámetro opcional. Cuando se especifica, limita el número de instancias devueltas por la consulta. |
+| **`top`**               | Cadena de consulta    | Parámetro opcional. Cuando se especifica, limita el número de instancias que devuelve la consulta. |
 
-#### <a name="response"></a>Respuesta
+#### <a name="response"></a>Response
 
 Este es un ejemplo de cargas de respuesta, incluido el estado de orquestación (con formato para mejorar la legibilidad):
 
@@ -330,15 +330,15 @@ Este es un ejemplo de cargas de respuesta, incluido el estado de orquestación (
 
 Si existen más resultados, se devuelve un token de continuación en el encabezado de respuesta.  El nombre del encabezado es `x-ms-continuation-token`.
 
-Si establece el valor del token de continuación en el siguiente encabezado de solicitud, puede obtener la página siguiente de resultados. Este nombre del encabezado de solicitud es también `x-ms-continuation-token`.
+Si establece el valor del token de continuación en el siguiente encabezado de solicitud, puede obtener la página de resultados siguiente. El nombre del encabezado de solicitud también es `x-ms-continuation-token`.
 
-### <a name="purge-single-instance-history"></a>Purgar historial de instancia única
+### <a name="purge-single-instance-history"></a>Purgado del historial de una instancia
 
 Elimina el historial y los artefactos relacionados para una instancia de orquestación específica.
 
-#### <a name="request"></a>Solicitar
+#### <a name="request"></a>Solicitud
 
-Para la versión 1.x de Functions runtime, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -347,7 +347,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &code={systemKey}
 ```
 
-En versión 2.x de Functions runtime, el formato de dirección URL tiene los mismos parámetros, pero con un prefijo ligeramente diferente:
+En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances/{instanceId}
@@ -360,20 +360,20 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 
 | Campo             | Tipo de parámetro  | DESCRIPCIÓN |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Dirección URL             | Identificador de la instancia de orquestación. |
+| **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 
-#### <a name="response"></a>Respuesta
+#### <a name="response"></a>Response
 
 Se pueden devolver los siguientes valores de código de estado HTTP.
 
-* **HTTP 200 (correcto)**: Se ha purgado el historial de la instancia correctamente.
-* **HTTP 404 (no se encuentra)**: La instancia especificada no existe.
+* **HTTP 200 (correcto)** : El historial de la instancia se ha purgado correctamente.
+* **HTTP 404 (no se encuentra)** : La instancia especificada no existe.
 
-La carga de respuesta para la **HTTP 200** caso es un objeto JSON con el siguiente campo:
+La carga de respuesta para el caso **HTTP 200** es un objeto JSON con el siguiente campo:
 
 | Campo                  | Tipo de datos | DESCRIPCIÓN |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | El número de instancias que se eliminó. El caso de instancia única, este valor debe ser siempre `1`. |
+| **`instancesDeleted`** | integer   | Número de instancias eliminadas. Para el caso de instancia única, este valor debe ser siempre `1`. |
 
 Esta es una carga de respuesta de ejemplo (con formato para mejorar la legibilidad):
 
@@ -383,13 +383,13 @@ Esta es una carga de respuesta de ejemplo (con formato para mejorar la legibilid
 }
 ```
 
-### <a name="purge-multiple-instance-history"></a>Purgar historial de instancias múltiples
+### <a name="purge-multiple-instance-history"></a>Purgado del historial de varias instancias
 
-También puede eliminar el historial y los artefactos relacionados para varias instancias dentro de una central de tareas mediante la eliminación de la `{instanceId}` de la solicitud "Purgar el historial de instancia única". Para purgar selectivamente el historial de instancia, use los mismos filtros que se describe en la solicitud "Obtener estado de todas las instancias".
+También puede eliminar el historial y los artefactos relacionados de varias instancias de una central de tareas mediante la eliminación de `{instanceId}` de la solicitud "Purge single instance history" (Purgar el historial de una instancia). Para purgar selectivamente el historial de instancia, use los mismos filtros que se describe en la solicitud "Obtener el estado de todas las instancias".
 
-#### <a name="request"></a>Solicitar
+#### <a name="request"></a>Solicitud
 
-Para la versión 1.x de Functions runtime, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances
@@ -401,7 +401,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
 ```
 
-En versión 2.x de Functions runtime, el formato de dirección URL tiene los mismos parámetros, pero con un prefijo ligeramente diferente:
+En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances
@@ -417,25 +417,25 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 
 | Campo                 | Tipo de parámetro  | DESCRIPCIÓN |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Cadena de consulta    | Filtra la lista de purgadas instancias que se crearon en o después de la marca de tiempo ISO8601 determinado.|
-| **`createdTimeTo`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de purgadas instancias que se crearon en o antes de la marca de tiempo ISO8601 determinado.|
-| **`runtimeStatus`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, los filtros de la lista de instancias purgadas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el tema [Consulta de instancias](durable-functions-instance-management.md). |
+| **`createdTimeFrom`** | Cadena de consulta    | Se filtra la lista de instancias purgadas que se crearon durante la marca de tiempo ISO8601 especificada o después de esta.|
+| **`createdTimeTo`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias purgadas que se crearon durante la marca de tiempo ISO8601 especificada o antes de esta.|
+| **`runtimeStatus`**   | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias purgadas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el tema [Consulta de instancias](durable-functions-instance-management.md). |
 
 > [!NOTE]
-> Esta operación puede ser muy costosa en términos de E/S de almacenamiento de Azure si hay un lote de filas en las instancias o el historial de las tablas. Encontrará más detalles sobre estas tablas en el [rendimiento y escalabilidad en Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentación.
+> Esta operación puede ser muy costosa en términos de E/S de Azure Storage si hay muchas filas en la tabla Instancias o Historial. Puede encontrar más detalles sobre estas tablas en la documentación [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) (Rendimiento y escalado horizontal en Durable Functions [Azure Functions]).
 
-#### <a name="response"></a>Respuesta
+#### <a name="response"></a>Response
 
 Se pueden devolver los siguientes valores de código de estado HTTP.
 
-* **HTTP 200 (correcto)**: Se ha purgado el historial de la instancia correctamente.
-* **HTTP 404 (no se encuentra)**: No se encontraron instancias que coinciden con la expresión de filtro.
+* **HTTP 200 (correcto)** : El historial de la instancia se ha purgado correctamente.
+* **HTTP 404 (no se encuentra)** : No se encontraron instancias que coincidan con la expresión de filtro.
 
-La carga de respuesta para la **HTTP 200** caso es un objeto JSON con el siguiente campo:
+La carga de respuesta para el caso **HTTP 200** es un objeto JSON con el siguiente campo:
 
 | Campo                   | Tipo de datos | DESCRIPCIÓN |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | El número de instancias que se eliminó. |
+| **`instancesDeleted`**  | integer   | Número de instancias eliminadas. |
 
 Esta es una carga de respuesta de ejemplo (con formato para mejorar la legibilidad):
 
@@ -449,9 +449,9 @@ Esta es una carga de respuesta de ejemplo (con formato para mejorar la legibilid
 
 Para enviar un mensaje de notificación de eventos a una instancia de orquestación en ejecución:
 
-#### <a name="request"></a>Solicitar
+#### <a name="request"></a>Solicitud
 
-Para la versión 1.x de Functions runtime, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}
@@ -460,7 +460,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
     &code={systemKey}
 ```
 
-En versión 2.x de Functions runtime, el formato de dirección URL tiene los mismos parámetros, pero con un prefijo ligeramente diferente:
+En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
@@ -473,18 +473,18 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 
 | Campo             | Tipo de parámetro  | DESCRIPCIÓN |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Dirección URL             | Identificador de la instancia de orquestación. |
-| **`eventName`**   | Dirección URL             | Nombre del evento al que espera la instancia de orquestación de destino. |
+| **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
+| **`eventName`**   | URL             | Nombre del evento al que espera la instancia de orquestación de destino. |
 | **`{content}`**   | Contenido de la solicitud | Carga del evento con formato JSON. |
 
-#### <a name="response"></a>Respuesta
+#### <a name="response"></a>Response
 
 Se pueden devolver varios valores de código de estado.
 
-* **HTTP 202 (aceptado)**: se aceptó el evento generado para su procesamiento.
-* **HTTP 400 (solicitud incorrecta)**: el contenido de la solicitud no era del tipo `application/json` o no tenía un valor JSON válido.
-* **HTTP 404 (no se encuentra)**: no se encontró la instancia especificada.
-* **HTTP 410 (no existe)**: la instancia especificada ha finalizado o se ha producido un error y no puede procesar los eventos generados.
+* **HTTP 202 (aceptado)** : se aceptó el evento generado para su procesamiento.
+* **HTTP 400 (solicitud incorrecta)** : el contenido de la solicitud no era del tipo `application/json` o no tenía un valor JSON válido.
+* **HTTP 404 (no se encuentra)** : no se encontró la instancia especificada.
+* **HTTP 410 (no existe)** : la instancia especificada ha finalizado o se ha producido un error y no puede procesar los eventos generados.
 
 Esta es una solicitud de ejemplo que envía la cadena JSON `"incr"` a una instancia que espera un evento denominado **operation**:
 
@@ -502,9 +502,9 @@ Las respuestas para esta API no tienen contenido.
 
 Para terminar una instancia de orquestación en ejecución:
 
-#### <a name="request"></a>Solicitar
+#### <a name="request"></a>Solicitud
 
-Para la versión 1.x de Functions runtime, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
@@ -514,7 +514,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
     &reason={text}
 ```
 
-En versión 2.x de Functions runtime, el formato de dirección URL tiene los mismos parámetros, pero con un prefijo ligeramente diferente:
+En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
@@ -528,16 +528,16 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 
 | Campo             | Tipo de parámetro  | DESCRIPCIÓN |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Dirección URL             | Identificador de la instancia de orquestación. |
+| **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 | **`reason`**      | Cadena de consulta    | Opcional. Motivo de finalización de la instancia de orquestación. |
 
-#### <a name="response"></a>Respuesta
+#### <a name="response"></a>Response
 
 Se pueden devolver varios valores de código de estado.
 
-* **HTTP 202 (aceptado)**: se aceptó la solicitud de finalización para su procesamiento.
-* **HTTP 404 (no se encuentra)**: no se encontró la instancia especificada.
-* **HTTP 410 (no existe)**: la instancia especificada se ha completado o ha producido un error.
+* **HTTP 202 (aceptado)** : se aceptó la solicitud de finalización para su procesamiento.
+* **HTTP 404 (no se encuentra)** : no se encontró la instancia especificada.
+* **HTTP 410 (no existe)** : la instancia especificada se ha completado o ha producido un error.
 
 Esta es una solicitud de ejemplo que finaliza una instancia en ejecución y especifica un motivo **buggy**:
 
@@ -551,9 +551,9 @@ Las respuestas para esta API no tienen contenido.
 
 Restaura una instancia de orquestación errónea a un estado de ejecución mediante la reproducción de las operaciones erróneas más recientes.
 
-### <a name="request"></a>Solicitar
+### <a name="request"></a>Solicitud
 
-Para la versión 1.x de Functions runtime, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
+Para la versión 1.x del entorno de ejecución de Functions, la solicitud tiene el formato siguiente (se muestran varias líneas para mayor claridad):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
@@ -563,7 +563,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
     &reason={text}
 ```
 
-En versión 2.x de Functions runtime, el formato de dirección URL tiene los mismos parámetros, pero con un prefijo ligeramente diferente:
+En la versión 2.x del entorno de ejecución de Functions, el formato de dirección URL tiene los mismos parámetros, pero un prefijo ligeramente diferente:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
@@ -577,16 +577,16 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 
 | Campo             | Tipo de parámetro  | DESCRIPCIÓN |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | Dirección URL             | Identificador de la instancia de orquestación. |
+| **`instanceId`**  | URL             | Identificador de la instancia de orquestación. |
 | **`reason`**      | Cadena de consulta    | Opcional. Motivo para rebobinar la instancia de orquestación. |
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 
 Se pueden devolver varios valores de código de estado.
 
-* **HTTP 202 (aceptado)**: se aceptó la solicitud de rebobinado para su procesamiento.
-* **HTTP 404 (no se encuentra)**: no se encontró la instancia especificada.
-* **HTTP 410 (no existe)**: la instancia especificada se completó o se terminó.
+* **HTTP 202 (aceptado)** : se aceptó la solicitud de rebobinado para su procesamiento.
+* **HTTP 404 (no se encuentra)** : no se encontró la instancia especificada.
+* **HTTP 410 (no existe)** : la instancia especificada se completó o se terminó.
 
 Esta es una solicitud de ejemplo que rebobina una instancia errónea y especifica un motivo de **fixed**:
 

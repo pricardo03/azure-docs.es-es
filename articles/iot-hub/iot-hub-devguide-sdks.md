@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400667"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Información y uso de los SDK de Azure IoT Hub
@@ -59,7 +59,7 @@ SDK de dispositivos de Azure IoT Hub para C (ANSI C - C99):
 * [Referencia para los módulos](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [Migración del SDK de C a otras plataformas](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Documentación para desarrolladores](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc): contiene información sobre la compilación cruzada y una introducción a distintas plataformas, entre otros temas.
-* [Información de consumo de recursos de Azure SDK de IoT Hub C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
+* [Información de consumo de recursos de SDK de C de Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
 SDK de dispositivos Azure IoT Hub para Java: 
 

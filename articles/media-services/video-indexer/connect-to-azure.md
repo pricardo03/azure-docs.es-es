@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799842"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creación de una cuenta de Video Indexer conectada a Azure
@@ -57,11 +57,11 @@ Busque **Microsoft.Media** y **Microsoft.EventGrid**. Si no se encuentra en el e
 
 ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Conéctese a Azure
+## <a name="connect-to-azure"></a>Conexión a Azure
 
 1. Vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) e inicie sesión.
 
-2. Haga clic en el **crear nueva cuenta** botón:
+2. Haga clic en el botón **Crear una cuenta**:
 
     ![conectarse a Azure](./media/create-account/connect-to-azure.png)
 
@@ -104,7 +104,7 @@ Si se produjo un error en la conexión a Azure, puede intentar solucionar el pro
 
 1. Use [Azure Portal](https://portal.azure.com/) para crear una cuenta de Azure Media Services, como se describe en [Creación de una cuenta](../previous/media-services-portal-create-account.md).
 
-    Al crear una cuenta de almacenamiento para la cuenta de Media Services, seleccione **StorageV2** para el tipo de cuenta y **con redundancia geográfica (GRS)** para los campos de la replicación.
+    Al crear una cuenta de almacenamiento para la cuenta de Media Services, seleccione **StorageV2** como el tipo de cuenta y **Geo-redundant (GRS)** (Con redundancia geográfica [GRS]) en los campos de replicación.
 
     ![nueva cuenta de ASM](./media/create-account/create-ams-account1.png)
 

@@ -2,18 +2,17 @@
 title: Patrones de diseño de tablas de almacenamiento de Azure | Microsoft Docs
 description: Use patrones para soluciones de Azure Table service.
 services: storage
-author: WenJason
+author: tamram
 ms.service: storage
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101436"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
@@ -264,7 +263,7 @@ En una base de datos relacional, normalmente normaliza datos para eliminar datos
 ![Entidad de departamento y empleado](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Solución
-En lugar de almacenar los datos en dos entidades independientes, desnormalice los datos y conserve una copia de los detalles del administrador en la entidad department. Por ejemplo:   
+En lugar de almacenar los datos en dos entidades independientes, desnormalice los datos y conserve una copia de los detalles del administrador en la entidad department. Por ejemplo:  
 
 ![Entidad de departamento](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -349,7 +348,7 @@ Puede volver al valor de fecha y hora utilizando el código siguiente:
 
 La consulta de la tabla tiene este aspecto:  
 
-`https://myaccount.table.core.chinacloudapi.cn/EmployeeExpense(PartitionKey='empid')?$top=10`  
+`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 ### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  
@@ -559,7 +558,7 @@ En esta sección se describen algunas de las consideraciones a tener en cuenta a
 ## <a name="retrieving-entities"></a>Recuperación de entidades
 Como se describe en la sección Diseño para consultas, la consulta más eficaz es una puntual. Sin embargo, en algunos casos puede que necesite recuperar varias entidades. En esta sección se describen algunos enfoques comunes para recuperar entidades mediante la biblioteca de clientes de Storage.  
 
-### <a name="executing-a-point-query-using-the-storage-client-library"></a>Ejecutar una consulta de punto mediante la biblioteca de clientes de Storage 
+### <a name="executing-a-point-query-using-the-storage-client-library"></a>Ejecutar una consulta de punto mediante la biblioteca de clientes de Storage
 La manera más sencilla de ejecutar una consulta puntual es usar la operación de tabla **Retrieve**, como se muestra en el siguiente fragmento de código de C# que recupera una entidad con el valor **PartitionKey** "Sales" y el valor **RowKey** "212":  
 
 ```csharp
@@ -590,7 +589,7 @@ var employees = query.Execute();
 
 Observe que la consulta especifica un valor **RowKey** y un valor **PartitionKey** para asegurar un mejor rendimiento.  
 
-Ejemplo de código siguiente muestra una funcionalidad equivalente sin usar la sintaxis de LINQ:  
+El ejemplo código siguiente muestra una función equivalente sin usar la sintaxis de LINQ:  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = 

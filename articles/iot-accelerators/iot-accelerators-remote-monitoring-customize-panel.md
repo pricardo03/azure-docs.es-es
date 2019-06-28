@@ -1,19 +1,18 @@
 ---
-title: Agregar un panel a la solución de supervisión remota UI - Azure | Microsoft Docs
+title: 'Adición de un panel a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se muestra cómo agregar un nuevo panel a la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/05/2018
-ms.date: 11/26/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447070"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de un panel personalizado al panel de la interfaz de usuario web del acelerador de soluciones de supervisión remota
@@ -46,6 +45,7 @@ Para comenzar, la carpeta **src/walkthrough/components/pages/dashboard/panels/ex
 
 **examplePanel.js**
 
+[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Copie la carpeta **src/walkthrough/components/pages/dashboard/panels/examplePanel** en la carpeta **src/components/pages/dashboard/panels**.
 

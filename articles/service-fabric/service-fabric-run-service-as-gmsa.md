@@ -1,5 +1,5 @@
 ---
-title: Ejecutar un servicio de Azure Service Fabric en una cuenta gMSA | Microsoft Docs
+title: Ejecución de un servicio de Azure Service Fabric en una cuenta gMSA | Microsoft Docs
 description: Obtenga información acerca de cómo ejecutar un servicio como gMSA en un clúster independiente de Windows de Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837749"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Ejecución de un servicio como una cuenta de servicio administrada de grupo
 En un clúster independiente de Windows Server, puede ejecutar un servicio como una cuenta de servicio administrada de grupo (gMSA) mediante una directiva de RunAs.  De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. La ejecución de aplicaciones en cuentas diferentes, incluso en un entorno hospedado compartido, aumenta la seguridad entre aplicaciones. Tenga en cuenta que esto usa Active Directory local dentro del dominio y no en Azure Active Directory (Azure AD). Con una gMSA, no hay ninguna contraseña ni contraseña cifrada almacenada en el manifiesto de aplicación.  También puede ejecutar un servicio como un [grupo o usuario de Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
 
-En el ejemplo siguiente se muestra cómo crear una cuenta gMSA denominada *svc-Test$*, cómo implementar esa cuenta de servicio administrada en los nodos del clúster y cómo configurar la entidad de seguridad de usuario.
+En el ejemplo siguiente se muestra cómo crear una cuenta gMSA denominada *svc-Test$* , cómo implementar esa cuenta de servicio administrada en los nodos del clúster y cómo configurar la entidad de seguridad de usuario.
 
 Requisitos previos:
 - El dominio necesita una clave raíz KDS.

@@ -1,6 +1,6 @@
 ---
 title: Administrar el agente de Azure Log Analytics | Microsoft Docs
-description: En este artículo se describe las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del registro de análisis de Windows o del agente de Linux implementada en un equipo.
+description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Windows o Linux para Log Analytics que está implementado en una máquina.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,29 +14,29 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
 ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139262"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
-Después de la implementación inicial del registro de análisis de Windows o agente de Linux en Azure Monitor, es posible que deba volver a configurar al agente, actualizarlo o quitarlo del equipo si alcanzó la fase de retirada de su ciclo de vida. Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
+Después de la implementación inicial del agente de Windows o Linux para Log Analytics en Azure Monitor, debe volver a configurar el agente, actualizarlo o quitarlo del equipo si alcanzó la fase de retirada de su ciclo de vida. Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
 
-## <a name="upgrading-agent"></a>Actualización de agente
+## <a name="upgrading-agent"></a>Actualizar el agente
 
-El agente de Log Analytics para Windows y Linux puede actualizarse a la versión más reciente manual o automáticamente según el escenario de implementación y la máquina virtual se está ejecutando en el entorno. Los métodos siguientes pueden usarse para actualizar al agente.
+El agente de Log Analytics para Windows y Linux puede actualizarse a la versión más reciente de forma manual o automáticamente según el escenario de implementación y la VM que se está ejecutando en el entorno. Los métodos siguientes pueden usarse para actualizar el agente.
 
 | Entorno | Método de instalación | Método de actualización |
 |--------|----------|-------------|
-| MV de Azure | Extensión de log Analytics agente VM para Windows/Linux | Agente se actualiza automáticamente de forma predeterminada a menos que configure la plantilla de Azure Resource Manager para salir del programa estableciendo la propiedad *autoUpgradeMinorVersion* a **false**. |
-| Imágenes personalizadas de máquina virtual de Azure | Instalación manual de agente de Log Analytics para Windows/Linux | Actualizar las máquinas virtuales a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete de Windows installer o una agrupación de scripts de shell de autoextraíbles e instalable Linux.|
-| Máquinas virtuales que no son de Azure | Instalación manual de agente de Log Analytics para Windows/Linux | Actualizar las máquinas virtuales a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete de Windows installer o una agrupación de scripts de shell de autoextraíbles e instalable Linux. |
+| MV de Azure | Extensión de VM del agente de Log Analytics para Windows o Linux | El agente se actualiza automáticamente de forma predeterminada a menos que configure la plantilla de Azure Resource Manager para no realizar la actualización; para ello, debe establecer la propiedad *autoUpgradeMinorVersion* a **false**. |
+| Imágenes personalizadas de VM de Azure | Instalación manual del agente de Log Analytics para Windows o Linux | La actualización de las VM a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete del instalador de Windows o el paquete de scripts de shell instalable y autoextraíble de Linux.|
+| VM ajenas a Azure | Instalación manual del agente de Log Analytics para Windows o Linux | La actualización de las VM a la versión más reciente del agente debe realizarse desde la línea de comandos que ejecuta el paquete del instalador de Windows o el paquete de scripts de shell instalable y autoextraíble de Linux. |
 
-### <a name="upgrade-windows-agent"></a>Actualización de agente de Windows 
+### <a name="upgrade-windows-agent"></a>Actualización del agente de Windows 
 
-Para actualizar el agente en una máquina virtual de Windows a la versión más reciente no instalada mediante la extensión de máquina virtual de Log Analytics, ejecuta desde el símbolo del sistema, script u otra solución de automatización, o mediante el uso de MMASetup -\<plataforma\>el programa de instalación .msi hechicero.  
+Para actualizar el agente en una VM de Windows a la última versión que no se instaló con la extensión de VM de Log Analytics, puede realizar el proceso desde el símbolo del sistema, el script u otra solución de automatización, o mediante el Asistente de configuración MMASetup-\<platform\>.msi.  
 
 Puede descargar la versión más reciente del agente de Windows desde el área de trabajo de Log Analytics, realizando los pasos siguientes.
 
@@ -44,31 +44,31 @@ Puede descargar la versión más reciente del agente de Windows desde el área d
 
 2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
 
-3. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo.
+3. En la lista de áreas de trabajo de Log Analytics, seleccione un área de trabajo.
 
-4. En el área de trabajo de Log Analytics, seleccione **configuración avanzada**, a continuación, seleccione **orígenes conectados**y, finalmente, **servidores Windows**.
+4. En el área de trabajo de Log Analytics, seleccione **Configuración avanzada**, a continuación, seleccione **Orígenes conectados**y, finalmente, **Servidores Windows**.
 
-5. Desde el **servidores Windows** , seleccione la adecuada **Download Windows Agent** versión para descargar según la arquitectura de procesador del sistema operativo Windows.
+5. En la página **Servidores de Windows**, seleccione la versión correcta en **Descargar el agente de Windows** que quiera descargar según la arquitectura del procesador del sistema operativo Windows.
 
 >[!NOTE]
->Durante la actualización del agente de Log Analytics para Windows, no admite la configuración o volver a configurar un área de trabajo para notificar al. Para configurar el agente, deberá seguir uno de los métodos admitidos que se anuncie [agregando o quitando un área de trabajo](#adding-or-removing-a-workspace).
+>Durante la actualización del agente de Log Analytics para Windows, no se admitirá la configuración o volver a configurar un área de trabajo para notificaciones. Para configurar el agente, deberá seguir uno de los métodos admitidos que se enumeran en [Agregar o quitar un área de trabajo](#adding-or-removing-a-workspace).
 >
 
-#### <a name="to-upgrade-using-the-setup-wizard"></a>Para actualizar mediante el Asistente para instalación
+#### <a name="to-upgrade-using-the-setup-wizard"></a>Para actualizar mediante el Asistente de instalación
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 
-2. Ejecutar **MMASetup -\<plataforma\>.exe** para iniciar el Asistente para instalación.
+2. Ejecute **MMASetup-\<platform\>.exe** para iniciar el Asistente de instalación.
 
-3. En la primera página del Asistente para la instalación, haga clic en **siguiente**.
+3. En la primera página del Asistente, haga clic en **Siguiente**.
 
-4. En el **programa de instalación del agente de supervisión de Microsoft** cuadro de diálogo, haga clic en **acepto** para aceptar el contrato de licencia.
+4. En el cuadro de diálogo **Configuración de Microsoft Monitoring Agent**, haga clic en **Aceptar** para aceptar el contrato de licencia.
 
-5. En el **programa de instalación del agente de supervisión de Microsoft** cuadro de diálogo, haga clic en **actualizar**. La página de estado muestra el progreso de la actualización.
+5. En el cuadro de diálogo **Configuración de Microsoft Monitoring Agent**, haga clic en **Actualizar**. La página de estado muestra el progreso de la actualización.
 
-6. Cuando el **completada correctamente la configuración de Microsoft Monitoring Agent.** aparece la página, haga clic en **finalizar**.
+6. Cuando aparezca la página **Se completó correctamente la configuración de Microsoft Monitoring Agent**, haga clic en **Finalizar**.
 
-#### <a name="to-upgrade-from-the-command-line"></a>Para actualizar desde la línea de comandos
+#### <a name="to-upgrade-from-the-command-line"></a>Actualizar desde la línea de comandos
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 
@@ -80,18 +80,18 @@ Puede descargar la versión más reciente del agente de Windows desde el área d
     setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1
     ```
 
-### <a name="upgrade-linux-agent"></a>Actualización de agente de Linux 
+### <a name="upgrade-linux-agent"></a>Actualización del agente de Linux 
 
-Actualización desde versiones anteriores (> 1.0.0-47) es compatible. Si realizas la instalación con el comando `--upgrade`, se actualizarán todos los componentes del agente a la versión más reciente.
+Es posible actualizar desde versiones anteriores (> 1.0.0-47). Si realizas la instalación con el comando `--upgrade`, se actualizarán todos los componentes del agente a la versión más reciente.
 
-Ejecute el siguiente comando para actualizar al agente.
+Para actualizar al agente, ejecute el siguiente comando.
 
 `sudo sh ./omsagent-*.universal.x64.sh --upgrade`
 
 ## <a name="adding-or-removing-a-workspace"></a>Adición o eliminación de un área de trabajo
 
 ### <a name="windows-agent"></a>Agente de Windows
-Los pasos descritos en esta sección son necesarios si desea que no solo reconfigura el agente de Windows para que informe a otra área de trabajo o para quitar un área de trabajo de su configuración, sino también cuando desee configurar el agente para informar a varias áreas de trabajo (normalmente denomina hospedaje múltiple). Configuración del agente de Windows para informar a varias áreas de trabajo solo puede realizarse después de la instalación inicial del agente y mediante los métodos descritos a continuación.    
+Los pasos descritos en esta sección son necesarios cuando no solo quiere reconfigurar el agente de Windows para informar a un área de trabajo diferente o eliminar un área de trabajo de su configuración, sino también cuando quiere configurar el agente para que informe a más de un área de trabajo (comúnmente referido como hospedaje múltiple). La configuración del agente de Windows para informar a múltiples áreas de trabajo solo se puede realizar después de la configuración inicial del agente y mediante los métodos que se describen a continuación.    
 
 #### <a name="update-settings-from-control-panel"></a>Actualizar la configuración del Panel de control
 
@@ -141,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Agente Linux
-Los pasos siguientes muestran cómo volver a configurar al agente de Linux si decide registrarlo con otra área de trabajo o para quitar un área de trabajo de su configuración.
+En los pasos siguientes se muestra cómo volver a configurar el agente de Linux si decide registrarlo en un área de trabajo diferente o si quiere quitar un área de trabajo de la configuración.
 
 1. Para comprobar que está registrado en un área de trabajo, ejecute el siguiente comando:
 
@@ -188,7 +188,7 @@ Si quiere configurar el agente para comunicarse con el servicio a través de un 
 
 #### <a name="update-settings-using-powershell"></a>Actualizar la configuración con PowerShell
 
-Copie el código de PowerShell de ejemplo siguiente, actualícelo con información específica de su entorno y guárdelo con una extensión de nombre de archivo PS1. Ejecute el script en cada equipo que se conecta directamente al área de trabajo de Log Analytics en Azure Monitor.
+Copie el código de PowerShell de ejemplo siguiente, actualícelo con información específica de su entorno y guárdelo con una extensión de nombre de archivo PS1. Ejecute el script en cada uno de los equipos que se conecta directamente con el área de trabajo de Log Analytics en Azure Monitor.
 
 ```powershell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
@@ -232,7 +232,7 @@ Siga estos pasos si los equipos Linux necesitan comunicarse a través de un serv
     ```
 
 ## <a name="uninstall-agent"></a>Desinstalar agente
-Utilice uno de los procedimientos siguientes para desinstalar al agente de Windows o Linux mediante la línea de comandos o el Asistente para la instalación.
+Use uno de los procedimientos siguientes para desinstalar al agente de Windows o Linux mediante el asistente para instalación o la línea de comandos.
 
 ### <a name="windows-agent"></a>Agente de Windows
 

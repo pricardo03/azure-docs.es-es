@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60403373"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicación de niveles múltiples .NET con colas de Azure Service Bus
@@ -33,7 +33,7 @@ Aprenderá lo siguiente:
 
 En este tutorial compilará y ejecutará la aplicación de niveles múltiples en un servicio en la nube de Azure. El front-end es un rol web de ASP.NET MVC y el back-end es un rol de trabajo que usa una cola de Service Bus. Puede crear la misma aplicación de niveles múltiples con el front-end como un proyecto web, que se implementa en un sitio web de Azure, en lugar de en un servicio en la nube. También puede probar el tutorial de [aplicación híbrida en la nube/local .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-Captura de pantalla siguiente muestra la aplicación completada.
+La siguiente captura de pantalla muestra la aplicación completada:
 
 ![][0]
 
@@ -72,7 +72,7 @@ Después, va a agregar el código que envía elementos a una cola de Service Bus
 1. Inicie Visual Studio con privilegios de administrador: haga clic con el botón derecho en el icono del programa **Visual Studio** y después haga clic en **Ejecutar como administrador**. El emulador de proceso de Azure, descrito posteriormente en este artículo, requiere que se inicie Visual Studio con privilegios de administrador.
    
    En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
-2. En **Plantillas instaladas**, en **Visual C#**, haga clic en **Nube** y, a continuación, en **Azure Cloud Service**. Denomine el proyecto **MultiTierApp**. A continuación, haga clic en **Aceptar**.
+2. En **Plantillas instaladas**, en **Visual C#** , haga clic en **Nube** y, a continuación, en **Azure Cloud Service**. Denomine el proyecto **MultiTierApp**. A continuación, haga clic en **Aceptar**.
    
    ![][9]
 3. En el panel **Roles**, haga doble clic en **Rol web de ASP.NET**.

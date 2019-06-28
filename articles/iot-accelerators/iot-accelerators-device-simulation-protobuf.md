@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447988"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialización de datos de telemetría con búferes de protocolo
@@ -70,7 +70,7 @@ Abra el archivo **.vscode/launch.json** y asigne su cadena de conexión de Cosmo
 
 Para ejecutar el microservicio de adaptador de almacenamiento localmente, haga clic en **Depurar \> Iniciar depuración**.
 
-La ventana **Terminal** en Visual Studio Code muestra el resultado del microservicio en ejecución, que incluye una dirección URL para comprobar el estado del servicio web: <http://127.0.0.1:9022/v1/status>. Al navegar a esta dirección, el estado debe ser "Aceptar: Activo y correcto".
+La ventana **Terminal** en Visual Studio Code muestra el resultado del microservicio en ejecución, que incluye una dirección URL para comprobar el estado del servicio web: <http://127.0.0.1:9022/v1/status>. Cuando vaya a esta dirección, el estado debería ser "OK: activo y correcto".
 
 Deje el microservicio de adaptador de almacenamiento en ejecución en esta instancia de Visual Studio Code mientras completa los pasos siguientes.
 
@@ -174,7 +174,7 @@ Cuando tiene un archivo **proto**, el siguiente paso es generar las clases neces
 
 1. [Descargar el compilador de Protobuf desde GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Ejecute el compilador, especificando el directorio de origen, el directorio de destino y el nombre de su archivo **proto**. Por ejemplo: 
+1. Ejecute el compilador, especificando el directorio de origen, el directorio de destino y el nombre de su archivo **proto**. Por ejemplo:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Abra el archivo **WebService\appsettings.ini** y modifique la configuración del
 
 De forma predeterminada, los archivos JSON y JS del nuevo modelo de dispositivo no se copiarán en la solución compilada. Debe incluirlos explícitamente.
 
-Agregue una entrada al archivo **services/services.csproj** para cada archivo que quiera incluir. Por ejemplo: 
+Agregue una entrada al archivo **services/services.csproj** para cada archivo que quiera incluir. Por ejemplo:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -249,7 +249,7 @@ Para configurar Postman:
 
 1. Haga clic en **File \> Import** (Archivo > Importar). A continuación, haga clic en **Choose Files** (Elegir archivos).
 
-1. Seleccione **Azure IoT Device Simulation solution accelerator.postman\_collection** (accelerator.postman_collection de la solución de simulación de dispositivo de Azure IoT) y **Azure IoT Device Simulation solution accelerator.postman\_environment** (accelerator.postman_environment de la solución de simulación de dispositivo de Azure IoT) y haga clic en **Open (Abrir)**.
+1. Seleccione **Azure IoT Device Simulation solution accelerator.postman\_collection** (accelerator.postman_collection de la solución de simulación de dispositivo de Azure IoT) y **Azure IoT Device Simulation solution accelerator.postman\_environment** (accelerator.postman_environment de la solución de simulación de dispositivo de Azure IoT) y haga clic en **Open (Abrir)** .
 
 1. Expanda **Azure IoT Device Simulation solution accelerator** (Acelerador de soluciones de simulación de dispositivos de Azure IoT) para ver las solicitudes que se pueden enviar.
 

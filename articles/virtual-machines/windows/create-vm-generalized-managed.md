@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205729"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creación de una máquina virtual a partir de una imagen administrada
 
 Puede crear varias máquinas virtuales (VM) a partir de una imagen de VM administrada con Azure mediante PowerShell o Azure Portal. Una imagen de VM administrada contiene la información necesaria para crear una VM, incluidos los discos del SO y de datos. Los discos duros virtuales (VHD) que componen la imagen, incluidos los discos del sistema operativo y los discos de datos, se almacenan como discos administrados. 
 
-Antes de crear una nueva máquina virtual, deberá [crear una imagen de máquina virtual administrada](capture-image-resource.md) para utilizar como la imagen de origen y conceder acceso de lectura en la imagen a cualquier usuario que debe tener acceso a la imagen. 
+Antes de crear una nueva máquina virtual, deberá [crear una imagen de máquina virtual administrada](capture-image-resource.md) para usarla como la imagen de origen y conceder acceso de lectura en la imagen a cualquier usuario que deba tener acceso a la imagen. 
 
 
 ## <a name="use-the-portal"></a>Uso del portal

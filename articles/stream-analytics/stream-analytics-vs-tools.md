@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 1c7133801eb0d95616cacf501162e6cee3da7c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477935"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Uso de Visual Studio para ver trabajos de Azure Stream Analytics
@@ -87,6 +87,6 @@ Los resultados de **Probar conexión** se muestran en la ventana **Salida**.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Supervisión y administración de trabajos de Azure Stream Analytics con Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
-* [Inicio rápido: Crear un trabajo de Stream Analytics mediante Visual Studio](stream-analytics-quick-create-vs.md)
-* [Tutorial: Implementar un trabajo de Azure Stream Analytics con CI/CD con canalizaciones de Azure](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Inicio rápido: creación de un trabajo de Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md).
+* [Tutorial: implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integración y desarrollo continuos con las herramientas de Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

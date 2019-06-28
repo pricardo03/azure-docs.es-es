@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: b7e6201d75556908cc16d97734d1c074efd0a587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148411"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Supervisar y administrar los trabajos de Stream Analytics con los cmdlets de Azure PowerShell
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Cmdlets de PowerShell de Azure en Stream Analytics
 Se pueden usar los siguientes cmdlets de PowerShell de Azure para supervisar y administrar trabajos de Azure Stream Analytics. Tenga en cuenta que Azure PowerShell tiene versiones diferentes. 
-**En los ejemplos que se muestran el primer comando es para Azure PowerShell 0.9.8 y el segundo para Azure PowerShell 1.0.** Los comandos de Azure PowerShell 1.0 siempre tendrán "Az" en el comando.
+**En los ejemplos que se muestran el primer comando es para Azure PowerShell 0.9.8 y el segundo para Azure PowerShell 1.0.** Los comandos de Azure PowerShell 1.0 siempre incluirán "Az".
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Muestra todos los trabajos de Stream Analytics definidos en la suscripción de Azure o en el grupo de recursos especificado, u obtiene información del trabajo sobre un trabajo específico en un grupo de recursos.

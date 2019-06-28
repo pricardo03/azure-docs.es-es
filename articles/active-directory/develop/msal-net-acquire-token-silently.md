@@ -1,6 +1,6 @@
 ---
-title: Adquirir un token de forma silenciosa (biblioteca de autenticación de Microsoft para. NET) | Azure
-description: Obtenga información sobre cómo adquirir un token de acceso en modo silencioso (desde la caché de tokens) mediante la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
+title: Adquisición silenciosa de un token (Biblioteca de autenticación de Microsoft para .NET) | Azure
+description: Obtenga información sobre cómo adquirir un token de acceso de forma silenciosa (a partir de la caché de tokens) mediante la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,19 +18,19 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6331407067a39550d866d7c293a92fac9184b54e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544233"
 ---
-# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Obtener un token de la caché de tokens mediante MSAL.NET
+# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Obtención de un token a partir de la caché de tokens mediante MSAL.NET
 
-Al adquirir un token de acceso mediante la biblioteca de autenticación de Microsoft para .NET (MSAL.NET), se almacena en caché el token. Cuando la aplicación necesita un token, debe llamar primero el `AcquireTokenSilent` método para comprobar si es un token aceptable en la memoria caché. En muchos casos, es posible adquirir otro token con más ámbitos según un token en la memoria caché. También es posible actualizar un token cuando va a caducar (como la caché de tokens también contiene un token de actualización).
+Al adquirir un token de acceso mediante la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET), el token se almacena en caché. Cuando la aplicación necesita un token, primero debe llamar al método `AcquireTokenSilent` para comprobar si hay un token aceptable en la caché. En muchos casos, es posible adquirir otro token con más ámbitos basado en un token de la caché. También puede actualizar un token cuando va a expirar (ya que la caché de tokens también contiene un token de actualización).
 
-El patrón recomendado es llamar a la `AcquireTokenSilent` método primero.  Si `AcquireTokenSilent` se produce un error, a continuación, adquirir un token mediante otros métodos.
+El patrón recomendado es llamar primero al método `AcquireTokenSilent`.  Si `AcquireTokenSilent` produce un error, deberá adquirir el token mediante otros métodos.
 
-En el ejemplo siguiente, primero la aplicación intenta adquirir un token de la caché de tokens.  Si un `MsalUiRequiredException` excepción, la aplicación adquiere un token de forma interactiva. 
+En el ejemplo siguiente, la aplicación primero intenta adquirir un token a partir de la caché de tokens.  Si se produce una excepción `MsalUiRequiredException`, la aplicación adquiere un token de forma interactiva. 
 
 ```csharp
 AuthenticationResult result = null;

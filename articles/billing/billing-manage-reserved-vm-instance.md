@@ -13,36 +13,36 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127134"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
-Después de comprar una reserva para Azure, es posible que deba aplicar la reserva a otra suscripción, cambiar quién puede administrar la reserva, o cambiar el ámbito de la reserva. También puede dividir una reserva en dos para aplicar algunas de las instancias que compró a otra suscripción.
+Después de comprar una reserva para Azure, es posible que tenga que aplicar la reserva a otra suscripción, cambiar quién puede administrar la reserva, o cambiar el ámbito de la misma. También puede dividir una reserva en dos para aplicar algunas de las instancias que compró a otra suscripción.
 
 Si ha adquirido Azure Reserved Virtual Machine Instances, puede cambiar la configuración de optimización de la reserva. Puede aplicar el descuento de reserva a las máquinas virtuales de la misma serie o puede reservar la capacidad del centro de datos para un tamaño específico de máquina virtual.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reservation-order-and-reservation"></a>Reserva y pedido de reserva
+## <a name="reservation-order-and-reservation"></a>Pedido de reserva y reserva
 
-Cuando compra de una reserva, se crean dos objetos: **Pedido de reserva** y **reserva**.
+Cuando compra una reserva, se crean dos objetos: **Pedido de reserva** y **Reserva**.
 
-En el momento de la compra, un pedido de reserva tiene una reserva debajo de él. Acciones como la división, combinación, reembolso parcial o exchange crean nuevas reservas en el **pedido de reserva**.
+En el momento de la compra, un pedido de reserva tiene una sola reserva. Acciones como la división, combinación, reembolso parcial o intercambio crean nuevas reservas en el **Pedido de reserva**.
 
-Para ver un pedido de reserva, vaya a **reservas** > seleccione la reserva y, a continuación, haga clic en el **Id. de pedido de reserva**.
+Para ver un pedido de reserva, vaya a **Reservas** > seleccione la reserva y, a continuación, haga clic en el **Id. de pedido de reserva**.
 
 ![Ejemplo de los detalles de pedido de reserva que muestra el Id. de pedido de reserva ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
 
 Una reserva hereda los permisos de su pedido de reserva.
 
-## <a name="change-the-reservation-scope"></a>Cambiar el ámbito de reserva
+## <a name="change-the-reservation-scope"></a>Cambio del ámbito de reserva
 
- El descuento de reserva se aplica a las máquinas virtuales, bases de datos SQL, Azure Cosmos DB u otros recursos que coinciden con la reserva y se ejecutan en el ámbito de reserva. El contexto de facturación depende de la suscripción que se usó para comprar la reserva.
+ El descuento de la reserva se aplica a las máquinas virtuales, SQL Database, Azure Cosmos DB u otros recursos que se correspondan con la reserva y que se ejecuten dentro del ámbito de esta. El contexto de facturación depende de la suscripción que se usó para comprar la reserva.
 
 Para cambiar el ámbito de una reserva:
 
@@ -58,11 +58,11 @@ El ámbito solo se aplica a la oferta Pago por uso MS-AZR-0003P o MS-AZR-0023P, 
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Agregar o cambiar los usuarios que pueden administrar una reserva
 
-Puede delegar la administración de reserva, agregue usuarios a roles en el pedido de reserva o la reserva. De forma predeterminada, la persona que coloca el pedido de reserva y el Administrador de cuenta tienen el rol de propietario en el pedido de reserva y la reserva.
+Para delegar la administración de una reserva, agregue usuarios a roles en el pedido de reserva o en la reserva. De forma predeterminada, la persona que crea el pedido de reserva y el administrador de cuenta tienen el rol de propietario en el pedido de reserva y en la reserva.
 
-Puede administrar el acceso a los pedidos de las reservas y las reservas de direcciones independientemente de las suscripciones que obtienen el descuento de reserva. Cuando concede a alguien permisos para administrar un pedido de reserva o la reserva, no lo concederle permiso para administrar la suscripción. De forma similar, si alguien concede permisos para administrar una suscripción en el ámbito de la reserva, lo no otorguen derechos para administrar el pedido de reserva o la reserva.
+Puede administrar el acceso a los pedidos de reserva y a las reservas de forma independiente de las suscripciones que obtienen el descuento de reserva. El hecho de que a un usuario se le concedan permisos para administrar un pedido de reserva o la reserva misma, no implica que también se le otorguen derechos para administrar la suscripción. Igualmente, si a un usuario se le conceden permisos para administrar una suscripción dentro del ámbito de la reserva, no significa que se le otorguen derechos para administrar el pedido de reserva o la reserva.
 
-Para llevar a cabo un reembolso o exchange, el usuario debe tener acceso al pedido de reserva. Al conceder a alguien permisos, es mejor conceder permisos para el pedido de reserva, no la reserva.
+Para llevar a cabo un intercambio o un reembolso, el usuario tiene que tener acceso al pedido de reserva. Al conceder permisos, es mejor concederlos para el pedido de reserva y no para la reserva.
 
 
 Para delegar la administración de acceso en una reserva:
@@ -70,7 +70,7 @@ Para delegar la administración de acceso en una reserva:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** > **Reservations** para enumerar las reservas a las que tiene acceso.
 3. Seleccione la reserva cuyo acceso quiere delegar a otros usuarios.
-4. Seleccione **Access Control (IAM)**.
+4. Seleccione **Access Control (IAM)** .
 5. Seleccione **Agregar asignación de roles** > **Rol** > **Propietario**. U otro rol si quiere conceder acceso limitado.
 6. Escriba la dirección de correo electrónico del usuario al que desea agregar como propietario.
 7. Seleccione el usuario y, después, **Guardar**.
@@ -132,28 +132,28 @@ Para actualizar la configuración de optimización de la reserva:
 4. Seleccione **Configuración** > **Configuración**.
 5. Cambie la configuración de la **optimización**.
 
-## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Cuáles son las reservas para Azure?](billing-save-compute-costs-reservations.md)
+- [¿Qué son las reservas para Azure?](billing-save-compute-costs-reservations.md)
 
-Comprar un plan de servicio:
+Compra de un plan de servicio:
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Pago por adelantado para recursos de Azure Cosmos DB con capacidad reservada de Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 
-Comprar un plan de software:
-- [Pago por adelantado para los planes de software de Red Hat de las reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+Compra de un plan de software:
+- [Pago por adelantado para planes de software de Red Hat con reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Pago por adelantado para planes de software SUSE con Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-Comprender el descuento y el uso:
+Comprender descuentos y uso:
 - [Información sobre cómo se aplica el descuento por la reserva de máquinas virtuales](billing-understand-vm-reservation-charges.md)
-- [Información sobre cómo se aplica el descuento del plan de software de Red Hat Enterprise Linux](../billing/billing-understand-rhel-reservation-charges.md)
+- [Información sobre cómo se aplica el descuento del plan de reserva de software de Red Hat Linux Enterprise para Azure](../billing/billing-understand-rhel-reservation-charges.md)
 - [Descubra cómo se aplica el descuento del plan de software SUSE Linux Enterprise](../billing/billing-understand-suse-reservation-charges.md)
 - [Descubra cómo se aplican otros descuentos por reservas](billing-understand-reservation-charges.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)

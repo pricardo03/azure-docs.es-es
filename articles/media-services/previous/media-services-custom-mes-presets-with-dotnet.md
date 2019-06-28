@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61247250"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalización de valores preestablecidos de Media Encoder Standard  
@@ -30,7 +30,7 @@ En este artículo se muestra cómo realizar tareas de codificación avanzada con
 Este artículo le muestra cómo personalizar un valor preestablecido tomando el valor preestablecido [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) y reduciendo el número de capas. El artículo [Personalización de valores preestablecidos de Media Encoder Standard](media-services-advanced-encoding-with-mes.md) muestra valores preestablecidos personalizados que pueden usarse para realizar tareas de codificación avanzadas.
 
 > [!NOTE]
-> Los valores preestablecidos personalizados que se describe en este artículo no se puede usar en [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) transformaciones o los comandos de CLI. Consulte la [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md) para obtener más detalles.
+> Los valores preestablecidos personalizados que se describen en este artículo no se pueden usar en las transformaciones de [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) o en los comandos de CLI. Para obtener más información, consulte la [Guía de migración de la v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 ## <a id="customizing_presets"></a> Personalización de un valor preestablecido de MES
 
@@ -264,9 +264,9 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
-- [Cómo codificar con una transformación personalizada mediante la CLI](../latest/custom-preset-cli-howto.md)
+- [Procedimiento de codificación con una transformación personalizada mediante la CLI](../latest/custom-preset-cli-howto.md)
 - [Codificación con Media Services v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services

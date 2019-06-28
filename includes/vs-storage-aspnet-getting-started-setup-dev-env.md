@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160750"
 ---
 ## <a name="set-up-the-development-environment"></a>Configuración del entorno de desarrollo
@@ -25,7 +25,7 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 
 1. En el menú principal, seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Web** > **Aplicación web ASP.NET (.NET Framework)**. En el campo **Nombre**, especifique **StorageAspNet**. Seleccione **Aceptar**.
+1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Web** > **Aplicación web ASP.NET (.NET Framework)** . En el campo **Nombre**, especifique **StorageAspNet**. Seleccione **Aceptar**.
 
     ![Captura de pantalla del cuadro de diálogo Nuevo proyecto](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
@@ -45,7 +45,7 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 
 1. En el cuadro de diálogo **Azure Storage**, seleccione la cuenta de Azure Storage que se usará en este tutorial. Para crear una nueva cuenta de Azure Storage, seleccione **Crear una nueva cuenta de almacenamiento** y rellene el formulario. Después de seleccionar una cuenta de almacenamiento existente o de crear una nueva, seleccione **Agregar**. Visual Studio instala el paquete NuGet de Azure Storage y una cadena de conexión de almacenamiento a **Web.config**.
 
-1. En **el Explorador de soluciones**, haga doble clic en **dependencias**, elija **administrar paquetes de NuGet**y agregue una referencia de paquete de NuGet para la versión más reciente de Microsoft.Azure.ConfigurationManager.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Dependencias**, elija **Administrar paquetes NuGet** y agregue una referencia de un paquete de NuGet a la versión más reciente de Microsoft.Azure.ConfigurationManager.
 
 > [!TIP]
 > Para aprender a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com), consulte [Crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).

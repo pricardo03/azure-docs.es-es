@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878754"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acceso a los registros de diagnóstico de Azure Data Lake Storage Gen1
@@ -46,7 +46,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
         
         * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a una instancia de Azure Event Hubs. Lo más probable es que use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-        * Seleccione la opción de **enviar a Log Analytics** para usar el servicio Azure Monitor para analizar los datos de registro generado. Si selecciona esta opción, debe proporcionar los detalles del área de trabajo de Log Analytics que usaría para realizar análisis de registros. Consulte [ver o analizar los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obtener más información sobre el uso de Azure Monitor registra.
+        * Seleccione la opción **Enviar a Log Analytics** para usar el servicio de Azure Monitor con el fin de analizar los datos de registro generados. Si selecciona esta opción, debe proporcionar los detalles del área de trabajo de Log Analytics que usaría para realizar análisis de registros. Consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obtener más información sobre el uso de los registros de Azure Monitor.
      
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
    * Especifique el número de días durante los que deben conservarse los datos. La retención solo es aplicable si está utilizando la cuenta de Azure Storage para archivar datos de registro.
@@ -115,25 +115,25 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| time |string |Marca de tiempo (en UTC) del registro. |
-| resourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
-| category |string |Categoría del registro. Por ejemplo, **Requests**. |
-| operationName |string |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
-| resultType |string |Estado de la operación. Por ejemplo, 200. |
-| callerIpAddress |string |Dirección IP del cliente que realiza la solicitud. |
-| correlationId |string |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
-| identidad |Object |Identidad que ha generado el registro. |
+| time |Cadena |Marca de tiempo (en UTC) del registro. |
+| resourceId |Cadena |Identificador del recurso en el que tuvo lugar la operación. |
+| category |Cadena |Categoría del registro. Por ejemplo, **Requests**. |
+| operationName |Cadena |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
+| resultType |Cadena |Estado de la operación. Por ejemplo, 200. |
+| callerIpAddress |Cadena |Dirección IP del cliente que realiza la solicitud. |
+| correlationId |Cadena |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
+| identidad |Objeto |Identidad que ha generado el registro. |
 | properties |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
-| Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
+| HttpMethod |Cadena |Método HTTP usado en la operación. Por ejemplo, GET. |
+| Ruta de acceso |Cadena |Ruta de acceso en la que se ha realizado la operación. |
 | RequestContentLength |int |Longitud del contenido de la solicitud HTTP. |
-| ClientRequestId |string |Identificador que distingue de manera única esta solicitud. |
-| StartTime |string |Hora a la que el servidor ha recibido la solicitud. |
-| EndTime |string |Hora a la que el servidor ha enviado una respuesta. |
+| ClientRequestId |Cadena |Identificador que distingue de manera única esta solicitud. |
+| StartTime |Cadena |Hora a la que el servidor ha recibido la solicitud. |
+| EndTime |Cadena |Hora a la que el servidor ha enviado una respuesta. |
 
 ### <a name="audit-logs"></a>Registros de auditoría
 Este es un ejemplo de una entrada en el registro de auditoría con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro
@@ -162,23 +162,23 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| time |string |Marca de tiempo (en UTC) del registro. |
-| resourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
-| category |string |Categoría del registro. Por ejemplo, **Audit**. |
-| operationName |string |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
-| resultType |string |Estado de la operación. Por ejemplo, 200. |
-| resultSignature |string |Detalles adicionales sobre la operación. |
-| correlationId |string |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
-| identidad |Object |Identidad que ha generado el registro. |
+| time |Cadena |Marca de tiempo (en UTC) del registro. |
+| resourceId |Cadena |Identificador del recurso en el que tuvo lugar la operación. |
+| category |Cadena |Categoría del registro. Por ejemplo, **Audit**. |
+| operationName |Cadena |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
+| resultType |Cadena |Estado de la operación. Por ejemplo, 200. |
+| resultSignature |Cadena |Detalles adicionales sobre la operación. |
+| correlationId |Cadena |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
+| identidad |Objeto |Identidad que ha generado el registro. |
 | properties |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| StreamName |string |Ruta de acceso en la que se ha realizado la operación. |
+| StreamName |Cadena |Ruta de acceso en la que se ha realizado la operación. |
 
 ## <a name="samples-to-process-the-log-data"></a>Ejemplos para procesar los datos de registro
-Al enviar los registros de Azure Data Lake Storage Gen1 a los registros de Azure Monitor (consulte [ver o analizar los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obtener más información sobre el uso de Azure Monitor registra), la consulta siguiente devuelve una tabla que contiene un lista de los usuarios mostrar nombres, la hora de los eventos y el recuento de eventos para el tiempo del evento junto con un gráfico visual. Se puede modificar fácilmente para que muestre el identificador único de usuario u otros atributos:
+Al enviar registros de Data Lake Storage Gen1 a los registros de Azure Monitor (consulte [Visualización o análisis de los datos recopilados con la búsqueda de registros de Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obtener más información sobre el uso de los registros de Azure Monitor), la consulta siguiente devolverá una tabla que contiene una lista de nombres para mostrar de usuarios, la hora de los eventos y el recuento de eventos para la hora del evento junto con un gráfico visual. Se puede modificar fácilmente para que muestre el identificador único de usuario u otros atributos:
 
 ```
 search *
@@ -189,7 +189,7 @@ search *
 
 Azure Data Lake Storage Gen1 proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

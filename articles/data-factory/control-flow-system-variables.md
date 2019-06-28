@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235647"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables del sistema compatibles con Azure Data Factory
@@ -41,11 +41,11 @@ Se puede hacer referencia a estas variables del sistema en cualquier parte del c
 | Nombre de la variable | DESCRIPCIÓN |
 | --- | --- |
 | @trigger().scheduledTime |Hora a la que se programó el desencadenador para invocar la ejecución de la canalización. Por ejemplo, para un desencadenador que se activa cada 5 minutos, esta variable devolvería `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z` y `2017-06-01T22:29:00Z`, respectivamente.|
-| @trigger().startTime |Hora a la que **realmente** se activó el desencadenador para invocar la ejecución de la canalización. Por ejemplo, para un desencadenador que se activa cada 5 minutos, esta variable podría devolver algo parecido a `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z` y `2017-06-01T22:29:00.9935483Z`, respectivamente. (Nota: La marca de tiempo es de forma predeterminada en formato ISO 8601)|
+| @trigger().startTime |Hora a la que **realmente** se activó el desencadenador para invocar la ejecución de la canalización. Por ejemplo, para un desencadenador que se activa cada 5 minutos, esta variable podría devolver algo parecido a `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z` y `2017-06-01T22:29:00.9935483Z`, respectivamente. (Nota: De forma predeterminada, la marca de tiempo está en formato ISO 8601)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Ámbito de desencadenador de ventana de saltos de tamaño constante
 Se puede hacer referencia a estas variables del sistema en cualquier parte del código JSON del desencadenador si este es de tipo "TumblingWindowTrigger".
-(Nota: La marca de tiempo es de forma predeterminada en formato ISO 8601)
+(Nota: De forma predeterminada, la marca de tiempo está en formato ISO 8601)
 
 | Nombre de la variable | DESCRIPCIÓN |
 | --- | --- |

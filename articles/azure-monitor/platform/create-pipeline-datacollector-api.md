@@ -1,5 +1,5 @@
 ---
-title: Crear una canalización de datos con la API del recopilador de datos de Azure Monitor | Microsoft Docs
+title: Creación de una canalización de datos con Data Collector API de Azure Monitor | Microsoft Docs
 description: Puede usar Azure Monitor HTTP Data Collector API para agregar datos POST JSON en el área de trabajo de Log Analytics desde cualquier cliente que pueda llamar a la API de REST. En este artículo se describe cómo cargar datos almacenados en archivos de una manera automatizada.
 services: log-analytics
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603241"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creación de una canalización de datos con Data Collector API
@@ -27,7 +27,7 @@ ms.locfileid: "65603241"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema de ejemplo
-El resto de este artículo, examinaremos los datos de la vista de página de Application Insights. En nuestro escenario hipotético, queremos correlacionar información geográfica que se recopilan de forma predeterminada mediante el SDK de Application Insights a los datos personalizados que contiene la población de cada país o región del mundo, con el fin de identificar donde nos debemos dedicar el marketing más dólares. 
+El resto de este artículo, examinaremos los datos de la vista de página de Application Insights. En nuestro escenario hipotético, queremos correlacionar información geográfica recopilada de manera predeterminada por el SDK de Application Insights con datos personalizados que contienen la población de todos los países o regiones del mundo, con el fin de identificar dónde debemos dedicar el máximo importe en dólares en marketing. 
 
 Se usa un origen de datos público como [UN World Population Prospects](https://esa.un.org/unpd/wpp/) (Perspectivas de población mundial de la ONU) para este propósito. Los datos tendrán el siguiente esquema simple:
 

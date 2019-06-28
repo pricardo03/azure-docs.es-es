@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335493"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
@@ -60,7 +60,7 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 | Propiedad                      | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
 | Nombre                          | Nombre de la actividad en la canalización     | Sí      |
-| description                   | Texto que describe para qué se usa la actividad.  | Sin        |
+| description                   | Texto que describe para qué se usa la actividad.  | Sin       |
 | Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | Sí      |
 | linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | Sí      |
 | trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | Sí      |
@@ -71,7 +71,7 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 
 El proceso completo de operacionalización, volviendo a entrenar un modelo y actualizando los servicios web predictivos, implica los pasos siguientes:
 
-- Invocar el **servicio web de entrenamiento** mediante la **actividad de ejecución por lotes**. Invocar un servicio web de entrenamiento es lo mismo que invocar el servicio web predictivo descrito en [Creación de canalizaciones predictivas con Azure Machine Learning y la actividad de ejecución por lotes de Data Factory](transform-data-using-machine-learning.md). La salida del servicio Web de entrenamiento es un archivo iLearner que puede usar para actualizar el servicio Web predictivo.
+- Invocar el **servicio web de entrenamiento** mediante la **actividad de ejecución por lotes**. Invocar un servicio web de entrenamiento es lo mismo que invocar el servicio web predictivo descrito en [Creación de canalizaciones predictivas con Azure Machine Learning y la actividad de ejecución por lotes de Data Factory](transform-data-using-machine-learning.md). La salida del servicio web de entrenamiento es un archivo iLearner que puede usar para actualizar el servicio web de predicción.
 - Invocar el **punto de conexión de actualización de recurso** del **servicio web de predicción** mediante el uso de la **actividad de actualización de recurso** para actualizar el servicio web con el modelo nuevamente entrenado.
 
 ## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning

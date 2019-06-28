@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
 ms.openlocfilehash: f0f66cd32721e277cbd6e4578b0e58bb201ee966
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393277"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementación y eliminación de aplicaciones con PowerShell
@@ -357,14 +357,14 @@ Consulte [Descripción del valor ImageStoreConnectionString](service-fabric-imag
 
 ### <a name="deploy-large-application-package"></a>Implementación de un paquete de aplicación grande
 
-Problema: [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) agota el tiempo para un paquete de aplicación grande (del orden de GB).
+Problema: [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) agota el tiempo de espera para un paquete de aplicación grande (del orden de GB).
 Pruebe lo siguiente:
 - Especifique un tiempo de espera mayor para el comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) con el parámetro `TimeoutSec`. De forma predeterminada, el tiempo de espera es de 30 minutos.
 - Compruebe la conexión de red entre la máquina de origen y el clúster. Si la conexión es lenta, considere la posibilidad de usar una máquina con una conexión de red mejor.
 Si la máquina cliente se encuentra en otra región diferente al clúster, considere el uso de una máquina cliente que se encuentre en una región más cercana o en la misma región que el clúster.
 - Compruebe si está alcanzando la limitación externa. Por ejemplo, cuando el almacén de imágenes está configurado para usar Azure Storage, se puede limitar carga.
 
-Problema: Cargar el paquete se completó correctamente, pero [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) agota el tiempo. Pruebe lo siguiente:
+Problema: la carga del paquete se completó correctamente, pero [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) agota el tiempo de espera. Pruebe lo siguiente:
 - [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes.
 La compresión reduce el tamaño y el número de archivos lo que, a su vez, reduce la cantidad de tráfico y trabajo que Service Fabric debe realizar. La operación de carga puede ser más lenta (especialmente si incluyen el tiempo de compresión), pero el registro y la anulación del registro del tipo de aplicación son más rápidos.
 - Especifique un tiempo de espera mayor para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) con el parámetro `TimeoutSec`.
@@ -383,7 +383,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ### <a name="deploy-application-package-with-many-files"></a>Implementación del paquete de aplicación con muchos archivos
 
-Problema: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) agota el tiempo de un paquete de aplicación con muchos archivos (del orden de miles).
+Problema: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) agota el tiempo de espera para un paquete de aplicación con muchos archivos (del orden de miles).
 Pruebe lo siguiente:
 - [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes. La compresión reduce el número de archivos.
 - Especifique un tiempo de espera mayor para [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) con el parámetro `TimeoutSec`.

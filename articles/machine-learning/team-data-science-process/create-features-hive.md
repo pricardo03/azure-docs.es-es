@@ -12,10 +12,10 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399357"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creación de características para los datos en un clúster de Hadoop mediante consultas de Hive
@@ -89,14 +89,14 @@ El subárbol se incluye con un conjunto de UDF para el procesamiento de campos d
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Esta consulta de Hive asume que el  *\<campo de fecha y hora >* está en el formato de fecha y hora predeterminado.
+Esta consulta de Hive asume que *\<datetime field>* está en el formato de fecha y hora predeterminado.
 
 Si un campo de fecha y hora no se encuentra en el formato predeterminado, deberá convertir el campo de fecha y hora en la marca de tiempo de Unix primero y, a continuación, convertir la marca de tiempo de Unix a una cadena de fecha y hora que se encuentra en el formato predeterminado. Cuando la fecha y hora se encuentra en el formato predeterminado, los usuarios pueden aplicar los UDF de fecha y hora incrustado para extraer características.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-En esta consulta, si la  *\<campo de fecha y hora >* tiene el patrón *26/03/2015 12:04:39*,  *\<patrón del campo de fecha y hora >'* debe ser `'MM/dd/yyyy HH:mm:ss'`. Para probarlo, los usuarios pueden ejecutar
+En esta consulta, si *\<datetime field>* sigue un patrón de tipo *03/26/2015 12:04:39*, *\<pattern of the datetime field>'* debe ser `'MM/dd/yyyy HH:mm:ss'`. Para probarlo, los usuarios pueden ejecutar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -130,7 +130,7 @@ Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones d
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En este Javascript, la función `toRad()` es simplemente *lat_or_lon*pi/180, que convierte grados a radianes. Aquí, *lat_or_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En este JavaScript, la función `toRad()` es simplemente *lat_or_lon*pi/180, que convierte grados a radianes. Aquí, *lat_or_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creación del espacio de trabajo](./media/create-features-hive/atan2new.png)
 

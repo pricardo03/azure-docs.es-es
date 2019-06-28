@@ -1,6 +1,6 @@
 ---
-title: Pago por adelantado de planes de software - reservas de Azure | Microsoft Docs
-description: Obtenga información sobre cómo puede pagar por adelantado los planes de software ahorrar dinero en los costos de pago por uso.
+title: 'Pago por adelantado de planes de software: Azure Reservations | Microsoft Docs'
+description: Descubra cómo puede pagar por adelantado planes de software y ahorrar dinero en los costos de pago por uso.
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -13,55 +13,55 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771250"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pago por adelantado de planes de software de Azure
 
-Cuando se pagan por adelantado el uso de software SUSE y RedHat en Azure, puede ahorrar dinero a través de los costos de pago por uso. Los descuentos se aplican solo a medidores para SUSE y RedHat y no en el uso de la máquina virtual. Puede comprar reservas para las máquinas virtuales por separado para un ahorro adicional.
+Cuando paga por adelantado por el uso de software SUSE y RedHat en Azure, puede ahorrar dinero con respecto a los costos de pago por uso. Los descuentos solo se aplican a los medidores de SUSE y de RedHat, y no al uso de la máquina virtual. Puede comprar reservas para máquinas virtuales por separado para obtener un ahorro adicional.
 
-Puede comprar planes de software SUSE y RedHat en Azure portal. Para comprar un plan:
+Puede comprar planes de software SUSE y RedHat en Azure Portal. Para comprar un plan:
 
-- Debe tener el rol de propietario para al menos una suscripción Enterprise o pago por uso.
-- Para las suscripciones de Enterprise, el **agregar instancias reservadas** opción debe estar habilitada en el [portal EA](https://ea.azure.com/). Si se deshabilita la configuración, debe ser un administrador de EA para la suscripción.
-- Para el programa proveedor de soluciones en la nube (CSP), los agentes de administración o los agentes de ventas pueden comprar los planes de software.
+- Debe tener el rol de propietario al menos en una suscripción Enterprise o de Pago por uso.
+- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). Si ese valor está deshabilitado, debe ser un administrador de EA para la suscripción.
+- En el caso del programa del Proveedor de soluciones en la nube (CSP), solo los agentes de administración o de ventas pueden comprar planes de software.
 
-## <a name="buy-a-software-plan"></a>Comprar un plan de software
+## <a name="buy-a-software-plan"></a>Compra de un plan de software
 
-1. Inicie sesión en Azure portal y vaya a [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
-2. Haga clic en **agregar** y, a continuación, seleccione el plan de software que desea comprar.
-Rellene todos los campos obligatorios. Cualquier máquina virtual Linux de SUSE o RedHat VM que coincide con los atributos de lo que compra Obtiene el descuento. El número real de implementaciones que obtienen el descuento depende del ámbito y la cantidad seleccionada.
+1. Inicie sesión en Azure Portal y vaya a [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Haga clic en **agregar** y, después, seleccione el plan de software que desee comprar.
+Rellene todos los campos obligatorios. Cualquier máquina virtual de SUSE Linux o de RedHat que coincida con los atributos de lo que compra obtiene el descuento. El número real de implementaciones que obtienen el descuento depende del ámbito y la cantidad seleccionada.
 3. Seleccione una suscripción. Se utiliza para pagar el plan.
-El método de pago de la suscripción se cobra a los costos por adelantado para la reserva. El tipo de suscripción debe ser un contrato Enterprise (números de la oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
+Los costos anticipados de la reserva se cargan al método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P).
     - Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite.
-    - Para una suscripción de pago por uso, los cargos se facturan en método de pago de tarjeta de crédito o factura de la suscripción.
+    - en una suscripción de Pago por uso, los costos se cargan a la tarjeta de crédito o al método de pago de la factura de la suscripción.
 4. Seleccione un ámbito. El ámbito puede cubrir una o varias suscripciones (ámbito compartido).
-    - Suscripción única: el descuento del plan se aplica a la coincidencia de uso de la suscripción.
-    - Compartido: se aplica el descuento del plan para encontrar coincidencias de instancias en cualquier suscripción en el contexto de facturación. Para los clientes empresariales, el contexto de facturación es la inscripción e incluye todas las suscripciones en la inscripción. Para los clientes de pago por uso, el contexto de facturación es todas las suscripciones de pago por uso creadas por el Administrador de cuenta.
-5. Seleccione un producto para elegir el tamaño de máquina virtual y el tipo de imagen. El descuento se aplica a solo el tamaño de máquina virtual seleccionado.
-6. Seleccione un término de un año o tres años.
-7. Elija una cantidad, que es el número de prepagados instancias de máquina virtual que se puede obtener el descuento de facturación.
-8. Agregar producto al carro de compra, revisión y compra.
+    - Suscripción única: el descuento del plan se aplica al uso correspondiente en la suscripción.
+    - Compartido: el descuento del plan se aplica a las instancias correspondientes en cualquier suscripción del contexto de facturación. Para los clientes de Enterprise, el contexto de facturación es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el contexto de facturación incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.
+5. Seleccione un producto para elegir el tamaño de máquina virtual y el tipo de imagen. El descuento se aplica solo al tamaño de máquina virtual seleccionado.
+6. Seleccione un plazo de un año o tres años.
+7. Elija una cantidad, que es el número de instancias de máquina virtual de prepago a las que se aplica el descuento de facturación.
+8. Agregue el producto al carro de compra, revíselo y cómprelo.
 
-El descuento de reserva se aplica automáticamente en el medidor de software que paga por adelantado. Los gastos de proceso de máquina virtual no están cubiertos por el plan. Puede adquirir por separado las reservas de direcciones de la máquina virtual.
+El descuento de reserva se aplica automáticamente al medidor de software que paga por adelantado. El plan no cubre los cargos de proceso de máquina virtual. Puede adquirir por separado las reservas de VM.
 
-## <a name="discount-applies-to-different-suse-vm-sizes"></a>Descuento se aplica a los diferentes tamaños de VM de SUSE
+## <a name="discount-applies-to-different-suse-vm-sizes"></a>Descuento aplicado a diferentes tamaños de máquina virtual de SUSE
 
-Al igual que las instancias reservadas de máquina virtual, los planes de SUSE Linux ofrecen flexibilidad de tamaño de instancia. El descuento se aplica incluso cuando se implementa una máquina virtual que tenga un tamaño distinto del plan de SUSE que compró. Para obtener más información, consulte [información sobre cómo se aplica el descuento del plan de software](../../billing/billing-understand-suse-reservation-charges.md).
+Del mismo modo que con las instancias reservadas de VM, los planes SUSE Linux ofrecen flexibilidad de tamaño de instancia. El descuento se aplica incluso cuando se implementa una VM con un tamaño distinto al del plan SUSE que compró. Para más información, consulte [Descubra cómo se aplica el descuento del plan de software](../../billing/billing-understand-suse-reservation-charges.md).
 
-## <a name="redhat-plan-discount"></a>Descuento del plan de RedHat
+## <a name="redhat-plan-discount"></a>Descuento del plan RedHat
 
-Los planes están disponibles solo para las máquinas virtuales de Red Hat Enterprise Linux. El descuento no se aplica a las máquinas virtuales de Red Hat Enterprise Linux SAP HANA o Red Hat Enterprise Linux SAP Business Apps máquinas virtuales.
+Los planes están disponibles solo para máquinas virtuales de Red Hat Enterprise Linux. El descuento no se aplica a las máquinas virtuales de RedHat Enterprise Linux SAP HANA ni a las de RedHat Enterprise Linux SAP Business Apps.
 
-Se aplican descuentos de plan de RedHat solo para el tamaño de máquina virtual que seleccionó en el momento de la compra. RHEL planes no se reembolsarán ni intercambian después de la compra.
+Se aplican descuentos de plan RedHat solo para el tamaño de máquina virtual seleccionado en el momento de la compra. Los planes RHEL no se reembolsarán ni intercambiarán después de la compra.
 
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>No se admiten cambios ni cancelaciones
 
-No se puede cancelar o intercambiar un plan de SUSE o RedHat que ha comprado. Compruebe el uso para asegurarse de comprar el plan adecuado. Para que obtener ayuda identificar qué comprar, consulte [información sobre cómo se aplica el descuento del plan de software](../../billing/billing-understand-suse-reservation-charges.md).
+Una vez comprado, un plan SUSE o RedHat no se puede cancelar ni cambiar. Compruebe el uso para asegurarse de comprar el plan adecuado. Para saber identificar lo que se tiene que comprar, consulte [Descubra cómo se aplica el descuento del plan de software](../../billing/billing-understand-suse-reservation-charges.md).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

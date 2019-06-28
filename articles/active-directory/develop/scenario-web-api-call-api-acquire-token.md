@@ -1,6 +1,6 @@
 ---
-title: Web API que otras llamadas a API web (adquirir un token para la aplicación) - plataforma Microsoft identity
-description: Obtenga información sobre cómo crear una web API que otras llamadas a web API (adquirir un token para la aplicación).
+title: 'API web que llama a otras API web (adquisición de un token para la aplicación): Plataforma de identidad de Microsoft'
+description: Obtenga información sobre cómo crear una API web que llama a otras API web (para adquirir un token para la aplicación).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,19 +16,19 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 986e2e0f8a481d61dc870af2548290658b44d2d3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231101"
 ---
-# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>Web API que llama a web API: adquirir un token para la aplicación
+# <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>API web que llama a las API web: adquisición de un token para la aplicación
 
-Una vez que ha creado una aplicación cliente de objetos, usarlo para adquirir un token que puede usar para llamar a una API web.
+Una vez que ha creado un objeto de aplicación cliente, lo puede usar para adquirir un token y usarlo para llamar a una API web.
 
-## <a name="code-in-the-controller"></a>En el controlador de código
+## <a name="code-in-the-controller"></a>Código del controlador
 
-Este es un ejemplo de código que se llamará en las acciones de los controladores de API, una llamada a una API de nivel inferior (denominada todolist).
+Este es un ejemplo de código que se llamará en las acciones de los controladores de API, en el que se llama a una API de nivel inferior (denominada todolist).
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)
@@ -49,9 +49,9 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` es similar a lo que ha visto en el artículo [API - configuración de la aplicación web de API Web que llama a](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea una instancia de `IConfidentialClientApplication` con una memoria caché que contiene únicamente la información de una cuenta. La cuenta se proporciona mediante el `GetAccountIdentifier` método.
+`BuildConfidentialClient()` es similar a lo que ha visto en el artículo [API web que llama a las API web: configuración de la aplicación ](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea una instancia de `IConfidentialClientApplication` con una caché que contiene únicamente información de una cuenta. La cuenta se proporciona mediante el método `GetAccountIdentifier`.
 
-El `GetAccountIdentifier` método usa las notificaciones asociadas con la identidad del usuario para el que la API web recibe el token JWT:
+El método `GetAccountIdentifier` usa las notificaciones asociadas con la identidad del usuario para el que la API web ha recibido el JWT:
 
 ```CSharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -72,4 +72,4 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Una llamada a una API web](scenario-web-api-call-api-call-api.md)
+> [Llamada a una API web](scenario-web-api-call-api-call-api.md)

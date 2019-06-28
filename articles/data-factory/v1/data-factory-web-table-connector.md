@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61250587"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
 > * [Versión 1](data-factory-web-table-connector.md)
 > * [Versión 2 (versión actual)](../connector-web-table.md)
 
@@ -289,7 +289,7 @@ Consulte Propiedades de tipo WebSource para obtener la lista de propiedades que 
 2. Haga clic en **Nueva consulta** en la barra de herramientas, elija **De otros orígenes** y haga clic en **Desde Web**.
 
     ![Menú de Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. En el cuadro de diálogo **Desde Web**, escriba la **dirección URL** que usaría en el objeto JSON del servicio vinculado (por ejemplo: https://en.wikipedia.org/wiki/)) junto con la ruta de acceso que especificaría para el conjunto de datos (por ejemplo: AFI%27s_100_Years...100_Movies) y haga clic en **Aceptar**.
+3. En el cuadro de diálogo **Desde Web**, escriba la **dirección URL** que usaría en el objeto JSON del servicio vinculado (por ejemplo: https://en.wikipedia.org/wiki/) ) junto con la ruta de acceso que especificaría para el conjunto de datos (por ejemplo: AFI%27s_100_Years...100_Movies) y haga clic en **Aceptar**.
 
     ![Cuadro de diálogo Desde Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 

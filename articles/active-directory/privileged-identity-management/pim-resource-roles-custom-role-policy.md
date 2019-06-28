@@ -1,5 +1,5 @@
 ---
-title: Uso de roles personalizados para recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
+title: 'Uso de roles personalizados para recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
 description: Aprenda a usar roles de personalizados para recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602028"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>Uso de roles personalizados para recursos de Azure en PIM
 
-Es posible que deba aplicar la configuración de Azure Active Directory (Azure AD) Privileged Identity Management (PIM) estricta a algunos miembros de un rol, al proporcionar una mayor autonomía para que otros usuarios. Imagine un escenario en el que su organización contrata varios a asociados para que le ayuden en el desarrollo de una aplicación que se ejecutará en una suscripción de Azure.
+Puede que sea necesario aplicar una configuración de Azure Active Directory (Azure AD) Privileged Identity Management (PIM) estricta a algunos miembros de un rol y, al mismo tiempo, proporcionar una mayor autonomía a otros. Imagine un escenario en el que su organización contrata varios a asociados para que le ayuden en el desarrollo de una aplicación que se ejecutará en una suscripción de Azure.
 
 Como administrador de recursos, quiere que los empleados puedan obtener acceso sin necesidad de aprobación. Sin embargo, todos los asociados contratados deben obtener una aprobación cuando soliciten acceso a los recursos de la organización.
 

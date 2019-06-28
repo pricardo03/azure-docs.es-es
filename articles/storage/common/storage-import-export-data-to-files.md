@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479069"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
@@ -30,7 +30,7 @@ Antes de crear un trabajo de importación para transferir datos en Azure Files, 
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks). 
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 - [Descargar la versión 2 de WAImportExport](https://aka.ms/waiev2) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexport`. Por ejemplo, `C:\WaImportExport`.
-- Tener una cuenta de FedEx o DHL. Si desea usar un operador distinto de FedEx o DHL, póngase en contacto con el equipo de operaciones de cuadro de datos de Azure en `adbops@microsoft.com`.  
+- Tener una cuenta de FedEx o DHL. Si quiere usar alguna empresa de mensajería que no sea FedEx o DHL, póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com`.  
     - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
     - Generar un número de seguimiento del trabajo de exportación.
     - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento.
@@ -145,7 +145,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
 4. En **Información de envío de devolución**:
 
-    - Seleccione el transportista en la lista desplegable. Si desea usar un operador distinto de FedEx o DHL, elija una opción existente en la lista desplegable. Parte del equipo de operaciones de cuadro de datos de Azure contacto `adbops@microsoft.com` con la información relacionada con el transportista que se va a usar.
+    - Seleccione el transportista en la lista desplegable. Si desea usar una empresa de mensajería que no sea FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
     - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. 
     - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
 

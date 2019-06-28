@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570554"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
@@ -29,7 +29,7 @@ Azure es una plataforma de nube completa que puede hospedar sus aplicaciones exi
 
 Con el hospedaje de las aplicaciones en Azure, puede empezar con tamaño pequeño y escalar fácilmente su aplicación a medida que aumente la demanda de los clientes. Azure ofrece también la confiabilidad que se necesita para las aplicaciones de alta disponibilidad, e incluye conmutación por error entre diferentes regiones. [Azure Portal](https://portal.azure.com) le permite administrar fácilmente todos los servicios de Azure. También puede administrar los servicios mediante programación, con las API y las plantillas específicas del servicio.
 
-**¿A quién va dirigida esta información?**: Esta guía es una introducción a la plataforma Azure para desarrolladores de aplicaciones. Proporciona instrucciones y orientación para iniciar la creación de nuevas aplicaciones en Azure, o para migrar aplicaciones existentes a Azure.
+**¿A quién va dirigida esta información?** : Esta guía es una introducción a la plataforma Azure para desarrolladores de aplicaciones. Proporciona instrucciones y orientación para iniciar la creación de nuevas aplicaciones en Azure, o para migrar aplicaciones existentes a Azure.
 
 ## <a name="where-do-i-start"></a>¿Por dónde empiezo?
 
@@ -117,7 +117,7 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
   > 
   > **Para comenzar**: elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
-- **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
+- **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
 
   > **Cuándo se debe usar**: cuando la aplicación requiera almacenamiento de datos con integridad referencial, compatibilidad transaccional y compatibilidad con consultas TSQL.
   > 
@@ -158,7 +158,7 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
 Es fundamental saber no solo quién está usando las aplicaciones, sino también evitar el acceso no autorizado a los recursos. Azure proporciona varias maneras de autenticar los clientes de las aplicaciones.
 
-- **Azure Active Directory (Azure AD)**: el servicio de administración de acceso e identidades de Microsoft, basado en la nube y multiinquilino. Puede agregar inicio de sesión único (SSO) a sus aplicaciones mediante la integración con Azure AD. Para acceder a las propiedades del directorio, puede usar Graph API de Azure AD directamente o Microsoft Graph API. Puede integrar en Azure AD compatibilidad para el entorno de autorización OAuth2.0 y Open ID Connect mediante puntos de conexión HTTP/REST nativos y las bibliotecas de autenticación de Azure AD multiplataforma.
+- **Azure Active Directory (Azure AD)** : el servicio de administración de acceso e identidades de Microsoft, basado en la nube y multiinquilino. Puede agregar inicio de sesión único (SSO) a sus aplicaciones mediante la integración con Azure AD. Para acceder a las propiedades del directorio, puede usar Graph API de Azure AD directamente o Microsoft Graph API. Puede integrar en Azure AD compatibilidad para el entorno de autorización OAuth2.0 y Open ID Connect mediante puntos de conexión HTTP/REST nativos y las bibliotecas de autenticación de Azure AD multiplataforma.
 
   > **Cuándo se debe usar**: cuando quiera proporcionar una experiencia SSO, trabajar con datos basados en Graph o autenticar usuarios basados en dominio.
   > 
@@ -199,7 +199,7 @@ Azure es una plataforma en la nube global que está disponible con carácter gen
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Elección de la región indicada para la aplicación y los datos
 
-Una de las ventajas de usar Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Por ejemplo, es mejor elegir la región que esté más cerca de la mayoría de sus clientes para reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países o regiones. Siempre es recomendable almacenar los datos de la aplicación en el mismo centro de datos o en un centro de datos lo más cercano posible al centro de datos donde se hospeda la aplicación.
+Una de las ventajas de usar Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Por ejemplo, es mejor elegir la región que esté más cerca de la mayoría de sus clientes para reducir la latencia de las solicitudes de red. Quizás también quiera seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países o regiones. Siempre es recomendable almacenar los datos de la aplicación en el mismo centro de datos o en un centro de datos lo más cercano posible al centro de datos donde se hospeda la aplicación.
 
 ### <a name="multi-region-apps"></a>Aplicaciones para varias regiones
 
@@ -221,7 +221,7 @@ Azure proporciona dos mecanismos para administrar las aplicaciones y los servici
 
 -   [Azure PowerShell](../../powershell-install-configure.md): proporciona un conjunto de módulos con cmdlets que permiten administrar los recursos de Azure mediante Windows PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Azure Portal es una aplicación basada en web que puede usarse para crear, administrar y eliminar recursos y servicios de Azure. Azure Portal se encuentra en <https://portal.azure.com>. Incluye un panel personalizable, herramientas para administrar los recursos de Azure y acceso a la configuración de la suscripción y a la información de facturación. Para más información, consulte la [Introducción a Azure Portal](../../azure-portal-overview.md).
 
@@ -281,7 +281,7 @@ El Explorador de recursos de Azure es una fantástica herramienta para visualiza
 
 Al permitir el acceso a los recursos de Azure, siempre es recomendable proporcionar a los usuarios los privilegios mínimos que se necesiten para realizar una tarea determinada.
 
-- **Control de acceso basado en rol (RBAC)**: en Azure, puede conceder acceso a cuentas de usuario (entidades de seguridad) en un ámbito especificado: suscripción, grupo de recursos o recurso individual. RBAC permite implementar un conjunto de recursos en un grupo de recursos y conceder permisos a un usuario específico o a un grupo. También le permite limitar el acceso únicamente a los recursos que pertenecen al grupo de recursos de destino. También puede conceder acceso a un único recurso, por ejemplo, una máquina virtual o una red virtual. Para conceder acceso, asigne un rol al usuario, grupo de usuarios o entidad de servicio. Hay muchos roles predefinidos y puede definir también sus propios roles personalizados. Para obtener más información, vea [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md)
+- **Control de acceso basado en rol (RBAC)** : en Azure, puede conceder acceso a cuentas de usuario (entidades de seguridad) en un ámbito especificado: suscripción, grupo de recursos o recurso individual. RBAC permite implementar un conjunto de recursos en un grupo de recursos y conceder permisos a un usuario específico o a un grupo. También permite limitar el acceso únicamente a los recursos que pertenecen al grupo de recursos de destino. También puede conceder acceso a un único recurso, por ejemplo, una máquina virtual o una red virtual. Para conceder acceso, asigne un rol al usuario, grupo de usuarios o entidad de servicio. Hay muchos roles predefinidos y puede definir también sus propios roles personalizados. Para obtener más información, vea [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md)
 
   > **Cuándo se debe usar**: cuando se necesite administración de acceso detallada para usuarios y grupos o cuando sea necesario convertir a un usuario en propietario de una suscripción.
   > 

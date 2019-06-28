@@ -1,5 +1,5 @@
 ---
-title: 'Script de PowerShell: Crear un rol personalizado en un laboratorio en Azure DevTest Labs | Microsoft Docs'
+title: 'Script de PowerShell: Creación de un rol personalizado en un laboratorio de Azure DevTest Labs | Microsoft Docs'
 description: Este script de PowerShell agrega un usuario externo a un laboratorio de Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160587"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Usar PowerShell para crear un rol personalizado en un laboratorio de Azure DevTest Labs

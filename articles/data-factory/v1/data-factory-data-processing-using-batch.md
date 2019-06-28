@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204038"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
@@ -43,7 +43,7 @@ Con el servicio Batch, se definen los recursos de procesos de Azure para ejecuta
 * [Conceptos básicos de Batch](../../batch/batch-technical-overview.md)
 * [Información general de las características de Batch](../../batch/batch-api-basics.md)
 
-Opcionalmente, para obtener más información sobre Batch, consulte [la documentación de Batch](https://docs.microsoft.com/azure/batch/).
+Si quiere, para obtener más información sobre Batch, vea la [documentación de Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>¿Por qué elegir Azure Data Factory?
 Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Puede utilizar Data Factory para crear canalizaciones de datos administrados que mueven datos desde el entorno local y los almacenes de datos en la nube a un almacén de datos centralizado. Un ejemplo es Azure Blob Storage. Puede usar Data Factory para procesar o transformar datos mediante el uso de servicios como Azure HDInsight y Azure Machine Learning. También puede programar las canalizaciones de datos para que se ejecuten de forma programada (por ejemplo, cada hora, diariamente y semanalmente). Puede supervisar y administrar las canalizaciones de un vistazo para identificar problemas y llevar a cabo acciones.
@@ -69,7 +69,7 @@ En el diagrama se ilustra cómo Data Factory organiza el movimiento y procesamie
 
 La lista siguiente proporciona los pasos básicos del proceso. La solución incluye código y explicaciones para compilar la solución completa.
 
-* **Configure Batch con un grupo de nodos de ejecución (máquinas virtuales)**. Puede especificar el número de nodos y el tamaño de cada nodo.
+* **Configure Batch con un grupo de nodos de ejecución (máquinas virtuales)** . Puede especificar el número de nodos y el tamaño de cada nodo.
 
 * **Cree una instancia de Data Factory** que esté configurada con entidades que representen Blob Storage, el servicio de proceso de Batch, los datos de entrada y salida y un flujo de trabajo o una canalización con las actividades que mueven y transforman datos.
 
@@ -96,7 +96,7 @@ Si no tiene una suscripción a Azure, puede crear una cuenta de evaluación grat
 En este tutorial, se usa una cuenta de almacenamiento para almacenar los datos. Si aún no dispone de una cuenta de almacenamiento, vea [Create a storage account](../../storage/common/storage-quickstart-create-account.md) (Creación de una cuenta de almacenamiento). En la solución de ejemplo, se usa Blob Storage.
 
 #### <a name="azure-batch-account"></a>Cuenta de Azure Batch
-Cree una cuenta de Batch mediante [Azure Portal](https://portal.azure.com/). Para más información, vea [Creación y administración de una cuenta de Batch](../../batch/batch-account-create-portal.md). Anote el nombre y la clave de la cuenta de Batch. También puede usar el [New AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para crear una cuenta de Batch. Para obtener instrucciones detalladas para usar este cmdlet, vea [Introducción a los cmdlets de PowerShell de Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Cree una cuenta de Batch mediante [Azure Portal](https://portal.azure.com/). Para más información, vea [Creación y administración de una cuenta de Batch](../../batch/batch-account-create-portal.md). Anote el nombre y la clave de la cuenta de Batch. También puede usar el cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para crear una cuenta de Batch. Para obtener instrucciones detalladas para usar este cmdlet, vea [Introducción a los cmdlets de PowerShell de Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 La solución de ejemplo usa Batch (de forma indirecta mediante una canalización de Data Factory) para procesar datos en paralelo en un grupo de nodos de ejecución, que es una colección administrada de máquinas virtuales.
 
@@ -111,7 +111,7 @@ Cree un grupo de Batch con al menos dos nodos de ejecución.
 
 1. En la hoja **Grupos**, seleccione el botón **Agregar** en la barra de herramientas para agregar un grupo.
 
-    a. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el identificador del grupo. Lo necesitará para crear la solución de Data Factory.
+   a. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el identificador del grupo. Lo necesitará para crear la solución de Data Factory.
 
    b. Especifique **Windows Server 2012 R2** en **Familia del sistema operativo**.
 
@@ -180,11 +180,11 @@ El método tiene algunos componentes clave que debe conocer:
 #### <a name="procedure-create-the-custom-activity"></a>Procedimiento: Creación de la actividad personalizada
 1. Cree un proyecto de biblioteca de clases .NET en Visual Studio.
 
-    a. Inicie Visual Studio 2012/2013/2015.
+   a. Inicie Visual Studio 2012/2013/2015.
 
    b. Seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-   c. Expanda **Plantillas** y seleccione **Visual C\#**. En este tutorial se usa C\#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.
+   c. Expanda **Plantillas** y seleccione **Visual C\#** . En este tutorial se usa C\#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.
 
    d. Seleccione **Biblioteca de clases** en la lista de tipos de proyecto de la derecha.
 
@@ -528,7 +528,7 @@ En el siguiente tutorial, se proporcionan más detalles.
 #### <a name="step-1-create-the-data-factory"></a>Paso 1: Creación de la factoría de datos
 1. Tras iniciar sesión en [Azure Portal](https://portal.azure.com/), siga estos pasos:
 
-    a. Seleccione **NUEVO** en el menú de la izquierda.
+   a. Seleccione **NUEVO** en el menú de la izquierda.
 
    b. Seleccione **Datos y análisis** en la hoja **Nuevo**.
 
@@ -571,7 +571,7 @@ En este paso, creará un servicio vinculado para su cuenta de Batch que se usar�
 
 1. En el script JSON:
 
-    a. Reemplace **account name** por el nombre de la cuenta de Batch.
+   a. Reemplace **account name** por el nombre de la cuenta de Batch.
 
    b. Reemplace **access key** por la clave de acceso de la cuenta de Batch.
 

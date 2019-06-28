@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799350"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
@@ -65,7 +65,7 @@ En las tablas de las secciones siguientes se ofrece una agrupación lógica de l
 ## <a name="foundational-capabilities"></a>Capacidades fundamentales
 En esta sección se comparan algunas de las funcionalidades de puesta en cola fundamentales ofrecidas por las colas de Storage y las colas de Service Bus.
 
-| Criterios de comparación | Colas de almacenamiento | Colas de Service Bus |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Garantía de ordenación |**No** <br/><br>Para obtener más información, vea la primera nota de la sección "Información adicional".</br> |**Sí- Primero en caducar primero en salir (FIFO)**<br/><br>(mediante el uso de sesiones de mensajería) |
 | Garantía de entrega |**Al menos una vez** |**Al menos una vez**<br/><br/>**Como máximo una vez** |
@@ -84,7 +84,7 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 * El patrón de FIFO garantizado en las colas de Service Bus requiere el uso de sesiones de mensajería. En caso de que la aplicación se bloquee al procesar un mensaje recibido en el modo **Ojear y bloquear**, la próxima vez que un receptor de la cola acepte una sesión de mensajería, empezará con el mensaje de error después de que expire su período de vida (TTL).
 * Las colas de Storage están diseñadas para admitir escenarios de puesta en cola estándar, como componentes de aplicación de desacoplamiento para aumentar la escalabilidad y tolerancia a errores, nivelación de carga y creación de flujos de trabajo de proceso.
 * Las colas de Service Bus admiten la garantía de entrega *Al menos una vez*. 
-* Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus con el estado de sesión para almacenar el estado de la aplicación en relación con el progreso de la secuencia del mensaje de la sesión de control y mediante el uso de transacciones en torno a fijar recibe los mensajes y actualizar el estado de sesión. Este tipo de característica de coherencia se denomina a veces *exactamente-procesamiento una vez* en productos de otros proveedores, pero transacción errores obviamente hará que se vuelva a entregar los mensajes y, por tanto, el término es suficiente no exactamente.
+* Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus al usar el estado de sesión para almacenar el estado de la aplicación relativo al progreso del control de la secuencia del mensaje de la sesión y mediante el uso de transacciones sobre la fijación de los mensajes recibidos y la actualización del estado de la sesión. Este tipo de característica de coherencia a veces se denomina *procesamiento único* en productos de otros proveedores, pero los errores de transacción obviamente harán que los mensajes se vuelvan a enviar; por tanto, el término no es totalmente preciso.
 * Las colas de Storage ofrecen un modelo de programación coherente y uniforme en las colas, tablas y blobs, tanto para desarrolladores como para los equipos de operaciones.
 * Las colas de Service Bus ofrecen compatibilidad con transacciones locales en el contexto de una sola cola.
 * El modo **Recibir y eliminar** compatible con el Service Bus ofrece la capacidad de reducir el número de operaciones de mensajería (y el costo asociado) a cambio de una garantía de entrega menor.
@@ -98,7 +98,7 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 ## <a name="advanced-capabilities"></a>Capacidades avanzadas
 En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas por las colas de Storage y las colas de Service Bus.
 
-| Criterios de comparación | Colas de almacenamiento | Colas de Service Bus |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Entrega programada |**Sí** |**Sí** |
 | Mensajes fallidos automáticos |**No** |**Sí** |
@@ -129,7 +129,7 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 ## <a name="capacity-and-quotas"></a>Capacidad y cuotas
 En esta sección se comparan las colas de Storage y las colas de Service Bus desde la perspectiva de la [capacidad y las cuotas](service-bus-quotas.md) que se pueden aplicar.
 
-| Criterios de comparación | Colas de almacenamiento | Colas de Service Bus |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Tamaño de cola máximo |**500 TB**<br/><br/>(limitado a una [capacidad de cuenta de almacenamiento única](../storage/common/storage-introduction.md#queue-storage)) |**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional") |
 | Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, el tamaño máximo de encabezado es: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
@@ -148,7 +148,7 @@ En esta sección se comparan las colas de Storage y las colas de Service Bus des
 ## <a name="management-and-operations"></a>Administración y operaciones
 En esta sección se comparan algunas de las características de administración ofrecidas por las colas de Storage y las colas de Service Bus.
 
-| Criterios de comparación | Colas de almacenamiento | Colas de Service Bus |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Protocolo de administración |**REST sobre HTTP/HTTPS** |**REST sobre HTTPS** |
 | Protocolo de tiempo de ejecución |**REST sobre HTTP/HTTPS** |**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)** |
@@ -172,7 +172,7 @@ En esta sección se comparan algunas de las características de administración 
 ## <a name="authentication-and-authorization"></a>Autenticación y autorización
 En esta sección se describen las características de autenticación y autorización compatibles con las colas de Storage y las colas de Service Bus.
 
-| Criterios de comparación | Colas de almacenamiento | Colas de Service Bus |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Authentication |**Clave simétrica** |**Clave simétrica** |
 | Modelo de seguridad |Acceso delegado a través de tokens SAS. |SAS |

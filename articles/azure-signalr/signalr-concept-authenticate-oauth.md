@@ -1,16 +1,16 @@
 ---
 title: Guía para la autenticación de clientes de Azure SignalR Service
-description: En esta guía, obtendrá información sobre cómo autenticar a los clientes de Azure SignalR Service
+description: En esta guía aprenderá cómo autenticar a los clientes del servicio Azure SignalR
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128291"
 ---
 # <a name="azure-signalr-service-authentication"></a>Autenticación de Azure SignalR Service
@@ -58,7 +58,7 @@ Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
 3. Utilice la siguiente configuración para la nueva aplicación de OAuth y, a continuación, haga clic en **Register application** (Registrar aplicación):
 
-    | Nombre de configuración | Valor sugerido | DESCRIPCIÓN |
+    | Nombre del valor | Valor sugerido | DESCRIPCIÓN |
     | ------------ | --------------- | ----------- |
     | Nombre de la aplicación | *Azure SignalR Chat* | El usuario de GitHub debe ser capaz de reconocer y confiar en la aplicación con la que se autentica.   |
     | Dirección URL de la página principal | `http://localhost:5000/home` | |
@@ -377,7 +377,7 @@ En esta sección, se activará la autenticación real mediante la adición del a
 
 ## <a name="deploy-the-app-to-azure"></a>Implementación de la aplicación en Azure
 
-En esta sección, utilizará la interfaz de línea de comandos (CLI) de Azure desde Azure Cloud Shell para crear una nueva aplicación web en [Azure App Service](https://docs.microsoft.com/azure/app-service/) para hospedar la aplicación ASP.NET en Azure. La aplicación web se configurará para usar la implementación de Git local. La aplicación web también se configurará con la cadena de conexión de SignalR, los secretos de la aplicación de OAuth de GitHub y un usuario de implementación.
+En esta sección, utilizará la interfaz de la línea de comandos (CLI) de Azure desde Azure Cloud Shell para crear una nueva aplicación web de [Azure App Service](https://docs.microsoft.com/azure/app-service/) para hospedar la aplicación de ASP.NET en Azure. La aplicación web se configurará para usar la implementación de Git local. La aplicación web también se configurará con la cadena de conexión de SignalR, los secretos de la aplicación de OAuth de GitHub y un usuario de implementación.
 
 En los pasos descritos en esta sección se usa la extensión *signalr* para la CLI de Azure. Ejecute el siguiente comando para instalar la extensión *signalr* para la versión de la CLI de Azure:
 
@@ -563,7 +563,7 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 
 Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...**. En las instrucciones de este artículo se usa un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
+Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...** . En las instrucciones de este artículo se usa un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Autenticar el trabajo de Azure Stream Analytics a la salida de Azure Data Lake Storage Gen1
+title: Autenticación de un trabajo de Azure Stream Analytics en una salida de Azure Data Lake Storage Gen1
 description: En este artículo se describe cómo usar las identidades administradas para autenticar un trabajo de Azure Stream Analytics en la salida de Azure Data Lake Storage Gen1.
 author: mamccrea
 ms.author: mamccrea
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148528"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 en utilizando identidades administradas
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticación de Stream Analytics en Azure Data Lake Storage Gen1 mediante entidades administradas
 
 Azure Stream Analytics admite la autenticación de identidades administradas con la salida de Azure Data Lake Storage (ADLS) Gen1. La identidad es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado y que puede usarse para autenticar un recurso de destino. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Además, las identidades administradas sirven de ayuda en la automatización de las implementaciones de trabajos de Stream Analytics cuya salida es Azure Data Lake Storage Gen1.
 
@@ -22,13 +22,13 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
-1. Para empezar, cree un trabajo de Stream Analytics o abra un trabajo existente en Azure Portal. En la barra de menús situada en el lado izquierdo de la pantalla, seleccione **identidad administrada** ubicado en **configurar**.
+1. Para empezar, cree un trabajo de Stream Analytics o abra un trabajo existente en Azure Portal. En la barra de menús situada a la izquierda de la pantalla, seleccione **Identidad administrada**, que se encuentra en **Configurar**.
 
-   ![Configurar la identidad administrada de análisis de Stream](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configuración de la Identidad administrada de Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Seleccione **identidad administrada asignada por el sistema de uso** desde la ventana que aparece a la derecha. Haga clic en **guardar** a una entidad de servicio para la identidad del trabajo de Stream Analytics en Azure Active Directory. El ciclo de vida de la identidad recién creada lo administrará Azure. Cuando se elimina el trabajo de Stream Analytics, Azure elimina automáticamente la identidad asociada (es decir, la entidad de servicio).
+2. Seleccione **Use System-assigned Managed Identity** (Usar identidad administrada asignada por el sistema) en la ventana que aparece a la derecha. Haga clic en **Guardar** para crear una entidad de servicio para la identidad del trabajo de Stream Analytics en Azure Active Directory. El ciclo de vida de la identidad recién creada lo administrará Azure. Cuando se elimina el trabajo de Stream Analytics, Azure elimina automáticamente la identidad asociada (es decir, la entidad de servicio).
 
    Cuando se guarda la configuración, el Id. de objeto (OID) de la entidad de servicio aparece como Id. de entidad de seguridad, tal como se muestra a continuación:
 
@@ -36,7 +36,7 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
  
    La entidad de servicio se llama igual que el trabajo de Stream Analytics. Por ejemplo, si es el nombre del trabajo es **MyASAJob**, el nombre de la entidad de servicio creada también será **MyASAJob**.
 
-3. En la ventana de propiedades de salida del receptor de salida ADLS Gen1, haga clic en el modo de autenticación de lista desplegable y seleccione ** identidad administrada **.
+3. En la ventana de propiedades de salida del receptor de salida ADLS Gen1, haga clic en la lista desplegable Modo de autenticación y seleccione **Identidad administrada**.
 
 4. Rellene el resto de las propiedades. Para más información acerca de cómo crear una salida de ADLS, consulte [Creación de una salida de Data Lake Store con Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Cuando haya terminado, haga clic en **Guardar**.
 
@@ -70,7 +70,7 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
 
    ![Configuración de identidades administradas para trabajos de Stream Analytics](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. En la ventana de propiedades de salida del receptor de salida ADLS Gen1, haga clic en el modo de autenticación de lista desplegable y seleccione ** identidad administrada **.
+2. En la ventana de propiedades de salida del receptor de salida ADLS Gen1, haga clic en la lista desplegable Modo de autenticación y seleccione **Identidad administrada**.
 
    ![Salida de identidades administradas de ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
@@ -173,14 +173,14 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Para obtener más información sobre los comandos de PowerShell anteriores, consulte el [conjunto AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentación.
+   Para más información sobre el comandos de PowerShell anterior, consulte la documentación de [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry).
 
 ## <a name="limitations"></a>Limitaciones
-Esta característica no es compatible con lo siguiente:
+Esta característica no admite lo siguiente:
 
-1. **Acceso de varios inquilinos**: La entidad de servicio creada para un determinado trabajo de Stream Analytics residirá en el inquilino de Azure Active Directory en el que se creó el trabajo y no se puede usar en un recurso que resida en un inquilino de Azure Active Directory diferente. Por lo tanto, solo puede usar MSI en recursos de ADLS Gen 1 que se encuentran dentro del mismo inquilino de Azure Active Directory que el trabajo de Azure Stream Analytics. 
+1. **Acceso multiinquilino**: la entidad de servicio creada para un trabajo determinado de Stream Analytics residirá en el inquilino de Azure Active Directory en el que se creó el trabajo, y no se puede usar en un recurso que resida en un inquilino de Azure Active Directory diferente. Por lo tanto, solo puede usar MSI en recursos de ADLS Gen 1 que se encuentren dentro del mismo inquilino de Azure Active Directory que el trabajo de Azure Stream Analytics. 
 
-2. **[Identidad de usuario asignada](../active-directory/managed-identities-azure-resources/overview.md)**: no se admite. Esto significa que el usuario no es capaz de escribir su propia entidad de servicio que va a usar su trabajo de Stream Analytics. La entidad de servicio se genera por Azure Stream Analytics.
+2. **[Identidad asignada por el usuario](../active-directory/managed-identities-azure-resources/overview.md)** : no se admite. Esto significa que el usuario no puede especificar el uso de su propia entidad de servicio en su trabajo de Stream Analytics. La entidad de servicio se genera mediante Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

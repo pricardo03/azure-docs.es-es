@@ -1,5 +1,5 @@
 ---
-title: Examine la salida de vídeo de Azure Media Services Indexer producida por la API v2
+title: Examen de la salida de Video Indexer de Azure Media Services producida por la API v2
 titlesuffix: Azure Media Services
 description: En este tema se examina la salida de Video Indexer producida por la API v2.
 services: media-services
@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799080"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine la salida de Video Indexer producida por la API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examen de la salida de Video Indexer producida por la API
 
-Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información incluye dimensiones como: las transcripciones, aplica OCR, caras, temas, bloques, etcetera. Las dimensiones tienen instancias de intervalos de tiempo que muestran cuándo apareció cada dimensión en el vídeo.  
+Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información detallada incluye dimensiones como: transcripciones, OCR, rostros, temas o bloques, entre otras. Las dimensiones tienen instancias de intervalos de tiempo que muestran cuándo apareció cada dimensión en el vídeo.  
 
 También puede examinar visualmente la información detallada del vídeo. Para ello, presione el botón **Reproducir** que hay encima del vídeo en el sitio web de [Video Indexer](https://www.videoindexer.ai/). Para más información, consulte [Visualización y edición de la información detallada de un vídeo](video-indexer-view-edit.md).
 
@@ -80,7 +80,7 @@ En esta sección se muestra el resumen de la información detallada.
 |privacyMode|El desglose puede tener uno de los siguientes modos: **Privado**, **Público**. **Público**: el vídeo es visible para todos los usuarios de la cuenta y cualquiera que tenga un vínculo al vídeo. **Privado**: el vídeo es visible para todos los usuarios de la cuenta.|
 |duration|Duración que describe el momento del tiempo en el que se ha producido la información. La duración se mide en segundos.|
 |thumbnailVideoId|Identificador del vídeo del que se tomó la miniatura.
-|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la miniatura real, llame a [Get miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) y pasarle thumbnailVideoId y thumbnailId.|
+|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la miniatura real, llame a [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) y pase los valores de thumbnailVideoId y thumbnailId.|
 |faces|Puede contener cero o más rostros. Para más información, consulte [faces](#faces).|
 |keywords|Puede contener cero o más palabras clave. Para más información, consulte [keywords](#keywords).|
 |sentiments|Puede contener cero o más opiniones. Para más información, consulte [sentiments](#sentiments).|
@@ -91,7 +91,7 @@ En esta sección se muestra el resumen de la información detallada.
 |emotions| Puede contener cero o más emociones. Para más información, consulte [emotions](#emotions).|
 |topics|Puede contener cero o más temas. Dimensión [topics](#topics).|
 
-## <a name="videos"></a>vídeos
+## <a name="videos"></a>videos
 
 |Nombre|Descripción|
 |---|---|
@@ -107,7 +107,7 @@ En esta sección se muestra el resumen de la información detallada.
 |metadata|Metadatos externos del vídeo (si los especifica el usuario).|
 |isAdult|Indica si el vídeo se ha revisado manualmente y se ha identificado como un vídeo para adultos.|
 |insights|Objeto de información detallada. Para más información, consulte [insights](#insights).|
-|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la llamada real en miniatura [Get miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) y pásele el identificador y thumbnailId vídeo.|
+|thumbnailId|Identificador de la miniatura del vídeo. Para obtener la miniatura real, llame a [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) y pase el identificador del vídeo y el valor de thumbnailId.|
 |publishedUrl|Dirección URL para transmitir el vídeo.|
 |publishedUrlProxy|Dirección URL desde la que se transmitirá el vídeo (para dispositivos de Apple).|
 |viewToken|Un token de visualización de corta duración para transmitir el vídeo.|
@@ -154,8 +154,8 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |sourceLanguage|Idioma de origen del vídeo (suponiendo que hay un idioma principal). Con el formato de cadena [BCP-47](https://tools.ietf.org/html/bcp47).|
 |language|Idioma de la información detallada (traducida del idioma de origen). Con el formato de cadena [BCP-47](https://tools.ietf.org/html/bcp47).|
 |transcript|Dimensión [transcript](#transcript).|
-|ocr|El [OCR](#ocr) dimensión.|
-|palabras clave|Dimensión [keywords](#keywords).|
+|ocr|Dimensión [OCR](#ocr).|
+|keywords|Dimensión [keywords](#keywords).|
 |blocks|Puede contener uno o más dimensiones [blocks](#blocks).|
 |faces|Dimensión [faces](#faces).|
 |labels|Dimensión [labels](#labels).|
@@ -245,7 +245,7 @@ Ejemplo:
 |instances|Lista de los intervalos de tiempo donde apareció este OCR (el mismo OCR puede aparecer varias veces).|
 |height|El alto del rectángulo de OCR|
 |top|La ubicación superior en px|
-|izquierda| La ubicación de la izquierda en px|
+|izquierda| La ubicación izquierda en px|
 |width|El ancho del rectángulo de OCR|
 
 ```json
@@ -269,7 +269,7 @@ Ejemplo:
   ],
 ```
 
-#### <a name="keywords"></a>palabras clave
+#### <a name="keywords"></a>keywords
 
 |Nombre|Descripción|
 |---|---|
@@ -409,7 +409,7 @@ Ejemplo:
 |NOMBRE|Descripción|
 |---|---|
 |id|Identificador de la escena.|
-|instancias|Una lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
+|instances|Lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
 
 ```json
 "scenes":[  
@@ -442,8 +442,8 @@ Ejemplo:
 |Nombre|Descripción|
 |---|---|
 |id|Identificador de la toma.|
-|keyFrames|Una lista de fotogramas clave dentro de la captura (cada uno tiene un identificador y una lista de intervalos de tiempo de las instancias). Cada instancia de fotograma clave tiene un campo thumbnailId, que contiene la miniatura del fotograma clave identificador.|
-|instancias|Una lista de intervalos de tiempo de esta toma (una captura puede tener solo 1 instancia).|
+|keyFrames|Lista de los fotogramas clave dentro de la toma (cada uno con un identificador y una lista de intervalos de tiempo de instancias). Cada instancia de fotograma clave tiene un campo thumbnailId que contiene el identificador de la miniatura del fotograma clave.|
+|instances|Lista de intervalos de tiempo de este corte (un corte puede tener solo 1 instancia).|
 
 ```json
 "shots":[  
@@ -676,7 +676,7 @@ Video Indexer identifica emociones en función de las indicaciones para voz y au
 |---|---|
 |id|Identificador de la emoción.|
 |Tipo|Momento de la emoción que se identificó en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.|
-|instancias|Lista de los intervalos de tiempo donde apareció esta emoción.|
+|instances|Lista de los intervalos de tiempo donde apareció esta emoción.|
 
 ```json
 "emotions": [{
@@ -766,11 +766,11 @@ Video Indexer saca conclusiones de los temas principales a partir de las transcr
 |---|---|
 |id|Identificador del tema.|
 |Nombre|El nombre del tema, por ejemplo: "productos farmacéuticos".|
-|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo: "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
+|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo:  "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
 |confidence|Puntuación de confianza en el intervalo [0,1]. Cuanto mayor es, más segura es.|
 |language|Idioma que se usa en el tema.|
 |iptcName|Nombre del código multimedia IPTC, si se detecta.|
-|instancias |Actualmente, Video Indexer no indexa ningún tema en intervalos de tiempo, por lo que se usa el vídeo completo como intervalo.|
+|instances |Actualmente, Video Indexer no indexa ningún tema en intervalos de tiempo, por lo que se usa el vídeo completo como intervalo.|
 
 ```json
 "topics": [{

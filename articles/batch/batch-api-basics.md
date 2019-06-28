@@ -16,10 +16,10 @@ ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700931"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
@@ -471,7 +471,7 @@ Los errores de las tareas se incluyen en estas categorías:
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Consideraciones sobre errores o interrupciones
 En ocasiones, las tareas pueden presentar errores o interrumpirse. Se podría producir un error en la propia aplicación de la tarea, se podría reiniciar el nodo donde se ejecuta la tarea o se podría quitar el nodo del grupo durante una operación de cambio de tamaño si la directiva de desasignación del grupo está configurada para quitar los nodos de inmediato, sin esperar a que finalicen las tareas. En todos los casos, el servicio Batch puede volver a poner la tarea automáticamente en la cola para ejecutarla en otro nodo.
 
-También es posible que un problema intermitente hacer que una tarea deje de responder o tarde demasiado tiempo para ejecutar. Puede establecer el intervalo de ejecución máximo para una tarea. Si se supera, el servicio Batch interrumpe la aplicación de la tarea.
+También es posible que un problema intermitente haga que una tarea deje de responder o tarde demasiado tiempo en ejecutarse. Puede establecer el intervalo de ejecución máximo para una tarea. Si se supera, el servicio Batch interrumpe la aplicación de la tarea.
 
 ### <a name="connecting-to-compute-nodes"></a>Conexión a los nodos de proceso
 Puede realizar tareas adicionales de depuración y solución de problemas si se inicia una sesión remota en un nodo de proceso. Puede usar Azure Portal para descargar un protocolo de escritorio remoto (RDP) para los nodos de Windows y obtener información de conexión de Secure Shell (SSH) para los nodos de Linux. También puede hacer esto con las API de Batch, como [.NET de Batch][net_rdpfile] o [Python de Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).

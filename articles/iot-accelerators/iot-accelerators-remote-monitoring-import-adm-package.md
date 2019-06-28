@@ -1,5 +1,5 @@
 ---
-title: Solución de supervisión remota Importar paquete - Azure | Microsoft Docs
+title: 'Importación de un paquete de solución de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se describe cómo importar un paquete de administración de dispositivos automática en un acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: philmea
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443452"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importación de un paquete de administración de dispositivos automática en el acelerador de soluciones de supervisión remota

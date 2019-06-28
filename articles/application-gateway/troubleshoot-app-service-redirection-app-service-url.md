@@ -1,6 +1,6 @@
 ---
-title: 'Solución de problemas de Azure Application Gateway con App Service: redirección a la dirección URL del servicio de aplicación'
-description: Este artículo proporciona información sobre cómo solucionar el problema de redirección cuando se utiliza Azure Application Gateway con Azure App Service
+title: 'Solución de problemas de Azure Application Gateway con App Service: redireccionamiento a una dirección URL de App Service'
+description: En este artículo se proporciona información sobre cómo solucionar el problema de redireccionamiento cuando se utiliza Azure Application Gateway con Azure App Service
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,51 +8,51 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
 ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715204"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service"></a>Solución de problemas de puerta de enlace de aplicaciones con App Service
+# <a name="troubleshoot-application-gateway-with-app-service"></a>Solución de problemas de Application Gateway con App Service
 
-Obtenga información sobre cómo diagnosticar y resolver los problemas detectados con Application Gateway y App Service como el servidor back-end.
+Aprenda a diagnosticar y resolver los problemas detectados con Application Gateway y App Service como servidor back-end.
 
 ## <a name="overview"></a>Información general
 
-En este artículo, obtendrá información sobre cómo solucionar los problemas siguientes:
+En este artículo aprenderá a resolver los siguientes problemas:
 
 > [!div class="checklist"]
-> * URL del servicio de aplicación Introducción expuesto en el explorador cuando hay una redirección
-> * Dominio de App Service ARRAffinity Cookie establecida en el nombre de host de App Service (example.azurewebsites.net) en lugar de host original
+> * Dirección URL de App Service que se expone en el explorador cuando hay un redireccionamiento
+> * Dominio de la cookie de ARRAffinity de App Service establecido en el nombre de host de App Service (example.azurewebsites.net) en lugar del host original
 
-Al configurar un servicio de aplicación en el grupo de back-end de Application Gateway públicas y tiene un redireccionamiento configurado en el código de aplicación, puede que vea, cuando tiene acceso a Application Gateway, se le redirigirá el explorador directamente a la aplicación Dirección URL del servicio.
+Al configurar una instancia de App Service de acceso público en el grupo de back-end de Application Gateway y si tiene un redireccionamiento configurado en el código de aplicación, quizá vea cuando accede a Application Gateway que el explorador le redirige directamente a la dirección URL de App Service.
 
 Este problema puede ocurrir debido a los siguientes motivos principales:
 
-- Tener redireccionamiento configurado en el servicio de aplicaciones. Redirección puede ser tan sencilla como agregar una barra oblicua final a la solicitud.
-- Tener la autenticación de Azure AD, lo que hace que la redirección.
-- Se ha habilitado el modificador "Seleccionar nombre de Host de back-end Address" en la configuración de HTTP de Application Gateway.
-- No tiene el dominio personalizado registrado con el servicio de aplicación.
+- Ha configurado el redireccionamiento en su instancia de App Service. El redireccionamiento puede ser tan sencillo como agregar una barra diagonal final a la solicitud.
+- Tiene autenticación de Azure AD, lo que provoca el redireccionamiento.
+- Se ha habilitado el modificador "Seleccionar el nombre de host de la dirección de back-end" en la configuración de HTTP de Application Gateway.
+- No tiene el dominio personalizado registrado en su instancia de App Service.
 
-Además, cuando usa servicios de aplicaciones detrás de Application Gateway y usa un dominio personalizado para tener acceso a Application Gateway, puede ver el valor de dominio de la cookie ARRAffinity establecida por el servicio de aplicación efectuará el nombre de dominio "example.azurewebsites.net". Si desea que el nombre de host original también el dominio de la cookie, siga la solución en este artículo.
+Además, cuando utilice App Services detrás de Application Gateway y use un dominio personalizado para acceder a Application Gateway, es posible que vea que el valor del dominio de la cookie de ARRAffinity establecida por App Service tenga el nombre de dominio "example.azurewebsites.net". Si desea que el nombre de host original sea también el dominio de la cookie, siga la solución indicada en este artículo.
 
 ## <a name="sample-configuration"></a>Configuración de ejemplo
 
-- Agente de escucha HTTP: Básica o de varios sitios
+- Agente de escucha HTTP: básico o multisitio
 - Grupo de direcciones de back-end: App Service
-- Configuración de HTTP: "¡Pick nombre de host de dirección de back-end" habilitada
-- Sondeo: "¡Pick nombre de host de configuración de HTTP" habilitada
+- Configuración de HTTP: "Seleccionar el nombre de host de la dirección de back-end" habilitado
+- Sondeo: "Seleccionar el nombre de host de la configuración de HTTP de back-end" habilitado
 
 ## <a name="cause"></a>Causa
 
-Un servicio de aplicaciones sólo se puede acceder con los nombres de host configurado en la configuración de dominio personalizado, de forma predeterminada, es "example.azurewebsites.net" y si desea tener acceso al servicio de aplicación con Application Gateway no registrado en App Service o con un nombre de host Application Gateway FQDN, tendrá que reemplazar el nombre de host en la solicitud original al nombre de host del servicio de aplicación.
+Solo se puede acceder a una instancia de App Service con los nombres de host establecidos en la configuración de dominio personalizada; de forma predeterminada, es "example.azurewebsites.net" y si desea acceder a App Service mediante Application Gateway con un nombre de host no registrado en App Service o con un FQDN de Application Gateway, tendrá que reemplazar el nombre de host en la solicitud original por el nombre de host de App Service.
 
-Para lograr esto con Application Gateway, se usa el modificador "Seleccionar nombre de host de dirección de back-end" en la configuración de HTTP y para el sondeo para que funcione, utilizamos "Seleccionar nombre de host de back-end HTTP configuración" en la configuración de sondeo.
+Para lograr esto con Application Gateway, se usa el modificador "Seleccionar el nombre de host de la dirección de back-end" en la configuración de HTTP y para que el sondeo funcione, se utiliza "Seleccionar el nombre de host de la configuración de HTTP de back-end" en la configuración del sondeo.
 
 ![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
-Debido a esto, cuando el servicio de aplicación realiza una redirección, usa el nombre de host "example.azurewebsites.net" en el encabezado de ubicación, en lugar del nombre de host original a menos que configure de otra manera. Puede comprobar los encabezados de solicitud y respuesta de ejemplo siguiente.
+Por ello, cuando App Service realiza un redireccionamiento, utiliza el nombre de host "example.azurewebsites.net" en el encabezado Location (Ubicación), en lugar del nombre de host original, a menos que esté configurado de otro modo. Puede comprobar los encabezados de solicitud y respuesta de ejemplo siguientes.
 ```
 ## Request headers to Application Gateway:
 
@@ -74,36 +74,36 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-En el ejemplo anterior, puede observar que el encabezado de respuesta tiene un código de estado de 301 para la redirección y el encabezado de ubicación tiene el nombre de host del servicio de aplicación, el nombre de host original en lugar de "www.contoso.com".
+En el ejemplo anterior, puede observar que el encabezado de respuesta tiene un código de estado de 301 para el redireccionamiento y el encabezado de ubicación tiene el nombre de host de App Service, en lugar del nombre de host original "www.contoso.com".
 
 ## <a name="solution"></a>Solución
 
-Este problema puede solucionarse al no tener una redirección en el lado de la aplicación, sin embargo, si no es posible, que debemos pasar el mismo encabezado de host que recibe de la puerta de enlace de aplicaciones en App Service también en lugar de hacer una invalidación del host.
+Este problema se puede resolver no teniendo un redireccionamiento en el lado de la aplicación; sin embargo, si esto no es posible, se debe pasar el mismo encabezado de host que recibe Application Gateways a App Service, en lugar de invalidar el host.
 
-Una vez que hacemos eso, App Service realizará la redirección (si existe) en el mismo encabezado de host original que señala a la puerta de enlace de aplicaciones y no su propio.
+Una vez hecho, App Service realizará el redireccionamiento (si existe) en el mismo encabezado de host original que apunta a Application Gateway y no en el suyo propio.
 
-Para lograr esto, debe tener un dominio personalizado y siga el proceso que se mencionan a continuación.
+Para lograrlo, debe ser propietario de un dominio personalizado y seguir el proceso que se menciona a continuación.
 
-- Registre el dominio a la lista de dominios personalizados de App Service. Para ello, debe tener un registro CNAME en el dominio personalizado que apunte al FQDN del servicio de aplicación. Para obtener más información, consulte [asignar un nombre DNS personalizado a Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Registre el dominio en la lista de dominios personalizados de App Service. Para ello, debe tener un registro CNAME en el dominio personalizado que apunte al FQDN d App Service. Para más información, consulte [Asignación de un nombre DNS personalizado existente a Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
 ![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Una vez hecho esto, App Service está listo para aceptar el nombre de host "www.contoso.com". Ahora, cambie la entrada CNAME en DNS para que apunte al FQDN de la puerta de enlace de aplicaciones. Por ejemplo, "appgw.eastus.cloudapp.azure.com".
+- Una vez hecho, App Service está listo para aceptar el nombre de host "www.contoso.com". Ahora, cambie la entrada CNAME en DNS para que apunte al FQDN de Application Gateway. Por ejemplo, "appgw.eastus.cloudapp.azure.com".
 
-- Asegúrese de que el dominio "www.contoso.com" se resuelve al FQDN de la puerta de enlace de aplicaciones al realizar una consulta DNS.
+- Asegúrese de que el dominio "www.contoso.com" se resuelve en el FQDN de Application Gateway al realizar una consulta de DNS.
 
-- Establecer el sondeo personalizado para deshabilitar "Seleccionar nombre de host de los valores de back-end HTTP". Esto puede hacerse desde el portal para ello, desactive la casilla de verificación en la configuración de sondeo y en PowerShell mediante el uso no - PickHostNameFromBackendHttpSettings cambie en el comando Set-AzApplicationGatewayProbeConfig. En el campo de nombre de host del sondeo, escriba el FQDN del servicio de aplicación "example.azurewebsites.net" como las solicitudes de sondeo enviadas desde Application Gateway llevar esto en el encabezado de host.
+- Establezca el sondeo personalizado para deshabilitar "Seleccionar el nombre de host de la configuración de HTTP de back-end". Esto se puede hacer desde el portal desactivando la casilla en la configuración del sondeo y en PowerShell no utilizando el modificador -PickHostNameFromBackendHttpSettings en el comando Set-AzApplicationGatewayProbeConfig. En el campo de nombre de host del sondeo, especifique el FQDN de App Service "example.azurewebsites.net", ya que las solicitudes del sondeo enviadas desde Application Gateway mostrarán esto en el encabezado de host.
 
   > [!NOTE]
-  > Mientras se realiza el paso siguiente, asegúrese de que el sondeo personalizado no está asociado a la configuración de back-end HTTP porque los todavía de la configuración de HTTP tiene el modificador "Seleccionar nombre de host de dirección de back-end" habilitado en este momento.
+  > Mientras realiza el paso siguiente, asegúrese de que el sondeo personalizado no esté asociado a la configuración de back-end de HTTP porque la configuración de HTTP aún tiene el modificador "Seleccionar el nombre de host de la dirección de back-end" habilitado en ese momento.
 
-- Establecer configuración de HTTP de Application Gateway para deshabilitar "Seleccionar nombre de host de dirección de back-end". Esto puede hacerse desde el portal para ello, desactive la casilla de verificación y en PowerShell mediante el uso no - PickHostNameFromBackendAddress cambie en el comando Set-AzApplicationGatewayBackendHttpSettings.
+- Establezca la configuración de HTTP de Application Gateway para deshabilitar "Seleccionar el nombre de host de la dirección de back-end". Esto se puede hacer desde el portal desactivando la casilla y en PowerShell no utilizando el modificador -PickHostNameFromBackendAddress en el comando Set-AzApplicationGatewayBackendHttpSettings.
 
-- Asociar el sondeo personalizado a la configuración HTTP de back-end y comprobar el estado de back-end si es correcto.
+- Asocie el sondeo personalizado a la configuración de HTTP de back-end y compruebe el estado de back-end si es correcto.
 
-- Una vez hecho esto, Application Gateway ahora se debe reenviar el mismo nombre de host "www.contoso.com" al servicio de aplicación y se realizará la redirección en el mismo nombre de host. Puede comprobar los encabezados de solicitud y respuesta de ejemplo siguiente.
+- Una vez hecho esto, Application Gateway debe reenviar ahora el mismo nombre de host "www.contoso.com" a App Service y se el redireccionamiento realizará en el mismo nombre de host. Puede comprobar los encabezados de solicitud y respuesta de ejemplo siguientes.
 
-Para implementar los pasos mencionados anteriormente con PowerShell para una instalación existente, siga el siguiente script de PowerShell de ejemplo. Tenga en cuenta cómo no hemos usado los modificadores - PickHostname en la configuración de sondeo y la configuración de HTTP.
+Para implementar los pasos mencionados anteriormente con PowerShell en una instalación existente, siga este script de PowerShell de ejemplo. Tenga en cuenta que no hemos usado los modificadores -PickHostname en la configuración de Sondeo y Configuración HTTP.
 
 ```azurepowershell-interactive
 $gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG

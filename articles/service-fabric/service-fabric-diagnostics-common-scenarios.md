@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394259"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnóstico de escenarios comunes con Service Fabric
 
-En este artículo se muestran escenarios comunes que los usuarios se encuentran en el área de supervisión y diagnóstico con Service Fabric. Los escenarios presentados cubren los 3 niveles de Service Fabric: aplicación, clúster e infraestructura. Cada solución usa Application Insights y los registros de Azure Monitor, herramientas de supervisión de Azure para completar cada escenario. Los pasos en cada solución ofrecen una introducción a los usuarios sobre cómo usar Application Insights y Azure Monitor registra en el contexto de Service Fabric.
+En este artículo se muestran escenarios comunes que los usuarios se encuentran en el área de supervisión y diagnóstico con Service Fabric. Los escenarios presentados cubren los 3 niveles de Service Fabric: aplicación, clúster e infraestructura. Cada solución utiliza Application Insights y los registros de Azure Monitor —las herramientas de supervisión de Azure— para completar cada escenario. Los pasos en cada solución proporcionan a los usuarios una introducción sobre cómo usar Application Insights y los registros de Azure Monitor en el contexto de Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -65,7 +65,7 @@ Las soluciones en este artículo utilizan las siguientes herramientas. Se recomi
 1. El clúster de Service Fabric registra los eventos de nodo. Vaya al recurso de solución de Service Fabric Analytics llamado **ServiceFabric(nombreGrupoRecursos)**
 2. Haga clic en el gráfico situado en la parte inferior de la hoja "Resumen"
 
-    ![Solución de los registros de Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Solución de registros de Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Aquí tiene muchos gráficos e iconos que muestran varias métricas. Haga clic en uno de los gráficos y le llevará a la búsqueda de registros. Aquí puede consultar los eventos de clúster o los contadores de rendimiento.
 4. Escriba la siguiente consulta. Estos identificadores de evento se encuentran en la [referencia de eventos de nodo](service-fabric-diagnostics-event-generation-operational.md#application-events).
@@ -129,10 +129,10 @@ En la misma vista con todos los gráficos, verá algunos iconos del rendimiento 
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>¿Cómo puedo supervisar el rendimiento de Reliable Services y Reliable Actors?
 
-Para supervisar el rendimiento de servicios confiables o actores en sus aplicaciones, debe recopilar los contadores de Actor de Service Fabric, método de Actor, servicio y método de servicio. Estos son ejemplos de reliable actor y servicio de los contadores de rendimiento para recopilar
+Para supervisar el rendimiento de Reliable Services o Reliable Actors en sus aplicaciones, debe recopilar también los contadores Actor, Actor Method, Service y Service Method de Service Fabric. A continuación se incluyen ejemplos de contadores de rendimiento de Reliable Services y Reliable Actors que se pueden recopilar.
 
 >[!NOTE]
->Contadores de rendimiento de Service Fabric no se pueden recopilar actualmente por el agente de Log Analytics, pero se pueden recopilar mediante [otras soluciones de diagnóstico](service-fabric-diagnostics-partners.md)
+>Actualmente, el agente de Log Analytics no puede recopilar los contadores de rendimiento de Service Fabric, pero se pueden recopilar mediante [otras soluciones de diagnóstico](service-fabric-diagnostics-partners.md).
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -145,7 +145,7 @@ Consulte estos vínculos para obtener la lista completa de contadores de rendimi
 
 * [Definición de alertas en Application Insights](../azure-monitor/app/alerts.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../azure-monitor/app/proactive-diagnostics.md), donde se realiza un análisis proactivo de la telemetría enviada a AI para avisar de problemas de rendimiento potenciales
-* Más información sobre los registros de Azure Monitor [alertas](../log-analytics/log-analytics-alerts.md) que ayuden en la detección y diagnóstico.
-* Para los clústeres locales, los registros de Azure Monitor ofrece una puerta de enlace (Proxy de reenvío HTTP) que puede utilizarse para enviar datos a los registros de Azure Monitor. Obtenga más información en [para conectar equipos sin acceso a Internet a los registros de Azure Monitor con la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md)
-* Familiarícese con la [búsqueda de registros y realizar consultas](../log-analytics/log-analytics-log-searches.md) características se ofrecen como parte de los registros de Azure Monitor
-* ¿Obtenga una introducción más detallada de los registros de Azure Monitor y lo que ofrece, leer [What ' s registros de Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md)
+* Obtenga más información sobre las [alertas](../log-analytics/log-analytics-alerts.md) de los registros de Azure Monitor como ayuda para la detección y diagnóstico.
+* Si se trata de clústeres locales, los registros de Azure Monitor ofrecen una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a estos registros. Para más información, vea [Conectar equipos sin acceso a Internet a los registros de Azure Monitor a través de la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
+* Familiarícese con las características de [búsqueda y consulta en los registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Lea en [¿Qué son los registros de Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md) una introducción más detallada de los registros de Azure Monitor y conozca qué ofrecen.

@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335442"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-amazon-redshift-connector.md)
 > * [Versión 2 (versión actual)](../connector-amazon-redshift.md)
 
@@ -88,7 +88,7 @@ Para la actividad de copia, cuando el origen es del tipo **AmazonRedshiftSource*
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | **consulta** | Use la consulta personalizada para leer los datos. |No (si se especifica la propiedad **tableName** de un conjunto de datos) |
-| **redshiftUnloadSettings** | Contiene el grupo de propiedades cuando se usa el comando **UNLOAD** de Redshift. | Sin  |
+| **redshiftUnloadSettings** | Contiene el grupo de propiedades cuando se usa el comando **UNLOAD** de Redshift. | Sin |
 | **s3LinkedServiceName** | Amazon S3 que se usa como almacenamiento provisional. El servicio vinculado se especifica mediante un nombre de Azure Data Factory del tipo **AwsAccessKey**. | Necesario si se usa la propiedad **redshiftUnloadSettings** |
 | **bucketName** | Indica el depósito de Amazon S3 que se usa para almacenar los datos provisionales. Si no se proporciona esta propiedad, la actividad de copia genera automáticamente un depósito. | Necesario si se usa la propiedad **redshiftUnloadSettings** |
 
@@ -336,12 +336,12 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | DECIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |string |
-| CHAR |string |
-| VARCHAR |string |
+| BOOLEAN |Cadena |
+| CHAR |Cadena |
+| VARCHAR |Cadena |
 | DATE |Datetime |
 | TIMESTAMP |Datetime |
-| TEXT |string |
+| TEXT |Cadena |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para información sobre cómo asignar columnas en el conjunto de datos de origen a columnas en el conjunto de datos de receptor, consulte [Asignación de columnas de conjunto de datos en Azure Data Factory](data-factory-map-columns.md).

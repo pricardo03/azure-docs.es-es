@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799497"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
@@ -159,9 +159,9 @@ Los tokens de acceso expiran cada hora, por lo que tendrá que generar un nuevo 
 
 Video Indexer usa un sencillo modelo de precios de pago por uso según la duración de entrada del contenido que se indexa. Es posible que se apliquen cargos adicionales para la codificación, el streaming, el almacenamiento, el uso de la red y las unidades reservadas multimedia. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)para más información.
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>¿Cuándo se factura usando Video Indexer?
+### <a name="when-am-i-billed-for-using-video-indexer"></a>¿Cuándo se me factura el uso de Video Indexer?
 
-Al enviar un vídeo que se va a indexar, el usuario definirá la indexación de modo que sea análisis de vídeos, análisis de audio o ambos. Esto determinará qué SKU se cobrará. Si se produce un error de nivel crítico durante el procesamiento, se devolverá un código de error como respuesta. En dicho caso, no se realiza facturación.  Un error crítico puede provocarlo un error en nuestro código o un fallo crítico en una dependencia interna del servicio. Errores como una incorrecta identificación o la extracción de conclusiones no se consideran críticos, devolviéndose una respuesta. En los casos en los que se devuelva una respuesta válida (código sin errores), se realizará facturación.
+Al enviar un vídeo para a indexarlo, el usuario define la indexación de modo que sea análisis de vídeo, de audio o ambos. Esto determina la SKU que se va a cobrar. Si se produce un error de nivel crítico durante el procesamiento, se devuelve un código de error como respuesta. En este caso, no se realiza facturación.  Un error crítico puede provocarlo un error en nuestro código o un fallo crítico en una dependencia interna del servicio. Errores como una incorrecta identificación o la extracción de conclusiones no se consideran críticos y se devuelve una respuesta. En los casos en los que se devuelva una respuesta válida (código sin errores), se realiza facturación.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>¿Video Indexer ofrece una evaluación gratuita?
 

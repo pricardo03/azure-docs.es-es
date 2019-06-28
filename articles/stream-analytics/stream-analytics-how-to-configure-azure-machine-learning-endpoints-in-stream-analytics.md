@@ -9,13 +9,13 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416041"
 ---
-# <a name="machine-learning-integration-in-stream-analytics-preview"></a>Integración de Machine Learning en Stream Analytics (versión preliminar)
+# <a name="machine-learning-integration-in-stream-analytics-preview"></a>Integración de Machine Learning en Azure Stream Analytics (versión preliminar)
 Stream Analytics proporciona compatibilidad con las funciones definidas por el usuario que llamen a puntos de conexión de Azure Machine Learning. La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-terminology"></a>Información general: terminología de Azure Machine Learning
@@ -188,7 +188,7 @@ Ahora consulte la función definida por el usuario (aquí llamada scoreTweet) pa
 ```
 
 
-## <a name="get-help"></a>Obtener ayuda
+## <a name="get-help"></a>Obtención de ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes

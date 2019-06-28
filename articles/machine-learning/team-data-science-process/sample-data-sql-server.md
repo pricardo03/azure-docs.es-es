@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61043427"
 ---
 # <a name="heading"></a>Muestreo de datos en SQL Server en Azure
@@ -60,7 +60,7 @@ Tablesample se puede usar igualmente para el muestreo de datos. Podría ser un e
 > 
 
 ### <a name="sql-aml"></a>Conexión con Azure Machine Learning
-Puede utilizar directamente las consultas de ejemplo anteriores en el módulo [Importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. Aquí se muestra una captura de pantalla de usar el módulo lector para leer los datos de muestreo:
+Puede utilizar directamente las consultas de ejemplo anteriores en el módulo [Importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. Aquí se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
 
 ![lector sql][1]
 

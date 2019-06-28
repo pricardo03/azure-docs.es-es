@@ -1,6 +1,6 @@
 ---
-title: Los formatos estándares de codificador y los códecs - Azure
-description: En este tema se proporciona información general de códecs y formatos estándar de codificador.
+title: 'Códecs y formatos de Standard Encoder: Azure'
+description: Este tema ofrece información general sobre los formatos y códecs de Azure Media Encoder.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520009"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>Códecs y formatos estándar de codificador
+# <a name="standard-encoder-formats-and-codecs"></a>Códecs y formatos de Standard Encoder
 
 Este artículo contiene una lista de los formatos de archivo de importación y exportación más comunes que puede usar con [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obtener información sobre cómo crear valores preestablecidos personalizados mediante **StandardEncoderPreset**, consulte [Creación de una transformación con un valor preestablecido personalizado](customize-encoder-presets-how-to.md).
 
@@ -46,7 +46,7 @@ Este artículo contiene una lista de los formatos de archivo de importación y e
 
 ### <a name="audio-formats-in-input-containers"></a>Formatos de audio en contenedores de entrada
 
-Codificador estándar admite los siguientes formatos de audio en contenedores de entrada:
+Standard Encoder admite el transporte de los siguientes formatos de audio en contenedores de entrada:
 
 * Archivos MXF, GXF y QuickTime que tengan pistas de audio con muestras de estéreo entrelazado o 5.1
 
@@ -65,7 +65,7 @@ o
 | MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10) |Hasta 422 Perfil |
 | MPEG-1 |Sí |
 | VC-1/WMV9 |Sí |
-| Canopus HQ/HQX |No |
+| Canopus HQ/HQX |Sin |
 | MPEG-4, parte 2 |Sí |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sí |
 | YUV420 sin comprimir o intermedio |Sí |
@@ -89,17 +89,17 @@ o
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sí |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sí |
 | AMR (velocidad múltiple adaptable) |Sí |
-| AES (SMPTE 331M y 302M, AES3-2003) |No |
-| Dolby® E |No |
-| Dolby® Digital (AC3) |No |
-| Dolby® Digital Plus (E-AC3) |No |
+| AES (SMPTE 331M y 302M, AES3-2003) |Sin |
+| Dolby® E |Sin |
+| Dolby® Digital (AC3) |Sin |
+| Dolby® Digital Plus (E-AC3) |Sin |
 
 ## <a name="output-formats-and-codecs"></a>Códecs y formatos de salida
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.
 
 | Formato de archivo | Códec de vídeo | Códec de audio |
 | --- | --- | --- |
-| MP4  <br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>Pasos siguientes

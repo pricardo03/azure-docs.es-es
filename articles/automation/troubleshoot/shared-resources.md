@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 66165a196c8b934df948f1d88b09a5859d3e792f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401483"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solución de problemas relativos a errores con recursos compartidos
@@ -39,11 +39,11 @@ Para resolver este problema, debe quitar el módulo que está bloqueado en el es
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Escenario: Detenidas importación después de intentar actualizarlos módulos de AzureRM
+### <a name="update-azure-modules-importing"></a>Escenario: Se bloquea la importación de los módulos de AzureRM después de intentar actualizarlos
 
 #### <a name="issue"></a>Problema
 
-Un banner con el siguiente mensaje permanece en la cuenta después de intentar actualizar los módulos de AzureRM:
+Después de intentar actualizar los módulos de AzureRM, en la cuenta permanece un banner con el siguiente mensaje:
 
 ```error
 Azure modules are being updated
@@ -55,7 +55,7 @@ Hay un problema conocido con la actualización de los módulos de AzureRM de una
 
 #### <a name="resolution"></a>Resolución
 
-Para actualizar los módulos de Azure en su cuenta de Automation, debe ser en un grupo de recursos que tiene un nombre alfanumérico. Grupos de recursos con nombres numéricos empezando por 0 son no se puede actualizar los módulos de AzureRM en este momento.
+Para actualizar los módulos de Azure en la cuenta de Automation, esta debe estar en un grupo de recursos con un nombre alfanumérico. En este momento, los grupos de recursos con nombres numéricos que empiezan por 0 no pueden actualizar módulos de AzureRM.
 
 ### <a name="module-fails-to-import"></a>Escenario: No se puede importar el módulo o no se pueden ejecutar cmdlets después de la importación
 
@@ -95,7 +95,7 @@ La configuración predeterminada para determinar cuántos módulos se actualizan
 No es común que todos los módulos de AzureRM se necesiten en la misma cuenta de Automation. Se recomienda importar únicamente los módulos de AzureRM que necesite.
 
 > [!NOTE]
-> Evite importar el módulo **AzureRM**. Importar el módulo **AzureRM** hará que se importen todos los módulos **AzureRM.\***, esto no es recomendable.
+> Evite importar el módulo **AzureRM**. Importar el módulo **AzureRM** hará que se importen todos los módulos **AzureRM.\*** , esto no es recomendable.
 
 Si se suspende el proceso de actualización, deberá agregar el parámetro `SimultaneousModuleImportJobCount` al script `Update-AzureModules.ps1` y proporcionar un valor menor que el valor predeterminado, que es 10. Se recomienda que, si implementa esta lógica, comience con un valor de 3 o 5. `SimultaneousModuleImportJobCount` es un parámetro del runbook del sistema `Update-AutomationAzureModulesForAccount` que se usa para actualizar módulos de Azure. Este cambio hace que el proceso se ejecute por más tiempo, pero tiene mayores probabilidades de completarse. En el ejemplo siguiente se muestra el parámetro y su ubicación en el runbook:
 
@@ -138,11 +138,11 @@ Para crear o actualizar una cuenta de ejecución, debe tener los permisos adecua
 
 Si el problema se debe a un bloqueo, verifique que el bloqueo esté correcto para quitarlo. A continuación, navegue hasta el recurso que está bloqueado, haga clic en el bloqueo y elija **Eliminar** para quitar el bloqueo.
 
-### <a name="iphelper"></a>Escenario: Recibe el error "No se puede encontrar un punto de entrada denominado 'GetPerAdapterInfo' en la DLL 'iplpapi.dll'" cuando ejecuta un runbook.
+### <a name="iphelper"></a>Escenario: Aparece el error "No se puede encontrar el punto de entrada denominado 'GetPerAdapterInfo' en el archivo DLL 'iplpapi.dll'" al ejecutar un runbook.
 
 #### <a name="issue"></a>Problema
 
-Al ejecutar un runbook recibe la siguiente excepción:
+Al ejecutar un runbook aparece la siguiente excepción:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -150,11 +150,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Este error suele deberse configurado incorrectamente [cuenta de ejecución](../manage-runas-account.md).
+Este error suele deberse a una configuración incorrecta de la [cuenta de ejecución](../manage-runas-account.md).
 
 #### <a name="resolution"></a>Resolución
 
-Asegúrese de que su [cuenta de ejecución](../manage-runas-account.md) está configurado correctamente. Una vez que está configurado correctamente, asegúrese de que tiene el código adecuado en su runbook para autenticarse con Azure. El ejemplo siguiente muestra un fragmento de código para autenticarse en Azure en un runbook mediante una cuenta de ejecución.
+Asegúrese de que la [cuenta de ejecución](../manage-runas-account.md) está correctamente configurada. Una vez que está correctamente configurada, asegúrese de que tiene el código adecuado en el runbook para autenticarse con Azure. En el ejemplo siguiente se muestra un fragmento de código para la autenticación en Azure en un runbook mediante una cuenta de ejecución.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection

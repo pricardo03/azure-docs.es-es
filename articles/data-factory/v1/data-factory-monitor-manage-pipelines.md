@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122745"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
@@ -117,16 +117,16 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 </tr>
 <tr>
 <tr>
-<td rowspan="2">En curso</td><td>Validating</td><td>Validación en curso.</td>
+<td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td>-</td>
 <td>El segmento se está procesando.</td>
 </tr>
 <tr>
-<td rowspan="4">Incorrecto</td><td>TimedOut</td><td>La ejecución de la actividad tardó más tiempo del permitido por la actividad.</td>
+<td rowspan="4">Con error</td><td>TimedOut</td><td>La ejecución de la actividad tardó más tiempo del permitido por la actividad.</td>
 </tr>
 <tr>
-<td>Cancelado</td><td>El segmento se ha cancelado por una acción del usuario.</td>
+<td>Canceled</td><td>El segmento se ha cancelado por una acción del usuario.</td>
 </tr>
 <tr>
 <td>Validación</td><td>Error de validación.</td>
@@ -134,10 +134,10 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <tr>
 <td>-</td><td>No se pudo puede generar o validar el segmento.</td>
 </tr>
-<td>Listo</td><td>-</td><td>El segmento está listo para su uso.</td>
+<td>Ready</td><td>-</td><td>El segmento está listo para su uso.</td>
 </tr>
 <tr>
-<td>Omitido</td><td>None</td><td>El segmento se está procesando.</td>
+<td>Skipped</td><td>None</td><td>El segmento se está procesando.</td>
 </tr>
 <tr>
 <td>None</td><td>-</td><td>Un segmento existía con un estado distinto, pero se ha restablecido.</td>
@@ -152,7 +152,7 @@ Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos ac
 
 Si el segmento se ejecutó varias veces, aparecen varias filas en la lista **Ejecuciones de actividad** . Para ver detalles sobre una ejecución de actividad, haga clic en la entrada de la ejecución en la lista **Ejecuciones de actividades** . La lista muestra todos los archivos de registro junto con un mensaje de error, si hubiera alguno. Esta característica resulta muy útil para ver y depurar registros sin tener que salir de la factoría de datos.
 
-![Detalles de la ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![Detalles de ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
 Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esta característica resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes por las que el segmento está esperando.
 
@@ -175,7 +175,7 @@ Puede administrar las canalizaciones usando Azure PowerShell. Por ejemplo, puede
 > [!NOTE] 
 > La vista de diagrama no admite las funciones de pausa y reanudación de las canalizaciones. Si quiere usar una interfaz de usuario, utilice la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte el artículo [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
-Se pueden pausar o suspender canalizaciones mediante el uso de la **Suspend AzDataFactoryPipeline** cmdlet de PowerShell. Este cmdlet es útil cuando no desea ejecutar canalizaciones hasta que se solucione un problema. 
+Puede pausar o suspender las canalizaciones mediante el cmdlet **Suspend-AzDataFactoryPipeline** de PowerShell. Este cmdlet es útil cuando no desea ejecutar canalizaciones hasta que se solucione un problema. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -219,7 +219,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
 #### <a name="use-powershell-to-debug-an-error"></a>Uso de PowerShell para depurar un error
 1. Inicie **PowerShell**.
-2. Ejecute el **Get AzDataFactorySlice** comando para ver los segmentos y sus Estados. Debería ver un segmento con el estado: **Error**.        
+2. Ejecute el comando **Get-AzDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **Error**.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -231,7 +231,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     ```
 
    Reemplace **StartDateTime** por la hora de inicio de la canalización. 
-3. Ahora, ejecute el **Get AzDataFactoryRun** para obtener más información sobre la actividad se ejecute para el segmento.
+3. Ahora, ejecute el cmdlet **Get-AzDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
@@ -269,7 +269,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Puede ejecutar el **guardar AzDataFactoryLog** cmdlet con el valor de identificador que ve en la salida y descargar los archivos de registro mediante el **- DownloadLogsoption** del cmdlet.
+5. Puede ejecutar el cmdlet **Save-AzDataFactoryLog** con el valor de identificador que ve en la salida y descargar los archivos de registro mediante la opción **-DownloadLogsoption** del cmdlet.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -290,7 +290,7 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 ![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-Puede volver a ejecutar errores mediante el uso de la **conjunto AzDataFactorySliceStatus** cmdlet. Consulte la [conjunto AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) tema de sintaxis y otros detalles acerca del cmdlet.
+Puede volver a ejecutar errores mediante el cmdlet **Set-AzDataFactorySliceStatus**. Vea el tema [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obtener información sobre la sintaxis y otros detalles del cmdlet.
 
 **Ejemplo:**
 

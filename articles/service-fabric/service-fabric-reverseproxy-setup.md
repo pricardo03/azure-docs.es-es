@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393017"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Instalación y configuración del proxy inverso en Azure Service Fabric
@@ -334,7 +334,7 @@ Por ejemplo, puede establecer el valor de **DefaultHttpRequestTimeout** para est
 
 Para más información acerca de cómo actualizar la configuración del tejido para clústeres de Azure, consulte [Personalización de la configuración de clústeres mediante plantillas de Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Para los clústeres independientes, consulte [Personalización de la configuración de clúster de clústeres independientes](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Varias configuraciones de tejido se usan para establecer una comunicación segura entre el proxy inverso y los servicios. Para obtener información detallada sobre estas opciones, consulte [conectar a un servicio seguro con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md).
+Varias configuraciones de tejido se usan para establecer una comunicación segura entre el proxy inverso y los servicios. Para información detallada sobre esta configuración, consulte [Conexión a un servicio seguro con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración del reenvío para proteger el servicio HTTP con el proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md)

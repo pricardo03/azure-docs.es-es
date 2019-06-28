@@ -10,15 +10,15 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248137"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Procedimientos de uso de diferentes mecanismos de atestación con el SDK de cliente del servicio Device Provisioning para C
 
-Este artículo muestra cómo usar diferentes [mecanismos de atestación](concepts-security.md#attestation-mechanism) con el SDK de cliente del servicio Device Provisioning para C. Puede usar un dispositivo físico o un simulador. El servicio de aprovisionamiento admite la autenticación de dos tipos de mecanismos de atestación: X.509 y el módulo de plataforma segura (TPM).
+Este artículo muestra cómo usar diferentes [mecanismos de atestación](concepts-security.md#attestation-mechanism) con el SDK de cliente del servicio Device Provisioning para C. Puede usar un dispositivo físico o un simulador. El servicio de aprovisionamiento admite la autenticación de dos tipos de mecanismos de atestación: X.509 y Módulo de plataforma segura (TPM).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,9 +28,9 @@ Prepare el entorno de desarrollo tal como se indica en la sección "Preparación
 
 Como un fabricante de dispositivos, en primer lugar debe elegir un mecanismo de atestación basándose en uno de los tipos admitidos. Actualmente, el [SDK de cliente del servicio Device Provisioning para C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) proporciona compatibilidad con los siguientes mecanismos de atestación: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM es una norma establecida para la mayoría de las plataformas de dispositivos basados en Windows, así como para algunos dispositivos basados en Linux y Ubuntu. Como un fabricante de dispositivos, puede elegir este mecanismo de atestación si alguno de estos sistemas operativos se ejecutan en sus dispositivos y busca un estándar establecido. Con los chips de TPM, solo puede inscribir cada dispositivo de forma individual en el servicio Device Provisioning. Con fines de desarrollo, puede usar el simulador TPM en la máquina Windows o Linux de desarrollo.
+- [Módulo de plataforma segura (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM es una norma establecida para la mayoría de las plataformas de dispositivos basados en Windows, así como para algunos dispositivos basados en Linux y Ubuntu. Como un fabricante de dispositivos, puede elegir este mecanismo de atestación si alguno de estos sistemas operativos se ejecutan en sus dispositivos y busca un estándar establecido. Con los chips de TPM, solo puede inscribir cada dispositivo de forma individual en el servicio Device Provisioning. Con fines de desarrollo, puede usar el simulador TPM en la máquina Windows o Linux de desarrollo.
 
-- [X.509](https://cryptography.io/en/latest/x509/): Los certificados X.509 que se pueden almacenar en chips relativamente más recientes que se llama [módulos de seguridad de Hardware (HSM)](concepts-security.md#hardware-security-module). Work también progresa en Microsoft, en chips RIoT o DICE, que implementan los certificados X.509. Con los chips X.509, puede realizar una inscripción masiva de dispositivos en el portal. También admite ciertos sistemas operativos distintos de Windows como embedOS. Con fines de desarrollo, el SDK del cliente del servicio Device Provisioning admite un simulador de dispositivos X.509. 
+- [X.509](https://cryptography.io/en/latest/x509/): los certificados X.509 se pueden almacenar en chips relativamente más recientes llamados [Módulos de seguridad de Hardware (HSM)](concepts-security.md#hardware-security-module). Work también progresa en Microsoft, en chips RIoT o DICE, que implementan los certificados X.509. Con los chips X.509, puede realizar una inscripción masiva de dispositivos en el portal. También admite ciertos sistemas operativos distintos de Windows como embedOS. Con fines de desarrollo, el SDK del cliente del servicio Device Provisioning admite un simulador de dispositivos X.509. 
 
 Para más información, consulte los [conceptos de seguridad](concepts-security.md) y los [conceptos sobre aprovisionamiento automático](/azure/iot-dps/concepts-auto-provisioning) del servicio IoT Hub Device Provisioning.
 
@@ -96,7 +96,7 @@ Compile el SDK antes de crear la inscripción del dispositivo.
     ctest -C "debug" -V
     ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - Para compilar el SDK en Windows, siga estos pasos para generar los archivos de proyecto:
   - Abra un "Símbolo del sistema para desarrolladores de VS2015"
   - Ejecute los siguientes comandos de CMake desde la raíz del repositorio:
@@ -149,8 +149,8 @@ Si utiliza TPM, siga las instrucciones de ["Creación y aprovisionamiento de un 
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Inicie sesión en Azure Portal, haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio Device Provisioning.
-   - X **.** Inscripción individual 509: En la hoja resumen servicio de aprovisionamiento, seleccione **administrar inscripciones**. Seleccione la pestaña **Individual Enrollments** (Inscripciones individuales) y haga clic en el botón **Add** (Agregar) de la parte superior. Seleccione **X**.**509** como *Mecanismo* de atestación de identidad y cargue el certificado de hoja como indica la hoja. Una vez completado, haga clic en el botón **Guardar**. 
-   - X **.** Inscripción de grupo 509: En la hoja resumen servicio de aprovisionamiento, seleccione **administrar inscripciones**. Seleccione la pestaña **Inscripción de grupo** y haga clic en el botón **Agregar** de la parte superior. Seleccione **X**.**509** como *Mecanismo* de atestación de identidad, escriba un nombre de grupo y nombre de certificación y cargue el certificado de CA o intermedio como indica la hoja. Una vez completado, haga clic en el botón **Guardar**. 
+   - Inscripción individual X **.** 509: en la hoja de resumen del servicio de aprovisionamiento, seleccione **Administrar inscripciones**. Seleccione la pestaña **Individual Enrollments** (Inscripciones individuales) y haga clic en el botón **Add** (Agregar) de la parte superior. Seleccione **X**.**509** como *Mecanismo* de atestación de identidad y cargue el certificado de hoja como indica la hoja. Una vez completado, haga clic en el botón **Guardar**. 
+   - Inscripción de grupo X **.** 509: en la hoja de resumen del servicio de aprovisionamiento, seleccione **Administrar inscripciones**. Seleccione la pestaña **Inscripción de grupo** y haga clic en el botón **Agregar** de la parte superior. Seleccione **X**.**509** como *Mecanismo* de atestación de identidad, escriba un nombre de grupo y nombre de certificación y cargue el certificado de CA o intermedio como indica la hoja. Una vez completado, haga clic en el botón **Guardar**. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Habilitación de la autenticación de dispositivos mediante un mecanismo de atestación personalizado (opcional)
 

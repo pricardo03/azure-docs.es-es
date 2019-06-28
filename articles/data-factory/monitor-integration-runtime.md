@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122643"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory  
@@ -36,7 +36,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 El cmdlet devuelve información diferente para distintos tipos de instancia de Integration Runtime. En este artículo se explican las propiedades y los estados de cada tipo de instancia de Integration Runtime.  
 
 ## <a name="azure-integration-runtime"></a>Tiempo de ejecución de integración de Azure
-El recurso de proceso para una instancia de Azure Integration Runtime se puede administrar completamente de manera elástica en Azure. En la siguiente tabla se ofrece descripciones de propiedades devueltas por la **Get AzDataFactoryV2IntegrationRuntime** comando:
+El recurso de proceso para una instancia de Azure Integration Runtime se puede administrar completamente de manera elástica en Azure. En la tabla siguiente se proporcionan las descripciones de las propiedades que devuelve el comando **Get-AzDataFactoryV2IntegrationRuntime**:
 
 ### <a name="properties"></a>Properties (Propiedades)
 En la siguiente tabla se proporcionan las descripciones de las propiedades que devuelve el cmdlet para una instancia de Azure Integration Runtime:
@@ -59,7 +59,7 @@ En la tabla siguiente se proporcionan los estados posibles de una instancia de A
 | Sin conexión | La instancia de Azure Integration Runtime está desconectada por un error interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Integration Runtime autohospedado
-En esta sección se ofrece descripciones de propiedades devueltas por el cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
+En la sección siguiente se proporcionan las descripciones de las propiedades que devuelve el cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > Las propiedades y estado devueltos contienen información sobre la instancia de Integration Runtime autohospedada y de los nodos en tiempo de ejecución.  
@@ -87,7 +87,7 @@ El valor predeterminado del límite de trabajos simultáneos se establece en fun
 
 Realice un escalado horizontal aumentando el número de nodos. Al aumentar el número de nodos, el límite de trabajos simultáneos es la suma de los valores límite de trabajos simultáneos de todos los nodos disponibles.  Por ejemplo, si un nodo le permite ejecutar un máximo de doce trabajos simultáneos, la incorporación de tres nodos más similares le permite ejecutar un máximo de 48 trabajos simultáneos (es decir, 4 x 12). Se recomienda aumentar el límite de trabajos simultáneos solo cuando vea un uso escaso de los recursos con los valores predeterminados en cada nodo.
 
-El valor predeterminado calculado se puede invalidar en Azure Portal. Seleccione Autor > Conexiones > Runtimes de integración > Editar > Nodos > Modificar valor de trabajos simultáneos por nodo. También puede usar PowerShell [actualización Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) comando.
+El valor predeterminado calculado se puede invalidar en Azure Portal. Seleccione Autor > Conexiones > Runtimes de integración > Editar > Nodos > Modificar valor de trabajos simultáneos por nodo. También puede usar el comando [update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) de PowerShell.
   
 ### <a name="status-per-node"></a>Estado (por nodo)
 En la tabla siguiente se proporcionan los estados posibles de los nodos de una instancia de Integration Runtime autohospedada:
@@ -112,7 +112,7 @@ En la tabla siguiente se proporcionan los estados posibles de una instancia de I
 | Sin conexión | Ningún nodo está en línea. |
 | Limitado | No todos los nodos de esta instancia de Integration Runtime autohospedada tienen un estado correcto. Este estado es una advertencia de que alguno de los nodos podría estar inactivo. Puede deberse a un problema de sincronización de credenciales en el nodo distribuidor o de trabajo. |
 
-Use la **Get AzDataFactoryV2IntegrationRuntimeMetric** propiedades en tiempo de ejecución de integración autohospedado sobre cmdlet para capturar la carga de JSON que contiene la información detallada y valores de su instantánea durante el tiempo de ejecución del cmdlet.
+Use el cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric** para capturar la carga de JSON que contiene las propiedades detalladas del entorno de ejecución de integración autohospedado y sus valores de instantánea durante el tiempo de ejecución del cmdlet.
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 

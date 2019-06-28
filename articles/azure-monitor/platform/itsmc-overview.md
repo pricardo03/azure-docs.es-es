@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395872"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
@@ -89,7 +89,7 @@ Dependiendo del producto ITSM que se vaya a conectar, siga estos pasos:
 
 Una vez que haya preparado sus herramientas ITSM, siga estos pasos para crear una conexión:
 
-1. Vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)**.
+1. Vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 2. En la opción **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** del panel izquierdo, haga clic en **Conexiones de ITSM** .
    ![Conexiones de ITSM](media/itsmc-overview/itsm-connections.png)
 
@@ -192,14 +192,14 @@ ServiceDeskWorkItemType_s="Incidente"
 - Cerrado por
 - Origen
 - Asignado a
-- Category
+- Categoría
 - Título
 - DESCRIPCIÓN
 - Fecha de creación
 - Fecha de cierre
 - Fecha de resolución
 - Fecha de última modificación
-- Computer
+- Equipo
 
 
 **Elemento de trabajo:** **Solicitudes de cambio**
@@ -215,7 +215,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Asignado a
 - Título
 - Type
-- Category
+- Categoría
 - Estado
 - Escalado
 - Estado del conflicto
@@ -233,7 +233,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Fecha de inicio del trabajo
 - Fecha de finalización del trabajo
 - DESCRIPCIÓN
-- Computer
+- Equipo
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Datos de salida para un incidente de ServiceNow
 
@@ -249,13 +249,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Cerrado por |
 | Source_s| Tipo de contacto |
 | AssignedTo_s | Asignado a  |
-| Category_s | Category |
+| Category_s | Categoría |
 | Title_s|  Descripción breve |
 | Description_s|  Notas |
 | CreatedDate_t|  Abierto |
 | ClosedDate_t| closed|
 | ResolvedDate_t|Resuelto|
-| Computer  | Elemento de configuración |
+| Equipo  | Elemento de configuración |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Datos de salida para una solicitud de cambio de ServiceNow
 
@@ -267,7 +267,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Asignado a  |
 | Title_s|  Descripción breve |
 | Type_s|  Type |
-| Category_s|  Category |
+| Category_s|  Categoría |
 | CRState_s|  Estado|
 | Urgency_s|  Urgencia |
 | Priority_s| Prioridad|
@@ -280,7 +280,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Fecha de inicio real |
 | WorkEndDate_t | Fecha de finalización real|
 | Description_s | DESCRIPCIÓN |
-| Computer  | Elemento de configuración |
+| Equipo  | Elemento de configuración |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Solución de problemas de conexión de ITSM
@@ -289,7 +289,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el Id. de cliente y el secreto de cliente de cada una de las conexiones.  
    - compruebe si dispone de privilegios suficientes en el producto ITSM correspondiente para realizar la conexión.  
    - En el caso de conexiones de Service Manager,  
-   - asegúrese de que la aplicación web se implementa correctamente y se crea la conexión híbrida. Para comprobar la conexión se ha establecido correctamente con el equipo de Service Manager local en, visite la dirección URL de aplicación Web como se detalla en la documentación para realizar la [conexión híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+   - asegúrese de que la aplicación web se implementa correctamente y se crea la conexión híbrida. Para comprobar que la conexión se ha establecido correctamente con la máquina de Service Manager local, visite la dirección URL de la aplicación web como se detalla en la documentación para realizar la [conexión híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2. Si los datos de ServiceNow no se sincronizan con Log Analytics, asegúrese de que la instancia de ServiceNow no esté suspendida. En algunas ocasiones, las instancias de desarrollo de ServiceNow se suspenden si están inactivas durante mucho tiempo. En caso contrario, notifique el problema.
 3. Si se generan alertas de Log Analytics, pero no se crean elementos de trabajo en el producto de ITSM, no se crean elementos de configuración o no se vinculan a elementos de trabajo, o bien necesita información general, vea:

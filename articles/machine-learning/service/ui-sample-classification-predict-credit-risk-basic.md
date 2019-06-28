@@ -1,7 +1,7 @@
 ---
 title: 'Clasificación: Predicción del riesgo de crédito'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo crear un clasificador de sin necesidad de escribir una sola línea de código mediante la interfaz visual del aprendizaje automático.
+description: Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin necesidad de escribir una sola línea de código mediante la interfaz visual.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,19 +11,19 @@ ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
 ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789395"
 ---
-# <a name="sample-3---classification-predict-credit-risk"></a>Ejemplo 3: clasificación: Predicción del riesgo de crédito
+# <a name="sample-3---classification-predict-credit-risk"></a>Ejemplo 3 - Clasificación: Predicción del riesgo de crédito
 
-Obtenga información sobre cómo crear un clasificador de sin necesidad de escribir una sola línea de código mediante la interfaz visual del aprendizaje automático. En este ejemplo se entrena un **árbol de decisión ampliado de dos clases** para predecir el crédito de riesgo (alta o baja) según la información de aplicación de crédito como historial crediticio, edad y el número de tarjetas de crédito.
+Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin necesidad de escribir una sola línea de código mediante la interfaz visual. En este ejemplo se entrena un **árbol de decisión ampliado de dos clases** para que prediga el riesgo de crédito (alto o bajo) según información de solicitudes de crédito, como, por ejemplo, el historial de créditos, la edad y el número de tarjetas de crédito.
 
-Dado que estamos intentando responder a la pregunta "Cuál?" Esto se denomina un problema de clasificación. Sin embargo, puede aplicar el mismo proceso fundamental para abordar a cualquier tipo de problema del aprendizaje automático, ya sea una regresión, clasificación, agrupación en clústeres y así sucesivamente.
+Puesto que estamos intentando responder a la pregunta "¿Cuál?", esto se conoce como un problema de clasificación. Sin embargo, puede aplicar el mismo proceso fundamental para abordar cualquier tipo de problema de aprendizaje automático, ya sea una regresión, una clasificación, una agrupación en clústeres, etc.
 
-Este es el gráfico completado para este experimento:
+A continuación se muestra el gráfico completado para este experimento:
 
 ![Gráfico del experimento](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
@@ -31,40 +31,40 @@ Este es el gráfico completado para este experimento:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Seleccione el **abierto** botón para el experimento de ejemplo 3:
+4. Seleccione el botón **Abrir** correspondiente al experimento Ejemplo 3:
 
-    ![Abra el experimento](media/ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
+    ![Abrir el experimento](media/ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 
-## <a name="related-sample"></a>Ejemplo relacionado
+## <a name="related-sample"></a>El ejemplo relacionado
 
-[Ejemplo 4: clasificación: (Costo mayúsculas de minúsculas) de predicción de riesgo de crédito](ui-sample-classification-predict-credit-risk-cost-sensitive.md) proporciona un experimento avanzado que resuelve el mismo problema que este experimento. Muestra cómo realizar _costo confidencial_ la clasificación mediante una **Execute Python Script** module y compare el rendimiento de dos algoritmos de clasificación binaria. Hacer referencia a él si desea obtener más información sobre cómo crear experimentos de clasificación.
+[Ejemplo 4 - Clasificación: Predicción del riesgo de crédito (sensible a los costos)](ui-sample-classification-predict-credit-risk-cost-sensitive.md) proporciona un experimento avanzado que resuelve el mismo problema que este experimento. Muestra cómo realizar una clasificación _sensible a los costos_ mediante el módulo **Ejecutar script de Python** y cómo comparar el rendimiento de dos algoritmos de clasificación binarios. Consúltelo para obtener más información sobre cómo compilar experimentos de clasificación.
 
 ## <a name="data"></a>Datos
 
-Usamos el conjunto de datos de la tarjeta de crédito alemana desde el repositorio de UC Irvine.
-El conjunto de datos contiene 1000 muestras con 20 características y 1 etiqueta. Cada ejemplo representa a una persona. Las características incluyen características de categorías y numéricas. Consulte la [sitio Web de UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) del significado de las características de categorías. La última columna es la etiqueta, que denota el riesgo de crédito y tiene solo dos valores posibles: riesgo de crédito alto = 2 y el riesgo de crédito bajo = 1.
+Usamos el conjunto de datos Tarjeta de crédito alemana del repositorio de UC Irvine.
+El conjunto de datos contiene 1000 muestras con 20 características y 1 etiqueta. Cada ejemplo representa a una persona. Las características incluyen características numéricas y categóricas. Consulte el [sitio web de UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) para conocer el significado de las características categóricas. La última columna es la etiqueta, que denota el riesgo de crédito y solo tiene dos valores posibles: riesgo de crédito alto = 2 y riesgo de crédito bajo = 1.
 
 ## <a name="experiment-summary"></a>Resumen del experimento
 
-Seguimos estos pasos para crear el experimento:
+Para crear el experimento, siga estos pasos:
 
-1. Arrastre el módulo de conjunto de datos de datos de UCI de tarjeta de crédito alemán en el lienzo del experimento.
-1. Agregar un **editar metadatos** módulo, por lo que podemos agregar nombres descriptivos para cada columna.
-1. Agregar un **dividir datos** módulo para crear los conjuntos de entrenamiento y prueba. Establezca la fracción de filas en el primer conjunto de datos de salida en 0,7. Esta configuración especifica que un 70% de los datos será de salida para el puerto de la izquierda del módulo y el resto en el puerto correcto. Usaremos el conjunto de datos izquierdo para entrenamiento y el derecho para las pruebas.
-1. Agregar un **Two-Class Boosted Decision Tree** módulo para inicializar un clasificador de árbol de decisión ampliado.
-1. Agregar un **Train Model** módulo. Conectar el clasificador del paso anterior para el puerto de entrada izquierdo de la **Train Model**. Agregar el conjunto de entrenamiento (puerto de salida de la izquierda el **dividir datos**) al puerto de entrada derecho de la **Train Model**. El **entrenar modelo** a entrenar el clasificador.
-1. Agregar un **Score Model** módulo y conecte el **Train Model** módulo a él. A continuación, agregue el conjunto de pruebas (el puerto correcto de la **dividir datos**) a la **Score Model**. El **Score Model** hará que las predicciones. Puede seleccionar su puerto de salida para ver las predicciones y probabilidades de la clase positiva.
-1. Agregar un **Evaluate Model** módulo y conecte el conjunto de datos puntuado a su puerto de entrada izquierdo. Para ver los resultados de evaluación, seleccione el puerto de salida de la **Evaluate Model** módulo y seleccione **visualizar**.
+1. Arrastre el módulo del conjunto de datos Tarjeta de crédito alemana de los datos de UCI al lienzo del experimento.
+1. Agregue un módulo **Editar metadatos** para poder agregar nombres descriptivos para cada columna.
+1. Agregue un módulo **Dividir datos** para crear los conjuntos de entrenamiento y prueba. Establezca la fracción de filas del primer conjunto de datos de salida en 0,7. Esta configuración especifica que un 70 % de los datos saldrán por el puerto de la izquierda del módulo y el resto por el puerto de la derecha. Usaremos el conjunto de datos de la izquierda para el entrenamiento y el de la derecha, para las pruebas.
+1. Agregue un módulo **Árbol de decisión ampliado de dos clases** para inicializar un clasificador de árbol de decisión ampliado.
+1. Agregue un módulo **Entrenar modelo**. Conecte el clasificador del paso anterior con el puerto de entrada de la izquierda de **Entrenar modelo**. Agregue el conjunto de entrenamiento (puerto de salida izquierdo de **Dividir datos**) al puerto de entrada derecho de **Entrenar modelo**. El módulo **Entrenar modelo** entrenará el clasificador.
+1. Agregue un módulo **Puntuar modelo** y conecte con él el módulo **Entrenar modelo**. A continuación, agregue el conjunto de pruebas (el puerto de la derecha de **Dividir datos**) a **Puntuar modelo**. El módulo **Puntuar modelo** hará las predicciones. Puede seleccionar su puerto de salida para ver las predicciones y las probabilidades de clase positiva.
+1. Agregue un módulo **Evaluar modelo** y conecte el conjunto de datos puntuado a su puerto de entrada izquierdo. Para ver los resultados de la evaluación, seleccione el puerto de salida del módulo **Evaluar modelo** y seleccione **Visualizar**.
 
-Este es el gráfico de experimento completo:
+A continuación se muestra el gráfico completo del experimento:
 
 ![Gráfico del experimento](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 ![Evaluar los resultados](media/ui-sample-classification-predict-credit-risk-basic/evaluate-result.png)
 
-En los resultados de evaluación, puede ver que el AUC del modelo es 0.776. En el umbral de 0,5, la precisión es 0.621, la recuperación es 0,456 y la puntuación F1 es 0.526.
+En los resultados de la evaluación, puede ver que el AUC del modelo es 0,776. En el umbral de 0,5, la precisión es 0,621, la recuperación es 0,456 y la puntuación F1 es 0,526.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -72,9 +72,9 @@ En los resultados de evaluación, puede ver que el AUC del modelo es 0.776. En e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore los ejemplos disponibles para la interfaz visual:
+Explore el resto de ejemplos disponibles para la interfaz visual:
 
-- [Ejemplo 1: regresión: Predecir el precio de un automóvil](ui-sample-regression-predict-automobile-price-basic.md)
-- [Ejemplo 2: regresión: Compare de algoritmos para la predicción de precios de automóviles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Ejemplo 4: clasificación: Predecir el riesgo de crédito (costo confidencial)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Ejemplo 5: clasificación: Predecir el abandono](ui-sample-classification-predict-churn.md)
+- [Ejemplo 1 - Regresión: Predecir el precio de un automóvil](ui-sample-regression-predict-automobile-price-basic.md)
+- [Ejemplo 2 - Regresión: Comparar algoritmos para la predicción de precios de automóviles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Ejemplo 4 - Clasificación: Predecir el riesgo de crédito (sensible a los costos)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Ejemplo 5 - Clasificación: Predecir la renovación](ui-sample-classification-predict-churn.md)

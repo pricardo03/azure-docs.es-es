@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152743"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
@@ -83,7 +83,7 @@ El usuario que crea la instancia de Azure-SSIS Integration Runtime debe tener lo
 
 - Si va a unir SSIS IR a una red virtual de Azure Resource Manager, tiene dos opciones:
 
-  - Usar el rol integrado *Colaborador de red*. Este rol requiere el permiso _Microsoft.Network /\*_, que tiene un ámbito mucho mayor del necesario.
+  - Usar el rol integrado *Colaborador de red*. Este rol requiere el permiso _Microsoft.Network /\*_ , que tiene un ámbito mucho mayor del necesario.
 
   - Crear un rol personalizado que incluya solo el permiso _Microsoft.Network/virtualNetworks/\*/join/action_ necesario. 
 
@@ -135,11 +135,11 @@ Vea [este script de PowerShell](https://gallery.technet.microsoft.com/scriptcent
 
 ### <a name="resource-group"></a> Requisitos para el grupo de recursos
 -   La instancia de Integration Runtime para la integración de SSIS en Azure necesita crear determinados recursos de red en el mismo grupo de recursos de la red virtual. Entre estos recursos se incluyen los siguientes:
-    -   Un equilibrador de carga con el nombre  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
-    -   Una dirección IP Azure pública, con el nombre  *\<Guid > - azurebatch - cloudservicepublicip*.
-    -   Un grupo de seguridad de red trabajo, con el nombre  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
+    -   Una instancia de Azure Load Balancer, con el nombre *\<Guid>-azurebatch-cloudserviceloadbalancer*.
+    -   Una dirección IP pública de Azure, con el nombre *\<Guid>-azurebatch-cloudservicepublicip*.
+    -   Un grupo de seguridad de red, con el nombre *\<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
 
--   Asegúrese de que no tiene ningún bloqueo de recursos en el grupo de recursos ni en la suscripción a la que pertenece la red virtual. Si configura un bloqueo de solo lectura o un bloqueo de eliminación, iniciar y detener la instancia de IR pueden producirá un error o dejar de responder. 
+-   Asegúrese de que no tiene ningún bloqueo de recursos en el grupo de recursos ni en la suscripción a la que pertenece la red virtual. Si configura un bloqueo de solo lectura o un bloqueo de eliminación, se puede producir un error o un bloqueo al iniciar o detener la instancia de IR, o bien puede dejar de responder. 
 
 -   Asegúrese de que no tiene ninguna directiva de Azure que impida que se creen los siguientes recursos en el grupo de recursos o en la suscripción a la que pertenece la red virtual: 
     -   Microsoft.Network/LoadBalancers 
@@ -168,7 +168,7 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Compruebe que el proveedor de Azure Batch está registrado en la suscripción de Azure que tiene la red virtual. O bien, registre el proveedor de Azure Batch. Si ya tiene una cuenta de Azure Batch en su suscripción, entonces su suscripción está registrada para Azure Batch. Si crea la instancia de Integration Runtime para la integración de SSIS en Azure en el portal de Data Factory, el proveedor de Azure Batch se registrará automáticamente. 
 
-    a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
+   a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
 
    b. Seleccione su suscripción. 
 
@@ -185,11 +185,11 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
-1. Seleccione **Más servicios**. Filtre y seleccione **Redes virtuales (clásicas)**. 
+1. Seleccione **Más servicios**. Filtre y seleccione **Redes virtuales (clásicas)** . 
 
 1. Filtre y seleccione su red virtual en la lista. 
 
-1. En la página **Red virtual (clásica)**, seleccione **Propiedades**. 
+1. En la página **Red virtual (clásica)** , seleccione **Propiedades**. 
 
    ![Identificador de recurso de red virtual clásica](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
@@ -201,7 +201,7 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Una **MicrosoftAzureBatch** al rol **Colaborador de la máquina virtual clásica** de la red virtual. 
 
-     a. Seleccione **Control de acceso (IAM)** en el menú izquierdo y seleccione la pestaña **Asignaciones de roles**. 
+    a. Seleccione **Control de acceso (IAM)** en el menú izquierdo y seleccione la pestaña **Asignaciones de roles**. 
 
     ![Botones "Control de acceso" y "Agregar"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
@@ -221,7 +221,7 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Compruebe que el proveedor de Azure Batch está registrado en la suscripción de Azure que tiene la red virtual. O bien, registre el proveedor de Azure Batch. Si ya tiene una cuenta de Azure Batch en su suscripción, entonces su suscripción está registrada para Azure Batch. Si crea la instancia de Integration Runtime para la integración de SSIS en Azure en el portal de Data Factory, el proveedor de Azure Batch se registrará automáticamente. 
 
-    a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
+   a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
 
    b. Seleccione su suscripción. 
 
@@ -264,7 +264,7 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Haga lo siguiente en la página **Configuración avanzada**: 
 
-    a. Active la casilla **Select a VNet for your Azure-SSIS Integration Runtime to join and allow Azure services to configure VNet permissions/settings** (Seleccionar una red virtual a la que unir su instancia de Integration Runtime para la integración de SSIS en Azure y permitir que los servicios de Azure configuren los permisos y la configuración de la red virtual). 
+   a. Active la casilla **Select a VNet for your Azure-SSIS Integration Runtime to join and allow Azure services to configure VNet permissions/settings** (Seleccionar una red virtual a la que unir su instancia de Integration Runtime para la integración de SSIS en Azure y permitir que los servicios de Azure configuren los permisos y la configuración de la red virtual). 
 
    b. En **Type** (Tipo), especifique si la red virtual es una red virtual clásica o una red virtual de Azure Resource Manager. 
 

@@ -16,15 +16,15 @@ ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
 ms.openlocfilehash: 5ae0e7855db6bec9f48d2b9511f0d0626d883111
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561351"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
-Antes de cargar un Windows máquinas virtuales (VM) locales de Microsoft Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite la generación 1 y máquinas virtuales de generación 2 en formato de archivo VHD y dispone de un disco de tamaño fijo. El tamaño máximo permitido para los discos duros virtuales es de 1023 GB. Puede convertir una máquina virtual de generación 1 del sistema de archivos VHDX a VHD y de un disco de expansión dinámica a uno de tamaño fijo. Sin embargo, no puede cambiar la generación de una máquina virtual. Para obtener más información, consulte [debo crear una generación 1 o 2 máquinas virtuales de Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) y [las máquinas virtuales de generación 2 en Azure](generation-2.md).
+Antes de cargar una máquina virtual Windows desde un entorno local en Microsoft Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite máquinas virtuales de generación 1 y de generación 2 que estén en el formato de archivo VHD y tengan un disco de tamaño fijo. El tamaño máximo permitido para los discos duros virtuales es de 1023 GB. Puede convertir una máquina virtual de generación 1 del sistema de archivos VHDX a VHD y de un disco de expansión dinámica a uno de tamaño fijo. Sin embargo, no puede cambiar la generación de una máquina virtual. Para más información, vea [¿Debería crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) y [Generación de 2 máquinas virtuales en Azure](generation-2.md).
 
 Para obtener información sobre la directiva de soporte de software de servidor de Microsoft ejecutado en Azure, consulte [Soporte de software de servidor de Microsoft para las máquinas virtuales de Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -339,9 +339,9 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
 ### <a name="install-windows-updates"></a>Instalación de actualizaciones de Windows
 La configuración ideal es **tener el nivel de revisión de la máquina en la versión más reciente**. Si no es posible, asegúrese de que las siguientes actualizaciones están instaladas:
 
-| Componente               | Binary         | Windows 7 SP1 y Windows Server 2008 R2 SP1 | Windows 8 y Windows Server 2012               | Windows 8.1 y Windows Server 2012 R2 | Windows Server 2016 versión 1607 de Windows 10 versión 1607 | Windows 10 Versión 1703    | Windows 10, versión 1709 y Windows Server 2016, versión 1709 | Windows 10 1803 Windows Server 2016 versión 1803 |
+| Componente               | Binary         | Windows 7 SP1 y Windows Server 2008 R2 SP1 | Windows 8 y Windows Server 2012               | Windows 8.1 y Windows Server 2012 R2 | Windows 10, versión 2016 y Windows Server 1607, versión 1607 | Windows 10 Versión 1703    | Windows 10, versión 1709 y Windows Server 2016, versión 1709 | Windows 10, versión 1803 y Windows Server 2016, versión 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Almacenamiento                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -416,7 +416,7 @@ No todos los roles o aplicaciones instalados en un equipo basado en Windows admi
 ## <a name="complete-recommended-configurations"></a>Realice las configuraciones recomendadas
 Los siguientes valores de configuración no afectan a la carga de discos duros virtuales. Sin embargo, se recomienda firmemente que los configure.
 
-* Instale el [agente de máquina virtual de Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). A continuación, puede habilitar las extensiones de máquina virtual. Las extensiones de máquina virtual implementan la mayor parte de la funcionalidad crítica que es posible que quiera usar con las máquinas virtuales, como el restablecimiento de contraseñas, la configuración de RDP, etc. Para obtener más información, consulte [información general del agente de máquina Virtual de Azure](../extensions/agent-windows.md).
+* Instale el [agente de máquina virtual de Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). A continuación, puede habilitar las extensiones de máquina virtual. Las extensiones de máquina virtual implementan la mayor parte de la funcionalidad crítica que es posible que quiera usar con las máquinas virtuales, como el restablecimiento de contraseñas, la configuración de RDP, etc. Para más información, vea [Información general sobre el agente de la máquina virtual de Azure](../extensions/agent-windows.md).
 * Después de crearse la máquina virtual en Azure, recomendamos que ponga el archivo de paginación en el volumen "Unidad temporal" para mejorar el rendimiento. Puede configurar esto como se muestra a continuación:
 
    ```PowerShell

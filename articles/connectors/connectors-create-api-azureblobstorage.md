@@ -1,5 +1,5 @@
 ---
-title: 'Conectarse a Azure blob storage: Azure Logic Apps'
+title: 'Conexión a Azure Blob Storage: Azure Logic Apps'
 description: Creación y administración de blobs en Azure Storage con Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60958645"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
@@ -53,7 +53,7 @@ En este ejemplo se muestra cómo se puede iniciar un flujo de trabajo de una apl
 
 2. En el cuadro de búsqueda, escriba "azure blob" como filtro. En la lista de desencadenadores, seleccione el que desee.
 
-   Este ejemplo utiliza este desencadenador: **Azure Blob Storage: cuando se agrega o modifica (solo propiedades) de un blob**
+   En este ejemplo se utiliza este desencadenador: **Azure Blob Storage: cuando se agrega o modifica un blob (solo propiedades)**
 
    ![Seleccionar un desencadenador](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -63,7 +63,7 @@ En este ejemplo se muestra cómo se puede iniciar un flujo de trabajo de una apl
 
    1. En el cuadro **Contenedor**, seleccione el icono de la carpeta.
 
-   2. En la lista de carpetas, elija el corchete angular derecho (**>**) y, después, desplácese hasta que encuentre y seleccione la carpeta que desee.
+   2. En la lista de carpetas, elija el corchete angular derecho ( **>** ) y, después, desplácese hasta que encuentre y seleccione la carpeta que desee.
 
       ![Seleccionar carpeta](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -86,11 +86,11 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
    ![Agregar una acción](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. 
-   Elija el signo más (**+**) que aparece y, luego, elija **Agregar una acción**.
+   Elija el signo más ( **+** ) que aparece y, luego, elija **Agregar una acción**.
 
 3. En el cuadro de búsqueda, escriba "azure blob" como filtro. En la lista de acciones, seleccione la acción que desee.
 
-   Este ejemplo usa esta acción: **Azure Blob Storage: obtener el contenido de blob**
+   Este ejemplo utiliza esta acción: **Azure Blob Storage: obtener el contenido de blob**
 
    ![Acción Select](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
@@ -119,7 +119,7 @@ En este ejemplo solo se obtiene el contenido de un blob. Para ver dicho contenid
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en Open API del conector (anteriormente Swagger) de archivos, consulte el [página de referencia del conector](/connectors/azureblobconnector/).
+Para obtener detalles técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Open API (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/azureblobconnector/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

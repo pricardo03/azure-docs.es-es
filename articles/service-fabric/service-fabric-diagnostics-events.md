@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: b4270b9438a397ec09537c9d6343515ebc21af98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393051"
 ---
 # <a name="service-fabric-events"></a>Eventos de Service Fabric 
@@ -40,12 +40,12 @@ Estos son algunos ejemplos de escenarios en los que puede ver los eventos para e
 * Implementar o eliminar una aplicación o servicio: hay eventos para cada aplicación, servicio y contenedor que se vaya a crear o eliminar. Resultan útiles para reducir o escalar horizontalmente, por ejemplo, para aumentar el número de réplicas.
 * Movimientos de partición (reconfiguración): cada vez que se lleva a cabo una reconfiguración (un cambio en el conjunto de réplicas) en una partición con estado, se registra un evento. Esto es útil si desea saber cada cuánto cambia o se conmuta por error el conjunto de réplicas de la partición, o si quiere realizar un seguimiento para saber en cualquier momento qué nodo estaba ejecutando la réplica principal.
 * Eventos de caos: al usar el servicio [Chaos](service-fabric-controlled-chaos.md) de Service Fabric, verá los eventos cada vez que se inicie o detenga el servicio, o cuando inserte un error en el sistema.
-* Eventos de estado: Service Fabric expone eventos de estado cada vez que se crea una advertencia o un informe de estado de Error, o una entidad vuelve a un estado correcto o un informe de mantenimiento expira. Estos eventos son muy útiles para realizar el seguimiento de las estadísticas de mantenimiento históricas de una entidad. 
+* Eventos de mantenimiento: Service Fabric expone eventos de mantenimiento cada vez que se crea un informe de mantenimiento de advertencia o error, si una entidad vuelve a un estado correcto o si un informe de mantenimiento expira. Estos eventos son muy útiles para realizar el seguimiento de las estadísticas de mantenimiento históricas de una entidad. 
 
 ## <a name="how-to-access-events"></a>Cómo obtener acceso a eventos
 
 Hay varias maneras mediante las cuales se puede obtener acceso a eventos de Service Fabric:
-* Los eventos se registran a través de canales estándares como registros de eventos ETW/Windows y se pueden visualizar mediante la herramienta de supervisión que admite estos como los registros de Azure Monitor. De forma predeterminada, los clústeres creados en el portal tienen activado el diagnóstico y tienen el agente de diagnósticos de Windows Azure que envía los eventos en Azure table storage, pero deberá integrar esto con el recurso de log analytics. Leer más acerca de cómo configurar el [agente de Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para modificar la configuración de diagnósticos de clúster para seleccionar más registros o contadores de rendimiento y la [integración de registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* Los eventos se registran a través de canales estándar, como registros de eventos de ETW/Windows, y se pueden visualizar con cualquier herramienta de supervisión compatible, como los registros de Azure Monitor. De forma predeterminada, los clústeres creados en el portal tienen activados los diagnósticos y tienen el agente de diagnósticos de Microsoft Azure que envía los eventos a Azure Table Storage, pero aun así deberá integrarlos con el recurso de análisis de registros. Obtenga más información sobre la configuración del [agente de Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para modificar la configuración de diagnósticos del clúster de modo que seleccione más registros o contadores de rendimiento y sobre la [integración de los registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md).
 * Las API de REST del servicio EventStore que le permiten consultar el clúster directamente o a través de la biblioteca cliente de Service Fabric. Consulte [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md) (Consultar las API del servicio EventStore para obtener eventos de clúster).
 
 ## <a name="next-steps"></a>Pasos siguientes

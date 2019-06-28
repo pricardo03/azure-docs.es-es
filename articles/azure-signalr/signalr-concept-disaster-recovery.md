@@ -7,36 +7,36 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61402156"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resistencia y recuperación ante desastres
 
-La resistencia y la recuperación ante desastres son necesidades comunes de los sistemas en línea. Azure SignalR Service ya garantiza una disponibilidad del 99,9 %, pero sigue siendo un servicio regional.
-La instancia del servicio siempre se ejecuta en una región y no conmutación por error a otra región cuando se produzca una interrupción de toda la región.
+La resistencia y la recuperación ante desastres son una necesidad común de los sistemas en línea. Azure SignalR Service ya garantiza una disponibilidad del 99,9 %, pero sigue siendo un servicio regional.
+La instancia del servicio siempre se ejecuta en una región y no se producirá una conmutación por error en otra región cuando haya una interrupción en toda la región.
 
 En su lugar, nuestro SDK de servicio proporciona una funcionalidad para admitir varias instancias de SignalR Service y cambiar automáticamente a otras instancias cuando algunas no estén disponibles.
 Con esta característica, podrá realizar la recuperación cuando se produzca un desastre, pero deberá configurar la topología de sistema adecuada usted mismo. En este documento se muestra cómo hacerlo.
 
 ## <a name="high-available-architecture-for-signalr-service"></a>Arquitectura de alta disponibilidad para SignalR Service
 
-Para tener resistencia entre regiones para SignalR Service, deberá configurar varias instancias de servicio en diferentes regiones. De manera que cuando una región esté inactiva, las demás se puedan usar como reserva.
+Para tener resistencia entre regiones para SignalR Service, deberá configurar varias instancias de servicio en diferentes regiones. De manera que cuando una región esté inactiva, las demás se puedan usar como copia de seguridad.
 Al conectar varias instancias de servicio al servidor de aplicaciones, hay dos roles, principal y secundario.
-La principal es una instancia con el tráfico en línea y la secundaria, una instancia totalmente funcional pero de reserva de la principal.
+La principal es una instancia con el tráfico en línea y la secundaria, una instancia totalmente funcional pero de copia de seguridad de la principal.
 En nuestra implementación de SDK, la negociación solo devuelve puntos de conexión principales, ya que normalmente los clientes solo se conectan a los puntos de conexión principales.
 Pero cuando la instancia principal está inactiva, la negociación devuelve puntos de conexión secundarios para que el cliente pueda continuar realizando conexiones.
-Instancia principal y del servidor de aplicaciones se conectan a través de conexiones de servidor normal pero instancia secundaria y del servidor de aplicaciones se conectan a través de un tipo especial de conexión denominado conexión débil.
-La principal diferencia de una conexión débil es que no acepta el enrutamiento de conexión de cliente, porque la instancia secundaria se encuentra en otra región. Enrutamiento de un cliente en otra región no es una opción óptima (aumenta la latencia).
+La instancia principal y el servidor de aplicaciones están conectados mediante conexiones de servidor normales, pero la instancia secundaria y el servidor de aplicaciones están conectados a través de una conexión débil, que es un tipo especial de conexión.
+La principal diferencia de una conexión débil es que no acepta el enrutamiento de conexión de cliente, porque la instancia secundaria se encuentra en otra región. El enrutamiento de un cliente a otra región no es una opción óptima (aumenta la latencia).
 
 Una instancia del servicio puede tener distintos roles cuando se conecta a varios servidores de aplicaciones.
 Una configuración típica de un escenario de regiones cruzadas tiene dos (o más) pares de instancias de servicio de SignalR y servidores de aplicaciones.
 En cada par, el servidor de aplicaciones y SignalR Service se encuentran en la misma región y este último se conecta al servidor de aplicaciones como rol principal.
 Entre los pares, el servidor de aplicaciones y SignalR Service también están conectados, pero este último se vuelve secundario al conectarse al servidor de otra región.
 
-Con esta topología, todavía se puede entregar el mensaje de un servidor a todos los clientes, ya que todos los servidores de aplicaciones e instancias de servicio de SignalR están interconectados.
+Con esta topología, todavía se puede entregar el mensaje de un servidor a todos los clientes, ya que todos los servidores de aplicaciones e instancia de servicio de SignalR están interconectados.
 Pero cuando se conecta un cliente, siempre se enruta al servidor de aplicaciones de la misma región para lograr la latencia de red óptima.
 
 A continuación, un diagrama que ilustra esta topología:
@@ -51,7 +51,7 @@ Esto se puede hacer de dos maneras:
 
 ### <a name="through-config"></a>Mediante configuración
 
-Debía haber sido cómo establecer la cadena de conexión de SignalR service a través de settings/web.cofig aplicación o las variables de entorno, a través de una entrada de configuración denominada `Azure:SignalR:ConnectionString`.
+Debe saber cómo configurar la cadena de conexión de servicio de SignalR a través de variables de entorno/configuración de aplicaciones/web.cofig, mediante una entrada de configuración llamada `Azure:SignalR:ConnectionString`.
 Si tiene varios puntos de conexión, puede establecerlos en varias entradas de configuración, cada una de ellas con el siguiente formato:
 
 ```
@@ -91,13 +91,13 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
 ## <a name="failover-sequence-and-best-practice"></a>Secuencia de conmutación por error y procedimiento recomendado
 
 Ahora tiene la configuración de la topología de sistema correcta. Cada vez que una instancia de servicio de SignalR está inactiva, el tráfico en línea se enruta a otras instancias.
-Esto es lo que ocurre cuando una instancia principal está inactiva (y se recupera tras algún tiempo):
+Esto es lo que ocurre cuando una instancia principal está inactiva (y se recupera al tiempo):
 
 1. La instancia principal está inactiva, todas las conexiones a los servidores de esa instancia se interrumpen.
 2. Todos los servidores conectados a esta instancia se marcan como sin conexión y la negociación dejará de devolver este punto de conexión y pasará a devolver el secundario.
 3. También se cerrarán todas las conexiones de cliente en esta instancia y se volverá a conectar a los clientes. Puesto que los servidores de aplicaciones ahora devuelven el punto de conexión secundario, los clientes se conectarán a la instancia secundaria.
 4. Ahora la instancia secundaria toma todo el tráfico en línea. Todos los mensajes del servidor a los clientes pueden entregarse, ya que la instancia secundaria está conectada a todos los servidores de aplicaciones. Pero los mensajes del cliente al servidor solo se enrutan al servidor de aplicaciones de la misma región.
-5. Una vez recuperada y en línea la instancia principal, el servidor de aplicaciones restablecerá las conexiones a ella y la marcará como "en línea". La negociación ahora vuelve a devolver el punto de conexión principal, de manera que los clientes se vuelven a conectar a la instancia principal. Pero los clientes existentes no se desconectarán y continuarán enrutados a la instancia secundaria hasta que ellos mismos de desconecten.
+5. Una vez recuperada y en línea la instancia principal, el servidor de aplicaciones restablecerá las conexiones a ella y la marcará como "en línea". La negociación ahora vuelve a devolver el punto de conexión principal, de manera que los clientes se vuelven a conectar a la instancia principal. Pero los clientes existentes no se pueden desconectar y continuarán enrutados a la instancia secundaria hasta que ellos mismos de desconecten.
 
 A continuación, los diagramas muestran cómo se realiza la conmutación por error en SignalR Service:
 
@@ -109,7 +109,7 @@ Ilustración 3. Poco tiempo después de la recuperación de la instancia princip
 
 Normalmente, solo el servidor de aplicaciones y SignalR Service principales tienen tráfico en línea (en azul).
 Después de la conmutación por error, el servidor de aplicaciones y SignalR Service secundarios también se activan.
-Cuando SignalR Service principal vuelve a estar en línea, los nuevos clientes se conectarán a él. Pero los clientes existentes se seguirán conectando a la instancia secundaria, por lo que ambas instancias tendrán tráfico.
+Cuando SignalR Service principal vuelve a estar en línea, los nuevos clientes se conectarán a él. Pero los clientes existentes se seguirán conectando a la instancia secundaria, por lo que ambas instancias tienen tráfico.
 Una vez desconectados todos los clientes existentes, el sistema volverá a la normalidad (ilustración 1).
 
 Hay dos patrones principales para implementar una arquitectura de alta disponibilidad entre regiones:
@@ -121,7 +121,7 @@ SignalR Service admite ambos patrones, la principal diferencia es la manera de i
 Si estos son de tipo "activo/pasivo", SignalR también será "activo/pasivo" (ya que el servidor de aplicaciones principal solo devuelve la instancia de servicio de SignalR principal).
 Si los servidores de aplicaciones son "activo/activo", SignalR también será "activo/activo" (ya que todos los servidores de aplicaciones devolverán sus propias instancias de SignalR principales, por lo que todos pueden tener tráfico).
 
-Tener en cuenta con independencia de qué patrones opta por usar, deberá conectarse a cada instancia del servicio SignalR a un servidor de aplicaciones como principal.
+Tenga en cuenta que, independiente de los patrones que decida usar, necesitará conectar cada instancia de servicio de SignalR a un servidor de aplicaciones como principal.
 
 Además, por la naturaleza de la conexión de SignalR (es una conexión larga), los clientes experimentarán interrupciones de conexión cuando se produzca un desastre y una conmutación por error.
 Deberá tratar con esos casos desde el cliente para que sea transparente para los clientes finales. Por ejemplo, vuelva a realizar la conexión cuando se cierre.
@@ -130,4 +130,4 @@ Deberá tratar con esos casos desde el cliente para que sea transparente para lo
 
 En este artículo ha aprendido a configurar la aplicación para lograr resistencia para SignalR Service. Para conocer más detalles acerca de la conexión cliente/servidor y el enrutamiento de conexión en SignalR Service, consulte [este artículo](signalr-concept-internals.md) para los aspectos internos de SignalR Service.
 
-¿Para escalar escenarios como el particionamiento, que usan varias instancias juntas para controlar el gran número de conexiones, leer [cómo escalar varias instancias](signalr-howto-scale-multi-instances.md)?
+Para escalar escenarios como el particionamiento, que usan varias instancias juntas para controlar un gran número de conexiones, lea [cómo escalar varias instancias](signalr-howto-scale-multi-instances.md).

@@ -1,6 +1,6 @@
 ---
 title: Procedimientos recomendados para implementaciones seguras de PaaS - Microsoft Azure
-description: Aprenda las prácticas recomendadas de diseño, creación y administración segura de aplicaciones en Azure en la nube y comprender las ventajas de seguridad de PaaS en comparación con otros modelos de servicio en la nube.
+description: Conozca los procedimientos recomendados para diseñar, compilar y administrar aplicaciones seguras en la nube en Azure y comprender las ventajas de seguridad de PaaS en comparación con otros modelos de servicio en la nube.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231124"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
@@ -30,7 +30,7 @@ En este artículo se proporciona información que ayuda a:
 - Cambiar el enfoque de seguridad de un perímetro basado en la red por un perímetro basado en identidades
 - Implementar recomendaciones generales de procedimientos recomendados de PaaS
 
-[Desarrollar aplicaciones seguras en Azure](abstract-develop-secure-apps.md) es una guía general para los controles que se debe considerar en cada fase del ciclo de vida de desarrollo de software al desarrollar aplicaciones para la nube y las preguntas de seguridad.
+[Desarrollo de aplicaciones seguras en Azure](abstract-develop-secure-apps.md) es una guía general que incluye los controles y las preguntas de seguridad que se deben considerar en cada fase del ciclo de vida de desarrollo de software al desarrollar aplicaciones para la nube.
 
 ## <a name="cloud-security-advantages"></a>Ventajas de seguridad en la nube
 La nube ofrece ventajas de seguridad. En un entorno local, las organizaciones probablemente tengan responsabilidades inadecuadas y recursos limitados disponibles para invertir en seguridad, de tal manera que se crea un entorno donde los atacantes pueden aprovechar vulnerabilidades a todos los niveles.
@@ -87,7 +87,7 @@ Durante décadas, se han encontrado disponibles principios y patrones para el pe
 Aquí tiene unas recomendaciones para administrar el perímetro de identidad.
 
 **Procedimiento recomendado**: proteger las claves y las credenciales para proteger la implementación de PaaS.   
-**Detalles**: La pérdida de claves y credenciales es un problema común. Puede usar una solución centralizada donde se pueden almacenar claves y secretos en módulos de seguridad de hardware (HSM). [Azure Key Vault](../key-vault/key-vault-whatis.md) protege las claves y secretos mediante el cifrado de claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .pfx y contraseñas con claves protegidas por HSM.
+**Detalles**: La pérdida de claves y credenciales es un problema común. Puede usar una solución centralizada que permita almacenar claves y secretos en módulos de seguridad de hardware (HSM). [Azure Key Vault](../key-vault/key-vault-whatis.md) guarda claves y secretos mediante el cifrado de claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .pfx y contraseñas a través del uso de claves protegidas por HSM.
 
 **Procedimiento recomendado**: no incluya credenciales ni otros secretos en el código fuente ni en GitHub.   
 **Detalles**: mucho peor que perder las claves y las credenciales es que otra persona no autorizada acceda a ellas. Los atacantes pueden aprovechar las tecnologías de bots para encontrar claves y secretos almacenados en repositorios de código, como GitHub. No guarde claves ni secretos en estos repositorios públicos de código.
@@ -155,12 +155,12 @@ La supervisión es el acto de recopilar y analizar datos para determinar el rend
 
 Use [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) para supervisar la disponibilidad, el rendimiento y el uso de la aplicación, tanto si se hospeda en la nube como en un entorno local. Con Application Insights, podrá identificar y diagnosticar rápidamente errores en la aplicación sin tener que esperar a que un usuario informe de ellos. Con la información que recopile, puede tomar decisiones informadas sobre el mantenimiento y las mejoras de la aplicación.
 
-Application Insights tiene numerosas herramientas para interactuar con los datos que recopila. Application Insights almacena sus datos en un repositorio común. Puede aprovechar la funcionalidad compartida, como alertas, paneles y un análisis profundo con el lenguaje de consulta Kusto.
+Application Insights tiene numerosas herramientas para interactuar con los datos que recopila. Application Insights almacena sus datos en un repositorio común. Puede sacar partido a las funciones compartidas, como alertas, paneles y análisis detallados con el lenguaje de consulta de Kusto.
 
 ## <a name="perform-security-penetration-testing"></a>Realizar pruebas de penetración de seguridad
-Validando las defensas de seguridad es tan importante como probar cualquier otra funcionalidad. Asegúrese de [pruebas de penetración](azure-security-pen-testing.md) una parte estándar del proceso de compilación e implementación. Programe pruebas de seguridad y el examen de vulnerabilidades en las aplicaciones implementadas y supervise para puertos abiertos, los puntos de conexión y los ataques.
+Validar defensas de seguridad es tan importante como probar cualquier otra característica. Convierta las [pruebas de penetración](azure-security-pen-testing.md) en una parte estándar del proceso de compilación e implementación. Programe pruebas de seguridad y exámenes de vulnerabilidades periódicos en las aplicaciones, y supervise si hay puertos abiertos, ataques y puntos de conexión.
 
-Las pruebas de exploración de vulnerabilidades son un método para buscar errores de programa (errores de código), proporcionando los datos de entrada con formato incorrecto para interfaces de programación (puntos de entrada) que analizarán y consumen estos datos. [Detección de riesgos de seguridad de Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) es una herramienta basada en la nube que puede usar para buscar errores y otras vulnerabilidades de seguridad en el software antes de implementarla en Azure. La herramienta está diseñada para detectar vulnerabilidades antes de implementar software para que no tenga que aplicar revisiones a un error, tratar los bloqueos o responder a un ataque después del lanzamiento de software.
+Las pruebas de vulnerabilidad ante datos aleatorios o inesperados son un método para buscar errores de programa (errores de código), proporcionando los datos de entrada con formato incorrecto para interfaces de programación (puntos de entrada) que analizan y consumen estos datos. [Detección de riesgos de seguridad de Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) es una herramienta en la nube que puede usar para buscar errores y otras vulnerabilidades de seguridad en el software antes de implementarlo en Azure. La herramienta está diseñada para detectar vulnerabilidades antes de implementar software para que no tenga que aplicar revisiones a un error, controlar bloqueos o responder a un ataque después del lanzamiento del software.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -173,7 +173,7 @@ Este artículo se centra en las ventajas de seguridad que ofrece una implementac
 - Azure Service Bus
 - Firewall de aplicaciones web
 
-Consulte [desarrollar aplicaciones seguras en Azure](abstract-develop-secure-apps.md) para las preguntas de seguridad y los controles que se debe considerar en cada fase del ciclo de vida de desarrollo de software al desarrollar aplicaciones para la nube.
+Vea [Desarrollo de aplicaciones seguras en Azure](abstract-develop-secure-apps.md) para profundizar en los controles y las preguntas de seguridad que se deben considerar en cada fase del ciclo de vida de desarrollo de software al desarrollar aplicaciones para la nube.
 
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 

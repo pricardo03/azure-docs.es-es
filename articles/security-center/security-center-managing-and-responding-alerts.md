@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
 ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235776"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
@@ -65,7 +65,7 @@ En la parte inferior de esta página aparecen los detalles de cada alerta. Para 
 >
 
 
-### <a name="alert-severity"></a>Gravedad de alerta
+### <a name="alert-severity"></a>Gravedad de las alertas
 
 -   **Alta**: hay una probabilidad elevada de que el recurso esté en peligro. Debe investigarse de inmediato. El grado de certeza de Security Center sobre la mala intención de la acción y los hallazgos utilizados para emitir la alerta es elevado. Una alerta de este tipo sería podría detectar la ejecución de una herramienta malintencionada conocida; por ejemplo, Mimikatz, una herramienta que se usa habitualmente para robar credenciales. 
 -   **Media**: es probable que sea actividad sospechosa que puede indicar que un recurso está en peligro.
@@ -73,10 +73,10 @@ El grado de certeza de Security Center sobre el análisis o los hallazgos es med
 -   **Baja**: podría tratarse de un hallazgo benigno o de un ataque bloqueado. 
     - Security Center no tiene la certeza suficiente de que la intención fuera mala y la actividad podría ser inofensiva. Por ejemplo, borrar un registro es una acción que podría producirse si un atacante intenta ocultar sus huellas, pero en muchos casos es una operación rutinaria que realizan los administradores.
     - Por lo general, Security Center no avisa cuando se bloquean ataques a menos que se considere un caso interesante que convenga examinar. 
--   **Informativo**: solo verá las alertas informativas cuando explore en profundidad un incidente de seguridad, o si usa la API REST con un determinado identificador de alerta. Normalmente, las incidencias se componen de varias alertas, algunas de las cuales pueden parecer meramente informativas, aunque a tenor de otras alertas puede ser conveniente investigarlas.  
+-   **Informativas**: solo verá las alertas informativas cuando explore en profundidad un incidente de seguridad, o si usa la API REST con un determinado identificador de alerta. Normalmente, las incidencias se componen de varias alertas, algunas de las cuales pueden parecer meramente informativas, aunque a tenor de otras alertas puede ser conveniente investigarlas.  
 
 > [!NOTE]
-> Si usas el **2015-06-01-preview** la versión de API, a continuación, hay diferencias en alarma de qué tipos de gravedad se aplican a qué escenarios, de lo que se haya indicado anteriormente.  
+> Si usa la versión de API **2015-06-01-preview**, hay diferencias en los tipos de gravedad de alarma que se aplican a cada escenario, con respecto a lo que se ha indicado antes.  
 
 ### <a name="filtering-alerts"></a>Filtrado de alertas
 Puede filtrar alertas en función de la fecha, el estado y la gravedad. Puede resultar útil filtrar las alertas en aquellos escenarios en que necesite restringir el ámbito de las alertas de seguridad que se muestran. Por ejemplo, podría comprobar las alertas de seguridad que se produjeron en las 24 horas anteriores, ya que se está investigando una posible brecha en el sistema.
@@ -102,7 +102,7 @@ La corrección sugerida por Security Center varía según la alerta de seguridad
 > Security Center ha lanzado un nuevo conjunto de detecciones en versión preliminar limitada que aprovecha los registros de auditoría, un marco de auditoría común, para detectar comportamientos malintencionados en máquinas Linux. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_linuxdetections@microsoft.com) para unirse a la versión preliminar.
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Control de incidentes de seguridad en Azure Security Center](security-center-incident.md)

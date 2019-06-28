@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824159"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
@@ -45,7 +45,7 @@ En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los
 | [OpenID Connect y OAuth](#openid-connect-and-oauth) | solo en la nube | OpenID Connect y OAuth se usan cuando se desarrollan aplicaciones nuevas. Este protocolo simplifica la configuración de la aplicación, tiene SDK fáciles de usar y permite que la aplicación use MS Graph.
 | [SAML](#saml-sso) | En la nube y locales | Elija SAML siempre que sea posible para las aplicaciones existentes que no utilizan OpenID Connect o OAuth. SAML funciona con las aplicaciones realizan la autenticación mediante uno de los protocolos SAML.|
 | [Basado en contraseñas](#password-based-sso) | En la nube y locales | Elija el método basado en contraseña cuando la aplicación se autentique con nombre de usuario y contraseña. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Este método usa el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas. |
-| [Vinculado](#linked-sign-on) | En la nube y locales | Elija el inicio de sesión vinculado cuando la aplicación está configurada para inicio de sesión único en otro servicio de proveedor de identidad. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
+| [Vinculado](#linked-sign-on) | En la nube y locales | Elija el inicio de sesión vinculado si la aplicación está configurada para el inicio de sesión único en otro servicio de proveedor de identidades. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
 | [Deshabilitada](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Los usuarios necesitan escribir su nombre de usuario y la contraseña cada vez que inician esta aplicación.|
 | [Autenticación integrada de Windows (IWA)](#integrated-windows-authentication-iwa-sso) | Solo en entornos locales | Elija el inicio de sesión único IWA para aplicaciones que usen la [autenticación integrada de Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) o aplicaciones compatibles con notificaciones. Para la autenticación integrada de Windows, los conectores del proxy de aplicación utilizan la delegación restringida de Kerberos (KCD) para autenticar a los usuarios en la aplicación. | 
 | [Basado en encabezados](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El inicio de sesión único basado en encabezados requiere PingAccess para Azure AD. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  | 
@@ -68,13 +68,13 @@ Elija el inicio de sesión único basado en SAML cuando la aplicación lo admita
 El inicio de sesión único basado en SAML es compatible con aplicaciones que usan cualquiera de estos protocolos:
 
 - SAML 2.0
-- WS-Federation
+- El certificado del proveedor de identidades de WS-Federation
 
-Para configurar una aplicación SaaS para basado en SAML single sign-on, vea [basado en SAML de la configuración de sesión único](configure-single-sign-on-portal.md). Además, muchas aplicaciones de software como servicio (SaaS) tienen un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) que le guía por la configuración del inicio de sesión único basado en SAML.
+Para configurar una aplicación SaaS para el inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-portal.md). Además, muchas aplicaciones de software como servicio (SaaS) tienen un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) que le guía por la configuración del inicio de sesión único basado en SAML.
 
-Para configurar una aplicación para WS-Federation, siga las mismas instrucciones para configurar la aplicación para basado en SAML single sign-on, vea [basado en SAML de la configuración de sesión único](configure-single-sign-on-portal.md). En el paso para configurar la aplicación para usar Azure AD, deberá reemplazar la dirección URL de inicio de sesión de Azure AD para el punto de conexión de WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+Para configurar una aplicación para WS-Federation, siga las mismas instrucciones que para configurar la aplicación para un inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-portal.md). En el paso para configurar la aplicación para usar Azure AD, tendrá que reemplazar la dirección URL de inicio de sesión de Azure AD para el punto de conexión de WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
-Para configurar una aplicación de forma local para basado en SAML single sign-on, vea [SAML single-sign-on para aplicaciones locales con el Proxy de aplicación](application-proxy-configure-single-sign-on-on-premises-apps.md).
+Para configurar una aplicación local para el inicio de sesión único basado en SAML, consulte [Inicio de sesión único en SAML para aplicaciones locales con Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
 Para más información acerca del protocolo SAML, consulte [Protocolo SAML de inicio de sesión único](../develop/single-sign-on-saml-protocol.md).
 
@@ -127,7 +127,7 @@ El inicio de sesión único vinculado permite a Azure AD proporcionar inicio de 
 
 ### <a name="linked-sign-on-for-application-migration"></a>Inicio de sesión vinculado para la migración de aplicaciones
 
-Inicio de sesión vinculado puede proporcionar una experiencia de usuario coherente durante la migración de aplicaciones durante un período de tiempo. Si va a migrar aplicaciones a Azure Active Directory, puede usar el inicio de sesión vinculado para publicar rápidamente los vínculos a todas las aplicaciones que se va a migrar.  Los usuarios pueden encontrar todos los vínculos en el [portal Mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md) o en el [iniciador de aplicaciones de Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Los usuarios no saben que están accediendo a una aplicación vinculada o una aplicación migrada.  
+El inicio de sesión vinculado puede proporcionar una experiencia de usuario coherente durante la migración de aplicaciones durante un período de tiempo. Si va a migrar aplicaciones a Azure Active Directory, puede usar un inicio de sesión vinculado para publicar rápidamente los vínculos a todas las aplicaciones que pretende migrar.  Los usuarios pueden encontrar todos los vínculos en el [portal Mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md) o en el [iniciador de aplicaciones de Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Los usuarios no saben que están accediendo a una aplicación vinculada o una aplicación migrada.  
 
 Una vez que el usuario se ha autenticado con una aplicación vinculada, se debe crear un registro de cuenta antes de proporcionar al usuario final el acceso de inicio de sesión único. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador.
 
@@ -156,11 +156,11 @@ En este diagrama se explica el flujo cuando un usuario accede a una aplicación 
 
 ![Diagrama de flujos de autenticación de Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. El usuario escribe la dirección URL para tener acceso a la aplicación local a través del Proxy de aplicación.
+1. El usuario escribe la dirección URL para tener acceso a la aplicación local mediante Application Proxy.
 2. Proxy de aplicación redirige la solicitud a los servicios de autenticación de Azure AD para realizar la autenticación previa. En este momento, Azure AD aplica cualquier autenticación correspondiente, así como directivas de autorización, como la autenticación multifactor. Si se valida el usuario, Azure AD crea un token y lo envía al usuario.
 3. El usuario pasa el token a Proxy de aplicación.
 4. El proxy de aplicación valida el token y recupera el nombre principal de usuario (UPN) del token. A continuación, envía la solicitud, el nombre principal de usuario y el nombre de entidad de seguridad de servicio (SPN) al conector mediante un canal seguro con autenticación dual.
-5. El conector utiliza la negociación de la delegación limitada de Kerberos (KCD) con la de AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
+5. El conector usa la negociación de la delegación restringida de Kerberos (KCD) con el AD local, suplantando al usuario para obtener un token de Kerberos para la aplicación.
 6. Active Directory envía el token de Kerberos para la aplicación al conector.
 7. El conector envía la solicitud original al servidor de aplicaciones, con el token de Kerberos que recibió de AD.
 8. La aplicación envía la respuesta al conector y, después, se devuelve al servicio del proxy de aplicación y, por último, al usuario.

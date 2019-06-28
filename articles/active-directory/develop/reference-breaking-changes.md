@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545799"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
@@ -45,7 +45,7 @@ No hay ninguno programado en este momento.
 
 ## <a name="march-2019"></a>Marzo de 2019
 
-### <a name="looping-clients-will-be-interrupted"></a>Interrumpe el bucle de clientes
+### <a name="looping-clients-will-be-interrupted"></a>Se interrumpirán los clientes en bucle
 
 **Fecha efectiva**: 25 de marzo de 2019
 
@@ -53,25 +53,25 @@ No hay ninguno programado en este momento.
 
 **Protocolo afectado**: Todos los flujos
 
-Las aplicaciones cliente pueden alojarla en ocasiones, emisión cientos de la misma solicitud de inicio de sesión a través de un breve período de tiempo.  Estas solicitudes pueden o no sea correctas, pero todas contribuyen a experiencia de usuario deficiente y ha aumentado la frecuencia de las cargas de trabajo para el proveedor de Identidades, aumentar la latencia para todos los usuarios y reducir la disponibilidad del IDP.  Estas aplicaciones están funcionando fuera de los límites de uso normal y deben actualizarse para que se comporten correctamente.  
+En ocasiones, las aplicaciones cliente pueden comportarse de manera incorrecta, emitiendo cientos de veces la misma solicitud de inicio de sesión durante un breve período de tiempo.  Estas solicitudes pueden completarse satisfactoriamente o no, pero todas contribuyen a una deficiente experiencia para el usuario y a un incremento de las cargas de trabajo para el IDP, lo que aumenta la latencia para todos los usuarios y reduce la disponibilidad del IDP.  Estas aplicaciones operan fuera de los límites de uso normal y deben actualizarse para que se comporten correctamente.  
 
-Se enviarán a los clientes que emiten solicitudes de duplicación varias veces una `invalid_grant` error: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+A los clientes que emitan solicitudes duplicadas varias veces se les enviará un error `invalid_grant`: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
 
-La mayoría de los clientes no será necesario cambiar el comportamiento para evitar este error.  Solo los clientes mal configurados (aquellos sin almacenamiento en caché de token o los que presenta bucles de mensajes ya) se verán afectados por este error.  Los clientes se realiza el seguimiento de por instancia localmente (a través de cookie) en los siguientes factores:
+La mayoría de los clientes no tendrán que cambiar su comportamiento para evitar este error.  Solo los clientes incorrectamente configurados (aquellos sin almacenamiento en caché de tokens o los que ya presentan bucles de mensajes) se verán afectados por este error.  Se realiza un seguimiento de los clientes por instancia a nivel local (mediante cookie) sobre los siguientes factores:
 
 * Sugerencia de usuario, si existe
 
-* Los ámbitos o recurso que se solicita
+* Ámbitos o recursos solicitados
 
-* Identificador de cliente
+* Id. de cliente
 
-* URI de redirección
+* URI de redireccionamiento
 
-* Modo y el tipo de respuesta
+* Tipo y modo de respuesta
 
-Las aplicaciones realizar varias solicitudes (15 +) en un breve período de tiempo (5 minutos) recibirán un `invalid_grant` error que explica que recorriendo.  Los tokens que se solicita duraciones lo suficientemente larga duración (mínimo de 10 minutos, 60 minutos de forma predeterminada), por lo que repetir las solicitudes durante este período de tiempo no son necesarios.  
+Las aplicaciones que realizan varias solicitudes (más de 15) en un breve período de tiempo (5 minutos) recibirán un error `invalid_grant` que explica que están en bucle.  Los tokens solicitados tienen una vigencia de una duración suficiente (10 minutos como mínimo, 60 minutos de forma predeterminada), por lo que las solicitudes repetidas durante este período de tiempo son innecesarias.  
 
-Deben controlar todas las aplicaciones `invalid_grant` que muestra un aviso interactivo, en lugar de solicitar un token de forma silenciosa.  Para evitar este error, los clientes deberían asegurarse correctamente que se almacenan en caché los tokens que reciben.
+Todas las aplicaciones deben controlar `invalid_grant` mostrando un aviso interactivo, en lugar de solicitar un token de forma silenciosa.  Para evitar este error, los clientes deberían asegurarse de que almacenan en caché correctamente los tokens que reciben.
 
 
 ## <a name="october-2018"></a>Octubre de 2018

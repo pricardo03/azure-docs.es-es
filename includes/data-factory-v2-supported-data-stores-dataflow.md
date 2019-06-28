@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 05/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 3a7cc1ac3940104993e6643e92da923ad1c6a14a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248935"
 ---
-| Categoría | Almacén de datos | Admite como un [actividad de copia](../articles/data-factory/copy-activity-overview.md) origen | Admite como un [actividad de copia](../articles/data-factory/copy-activity-overview.md) receptor | Compatible con [IR de Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Compatible con [flujo de datos](../articles/data-factory/concepts-data-flow-overview.md)
+| Categoría | Almacén de datos | Se admite como un origen de [actividad de copia](../articles/data-factory/copy-activity-overview.md) | Se admite como un receptor de [actividad de copia](../articles/data-factory/copy-activity-overview.md) | Compatible con [IR de Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Compatible con [Data Flow](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Las tablas de Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Formatos admitidos: Texto delimitado, Parquet</small> |
+| **Las tablas de Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Formatos compatibles: texto delimitado, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (API de SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[API de Azure Cosmos DB para MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ ||
-| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Formatos admitidos: Texto delimitado, Parquet</small> |
-| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Formatos admitidos: Texto delimitado, Parquet</small> |
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Formatos compatibles: texto delimitado, Parquet</small> |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Formatos compatibles: texto delimitado, Parquet</small> |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure Database para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  ||
-| &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |✓  |
+| &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |✓  |
 | &nbsp; |[Instancia administrada de Azure SQL Database](../articles/data-factory/connector-azure-sql-database-managed-insance.md) | |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |✓  |
 | &nbsp; |[Índice de Azure Search](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  ||
@@ -48,7 +48,7 @@ ms.locfileid: "66248935"
 | &nbsp; |[Centro abierto de SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  ||
 | &nbsp; |[SAP Business Warehouse a través de expresión multidimensional](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  ||
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  ||
-| &nbsp; |[Tabla SAP](../articles/data-factory/connector-sap-table.md) |✓ |✓ | |✓  ||
+| &nbsp; |[SAP Table](../articles/data-factory/connector-sap-table.md) |✓ |✓ | |✓  ||
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  ||
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  ||

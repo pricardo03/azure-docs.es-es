@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152992"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory
@@ -51,19 +51,19 @@ En este paso, usará la interfaz de usuario o aplicación de ADF para crear una 
 
    ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), seleccione su instancia de Azure-SSIS IR que está asociada a la base de datos SSISDB donde está implementado el paquete. Si el paquete usa la autenticación de Windows para tener acceso a almacenes de datos, p. ej. recursos compartidos de archivo de los servidores de SQL en el entorno local, Azure Files, etc., compruebe el **autenticación de Windows** casilla y escriba el dominio/usuario/contraseña para el paquete ejecución. Si el paquete necesita el entorno de ejecución de 32 bits para funcionar, active la casilla **32-Bit runtime** (Entorno de ejecución de 32 bits). En **Logging level** (Nivel de registro), seleccione un ámbito predefinido de registro para la ejecución de su paquete. Active la casilla **Customized** (Personalizado), si quiere escribir en su lugar un nombre de registro personalizado. Cuando se ejecuta la instancia de Azure-SSIS IR y la casilla **Manual entries** (Entradas manuales) está desactivada, puede examinar y seleccionar sus carpetas, proyectos, paquetes y entornos existentes de SSISDB. Haga clic en el botón **Refresh** (Actualizar) para capturar las carpetas, proyectos, paquetes y entornos recién agregados de SSISDB, de forma que estén disponibles para su examen y selección. 
+4. En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), seleccione su instancia de Azure-SSIS IR que está asociada a la base de datos SSISDB donde está implementado el paquete. Si el paquete usa autenticación de Windows para acceder a almacenes de datos, p. ej. recursos compartidos de archivos o servidores SQL Server en local, Azure Files, etc., active la casilla **Autenticación de Windows** y escriba el dominio, el nombre de usuario o la contraseña para la ejecución del paquete. Si el paquete necesita el entorno de ejecución de 32 bits para funcionar, active la casilla **32-Bit runtime** (Entorno de ejecución de 32 bits). En **Logging level** (Nivel de registro), seleccione un ámbito predefinido de registro para la ejecución de su paquete. Active la casilla **Customized** (Personalizado), si quiere escribir en su lugar un nombre de registro personalizado. Cuando se ejecuta la instancia de Azure-SSIS IR y la casilla **Manual entries** (Entradas manuales) está desactivada, puede examinar y seleccionar sus carpetas, proyectos, paquetes y entornos existentes de SSISDB. Haga clic en el botón **Refresh** (Actualizar) para capturar las carpetas, proyectos, paquetes y entornos recién agregados de SSISDB, de forma que estén disponibles para su examen y selección. 
 
    ![Establecer propiedades de la pestaña Settings (Configuración): Automatic (Automática)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Cuando no se está ejecutando la instancia de IR de SSIS de Azure o el **entradas manuales** está activada la casilla de verificación, puede especificar las rutas de acceso de paquete y el entorno de SSISDB directamente en los siguientes formatos: `<folder name>/<project name>/<package name>.dtsx` y `<folder name>/<environment name>`.
+   Si la instancia de Azure-SSIS IR no se está ejecutando o la casilla **Manual entries** (Entradas manuales) está activada, puede escribir las rutas de acceso del paquete y el entorno de SSISDB directamente en los siguientes formatos: `<folder name>/<project name>/<package name>.dtsx` y `<folder name>/<environment name>`.
 
    ![Establecer las propiedades en la pestaña Settings (Configuración): manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. En la pestaña **SSIS Parameters** (Parámetros de SSIS) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), cuando la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los parámetros de SSIS existentes en el proyecto o paquete seleccionados de SSISDB para que les asigne valores. En caso contrario, puede escribirlos uno a uno para asignar valores manualmente. Asegúrese de que existen y se han escrito correctamente para que la ejecución del paquete se realice de forma adecuada. Puede agregar contenido dinámico a sus valores mediante expresiones, funciones, variables del sistema ADF y canalización ADF parámetros o variables. Como alternativa, puede usar los secretos almacenados en su Azure Key Vault (AKV) como sus valores. Para ello, haga clic en el **AZURE KEY VAULT** la seleccionar o modificar el servicio vinculado de Azure Key VAULT existente casilla de verificación junto al parámetro correspondiente, o crear uno nuevo y, a continuación, seleccione el nombre/versión del secreto para el valor del parámetro.  Cuando crea o modifica el servicio vinculado de Azure Key VAULT, puede seleccionar o modificar su Azure Key VAULT existente o crear uno nuevo, pero conceda acceso a la identidad administrada de ADF para su Azure Key VAULT si aún no lo ha hecho. También puede escribir los secretos directamente en el siguiente formato: `<AKV linked service name>/<secret name>/<secret version>`.
+5. En la pestaña **SSIS Parameters** (Parámetros de SSIS) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), cuando la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los parámetros de SSIS existentes en el proyecto o paquete seleccionados de SSISDB para que les asigne valores. En caso contrario, puede escribirlos uno a uno para asignar valores manualmente. Asegúrese de que existen y se han escrito correctamente para que la ejecución del paquete se realice de forma adecuada. Puede agregar contenido dinámico a sus valores mediante expresiones, funciones, variables del sistema de ADF y parámetros o variables de canalización de ADF. También puede usar secretos almacenados en Azure Key Vault (AKV) como sus valores. Para ello, haga clic en la casilla **AZURE KEY VAULT** junto al parámetro correspondiente, seleccione o edite el servicio vinculado de AKV existente o cree uno nuevo y luego seleccione el nombre o la versión del secreto para el valor del parámetro.  Cuando se crea o se edita el servicio vinculado de AKV, se puede seleccionar o editar la instancia de AKV existente o crear una nueva, pero hay que conceder acceso a la identidad administrada de ADF a la instancia de AKV si aún no se ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Establecer propiedades en la pestaña SSIS Parameters (Parámetros de SSIS)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. En el **administradores de conexión** pestaña actividad de ejecución de paquetes SSIS, si se está ejecutando la instancia de IR de SSIS de Azure y la **entradas manuales** casilla de verificación de **configuración** está desactivada, la ficha se mostrará a los administradores de conexiones existente en el paquete o proyecto seleccionado de SSISDB para que asignar valores a sus propiedades. En caso contrario, se puede escribir ellos uno por uno para asignar valores a sus propiedades de forma manual, asegúrese de que existen y se especifican correctamente para que la ejecución del paquete se realice correctamente. Puede agregar contenido dinámico a sus valores de propiedad mediante expresiones, funciones, variables del sistema ADF y canalización ADF parámetros o variables. Como alternativa, puede usar los secretos almacenados en su Azure Key Vault (AKV) como sus valores de propiedad. Para ello, haga clic en el **AZURE KEY VAULT** la seleccionar o modificar el servicio vinculado de Azure Key VAULT existente casilla situada junto a la propiedad correspondiente, o crear uno nuevo y, a continuación, seleccione el nombre/versión del secreto para el valor de propiedad.  Cuando crea o modifica el servicio vinculado de Azure Key VAULT, puede seleccionar o modificar su Azure Key VAULT existente o crear uno nuevo, pero conceda acceso a la identidad administrada de ADF para su Azure Key VAULT si aún no lo ha hecho. También puede escribir los secretos directamente en el siguiente formato: `<AKV linked service name>/<secret name>/<secret version>`.
+6. En la pestaña **Administradores de conexiones** de la actividad Ejecutar paquete de SSIS, si la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) de la pestaña **Configuración** está desactivada, se muestran los administradores de conexiones existentes en el proyecto o paquete seleccionado de SSISDB para que se asignen valores a sus propiedades. De lo contrario, puede escribirlos uno a uno para asignar valores a sus propiedades manualmente. Asegúrese de que existen y se han escrito correctamente para que la ejecución del paquete sea correcta. Puede agregar contenido dinámico a sus valores de propiedad mediante expresiones, funciones, variables del sistema de ADF y parámetros o variables de canalización de ADF. También puede usar secretos almacenados en Azure Key Vault (AKV) como sus valores de propiedad. Para ello, haga clic en la casilla **AZURE KEY VAULT** junto a la propiedad correspondiente, seleccione o edite el servicio vinculado de AKV existente o cree uno nuevo y luego seleccione el nombre o la versión del secreto para el valor de la propiedad.  Cuando se crea o se edita el servicio vinculado de AKV, se puede seleccionar o editar la instancia de AKV existente o crear una nueva, pero hay que conceder acceso a la identidad administrada de ADF a la instancia de AKV si aún no se ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Establecer propiedades en la pestaña Connection Managers (Administradores de conexiones)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -71,7 +71,7 @@ En este paso, usará la interfaz de usuario o aplicación de ADF para crear una 
 
    ![Establecer propiedades en la pestaña Property Overrides (Reemplazos de propiedad)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
-8. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
+8. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>** .
 
 9. Para publicar la canalización en ADF, haga clic en **Publish All** (Publicar todo). 
 
@@ -232,7 +232,7 @@ En este paso se crea una canalización con una actividad Ejecutar paquete de SSI
 
 2. En Azure PowerShell, cambie a la carpeta `C:\ADF\RunSSISPackage`.
 
-3. Para crear la canalización **RunSSISPackagePipeline**, ejecute el **conjunto AzDataFactoryV2Pipeline** cmdlet.
+3. Para crear la canalización **RunSSISPackagePipeline**, ejecute el cmdlet **Set-AzDataFactoryV2Pipeline**.
 
    ```powershell
    $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
@@ -252,7 +252,7 @@ En este paso se crea una canalización con una actividad Ejecutar paquete de SSI
    ```
 
 ### <a name="run-the-pipeline"></a>Ejecución de la canalización
-Use la **Invoke AzDataFactoryV2Pipeline** para ejecutar la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
+Use el cmdlet **Invoke-AzDataFactoryV2Pipeline** para ejecutar la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
 
 ```powershell
 $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
@@ -314,21 +314,21 @@ En el paso anterior, ejecutó la canalización a petición. También puede crear
    }    
    ```
 2. En **Azure PowerShell**, cambie a la carpeta **C:\ADF\RunSSISPackage**.
-3. Ejecute el **conjunto AzDataFactoryV2Trigger** cmdlet, que crea el desencadenador. 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2Trigger**, que crea el desencadenador. 
 
    ```powershell
    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-4. De manera predeterminada, el desencadenador está en estado detenido. Inicio del desencadenador mediante la ejecución de la **inicio AzDataFactoryV2Trigger** cmdlet. 
+4. De manera predeterminada, el desencadenador está en estado detenido. Inicie el desencadenador al ejecutar el cmdlet **Start-AzDataFactoryV2Trigger**. 
 
    ```powershell
    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-5. Confirme que el desencadenador se inicia ejecutando el **Get AzDataFactoryV2Trigger** cmdlet. 
+5. Confirme que el desencadenador se ha iniciado al ejecutar el cmdlet **Get-AzDataFactoryV2Trigger**. 
 
    ```powershell
    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `

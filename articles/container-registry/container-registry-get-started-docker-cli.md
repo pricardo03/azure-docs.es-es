@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60828770"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
@@ -62,7 +62,7 @@ Ejecute el siguiente comando [docker run](https://docs.docker.com/engine/referen
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Vaya a `http://localhost:8080` para ver la página de web predeterminada proporciona Nginx en el contenedor en ejecución. Debería ver una página similar a la siguiente:
+Vaya a `http://localhost:8080` para ver la página web predeterminada que suministra Nginx en el contenedor en ejecución. Debería ver una página similar a la siguiente:
 
 ![Nginx en un equipo local](./media/container-registry-get-started-docker-cli/nginx.png)
 

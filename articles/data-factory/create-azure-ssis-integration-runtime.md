@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155202"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory
@@ -51,7 +51,7 @@ Al aprovisionar Azure-SSIS IR, también se instala el paquete de característica
 
     Asegúrese de que el servidor o la instancia administrada de Azure SQL Database no tengan ya una SSISDB. El aprovisionamiento de Azure-SSIS IR no admite el uso de una SSISDB existente.
 
-- **Red virtual de Azure Resource Manager (opcional)**. Debe tener una red virtual de Azure Resource Manager si se cumple al menos una de las siguientes condiciones:
+- **Red virtual de Azure Resource Manager (opcional)** . Debe tener una red virtual de Azure Resource Manager si se cumple al menos una de las siguientes condiciones:
 
   - Va a hospedar SSISDB en el servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o en una instancia administrada que está dentro de una red virtual.
   - Quiere conectarse a almacenes de datos locales desde paquetes SSIS que se ejecutan en una instancia de Azure-SSIS IR.
@@ -75,7 +75,7 @@ En la tabla siguiente se comparan determinadas características del servidor y l
 | **Transacciones distribuidas** | Compatible mediante transacciones distribuidas. No se admiten las transacciones del Coordinador de transacciones distribuidas de Microsoft (MSDTC). Si los paquetes SSIS usan MSDTC para coordinar las transacciones distribuidas, considere la posibilidad de migrar a transacciones elásticas de Azure SQL Database. Para más información, consulte [Transacciones distribuidas en bases de datos en la nube](../sql-database/sql-database-elastic-transactions-overview.md). | No compatible. |
 | | | |
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 En esta sección, usará Azure Portal, en concreto, la interfaz de usuario de ADF, para crear Azure-SSIS IR.
 
@@ -175,13 +175,13 @@ En esta sección, usará Azure Portal, en concreto, la interfaz de usuario de AD
 
    ![Configuración avanzada con una red virtual](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
-     a. En **Subscription** (Suscripción), seleccione la suscripción de Azure que tiene la red virtual.
+    a. En **Subscription** (Suscripción), seleccione la suscripción de Azure que tiene la red virtual.
 
     b. En **Location** (Ubicación), está seleccionada la misma ubicación del entorno de ejecución de integración.
 
     c. En **Type** (Tipo), seleccione el tipo de la red virtual: clásica o Azure Resource Manager. Se recomienda que seleccione red virtual de Azure Resource Manager, puesto que la red virtual clásica dejará de utilizarse pronto.
 
-    d. En **VNet Name** (Nombre de red virtual), seleccione el nombre de la red virtual. Esta red virtual debe ser la misma red virtual que se utiliza para Azure SQL Database con puntos de conexión de servicio de red virtual o una instancia administrada de Azure SQL Database para hospedar SSISDB o la que está conectada a la red del entorno local.
+    d. En **VNet Name** (Nombre de red virtual), seleccione el nombre de la red virtual. Esta red virtual debe ser la misma red virtual que se utiliza para Azure SQL Database con puntos de conexión de servicio de red virtual o instancia administrada de Azure SQL Database para hospedar SSISDB o la que está conectada a la red del entorno local.
 
     e. En **Subnet Name** (Nombre de subred), seleccione el nombre de la subred en la red virtual. Esta debe ser una subred diferente a la utilizada por Instancia administrada para hospedar SSISDB.
 
@@ -262,9 +262,9 @@ $SSISDBServerAdminPassword = "[your server admin password for SQL authentication
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
-### <a name="sign-in-and-select-subscription"></a>Inicie sesión y seleccione la suscripción
+### <a name="sign-in-and-select-subscription"></a>Inicio de sesión y selección de la suscripción
 
-Agregue el código siguiente al script para iniciar sesión y seleccione su suscripción de Azure:
+Agregue el código siguiente al script para iniciar sesión y seleccione la suscripción de Azure:
 
 ```powershell
 Connect-AzAccount
@@ -602,7 +602,7 @@ En esta sección, se utiliza una plantilla de Azure Resource Manager para crear 
     }
     ```
 
-2. Para implementar la plantilla de Azure Resource Manager, ejecute el comando de nuevo AzResourceGroupDeployment tal como se muestra en el ejemplo siguiente, donde ADFTutorialResourceGroup es el nombre del grupo de recursos y ADFTutorialARM.json es el archivo que contiene la definición de JSON para data factory y Azure-SSIS IR.
+2. Para implementar la plantilla de Azure Resource Manager, ejecute el comando New-AzResourceGroupDeployment como se muestra en el ejemplo siguiente, donde ADFTutorialResourceGroup es el nombre del grupo de recursos y ADFTutorialARM.json es el archivo que contiene la definición JSON de la factoría de datos y la instancia de Azure-SSIS IR.
 
     ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
@@ -610,7 +610,7 @@ En esta sección, se utiliza una plantilla de Azure Resource Manager para crear 
 
     Este comando crea la factoría de datos y una instancia de IR de SSIS de Azure, pero no inicia el entorno de ejecución de integración.
 
-3. Para iniciar la instancia de IR de SSIS de Azure, ejecute el comando de inicio AzDataFactoryV2IntegrationRuntime:
+3. Para iniciar la instancia de Azure-SSIS IR, ejecute el comando Start-AzDataFactoryV2IntegrationRuntime:
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name>" `

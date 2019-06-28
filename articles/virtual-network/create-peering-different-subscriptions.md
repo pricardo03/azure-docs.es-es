@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
 ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122018"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes
@@ -29,7 +29,7 @@ Los pasos para crear un emparejamiento de redes virtuales cambian en función de
 |--------- |---------|
 |[Ambas mediante Resource Manager](tutorial-connect-virtual-networks-portal.md) |Iguales|
 |[Una mediante Resource Manager y la otra clásica](create-peering-different-deployment-models.md) |Iguales|
-|[Una mediante Resource Manager y la otra, clásico](create-peering-different-deployment-models-subscriptions.md) |Diferente|
+|[Una mediante Resource Manager y la otra, clásico](create-peering-different-deployment-models-subscriptions.md) |Diferentes|
 
 No se puede crear un emparejamiento de redes virtuales entre dos redes virtuales implementadas mediante el modelo de implementación clásico. Si necesita conectar redes virtuales que se crearon a través del modelo de implementación clásica, puede usar una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar las redes virtuales.
 
@@ -41,7 +41,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
 
 Si las redes virtuales que desea emparejar están en suscripciones que están asociadas a diferentes inquilinos de Azure Active Directory, siga los pasos de la sección de CLI y PowerShell de este artículo. El portal no admite el emparejamiento de redes virtuales que pertenecen a suscripciones de diferentes inquilinos de Active Directory. 
 
-Tenga en cuenta que Cloud Shell tiene limitaciones en la conmutación de suscripciones e inquilinos debido a que el emparejamiento de VNet o emparejamiento de VNet Global entre redes virtuales que pertenecen a suscripciones en distintos inquilinos de Active Directory de Azure no funcionará. Use PowerShell o CLI.
+Tenga en cuenta que Cloud Shell presenta limitaciones al conmutar suscripciones e inquilinos. Por eso, no funcionará el emparejamiento de VNet o el emparejamiento de VNet global entre redes virtuales que pertenecen a suscripciones en distintos inquilinos de Azure Active Directory. Use PowerShell o CLI.
 
 Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones puede usar la misma cuenta para todos los pasos, y omitir los pasos para cerrar sesión en el portal y para asignar a otro usuario permisos para las redes virtuales.
 
@@ -57,11 +57,11 @@ Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está us
     - **Ubicación**: *Este de EE. UU.*
 4. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetA*. Seleccione **myVnetA** cuando aparezca en los resultados de la búsqueda. 
 5. Seleccione **Control de acceso (IAM)** en la lista de opciones vertical que aparece a la izquierda.
-6. En **myVnetA: control de acceso (IAM)**, seleccione **+ Agregar asignación de roles**.
+6. En **myVnetA: control de acceso (IAM)** , seleccione **+ Agregar asignación de roles**.
 7. Seleccione **Colaborador de la red** en la casilla **Rol**.
 8. En el cuadro **Seleccionar**, seleccione *UserB* o escriba la dirección de correo electrónico de UserB para buscarlo.
 9. Seleccione **Guardar**.
-10. En **myVnetA: control de acceso (IAM)**, seleccione **Propiedades** en la lista de opciones vertical que aparece a la izquierda. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El identificador de recurso es similar al ejemplo siguiente: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
+10. En **myVnetA: control de acceso (IAM)** , seleccione **Propiedades** en la lista de opciones vertical que aparece a la izquierda. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El ID de respuesta es similar al siguiente ejemplo: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Cierre sesión en el portal como UserA e inicie sesión como UserB.
 12. Complete los pasos del 2 al 3 y especifique o seleccione los valores siguientes en el paso 3:
 
@@ -74,7 +74,7 @@ Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está us
     - **Ubicación**: *Este de EE. UU.*
 
 13. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetB*. Seleccione **myVnetB** cuando aparezca en los resultados de la búsqueda.
-14. En **myVnetB**, seleccione **Propiedades** en la lista de opciones vertical que aparece a la izquierda. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El identificador de recurso es similar al ejemplo siguiente: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
+14. En **myVnetB**, seleccione **Propiedades** en la lista de opciones vertical que aparece a la izquierda. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El ID de respuesta es similar al siguiente ejemplo: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Seleccione **Control de acceso (IAM)** en **myVnetB** y complete los pasos del 5 al 10 para myVnetB (en el paso 8, escriba **UserA**).
 16. Cierre sesión en el portal como UserB e inicie sesión como UserA.
 17. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetA*. Seleccione **myVnetA** cuando aparezca en los resultados de la búsqueda.
@@ -186,7 +186,7 @@ Si las redes virtuales están en diferentes suscripciones y las suscripciones es
  - Agregue el usuario de cada inquilino de Active Directory como un [usuario invitado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) en el inquilino de Azure Active Directory opuesto.
  - Cada usuario tiene que aceptar la invitación del usuario invitado del inquilino de Active Directory opuesto.
 
-1. Confirme que tiene Azure PowerShell versión 1.0.0 o versiones posteriores. Puede hacerlo ejecutando el `Get-Module -Name Az` se recomienda instalar la versión más reciente de PowerShell [módulo Az](/powershell/azure/install-az-ps). Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirme que tiene Azure PowerShell versión 1.0.0 o superior. Puede hacerlo mediante la ejecución de `Get-Module -Name Az`. Recomendamos instalar la última versión del [módulo Az](/powershell/azure/install-az-ps) de PowerShell. Si no está familiarizado con Azure PowerShell, consulte [Introducción a Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Inicie una sesión de PowerShell.
 3. En PowerShell, inicie sesión en Azure como UserA. Para ello, escriba el comando `Connect-AzAccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 4. Cree un grupo de recursos y una red virtual A. Copie el script siguiente en un editor de texto del equipo. Reemplace `<SubscriptionA-Id>` por el identificador de SubscriptionA. Si no conoce el identificador de la suscripción, escriba el comando `Get-AzSubscription` para verlo. El valor de **id** en la salida devuelta es el identificador de la suscripción. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y pulse `Enter`.
@@ -314,7 +314,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
    ```
 
 2. Cierre sesión en Azure como UserA e inicie sesión como UserB.
-3. Ejecute el siguiente comando:
+3. Ejecute el comando siguiente:
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
@@ -329,7 +329,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
    ```
 
 2. Cierre sesión en Azure como UserA e inicie sesión como UserB.
-3. Ejecute el siguiente comando:
+3. Ejecute el comando siguiente:
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

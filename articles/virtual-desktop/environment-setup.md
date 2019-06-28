@@ -1,6 +1,6 @@
 ---
-title: 'Entorno de Windows Vista previa del escritorio Virtual: Azure'
-description: Los elementos básicos de un entorno de Windows Vista previa del escritorio Virtual.
+title: Entorno de la versión preliminar de Windows Virtual Desktop - Azure
+description: Elementos básicos de un entorno de versión preliminar de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,60 +8,60 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
 ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142384"
 ---
-# <a name="windows-virtual-desktop-preview-environment"></a>Entorno de Windows Vista previa del escritorio Virtual
+# <a name="windows-virtual-desktop-preview-environment"></a>Entorno de versión preliminar de Windows Virtual Desktop
 
-Vista previa de Escritorio Virtual de Windows es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y RemoteApps. En este tema le indicará un poco más acerca de la estructura general del entorno de Escritorio Virtual de Windows.
+La versión preliminar de Windows Virtual Desktop es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtuales y a RemoteApps. Este tema le proporcionará más información sobre la estructura general del entorno de Windows Virtual Desktop.
 
 ## <a name="tenants"></a>Inquilinos
 
-El inquilino de Escritorio Virtual de Windows es la interfaz principal para administrar el entorno de Escritorio Virtual de Windows. Cada inquilino de Escritorio Virtual de Windows debe estar asociado con Azure Active Directory que contenga los usuarios que iniciarán sesión el entorno. Desde el inquilino de Escritorio Virtual de Windows, puede comenzar a crear los grupos host para ejecutar cargas de trabajo de usuarios.
+El inquilino de Windows Virtual Desktop es la interfaz principal para administrar su entorno de Windows Virtual Desktop. Cada inquilino de Windows Virtual Desktop debe estar asociado con la instancia de Azure Active Directory que contiene los usuarios que iniciarán sesión en el entorno. Desde el inquilino de Windows Virtual Desktop, puede comenzar a crear grupos de hosts para ejecutar las cargas de trabajo de sus usuarios.
 
-## <a name="host-pools"></a>Grupos host
+## <a name="host-pools"></a>Grupos de host
 
-Un grupo host es una colección de máquinas virtuales que se registren para Escritorio Virtual de Windows como hosts de sesión cuando se ejecuta el agente de Escritorio Virtual de Windows. Todas las máquinas virtuales de host de sesión en un grupo host se deben originar en la misma imagen para una experiencia de usuario coherente.
+Un grupo de hosts es una colección de máquinas virtuales de Azure que se registran en Windows Virtual Desktop como hosts de sesión cuando ejecuta el agente de Windows Virtual Desktop. Todas las máquinas virtuales de host de sesión en un grupo de hosts deben provenir de la misma imagen para poder obtener una experiencia de usuario consistente.
 
-Un grupo host puede ser uno de los dos tipos:
+Un grupo de hosts puede ser uno de estos dos tipos:
 
 - Personal, donde cada host de sesión se asigna a usuarios individuales.
-- Agrupados, donde los hosts de sesión pueden aceptar conexiones de cualquier usuario autorizado para un grupo de aplicaciones del grupo host.
+- Agrupado, donde los hosts de sesión pueden aceptar conexiones de cualquier usuario autorizado a un grupo de aplicaciones dentro del grupo de hosts.
 
-Puede establecer propiedades adicionales en el grupo host para cambiar su comportamiento de equilibrio de carga, ¿cuántas sesiones puede tardar cada host de sesión, y qué puede hacer el usuario a los hosts de sesión en el grupo host mientras está conectado a sus sesiones de Escritorio Virtual de Windows. Controlar los recursos publicados a los usuarios a través de grupos de aplicaciones.
+Puede configurar propiedades adicionales en el grupo de hosts para cambiar el comportamiento de equilibrio de carga, cuántas sesiones puede tener cada host de sesión y lo que el usuario puede hacer con los hosts de sesión en el grupo de hosts mientras inicia sesión en Windows Virtual Desktop. Puede controlar los recursos publicados a los usuarios a través de grupos de aplicaciones.
 
 ## <a name="app-groups"></a>Grupos de aplicaciones
 
-Un grupo de aplicaciones es una agrupación lógica de las aplicaciones instaladas en los hosts de sesión en el grupo host. Un grupo de aplicaciones puede ser uno de los dos tipos:
+Un grupo de aplicaciones es una agrupación lógica de aplicaciones instaladas en hosts de sesión del grupo de hosts. Un grupo de aplicaciones puede ser uno de estos dos tipos:
 
-- RemoteApp, donde los usuarios tener acceso a la RemoteApps seleccionar individualmente y publicar en el grupo de aplicaciones
-- Escritorio, donde los usuarios tener acceso a todo el escritorio
+- RemoteApp, donde los usuarios acceden a las instancias de RemoteApp que usted mismo seleccione y publique individualmente en el grupo de aplicaciones.
+- Escritorio, donde los usuarios acceden al escritorio completo.
 
-De forma predeterminada, se crea automáticamente un grupo de aplicación de escritorio (denominado "Grupo de aplicaciones de escritorio") siempre que cree un grupo host. Puede quitar este grupo de aplicaciones en cualquier momento. Sin embargo, no se puede crear otro grupo de aplicación de escritorio en el grupo host, mientras que existe un grupo de aplicación de escritorio. Para publicar RemoteApps, debe crear un grupo de aplicaciones de RemoteApp. Puede crear varios grupos de aplicaciones de RemoteApp para dar cabida a escenarios de trabajo diferente. Diferentes grupos de aplicaciones de RemoteApp pueden contener también superpuestos RemoteApps.
+De forma predeterminada, un grupo de aplicaciones de escritorio (denominado "Grupo de aplicaciones de escritorio") se crea automáticamente cada vez que crea un grupo de hosts. Puede eliminar este grupo de aplicaciones en cualquier momento. Sin embargo, no puede crear otro grupo de aplicaciones de escritorio en el grupo de hosts mientras ya exista otro grupo de aplicaciones de escritorio. Para publicar instancias de RemoteApp, debe crear un grupo de aplicaciones de RemoteApp. Puede crear varios grupos de aplicaciones de RemoteApp para adaptarse a diferentes escenarios de trabajo. Los diferentes grupos de aplicaciones de RemoteApp también pueden contener instancias de RemoteApp superpuestas.
 
-Para publicar recursos a los usuarios, debe asignarlos a grupos de aplicaciones. Al asignar a usuarios a grupos de aplicaciones, tenga en cuenta lo siguiente:
+Para publicar recursos para los usuarios, debe asignarlos a grupos de aplicaciones. Cuando asigne usuarios a los grupos de aplicaciones, tenga en cuenta lo siguiente:
 
-- No se puede asignar un usuario a un grupo de aplicación de escritorio y un grupo de aplicaciones de RemoteApp en el mismo grupo host.
-- Un usuario puede asignarse a varios grupos de aplicación dentro del mismo grupo host y su fuente será una acumulación de ambos grupos de aplicaciones.
+- No se puede asignar un usuario a un grupo de aplicaciones de escritorio y a un grupo de aplicaciones de RemoteApp en el mismo grupo de hosts.
+- Se puede asignar un usuario a varios grupos de aplicaciones dentro del mismo grupo de hosts, y su fuente será una acumulación de ambos grupos de aplicaciones.
 
 ## <a name="tenant-groups"></a>Grupos de inquilinos
 
-En el escritorio Virtual de Windows, el inquilino de Escritorio Virtual de Windows es donde ocurre la mayor parte de la instalación y configuración. El inquilino de Escritorio Virtual de Windows contiene los grupos host, grupos de aplicaciones y las asignaciones de usuario del grupo de aplicación. Sin embargo, puede haber ciertas situaciones donde es necesario para administrar a varios inquilinos de Escritorio Virtual de Windows al mismo tiempo, especialmente si es un proveedor de servicios en la nube (CSP) o un socio de hospedaje. En estas situaciones, puede usar un grupo personalizado de inquilino de Escritorio Virtual de Windows para colocar cada uno de los inquilinos de Escritorio Virtual de Windows de los clientes y administrar centralmente el acceso. Sin embargo, si solo administra a un único inquilino de Escritorio Virtual de Windows, no se aplica el concepto de grupo del inquilino y puede seguir controlar y administrar al inquilino que existe en el grupo del inquilino predeterminado.
+En Windows Virtual Desktop, el inquilino de Windows Virtual Desktop es donde ocurre la mayor parte de la configuración e instalación. El inquilino de Windows Virtual Desktop contiene los grupos de hosts, los grupos de aplicaciones y las asignaciones de usuarios del grupo de aplicaciones. Sin embargo, puede haber ciertas situaciones en las que necesite administrar varios inquilinos de Windows Virtual Desktop a la vez, especialmente si es un proveedor de servicios en la nube (CSP) o un asociado de hospedaje. En estas situaciones, puede usar un grupo personalizado de inquilinos de Windows Virtual Desktop para ubicar a cada uno de los inquilinos de Windows Virtual Desktop de los clientes y administrar el acceso de forma centralizada. Sin embargo, si solo está administrando un único inquilino de Windows Virtual Desktop, el concepto de grupo de inquilinos no se aplica y puede continuar supervisando y administrando el inquilino que existe en el grupo de inquilinos predeterminado.
 
 ## <a name="end-users"></a>Usuarios finales
 
-Después de haber asignado a los usuarios a sus grupos de aplicación, puede conectar a una implementación de Escritorio Virtual de Windows con cualquiera de los clientes de Escritorio Virtual de Windows.
+Después de asignar usuarios a sus grupos de aplicaciones, pueden conectarse a una implementación de Windows Virtual Desktop con cualquiera de los clientes de Windows Virtual Desktop.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el acceso delegado y cómo asignar roles a los usuarios en [delegar el acceso en Windows Vista previa del escritorio Virtual](delegated-access-virtual-desktop.md).
+Obtenga más información sobre el acceso delegado y cómo asignar roles a los usuarios en [Delegated Access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md) (Acceso delegado en la versión preliminar de Windows Virtual Desktop).
 
-Para obtener información sobre cómo configurar el inquilino de Escritorio Virtual de Windows, consulte [crear un inquilino en Windows Vista previa del escritorio Virtual](tenant-setup-azure-active-directory.md).
+Para obtener información sobre cómo configurar el inquilino de Windows Virtual Desktop, consulte [Create a tenant in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md) (Crear un inquilino en la versión preliminar de Windows Virtual Desktop).
 
-Para obtener información sobre cómo conectarse a escritorios virtuales de Windows, consulte uno de los siguientes artículos:
+Para obtener información sobre cómo conectarse a Windows Virtual Desktop, consulte uno de los siguientes artículos:
 
-- [Conectarse desde Windows 10 o Windows 7](connect-windows-7-and-10.md)
-- [Conectarse desde un explorador web](connect-web.md)
+- [Conexión desde Windows 10 o Windows 7](connect-windows-7-and-10.md)
+- [Conexión desde un explorador web](connect-web.md)

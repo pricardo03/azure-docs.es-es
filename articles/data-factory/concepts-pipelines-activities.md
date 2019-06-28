@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65788675"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-create-pipelines.md)
 > * [Versión actual](concepts-pipelines-activities.md)
 
@@ -96,10 +96,10 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 
 Etiqueta | DESCRIPCIÓN | Type | Obligatorio
 --- | ----------- | ---- | --------
-name | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | String | Sí
-description | Especifique el texto que describe para qué se usa la canalización. | String | Sin 
-actividades | La sección **activities** puede contener una o más actividades definidas. Consulte la sección [JSON de actividades](#activity-json) para obtener más información sobre el elemento JSON de actividades. | Array | Sí
-parameters | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | List | Sin 
+Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | Cadena | Sí
+description | Especifique el texto que describe para qué se usa la canalización. | Cadena | Sin
+actividades | La sección **activities** puede contener una o más actividades definidas. Consulte la sección [JSON de actividades](#activity-json) para obtener más información sobre el elemento JSON de actividades. | Matriz | Sí
+parameters | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | Enumerar | Sin
 
 ## <a name="activity-json"></a>Actividad de JSON
 La sección **activities** puede contener una o más actividades definidas. Existen dos tipos principales de actividades: Actividades de ejecución y de control.
@@ -129,13 +129,13 @@ En la tabla siguiente se describen las propiedades en la definición JSON de la 
 
 Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | ---------
-name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li></ul>
+Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li></ul>
 description | Texto que describe para qué se usa la actividad. | Sí
-type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
+Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
 linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad Scoring de Azure Machine Learning y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
-typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin 
-policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye el comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | Sin 
-dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | Sin 
+typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin
+policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye el comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | Sin
+dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | Sin
 
 ### <a name="activity-policy"></a>Directiva de actividades
 Las directivas afectan al comportamiento en tiempo de ejecución de una actividad, lo que proporciona las opciones de capacidad de configuración. Las directivas de actividades solo están disponibles para las actividades de ejecución.
@@ -194,11 +194,11 @@ Las actividades de control tienen la siguiente estructura de nivel superior:
 
 Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | --------
-name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li><ul>
+Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | Sí</li><ul>
 description | Texto que describe para qué se usa la actividad. | Sí
-type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
-typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin 
-dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | Sin 
+Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | Sí
+typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin
+dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | Sin
 
 ### <a name="activity-dependency"></a>Dependencia de actividades
 La dependencia de actividades define cómo las actividades siguientes dependen de las actividades anteriores, lo que determina la condición de si se debe continuar ejecutando la tarea siguiente. Una actividad puede depender de una o varias actividades anteriores con distintas condiciones de dependencia.

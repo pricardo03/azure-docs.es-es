@@ -1,5 +1,5 @@
 ---
-title: Cree aplicaciones sin servidor con Azure Logic Apps y Azure Functions en Visual Studio
+title: Creación de aplicaciones sin servidor en Visual Studio con Azure Logic Apps y Azure Functions
 description: Cree, implemente y administre su primera aplicación sin servidor con Azure Logic Apps y Azure Functions en Visual Studio
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467448"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Cree su primera aplicación sin servidor con Azure Logic Apps y Azure Functions (Visual Studio)
@@ -82,20 +82,20 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
 
 1. Asigne un nombre y una ubicación al proyecto y elija **Aceptar**.
 
-   Visual Studio le pedirá que seleccione una plantilla de la lista de plantillas. 
-   En este ejemplo usa una plantilla de inicio rápido de Azure para que pueda crear una aplicación sin servidor que incluye una aplicación lógica y una llamada a una función de Azure.
+   Visual Studio le pedirá que seleccione una plantilla en la lista de plantillas. 
+   En este ejemplo se usa una plantilla de inicio rápido de Azure para la creación de una aplicación sin servidor que incluye una aplicación lógica y una llamada a una función de Azure.
 
    > [!TIP]
-   > En escenarios donde no desea predeploy su solución en un grupo de recursos de Azure, puede usar el espacio en blanco **aplicación lógica** plantilla, que simplemente crea una aplicación lógica vacía.
+   > En escenarios donde no quiera implementar previamente la solución en un grupo de recursos de Azure, puede usar la plantilla **Aplicación lógica** en blanco, que simplemente crea una aplicación lógica vacía.
 
-1. Desde el **mostrar las plantillas desde esta ubicación** lista, seleccione **inicio rápido de Azure (github.com/Azure/azure-quickstart-templates)**.
+1. En la lista **Mostrar las plantillas de esta ubicación**, seleccione **Inicio rápido de Azure (github.com/Azure/azure-quickstart-templates)** .
 
-1. En el cuadro de búsqueda, escriba "aplicación lógica" como filtro. En los resultados, seleccione esta plantilla: **101-logic-app-and-function-app**
+1. En el cuadro de búsqueda, escriba "logic-app" como filtro. En los resultados, seleccione esta plantilla: **101-logic-app-and-function-app**
 
    ![Seleccionar una plantilla de inicio rápido de Azure](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio crea y abre una solución para el proyecto del grupo de recursos. 
-   La plantilla de inicio rápido de Azure seleccionada crea una plantilla de implementación denominada `azuredeploy.json` dentro de su proyecto de grupo de recursos. Dicha plantilla incluye la definición de una aplicación lógica sencilla que se desencadena en una solicitud HTTP, llama a una función de Azure y devuelve el resultado en forma de respuesta HTTP.
+   La plantilla de inicio rápido de Azure que ha seleccionado crea una plantilla de implementación llamada `azuredeploy.json` en el proyecto del grupo de recursos. Dicha plantilla incluye la definición de una aplicación lógica sencilla que se desencadena en una solicitud HTTP, llama a una función de Azure y devuelve el resultado en forma de respuesta HTTP.
 
    ![Nueva solución sin servidor](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
@@ -105,13 +105,13 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
 
 Para poder abrir la aplicación lógica con el Diseñador de aplicaciones lógicas en Visual Studio, debe tener un grupo de recursos de Azure que ya esté implementado en Azure. A partir de ahí, el diseñador puede crear conexiones a los recursos y servicios de la aplicación lógica. Para esta tarea, implemente la solución de Visual Studio en Azure Portal.
 
-1. En el Explorador de soluciones, desde el menú contextual de su proyecto recursos, seleccione **implementar** > **New**.
+1. En el Explorador de soluciones, desde el menú contextual del proyecto, seleccione **Implementar** > **Nuevo**.
 
    ![Crear una implementación nueva para el grupo de recursos](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
 1. Si no está seleccionada, seleccione su suscripción de Azure y el grupo de recursos en el que desee realizar la implementación. Elija **Implementar**.
 
-   ![Configuración de la implementación](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+   ![Configuración de implementación](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
 1. Si aparece el cuadro **Editar parámetros**, especifique el nombre de recurso que va a usar para la aplicación lógica y la aplicación de función de Azure en la implementación y guarde la configuración. Asegúrese de que usa un nombre globalmente único para la aplicación de función.
 
@@ -122,9 +122,9 @@ Para poder abrir la aplicación lógica con el Diseñador de aplicaciones lógic
 
 ## <a name="edit-logic-app-in-visual-studio"></a>Edición de una aplicación lógica en Visual Studio
 
-Ahora que la solución se implementa en el grupo de recursos, abra la aplicación lógica con el Diseñador de aplicación lógica para que pueda editar y cambiar la aplicación lógica.
+Ahora que la solución está implementada en el grupo de recursos, abra la aplicación lógica con el Diseñador de aplicación lógica para poder editarla y cambiarla.
 
-1. En el Explorador de soluciones, desde el `azuredeploy.json` menú contextual del archivo, seleccione **abrir con Diseñador de aplicaciones lógicas**.
+1. En el Explorador de soluciones, desde el menú contextual del archivo `azuredeploy.json`, seleccione **Abrir con el Diseñador de aplicación lógica**.
 
    ![Abra "azuredeploy.json" en el Diseñador de aplicación lógica](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 

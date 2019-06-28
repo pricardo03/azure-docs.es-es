@@ -10,10 +10,10 @@ ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 4b47af857fada453e36fcb0c23e6d89e5ad90e42
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154339"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Hudson
@@ -73,7 +73,7 @@ Para usar Blob service con Hudson, necesitará instalar el complemento de Azure 
 2. En la página **Administrar Hudson**, haga clic en **Configurar sistema**.
 3. En la sección **Microsoft Azure Storage Account Configuration** (Configuración de la cuenta de almacenamiento de Microsoft Azure):
    
-     a. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [Azure Portal](https://portal.azure.com).
+    a. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [Azure Portal](https://portal.azure.com).
    
     b. Escriba la clave de la cuenta de almacenamiento, que también puede obtener en el [Azure Portal](https://portal.azure.com).
    
@@ -111,12 +111,12 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 8. Haga clic en **Make new container public by default** (Hacer público el nuevo contenedor de forma predeterminada) para este ejemplo. (Si desea usar un contenedor privado, también tendrá que crear una firma de acceso compartida para permitir el acceso. Eso va más allá del ámbito de este artículo. Puede obtener más información sobre las firmas de acceso compartido en [Uso de Firma de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md)).
 9. [Opcional] Haga clic en **Clean container before uploading** (Limpiar contenedor antes de cargarlo) si desea que se borre el contenido del contenedor antes de cargar los artefactos de compilación (déjela sin marcar si no desea limpiar el contenido del contenedor).
 10. Para consultar **List of Artifacts to upload** (Lista de artefactos que cargar), escriba **text/*.txt**.
-11. En **Common virtual path for uploaded artifacts** (Ruta de acceso virtual común para artefactos cargados), escriba **${BUILD\_ID}/${BUILD\_NUMBER}**.
+11. En **Common virtual path for uploaded artifacts** (Ruta de acceso virtual común para artefactos cargados), escriba **${BUILD\_ID}/${BUILD\_NUMBER}** .
 12. Haga clic en **Save** (Guardar) para guardar la configuración.
 13. En el panel de Hudson, haga clic en **Build Now** (Compilar ahora) para ejecutar **MyJob**. Examine el resultado de la consola para consultar el estado. Los mensajes de estado sobre Azure Storage se incluirán en los resultados de la consola cuando la acción posterior a la compilación comience a cargar los artefactos de compilación.
 14. Tras completar el trabajo satisfactoriamente, abra el blob público si desea examinar los artefactos de compilación.
     
-     a. Inicie sesión en [Azure Portal](https://portal.azure.com).
+    a. Inicie sesión en [Azure Portal](https://portal.azure.com).
     
     b. Haga clic en **Storage**(Almacenamiento).
     
@@ -134,7 +134,7 @@ En los siguientes pasos se muestra cómo configurar un paso de compilación para
 1. En la sección **Build** (Compilar) de la configuración del trabajo, haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Download from Azure Blob storage** (Descargar del almacenamiento de blobs de Azure).
 2. En **Storage account name**(Nombre de cuenta de almacenamiento), seleccione la cuenta de almacenamiento que desea usar.
 3. En **Container name**(Nombre de contenedor), especifique el nombre del contenedor que tiene los blobs que desea descargar. Puede usar variables de entorno.
-4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **proyecto\\*** especificaría todos los blobs cuyos nombres empiezan por **proyecto**.
+4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **project\\** * especificaría todos los blobs cuyos nombres empiecen por **project**.
 5. [Opcional] En **Download path**(Ruta de acceso de la descarga), especifique la ruta de acceso de la máquina de Hudson en la que desea descargar los archivos del almacenamiento de blobs de Azure. También se pueden usar variables de entorno. (Si no proporciona un valor para **Download path**, los archivos del almacenamiento de blobs de Azure se descargarán en el área de trabajo del trabajo).
 
 Si tiene elementos adicionales que desea descargar del almacenamiento de blobs de Azure, puede crear pasos de compilación adicionales.
@@ -153,7 +153,7 @@ A continuación se ofrece información general acerca de los componentes de Blob
   
     (El formato anterior se aplica a la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión en el [Azure Portal](https://portal.azure.com) para determinar el punto de conexión de la URL).
   
-    En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/**. El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\_ID}/${BUILD\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
+    En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/** . El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\_ID}/${BUILD\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
   
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 

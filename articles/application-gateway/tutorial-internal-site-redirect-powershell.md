@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
 ms.openlocfilehash: 9b3586080f1b0d42548ed9b0d676f357dd1e4e45
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729585"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante Azure PowerShell
 
-Puede usar Azure PowerShell para configurar el [redireccionamiento del tráfico web](application-gateway-multi-site-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, definirá un grupo de back-end mediante un conjunto de escalado de máquinas virtuales. A continuación, configurará reglas y agentes de escucha basados en dominios de su propiedad para asegurarse de que el tráfico web llega al grupo adecuado. En este tutorial se da por supuesto que posee varios ejemplos de dominios y usos de *www\.contoso.com* y *www\.contoso.org*.
+Puede usar Azure PowerShell para configurar el [redireccionamiento del tráfico web](application-gateway-multi-site-overview.md) al crear una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, definirá un grupo de back-end mediante un conjunto de escalado de máquinas virtuales. A continuación, configurará reglas y agentes de escucha basados en dominios de su propiedad para asegurarse de que el tráfico web llega al grupo adecuado. En este tutorial se da por supuesto que posee varios dominios y se usan ejemplos de *www\.contoso.com* y *www\.contoso.org*.
 
 En este artículo, aprenderá a:
 
@@ -99,7 +99,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Creación de la configuración y el grupo de servidores back-end
 
-Cree un grupo de back-end llamado *contosoPool* para la puerta de enlace de aplicaciones mediante [New AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure los valores del grupo de servidores back-end mediante [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Cree un grupo de back-end denominado *contosoPool* para la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure los valores del grupo de servidores back-end mediante [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -114,9 +114,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Creación del primer agente de escucha y regla
 
-Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, creará dos agentes de escucha para los dos dominios. En este ejemplo, se crean los agentes de escucha para los dominios de *www\.contoso.com* y *www\.contoso.org*.
+Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, creará dos agentes de escucha para los dos dominios. En este ejemplo se crean clientes de escucha para los dominios de *www\.contoso.com* y *www\.contoso.org*.
 
-Crear el primer agente de escucha denominado *contosoComListener* mediante [New AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end y puerto de front-end que creó anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Crear una regla básica llamada *Contosocomruley* mediante [New AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Cree el primer cliente de escucha denominado *contosoComListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración y el puerto de front-end creados anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica denominada *contosoComRule* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosoComlistener = New-AzApplicationGatewayHttpListener `
@@ -158,7 +158,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-the-second-listener"></a>Adición del segundo agente de escucha
 
-Agregar el agente de escucha llamado *contosoOrgListener* que es necesario para redirigir el tráfico mediante [agregar AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
+Agregue el cliente de escucha denominado *contosoOrgListener* que es necesario para redirigir el tráfico mediante [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -206,7 +206,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-second-routing-rule"></a>Adición de la segunda regla de enrutamiento
 
-A continuación, puede asociar la configuración de redirección a una regla nueva denominada *contosoOrgRule* mediante [agregar AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+Luego puede asociar la configuración de redirección a una regla nueva denominada *contosoOrgRule* mediante [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -302,7 +302,7 @@ Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejem
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Cambiar la dirección para su otro dominio, por ejemplo http://www.contoso.org y verá que se ha redirigido el tráfico hacia el agente de escucha para www\.contoso.com.
+Cambie la dirección al otro dominio, por ejemplo http://www.contoso.org , para ver que el tráfico se ha redirigido de nuevo al cliente de escucha de www\. contoso.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

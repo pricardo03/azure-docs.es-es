@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023206"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instalación de la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions
@@ -104,13 +104,13 @@ Para completar la instalación del Sistema en tiempo de ejecución de Azure Func
 
 Para crear la primera función en la versión preliminar del Sistema en tiempo de ejecución de Azure Functions, siga estos pasos:
 
-1. Vaya a la **Portal de Azure Functions Runtime** como `https://<machinename>.<domain>` por ejemplo `https://mycomputer.mydomain.com`.
+1. Vaya al **portal de Azure Functions Runtime** como `https://<machinename>.<domain>`, por ejemplo, `https://mycomputer.mydomain.com`.
 
 1. Se le pedirá que **inicie sesión**. Si se implementó en un dominio, use el nombre de usuario y la contraseña de la cuenta de dominio, en caso contrario, utilice el nombre de usuario y la contraseña de la cuenta local y para iniciar sesión en el portal.
 
     ![Inicio de sesión en el Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][14]
 
-1. Para crear aplicaciones de función, debe crear una suscripción.  En la esquina superior izquierda del portal, haga clic en el **+** opción junto a las suscripciones.
+1. Para crear aplicaciones de función, debe crear una suscripción.  En la esquina superior izquierda del portal, haga clic en la opción **+** junto a las suscripciones.
 
     ![Suscripciones del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][15]
 
@@ -118,7 +118,7 @@ Para crear la primera función en la versión preliminar del Sistema en tiempo d
 
     ![Nombre y plan de suscripción del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][16]
 
-1. Todas las aplicaciones de función se muestran en el panel izquierdo del portal.  Para crear una aplicación de función, seleccione el encabezado **Instancias de Function App** y haga clic en la opción **+**.
+1. Todas las aplicaciones de función se muestran en el panel izquierdo del portal.  Para crear una aplicación de función, seleccione el encabezado **Instancias de Function App** y haga clic en la opción **+** .
 
 1. Escriba un nombre para la aplicación de función, seleccione la suscripción correcta, elija qué versión del Sistema en tiempo de ejecución de Azure Functions desea programar y haga clic en **Crear**
 

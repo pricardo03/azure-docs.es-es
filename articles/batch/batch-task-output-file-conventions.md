@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791555"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET
@@ -208,7 +208,7 @@ Para ver los archivos de salidas y registros de las tareas en Azure Portal, nave
 
 El proyecto de ejemplo [PersistOutputs][github_persistoutputs] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de convenciones de archivos de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
 
-1. Abra el proyecto en **2019 de Visual Studio**.
+1. Abra el proyecto en **Visual Studio 2019**.
 2. Agregue las **credenciales de cuenta** de Batch y Storage a **AccountSettings.settings** al proyecto Microsoft.Azure.Batch.Samples.Common.
 3. **Compile** (pero no ejecute) la solución. Si se le solicita, restaure los paquetes NuGet.
 4. Use el Portal de Azure para cargar un [paquete de aplicación](batch-application-packages.md) para **PersistOutputsTask**. Incluya el archivo `PersistOutputsTask.exe` y los ensamblados dependientes en el paquete zip, establezca el identificador de la aplicación en "PersistOutputsTask" y la versión del paquete de aplicación en "1.0".

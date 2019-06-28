@@ -1,6 +1,6 @@
 ---
 title: Conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Central | Microsoft Docs
-description: Como desarrollador del dispositivo, obtenga información sobre cómo conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Central.
+description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Central.
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 04/24/2019
@@ -9,82 +9,82 @@ ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
 ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472188"
 ---
-# <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Conectar dispositivos SensorTile.box a una aplicación de Azure IoT Central
+# <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Conectar un dispositivo SensorTile.box a una aplicación de Azure IoT Central
 
-Este artículo se describe cómo los desarrolladores del dispositivo, conectar un dispositivo SensorTile.box a una aplicación de Microsoft Azure IoT Central.
+En este artículo se describe cómo conectar, en tanto que desarrollador de dispositivos, un dispositivo SensorTile.box a una aplicación de Microsoft Azure IoT Central.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para completar los pasos descritos en este artículo, necesita los siguientes recursos:
+Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 * Un dispositivo SensorTile.box. Para obtener más información, consulte [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mems-motion-sensor-eval-boards/steval-mksbox1v1.html).
-* La aplicación de ST BLE Sensor instalada en el dispositivo Android, también puede [descargarlo desde aquí](https://play.google.com/store/apps/details?id=com.st.bluems). Para obtener más información, visite: [Sensor de BLE ST](https://www.st.com/stblesensor)
-* Una aplicación de Azure IoT Central creada a partir de la **DevKits** plantilla de aplicación. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
-* Agregar el **SensorTile.box** plantilla de dispositivo en la aplicación IoT Central visitando el **las plantillas de dispositivo** página, haga clic en **+ nuevo**y seleccionando el **SensorTile.box** plantilla.
+* La aplicación ST BLE Sensor instalada en el dispositivo Android, que puede [descargar desde aquí](https://play.google.com/store/apps/details?id=com.st.bluems). Para obtener más información, visite: [ST BLE Sensor](https://www.st.com/stblesensor)
+* Una aplicación de Azure IoT Central creada a partir de la plantilla de aplicación **Devkits**. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
+* Para agregar la plantilla de dispositivo **SensorTile.box** a la aplicación de IoT Central, visite la página **Plantillas de dispositivo**, haga clic en **+ Nueva** y seleccione la plantilla **SensorTile.box**.
 
-### <a name="get-your-device-connection-details"></a>Obtener detalles de conexión de dispositivo
+### <a name="get-your-device-connection-details"></a>Obtener los detalles de conexión del dispositivo
 
-En la aplicación de Azure IoT Central, agregue un dispositivo real desde la **SensorTile.box** plantilla de dispositivo y tome nota de los detalles de conexión del dispositivo: **Id. de ámbito**, **Id. de dispositivo**, y **clave principal**:
+En su aplicación de Azure IoT Central, agregue un dispositivo real desde la plantilla de dispositivo **SensorTile.box** y anote los detalles de conexión del dispositivo: **Id. de ámbito**, **Id. de dispositivo** y **clave principal**:
 
-1. Agregar un dispositivo de Device Explorer. Seleccione **+ nuevo > Real** para agregar un dispositivo real.
+1. Agregue un dispositivo desde el Explorador de dispositivos. Seleccione **+ Nuevo > Real** para agregar un dispositivo real.
 
-    * Escriba una minúscula **Id. de dispositivo**, o usar el sugerido **Id. de dispositivo**.
-    * Escriba un **nombre de dispositivo**, o utilice el nombre sugerido
+    * Escriba un **Id. de dispositivo** en minúsculas o use el **Id. de dispositivo** sugerido.
+    * Escriba un **Nombre de dispositivo** o use el nombre sugerido.
 
     ![Agregar dispositivo](media/howto-connect-sensortile/real-device.png)
 
-1. Para obtener detalles de conexión del dispositivo **Id. de ámbito**, **Id. de dispositivo**, y **clave principal**, seleccione **Connect** en la página del dispositivo.
+1. Para obtener los detalles de conexión del dispositivo, como, por ejemplo, el **id. de ámbito**, el **id. de dispositivo** y la **clave principal**, seleccione **Conectar** en la página del dispositivo.
 
     ![Detalles de conexión](media/howto-connect-sensortile/connect-device.png)
 
-1. Tome nota de los detalles de conexión. Se ha desconectado temporalmente desde internet al preparar el dispositivo de DevKit en el paso siguiente.
+1. Anote los detalles de conexión. Temporalmente se le desconectará de Internet al preparar el dispositivo DevKit en el siguiente paso.
 
-## <a name="set-up-the-sensortilebox-with-the-mobile-application"></a>Configurar la SensorTile.box con la aplicación móvil
+## <a name="set-up-the-sensortilebox-with-the-mobile-application"></a>Configurar el dispositivo SensorTile.box con la aplicación móvil
 
-En esta sección, obtendrá información sobre cómo insertar el firmware de la aplicación en el dispositivo. Se luego cómo enviar los datos del dispositivo a IoT Central a través de la aplicación móvil ST BLE Sensor mediante la conectividad de Bluetooth Low Energy (BLE).
+En esta sección, obtendrá información sobre cómo insertar el firmware de la aplicación en el dispositivo. A continuación, aprenderá a enviar los datos del dispositivo a IoT Central a través de la aplicación móvil ST BLE Sensor mediante la conectividad de Bluetooth Low Energy (BLE).
 
-1. Abra la aplicación ST BLE Sensor y presione la **crear una nueva aplicación** botón.
+1. Abra la aplicación ST BLE Sensor y presione el botón **Crear una nueva aplicación**.
 
-    ![Crear aplicación](media/howto-connect-sensortile/create-app.png)
+    ![Creación de una aplicación](media/howto-connect-sensortile/create-app.png)
 
-1. Seleccione el **barómetro** aplicación.
-1. Presione el botón cargar.
+1. Seleccione la aplicación **Barómetro**.
+1. Presione el botón Cargar.
 
-    ![Carga barómetro](media/howto-connect-sensortile/barometer-upload.png)
+    ![Carga del barómetro](media/howto-connect-sensortile/barometer-upload.png)
 
-1. Presione el botón play asociado con su SensorTile.box.
-1. Una vez completado el proceso, la SensorTile.box transmite la temperatura, presión y humedad a través de BLE.
+1. Presione el botón de reproducción asociado con SensorTile.box.
+1. Una vez completado el proceso, SensorTile.box transmite la temperatura, la presión y la humedad a través de BLE.
 
-## <a name="connect-the-sensortilebox-to-the-cloud"></a>Conecte el SensorTile.box a la nube
+## <a name="connect-the-sensortilebox-to-the-cloud"></a>Conectar SensorTile.box a la nube
 
-En esta sección obtendrá información sobre cómo conectarse a la SensorTile.box a la aplicación móvil y conecta la aplicación móvil en la nube.
+En esta sección obtendrá información sobre cómo conectar SensorTile.box a la aplicación móvil y cómo conectar la aplicación móvil a la nube.
 
-1. Mediante el menú izquierdo, seleccione el **registro en la nube** botón.
+1. Mediante el menú izquierdo, seleccione el botón **Registro en la nube**.
 
     ![Registro en la nube](media/howto-connect-sensortile/cloud-logging.png)
 
-1. Seleccione **Azure IoT Central** como el proveedor de nube.
-1. Insertar el Id. de dispositivo y el identificador de ámbito que se han indicado anteriormente.
+1. Seleccione **Azure IoT Central** como proveedor de nube.
+1. Inserte el id. de dispositivo y el id. de ámbito que anotó anteriormente.
 
     ![Credenciales](media/howto-connect-sensortile/credentials.png)
 
-1. Seleccione el **clave de aplicación** botón de radio.
-1. Haga clic en **Connect** y seleccione la que desea cargar los datos de telemetría.
-1. Después de unos segundos, los datos aparecen en el panel de la aplicación IoT Central.
+1. Seleccione el botón de radio **Clave de aplicación**.
+1. Haga clic en **Conectar** y seleccione los datos de telemetría que desea cargar.
+1. Al cabo de unos segundos, los datos aparecen en el panel de la aplicación IoT Central.
 
-## <a name="sensortilebox-device-template-details"></a>Detalles de la plantilla SensorTile.box dispositivo
+## <a name="sensortilebox-device-template-details"></a>Detalles de la plantilla de dispositivo SensorTile.box
 
-Una aplicación que se crea a partir de la plantilla de dispositivo SensorTile.box con las siguientes características:
+Una aplicación creada a partir de la plantilla de dispositivo SensorTile.box con las siguientes características:
 
 ### <a name="telemetry"></a>Telemetría
 
-| Nombre del campo     | Unidades  | Mínimo | Máximo | Posiciones decimales |
+| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humedad       | %      | 30       | 90     | 1              |
 | temp           | °C     | 0     | 40     | 1              |
@@ -104,4 +104,4 @@ Una aplicación que se crea a partir de la plantilla de dispositivo SensorTile.b
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido cómo conectar un SensorTile.box a una aplicación de Azure IoT Central, el siguiente paso sugerido es aprender [cómo configurar una plantilla personalizada del dispositivo](howto-set-up-template.md) para su propio dispositivo de IoT.
+Ahora que ha aprendido a conectar SensorTile.box con la aplicación Azure IoT Central, le sugerimos como siguiente paso aprender a [configurar una plantilla de dispositivo personalizada](howto-set-up-template.md) para su dispositivo de IoT.

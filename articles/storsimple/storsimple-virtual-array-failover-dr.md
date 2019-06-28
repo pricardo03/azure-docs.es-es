@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61409627"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple mediante Azure Portal
@@ -162,7 +162,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 **Interrupción de la conectividad de la nube durante la recuperación ante desastres**
 
-Si se interrumpe la conectividad de la nube después de haberse iniciado la recuperación ante desastres y antes de completar la restauración del dispositivo, se producirá un error en la recuperación. Recibir una notificación de error. El dispositivo de destino para la recuperación ante desastres está marcado como *No usable*. No puede utilizar el mismo dispositivo de destino para recuperaciones ante desastres futuras.
+Si se interrumpe la conectividad de la nube después de haberse iniciado la recuperación ante desastres y antes de completar la restauración del dispositivo, se producirá un error en la recuperación. Recibirá una notificación de conmutación por error. El dispositivo de destino para la recuperación ante desastres está marcado como *No usable*. No puede utilizar el mismo dispositivo de destino para recuperaciones ante desastres futuras.
 
 **No hay dispositivos de destino compatibles**
 

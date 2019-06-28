@@ -1,5 +1,5 @@
 ---
-title: Introducir el lanzamiento de la integración de estado a Azure Deployment Manager
+title: Introducción de la implementación de integración de mantenimiento en Azure Deployment Manager
 description: Describe cómo implementar un servicio en varias regiones con Azure Deployment Manager. Muestra las prácticas de implementación segura para comprobar la estabilidad de la implementación antes de proceder en todas las regiones.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,42 +12,42 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796251"
 ---
-# <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducir el lanzamiento de la integración de estado a Azure Deployment Manager (versión preliminar)
+# <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducción de la implementación de integración de mantenimiento en Azure Deployment Manager (versión preliminar pública)
 
-[Azure Deployment Manager](./deployment-manager-overview.md) le permite realizar implementaciones por fases de los recursos de Azure Resource Manager. Los recursos se implementan región por región de forma ordenada. La comprobación de estado integrada de Azure Deployment Manager puede supervisar las implementaciones y automáticamente stop lanzamientos problemático, para que pueda solucionar problemas y reducir la escala del impacto. Esta característica puede reducir la no disponibilidad del servicio causado por las regresiones en las actualizaciones.
+[Azure Deployment Manager](./deployment-manager-overview.md) permite realizar implementaciones por fases de recursos de Azure Resource Manager. Los recursos se implementan región por región de forma ordenada. La comprobación de estado integrada de Azure Deployment Manager puede supervisar las implementaciones y detener de forma automática las que sean problemáticas, para que pueda solucionar los problemas y reducir la escala del impacto. Esta característica puede reducir la no disponibilidad del servicio causada por regresiones en las actualizaciones.
 
-## <a name="health-monitoring-providers"></a>Los proveedores de seguimiento de estado
+## <a name="health-monitoring-providers"></a>Proveedores de seguimiento de mantenimiento
 
-Con el fin de que la integración de mantenimiento más sencillo posible, Microsoft ha trabajado con algunas de las compañías para proporcionar una solución sencilla de copiar y pegar para integrar las comprobaciones de estado con las implementaciones de supervisión de estado de servicio superior. Si ya no usa a un monitor de estado, estas son soluciones excelentes para comenzar:
+Para que la integración del mantenimiento sea lo más sencilla posible, Microsoft ha trabajado con varias de las compañías de seguimiento del estado de los servicios más punteras para ofrecer una solución sencilla de copiar y pegar para integrar las comprobaciones de estado en las implementaciones. Si todavía no usa un monitor de estado, estas son soluciones excelentes para comenzar:
 
-| ![implementación de Azure manager health monitor proveedor datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![implementación de Azure manager health monitor proveedor site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![implementación de Azure manager health monitor proveedor wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
+| ![datadog, proveedor de seguimiento de estado de azure deployment manager](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![site24x7, proveedor de seguimiento de estado de azure deployment manager](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![wavefront, proveedor de seguimiento de estado de azure deployment manager](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
-|Datadog, la supervisión líder y plataforma de análisis para entornos de nube modernas. Consulte [cómo Datadog se integra con Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, solución de supervisión de servicios de la nube privada y pública de all-in-one. Consulte [cómo Site24x7 se integra con Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, la plataforma de supervisión y análisis para entornos de aplicaciones de varias nubes. Consulte [cómo Wavefront se integra con Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
+|Datadog, la plataforma líder de supervisión y análisis para los entornos de nube modernos. Vea [cómo se integra Datadog con Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, la solución integral de supervisión de servicios de la nube privada y pública. Vea [cómo se integra Site24x7 con Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, la plataforma de supervisión y análisis para entornos de aplicaciones de varias nubes. Vea [cómo se integra Wavefront con Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
 
 ## <a name="how-service-health-is-determined"></a>Cómo se determina el estado del servicio
 
-[Los proveedores de seguimiento de estado](#health-monitoring-providers) ofrecen varios mecanismos para servicios de supervisión y alertas de los problemas de mantenimiento de servicio. [Azure Monitor](../azure-monitor/overview.md) es un ejemplo de una oferta de este tipo. Azure Monitor puede utilizarse para crear alertas cuando se superan determinados umbrales. Por ejemplo, la utilización de CPU y memoria atiendan más allá de los niveles esperados al implementar una nueva actualización en el servicio. Cuando se le notifique, pueda tomar acciones correctivas.
+[Los proveedores de seguimiento de mantenimiento](#health-monitoring-providers) ofrecen varios mecanismos para la supervisión de los servicios y alertarle de cualquier problema de mantenimiento del servicio. [Azure Monitor](../azure-monitor/overview.md) es un ejemplo de este tipo de oferta. Azure Monitor se puede usar para crear alertas cuando se superan determinados umbrales. Por ejemplo, la utilización de la CPU y la memoria supera los niveles esperados cuando se implementa una actualización nueva en el servicio. Cuando se le notifique, pueda tomar acciones correctivas.
 
-Estos proveedores de estado normalmente ofrecen las API de REST para que se puede examinar el estado de monitores del servicio mediante programación. Las API de REST o bien puede consultar de nuevo con una simple señal correcto/incorrecto (determinado por el código de respuesta HTTP) o con información detallada acerca de las señales que recibe.
+Estos proveedores de mantenimiento normalmente ofrecen API REST para que el estado de los monitores del servicio se pueda examinar mediante programación. Las API REST pueden devolver una sencilla señal de estado correcto o incorrecto (determinada por el código de respuesta HTTP), o bien información detallada sobre las señales que reciben.
 
-El nuevo *healthCheck* paso en el Administrador de implementación de Azure le permite declarar códigos HTTP que indican que un servicio en buen estado, o bien, para obtener resultados más complejos de REST, incluso puede especificar expresiones regulares que, si coinciden, indican un correcto respuesta.
+El nuevo paso *healthCheck* de Azure Deployment Manager permite declarar códigos HTTP que indican un servicio en buen estado, o bien, para obtener resultados de REST más complejos, puede incluso especificar expresiones regulares que, si coinciden, indican una respuesta correcta.
 
-El flujo de instalación de las comprobaciones de estado del Administrador de implementaciones de Azure:
+El flujo de instalación de las comprobaciones de estado de Azure Deployment Manager es el siguiente:
 
-1. Crear a los monitores de mantenimiento a través de un proveedor de servicios de salud de su elección.
-1. Crear uno o varios pasos de comprobación del estado como parte de la implementación de Azure Deployment Manager. Rellene los pasos de comprobación de estado con la siguiente información:
+1. Crea los monitores de mantenimiento a través del proveedor de servicios de mantenimiento que elija.
+1. Crea uno o varios pasos healthCheck como parte de la implementación de Azure Deployment Manager. Rellena los pasos healthCheck con la información siguiente:
 
-    1. El URI para la API de REST para los monitores de mantenimiento (según lo definido por el proveedor de servicios de mantenimiento).
-    1. Información de autenticación. Actualmente se admite solo la autenticación de clave de API estilo.
-    1. [Códigos de estado HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) o expresiones regulares que definen una respuesta correcta. Tenga en cuenta que puede proporcionar expresiones regulares, que todas deben coincidencia para la respuesta que se consideran en buen estado, o puede proporcionar expresiones de los cuales cualquiera deben coincidir para que la respuesta se considera correcta. Se admiten ambos métodos.
+    1. El URI de la API REST para los monitores de mantenimiento (según lo definido por el proveedor de servicios de mantenimiento).
+    1. Información de autenticación. Actualmente solo se admite la autenticación de estilo de clave de API.
+    1. [Códigos de estado HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) o expresiones regulares que definen una respuesta correcta. Tenga en cuenta que puede proporcionar expresiones regulares, que todas tengan que coincidir para que la respuesta se considere correcta, o bien expresiones de las que cualquiera tenga que coincidir para que la respuesta se considere correcta. Se admiten los dos métodos.
 
-    El siguiente Json es un ejemplo:
+    El código JSON siguiente es un ejemplo:
 
     ```json
     {
@@ -96,7 +96,7 @@ El flujo de instalación de las comprobaciones de estado del Administrador de im
     },
     ```
 
-1. Invocar los pasos de comprobación del estado en el momento adecuado en la implementación de Azure Deployment Manager. En el ejemplo siguiente, se invoca un paso de comprobación de mantenimiento en **postDeploymentSteps** de **stepGroup2**.
+1. Invoque los pasos healthCheck en el momento adecuado de la implementación de Azure Deployment Manager. En el ejemplo siguiente, se invoca un paso de comprobación de mantenimiento en **postDeploymentSteps** de **stepGroup2**.
 
     ```json
     "stepGroups": [
@@ -134,33 +134,33 @@ El flujo de instalación de las comprobaciones de estado del Administrador de im
     ]
     ```
 
-Para recorrer un ejemplo, vea [Tutorial: Usar comprobación de estado en Azure Deployment Manager](./deployment-manager-health-check.md).
+Para realizar un ejemplo, vea [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-health-check.md).
 
 ## <a name="phases-of-a-health-check"></a>Fases de una comprobación de estado
 
-En este momento Azure Deployment Manager sabe cómo consultar el estado del servicio y en qué fases en la implementación para hacerlo. Sin embargo, Azure Deployment Manager también se permite para la configuración de profundidad de la temporización de estas comprobaciones. Se ejecuta un paso de comprobación del estado en 3 fases secuenciales, todos ellos tengan duraciones configurables: 
+En este momento, Azure Deployment Manager sabe cómo consultar el estado del servicio y en qué fases de la implementación hacerlo. Pero Azure Deployment Manager también permite la configuración en profundidad de los intervalos de estas comprobaciones. Se ejecuta un paso healthCheck en tres fases secuenciales, todas con duraciones que se pueden configurar: 
 
-1. Espera
+1. Esperar
 
-    1. Una vez completada una operación de implementación, se pueden reiniciar las máquinas virtuales, volver a configurar en función de los nuevos datos o incluso que se inició por primera vez. También puede tardar servicios para empezar a emitir señales de estado al que se agregue con el estado de proveedor de supervisión en algo útil. Durante este proceso difícil, no puede que tenga sentido comprobar el estado de servicio dado que la actualización aún no ha alcanzado un estado estable. De hecho, el servicio puede ser oscilantes entre Estados positiva y negativo como liquidación los recursos. 
-    1. Durante la fase de espera, no se supervisa el estado del servicio. Esto se utiliza para permitir que los recursos implementados el tiempo de platos preparados antes de comenzar el proceso de comprobación de mantenimiento. 
-1. Elástica
+    1. Una vez que se ha completado una operación de implementación, se pueden reiniciar las máquinas virtuales, volver a configurar en función de los datos nuevos o incluso iniciarse por primera vez. Los servicios también necesitan tiempo para empezar a emitir señales de mantenimiento que el proveedor de supervisión de mantenimiento combine en algo útil. Durante este complicado proceso, es posible que no tenga sentido comprobar el estado de servicio dado que la actualización todavía no ha alcanzado un estado estable. De hecho, el servicio puede oscilar entre los estados correcto e incorrecto mientras los recursos se consolidan. 
+    1. Durante la fase de espera, el estado del servicio no se supervisa. Esto se usa para proporcionar a los recursos implementados tiempo de preparación antes de que comience el proceso de comprobación de mantenimiento. 
+1. Elastic
 
-    1. Puesto que es imposible saber en todos los casos de cuánto recursos llevará a platos preparados antes de que sean estables, permite que la fase elástica durante un período de tiempo flexibles entre cuando los recursos son potencialmente inestables y cuando se necesitan para mantener a un equilibrio correcto estado.
-    1. Cuando se inicia la fase elástica, Azure Deployment Manager comienza sondeando periódicamente el punto de conexión REST proporcionado para el estado del servicio. El intervalo de sondeo es configurable. 
-    1. Si vuelve el monitor de estado con las señales que indica que el servicio está en mal estado, se omiten estas señales, continúa la fase elástica y sondeo continúa. 
-    1. Tan pronto como vuelve el monitor de estado con las señales que indica que el servicio está en buen estado, elástica comience la fase finaliza y la fase HealthyState. 
-    1. Por lo tanto, la duración especificada para la fase elástica es la cantidad máxima de tiempo que se puede gastar antes de una respuesta correcta se considera obligatoria de sondeo de estado del servicio. 
+    1. Como es imposible saber en todos los casos cuánto tiempo de preparación necesitarán los recursos antes de que sean estables, la fase Elastic (Elástica) permite un período de tiempo flexible entre cuando los recursos son potencialmente inestables y cuando deben mantener un estado correcto estable.
+    1. Cuando se inicia la fase Elastic, Azure Deployment Manager comienza a sondear de forma periódica el punto de conexión REST proporcionado para comprobar el estado del servicio. El intervalo de sondeo es configurable. 
+    1. Si el monitor de mantenimiento devuelve señales que indican que el servicio está en mal estado, esas señales se omiten y continúan la fase Elastic y el sondeo. 
+    1. En cuanto el monitor de mantenimiento devuelva señales que indican que el servicio está en buen estado, finaliza la fase Elastic y comienza la fase HealthyState. 
+    1. Por tanto, la duración especificada para la fase Elastic es la cantidad máxima de tiempo que se puede dedicar a sondear el mantenimiento del servicio antes de que una respuesta correcta se considere obligatoria. 
 1. HealthyState
 
-    1. Durante la fase HealthyState, estado del servicio se sondea continuamente en el mismo intervalo que la fase elástico. 
-    1. El servicio se espera que mantenga las señales correcto desde el proveedor de supervisión de estado para toda la duración especificada. 
-    1. Si en cualquier momento, se detecta una respuesta en mal estado, Azure Deployment Manager detendrá la implementación completa y devolver la respuesta REST que lleva las señales de servicio en mal estado.
-    1. Una vez que ha finalizado la duración HealthyState, completada la comprobación del estado y la implementación continúa con el paso siguiente.
+    1. Durante la fase HealthyState, el estado del servicio se sondea de forma continua con el mismo intervalo que la fase Elastic. 
+    1. Se espera que el servicio mantenga señales correctas del proveedor de supervisión de mantenimiento a lo largo de toda la duración especificada. 
+    1. Si en cualquier momento se detecta una respuesta incorrecta, Azure Deployment Manager detendrá la implementación y devolverá la respuesta REST en la que se incluyen las señales de servicio en mal estado.
+    1. Una vez que ha finalizado la duración de HealthyState, se completa el paso healthCheck y la implementación continúa con el paso siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido acerca de cómo integrar la supervisión del estado en el Administrador de implementación de Azure. Pase al siguiente artículo, donde aprenderá a realizar implementaciones con Deployment Manager.
+En este artículo ha obtenido información sobre cómo integrar el seguimiento de estado en Azure Deployment Manager. Pase al siguiente artículo, donde aprenderá a realizar implementaciones con Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Tutorial: integración de comprobación de estado en el Administrador de implementación de Azure](./deployment-manager-tutorial-health-check.md)
+> [Tutorial: Integración de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
 ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61065859"
 ---
 # <a name="azure-firewall-logs"></a>Registros de Azure Firewall
@@ -26,7 +26,7 @@ Se puede acceder a algunos de estos registros mediante el portal. Se pueden envi
 
 * **Registro de regla de aplicación**
 
-   El registro de la regla de aplicación se guarda en una cuenta de almacenamiento, transmitir a Event hubs o enviar a los registros de Azure Monitor solo si lo habilitó para cada servidor de seguridad de Azure. Cada nueva conexión que coincida con una de las reglas de la aplicación configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
+   El registro de la regla de aplicación se guarda en una cuenta de almacenamiento, se transmite a Event Hubs o se envía a los registros de Azure Monitor solo si se ha habilitado para cada instancia de Azure Firewall. Cada nueva conexión que coincida con una de las reglas de la aplicación configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Se puede acceder a algunos de estos registros mediante el portal. Se pueden envi
 
 * **Registro de regla de red**
 
-   El registro de la regla de red se guarda en una cuenta de almacenamiento, transmitir a Event hubs o enviar a los registros de Azure Monitor solo si lo habilitó para cada servidor de seguridad de Azure. Cada nueva conexión que coincida con una de las reglas de red configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
+   El registro de la regla de red se guarda en una cuenta de almacenamiento, se transmite a Event Hubs o se envía a los registros de Azure Monitor solo si se ha habilitado para cada instancia de Azure Firewall. Cada nueva conexión que coincida con una de las reglas de red configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
 
    ```
    Category: network rule logs.
@@ -86,4 +86,4 @@ Tiene tres opciones para almacenar los archivos de registro:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo supervisar métricas y registros de Firewall de Azure, consulte [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).
+Para obtener información sobre cómo supervisar las métricas y los registros de Azure Firewall, consulte [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161414"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Crear clústeres de HDInsight con Azure Data Lake Storage Gen1 como almacenamiento predeterminado mediante PowerShell
@@ -215,7 +215,7 @@ En esta sección, creará un clúster de Hadoop en HDInsight basado en Linux con
     Cuando el cmdlet se haya completado correctamente, debería ver una salida con la información del clúster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Ejecución de trabajos de prueba en el clúster de HDInsight para usar Data Lake Storage Gen1
-Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prueba en él para garantizar que puede acceder a Data Lake Storage Gen1. Para ello, ejecute un trabajo de Hive de ejemplo para crear una tabla que usa los datos de ejemplo que ya está disponibles en Data Lake Storage Gen1 en  *\<raíz del clúster > /example/data/sample.log*.
+Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prueba en él para garantizar que puede acceder a Data Lake Storage Gen1. Para hacerlo, ejecute un trabajo de Hive de ejemplo para crear una tabla en la que se usen los datos de ejemplo que ya están disponibles en Data Lake Storage Gen1 en *\<raíz_del_clúster>/example/data/sample.log*.
 
 En esta sección, realiza una conexión de Secure Shell (SSH) en el clúster de HDInsight en Linux que creó y luego ejecute una consulta de Hive de ejemplo.
 
@@ -253,7 +253,7 @@ Después de realizar la conexión, enumere los archivos de Data Lake Storage Gen
 
 También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en Data Lake Storage Gen1 y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Usar Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Azure Portal: Creación de un clúster de HDInsight para usar Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

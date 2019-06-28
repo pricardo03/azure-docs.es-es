@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: barclayn
 ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596388"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
@@ -72,8 +72,8 @@ Los permisos para usar las claves almacenadas en Azure Key Vault, además de par
 
 Se usa más de una clave de cifrado en una implementación de cifrado en reposo. El cifrado asimétrico es útil para establecer la confianza y la autenticación necesarias para la administración y acceso a la clave. El cifrado simétrico es más eficaz para el cifrado masivo y descifrado, lo que permite un cifrado más seguro y un mejor rendimiento. Si se limita el uso de una clave de cifrado única, se reduce el riesgo de que la clave se encuentre en peligro y el costo de volver a cifrar cuando se debe reemplazar una clave. Los modelos de cifrado en reposo de Azure utilizan una jerarquía de claves formada por los siguientes tipos de claves:
 
-- **Clave de cifrado de datos (DEK)**: Una clave simétrica AES256 usada para cifrar una partición o un bloque de datos.  Un único recurso puede tener muchas particiones y muchas claves de cifrado de datos. Cifrar cada bloque de datos con una clave diferente dificulta los ataques de análisis criptográficos. Se necesita acceso a las DEK por la instancia de proveedor o aplicación de recursos que cifra y descifra un bloque específico. Cuando se reemplaza una DEK con una nueva clave, solo se deben volver a cifrar los datos de su bloque asociado con una nueva clave.
-- **Clave de cifrado de claves (KEK)**: Una clave de cifrado asimétrico utilizada para cifrar las claves de cifrado de datos. El uso de una clave de cifrado de clave permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Una entidad puede adaptar el acceso a la DEK para limitar el acceso de cada DEK a una partición específica. Puesto que la KEK es necesaria para descrifrar la DEK, la KEK es de manera eficaz un punto único por el que se pueden eliminar de forma eficaz las DEK mediante la eliminación de la KEK.
+- **Clave de cifrado de datos (DEK)** : Una clave simétrica AES256 usada para cifrar una partición o un bloque de datos.  Un único recurso puede tener muchas particiones y muchas claves de cifrado de datos. Cifrar cada bloque de datos con una clave diferente dificulta los ataques de análisis criptográficos. Se necesita acceso a las DEK por la instancia de proveedor o aplicación de recursos que cifra y descifra un bloque específico. Cuando se reemplaza una DEK con una nueva clave, solo se deben volver a cifrar los datos de su bloque asociado con una nueva clave.
+- **Clave de cifrado de claves (KEK)** : Una clave de cifrado asimétrico utilizada para cifrar las claves de cifrado de datos. El uso de una clave de cifrado de clave permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Una entidad puede adaptar el acceso a la DEK para limitar el acceso de cada DEK a una partición específica. Puesto que la KEK es necesaria para descrifrar la DEK, la KEK es de manera eficaz un punto único por el que se pueden eliminar de forma eficaz las DEK mediante la eliminación de la KEK.
 
 Las claves de cifrado de datos cifradas con las claves de cifrado de clave se almacenan por separado y solo una entidad con acceso a la clave de cifrado de clave puede obtener las claves de cifrado de datos cifrados con dicha clave. Se admiten diferentes modelos de almacenamiento de claves. Analizaremos cada modelo con más detalle más adelante en la sección siguiente.
 
@@ -256,9 +256,9 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 |                                  |                    | **Modelo de cifrado y administración de claves** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Cifrado del lado servidor mediante claves administradas por el cliente en Key Vault**             | **Lado cliente mediante claves administradas por el cliente**      |
-| **Inteligencia artificial y Machine Learning**      |                    |                    |                    |
+| **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
 | Azure Search                     | Sí                | -                  | -                  |
-| Azure Machine Learning Service   | Sí                | -                  | -                  |
+| Servicio Azure Machine Learning   | Sí                | -                  | -                  |
 | Azure Machine Learning Studio    | Sí                | Versión preliminar, RSA de 2048 bits | -               |
 | Power BI                         | Sí                | -                  | -                  |
 | **Analytics**                    |                    |                    |                    |
@@ -266,7 +266,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Event Hubs                       | Sí                | -                  | -                  |
 | Azure Analysis Services          | Sí                | -                  | -                  |
 | Azure Data Catalog               | Sí                | -                  | -                  |
-| HDInsight                        | Sí                | Versión preliminar de Apache Kafka, las longitudes RSA | -                  |
+| HDInsight                        | Sí                | Versión preliminar de Apache Kafka, todas las longitudes RSA | -                  |
 | Azure Data Factory               | Sí                | -                  | -                  |
 | Azure Data Lake Store            | Sí                | Sí, RSA de 2048 bits  | -                  |
 | **Proceso**                      |                    |                    |                    |
@@ -291,10 +291,10 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | API Management                   | Sí                | -                  | -                  |
 | **Servicios IoT**                 |                    |                    |                    |
 | IoT Hub                          | -                  | -                  | Sí                |
-| **Administración y gestión de**    |                    |                    |                    |
+| **Administración y gobernanza**    |                    |                    |                    |
 | Azure Site Recovery              | Sí                | Sí, RSA de 2048 bits  | Sí                |
-| **Media**                        |                    |                    |                    |
-| Servicios multimedia                   | Sí                | -                  | Sí                |
+| **Elementos multimedia**                        |                    |                    |                    |
+| Media Services                   | Sí                | -                  | Sí                |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Sí                | Sí, RSA de 2048 bits  | Sí                |
 | Disk Storage                     | Sí                | -                  | -                  |

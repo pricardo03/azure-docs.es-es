@@ -1,5 +1,5 @@
 ---
-title: Cómo usar Queue storage en Java - almacenamiento de Azure
+title: Uso del almacenamiento de colas de Java - Azure Storage
 description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Java.
 services: storage
 author: mhopkins-msft
@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 3cbd1445640f37cbc63d74d1366c390c774aecd5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151111"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Uso del almacenamiento de colas de Java
@@ -336,7 +336,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-list-the-queues"></a>Procedimientos para: Enumeración de las colas
-Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()**, el cual devolverá una colección de objetos **CloudQueue**.
+Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()** , el cual devolverá una colección de objetos **CloudQueue**.
 
 ```java
 try

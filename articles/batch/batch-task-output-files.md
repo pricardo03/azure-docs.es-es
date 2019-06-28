@@ -14,10 +14,10 @@ ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595278"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
@@ -72,7 +72,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Para especificar archivos de salida para una tarea, cree una colección de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) y asígnela a la propiedad [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) cuando cree la tarea.
 
-En el siguiente ejemplo de código C# se crea una tarea que escribe números aleatorios en un archivo denominado `output.txt`. En el ejemplo se crea un archivo de salida para `output.txt` que se escribe en el contenedor. En el ejemplo también se crean archivos de salida para todos los archivos de registro que coinciden con el patrón de archivos `std*.txt` (_p. ej._, `stdout.txt` y `stderr.txt`). La URL del contenedor requiere la SAS que creó anteriormente para este. El servicio Batch utiliza la SAS para autenticar el acceso al contenedor:
+En el siguiente ejemplo de código C# se crea una tarea que escribe números aleatorios en un archivo denominado `output.txt`. En el ejemplo se crea un archivo de salida para `output.txt` que se escribe en el contenedor. En el ejemplo también se crean archivos de salida para todos los archivos de registro que coinciden con el patrón de archivos `std*.txt` (_p. ej._ , `stdout.txt` y `stderr.txt`). La URL del contenedor requiere la SAS que creó anteriormente para este. El servicio Batch utiliza la SAS para autenticar el acceso al contenedor:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -180,7 +180,7 @@ Si va a desarrollar con un lenguaje distinto de C#, tendrá que implementar el e
 
 El proyecto de ejemplo [PersistOutputs][github_persistoutputs] es uno de los ejemplos de código de [Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de cliente para .NET de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
 
-1. Abra el proyecto en **2019 de Visual Studio**.
+1. Abra el proyecto en **Visual Studio 2019**.
 2. Agregue las **credenciales de cuenta** de Batch y Storage a **AccountSettings.settings** al proyecto Microsoft.Azure.Batch.Samples.Common.
 3. **Compile** (pero no ejecute) la solución. Si se le solicita, restaure los paquetes NuGet.
 4. Use el Portal de Azure para cargar un [paquete de aplicación](batch-application-packages.md) para **PersistOutputsTask**. Incluya el archivo `PersistOutputsTask.exe` y los ensamblados dependientes en el paquete zip, establezca el identificador de la aplicación en "PersistOutputsTask" y la versión del paquete de aplicación en "1.0".

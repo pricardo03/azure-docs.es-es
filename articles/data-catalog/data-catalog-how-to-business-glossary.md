@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001914"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configuración del glosario empresarial para el etiquetado regulado
@@ -32,7 +32,7 @@ Con el glosario empresarial de Data Catalog, las organizaciones pueden documenta
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilidad del glosario y privilegios
 
-El glosario empresarial solo está disponible en la Edición Estándar de Azure Data Catalog. La edición gratuita de Data Catalog no incluye un glosario y no ofrece funcionalidades para el etiquetado regulado.
+El glosario empresarial solo está disponible en la Edición Estándar de Azure Data Catalog. La edición gratuita de Data Catalog no incluye un glosario y no proporciona capacidades para el etiquetado regulado.
 
 Para acceder al glosario empresarial, es preciso usar la opción **Glosario** del menú de navegación del portal de Data Catalog.  
 

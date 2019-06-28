@@ -1,6 +1,6 @@
 ---
-title: Crear una VM de Linux con el generador de imágenes de Azure (versión preliminar)
-description: Crear una máquina virtual Linux con el generador de imágenes de Azure.
+title: Crear una máquina virtual Linux con Azure Image Builder (versión preliminar)
+description: Cree una máquina virtual Linux con Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
@@ -8,28 +8,28 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: 854645af95d780053d94668921e41ac189bbbfb7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159516"
 ---
-# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Vista previa: Crear una máquina virtual Linux con el generador de imágenes de Azure
+# <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Vista previa: Crear una máquina virtual Linux con Azure Image Builder
 
-Este artículo muestra cómo puede crear una imagen de Linux personalizada mediante el generador de imágenes de Azure y la CLI de Azure. El ejemplo de este artículo utiliza tres [personalizadores](image-builder-json.md#properties-customize) para personalizar la imagen:
+En este artículo se muestra cómo puede crear una imagen personalizada de Linux mediante Azure Image Builder y la CLI de Azure. En el ejemplo de este artículo se usan tres [personalizadores](image-builder-json.md#properties-customize) distintos para personalizar la imagen:
 
-- Shell (ScriptUri) - descargas y se ejecuta un [secuencia de comandos de shell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
-- Shell (inline): ejecuciones de comandos específicos. En este ejemplo, los comandos en línea incluyen la creación de un directorio y actualizar el sistema operativo.
-- Archivo - copias un [archivo de GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) en un directorio en la máquina virtual.
+- Shell (ScriptUri): descarga y ejecuta un [script de shell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
+- Shell (alineado): ejecuta comandos específicos. En este ejemplo, los comandos alineados incluyen la creación de un directorio y la actualización del sistema operativo.
+- Archivo: copia un [archivo de GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) en un directorio de la máquina virtual.
 
-Usaremos una plantilla .json de ejemplo para configurar la imagen. El archivo .json que usamos aquí es: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
+Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .json que se usa aquí es: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
 > [!IMPORTANT]
-> Generador de imágenes de Azure está actualmente en versión preliminar pública.
+> Azure Image Builder se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registrar las características
-Para usar el generador de imágenes de Azure durante la versión preliminar, deberá registrar la nueva característica.
+Para usar Azure Image Builder durante la versión preliminar, tendrá que registrar la nueva característica.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -49,7 +49,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Si no dicen registrado, ejecute lo siguiente:
+Si no se muestran como registradas, ejecute lo siguiente:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -59,7 +59,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Usaremos algunas partes de información varias veces, por lo que vamos a crear algunas variables para almacenar esa información.
+Se usarán algunos fragmentos de información de forma repetida, por lo que se crearán diversas variables para almacenar esa información.
 
 
 ```azurecli-interactive
@@ -73,7 +73,7 @@ imageName=myBuilderImage
 runOutputName=aibLinux
 ```
 
-Cree una variable para el identificador de suscripción. Puede obtener esta mediante `az account show | grep id`.
+Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
@@ -86,7 +86,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 
-Conceder permiso de Image Builder para crear recursos en ese grupo de recursos. El `--assignee` valor es el identificador de registro de aplicación para el servicio de generador de imágenes. 
+Conceda a Image Builder permiso para crear recursos en ese grupo de recursos. El valor `--assignee` es el identificador de registro de aplicación para el servicio Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -95,9 +95,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## <a name="download-the-json-example"></a>Descargue el ejemplo de JSON
+## <a name="download-the-json-example"></a>Descargar el ejemplo .json
 
-Descargue el archivo .json de ejemplo y configúrelo con las variables que creó.
+Descargue el archivo .json de ejemplo y configúrelo con las variables que ha creado.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -110,7 +110,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
 ## <a name="create-the-image"></a>Crear la imagen
-Enviar la configuración de la imagen para el servicio de generador de imágenes de máquina virtual
+Envío de la configuración de la imagen al servicio de generador de imágenes de máquina virtual
 
 ```azurecli-interactive
 az resource create \
@@ -121,7 +121,7 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
-Iniciar la generación de imagen.
+Inicie la generación de imágenes.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -131,12 +131,12 @@ az resource invoke-action \
      --action Run 
 ```
 
-Espere hasta que finalice la compilación. Esto puede tardar unos 15 minutos.
+Espere hasta que se complete la compilación. Puede tardar unos 15 minutos.
 
 
 ## <a name="create-the-vm"></a>Creación de la máquina virtual
 
-Crear la máquina virtual con la imagen que ha creado.
+Cree la máquina virtual con la imagen que ha compilado.
 
 ```azurecli-interactive
 az vm create \
@@ -148,7 +148,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Obtenga la dirección IP de la salida de la creación de la máquina virtual y usarlo para conectarse mediante SSH a la máquina virtual.
+Obtenga la dirección IP de la salida de la creación de la máquina virtual y úsela para conectarse mediante SSH a la máquina virtual.
 
 ```azurecli-interactive
 ssh azureuser@<pubIp>
@@ -165,17 +165,17 @@ Debería ver que la imagen se ha personalizado con un mensaje del día en cuanto
 *******************************************************
 ```
 
-Tipo `exit` cuando termine para cerrar la conexión SSH.
+Escriba `exit` cuando haya terminado para cerrar la conexión SSH.
 
-## <a name="check-the-source"></a>Comprobar el origen
+## <a name="check-the-source"></a>Comprobación del origen
 
-En la plantilla de generador de imágenes, en "Propiedades", verá la imagen de origen, la personalización de script se ejecuta, y donde se distribuye.
+En la plantilla de generador de imágenes, en "Propiedades", verá la imagen de origen, el script de personalización que ejecuta y dónde se distribuye.
 
 ```azurecli-interactive
 cat helloImageTemplateLinux.json
 ```
 
-Para obtener más información sobre este archivo .json, consulte [referencia de plantilla generador de imágenes](image-builder-json.md)
+Para obtener más información sobre este archivo .json, consulte [Referencia de la plantilla de generador de imágenes](image-builder-json.md).
 
 ## <a name="clean-up"></a>Limpieza
 
@@ -193,4 +193,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de los componentes del archivo .json que se usa en este artículo, consulte [referencia de plantillas de Image Builder](image-builder-json.md).
+Para obtener más información sobre los componentes del archivo .json que se usan en este artículo, consulte [Referencia de la plantilla de generador de imágenes](image-builder-json.md).

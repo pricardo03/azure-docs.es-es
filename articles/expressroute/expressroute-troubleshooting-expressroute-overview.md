@@ -9,16 +9,16 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117860"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
 En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía una red local en Microsoft Cloud por medio de una conexión privada que se realiza mediante un proveedor de conectividad, y abarca las siguientes tres zonas de red distintas:
 
--   Red de cliente
+-   Red del cliente
 -   Red del proveedor
 -   Centro de datos de Microsoft
 
@@ -74,7 +74,7 @@ Independientemente del modelo de conectividad, debe crearse un circuito ExpressR
 >
 
 ### <a name="verification-via-the-azure-portal"></a>Comprobación a través de Azure Portal
-En Azure Portal, se puede comprobar el estado de un circuito ExpressRoute seleccionando ![2][2] en el menú de barra de la izquierda y seleccionando después el circuito ExpressRoute. Si selecciona un circuito ExpressRoute que aparezca bajo "Todos los recursos" se abre la hoja de circuito ExpressRoute. En el ![3][3] sección de la hoja, el circuito essentials aparecen como se muestra en la captura de pantalla siguiente:
+En Azure Portal, se puede comprobar el estado de un circuito ExpressRoute seleccionando ![2][2] en el menú de barra de la izquierda y seleccionando después el circuito ExpressRoute. Si selecciona un circuito ExpressRoute que aparezca bajo "Todos los recursos" se abre la hoja de circuito ExpressRoute. En la sección ![3][3] de la hoja, se enumera la información esencial de ExpressRoute como se muestra en la captura de pantalla siguiente:
 
 ![4][4]    
 
@@ -93,7 +93,7 @@ Para obtener una lista de todos los circuitos ExpressRoute en un grupo de recurs
     Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->El nombre del grupo de recursos se puede obtener a través de Azure Portal. Consulte el apartado anterior de este documento y tenga en cuenta que el nombre del grupo de recursos se enumeran en la captura de pantalla de ejemplo.
+>El nombre del grupo de recursos se puede obtener a través de Azure Portal. Vea la subsección anterior de este documento y observe que el nombre del grupo de recursos se muestra en la captura de pantalla de ejemplo.
 >
 >
 
@@ -157,7 +157,7 @@ Una respuesta de ejemplo es:
     Sku                              : Standard
     Status                           : Enabled
 
-Para confirmar si un circuito ExpressRoute está operativo, preste especial atención a los campos siguientes: ServiceProviderProvisioningState: Estado aprovisionado                           : Enabled
+Para confirmar si un circuito ExpressRoute está operativo, preste especial atención a los campos siguientes: ServiceProviderProvisioningState: Estado aprovisionado                           : habilitado
 
 > [!NOTE]
 > Si el valor de *Status* (Estado) no es Enabled (Habilitado), póngase en contacto con el [soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.
@@ -174,7 +174,7 @@ Cuando el proveedor de servicios haya completado el aprovisionamiento del circui
 >
 >
 
-En Azure Portal, puede comprobar el estado de un circuito ExpressRoute seleccionando ![2][2] en el menú de barra de la izquierda y, a continuación, seleccionando el circuito ExpressRoute. Si selecciona un circuito ExpressRoute que aparezca bajo "Todos los recursos" se abre la hoja de circuito ExpressRoute. En el ![3][3] sección de la hoja, el circuito se enumerarán essentials como se muestra en la captura de pantalla siguiente:
+En Azure Portal, puede comprobar el estado de un circuito ExpressRoute seleccionando ![2][2] en el menú de barra de la izquierda y, a continuación, seleccionando el circuito ExpressRoute. Si selecciona un circuito ExpressRoute que aparezca bajo "Todos los recursos" se abre la hoja de circuito ExpressRoute. En la sección ![3][3] de la hoja se enumera la información esencial de ExpressRoute como se muestra en la captura de pantalla siguiente:
 
 ![5][5]
 
@@ -386,7 +386,7 @@ Para obtener más información, consulte los siguientes artículos:
 - [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "Logical Express Route Connectivity" (Conectividad lógica de Expressroute)
+[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "Conectividad lógica de Expressroute"
 [2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "Icono All resources"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "Icono Overview"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "Captura de pantalla de ejemplo de Essentials de ExpressRoute"

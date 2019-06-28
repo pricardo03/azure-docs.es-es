@@ -11,15 +11,15 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
 ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467425"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
-Aunque puede crear, editar, administrar e implementar aplicaciones lógicas en el [portal Azure](https://portal.azure.com), también puede usar Visual Studio cuando desea agregar las aplicaciones lógicas para el control de código fuente, publicar versiones diferentes y crear [Azure El Administrador de recursos](../azure-resource-manager/resource-group-overview.md) plantillas para distintos entornos de implementación. Con Visual Studio Cloud Explorer, puede encontrar y administrar las aplicaciones lógicas junto con otros recursos de Azure. Por ejemplo, puede abrir, descargar, editar, ejecutar, ver el historial de ejecución, deshabilitar y habilitar las aplicaciones lógicas que ya están implementadas en Azure Portal. Si es la primera vez que usa Azure Logic Apps en Visual Studio, obtenga información sobre [cómo crear aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Aunque puede crear, editar, administrar e implementar aplicaciones lógicas en [Azure Portal](https://portal.azure.com), también puede usar Visual Studio cuando quiera agregar las aplicaciones lógicas al control de código fuente, publicar versiones diferentes y crear plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para distintos entornos de implementación. Con Visual Studio Cloud Explorer, puede encontrar y administrar las aplicaciones lógicas junto con otros recursos de Azure. Por ejemplo, puede abrir, descargar, editar, ejecutar, ver el historial de ejecución, deshabilitar y habilitar las aplicaciones lógicas que ya están implementadas en Azure Portal. Si es la primera vez que usa Azure Logic Apps en Visual Studio, obtenga información sobre [cómo crear aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Al implementar o publicar una aplicación lógica desde Visual Studio se sobrescribe la versión de esa aplicación en Azure Portal. Por tanto, si hace cambios en Azure Portal que desea mantener, asegúrese de [actualizar la aplicación lógica en Visual Studio](#refresh) desde Azure Portal antes de volver a implementar o publicar desde Visual Studio.
@@ -36,12 +36,12 @@ Aunque puede crear, editar, administrar e implementar aplicaciones lógicas en e
   Este inicio rápido usa Visual Studio Community 2017, que es gratuito.
 
     > [!IMPORTANT]
-    > Al instalar Visual Studio de 2019 o 2017, asegúrese de que selecciona la carga de trabajo **desarrollo de Azure**. Para Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure Portal, pero aún no se puede abrir el Diseñador de aplicación lógica insertado. Para obtener más información, consulte [administrar los recursos asociados con las cuentas de Azure en Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Al instalar Visual Studio de 2019 o 2017, asegúrese de que selecciona la carga de trabajo **desarrollo de Azure**. Para Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure Portal, pero aún no se puede abrir el Diseñador de aplicación lógica insertado. Para obtener más información, vea [Administración de los recursos asociados con las cuentas de Azure en Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
-    Para instalar Cloud Explorer para Visual Studio 2015, [Descargue el Explorador de nube desde Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-    Para obtener más información, consulte [administrar los recursos asociados con sus cuentas de Azure en Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+    Para instalar Cloud Explorer para Visual Studio 2015, [descargue Cloud Explorer desde Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    Para obtener más información, vea [Administración de los recursos asociados con las cuentas de Azure en Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
-  * [Azure SDK (2.9.1 o versiones posteriores)](https://azure.microsoft.com/downloads/) 
+  * [SDK de Azure (2.9.1 o posterior)](https://azure.microsoft.com/downloads/) 
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -69,7 +69,7 @@ En Visual Studio, puede encontrar todas las aplicaciones lógicas que están aso
 
 1. Abra Visual Studio. En el menú **Ver**, seleccione **Cloud Explorer**.
 
-1. En Cloud Explorer, elija **Administración de cuentas**. Seleccione la suscripción de Azure asociada con las aplicaciones lógicas y, luego, elija **Aplicar**. Por ejemplo: 
+1. En Cloud Explorer, elija **Administración de cuentas**. Seleccione la suscripción de Azure asociada con las aplicaciones lógicas y, luego, elija **Aplicar**. Por ejemplo:
 
    ![Elección de "Administración de cuentas"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -106,7 +106,7 @@ Puede descargar aplicaciones lógicas desde [Azure Portal](https://portal.azure.
 1. En Visual Studio, abra Cloud Explorer y busque y seleccione la aplicación lógica que desea descargar de Azure.
 
    > [!NOTE]
-   > Para Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure portal, pero aún no se puede abrir el Diseñador de aplicaciones lógicas incrustado para descargar la aplicación lógica.
+   > En Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure Portal, pero aún no se puede abrir el Diseñador de aplicación lógica insertado para descargar la aplicación lógica.
 
 2. En el menú contextual de la aplicación, seleccione **Abrir con el editor de Logic App**.
 
@@ -155,14 +155,14 @@ Para comprobar el estado y diagnosticar problemas con las ejecuciones de la apli
 
    ![Abrir el historial de ejecución](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-1. Para ver los detalles de una ejecución específica, haga doble clic en ella. Por ejemplo: 
+1. Para ver los detalles de una ejecución específica, haga doble clic en ella. Por ejemplo:
 
    ![Historial de ejecución detallado](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Para ordenar la tabla por propiedad, elija el encabezado de columna de esa propiedad. 
 
-1. Expanda los pasos cuyas entradas y salidas desea revisar. Por ejemplo: 
+1. Expanda los pasos cuyas entradas y salidas desea revisar. Por ejemplo:
 
    ![Ver las entradas y salidas de cada paso](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 
@@ -195,7 +195,7 @@ Cuando se abre el proyecto de aplicación lógica en el Diseñador de aplicacion
 
 * Cambie el nombre del archivo .json de la aplicación lógica. La caché de suscripción depende del nombre del archivo.
 
-* Para quitar las suscripciones seleccionadas previamente para *todas* logic apps en la solución, elimine la carpeta de configuración Visual Studio (.vs) oculta en el directorio de su solución. Esta ubicación almacena la información de suscripción.
+* Para eliminar las suscripciones previamente seleccionadas de *todas* las aplicaciones lógicas de la solución, elimine la carpeta de configuración oculta de Visual Studio (.vs) del directorio de la solución. Esta ubicación almacena la información de suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

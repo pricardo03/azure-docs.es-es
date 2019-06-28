@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 36b43ce6636bf918e1e8c42af4c2746865f5ccd1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523345"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight
@@ -83,7 +83,7 @@ Para más información sobre otras formas de ejecutar Apache Hadoop MapReduce, A
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migración de Azure PowerShell a Azure Resource Manager
 La información general acerca de Azure PowerShell en el modo de Azure Resource Manager se puede encontrar en [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-Los cmdlets de Resource Manager de Azure PowerShell se pueden instalar en paralelo con los cmdlets de ASM. Los cmdlets de los dos modos se pueden distinguir por sus nombres.  El modo de Resource Manager tiene *AzHDInsight* en los nombres de cmdlet *AzureHDInsight* en el modo ASM.  Por ejemplo, *New AzHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parámetros y conmutadores pueden tener nombres nuevos, y hay muchos parámetros nuevos disponibles si utiliza Resource Manager.  Por ejemplo, varios cmdlets requieren un nuevo modificador llamado *- ResourceGroupName*. 
+Los cmdlets de Resource Manager de Azure PowerShell se pueden instalar en paralelo con los cmdlets de ASM. Los cmdlets de los dos modos se pueden distinguir por sus nombres.  El modo de Resource Manager tiene *AzHDInsight* en los nombres de cmdlet en lugar de *AzureHDInsight*, que es lo que aparece en el modo ASM.  Por ejemplo, *New-AzHDInsightCluster* frente a *New-AzureHDInsightCluster*. Parámetros y conmutadores pueden tener nombres nuevos, y hay muchos parámetros nuevos disponibles si utiliza Resource Manager.  Por ejemplo, varios cmdlets requieren un nuevo modificador llamado *- ResourceGroupName*. 
 
 Para poder usar los cmdlets de HDInsight, debe conectarse a su cuenta de Azure y crear un nuevo grupo de recursos:
 

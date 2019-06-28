@@ -1,6 +1,6 @@
 ---
-title: Crear un grupo de host de vista previa de Escritorio Virtual Windows con una plantilla de Azure Resource Manager - Azure
-description: Cómo crear un grupo host en la vista previa de Escritorio Virtual de Windows con una plantilla de Azure Resource Manager.
+title: Creación de un grupo de hosts de Windows Virtual Desktop, versión preliminar, con una plantilla de Azure Resource Manager - Azure
+description: Cómo crear un grupo de hosts en Windows Virtual Desktop, versión preliminar, con una plantilla de Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,59 +8,59 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523982"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creación de un grupo host con una plantilla de Azure Resource Manager
 
 Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilinos de Windows Virtual Desktop (versión preliminar). Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 
-Siga las instrucciones de esta sección para crear un grupo host para un inquilino de Escritorio Virtual de Windows con una plantilla de Azure Resource Manager proporcionada por Microsoft. Este artículo explica cómo crear un grupo host en el escritorio Virtual de Windows, cree un grupo de recursos con las máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Active Directory y registrar las máquinas virtuales con Windows de Escritorio Virtual.
+Siga las instrucciones de esta sección para crear un grupo de hosts de un inquilino de Windows Virtual Desktop con una plantilla de Azure Resource Manager proporcionada por Microsoft. En este artículo se explica cómo crear un grupo de hosts en Windows Virtual Desktop, cómo crear un grupo de recursos con máquinas virtuales en una suscripción de Azure, cómo unir esas máquinas virtuales al dominio de AD y cómo registrar las máquinas virtuales con Windows Virtual Desktop.
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Lo que necesita para ejecutar la plantilla de Azure Resource Manager
+## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>¿Qué se necesita para ejecutar la plantilla de Azure Resource Manager?
 
-Asegúrese de que sabe lo siguiente antes de ejecutar la plantilla de Azure Resource Manager:
+Asegúrese de que conoce los siguientes datos antes de ejecutar la plantilla de Azure Resource Manager:
 
-- Donde es el origen de la imagen que desea usar. ¿Es desde la Galería de Azure o está personalizada?
-- Sus credenciales de unión al dominio.
-- Las credenciales de Escritorio Virtual de Windows.
+- Dónde está el origen de la imagen que quiere usar. ¿Está en Azure Gallery o es personalizada?
+- Sus credenciales de unión un dominio.
+- Sus credenciales de Windows Virtual Desktop.
 
-Cuando se crea un grupo de host de Escritorio Virtual de Windows con la plantilla de Azure Resource Manager, puede crear una máquina virtual desde la Galería de Azure, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, consulte [preparar un VHD de Windows o un VHDX para cargar en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) y [crear una imagen administrada de una máquina virtual generalizada en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
+Cuando se crea un grupo de hosts de Windows Virtual Desktop con la plantilla de Azure Resource Manager, se puede crear una máquina virtual desde una imagen de Azure Gallery, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 
-## <a name="run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool"></a>Ejecutar la plantilla de Azure Resource Manager para aprovisionar un nuevo grupo host
+## <a name="run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool"></a>Ejecutar la plantilla de Azure Resource Manager para el aprovisionamiento de un nuevo grupo de hosts
 
 Para empezar, vaya a [esta dirección URL de GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool).
 
 ### <a name="deploy-the-template-to-azure"></a>Implementación de la plantilla en Azure
 
-Si va a implementar en una suscripción Enterprise, desplácese hacia abajo y seleccione **implementar en Azure**, a continuación, omitir anticipada, rellene los parámetros en función del origen de imagen.
+Si va a realizar la implementación en una suscripción de Enterprise, desplácese hacia abajo, seleccione **Implementar en Azure** y, luego, vaya directamente a rellenar los parámetros según el origen de la imagen.
 
-Si va a implementar en una suscripción de proveedor de soluciones en la nube, siga estos pasos para implementar en Azure:
+Si va a realizar la implementación en una suscripción de proveedor de soluciones en la nube, haga lo siguiente para implementar en Azure:
 
-1. Desplácese hacia abajo y haga clic en **implementar en Azure**, a continuación, seleccione **ubicación del vínculo de copia**.
-2. Abra un editor de texto como el Bloc de notas y pegue el vínculo no existe.
-3. Justo después de "https://portal.azure.com/" y el hashtag (##) antes de escribir un signo de arroba (@) seguido del nombre de dominio del inquilino. Este es un ejemplo del formato que debe usar: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
-4. Inicie sesión en el portal de Azure como un usuario con permisos de administrador o colaborador a la suscripción del proveedor de soluciones en la nube.
+1. Desplácese hacia abajo, haga clic con el botón derecho en **Implementar en Azure** y, después, seleccione **Copy Link Location** (Copiar ubicación del vínculo).
+2. Abra un editor de texto como el Bloc de notas y pegue el vínculo ahí.
+3. Justo después de "https://portal.azure.com/" y antes de la almohadilla (#), escriba una arroba (@) seguida del nombre de dominio del inquilino. Este es un ejemplo del formato que debe usar: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+4. Inicie sesión en el Azure Portal como un usuario con permisos de administrador o colaborador en la suscripción del proveedor de soluciones en la nube.
 5. Pegue el vínculo que ha copiado en el editor de texto en la barra de direcciones.
 
-Para obtener instrucciones acerca de los parámetros que debe escribir para su escenario, vea el escritorio Virtual Windows [archivo Léame](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool/README.md). El archivo Léame se actualiza siempre con los cambios más recientes.
+Para obtener instrucciones sobre los parámetros que debe especificar en su caso, vea el [archivo Léame](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool/README.md)de Windows Virtual Desktop. El archivo Léame siempre está actualizado con los cambios más recientes.
 
-## <a name="assign-users-to-the-desktop-application-group"></a>Asignar a usuarios al grupo de aplicaciones de escritorio
+## <a name="assign-users-to-the-desktop-application-group"></a>Asignar usuarios al grupo de aplicaciones de escritorio
 
-Una vez finalizada la plantilla de GitHub de Azure Resource Manager, asigne acceso de usuario antes de iniciar las pruebas de los escritorios de la sesión completa en sus máquinas virtuales.
+Cuando la plantilla de Azure Resource Manager de GitHub finalice, asigne accesos de usuario antes de empezar a comprobar los escritorios de sesión completos en sus máquinas virtuales.
 
 En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
 
-Para asignar a usuarios al grupo de aplicaciones de escritorio, abra una ventana de PowerShell y ejecute este cmdlet para iniciar sesión en el entorno de Escritorio Virtual de Windows:
+Para asignar usuarios al grupo de aplicaciones de escritorio, abra una ventana de PowerShell y ejecute este cmdlet para iniciar sesión en el entorno de Windows Virtual Desktop:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Después de eso, agregar usuarios al grupo de aplicaciones de escritorio con este cmdlet:
+Tras esto, agregue usuarios al grupo de aplicaciones de escritorio con este cmdlet:
 
 ```powershell
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>

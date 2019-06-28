@@ -19,17 +19,17 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546094"
 ---
 # <a name="app-registration-reference"></a>Referencia del registro de aplicaciones
 En este documento se proporciona el contexto y las descripciones de las distintas características que se encuentran en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
 > [!NOTE]
-> Ya no dará soporte registrar y administrar las aplicaciones convergentes y Azure AD en el [Portal de registro de aplicación](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) a partir de mayo de 2019. Se recomienda administrar las aplicaciones existentes y permite registrar nuevas aplicaciones mediante el uso de la [registros de aplicaciones](https://aka.ms/appregistrations) experiencia en el portal de Azure.
+> A partir de mayo de 2019 se dejará de admitir el registro y la administración de aplicaciones convergentes y de Azure AD en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/). Le recomendamos que administre las aplicaciones existentes y registre las nuevas mediante la experiencia [Registros de aplicaciones](https://aka.ms/appregistrations) de Azure Portal.
 
 ## <a name="my-applications-or-converged-applications"></a>Mis aplicaciones o aplicaciones convergentes
 Esta lista contiene todas las aplicaciones que se registran para su uso con el punto de conexión v2.0 de Azure AD. Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales o educativas de Azure Active Directory. Para obtener más información sobre el punto de conexión v2.0 de Azure AD, consulte la [información general sobre v2.0](active-directory-appmodel-v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.
@@ -49,7 +49,7 @@ En este momento, solo se permiten dos tipos de secretos de aplicación en el por
 Debe cargar un certificado que incluya una clave pública.
 
 ## <a name="profile"></a>Perfil
-La sección de perfil del portal de registro de aplicaciones se puede utilizar para personalizar la página de inicio de sesión de la aplicación. En este momento puede modificar el logotipo de la aplicación de la página de inicio de sesión, la dirección URL de los términos de servicio y la dirección URL de la declaración de privacidad. El logotipo debe ser una imagen transparente de 48 x 48 o 50 x 50 píxeles en un archivo GIF, PNG o JPEG de hasta 15 KB. Pruebe a cambiar los valores y ver la página de inicio de sesión resultante.
+La sección de perfil del portal de registro de aplicaciones se puede utilizar para personalizar la página de inicio de sesión de la aplicación. En este momento puede modificar el logotipo de la aplicación de la página de inicio de sesión, la dirección URL de los términos de servicio y la dirección URL de la declaración de privacidad. El logotipo debe ser una imagen transparente de 48 x 48 o 50 x 50 píxeles en un archivo de formato GIF, PNG o JPEG que tenga un tamaño máximo de 15 KB. Pruebe a cambiar los valores y ver la página de inicio de sesión resultante.
 
 ## <a name="live-sdk-support"></a>Compatibilidad con SDK de Live
 Cuando habilita la "Compatibilidad con SDK de Live", los secretos de la aplicación que cree se aprovisionarán en los almacenes de datos tanto de Azure AD como de la cuenta Microsoft. Esto permite que la aplicación se integre directamente con el servicio de la cuenta de Microsoft (login.live.com). Si quiere compilar una aplicación usando directamente la cuenta de Microsoft (en lugar de usar el punto de conexión v2.0 de Azure AD), debe asegurarse de que esté habilitada la compatibilidad con SDK de Live.

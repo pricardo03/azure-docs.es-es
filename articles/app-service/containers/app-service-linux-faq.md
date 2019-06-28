@@ -17,10 +17,10 @@ ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594278"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
@@ -41,13 +41,13 @@ Puede encontrar todos los archivos de Docker en [GitHub](https://github.com/azur
 
 | Pila           | Valor esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | el comando para iniciar la aplicación del archivo JAR (por ejemplo, `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | la ubicación de un script para realizar las configuraciones necesarias (por ejemplo, `/home/site/deployments/tools/startup_script.sh`)          |
-| Node.js         | el archivo de configuración de PM2 o el archivo de script                                |
-| .Net Core       | el nombre de archivo DLL compilado como `dotnet <myapp>.dll`                                 |
-| Ruby            | el script de Ruby que se va a inicializar la aplicación con                     |
+| Java SE         | Comando para iniciar la aplicación JAR (por ejemplo, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | Ubicación de un script para realizar las configuraciones necesarias (por ejemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | Archivo de configuración de PM2 o el archivo de script.                                |
+| .Net Core       | Nombre del archivo DLL compilado como `dotnet <myapp>.dll`.                                 |
+| Ruby            | Script de Ruby con el que quiere inicializar la aplicación.                     |
 
-Estos comandos o scripts se ejecutan después de que se inicia el contenedor de Docker integrado, pero antes de la aplicación se inicia el código.
+Estos comandos o scripts se ejecutan después de que se inicie el contenedor de Docker integrado, pero antes de que se inicie el código de la aplicación.
 
 ## <a name="management"></a>Administración
 
@@ -85,7 +85,7 @@ Sí, es necesario establecer un valor de la aplicación llamado `WEBSITE_WEBDEPL
 
 Si se produce un error en la implementación de Git en la aplicación web de Linux, puede elegir una de las opciones siguientes para implementar el código de aplicación:
 
-- Característica de entrega continua (versión preliminar): Puede almacenar el código fuente de la aplicación en un repositorio de DevOps Git de Azure o el repositorio de GitHub para utilizar la entrega continua de Azure. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
+- Característica de entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio de Git de Azure DevOps o en un repositorio de GitHub para usar la entrega continua de Azure. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
 
 - [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) y vaya a la carpeta en la que desea implementar el código. Ejecute el código siguiente:
 
@@ -138,7 +138,7 @@ Agregue el nombre de la imagen completo, incluida la dirección URL de registro 
 
 **¿Se puede exponer más de un puerto en mi imagen de contenedor personalizado?**
 
-No se admite exponer más de un puerto.
+No se admite la exposición de más de un puerto.
 
 **¿Puedo traer mi propio almacenamiento?**
 
@@ -160,12 +160,12 @@ No, la plataforma controla la terminación HTTPS en los front-end compartidos.
 
 **¿Cómo puedo configurar Azure Container Registry (ACR) para usar con varios contenedores?**
 
-Para poder usar ACR con varios contenedores, **todas las imágenes de contenedor** deben estar hospedadas en el mismo servidor de registro ACR. Una vez que estén en el mismo servidor de registro, deberá crear la configuración de la aplicación y, a continuación, actualice el archivo de configuración de Docker Compose para incluir el nombre de imagen ACR.
+Para poder usar ACR con varios contenedores, **todas las imágenes de contenedor** deben estar hospedadas en el mismo servidor de registro ACR. Una vez que estén en el mismo servidor de registro, tendrá que crear la configuración de la aplicación y, después, actualizar el archivo de configuración de Docker Compose para incluir el nombre de imagen de ACR.
 
 Cree la siguiente configuración de la aplicación:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (total de dirección URL, p. ej.: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (dirección URL completa, por ejemplo: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (habilitar el acceso de administrador en la configuración de ACR)
 
 En el archivo de configuración, haga referencia a la imagen ACR similar al ejemplo siguiente:
@@ -204,5 +204,5 @@ Puede enviar su idea en el [foro de comentarios de Web Apps](https://aka.ms/weba
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué es Azure App Service en Linux?](app-service-linux-intro.md)
-- [Configurar entornos de ensayo en Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configuración de entornos de ensayo en Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Implementación continua con Web App for Containers](./app-service-linux-ci-cd.md)

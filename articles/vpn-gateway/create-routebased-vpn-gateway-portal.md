@@ -1,5 +1,5 @@
 ---
-title: 'Crear una puerta de enlace VPN basada en rutas: Azure Portal | Microsoft Docs'
+title: 'Creación de una puerta de enlace VPN basada en ruta: Azure Portal | Microsoft Docs'
 description: Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390077"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal
@@ -29,7 +29,7 @@ Los pasos que se describen en este artículo crearán una red virtual, una subre
 
    - **Nombre**: TestVNet1
    - **Espacio de direcciones**: 10.1.0.0/16
-   - **Suscripción**: Compruebe que la suscripción que aparece es el que desea usar. Puede cambiar las suscripciones mediante la lista desplegable.
+   - **Suscripción**: verifique que la suscripción que aparece en la lista es la que desea usar. Puede cambiar las suscripciones mediante la lista desplegable.
    - **Grupo de recursos**: TestRG1
    - **Ubicación**: Este de EE. UU
    - **Subred**: Front-end
@@ -49,7 +49,7 @@ La subred de puerta de enlace contiene las direcciones IP reservadas que usan lo
    ![Agregar la subred de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Agregar la subred de la puerta de enlace")
 4. El campo **Nombre** de la subred se rellena automáticamente con el valor requerido "GatewaySubnet". Ajuste los valores de **Intervalo de direcciones** rellenados automáticamente para que coincidan con los siguientes valores:
 
-   **Intervalo de direcciones (bloque CIDR)**: 10.1.255.0/27
+   **Intervalo de direcciones (bloque CIDR)** : 10.1.255.0/27
 
    ![Adición de la subred de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Adición de la subred de la puerta de enlace")
 5. Para crear la subred de puerta de enlace, haga clic en **Aceptar** en la parte inferior de la página.
@@ -60,12 +60,12 @@ La subred de puerta de enlace contiene las direcciones IP reservadas que usan lo
 2. En la parte inferior de la página "Puerta de enlace de red virtual", haga clic en **Crear** para abrir la página **Crear puerta de enlace de red virtual**.
 3. En la página **Crear puerta de enlace de red virtual**, especifique los valores de la puerta de enlace de red virtual.
 
-   - **Nombre**: Vnet1GW
+   - **Nombre**: VNet1GW
    - **Tipo de puerta de enlace**: VPN 
    - **Tipo de VPN**: basada en rutas
    - **SKU**: VpnGw1
    - **Ubicación**: Este de EE. UU
-   - **Red virtual**: Haga clic en **red Virtual/elegir una red virtual** para abrir el **elegir una red virtual** página. Seleccione **VNet1**.
+   - **Red virtual**: haga clic en **Red virtual/Elegir una red virtual** para abrir la página **Elegir una red virtual**. Seleccione **VNet1**.
    - **Dirección IP pública**: esta configuración especifica el objeto de dirección IP pública que se asocia a la puerta de enlace de VPN. La dirección IP pública se asigna dinámicamente a este objeto cuando se crea la puerta de enlace de VPN. Actualmente, VPN Gateway solo admite la asignación de direcciones IP públicas *dinámicas*. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. No cambia cuando se cambia el tamaño, se restablece o se realizan actualizaciones u otras operaciones de mantenimiento interno de una puerta de enlace VPN.
 
      - Mantenga la opción **Crear nueva** seleccionada.

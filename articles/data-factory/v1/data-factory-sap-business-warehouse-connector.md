@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258665"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Movimiento de datos de SAP Business Warehouse mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
 > * [Versión 1](data-factory-sap-business-warehouse-connector.md)
 > * [Versión 2 (versión actual)](../connector-sap-business-warehouse.md)
 
@@ -67,10 +67,10 @@ Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
 systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
 clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
-username | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
-password | Contraseña del usuario. | string | Sí
+nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
+contraseña | Contraseña del usuario. | string | Sí
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | string | Sí
-encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
+encryptedCredential | La cadena de credenciales cifrada. | string | Sin
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
@@ -312,7 +312,7 @@ STRING | String
 UNIDAD | String
 DATS | String
 NUMC | String
-TIMS | String
+TIMS | Cadena
 
 > [!NOTE]
 > Para asignar columnas del conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).

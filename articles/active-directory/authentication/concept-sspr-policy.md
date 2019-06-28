@@ -1,5 +1,5 @@
 ---
-title: 'Directivas: Azure Active Directory de restablecimiento de contraseña de autoservicio de AD Azure'
+title: 'Políticas del autoservicio de restablecimiento de contraseña de Azure AD: Azure Active Directory'
 description: Opciones de directiva de autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823404"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
@@ -77,12 +77,12 @@ Cada cuenta de usuario que necesita iniciar sesión en Azure AD debe tener un va
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Directivas de contraseña que solo se aplican a cuentas de usuario en la nube
 
-En la tabla siguiente se describe la configuración de directiva de contraseña que se aplican a las cuentas de usuario que se crean y administran en Azure AD:
+En la tabla siguiente se describe la configuración de directivas de contraseña aplicadas a cuentas de usuario creadas y administradas en Azure AD:
 
 | Propiedad | Requisitos |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>espacio en blanco</li></ul> |
-| Caracteres no permitidos |<ul><li>Caracteres Unicode.</li><li> No puede contener un carácter de punto "." inmediatamente anterior a la "\@ \" símbolos".</li></ul> |
+| Caracteres no permitidos |<ul><li>Caracteres Unicode.</li><li> No puede contener un carácter de punto "." inmediatamente antes del símbolo "\@\"".</li></ul> |
 | Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 256 caracteres.</li><li>requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
 | Duración de las contraseñas |<ul><li>Valor predeterminado: **90** días.</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`del módulo Active Directory para Windows PowerShell.</li></ul> |
 | Notificación de la expiración de contraseñas |<ul><li>Valor predeterminado: **14** días (antes de que expire la contraseña).</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
@@ -93,7 +93,7 @@ En la tabla siguiente se describe la configuración de directiva de contraseña 
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Establecer directivas de expiración de contraseñas en Azure AD
 
-Un administrador global o administrador de usuario para un servicio de nube de Microsoft puede usar el módulo Microsoft Azure AD para Windows PowerShell para establecer las contraseñas de usuario no caducan. También puede usar cmdlets de Windows PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca. 
+Un administrador global o un administrador de usuarios de un servicio en la nube de Microsoft puede usar el módulo Microsoft Azure AD para Windows PowerShell a fin de configurar las contraseñas de usuario de modo que no expiren. También puede usar cmdlets de Windows PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca. 
 
 Esta guía se aplica a otros proveedores (como Intune y Office 365) que también dependen de Azure AD para los servicios de identidad y directorio. La expiración de contraseñas es la única parte de la directiva que se puede cambiar.
 
@@ -106,16 +106,16 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Comprobación de la directiva de expiración de una contraseña
 
-1. Conectarse a Windows PowerShell mediante el Administrador de usuario o las credenciales de administrador de empresa.
+1. Conéctese a Windows PowerShell con sus credenciales de administrador usuarios o de administrador de la compañía.
 1. Ejecute uno de los siguientes comandos:
 
-   * Para ver si se establece la contraseña de un usuario único que no expire nunca, ejecute el siguiente cmdlet con el UPN (por ejemplo, *aprilr\@contoso.onmicrosoft.com*) o el identificador de usuario del usuario que desea comprobar:
+   * Para ver si la contraseña de un único usuario está establecida para que no expire nunca, ejecute el cmdlet siguiente con el UPN (por ejemplo, *aprilr\@contoso.onmicrosoft.com*) o el identificador de usuario del usuario que quiere comprobar:
 
    ```powershell
    Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
    ```
 
-   * Para ver el **contraseña nunca expira** establecer para todos los usuarios, ejecute el siguiente cmdlet:
+   * Para ver la configuración **La contraseña nunca expira** de todos los usuarios, ejecute el siguiente cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
@@ -123,16 +123,16 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
 ### <a name="set-a-password-to-expire"></a>Configuración de una contraseña para que caduque
 
-1. Conectarse a Windows PowerShell mediante el Administrador de usuario o las credenciales de administrador de empresa.
+1. Conéctese a Windows PowerShell con sus credenciales de administrador usuarios o de administrador de la compañía.
 1. Ejecute uno de los siguientes comandos:
 
-   * Para establecer la contraseña de un usuario para que la contraseña caduque, ejecute el siguiente cmdlet con el UPN o el identificador de usuario del usuario:
+   * Para establecer la contraseña de un usuario para que expire, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario:
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
    ```
 
-   * Para establecer las contraseñas de todos los usuarios de la organización de modo que caduquen, use el siguiente cmdlet:
+   * Para establecer las contraseñas de todos los usuarios de la organización de modo que expiren, use el siguiente cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
@@ -140,16 +140,16 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
 ### <a name="set-a-password-to-never-expire"></a>Configure una contraseña para que no caduque nunca
 
-1. Conectarse a Windows PowerShell mediante el Administrador de usuario o las credenciales de administrador de empresa.
+1. Conéctese a Windows PowerShell con sus credenciales de administrador usuarios o de administrador de la compañía.
 1. Ejecute uno de los siguientes comandos:
 
-   * Para establecer la contraseña de un usuario que no expire nunca, ejecute el siguiente cmdlet con el UPN o el identificador de usuario del usuario:
+   * Para establecer la contraseña de un usuario para que no expire nunca, ejecute el cmdlet siguiente con el UPN o el identificador de usuario del usuario:
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
    ```
 
-   * Para establecer las contraseñas de todos los usuarios de una organización que no expire nunca, ejecute el siguiente cmdlet:
+   * Para configurar las contraseñas de todos los usuarios de una organización para que nunca expiren, ejecute el siguiente cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration

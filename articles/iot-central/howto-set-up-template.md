@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466507"
 ---
 # <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
@@ -44,13 +44,13 @@ A partir de esta plantilla de dispositivo, un operador puede crear y conectar di
 
 1. Vaya a la página **Plantillas de dispositivo**.
 
-2. Para crear una plantilla, empiece seleccionando **+ nuevo**.
+2. Para crear una plantilla, empiece por seleccionar **+Nuevo**.
 
-3. Para empezar a trabajar, elija entre las plantillas predefinidas existentes. En caso contrario, seleccione **personalizado**, escriba un nombre y haga clic en **crear** para crear su propia plantilla desde cero.
+3. Para empezar a trabajar rápidamente, seleccione entre las plantillas pregeneradas existentes. De lo contrario, seleccione **Personalizado**, escriba un nombre y haga clic en **Crear** para crear su propia plantilla desde cero.
 
    ![Biblioteca de plantillas de dispositivo](./media/howto-set-up-template/newtemplate.png)
 
-4. Cuando se crea una plantilla personalizada, verá el **detalles del dispositivo** página de la nueva plantilla de dispositivo. IoT Central crea automáticamente un dispositivo simulado al crear una plantilla de dispositivo. Un dispositivo simulado permite probar el comportamiento de la aplicación antes de conectar un dispositivo real.
+4. Cuando se crea una plantilla personalizada, se ve la página **Detalles del dispositivo** de la nueva plantilla de dispositivo. IoT Central crea automáticamente un dispositivo simulado al crear una plantilla de dispositivo. Un dispositivo simulado permite probar el comportamiento de la aplicación antes de conectar un dispositivo real.
 
 En las secciones siguientes se describen cada una de las pestañas de la página **Plantilla de dispositivo**.
 
@@ -64,13 +64,13 @@ Las medidas son los datos que proceden del dispositivo. Puede agregar varias med
 
 ### <a name="create-a-telemetry-measurement"></a>Creación de una medida de tipo Telemetría
 
-Para agregar una nueva medición de datos de telemetría, seleccione **+ nueva medición**, elija **telemetría** como la medida escriba y especifique los detalles en el formulario.
+Para agregar una nueva medida de telemetría, seleccione **+ New Measurement** (Nueva medida), elija **Telemetría** como tipo de medida y escriba los detalles en el formulario.
 
 > [!NOTE]
 > Los nombres de campo en la plantilla de dispositivo deben coincidir con los nombres de propiedad en el código de dispositivo correspondiente para que la medida de telemetría se muestre en la aplicación cuando se conecte un dispositivo real. Haga lo mismo cuando configure los ajustes, las propiedades del dispositivo y los comandos mientras continúa definiendo la plantilla de dispositivo en las secciones siguientes.
-.png, por ejemplo, puede agregar una nueva medición de datos de telemetría de temperatura:
+.png Por ejemplo, puede agregar una nueva medida de telemetría de temperatura:
 
-| Nombre para mostrar        | Nombre de campo    |  Unidades    | Mín.   |Máx.|
+| Display Name (Nombre para mostrar)        | Nombre del campo    |  Unidades    | Min   |max|
 | --------------------| ------------- |-----------|-------|---|
 | Temperatura         | temp          |  degC     |  0    |100|
 
@@ -78,20 +78,20 @@ Para agregar una nueva medición de datos de telemetría, seleccione **+ nueva m
 
 Después de seleccionar **Save** (Guardar), le medida **Temperature** aparece en la lista de medidas. En breve, podrá ver los datos de temperatura desde el dispositivo simulado.
 
-Al mostrar los datos de telemetría, puede elegir entre las siguientes opciones de agregación: Promedio, mínimo, máximo, Sum y Count. **Promedio** está seleccionada como la agregación predeterminada en el gráfico. 
+Al mostrar la telemetría, puede elegir entre las siguientes opciones de agregación: Media, Mínimo, Máximo, Suma y Recuento. **Media** se selecciona como la agregación predeterminada en el gráfico. 
 
 > [!NOTE]
 > El tipo de datos de la medida de telemetría es un número de punto flotante.
 
 ### <a name="create-an-event-measurement"></a>Creación de una medida de tipo Evento
 
-Para agregar una nueva medición del evento, seleccione **+ nueva medición** y seleccione **eventos** como el tipo de medida. Escriba los detalles en el formulario **Crear evento**.
+Para agregar una nueva medida de evento, seleccione **+ New Measurement** (Nueva medida) y **Evento** como tipo de medida. Escriba los detalles en el formulario **Crear evento**.
 
 Rellene los siguientes campos con los datos del evento: **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y **Severity** (Gravedad). Puede elegir entre los tres niveles disponibles de gravedad: **Error**, **Advertencia** e **Información**.
 
 Por ejemplo, puede agregar un nuevo evento denominado **Fan Motor Error**.
 
-| Nombre para mostrar        | Nombre de campo    |  Gravedad predeterminada |
+| Display Name (Nombre para mostrar)        | Nombre del campo    |  Gravedad predeterminada |
 | --------------------| ------------- |-----------|
 | Fan Motor Error     | fanmotorerror |  Error    |
 
@@ -99,7 +99,7 @@ Por ejemplo, puede agregar un nuevo evento denominado **Fan Motor Error**.
 
 Después de seleccionar **Save** (Guardar), le medida **Fan Motor Error** aparece en la lista de medidas. En breve, podrá ver los datos del evento desde el dispositivo simulado.
 
-Para ver más detalles sobre un evento, seleccione el icono de evento en el gráfico:
+Para ver más detalles sobre un evento, seleccione el icono del evento en el gráfico:
 
 ![Detalles del evento "Fan Motor Error"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
@@ -108,13 +108,13 @@ Para ver más detalles sobre un evento, seleccione el icono de evento en el grá
 
 ### <a name="create-a-state-measurement"></a>Creación de una medida de tipo Estado
 
-Para agregar una nueva medida de estado, seleccione el **+ nueva medición** y seleccione **estado** como el tipo de medida. Escriba los detalles en el formulario **Crear estado**.
+Para agregar una nueva medida de estado, seleccione el botón **+ New Measurement** (Nueva medida) y **Estado** como tipo de medida. Escriba los detalles en el formulario **Crear estado**.
 
 Rellene los siguientes campos con los datos del estado: **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y **Values** (Valores). Cada valor también puede tener un nombre para mostrar que se usará cuando el valor aparezca en gráficos y tablas.
 
 Por ejemplo, puede agregar un nuevo estado denominado **Fan Mode** que tenga dos valores posibles que el dispositivo puede enviar: **Operating** (En funcionamiento) y **Stopped** (Detenido).
 
-| Nombre para mostrar | Nombre de campo    |  Valor 1   | Nombre para mostrar | Valor 2    |Nombre para mostrar  | 
+| Display Name (Nombre para mostrar) | Nombre del campo    |  Value 1   | Display Name (Nombre para mostrar) | Value 2    |Display Name (Nombre para mostrar)  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Fan Mode     | fanmode       |  1         | Operating    |     0      | Stopped      |
 
@@ -122,7 +122,7 @@ Por ejemplo, puede agregar un nuevo estado denominado **Fan Mode** que tenga dos
 
 Después de seleccionar **Save** (Guardar), le medida del estado **Fan Mode** aparece en la lista de medidas. En breve, podrá ver los datos del estado desde el dispositivo simulado.
 
-Si el dispositivo envía demasiados puntos de datos en un intervalo pequeño, la medida de estado aparece se muestra con otro objeto visual diferente. Seleccione el gráfico para ver todos los puntos de datos dentro de ese período de tiempo en orden cronológico. También puede reducir el intervalo de tiempo para ver la medida trazada en el gráfico.
+Si el dispositivo envía demasiados puntos de datos en un intervalo pequeño, la medida de estado aparece se muestra con otro objeto visual diferente. Seleccione el gráfico para ver todos los puntos de datos de ese período en orden cronológico. También puede reducir el intervalo de tiempo para ver la medida trazada en el gráfico.
 
 > [!NOTE]
 > El tipo de datos de la medida de tipo Estado es cadena.
@@ -139,9 +139,9 @@ La configuración puede tener uno de estos tres estados. El dispositivo notifica
 
 - **Error**: el dispositivo ha devuelto un error.
 
-Por ejemplo, puede agregar una nueva configuración de la velocidad del ventilador seleccionando **configuración** y escribir en el nuevo **número** configuración:
+Por ejemplo, puede agregar un nuevo valor de velocidad del ventilador si selecciona **Configuración** y escribe el nuevo valor **Número**:
 
-| Nombre para mostrar  | Nombre de campo    |  Unidades  | Decimals |Inicial|
+| Display Name (Nombre para mostrar)  | Nombre del campo    |  Unidades  | Decimals |Inicial|
 | --------------| ------------- |---------| ---------|---- |
 | Fan Speed     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -160,7 +160,7 @@ Existen dos categorías de propiedades:
 
 Por ejemplo, puede agregar la última fecha de mantenimiento del dispositivo como una nueva propiedad **Fecha** (una propiedad de la aplicación) en la pestaña **Propiedades**:
 
-| Nombre para mostrar  | Nombre de campo | Valor inicial   |
+| Display Name (Nombre para mostrar)  | Nombre del campo | Valor inicial   |
 | --------------| -----------|-----------------|
 | Última revisión      | lastServiced        | 01/29/2019     |
 
@@ -189,7 +189,7 @@ Puede crear una propiedad de ubicación como una propiedad de la aplicación med
 
 3. Configure los valores de los campos **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y (opcionalmente) **Initial Value** (Valor inicial) de la ubicación.
 
-    | Nombre para mostrar  | Nombre de campo | Valor inicial |
+    | Display Name (Nombre para mostrar)  | Nombre del campo | Valor inicial |
     | --------------| -----------|---------| 
     | Dirección de la instalación | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -211,9 +211,9 @@ Puede crear una propiedad de ubicación como una propiedad de dispositivo que el
 
 3. Configure el nombre para mostrar y el nombre del campo y seleccione **Ubicación** como tipo de datos:
 
-    | Nombre para mostrar  | Nombre de campo | Tipo de datos |
+    | Display Name (Nombre para mostrar)  | Nombre del campo | Tipo de datos |
     | --------------| -----------|-----------|
-    | Ubicación del dispositivo | deviceLocation | ubicación  |
+    | Ubicación del dispositivo | deviceLocation | location  |
 
    > [!NOTE]
    > Los nombres de campo deben coincidir con los nombres de propiedad en el código de dispositivo correspondiente.
@@ -232,9 +232,9 @@ Los comandos se usan para administrar un dispositivo de forma remota. Permiten a
 
 * **Comando**: los comandos se usan para ejecutar al instante un comando en el dispositivo de forma remota desde IoT Central. Si un dispositivo no está conectado, se agota el tiempo de espera del comando y se produce un error. Por ejemplo, desea reiniciar un dispositivo.
 
-Por ejemplo, puede agregar un nuevo **Echo** comando seleccionando el **comandos** ficha, a continuación, seleccione **+ nuevo comando**y escriba los detalles del nuevo comando:
+Por ejemplo, puede agregar un nuevo comando **Eco** si selecciona la pestaña **Comandos**, **+ Nuevo comando** y escribe los detalles del nuevo comando:
 
-| Nombre para mostrar  | Nombre de campo | Tiempo de espera predeterminado | Tipo de datos |
+| Display Name (Nombre para mostrar)  | Nombre del campo | Tiempo de espera predeterminado | Tipo de datos |
 | --------------| -----------|---------------- | --------- |
 | Comando Echo  | echo       |  30             | text      |
 
@@ -280,5 +280,5 @@ Ahora que ha aprendido a configurar una plantilla de dispositivo en una aplicaci
 
 > [!div class="nextstepaction"]
 > [Crear una nueva versión de plantilla de dispositivo](howto-version-devicetemplate.md)
-> [conectar un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central](howto-connect-devkit.md)
-> [conectar una aplicación cliente genérico a los de Azure Aplicación de IoT Central (Node.js)](howto-connect-nodejs.md)
+> [Conectar un dispositivo MXChip IoT DevKit a la aplicación de Azure IoT Central](howto-connect-devkit.md)
+> [Conectar una aplicación cliente genérica a la aplicación de Azure IoT Central (Node.js)](howto-connect-nodejs.md)

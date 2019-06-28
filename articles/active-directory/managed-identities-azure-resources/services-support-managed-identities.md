@@ -11,10 +11,10 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518682"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
@@ -32,8 +32,8 @@ Los siguientes servicios de Azure admiten identidades administradas para recurso
 
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Disponible | Preview | Preview | Preview | 
-| Asignado por el usuario | Preview | Preview | Preview | Preview |
+| Asignado por el sistema | Disponible | Vista previa | Vista previa | Vista previa | 
+| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Virtual Machines (en las regiones donde esté disponible):
 
@@ -47,8 +47,8 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 |Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Disponible | Preview | Preview | Preview |
-| Asignado por el usuario | Preview | Preview | Preview | Preview |
+| Asignado por el sistema | Disponible | Vista previa | Vista previa | Vista previa |
+| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Virtual Machine Scale Sets (en las regiones donde esté disponible):
 
@@ -63,7 +63,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 | Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
-| Asignado por el usuario | Preview | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure App Service (en las regiones donde esté disponible):
 
@@ -76,20 +76,20 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 |Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Preview | No disponible | No disponible | No disponible |
-| Usuario asignado | Preview | No disponible | No disponible | No disponible |
+| Asignado por el sistema | Vista previa | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
 
-Consulte la siguiente lista para usar una identidad administrada con [planos técnicos de Azure](../../governance/blueprints/overview.md):
+Consulte la siguiente lista para usar una identidad administrada con [Azure Blueprints](../../governance/blueprints/overview.md):
 
-- [Portal de Azure: asignación del plano técnico](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [API de REST: asignación del plano técnico](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Azure Portal: asignación de plano técnico](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [API de REST: asignación de plano técnico](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 ### <a name="azure-functions"></a>Azure Functions
 
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
-| Asignado por el usuario | Preview | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Functions (en las regiones donde esté disponible):
 
@@ -102,8 +102,8 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Preview | Preview | No disponible | Preview |
-| Usuario asignado | No disponible | No disponible | No disponible | No disponible |
+| Asignado por el sistema | Vista previa | Vista previa | No disponible | Vista previa |
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Logic Apps (en las regiones donde esté disponible):
 
@@ -139,8 +139,8 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Asignado por el sistema | Linux: Preview<br>Windows: No disponible | No disponible | No disponible | No disponible |
-| Asignado por el usuario | Linux: Preview<br>Windows: No disponible | No disponible | No disponible | No disponible |
+| Asignado por el sistema | Linux: Vista previa<br>Windows: No disponible | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Linux: Vista previa<br>Windows: No disponible | No disponible | No disponible | No disponible |
 
 Consulte la lista siguiente para configurar la identidad administrada para Azure Container Instances (en las regiones donde esté disponible):
 
@@ -154,14 +154,14 @@ Los siguientes servicios admiten la autenticación de Azure AD y se han probado 
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Consulte la lista siguiente para configurar el acceso a Azure Resource Manager:
+Consulte la siguiente lista para configurar el acceso a Azure Resource Manager:
 
-- [Asignar el acceso a través del portal de Azure](howto-assign-access-portal.md)
+- [Asignar el acceso a través de Azure Portal](howto-assign-access-portal.md)
 - [Asignar el acceso a través de Powershell](howto-assign-access-powershell.md)
-- [Asignar el acceso mediante la CLI de Azure](howto-assign-access-CLI.md)
-- [Asignar el acceso a través de la plantilla de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
+- [Asignar el acceso a través de la CLI de Azure](howto-assign-access-CLI.md)
+- [Asignar el acceso a través de una plantilla de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
 | Azure Global | `https://management.azure.com/`| Disponible |
 | Azure Government | `https://management.usgovcloudapi.net/` | Disponible |
@@ -170,7 +170,7 @@ Consulte la lista siguiente para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
 | Azure Global | `https://vault.azure.net`| Disponible |
 | Azure Government | `https://vault.usgovcloudapi.net` | Disponible |
@@ -179,7 +179,7 @@ Consulte la lista siguiente para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
 | Azure Global | `https://datalake.azure.net/` | Disponible |
 | Azure Government |  | No disponible |
@@ -188,7 +188,7 @@ Consulte la lista siguiente para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-sql"></a>Azure SQL 
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
 | Azure Global | `https://database.windows.net/` | Disponible |
 | Azure Government | `https://database.usgovcloudapi.net/` | Disponible |
@@ -197,25 +197,25 @@ Consulte la lista siguiente para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | Preview |
+| Azure Global | `https://eventhubs.azure.net` | Vista previa |
 | Azure Government |  | No disponible |
 | Azure Alemania |   | No disponible |
 | Azure China 21Vianet |  | No disponible |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | Preview |
+| Azure Global | `https://servicebus.azure.net`  | Vista previa |
 | Azure Government |  | No disponible |
 | Azure Alemania |   | No disponible |
 | Azure China 21Vianet |  | No disponible |
 
-### <a name="azure-storage-blobs-and-queues"></a>Las colas y blobs de azure Storage
+### <a name="azure-storage-blobs-and-queues"></a>Colas y blobs de Azure Storage
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
 | Azure Global | `https://storage.azure.com/` | Disponible |
 | Azure Government | `https://storage.azure.com/` | Disponible |
@@ -224,7 +224,7 @@ Consulte la lista siguiente para configurar el acceso a Azure Resource Manager:
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| Nube | Id. del recurso | Status |
+| Nube | Id. de recurso | Status |
 |--------|------------|--------|
 | Azure Global | `https://*.asazure.windows.net` | Disponible |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | Disponible |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
 ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398712"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Compatibilidad de plataformas de SDK de IoT de Azure
@@ -83,7 +83,7 @@ Hay varias plataformas compatibles.
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | Android API 28 | X64  | Java 8       |
-| Cosas de Android | X64  | Java 8      |
+| Android Things | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>Plataformas de asociados compatibles
 

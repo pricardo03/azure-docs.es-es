@@ -1,5 +1,5 @@
 ---
-title: 'Python: Operaciones de administración en Azure Data Lake Storage Gen1 cuentas | Microsoft Docs'
+title: 'Python: operaciones de administración de cuentas en Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Aprenda a usar el SDK de Python para realizar operaciones de administración de cuentas de Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877264"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante Python.
@@ -133,7 +133,7 @@ En el siguiente fragmento de código se crea primero el cliente de la cuenta de 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Filesystem operations on Data Lake Storage Gen1 using Python](data-lake-store-data-operations-python.md) (Operaciones del sistema de archivos en Data Lake Storage Gen1 mediante Python).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [azure-datalake-store Python (Filesystem) reference](https://azure-datalake-store.readthedocs.io/en/latest) [Referencia de azure-datalake-store Python (sistema de archivos)]
 * [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)

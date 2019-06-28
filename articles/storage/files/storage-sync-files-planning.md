@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597081"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
@@ -110,10 +110,10 @@ Para mostrar los resultados en CSV:
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
-### <a name="system-requirements"></a>Requisitos de sistema
+### <a name="system-requirements"></a>Requisitos del sistema
 - Un servidor que ejecute Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019:
 
-    | Version | SKU compatibles | Opciones de implementación compatibles |
+    | Versión | SKU compatibles | Opciones de implementación compatibles |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
     | Windows Server 2016 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
@@ -136,11 +136,11 @@ Para mostrar los resultados en CSV:
 | Característica | Compatibilidad con el estado | Notas |
 |---------|----------------|-------|
 | Listas de control de acceso (ACL) | Totalmente compatible | Azure File Sync conserva las listas ACL de Windows y Windows Server las exige en los puntos de conexión de servidor. Las listas ACL de Windows no se admiten (aún) en Azure Files cuando se accede directamente a los archivos en la nube. |
-| Vínculos físicos | Omitido | |
-| Vínculos simbólicos | Omitido | |
+| Vínculos físicos | Skipped | |
+| Vínculos simbólicos | Skipped | |
 | Puntos de montaje | Compatibilidad parcial | Los puntos de montaje podrían ser la raíz de un punto de conexión de servidor, pero se omiten si están incluidos en el espacio de nombres del punto de conexión de servidor. |
-| Uniones | Omitido | Por ejemplo, las carpetas DfrsrPrivate y DFSRoots del Sistema de archivos distribuido. |
-| Puntos de repetición de análisis | Omitido | |
+| Uniones | Skipped | Por ejemplo, las carpetas DfrsrPrivate y DFSRoots del Sistema de archivos distribuido. |
+| Puntos de repetición de análisis | Skipped | |
 | Compresión NTFS | Totalmente compatible | |
 | Archivos dispersos | Totalmente compatible | Los archivos dispersos se sincronizan (no se bloquean), pero lo hacen con la nube como un archivo completo. Si se cambia el contenido del archivo en la nube (o en otro servidor), el archivo ya no estará disperso cuando el cambio se haya descargado. |
 | Flujos de datos alternativos (ADS) | Conservados, pero no sincronizados | Por ejemplo, las etiquetas de clasificación creadas por la infraestructura de clasificación de archivos no están sincronizadas. Las etiquetas de clasificación existentes en los archivos en cada uno de los puntos de conexión del servidor se dejan como están. |
@@ -150,7 +150,7 @@ Para mostrar los resultados en CSV:
 
 ### <a name="files-skipped"></a>Archivos omitidos
 
-| Archivo/carpeta | NOTA |
+| Archivo/carpeta | Nota: |
 |-|-|
 | Desktop.ini | Archivo específico del sistema |
 | ethumbs.DB$ | Archivo temporal para miniaturas |
@@ -178,9 +178,9 @@ En el caso de volúmenes que no tengan habilitada la característica de niveles 
 ### <a name="distributed-file-system-dfs"></a>Sistema de archivos distribuido (DFS)
 Azure File Sync admite la interoperabilidad con espacios de nombres DFS (DFS-N) y la replicación DFS (DFS-R).
 
-**Espacios de nombres DFS (DFS-N)**: Azure File Sync es totalmente compatible con servidores de DFS-N. Puede instalar el agente de Azure File Sync en uno o varios miembros DFS-N para sincronizar datos entre los puntos de conexión del servidor y el punto de conexión en la nube. Para más información, consulte [Información general de Espacios de nombres DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**Espacios de nombres DFS (DFS-N)** : Azure File Sync es totalmente compatible con servidores de DFS-N. Puede instalar el agente de Azure File Sync en uno o varios miembros DFS-N para sincronizar datos entre los puntos de conexión del servidor y el punto de conexión en la nube. Para más información, consulte [Información general de Espacios de nombres DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**Replicación DFS (DFS-R)**: puesto que DFS-R y Azure File Sync son soluciones de replicación, en la mayoría de los casos, se recomienda reemplazar DFS-R por Azure File Sync. Hay, sin embargo, varios escenarios donde puede que desee usar DFS-R y Azure File Sync conjuntamente:
+**Replicación DFS (DFS-R)** : puesto que DFS-R y Azure File Sync son soluciones de replicación, en la mayoría de los casos, se recomienda reemplazar DFS-R por Azure File Sync. Hay, sin embargo, varios escenarios donde puede que desee usar DFS-R y Azure File Sync conjuntamente:
 
 - Va a migrar desde una implementación de DFS-R a una implementación de Azure File Sync. Para más información, consulte [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync) (Migración de una implementación de la replicación DFS (DFS-R) a Azure File Sync).
 - No todos los servidores locales que necesitan una copia de los datos de archivo pueden estar conectados directamente a Internet.
@@ -230,19 +230,19 @@ En general, Azure File Sync debe admitir la interoperabilidad con soluciones de 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Otras soluciones de administración de almacenamiento jerárquico (HSM)
 No deben utilizarse otras soluciones HSM deben utilizarse con Azure File Sync.
 
-## <a name="region-availability"></a>Disponibilidad por región
+## <a name="region-availability"></a>Disponibilidad en regiones
 Azure File Sync solo está disponible en las siguientes regiones:
 
-| Área | Ubicación de centro de datos |
+| Region | Ubicación de centro de datos |
 |--------|---------------------|
 | Este de Australia | Nueva Gales del Sur |
 | Sudeste de Australia | Victoria |
-| Sur de Brasil | Sao Paolo State |
+| Sur de Brasil | Estado de São Paulo |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
 | India Central | Pune |
 | Centro de EE. UU. | Iowa |
-| Asia oriental | Hong Kong RAE |
+| Asia oriental | RAE de Hong Kong |
 | Este de EE. UU | Virginia |
 | Este de EE. UU. 2 | Virginia |
 | Corea Central| Seúl |
@@ -256,10 +256,10 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Sudeste asiático | Singapur |
 | Sur de Reino Unido 2 | Londres |
 | Oeste de Reino Unido | Cardiff |
-| US Gov de Arizona (versión preliminar) | Arizona |
-| US Gov de Texas (versión preliminar) | Texas |
+| US Gov Arizona (versión preliminar) | Arizona |
+| US Gov Texas (versión preliminar) | Texas |
 | US Gov Virginia (versión preliminar) | Virginia |
-| Europa occidental | Países bajos |
+| Europa occidental | Países Bajos |
 | Centro occidental de EE.UU. | Wyoming |
 | Oeste de EE. UU. | California |
 | Oeste de EE. UU. 2 | Washington |
@@ -267,7 +267,7 @@ Azure File Sync solo está disponible en las siguientes regiones:
 Azure File Sync solo se admite la sincronización con recursos compartidos de archivos de Azure de la misma región que el servicio de sincronización de almacenamiento.
 
 > [!Note]  
-> Actualmente, Azure File Sync solo está disponible en versión preliminar privada para las regiones de gobierno. Consulte nuestra [notas de la versión](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) para obtener instrucciones sobre la inscripción en el programa de vista previa.
+> Actualmente, Azure File Sync solo está disponible en versión preliminar privada para las regiones de gobierno. Eche un vistazo a nuestras [notas de la versión](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) para obtener instrucciones sobre la inscripción en el programa de versión preliminar.
 
 ### <a name="azure-disaster-recovery"></a>Azure Disaster Recovery
 Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporalmente o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
@@ -277,7 +277,7 @@ Para protegerse contra la pérdida de una región de Azure, Azure File Sync se i
 
 Para admitir la integración de la conmutación por error entre el almacenamiento con redundancia geográfica y Azure File Sync, todas las regiones de Azure File Sync se emparejan con una región secundaria que coincide con la región secundaria que el almacenamiento utiliza. Se emparejan de la siguiente manera:
 
-| Región principal      | Región emparejada      |
+| Región primaria      | Región emparejada      |
 |---------------------|--------------------|
 | Este de Australia      | Sudeste de Australia|
 | Sudeste de Australia | Este de Australia     |
@@ -300,9 +300,9 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | Sudeste asiático      | Asia oriental          |
 | Sur de Reino Unido 2            | Oeste de Reino Unido            |
 | Oeste de Reino Unido             | Sur de Reino Unido 2           |
-| US Gov de Arizona      | US Gov de Texas       |
-| US Gov Iowa         | US Gov Virginia    |
-| US Gov Virgini      | US Gov de Texas       |
+| Gobierno de EE. UU.: Arizona      | Gobierno de EE. UU.: Texas       |
+| US Gov Iowa         | Gobierno de EE. UU. - Virginia    |
+| US Gov Virgini      | Gobierno de EE. UU.: Texas       |
 | Europa occidental         | Europa del Norte       |
 | Centro occidental de EE.UU.     | Oeste de EE. UU. 2          |
 | Oeste de EE. UU.             | Este de EE. UU            |

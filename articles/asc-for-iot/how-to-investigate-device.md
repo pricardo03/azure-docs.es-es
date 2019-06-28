@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center para la Guía de investigación de dispositivo IoT Preview | Microsoft Docs
-description: Esta guía explica cómo usar Azure Security Center para IoT para investigar un dispositivo de IoT sospechoso mediante Log Analytics.
+title: Guía para la investigación de dispositivos de Azure Security Center for IoT en IoT Hub, versión preliminar | Microsoft Docs
+description: En esta guía de procedimientos se explica cómo usar Azure Security Center for IoT para investigar un dispositivo IoT sospechoso mediante Log Analytics.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
 ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192655"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigación de un dispositivo de IoT sospechoso
@@ -27,23 +27,23 @@ ms.locfileid: "65192655"
 > Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Security Center (ASC) para la evidencia y las alertas del servicio IoT proporcionan indicaciones claras cuando se sospecha de dispositivos IoT de participación en actividades sospechosas o cuando las indicaciones existan que un dispositivo está en peligro. 
+Las alertas y pruebas del servicio Azure Security Center (ASC) for IoT aportan claros indicios cuando existe la sospecha de que un dispositivo IoT ha participado en actividades sospechosas, o cuando hay señales que indican que un dispositivo está en peligro. 
 
-En esta guía, use las sugerencias de investigación proporcionadas para ayudar a determinar los riesgos potenciales para su organización, decida cómo corregir y descubrir las mejores formas para evitar ataques similar en el futuro.  
+En esta guía, use las sugerencias de investigación que se proporcionan para ayudar a determinar los riesgos potenciales para su organización, a decidir cómo corregirlos y a descubrir las mejores formas de evitar ataques similares en el futuro.  
 
 > [!div class="checklist"]
 > * Busque los datos del dispositivo
 > * Investigue el uso de consultas kql
 
 
-## <a name="how-can-i-access-my-data"></a>¿Cómo puedo tener acceso a Mis datos?
+## <a name="how-can-i-access-my-data"></a>¿Cómo puedo acceder a mis datos?
 
 De forma predeterminada, ASC for IoT almacena tanto las recomendaciones como las alertas de seguridad en su área de trabajo de Log Analytics. También puede elegir almacenar los datos de seguridad sin formato.
 
 Para buscar el área de trabajo de Log Analytics para el almacenamiento de datos:
 
 1. Abra IoT Hub. 
-1. En **seguridad**, haga clic en **Introducción**y, a continuación, seleccione **configuración**.
+1. En **Security** (Seguridad), haga clic en **Overview** (Introducción) y, después, seleccione **Settings** (Configuración).
 1. Cambie los detalles de la configuración del área de trabajo de Log Analytics. 
 1. Haga clic en **Save**(Guardar). 
 
@@ -55,9 +55,9 @@ Después de la configuración, realice las siguientes operaciones para acceder a
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Pasos de la investigación de dispositivos de IoT sospechosos
 
-Para obtener acceso a información y datos sin procesar acerca de los dispositivos de IoT, vaya al área de trabajo de Log Analytics [para tener acceso a los datos](#how-can-i-access-my-data).
+Si quiere obtener acceso a información y a datos sin procesar relativos a sus dispositivos IoT, vaya a su área de trabajo de Log Analytics [para acceder a los datos](#how-can-i-access-my-data).
 
-Comprobar e investigar los datos del dispositivo para la siguiente información y actividades mediante las siguientes consultas kql.
+Compruebe los datos del dispositivo e investigue los siguientes detalles y actividades mediante las siguientes consultas kql.
 
 ### <a name="related-alerts"></a>Alertas relacionadas
 
@@ -90,11 +90,11 @@ Para averiguar qué usuarios tienen acceso a este dispositivo, use la siguiente 
   ~~~
 Use estos datos para detectar: 
   1. Qué usuarios tienen acceso al dispositivo.
-  2. ¿Tienen los usuarios con acceso a los niveles de permisos según lo previsto? 
+  2. Si los usuarios con acceso tienen los niveles de permiso esperados. 
 
 ### <a name="open-ports"></a>Abrir puertos
 
-Para averiguar qué puertos en el dispositivo están actualmente en uso o se han utilizado, use la siguiente consulta kql: 
+Para averiguar qué puertos del dispositivo están actualmente en uso o se han usado, utilice la siguiente consulta kql: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -116,12 +116,12 @@ Para averiguar qué puertos en el dispositivo están actualmente en uso o se han
 
     Use this data to discover:
   1. Qué sockets de escucha están actualmente activos en el dispositivo.
-  2. ¿Deben permitirse los sockets de escucha que están activos actualmente?
-  3. ¿Hay ninguna dirección remota sospechosa conectada al dispositivo?
+  2. Si los sockets de escucha activos actualmente deberían estar permitidos.
+  3. Si hay alguna dirección remota sospechosa conectada al dispositivo.
 
 ### <a name="user-logins"></a>Inicios de sesión de usuario
 
-Para averiguar los usuarios que ha iniciado sesión en el dispositivo use la siguiente consulta kql: 
+Para averiguar qué usuarios han iniciado sesión en el dispositivo, use la siguiente consulta kql: 
  
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Para averiguar los usuarios que ha iniciado sesión en el dispositivo use la sig
 
     Use the query results to discover:
   1. Qué usuarios han iniciado sesión el dispositivo.
-  2. ¿Son los usuarios que ha iniciado sesión, supone que inicien sesión?
+  2. Si los usuarios que ha iniciado sesión deben iniciar sesión teóricamente.
   3. Si los usuarios que han iniciado sesión se han conectado desde direcciones IP esperadas o inesperadas.
   
 ### <a name="process-list"></a>Lista de procesos
 
-Para averiguar si la lista de procesos es según lo esperado, utilice la siguiente consulta kql: 
+Para averiguar si la lista de procesos es la prevista, use la siguiente consulta kql: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";

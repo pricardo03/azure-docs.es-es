@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: cbdbedf32e8a3dad85262f287b27a03df780d95a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393068"
 ---
 # <a name="monitoring-the-cluster"></a>Supervisar el clúster
@@ -90,13 +90,13 @@ Para obtener una lista de contadores de rendimiento para recopilar datos cuando 
 A continuación se indican dos formas habituales de configurar la recopilación de datos de rendimiento del clúster:
 
 * **Uso de un agente**  
-Se trata de la mejor manera de recopilar datos de rendimiento de una máquina, ya que los agentes suelen incluir una lista de las métricas de rendimiento que se pueden recopilar, y el proceso para elegir o cambiar las métricas que se van a recopilar es relativamente sencillo. Registros de lectura sobre el Monitor de Azure que ofrece Azure Monitor en Service Fabric [integración de registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) y [configurar el agente de Log Analytics](../log-analytics/log-analytics-windows-agent.md) para obtener más información sobre el agente de Log Analytics, que es un agente de supervisión que puede recoger datos de rendimiento para máquinas virtuales del clúster y los contenedores implementados.
+Se trata de la mejor manera de recopilar datos de rendimiento de una máquina, ya que los agentes suelen incluir una lista de las métricas de rendimiento que se pueden recopilar, y el proceso para elegir o cambiar las métricas que se van a recopilar es relativamente sencillo. Consulte la oferta de Azure Monitor en los artículos sobre la [integración de los registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) y la [configuración del agente de Log Analytics](../log-analytics/log-analytics-windows-agent.md) de Service Fabric para obtener más información sobre el agente de Log Analytics, que es un agente de supervisión que puede recopilar datos de rendimiento de las máquinas virtuales del clúster y los contenedores implementados.
 
 * **Contadores de rendimiento para Azure Table Storage**  
 También puede enviar métricas de rendimiento a la misma instancia de Table Storage que los eventos. Esto exige cambiar la configuración de Azure Diagnostics, de modo que recopile los contadores de rendimiento correspondientes a las máquinas virtuales del clúster y pueda reunir estadísticas de Docker si va a implementar contenedores. Obtenga más información sobre cómo configurar [contadores de rendimiento de WAD](service-fabric-diagnostics-event-aggregation-wad.md) en Service Fabric para configurar una colección de contadores de rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea acerca de Service Fabric [integración de registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) para recopilar diagnósticos de clúster y crear consultas personalizadas y alertas
+* Lea el artículo sobre la [integración de los registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) de Service Fabric para recopilar diagnósticos de clúster y crear consultas y alertas personalizadas.
 * Obtenga información acerca de Service Fabric en la experiencia de diagnóstico integrada, [EventStore](service-fabric-diagnostics-eventstore.md).
 * Consulte algunos [escenarios de diagnóstico comunes](service-fabric-diagnostics-common-scenarios.md) en Service Fabric.

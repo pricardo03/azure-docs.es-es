@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
 ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412838"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminación de un almacén de Site Recovery Services
@@ -77,4 +77,4 @@ Para eliminar el almacén de Site Recovery aunque haya elementos protegidos, use
 
     Remove-AzRecoveryServicesVault -Vault $vault
 
-Obtenga más información sobre [Get AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), y [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+Obtenga más información sobre [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault) y [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

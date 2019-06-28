@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61245128"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
@@ -56,7 +56,7 @@ El equipo también supervisa las preguntas etiquetadas con "azure-media-services
 
 ## <a name="contact-the-team"></a>Póngase en contacto con el equipo
 
-Azure Media Services es el correo electrónico de soporte técnico principal: **amshelp\@microsoft.com**.
+El correo principal del soporte técnico de Azure Media Services es: **amshelp\@microsoft.com**.
 
 La siguiente tabla enumera el correo electrónico de los subequipos de las características:
 

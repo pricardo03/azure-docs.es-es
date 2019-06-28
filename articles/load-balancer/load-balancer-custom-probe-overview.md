@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: kumud
 ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65415704"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
@@ -30,7 +30,7 @@ Los sondeos de estado admiten varios protocolos. La disponibilidad de un tipo es
 | | SKU Estándar | SKU Básico |
 | --- | --- | --- |
 | [Tipos de sondeo](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamiento de sondeo inactivo](#probedown) | Todos los sondeos inactivos y todos los flujos TCP continúan. | Todos los sondeos hacia abajo, todos los flujos TCP expiran. | 
+| [Comportamiento de sondeo inactivo](#probedown) | Todos los sondeos inactivos y todos los flujos TCP continúan. | Todos los sondeos inactivos y todos los flujos TCP expiran. | 
 
 > [!IMPORTANT]
 > Los sondeos de estado de Load Balancer parten de la dirección IP 168.63.129.16 y no se deben bloquear para que los sondeos marquen la instancia como activa.  Para más información, consulte el apartado [Probe source IP address](#probesource) (Dirección IP de origen de sondeo).
@@ -178,7 +178,7 @@ Load Balancer usa un servicio de sondeo distribuido para su modelo de mantenimie
 
 La etiqueta del servicio AzureLoadBalancer identifica esta dirección IP de origen en los [grupos de seguridad de red](../virtual-network/security-overview.md) y permite el tráfico de sondeo de estado de forma predeterminada.
 
-Además de los sondeos de estado de equilibrador de carga, el [siguientes operaciones de usar esta dirección IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
+Además de los sondeos de estado de Load Balancer, en las [operaciones siguientes se usa esta dirección IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Permite al agente de VM comunicarse con la plataforma para indicar que se encuentra en estado "Listo"
 - Permite la comunicación con el servidor virtual de DNS para proporcionar resolución de nombres filtrada a los clientes que no definen servidores DNS personalizados.  Este filtro garantiza que los clientes solo pueden resolver los nombres de host de su implementación.
@@ -212,9 +212,9 @@ No habilite [las marcas de tiempo TCP](https://tools.ietf.org/html/rfc1323).  Ha
 
 ## <a name="monitoring"></a>Supervisión
 
-[Standard Load Balancer](load-balancer-standard-overview.md), tanto público como interno, expone el estado del sondeo de mantenimiento por punto de conexión e instancia de back-end como métricas multidimensionales mediante Azure Monitor. Estas métricas pueden consumirlos otros servicios de Azure o aplicaciones de asociados. 
+[Standard Load Balancer](load-balancer-standard-overview.md), tanto público como interno, expone el estado del sondeo de mantenimiento por punto de conexión e instancia de back-end como métricas multidimensionales mediante Azure Monitor. Otros servicios de Azure o aplicaciones de asociados pueden usar estas métricas. 
 
-Equilibrador de carga público básico expone del sondeo de estado resumida por grupo de back-end a través de los registros de Azure Monitor.  Registros de Azure Monitor no están disponibles para equilibradores de carga básico interna.  Puede usar [registros de Azure Monitor](load-balancer-monitor-log.md) para comprobar el estado de mantenimiento del sondeo de equilibrador de carga público y el número de sondeos. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
+La instancia pública básica de Load Balancer expone el estado del sondeo de estado resumido por grupo de back-end mediante registros de Azure Monitor.  Los registros de Azure Monitor no están disponible para las instancias internas básicas de Load Balancer.  Puede usar los [registros de Azure Monitor](load-balancer-monitor-log.md) para comprobar el estado del sondeo de estado y el número de sondeos del equilibrador de carga público. El registro se puede utilizar con Power BI o con Azure Operational Insights para proporcionar estadísticas del estado de mantenimiento del equilibrador de carga.
 
 ## <a name="limitations"></a>Limitaciones
 

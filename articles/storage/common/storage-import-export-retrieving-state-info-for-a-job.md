@@ -9,10 +9,10 @@ ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478681"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperación de la información de estado de un trabajo de Import/Export
@@ -45,7 +45,7 @@ En la tabla siguiente se describe cada estado por el que puede pasar un trabajo.
 |`Completed`|Cuando todas las unidades se hayan devuelto al cliente, si el trabajo se ha completado sin errores, se establecerá en el estado `Completed`. El trabajo se eliminará automáticamente después de 90 días en el estado `Completed`.|
 |`Closed`|Cuando todas las unidades se hayan devuelto al cliente, si se ha producido algún error durante el procesamiento del trabajo, este se establecerá en el estado `Closed`. El trabajo se eliminará automáticamente después de 90 días en el estado `Closed`.|
 
-Un trabajo solo se puede cancelar con determinados estados. Un trabajo cancelado omite el paso de copia de datos, pero sigue las mismas transiciones de estado como un trabajo que no se ha cancelado.
+Un trabajo solo se puede cancelar con determinados estados. Un trabajo cancelado omite el paso de copia de datos, pero sigue las mismas transiciones de estado que un trabajo no cancelado.
 
 En la tabla siguiente se describen los errores que pueden aparecer para cada estado del trabajo, así como el efecto en el trabajo cuando se produce un error.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
 ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101476"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure Portal
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este tutorial requiere la versión 1.0.0 del módulo de Azure PowerShell o posterior para crear un certificado e instale IIS. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Para ejecutar los comandos de este tutorial, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
+En este tutorial se requiere la versión 1.0.0 o posterior del módulo de Azure PowerShell para crear un certificado e instalar IIS. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Para ejecutar los comandos de este tutorial, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 

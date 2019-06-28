@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
 ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65415473"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Quitar servidores y deshabilitar la protección
@@ -145,17 +145,17 @@ Los hosts Hyper-V que no están administrados por VMM se reúnen en un sitio de 
 
 1. En **Elementos protegidos** > **Elementos replicados**, haga clic con el botón derecho en la máquina > **Deshabilitar replicación**.
 2. En la página **Deshabilitar replicación**, seleccione una de estas opciones:
-    - **Deshabilitar la replicación y quitar (recomendado)**: esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpia la configuración de replicación en el servidor de configuración y se detiene la facturación de Site Recovery para este servidor protegido. Tenga en cuenta que esta opción solo se puede usar cuando el servidor de configuración está en estado conectado.
+    - **Deshabilitar la replicación y quitar (recomendado)** : esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpia la configuración de replicación en el servidor de configuración y se detiene la facturación de Site Recovery para este servidor protegido. Tenga en cuenta que esta opción solo se puede usar cuando el servidor de configuración está en estado conectado.
     - **Quitar**: esta opción debe utilizarse solo si el entorno de origen se ha eliminado o no es accesible (no conectado). Esto quita el elemento replicado de Azure Site Recovery (se detiene la facturación). La configuración de replicación en el servidor de configuración **no** se va a limpiar. 
 
 > [!NOTE]
 > En ambas opciones no se desinstalará el servicio de movilidad de los servidores protegidos; hay que desinstalarlo manualmente. Si va a proteger el servidor de nuevo con el mismo servidor de configuración, puede omitir la desinstalación del servicio de movilidad.
 
-## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Deshabilite la protección de una máquina virtual de Azure (en Azure)
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Deshabilitación de la protección de una máquina virtual de Azure (Azure a Azure)
 
 -  En **Elementos protegidos** > **Elementos replicados**, haga clic con el botón derecho en la máquina > **Deshabilitar replicación**.
 > [!NOTE]
-> el servicio de movilidad no se desinstalará de los servidores protegidos, deberá desinstalarlo manualmente. Si va a proteger el servidor de nuevo, puede omitir la desinstalación de mobility service.
+> No se desinstalará el servicio de movilidad de los servidores protegidos; tendrá que desinstalarlo manualmente. Si va a proteger el servidor de nuevo, puede omitir la desinstalación del servicio de movilidad.
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Deshabilitación de la protección para una máquina virtual de Hyper-V (Hyper-V a Azure)
 
@@ -164,7 +164,7 @@ Los hosts Hyper-V que no están administrados por VMM se reúnen en un sitio de 
 
 1. En **Elementos protegidos** > **Elementos replicados**, haga clic con el botón derecho en la máquina > **Deshabilitar replicación**.
 2. En **Deshabilitar replicación**, puede seleccionar una de estas opciones:
-   - **Deshabilitar la replicación y quitar (recomendado)**: esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpiará la configuración de replicación en la máquina virtual local y se detiene facturación de Site Recovery para este servidor protegido.
+   - **Deshabilitar la replicación y quitar (recomendado)** : esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpiará la configuración de replicación en la máquina virtual local y se detiene facturación de Site Recovery para este servidor protegido.
    - **Quitar**: esta opción debe utilizarse solo si el entorno de origen se ha eliminado o no es accesible (no conectado). Esto quita el elemento replicado de Azure Site Recovery (se detiene la facturación). La configuración de replicación de la máquina virtual local **no** se va a limpiar. 
 
      > [!NOTE]
@@ -183,7 +183,7 @@ Los hosts Hyper-V que no están administrados por VMM se reúnen en un sitio de 
 1. En **Elementos protegidos** > **Elementos replicados**, haga clic con el botón derecho en la máquina > **Deshabilitar replicación**.
 2. En la página **Deshabilitar replicación**, seleccione una de estas opciones:
 
-   - **Deshabilitar la replicación y quitar (recomendado)**: esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpia la configuración de replicación en la máquina virtual local y se detiene facturación de Site Recovery para este servidor protegido.
+   - **Deshabilitar la replicación y quitar (recomendado)** : esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpia la configuración de replicación en la máquina virtual local y se detiene facturación de Site Recovery para este servidor protegido.
    - **Quitar**: esta opción debe utilizarse solo si el entorno de origen se ha eliminado o no es accesible (no conectado). Esto quita el elemento replicado de Azure Site Recovery (se detiene la facturación). La configuración de replicación de la máquina virtual local **no** se va a limpiar. 
 
      > [!NOTE]
@@ -207,7 +207,7 @@ Los hosts Hyper-V que no están administrados por VMM se reúnen en un sitio de 
 1. En **Elementos protegidos** > **Elementos replicados**, haga clic con el botón derecho en la máquina > **Deshabilitar replicación**.
 2. En la página **Deshabilitar replicación**, seleccione una de estas opciones:
 
-   - **Deshabilitar la replicación y quitar (recomendado)**: esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpia la configuración de replicación en la máquina virtual local y se detiene facturación de Site Recovery para este servidor protegido.
+   - **Deshabilitar la replicación y quitar (recomendado)** : esta opción quita el elemento replicado de Azure Site Recovery y se detiene la replicación de la máquina. Se limpia la configuración de replicación en la máquina virtual local y se detiene facturación de Site Recovery para este servidor protegido.
    - **Quitar**: esta opción debe utilizarse solo si el entorno de origen se ha eliminado o no es accesible (no conectado). Esto quita el elemento replicado de Azure Site Recovery (se detiene la facturación). La configuración de replicación de la máquina virtual local **no** se va a limpiar. Ejecute el siguiente conjunto de scripts para limpiar la configuración de replicación de las máquinas virtuales locales.
      > [!NOTE]
      > Si elige la opción **Quitar**, ejecute los scripts siguientes para limpiar la configuración de replicación en VMM Server local.

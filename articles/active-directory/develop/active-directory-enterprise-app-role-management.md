@@ -17,10 +17,10 @@ ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544628"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
@@ -60,7 +60,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 6. Abra el [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana y siga estos pasos:
 
-     a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
+    a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
 
     b. Para crear los roles es preciso tener permisos suficientes. Seleccione **Modificar permisos** para obtener los permisos.
 
@@ -154,18 +154,18 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 9. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
-    | Nombre de atributo | Valor de atributo |
+    | Nombre del atributo | Valor de atributo |
     | -------------- | ----------------|
-    | Nombre del rol  | user.assignedroles |
+    | Nombre de rol  | user.assignedroles |
 
     >[!NOTE]
-    >Si el valor de notificación de rol es null, a continuación, Azure AD no envía este valor en el token y ésta es la predeterminada según el diseño.
+    >Si el valor de notificación del rol es null, Azure AD no envía este valor en el token y es el predeterminado por diseño.
 
-     a. Haga clic en **editar** icono para abrir **atributos de usuario y notificaciones** cuadro de diálogo.
+    a. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos y notificaciones de usuario**.
 
       ![Botón "Agregar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. En el **Administrar notificaciones de usuario** cuadro de diálogo, agregar el atributo token SAML, haga clic en **agregar nueva notificación**.
+    b. En el cuadro de diálogo **Administrar las notificaciones del usuario**, agregue el atributo de token SAML al hacer clic en **Agregar nueva notificación**.
 
       ![Botón "Agregar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -211,7 +211,7 @@ Para actualizar un rol existente, siga estos pasos:
 
     ![Cuerpo de la solicitud para "PATCH," con "description" y "displayname" resaltados](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-     a. Cambie el método de **GET** a **PATCH**.
+    a. Cambie el método de **GET** a **PATCH**.
 
     b. Copie los roles existentes y péguelos en **Cuerpo de la solicitud**.
 
@@ -249,7 +249,7 @@ Para eliminar un rol existente, siga estos pasos:
 
     ![Cuerpo de la solicitud de "PATCH" con IsEnabled establecido en false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-     a. Cambie el método de **GET** a **PATCH**.
+    a. Cambie el método de **GET** a **PATCH**.
 
     b. Copie los roles existentes de la aplicación y péguelos en **Cuerpo de la solicitud**.
 

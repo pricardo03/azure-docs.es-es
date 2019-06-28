@@ -9,10 +9,10 @@ ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60922111"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Exclusión de discos de la replicación de máquinas virtuales de VMware en Azure
@@ -80,7 +80,7 @@ Los discos de la máquina virtual de origen son los siguientes:
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 DB-Disk2 (disco excluido de la protección) | Disk2 | E:\ | Archivos temporales
-DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\) <br /> <br />Anote la ruta de acceso de carpeta antes de la conmutación por error.
+DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\) <br /> <br />Anote la ruta de acceso de la carpeta antes de que se produzca la conmutación por error.
 DB-Disk4 | Disk4 |G:\ |Database2 del usuario
 
 Dado que la renovación de datos en dos discos de la máquina virtual es temporal, al mismo tiempo que protege la máquina virtual de SalesDB, excluya Disk2 y Disk3 de la replicación. Azure Site Recovery no replicará esos discos. En la conmutación por error, esos discos no estarán presentes en la máquina virtual de conmutación por error de Azure.

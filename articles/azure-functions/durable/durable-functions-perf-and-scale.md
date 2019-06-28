@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733254"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
@@ -49,18 +49,18 @@ Hay varias *colas de control* por central de tareas en Durable Functions. Una *c
 
 Las colas de control contienen una gran variedad de tipos de mensajes del ciclo de vida de la orquestación. Algunos ejemplos son los [mensajes de control del orquestador](durable-functions-instance-management.md), los mensajes de *respuesta* de la función de actividad y los del temporizador. Como máximo, se pueden eliminar 32 mensajes de una cola de control en un único sondeo. Estos mensajes contienen datos de carga, así como metadatos, incluido para qué instancia de orquestación están previstos. Si hay varios mensajes eliminados de la cola previstos para la misma instancia de orquestación, se procesarán como lote.
 
-### <a name="queue-polling"></a>Sondeo de la cola
+### <a name="queue-polling"></a>Sondeo de cola
 
-La extensión durable task implementa un algoritmo exponencial aleatorio retroceso para reducir el efecto del sondeo en los costos de transacción de almacenamiento de cola inactiva. Cuando se encuentra un mensaje, el tiempo de ejecución comprueba inmediatamente otro mensaje; Cuando se encuentra ningún mensaje, espera durante un período de tiempo antes de intentarlo de nuevo. Después de varios intentos fallidos para obtener un mensaje de cola, el tiempo de espera sigue aumentando hasta que alcanza el tiempo de espera máximo, cuyo valor predeterminado es 30 segundos.
+La extensión Durable Task implementa un algoritmo de interrupción exponencial aleatorio para reducir el efecto del sondeo de cola inactiva en los costos de transacción de almacenamiento. Cuando se encuentra un mensaje, el tiempo de ejecución comprueba si hay otro mensaje; cuando no se encuentra ningún mensaje, espera un tiempo antes de intentarlo de nuevo. Después de varios intentos fallidos para obtener un mensaje de la cola, el tiempo de espera sigue aumentando hasta que alcanza el tiempo de espera máximo, predeterminado en 30 segundos.
 
-El retraso de sondeo máximo es configurable a través de la `maxQueuePollingInterval` propiedad en el [archivo host.json](../functions-host-json.md#durabletask). Si se establece en un valor más alto podría provocar latencias de procesamiento de mensajes superior. Se espera que las elevadas latencias solo después de períodos de inactividad. Si se establece en un valor inferior podrían mayores costos de almacenamiento debido a las transacciones de almacenamiento mayor.
+El retraso de sondeo máximo se configura mediante la propiedad `maxQueuePollingInterval` en el [archivo host.json](../functions-host-json.md#durabletask). Establecer unos valores más altos puede provocar mayores latencias de procesamiento de mensajes. Las latencias elevadas solo se pueden esperar después de períodos de inactividad. Establecer un valor más bajo puede provocar mayores costos de almacenamiento debido a transacciones de almacenamiento mayores.
 
 > [!NOTE]
-> Cuando se ejecuta en los planes de consumo de Azure Functions y Premium, la [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondeará cada cola de control y elementos de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de function app y tomar decisiones de escalado. En el momento de escribir este artículo, este segundo intervalo de 10 es constante y no se puede configurar.
+> Cuando se ejecuta en los planes Consumo y Premium de Azure Functions, el [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondeará cada cola de control y elemento de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de aplicaciones de función y tomar decisiones de escalado. En el momento de escribir este artículo, este intervalo de 10 segundos es constante y no se puede configurar.
 
 ## <a name="storage-account-selection"></a>Selección de una cuenta de almacenamiento
 
-Las colas, tablas y blobs usados por Durable Functions se crean en una cuenta de almacenamiento de Azure configurada. Se puede especificar la cuenta que se va a usar mediante el valor `durableTask/azureStorageConnectionStringName` del archivo **host.json**.
+Las colas, tablas y blobs usados por Durable Functions se crean en una cuenta de Azure Storage configurada. Se puede especificar la cuenta que se va a usar mediante el valor `durableTask/azureStorageConnectionStringName` del archivo **host.json**.
 
 ### <a name="functions-1x"></a>Functions 1.x
 

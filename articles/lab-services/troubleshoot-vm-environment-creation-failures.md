@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas de errores de creación de máquina virtual y el entorno de Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo solucionar problemas de máquina virtual (VM) y errores de creación del entorno de Azure DevTest Labs.
+title: Solucionar problemas de errores de creación de máquinas virtuales y entornos en Azure DevTest Labs | Microsoft Docs
+description: Obtenga información sobre cómo solucionar problemas de errores de creación de máquinas virtuales (VM) y entornos en Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,33 +13,33 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410298"
 ---
-# <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de máquina virtual (VM) y errores de creación del entorno de Azure DevTest Labs
-DevTest Labs proporciona advertencias si un nombre de equipo no es válido o si va a infringir las directivas de laboratorio. A veces, verá rojo `X` junto a su laboratorio de máquina virtual o entorno de estado que le informa de que algo ha ido mal.  Este artículo proporciona algunos trucos que puede usar para buscar el problema subyacente y, con suerte, evitar el problema en el futuro.
+# <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Solucionar problemas de errores de creación de máquinas virtuales (VM) y entornos en Azure DevTest Labs
+DevTest Labs le proporciona advertencias si un nombre de máquina no es válido o si va a infringir una directiva de laboratorio. En ocasiones, verá una `X` roja junto al estado del entorno o la máquina virtual de su laboratorio que le informará de que algo ha ido mal.  En este artículo se proporcionan algunos trucos que puede usar para buscar el problema subyacente y, con suerte, evitar el problema en el futuro.
 
 ## <a name="portal-notifications"></a>Notificaciones del portal
-Si utilizas el portal de Azure, el primer lugar donde mirar es el **panel notificaciones**.  Panel de las notificaciones, disponible en la barra de comandos principal haciendo clic en el **icono de campana**, le indicará si el laboratorio de máquina virtual o entorno de creación fue correcto o no.  Si se produjo un error, verá el mensaje de error asociado al error de creación. Estos detalles permiten aún más a menudo información que le ayudarán a resolver el problema. En el ejemplo siguiente, no se pudo crear la máquina virtual debido a la falta de núcleos. El mensaje detallado le enseña a corregir el problema y solicitar un aumento de cuota de núcleos.
+Si utiliza Azure Portal, el primer lugar donde debe mirar es el **panel de notificaciones**.  El panel de notificaciones, disponible en la barra de comandos principal haciendo clic en el **icono de campana**, le indicará si la creación del entorno o la máquina virtual del laboratorio se ha realizado correctamente o no.  Si se produjo un error, verá el mensaje de error asociado al error de creación. Estos detalles a menudo ofrecen más información que le ayudará a resolver el problema. En el ejemplo siguiente, la máquina virtual no se pudo crear debido a la falta de núcleos. El mensaje detallado le indica cómo corregir el problema y solicitar un aumento de cuota de núcleos.
 
-![Notificación en Azure portal](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+![Notificación de Azure Portal](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 
 
 ## <a name="activity-logs"></a>Registros de actividad
-Examine los registros de actividad si está investigando un error en algún momento después de intentar la creación de la máquina virtual o el entorno. En esta sección se muestra cómo buscar los registros de las máquinas virtuales y entornos.
+Examine los registros de actividad si está investigando un error al cabo de un tiempo de haber intentado crear la máquina virtual o el entorno. En esta sección se muestra cómo buscar los registros de las máquinas virtuales y los entornos.
 
-## <a name="activity-logs-for-virtual-machines"></a>Registros de actividad para máquinas virtuales
+## <a name="activity-logs-for-virtual-machines"></a>Registros de actividad de máquinas virtuales
 
-1. En la página principal para el laboratorio, seleccione la máquina virtual para iniciar el **Máquina Virtual** página.
-2. En el **Máquina Virtual** página, en el **supervisión** sección del menú izquierdo, seleccione **registro de actividad** para ver todos los registros asociados con la máquina virtual.
-3. En los elementos de registro de actividad, seleccione la operación con errores. Normalmente, se llama a la operación con error `Write Virtualmachines`.
-4. En el panel derecho, cambie a la pestaña JSON. Consulte los detalles en la vista JSON del registro.
+1. En la página principal del laboratorio, seleccione la máquina virtual para iniciar la página **Máquina virtual**.
+2. En la página **Máquina virtual**, en la sección **SUPERVISIÓN** del menú de la izquierda, seleccione **Registro de actividad** para ver todos los registros asociados con la máquina virtual.
+3. En los elementos del registro de actividad, seleccione la operación que produjo errores. Normalmente, la operación que produjo errores se denomina `Write Virtualmachines`.
+4. En el panel derecho, cambie a la pestaña JSON. Verá los detalles en la vista JSON del registro.
 
-    ![Registro de actividad para una máquina virtual](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
-5. Examine el registro de JSON de hasta que encuentre el `statusMessage` propiedad. Proporciona el mensaje de error principal y la información más detallada, si procede. El siguiente JSON es un error de ejemplo para el núcleo entre comillas superado visto anteriormente en este artículo.
+    ![Registro de actividad de una máquina virtual](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
+5. Examine el registro JSON hasta que encuentre la propiedad `statusMessage`. Le proporciona el mensaje de error principal e información más detallada, si procede. El siguiente JSON es un ejemplo de un error de superación de la cuota de núcleos mencionado anteriormente en este artículo.
 
     ```json
     "properties": {
@@ -48,27 +48,27 @@ Examine los registros de actividad si está investigando un error en algún mome
     },
     ```
 
-## <a name="activity-log-for-an-environment"></a>Registro de actividad para un entorno
+## <a name="activity-log-for-an-environment"></a>Registro de actividad de un entorno
 
-Para ver el registro de actividad para la creación de un entorno, siga estos pasos:
+Para ver el registro de actividad de la creación de un entorno, siga estos pasos:
 
-1. En la página principal para el laboratorio, seleccione **configuración y directivas** en el menú izquierdo.
-2. en el **configuración y directivas** página, seleccione **los registros de actividad** en el menú.
-3. Busque el error en la lista de actividades en el registro y selecciónelo.
-4. En el panel derecho, cambie a la pestaña JSON y busque el **mensaje de estado**.
+1. En la página principal del laboratorio, seleccione **Configuración y directivas** en el menú de la izquierda.
+2. En la página **Configuración y directivas**, seleccione **Registros de actividad** en el menú.
+3. Busque el error en la lista de actividades del registro y selecciónelo.
+4. En el panel de la derecha, cambie a la pestaña JSON y busque el **mensaje de estado**.
 
     ![Registro de actividad de entorno](./media/troubleshoot-vm-environment-creation-failures/envirionment-activity-log.png)
 
-## <a name="resource-manager-template-deployment-logs"></a>Registros de implementación de plantilla de Resource Manager
-Si su entorno o la máquina virtual se creó mediante la automatización, hay un último lugar para buscar información de error. Es el registro de implementación de plantilla de Azure Resource Manager. Cuando se crea un recurso de laboratorio mediante la automatización, a menudo se hace a través de la implementación de una plantilla de Azure Resource Manager. Consulte[ https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates ](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) para plantillas de Azure Resource Manager de ejemplo que crea recursos de DevTest Labs.
+## <a name="resource-manager-template-deployment-logs"></a>Registros de implementación de plantillas de Resource Manager
+Si el entorno o la máquina virtual se crearon mediante la automatización, hay un último lugar en el que buscar información acerca de errores. Se trata del registro de implementación de plantillas de Azure Resource Manager. Cuando se crea un recurso de laboratorio mediante la automatización, a menudo se hace a través de la implementación de una plantilla de Azure Resource Manager. Consulte [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) para obtener ejemplos de plantillas de Azure Resource Manager que crean recursos de DevTest Labs.
 
-Para ver los registros de implementación de plantilla de laboratorio, siga estos pasos:
+Para ver los registros de implementación de plantillas de laboratorio, siga estos pasos:
 
-1. Iniciar la página del grupo de recursos en el que existe el laboratorio.
-2. Seleccione **implementaciones** en el menú izquierdo bajo **configuración**.
-3. Busque las implementaciones con un estado de error y selecciónelo.
-4. En el **implementación** página, seleccione **detalles de la operación** vínculo para la operación con errores.
-5. Ver detalles sobre la operación con error en la **detalles de la operación** ventana.
+1. Inicie la página del grupo de recursos en el que existe el laboratorio.
+2. Seleccione **Implementaciones** en el menú de la izquierda, en **Configuración**.
+3. Busque las implementaciones con un estado de error y selecciónelas.
+4. En la página **Implementación**, seleccione el vínculo **Detalles de la operación** correspondiente a la operación que produjo errores.
+5. Verá detalles sobre la operación que produjo errores en la ventana **Detalles de la operación**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [solución de problemas de errores de artefactos](devtest-lab-troubleshoot-artifact-failure.md)
+Consulte [Solución de errores de artefactos](devtest-lab-troubleshoot-artifact-failure.md).

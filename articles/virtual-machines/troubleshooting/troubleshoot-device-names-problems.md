@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362244"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux
@@ -46,7 +46,7 @@ La mayoría de las distribuciones proporciona los parámetros `fstab` **nofail**
 
 Cuando se instala el agente Linux de Azure en una máquina virtual, el agente usa reglas de Udev para crear un conjunto de vínculos simbólicos en la ruta de acceso /dev/disk/azure path. Las aplicaciones y los scripts usan reglas de Udev para identificar los discos conectados a la máquina virtual, junto con el tipo de disco y los LUN de disco.
 
-Si ya se ha editado su fstab de tal manera que no se arranca la máquina virtual y no puede conectarse mediante SSH a la máquina virtual, puede usar el [consola serie de máquina virtual](./serial-console-linux.md) escribir [modo de usuario único](./serial-console-grub-single-user-mode.md) y modificar su fstab.
+Si ya ha editado fstab de tal manera que la máquina virtual no arranca y no puede conectarse mediante SSH a ella, puede utilizar la [consola serie de máquinas virtuales](./serial-console-linux.md) para especificar el [modo de usuario único](./serial-console-grub-single-user-mode.md) y modificar fstab.
 
 ### <a name="identify-disk-luns"></a>Identificar LUN de disco
 
@@ -148,12 +148,12 @@ Ejecute los comandos siguientes para obtener las reglas de Azure Storage más re
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 Para más información, consulte los siguientes artículos.
 
-- [Ubuntu: Uso de UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Red Hat: Nomenclatura persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux: ¿Qué pueden hacer los UUID por usted](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev: Introducción a la administración de dispositivos en un sistema moderno de Linux](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Ubuntu: Using UUID](https://help.ubuntu.com/community/UsingUUID) (Ubuntu: Uso de UUID)
+- [RedHat: Persistent Naming](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) (RedHat: Nomenclatura persistente)
+- [Linux: What UUIDs can do for you](https://www.linux.com/news/what-uuids-can-do-you) (Linux: ¿Qué pueden hacer los UUID por usted?)
+- [Udev: Introduction to Device Management In Modern Linux System](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system) (UDev: Introducción a la administración de dispositivos en sistemas Linux modernos)
 

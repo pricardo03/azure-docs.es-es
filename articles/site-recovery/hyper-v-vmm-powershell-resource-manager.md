@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362363"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con PowerShell (Resource Manager)
@@ -77,7 +77,7 @@ Asegúrese de que tiene Azure PowerShell listo para usar:
 
         $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Puede recuperar el objeto de almacén después de crearlo mediante el cmdlet Get-AzRecoveryServicesVault.
+    Tras la creación, puede recuperar el objeto del almacén mediante el cmdlet Get-AzRecoveryServicesVault.
 
 ## <a name="set-the-vault-context"></a>Establecer el contexto de almacén
 1. Recupere un almacén existente.

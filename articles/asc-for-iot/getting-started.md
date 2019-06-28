@@ -1,6 +1,6 @@
 ---
-title: Empezar a usar Azure Security Center (ASC) para la versión preliminar de IoT | Microsoft Docs
-description: Comience a comprender el flujo de trabajo básico de Azure Security Center para las características de IoT y el servicio.
+title: Introducción al uso de Azure Security Center for IoT, versión preliminar | Microsoft Docs
+description: Primeros pasos para entender el flujo de trabajo básico de las características y el servicio Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,67 +15,67 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: bdc5e858286d7db03281408cf3ed00e0760e0c3a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200644"
 ---
-# <a name="get-started-with-azure-security-center-for-iot"></a>Introducción a Azure Security Center para IoT 
+# <a name="get-started-with-azure-security-center-for-iot"></a>Introducción a Azure Security Center for IoT 
 
 > [!IMPORTANT]
 > Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En este artículo se proporciona una explicación de los distintos bloques de creación de Azure Security Center (ASC) para el servicio IoT y se explica cómo empezar a trabajar con [habilitar el servicio](quickstart-onboard-iot-hub.md). 
+En este artículo se explican los diferentes bloques de creación del servicio Azure Security Center (ASC) for IoT. También se describen los primeros pasos para [habilitar el servicio](quickstart-onboard-iot-hub.md). 
 
-ASC para IoT puede integrarse sin problemas en su centro de IoT para proporcionar análisis de seguridad de la configuración del centro de IoT, identidad del dispositivo y dispositivos de centro de patrones de comunicación.
-Para las capacidades mejoradas de seguridad, ASC para IoT proporciona basada en agente de recopilación de datos de seguridad de los dispositivos de IoT.
+ASC for IoT se integra sin problemas en su IoT Hub para proporcionar análisis de seguridad de la configuración de IoT Hub, la identidad de dispositivos y los patrones de comunicación entre el IoT Hub y el dispositivo.
+Para lograr unas capacidades mejoradas de seguridad, ASC for IoT permite la recopilación basada en agente de datos de seguridad procedentes de dispositivos IoT.
 
-## <a name="asc-for-iot-seamless-iot-hub-integration"></a>ASC para la integración perfecta de IoT Hub de IoT
+## <a name="asc-for-iot-seamless-iot-hub-integration"></a>Integración perfecta de ASC for IoT e IoT Hub
 
-Al intentar proteger los dispositivos IoT individuales, se requiere la capacidad de recopilar datos directamente desde los dispositivos, o desde su red. Para admitir este esfuerzo, ASC para IoT ofrece un arsenal de agentes de seguridad de bajo impacto para proporcionar protección y supervisión de dispositivos.
+Cuando se intentan proteger dispositivos IoT individuales, es necesario poder recopilar datos directamente desde los dispositivos, o bien desde la red. Para hacer esto posible, ASC for IoT ofrece un arsenal de agentes de seguridad de bajo impacto que proporcionan protección y supervisión de dispositivos.
 
-En ASC para la versión preliminar de IoT, arquitectura de referencia para los agentes de seguridad de Windows y Linux en C# y C se proporcionan.
-Los agentes de controlan la recopilación de eventos sin procesar desde el sistema operativo del dispositivo, agregación de eventos para reducir el costo y la configuración a través de un dispositivo gemelo de módulo.
-Los mensajes de seguridad se envían a través de su centro de IoT en ASC para servicios de análisis de IoT.
+En ASC for IoT, versión preliminar, se proporciona arquitectura de referencia para los agentes de seguridad de Windows y Linux tanto en C# y como en C.
+Los agentes controlan la recopilación de eventos sin procesar procedentes del sistema operativo del dispositivo, la agregación de eventos para reducir el coste y la configuración a través de un módulo gemelo del dispositivo.
+Los mensajes de seguridad se envían a través del IoT Hub a los servicios de análisis de ASC for IoT.
 
-## <a name="asc-for-iot-basics"></a>ASC para conceptos básicos de IoT
+## <a name="asc-for-iot-basics"></a>Conceptos básicos de ASC for IoT
 
-Elija el escenario de flujo de trabajo que mejor se adapte a sus requisitos de entorno y el dispositivo de IoT:
+Elija el escenario de flujo de trabajo que mejor encaje con sus requisitos de entorno y de dispositivo IoT:
 
-### <a name="get-started-with-asc-for-iot-seamless-iot-hub-integration"></a>Introducción a ASC para la integración perfecta de IoT Hub de IoT 
+### <a name="get-started-with-asc-for-iot-seamless-iot-hub-integration"></a>Introducción a la integración perfecta de ASC for IoT e IoT Hub 
 
 >[!Note]
->Este flujo de trabajo le permite usar el servicio sin utilizar ASC para los agentes de seguridad de IoT. 
+>Este flujo de trabajo permite usar el servicio prescindiendo de los agentes de seguridad de ASC for IoT. 
 
-Para habilitar la supervisión de su dispositivo de administración de identidades, dispositivo de nube y en la nube para patrones de comunicación de dispositivo, use la siguiente flujo de trabajo básico para las pruebas y para iniciar el servicio: 
+Para permitir la supervisión de la administración de identidades de dispositivo y los patrones de comunicación entre el dispositivo y la nube y viceversa, use el siguiente flujo de trabajo básico para realizar pruebas e iniciar el servicio: 
 
-1. [Habilitar ASC para el servicio de IoT en IoT Hub](quickstart-onboard-iot-hub.md)
-1. Si el centro de IoT no tiene ningún dispositivo registrado, [registre un nuevo dispositivo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Creación de módulos de seguridad para los dispositivos azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos. 
-1. Definir el comportamiento normal de dispositivo y del sistema a través de [alertas personalizadas](quickstart-create-custom-alerts.md). 
-1. Realice pruebas para comprobar el estado del servicio y el dispositivo del sistema. 
-1. Explorar [alertas](concept-security-alerts.md), [recomendaciones](concept-recommendations.md), y [profundización mediante Log Analytics](how-to-security-data-access.md) mediante IoT Hub. 
+1. [Habilite el servicio ASC for IoT en IoT Hub](quickstart-onboard-iot-hub.md).
+1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
+1. [Cree un módulo de seguridad azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos. 
+1. Defina el comportamiento normal de dispositivo y del sistema a través de [alertas personalizadas](quickstart-create-custom-alerts.md). 
+1. Realice pruebas en el sistema para comprobar el estado del servicio y del dispositivo. 
+1. Explore las [alertas](concept-security-alerts.md), las [recomendaciones](concept-recommendations.md) y [perfeccione su uso de Log Analytics](how-to-security-data-access.md) mediante IoT Hub. 
 
 
-### <a name="get-started-with-asc-for-iot-security-agents"></a>Introducción a ASC para los agentes de seguridad de IoT
+### <a name="get-started-with-asc-for-iot-security-agents"></a>Introducción a los agentes de seguridad de ASC for IoT
 
-Hacer uso de ASC para capacidades de seguridad mejorada de IoT, como la supervisión de las conexiones remotas, las aplicaciones activas, eventos de inicio de sesión y prácticas recomendadas de configuración del sistema operativo usando el siguiente flujo de trabajo básico para probar y habilitar el servicio: 
+Haga uso de las capacidades de seguridad mejoradas de ASC for IoT, como la supervisión de conexiones remotas, aplicaciones activas, eventos de inicio de sesión y procedimientos recomendados de configuración del sistema operativo. Para ello, use el siguiente flujo de trabajo básico para probar y habilitar el servicio: 
 
-1. [Habilitar ASC para el servicio de IoT a IoT Hub](quickstart-onboard-iot-hub.md)
-1. Si el centro de IoT no tiene ningún dispositivo registrado, [registre un nuevo dispositivo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Creación de un módulo de seguridad azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos.
-1. Para instalar el agente en un dispositivo simulado de Azure en lugar de instalar en un dispositivo real, [flechas de una máquina Virtual de Azure nueva (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) en una zona de disponibilidad. 
-1. [Implementar un ASC para el agente de seguridad de IoT](how-to-deploy-linux-cs.md) en su dispositivo IoT o una nueva máquina virtual.
-1. Siga las instrucciones para [trigger_events](https://aka.ms/iot-security-github-trigger-events) para ejecutar una simulación de un ataque inofensivo.
-1. Compruebe ASC para IoT alertas en respuesta al ataque simulado en el paso anterior. Empezar a cinco minutos después de ejecutar la secuencia de comandos de comprobación.
-1. Explorar [alertas](concept-security-alerts.md), [recomendaciones](concept-recommendations.md), y [profundización mediante Log Analytics](how-to-security-data-access.md) mediante IoT Hub. 
+1. [Habilite el servicio ASC for IoT en IoT Hub](quickstart-onboard-iot-hub.md).
+1. Si IoT Hub no tiene ningún dispositivo registrado, [registre uno nuevo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
+1. [Cree un módulo de seguridad azureiotsecurity](quickstart-create-security-twin.md) para sus dispositivos.
+1. Para instalar el agente en un dispositivo simulado de Azure en lugar de hacerlo en un dispositivo real, [prepare una máquina virtual de Azure nueva](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) en una zona de disponibilidad. 
+1. [Implemente un agente de seguridad de ASC for IoT](how-to-deploy-linux-cs.md) en el dispositivo IoT o en una máquina virtual nueva.
+1. Siga las instrucciones de [trigger_events](https://aka.ms/iot-security-github-trigger-events) para llevar a cabo una simulación de un ataque inofensivo.
+1. Compruebe las alertas de ASC for IoT en respuesta al ataque simulado del paso anterior. No las compruebe hasta que hayan transcurrido cinco minutos desde la ejecución del script.
+1. Explore las [alertas](concept-security-alerts.md), las [recomendaciones](concept-recommendations.md) y [perfeccione su uso de Log Analytics](how-to-security-data-access.md) mediante IoT Hub. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Habilitar [ASC para IoT](quickstart-onboard-iot-hub.md)
-- Configurar su [solución](quickstart-configure-your-solution.md)
+- Habilitar [ASC for IoT](quickstart-onboard-iot-hub.md)
+- Configurar la [solución](quickstart-configure-your-solution.md)
 - [Creación de módulos de seguridad](quickstart-create-security-twin.md)
 - Configurar [alertas personalizadas](quickstart-create-custom-alerts.md)
 - [Implementación de un agente de seguridad](how-to-deploy-agent.md)

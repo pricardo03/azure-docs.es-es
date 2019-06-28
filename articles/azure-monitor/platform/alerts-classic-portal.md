@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129756"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor
@@ -21,7 +21,7 @@ Las alertas de métricas clásicas en Azure Monitor proporcionan una forma de re
 
 1. En el [portal](https://portal.azure.com/), busque el recurso que desea supervisar y, a continuación, selecciónelo.
 
-2. En la sección **SUPERVISIÓN**, seleccione **Alertas (clásico)**. El texto y el icono pueden variar ligeramente en los distintos recursos. Si no encuentra **Alertas (clásico)** aquí, puede que lo encuentre en **Alertas** o en **Reglas de alertas**.
+2. En la sección **SUPERVISIÓN**, seleccione **Alertas (clásico)** . El texto y el icono pueden variar ligeramente en los distintos recursos. Si no encuentra **Alertas (clásico)** aquí, puede que lo encuentre en **Alertas** o en **Reglas de alertas**.
 
     ![Supervisión](media/alerts-classic-portal/AlertRulesButton.png)
 
@@ -35,7 +35,7 @@ Las alertas de métricas clásicas en Azure Monitor proporcionan una forma de re
 
 6. Seleccione **Enviar correo electrónico a propietarios...** si desea que se envíe una notificación por correo electrónico a los administradores y coadministradores cuando se active la alerta.
 
-7. Si quiere enviar notificaciones a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos adicionales del administrador**. Separe las direcciones de correo electrónico con punto y coma, en el siguiente formato: *correo electrónico\@contoso.com;email2\@contoso.com*
+7. Si quiere enviar notificaciones a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos adicionales del administrador**. Separe las direcciones de correo electrónico con punto y coma y procure que tengan el siguiente formato: *email\@contoso.com;email2\@contoso.com*
 
 8. Escriba un identificador URI válido en el campo **Webhook** si desea llamarlo cuando se active la alerta.
 
@@ -127,7 +127,7 @@ En esta sección se muestra cómo usar los comandos de PowerShell para crear, ve
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Ya no se pueden crear reglas de alertas mediante PowerShell. Para crear una regla de alerta que se debe usar el nuevo ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) comando.
+8. Ya no se pueden crear reglas de alertas mediante PowerShell. Para crear una regla de alerta tiene que usar el nuevo comando [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

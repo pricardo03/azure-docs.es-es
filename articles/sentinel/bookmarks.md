@@ -1,6 +1,6 @@
 ---
-title: Realizar un seguimiento de los datos durante la búsqueda en Azure Preview Sentinel con marcadores de búsqueda | Microsoft Docs
-description: En este artículo se describe cómo usar los marcadores de búsqueda Centinela de Azure para realizar un seguimiento de los datos.
+title: Realizar un seguimiento de los datos durante una búsqueda en Azure Sentinel, versión preliminar, con marcadores de búsqueda | Microsoft Docs
+description: En este artículo se describe cómo usar los marcadores de búsqueda de Azure Sentinel para llevar un seguimiento de los datos.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,87 +16,87 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: b1a438b9645dbb37d852eb0092355850d816872d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65207464"
 ---
-# <a name="keep-track-of-data-during-hunting"></a>Realizar un seguimiento de los datos durante la búsqueda
+# <a name="keep-track-of-data-during-hunting"></a>Realizar un seguimiento de los datos durante una búsqueda
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-Búsqueda de amenazas normalmente requiere revisión montañas de datos de registro para buscar evidencia de comportamientos malintencionados. Durante este proceso, investigadores de buscar eventos que desean Recuerde, revisar y analizar como parte de la validación posibles hipótesis y comprender la historia completa de un compromiso.
-Marcadores de búsqueda le ayudará a hacerlo, conservando las consultas que ejecutó en Log Analytics, junto con los resultados de consulta que se consideran relevantes. También puede registrar las observaciones contextuales y hacen referencia a sus hallazgos mediante la adición de etiquetas y las notas. Marcadores datos son visibles para usted y sus compañeros de equipo para una colaboración simple.   
+La búsqueda de amenazas suele conllevar revisar una infinidad de datos de registro en busca de pruebas que evidencien comportamientos malintencionados. Durante este proceso, los investigadores dan con eventos que quieren recordar, volver a ver y analizar como parte de la validación de posibles hipótesis y para entender la historia completa de un riesgo.
+La búsqueda de marcadores sirve para eso precisamente, ya que conserva las consultas que se han ejecutado en Log Analytics, así como los resultados de consulta que el usuario considere relevantes. También puede registrar las observaciones realizadas dentro de un contexto y hacer referencia a sus hallazgos agregando notas y etiquetas. Los datos marcados están visibles tanto para usted como para sus compañeros de equipo para, así, colaborar de forma más sencilla.   
 
-Puede revisar los datos de marcadores en cualquier momento en el **marcador** pestaña de la **caza** página. Puede usar el filtrado y las opciones para encontrar rápidamente los datos específicos para la investigación actual de búsqueda. Como alternativa, puede ver los datos de marcadores directamente en el **HuntingBookmark** tabla en Log Analytics. Esto le permite filtrar, resumir y combinar datos de marcadores con otros orígenes de datos, lo que facilita buscar evidencia donde se confirmen.
+Puede volver a ver los datos marcados en cualquier momento en la pestaña **Bookmarks** (Marcadores) de la página **Hunting** (Búsqueda). Puede usar opciones de filtrado y de búsqueda para encontrar rápidamente datos concretos de la investigación actual. Si lo desea, también puede ver los datos marcados directamente en la tabla **HuntingBookmark** de Log Analytics. Esto le permite filtrar, resumir y combinar los datos marcados con otros orígenes de datos, lo que facilita el hallazgo de pruebas definitivas.
 
-También puede visualizar los datos de marcadores, haciendo clic en **investigar**. Esto inicia la experiencia de investigación en el que puede ver, investigar y comunicar visualmente los hallazgos con un diagrama de gráfico interactivo de la entidad y la escala de tiempo.
+También puede visualizar los datos marcados haciendo clic en **Investigate** (Investigar). Esto inicia la experiencia de investigación, en la que puede ver, investigar y comunicar visualmente sus hallazgos con un diagrama gráfico de entidades y una escala de tiempo interactivos.
 
 
 ## <a name="run-a-log-analytics-query-from-azure-sentinel"></a>Ejecutar una consulta de Log Analytics desde Azure Sentinel
 
-1. En el portal de Azure Sentinel, haga clic en **caza** para ejecutar consultas de comportamiento sospechoso y anómala.
+1. En el portal de Azure Sentinel, haga clic en **Hunting** (Búsqueda) para ejecutar consultas en busca de comportamientos sospechosos y anómalos.
 
-1. Para ejecutar una campaña de búsqueda, seleccione una de las consultas de búsqueda y en la izquierda, revise los resultados. 
+1. Para ejecutar una campaña de búsqueda, seleccione una de las consultas de búsqueda y, a la izquierda, revise los resultados. 
 
-1. Haga clic en **ver resultados de la consulta** en la consulta de búsqueda **detalles** resultados de la página para ver la consulta de Log Analytics. Este es un ejemplo de lo que ve si se ejecutaba una consulta personalizada de ataque de bruteforce SSH.
+1. Haga clic en **View query results** (Ver resultados de la consulta) en la página **Details** (Detalles) de la consulta de búsqueda para ver los resultados de la consulta en Log Analytics. Este es un ejemplo de lo que se ve si se ejecuta una consulta personalizada de ataque por fuerza bruta de SSH.
   
    ![Mostrar resultados](./media/bookmarks/ssh-bruteforce-example.png)
 
 ## <a name="add-a-bookmark"></a>Agregar un marcador
 
-1. En la lista de resultados de consulta de Log Analytics, expanda la fila que contiene la información que encuentre interesantes.
+1. En la lista de resultados de consulta de Log Analytics, expanda la fila que contiene la información que sea de su interés.
 
-4. Seleccione el botón de puntos suspensivos (...) al final de la fila y seleccione **agregar marcadores de búsqueda**.
-5. A la derecha, en el **detalles** página, actualice el nombre y agregar etiquetas y las notas que le ayudarán a identificar lo que era interesante sobre el elemento.
-6. Haga clic en **guardar** para confirmar los cambios. Todos los datos de marcadores se comparte con otros investigadores y es un primer paso hacia una experiencia de investigación de colaboración.
+4. Seleccione los puntos suspensivos (...) al final de la fila y seleccione **Add hunting bookmarks** (Agregar marcadores de búsqueda).
+5. A la derecha, en la página **Details** (Detalles), actualice el nombre y agregue etiquetas y notas que le ayuden a recordar por qué ese elemento es de su interés.
+6. Haga clic en **Save** (Guardar) para confirmar los cambios. Todos los datos marcados se comparten con otros investigadores, y es un primer paso hacia una experiencia de investigación colaborativa.
 
    ![Mostrar resultados](./media/bookmarks/add-bookmark-la.png)
 
  
 > [!NOTE]
-> También puede utilizar marcadores con consultas de Log Analytics arbitrarias iniciadas desde la página de registros de análisis de registro Centinela de Azure o las consultas creadas en el Volar desde la página de Log Analytics y se abrirá en la página de búsqueda. No podrá agregar un marcador si inicia Log Analytics desde fuera de Azure Sentinel. 
+> Los marcadores también se pueden utilizar con consultas de Log Analytics arbitrarias iniciadas desde la página de registros de Log Analytics de Azure Sentinel, o con consultas creadas sobre la marcha en la página de Log Analytics que se han abierto desde la página de búsqueda. Un marcador no se podrá agregar si Log Analytics se inicia desde fuera de Azure Sentinel. 
 
-## <a name="view-and-update-bookmarks"></a>Ver y actualizar los marcadores 
+## <a name="view-and-update-bookmarks"></a>Ver y actualizar marcadores 
 
-1. En el portal de Azure Sentinel, haga clic en **caza**. 
-2. Haga clic en el **marcadores** ficha en el medio de la página para ver la lista de marcadores.
-3. Use las opciones de filtro o de cuadro de búsqueda para encontrar un marcador específico.
-4. Seleccione sus marcadores individuales a la cuadrícula inferior para ver los detalles de marcador en el panel de detalles de la derecha.
-5. Para actualizar las etiquetas y las notas, haga clic en los cuadros de texto editable y **guardar** para conservar los cambios.
+1. En el portal de Azure Sentinel, haga clic en **Hunting** (Búsqueda). 
+2. Haga clic en la pestaña **Bookmarks** (Marcadores) en el centro de la página para ver la lista de marcadores.
+3. Use las opciones de filtro o el cuadro de búsqueda para encontrar un marcador específico.
+4. Seleccione marcadores individuales en la cuadrícula de abajo para ver detalles sobre ese marcador en el panel de detalles de la derecha.
+5. Para actualizar las etiquetas y las notas, haga clic en los cuadros de texto editables y, después, en **Save** (Guardar) para conservar los cambios.
 
    ![Mostrar resultados](./media/bookmarks/view-update-bookmarks.png)
 
-## <a name="view-bookmarked-data-in-log-analytics"></a>Ver datos de marcadores en Log Analytics 
+## <a name="view-bookmarked-data-in-log-analytics"></a>Ver datos marcados en Log Analytics 
 
-Existen varias opciones para ver los datos de marcadores de Log Analytics. 
+Existen varias formas de ver los datos marcados en Log Analytics. 
 
-Es la manera más fácil de ver consultas de marcado, los resultados o historial seleccionando el marcador deseado en el **marcadores** de tabla y use los vínculos proporcionados en el panel de detalles. Las opciones son: 
-- Haga clic en **ver consulta** para ver la consulta de origen en Log Analytics.  
-- Haga clic en **ver el historial de marcador** para ver todos los marcadores de metadatos, como: quién realizó la actualización, los valores actualizados y la hora en que se produjo la actualización. 
+La forma más fácil de ver consultas y resultados marcados o historiales de marcadores consiste en seleccionar el marcador que quiera en la tabla **Bookmarks** (Marcadores) y usar los vínculos que aparecen en el panel de detalles. Las opciones incluyen: 
+- Haga clic en **View query** (Ver consulta) para ver la consulta de origen en Log Analytics.  
+- Haga clic en **View bookmark history** (Ver historial de marcadores) para ver todos los metadatos de marcadores, como quién realizó la actualización, los valores actualizados y la hora en que se produjo la actualización. 
 
-- También puede ver los datos sin procesar del marcador de todos los marcadores haciendo clic en **marcador registros** encima de la cuadrícula de marcador. Esta vista mostrará todos los marcadores en la tabla de marcador de búsqueda con los metadatos asociados. Puede usar consultas KQL para filtrar hasta encontrar la versión más reciente del marcador específico que está buscando.  
+- También puede ver los datos de marcador sin procesar de todos los marcadores; para ello, haga clic en **Bookmark logs** (Registros de marcadores) encima de la cuadrícula de marcadores. Esta vista mostrará todos los marcadores de la tabla de marcadores de búsqueda con los metadatos asociados. Puede usar consultas KQL para filtrar hasta encontrar la versión más reciente del marcador específico que está buscando.  
 
 
 > [!NOTE]
-> Puede haber un retraso importante (medido en minutos) entre la creación de un marcador y cuando se muestra en el **HuntingBookmark** tabla. Se recomienda crear los marcadores en primer lugar, a continuación, analizarlos después de que se ingieren los datos. 
+> Puede haber un retraso importante (medido en minutos) desde que un marcador se crea hasta que aparece en la tabla **HuntingBookmark**. Se recomienda crear los marcadores primero y analizarlos después de que los datos se hayan ingerido. 
 
-## <a name="delete-a-bookmark"></a>Eliminar marcador
-Si desea eliminar un realice marcador lo siguiente: 
-1.  Abra th **marcador caza** ficha. 
-2.  Seleccione el marcador de destino.
-3.  Seleccione los puntos suspensivos (...) al final de la fila y seleccione **Eliminar marcador**.
+## <a name="delete-a-bookmark"></a>Eliminar un marcador
+Haga lo siguiente si quiere eliminar un marcador: 
+1.  Abra la pestaña **Hunting bookmark** (Marcador de búsqueda). 
+2.  Seleccione el marcador que quiera eliminar.
+3.  Seleccione los puntos suspensivos (...) al final de la fila y seleccione **Delete bookmark** (Eliminar marcador).
     
-Eliminando el marcador, quita el marcador de la lista en el **marcador** ficha.  Log Analytics "HuntingBookmark" tabla seguirá conteniendo las entradas de marcador anteriores, pero la entrada más reciente se cambiará el **SoftDelete** valor en true, lo que facilita filtrar los antiguos marcadores.  Eliminación de un marcador no quita todas las entidades de la experiencia de investigación que están asociados con otros marcadores o alertas. 
+Al eliminar el marcador, este se quita de la lista de la pestaña **Bookmarks** (Marcadores).  La tabla "HuntingBookmark" de Log Analytics seguirá conteniendo entradas de marcadores anteriores, pero la entrada más reciente cambiará el valor de **SoftDelete** a true, lo que permite excluir marcadores antiguos del filtro.  Cuando un marcador se elimina, no se quitan las entidades de la experiencia de investigación que estén relacionadas con otros marcadores o alertas. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido cómo ejecutar una investigación caza uso de marcadores en Centinela de Azure. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este artículo, ha aprendido a realizar una investigación de búsqueda usando marcadores en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
 
-- [Captura de forma proactiva en busca de amenazas](hunting.md)
-- [Uso de cuadernos para ejecutar campañas caza automatizadas](notebooks.md)
+- [Búsqueda de amenazas con Azure Sentinel, versión preliminar](hunting.md)
+- [Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)

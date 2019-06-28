@@ -1,6 +1,6 @@
 ---
 title: Cómo se aplican descuentos de reserva a Azure SQL Data Warehouse | Microsoft Docs
-description: Obtenga información sobre cómo se aplican descuentos de reserva a Azure SQL Data Warehouse para ayudar a ahorrar dinero.
+description: Obtenga información sobre cómo se aplican descuentos de reserva a Azure SQL Data Warehouse para ayudarle a ahorrar dinero.
 services: billing
 author: yashesvi
 manager: yashar
@@ -9,33 +9,33 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 10e19377d31489cd19465fe6171ffb530bd58c28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918428"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Cómo se aplican descuentos de reserva a Azure SQL Data Warehouse
 
-Después de comprar capacidad reservada de Azure SQL Data Warehouse, el descuento de reserva se aplica automáticamente a almacenes de datos que existen en esa región. Se aplica el descuento de reserva para el uso emitido por el medidor de cDWU SQL Data Warehouse. Las redes y almacenamiento se cobran tarifas de pago por uso.
+Después de comprar capacidad reservada de Azure SQL Data Warehouse, el descuento de reserva se aplica automáticamente a los almacenes de datos que existen en esa región. Se aplica el descuento de reserva para la utilización que emite el medidor de cDWU de SQL Data Warehouse. El almacenamiento y las redes se cargan con tarifas de pago por uso.
 
 ## <a name="reservation-discount-application"></a>Aplicación del descuento de reserva
 
-El descuento de capacidad reservada de SQL Data Warehouse se aplica a la ejecución de los almacenes de cada hora. Si no tiene un almacén que se implementó durante una hora, se pierde la capacidad reservada para esa hora. No mantienen.
+El descuento sobre la capacidad reservada de SQL Data Warehouse se aplica a los almacenes en ejecución por hora. Si no tiene un almacén implementado durante una hora, se pierde la capacidad reservada para esa hora. No se transfiere.
 
-Después de la compra, la reserva de compra se asocia a uso de SQL Data Warehouse emitido mediante la ejecución de los almacenamientos en cualquier momento en el tiempo. Si apaga algunos almacenes, a continuación, reserva automáticamente se aplican descuentos a otros almacenes de búsqueda de coincidencias.
+Después de la compra, la reserva que ha adquirido se asocia al uso de SQL Data Warehouse emitido al ejecutar los almacenes en cualquier momento. Si apaga algunos almacenes, los descuentos de reserva se aplican automáticamente a otros almacenes que coincidan.
 
-Para los almacenes que no se ejecutan durante una hora completa, la reserva se aplica automáticamente a otras instancias de búsqueda de coincidencias en esa hora.
+Para los almacenes que no se ejecuten durante una hora completa, la reserva se aplica automáticamente a otras instancias que coincidan en esa hora.
 
 ## <a name="discount-examples"></a>Ejemplos de descuento
 
-Los ejemplos siguientes muestran cómo se aplica el descuento de capacidad reservada de SQL Data Warehouse, dependiendo de las implementaciones.
+En los ejemplos siguientes se muestra cómo se aplica el descuento sobre la capacidad reservada de SQL Data Warehouse en función de las implementaciones.
 
-- **Ejemplo 1**: Compra 5 unidades de capacidad de reserva de cDWU 100. Ejecutar una instancia de SQL Data Warehouse de DW1500c durante una hora. En este caso, se genera el uso de 15 unidades del uso de cDWU 100. El descuento de reserva se aplica a las 5 unidades que ha usado. Se le cobrará con tarifas de pago por uso para las restantes 10 unidades del uso de cDWU 100 que usó.
+- **Ejemplo 1**: compra 5 unidades de capacidad de reserva de 100 cDWU. Ejecuta una instancia de SQL Data Warehouse de DW1500c durante una hora. En este caso, se emite el uso de 15 unidades de uso de 100 cDWU. El descuento de reserva se aplica a las 5 unidades que se han usado. Se le cargará con tarifas de pago por uso para las restantes 10 unidades de uso de 100 cDWU que se han usado.
 
-- **Ejemplo 2**: Compra 5 unidades de capacidad de reserva de cDWU 100. Ejecutar dos instancias de SQL Data Warehouse de DW100c durante una hora. En este caso, se genera dos eventos de uso 1 unidad de uso de cDWU 100. Ambos eventos de uso consiga descuentos de capacidad reservada. El 3 unidades de capacidad de reserva de cDWU 100 restantes se pierde y no se mantienen para un uso futuro.
+- **Ejemplo 2**: compra 5 unidades de capacidad de reserva de 100 cDWU. Ejecuta dos instancias de SQL Data Warehouse de DW100c durante una hora. En este caso, se emiten dos eventos de uso para 1 unidad de utilización de 100 cDWU. Ambos eventos de uso obtienen descuentos de capacidad reservada. Las 3 unidades de capacidad de reserva de 100 cDWU restantes se pierden y no se transfieren para un uso futuro.
 
-- **Ejemplo 3**: Comprar 1 unidad de capacidad de reserva de cDWU 100. Ejecutar dos instancias de DW100c SQL Data Warehouse. Cada uno se ejecuta durante 30 minutos. En este caso, ambos eventos de uso consiga descuentos de capacidad reservada. Ningún uso se cobra con las tarifas de pago por uso.
+- **Ejemplo 3**: compra 1 unidad de capacidad de reserva de 100 cDWU. Ejecuta dos instancias de SQL Data Warehouse de DW100c. Cada una de ellas se ejecuta durante 30 minutos. En este caso, ambos eventos de uso obtienen descuentos de capacidad reservada. No se carga ninguna utilización con tarifas de pago por uso.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
@@ -46,6 +46,6 @@ Los ejemplos siguientes muestran cómo se aplica el descuento de capacidad reser
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
 - [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [Ver las transacciones de reserva](billing-view-reservations.md)
-- [Obtener las transacciones de reserva y la utilización a través de API](billing-reservation-apis.md)
-- [Administrar las reservas de direcciones](billing-manage-reserved-vm-instance.md)
+- [Ver transacciones de reserva](billing-view-reservations.md)
+- [Obtener las transacciones y el uso de reserva a través de la API](billing-reservation-apis.md)
+- [Administrar reservas](billing-manage-reserved-vm-instance.md)

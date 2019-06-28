@@ -10,16 +10,16 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65793618"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Procedimiento para implementar la navegación por facetas en Azure Search
 La navegación por facetas es un mecanismo de filtrado que proporciona una navegación en profundidad autodirigida en aplicaciones de búsqueda. El término "navegación por facetas" puede resultarle desconocido, pero probablemente es algo que ya ha usado con anterioridad. Como se muestra en el siguiente ejemplo, la navegación por facetas no es más que las categorías usadas para filtrar los resultados.
 
- ![Demo del Portal de Azure Search trabajo](media/search-faceted-navigation/azure-search-faceting-example.png "trabajo Demo del Portal de Azure Search")
+ ![Azure Search Job Portal Demo (Demostración del portal de búsqueda de trabajo de Azure Search)](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search Job Portal Demo (Demostración del portal de búsqueda de trabajo de Azure Search)")
 
 La navegación por facetas es un punto de entrada alternativo para buscar. Ofrece una alternativa cómoda a escribir expresiones de búsqueda complejas a mano. Las facetas pueden ayudarle a encontrar lo que busca y le garantizan que obtendrá al menos un resultado. Como desarrollador, las facetas permiten exponer los criterios de búsqueda más útiles para navegar por el índice de búsqueda. En las aplicaciones de tienda en línea, la navegación por facetas suele basarse en marcas, departamentos (zapatos para niños), tamaño, precio, popularidad y clasificación. 
 
@@ -68,10 +68,10 @@ En Búsqueda de Azure, una solicitud se especifica mediante uno o más parámetr
 La precisión, entendida como la capacidad de filtrar los resultados irrelevantes, se consigue mediante una o ambas de estas expresiones:
 
 -   **search=**  
-     El valor de este parámetro constituye la expresión de búsqueda. Podría ser un fragmento de texto o una expresión de búsqueda compleja que incluye varios términos y operadores. En el servidor, las expresiones de búsqueda se usan para realizar búsquedas de texto completo que consultan en los campos de búsqueda del índice si hay términos coincidentes y devuelven los resultados en orden. Si establece `search` en NULL, la ejecución de la consulta se realiza en todo el índice (es decir, `search=*`). En este caso, los demás elementos de la consulta, como un `$filter` o el perfil de puntuación, son los principales factores que afectan a qué documentos se devuelven (`($filter`) y en qué orden (`scoringProfile` o `$orderby`).
+    El valor de este parámetro constituye la expresión de búsqueda. Podría ser un fragmento de texto o una expresión de búsqueda compleja que incluye varios términos y operadores. En el servidor, las expresiones de búsqueda se usan para realizar búsquedas de texto completo que consultan en los campos de búsqueda del índice si hay términos coincidentes y devuelven los resultados en orden. Si establece `search` en NULL, la ejecución de la consulta se realiza en todo el índice (es decir, `search=*`). En este caso, los demás elementos de la consulta, como un `$filter` o el perfil de puntuación, son los principales factores que afectan a qué documentos se devuelven (`($filter`) y en qué orden (`scoringProfile` o `$orderby`).
 
 -   **$filter=**  
-     Un filtro es un mecanismo eficaz para limitar el tamaño de los resultados de búsqueda según los valores de atributos de documento específicos. Primero se evalúa una expresión `$filter` y después la lógica de uso de facetas que genera los valores disponibles y los correspondientes recuentos para cada valor.
+    Un filtro es un mecanismo eficaz para limitar el tamaño de los resultados de búsqueda según los valores de atributos de documento específicos. Primero se evalúa una expresión `$filter` y después la lógica de uso de facetas que genera los valores disponibles y los correspondientes recuentos para cada valor.
 
 Las expresiones de búsqueda complejas reducen el rendimiento de la consulta. Siempre que sea posible, use expresiones de filtro bien construidas para aumentar la precisión y mejorar el rendimiento de las consultas.
 
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Un parámetro de consulta de faceta se establece en un campo y, según el tipo de datos, se puede parametrizar aún más con una lista delimitada por comas que incluya `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Se admiten listas de valores para datos numéricos cuando se establecen intervalos. Consulte [Buscar documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obtener más información sobre su uso.
 
-Además de las facetas, la solicitud que la aplicación formula también debe generar filtros para reducir el conjunto de documentos candidatos en función de una selección de valores de faceta. Para una tienda de bicicletas, la navegación por facetas proporciona pistas a preguntas como *¿qué colores, fabricantes y tipos de bicicletas están disponibles?*. El filtrado responde a preguntas como *¿qué bicicletas exactas son rojas, bicicletas de montaña, dentro de este precio de intervalo de precios?*. Cuando hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluye`$filter=Color eq ‘Red’`.
+Además de las facetas, la solicitud que la aplicación formula también debe generar filtros para reducir el conjunto de documentos candidatos en función de una selección de valores de faceta. Para una tienda de bicicletas, la navegación por facetas proporciona pistas a preguntas como *¿qué colores, fabricantes y tipos de bicicletas están disponibles?* . El filtrado responde a preguntas como *¿qué bicicletas exactas son rojas, bicicletas de montaña, dentro de este precio de intervalo de precios?* . Cuando hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluye`$filter=Color eq ‘Red’`.
 
 El siguiente fragmento de código de la página `JobsSearch.cs` agrega el cargo empresarial seleccionado al filtro si selecciona un valor de la faceta de Business Title.
 
@@ -270,11 +270,11 @@ Si compila la lista de facetas de manera dinámica basándose en la entrada de u
 ### <a name="filtering-tips"></a>Sugerencias de filtrado
 **Aumento de la precisión de la búsqueda con filtros**
 
- Use filtros. Si confía solamente en expresiones de búsqueda, la lematización podría provocar que se devuelva un documento que no tiene un valor de faceta preciso en ninguno de sus campos.
+Use filtros. Si confía solamente en expresiones de búsqueda, la lematización podría provocar que se devuelva un documento que no tiene un valor de faceta preciso en ninguno de sus campos.
 
 **Aumento del rendimiento de la búsqueda con filtros**
 
- Los filtros restringen el conjunto de documentos candidatos para la búsqueda y los excluyen de la clasificación. Si tiene un conjunto grande de documentos, usar una profundización por facetas selectiva suele proporcionar un mayor rendimiento.
+Los filtros restringen el conjunto de documentos candidatos para la búsqueda y los excluyen de la clasificación. Si tiene un conjunto grande de documentos, usar una profundización por facetas selectiva suele proporcionar un mayor rendimiento.
   
 **Filtrado solo de campos por facetas**
 
@@ -305,11 +305,11 @@ Observe la diferencia entre resultados de búsqueda y resultados de faceta. Los 
 > Analizar `count` cuando hay más de un tipo puede ser confuso. En la tabla siguiente se ofrece un breve resumen de cómo se usa el término en la API de Búsqueda de Azure así como código de ejemplo y documentación. 
 
 * `@colorFacet.count`<br/>
-   En el código de presentación, verá un parámetro count en la faceta, que se usa para mostrar el número de resultados de faceta. En los resultados de faceta, count indica el número de documentos que coinciden con el término de faceta o con el intervalo de facetas.
+  En el código de presentación, verá un parámetro count en la faceta, que se usa para mostrar el número de resultados de faceta. En los resultados de faceta, count indica el número de documentos que coinciden con el término de faceta o con el intervalo de facetas.
 * `&facet=City,count:12`<br/>
-   En una consulta de faceta, puede establecer count en un valor.  El valor predeterminado es 10, pero puede establecer uno inferior o superior. Al establecer `count:12` se obtienen las 12 principales coincidencias en los resultados de faceta por recuento de documentos.
+  En una consulta de faceta, puede establecer count en un valor.  El valor predeterminado es 10, pero puede establecer uno inferior o superior. Al establecer `count:12` se obtienen las 12 principales coincidencias en los resultados de faceta por recuento de documentos.
 * "`@odata.count`"<br/>
-   En la respuesta de la consulta, este valor indica el número de elementos coincidentes en los resultados de búsqueda. Por término medio, es mayor que la suma de todos los resultados de faceta combinados, debido a la presencia de elementos que coinciden con el término de búsqueda pero con ninguno de los valores de faceta.
+  En la respuesta de la consulta, este valor indica el número de elementos coincidentes en los resultados de búsqueda. Por término medio, es mayor que la suma de todos los resultados de faceta combinados, debido a la presencia de elementos que coinciden con el término de búsqueda pero con ninguno de los valores de faceta.
 
 **Obtención de recuentos en los resultados de faceta**
 
@@ -321,7 +321,7 @@ En determinadas circunstancias, puede que vea que los recuentos de faceta no coi
 
 Los recuentos de faceta pueden ser incorrectos debido a la arquitectura de particionamiento. Cada índice de búsqueda tiene varias particiones, y cada una notifica las N primeras facetas por recuento de documentos, que después se combina en un único resultado. Si algunas particiones tienen muchos valores coincidentes, mientras que otros tienen menos, verá que algunos valores de faceta faltan o se contabilizan con un número inferior en los resultados.
 
-Aunque este comportamiento podría cambiar en cualquier momento, si se produce este comportamiento hoy en día, puede trabajar a su alrededor infla artificialmente el recuento:\<número > para un número grande para forzar reporting completa de cada partición. Si el valor de count: es mayor o igual que el número de valores únicos en el campo, se garantizan resultados precisos. Sin embargo, si el recuento de documentos es alto, esto afecta al rendimiento, por lo que debe usar esta opción con prudencia.
+Aunque este comportamiento podría cambiar en cualquier momento, si se produce en la actualidad puede solucionarlo aumentando artificialmente el valor de count:\<number> en un número grande para forzar que se notifique el valor completo de cada partición. Si el valor de count: es mayor o igual que el número de valores únicos en el campo, se garantizan resultados precisos. Sin embargo, si el recuento de documentos es alto, esto afecta al rendimiento, por lo que debe usar esta opción con prudencia.
 
 ### <a name="user-interface-tips"></a>Sugerencias de interfaz de usuario
 **Agregar etiquetas para cada campo en la navegación por facetas**
@@ -339,9 +339,9 @@ Búsqueda de Azure simplifica la construcción de intervalos mediante dos enfoqu
 Para establecer las facetas de precio en incrementos de 10 USD, especificaría: `&facet=price,interval:10`
 
 **Enfoque 2: Usar una lista de valores**  
- Para datos numéricos, puede usar una lista de valores.  Tenga en cuenta el intervalo de facetas para un campo `listPrice`, que se representa como sigue:
+Para datos numéricos, puede usar una lista de valores.  Tenga en cuenta el intervalo de facetas para un campo `listPrice`, que se representa como sigue:
 
-  ![Lista de valores de ejemplo](media/search-faceted-navigation/Facet-5-Prices.PNG "lista de valores de ejemplo")
+  ![Lista de valores de ejemplo](media/search-faceted-navigation/Facet-5-Prices.PNG "Sample values list")
 
 Para especificar un intervalo de faceta semejante al de la captura de pantalla anterior, use una lista de valores:
 
@@ -352,7 +352,7 @@ Cada intervalo se genera usando 0 como punto de partida, un valor de la lista co
 ### <a name="build-a-filter-for-a-range"></a>Creación de un filtro para un intervalo
 Para filtrar los documentos según un intervalo que seleccione, puede usar los operadores de filtro `"ge"` y `"lt"` en una expresión de dos partes que define los puntos de conexión del intervalo. Por ejemplo, si elige el intervalo de 10 a 25 para un campo `listPrice`, el filtro sería `$filter=listPrice ge 10 and listPrice lt 25`. En el código de ejemplo, la expresión de filtro usa los parámetros **priceFrom** y **priceTo** para establecer los puntos de conexión. 
 
-  ![Consulta para un intervalo de valores](media/search-faceted-navigation/Facet-6-buildfilter.PNG "consulta para un intervalo de valores")
+  ![Consulta para un intervalo de valores](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Query for a range of values")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Cuando trabaje con los resultados de búsqueda, vigile los posibles cambios en l
    
    Con los resultados de búsqueda se devuelve también una estructura de navegación por facetas. En la página de resultados de búsqueda, la estructura de navegación por facetas incluye los recuentos de cada resultado de faceta. No hay facetas seleccionadas, por lo que se devuelven todos los resultados de búsqueda que coinciden.
    
-   ![Los resultados de búsqueda antes de seleccionar las facetas](media/search-faceted-navigation/faceted-search-before-facets.png "los resultados de búsqueda antes de seleccionar las facetas")
+   ![Resultados de búsqueda antes de seleccionar facetas](media/search-faceted-navigation/faceted-search-before-facets.png "Search results before selecting facets")
 
 4. Haga clic en un Business Title (cargo empresarial), Location (ubicación) o Minimum Salary (salario mínimo). Las facetas son NULL en la búsqueda inicial, pero a medida que toman valores, en los resultados de búsqueda se recortan los elementos que ya no coinciden.
    
-   ![Los resultados de búsqueda después de seleccionar las facetas](media/search-faceted-navigation/faceted-search-after-facets.png "los resultados de búsqueda después de seleccionar las facetas")
+   ![Resultados de búsqueda después de seleccionar facetas](media/search-faceted-navigation/faceted-search-after-facets.png "Search results after selecting facets")
 
 5. Para borrar la consulta por facetas para poder probar comportamientos de consulta diferentes, haga clic en `[X]` después de las facetas seleccionadas para borrar las facetas.
    
@@ -401,5 +401,5 @@ Vea el vídeo de [profundización en Azure Search](https://channel9.msdn.com/Eve
 Para obtener más información sobre los principios de diseño de la navegación por facetas, recomendamos los siguientes vínculos:
 
 * [Patrones de diseño: Navegación por facetas](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Problemas de Front-End al implementar la búsqueda por facetas – parte 1 ](https://articles.uie.com/faceted_search2/)
+* [Problemas de front-end al implementar la búsqueda por facetas – Parte 1 ](https://articles.uie.com/faceted_search2/)
 

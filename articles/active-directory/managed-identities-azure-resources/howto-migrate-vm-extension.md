@@ -1,6 +1,6 @@
 ---
 title: Dejar de usar la extensión de máquina virtual de identidad administrada y empezar a usar el punto de conexión de Azure Instance Metadata Service
-description: Instrucciones paso a paso para dejar de usar la extensión de máquina virtual y empezar a usar el servicio de metadatos de instancia (IMDS) de Azure para la autenticación.
+description: Instrucciones paso a paso para dejar de usar la extensión de máquina virtual y empezar a usar Azure Instance Metadata Service (IMDS) para la autenticación.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,34 +15,34 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
 ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65406785"
 ---
-# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Cómo detener el uso de la máquina virtual administrado extensión de identidades y comenzar a usar el servicio de metadatos de instancia de Azure
+# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Dejar de usar la extensión de identidades administradas de máquina virtual y empezar a usar Azure Instance Metadata Service
 
-## <a name="virtual-machine-extension-for-managed-identities"></a>Extensión de máquina virtual para las identidades administradas
+## <a name="virtual-machine-extension-for-managed-identities"></a>Extensión de máquina virtual para identidades administradas
 
-La extensión de máquina virtual para las identidades administradas se usa para solicitar tokens de una identidad administrada dentro de la máquina virtual. El flujo de trabajo consta de los pasos siguientes:
+La extensión de máquina virtual para identidades administradas se usa para solicitar tokens relativos a una identidad administrada dentro de la máquina virtual. El flujo de trabajo consta de los pasos siguientes:
 
-1. En primer lugar, llama a la carga de trabajo en el recurso de punto de conexión local `http://localhost/oauth2/token` para solicitar un token de acceso.
-2. La extensión de máquina virtual, a continuación, usa las credenciales para la identidad administrada, para solicitar un token de acceso de Azure AD... 
-3. El token de acceso se devuelve al llamador y se puede usar para autenticar a los servicios que admiten la autenticación de Azure AD, como Azure Key Vault o Azure Storage.
+1. En primer lugar, la carga de trabajo en el recurso llama al punto de conexión local `http://localhost/oauth2/token` para solicitar un token de acceso.
+2. Tras ello, la extensión de máquina virtual usa las credenciales de la identidad administrada para solicitar un token de acceso de Azure AD. 
+3. El token de acceso se devuelve al llamador, y se puede usar para autenticarse en los servicios que admiten la autenticación de Azure AD, como Azure Key Vault o Azure Storage.
 
-Debido a varias limitaciones que se describen en la sección siguiente, la extensión de máquina virtual de identidad administrada en desuso en favor de usar el punto de conexión equivalente en el servicio de metadatos de instancia (IMDS) de Azure
+Debido a las diversas limitaciones de la extensión de máquina virtual de identidad administrada (descritas en la siguiente sección), dicha extensión está en desuso, en favor del uso del punto de conexión equivalente de Azure Instance Metadata Service (IMDS).
 
 ### <a name="provision-the-extension"></a>Aprovisionamiento de la extensión 
 
-Al configurar una máquina virtual o el escalado de máquinas virtuales que se define para tener una identidad administrada, se puede optar por aprovisionar las identidades administradas de extensión de máquina virtual de los recursos de Azure mediante el `-Type` parámetro en el [ Conjunto AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. Puede pasar `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux`, según el tipo de máquina virtual y asígnele un nombre que el `-Name` parámetro. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
+Al configurar una máquina virtual, o un conjunto de escalado de máquinas virtuales para tener una identidad administrada, se puede optar por aprovisionar las identidades administradas de la extensión de máquina virtual de recursos de Azure mediante el parámetro `-Type` del cmdlet [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension). Puede pasar `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux`, según el tipo de máquina virtual, y asignar un nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
 
 ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
-También puede usar la plantilla de implementación de Azure Resource Manager para aprovisionar la extensión de VM, agregando el siguiente JSON para el `resources` sección a la plantilla (usar `ManagedIdentityExtensionForLinux` para los elementos de nombre y tipo para la versión de Linux).
+También puede usar la plantilla de implementación de Azure Resource Manager para aprovisionar la extensión de máquina virtual, agregando para ello el siguiente JSON a la sección `resources` de la plantilla (use `ManagedIdentityExtensionForLinux` con los elementos de nombre y de tipo de la versión de Linux).
 
     ```json
     {
@@ -66,14 +66,14 @@ También puede usar la plantilla de implementación de Azure Resource Manager pa
     ```
     
     
-Si trabaja con conjuntos de escalado de máquinas virtuales, también puede aprovisionar las identidades administradas para utilizar la extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure la [agregar AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. Puede pasar `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux`, según el tipo de escalado de máquinas virtuales establecido y asígnele un nombre que el `-Name` parámetro. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
+Si trabaja con conjuntos de escalado de máquinas virtuales, puede aprovisionar las identidades administradas también para la extensión de conjunto de escalado de máquinas virtuales de recursos de Azure, mediante el cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension). Puede pasar `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux`, según el tipo de conjunto de escalado de máquinas virtuales, y asignar un nombre mediante el parámetro `-Name`. El parámetro `-Settings` especifica el puerto utilizado por el punto de conexión del token de OAuth para la adquisición de tokens:
 
    ```powershell
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
-Para aprovisionar el escalado de máquinas virtuales, establezca la extensión con la plantilla de implementación de Azure Resource Manager, agregue el siguiente JSON para el `extensionpProfile` sección a la plantilla (usar `ManagedIdentityExtensionForLinux` para los elementos de nombre y tipo para la versión de Linux).
+Para aprovisionar la extensión de conjunto de escalado de máquinas virtuales con la plantilla de implementación de Azure Resource Manager, agregue el siguiente JSON a la sección `extensionpProfile` de la plantilla (use `ManagedIdentityExtensionForLinux` con los elementos de nombre y de tipo de la versión de Linux).
 
     ```json
     "extensionProfile": {
@@ -93,10 +93,10 @@ Para aprovisionar el escalado de máquinas virtuales, establezca la extensión c
             }
     ```
 
-Aprovisionamiento de la extensión de máquina virtual puede producir un error debido a errores de búsqueda DNS. Si esto ocurre, reinicie la máquina virtual e inténtelo de nuevo. 
+Se puede producir un error en el aprovisionamiento de la extensión de máquina virtual debido a errores de búsqueda DNS. Si esto ocurre, reinicie la máquina virtual e inténtelo de nuevo. 
 
 ### <a name="remove-the-extension"></a>Eliminación de la extensión 
-Para quitar la extensión, use `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux` switch (según el tipo de máquina virtual) con [delete de extensión de máquina virtual de az](https://docs.microsoft.com/cli/azure/vm/), o [eliminación de az vmss extensión](https://docs.microsoft.com/cli/azure/vmss) para escalado de máquinas virtuales establece mediante la CLI de Azure, o `Remove-AzVMExtension` para Powershell:
+Para quitar la extensión, use los modificadores `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux` (según el tipo de máquina virtual) con [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/) o con [az vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) si es un conjunto de escalado de máquinas virtuales, usando la CLI de Azure o `Remove-AzVMExtension` de Powershell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -112,7 +112,7 @@ Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityEx
 
 ### <a name="acquire-a-token-using-the-virtual-machine-extension"></a>Adquirir un token mediante la extensión de máquina virtual
 
-Este es un ejemplo de solicitud con las identidades administradas para el punto de conexión de máquina virtual de extensión de recursos de Azure:
+Esta es una solicitud de ejemplo en la que se usan las identidades administradas del punto de conexión de extensión de máquina virtual de recursos de Azure:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -158,7 +158,7 @@ Content-Type: application/json
 
 ### <a name="troubleshoot-the-virtual-machine-extension"></a>Solución de problemas de la extensión de máquina virtual 
 
-#### <a name="restart-the-virtual-machine-extension-after-a-failure"></a>Reinicie la extensión de máquina virtual después de un error
+#### <a name="restart-the-virtual-machine-extension-after-a-failure"></a>Reiniciar la extensión de máquina virtual tras un error
 
 Tanto en Windows como en algunas versiones de Linux, si la extensión se detiene, se puede utilizar el siguiente cmdlet para reiniciarla manualmente:
 
@@ -167,49 +167,49 @@ Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <loc
 ```
 
 Donde: 
-- Nombre de la extensión y tipo para Windows es: `ManagedIdentityExtensionForWindows`
-- Nombre de la extensión y tipo para Linux es: `ManagedIdentityExtensionForLinux`
+- El tipo y el nombre de la extensión de Windows es: `ManagedIdentityExtensionForWindows`
+- El tipo y el nombre de la extensión de Linux es: `ManagedIdentityExtensionForLinux`
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Se produce un error en el "script de automatización" al intentar exportar los esquemas de la extensión de identidades administradas para recursos de Azure.
 
-Cuando las identidades administradas para los recursos de Azure está habilitada en una máquina virtual, se muestra el siguiente error al intentar utilizar la característica "Script de automatización" para la máquina virtual o su grupo de recursos:
+Cuando se habilitan las identidades administradas de recursos de Azure en una máquina virtual, se muestra el siguiente error al intentar usar la característica de "Script de automatización" de la máquina virtual o su grupo de recursos:
 
 ![Error de exportación del script de automatización de identidades administradas para recursos de Azure](./media/howto-migrate-vm-extension/automation-script-export-error.png)
 
-Las identidades administradas de extensión de máquina virtual de los recursos de Azure no admite actualmente la capacidad de exportar su esquema a una plantilla de grupo de recursos. Como resultado, en la plantilla generada no se muestran los parámetros de configuración para habilitar las identidades administradas para recursos de Azure en el recurso. Estas secciones pueden agregarse manualmente siguiendo los ejemplos de [configurar administradas las identidades de los recursos de Azure en una máquina virtual de Azure mediante una de las plantillas](qs-configure-template-windows-vm.md).
+Actualmente, las identidades administradas de la extensión de máquina virtual de recursos de Azure no admiten la posibilidad de exportar su esquema a una plantilla de grupo de recursos. Como resultado, en la plantilla generada no se muestran los parámetros de configuración para habilitar las identidades administradas para recursos de Azure en el recurso. Estas secciones se pueden agregar de forma manual siguiendo los ejemplos de [Configuración de identidades administradas de recursos de Azure en una máquina virtual de Azure mediante una plantilla](qs-configure-template-windows-vm.md).
 
-Cuando la funcionalidad de exportación de esquema está disponible para las identidades administradas de extensión de máquina virtual de los recursos de Azure (prevista para desuso en enero de 2019), se enumerarán en [exportación de grupos de recursos que contienen extensiones de máquina virtual ](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+Cuando la funcionalidad de exportación de esquema esté disponible para las identidades administradas de la extensión de máquina virtual de recursos de Azure (que dejará de utilizarse en enero de 2019), aparecerá reflejada en [Exportación de grupos de recursos que contienen extensiones de máquina virtual](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ## <a name="limitations-of-the-virtual-machine-extension"></a>Limitaciones de la extensión de máquina virtual 
 
-Existen varias limitaciones más importantes para el uso de la extensión de máquina virtual. 
+Existen varias limitaciones de primer orden en cuanto al uso de la extensión de máquina virtual. 
 
- * La limitación más grave es el hecho de que las credenciales usadas para solicitar tokens se almacenan en la máquina virtual. Un atacante que infracciones correctamente la máquina virtual puede extraer las credenciales. 
- * Además, la extensión de máquina virtual no es aún compatible con varias distribuciones de Linux, con un costo para modificar, crear y probar la extensión en cada una de las distribuciones de desarrollo enorme. Actualmente, se admiten las siguientes distribuciones de Linux: 
+ * La limitación más seria es que las credenciales usadas para solicitar tokens se almacenan en la máquina virtual, con lo cual un atacante que cometa una infracción de seguridad en la máquina virtual podría filtrarlas. 
+ * Además, la extensión de máquina virtual aún no es compatible con varias distribuciones Linux, lo que conlleva un enorme coste de desarrollo para modificar, compilar y probar la extensión en cada una de las distribuciones. Actualmente, solo se admiten las siguientes distribuciones Linux: 
     * CoreOS Stable
     * CentOS 7.1 
     * Red Hat 7.2 
     * Ubuntu 15.04 
     * Ubuntu 16.04
- * Hay un impacto en el rendimiento a la implementación de máquinas virtuales con identidades administradas, como la extensión de máquina virtual también tiene que estar aprovisionado. 
- * Por último, la extensión de máquina virtual solo puede admitir tener 32 asignada por el usuario las identidades administradas por máquina virtual. 
+ * La implementación de máquinas virtuales con identidades administradas tiene impacto en el rendimiento, ya que la extensión de máquina virtual también tiene que estar aprovisionada. 
+ * Por último, la extensión de máquina virtual solo tiene cabida para un máximo de 32 identidades administradas asignadas por usuarios en cada máquina virtual. 
 
 ## <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
-El [servicio de metadatos de instancia de Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) es un punto de conexión REST que proporciona información sobre la ejecución de las instancias de máquina virtual que pueden usarse para administrar y configurar las máquinas virtuales. El punto de conexión está disponible en una dirección IP no enrutable conocida (`169.254.169.254`) que puede tener acceso solo desde dentro de la máquina virtual.
+[Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) es un punto de conexión de REST que proporciona información sobre las instancias de máquina virtual en ejecución que se pueden usar para administrar y configurar las máquinas virtuales. El punto de conexión está disponible en una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede tener acceso desde dentro de la máquina virtual.
 
-Hay varias ventajas al uso de IMDS de Azure para solicitar tokens. 
+El uso de Azure IMDS para solicitar tokens reporta una serie de ventajas. 
 
-1. El servicio es externo a la máquina virtual, por lo tanto, las credenciales utilizadas por las identidades administradas ya no están presentes en la máquina virtual. En su lugar, se hospedan y se protegen en el equipo host de máquina virtual de Azure.   
-2. Todos los sistemas operativos Windows y Linux compatibles en IaaS de Azure puede usar las identidades administradas.
-3. Implementación es más rápido y sencillo, puesto que ya no necesita la extensión de máquina virtual se aprovisione.
-4. Con el IMDS el punto de conexión, hasta 1.000 identidades administradas asignada por el usuario puede asignarse a una sola máquina virtual.
-5. No hay ningún cambio significativo en las solicitudes mediante IMDS en contraposición a aquellas que usan la extensión de máquina virtual, por lo tanto, es bastante fácil de puerto a través de las implementaciones existentes que actualmente utilizan la extensión de máquina virtual.
+1. El servicio es externo a la máquina virtual, por lo que las credenciales utilizadas por las identidades administradas ya no residen en la máquina virtual, sino que se hospedan y protegen en el equipo host de máquina virtual de Azure.   
+2. Todos los sistemas operativos Windows y Linux compatibles en IaaS de Azure pueden usar identidades administradas.
+3. La implementación es más rápida y más sencilla, puesto que ya no es necesario aprovisionar la extensión de máquina virtual.
+4. Con el punto de conexión de IMDS, se pueden asignar hasta 1000 identidades administradas asignadas por usuario a una misma máquina virtual.
+5. No hay ningún cambio significativo en cuanto a las solicitudes realizadas mediante IMDS frente a aquellas que usan la extensión de máquina virtual; por lo tanto, resulta bastante fácil adaptar las implementaciones existentes que actualmente utilizan la extensión de máquina virtual.
 
-Por estas razones, el servicio de Azure IMDS será la forma de facto para solicitar tokens, una vez que la extensión de máquina virtual está en desuso. 
+Por estos motivos, el servicio Azure IMDS será la forma de facto para solicitar tokens, una vez que la extensión de máquina virtual esté en desuso. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cómo usar las identidades administradas para los recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](how-to-use-vm-token.md)
-* [Servicio de metadatos de instancia de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](how-to-use-vm-token.md)
+* [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)

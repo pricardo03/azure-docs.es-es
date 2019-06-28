@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60950348"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
@@ -41,7 +41,7 @@ Instale Neon Eclipse o una versión más reciente desde el [sitio de Eclipse](ht
 -   Para buscar actualizaciones de Eclipse e instalarlas, vaya a **Help** > **Check for Updates** (Ayuda > Buscar actualizaciones).
 
 Para instalar el complemento de Service Fabric, en Eclipse, vaya a **Help** >  (Ayuda) **Install New Software** (Instalar software nuevo).
-1. En el **trabajar con** , escriba https:\//dl.microsoft.com/eclipse.
+1. En el cuadro **Trabajar con**, escriba \//dl.microsoft.com/eclipse.
 2. Haga clic en **Agregar**.
 
    ![Complemento de Service Fabric para Eclipse][sf-eclipse-plugin-install]
@@ -54,7 +54,7 @@ Si el complemento de Service Fabric ya está instalado, instale la versión más
 3. Cuando actualiza el complemento de Service Fabric, también actualiza el proyecto de Gradle.  Haga clic con el botón derecho en **build.gradle** y, luego, seleccione **Refresh** (Actualizar).
 
 > [!NOTE]
-> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de verificación para todos los sitios, excepto la que apunta a la ubicación del complemento Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
+> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de todos los sitios, excepto la del que apunta a la ubicación del complemento Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Si Eclipse no funciona según lo previsto en el equipo Mac (o necesita que ejecute como superusuario), vaya a la carpeta **ECLIPSE_INSTALLATION_PATH** y navegue a la subcarpeta **Eclipse.app/Contents/MacOS**. Inicie Eclipse ejecutando `./eclipse`.
@@ -115,7 +115,7 @@ Para obtener información sobre cómo depurar la aplicación en Eclipse mediante
 También puede implementar la aplicación en el clúster local mediante el comando **Publicar aplicación**:
 
 1. Haga clic con el botón derecho en la aplicación de Service Fabric y, después, seleccione **Service Fabric**.
-2. En el menú contextual, haga clic en **Publicar aplicación...**.
+2. En el menú contextual, haga clic en **Publicar aplicación...** .
 3. En la ventana **Publicar aplicación**, elija **PublishProfiles/Local.json** como el perfil de destino y haga clic en **Publicar**.
 
     ![Cuadro de diálogo local Publicar](./media/service-fabric-get-started-eclipse/localjson.png)
@@ -154,7 +154,7 @@ Para publicar la aplicación en la nube, siga estos pasos:
      ```
 
 2. Haga clic con el botón derecho en la aplicación de Service Fabric y, después, seleccione **Service Fabric**.
-3. En el menú contextual, haga clic en **Publicar aplicación...**.
+3. En el menú contextual, haga clic en **Publicar aplicación...** .
 3. En la ventana **Publicar aplicación**, elija **PublishProfiles/Cloud.json** como el perfil de destino y haga clic en **Publicar**.
 
     ![Cuadro de diálogo Publicar en la nube](./media/service-fabric-get-started-eclipse/cloudjson.png)

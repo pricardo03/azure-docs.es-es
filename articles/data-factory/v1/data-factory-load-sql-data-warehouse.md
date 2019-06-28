@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825427"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory
@@ -199,7 +199,7 @@ La opción **Allow polybase** (Permitir Polybase) está activada de forma predet
 
     Puede ver los detalles de la ejecución de la copia en **Activity Window Explorer** (Explorador de la ventana de actividad) en el panel derecho, esta información incluye el volumen de datos leídos en el origen y escritos en el destino, y el rendimiento medio de la ejecución.
 
-    Como puede ver en la captura de pantalla siguiente, al copiar 1 TB de almacenamiento de blobs de Azure SQL Data Warehouse tardaron 14 minutos, eficazmente para lograr rendimiento de 1,22 GBps!
+    Como puede ver en la captura de pantalla siguiente, se tardaron 14 minutos en copiar 1 TB de Azure Blob Storage en SQL Data Warehouse, lo que quiere decir que se alcanzó el rendimiento de 1,22 GB por segundo.
 
     ![Asistente para copia: Cuadro de diálogo de éxito en la operación](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

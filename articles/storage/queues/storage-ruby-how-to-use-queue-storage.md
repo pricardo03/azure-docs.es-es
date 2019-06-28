@@ -1,5 +1,5 @@
 ---
-title: Cómo usar Queue storage en Ruby - almacenamiento de Azure
+title: Uso del almacenamiento de colas de Ruby - Azure Storage
 description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en Ruby.
 services: storage
 author: mhopkins-msft
@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 30a090aeb2d66c732e70a9acce67d5f3374c32fa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153165"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Uso del almacenamiento de colas de Ruby
@@ -88,7 +88,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Instrucciones: Inspección del siguiente mensaje
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peek\_messages()**. De forma predeterminada, **peek\_messages()** inspecciona un único mensaje. También puede indicar cuántos mensajes desea inspeccionar.
+Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peek\_messages()** . De forma predeterminada, **peek\_messages()** inspecciona un único mensaje. También puede indicar cuántos mensajes desea inspeccionar.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -98,8 +98,8 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Instrucciones: Extracción del siguiente mensaje de la cola
 Puede borrar un mensaje de una cola en dos pasos.
 
-1. Al llamar a **list\_messages()**, obtiene, de forma predeterminada, el siguiente mensaje en una cola. También puede indicar cuántos mensajes desea obtener. Los mensajes devueltos por **list\_messages()** se hacen invisibles para cualquier otro código que lea mensajes de esta cola. Usted proporciona el tiempo de espera de la visibilidad en segundos a modo de parámetro.
-2. Para terminar quitando el mensaje de la cola, también debe llamar a **delete_message()**.
+1. Al llamar a **list\_messages()** , obtiene, de forma predeterminada, el siguiente mensaje en una cola. También puede indicar cuántos mensajes desea obtener. Los mensajes devueltos por **list\_messages()** se hacen invisibles para cualquier otro código que lea mensajes de esta cola. Usted proporciona el tiempo de espera de la visibilidad en segundos a modo de parámetro.
+2. Para terminar quitando el mensaje de la cola, también debe llamar a **delete_message()** .
 
 Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **delete\_message()** justo después de que se haya procesado el mensaje.
 

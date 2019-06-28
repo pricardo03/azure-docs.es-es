@@ -1,5 +1,5 @@
 ---
-title: Usar un panel de recursos para realizar una revisión de acceso en PIM - Azure Active Directory | Microsoft Docs
+title: Uso de un panel de recursos para realizar una revisión de acceso en PIM - Azure Active Directory | Microsoft Docs
 description: Describe cómo usar un panel de recursos para realizar una revisión de acceso en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602474"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Usar un panel de recursos para realizar una revisión de acceso en PIM
+# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Uso de un panel de control de recursos para realizar una revisión de acceso en PIM
 
-Puede usar un panel de recursos para realizar una revisión de acceso en Azure Active Directory (Azure AD) Privileged Identity Management (PIM). El panel Vista de administrador consta de tres elementos principales:
+Puede usar un panel de recursos para realizar una revisión de acceso en Azure Active Directory (Azure AD) Privileged Identity Management (PIM). El panel Vista de administrador consta de tres elementos principales:
 
 - Una representación gráfica de las activaciones de rol de recursos.
 - Dos gráficos que muestran la distribución de las asignaciones de roles por tipo de asignación.

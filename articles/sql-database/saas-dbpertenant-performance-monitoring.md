@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388649"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
@@ -57,7 +57,7 @@ Se deben supervisar los grupos y las bases de datos de estos para garantizar que
 
 [Azure Portal](https://portal.azure.com) proporciona supervisión y alertas integradas en la mayoría de recursos. Para SQL Database, la supervisión y las alertas están disponibles para las bases de datos y los grupos. La supervisión y las alertas integradas son específicas de los recursos, por lo que es conveniente usarlas con un número reducido de recursos, pero no cuando se trabaja con muchos recursos.
 
-Para escenarios de gran volumen, donde se trabaja con muchos recursos, [registros de Azure Monitor](saas-dbpertenant-log-analytics.md) se puede usar. Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y telemetría recopilados en un área de trabajo de Log Analytics. Registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y se usa para consultar y establecer alertas.
+Para escenarios de gran volumen, donde se trabaja con muchos recursos, se puede usar los [registros de Azure Monitor](saas-dbpertenant-log-analytics.md). Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y de telemetría recopilados en un área de trabajo de Log Analytics. Los registros de Azure Monitor pueden recopilar la telemetría de muchos servicios y sirve para consultar y establecer alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
@@ -83,10 +83,10 @@ Se proporciona el script *Demo-PerformanceMonitoringAndManagement.ps1* que simul
 
 | Demostración | Escenario |
 |:--|:--|
-| 2 | Generar una carga de intensidad normal (aproximadamente 40 DTU) |
+| 2 | Generación de una carga de intensidad normal (aprox. 40 DTU) |
 | 3 | Generación de una carga con ráfagas más prolongadas y frecuentes por base de datos|
-| 4 | Generar una carga con mayores ráfagas de DTU por base de datos (aproximadamente 80 DTU)|
-| 5 | Generar una carga normal y una carga elevada en un solo inquilino (aproximadamente 95 DTU)|
+| 4 | Generación de una carga con mayores ráfagas de DTU por base de datos (aprox. 80 DTU)|
+| 5 | Generación de una carga normal y una carga elevada en un solo inquilino (aprox. 95 DTU)|
 | 6 | Generación de una carga desequilibrada en varios grupos|
 
 El generador de carga se aplica una carga *sintética* exclusiva de CPU para cada base de datos de inquilinos. El generador de inicia un trabajo para cada base de datos de inquilinos, que llama a un procedimiento almacenado periódicamente que genera la carga. Los niveles de carga (en eDTU), la duración y los intervalos varían en todas las bases de datos, lo cual simula una actividad de inquilinos imprevisible.
@@ -104,7 +104,7 @@ Wingtip Tickets SaaS Database Per Tenant es una aplicación SaaS y, en el mundo 
 
 Para supervisar el uso de los recursos derivado de la carga que se aplica, abra el portal por el grupo que contiene las bases de datos de inquilinos:
 
-1. Abra [Azure Portal](https://portal.azure.com) y vaya al servidor *tenants1-dpt-&lt;USUARIO&gt;*.
+1. Abra [Azure Portal](https://portal.azure.com) y vaya al servidor *tenants1-dpt-&lt;USUARIO&gt;* .
 1. Desplácese hacia abajo, busque los grupos elásticos y haga clic en **Pool1**. Este grupo contiene todas las bases de datos de inquilinos creadas hasta ahora.
 
 Observe los gráficos **Supervisión de grupo elástico** y **Supervisión de base de datos elástica**.
@@ -122,7 +122,7 @@ Como hay otras bases de datos en el grupo aparte de las cinco principales, el us
 
 Establezca una alerta en el grupo que se desencadene cuando el uso sea de \>75 % como sigue:
 
-1. Abra *Pool1* (en el servidor *tenants1-dpt-\<usuario\>*) en [Azure Portal](https://portal.azure.com).
+1. Abra *Pool1* (en el servidor *tenants1-dpt-\<usuario\>* ) en [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Reglas de alerta** y en **+ Agregar alerta**:
 
    ![agregar alerta](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -167,7 +167,7 @@ Las bases de datos permanecen en línea y están totalmente disponibles durante 
 
 Como alternativa al escalado vertical del grupo, cree un segundo grupo y mueva bases de datos a este para equilibrar la carga entre los dos grupos. Para ello, el nuevo grupo debe crearse en el mismo servidor que el primero.
 
-1. En [Azure Portal](https://portal.azure.com), abra el servidor **tenants1-dpt-&lt;USUARIO&gt;**.
+1. En [Azure Portal](https://portal.azure.com), abra el servidor **tenants1-dpt-&lt;USUARIO&gt;** .
 1. Haga clic en **+ Grupo nuevo** para crear un grupo en el servidor actual.
 1. En la plantilla **Grupo elásticos**:
 
@@ -185,7 +185,7 @@ Como alternativa al escalado vertical del grupo, cree un segundo grupo y mueva b
 
 Crear el grupo y mover las bases de datos tarda unos minutos. Al mover las bases de datos, permanecen en línea y totalmente accesibles hasta el último momento, cuando se cierran todas las conexiones abiertas. Siempre y cuando tenga alguna lógica de reintento, los clientes se conectarán a la base de datos en el nuevo grupo.
 
-Vaya a **Pool2** (en el servidor *tenants1-dpt-\<usuario\>*) para abrir el grupo y supervisar su rendimiento. Si no lo ve, espere a que finalice el aprovisionamiento del nuevo grupo.
+Vaya a **Pool2** (en el servidor *tenants1-dpt-\<usuario\>* ) para abrir el grupo y supervisar su rendimiento. Si no lo ve, espere a que finalice el aprovisionamiento del nuevo grupo.
 
 Ahora verá que el uso de los recursos en *Pool1* ha disminuido y que *Pool2* tiene una carga similar.
 
@@ -196,12 +196,12 @@ Si una base de datos individual de un grupo experimenta una carga elevada durant
 En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Hall cuando se venden entradas para un concierto popular.
 
 1. En **PowerShell ISE**, abra el script \\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Establecer **$DemoScenario = 5, generar una carga normal y una carga elevada en un solo inquilino (aproximadamente 95 DTU).**
+1. Establezca **$DemoScenario = 5, generar una carga normal y una carga elevada en un solo inquilino (aprox. 95 DTU).**
 1. Establezca **$SingleTenantDatabaseName = contosoconcerthall**
 1. Ejecute el script con **F5**.
 
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la lista de bases de datos del servidor *tenants1-dpt-\<usuario\>*. 
+1. En [Azure Portal](https://portal.azure.com), vaya a la lista de bases de datos del servidor *tenants1-dpt-\<usuario\>* . 
 1. Haga clic en la base de datos **contosoconcerthall**.
 1. Haga clic en el grupo en el que se encuentra **contosoconcerthall**. Busque el grupo en la sección **Grupo elásticos**.
 
@@ -247,4 +247,4 @@ En este tutorial, aprenderá a:
 * Otros [tutoriales basados en la implementación de la aplicación Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Grupos elásticos de SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Registros de Azure Monitor](saas-dbpertenant-log-analytics.md) : configuración y uso tutorial de los registros de Azure Monitor
+* [Registros de Azure Monitor](saas-dbpertenant-log-analytics.md): tutorial de configuración y uso de los registros de Azure Monitor

@@ -16,14 +16,14 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595385"
 ---
 > [!NOTE] 
-> Las cuentas de usuario descritas en este artículo son diferentes de los usuarios las cuentas utilizadas para el protocolo de escritorio remoto (RDP) o Secure Shell (SSH), por motivos de seguridad. 
+> Las cuentas de usuario descritas en este artículo son distintas a las que se usan con el Protocolo de escritorio remoto (RDP) o Secure Shell (SSH) por motivos seguridad. 
 >
 > Para conectarse a un nodo que ejecuta la configuración de máquina virtual Linux mediante SSH, consulte [Uso del escritorio remoto a una máquina virtual Linux en Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para conectarse a nodos que ejecutan Windows a través de RDP, consulte [Conexión a una máquina virtual de Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para conectarse a un nodo que ejecuta la configuración del servicio en la nube a través de RDP, consulte [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).

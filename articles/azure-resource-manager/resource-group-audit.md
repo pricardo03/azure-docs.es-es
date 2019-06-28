@@ -1,19 +1,19 @@
 ---
 title: Visualización de registros de actividad de Azure para supervisar recursos | Microsoft Docs
-description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra el portal de Azure PowerShell, CLI de Azure y REST.
+description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra PowerShell de Azure Portal, la CLI de Azure y REST.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606547"
 ---
-# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Ver registros de actividad para supervisar las acciones en los recursos
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualización de registros de actividad para supervisar acciones sobre recursos
 
 Mediante los registros de actividad, puede determinar:
 
@@ -29,7 +29,7 @@ Los registros de actividad se conservan 90 días. Puede consultar cualquier inte
 
 Puede recuperar información de los registros de actividad mediante el portal, PowerShell, la CLI de Azure, la API de REST de Insights o la [biblioteca .NET de Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 1. Para ver los registros de actividad mediante el portal, seleccione **Monitor**.
 
@@ -39,19 +39,19 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
     ![Seleccionar el registro de actividades](./media/resource-group-audit/select-activity-log.png)
 
-1. Verá un resumen de operaciones recientes. Se aplica un conjunto predeterminado de filtros a las operaciones. Tenga en cuenta que la información del resumen incluye quién inició la acción y cuándo pasó.
+1. Verá un resumen de operaciones recientes. Se aplica un conjunto predeterminado de filtros a las operaciones. Tenga en cuenta que en la información del resumen se incluye quién ha iniciado la acción y cuándo ha tenido lugar.
 
     ![Vista de resumen de las operaciones recientes](./media/resource-group-audit/audit-summary.png)
 
-1. Para ejecutar rápidamente un conjunto predefinido de filtros, seleccione **Quick Insights**.
+1. Para ejecutar de forma rápida un conjunto predefinido de filtros, seleccione **Conclusiones rápidas**.
 
-    ![Seleccione la información rápida](./media/resource-group-audit/select-quick-insights.png)
+    ![Selección de Conclusiones rápidas](./media/resource-group-audit/select-quick-insights.png)
 
-1. Seleccione una de las opciones. Por ejemplo, seleccione **implementaciones con error** para ver los errores de las implementaciones.
+1. Seleccione una de las opciones. Por ejemplo, seleccione **Implementaciones con errores** para ver los errores de las implementaciones.
 
-    ![Seleccione las implementaciones con errores](./media/resource-group-audit/select-failed-deployments.png)
+    ![Selección de Implementaciones con errores](./media/resource-group-audit/select-failed-deployments.png)
 
-1. Tenga en cuenta que los filtros se han cambiado para centrarse en los errores de implementación en las últimas 24 horas. Se muestran solo las operaciones que coinciden con los filtros.
+1. Tenga en cuenta que los filtros se han cambiado para centrarse en los errores de implementación de las últimas 24 horas. Solo se muestran las operaciones que coinciden con los filtros.
 
     ![Ver filtros](./media/resource-group-audit/view-filters.png)
 
@@ -71,19 +71,19 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
     ![Mostrar filtro en el panel](./media/resource-group-audit/show-dashboard.png)
 
-1. Desde el portal, puede ver los cambios realizados en un recurso. Vaya hasta el valor predeterminado de ver en el Monitor y seleccione una operación que implica cambiar un recurso.
+1. Desde el portal, puede ver los cambios realizados en un recurso. Vaya hasta la vista predeterminada en el Monitor y seleccione una operación que implique el cambio de un recurso.
 
-    ![Seleccionar operación](./media/resource-group-audit/select-operation.png)
+    ![Selección de la operación](./media/resource-group-audit/select-operation.png)
 
-1. Seleccione **(versión preliminar) historial de cambios** y elegir una de las operaciones disponibles.
+1. Seleccione **Historial de cambios (versión preliminar)** y elija una de las operaciones disponibles.
 
-    ![Seleccione el historial de cambios](./media/resource-group-audit/select-change-history.png)
+    ![Selección del Historial de cambios](./media/resource-group-audit/select-change-history.png)
 
-1. Se muestran los cambios en el recurso.
+1. Se mostrarán los cambios en el recurso.
 
     ![Mostrar cambios](./media/resource-group-audit/show-changes.png)
 
-Para obtener más información sobre el historial de cambios, consulte [obtener los cambios de recursos](../governance/resource-graph/how-to/get-resource-changes.md).
+Para obtener más información sobre el historial de cambios, vea [Obtención de los cambios del recurso](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -137,7 +137,7 @@ En función de la hora de inicio que especifique, los comandos anteriores pueden
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-Puede usar el gráfico de recursos para ver el historial de cambios para un recurso. Para obtener más información, consulte [obtener los cambios de recursos](../governance/resource-graph/how-to/get-resource-changes.md).
+Puede usar Resource Graph para ver el historial de cambios de un recurso. Para más información, vea [Obtención de los cambios del recurso](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -183,7 +183,7 @@ En función de la hora de inicio que especifique, los comandos anteriores pueden
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-Puede usar el gráfico de recursos para ver el historial de cambios para un recurso. Para obtener más información, consulte [obtener los cambios de recursos](../governance/resource-graph/how-to/get-resource-changes.md).
+Puede usar Resource Graph para ver el historial de cambios de un recurso. Para más información, vea [Obtención de los cambios del recurso](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="rest-api"></a>API DE REST
 

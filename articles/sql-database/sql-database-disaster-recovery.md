@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075819"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una base de datos de Azure SQL o conmutación por error a una base de datos secundaria
@@ -34,11 +34,11 @@ Para obtener información sobre los escenarios de continuidad empresarial y sus 
 > Si usa bases de datos o grupos de nivel Premium o Crítico para la empresa con redundancia de zona, el proceso de recuperación se automatiza y el resto de este material no se aplica.
 
 > [!NOTE]
-> Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. Se recomienda encarecidamente también que la base de datos secundaria se crea con el mismo tamaño de proceso (Dtu o núcleos virtuales) que la réplica principal. Para obtener más información, consulte [actualizar o degradar como base de datos principal](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda encarecidamente que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Para obtener más información, consulte [Actualización o degradación como base de datos principal](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
 
 > [!NOTE]
 > Use uno o varios grupos de conmutación por error para administrar la conmutación por error de varias bases de datos.
-> Si agrega una relación de replicación geográfica existente al grupo de conmutación por error, asegúrese de que la base de datos geográfica secundaria esté configurada con el mismo nivel de servicio y tamaño de proceso que la principal. Para obtener más información, consulte [usar grupos de conmutación por error automática para permitir una recuperación de varias bases de datos transparente y coordinada](sql-database-auto-failover-group.md).
+> Si agrega una relación de replicación geográfica existente al grupo de conmutación por error, asegúrese de que la base de datos geográfica secundaria esté configurada con el mismo nivel de servicio y tamaño de proceso que la principal. Para obtener más información, consulte [Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Preparación ante interrupciones
 

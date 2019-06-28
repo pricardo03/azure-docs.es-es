@@ -9,10 +9,10 @@ ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61027990"
 ---
 # <a name="connecting-to-servers"></a>Conexión a servidores
@@ -41,7 +41,7 @@ En **Azure Portal** > servidor > **Información general** > **Nombre de servidor
 ![Obtención del nombre del servidor en Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 > [!NOTE]
-> Es el protocolo para la región Este de EE.UU. 2 **aspaaseastus2**.
+> El protocolo para la región Este de EE. UU. 2 es **aspaaseastus2**.
 
 ## <a name="connection-string"></a>Cadena de conexión
 

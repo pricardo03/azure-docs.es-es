@@ -1,6 +1,6 @@
 ---
-title: Enviar los mensajes de seguridad a Azure Security Center para la versión preliminar de IoT | Microsoft Docs
-description: Obtenga información sobre cómo enviar los mensajes de seguridad con Azure Security Center para IoT.
+title: Envío de mensajes de seguridad a Azure Security Center for IoT, versión preliminar | Microsoft Docs
+description: Aprenda a enviar mensajes de seguridad mediante Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: a91a3538a9c176e3c76e351eb53eb84decc85938
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200531"
 ---
 # <a name="send-security-messages-sdk"></a>SDK de Send Security Message
@@ -27,36 +27,36 @@ ms.locfileid: "65200531"
 > Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Esta guía explica Azure Security Center (ASC) para las funcionalidades del servicio IoT cuando opta por recopilar y enviar mensajes de seguridad de su dispositivo sin utilizar un ASC para el agente de IoT y explica cómo hacerlo.  
+En esta guía de procedimientos se describen las capacidades del servicio Azure Security Center (ASC ) for IoT al elegir recopilar y enviar mensajes de seguridad de un dispositivo sin utilizar ningún agente de ASC for IoT, y se explica cómo hacerlo.  
 
 En esta guía, aprenderá a: 
 > [!div class="checklist"]
 > * Usar Send Security Message API para C#
 > * Usar Send Security Message API para C
 
-## <a name="asc-for-iot-capabilities"></a>ASC para las funcionalidades de IoT
+## <a name="asc-for-iot-capabilities"></a>Capacidades de ASC for IoT
 
-ASC para IoT pueda procesar y analizar cualquier tipo de datos de mensaje de seguridad siempre y cuando los datos enviados se ajustan a la [ASC para IoT esquema](https://aka.ms/iot-security-schemas) y el mensaje se establece como un mensaje de seguridad.
+ASC for IoT puede procesar y analizar cualquier tipo de datos de mensajes de seguridad, siempre que los datos enviados se ajusten al [esquema de ASC for IoT](https://aka.ms/iot-security-schemas) y el mensaje en cuestión esté configurado como un mensaje de seguridad.
 
 ## <a name="security-message"></a>Mensaje de seguridad
 
-ASC para IoT define un mensaje de seguridad con los siguientes criterios:
-- Si el mensaje se envió con Azure IoT C /C# SDK
-- Si el mensaje se ajusta a la [esquema de mensaje de seguridad](https://aka.ms/iot-security-schemas)
-- Si el mensaje se ha establecido como un mensaje de seguridad antes de enviar
+ASC for IoT define un mensaje de seguridad teniendo en cuenta los siguientes criterios:
+- Si el mensaje se envió con SDK de C/C# de Azure IoT.
+- Si el mensaje se ajusta al [esquema de mensaje de seguridad](https://aka.ms/iot-security-schemas).
+- Si el mensaje se ha configurado como un mensaje de seguridad antes de enviarse.
 
-Cada mensaje de seguridad incluye los metadatos del remitente como `AgentId`, `AgentVersion`, `MessageSchemaVersion` y una lista de eventos de seguridad.
-El esquema define las propiedades válidas y requiere del mensaje de seguridad, incluidos los tipos de eventos.
+Cada mensaje de seguridad incluye los metadatos del remitente, como `AgentId`, `AgentVersion`, `MessageSchemaVersion` y una lista de eventos de seguridad.
+El esquema define las propiedades válidas y obligatorias del mensaje de seguridad, incluidos los tipos de eventos.
 
 [!NOTE]
 > Los mensajes enviados que no cumplan el esquema se ignoran. Asegúrese de comprobar el esquema antes de iniciar el envío de datos, ya que los mensajes ignorados no se almacenan. 
-> Envían los mensajes que no se establecieron como un mensaje de seguridad con Azure IoT C /C# SDK no se enrutarán a la ASC para canalización de IoT
+> Los mensajes enviados que no estén configurados como mensajes de seguridad con el SDK de C/C# de Azure IoT no se enrutarán a la canalización de ASC for IoT.
 
 ## <a name="valid-message-example"></a>Ejemplo de mensaje válido
 
-El ejemplo siguiente muestra un objeto de mensaje de seguridad válido. El ejemplo contiene los metadatos del mensaje y otro `ProcessCreate` eventos de seguridad.
+En el siguiente ejemplo se muestra un objeto de mensaje de seguridad válido. El ejemplo contiene los metadatos del mensaje y un evento de seguridad `ProcessCreate`.
 
-Una vez establecido como un mensaje de seguridad y la envía, este mensaje se procesará por ASC para IoT.
+Una vez que el mensaje esté configurado como mensaje de seguridad y se haya enviado, ASC for IoT lo procesará.
 
 ```json
 "AgentVersion": "0.0.1",
@@ -88,7 +88,7 @@ Una vez establecido como un mensaje de seguridad y la envía, este mensaje se pr
 
 ## <a name="send-security-messages"></a>Envío de mensajes de seguridad 
 
-Enviar mensajes de seguridad sin usar la ASC para el agente de IoT, mediante el [Azure IoT C# SDK de dispositivo](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) o [SDK de dispositivos Azure IoT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
+Envíe mensajes de seguridad sin usar el agente de ASC for IoT mediante el [SDK de dispositivo C# de Azure IoT](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) o el [SDK de dispositivo C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
 Para enviar los datos de los dispositivos para que los procese ASC for IoT, use una de las siguientes API para marcar los mensajes para que se enruten correctamente a la canalización de procesamiento de ASC for IoT. Los mensajes enviados de esta manera se procesarán y se mostrarán como información de seguridad de ASC for IoT tanto en IoT Hub como en Azure Security Center. 
 

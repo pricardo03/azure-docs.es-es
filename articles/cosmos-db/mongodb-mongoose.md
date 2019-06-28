@@ -10,10 +10,10 @@ author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
 ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333471"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conexión de una aplicación Mongoose de Node.js a Azure Cosmos DB
@@ -183,7 +183,7 @@ El comportamiento predeterminado de Mongoose consiste en crear una colección de
 
 1. A continuación, vaya a Azure Portal y verá dos colecciones que se crearon en Cosmos DB.
 
-    ![Tutorial la base de datos de nodo - captura de pantalla de Azure portal, con una cuenta de Azure Cosmos DB, con varios nombres de colección resaltados - Node.js][multiple-coll]
+    ![Tutorial de Node.js: captura de pantalla de Azure Portal que muestra una cuenta de Azure Cosmos DB con varios nombres de la colección resaltados (base de datos de Node).][multiple-coll]
 
 1. Por último, lea los datos de Cosmos DB. Puesto que vamos a usar el modelo de funcionamiento predeterminado de Mongoose, las lecturas son las mismas que cualquier otra en Mongoose.
 
@@ -288,7 +288,7 @@ En este caso, crearemos un modelo de objeto base, definiremos una clave diferenc
 
 1. Si vuelve a Azure Portal, verá que solo tiene una colección denominada ```alldata``` con los datos de "Family" y "VacationDestinations".
 
-    ![Tutorial la base de datos de nodo - captura de pantalla de Azure portal, con una cuenta de Azure Cosmos DB, con el nombre de la colección resaltado - Node.js][alldata]
+    ![Tutorial de Node.js: captura de pantalla de Azure Portal que muestra una cuenta de Azure Cosmos DB con el nombre de la colección resaltado (base de datos de Node).][alldata]
 
 1. Además, tenga en cuenta que cada objeto tiene otro atributo denominado "```__type```", que le ayudará a diferenciar entre los dos modelos de objetos diferentes.
 

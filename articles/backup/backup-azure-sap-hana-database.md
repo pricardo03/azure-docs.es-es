@@ -1,6 +1,6 @@
 ---
-title: Copia de seguridad de una base de datos de SAP HANA en Azure con Azure Backup | Microsoft Docs
-description: Este tutorial explica cómo realizar copias de seguridad de una base de datos de SAP HANA en Azure con el servicio de copia de seguridad de Azure.
+title: Hacer una copia de seguridad de una base de datos de SAP HANA a Azure con Azure Backup | Microsoft Docs
+description: En este tutorial se explica cómo hacer una copia de seguridad de una base de datos de SAP HANA en Azure con el servicio Azure Backup.
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -9,75 +9,75 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237813"
 ---
-# <a name="back-up-an-sap-hana-database"></a>Realizar copias de seguridad de una base de datos de SAP HANA
+# <a name="back-up-an-sap-hana-database"></a>Hacer una copia de seguridad de una base de datos de SAP HANA
 
-[Copia de seguridad de Azure](backup-overview.md) admite la copia de seguridad de bases de datos de SAP HANA en Azure.
+[Azure Backup](backup-overview.md) admite la realización de copias de seguridad de bases de datos de SAP HANA en Azure.
 
 > [!NOTE]
-> Esta característica actualmente está en su versión preliminar pública. Actualmente no está lista para producción y no tiene un SLA garantizado. 
+> Esta característica actualmente está en su versión preliminar pública. Actualmente no está lista para producción y no tiene un contrato de nivel de servicio garantizado. 
 
 
 ## <a name="scenario-support"></a>Compatibilidad con los escenarios
 
 **Soporte técnico** | **Detalles**
 --- | ---
-**Zonas geográficas admitidas** | Sudeste de Australia, este de Australia <br> Sur de Brasil <br> Canadá Central, Canadá oriental <br> Sudeste asiático, Asia oriental <br> East US, East US 2, centro occidental de EE.UU, oeste de Estados Unidos, oeste de EE.UU. 2, North Central US, EE. UU., centro y sur Central de EE.<br> India Central, India del sur <br> Este de Japón, Oeste de Japón<br> Corea Central, Corea del Sur <br> Norte de Europa y Oeste de Europa <br> Sur de Reino Unido, oeste de Reino Unido
-**Sistemas operativos VM** | SLES 12 con SP2 o SP3.
-**Versiones compatibles de HANA** | SSDC en HANA 1.x, MDC en HANA 2.x < = SPS03
+**Zonas geográficas admitidas** | Sudeste de Australia y Australia Oriental <br> Sur de Brasil <br> Centro de Canadá y Este de Canadá <br> Sudeste Asiático y Asia Oriental <br> Este de EE. UU., Este de EE. UU. 2, Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-norte de EE. UU., Centro de EE. UU. y Centro-sur de EE. UU.<br> India central e India meridional <br> Este de Japón, Oeste de Japón<br> Corea Central, Corea del Sur <br> Norte de Europa y Oeste de Europa <br> Sur de Reino Unido y Oeste de Reino Unido
+**Sistemas operativos de máquina virtual admitidos** | SLES 12 con SP2 o SP3.
+**Versiones de HANA admitidas** | SSDC en HANA 1.x, MDC en HANA 2.x < = SPS03
 
 
 ### <a name="current-limitations"></a>Limitaciones actuales
 
-- Solo puede realizar una copia de bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
-- Solo puede configurar copia de seguridad de SAP HANA en Azure portal. La característica no se puede configurar con PowerShell, CLI o la API de REST.
-- Solo puede realizar una copia de bases de datos en modo de escalado vertical.
-- Hacer copias de seguridad de registros de base de datos cada 15 minutos. Las copias de seguridad del registro solo comienzan a flujo una vez finalizada una copia de seguridad completa correcta para la base de datos.
-- Puede realizar copias de seguridad completas y diferenciales. Actualmente no se admite la copia de seguridad incremental.
-- No se puede modificar la directiva de copia de seguridad después de aplicar las copias de seguridad de SAP HANA. Si desea realizar copias de seguridad con una configuración diferente, cree una nueva directiva o asignar una directiva diferente. 
-    - Para crear una nueva directiva, en el almacén, haga clic en **directivas** > **las directivas de copia de seguridad** > **+ agregar** > **SAP HANA en Máquina virtual de Azure**y especifique la configuración de directiva.
-    - Para asignar una directiva diferente, en las propiedades de la máquina virtual que ejecuta la base de datos, haga clic en el nombre de la directiva actual. A continuación, en el **directiva de copia de seguridad** página puede seleccionar una directiva diferente que se usará para la copia de seguridad.
+- Solo puede hacer copias de seguridad de bases de datos de SAP HANA que se ejecuten en máquinas virtuales de Azure.
+- Solo puede configurar las copias de seguridad de SAP HANA en Azure Portal. Esta característica no se puede configurar con PowerShell, CLI ni la API de REST.
+- Solo puede hacer copias de seguridad de bases de datos en modo de escalado vertical.
+- Puede hacer una copia de seguridad de los registros de la base de datos cada 15 minutos. Las copias de seguridad de los registros comienzan el flujo solo después de que se haya realizado correctamente una copia de seguridad completa de la base de datos.
+- Puede hacer copias de seguridad completas y diferenciales. Las copias de seguridad incrementales no se admiten en la actualidad.
+- No puede modificar la directiva de copia de seguridad una vez que la ha aplicado para las copias de seguridad de SAP HANA. Si desea hacer copias de seguridad con una configuración diferente, cree una nueva directiva o asigne una directiva diferente. 
+    - Para crear una nueva directiva, en el almacén, haga clic en **Directivas** > **Directivas de copia de seguridad** >  **+Agregar** > **SAP HANA en Máquina virtual de Azure** y especifique la configuración de la directiva.
+    - Para asignar una directiva diferente, en las propiedades de la máquina virtual que ejecuta la base de datos, haga clic en el nombre de la directiva actual. A continuación, en la página **Directiva de copia de seguridad**, puede seleccionar una directiva diferente que se usará para la copia de seguridad.
 
 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de que haga lo siguiente antes de configurar las copias de seguridad:
+Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 
-1. En la máquina virtual que se ejecutan la base de datos de SAP HANA, instale Microsoft oficial [en tiempo de ejecución de .NET Core 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current) paquete. Observe lo siguiente:
-    - Solo necesita el **dotnet-runtime-2.1** paquete. No es necesario **aspnetcore-runtime-2.1**.
-    - Si la máquina virtual no tiene internet acceder, reflejado o proporcionar una caché sin conexión para dotnet-runtime-2.1 (y todos los paquetes RPM dependientes) desde la fuente del paquete de Microsoft especificado en la página.
-    - Durante la instalación de paquetes, puede que se le pida para especificar una opción. Si es así, especifique **solución 2**.
+1. En la máquina virtual que ejecuta la base de datos de SAP HANA, instale el paquete oficial de Microsoft [.NET Core Runtime 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current). Observe lo siguiente:
+    - Solo necesita el paquete **dotnet-runtime-2.1**. No necesita **aspnetcore-runtime-2.1**.
+    - Si la máquina virtual no tiene acceso a Internet, refleje o proporcione una caché sin conexión para dotnet-runtime-2.1 (y todos los RPM dependientes) desde la fuente del paquete de Microsoft especificado en la página.
+    - Durante la instalación del paquete, puede que se le pida que especifique una opción. Si es así, especifique **Solución 2**.
 
         ![Opción de instalación del paquete](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  En la máquina virtual, instalar y habilitar paquetes de controladores ODBC desde el oficial paquete SLES/medio con zypper, como sigue:
+2.  En la máquina virtual, instale y habilite paquetes de controlador ODBC desde el paquete/soporte físico SLES oficial mediante Zypper, como sigue:
 
     ``` 
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  Permitir la conectividad de la máquina virtual a internet, por lo que puede llegar a Azure, como se describe en el siguiente procedimiento.
+4.  Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el procedimiento siguiente.
 
 
 ### <a name="set-up-network-connectivity"></a>Configurar la conectividad de red
 
-Todas las operaciones, la VM de SAP HANA necesita conectividad con direcciones IP públicas de Azure. Operaciones de máquina virtual (detección de base de datos, configurar copias de seguridad, programar copias de seguridad, restaurar puntos de recuperación y así sucesivamente) no pueden funcionar sin conexión. Establecer la conectividad al permitir el acceso a los intervalos IP de centro de datos de Azure: 
+Para todas las operaciones, la máquina virtual SAP HANA necesita conectividad a las direcciones IP públicas de Azure. Si falta dicha conectividad, las operaciones de máquina virtual como detectar bases de datos, configurar y programar copias de seguridad o restaurar puntos de recuperación producirán errores. Establezca la conectividad permitiendo el acceso a los intervalos IP del centro de datos de Azure: 
 
-- Puede descargar el [intervalos de direcciones IP](https://www.microsoft.com/download/details.aspx?id=41653) centros de datos de Azure y, a continuación, permitir el acceso a estas direcciones IP.
-- Si usa grupos de seguridad de red (NSG), puede usar el AzureCloud [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para permitir IP pública de Azure en todas las direcciones. Puede usar el [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) para modificar las reglas de NSG.
+- Puede descargar los [intervalos de direcciones IP](https://www.microsoft.com/download/details.aspx?id=41653) para los centros de datos de Azure y, a continuación, permitir el acceso a estas direcciones IP.
+- Si usa grupos de seguridad de red (NSG), puede usar la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud para permitir todas las direcciones IP públicas de Azure. Para modificar las reglas de NSG, puede usar el [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0).
 
 ## <a name="onboard-to-the-public-preview"></a>Incorporación a la versión preliminar pública
 
-Incorporación a la versión preliminar pública como sigue:
+Incorpórese a la versión preliminar pública de la siguiente manera:
 
-- En el portal, registre el identificador de suscripción para el proveedor de servicio de Recovery Services por [seguir este artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
+- En el portal, registre el identificador de suscripción en el proveedor de servicios de Recovery Services [siguiendo este artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - Para PowerShell, ejecute este cmdlet. Debería completarse como "Registrado".
 
     ```
@@ -88,20 +88,20 @@ Incorporación a la versión preliminar pública como sigue:
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## <a name="discover-the-databases"></a>Detectar las bases de datos
+## <a name="discover-the-databases"></a>Detección de bases de datos
 
 
-1. En el almacén, en **Introducción**, haga clic en **copia de seguridad**. En **donde se ejecuta la carga de trabajo?**, seleccione **SAP HANA en máquinas virtuales de Azure**.
-2. Haga clic en **Iniciar detección**. Esto inicia la detección de máquinas virtuales de Linux no protegidas en la región del almacén.
+1. En el almacén, en **Introducción**, haga clic en **Copia de seguridad**. En **¿Dónde se ejecuta su carga de trabajo?** , seleccione **SAP HANA en máquina virtual de Azure**.
+2. Haga clic en **Iniciar detección**. Se iniciará la detección de máquinas virtuales de Linux no protegidas en la región del almacén.
 
-   - Después de la detección, sin protección de máquinas virtuales aparecen en el portal, enumeradas por nombre y grupo de recursos.
-   - Si no aparece una máquina virtual según lo previsto, compruebe si lo es ya una copia de seguridad en un almacén.
-   - Varias máquinas virtuales pueden tener el mismo nombre pero pertenecen a distintos grupos de recursos.
+   - Tras la detección, las máquinas virtuales no protegidas aparecen en el portal, enumeradas por nombre y grupo de recursos.
+   - Si una máquina virtual no aparece en la lista como cabría esperar, compruebe que no se haya copiado ya en un almacén.
+   - Varias máquinas virtuales pueden tener el mismo nombre pero pertenecer a distintos grupos de recursos.
 
-3. En **seleccionar máquinas virtuales**, haga clic en el vínculo para descargar el script que proporciona permisos para el servicio de copia de seguridad de Azure tener acceso a las máquinas virtuales de SAP HANA para la detección de base de datos
-4. Ejecute el script en cada máquina virtual que hospeda las bases de datos de SAP HANA que se desean realizar copias de seguridad.
-5. Después de ejecutar el script en las máquinas virtuales, en **seleccionar máquinas virtuales**, seleccione las máquinas virtuales. A continuación, haga clic en **detectar bases de datos**.
-6. Copia de seguridad de Azure detecta todas las bases de datos de SAP HANA en la máquina virtual. Durante la detección, copia de seguridad de Azure registra la máquina virtual con el almacén y se instala una extensión en la máquina virtual. No hay ningún agente está instalado en la base de datos.
+3. En **Seleccionar máquinas virtuales**, haga clic en el vínculo para descargar el script que proporciona permisos para el servicio Azure Backup para obtener acceso a las máquinas virtuales de SAP HANA para la detección de bases de datos
+4. Ejecute el script en cada máquina virtual que hospede bases de datos de SAP HANA de las que desee hacer una copia de seguridad.
+5. Tras ejecutar el script en las máquinas virtuales, seleccione las máquinas virtuales en **Seleccionar máquinas virtuales**. A continuación, haga clic en **Detectar bases de datos**.
+6. Azure Backup detecta todas las bases de datos de SAP HANA en la máquina virtual. Durante la detección, Azure Backup registra la máquina virtual con el almacén e instala una extensión en la máquina virtual. No se instala ningún agente en la base de datos.
 
     ![Detectar bases de datos de SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
     
@@ -110,85 +110,85 @@ Incorporación a la versión preliminar pública como sigue:
 Ahora habilite la copia de seguridad.
 
 1. En el paso 2, haga clic en **Configurar copia de seguridad**.
-2. En **seleccionar elementos para copia de seguridad**, seleccione todas las bases de datos que desea proteger > **Aceptar**.
-3. En **directiva de copia de seguridad** > **elegir directiva de copia de seguridad**, cree una nueva directiva de copia de seguridad para las bases de datos, según las instrucciones siguientes.
-4. Después de crear la directiva, en el **copia de seguridad** menú, haga clic en **habilitar copia de seguridad**.
-5. Realizar un seguimiento del progreso de la configuración de copia de seguridad en el **notificaciones** área del portal.
+2. En **Seleccione los elementos de los que desea hacer una copia de seguridad**, seleccione todas las bases de datos que desee proteger y haga clic en **Aceptar**.
+3. En  **Directiva de copia de seguridad** > **Elegir directiva de copia de seguridad**, cree una nueva directiva de copia de seguridad para las bases de datos, según las instrucciones siguientes.
+4. Tras crear la directiva, en el menú **Copia de seguridad**, haga clic en **Habilitar la copia de seguridad**.
+5. Realice el seguimiento del progreso de la configuración de copias de seguridad en el área de  **notificaciones** del portal.
 
 ### <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
-Una directiva de copia de seguridad define cuándo se realizan copias de seguridad y cuánto tiempo sí se conservan.
+Una directiva de copia de seguridad define cuándo se realizan las copias de seguridad y cuánto tiempo se conservan.
 
 - Una directiva se crea en el nivel de almacén.
 - Varios almacenes pueden usar la misma directiva de copia de seguridad, pero debe aplicar la directiva de copia de seguridad a cada almacén.
 
-Especifique la configuración de directiva como sigue:
+Especifique la configuración de la directiva como se muestra a continuación:
 
 1. En **Nombre de la directiva**, escriba un nombre para la nueva directiva.
 2. En el menú **Full Backup policy** (Directiva de copia de seguridad completa), seleccione un valor para **Backup Frequency** (Frecuencia de copia de seguridad) entre **Daily** (Diaria) o **Weekly** (Semanal).
-   - **Diaria**: Seleccione la hora y zona horaria en el que comienza el trabajo de copia de seguridad.
+   - **Diaria**: Seleccione la zona horaria y la hora a la que comienza el trabajo de copia de seguridad.
    
        - Debe ejecutar una copia de seguridad completa. No se puede desactivar esta opción.
        - Haga clic en **Full Backup** (Copia de seguridad completa) para ver la directiva.
        - No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
        
-   - **Semanal**: Seleccione el día de la semana, hora y zona horaria en la que se ejecuta el trabajo de copia de seguridad.
-3. En **duración de retención**, configurar opciones de retención para la copia de seguridad completa.
-    - De forma predeterminada se seleccionan todas las opciones. Desactive los límites de intervalo de retención que no desea usar y establecerlos que realizar.
-    - El período de retención mínimo para cualquier tipo de copia de seguridad (completa, diferencial o registro) es siete días.
+   - **Semanal**: seleccione el día de la semana, la hora y la zona horaria en la que se ejecuta el trabajo de copia de seguridad.
+3. En **Duración de retención**, configure las opciones de retención de la copia de seguridad completa.
+    - De forma predeterminada, se seleccionan todas las opciones. Borre los límites de duración de retención que no desee usar y establezca los que sí quiera utilizar.
+    - El período de retención mínimo para cualquier tipo de copia de seguridad (completa, diferencial o de registro) es de siete días.
     - Los puntos de recuperación se etiquetan para la retención en función de su duración de retención. Por ejemplo, si selecciona la frecuencia diaria, solo se desencadena una copia de seguridad completa cada día.
-    - La copia de seguridad de un día concreto es etiquetado y se mantienen se basa en la configuración y la duración de retención semanal.
+    - La copia de seguridad de un día específico se etiqueta y se retiene según la duración de retención semanal y la configuración.
     - La duración de retención mensual y anual se comporta de forma similar.
 
-4. En el **directiva de copia de seguridad completa** menú, haga clic en **Aceptar** para aceptar la configuración.
-5. Seleccione **copia de seguridad diferencial** para agregar una directiva diferencial.
+4. En el menú **Directiva de copia de seguridad completa**, haga clic en **Aceptar** para aceptar la configuración.
+5. Para agregar una directiva de copia de seguridad diferencial, seleccione **Copia de seguridad diferencial**.
 6. En **Differential Backup policy** (Directiva de copia de seguridad diferencial), seleccione **Enable** (Habilitar) para abrir los controles de retención y frecuencia.
     - A lo sumo, puede desencadenar una copia de seguridad diferencial al día.
     - Como máximo, las copias de seguridad diferenciales se pueden retener durante 180 días. Si necesita más tiempo de retención, debe usar copias de seguridad completas.
 
     > [!NOTE]
-    > Actualmente no se admiten copias de seguridad incrementales. 
+    > Las copias de seguridad incrementales no se admiten en la actualidad. 
 
-7. Haga clic en **Aceptar** para guardar la directiva y volver a la principal **directiva de copia de seguridad** menú.
-8. Seleccione **copia de seguridad de registro** para agregar una directiva de copia de seguridad del registro transaccional,
-    - En **copia de seguridad del registro**, seleccione **habilitar**.
-    - Establecer los controles de frecuencia y retención.
+7. Haga clic en **Aceptar** para guardar la directiva y volver al menú principal **Directiva de copia de seguridad**.
+8. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**.
+    - En **Copia de seguridad de registros**, seleccione **Habilitar**.
+    - Establezca los controles de frecuencia y retención.
 
     > [!NOTE]
-    > Las copias de seguridad del registro solo comienzan a flujo una vez completada una copia de seguridad completa correcta.
+    > Las copias de seguridad de registros comienzan el flujo solo después de que se haya completado correctamente una copia de seguridad completa.
 
-9. Haga clic en **Aceptar** para guardar la directiva y volver a la principal **directiva de copia de seguridad** menú.
-10. Cuando termine de definir la directiva de copia de seguridad, haga clic en **Aceptar**.
+9. Haga clic en **Aceptar** para guardar la directiva y volver al menú principal **Directiva de copia de seguridad**.
+10. Cuando haya terminado de definir la directiva de copia de seguridad, haga clic en **Aceptar**.
 
 
 ## <a name="run-an-on-demand-backup"></a>Ejecución de una copia de seguridad a petición
 
-Ejecutan copias de seguridad según la programación de la directiva. Puede ejecutar una copia de seguridad y a petición como sigue:
+Las copias de seguridad se ejecutan según la programación de la directiva. Puede ejecutar una copia de seguridad a petición siguiendo estos pasos:
 
 
 1. En el menú Almacén, haga clic en **Elementos de copia de seguridad**.
-2. En **elementos de copia de seguridad**, seleccione la máquina virtual que ejecuta la base de datos de SAP HANA y, a continuación, haga clic en **de copia de seguridad ahora**.
-3. En **copia de seguridad ahora**, use el control de calendario para seleccionar el último día que se debe conservar el punto de recuperación. A continuación, haga clic en **Aceptar**.
-4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **trabajos de copia de seguridad** > en curso. Según el tamaño de la base de datos, crear la copia de seguridad inicial puede tardar un rato.
+2. En **Elementos de copia de seguridad**, seleccione la máquina virtual que ejecuta la base de datos de SAP HANA y, a continuación, haga clic en **Hacer copia de seguridad ahora**.
+3. En **Hacer copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. A continuación, haga clic en **Aceptar**.
+4. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > En curso. Según el tamaño de la base de datos, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
-## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Ejecutar copia de seguridad de SAP HANA Studio en una base de datos con Azure Backup habilitada
+## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Ejecutar una copia de seguridad de SAP HANA Studio en una base de datos con Azure Backup habilitado
 
-Si desea realizar una copia de seguridad local (mediante HANA Studio) de una base de datos que se copia con Azure Backup, haga lo siguiente:
+Si desea hacer una copia de seguridad local (mediante HANA Studio) de una base de datos de la que se está haciendo una copia de seguridad con Azure Backup, haga lo siguiente:
 
-1. Espere a que cualquier completo o las copias de seguridad del registro para la base de datos finalice. Compruebe el estado en SAP HANA Studio.
-2. Deshabilitar las copias de seguridad del registro y establece el catálogo de copia de seguridad en el sistema de archivos de base de datos pertinente.
-3. Para ello, haga doble clic en **systemdb** > **configuración** > **Seleccionar base de datos** > **filtro (registro)** .
-4. Establecer **enable_auto_log_backup** a **No**.
-5. Establecer **log_backup_using_backint** a **False**.
-6. Realizar copia de seguridad de la base de datos un completo ad hoc.
-7. Espere a que la copia de seguridad completa y copia de seguridad de catálogos en Finalizar.
-8. Revertir la configuración anterior a las de Azure:
-    - Establecer **enable_auto_log_backup** a **Sí**.
-    - Establecer **log_backup_using_backint** a **True**.
+1. Espere a que finalicen las copias de seguridad completas o de registro de la base de datos. Compruebe el estado en SAP HANA Studio.
+2. Inhabilite las copias de seguridad de registros y establezca el catálogo de copias de seguridad al sistema de archivos de la base de datos pertinente.
+3. Para ello, haga doble clic en **systemdb** > **Configuración** > **Seleccionar base de datos** > **Filtro (registro)** .
+4. Establezca **enable_auto_log_backup** en **No**.
+5. Establezca **log_backup_using_backint** en **False**.
+6. A continuación, haga una copia de seguridad completa ad hoc de la base de datos.
+7. Espere a que finalicen la copia de seguridad completa y la copia de seguridad de catálogos.
+8. Revierta la configuración anterior a las opciones de Azure:
+    - Establezca **enable_auto_log_backup** en **Sí**.
+    - Establezca **log_backup_using_backint** en **True**.
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información sobre](backup-azure-arm-vms-prepare.md) la copia de seguridad de máquinas virtuales de Azure.
+[Más información sobre](backup-azure-arm-vms-prepare.md) cómo hacer copias de seguridad de máquinas virtuales de Azure.
 
 

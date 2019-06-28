@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190065"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
@@ -48,7 +48,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
    
     Para obtener una explicación más detallada sobre las diferencias entre Azure Files y Azure Blob Storage, vea [Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks](../common/storage-decide-blobs-files-disks.md). Para saber más de Azure Blob Storage, consulte [Introducción a Blob Storage](../blobs/storage-blobs-introduction.md).
 
-* <a id="files-versus-disks"></a>**¿Por qué debo usar un recurso compartido de archivos de Azure en vez de Azure Disks?**  
+* <a id="files-versus-disks"></a> **¿Por qué debo usar un recurso compartido de archivos de Azure en vez de Azure Disks?**  
     Un disco en Azure Disks no es más que un disco. Para sacar provecho de Azure Disks, tendrá que conectarlo a una máquina virtual que se ejecute en Azure. Azure Disks puede usarse para todo aquello para lo que quiera usar un disco en un servidor local. Puede usarlo como disco del sistema operativo, como espacio de intercambio para un sistema operativo, o como almacenamiento dedicado para una aplicación. Un uso interesante de Azure Disks consiste en crear un servidor de archivos en la nube para usarlo en los mismos lugares en los que usaría un recurso compartido de archivos de Azure. Implementar un servidor de archivos en las máquinas virtuales de Azure es una manera de alto rendimiento de obtener almacenamiento de archivos en Azure cuando necesite opciones de implementación no compatibles actualmente con Azure Files (por ejemplo, la compatibilidad con el protocolo NFS o almacenamiento premium). 
 
     Pero la ejecución de un servidor de archivos con Azure Disks como almacenamiento back-end suele ser mucho más costosa que el uso de un recurso compartido de archivos de Azure por diversos motivos. En primer lugar, además de pagar por el almacenamiento en disco, también debe pagar por el gasto de ejecutar una o más máquinas virtuales de Azure. En segundo lugar, también debe administrar las máquinas virtuales que se usan para ejecutar el servidor de archivos. Por ejemplo, usted es el responsable de las actualizaciones del sistema operativo. Por último, si finalmente se necesita que los datos se almacenen en la caché local, el usuario tiene la última palabra para configurar y administrar las tecnologías de replicación (como la Replicación del sistema de archivos distribuido, o DFSR) para que esto ocurra.
@@ -145,7 +145,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="afs-os-support"></a>
    **¿Puedo usar Azure File Sync con Windows Server 2008 R2, Linux o un dispositivo de almacenamiento conectado a la red (NAS)?**  
-    Actualmente, Azure File Sync admite solo 2019 de Windows Server, Windows Server 2016 y Windows Server 2012 R2. En este momento, no tenemos otros planes para compartir, pero estamos dispuestos a admitir plataformas adicionales según la demanda de los clientes. Indíquenos a través de [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files) qué plataformas le gustaría que fueran compatibles.
+    En la actualidad, Azure File Sync solo admite Windows Server 2019 y Windows Server 2016 y Windows Server 2012 R2. En este momento, no tenemos otros planes para compartir, pero estamos dispuestos a admitir plataformas adicionales según la demanda de los clientes. Indíquenos a través de [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files) qué plataformas le gustaría que fueran compatibles.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
    **¿Por qué los archivos en capas se encuentran fuera del espacio de nombres del punto de conexión de servidor?**  
@@ -222,7 +222,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="encryption-at-rest"></a>
  **¿Cómo se puede garantizar que el recurso compartido de archivos de Azure está cifrado en reposo?**  
 
-    Sí. Para obtener más información, consulte [Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Sí. Para más información, vea [Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
  **¿Cómo se puede proporcionar acceso a un archivo específico a través de un explorador web?**  
@@ -247,14 +247,14 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 ## <a name="on-premises-access"></a>Acceso local
 
 * <a id="port-445-blocked"></a>
-**Monte mi ISP o TI bloquea el puerto 445 que se producen errores en los archivos de Azure. ¿qué debo hacer?**
+**Mi ISP o TI bloquean el puerto 445 e impiden que se monte Azure Files, ¿qué debo hacer?**
 
-    Puede obtener información acerca de [diversos métodos para solucionar bloqueados el puerto 445 aquí](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Archivos de Azure solo permite conexiones con SMB 3.0 (con compatibilidad con el cifrado) desde fuera de la región o centro de datos. Protocolo SMB 3.0 presenta muchas características de seguridad, incluido el cifrado de canal que es muy seguro para usar a través de internet. Sin embargo, es posible que el puerto 445 se bloqueó por motivos históricos de vulnerabilidades que se encuentran en las versiones inferiores de SMB. En el caso ideal, el puerto debería estar bloqueado para solo para el tráfico de SMB 1.0 y debería estar desactivada SMB 1.0 en todos los clientes.
+    Puede obtener información sobre [diversos métodos para solucionar el bloqueo del puerto 445 aquí](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files solo permite conexiones con SMB 3.0 (con compatibilidad con el cifrado) desde fuera de la región o el centro de datos. El protocolo SMB 3.0 presenta muchas características de seguridad, incluido el cifrado de canal, que es muy seguro para usar a través de Internet. No obstante, es posible que el puerto 445 se haya bloqueado por motivos históricos de vulnerabilidades que se encuentran en versiones inferiores de SMB. En el caso ideal, el puerto debería bloquearse solo para el tráfico de SMB 1.0, y debería desactivarse SMB 1.0 en todos los clientes.
 
 * <a id="expressroute-not-required"></a>
  **¿Tengo que usar Azure ExpressRoute para conectarme a Azure Files o debo usar Azure File Sync en un entorno local?**  
 
-     No. No es necesario ExpressRoute para obtener acceso a un recurso compartido de archivos de Azure. Si está montando un recurso compartido de archivos de Azure directamente en un entorno local, lo único que se necesita es tener abierto el puerto 445 (salida TCP) para tener acceso a Internet (este es el puerto que SMB usa para comunicarse). Si usa Azure File Sync, lo único que se necesita es el puerto 443 (salida TCP) para el acceso HTTPS (no se necesita SMB). Pero *puede usar* ExpressRoute con cualquiera de estas opciones de acceso.
+    No. No es necesario ExpressRoute para obtener acceso a un recurso compartido de archivos de Azure. Si está montando un recurso compartido de archivos de Azure directamente en un entorno local, lo único que se necesita es tener abierto el puerto 445 (salida TCP) para tener acceso a Internet (este es el puerto que SMB usa para comunicarse). Si usa Azure File Sync, lo único que se necesita es el puerto 443 (salida TCP) para el acceso HTTPS (no se necesita SMB). Pero *puede usar* ExpressRoute con cualquiera de estas opciones de acceso.
 
 * <a id="mount-locally"></a>
  **¿Cómo puedo montar un recurso compartido de archivos de Azure en mi máquina local?**  
@@ -357,10 +357,10 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="need-larger-share"></a>
 **Necesito un recurso compartido de archivos mayor que las opciones que ofrece Azure Files. ¿Puedo aumentar el tamaño del recurso compartido de archivos de Azure?**  
-     No. El tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB. Actualmente, este es un límite estricto que no se puede ajustar. Estamos trabajando en una solución que le permitirá aumentar el tamaño del recurso compartido a 100 TB, pero aún no sabemos cuándo estará preparada.
+    No. El tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB. Actualmente, este es un límite estricto que no se puede ajustar. Estamos trabajando en una solución que le permitirá aumentar el tamaño del recurso compartido a 100 TB, pero aún no sabemos cuándo estará preparada.
 
 * <a id="open-handles-quota"></a>
- **¿Cuántos clientes pueden obtener acceso al mismo archivo simultáneamente?**   
+ **¿Cuántos clientes pueden obtener acceso al mismo archivo simultáneamente?**    
     Hay una cuota de 2000 identificadores abiertos en un único archivo. Si tiene 2000 identificadores abiertos, se muestra un mensaje de error que indica que se ha alcanzado la cuota.
 
 * <a id="zip-slow-performance"></a>
@@ -386,13 +386,13 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="nested-shares"></a>
  **¿Puedo configurar recursos compartidos anidados, es decir, un recurso compartido en otro recurso compartido?**  
-     No. El recurso compartido de archivos *es* el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
+    No. El recurso compartido de archivos *es* el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
 
 * <a id="ibm-mq"></a>
  **¿Cómo se usa Azure Files con IBM MQ?**  
     IBM ha publicado un documento que ayuda a los clientes de IBM MQ a la hora de configurar Azure Files con el servicio IBM. Para obtener más información, vea [How to set up an IBM MQ multi-instance queue manager with Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)(Configuración del administrador de colas de varias instancias de IBM MQ con el servicio Microsoft Azure Files).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Solución de problemas de Azure File Sync](storage-sync-files-troubleshoot.md)

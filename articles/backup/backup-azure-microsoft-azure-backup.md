@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
 ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098869"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
@@ -29,7 +29,7 @@ En este artículo se explica cómo preparar el entorno para la copia de segurida
 >
 >
 
-Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure permanece igual que la copia de seguridad de máquinas virtuales en el entorno local, pero la implementación de MABS en Azure tiene algunas limitaciones. Para obtener más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque la implementación de MABS en Azure tiene algunas limitaciones. Para obtener más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
@@ -113,7 +113,7 @@ Para editar la configuración de replicación de almacenamiento:
 
     ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-5. En la hoja **Backup Goals**, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?**, seleccione **Local**.
+5. En la hoja **Backup Goals**, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?** , seleccione **Local**.
 
     ![entorno local y cargas de trabajo como objetivos](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
@@ -262,11 +262,11 @@ Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin 
 9. Desde SQL, restaure la base de datos DPM
 10. Desde la línea de comandos de administrador en el nuevo servidor, cambie al directorio de la ubicación de instalación de Microsoft Azure Backup y a la carpeta bin
 
-    Ejemplo de ruta de acceso: C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
+    Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-11. Copia de seguridad de Azure, ejecute DPMSYNC-SYNC
+11. A copia de seguridad de Azure. Ejecute DPMSYNC -SYNC
 
-    Si ha agregado nuevos discos al bloque de almacenamiento de DPM en lugar de mover los antiguos, a continuación, ejecutaremos DPMSYNC - Reallocatereplica
+    Si ha agregado NUEVOS discos al bloque de almacenamiento DPM en lugar de mover los antiguos, ejecute DPMSYNC -Reallocatereplica
 
 ## <a name="network-connectivity"></a>Conectividad de red
 Azure Backup Server requiere conectividad al servicio Azure Backup para que el producto funcione correctamente. Para validar si la máquina tiene conectividad a Azure, use el cmdlet ```Get-DPMCloudConnection``` en la consola de PowerShell de Azure Backup Server. Si la salida del cmdlet es TRUE, entonces existe conectividad, de lo contrario, no hay conectividad.

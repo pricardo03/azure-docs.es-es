@@ -9,10 +9,10 @@ ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518161"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
@@ -21,7 +21,7 @@ Las entidades de servicio son un recurso de aplicación de Azure Active Director
 
 En Analysis Services, las entidades de servicio se usan con Azure Automation, el modo desatendido de PowerShell, las aplicaciones cliente personalizadas y las aplicaciones web para automatizar tareas comunes. Por ejemplo, las tareas de aprovisionamiento de servidores, implementación de modelos, actualización de datos, escalado vertical y reducción vertical y pausa y reanudación pueden automatizarse con el uso de las entidades de servicio. Los permisos se asignan a las entidades de servicio con la pertenencia a roles, como las cuentas de UPN de Azure AD regulares.
 
-Analysis Services también admite las operaciones realizadas por las identidades administradas mediante entidades de servicio. Para obtener más información, consulte [administra las identidades de los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) y [que Azure AD admiten la autenticación de servicios de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
+Analysis Services también admite las operaciones realizadas por las identidades administradas mediante entidades de servicio. Para obtener más información, vea [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) y [Servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Creación de entidades de servicio
  
@@ -49,11 +49,11 @@ El identificador de aplicación y la contraseña o el certificado de las entidad
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Uso de módulo Az.AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Uso del módulo Az.AnalysisServices
 
-Cuando se usa una entidad de servicio para las operaciones de administración de recursos con el [Az.AnalysisServices](/powershell/module/az.analysisservices) módulo, use `Connect-AzAccount` cmdlet. 
+Al usar una entidad de servicio para las operaciones de administración de recursos con el módulo [Az.AnalysisServices](/powershell/module/az.analysisservices), emplee el cmdlet `Connect-AzAccount`. 
 
-En el ejemplo siguiente, se usan appID y una contraseña para realizar operaciones de plano de control para la sincronización de réplicas de solo lectura y escalar vertical u horizontal:
+En el ejemplo siguiente, se usan appID y una contraseña para realizar operaciones de plano de control para la sincronización en réplicas de solo lectura y el escalado vertical u horizontal:
 
 ```powershell
 Param (
@@ -74,7 +74,7 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-#### <a name="using-sqlserver-module"></a>Usar el módulo SQLServer
+#### <a name="using-sqlserver-module"></a>Uso del módulo SQLServer
 
 En el ejemplo siguiente, se usa el identificador de aplicación y una contraseña para realizar una operación de actualización de la base de datos modelo.
 

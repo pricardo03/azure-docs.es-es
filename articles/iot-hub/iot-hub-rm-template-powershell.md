@@ -1,6 +1,6 @@
 ---
 title: Creación de un centro de IoT de Azure mediante una plantilla (PowerShell) | Microsoft Docs
-description: Cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT con Azure PowerShell.
+description: Cómo usar una plantilla de Azure Resource Manager para crear un IoT Hub con Azure PowerShell.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -9,31 +9,31 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: eefa17b699a0599d2d3323409cafddd1d0984c61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440325"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Obtenga información sobre cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT y un grupo de consumidores. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para obtener más información sobre el desarrollo de plantillas de Resource Manager, consulte [documentación de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
+Obtenga información sobre cómo usar una plantilla de Azure Resource Manager para crear un IoT Hub y un grupo de consumidores. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para obtener más información sobre el desarrollo de plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Es la plantilla de Resource Manager utilizada en esta guía de inicio rápido de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Esta es una copia de la plantilla:
+La plantilla de Resource Manager usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/). Esta es una copia de la plantilla:
 
 [!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-La plantilla crea un centro de Iot de Azure con tres puntos de conexión (centro de eventos, en la nube a dispositivo y mensajería) y un grupo de consumidores. Para obtener más ejemplos de plantillas, consulte [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Puede encontrar el esquema de plantilla de Iot Hub [aquí](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
+La plantilla crea un centro de IoT de Azure con tres puntos de conexión (centro de eventos, de la nube a dispositivo y mensajería) y un grupo de consumidores. Para ver más ejemplos de plantillas, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). El esquema de la plantilla de IoT Hub puede encontrarse [aquí](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
-Existen varios métodos para implementar una plantilla.  Usar Azure PowerShell en este tutorial.
+Existen varios métodos para la implementación de una plantilla.  En este tutorial se va a usar Azure PowerShell.
 
-Para ejecutar el script de PowerShell, seleccione **Pruébelo** para abrir Azure Cloud shell. Pegue el script, haga clic en el shell y, a continuación, seleccione Pegar:
+Para ejecutar el script de PowerShell, seleccione **Pruébelo** para abrir el shell de Azure Cloud. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione Pegar:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -47,11 +47,11 @@ New-AzResourceGroupDeployment `
     -iotHubName $iotHubName
 ```
 
-Como puede ver en el script de PowerShell, la plantilla utilizada es de plantillas de inicio rápido de Azure. Para usar su propia, debe cargar primero el archivo de plantilla en Cloud shell y, a continuación, utilice la `-TemplateFile` conmutador para especificar el nombre de archivo.  Para obtener un ejemplo, vea [implementar la plantilla](../azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+Como puede ver en el script de PowerShell, la plantilla utilizada es de plantillas de inicio rápido de Azure. Para usar una propia, primero debe cargar el archivo de plantilla en el shell de Cloud y luego usar el modificador `-TemplateFile` para especificar el nombre de archivo.  Para ver un ejemplo, consulte [Implementar la plantilla](../azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resource Manager, es posible que desee explorar más a fondo:
+Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resource Manager, quizá quiera seguir explorando:
 
 * Consulte las funcionalidades de la [API de REST del proveedor de recursos de IoT Hub][lnk-rest-api].
 * Para más información sobre las funcionalidades de Azure Resource Manager, consulte [Información general de Azure Resource Manager][lnk-azure-rm-overview].

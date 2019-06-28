@@ -1,5 +1,5 @@
 ---
-title: 'Conectarse a la búsqueda de Bing: Azure Logic Apps'
+title: 'Conexión a Bing Search: Azure Logic Apps'
 description: Búsqueda de noticias con las API REST de Bing Search y Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952665"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Búsqueda de noticias con Bing Search y Azure Logic Apps
@@ -44,7 +44,7 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 2. En el cuadro de búsqueda, escriba "Bing Search" como filtro. En la lista de desencadenadores, seleccione el que desee.
 
-   Este ejemplo utiliza este desencadenador: **Búsqueda de Bing: en el nuevo artículo de noticias**
+   En este ejemplo se utiliza este desencadenador: **Bing Search: en el nuevo artículo de noticias**
 
    ![Búsqueda del desencadenador de Bing Search](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -56,13 +56,13 @@ O bien, si la conexión ya existe, especifique la información necesaria para el
    | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
    |----------|----------|-------|-------------|
    | Search Query (Consulta de búsqueda) | Sí | <*search-words*> | Escriba las palabras clave de búsqueda que desee usar. |
-   | Market | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
-   | Safe Search | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
-   | Count | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
-   | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
+   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
+   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
+   | Recuento | Sin | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
+   | Offset | Sin | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
    |||||
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Configuración del desencadenador](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -82,21 +82,21 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 2. En el desencadenador o acción, elija **Nuevo paso** > **Agregar una acción**.
 
-   Este ejemplo utiliza este desencadenador:
+   En este ejemplo se utiliza este desencadenador:
 
-   **Búsqueda de Bing: en el nuevo artículo de noticias**
+   **Bing Search: en el nuevo artículo de noticias**
 
    ![Agregar una acción](./media/connectors-create-api-bing-search/add-action.png)
 
    Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. 
-   Elija el signo más (**+**) que aparece y, luego, elija **Agregar una acción**.
+   Elija el signo más ( **+** ) que aparece y, luego, elija **Agregar una acción**.
 
 3. En el cuadro de búsqueda, escriba "Bing Search" como filtro.
 En la lista de acciones, seleccione la que desee.
 
-   Este ejemplo usa esta acción:
+   Este ejemplo utiliza esta acción:
 
-   **Bing Search - noticias de la lista por consulta**
+   **Bing Search: enumera las noticias por consulta**
 
    ![Búsqueda de acción de Bing Search](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
@@ -107,10 +107,10 @@ En la lista de acciones, seleccione la que desee.
    | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
    |----------|----------|-------|-------------|
    | Search Query (Consulta de búsqueda) | Sí | <*search-expression*> | Escriba una expresión para consultar los resultados del desencadenador. Puede seleccionar entre los campos de la lista de contenido dinámico o crear una expresión con el generador de expresiones. |
-   | Market | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
-   | Safe Search | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
-   | Count | Sin  | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
-   | Offset | Sin  | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
+   | Mercados | Sí | <*locale*> | Configuración regional de búsqueda. El valor predeterminado es "en-US", pero puede seleccionar otro valor. |
+   | Búsqueda segura | Sí | <*search-level*> | El nivel de filtro para excluir el contenido para adultos. El valor predeterminado es "Moderado", pero seleccione otro nivel. |
+   | Recuento | Sin | <*results-count*> | Devuelve solo el número especificado de mensajes. El valor predeterminado es 20, pero puede especificar otro valor. El número real de los resultados devueltos puede ser menor que el número especificado. |
+   | Offset | Sin | <*skip-value*> | El número de resultados que se van a omitir antes de devolver resultados |
    |||||
 
    Por ejemplo, supongamos que desea aquellos resultados cuyo nombre de categoría incluya la palabra "tech".
@@ -122,7 +122,7 @@ En la lista de acciones, seleccione la que desee.
 
       Ahora puede empezar a crear la expresión.
 
-   2. En la lista de funciones, seleccione la función **contains()**, que luego aparece en el cuadro de expresión. Haga clic en **Contenido dinámico** para que vuelva a aparecer en la lista de campos, pero asegúrese de que el cursor permanece dentro de los paréntesis.
+   2. En la lista de funciones, seleccione la función **contains()** , que luego aparece en el cuadro de expresión. Haga clic en **Contenido dinámico** para que vuelva a aparecer en la lista de campos, pero asegúrese de que el cursor permanece dentro de los paréntesis.
 
       ![Selección de una función](./media/connectors-create-api-bing-search/expression-select-function.png)
 
@@ -158,7 +158,7 @@ En la lista de acciones, seleccione la que desee.
    | Clave de API | Sí | <*API-key*> | La clave de API de Bing Search que obtuvo anteriormente. Si no tiene una clave, obtenga su [clave de API ahora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Crear conexión](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
@@ -166,7 +166,7 @@ En la lista de acciones, seleccione la que desee.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de archivos, consulte el [página de referencia del conector](/connectors/bingsearch/).
+Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/bingsearch/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

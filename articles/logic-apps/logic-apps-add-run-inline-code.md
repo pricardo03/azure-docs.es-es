@@ -1,6 +1,6 @@
 ---
-title: Agregar y ejecutar fragmentos de código - Azure Logic Apps
-description: Agregar y ejecutar fragmentos de código con código en línea en Azure Logic Apps
+title: Adición y ejecución de fragmentos de código - Azure Logic Apps
+description: Adición y ejecución de fragmentos de código con código en línea en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,27 +10,27 @@ ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602121"
 ---
-# <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Agregar y ejecutar fragmentos de código mediante el uso de código en línea en Azure Logic Apps
+# <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
-Cuando desea ejecutar un fragmento de código dentro de la aplicación lógica, puede agregar la integrada **código alineado** acción como un paso en el flujo de trabajo de la aplicación lógica. Esta acción funciona mejor cuando desea ejecutar código que se adapte a este escenario:
+Si desea ejecutar un fragmento de código dentro de su aplicación lógica, puede agregar la acción **Código en línea** integrada como un paso en el flujo de trabajo de la aplicación lógica. Esta acción funciona mejor si desea ejecutar código que se adapta a este escenario:
 
-* Se ejecuta en JavaScript. Lenguajes más próximamente.
+* Se ejecuta en JavaScript. Próximamente más lenguajes.
 * Termina de ejecutarse en cinco segundos o menos.
-* Controla los datos de hasta 50 MB de tamaño.
-* Usa Node.js versión 8.11.1. Para obtener más información, consulte [objetos integrados estándares](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+* Administra datos de hasta 50 MB de tamaño.
+* Usa la versión 8.11.1 de Node.js. Para más información, consulte [Objetos integrados estándar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
-  > La función require() no es compatible con la **código alineado** acción para la ejecución de JavaScript.
+  > La función require() no es compatible con la acción **Código en línea** para la ejecución de JavaScript.
 
-Esta acción ejecuta el fragmento de código y devuelve el resultado de ese fragmento de código como un token denominado **resultado**, que puede usar en las acciones posteriores en la aplicación lógica. Para otros escenarios donde desea crear una función para el código, intente [creando y llamando a una función de Azure](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
+Esta acción ejecuta el fragmento de código y devuelve el resultado de ese fragmento como un token denominado **Result**, que puede usar en las acciones posteriores en la aplicación lógica. Para otros escenarios en los que desee crear una función para el código, intente [crear y llamar a una función de Azure](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
 
-En este artículo, los desencadenadores de aplicación de lógica de ejemplo, cuando un nuevo correo electrónico llega en una cuenta de Office 365 Outlook. El fragmento de código extrae y devuelve todas las direcciones de correo electrónico que aparecen en el cuerpo del correo electrónico.
+En este artículo, la aplicación lógica de ejemplo se desencadena cuando llega un nuevo correo electrónico a una cuenta de Office 365 Outlook. El fragmento de código extrae y devuelve todas las direcciones de correo electrónico que aparecen en el cuerpo del correo electrónico.
 
 ![Información general de ejemplo](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
@@ -38,56 +38,56 @@ En este artículo, los desencadenadores de aplicación de lógica de ejemplo, cu
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* La aplicación lógica donde desea agregar el fragmento de código, incluido un desencadenador. Si no tiene una aplicación lógica, consulte [inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* La aplicación lógica donde desea agregar el fragmento de código, incluido un desencadenador. Si no tiene una aplicación lógica, consulte [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   El ejemplo de aplicación lógica en este tema usa este desencadenador de Office 365 Outlook: **Cuando llega un nuevo correo electrónico**
+   La aplicación lógica de ejemplo en este tema usa este desencadenador de Office 365 Outlook: **Cuando llega un nuevo correo electrónico**
 
-* Un [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) que esté vinculado a la aplicación lógica
+* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada a la aplicación lógica.
 
-## <a name="add-inline-code"></a>Agregue el código en línea
+## <a name="add-inline-code"></a>Adición de código en línea
 
-1. Si no lo ha hecho ya, en el [portal Azure](https://portal.azure.com), abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. Si aún no lo ha hecho, en [Azure Portal](https://portal.azure.com), abra la aplicación lógica en el Diseñador de aplicación lógica.
 
-1. En el diseñador, agregue el **código alineado** acción en la ubicación que desee en el flujo de trabajo de la aplicación lógica.
+1. En el diseñador, agregue la acción **Código en línea** en la ubicación que desee en el flujo de trabajo de la aplicación lógica.
 
-   * Para agregar la acción al final del flujo de trabajo, elija **nuevo paso**.
+   * Para agregar la acción al final del flujo de trabajo, seleccione **Nuevo paso**.
 
-   * Para agregar la acción entre pasos existentes, mueva el puntero del mouse sobre la flecha que conecta estos pasos. Seleccione el signo más (**+**) y seleccione **agregar una acción**.
+   * Para agregar la acción entre pasos existentes, mueva el puntero del mouse sobre la flecha que conecta esos pasos. Seleccione el signo más ( **+** ) y seleccione **Agregar una acción**.
 
-   Este ejemplo se agrega el **código alineado** acción en el desencadenador de Office 365 Outlook.
+   Este ejemplo agrega la acción **Código en línea** en el desencadenador de Office 365 Outlook.
 
-   ![Agregar nuevo paso](./media/logic-apps-add-run-inline-code/add-new-step.png)
+   ![Adición de un nuevo paso](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. En **elegir una acción**, en el cuadro de búsqueda, escriba "en línea código" como filtro. En la lista de acciones, seleccione esta acción: **Ejecutar el código de JavaScript**
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "código en línea" como filtro. En la lista de acciones, seleccione esta acción: **Ejecutar código de JavaScript**
 
-   ![Seleccione "Ejecutar código de JavaScript"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
+   ![Selección de "Ejecutar código de JavaScript"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
-   La acción aparece en el diseñador y contiene el código de ejemplo de forma predeterminada, incluyendo una instrucción return.
+   La acción aparece en el diseñador y contiene código de ejemplo predeterminado, incluyendo una instrucción return.
 
-   ![Acción de código en línea con el código de ejemplo predeterminado](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
+   ![Acción Código en línea con código de ejemplo predeterminado](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
 
-1. En el **código** cuadro, elimine el código de ejemplo y escriba el código que desea ejecutar. Escribir código que se colocaría dentro de un método, pero sin definir la firma del método. 
+1. En el cuadro **Código**, elimine el código de ejemplo y escriba el código que desee ejecutar. Escriba el código que colocaría dentro de un método, pero sin definir la firma del método. 
 
-   Cuando se escribe una palabra clave conocida, aparece la lista de Autocompletar para que puedan seleccionar desde las palabras clave disponibles, por ejemplo:
+   Al escribir una palabra clave reconocida, aparece la lista de Autocompletar para que pueda seleccionar entre las palabras clave disponibles, por ejemplo:
 
-   ![Lista de Autocompletar de la palabra clave](./media/logic-apps-add-run-inline-code/auto-complete.png)
+   ![Lista de Autocompletar de palabras clave](./media/logic-apps-add-run-inline-code/auto-complete.png)
 
-   Este fragmento de código de ejemplo crea primero una variable que almacena un *expresión regular*, que especifica un patrón de coincidencia en el texto de entrada. El código, a continuación, crea una variable que almacena los datos de cuerpo del correo electrónico desde el desencadenador.
+   Este fragmento de código de ejemplo crea primero una variable que almacena una *expresión regular*, que especifica un patrón de coincidencia con el texto de entrada. A continuación, el código crea una variable que almacena los datos del cuerpo del correo electrónico desde el desencadenador.
 
    ![Creación de variables](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
 
-   Para facilitar los resultados de los desencadenadores y acciones anteriores a la referencia, aparece la lista de contenido dinámico mientras el cursor se encuentra dentro de la **código** cuadro. En este ejemplo, la lista muestra los resultados disponibles desde el desencadenador, incluido el **cuerpo** token, que ahora puede seleccionar.
+   Para hacer referencia más fácilmente a los resultados del desencadenador y las acciones anteriores, aparece la lista de contenido dinámico mientras el cursor se encuentra dentro del cuadro **Código**. En este ejemplo, la lista muestra los resultados disponibles del desencadenador, incluido el token **Body**, que ahora puede seleccionar.
 
-   Después de seleccionar el **cuerpo** token, la acción de código en línea resuelve el token para un `workflowContext` objeto que hace referencia el correo de electrónico `Body` valor de propiedad:
+   Después de seleccionar el token **Body**, la acción de código en línea resuelve el token para un objeto `workflowContext` que hace referencia al valor de la propiedad `Body` del correo electrónico:
 
-   ![Resultado de SELECT](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
+   ![Selección del resultado](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   En el **código** , cuadro de solo lectura, puede usar el fragmento de código `workflowContext` objeto como entrada. Este objeto tiene subpropiedades que dan al código acceso a los resultados de los desencadenadores y acciones anteriores en el flujo de trabajo.
-   Para obtener más información, vea esta sección más adelante en este tema: [Hacer referencia a los resultados de desencadenadores y las acciones en el código](#workflowcontext).
+   En el cuadro **Código**, el fragmento puede usar el objeto `workflowContext` de solo lectura como entrada. Este objeto tiene subpropiedades que proporcionan al código acceso a los resultados de los desencadenadores y acciones anteriores en el flujo de trabajo.
+   Para más información, consulte esta sección más adelante en este tema: [Referencia a los resultados de desencadenadores y acciones en el código](#workflowcontext).
 
    > [!NOTE]
    >
-   > Si el fragmento de código hace referencia a los nombres de acción que utiliza el operador punto (.), debe agregar esos nombres de acción para el [ **acciones** parámetro](#add-parameters). Esas referencias también deben incluir los nombres de acción con corchetes ([]) y las comillas, por ejemplo:
+   > Si el fragmento de código hace referencia a nombres de acción que utilizan el operador punto (.), debe agregar esos nombres de acción al parámetro [**Acciones**](#add-parameters). Esas referencias también deben incluir los nombres de acción entre corchetes ([]) y comillas, por ejemplo:
    >
    > `// Correct`</br> 
    > `workflowContext.actions["my.action.name"].body`</br>
@@ -95,8 +95,8 @@ En este artículo, los desencadenadores de aplicación de lógica de ejemplo, cu
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   La acción de código en línea no requiere un `return` instrucción, pero los resultados de una `return` están disponibles para referencia en las acciones posteriores a través de la instrucción el **resultado** token. 
-   Por ejemplo, el fragmento de código devuelve el resultado mediante una llamada a la `match()` función, que busca coincidencias en el cuerpo del correo electrónico con la expresión regular. El **Compose** acción utiliza el **resultado** tokens para hacer referencia a los resultados en la línea acción de código y crea un único resultado.
+   La acción de código en línea no requiere una instrucción `return`, pero los resultados de una instrucción `return` están disponibles como referencia en acciones posteriores mediante el token **Result**. 
+   Por ejemplo, el fragmento de código devuelve el resultado mediante una llamada a la función `match()`, que busca coincidencias en el cuerpo del correo electrónico con la expresión regular. La acción **Redactar** usa el token **Result** para hacer referencia a los resultados de la acción de código en línea y crea un solo resultado.
 
    ![Aplicación lógica terminada](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -104,9 +104,9 @@ En este artículo, los desencadenadores de aplicación de lógica de ejemplo, cu
 
 <a name="workflowcontext"></a>
 
-### <a name="reference-trigger-and-action-results-in-your-code"></a>Resultados de desencadenadores y las acciones de referencia en el código
+### <a name="reference-trigger-and-action-results-in-your-code"></a>Referencia a los resultados de desencadenadores y acciones en el código
 
-El `workflowContext` objeto tiene esta estructura, que incluye el `actions`, `trigger`, y `workflow` subpropiedades:
+El objeto `workflowContext` tiene esta estructura, que incluye las subpropiedades `actions`, `trigger` y `workflow`:
 
 ```json
 {
@@ -129,12 +129,12 @@ Esta tabla contiene más información acerca de estas subpropiedades:
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |----------|------|-------|
-| `actions` | Colección de objetos | Objetos de resultado de las acciones que se ejecutan antes de que el fragmento de código se ejecuta. Cada objeto tiene un *pares clave-valor* par donde la clave es el nombre de una acción y el valor es equivalente a llamar a la [actions() función](../logic-apps/workflow-definition-language-functions-reference.md#actions) con `@actions('<action-name>')`. Nombre de acción utiliza el mismo nombre de acción que se usa en la definición de flujo de trabajo subyacente, que reemplaza los espacios ("") en el nombre de acción con caracteres de subrayado (_). Este objeto proporciona acceso a los valores de propiedad de acción de ejecutar la instancia de flujo de trabajo actual. |
-| `trigger` | Object | Objeto de resultado del desencadenador y equivalente a llamar a la [trigger() función](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto proporciona acceso a los valores de propiedad de desencadenador de ejecutar la instancia de flujo de trabajo actual. |
-| `workflow` | Object | El objeto de flujo de trabajo y el equivalente a llamar a la [workflow() función](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Este objeto proporciona acceso a los valores de propiedad de flujo de trabajo, como el nombre de flujo de trabajo, identificador de ejecución y así sucesivamente, desde ejecutar la instancia de flujo de trabajo actual. |
+| `actions` | Colección de objetos | Objetos de resultado de acciones que se ejecutan antes de que el fragmento de código se ejecute. Cada objeto tiene un par *clave-valor* donde la clave es el nombre de una acción y el valor es equivalente a llamar a la [función actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions) con `@actions('<action-name>')`. El nombre de la acción utiliza el mismo nombre de acción que se usa en la definición del flujo de trabajo subyacente, que reemplaza los espacios (" ") en el nombre de acción por caracteres de subrayado (_). Este objeto proporciona acceso a los valores de propiedad de la acción de la ejecución de la instancia de flujo de trabajo actual. |
+| `trigger` | Objeto | Objeto de resultado del desencadenador, equivalente a llamar a la [función trigger()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto proporciona acceso a los valores de propiedad del desencadenador de la ejecución de la instancia de flujo de trabajo actual. |
+| `workflow` | Objeto | Objeto de flujo de trabajo, equivalente a llamar a la [función workflow()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Este objeto proporciona acceso a los valores de propiedad de flujo de trabajo, como el nombre del flujo de trabajo, el identificador de ejecución, etc., de la ejecución de la instancia de flujo de trabajo actual. |
 |||
 
-En el ejemplo de este tema, la `workflowContext` objeto tiene estas propiedades que puede tener acceso su código:
+En el ejemplo de este tema, el objeto `workflowContext` tiene estas propiedades a las que puede acceder el código:
 
 ```json
 {
@@ -204,65 +204,65 @@ En el ejemplo de este tema, la `workflowContext` objeto tiene estas propiedades 
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Agregar parámetros
+## <a name="add-parameters"></a>Adición de parámetros
 
-En algunos casos, es posible que deba que necesita de forma explícita el **código alineado** acción incluye los resultados del desencadenador o acciones específicas que el código hace referencia como dependencias agregando el **desencadenador** o **Acciones** parámetros. Esta opción es útil para escenarios donde no se encuentran los resultados que se hace referencia en tiempo de ejecución.
+En algunos casos, es posible que deba requerir de forma explícita que la acción **Código en línea** incluya los resultados del desencadenador o de acciones específicas a las que el código hace referencia como dependencias agregando los parámetros **Desencadenador** o **Acciones**. Esta opción es útil para escenarios donde no se encuentran los resultados referenciados en tiempo de ejecución.
 
 > [!TIP]
-> Si piensa reutilizar el código, agregue referencias a las propiedades mediante el **código** cuadro para que su código incluye las referencias del token resueltas, en lugar de agregar el desencadenador o acciones como dependencias explícitas.
+> Si piensa reutilizar el código, agregue referencias a las propiedades mediante el cuadro **Código** para que su código incluya las referencias del token resueltas, en lugar de agregar el desencadenador o las acciones como dependencias explícitas.
 
-Por ejemplo, suponga que tiene código que hace referencia a la **SelectedOption** derivarse el **enviar correo electrónico de aprobación** acción para el conector de Office 365 Outlook. En tiempo de creación, el motor de Logic Apps analiza el código para determinar si ha hace referencia a cualquier desencadenador o acción da como resultado e incluye los resultados automáticamente. En tiempo de ejecución debe obtendrá un error que el resultado de acción o desencadenador que se hace referencia no está disponible en la instancia especificada `workflowContext` objeto, puede agregar el desencadenador o acción como una dependencia explícita. En este ejemplo, se agrega el **acciones** parámetro y especificar que el **código alineado** acción incluir explícitamente el resultado de la **enviar correo electrónico de aprobación** acción.
+Por ejemplo, suponga que tiene un código que hace referencia al resultado **SelectedOption** de la acción **Enviar correo electrónico de aprobación** para el conector de Office 365 Outlook. En tiempo de creación, el motor de Logic Apps analiza el código para determinar si ha hecho referencia a cualquier resultado de desencadenador o acción e incluye esos resultados automáticamente. En tiempo de ejecución, en caso de obtener un error que indique que el resultado del desencadenador o la acción referenciado no está disponible en el objeto `workflowContext` especificado, puede agregar el desencadenador o la acción como una dependencia explícita. En este ejemplo, agregará el parámetro **Acciones** y especificará que la acción **Código en línea** incluye explícitamente el resultado de la acción **Enviar correo electrónico de aprobación**.
 
-Para agregar estos parámetros, abra el **Agregar nuevo parámetro** enumerar y seleccionar los parámetros deseados:
+Para agregar estos parámetros, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros deseados:
 
-   ![Agregar parámetros](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Adición de parámetros](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
    | Parámetro | DESCRIPCIÓN |
    |-----------|-------------|
-   | **Acciones** | Incluir resultados de las acciones anteriores. Consulte [incluir resultados de acción](#action-results). |
-   | **Desencadenador** | Incluir resultados desde el desencadenador. Consulte [incluir resultados de desencadenador](#trigger-results). |
+   | **Acciones** | Incluya los resultados de las acciones anteriores. Consulte [Incluir resultados de acción](#action-results). |
+   | **Desencadenador** | Incluya los resultados del desencadenador. Consulte [Incluir resultados de desencadenador](#trigger-results). |
    |||
 
 <a name="trigger-results"></a>
 
 ### <a name="include-trigger-results"></a>Incluir resultados de desencadenador
 
-Si selecciona **desencadenadores**, se le pedirá si incluir desencadenador da como resultado.
+Si selecciona **Desencadenadores**, se le preguntará si desea incluir resultados de desencadenador.
 
-* Desde el **desencadenador** lista, seleccione **Sí**.
+* De la lista **Desencadenador**, seleccione **Sí**.
 
 <a name="action-results"></a>
 
 ### <a name="include-action-results"></a>Incluir resultados de acción
 
-Si selecciona **acciones**, se le pedirá para las acciones que desea agregar. Sin embargo, antes de empezar a agregar acciones, necesitará la versión del nombre de acción que aparece en la definición de flujo de trabajo subyacente de la aplicación lógica.
+Si selecciona **Acciones**, se le preguntará qué acciones desea agregar. Sin embargo, antes de empezar a agregar acciones, necesitará la versión del nombre de acción que aparece en la definición del flujo de trabajo subyacente de la aplicación lógica.
 
-* Esta funcionalidad no es compatible con variables, bucles y los índices de la iteración.
+* Esta funcionalidad no admite variables, bucles ni índices de iteración.
 
-* Los nombres de definición de flujo de trabajo de la aplicación lógica use un carácter de subrayado (_), no un espacio.
+* Los nombres de la definición del flujo de trabajo de la aplicación lógica usan un carácter de subrayado (_), no un espacio.
 
-* Para los nombres de acción que utiliza el operador punto (.), incluya esos operadores, por ejemplo:
+* Para los nombres de acción que utilizan el operador punto (.), incluya esos operadores; por ejemplo:
 
   `My.Action.Name`
 
-1. En la barra de herramientas del diseñador, elija **vista código**y buscar dentro de la `actions` atributo para el nombre de acción.
+1. En la barra de herramientas del diseñador, elija **Vista Código**y busque dentro del atributo `actions` el nombre de acción.
 
-   Por ejemplo, `Send_approval_email_` es el nombre JSON para el **enviar correo electrónico de aprobación** acción.
+   Por ejemplo, `Send_approval_email_` es el nombre JSON de la acción **Enviar correo electrónico de aprobación**.
 
    ![Buscar nombre de acción en JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
-1. Para volver a la vista del diseñador, en la barra de herramientas de la vista de código, elija **diseñador**.
+1. Para volver a la vista del diseñador, en la barra de herramientas de la vista de código, seleccione **Diseñador**.
 
-1. Para agregar la primera acción, en el **acciones elemento - 1** , escriba un nombre de la acción de JSON.
+1. Para agregar la primera acción, en el cuadro **Actions Item - 1** (Elemento de acciones - 1), escriba el nombre de la acción JSON.
 
-   ![Escriba la primera acción](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
+   ![Escribir la primera acción](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
 
-1. Para agregar otra acción, elija **Agregar nuevo elemento**.
+1. Para agregar otra acción, elija **Agregar un nuevo elemento**.
 
 ## <a name="reference"></a>Referencia
 
-Para obtener más información sobre la **ejecutar código de JavaScript** la acción de la estructura y sintaxis de definición de flujo de trabajo subyacente de la aplicación lógica mediante el lenguaje de definición de flujo de trabajo, consulte esta acción [sección referencia ](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code).
+Para más información sobre la estructura y la sintaxis de la acción **Ejecutar código de JavaScript** de la definición del flujo de trabajo subyacente de su aplicación lógica que usa el lenguaje de definición de flujo de trabajo, consulte la [sección de referencia](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code) de esta acción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [conectores para Azure Logic Apps](../connectors/apis-list.md)
+Más información sobre [conectores para Azure Logic Apps](../connectors/apis-list.md)

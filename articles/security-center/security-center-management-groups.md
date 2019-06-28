@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148102"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
@@ -145,16 +145,16 @@ Cuando tenga privilegios de acceso elevados, abra o actualice Azure Security Cen
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 2. En el selector de suscripciones, asegúrese de seleccionar todas las suscripciones que quiere ver en Security Center.
 
-    ![Captura de pantalla de selector de suscripción](./media/security-center-management-groups/subscription-selector.png)
+    ![Captura de pantalla del selector de suscripciones](./media/security-center-management-groups/subscription-selector.png)
 
 1. Seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Security Center**.
 2. En **Información general** hay un gráfico de cobertura de suscripciones.
 
-    ![Captura de pantalla del gráfico de cobertura de suscripción](./media/security-center-management-groups/security-center-subscription-coverage.png)
+    ![Captura de pantalla del gráfico de cobertura de suscripciones](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
 3. Haga clic en **Cobertura** para ver la lista de suscripciones incluidas. 
 
-    ![Captura de pantalla de lista de cobertura de suscripción](./media/security-center-management-groups/security-center-coverage.png)
+    ![Captura de pantalla de la lista de cobertura de suscripciones](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados 
 Después de asignar los roles de RBAC a los usuarios, el administrador de inquilino debería eliminarse a sí mismo del rol de administrador de acceso de usuarios.

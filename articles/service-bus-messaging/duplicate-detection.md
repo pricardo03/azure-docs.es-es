@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413659"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
@@ -37,9 +37,9 @@ En el caso de un proceso empresarial en el que se envían varios mensajes en el 
 El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identificador al proceso empresarial produce una capacidad de repetición predecible, lo que resulta conveniente para aprovechar con efectividad la característica de detección de duplicados.
 
 > [!NOTE]
-> Si está habilitada la detección de duplicados y no se establece la clave de partición o el Id. de sesión, el identificador del mensaje se utiliza como clave de partición. Si no también se establece el identificador del mensaje, las bibliotecas de .NET y AMQP generan automáticamente un identificador de mensaje para el mensaje. Para obtener más información, consulte [uso de claves de partición](service-bus-partitioning.md#use-of-partition-keys).
+> Si está habilitada la detección de duplicados y no se establece la clave de partición o el identificador de sesión, se usará el identificador de mensaje como clave de partición. Si tampoco se ha definido el identificador de mensaje, las bibliotecas de .NET y AMQP generarán automáticamente un identificador para el mensaje. Para más información, vea [Uso de claves de partición](service-bus-partitioning.md#use-of-partition-keys).
 
-## <a name="enable-duplicate-detection"></a>Habilitar detección de duplicados
+## <a name="enable-duplicate-detection"></a>Habilitación de la detección de duplicados
 
 En el portal, la característica se activa durante la creación de la entidad con la casilla **Habilitar detección de duplicados**, que está desactivada de forma predeterminada. La configuración para la creación de nuevos temas es equivalente.
 

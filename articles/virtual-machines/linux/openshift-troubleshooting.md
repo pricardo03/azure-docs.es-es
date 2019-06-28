@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771284"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Solución de problemas de implementación de OpenShift en Azure
 
 Si el clúster de OpenShift no se implementa correctamente, Azure Portal proporcionará una salida de error. La salida puede ser difícil de leer, lo que hace difícil identificar el problema. Examine rápidamente esta salida en busca de un código de salida 3, 4 o 5. El siguiente contenido proporciona información sobre estos tres códigos de salida:
 
-- Código de salida 3: Su nombre de usuario de suscripción de Red Hat / contraseña o Id. de organización / clave de activación es incorrecta
-- Código de salida 4: El Id. de grupo de Red Hat es incorrecto o no hay derechos disponibles
-- Código de salida 5: No se puede aprovisionar el volumen de grupo fino de Docker
+- Código de salida 3: el nombre de usuario de suscripción de Red Hat/contraseña o id. de organización/clave de activación es incorrecto.
+- Código de salida 4: el id. de grupo de Red Hat es incorrecto o no hay derechos disponibles.
+- Código de salida 5: no se puede aprovisionar el volumen de grupo fino de Docker.
 
 Para los demás códigos de salida, conéctese a los hosts mediante ssh para ver los archivos de registro.
 
@@ -42,9 +42,9 @@ Conéctese mediante SSH al host del cuaderno de estrategias de Ansible. Para la 
 
 ## <a name="log-files"></a>Archivos de registro
 
-Los archivos de registro (stderr y stdout) para las secuencias de comandos de preparación del host se encuentran en `/var/lib/waagent/custom-script/download/0` en todos los hosts. Si se produjo un error durante la preparación del host, puede ver estos archivos de registro para determinar el error.
+Los archivos de registro (stderr y stdout) para los scripts de preparación del host se encuentran en `/var/lib/waagent/custom-script/download/0` en todos los hosts. Si se produjo un error durante la preparación del host, puede ver estos archivos de registro para determinar el error.
 
-Si las secuencias de comandos de preparación se ha ejecutado correctamente, a continuación, los archivos de registro en el `/var/lib/waagent/custom-script/download/1` directorio del host de cuaderno de estrategias de ansible deberán ser examinadas. Si se produjo el error durante la instalación actual de OpenShift, el archivo stdout mostrará el error. Utilice esta información para ponerse en contacto con soporte técnico para más ayuda.
+Si los scripts de preparación se han ejecutado correctamente, deberá examinar los archivos de registro del directorio `/var/lib/waagent/custom-script/download/1` del host del cuaderno de estrategias de Ansible. Si se produjo el error durante la instalación actual de OpenShift, el archivo stdout mostrará el error. Utilice esta información para ponerse en contacto con soporte técnico para más ayuda.
 
 Salida de ejemplo
 
@@ -93,11 +93,11 @@ Los errores más comunes durante la instalación son:
 
 ### <a name="private-key-has-a-passphrase"></a>La clave privada tiene una frase de contraseña
 
-Verá un error que se denegó el permiso para ssh. SSH en el host del cuaderno de estrategias de ansible para buscar una frase de contraseña en la clave privada.
+Verá un error que indica que se denegó el permiso de acceso mediante SSH. Conéctese mediante SSH al host del cuaderno de estrategias de Ansible para buscar una frase de contraseña de la clave privada.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>El secreto de Key Vault con la clave privada no se ha creado correctamente
 
-La clave privada se copia en el host de cuaderno de estrategias de ansible - ~/.ssh/id_rsa. Confirme que este archivo es correcto. Para comprobarlo, abra una sesión de SSH en uno de los nodos del clúster desde el host del cuaderno de estrategias de Ansible.
+La clave privada se copia en el host del cuaderno de estrategias de Ansible: ~/.ssh/id_rsa. Confirme que este archivo es correcto. Para comprobarlo, abra una sesión de SSH en uno de los nodos del clúster desde el host del cuaderno de estrategias de Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Las credenciales de la entidad de servicio se especificaron incorrectamente
 
@@ -119,5 +119,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Para algunos errores, también puede usar los comandos siguientes para extraer más información:
 
-1. estado de systemctl \<servicio >
+1. systemctl status \<service>
 2. journalctl -xe

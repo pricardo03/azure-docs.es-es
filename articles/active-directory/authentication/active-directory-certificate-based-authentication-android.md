@@ -1,5 +1,5 @@
 ---
-title: Autenticación basada en certificados en Android - Azure Active Directory
+title: 'Autenticación basada en certificados en Android: Azure Active Directory'
 description: Obtenga información acerca de los escenarios admitidos y los requisitos para configurar la autenticación basada en certificados en las soluciones con dispositivos Android
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60416191"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticación basada en certificados de Azure Active Directory en Android
@@ -35,16 +35,16 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 
 | Aplicaciones | Soporte técnico |
 | --- | --- |
-| Aplicación Azure Information Protection |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| Portal de empresa de Intune |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| Equipos de Microsoft |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| OneNote |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| OneDrive |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| Outlook |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| Power BI |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| Skype Empresarial |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| Word, Excel y PowerPoint |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
-| Yammer |![Marca de verificación, lo que significa compatibilidad para esta aplicación][1] |
+| Aplicación Azure Information Protection |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Portal de empresa de Intune |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Equipos de Microsoft |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| OneNote |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| OneDrive |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Outlook |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Power BI |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Skype Empresarial |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Word, Excel y PowerPoint |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
+| Yammer |![La marca de verificación indica que hay compatibilidad con esta aplicación][1] |
 
 ### <a name="implementation-requirements"></a>Requisitos de implementación
 

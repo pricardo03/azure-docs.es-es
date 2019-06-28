@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154220"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
@@ -80,7 +80,7 @@ En este tutorial, usaremos el analizador de mensajes para trabajar con tres tipo
 * El **registro de seguimiento de red HTTP**, que recopila datos sobre las solicitudes HTTP/HTTPS y datos de respuesta, incluidas las operaciones de Azure Storage. En este tutorial, crearemos un seguimiento de red a través del analizador de mensajes.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar el registro y las métricas del lado servidor
-En primer lugar, se deberá configurar el registro de Azure Storage y las métricas, por lo que tenemos datos desde el lado del servicio para analizar. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Consulte [habilitar las métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) y [habilitar el registro](storage-analytics-logging.md#enable-storage-logging) para obtener más información acerca de la configuración del registro y métricas.
+Primero tenemos que configurar el registro y las métricas de Azure Storage para disponer de datos del lado del servicio para analizarlos. El registro y las métricas se pueden configurar de varias maneras: a través de [Azure Portal](https://portal.azure.com), con PowerShell o mediante programación. Vea [Habilitar métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) y [Habilitar el registro](storage-analytics-logging.md#enable-storage-logging) para saber más sobre la configuración del registro y las métricas.
 
 ### <a name="configure-net-client-side-logging"></a>Configurar el registro del lado cliente de .NET
 Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de Microsoft Azure Storage para Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para más información.
@@ -220,7 +220,7 @@ Aparte de usar los diseños de vista de Azure Storage, también puede desarrolla
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Aplicar reglas de color a la cuadrícula de análisis
 Las herramientas de almacenamiento incluyen una serie de reglas de color que ofrecen una forma más visual de identificar los diferentes tipos de errores que aparecen en la cuadrícula de análisis. Las reglas de color predefinidas se aplican a los errores HTTP, así que solo aparecerán en el registro de servidor y el seguimiento de red.
 
-Para aplicar reglas de color, seleccione **Color Rules** (Reglas de color) de la cinta de opciones de la barra de herramientas. En el menú verá las reglas de color de Azure Storage. Para el tutorial, seleccione **Client Errors (StatusCode between 400 and 499)**(Errores del cliente [StatusCode entre 400 y 499]), tal y como se muestra en esta imagen.
+Para aplicar reglas de color, seleccione **Color Rules** (Reglas de color) de la cinta de opciones de la barra de herramientas. En el menú verá las reglas de color de Azure Storage. Para el tutorial, seleccione **Client Errors (StatusCode between 400 and 499)** (Errores del cliente [StatusCode entre 400 y 499]), tal y como se muestra en esta imagen.
 
 ![Diseño de vista de Azure Storage](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -278,7 +278,7 @@ En la siguiente imagen, podrá ver una solicitud específica en la que una opera
 
 Ahora, pondremos en correlación el identificador de solicitud de cliente con los datos del registro de cliente para ver qué estaba haciendo el cliente cuando ocurrió el error. Puede mostrar una nueva cuadrícula de análisis (en una segunda pestaña) para esta sesión para ver los datos del registro de cliente:
 
-1. Primero, copie el valor del campo **ClientRequestId** en el portapapeles. Para ello, seleccione una fila, busque el campo **ClientRequestId**, haga clic con el botón secundario en el valor de datos y seleccione **Copy 'ClientRequestId'**.
+1. Primero, copie el valor del campo **ClientRequestId** en el portapapeles. Para ello, seleccione una fila, busque el campo **ClientRequestId**, haga clic con el botón secundario en el valor de datos y seleccione **Copy 'ClientRequestId'** .
 2. En la cinta de opciones de la barra de herramientas, seleccione **New Viewer** (Nuevo visor) y, luego, **Analysis Grid** (Cuadrícula de análisis) para abrir una nueva pestaña. En la nueva ficha se recogen todos los datos de sus archivos de registro sin agrupar ni filtrar o sin reglas de color.
 3. En la cinta de opciones de la barra de herramientas, seleccione **View Layout** (Vista de diseño) y, después, **All .NET Client Columns** (Todas las columnas de cliente .NET) en la sección correspondiente a **Azure Storage**. En este diseño de vista se muestran los datos del registro de cliente, así como los de los registros de servidor y de seguimiento de red. Los datos se ordenan de forma predeterminada por la columna **MessageNumber** .
 4. Ahora, buscaremos el registro de cliente del identificador de solicitud de cliente. En la cinta de opciones de la barra de herramientas, seleccione **Find Messages** (Buscar mensajes) y especifique un filtro personalizado en el identificador de solicitud de cliente en el campo **Find** (Buscar). Use esta sintaxis para el filtro, indicando su propio identificador de solicitud de cliente:

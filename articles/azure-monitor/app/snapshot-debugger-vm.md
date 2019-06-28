@@ -1,6 +1,6 @@
 ---
-title: Habilitar el depurador de instantáneas para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales | Microsoft Docs
-description: Habilitar el depurador de instantáneas para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales
+title: Habilite Snapshot Debugger para aplicaciones .NET en Azure Service Fabric, Servicio en la nube y máquinas virtuales | Microsoft Docs
+description: Habilite Snapshot Debugger para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales
 services: application-insights
 documentationcenter: ''
 author: brahmnes
@@ -13,15 +13,15 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60783507"
 ---
-# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Habilitar el depurador de instantáneas para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales
+# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Habilite Snapshot Debugger para aplicaciones .NET en Azure Service Fabric, servicio en la nube y máquinas virtuales
 
-Si su ASP.NET o ASP.NET core se ejecuta la aplicación en Azure App Service, también se pueden usar las instrucciones siguientes. A menos que la aplicación requiera una configuración personalizada del depurador de instantáneas, se recomienda encarecidamente a [habilitar depurador de instantáneas a través de la página del portal de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Si la aplicación se ejecuta en Azure Service Fabric, servicio en la nube, máquinas virtuales o máquinas locales, se deben usar las instrucciones siguientes. 
+Si su aplicación ASP.NET o ASP.NET Core se ejecuta en Azure App Service, también se pueden aplicar las instrucciones siguientes. A menos que la aplicación requiera una configuración personalizada de Snapshot Debugger, se recomienda encarecidamente [habilitar Snapshot Debugger en la página del portal de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Si la aplicación se ejecuta en Azure Service Fabric, el servicio en la nube, máquinas virtuales o máquinas locales, se deben aplicar las instrucciones siguientes. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurar la recopilación de instantáneas para aplicaciones ASP.NET
 
@@ -29,7 +29,7 @@ Si su ASP.NET o ASP.NET core se ejecuta la aplicación en Azure App Service, tam
 
 2. Incluya el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación.
 
-3. Si es necesario, personalizar la configuración de Snapshot Debugger agregada a [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configuración predeterminada del depurador de instantáneas está principalmente vacía y todas las configuraciones son opcionales. Este es un ejemplo que muestra una configuración equivalente a la configuración predeterminada:
+3. Si es necesario, personalice la configuración de Snapshot Debugger agregada a [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configuración predeterminada de Snapshot Debugger está principalmente vacía y todas las configuraciones son opcionales. Este es un ejemplo que muestra una configuración equivalente a la configuración predeterminada:
 
     ```xml
     <TelemetryProcessors>
@@ -123,7 +123,7 @@ Si su ASP.NET o ASP.NET core se ejecuta la aplicación en Azure App Service, tam
    }
    ```
 
-4. Si es necesario, puede personalizar la configuración del depurador de instantáneas mediante la adición de una sección de SnapshotCollectorConfiguration en appsettings.json. Todas las configuraciones en la configuración del depurador de instantáneas son opcionales. Este es un ejemplo que muestra una configuración equivalente a la configuración predeterminada:
+4. Si es necesario, personalice la configuración de Snapshot Debugger; para ello, agregue una sección SnapshotCollectorConfiguration a appsettings.json. Todos los ajustes de la configuración de Snapshot Debugger son opcionales. Este es un ejemplo que muestra una configuración equivalente a la configuración predeterminada:
 
    ```json
    {
@@ -171,6 +171,6 @@ Si su ASP.NET o ASP.NET core se ejecuta la aplicación en Azure App Service, tam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Genere tráfico a la aplicación que puede desencadenar una excepción. A continuación, espere 10 a 15 minutos para que las instantáneas se envían a la instancia de Application Insights.
-- Consulte [instantáneas](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) en Azure portal.
-- Para solucionar problemas de Profiler, vea [solución de problemas de Snapshot Debugger](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- Genere tráfico para la aplicación que pueda desencadenar una excepción. A continuación, espere de 10 a 15 minutos para que se empiecen a enviar instantáneas a la instancia de Application Insights.
+- Vea las [instantáneas](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) en Azure Portal.
+- Para obtener ayuda para solucionar problemas de Profiler, consulte la sección [Solución de problemas de Snapshot Debugger](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

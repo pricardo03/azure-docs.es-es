@@ -1,5 +1,5 @@
 ---
-title: Copiar datos desde Amazon Simple Storage Service (S3) mediante Azure Data Factory | Microsoft Docs
+title: Copia de datos desde Amazon Simple Storage Service (S3) mediante Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde Amazon Simple Storage Service (S3) a almacenes de datos de receptor compatibles mediante Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: a04dc76a110b1d126d5d826761e2e0c09c6aac47
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520233"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 >
 > * [Versión 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versión actual](connector-amazon-simple-storage-service.md)
@@ -27,13 +27,13 @@ En este artículo se describe cómo copiar datos desde Amazon Simple Storage Ser
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Este conector de Amazon S3 es compatible con las siguientes actividades:
+Este conector de Amazon S3 es compatible con las actividades siguientes:
 
-- [Actividad de copia](copy-activity-overview.md) con [admite la matriz de origen/receptor](copy-activity-overview.md)
+- [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
-Concretamente, este conector de Amazon S3 admite la copia de archivos tal cual, o el análisis de los mismos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md). Lo usa [AWS firma versión 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) para autenticar las solicitudes a S3.
+Concretamente, este conector de Amazon S3 admite la copia de archivos tal cual, o el análisis de los mismos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md). Usa [Signature Version 4 de AWS](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) para autenticar las solicitudes a S3.
 
 >[!TIP]
 >Puede usar este conector de Amazon S3 para copiar datos desde **cualquier proveedor de almacenamiento compatible con S3** como, por ejemplo, [Google Cloud Storage](connector-google-cloud-storage.md). Especifique la dirección URL del servicio correspondiente en la configuración del servicio vinculado.
@@ -42,7 +42,7 @@ Concretamente, este conector de Amazon S3 admite la copia de archivos tal cual, 
 
 Para copiar datos de Amazon S3, asegúrese de que se han concedido los siguientes permisos:
 
-- **Para la ejecución de la actividad de copia:**: `s3:GetObject` y `s3:GetObjectVersion` para Amazon S3 Object Operations.
+- **Para la ejecución de la actividad de copia:** : `s3:GetObject` y `s3:GetObjectVersion` para Amazon S3 Object Operations.
 - **Para la creación de la interfaz gráfica de usuario de Data Factory**: `s3:ListAllMyBuckets` y `s3:ListBucket`/`s3:GetBucketLocation` se requieren adicionalmente para los permisos de Amazon S3 Bucket Operations para operaciones como probar una conexión y explorar o navegar por rutas de acceso de archivos. Si no quiere conceder estos permisos, omita la conexión de prueba en la página de creación de servicios vinculados y especifique la ruta de acceso directamente en la configuración del conjunto de datos.
 
 Para más información sobre la lista completa de los permisos de Amazon S3, consulte [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva).
@@ -59,11 +59,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon S3:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **AmazonS3**. | Sí |
+| Tipo | La propiedad type debe establecerse en: **AmazonS3**. | Sí |
 | accessKeyId | Id. de la clave de acceso secreta. |Sí |
 | secretAccessKey | La propia clave de acceso secreta. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| serviceUrl | Especifique el punto de conexión personalizado S3 si va a copiar datos desde un proveedor de almacenamiento compatible con S3 distinto al servicio Amazon S3 oficial. Por ejemplo, para copiar datos de Google Cloud Storage, especifique `https://storage.googleapis.com`. | Sin  |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+| serviceUrl | Especifique el punto de conexión personalizado S3 si va a copiar datos desde un proveedor de almacenamiento compatible con S3 distinto al servicio Amazon S3 oficial. Por ejemplo, para copiar datos de Google Cloud Storage, especifique `https://storage.googleapis.com`. | Sin |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 >[!TIP]
 >Especifique la dirección URL personalizada del servicio S3 si va a copiar datos desde un almacenamiento compatible con S3 distinto al servicio Amazon S3 oficial.
@@ -98,22 +98,22 @@ Este es un ejemplo:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-- Para **Parquet y formato de texto delimitado**, consulte [conjunto de datos con formato Parquet y texto delimitado](#parquet-and-delimited-text-format-dataset) sección.
-- Para otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro conjunto de datos de formato](#other-format-dataset) sección.
+- Para **Formato de texto delimitado y Parquet**, consulte la sección [Conjunto de datos con formato de texto delimitado y Parquet](#parquet-and-delimited-text-format-dataset).
+- Para otros formatos como **ORC, Avro, JSON o binario**, consulte la sección [Otro conjunto de datos de formato](#other-format-dataset).
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de datos con formato parquet y texto delimitado
+### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de datos con formato de texto delimitado y Parquet
 
-Para copiar datos desde Amazon S3 en **Parquet o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo en el conjunto de datos de formato y compatibles Configuración. Las siguientes propiedades son compatibles con Amazon S3 en `location` configuración en el conjunto de datos basado en el formato:
+Para copiar datos desde Amazon S3 en **Formato de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md) y el artículo [Formato de texto delimitado](format-delimited-text.md) sobre conjuntos de datos basados en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Amazon S3 en la configuración `location` del conjunto de datos basado en formato:
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La propiedad type en `location` en el conjunto de datos debe establecerse en **AmazonS3Location**. | Sí      |
+| Tipo       | La propiedad type de `location` en el conjunto de datos se debe establecer en **AmazonS3Location**. | Sí      |
 | bucketName | Nombre del depósito de S3.                                          | Sí      |
-| folderPath | La ruta de acceso a la carpeta en el depósito especificado. Si desea usar el carácter comodín a la carpeta de filtro, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
-| fileName   | El nombre de archivo en el depósito determinado + folderPath. Si desea usar el carácter comodín para filtrar los archivos, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
+| folderPath | Ruta de acceso a la carpeta en el depósito especificado. Si quiere usar el carácter comodín para filtrar la carpeta, omita este valor y especifique la configuración del origen de actividad. | Sin       |
+| fileName   | Nombre de archivo en el depósito y la propiedad folderPath indicados. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | Sin       |
 
 > [!NOTE]
-> **AmazonS3Object** todavía se admite el tipo de conjunto de datos con formato Parquet/texto que se mencionan en la siguiente sección como-es para la actividad de copia/búsqueda/GetMetadata para compatibilidad con versiones anteriores, pero no funciona con la asignación de flujo de datos. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+> El conjunto de datos de tipo **AmazonS3Object** con formato Parquet o Texto que se menciona en la sección siguiente todavía se admite tal cual en las actividades de copia, búsqueda y GetMetadata para compatibilidad con versiones anteriores, pero no funciona con Mapping Data Flow. A partir de ahora se sugiere usar este modelo nuevo, y la interfaz de usuario de creación de ADF ha cambiado para generar estos nuevos tipos.
 
 **Ejemplo:**
 
@@ -144,19 +144,19 @@ Para copiar datos desde Amazon S3 en **Parquet o formato de texto delimitado**, 
 
 ### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
 
-Para copiar datos desde Amazon S3 en **formato ORC/Avro/JSON/binario**, se admiten las siguientes propiedades:
+Para copiar datos desde Amazon S3 en **formato ORC, Avro, JSON o binario**, se admiten las propiedades siguientes:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **AmazonS3Object** |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AmazonS3Object** |Sí |
 | bucketName | Nombre del depósito de S3. No se admiten filtros con caracteres comodín. |Sí, para la actividad de copia y búsqueda; No, para la actividad GetMetadata |
-| key | El **filtro de nombre o de comodín** de la clave del objeto S3 del cubo especificado. Solo se aplica cuando no se especifica la propiedad "prefix". <br/><br/>El filtro de comodín se admite tanto para el elemento de carpeta como para el elemento de nombre de archivo. Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Ejemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). Use `^` como escape si el nombre real del archivo o la carpeta contiene un carácter comodín o este carácter de escape. |Sin  |
-| prefix | Prefijo de la clave del objeto S3. Se seleccionan objetos cuyas claves comienzan por este prefijo. Solo se aplica cuando no se especifica la propiedad "key". |Sin  |
-| version | La versión del objeto S3 si está habilitado el control de versiones de S3. Si no se especifica, se obtendrán la versión más reciente. |Sin  |
-| modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se verán afectado por si habilita a esta configuración cuando desee del filtro de archivos de grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
-| modifiedDatetimeEnd | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se verán afectado por si habilita a esta configuración cuando desee del filtro de archivos de grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
-| format | Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar o generar archivos con un formato concreto, se admiten los siguientes tipos de formato de archivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo para el escenario de copia binaria) |
-| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Estos son los tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Estos son los niveles que se admiten: **Optimal** y **Fastest**. |Sin  |
+| key | El **filtro de nombre o de comodín** de la clave del objeto S3 del cubo especificado. Solo se aplica cuando no se especifica la propiedad "prefix". <br/><br/>El filtro de comodín se admite tanto para el elemento de carpeta como para el elemento de nombre de archivo. Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Ejemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). Use `^` como escape si el nombre real del archivo o la carpeta contiene un carácter comodín o este carácter de escape. |Sin |
+| prefix | Prefijo de la clave del objeto S3. Se seleccionan objetos cuyas claves comienzan por este prefijo. Solo se aplica cuando no se especifica la propiedad "key". |Sin |
+| version | La versión del objeto S3 si está habilitado el control de versiones de S3. Si no se especifica, se obtendrá la versión más reciente. |Sin |
+| modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se verá afectado si habilita esta configuración cuando quiera filtrar archivos de grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin |
+| modifiedDatetimeEnd | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Tenga en cuenta que el rendimiento general del movimiento de datos se verá afectado si habilita esta configuración cuando quiera filtrar archivos de grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin |
+| formato | Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar o generar archivos con un formato concreto, se admiten los siguientes tipos de formato de archivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo para el escenario de copia binaria) |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Estos son los tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Estos son los niveles que se admiten: **Optimal** y **Fastest**. |Sin |
 
 >[!TIP]
 >Para copiar todos los archivos en una carpeta, especifique **bucketName** para el cubo y **prefix** para el elemento de carpeta.<br>Para copiar un único archivo con un nombre determinado, especifique **bucketName** para el cubo y **key** para el elemento de carpeta más el nombre del archivo.<br>Para copiar un subconjunto de archivos en una carpeta, especifique **bucketName** para el cubo y **key** para el elemento de carpeta más el filtro de comodín.
@@ -226,26 +226,26 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 como origen
 
-- Para copiar desde **Parquet y formato de texto delimitado**, consulte [Parquet y origen del formato de texto delimitado](#parquet-and-delimited-text-format-source) sección.
-- Para copiar desde otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro origen de formato](#other-format-source) sección.
+- Para copiar desde **Formato de texto delimitado y Parquet**, consulte la sección [Origen de formato de texto delimitado y Parquet](#parquet-and-delimited-text-format-source).
+- Para copiar desde otros formatos como **ORC, Avro, JSON o binario**, consulte la sección [Otro origen de formato](#other-format-source).
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet y origen del formato de texto delimitado
+#### <a name="parquet-and-delimited-text-format-source"></a>Origen de formato de texto delimitado y Parquet
 
-Para copiar datos desde Amazon S3 en **Parquet o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo sobre el origen de la actividad de copia basada en el formato y configuraciones admitidas. Las siguientes propiedades son compatibles con Amazon S3 en `storeSettings` configuración en el origen de copia basada en el formato:
+Para copiar datos desde Amazon S3 en **Formato de texto delimitado o Parquet**, consulte [Formato Parquet](format-parquet.md) y el artículo [Formato de texto delimitado](format-delimited-text.md) sobre el origen de la actividad de copia basado en formato y las configuraciones admitidas. Las propiedades siguientes se admiten para Amazon S3 en la configuración `storeSettings` del origen de la actividad de copia basado en formato:
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | La propiedad type en `storeSettings` debe establecerse en **AmazonS3ReadSetting**. | Sí                                                         |
-| recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                                           |
-| prefix                   | Prefijo para la clave del objeto S3 en el depósito especificado configurado en el conjunto de datos para filtrar objetos de origen. Se seleccionan objetos cuyas claves comienzan por este prefijo. <br>Solo se aplica cuando `wildcardFolderPath` y `wildcardFileName` no se especifican propiedades. | Sin                                                           |
-| wildcardFolderPath       | La ruta de acceso de carpeta con caracteres comodín en el depósito especificado configurado en el conjunto de datos a las carpetas de origen del filtro. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                                           |
-| wildcardFileName         | El nombre de archivo con caracteres comodín en el depósito determinado + folderPath/wildcardFolderPath para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí si `fileName` en el conjunto de datos y `prefix` no se han especificado |
-| modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora. | Sin                                                           |
-| modifiedDatetimeEnd      | Igual que el anterior.                                               | Sin                                                           |
-| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | No                                                          |
+| Tipo                     | La propiedad type de `storeSettings` se debe establecer en **AmazonS3ReadSetting**. | Sí                                                         |
+| recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                                          |
+| prefix                   | Prefijo para la clave del objeto S3 en el depósito especificado configurado en el conjunto de datos para filtrar objetos de origen. Se seleccionan objetos cuyas claves comienzan por este prefijo. <br>Solo se aplica cuando no se especifican las propiedades `wildcardFolderPath` y `wildcardFileName`. | Sin                                                          |
+| wildcardFolderPath       | Ruta de acceso de carpeta con caracteres comodín en el depósito especificado configurado en el conjunto de datos para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                                          |
+| wildcardFileName         | Nombre de archivo con caracteres comodín en el depósito y la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí, si no se han especificado `fileName` en el conjunto de datos y `prefix`. |
+| modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora. | Sin                                                          |
+| modifiedDatetimeEnd      | Igual que el anterior.                                               | Sin                                                          |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin                                                          |
 
 > [!NOTE]
-> Para Parquet/texto delimitado con **FileSystemSource** todavía se admite como origen de la actividad de copia tipo mencionado en la siguiente sección: sirve para la compatibilidad con versiones anteriores. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+> Para el formato de texto delimitado o Parquet, todavía se admite tal cual el origen de actividad de copia de tipo **FileSystemSource** mencionado en la sección siguiente para la compatibilidad con versiones anteriores. A partir de ahora se sugiere usar este modelo nuevo, y la interfaz de usuario de creación de ADF ha cambiado para generar estos nuevos tipos.
 
 **Ejemplo:**
 
@@ -290,13 +290,13 @@ Para copiar datos desde Amazon S3 en **Parquet o formato de texto delimitado**, 
 
 #### <a name="other-format-source"></a>Otro origen de formato
 
-Para copiar datos desde Amazon S3 en **formato ORC/Avro/JSON/binario**, se admiten las siguientes propiedades en la actividad de copia **origen** sección:
+Para copiar datos desde Amazon S3 en **formato ORC, Avro, JSON o binario**, se admiten las propiedades siguientes en la sección **source** (origen) de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
-| maxConcurrentConnections | El número de conexiones para conectarse al almacén de datos al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin  |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de datos de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin |
 
 **Ejemplo:**
 

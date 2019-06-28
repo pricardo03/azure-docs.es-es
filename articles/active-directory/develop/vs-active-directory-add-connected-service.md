@@ -15,10 +15,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65414009"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adición de Azure Active Directory con Servicios conectados en Visual Studio
@@ -32,7 +32,7 @@ En la actualidad, el servicio conectado de Active Directory no es compatible con
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Cuenta de Azure: si todavía no tiene ninguna cuenta de Azure, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** o posterior. [Descargue ahora Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2015** o posterior. [Descargue Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Conexión con Azure Active Directory mediante el cuadro de diálogo Servicios conectados
 
@@ -48,7 +48,7 @@ En la actualidad, el servicio conectado de Active Directory no es compatible con
 
     ![Página de introducción](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. En la página **Inicio de sesión único**, seleccione un dominio desde la lista desplegable **Dominio**. La lista contiene todos los dominios accesibles para las cuentas enumeradas en el cuadro de diálogo de configuración de la cuenta de Visual Studio (**Archivo > Configuración de la cuenta...**). Como alternativa, puede escribir un nombre de dominio si no encuentra el que busca, por ejemplo, `mydomain.onmicrosoft.com`. Puede elegir la opción para crear una nueva aplicación de Azure Active Directory o usar la configuración de una aplicación de Azure Active Directory existente. Cuando termine, seleccione **Siguiente**.
+1. En la página **Inicio de sesión único**, seleccione un dominio desde la lista desplegable **Dominio**. La lista contiene todos los dominios accesibles para las cuentas enumeradas en el cuadro de diálogo de configuración de la cuenta de Visual Studio (**Archivo > Configuración de la cuenta...** ). Como alternativa, puede escribir un nombre de dominio si no encuentra el que busca, por ejemplo, `mydomain.onmicrosoft.com`. Puede elegir la opción para crear una nueva aplicación de Azure Active Directory o usar la configuración de una aplicación de Azure Active Directory existente. Cuando termine, seleccione **Siguiente**.
 
     ![Página de inicio de sesión único](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

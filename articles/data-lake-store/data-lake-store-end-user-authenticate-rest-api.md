@@ -1,5 +1,5 @@
 ---
-title: 'Autenticación de usuario final: API de REST con Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs'
+title: 'Autenticación de usuario final: API REST con Azure Data Lake Storage Gen1 mediante Azure Active Directory | Microsoft Docs'
 description: Aprenda a lograr la autenticación del usuario final con Azure Data Lake Storage Gen1 mediante Azure Active Directory con API REST
 services: data-lake-store
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877829"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticación del usuario final con Azure Data Lake Storage Gen1 mediante API REST
@@ -35,7 +35,7 @@ En este artículo, obtendrá información sobre cómo usar la API REST para real
 
 * **Cree una aplicación "nativa" de Azure Active Directory**. Debe completar los pasos descritos en [Autenticación de usuario final con Data Lake Storage Gen1 mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](https://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)** . En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Data Lake Storage Gen1.
 
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
 La autenticación de usuario final es el enfoque recomendado si quiere que un usuario inicie sesión en la aplicación a través de Azure AD. La aplicación puede acceder a los recursos de Azure con el mismo nivel de acceso que el usuario que ha iniciado sesión. El usuario tiene que proporcionar sus credenciales periódicamente para que la aplicación conserve el acceso.

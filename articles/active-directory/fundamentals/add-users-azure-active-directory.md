@@ -14,20 +14,20 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60247739"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Incorporación o eliminación de usuarios mediante Azure Active Directory
-Agregar nuevos usuarios o eliminar usuarios existentes de la organización de Azure Active Directory (Azure AD).
+Agregue usuarios nuevos o elimine usuarios existentes desde la organización de Azure Active Directory (Azure AD).
 
 ## <a name="add-a-new-user"></a>Agregar un nuevo usuario
 Puede crear un nuevo usuario con el portal de Azure Active Directory.
 
 ### <a name="to-add-a-new-user"></a>Agregar un nuevo usuario
-1. Inicie sesión en el [portal Azure](https://portal.azure.com/) como un usuario administrador para la organización.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de usuarios para la organización.
 
 2. Seleccione **Azure Active Directory**, **Usuarios** y, a continuación, **Nuevo usuario**.
 
@@ -47,7 +47,7 @@ Puede crear un nuevo usuario con el portal de Azure Active Directory.
 
    - **Grupos.** Si quiere, puede agregar el usuario a uno o varios de los grupos existentes. También puede agregar el usuario a grupos en un momento posterior. Para obtener más información acerca de cómo agregar usuarios a grupos, consulte [Creación de un grupo básico y adición de miembros](active-directory-groups-create-azure-portal.md).
 
-   - **Rol del directorio.** Si lo desea, puede agregar el usuario a un rol de administrador de Azure AD. Puede asignar el usuario sea un administrador Global o uno o varios de los roles de administrador limitado en Azure AD. Para obtener más información sobre la asignación de roles, consulte [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md).
+   - **Rol del directorio.** Si lo desea, puede agregar el usuario a un rol de administrador de Azure AD. Puede asignar el rol de administrador global al usuario, o uno o varios de los otros roles de administrador limitados de Azure AD. Para obtener más información sobre la asignación de roles, consulte [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md).
 
 4. Copie la contraseña generada automáticamente proporcionada en el cuadro de texto **Contraseña**. Deberá proporcionar esta contraseña al usuario para el proceso inicial de inicio de sesión.
 
@@ -62,7 +62,7 @@ Si tiene un entorno con Azure Active Directory (nube) y Windows Server Active Di
 Puede eliminar un usuario existente mediante el portal de Azure Active Directory.
 
 ### <a name="to-delete-a-user"></a>Para eliminar un usuario
-1. Inicie sesión en el [portal Azure](https://portal.azure.com/) con una cuenta de usuario Administrador de la organización.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de administrador de usuarios para la organización.
 
 2. Seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, busque y seleccione el usuario que quiera eliminar de su inquilino de Azure AD. Por ejemplo, _Mary Parker_.
 
@@ -70,7 +70,7 @@ Puede eliminar un usuario existente mediante el portal de Azure Active Directory
 
     ![Página Users - All users (Usuarios: Todos los usuarios) con Eliminar usuario resaltado](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    El usuario se elimina y ya no aparece en la página **Users - All users** (Usuarios: Todos los usuarios). El usuario se puede ver en la página **Usuarios eliminados** durante los próximos 30 días y puede restaurarse durante ese tiempo. Para obtener más información acerca de cómo restaurar un usuario, consulte [How to restore or permanently remove a recently deleted user](active-directory-users-restore.md) (Cómo restaurar o quitar de forma permanente un usuario recién eliminado). Cuando se elimina un usuario, las licencias consumidas por el usuario se ponen a disposición de otros usuarios a ser consumidos.
+    El usuario se elimina y ya no aparece en la página **Users - All users** (Usuarios: Todos los usuarios). El usuario se puede ver en la página **Usuarios eliminados** durante los próximos 30 días y puede restaurarse durante ese tiempo. Para obtener más información acerca de cómo restaurar un usuario, consulte [How to restore or permanently remove a recently deleted user](active-directory-users-restore.md) (Cómo restaurar o quitar de forma permanente un usuario recién eliminado). Cuando se elimina un usuario, las licencias consumidas por el usuario se ponen a disposición de otros usuarios para que se puedan consumir.
 
     >[!Note]
     >Debe usar Windows Server Active Directory para actualizar la identidad, la información de contacto o la información del trabajo para los usuarios cuyo origen de autoridad es Windows Server Active Directory. Después de completar la actualización, debe esperar a que se complete el próximo ciclo de sincronización antes de poder ver los cambios.

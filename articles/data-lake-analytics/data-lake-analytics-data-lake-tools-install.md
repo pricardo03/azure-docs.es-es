@@ -10,10 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408144"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Instalación de Data Lake Tools para Visual Studio
@@ -22,7 +22,7 @@ Aprenda a usar Visual Studio para crear cuentas de Azure Data Lake Analytics, de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Visual Studio**: Se admiten todas las ediciones excepto Express.
+* **Visual Studio**: se admiten todas las ediciones, excepto Express.
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
@@ -33,9 +33,9 @@ Aprenda a usar Visual Studio para crear cuentas de Azure Data Lake Analytics, de
 
 Herramientas de Azure Data Lake para Visual Studio se puede usar en Visual Studio 2017 15.3 o versiones posteriores. Las herramientas forman parte de las cargas de trabajo **Almacenamiento y procesamiento de datos** y **Desarrollo de Azure** en Instalador de Visual Studio. Habilite cualquiera de estas dos cargas como parte de la instalación de Visual Studio.  
 
-Habilite la carga de trabajo de **procesamiento y almacenamiento de datos** como se muestra: ![Habilitar la carga de trabajo de procesamiento y almacenamiento de datos](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
+Habilite la carga de trabajo de **procesamiento y almacenamiento de datos** como se muestra: ![Habilitar carga de trabajo de procesamiento y almacenamiento de datos](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png)
 
-Habilite la carga de trabajo de **desarrollo de Azure** como se muestra: ![Habilitar la carga de trabajo de desarrollo de Azure](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
+Habilite la carga de trabajo de **desarrollo de Azure** como se muestra: ![Habilitar carga de trabajo de desarrollo de Azure](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png)
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Instalación de Herramientas de Azure Data Lake para Visual Studio 2013 y 2015
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
 ms.openlocfilehash: 9654fd66faa1f745f25494e8b54625a92eb1745b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111620"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Equilibrio de carga en varias configuraciones de IP mediante PowerShell
@@ -143,4 +143,4 @@ Siga estos pasos para reproducir el escenario que se describe en este artículo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre cómo combinar servicios de equilibrio de carga en Azure en [Uso de servicios de equilibrio de carga de Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Aprenda cómo puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibrador de carga en [registros de Azure Monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Obtenga información sobre cómo usar diferentes tipos de registros en Azure para administrar y solucionar los problemas del equilibrador de carga en [Registros de Azure Monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

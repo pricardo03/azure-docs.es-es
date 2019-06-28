@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: crdun
 ms.openlocfilehash: 63c54f8af91b6b4a76ba49d5e6fc7b3cda9f5b98
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240309"
 ---
 1. Abra el proyecto mediante **Android Studio**, con **Importar proyecto (Eclipse ADT, Gradle, etc.)** . Asegúrese de que realice esta selección de importación para evitar los errores del JDK.
 
-2. Abra el archivo `ToDoActivity.java` en esta carpeta - ZUMOAPPNAME/aplicación/src/main/java/com/ejemplo/zumoappname. Es el nombre de la aplicación `ZUMOAPPNAME`.
+2. Abra el archivo `ToDoActivity.java` en esta carpeta ZUMOAPPNAME/aplicación/src/main/java/com/example/zumoappname. El nombre de la aplicación es `ZUMOAPPNAME`.
 
-3. Vaya a la [portal Azure](https://portal.azure.com/) y vaya a la aplicación móvil que ha creado. En el `Overview` hoja, busque la dirección URL que es el punto de conexión público para la aplicación móvil. Por ejemplo, será el nombre del sitio para el nombre de mi aplicación "test123" https://test123.azurewebsites.net.
+3. Vaya a [Azure Portal](https://portal.azure.com/) y diríjase a la aplicación móvil que ha creado. En la hoja `Overview`, busque la dirección URL que es el punto de conexión público de la aplicación móvil. Por ejemplo, el nombre de sitio para el nombre de mi aplicación "test123" será https://test123.azurewebsites.net.
 
-4. En `onCreate()` método, reemplace `ZUMOAPPURL` parámetro con el punto de conexión público anterior.
+4. En el método `onCreate()`, reemplace el parámetro `ZUMOAPPURL` por el punto de conexión público anterior.
     
     `new MobileServiceClient("ZUMOAPPURL", this).withFilter(new ProgressFilter());` 
     

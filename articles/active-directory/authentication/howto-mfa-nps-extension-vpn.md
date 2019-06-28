@@ -1,5 +1,5 @@
 ---
-title: Integración de VPN con Azure MFA mediante el uso de la extensión de servidor de directivas de redes - Azure Active Directory
+title: 'Integración de VPN con Azure MFA mediante la extensión Servidor de directivas de redes: Azure Active Directory'
 description: Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570643"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
@@ -57,7 +57,7 @@ Cuando los usuarios se conectan a un puerto virtual en un servidor VPN, primero 
 
 Además de la autenticación y verificación de identidad, los usuarios deben tener los permisos adecuados de acceso telefónico. En implementaciones sencillas, los permisos de acceso telefónico que permiten tener acceso se establecen directamente en los objetos de usuario de Active Directory.
 
-![Ficha de propiedades de usuario de equipos y usuarios de Active Directory](./media/howto-mfa-nps-extension-vpn/image1.png)
+![Pestaña Marcado en las propiedades de usuario para equipos y usuarios de Active Directory](./media/howto-mfa-nps-extension-vpn/image1.png)
 
 En implementaciones sencillas, cada servidor VPN concede o deniega el acceso en función de las directivas definidas en cada servidor VPN local.
 
@@ -76,7 +76,7 @@ Cuando la extensión NPS para Azure está integrada con NPS, el flujo de una aut
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Esta sección detallan los requisitos previos que deben completarse antes de integrar MFA con la VPN. Antes de comenzar, debe cumplir los siguientes requisitos previos:
+En esta sección se detallan los requisitos previos que hay que cumplir antes de integrar MFA con la VPN. Antes de comenzar, debe cumplir los siguientes requisitos previos:
 
 * Infraestructura de VPN
 * Rol Servicios de acceso y directivas de redes
@@ -145,7 +145,7 @@ Para que funcione correctamente en este escenario, el servidor NPS debe estar re
 
 3. En la consola del Servidor de directivas de redes, haga clic con el botón derecho en **NPS (Local)** y después seleccione **Registrar servidor en Active Directory**. Seleccione **Aceptar** dos veces.
 
-    ![Registrar servidor en la opción de menú de Active Directory](./media/howto-mfa-nps-extension-vpn/image2.png)
+    ![Opción de menú Registro del servidor en Active Directory](./media/howto-mfa-nps-extension-vpn/image2.png)
 
 4. Deje la consola abierta para el siguiente procedimiento.
 
@@ -153,21 +153,21 @@ Para que funcione correctamente en este escenario, el servidor NPS debe estar re
 
 Puede usar la opción de configuración estándar (basada en asistente) o la opción avanzada para configurar el servidor RADIUS. En esta sección se supone que usa la opción de configuración estándar con el asistente.
 
-1. En la consola del Servidor de directivas de redes, seleccione **NPS (Local)**.
+1. En la consola del Servidor de directivas de redes, seleccione **NPS (Local)** .
 
 2. En **Configuración estándar**, seleccione **Servidor RADIUS para conexiones VPN o de acceso telefónico** y después seleccione **Configurar VPN o acceso telefónico**.
 
-    ![Configurar el servidor RADIUS para conexiones VPN o telefónico](./media/howto-mfa-nps-extension-vpn/image3.png)
+    ![Configuración del servidor RADIUS para conexiones de acceso telefónico o VPN](./media/howto-mfa-nps-extension-vpn/image3.png)
 
 3. En la ventana **Seleccionar tipo de conexiones de red privada virtual o de acceso telefónico**, seleccione **Virtual Private Network Connections** (Conexiones de red privada virtual) y **Siguiente**.
 
-    ![Configurar conexiones de red privada Virtual](./media/howto-mfa-nps-extension-vpn/image4.png)
+    ![Configuración de las conexiones de la red privada virtual](./media/howto-mfa-nps-extension-vpn/image4.png)
 
 4. En la página **Especificar servidor VPN o de acceso telefónico**, haga clic en **Agregar**.
 
 5. En la ventana **Nuevo cliente RADIUS**, proporcione un nombre descriptivo, escriba el nombre para resolver o la dirección IP del servidor VPN y escriba una contraseña secreta compartida. Elija una contraseña secreta compartida larga y compleja. Anótela, porque la necesitará en esta sección.
 
-    ![Crear una ventana de cliente RADIUS nuevo](./media/howto-mfa-nps-extension-vpn/image5.png)
+    ![Creación de una nueva ventana de conmutador compatible con 802.1X](./media/howto-mfa-nps-extension-vpn/image5.png)
 
 6. Seleccione **Aceptar** y después **Siguiente**.
 
@@ -178,7 +178,7 @@ Puede usar la opción de configuración estándar (basada en asistente) o la opc
 
 8. En la ventana **Especificar grupos de usuarios**, seleccione **Agregar** y después elija un grupo apropiado. Si no existe ningún grupo, deje la selección en blanco para conceder acceso a todos los usuarios.
 
-    ![Especifique la ventana de grupos de usuarios para permitir o denegar el acceso](./media/howto-mfa-nps-extension-vpn/image7.png)
+    ![Especificación en la ventana Grupos de usuarios para permitir o denegar el acceso](./media/howto-mfa-nps-extension-vpn/image7.png)
 
 9. Seleccione **Next** (Siguiente).
 
@@ -194,7 +194,7 @@ Puede usar la opción de configuración estándar (basada en asistente) o la opc
 
 13. En la ventana **Finalización de nuevas conexiones de acceso telefónico o red privada virtual y clientes RADIUS**, seleccione **Finalizar**.
 
-    ![Ventana de configuración completada](./media/howto-mfa-nps-extension-vpn/image10.png)
+    ![Ventana Configuración completa](./media/howto-mfa-nps-extension-vpn/image10.png)
 
 ### <a name="verify-the-radius-configuration"></a>Verificación de la configuración de RADIUS
 
@@ -204,7 +204,7 @@ En esta sección se detalla la configuración creada con el asistente.
 
 2. En el panel de detalles, haga clic con el botón derecho en el cliente RADIUS que ha creado y después seleccione **Propiedades**. Las propiedades del cliente RADIUS (el servidor VPN) deben ser similares a las que se muestran a continuación:
 
-    ![Compruebe las propiedades VPN y configuración](./media/howto-mfa-nps-extension-vpn/image11.png)
+    ![Compruebe las propiedades VPN y la configuración](./media/howto-mfa-nps-extension-vpn/image11.png)
 
 3. Seleccione **Cancelar**.
 
@@ -214,7 +214,7 @@ En esta sección se detalla la configuración creada con el asistente.
 
 5. En **Directivas**, seleccione **Directivas de red**. Debería ver una directiva de conexiones de red privada virtual (VPN), parecida a la directiva que aparece en la imagen siguiente:
 
-    ![Directivas de red que muestra la directiva de conexiones de red privada Virtual](./media/howto-mfa-nps-extension-vpn/image13.png)
+    ![Directivas de red que muestran la directiva de conexiones de la red privada virtual](./media/howto-mfa-nps-extension-vpn/image13.png)
 
 ## <a name="configure-your-vpn-server-to-use-radius-authentication"></a>Configuración del servidor VPN para que utilice la autenticación RADIUS
 
@@ -232,24 +232,24 @@ En esta sección, configurará el servidor VPN para utilizar la autenticación R
 
 3. En la ventana **Enrutamiento y acceso remoto**, haga clic con el botón derecho en **\<nombre del servidor> (local)** y después seleccione **Propiedades**.
 
-4. En la ventana **Propiedades de \<nombre del servidor> (local)**, seleccione la pestaña **Seguridad**.
+4. En la ventana **Propiedades de \<nombre del servidor> (local)** , seleccione la pestaña **Seguridad**.
 
 5. En la pestaña **Seguridad**, en **Proveedor de autenticación**, seleccione **Autenticación RADIUS** y después **Configurar**.
 
-    ![Configurar el proveedor de autenticación RADIUS](./media/howto-mfa-nps-extension-vpn/image15.png)
+    ![Configuración del proveedor de autenticación de RADIUS](./media/howto-mfa-nps-extension-vpn/image15.png)
 
 6. En la ventana **Autenticación RADIUS**, seleccione **Agregar**.
 
 7. En la ventana **Agregar servidor RADIUS**, haga lo siguiente:
 
-     a. En el cuadro **Nombre del servidor**, escriba el nombre o la dirección IP del servidor RADIUS configurado en la sección anterior.
+    a. En el cuadro **Nombre del servidor**, escriba el nombre o la dirección IP del servidor RADIUS configurado en la sección anterior.
 
     b. En **Secreto compartido**, seleccione **Cambiar** y agregue la contraseña secreta compartida que creó y anotó anteriormente.
 
-    c. En el cuadro **Tiempo de espera (en segundos)**, seleccione un valor de **30** a **60**.  
+    c. En el cuadro **Tiempo de espera (en segundos)** , seleccione un valor de **30** a **60**.  
     El valor de tiempo es necesario para dar tiempo suficiente para completar el segundo factor de autenticación.
 
-    ![Agregar ventana Configurar el tiempo de espera del servidor RADIUS](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Ventana Agregar servidor de RADIUS que configura el tiempo de espera](./media/howto-mfa-nps-extension-vpn/image16.png)
 
 8. Seleccione **Aceptar**.
 
@@ -269,7 +269,7 @@ En esta sección, confirmará que el cliente VPN se autentica y es autorizado po
 
 4. Seleccione **Agregar una conexión VPN**.
 
-5. En la ventana **Agregar una conexión VPN**, en el cuadro **Proveedor de VPN**, seleccione **Windows (integrado)**, complete los campos restantes según corresponda y después seleccione **Guardar**.
+5. En la ventana **Agregar una conexión VPN**, en el cuadro **Proveedor de VPN**, seleccione **Windows (integrado)** , complete los campos restantes según corresponda y después seleccione **Guardar**.
 
     ![Ventana "Agregar una conexión VPN"](./media/howto-mfa-nps-extension-vpn/image17.png)
 
@@ -277,7 +277,7 @@ En esta sección, confirmará que el cliente VPN se autentica y es autorizado po
 
 7. Seleccione **Cambiar configuración del adaptador**.
 
-    ![Centro de redes y recursos compartidos - cambiar configuración del adaptador](./media/howto-mfa-nps-extension-vpn/image18.png)
+    ![Centro de redes y recursos compartidos: Cambiar configuración del adaptador](./media/howto-mfa-nps-extension-vpn/image18.png)
 
 8. Haga clic con el botón derecho en la conexión de red VPN y después seleccione **Propiedades**.
 
@@ -290,9 +290,9 @@ En esta sección, confirmará que el cliente VPN se autentica y es autorizado po
 11. Haga clic con el botón derecho en la conexión VPN y después seleccione **Conectar**.
 
 12. En la ventana **Configuración**, seleccione **Conectar**.  
-    Aparece una conexión correcta en el registro de seguridad, en el servidor RADIUS, evento identificador 6272, como se muestra aquí:
+    Aparece una conexión correcta en el registro de seguridad en el servidor RADIUS con el identificador de evento 6272, como se muestra a continuación:
 
-    ![Ventana de propiedades de evento que se muestra una conexión correcta](./media/howto-mfa-nps-extension-vpn/image21.png)
+    ![Ventana Propiedades de evento que muestra una conexión correcta](./media/howto-mfa-nps-extension-vpn/image21.png)
 
 ## <a name="troubleshooting-radius"></a>Solución de problemas de RADIUS
 
@@ -300,7 +300,7 @@ Se supone que la configuración de VPN funcionaba correctamente antes de configu
 
 Para solucionar estos problemas, un lugar ideal para comenzar es examinar los registros de eventos de seguridad en el servidor RADIUS. Para ahorrar tiempo buscando eventos, puede utilizar la vista personalizada basada en roles Servidor de directivas de red y acceso en el Visor de eventos, como se muestra a continuación. El "identificador de evento 6273" indica eventos en los que el servidor NPS deniega el acceso a un usuario.
 
-![Eventos de Event Viewer mostrando NPAS](./media/howto-mfa-nps-extension-vpn/image22.png)
+![Visor de eventos que muestra eventos de NPAS](./media/howto-mfa-nps-extension-vpn/image22.png)
 
 ## <a name="configure-multi-factor-authentication"></a>Configuración de Multi-Factor Authentication
 
@@ -334,11 +334,11 @@ Como parte de la configuración de la extensión NPS, debe proporcionar las cred
 
 4. Para copiar el identificador de Azure AD, seleccione el botón **Copiar**.
 
-    ![Identificador de directorio de Azure AD en Azure portal](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![Identificador de directorio de Azure AD en Azure Portal](./media/howto-mfa-nps-extension-vpn/image35.png)
 
 ### <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 
-La extensión NPS debe instalarse en un servidor que tenga el rol Servicios de acceso y directivas de redes instalado y que funcione como servidor RADIUS en el diseño. Hacer *no* instalar la extensión NPS en el servidor VPN.
+La extensión NPS debe instalarse en un servidor que tenga el rol Servicios de acceso y directivas de redes instalado y que funcione como servidor RADIUS en el diseño. *No* instale la extensión NPS en el servidor VPN.
 
 1. Descargue la extensión NPS desde el [Centro de descarga de Microsoft](https://aka.ms/npsmfa).
 
@@ -374,7 +374,7 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
 2. En el símbolo del sistema de PowerShell, escriba **cd "c:\Program Files\Microsoft\AzureMfa\Config"** y presione ENTRAR.
 
-3. En la siguiente ventana del símbolo del sistema, escriba **.\AzureMfaNpsExtnConfigSetup.ps1**y, a continuación, presione ENTRAR. El script comprueba si está instalado el módulo de PowerShell de Azure AD. Si no está instalado, el script instala el módulo.
+3. En la siguiente ventana del símbolo del sistema, escriba **.\AzureMfaNpsExtnConfigSetup.ps1** y presione ENTRAR. El script comprueba si está instalado el módulo de PowerShell de Azure AD. Si no está instalado, el script instala el módulo.
 
     ![Ejecutar el script de configuración AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
@@ -382,15 +382,15 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
 4. Escriba sus credenciales de administrador de Azure AD y después seleccione **Iniciar sesión**.
 
-    ![Autenticarse en Azure AD PowerShell](./media/howto-mfa-nps-extension-vpn/image39.png)
+    ![Autenticación en Azure AD PowerShell](./media/howto-mfa-nps-extension-vpn/image39.png)
 
 5. En el símbolo del sistema, pegue el identificador del inquilino que copió anteriormente y después presione ENTRAR.
 
-    ![Escriba el identificador de directorio de Azure AD que copió antes](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Escribir el identificador de directorio de Azure AD que copió antes](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     El script crea un certificado autofirmado y realiza otros cambios en la configuración. La salida debe ser similar a la que se muestra en la imagen siguiente:
 
-    ![PowerShell ventana que muestra un certificado autofirmado](./media/howto-mfa-nps-extension-vpn/image41.png)
+    ![Ventana de PowerShell que muestra un certificado autofirmado](./media/howto-mfa-nps-extension-vpn/image41.png)
 
 6. Reinicie el servidor.
 
@@ -410,7 +410,7 @@ Una vez que se haya autenticado correctamente con el método secundario, se le c
 
 ### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>Visualización de los registros del Visor de eventos para eventos de inicio de sesión correcto
 
-Para ver los eventos de inicio de sesión correctos en los registros del Visor de eventos de Windows consulte el registro de seguridad de Windows en el servidor NPS, escribiendo el siguiente comando de PowerShell:
+Para ver los eventos de inicio de sesión correctos en los registros del Visor de eventos de Windows, escriba el siguiente comando de PowerShell para consultar el registro de seguridad de Windows en el servidor NPS:
 
     `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
 
@@ -418,13 +418,13 @@ Para ver los eventos de inicio de sesión correctos en los registros del Visor d
 
 También puede ver el registro de seguridad o la vista personalizada de Servicios de acceso y directivas de redes, tal y como se muestra a continuación:
 
-![Registro de servidor de directivas de red de ejemplo](./media/howto-mfa-nps-extension-vpn/image45.png)
+![Ejemplo de registro del Servidor de directivas de redes](./media/howto-mfa-nps-extension-vpn/image45.png)
 
 En el servidor donde instaló la extensión NPS para Azure Multi-Factor Authentication, puede encontrar registros de aplicación del Visor de eventos específicos de la extensión en *Application and Services Logs\Microsoft\AzureMfa*.
 
     `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
 
-![Panel de registros de AuthZ de Visor de eventos de ejemplo](./media/howto-mfa-nps-extension-vpn/image46.png)
+![Ejemplo de panel de registros de AuthZ del Visor de eventos](./media/howto-mfa-nps-extension-vpn/image46.png)
 
 ## <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -444,11 +444,11 @@ Para realizar opciones avanzadas de solución de problemas, consulte los archivo
 
 Las entradas de estos archivos de registro son difíciles de interpretar, a menos que los exporte en una hoja de cálculo o una base de datos. Puede encontrar muchas herramientas de análisis del Servicio de autenticación de Internet en línea para facilitar la interpretación de los archivos de registro. A continuación, se muestra la salida de una [aplicación shareware](https://www.deepsoftware.com/iasviewer) que se puede descargar:
 
-![Analizador de Shareware NIC de la aplicación de ejemplo](./media/howto-mfa-nps-extension-vpn/image49.png)
+![Analizador de IAS de aplicación shareware de ejemplo](./media/howto-mfa-nps-extension-vpn/image49.png)
 
 Para más opciones de solución de problemas, puede utilizar un analizador de protocolos, como Wireshark o el [Analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx). La siguiente imagen de Wireshark muestra los mensajes RADIUS entre el servidor VPN y el servidor NPS.
 
-![Microsoft Message Analyzer, que muestra el filtrado tráfico](./media/howto-mfa-nps-extension-vpn/image50.png)
+![Analizador de mensajes de Microsoft que muestra el tráfico filtrado](./media/howto-mfa-nps-extension-vpn/image50.png)
 
 Para más información, consulte [Integración de la infraestructura NPS existente con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Supervisión y registro en la protección con contraseña de Azure AD - Azure Active Directory
+title: 'Supervisión y registro en Protección de contraseñas de Azure AD: Azure Active Directory'
 description: Información sobre la supervisión y el registro de la protección con contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414807"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervisión y registro de la protección con contraseña de Azure AD
 
 Una vez realizada la implementación de protección con contraseña de Azure AD, la supervisión y la notificación son tareas fundamentales. En este artículo se ofrece información detallada para ayudarle a conocer las distintas técnicas de supervisión, además de explicar dónde registra cada servicio la información y cómo envía notificaciones sobre el uso de la protección con contraseña de Azure AD.
 
-Supervisión e informes se realizan mediante mensajes de registro de eventos o mediante la ejecución de cmdlets de PowerShell. El DC agente proxy de servicios y ambos registrar los mensajes de registro de eventos. Todos los cmdlets de PowerShell que se describe a continuación solo están disponibles en el servidor proxy (consulte el módulo AzureADPasswordProtection PowerShell). El software del agente DC no instala un módulo de PowerShell.
+La supervisión y el registro se realizan mediante mensajes de registro de eventos o mediante la ejecución de cmdlets de PowerShell. Los servicios del agente de controlador de dominio y de proxy registran mensajes en el registro de eventos. Todos los cmdlets de PowerShell que se describe a continuación solo están disponibles en el servidor proxy (consulte el módulo de PowerShell AzureADPasswordProtection). El software del agente de controlador de dominio no instala ningún módulo de PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Registro de eventos del agente de controlador de dominio
 
@@ -314,7 +314,7 @@ El registro de texto está deshabilitado de manera predeterminada. El reinicio d
 
 Los cmdlets de PowerShell que producen un cambio de estado (por ejemplo, Register-AzureADPasswordProtectionProxy) normalmente registrarán un evento de resultado en el registro operativo.
 
-Además, la mayoría de los cmdlets de PowerShell de protección de contraseña de Azure AD escribirá en un registro de texto que se encuentra en:
+Además, la mayoría de los cmdlets de PowerShell de la protección con contraseña de Azure AD escribirán en un registro de texto que se encuentra en:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

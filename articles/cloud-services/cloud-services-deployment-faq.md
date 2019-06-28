@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337330"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación de servicios en la nube de Azure: Preguntas más frecuentes (P+F)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación de Azure Cloud Services: Preguntas más frecuentes (P+F)
 
 En este artículo se incluyen preguntas frecuentes sobre problemas de implementación con [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
 
@@ -33,29 +33,29 @@ Si un servicio en la nube tiene una implementación en cualquier ranura, todo el
 
 La asignación produce un error cuando el clúster del servicio en la nube no tiene los recursos de proceso físicos suficientes para la solicitud de implementación.
 
-Para ayudar a mitigar estos errores de asignación, consulte [error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
+Como ayuda para mitigar estos errores de asignación, consulte [Error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>¿Por qué produce a veces un error de asignación el escalado vertical u horizontal de la implementación de un servicio en la nube?
 Cuando se implementa un servicio en la nube, suele anclarse a un clúster concreto. Esto significa que el escalado vertical u horizontal de un servicio en la nube existente debe asignar instancias nuevas en el mismo clúster. Si el clúster está casi lleno o el tamaño o tipo de máquina virtual deseado no está disponible, se puede producir un error en la solicitud.
 
-Para ayudar a mitigar estos errores de asignación, consulte [error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
+Como ayuda para mitigar estos errores de asignación, consulte [Error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>¿Por qué implementar un servicio en la nube en un grupo de afinidad a veces produce un error de asignación?
 Una nueva implementación en un servicio en la nube vacío se puede asignar mediante el tejido en cualquier clúster de esa región, a menos que el servicio en la nube esté anclado a un grupo de afinidad. Las implementaciones en el mismo grupo de afinidad se intentarán en el mismo clúster. Si la capacidad del clúster se está agotando, se puede producir un error en la solicitud.
 
-Para ayudar a mitigar estos errores de asignación, consulte [error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
+Como ayuda para mitigar estos errores de asignación, consulte [Error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>¿Por qué cambiar el tamaño de máquina virtual o agregar una nueva a un servicio en la nube existente produce a veces un error de asignación?
 Los clústeres de un centro de datos pueden tener configuraciones de tipos de máquina diferentes (p. ej., serie A, serie Av2, serie D, serie Dv2, serie G, serie H, etc.). Pero no todos los clústeres tienen necesariamente todos los tipos de máquina virtual. Por ejemplo, si intenta agregar una máquina virtual serie D a un servicio en la nube que ya se ha implementado en un clúster de serie A únicamente, se producirá un error de asignación. Esto también sucede si se intenta cambiar los tamaños de SKU de máquina virtual (por ejemplo, de una serie A a una serie D).
 
-Para ayudar a mitigar estos errores de asignación, consulte [error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
+Como ayuda para mitigar estos errores de asignación, consulte [Error de asignación de servicio en la nube: Soluciones](cloud-services-allocation-failures.md#solutions).
 
 Para comprobar los tamaños disponibles en su región, consulte [Microsoft Azure: Productos disponibles por región](https://azure.microsoft.com/regions/services).
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>¿Por qué implementar un servicio en la nube en ocasiones produce errores por límites, cuotas o restricciones en la suscripción o el servicio?
 La implementación de un servicio en la nube puede producir un error si los recursos que deben asignarse superan la cuota máxima o permitida o predeterminada para su servicio en el nivel de región/centro de datos. Para más información, consulte [Límites de Cloud Services](../azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-También puede realizar seguimiento del uso o la cuota actual de la suscripción en el portal: Azure portal = > suscripciones = > \<suscripción correspondiente > = > "Uso y cuota".
+También puede realizar el seguimiento del uso o la cuota actual de la suscripción en el portal: Azure Portal => Suscripciones => \<suscripción correspondiente> => "Usage + quota" (Uso y cuota).
 
 También se puede recuperar la información de consumo y del uso de recursos a través de las API de facturación de Azure. Consulte [API de uso de recursos de Azure (versión preliminar)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

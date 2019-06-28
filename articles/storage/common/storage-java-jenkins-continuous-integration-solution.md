@@ -10,10 +10,10 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153662"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Jenkins
@@ -118,7 +118,7 @@ Los pasos siguientes ilustran cómo configurar un paso de compilación para desc
 1. En la sección **Build** (Compilar) de la configuración del trabajo, seleccione **Add build step** (Agregar paso de compilación) y después **Download from Azure Blob Storage** (Descargar del almacenamiento de blobs de Azure).
 2. En **Storage account name**(Nombre de cuenta de almacenamiento), seleccione la cuenta de almacenamiento que desea usar.
 3. En **Container name**(Nombre de contenedor), especifique el nombre del contenedor que tiene los blobs que desea descargar. Puede usar variables de entorno.
-4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **proyecto\\*** especificaría todos los blobs cuyos nombres empiezan por **proyecto**.
+4. En **Blob name**(Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **project\\** * especificaría todos los blobs cuyos nombres empiecen por **project**.
 5. [Opcional] En **Download path**(Ruta de acceso de la descarga), especifique la ruta de acceso de la máquina de Jenkins en la que desea descargar los archivos del almacenamiento de blobs de Azure. También se pueden usar variables de entorno. (Si no proporciona un valor para **Download path**, los archivos del almacenamiento de blobs de Azure se descargarán en el área de trabajo del trabajo).
 
 Si tiene elementos adicionales que desea descargar del almacenamiento de blobs de Azure, puede crear pasos de compilación adicionales.
@@ -137,7 +137,7 @@ Esta sección ofrece información general acerca de los componentes de Blob Serv
   
     (El formato anterior se aplica a la nube global de Azure. Si usa una nube de Azure distinta, use el punto de conexión en el [Azure Portal](https://portal.azure.com) para determinar el punto de conexión de la URL).
   
-    En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/**. El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\_ID}/${BUILD\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
+    En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/** . El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\_ID}/${BUILD\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

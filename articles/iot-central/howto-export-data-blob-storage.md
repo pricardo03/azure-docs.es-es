@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
 ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464638"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportación de datos a Azure Blob Storage
 
 *Este tema se aplica a administradores*.
 
-En este artículo se describe cómo usar la característica de exportación continua de datos en Azure IoT Central para exportar los datos periódicamente su **cuenta de Azure Blob storage**. Puede exportar **medidas**, **dispositivos** y **plantillas de dispositivo** a archivos con el formato Apache Avro. Los datos exportados se pueden utilizar para realizar análisis en frío de rutas de acceso, como modelos de entrenamiento en Azure Machine Learning o análisis de tendencias a largo plazo en Microsoft Power BI.
+En este artículo se describe cómo usar la característica de exportación de datos continuos en Azure IoT Central para exportar periódicamente datos a la **cuenta de Azure Blob Storage**. Puede exportar **medidas**, **dispositivos** y **plantillas de dispositivo** a archivos con el formato Apache Avro. Los datos exportados se pueden utilizar para realizar análisis en frío de rutas de acceso, como modelos de entrenamiento en Azure Machine Learning o análisis de tendencias a largo plazo en Microsoft Power BI.
 
 > [!Note]
 > Una vez más, cuando activa la exportación de datos continua, solo obtiene los datos a partir de ese momento. Actualmente, los datos no se pueden recuperar durante un tiempo cuando la exportación de datos continua estaba desactivada. Para conservar más datos históricos, activa la exportación continua de datos al principio.
@@ -32,7 +32,7 @@ En este artículo se describe cómo usar la característica de exportación cont
 
 ## <a name="set-up-export-destination"></a>Configuración del destino de exportación
 
-Si no tiene un almacenamiento existente para exportar a, siga estos pasos:
+Si no tiene una instancia existente de Storage a la que exportar, siga estos pasos:
 
 ## <a name="create-storage-account"></a>Crear cuenta de almacenamiento
 
@@ -43,33 +43,33 @@ Si no tiene un almacenamiento existente para exportar a, siga estos pasos:
     > [!Note] 
     > Ahora puede exportar datos a otras suscripciones que **no sean las mismas** que las de la aplicación de IoT Central de pago por uso. En este caso se conectará mediante una cadena de conexión.
 
-4. Cree un contenedor en la cuenta de almacenamiento. Vaya a la cuenta de almacenamiento. En **Blob Service** seleccione **Examinar blobs**. Seleccione **+ contenedor** en la parte superior para crear un nuevo contenedor
+4. Cree un contenedor en la cuenta de almacenamiento. Vaya a la cuenta de almacenamiento. En **Blob Service** seleccione **Examinar blobs**. Seleccione **+ Contenedor** en la parte superior para crear un contenedor.
 
 
 ## <a name="set-up-continuous-data-export"></a>Configuración de la exportación continua de datos
 
-Ahora que tiene un destino para exportar los datos de almacenamiento, siga estos pasos para configurar la exportación continua de datos. 
+Ahora que tiene un destino de Storage al que exportar los datos, siga estos pasos para configurar la exportación de datos continua. 
 
 1. Inicie sesión en su aplicación de IoT Central.
 
-2. En el menú izquierdo, seleccione **exportación continua de datos**.
+2. En el menú izquierdo, seleccione **Exportación de datos continua**.
 
     > [!Note]
     > Si no ve la exportación de datos continua en el menú izquierdo, significa que no es un administrador de la aplicación. Hable con un administrador para configurar la exportación de datos.
 
     ![Creación de un centro de eventos](media/howto-export-data/export_menu1.png)
 
-3. Seleccione el **+ nuevo** botón en la esquina superior derecha. Elija **Azure Blob Storage** como destino de la exportación. 
+3. Seleccione el botón **+ Nuevo** en la esquina superior derecha. Elija **Azure Blob Storage** como destino de la exportación. 
 
     > [!NOTE] 
     > El número máximo de exportaciones por aplicación es cinco. 
 
     ![Creación de una exportación de datos continua](media/howto-export-data/export_new1.png)
 
-4. En el cuadro de lista desplegable, seleccione su **espacio de nombres de cuenta de almacenamiento**. También puede elegir la última opción de la lista que es **Escriba una cadena de conexión**. 
+4. En el cuadro de lista desplegable, seleccione su **espacio de nombres de Storage**. También puede elegir la última opción de la lista que es **Escriba una cadena de conexión**. 
 
     > [!NOTE] 
-    > Solo verá los espacios de nombres de las cuentas de almacenamiento en el **misma suscripción que la aplicación IoT Central**. Si quiere exportar a un destino fuera de esta suscripción, elija **Escriba una cadena de conexión** y vea el paso 5.
+    > Solo verá los espacios de nombres de cuentas de Storage, en la **misma suscripción que la de la aplicación de IoT Central**. Si quiere exportar a un destino fuera de esta suscripción, elija **Escriba una cadena de conexión** y vea el paso 5.
 
     > [!NOTE] 
     > En las aplicaciones de prueba de siete días, la única manera de configurar la exportación de datos continua es mediante una cadena de conexión. El motivo es que estas aplicaciones no tienen una suscripción de Azure asociada.
@@ -77,8 +77,8 @@ Ahora que tiene un destino para exportar los datos de almacenamiento, siga estos
     ![Creación de un centro de eventos](media/howto-export-data/export-create-blob.png)
 
 5. (Opcional) Si eligió **Escriba una cadena de conexión**, aparece un nuevo cuadro para que pegue la cadena de conexión. Para obtener la cadena de conexión para su:
-    - Cuenta de almacenamiento, vaya a la cuenta de almacenamiento en el portal de Azure.
-        - En **configuración**, seleccione **claves de acceso**
+    - Cuenta de almacenamiento, vaya a la cuenta de almacenamiento en Azure Portal.
+        - En **Configuración**, seleccione **Claves de acceso**.
         - Copie la cadena de conexión key1 o la cadena de conexión key2.
  
 6. Elija un contenedor en el cuadro de lista desplegable.

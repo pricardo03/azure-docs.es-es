@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: a5bde1a56bf6a1f5fca4b775c7c8e9bb7477eb6b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240266"
 ---
-1. Abra el proyecto de cliente descargados mediante Xcode.
+1. Abra el proyecto de cliente descargado mediante Xcode.
 
-2. Vaya a la [portal Azure](https://portal.azure.com/) y vaya a la aplicación móvil que ha creado. En el `Overview` hoja, busque la dirección URL que es el punto de conexión público para la aplicación móvil. Por ejemplo, será el nombre del sitio para el nombre de mi aplicación "test123" https://test123.azurewebsites.net.
+2. Vaya a [Azure Portal](https://portal.azure.com/) y diríjase a la aplicación móvil que ha creado. En la hoja `Overview`, busque la dirección URL que es el punto de conexión público de la aplicación móvil. Por ejemplo, el nombre de sitio para el nombre de mi aplicación "test123" será https://test123.azurewebsites.net.
 
-3. Para proyectos Swift, abra el archivo `ToDoTableViewController.swift` en esta carpeta - ZUMOAPPNAME/ZUMOAPPNAME/ToDoTableViewController.swift. Es el nombre de la aplicación `ZUMOAPPNAME`.
+3. Para proyectos Swift, abra el archivo `ToDoTableViewController.swift` en esta carpeta: ZUMOAPPNAME/ZUMOAPPNAME/ToDoTableViewController.swift. El nombre de la aplicación es `ZUMOAPPNAME`.
 
-4. En `viewDidLoad()` método, reemplace `ZUMOAPPURL` parámetro con el punto de conexión público anterior.
+4. En el método `viewDidLoad()`, reemplace el parámetro `ZUMOAPPURL` por el punto de conexión público anterior.
 
     `let client = MSClient(applicationURLString: "ZUMOAPPURL")`
 
@@ -25,9 +25,9 @@ ms.locfileid: "66240266"
     
     `let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")`
     
-5. Para proyectos de Objective-C, abra el archivo `QSTodoService.m` en esta carpeta - ZUMOAPPNAME/ZUMOAPPNAME. Es el nombre de la aplicación `ZUMOAPPNAME`.
+5. Para proyectos de Objective-C, abra el archivo `QSTodoService.m` en esta carpeta: ZUMOAPPNAME/ZUMOAPPNAME. El nombre de la aplicación es `ZUMOAPPNAME`.
 
-6. En `init` método, reemplace `ZUMOAPPURL` parámetro con el punto de conexión público anterior.
+6. En el método `init`, reemplace el parámetro `ZUMOAPPURL` por el punto de conexión público anterior.
 
     `self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];`
 

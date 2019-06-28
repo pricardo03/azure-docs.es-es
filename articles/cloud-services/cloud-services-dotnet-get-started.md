@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595162"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
@@ -51,7 +51,7 @@ En este tutorial se da por supuesto que comprende los [conceptos básicos sobre 
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) o [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Las instrucciones del tutorial funcionan con cualquiera de los siguientes productos:
+Las instrucciones del tutorial funcionan con cualquiera de los productos siguientes:
 
 * Visual Studio 2013
 * Visual Studio 2015
@@ -236,7 +236,7 @@ Las cadenas de conexión de la cuenta de almacenamiento de Azure tanto para el p
 2. Haga clic en la pestaña **Configuración** . En el cuadro desplegable **Configuración del servicio**, seleccione **Nube**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Seleccione la entrada **StorageConnectionString** y verá un botón con unos puntos suspensivos (**...**) al final de la línea. Haga clic en el botón de puntos suspensivos para abrir el cuadro de diálogo **Crear cadena de conexión de cuenta de almacenamiento** .
+3. Seleccione la entrada **StorageConnectionString** y verá un botón con unos puntos suspensivos ( **...** ) al final de la línea. Haga clic en el botón de puntos suspensivos para abrir el cuadro de diálogo **Crear cadena de conexión de cuenta de almacenamiento** .
 
     ![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. En el cuadro de diálogo **Crear cadena de conexión de almacenamiento**, haga clic en **Su suscripción**, elija la cuenta de almacenamiento que creó antes y haga clic en **Aceptar**. Si no ha iniciado sesión, se le pedirán las credenciales de la cuenta de Azure.
@@ -326,7 +326,7 @@ Una vez creada la solución, se asegurará de que el código es único en proyec
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Crear una solución de Visual Studio para un servicio en la nube
 1. En Visual Studio, elija **Nuevo proyecto** from the **Archivo** .
-2. En el panel de la izquierda del cuadro de diálogo **Nuevo proyecto**, expanda **Visual C#**, elija las plantillas **Nube** y, por último, elija la plantilla **Servicio de nube de Azure**.
+2. En el panel de la izquierda del cuadro de diálogo **Nuevo proyecto**, expanda **Visual C#** , elija las plantillas **Nube** y, por último, elija la plantilla **Servicio de nube de Azure**.
 3. Asigne un nombre al proyecto y a la solución ContosoAdsCloudService y haga clic en **Aceptar**.
 
     ![Nuevo proyecto](./media/cloud-services-dotnet-get-started/newproject.png)
@@ -392,7 +392,7 @@ En esta sección configurará Azure Storage y cadenas de conexión de SQL para p
 8. Todavía en la ventana de propiedades **ContosoAdsWorker [Rol]** , agregue otra cadena de conexión:
 
    * Nombre: ContosoAdsDbConnectionString
-   * Escriba:  string
+   * Escriba:  Cadena
    * Valor: pegue la misma cadena de conexión que usó para el proyecto de rol web. (En el ejemplo siguiente es para Visual Studio 2013. No olvide cambiar el origen de datos si copia este ejemplo y va a usar Visual Studio 2015 o una versión superior).
 
        ```

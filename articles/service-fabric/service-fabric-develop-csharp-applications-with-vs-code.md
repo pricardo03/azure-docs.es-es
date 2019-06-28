@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393800"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desarrollo de aplicaciones C# de Service Fabric con Visual Studio Code
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>Abrir la aplicación en VS Code
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 Haga clic con el botón derecho en el icono de VS Code en el menú Inicio y seleccione **Ejecutar como administrador**. Para asociar el depurador a los servicios, debe ejecutar VS Code como administrador.
 
 ### <a name="linux"></a>Linux
@@ -66,15 +66,15 @@ La aplicación ahora debería aparecer en el área de trabajo de VS Code.
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Implementación de la aplicación en el clúster local
 Después de haber compilado la aplicación, se puede implementar en el clúster local. 
 
-1. En la **paleta de comandos**, seleccione el comando **Service Fabric: Deploy Application (Localhost)**. La salida del proceso de instalación se envía al terminal integrado.
+1. En la **paleta de comandos**, seleccione el comando **Service Fabric: Deploy Application (Localhost)** . La salida del proceso de instalación se envía al terminal integrado.
 
    ![Comando de implementación de la aplicación en VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Una vez completada la implementación, inicie un explorador y abra el Explorador de Service Fabric: http:\//localhost:19080 / Explorer. Debería ver que la aplicación se está ejecutando. Esto puede tardar algún tiempo, tenga paciencia. 
+4. Una vez completada la implementación, inicie un explorador y abra Service Fabric Explorer: http:\//localhost:19080/Explorer. Debería ver que la aplicación se está ejecutando. Esto puede tardar algún tiempo, tenga paciencia. 
 
    ![Aplicación CounterService en Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Después de haber comprobado la aplicación se está ejecutando, inicie un explorador y abra la página: http:\//localhost:31002. Se trata del front-end web de la aplicación. Actualice la página para ver el valor actual del contador a medida que aumenta.
+4. Después de haber comprobado que la aplicación se está ejecutando, inicie un explorador y abra esta página: http:\//localhost:31002. Se trata del front-end web de la aplicación. Actualice la página para ver el valor actual del contador a medida que aumenta.
 
    ![Aplicación CounterService en el explorador](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ Para establecer un punto de interrupción y depurar, complete los pasos siguient
 
    ![Icono Depurar en el área de trabajo de VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Abra el Explorador de Service Fabric en un explorador: http:\//localhost:19080 / Explorer. Haga clic en **Applications** (Aplicaciones) y explore en profundidad para determinar el nodo principal en que se ejecuta CounterService. En la imagen siguiente, del nodo principal para CounterService es el nodo 0.
+3. Abra Service Fabric Explorer en un explorador: http:\//localhost:19080/Explorer. Haga clic en **Applications** (Aplicaciones) y explore en profundidad para determinar el nodo principal en que se ejecuta CounterService. En la imagen siguiente, del nodo principal para CounterService es el nodo 0.
 
    ![Nodo principal de CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

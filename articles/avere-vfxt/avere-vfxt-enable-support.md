@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409862"
 ---
 # <a name="enable-support-uploads"></a>Habilitación de cargas de soporte
@@ -42,6 +42,6 @@ Siga estos pasos desde el Panel de control de Avere para activar el soporte téc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita agregar una local o existentes en la nube de sistema de almacenamiento al clúster, siga las instrucciones de [configurar almacenamiento](avere-vfxt-add-storage.md). 
+Si necesita agregar un sistema de almacenamiento local o en la nube existente al clúster, siga las instrucciones de [Configurar el almacenamiento](avere-vfxt-add-storage.md). 
 
 Si está listo para empezar a adjuntar clientes al clúster, lea [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md) (Montar el clúster de Avere vFXT).

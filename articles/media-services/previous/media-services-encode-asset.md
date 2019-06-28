@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464188"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Información general y comparación de codificadores multimedia a petición de Azure 
@@ -26,7 +26,7 @@ ms.locfileid: "61464188"
 ## <a name="encoding-overview"></a>Información general sobre la codificación
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Azure Media Services ofrece varias opciones para la codificación de medios en la nube.
 
@@ -70,7 +70,7 @@ Para más información, consulte [Recorte de un vídeo](media-services-advanced-
 ### <a name="create-overlays"></a>Creación de superposiciones
 Para más información, consulte [Creación de una superposición](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Otras referencias
 [El blog de Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Flujo de trabajo del Codificador multimedia

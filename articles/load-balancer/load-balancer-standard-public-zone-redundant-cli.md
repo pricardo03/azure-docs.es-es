@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
 ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147672"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Equilibrio de carga de máquinas virtuales en todas las zonas de disponibilidad con la CLI de Azure
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Creación de una dirección IP pública estándar con redundancia de zona
-Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Todas las zonas de disponibilidad de una región atienden a la vez a un servidor front-end con redundancia de zona. Crear una zona con redundancia de dirección IP pública con [crear az network public-ip](/cli/azure/network/public-ip#az-network-public-ip-create). Al crear una dirección IP pública estándar, tiene redundancia de zona de forma predeterminada.
+Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Todas las zonas de disponibilidad de una región atienden a la vez a un servidor front-end con redundancia de zona. Cree una dirección IP pública con redundancia de zona con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). Al crear una dirección IP pública estándar, tiene redundancia de zona de forma predeterminada.
 
 En el ejemplo siguiente se crea una dirección IP pública con redundancia de zona denominada *myPublicIP* en el grupo de recursos *myResourceGroupLoadBalancer*.
 

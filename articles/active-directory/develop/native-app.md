@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545838"
 ---
 # <a name="native-apps"></a>Aplicaciones nativas
@@ -52,7 +52,7 @@ Vea los ejemplos de código en escenarios de aplicación nativa a API web. Agreg
 
 ## <a name="app-registration"></a>Registro de aplicación
 
-Para registrar una aplicación con el extremo de la versión 1.0 de Azure AD, consulte [registrar una aplicación](quickstart-register-app.md).
+Para registrar una aplicación con el punto de conexión v1.0 de Azure AD, consulte [Registro de una aplicación](quickstart-register-app.md).
 
 * Un solo inquilino: tanto la aplicación nativa como la API web deben estar registradas en el mismo directorio de Azure AD. La API web se puede configurar para que exponga un conjunto de permisos, que se usan para limitar el acceso de la aplicación nativa a sus recursos. A continuación, la aplicación cliente selecciona los permisos deseados en el menú desplegable "Permisos para otras aplicaciones" de Azure Portal.
 * Multiinquilino: en primer lugar, la aplicación nativa siempre se registra en el directorio del desarrollador o del editor. En segundo lugar, la aplicación nativa está configurada para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, solo la API web queda registrada en el directorio. 

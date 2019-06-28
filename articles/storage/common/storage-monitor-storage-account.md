@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153628"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
@@ -42,7 +42,7 @@ ms.locfileid: "65153628"
    Para configurar la directiva de retención de datos, mueva el control deslizante **Retención (en días)** o escriba el número de días que se deben retener los datos, entre 1 y 365. El valor predeterminado para las nuevas cuentas de almacenamiento es de siete días. Si no desea configurar una directiva de retención, escriba un cero. Si no existe una directiva de retención, es posible eliminar los datos de supervisión.
 
    > [!WARNING]
-   > Se le cobrará si elimina manualmente datos de métricas. El sistema eliminará los datos de análisis obsoletos (aquellos anteriores a la directiva de retención de datos) sin costo alguno. Es recomendable configurar una directiva de retención basada en el tiempo que desee retener los datos de análisis de almacenamiento de su cuenta. Consulte [facturación en las métricas de almacenamiento](storage-analytics-metrics.md#billing-on-storage-metrics) para obtener más información.
+   > Se le cobrará si elimina manualmente datos de métricas. El sistema eliminará los datos de análisis obsoletos (aquellos anteriores a la directiva de retención de datos) sin costo alguno. Es recomendable configurar una directiva de retención basada en el tiempo que desee retener los datos de análisis de almacenamiento de su cuenta. Vea [Facturación según las métricas de almacenamiento](storage-analytics-metrics.md#billing-on-storage-metrics) para más información.
    >
 
 1. Al finalizar la configuración de la supervisión, seleccione **Guardar**.
@@ -94,7 +94,7 @@ Las métricas seleccionadas en **Diagnóstico** determinan la resolución de las
 
 Puede crear alertas para recibir una notificación cuando se alcancen los umbrales para las métricas de los recursos de almacenamiento.
 
-1. Para abrir la **hoja Reglas de alerta**, desplácese hacia abajo hasta la sección **SUPERVISIÓN** de la **hoja Menú** y seleccione **Alertas (clásico)**.
+1. Para abrir la **hoja Reglas de alerta**, desplácese hacia abajo hasta la sección **SUPERVISIÓN** de la **hoja Menú** y seleccione **Alertas (clásico)** .
 2. Seleccione **Agregar una alerta de métrica (clásica)** para abrir la hoja **Agregar una regla de alerta**.
 3. Escriba un **Nombre** y una **Descripción** para la nueva regla de alerta.
 4. Seleccione la **métrica** para la que desea agregar una alerta, una **condición** de alerta y un **umbral** de alerta. El tipo de unidad de umbral cambiará en función de la métrica que haya elegido. Por ejemplo, "número" es el tipo de unidad para *ContainerCount*, mientras que la unidad para la métrica *PercentNetworkError* es un porcentaje.
@@ -139,7 +139,7 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado *$logs* en su cuenta de almacenamiento. Puede ver los datos de registro mediante un explorador de almacenamiento como el [Explorador de Microsoft Storage](https://storageexplorer.com), o mediante programación con la biblioteca de cliente de almacenamiento o PowerShell.
 
-Para obtener información sobre cómo acceder al contenedor $logs, consulte [registro de Storage analytics](storage-analytics-logging.md).
+Para más información sobre el acceso al contenedor $logs, vea [Registro de Storage Analytics](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

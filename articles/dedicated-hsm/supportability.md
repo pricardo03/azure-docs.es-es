@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: barclayn
 ms.openlocfilehash: 8341e9057b07fbb72957eddc342ae875e4591993
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60912276"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Compatibilidad de Azure Dedicated HSM
@@ -26,12 +26,12 @@ Los clientes son completamente responsables de las aplicaciones que usan los HSM
 
 ## <a name="getting-support"></a>Obtención de soporte técnico
 
-Asistencia al cliente de HSM dedicado es una iniciativa conjunta entre Microsoft y Gemalto. Se tratarán los problemas de hardware o problemas de la ruta de acceso de red por Microsoft, y nada que ver con el HSM real, como la configuración, software, desarrollo de aplicaciones y firmware, se corregirá por Gemalto. Este modelo de compatibilidad garantiza que la ruta más rápida con el soporte técnico más eficaz. En caso de duda con un problema en particular, presente una solicitud de soporte técnico con Microsoft y nos aseguramos de que se dirige adecuadamente. Microsoft se mantengan el interés en todos los escenarios de soporte técnico y nos esforzamos por obtener la mejor experiencia de soporte técnico para nuestros clientes.
+La asistencia al cliente para Dedicated HSM es una iniciativa conjunta entre Microsoft y Gemalto. Microsoft resolverá las incidencias relacionadas con el hardware o la ruta de red, mientras que todo lo relacionado con el HSM real, como la configuración, software, firmware o desarrollo de aplicaciones lo resolverá Gemalto. Este modelo de asistencia garantiza la ruta más rápida para un soporte técnico eficaz. En caso de duda con una incidencia en particular, genere una solicitud de soporte técnico con Microsoft y nos aseguraremos de que se dirige adecuadamente. Microsoft se involucrará en todos los escenarios de soporte técnico y se esforzará por ofrecer la mejor experiencia de soporte técnico para nuestros clientes.
 
 ## <a name="gemalto-support"></a>Soporte técnico de Gemalto
 
-Los clientes que usan el servicio HSM dedicado recibir soporte técnico de Gemalto según sus además de Plan de soporte técnico. Esto solo requiere un proceso de registro mediante el portal de soporte técnico de Gemalto. Se proporcionará un identificador de cliente e instrucciones para esto como parte de la interacción inicial con Microsoft para obtener acceso al servicio HSM dedicados. Gemalto ofrece soporte técnico a través de su [portal de soporte técnico para clientes](https://supportportal.gemalto.com/csm/).
-Un punto de nota clave es que Gemalto proporcionará todo el software y documentación necesarios para utilizar el HSM (por ejemplo, software de acceso de cliente y los SDK) mediante descarga en el portal de soporte técnico al cliente.
+Los clientes que usan el servicio Dedicated HSM recibirán soporte técnico de Gemalto en función de su Plan de soporte técnico. Esto solo requiere un proceso de registro mediante el portal de soporte técnico de Gemalto. Para ello, se proporcionará un identificador de cliente e instrucciones como parte de la involucración inicial con Microsoft para obtener acceso al servicio Dedicated HSM. Gemalto ofrece soporte técnico a través de su [portal de soporte técnico para clientes](https://supportportal.gemalto.com/csm/).
+Un punto a destacar clave es que Gemalto proporcionará todo el software y la documentación necesarios para utilizar HSM (por ejemplo, software de acceso de cliente y los SDK) mediante descarga en el portal de asistencia al cliente.
 
 ### <a name="software-components"></a>Componentes de software
 
@@ -55,7 +55,7 @@ Para recibir asistencia con el diseño, desarrollo e implementación de aplicaci
 
 ## <a name="microsoft-support"></a>Soporte técnico de Microsoft
 
-Microsoft garantizará que los dispositivos HSM físicos estén red accesible y en un estado operativo para el uso exclusivo de un solo cliente. Los clientes son responsables de la configuración, administración y la administración del dispositivo. Entre las responsabilidades de Microsoft están:
+Microsoft garantizará que los dispositivos HMS físicos sean accesibles a través de una red y se encuentren en estado operativo para el uso exclusivo de un único cliente. Los clientes son responsables de la configuración y administración del dispositivo. Entre las responsabilidades de Microsoft están:
 
 * Garantizar que el dispositivo tenga energía y esté refrigerado.
 * Mantener el estado operativo del HSM (por ejemplo, en casos de avería/reparación).
@@ -76,7 +76,7 @@ Después de que un cliente apruebe el registro del servicio HSM dedicado, podrá
 
 ### <a name="hardware-issues"></a>Problemas de hardware
 
-El dispositivo HSM tiene fuentes de alimentación y ventiladores redundantes y reemplazables.  Sin embargo, desmontaje del ventilador de la unidad producirá un evento de manipulaciones. De producirse un problema en un componente, Microsoft usará el proceso más adecuado para solucionar el problema a nivel de componente de manera que la interrupción y el riesgo para la disponibilidad del servicio para los clientes sean mínimos.
+El dispositivo HSM tiene fuentes de alimentación y ventiladores redundantes y reemplazables.  Sin embargo, el desmontaje del ventilador de la unidad todavía producirá un evento de manipulación. De producirse un problema en un componente, Microsoft usará el proceso más adecuado para solucionar el problema a nivel de componente de manera que la interrupción y el riesgo para la disponibilidad del servicio para los clientes sean mínimos.
 Con cualquier otro problema más grave del dispositivo, este se reemplazará por uno nuevo del grupo disponible. El cliente solo tendrá que incluir el nuevo dispositivo en el par de alta disponibilidad existente para que se sincronice y vuelva a un estado completamente operativo. Del dispositivo con el problema se retirarán todos sus dispositivos que contienen datos y se destruirán in situ en el centro de datos. Solo el chasis se devolverá a Gemalto para su reciclaje.
 
 

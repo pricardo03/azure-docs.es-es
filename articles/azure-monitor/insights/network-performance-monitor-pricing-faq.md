@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
 ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401415"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Cambios de precios de Azure Network Performance Monitor
@@ -38,7 +38,7 @@ En las secciones siguientes se explican los cambios de precios de los componente
 
 La facturación de NPM se basaba en la utilización y consumo de dos componentes:
 * **Nodos**: todas las transacciones sintéticas se originan y terminan en los nodos. Los nodos también se conocen como agentes o agentes de administración de Microsoft.
-* **Data**: Los resultados de las distintas pruebas de red se almacenan en el área de trabajo de Log Analytics.
+* **Data**: los resultados de las distintas pruebas de red se almacenan en el área de trabajo de Log Analytics.
 
 En el modelo anterior, la factura se calculaba según el número de nodos y el volumen de datos generado. 
 
@@ -55,7 +55,7 @@ El Monitor de rendimiento supervisa la conectividad entre dos o más ubicaciones
 
 **Tengo dos subredes (A y B) y varios agentes en cada subred. El Monitor de rendimiento supervisa la conectividad de todos los agentes de la subred A con todos los agentes de la subred B. ¿Se me cobrará en función del número de conexiones entre subredes?**
 
- No. Con fines de facturación, todas las conexiones de la subred A con la subred B se agrupan en un vínculo de subred. Se le factura por una única conexión. El Monitor de rendimiento sigue supervisando la conectividad entre varios agentes de cada subred.
+No. Con fines de facturación, todas las conexiones de la subred A con la subred B se agrupan en un vínculo de subred. Se le factura por una única conexión. El Monitor de rendimiento sigue supervisando la conectividad entre varios agentes de cada subred.
 
 **¿Cuáles son los costos por supervisar un vínculo de subred?**
 
@@ -63,7 +63,7 @@ Para información sobre el costo de supervisión de un único vínculo de subred
 
 **¿Cuáles son los cargos por los datos que el Monitor de rendimiento genera?**
 
-Los cargos por ingesta (carga de datos al área de trabajo de Log Analytics en Azure Monitor, procesamiento e indexación) está disponible en el [página de precios](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, en la sección ingesta de datos. Los cargos por la retención de datos (es decir, los datos retenidos como opción del cliente, más allá del primer mes) también están disponibles en la [página de precios](https://azure.microsoft.com/pricing/details/log-analytics/), en la sección Retención de datos.
+Los cargos por ingesta (carga de datos en el área de trabajo de Log Analytics de Azure Monitor, procesamiento e indexación) están disponibles en la [página de precios](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, en la sección Ingesta de datos. Los cargos por la retención de datos (es decir, los datos retenidos como opción del cliente, más allá del primer mes) también están disponibles en la [página de precios](https://azure.microsoft.com/pricing/details/log-analytics/), en la sección Retención de datos.
 
 
 ## <a name="expressroute-monitor"></a>Supervisión de ExpressRoute

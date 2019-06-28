@@ -7,17 +7,16 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: digimobile
-origin.date: 03/12/2019
-ms.date: 04/08/2019
+manager: craigg
+ms.date: 03/12/2019
 ms.openlocfilehash: 1d60e875b12f02c957ebd6259eb0e7267f23ee51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150211"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtención de los valores necesarios para autenticar una aplicación para obtener acceso a SQL Database desde el código
@@ -28,12 +27,12 @@ Para crear y administrar SQL Database desde el código debe registrar la aplicac
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 El siguiente script de PowerShell crea la aplicación de Active Directory (AD) y la entidad de servicio que se necesitan para autenticar la aplicación de C#. En la salida del script, se encuentran los valores que se necesitan para el anterior ejemplo de C#. Para ver información detallada, consulte [Uso de Azure PowerShell para crear una entidad de servicio para acceder a recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
     # Sign in to Azure.
-    Connect-AzAccount -EnvironmentName AzureChinaCloud
+    Connect-AzAccount
 
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
@@ -73,7 +72,7 @@ El siguiente script de PowerShell crea la aplicación de Active Directory (AD) y
 
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Creación de una Base de datos SQL con C#](sql-database-get-started-csharp.md)
 * [Conexión a SQL Database mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 

@@ -11,16 +11,16 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: e7d959e77d27fb04b18f402e4056d4dea1607039
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522885"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexación de blobs CSV con el indexador de blobs de Azure Search
 
 > [!Note]
-> delimitedText modo de análisis está en versión preliminar y no se ha diseñado para su uso en producción. El [API de REST versión 2019-05-06-Preview](search-api-preview.md) proporciona esta característica. No hay ninguna compatibilidad de SDK de .NET en este momento.
+> El modo de análisis delimitedText se encuentra en versión preliminar y no está pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con .NET SDK.
 >
 
 De forma predeterminada, el [indexador de blobs de Azure Search](search-howto-indexing-azure-blob-storage.md) analiza los blobs de texto delimitados como un único fragmento de texto. Sin embargo, con blobs que contienen datos CSV, a menudo se desea tratar cada línea del blob como un documento independiente. Por ejemplo, dado el siguiente texto delimitado, tal vez prefiera analizarlo en dos documentos, donde cada uno incluya los campos "id", "datePublished" y "tags": 
@@ -29,13 +29,13 @@ De forma predeterminada, el [indexador de blobs de Azure Search](search-howto-in
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-En este artículo, obtendrá información sobre cómo analizar blobs CSV con una configuración de búsqueda de Azure blob indexerby el `delimitedText` modo de análisis. 
+En este artículo, obtendrá información sobre cómo analizar blobs de CSV con un indizador de blobs de Azure Search mediante el establecimiento del modo de análisis `delimitedText`. 
 
 > [!NOTE]
-> Siga las recomendaciones de configuración de indexador de [indización de uno a varios](search-howto-index-one-to-many-blobs.md) para generar varios documentos de búsqueda de un blob de Azure.
+> Siga las recomendaciones de configuración de indizadores de [Indexación de uno a varios](search-howto-index-one-to-many-blobs.md) para generar varios documentos de búsqueda a partir de un blob de Azure.
 
 ## <a name="setting-up-csv-indexing"></a>Configuración de la indexación de CSV
-Para indexar blobs JSON, crear o actualizar una definición de indexador con la `delimitedText` modo de análisis en un [crear indizador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) solicitud:
+Para indexar blobs de CSV, cree o actualice una definición de indizador con el modo de análisis `delimitedText` en una solicitud [Crear indizador](https://docs.microsoft.com/rest/api/searchservice/create-indexer):
 
     {
       "name" : "my-csv-indexer",

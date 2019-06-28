@@ -1,6 +1,6 @@
 ---
-title: Administrar el agente de movilidad en los servidores de recuperación ante desastres de máquinas virtuales de VMware y servidores físicos con Azure Site Recovery | Microsoft Docs
-description: Administrar el agente de Mobility Service para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
+title: Administrar el agente de movilidad en servidores para la recuperación ante desastres de máquinas virtuales VMware y servidores físicos en Azure con Azure Site Recovery | Microsoft Docs
+description: Aprenda a administrar un agente de Mobility Service para la recuperación ante desastres de máquinas virtuales VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117321"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>Administrar el agente de movilidad en máquinas protegidas
 
-Establecer el agente de movilidad en el servidor cuando se usa Azure Site Recovery para recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure. Agente de movilidad coordina la comunicación entre el equipo protegido, la configuración servidor de procesos de servidor y reducción horizontal y administra la replicación de datos. Este artículo resume las tareas comunes para administrar el agente de movilidad después de implementarlo.
+Es preciso configurar un agente de movilidad en el servidor cuando se usa Azure Site Recovery para realizar tareas de recuperación ante desastres en servidores físicos y máquinas virtuales de VMware en Azure. El agente de movilidad coordina las comunicaciones entre la máquina protegida y el servidor de configuración/servidor de procesos de escalado horizontal, y administra la replicación de datos. En este artículo se resumen las tareas comunes para administrar el agente de movilidad después de que se haya implementado.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="update-mobility-service-from-azure-portal"></a>Actualización de mobility service de Azure portal
+## <a name="update-mobility-service-from-azure-portal"></a>Actualizar Mobility Service desde Azure Portal
 
 1. Antes de empezar, asegúrese de que el servidor de configuración, los servidores de procesos de escalado horizontal y los servidores de destino principales que forman parte de la implementación estén actualizados antes de actualizar Mobility Service en las máquinas protegidas.
 2. En el portal, abra el almacén > **Elementos replicados**.
@@ -35,19 +35,19 @@ Establecer el agente de movilidad en el servidor cuando se usa Azure Site Recove
 
 5. El trabajo de actualización de Mobility Service se inicia para cada una de las máquinas seleccionadas.
 
-## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Actualización de Mobility service a través del script de powershell en el servidor de Windows
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Actualizar Mobility Service mediante un script de PowerShell en un servidor Windows
 
-Use el siguiente script para actualizar mobility service en un servidor a través del cmdlet del shell de energía
+Use el siguiente script para actualizar Mobility Service en un servidor mediante un cmdlet de PowerShell.
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
-## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Actualizar la cuenta usada para la instalación de inserción de Mobility service
+## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Actualizar la cuenta usada para la instalación de inserción de Mobility Service
 
 Al implementar Site Recovery, para habilitar la instalación de inserción de Mobility Service, especificó una cuenta que el servidor de procesos de Site Recovery utiliza para acceder a las máquinas e instalar el servicio cuando la replicación se habilita para la máquina. Si desea actualizar las credenciales para esta cuenta, siga [estas instrucciones](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="uninstall-mobility-service"></a>Desinstalación de Mobility service
+## <a name="uninstall-mobility-service"></a>Desinstalar Mobility Service
 
 ### <a name="on-a-windows-machine"></a>Una máquina Windows
 

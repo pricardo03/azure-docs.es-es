@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248087"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adición o actualización de la información de perfil de un usuario mediante Azure Active Directory
@@ -26,7 +26,7 @@ Agregue información de perfil de usuario, como la imagen de perfil, informació
 Como verá, hay más información disponible en un perfil de usuario que la que puede agregarse durante la creación del usuario. Toda esta información adicional es opcional y se puede agregar según sea necesario para su organización.
 
 ## <a name="to-add-or-change-profile-information"></a>Para agregar o cambiar la información del perfil
-1. Inicie sesión en el [portal Azure](https://portal.azure.com/) como un usuario administrador para la organización.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de usuarios para la organización.
 
 2. Seleccione **Azure Active Directory**, **Usuarios** y, a continuación, seleccione un usuario. Por ejemplo, _Alain Charon_.
 
@@ -40,7 +40,7 @@ Como verá, hay más información disponible en un perfil de usuario que la que 
 
     - **Imagen de perfil.** Seleccione una imagen en miniatura para la cuenta de usuario. Esta imagen aparece en Azure Active Directory y en las páginas personales del usuario, tales como la página myapps.microsoft.com.
 
-    - **Identidad.** Agregar o actualizar un valor de identidad adicional para el usuario, por ejemplo, un apellido Casado. Puede establecer este nombre de forma independiente de los valores de nombre y apellido. Por ejemplo, se podría utilizar para incluir iniciales, un nombre de compañía, o para cambiar la secuencia de nombres que se muestran. En otro ejemplo, para dos usuarios cuyos nombres son "Chris Green" se podría utilizar la cadena de identidad para establecer sus nombres en 'Chris B. Green' "Chris r. Green (Contoso)."
+    - **Identidad.** Agregue o actualice un valor de identidad adicional para el usuario como, por ejemplo, el apellido de casada. Puede establecer este nombre de forma independiente de los valores de Nombre y Apellidos. Por ejemplo, podría utilizarlo para incluir iniciales, un nombre de empresa o para cambiar la secuencia de nombres mostrada. En otro ejemplo, para dos usuarios cuyos nombres son "Chris Green", podría utilizar la cadena de identidad para establecer sus nombres como "Chris B. Green" y "Chris R. Green (Contoso)".
 
     - **Información del trabajo.** Agregue cualquier información relacionada con el trabajo, como el puesto, departamento o administrador del usuario.
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
 ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521390"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Seleccione la versión del entorno de ejecución de Azure Functions que usa: "]
 > * [Versión 1](functions-host-json-v1.md)
 > * [Versión 2](functions-host-json.md)
 
@@ -135,7 +135,7 @@ Las opciones de configuración se pueden encontrar en [desencadenadores y enlace
 
 Propiedad que devuelve un objeto que contiene todas las configuraciones específicas de enlace, como [http](#http) y [eventHub](#eventhub).
 
-## <a name="functions"></a>funciones
+## <a name="functions"></a>functions
 
 Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía significa ejecutar todas las funciones. Su uso está previsto solo cuando se [ejecuta localmente](functions-run-local.md). En cambio, en las aplicaciones de función de Azure, siga los pasos de [Deshabilitamiento de funciones en Azure Functions](disable-function.md) para deshabilitar funciones específicas en lugar de usar esta configuración.
 
@@ -173,7 +173,7 @@ Configuración del [monitor de estado de host](https://github.com/Azure/azure-we
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
-|enabled|true|Especifica si está habilitada la característica. | 
+|Enabled|true|Especifica si está habilitada la característica. | 
 |healthCheckInterval|10 segundos|El intervalo de tiempo entre las comprobaciones periódicas de mantenimiento en segundo plano. | 
 |healthCheckWindow|2 minutes|Una ventana de tiempo deslizante usada en combinación con el valor `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de veces que puede producirse un error en la comprobación de mantenimiento antes de que se inicie un reciclaje del host.| 
@@ -209,10 +209,10 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qué nivel de registro de archivos está habilitado.  Las opciones son `never`, `always`, `debugOnly`. |
 |logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En la versión 2.x se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esto permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
-|consola|N/D| Configuración del registro de [consola](#console). |
+|console|N/D| Configuración del registro de [consola](#console). |
 |applicationInsights|N/D| Configuración de [applicationInsights](#applicationinsights). |
 
-## <a name="console"></a>consola
+## <a name="console"></a>console
 
 Esta configuración es un elemento secundario de [logging](#logging). Controla el registro de la consola cuando no está en modo de depuración.
 
@@ -284,7 +284,7 @@ Conjunto de [directorios de código compartido](functions-reference-csharp.md#wa
 
 ## <a name="manageddependency"></a>managedDependency
 
-Dependencia administrada es una característica de vista previa que actualmente solo se admite con basados en funciones de PowerShell. Permite que las dependencias que administrará automáticamente el servicio. Cuando se establece la propiedad enabled en true, el [requirements.psd1](functions-reference-powershell.md#dependency-management) se procesará el archivo. Las dependencias se actualizará cuando se publican las versiones secundarias.
+La dependencia administrada es una característica en vista previa que actualmente solo se admite con funciones basadas en PowerShell. Permite que el servicio administre de forma automática las dependencias. Cuando se establezca en true la propiedad enabled, se procesará el archivo [requirements.psd1](functions-reference-powershell.md#dependency-management). Las dependencias se actualizarán cuando se publique alguna versión secundaria.
 
 ```json
 {

@@ -18,10 +18,10 @@ ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409781"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
@@ -34,14 +34,14 @@ ms.locfileid: "65409781"
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
-[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619720]: https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
@@ -53,24 +53,24 @@ ms.locfileid: "65409781"
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
-[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -370,7 +370,7 @@ El punto de entrada para la carga de trabajo SAP en la documentación de Azure s
 
 Las siguientes notas de SAP están relacionadas con el tema de SAP en Azure:
 
-| Número de nota | Puesto |
+| Número de nota | Título |
 | --- | --- |
 | [1928533] |SAP Applications on Azure: Supported Products and Sizing (Aplicaciones de SAP en Microsoft Azure con Base de datos de Oracle: versiones y tamaños compatibles) |
 | [2015553] |SAP on Microsoft Azure: Support Prerequisites (Requisitos previos de soporte técnico de SAP en Microsoft Azure) |
@@ -391,10 +391,10 @@ En [este artículo][azure-subscription-service-limits-subscription] se exponen l
 ## <a name="possible-scenarios"></a>Escenarios posibles
 Con frecuencia, SAP se considera una de las aplicaciones críticas en las empresas. La arquitectura y las operaciones de estas aplicaciones suelen resultar complejas y es importante asegurarse de que se cumplen los requisitos de disponibilidad y rendimiento.
 
-Por lo tanto, las empresas tienen que pensar detenidamente sobre qué proveedor de nube que elija para la ejecución de actividad procesos de negocios críticos en. Azure es la plataforma de nube pública ideal para aplicaciones de SAP críticas del negocio y los procesos empresariales. Dada la amplia variedad de infraestructura de Azure, casi todos los sistemas SAP NetWeaver y S/4HANA existentes se pueden hospedar en Azure hoy mismo. Azure proporciona máquinas virtuales con muchos Terabytes de memoria y CPU más de 200. Más allá de lo que ofrece Azure [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), que permite que las implementaciones de HANA de escalado horizontal de hasta 24 TB y ANA escalar horizontalmente implementaciones de hasta 120 TB. 
+Por lo tanto, las empresas tienen que pensar detenidamente qué proveedor de nube van a elegir para ejecutar estos procesos de negocio críticos para la empresa. Azure es la plataforma de nube pública ideal para aplicaciones SAP críticas para la empresa y los procesos empresariales. Dada la amplia variedad de infraestructura de Azure, hoy en día casi todos los sistemas SAP NetWeaver y S/4HANA existentes se pueden hospedar en Azure. Azure proporciona máquinas virtuales con muchos terabytes de memoria y más de 200 CPU. Además de eso, Azure ofrece [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), que permiten implementaciones de HANA de escalado horizontal de hasta 24 TB e implementaciones de ANA de escalado horizontal de hasta 120 TB. 
 
 
-Para implementar correctamente sistemas SAP en una IaaS general o en la de Azure, es importante comprender las diferencias significativas entre las ofertas de outsourcers o proveedores de servicios de hosting tradicionales y las ofertas de IaaS. Mientras que el outsourcer o proveedor de Hosting tradicional adapta la infraestructura (tipo de red, almacenamiento y servidor) a la carga de trabajo de que un cliente desea hospedar, en realidad es responsabilidad del cliente o el socio para caracterizar la carga de trabajo y elija Azure correcta componentes de las máquinas virtuales, almacenamiento y red para las implementaciones de IaaS.
+Para implementar correctamente sistemas SAP en una IaaS general o en la de Azure, es importante comprender las diferencias significativas entre las ofertas de outsourcers o proveedores de servicios de hosting tradicionales y las ofertas de IaaS. Mientras que el outsourcer o el proveedor de hosting tradicional adapta la infraestructura (tipo de red, almacenamiento y servidor) a la carga de trabajo que el cliente desea hospedar, en realidad es responsabilidad del cliente o del socio elegir los componentes de Azure adecuados para las máquinas virtuales, el almacenamiento y la red para implementaciones de IaaS.
 
 Como primer paso, los clientes deben comprobar los elementos siguientes:
 
@@ -415,9 +415,9 @@ Se puede encontrar la mayoría de los datos [aquí (Linux)][virtual-machines-siz
 
 Tenga en cuenta que los límites mencionados en el vínculo anterior son los superiores. No significa que siempre puedan proporcionarse esos límites para todos los recursos, como, por ejemplo, E/S por segundo. Sin embargo, las excepciones son los recursos de CPU y memoria de un tipo de máquina virtual elegido. Para los tipos de máquina virtual compatibles con SAP, los recursos de CPU y memoria están reservados y, por tanto, están disponibles en cualquier momento para su consumo en la máquina virtual.
 
-La plataforma Microsoft Azure es una plataforma de varios inquilinos. Esto significa que el almacenamiento, la red y otros recursos se comparten entre los inquilinos. Se usa la limitación inteligente y la lógica de cuotas para impedir que un inquilino perjudique el rendimiento de otro (vecino ruidoso) significativamente. Especialmente para certificar la plataforma Azure para SAP HANA, Microsoft debe demostrar el aislamiento de recursos para los casos donde pueden ejecutar varias máquinas virtuales en el mismo host de forma periódica a SAP. Aunque la lógica de Azure intenta mantener variaciones en el ancho de banda sean pequeñas, compartidas las plataformas tienden a presentar mayores variaciones en la disponibilidad de recursos/ancho de banda que los clientes pueden experimentar en sus implementaciones locales. Debe tenerse en cuenta que un sistema SAP en Azure podría sufrir mayores variaciones que un entorno local.
+La plataforma Microsoft Azure es una plataforma multiempresa. Esto significa que el almacenamiento, la red y otros recursos se comparten entre los inquilinos. Se usa la limitación inteligente y la lógica de cuotas para impedir que un inquilino perjudique el rendimiento de otro (vecino ruidoso) significativamente. Concretamente para certificar la plataforma Azure para SAP HANA, Microsoft debe demostrar el aislamiento de recursos para los casos donde se pueden ejecutar varias máquinas virtuales en el mismo host de forma periódica para SAP. Aunque la lógica de Azure intenta que las variaciones de ancho de banda sean pequeñas, las plataformas con más uso compartido suelen generar mayores variaciones en la disponibilidad de recursos y ancho de banda que las que puedan experimentar los clientes en sus implementaciones locales. Debe tenerse en cuenta que un sistema SAP en Azure podría sufrir mayores variaciones que un entorno local.
 
-Un último paso es evaluar los requisitos de disponibilidad. Puede ocurrir que la infraestructura subyacente de Azure necesite actualizarse y que los hosts que ejecuten las máquinas virtuales tengan que reiniciarse. Microsoft documenta los diferentes casos de [mantenimiento de máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Para mitigar los raros casos donde las máquinas virtuales se ven obligadas a reiniciar, pero incluso más importante para los casos deberá SO invitado de revisiones o componentes del DBMS, deberá desarrollar un conceptos de alta disponibilidad válido para los sistemas SAP de producción. Este requisito no es diferente a los requisitos que enfrenta a nivel local. Microsoft está promoviendo constantemente la plataforma Azure para reducir el tiempo de inactividad causado por cambios de plataforma. 
+Un último paso es evaluar los requisitos de disponibilidad. Puede ocurrir que la infraestructura subyacente de Azure necesite actualizarse y que los hosts que ejecuten las máquinas virtuales tengan que reiniciarse. Microsoft documenta los diferentes casos en [Mantenimiento de máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Para mitigar los casos poco frecuentes en que las máquinas virtuales se ven obligadas a reiniciar, pero incluso más importante, para aquellos casos en que se deben aplicar revisiones de los componentes del sistema operativo o del DBMS, debe desarrollar conceptos de alta disponibilidad válidos para los sistemas SAP de producción. Este requisito no es distinto de los requisitos que tendrá que cumplir en la implementación local. Microsoft está promoviendo constantemente la plataforma Azure para reducir el tiempo de inactividad causado por cambios de plataforma. 
 
 Para implementar correctamente un sistema SAP en Azure, el sistema operativo, la base de datos y las aplicaciones SAP del entorno SAP local deben aparecer en la matriz de soporte de SAP de Azure. Además, deben ser adecuados a los recursos que la infraestructura de Azure puede proporcionar y deben funcionar con los contratos de nivel de servicio que ofrece Microsoft Azure en lo que respecta a la disponibilidad. Cuando identifique esos sistemas, debe decidirse por uno de los dos siguientes escenarios de implementación.
 
@@ -446,10 +446,10 @@ Consulte [este artículo][vpn-gateway-create-site-to-site-rm-powershell] para ob
 >
 > La razón de estas restricciones es el requisito de una red de alto rendimiento de latencia muy baja en un sistema SAP, especialmente entre las instancias de aplicación y la capa DBMS de un sistema SAP.
 >
-> Debe efectuarse un planeamiento especial de los sistemas y regiones cuando se usan varios sistemas SAP que están muy integrados. Asegúrese de que implementar estos sistemas más cerca posible entre sí para minimizar la latencia de red. Ejemplos de sistemas SAP muy integrados son:
-> * Leer datos de los sistemas OLTP de SAP como ERP, CRM o SRM; de SAP BW o
-> * SLT SAP que se usa para replicar datos entre varios sistemas SPA o incluso entre SAP y los sistemas que no sean de SAP; o
-> * SAP S/4 conectado a un sistema SAP ERP; etcetera.
+> Debe efectuarse un planeamiento especial de los sistemas y las regiones cuando se usan varios sistemas SAP que están muy integrados. Asegúrese de implementar estos sistemas lo más cerca posible entre sí para minimizar la latencia de red. Estos son algunos ejemplos de sistemas SAP muy integrados:
+> * SAP BW que lee datos procedentes de sistemas SAP OLTP como ERP, CRM o SRM;
+> * SLT SAP usado para replicar datos entre varios sistemas SPA o incluso entre sistemas SAP y distintos de SAP;
+> * SAP S/4 conectado a un sistema SAP ERP, etcétera.
 
 
 ### <a name="supported-os-and-database-releases"></a>Versiones de bases de datos y sistemas operativos compatibles
@@ -525,7 +525,7 @@ Microsoft Azure Virtual Machines usa varios tipos de almacenamiento. Al implemen
 Las máquinas virtuales de Azure ofrecen discos no persistentes después de implementar una máquina virtual. En el caso de un reinicio de máquina virtual, se borrará todo el contenido de esas unidades. Por tanto, es evidente que los archivos de datos y los archivos de registro y fase de puesta al día de las bases de datos no se deben colocar bajo ninguna circunstancia en esas unidades de disco no persistentes. Es posible que haya excepciones para algunas de las bases de datos, donde estas unidades de disco no persistentes podrían ser adecuadas para tempdb y los espacios de tablas temporales. Pero evite usar esas unidades de disco para las máquinas virtuales de la serie A, ya que esas unidades no persistentes tienen un límite de rendimiento con esa familia de máquinas virtuales. Para obtener más información, lea el artículo [Understanding the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Descripción de la unidad temporal en máquinas virtuales de Windows en Azure).
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > La unidad D:\ de una máquina virtual de Azure es una unidad no persistente respaldada por algunos discos locales del nodo de proceso de Azure. Como no es persistente, significa que los cambios realizados en el contenido de la unidad D:\ se perderán cuando se reinicie la máquina virtual. Por "cambios", se refiere a los archivos guardados, los directorios creados, las aplicaciones instaladas, etc.
 > 
@@ -770,7 +770,7 @@ Consulte también este blog y el documento adjunto sobre el ajuste de tamaño de
 
 ## <a name="managing-azure-assets"></a>Administración de activos de Azure
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Azure Portal constituye una de las tres interfaces creadas para administrar las implementaciones de máquinas virtuales de Azure. Es posible realizar las tareas de administración básicas, como implementar máquinas virtuales a partir de imágenes, a través de Azure Portal. Además, la creación de cuentas de almacenamiento, redes virtuales y otros componentes de Azure son tareas que pueden desempeñarse con resultados satisfactorios en Azure Portal. No obstante, funciones como la carga de VHD de entornos locales a Azure o la copia de un VHD dentro de Azure constituyen tareas para las que se requiere bien una herramienta de terceros, bien conocimientos de administración a través de PowerShell o la CLI.
 
@@ -836,7 +836,7 @@ Planea mover un sistema SAP específico desde un entorno local a Azure. Esto pue
 Debido a los requisitos de revisión específicos de la versión del SO o DBMS, puede que las imágenes proporcionadas en Azure Marketplace no satisfagan sus necesidades. Por lo tanto, se recomienda crear una máquina virtual con su propia imagen privada de máquina virtual de SO o DBMS, que podrá implementarse varias veces más adelante. Para preparar una imagen privada con fines de duplicación, se deben tener en cuenta los siguientes aspectos:
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Para obtener información, consulte: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> La configuración de Windows (como el nombre de host y el SID de Windows) debe abstraerse o generalizarse en la máquina virtual local mediante el comando sysprep.
 >
@@ -871,7 +871,7 @@ Estos son los requisitos que se deben cumplir a la hora de preparar su propio di
 * Agregue otras cuentas locales, ya que se podrían necesitar para el escenario de implementación concreto.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > En este escenario, no hace falta generalizar (Sysprep) la máquina virtual para cargarla e implementarla en Azure.
 > Asegúrese de que la unidad D:\ no se esté usando.
@@ -898,7 +898,7 @@ Estos son los requisitos que se deben cumplir a la hora de preparar su propia im
 * Si la imagen contiene una instalación de SAP NetWeaver y es probable que se vaya a modificar el nombre original del host en el momento de la implementación de Azure, se recomienda copiar en la plantilla las últimas versiones del DVD del administrador de aprovisionamiento de software de SAP. Así podrá utilizar fácilmente la función de cambio de nombre de SAP proporciona para adaptar el nombre de host cambiado o modificar al SID del sistema SAP dentro de la imagen de la máquina virtual implementada en cuanto se inicie una nueva copia.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Asegúrese de que la unidad D:\ no se esté usando. Configure el montaje automático para los discos conectados tal y como se describe en el capítulo [Configuración de montaje automático para discos conectados][planning-guide-5.5.3] del presente documento.
 >
@@ -916,7 +916,7 @@ Si la máquina virtual está lo suficientemente preparada para ser genérica y f
 
 ##### <a name="generalizing-a-vm"></a>Generalización de una máquina virtual
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > El último paso es iniciar sesión en una máquina virtual con una cuenta de administrador. Abra una ventana de comandos de Windows como *administrador*. Vaya a %windir%\windows\system32\sysprep y ejecute sysprep.exe.
 > Se mostrará una pequeña ventana. Es importante marcar la opción **Generalizar** (estará desmarcada de manera predeterminada) y cambiar la opción de apagado de "Reiniciar" (el valor predeterminado) a "Apagar". Para este procedimiento, se supone que el proceso de sysprep se ejecuta localmente en el SO invitado de una máquina virtual.
@@ -944,20 +944,20 @@ En este caso, queremos cargar un VHD (con o sin un sistema operativo en él) y m
 
 **PowerShell**
 
-* Inicie sesión su suscripción con *AzAccount de Connect*
-* Establezca la suscripción de su contexto con *conjunto AzContext* y vea el parámetro SubscriptionId o SubscriptionName - <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Cargue el VHD con *agregar AzVhd* a una cuenta de almacenamiento de Azure: vea <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Opcional) Crear un disco administrado desde el disco duro virtual con *New AzDisk* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
-* Establece el disco del sistema operativo de una nueva configuración de máquina virtual en el disco duro virtual o un disco administrado con *conjunto AzVMOSDisk* -consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-* Crear una nueva máquina virtual a partir de la configuración de máquina virtual con *New-AzVM* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
-* Agregar un disco de datos a una nueva máquina virtual con *agregar AzVMDataDisk* -consulte <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
+* Inicie sesión en su suscripción con *Connect-AzAccount*.
+* Establezca la suscripción de su contexto con *Set-AzContext* y el parámetro SubscriptionId o SubscriptionName (consulte <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>).
+* Cargue el disco duro virtual con *Add-AzVhd* en una cuenta de Azure Storage (consulte <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>).
+* (Opcional) Cree un disco administrado desde el disco duro virtual con *New-AzDisk* (consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>).
+* Establezca el disco del sistema operativo de una nueva configuración de máquina virtual como disco duro virtual o disco administrado con *Set-AzVMOSDisk* (consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>).
+* Cree una nueva máquina virtual desde la configuración de máquina virtual con *New-AzVM* (consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>).
+* Agregue un disco de datos a una nueva máquina virtual con *Add-AzVMDataDisk* (consulte <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>).
 
 **CLI de Azure**
 
 * Inicie sesión en la suscripción con *az login*
-* Seleccione su suscripción con *az account set --subscription `<subscription name or id`>*.
+* Seleccione su suscripción con *az account set --subscription `<subscription name or id`>* .
 * Cargue el VHD con *az storage blob upload* (consulte [Uso de la CLI de Azure con Azure Storage][storage-azure-cli]).
-* (Opcional) Cree un disco administrado desde el disco duro virtual con *az disk create* (consulte https://docs.microsoft.com/cli/azure/disk).
+* (Opcional) Cree un disco administrado desde el disco duro virtual con *az disk create* (consulte https://docs.microsoft.com/cli/azure/disk ).
 * Cree una máquina virtual especificando el VHD o el disco de Managed Disks cargados como disco del sistema operativo con *az vm create* y el parámetro *--attach-os-disk*.
 * Agregue un disco de datos a una nueva máquina virtual con *az vm disk attach* y el parámetro *--new*.
 
@@ -971,22 +971,22 @@ En este caso, queremos cargar un VHD (con o sin un sistema operativo en él) y m
 Para cargar una máquina virtual o un disco duro virtual existentes desde la red local a fin de poder utilizarlos como una imagen de máquina virtual de Azure, dichos elementos tendrán que cumplir los requisitos enumerados en el capítulo [Preparación para la implementación de una máquina virtual con una imagen específica del cliente para SAP][planning-guide-5.2.2] de este documento.
 
 * Utilice *sysprep* en Windows o *waagent -deprovision* en Linux para generalizar la máquina virtual (consulte [Referencia técnica de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows o[ Captura de una máquina virtual Linux para usarla como plantilla de Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux).
-* Inicie sesión su suscripción con *AzAccount de Connect*
-* Establezca la suscripción de su contexto con *conjunto AzContext* y vea el parámetro SubscriptionId o SubscriptionName - <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Cargue el VHD con *agregar AzVhd* a una cuenta de almacenamiento de Azure: vea <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Opcional) Crear una imagen de disco administrado desde el disco duro virtual con *New AzImage* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
+* Inicie sesión en su suscripción con *Connect-AzAccount*.
+* Establezca la suscripción de su contexto con *Set-AzContext* y el parámetro SubscriptionId o SubscriptionName (consulte <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>).
+* Cargue el disco duro virtual con *Add-AzVhd* en una cuenta de Azure Storage (consulte <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>).
+* (Opcional) Cree una imagen de disco administrado desde el disco duro virtual con *New-AzImage* (consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>).
 * Configure el disco del sistema operativo de una nueva configuración de máquina virtual para:
-  * Disco duro virtual con *conjunto AzVMOSDisk - SourceImageUri - CreateOption fromImage* -consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-  * Imagen de disco administrado *conjunto AzVMSourceImage* -consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
-* Crear una nueva máquina virtual a partir de la configuración de máquina virtual con *New-AzVM* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+  * Disco duro virtual con *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* (consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>).
+  * Imagen de disco administrado *Set-AzVMSourceImage* (consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>).
+* Cree una nueva máquina virtual desde la configuración de máquina virtual con *New-AzVM* (consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>).
 
 **CLI de Azure**
 
 * Utilice *sysprep* en Windows o *waagent -deprovision* en Linux para generalizar la máquina virtual (consulte [Referencia técnica de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows o[ Captura de una máquina virtual Linux para usarla como plantilla de Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux).
 * Inicie sesión en la suscripción con *az login*
-* Seleccione su suscripción con *az account set --subscription `<subscription name or id`>*.
+* Seleccione su suscripción con *az account set --subscription `<subscription name or id`>* .
 * Cargue el VHD con *az storage blob upload* (consulte [Uso de la CLI de Azure con Azure Storage][storage-azure-cli]).
-* (Opcional) Cree una imagen de disco administrado desde el disco duro virtual con *az image create* (consulte https://docs.microsoft.com/cli/azure/image).
+* (Opcional) Cree una imagen de disco administrado desde el disco duro virtual con *az image create* (consulte https://docs.microsoft.com/cli/azure/image ).
 * Cree una máquina virtual especificando el VHD o la imagen de Managed Disks cargados como disco del sistema operativo con *az vm create* y el parámetro *--image*.
 
 **Plantilla**
@@ -1001,7 +1001,7 @@ La solución de infraestructura como servicio de Azure no solo funciona unidirec
 
 Durante la descarga, los discos duros virtuales o los discos de Managed Disks no pueden estar activos. Incluso cuando se descargan los discos que están montados en máquinas virtuales, la máquina virtual tiene que estar apagada y desasignada. Si solo quiere descargar el contenido de la base de datos, que después se debe usar para configurar un nuevo sistema local, y si desea que, durante el tiempo que dure la descarga y la configuración del nuevo sistema, el sistema presente en Azure continúe estando operativo, podría evitar un tiempo de inactividad prolongado realizando una copia de seguridad comprimida de la base de datos en un disco para sencillamente descargar este último en lugar de descargar también la máquina virtual base del sistema operativo.
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 
 * Descarga de un disco de Managed Disks  
   En primer lugar, debe acceder al blob subyacente del disco de Managed Disks. Después, puede copiar el blob subyacente en una cuenta de almacenamiento nueva y descargarlo desde esta cuenta.
@@ -1019,7 +1019,7 @@ Durante la descarga, los discos duros virtuales o los discos de Managed Disks no
   ```
 
 * Descarga de un disco duro virtual  
-  Una vez que se haya detenido el sistema SAP y se apaga la máquina virtual, puede usar el cmdlet de PowerShell Save-AzVhd en el destino local para descargar los discos VHD al mundo en el entorno local. Para ello, necesita la dirección URL del disco duro virtual, que puede encontrar en la sección "Storage" de Azure Portal (tiene que ir a la cuenta de almacenamiento y al contenedor de almacenamiento donde se creó el disco duro virtual), y tiene que saber dónde se debe copiar el disco duro virtual.
+  Una vez que se haya detenido el sistema SAP y se haya apagado la máquina virtual, podrá usar el cmdlet de PowerShell Save-AzVhd en el destino local para volver a descargar los discos VHD al entorno local. Para ello, necesita la dirección URL del disco duro virtual, que puede encontrar en la sección "Storage" de Azure Portal (tiene que ir a la cuenta de almacenamiento y al contenedor de almacenamiento donde se creó el disco duro virtual), y tiene que saber dónde se debe copiar el disco duro virtual.
 
   Entonces podrá aprovechar el comando con solo definir el parámetro SourceUri como la URL del disco duro virtual que se va a descargar y LocalFilePath como la ubicación física del disco duro virtual (incluido su nombre). El comando podría presentar una sintaxis parecida a esta:
 
@@ -1027,7 +1027,7 @@ Durante la descarga, los discos duros virtuales o los discos de Managed Disks no
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Para obtener más información sobre el cmdlet Save-AzVhd, haga clic aquí <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
+  Para más información acerca del cmdlet Save-AzVhd, consulte aquí <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
 
 #### <a name="azure-cli"></a>Azure CLI
 * Descarga de un disco de Managed Disks  
@@ -1061,9 +1061,9 @@ Los discos de datos pueden almacenarse como archivos VHD en una cuenta de Azure 
 
 Los discos de datos también pueden ser discos de Managed Disks. En este caso, el disco de Managed Disks se usa para crear un disco de Managed Disks antes de conectarlo a la máquina virtual. El nombre del disco de Managed Disks debe ser exclusivo dentro de un grupo de recursos.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
-Puede usar cmdlets de Azure PowerShell para copiar un VHD, como se muestra en [este artículo][storage-powershell-guide-full-copy-vhd]. Para crear un nuevo disco administrado, utilice New-AzDiskConfig y New-AzDisk tal como se muestra en el ejemplo siguiente.
+Puede usar cmdlets de Azure PowerShell para copiar un VHD, como se muestra en [este artículo][storage-powershell-guide-full-copy-vhd]. Para crear un disco de Managed Disks, use New-AzDiskConfig y New-AzDisk como se muestra en el ejemplo siguiente.
 
 ```powershell
 $config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
@@ -1089,7 +1089,7 @@ Las ediciones profesionales de los Exploradores de Azure Storage se pueden encon
 
 La copia de un disco duro virtual dentro de una cuenta de almacenamiento es un proceso que solo tarda unos pocos segundos (como sucede en el caso de la creación de instantáneas con copia diferida y copia en escritura por parte de hardware de SAN). Una vez que tenga una copia del archivo de disco duro virtual, podrá asociarlo a una máquina virtual o usarlo como una imagen para conectar copias del disco duro virtual a máquinas virtuales.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 ```powershell
 # attach a vhd to a vm
@@ -1135,13 +1135,13 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copia de discos entre cuentas de Azure Storage
 Esta tarea no puede realizarse en Azure Portal. Puede usar cmdlets de Azure PowerShell, la CLI de Azure o un explorador de almacenamiento de terceros. Los cmdlets de PowerShell o los comandos de la CLI pueden crear y administrar blobs, lo que abarca la capacidad de copiar blobs de forma asincrónica entre las distintas cuentas de almacenamiento y regiones de la suscripción de Azure.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 También puede copiar discos duros virtuales entre suscripciones. Para más información, lea [este artículo][storage-powershell-guide-full-copy-vhd].
 
 El flujo básico de la lógica de los cmdlets de PowerShell se compone, a grandes rasgos, de estos pasos:
 
-* Cree un contexto de la cuenta de almacenamiento para el **origen** cuenta de almacenamiento con *New AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Cree un contexto de la cuenta de almacenamiento para el **destino** cuenta de almacenamiento con *New AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Crear un contexto de cuenta de almacenamiento para la cuenta de almacenamiento de **origen** con *New-AzStorageContext* (consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>)
+* Crear un contexto de cuenta de almacenamiento para la cuenta de almacenamiento de **destino** con *New-AzStorageContext* (consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>)
 * Inicie la copia con
 
 ```powershell
@@ -1189,7 +1189,7 @@ Lo ideal es que la administración de la estructura de una máquina virtual y lo
 
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > En el caso de muchos clientes, observamos configuraciones en las que, por ejemplo, los archivos binarios de SAP y DBMS no estaban instalados en la unidad c:\ en la que sí lo estaba el sistema operativo. Existían varios motivos para ello, pero cuando nos fijábamos en la causa principal, normalmente se debía a que los discos eran pequeños y actualizaciones del sistema operativo necesitaban más espacio hace 10 o 15 años. Ambas condiciones han dejado de aplicarse actualmente. En la actualidad, la unidad c:\ puede asignarse a máquinas virtuales o discos de gran volumen. A fin de simplificar la estructura de las implementaciones, se recomienda seguir el patrón de implementación para sistemas SAP NetWeaver en Azure que verá a continuación.
 >
@@ -1222,7 +1222,7 @@ La experiencia en implementaciones de SAP que hemos acumulado durante los últim
 * El tráfico de IOPS a los diferentes archivos de datos no es siempre el mismo porque puede que los sistemas existentes del cliente presenten archivos de datos de distinto tamaño, los cuales que representan sus bases de datos de SAP. Por tanto, resultó ser más recomendable usar una configuración de RAID en lugar de varios discos para colocar los LUN de archivos de datos extraídos de estos. Se han producido situaciones, especialmente con Azure Standard Storage, en las que una tasa E/S por segundo alcanzó la cuota de un solo disco en relación con el registro de transacciones del DBMS. En estos casos, se recomienda usar Premium Storage o, como método alternativo, agregar varios discos de Standard Storage con una sección de software.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > * [Procedimientos recomendados para SQL Server en Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices]
 >
@@ -1256,7 +1256,7 @@ Después, debe decidir si desea crear un disco vacío o si quiere seleccionar un
 **IMPORTANTE**: **NO** se recomienda usar el almacenamiento en caché de host con Azure Standard Storage. Debe dejar la preferencia de caché de host en el valor predeterminado, es decir, NINGUNO. Con Azure Premium Storage, debería habilitar el almacenamiento en caché de lectura si la característica de E/S es principalmente de lectura, como es típico del tráfico de E/S relativo a archivos de datos de bases de datos. En el caso del archivo de registro de transacciones, se recomienda no utilizar el almacenamiento en caché.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > [Cómo conectar un disco de datos en Azure Portal][virtual-machines-linux-attach-disk-portal]
 >
@@ -1279,7 +1279,7 @@ La replicación geográfica de Azure funciona localmente en cada disco duro virt
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Configuración de montaje automático para discos conectados
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > En el caso de las máquinas virtuales que se crean a partir de imágenes o discos propios, hay que comprobar y, posiblemente, establecer el parámetro automount. Si se establece este parámetro, la máquina virtual podrá, tras un reinicio o una nueva implementación en Azure, volver a montar automáticamente las unidades asociadas o montadas.
 > El parámetro ya está establecido en las imágenes que proporciona Microsoft en Azure Marketplace.
@@ -1329,10 +1329,10 @@ Para información más detallada sobre este tema consulte este artículo: <https
 Puede que haga falta configurar el firewall en las máquinas virtuales para permitir el tráfico entrante al sistema SAP.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > De forma predeterminada, el Firewall de Windows está activado en una máquina virtual implementada de Azure. Ahora debe permitir la apertura del puerto de SAP; de lo contrario, la GUI de SAP no podrá conectarse.
-> Para ello:
+> Para ello, siga estos pasos:
 >
 > * Abra Panel de control\Sistema y seguridad\Firewall de Windows y vaya a **Configuración avanzada**.
 > * Ahora haga clic con el botón derecho en Reglas de entrada y seleccione **Nueva regla**.
@@ -1361,20 +1361,20 @@ La GUI de SAP no se conecta inmediatamente a cualquiera de las instancias de SAP
 >
 >
 
-como se documenta en [configuración de seguridad para el servidor de mensajes de SAP](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
+como se documenta en [Security Settings for the SAP Message Server ](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm) (Configuración de seguridad del servidor de mensajes de SAP)
 
 
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Escenario de demostración/aprendizaje de máquina virtual única con SAP NetWeaver
 
 ![Ejecución de sistemas de demostración de SAP de una sola máquina virtual con los mismos nombres de VM, de forma aislada en Azure Cloud Services][planning-guide-figure-1700]
 
-En este caso, se va a implementar un escenario habitual de sistema de demostración o aprendizaje en el que dicho escenario se encuentra por completo en una sola VM. Se supone que la implementación se realiza mediante plantillas de imagen de máquina virtual. También se supone que se deben implementar varias de estas máquinas virtuales de demostración o aprendizaje, y que estas tendrán el mismo nombre. Los sistemas de entrenamiento completo no tienen conectividad a los recursos locales y una lo opuesto a una implementación híbrida.
+En este caso, se va a implementar un escenario habitual de sistema de demostración o aprendizaje en el que dicho escenario se encuentra por completo en una sola VM. Se supone que la implementación se realiza mediante plantillas de imagen de máquina virtual. También se supone que se deben implementar varias de estas máquinas virtuales de demostración o aprendizaje, y que estas tendrán el mismo nombre. Los sistemas de entrenamiento completo no tienen conectividad a los recursos locales y son lo opuesto a una implementación híbrida.
 
 La suposición es que ha creado una imagen de máquina virtual como se describe en algunas secciones del capítulo [Preparación de máquinas virtuales con SAP para Azure][planning-guide-5.2] de este documento.
 
 La secuencia de eventos para implementar el escenario es similar a esta:
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 * Cree un grupo de recursos para cada entorno de aprendizaje o demostración.
 
@@ -1501,7 +1501,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* Crear una nueva cuenta de almacenamiento
+* Creación de una cuenta de almacenamiento nueva
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1576,7 +1576,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### <a name="template"></a>Plantilla
 
-Puede usar las plantillas de ejemplo en el repositorio azure-quickstart-templates de GitHub.
+Puede usar las plantillas de ejemplo del repositorio de plantillas de inicio rápido de Azure en GitHub.
 
 * [Máquina virtual de Linux simple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Máquina virtual de Windows simple](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -1621,7 +1621,7 @@ El escenario entre locales o híbrido se puede describir aproximadamente como se
 
 ![Conectividad de sitio a sitio entre activos locales y de Azure][planning-guide-figure-2100]
 
-El escenario mostrado anteriormente describe un escenario donde la premisa
+Antes se ha descrito un escenario donde los AD/OpenLDAP y DNS locales se extienden a Azure.
 
 El requisito mínimo es el uso de protocolos de comunicaciones seguras como SSL/TLS para el acceso del navegador o conexiones basadas en VPN para el acceso del sistema a los servicios de Azure. Se presupone que las empresas controlan la conexión VPN entre su red corporativa y Azure de forma distinta. Puede que algunas empresas se limiten a abrir todos los puertos. Es posible que otras deseen ser precisas, por ejemplo, en cuanto a los puertos que hay que abrir.
 
@@ -1629,7 +1629,7 @@ En la tabla siguiente, se enumeran los puertos de comunicación de SAP típicos.
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Servicio | Nombre de puerto | Ejemplo `<nn`> = 01 | Intervalo predeterminado (mín.-máx.) | Comentario |
+| Servicio | Nombre del puerto | Ejemplo `<nn`> = 01 | Intervalo predeterminado (mín.-máx.) | Comentario |
 | --- | --- | --- | --- | --- |
 | Distribuidor |sapdp`<nn>` consulte * |3201 |3200 - 3299 |Distribuidor de SAP, utilizado por la GUI de SAP para Windows y Java |
 | Servidor de mensajes |sapms`<sid`> consulte ** |3600 |sapms libre`<anySID`> |sid = identificador del sistema SAP |
@@ -1656,9 +1656,9 @@ Microsoft ha agregado muchos más tipos de máquinas virtuales que difieren en e
 La configuración de las impresoras de red basadas en TCP/IP locales en una VM de Azure es generalmente la misma que la de la red corporativa, partiendo de la base de que tenga establecidos un túnel VPN de sitio a sitio o una conexión ExpressRoute.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
-> Para ello:
+> Para ello, siga estos pasos:
 >
 > * Algunas impresoras de red incluyen un Asistente para la configuración, lo que permite configurarlas más fácilmente en una VM de Azure. Si no se distribuyó ningún software de asistente con la impresora, la forma manual de configurar la impresora consiste en crear un nuevo puerto de impresora TCP/IP.
 > * Abra Panel de control -> Dispositivos e impresoras -> Agregar una impresora.
@@ -1691,7 +1691,7 @@ El recurso compartido de impresora se identifica mediante un nombre único en la
 Procedimientos para:
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Comparta la impresora local.
 > En la máquina virtual de Azure, abra el Explorador de Windows y escriba el nombre del recurso compartido de impresora.
@@ -1712,7 +1712,7 @@ Procedimientos para:
 En Azure, la capacidad de los Servicios de Escritorio remoto para permitir a los usuarios que accedan a sus dispositivos de impresora local en una sesión remota no está disponible.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > Se puede encontrar más información sobre la impresión con Windows aquí: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
@@ -1823,7 +1823,7 @@ La configuración de un portal de SAP en una máquina virtual de Azure no difier
 
 Un escenario de implementación especial de algunos clientes es la exposición directa de SAP Enterprise Portal a Internet mientras el host de máquina virtual está conectado a la red corporativa por medio del túnel VPN de sitio a sitio o ExpressRoute. En semejante escenario, hay que asegurarse de que determinados puertos estén abiertos y no estén bloqueados por el firewall ni por el grupo de seguridad de red. 
 
-El URI inicial del portal es http (s):`<Portalserver`>: 5XX00/irj, donde el puerto está formado según se documenta en SAP en <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+El URI inicial del portal es http(s):`<Portalserver`>:5XX00/irj, donde está formado el puerto, tal y como se explica en detalle por SAP en <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Configuración del punto de conexión][planning-guide-figure-2800]
 
@@ -1959,7 +1959,7 @@ A continuación, se ofrecen dos ejemplos de una arquitectura completa de alta di
 Solo discos no administrados: Es posible que se deba cuestionar la siguiente explicación de los conceptos cuando se implementen muchos sistemas SAP y que el número de máquinas virtuales implementadas supere el límite máximo de cuentas de almacenamiento por suscripción. En tales casos, se deben combinar los VHD de las máquinas virtuales dentro de una cuenta de almacenamiento. Normalmente, este procedimiento se llevaría a cabo combinando los VHD de las máquinas virtuales de la capa de aplicación de SAP en diversos sistemas SAP.  También se combinan varios VHD de diversas máquinas virtuales del DBMS de sistemas SAP distintos en una sola cuenta de Azure Storage. Por lo tanto, se tienen en cuenta los límites de IOPS de las cuentas de Azure Storage (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
-##### <a name="windowslogowindows-ha-on-windows"></a>![ Windows][Logo_Windows]  Alta disponibilidad en Windows
+##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] Alta disponibilidad en Windows
 
 ![Arquitectura de alta disponibilidad de las aplicaciones de SAP NetWeaver con SQL Server en IaaS de Azure][planning-guide-figure-3200]
 
@@ -1981,7 +1981,7 @@ En la siguiente figura se ilustra el mismo entorno con la utilización de discos
 
 ![Arquitectura de alta disponibilidad de las aplicaciones de SAP NetWeaver con SQL Server en IaaS de Azure][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux]  Alta disponibilidad en Linux
+##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] Alta disponibilidad en Linux
 
 La arquitectura de alta disponibilidad de SAP en Linux en Azure es básicamente la misma que la descrita anteriormente para Windows. Consulte la nota de SAP [1928533] para obtener una lista de soluciones compatibles y de alta disponibilidad.
 
@@ -2032,7 +2032,7 @@ Se puede efectuar una copa de seguridad de otras máquinas virtuales dentro del 
 > [!NOTE]
 > Desde diciembre de 2015, la copia de seguridad de máquinas virtuales NO conserva el identificador único de VM que se utiliza para la concesión de licencias de SAP. Esto significa que restaurar la copia de seguridad de una máquina virtual requiere instalar una clave de licencia de SAP nueva, ya que se considera que la máquina virtual restaurada es una máquina virtual nueva en lugar de una sustitución de la anterior que estaba guardada.
 >
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > En teoría, se puede realizar una copia de seguridad de las máquinas virtuales que ejecutan bases de datos de forma coherente si el sistema de DBMS admite Windows VSS (Servicio de instantáneas de volumen de Windows <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) como hace SQL Server, por ejemplo.
 > Sin embargo, se debe tener en cuenta que no se pueden restaurar bases de datos en un momento dado a partir de las copias de seguridad de máquinas virtuales de Azure. Por lo tanto, se recomienda realizar copias de seguridad de las bases de datos con la funcionalidad del DBMS en lugar de confiar en la copia de seguridad de máquinas virtuales de Azure.

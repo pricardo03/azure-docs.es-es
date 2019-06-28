@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65782919"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creación de un script de instalación desatendida para el conector del proxy de la aplicación de Azure AD
@@ -34,7 +34,7 @@ Esta capacidad resulta útil cuando desea hacer lo siguiente:
 * Integrar la instalación del conector y el registro como parte de otro procedimiento.
 * Crear una imagen de servidor estándar que contiene los bits de conector, pero no está registrada.
 
-Para el [conector del Proxy de aplicación](application-proxy-connectors.md) para trabajar, debe estar registrado con el directorio de Azure AD mediante un administrador de la aplicación y una contraseña. Normalmente, esta información se especifica durante la instalación del conector en un cuadro de diálogo emergente, pero también puede usar PowerShell para automatizar este proceso.
+Para que el [conector del proxy de la aplicación](application-proxy-connectors.md) funcione, debe registrarse con el directorio de Azure AD mediante un administrador de aplicaciones y una contraseña. Normalmente, esta información se especifica durante la instalación del conector en un cuadro de diálogo emergente, pero también puede usar PowerShell para automatizar este proceso.
 
 Hay dos pasos para una instalación desatendida. Primero, instale el conector. Después, registre el conector con Azure AD. 
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508194"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
@@ -45,10 +45,10 @@ Muchas aplicaciones pueden beneficiarse del tiempo de preparación para el mante
 Con Eventos programados, la aplicación puede detectar cuándo se producirá el mantenimiento y desencadenar tareas para limitar su impacto. Habilitar eventos programados ofrece a la máquina virtual una cantidad mínima de tiempo antes de que se lleve a cabo la actividad de mantenimiento. Consulte la sección de programación de eventos a continuación para obtener más información.
 
 Eventos programados proporciona eventos en los casos de uso siguientes:
-- [Mantenimiento iniciado por la plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por ejemplo, VM reboot, migración en vivo o actualizaciones para el host de conservación de memoria)
+- [Mantenimiento iniciado por la plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por ejemplo, reinicio de máquina virtual, migración en vivo o actualizaciones con conservación de memoria para el host)
 - Hardware degradado
 - Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
-- [Expulsión de la máquina virtual de baja prioridad](https://azure.microsoft.com/blog/low-priority-scale-sets) en escala establece
+- [Expulsión de la máquina virtual de baja prioridad](https://azure.microsoft.com/blog/low-priority-scale-sets) en conjuntos de escalado
 
 ## <a name="the-basics"></a>Conceptos básicos  
 
@@ -64,11 +64,11 @@ Si la máquina virtual no se crea dentro de una red virtual (lo habitual para se
 ### <a name="version-and-region-availability"></a>Disponibilidad por región y versión
 El servicio Eventos programados tiene versiones. Las versiones son obligatorias y la versión actual es la `2017-11-01`.
 
-| Version | Tipo de versión | Regiones | Notas de la versión | 
+| Versión | Tipo de versión | Regiones | Notas de la versión | 
 | - | - | - | - |
-| 2017-11-01 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
+| 01-11-2017 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | Todo | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Preview | Todo |<li>Versión inicial.
+| 2017-03-01 | Vista previa | Todo |<li>Versión inicial.
 
 > [!NOTE] 
 > Las versiones preliminares de eventos programados compatibles {más reciente} como la versión de api. Este formato ya no es compatible y dejará de utilizarse en el futuro.
@@ -85,13 +85,13 @@ Si se reinicia una máquina virtual, se programa un evento con el tipo `Reboot`.
 
 ## <a name="using-the-api"></a>Uso de la API
 
-### <a name="headers"></a>Encabezados
+### <a name="headers"></a>encabezados
 Al realizar consultas a Metadata Service, debe proporcionar el encabezado `Metadata:true` para asegurarse de que la solicitud no se haya redirigido de manera involuntaria. El encabezado `Metadata:true` es necesario para todas las solicitudes de eventos programados. Un error al incluir el encabezado en la solicitud generará una respuesta del tipo Solicitud incorrecta del servicio de metadatos.
 
 ### <a name="query-for-events"></a>Consulta de eventos
 Puede consultar los eventos programados; para ello, simplemente haga la siguiente llamada:
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
@@ -119,7 +119,7 @@ DocumentIncarnation es una etiqueta de entidad y proporciona una manera fácil d
 |Propiedad  |  DESCRIPCIÓN |
 | - | - |
 | EventId | Es un identificador único global del evento. <br><br> Ejemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Tipo de evento | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: La máquina Virtual está programada para pausarse durante unos segundos. Es posible que se suspenda la conectividad de red y CPU, pero no hay ningún impacto en la memoria o los archivos abiertos. <li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: Se está eliminando la máquina Virtual de baja prioridad (discos efímeros se pierden).|
+| EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: la máquina virtual está programada para pausarse durante unos segundos. Puede que se suspenda la conectividad de la CPU y la red, pero no afecta a la memoria ni a los archivos abiertos. <li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: Se está eliminando la máquina virtual de baja prioridad (se pierden los discos efímeros).|
 | ResourceType | Es el tipo de recurso al que afecta este evento. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Es la lista de recursos a la que afecta este evento. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en el dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Estado de evento | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Nunca se proporcionan `Completed` ni ningún estado similar; el evento ya no se devolverá cuando finalice.
@@ -128,12 +128,12 @@ DocumentIncarnation es una etiqueta de entidad y proporciona una manera fácil d
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función del tipo de evento. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 
 
-|Tipo de evento  | Minimum Notice |
+|EventType  | Minimum Notice |
 | - | - |
 | Freeze| 15 minutos |
-| Reiniciar | 15 minutos |
-| Reimplementar | 10 minutos |
-| Preferencia | 30 segundos |
+| Reboot | 15 minutos |
+| Volver a implementar | 10 minutos |
+| Preempt | 30 segundos |
 
 ### <a name="event-scope"></a>Ámbito actual     
 Los eventos programados se entregan a:
@@ -159,7 +159,7 @@ A continuación se muestra el JSON esperado en el cuerpo de la solicitud `POST`.
 }
 ```
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```

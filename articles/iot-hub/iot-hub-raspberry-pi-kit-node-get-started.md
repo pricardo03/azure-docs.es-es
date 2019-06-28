@@ -1,6 +1,6 @@
 ---
 title: 'Raspberry Pi a la nube (Node.js): Conectar Raspberry Pi a Azure IoT Hub | Microsoft Docs'
-description: Aprenda a configurar y conectar Raspberry Pi a IoT Hub de Azure para Raspberry Pi enviar datos a la plataforma de nube de Azure en este tutorial.
+description: En este tutorial aprenderá a configurar y conectar Raspberry Pi a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure.
 author: wesmc7777
 manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi envía datos a la nube, raspberry pi a la nube
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597260"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar Raspberry Pi a Azure IoT Hub (Node.js)
@@ -98,7 +98,7 @@ Prepare la tarjeta microSD para instalar la imagen de Raspbian.
 
 1. Descargue Raspbian.
 
-    a. [Descargue Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (el archivo .zip).
+   a. [Descargue Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (el archivo .zip).
 
    > [!WARNING]
    > Use el vínculo anterior para descargar la imagen `raspbian-2017-07-5` como archivo ZIP. La última versión de las imágenes de Raspbian tiene algunos problemas conocidos con el nodo Wiring-Pi, que puede ocasionar errores en los pasos siguientes.
@@ -107,7 +107,7 @@ Prepare la tarjeta microSD para instalar la imagen de Raspbian.
 
 2. Instale Raspbian en la tarjeta microSD.
 
-    a. [Descargue e instale la utilidad de grabadora de tarjetas SD Etcher](https://etcher.io/).
+   a. [Descargue e instale la utilidad de grabadora de tarjetas SD Etcher](https://etcher.io/).
 
    b. Ejecute Etcher y seleccione la imagen de Raspbian que extrajo en el paso 1.
 
@@ -123,7 +123,7 @@ Prepare la tarjeta microSD para instalar la imagen de Raspbian.
 
 1. Conecte Pi al monitor, el teclado y el mouse.
 
-2. Inicie Pi y, a continuación, inicie sesión en Raspbian con `pi` como el nombre de usuario y `raspberry` como contraseña.
+2. Inicie Pi y luego inicie sesión en Raspbian con `pi` como nombre de usuario y `raspberry` como contraseña.
 
 3. Haga clic en el icono de Raspberry > **Preferencias** > **Configuración de Raspberry Pi**.
 
@@ -178,7 +178,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
 
    **Usuarios de Windows**
   
-    a. Descargue e instale [PuTTY](https://www.putty.org/) para Windows. 
+   a. Descargue e instale [PuTTY](https://www.putty.org/) para Windows. 
 
    b. Copie la dirección IP de Pi en la sección de nombre de host (o dirección IP) y seleccione SSH como el tipo de conexión.
 
@@ -199,7 +199,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
    node -v
    ```
 
-   Si la versión es inferior a 10.x, o si no hay ningún Node.js en Pi, instale la versión más reciente.
+   Si la versión es anterior a la 10.x, o bien si no hay ninguna versión de Node.js en Pi, instale la versión más reciente.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -230,7 +230,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
    nano config.json
    ```
 
-   ![Archivo de configuración](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Archivo config](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    Hay dos elementos en este archivo que se pueden configurar. El primero es `interval`, que define el intervalo de tiempo (en milisegundos) entre los mensajes que se envían a la nube. El segundo es `simulatedData`, un valor booleano que indica si se usan los datos de sensor simulados o no.
 
@@ -253,11 +253,11 @@ Debería ver el resultado siguiente, que muestra los datos del sensor y los mens
 
 ![Resultado: datos de sensor enviados desde Raspberry Pi a IoT Hub](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>Leer los mensajes recibidos por el centro
+## <a name="read-the-messages-received-by-your-hub"></a>Lectura de los mensajes recibidos por IoT Hub
 
-Es una forma de supervisar los mensajes recibidos por IoT hub del dispositivo usar las herramientas de IoT de Azure para Visual Studio Code. Para obtener más información, consulte [uso de herramientas de IoT de Azure para Visual Studio Code para enviar y recibir mensajes entre su dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Una forma de supervisar los mensajes recibidos por la instancia de IoT Hub desde el dispositivo consiste en usar Azure IoT Tools para Visual Studio Code. Para más información, vea [Uso de Azure IoT Tools para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para que conocer más formas procesar los datos enviados por el dispositivo, continúe con la siguiente sección.
+Para obtener más formas de procesar los datos enviados por el dispositivo, continúe con la sección siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

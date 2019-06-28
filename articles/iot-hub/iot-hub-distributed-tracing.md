@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400851"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
@@ -170,14 +170,14 @@ Estas instrucciones sirven para generar el muestreo en Windows. Para otros entor
 
 <!-- For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample).  -->
 
-### <a name="workaround-for-third-party-clients"></a>Solución alternativa para los clientes de terceros
+### <a name="workaround-for-third-party-clients"></a>Solución alternativa para clientes de terceros
 
-Tiene **no trivial** para obtener una vista previa de la característica de seguimiento distribuido sin usar el SDK de C. Por lo tanto, no se recomienda este enfoque.
+**No resulta sencillo** obtener la versión preliminar de la característica de seguimiento distribuido sin usar el SDK de C. Por lo tanto, no se recomienda este enfoque.
 
-En primer lugar, debe implementar todas las primitivas de protocolo de IoT Hub en los mensajes, siga la Guía de desarrollo [creación y lectura de los mensajes de IoT Hub](iot-hub-devguide-messages-construct.md). A continuación, modifique las propiedades del protocolo en los mensajes MQTT o AMQP para agregar `tracestate` como **propiedad del sistema**. Concretamente, puede:
+En primer lugar, debe implementar todos los primitivos de protocolo de IoT Hub en los mensajes; para ello, siga la guía de desarrollo [Creación y lectura de mensajes de IoT Hub](iot-hub-devguide-messages-construct.md). A continuación, edite las propiedades del protocolo en los mensajes de MQTT y AMQP para agregar `tracestate` como **propiedad del sistema**. Concretamente, puede:
 
-* Para que MQTT, agregar `%24.tracestate=timestamp%3d1539243209` para el tema del mensaje, donde `1539243209` debe reemplazarse por la hora de creación del mensaje en el formato de marca de tiempo de unix. Por ejemplo, hacer referencia a la implementación [del SDK de C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
-* Para AMQP, agregue `key("tracestate")` y `value("timestamp=1539243209")` como anotación del mensaje. Para una implementación de referencia, consulte [aquí](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+* En MQTT, agregar `%24.tracestate=timestamp%3d1539243209` al tema del mensaje, donde `1539243209` debe reemplazarse por la hora de creación del mensaje en el formato de marca de tiempo de Unix. A modo de ejemplo, consulte la implementación [en el SDK de C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761).
+* En AMQP, agregar `key("tracestate")` y `value("timestamp=1539243209")` como anotación del mensaje. Consulte [aquí](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527) una implementación de referencia.
 
 Para controlar el porcentaje de los mensajes que contienen esta propiedad, implemente la lógica para que escuche eventos iniciados en la nube, como las actualizaciones gemelas.
 

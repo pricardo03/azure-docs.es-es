@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602734"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregaciones en consultas de registros de Azure Monitor
@@ -31,7 +31,7 @@ En este artículo se describen las funciones de agregación en consultas de regi
 
 ## <a name="counts"></a>Recuentos
 
-### <a name="count"></a>número
+### <a name="count"></a>count
 Cuente el número de filas del conjunto de resultados después de aplicar filtros. En el ejemplo siguiente se devuelve el número total de filas de la tabla _Perf_ de los últimos 30 minutos. El resultado se devuelve en una columna denominada *count_* a menos que se le asigne un nombre específico:
 
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Evaluación de subgrupos
-Para realizar un recuento u otras agregaciones en subgrupos de los datos, use la palabra clave `by`. Por ejemplo, para contar el número de equipos Linux distintos que envían latidos en cada país o región:
+Para realizar un recuento u otras agregaciones en subgrupos de los datos, use la palabra clave `by`. Por ejemplo, para contar el número de equipos Linux distintos que enviaron latidos en cada país o región:
 
 ```Kusto
 Heartbeat 
@@ -93,10 +93,10 @@ Heartbeat
 |Canadá           | 3                   |
 |Irlanda          | 0                   |
 |Reino Unido   | 0                   |
-|Países bajos      | 2                   |
+|Países Bajos      | 2                   |
 
 
-Para analizar subgrupos incluso más pequeños de los datos, agregue nombres de columna adicionales a la sección `by`. Por ejemplo, podría desea contar los distintos equipos de cada país o región por OSType:
+Para analizar subgrupos incluso más pequeños de los datos, agregue nombres de columna adicionales a la sección `by`. Por ejemplo, si desea contar los distintos equipos de cada país o región por OSType:
 
 ```Kusto
 Heartbeat 

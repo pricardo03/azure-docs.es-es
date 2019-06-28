@@ -17,10 +17,10 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918679"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Administración del acceso a la información de facturación de Azure
@@ -45,7 +45,7 @@ Esos roles tienen acceso a la información de facturación en [Azure Portal](htt
 
 ### <a name="opt-in"></a> Permitir que los usuarios descarguen facturas
 
-Después de asignar los roles correspondientes a los miembros del equipo, el Administrador de cuenta debe activar el acceso para descargar facturas en el portal de Azure. Las facturas anteriores a diciembre de 2016 solo están disponibles para el administrador de cuenta.
+Después de asignar los roles adecuados a los miembros del equipo, el administrador de cuenta debe activar el acceso para descargar facturas en Azure Portal. Las facturas anteriores a diciembre de 2016 solo están disponibles para el administrador de cuenta.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 1. Como administrador de la cuenta, seleccione la suscripción desde la [hoja Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal.
@@ -71,7 +71,7 @@ La característica Lector de facturación está en versión preliminar y aún no
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 1. Seleccione su suscripción en la [hoja de suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal.
 
-1. Seleccione **Access Control (IAM)**.
+1. Seleccione **Access Control (IAM)** .
 1. Seleccione **Asignaciones de roles** para ver todas las asignaciones de roles de esta suscripción.
 1. Seleccione **Agregar asignación de roles**.
 1. En la lista desplegable **Rol**, elija **Lector de facturación**.
@@ -106,4 +106,4 @@ El administrador de la cuenta es el propietario legal de la suscripción. De for
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -10,17 +10,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520254"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
 Azure Storage proporciona un modelo de seguridad por capas. Este modelo le permite proteger las cuentas de almacenamiento en un conjunto específico de redes admitidas. Cuando se configuran las reglas de red, solo las aplicaciones que solicitan datos del conjunto especificado de redes pueden acceder a una cuenta de almacenamiento.
 
-Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de red están en vigor requiere la autorización adecuada en la solicitud. Autorización es compatible con las credenciales de Azure Active Directory (Azure AD) para blobs y colas, con una clave de acceso de cuenta válida o con un token de SAS.
+Una aplicación que accede a una cuenta de almacenamiento cuando las reglas de red están en vigor requiere la autorización adecuada en la solicitud. La autorización es compatible con las credenciales de Azure Active Directory (Azure AD) (para blobs y colas), con una clave de acceso de cuenta válida o un token de SAS.
 
 > [!IMPORTANT]
 > La activación de las reglas de firewall para la cuenta de almacenamiento bloquea las solicitudes entrantes para los datos de forma predeterminada, a menos que las solicitudes procedan de un servicio que funcione en una red virtual (VNet) de Azure. Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc.
@@ -56,7 +56,7 @@ De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de cli
 
 Puede administrar las reglas predeterminadas de acceso a redes para las cuentas de almacenamiento a través de Azure Portal, PowerShell o CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
@@ -137,7 +137,7 @@ La cuenta de almacenamiento y las redes virtuales a las que se concedió acceso 
 
 Puede administrar las reglas de red virtual para las cuentas de almacenamiento a través de Azure Portal, PowerShell o CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
@@ -229,7 +229,7 @@ Proporcione los intervalos de dirección de Internet mediante la [notación CIDR
    > [!NOTE]
    > Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales.
 
-Las reglas de red IP solo se permiten para direcciones IP de **Internet público**. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas de IP. Las redes privadas incluyen direcciones que comienzan por _10.*_, _172.16.*_ - _172.31.*_ y _192.168.*_.
+Las reglas de red IP solo se permiten para direcciones IP de **Internet público**. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas de IP. Las redes privadas incluyen direcciones que comienzan por _10.*_ , _172.16.*_  - _172.31.*_ y _192.168.*_ .
 
    > [!NOTE]
    > Las reglas de red IP no tienen ningún efecto en las solicitudes que proceden de la misma región de Azure que la cuenta de almacenamiento. Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región.
@@ -248,7 +248,7 @@ Si usa [ExpressRoute](/azure/expressroute/expressroute-introduction) desde las i
 
 Puede administrar las reglas de red IP para las cuentas de almacenamiento a través de Azure Portal, PowerShell o CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 
@@ -346,16 +346,16 @@ Algunos servicios de Microsoft que interactúan con las cuentas de almacenamient
 
 Para ayudar a que este tipo de servicio funcione según lo previsto, permita que el conjunto de servicios de Microsoft de confianza omita las reglas de red. Estos servicios usarán luego una autenticación sólida para acceder a la cuenta de almacenamiento.
 
-Si habilita la excepción **Permitir que los servicios de Microsoft de confianza…**, se concede acceso a la cuenta de almacenamiento a los siguientes servicios (cuando se han registrado en su suscripción):
+Si habilita la excepción **Permitir que los servicios de Microsoft de confianza…** , se concede acceso a la cuenta de almacenamiento a los siguientes servicios (cuando se han registrado en su suscripción):
 
 |Servicio|Nombre del proveedor de recursos|Propósito|
 |:------|:---------------------|:------|
 |Azure Backup|Microsoft.RecoveryServices|Ejecute copias de seguridad y restauraciones de discos no administrados en máquinas virtuales de IAAS. (no se necesita para discos administrados). [Más información](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Data Box|Microsoft.DataBox|Permite la importación de datos en Azure mediante el cuadro de datos. [Más información](/azure/databox/data-box-overview).|
+|Azure Data Box|Microsoft.DataBox|Permite la importación de datos en Azure mediante Data Box. [Más información](/azure/databox/data-box-overview).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Creación de imagen personalizada e instalación de artefactos. [Más información](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Habilite la publicación de eventos de Blob Storage y permita que Event Grid publique en las colas de almacenamiento. Obtenga información sobre los [eventos de Blob Storage](/azure/event-grid/event-sources) y la [publicación en las colas](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Archivo de datos con Event Hubs Capture. [Más información](/azure/event-hubs/event-hubs-capture-overview).|
-|HDInsight de Azure|Microsoft.HDInsight|Aprovisionar el contenido inicial del sistema de archivos predeterminado para un nuevo clúster de HDInsight. [Más información](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
+|HDInsight de Azure|Microsoft.HDInsight|Aprovisione el contenido inicial del sistema de archivos predeterminado para un nuevo clúster de HDInsight. [Más información](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.Insights|Permite la escritura de los datos de supervisión en una cuenta segura de almacenamiento. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Conexión a Azure|Microsoft.Network|Almacenamiento y análisis de los registros de tráfico de red. [Más información](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure la recuperación ante desastres al habilitar la replicación para máquinas virtuales de IaaS de Azure. Esto es necesario si usa una cuenta de almacenamiento en caché habilitada mediante firewall o una cuenta de almacenamiento de origen o una cuenta de almacenamiento de destino.  [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
@@ -369,7 +369,7 @@ En algunos casos, se requiere acceso para leer registros de diagnóstico y métr
 
 Puede administrar las excepciones de reglas de red a través de Azure Portal, PowerShell o la CLI de Azure v2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 1. Vaya a la cuenta de almacenamiento que quiere proteger.
 

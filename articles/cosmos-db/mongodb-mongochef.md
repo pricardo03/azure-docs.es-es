@@ -5,16 +5,15 @@ description: Aprenda a conectarse a Azure Cosmos DB mediante Studio 3T y la API
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-origin.date: 12/26/2018
-ms.date: 03/18/2019
-author: rockboyfor
-ms.author: v-yeche
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
 ms.custom: seodec18
 ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61332044"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Conexión a una cuenta de Cosmos con Studio 3T
@@ -29,38 +28,38 @@ Para agregar la cuenta de Cosmos DB al administrador de conexiones de Studio 3
 
 1. Recupere la información de conexión de la cuenta de Cosmos configurada con la API de Azure Cosmos DB para MongoDB mediante las instrucciones del artículo [Conectar una aplicación de MongoDB a Azure Cosmos DB](connect-mongodb-account.md).
 
-    ![Captura de pantalla de la página de la cadena de conexión](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Captura de pantalla de la página Cadena de conexión.](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Haga clic en **Connect** (Conectar) para abrir Connection Manager (Administrador de conexiones) y, después, haga clic en **New Connection** (Nueva conexión).
 
-    ![Captura de pantalla del Administrador de conexiones de Studio 3T](./media/mongodb-mongochef/ConnectionManager.png)
+    ![Captura de pantalla del administrador de conexiones de Studio 3T.](./media/mongodb-mongochef/ConnectionManager.png)
 3. En la ventana **New Connection** (Nueva conexión), en la pestaña **Server** (Servidor), escriba el HOST (FQDN) de la cuenta de Azure Cosmos DB y el PUERTO.
 
-    ![Captura de pantalla de la pestaña de servidor del Administrador de conexiones de Studio 3T](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+    ![Captura de pantalla de la pestaña de servidor del administrador de conexiones de Studio 3T.](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
 4. En la ventana **New Connection** (Nueva conexión), en la pestaña **Authentication** (Autenticación), elija el modo de autenticación **Basic (MONGODB-CR or SCARM-SHA-1)** [Básico (MONGODB-CR o SCARM-SHA-1)] y escriba el NOMBRE DE USUARIO y la CONTRASEÑA.  Acepte la base de datos de autenticación predeterminada (admin) o proporcione su propio valor.
 
-    ![Captura de pantalla de la pestaña de autenticación del Administrador de conexiones de Studio 3T](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Captura de pantalla de la pestaña de autenticación del administrador de conexiones de Studio 3T.](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. En la ventana **New Connection** (Nueva conexión), en la pestaña **SSL**, active la casilla **Use SSL protocol to connect** (Usar protocolo SSL para conectar) y el botón de radio **Accept server self-signed SSL certificates** (Aceptar certificados SSL autofirmados del servidor).
 
-    ![Captura de pantalla de la pestaña SSL del Administrador de conexiones de Studio 3T](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Captura de pantalla de la pestaña SSL del administrador de conexiones de Studio 3T.](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Haga clic en el botón **Test Connection** (Probar conexión) para validar la información de conexión, haga clic en **OK** (Aceptar) para volver a la ventana de la nueva conexión y, finalmente, haga clic en **Save** (Guardar).
 
-    ![Ventana de conexión de prueba de captura de pantalla de la de Studio 3T](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Captura de pantalla de la ventana de conexión de prueba de Studio 3T.](./media/mongodb-mongochef/TestConnectionResults.png)
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Uso de Studio 3T para crear una base de datos, una colección y unos documentos
 Para crear una base de datos, una colección y unos documentos con Studio 3T, realice los pasos siguientes:
 
 1. En **Connection Manager** (Administrador de conexiones), resalte la conexión y haga clic en **Connect** (Conectar).
 
-    ![Captura de pantalla del Administrador de conexiones de Studio 3T](./media/mongodb-mongochef/ConnectToAccount.png)
+    ![Captura de pantalla del administrador de conexiones de Studio 3T.](./media/mongodb-mongochef/ConnectToAccount.png)
 2. Haga clic con el botón derecho en el host y elija **Add Database** (Agregar base de datos).  Especifique un nombre de base de datos y haga clic en **OK**(Aceptar).
 
-    ![Captura de pantalla de la opción de agregar base de datos de Studio 3T](./media/mongodb-mongochef/AddDatabase1.png)
+    ![Captura de pantalla de la opción Agregar base de datos de Studio 3T.](./media/mongodb-mongochef/AddDatabase1.png)
 3. Haga clic con el botón derecho en la base de datos y elija **Add Collection** (Agregar colección).  Especifique un nombre para la colección y haga clic en **Create**(Create).
 
-    ![Captura de pantalla de la opción de agregar la colección de Studio 3T](./media/mongodb-mongochef/AddCollection.png)
+    ![Captura de pantalla de la opción Agregar colección de Studio 3T.](./media/mongodb-mongochef/AddCollection.png)
 4. Haga clic en el elemento de menú **Collection** (Colección) y en **Add Document** (Agregar documento).
 
-    ![Captura de pantalla del elemento de menú Agregar documento de Studio 3T](./media/mongodb-mongochef/AddDocument1.png)
+    ![Captura de pantalla del elemento de menú Agregar documento de Studio 3T.](./media/mongodb-mongochef/AddDocument1.png)
 5. En el cuadro de diálogo Add Document (Agregar documento), pegue lo siguiente y haga clic en **Add Document**(Agregar documento).
 
         {
@@ -108,11 +107,9 @@ Para crear una base de datos, una colección y unos documentos con Studio 3T, re
         }
 7. Ejecute una consulta de ejemplo. Por ejemplo, busque familias con el apellido 'Andersen' y devuelva los campos parents (padres) y state (estado).
 
-    ![Resultados de la consulta de captura de pantalla de Mongochef](./media/mongodb-mongochef/QueryDocument1.png)
+    ![Captura de pantalla de resultados de la consulta de MongoChef.](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [usar Robo 3T](mongodb-robomongo.md) con la API de Azure Cosmos DB para MongoDB.
 - Explore [ejemplos](mongodb-samples.md) de MongoDB con la API de Azure Cosmos DB para MongoDB.
-
-<!-- Update_Description: update meta properties, wording update -->

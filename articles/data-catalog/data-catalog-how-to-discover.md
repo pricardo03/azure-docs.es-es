@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001422"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Detección de orígenes de datos en Azure Data Catalog
 
 ## <a name="introduction"></a>Introducción
 
-Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para orígenes de datos empresariales. En otras palabras, Data Catalog ayuda a las personas a detectar, comprender y usar orígenes de datos. Ayuda a las organizaciones a obtener más valor de sus datos. Una vez que se ha registrado un origen de datos con Azure Data Catalog, sus metadatos se indexan según el servicio, de forma que puede realizar búsquedas con facilidad de los datos que necesita.
+Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para orígenes de datos empresariales. En otras palabras, Data Catalog ayuda a las personas a descubrir, comprender y usar orígenes de datos. Ayuda a las organizaciones a obtener más valor de sus datos existentes. Una vez que se ha registrado un origen de datos con Azure Data Catalog, sus metadatos se indexan según el servicio, de forma que puede realizar búsquedas con facilidad de los datos que necesita.
 
 ## <a name="searching-and-filtering"></a>Búsqueda y filtrado
 
@@ -50,7 +50,7 @@ Al visualizar los resultados de la búsqueda, se resaltarán las propiedades mos
 > [!NOTE]
 > Para desactivar el resaltado, use el conmutador **Resaltar** del portal de Data Catalog.
 
-Al ver los resultados de búsqueda, lo que no siempre sea evidente por qué un recurso de datos se incluye, incluso con el resaltado habilitado. Dado que se busca en todas las propiedades de forma predeterminada, es posible que se devuelva un recurso de datos debido a una coincidencia en una propiedad de nivel de columna. Y puesto que varios usuarios pueden anotar los activos de datos registrados con sus propias descripciones y etiquetas, no todos los metadatos se muestran en la lista de resultados de búsqueda.
+Al visualizar los resultados de la búsqueda, puede que no siempre sea evidente por qué se incluye un recurso de datos, incluso con el resaltado de visitas habilitado. Dado que se busca en todas las propiedades de forma predeterminada, es posible que se devuelva un recurso de datos debido a una coincidencia en una propiedad de nivel de columna. Y, puesto que distintos usuarios pueden anotar los recursos de datos registrados con sus propias descripciones y etiquetas, no se muestran todos los metadatos en la lista de resultados de la búsqueda.
 
 En la vista de iconos predeterminada, cada icono que se muestre en los resultados de la búsqueda incluirá un icono **Ver coincidencias de los términos de búsqueda**, que le permite ver rápidamente el número de coincidencias y su ubicación, y obtener acceso a ellas si lo desea.
 

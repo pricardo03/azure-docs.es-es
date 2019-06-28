@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463809"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabajar con canales que reciben streaming en vivo de velocidad de bits múltiple de codificadores locales
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
 > [!NOTE]
 > A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
@@ -45,7 +45,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal puede especifi
 > [!NOTE]
 > En este artículo se describen los atributos de los canales no habilitados para realizar la codificación en directo. Para más información sobre cómo trabajar con los canales habilitados para Live Encoding, consulte [Live Encoding con Azure Media Services para crear velocidades de bits múltiple](media-services-manage-live-encoder-enabled-channels.md).
 >
->Para obtener información acerca de recomienda codificadores locales, consulte [recomienda codificadores locales](media-services-recommended-encoders.md).
+>Para obtener información sobre los codificadores locales recomendados, consulte [Codificadores locales recomendados](media-services-recommended-encoders.md).
 
 El siguiente diagrama representa un flujo de trabajo de streaming en vivo que usa un codificador en vivo local para generar transmisiones de RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming) de salida.
 
@@ -189,7 +189,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | **Starting** (iniciándose) |**Starting** (iniciándose) |No (estado transitorio) |
 | **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>o<p>**Streaming** (al menos un programa en ejecución) |Sí |
 | **Stopping** (Deteniéndose) |**Stopping** (Deteniéndose) |No (estado transitorio) |
-| **Stopped** |**Stopped** |Sin  |
+| **Stopped** |**Stopped** |Sin |
 
 ## <a id="cc_and_ads"></a>Subtítulos e inserción de anuncios
 En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios compatibles.
@@ -229,7 +229,7 @@ Aquí encontrará otras consideraciones sobre el funcionamiento de los canales y
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Temas relacionados
-[Se recomienda en los codificadores locales](media-services-recommended-encoders.md)
+[Codificadores locales recomendados](media-services-recommended-encoders.md)
 
 [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 

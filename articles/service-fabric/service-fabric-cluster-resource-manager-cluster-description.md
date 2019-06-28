@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561213"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descripción de un clúster de Service Fabric
@@ -33,7 +33,7 @@ Cluster Resource Manager es compatible con varias de las características que de
 * Capacidades de nodo
 
 ## <a name="fault-domains"></a>Dominios de error
-Un dominio de error es cualquier área de error coordinado. Una única máquina constituye un dominio de error (ya que ella sola puede dejar de funcionar por muchas razones diferentes, desde errores en el sistema de alimentación hasta unidades averiadas o un firmware de NIC defectuoso). Varias máquinas conectadas al mismo conmutador Ethernet se encuentran en el mismo dominio de error, al igual que aquellas que estén conectadas a una sola fuente de energía o en una única ubicación. Puesto que es natural para los errores de hardware se superpongan, dominios de error son intrínsecamente jerárquicos y se representan como identificadores URI en Service Fabric.
+Un dominio de error es cualquier área de error coordinado. Una única máquina constituye un dominio de error (ya que ella sola puede dejar de funcionar por muchas razones diferentes, desde errores en el sistema de alimentación hasta unidades averiadas o un firmware de NIC defectuoso). Varias máquinas conectadas al mismo conmutador Ethernet se encuentran en el mismo dominio de error, al igual que aquellas que estén conectadas a una sola fuente de energía o en una única ubicación. Como es natural que coincidan averías de hardware, los dominios de error son intrínsecamente jerárquicos y se representan como identificadores URI en Service Fabric.
 
 Es importante que los dominios de error se configuren correctamente porque Service Fabric usa esta información para colocar servicios de forma segura. Service Fabric no quiere volver a colocar los servicios de forma que la pérdida de un dominio de error (causado por la avería de algún componente) provoque que un servicio deje de funcionar. En el entorno de Azure, Service Fabric aprovecha la información sobre dominios de error que proporciona dicho entorno para configurar automáticamente correctamente los nodos del clúster. Para Service Fabric independiente, los dominios de error se definen en el momento en que se configura el clúster. 
 
@@ -75,7 +75,7 @@ En el siguiente diagrama se muestran tres dominios de actualización divididos e
 
 <center>
 
-![Colocación con dominios de error y actualización][Image3]
+![Selección de ubicación con dominios de error y de actualización][Image3]
 </center>
 
 Tener un gran número de dominios de actualización tiene ventajas y desventajas. Disponer de más dominios de actualización implica que cada paso de la actualización sea más granular y, por tanto, afecta a un número menor de nodos o servicios. Como consecuencia, hay que mover menos servicios a la vez, lo que reduce la actividad en el sistema. Esto suele mejorar la confiabilidad general (ya que los problemas afectarán a una proporción menor del servicio durante la actualización). Si tiene más dominios de actualización, también necesitará menos búfer disponible en otros nodos para controlar el impacto de la actualización. Por ejemplo, si dispone de cinco dominios de actualización, los nodos de cada uno de ellos controlarán aproximadamente el 20 % del tráfico. Si necesita desactivar ese dominio de actualización para realizar una actualización, esa carga normalmente debe ir a otro lado. Puesto que tiene cuatro dominios de actualización restantes, cada uno debe tener un espacio aproximado del 5 % del tráfico total. Disponer de más dominios de actualización implica que necesita menos búfer en los nodos en el clúster. Por ejemplo, considere si había 10 dominios de actualización en su lugar. En ese caso, cada UD solo puede controlar aproximadamente el 10 % del tráfico total. Cuando se realiza una actualización en el clúster, cada dominio solo tendría que tener espacio para aproximadamente un 1,1 % del tráfico total. Disponer de más dominios de actualización le permite normalmente ejecutar nodos con una utilización mayor, ya que necesita una capacidad de reserva menor. Lo mismo ocurre con los dominios de error.  
@@ -92,7 +92,7 @@ No existe ningún límite real en el número total de dominios de error o de act
 
 <center>
 
-![Diseños de error y dominio de actualización][Image4]
+![Diseños de dominio de error y de actualización][Image4]
 </center>
 
 No existe un diseño ideal, sino que cada uno tiene sus ventajas e inconvenientes. Por ejemplo, el modelo 1FD:1UD es fácil de configurar. El modelo de 1 dominio de actualización por nodo es el más utilizado por los usuarios. Durante las actualizaciones, cada nodo se actualiza de forma independiente. Esto es similar a cómo se actualizaban manualmente los conjuntos pequeños de máquinas en el pasado.
@@ -100,7 +100,7 @@ No existe un diseño ideal, sino que cada uno tiene sus ventajas e inconveniente
 El modelo más habitual es la matriz FD/UD, en la que los FD (dominios de error) y los UD forman una tabla donde los nodos se colocan empezando por la diagonal. Este es el modelo que se utiliza de forma predeterminada en clústeres de Service Fabric en Azure. Para los clústeres con muchos nodos, todo tiene un aspecto parecido al patrón de matriz denso de arriba.
 
 > [!NOTE]
-> Clústeres de Service Fabric hospedados en Azure no admite el cambio de la estrategia predeterminada. Solo los clústeres independientes ofrecen esa personalización.
+> Los clústeres de Service Fabric hospedados en Azure no admiten el cambio de la estrategia predeterminada. Solo los clústeres independientes ofrecen esa personalización.
 >
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restricciones de dominio de error y de actualización y el comportamiento resultante
@@ -343,7 +343,7 @@ a través de ClusterConfig.json para las implementaciones independientes
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Restricciones de ubicación y propiedades de nodo
-A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados tipos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Un buen ejemplo de esto es prácticamente cualquier arquitectura de n niveles, Determinadas máquinas sirven de front-end o lado de la aplicación a la API y se exponen a los clientes o a Internet. Otras máquinas, a menudo con recursos de hardware diferentes, se encargan del trabajo de las capas de proceso o almacenamiento. Estas _no_ se suelen exponer directamente a los clientes o a Internet. Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo concretas en configuraciones de hardware específicas. Por ejemplo: 
+A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados tipos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Un buen ejemplo de esto es prácticamente cualquier arquitectura de n niveles, Determinadas máquinas sirven de front-end o lado de la aplicación a la API y se exponen a los clientes o a Internet. Otras máquinas, a menudo con recursos de hardware diferentes, se encargan del trabajo de las capas de proceso o almacenamiento. Estas _no_ se suelen exponer directamente a los clientes o a Internet. Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo concretas en configuraciones de hardware específicas. Por ejemplo:
 
 * una aplicación de n niveles existente se ha transferido "tal cual" a un entorno de Service Fabric;
 * se prefiere ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad;
@@ -353,7 +353,7 @@ Para admitir estos tipos de configuraciones, Service Fabric parte de una noción
 
 <center>
 
-![Diferentes cargas de trabajo de diseño del clúster][Image5]
+![Diferentes cargas de trabajo por diseño de clúster][Image5]
 </center>
 
 ### <a name="built-in-node-properties"></a>Propiedades del nodo integradas
@@ -361,7 +361,7 @@ Además, Service Fabric define algunas propiedades predeterminadas que se pueden
 
 <center>
 
-![Propiedades de nodo y restricciones de colocación][Image6]
+![Restricciones de selección de ubicación y propiedades de nodo][Image6]
 </center>
 
 ## <a name="placement-constraint-and-node-property-syntax"></a>Restricciones de colocación y sintaxis de propiedades de nodo 
@@ -614,7 +614,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener información sobre el flujo de información y arquitectura en Cluster Resource Manager, consulte [en este artículo](service-fabric-cluster-resource-manager-architecture.md)
+* Para más información sobre el flujo de información y la arquitectura de Cluster Resource Manager, vea [este artículo](service-fabric-cluster-resource-manager-architecture.md)
 * Definir las métricas de desfragmentación es una manera de consolidar la carga en los nodos en lugar de distribuirla. Para saber cómo configurar la desfragmentación, consulte [este artículo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 * Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md)

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123384"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
@@ -218,7 +218,7 @@ El servicio División y combinación usa Diagnósticos de Azure basado en el SDK
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 Para habilitar la supervisión y el diagnóstico mediante el uso de la configuración de diagnóstico para el rol web y el rol de trabajo proporcionado por el paquete NuGet, ejecute los siguientes comandos con Azure PowerShell:
 

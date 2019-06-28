@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481866"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crear y administrar un paquete de soporte para la serie StorSimple 8000
@@ -31,7 +31,7 @@ En este tutorial se incluyen instrucciones paso a paso para crear y administrar 
 
 ## <a name="create-a-support-package"></a>Crear un paquete de soporte
 
-En algunos casos, debe crear manualmente el paquete de soporte mediante Windows PowerShell para StorSimple. Por ejemplo: 
+En algunos casos, debe crear manualmente el paquete de soporte mediante Windows PowerShell para StorSimple. Por ejemplo:
 
 * Si necesita quitar información confidencial de los archivos de registro antes de compartirlos con el servicio de soporte técnico de Microsoft.
 * Si tiene dificultades para cargar el paquete debido a problemas de conectividad.
@@ -121,7 +121,7 @@ Para editar un paquete de soporte antes de cargarlo en el sitio de soporte técn
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Anote la nueva frase de contraseña para poder compartirla con el servicio de soporte técnico de Microsoft cuando se le solicite.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Ejemplo: Edición de archivos en un paquete de soporte en un recurso compartido protegido con contraseña
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Ejemplo: Edición de archivos de un paquete de soporte en un recurso compartido protegido por contraseña
 
 A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volver a cifrar un paquete de soporte.
 

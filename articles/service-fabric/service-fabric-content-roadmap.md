@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
 ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540715"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
@@ -30,7 +30,7 @@ Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el 
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tiempo de diseño: tipo de aplicación, tipo de servicio, paquete de aplicación y manifiesto de aplicación, paquete y manifiesto de servicio
 Un tipo de aplicación es el nombre o versión asignados a una colección de tipos de servicios. Esto se define en un archivo *ApplicationManifest.xml*, que se inserta en un directorio del paquete de aplicación. El paquete de aplicación se copia después en el almacén de imágenes del clúster de Service Fabric. Después, puede crear una aplicación con nombre a partir de este tipo de aplicación y ejecutarla después en el clúster. 
 
-Un tipo de servicio es el nombre o versión asignados a los paquetes de código, paquetes de datos y paquetes de configuración de un servicio. Esto se define en un archivo ServiceManifest.xml, que se inserta en un directorio del paquete de servicio. El archivo *ApplicationManifest.xml* de un paquete de aplicación hace referencia al directorio del paquete de servicio. En el clúster, después de crear una aplicación con nombre se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. Un tipo de servicio se describe en su archivo *ServiceManifest.xml*. El tipo de servicio se compone de código ejecutable y los valores de configuración de servicio, que se cargan en tiempo de ejecución, y los datos estáticos que consumen el servicio.
+Un tipo de servicio es el nombre o versión asignados a los paquetes de código, paquetes de datos y paquetes de configuración de un servicio. Esto se define en un archivo ServiceManifest.xml, que se inserta en un directorio del paquete de servicio. El archivo *ApplicationManifest.xml* de un paquete de aplicación hace referencia al directorio del paquete de servicio. En el clúster, después de crear una aplicación con nombre se pude crear un servicio con nombre desde uno de los tipos de servicio del tipo de aplicación. Un tipo de servicio se describe en su archivo *ServiceManifest.xml*. Además, se compone de las opciones de configuración del servicio y el código ejecutable que se cargan en tiempo de ejecución, y los datos estáticos que el servicio consume.
 
 ![Tipos de aplicaciones de Service Fabric y tipos de servicio][cluster-imagestore-apptypes]
 
@@ -65,7 +65,7 @@ Dentro de una partición, los servicios con nombre sin estado tienen instancias,
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservicios de Service Fabric con estado y sin estado
 Service Fabric permite compilar aplicaciones que constan de microservicios o contenedores. Los microservicios sin estado (como puertas de enlace de protocolo y servidores proxy web) no mantienen un estado mutable fuera de una petición y de su respuesta del servicio. Los roles de trabajo de Azure Cloud Services son un ejemplo de servicio sin estado. Los microservicios con estado (como cuentas de usuario, bases de datos, dispositivos, carros de la compra y colas) mantienen un estado mutable y autoritativo más allá de la petición y su respuesta. Actualmente, las aplicaciones de escala de Internet se componen de una combinación de microservicios con estado y sin estado. 
 
-Una diferencia clave con Service Fabric es la gran importancia en la creación de servicios con estado, ya sea con la [modelos de programación integrados](service-fabric-choose-framework.md) o con servicios con estado en contenedores. En los [escenarios de aplicación](service-fabric-application-scenarios.md), se describen aquellos donde se usan servicios con estado.
+Una diferencia clave con Service Fabric es la gran importancia que da a la creación de servicios con estado, ya sea con los [modelos de programación integrados](service-fabric-choose-framework.md) o con servicios con estado en contenedores. En los [escenarios de aplicación](service-fabric-application-scenarios.md), se describen aquellos donde se usan servicios con estado.
 
 ¿Por qué tener microservicios con estado con otros sin estado? Las dos razones principales son:
 
@@ -119,7 +119,7 @@ Un [clúster de Service Fabric](service-fabric-deploy-anywhere.md) es un conjunt
 Los clústeres de Service Fabric se pueden crear en cualquier máquina virtual o física que ejecute Windows Server o Linux. Puede implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos de Windows Server o Linux que estén conectados entre sí, ya sea de manera local, en Microsoft Azure o con algún proveedor en la nube.
 
 ### <a name="clusters-on-azure"></a>Clústeres en Azure
-La ejecución de clústeres de Service Fabric en Azure proporciona integración con otras características y servicios de Azure, lo que facilita las operaciones y la administración del clúster y hace que sea más confiable. Un clúster es un recurso de Azure Resource Manager, que permite modelar clústeres como cualquier otro recurso de Azure. Resource Manager también permite realizar una administración sencilla de todos los recursos utilizados por el clúster como una sola unidad. Clústeres en Azure se integran con diagnósticos de Azure y los registros de Azure Monitor. Los tipos de nodo de clúster son [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/index), por lo que la funcionalidad de escalado automático está integrada.
+La ejecución de clústeres de Service Fabric en Azure proporciona integración con otras características y servicios de Azure, lo que facilita las operaciones y la administración del clúster y hace que sea más confiable. Un clúster es un recurso de Azure Resource Manager, que permite modelar clústeres como cualquier otro recurso de Azure. Resource Manager también permite realizar una administración sencilla de todos los recursos utilizados por el clúster como una sola unidad. Los clústeres de Azure se integran con Diagnósticos de Azure y Registros de Azure Monitor. Los tipos de nodo de clúster son [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/index), por lo que la funcionalidad de escalado automático está integrada.
 
 Puede crear un clúster en Azure a través de [Azure Portal](service-fabric-cluster-creation-via-portal.md), a partir de una [plantilla](service-fabric-cluster-creation-via-arm.md) o en [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
@@ -165,7 +165,7 @@ Los informes pueden elaborarse a partir de:
 * Guardianes internos que se ejecutan en los nodos de Service Fabric pero que no se implementan como servicios de Service Fabric.
 * Guardianes externos que sondean el recurso desde fuera del clúster de Service Fabric (por ejemplo, un servicio de supervisión de tipo Gomez).
 
-Desde el principio, los componentes de Service Fabric informan del estado de todas las entidades del clúster. Los [informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) proporcionan visibilidad en el clúster y funcionalidad de la aplicación, además de marcar problemas a través del estado. Para aplicaciones y servicios, los informes de estado del sistema comprueban que las entidades se implementan y que se comportan correctamente desde la perspectiva de Service Fabric en tiempo de ejecución. Los informes no proporcionan ninguna supervisión del mantenimiento de la lógica de negocios del servicio o detectar procesos que han dejado de responder. Para agregar información de estado específica a la lógica del servicio, [implemente informes de estado personalizados](service-fabric-report-health.md) en los servicios.
+Desde el principio, los componentes de Service Fabric informan del estado de todas las entidades del clúster. Los [informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) proporcionan visibilidad en el clúster y funcionalidad de la aplicación, además de marcar problemas a través del estado. Para aplicaciones y servicios, los informes de estado del sistema comprueban que las entidades se implementan y que se comportan correctamente desde la perspectiva de Service Fabric en tiempo de ejecución. Los informes no proporcionan ninguna supervisión de estado de la lógica de negocios del servicio ni detectan procesos que hayan dejado de responder. Para agregar información de estado específica a la lógica del servicio, [implemente informes de estado personalizados](service-fabric-report-health.md) en los servicios.
 
 Service Fabric permite [ver los informes de estado](service-fabric-view-entities-aggregated-health.md) agregados al almacén de estado de varias formas:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) y otras herramientas de visualización.

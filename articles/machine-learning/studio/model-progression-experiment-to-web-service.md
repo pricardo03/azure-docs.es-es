@@ -1,7 +1,7 @@
 ---
-title: Cómo un modelo se convierte en un servicio web
+title: Conversión de un modelo a un servicio web
 titleSuffix: Azure Machine Learning Studio
-description: Información general de la mecánica de cómo progresa el modelo de Azure Machine Learning Studio desde el desarrollo de un experimento a un servicio Web.
+description: Información general de cómo progresa el modelo de Machine Learning Studio de un experimento de desarrollo a un servicio web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,13 +11,13 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61066044"
 ---
-# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Cómo progresa de un modelo de Machine Learning Studio desde un experimento a un servicio Web
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Progreso de un modelo de Machine Learning Studio de un experimento a un servicio web
 Azure Machine Learning Studio ofrece un lienzo interactivo que permite desarrollar, ejecutar, probar e iterar un ***experimento*** que representa un modelo de análisis predictivo. Hay una gran variedad de módulos que le permiten realizar las acciones siguientes:
 
 * Introducir datos en el experimento

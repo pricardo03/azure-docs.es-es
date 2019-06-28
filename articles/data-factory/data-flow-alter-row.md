@@ -1,48 +1,48 @@
 ---
-title: Asignación de transformación de fila Alter del flujo de datos de Azure Data Factory
-description: Cómo actualizar bases de datos destino mediante Azure Data Factory asignación flujo Alter fila transformación de datos
+title: Transformación Alterar fila de Azure Data Factory Mapping Data Flow
+description: Cómo actualizar un destino de base de datos mediante la transformación Alterar fila de Azure Data Factory Flow
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520157"
 ---
-# <a name="azure-data-factory-alter-row-transformation"></a>Transformación de fila Alter factoría de datos de Azure
+# <a name="azure-data-factory-alter-row-transformation"></a>Transformación Alterar fila de Azure Data Factory
 
-Usar la transformación de fila Alter para establecer directivas de insert, delete, update y upsert en filas. Puede agregar condiciones de uno a varios como expresiones. Cada una de esas condiciones puede dar lugar a una fila (o filas) que se inserta, actualiza, elimina o upsert. ALTER fila puede generar las acciones de DDL y DML en la base de datos.
+Use la transformación Alterar fila para establecer directivas de inserción, eliminación, actualización y upsert en las filas. Puede agregar las condiciones de uno a varios como expresiones. Cada una de esas condiciones puede dar lugar a la inserción, actualización, eliminación o upsert de una fila (o filas). La transformación Alterar fila puede generar tanto acciones DDL como DML en la base de datos.
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Modificar la configuración de la fila](media/data-flow/alter-row1.png "Alter Settings de fila")
+![Configuración de Alterar fila](media/data-flow/alter-row1.png "Alter Row Settings")
 
 > [!NOTE]
-> Las transformaciones de filas ALTER solo funcionará en la base de datos receptores en el flujo de datos. Las acciones que se asignan a las filas (insert, update, delete, upsert) no se producirán durante las sesiones de depuración. Debe agregar una tarea de ejecución de flujo de datos a una canalización y usar la depuración de la canalización o desencadenadores para aplicar las directivas de la fila de alter en las tablas de base de datos.
+> Las transformaciones Alterar fila solo funcionarán en los receptores de base de datos del flujo de datos. Las acciones que asigne a las filas (inserción, actualización, eliminación, upsert) no se producirán durante las sesiones de depuración. Debe agregar una tarea de ejecución de flujo de datos a una canalización y usar la depuración de la canalización o desencadenadores para aplicar las directivas de alteración de fila en las tablas de base de datos.
 
-## <a name="view-policies"></a>Ver directivas
+## <a name="view-policies"></a>Visualización de directivas
 
-Cambiar el modo de flujo de depuración de datos en y, a continuación, ver los resultados de las directivas de la fila alter en el panel de vista previa de datos. Ejecución de una fila de alter en el modo de datos de flujo de depuración no producirá las acciones de DDL o DML con respecto a su destino. Con el fin de que esas acciones que se produzca, ejecute el flujo de datos dentro de una actividad de flujo de datos ejecutar dentro de una canalización.
+Cambie el modo de depuración de flujo de datos para activarlo y, a continuación, vea los resultados de las directivas de alteración de fila en el panel Vista previa de los datos. La ejecución de la transformación Alterar fila en el modo de depuración de flujo de datos no producirá acciones DDL ni DML con respecto a su destino. Para que esas acciones tengan lugar, ejecute el flujo de datos dentro de una actividad de ejecución de flujo de datos dentro de una canalización.
 
-![Modificar las directivas de la fila](media/data-flow/alter-row3.png "modificar directivas de fila")
+![Directivas de alteración de fila](media/data-flow/alter-row3.png "Alter Row Policies")
 
-Esto le permitirá comprobar y ver el estado de cada fila en función de sus condiciones. Representa el icono para cada instrucción insert, update, delete y upsert acción que tendrá lugar en el flujo de datos, que indica qué acción llevará a cabo cuando se ejecuta el flujo de datos dentro de una canalización.
+Le permitirá comprobar y ver el estado de cada fila en función de sus condiciones. Hay representaciones de icono para cada acción de inserción, actualización, eliminación y upsert que tendrá lugar en el flujo de datos, que indica qué acción se llevará a cabo cuando se ejecute el flujo de datos dentro de una canalización.
 
-## <a name="sink-settings"></a>Configuración de receptor
+## <a name="sink-settings"></a>Configuración del receptor
 
-Debe tener una base de datos de tipo de fila Alter funcione de receptor. En el receptor de la configuración, debe establecer cada acción que se permita.
+Debe tener un tipo de receptor de base de datos para que Alterar fila funcione. En la configuración del receptor, debe establecer cada acción para que se permita.
 
-![ALTER receptor fila](media/data-flow/alter-row2.png "Alter receptor de fila")
+![Receptor Alterar fila](media/data-flow/alter-row2.png "Alter Row Sink")
 
-Es el comportamiento predeterminado en el flujo de datos de ADF con receptores de la base de datos insertar filas. Si desea permitir que las actualizaciones, realiza una operación Upsert y eliminaciones, así, también debe comprobar estos cuadros en el receptor para permitir que las acciones.
+El comportamiento predeterminado en ADF Data Flow con los receptores de base de datos es insertar las filas. Si desea permitir también las actualizaciones, operaciones upsert y eliminaciones, también debe activar estos cuadros en el receptor para permitir las acciones.
 
 > [!NOTE]
-> Si su inserciones, actualizaciones o realiza una operación Upsert modifica el esquema de la tabla de destino en el receptor, se producirá un error en el flujo de datos. Para modificar el esquema de destino en la base de datos, debe elegir la opción "Volver a crear la tabla" en el receptor. Esto se quite y vuelva a crear la tabla con la nueva definición de esquema.
+> Si las inserciones, actualizaciones u operaciones upsert modifican el esquema de la tabla de destino en el receptor, se producirá un error en el flujo de datos. Para modificar el esquema de destino en la base de datos, debe elegir la opción "Volver a crear la tabla" en el receptor. De esta forma se quita la tabla y se vuelve a crear con la nueva definición de esquema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de la transformación Alter fila, puede desear [los datos de receptor en un almacén de datos de destino](data-flow-sink.md).
+Después de la transformación Alterar fila, puede desear [recibir los datos en un almacén de datos de destino](data-flow-sink.md).

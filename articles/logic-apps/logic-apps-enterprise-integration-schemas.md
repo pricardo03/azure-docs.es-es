@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
 ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846370"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validación XML con esquemas en Azure Logic Apps con Enterprise Integration Pack
@@ -89,7 +89,7 @@ Según el tamaño de archivo del esquema (.xsd), siga los pasos para cargar un e
 
 ### <a name="add-schemas-more-than-2-mb"></a>Incorporación de esquemas de más de 2 MB
 
-Para agregar esquemas de mayor tamaño, puede cargar el esquema en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos para agregar esquemas varían en función de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para agregar esquemas de mayor tamaño, puede cargar el esquema en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos que debe seguir para agregar esquemas varían en función de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Comprobación del nivel de acceso de un contenedor
 

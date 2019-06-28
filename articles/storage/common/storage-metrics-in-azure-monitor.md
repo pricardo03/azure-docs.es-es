@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 8b091ecce98a626f18fe6547445d898b6710e1a5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510544"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
@@ -24,7 +24,7 @@ Azure Monitor proporciona interfaces de usuario unificadas para la supervisión 
 
 ## <a name="access-metrics"></a>Acceso a la métrica
 
-Azure Monitor proporciona varias maneras de tener acceso a las métricas. Puede acceder a ellas desde el [portal Azure](https://portal.azure.com), la API de Azure Monitor (REST y. NET) y soluciones de análisis como Event Hubs. Para más información, consulte [Información general sobre las métricas en Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor proporciona varias maneras de tener acceso a las métricas. Se puede acceder a ellas desde [Azure Portal](https://portal.azure.com), las API de Azure Monitor (REST y .NET) y soluciones de análisis, como Event Hubs. Para más información, consulte [Información general sobre las métricas en Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 De forma predeterminada, las métricas están habilitadas y puede acceder a datos de los últimos 93 días. Si es necesario conservar los datos durante un periodo mayor, se pueden archivar en una cuenta de Azure Storage. Esto se configura en la [configuración de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) de Azure Monitor.
 
@@ -137,11 +137,11 @@ La respuesta siguiente contiene valores de métricas en formato JSON:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Acceso a métricas con el SDK de .NET
 
-Azure Monitor proporciona [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición de métricas y los valores. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento. Id. de recurso se usa en .NET SDK. Para más información, lea Descripción del identificador de recursos en los servicios de Storage.
+Azure Monitor proporciona el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento. El identificador de recurso se usa en el SDK de .NET. Para más información, lea Descripción del identificador de recursos en los servicios de Storage.
 
-El ejemplo siguiente muestra cómo usar el SDK de .NET de Azure Monitor para leer las métricas de almacenamiento.
+En el ejemplo siguiente se muestra cómo usar el SDK de .NET de Azure Monitor para leer las métricas de almacenamiento.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lista de definición de métrica nivel de cuenta con el SDK de .NET
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lista de definición de métricas a nivel de cuenta con el SDK de .NET
 
 En el ejemplo siguiente se muestra cómo enumerar la definición de métricas a nivel de cuenta:
 
@@ -178,7 +178,7 @@ En el ejemplo siguiente se muestra cómo enumerar la definición de métricas a 
 
 Si desea enumerar las definiciones de métricas de un blob, una tabla, un archivo o una cola, debe especificar identificadores de recursos diferentes para cada servicio con la API.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Leer valores de métrica con el SDK de .NET
+#### <a name="read-metric-values-with-the-net-sdk"></a>Lectura de los valores de métrica con el SDK de .NET
 
 En el ejemplo siguiente se muestra cómo leer los datos de `UsedCapacity` a nivel de cuenta:
 
@@ -228,7 +228,7 @@ En el ejemplo siguiente se muestra cómo leer los datos de `UsedCapacity` a nive
 
 En el ejemplo anterior, si desea leer los valores de métricas de un blob, una tabla, un archivo o una cola, debe especificar identificadores de recursos diferente para cada servicio con la API.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Leer valores de métrica multidimensionales con el SDK de .NET
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Lectura de valores de métrica multidimensionales con el SDK de .NET
 
 En el caso de las métricas multidimensionales, debe definir el filtro de metadatos si desea leer datos de métricas sobre un valor de dimensión específico.
 
@@ -303,19 +303,19 @@ A continuación se muestra el formato para especificar el identificador de recur
 
 A continuación se muestra el formato para especificar el identificador de recurso de los servicios de almacenamiento.
 
-* Identificador de recurso de BLOB service
+* Identificador de recurso de Blob service
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
 ```
-* Id. de recurso de servicio de tabla
+* Identificador de recurso de Table service
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
 ```
-* Id. de recurso del servicio de cola
+* Identificador de recurso de Queue service
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 ```
-* Id. de recurso de servicio de archivo
+* Identificador de recurso de File service
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 ```
@@ -335,42 +335,42 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 ### <a name="account-level"></a>Nivel de cuenta
 
-| Nombre de la métrica | DESCRIPCIÓN |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| UsedCapacity | La cantidad de almacenamiento que utiliza la cuenta de almacenamiento. En las cuentas de almacenamiento estándar, es la suma de la capacidad usada por un blob, una tabla, un archivo y una cola. Tanto en las cuentas de almacenamiento Premium como en las cuentas de Blob Storage, coincide con BlobCapacity. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
+| UsedCapacity | La cantidad de almacenamiento que utiliza la cuenta de almacenamiento. En las cuentas de almacenamiento estándar, es la suma de la capacidad usada por un blob, una tabla, un archivo y una cola. Tanto en las cuentas de almacenamiento Premium como en las cuentas de Blob Storage, coincide con BlobCapacity. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="blob-storage"></a>Almacenamiento de blobs
 
-| Nombre de la métrica | DESCRIPCIÓN |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType**, y **BlobTier** ([definición](#metrics-dimensions)) |
-| BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType**, y **BlobTier** ([definición](#metrics-dimensions)) |
-| ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
-| IndexCapacity     | Cantidad de almacenamiento que usa el índice jerárquico de ADLS Gen2. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
+| BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
+| BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
+| ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| IndexCapacity     | Cantidad de almacenamiento que usa el índice jerárquico de ADLS Gen2. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="table-storage"></a>Almacenamiento de tablas
 
-| Nombre de la métrica | DESCRIPCIÓN |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| TableCapacity | La cantidad de almacenamiento de tablas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
-| TableCount   | El número de tablas de la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
-| TableEntityCount | El número de entidades de tabla que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
+| TableCapacity | La cantidad de almacenamiento de tablas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| TableCount   | El número de tablas de la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| TableEntityCount | El número de entidades de tabla que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="queue-storage"></a>Queue Storage
 
-| Nombre de la métrica | DESCRIPCIÓN |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| QueueCapacity | La cantidad de almacenamiento de colas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
-| QueueCount   | El número de colas que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
-| QueueMessageCount | El número de mensajes de la colas no expirados que hay en la cuenta de almacenamiento. <br/><br/>Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
+| QueueCapacity | La cantidad de almacenamiento de colas que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| QueueCount   | El número de colas que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| QueueMessageCount | El número de mensajes de la colas no expirados que hay en la cuenta de almacenamiento. <br/><br/>Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="file-storage"></a>File Storage
 
-| Nombre de la métrica | DESCRIPCIÓN |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| FileCapacity | La cantidad de almacenamiento de archivos que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
-| FileCount   | El número de archivos que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
-| FileShareCount | El número de recursos compartidos de archivo que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Ejemplo de valor: 1024 |
+| FileCapacity | La cantidad de almacenamiento de archivos que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| FileCount   | El número de archivos que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| FileShareCount | El número de recursos compartidos de archivo que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ## <a name="transaction-metrics"></a>Métricas de transacciones
 
@@ -378,27 +378,27 @@ Se emiten en todas las solicitudes enviadas a una cuenta de almacenamiento de Az
 
 Azure Storage proporciona las siguientes métricas de transacciones en Azure Monitor.
 
-| Nombre de la métrica | DESCRIPCIÓN |
+| Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| Transacciones | El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: ResponseType, GeoType, ApiName y Authentication ([Definición](#metrics-dimensions))<br/> Ejemplo de valor: 1024 |
+| Transacciones | El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: ResponseType, GeoType, ApiName y Authentication ([Definición](#metrics-dimensions))<br/> Ejemplo de valor: 1024 |
 | Entrada | La cantidad de datos de entrada. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
 | Salida | La cantidad de datos de salida. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
-| SuccessServerLatency | El tiempo medio que se usa para que Azure Storage procese una solicitud correcta . Este valor no incluye la latencia de red especificada en SuccessE2ELatency. <br/><br/> Unidad: Milisegundos <br/> Tipo de agregación: Promedio <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
-| SuccessE2ELatency | La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta. <br/><br/> Unidad: Milisegundos <br/> Tipo de agregación: Promedio <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
-| Disponibilidad | El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el número total de solicitudes facturables y dividirlo por el número de solicitudes aplicables, incluidas las solicitudes que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada. <br/><br/> Unidad: Porcentaje <br/> Tipo de agregación: Promedio <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 99,99 |
+| SuccessServerLatency | El tiempo medio que se usa para que Azure Storage procese una solicitud correcta . Este valor no incluye la latencia de red especificada en SuccessE2ELatency. <br/><br/> Unidad: Milisegundos <br/> Tipo de agregación: Media <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
+| SuccessE2ELatency | La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta. <br/><br/> Unidad: Milisegundos <br/> Tipo de agregación: Media <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
+| Disponibilidad | El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el número total de solicitudes facturables y dividirlo por el número de solicitudes aplicables, incluidas las solicitudes que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada. <br/><br/> Unidad: Percent <br/> Tipo de agregación: Media <br/> Dimensiones aplicables: GeoType, ApiName y Authentication ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 99,99 |
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 
 Azure Storage admite los siguientes dimensiones para las métricas en Azure Monitor.
 
-| Nombre de la dimensión | DESCRIPCIÓN |
+| Nombre de dimensión | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| **BlobType** | Solo el tipo de blob de las métricas de Blob. Los valores admitidos son **BlockBlob**, **PageBlob**, y **Azure Data Lake Storage**. Anexar Blob se incluye en BlockBlob. |
-| **BlobTier** | Azure storage ofrece niveles de acceso diferentes, lo que permite almacenar los datos de objeto de blob de la manera más rentable. Obtenga más información en [niveles de blob de Azure Storage](../blobs/storage-blob-storage-tiers.md). Los valores admitidos son: <br/> <li>**Hot**: Nivel de acceso frecuente</li> <li>**Genial**: Nivel de acceso esporádico</li> <li>**Archivo**: Nivel de archivo</li> <li>**Premium**: Nivel Premium para blob en bloques</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nivel de blob en páginas premium</li> <li>**Estándar**: Tipo de nivel de Blob de página estándar</li> <li>**Untiered**: Tipo de nivel de cuenta de almacenamiento de uso general v1</li> |
-| **GeoType** | Transacción de clúster principal o secundario. Los valores disponibles incluyen **principal** y **secundaria**. Se aplica al Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) al leer objetos de un inquilino secundario. |
-| **ResponseType** | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>**ServerOtherError**: todos los errores del servidor, excepto los descritos. </li> <li>**ServerBusyError**: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li>**ServerTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li>**AuthorizationError**: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li>**NetworkError**: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li> <li>**ClientThrottlingError**: error de limitación del lado cliente. </li> <li>**ClientTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li>**ClientOtherError**: todos los errores del lado cliente, excepto los descritos. </li> <li>**Correcto**: Solicitud correcta</li> <li> **SuccessWithThrottling**: Solicitud correcta cuando un cliente SMB limita en el primer intento, pero se ejecuta correctamente después de reintentos.</li> |
+| **BlobType** | Solo el tipo de blob de las métricas de Blob. Los valores admitidos son **BlockBlob**, **PageBlob** y **Azure Data Lake Storage**. Anexar Blob se incluye en BlockBlob. |
+| **BlobTier** | Azure Storage ofrece distintos niveles de acceso que le permiten almacenar datos de objeto de blob de la manera más rentable. Obtenga más información en [Nivel de blob de Azure Storage](../blobs/storage-blob-storage-tiers.md). Entre los valores admitidos se incluyen: <br/> <li>**Acceso frecuente**: nivel de acceso frecuente</li> <li>**Acceso esporádico**: nivel de acceso esporádico</li> <li>**Archivo**: nivel de archivo</li> <li>**Premium**: nivel Premium para blob en bloques</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipos de nivel para blob en páginas premium</li> <li>**Estándar**: tipo de nivel para blob en páginas estándar</li> <li>**Sin nivel**: Tipo de nivel para cuentas de almacenamiento de uso general v1</li> |
+| **GeoType** | Transacción de clúster principal o secundario. Los valores disponibles incluyen **Principal** y **Secundario**. Se aplica al Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) al leer objetos de un inquilino secundario. |
+| **ResponseType** | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>**ServerOtherError**: todos los errores del servidor, excepto los descritos. </li> <li>**ServerBusyError**: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li>**ServerTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li>**AuthorizationError**: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li>**NetworkError**: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li> <li>**ClientThrottlingError**: error de limitación del lado cliente. </li> <li>**ClientTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li>**ClientOtherError**: todos los errores del lado cliente, excepto los descritos. </li> <li>**Correcto**: solicitud correcta.</li> <li> **SuccessWithThrottling**: solicitud correcta cuando un cliente SMB obtiene una limitación en el primer intento, pero se ejecuta correctamente después de varios reintentos.</li> |
 | **ApiName** | El nombre de la operación. Por ejemplo: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para ver los nombres de todas las operaciones, consulte este [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Autenticación** | Tipos de autenticación que se usan en las transacciones. Los valores disponibles son: <br/> <li>**AccountKey**: la transacción se autentica con la clave de la cuenta de almacenamiento.</li> <li>**SAS**: la transacción se autentica con firmas de acceso compartido.</li> <li>**OAuth**: la transacción se autentica con tokens de acceso de OAuth.</li> <li>**Anónimo**: la transacción se solicita de forma anónima. No incluye las solicitudes preparatorias.</li> <li>**AnonymousPreflight**: la transacción es una solicitud preparatoria.</li> |
+| **Autenticación** | Tipos de autenticación que se usan en las transacciones. Los valores disponibles son: <br/> <li>**AccountKey**: la transacción se autentica con la clave de la cuenta de almacenamiento.</li> <li>**SAS**: la transacción se autentica con firmas de acceso compartido.</li> <li>**OAuth**: la transacción se autentica con tokens de acceso de OAuth.</li> <li>**Anonymous**: la transacción se solicita de forma anónima. No incluye las solicitudes preparatorias.</li> <li>**AnonymousPreflight**: la transacción es una solicitud preparatoria.</li> |
 
 En el caso de las dimensiones compatibles con métricas, es preciso especificar el valor de la dimensión para ver los valores correspondientes de las métricas. Por ejemplo, si observa el valor **Transactions** en las respuestas correctas, es preciso filtrar la dimensión **ResponseType** por **Success**. O bien si examina el valor **BlobCount** de Blob en bloques, es preciso filtrar la dimensión **BlobType** por **BlockBlob**.
 

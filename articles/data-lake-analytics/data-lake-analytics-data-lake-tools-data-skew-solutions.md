@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606716"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resuelva los problemas de asimetría de datos con Herramientas de Azure Data Lake para Visual Studio
@@ -28,27 +28,27 @@ En nuestro escenario, los datos se distribuyen de forma desigual entre los inspe
 
 Las Herramientas de Azure Data Lake para Visual Studio pueden ayudar a detectar si el trabajo tiene un problema de asimetría de datos. Si es así, puede resolverlo probando las soluciones de esta sección.
 
-## <a name="solution-1-improve-table-partitioning"></a>Solución 1: Mejorar la partición de tablas
+## <a name="solution-1-improve-table-partitioning"></a>Solución 1: Mejorar la creación de particiones de tabla
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opción 1: Filtrar el valor de clave asimétrica de antemano
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opción 1: Filtrar el valor de clave desfasada por anticipado
 
 Si esto no afecta a su lógica de negocios, puede filtrar los valores más frecuentes de antemano. Por ejemplo, si hay muchos 000-000-000 en la columna GUID, puede optar por no agregar ese valor. Antes de agregarlo, puede escribir "WHERE GUID != “000-000-000”” para filtrar el valor de alta frecuencia.
 
-### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opción 2: Elegir una clave de partición o distribución diferente
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opción 2: Seleccionar otra clave de partición o distribución
 
-En el ejemplo anterior, si solo desea comprobar la carga de trabajo de auditoría fiscal por todo el país o región, puede mejorar la distribución de datos seleccionando el número de identificación como su clave. A veces, si elige una clave de partición o distribución diferente, puede distribuir los datos de manera más uniforme, aunque debe asegurarse de que esta elección no afecta a su lógica de negocios. Por ejemplo, para calcular la suma de impuestos para cada estado, puede designar _Estado_ como la clave de partición. Si sigue apareciendo el problema, pruebe a utilizar la opción 3.
+En el ejemplo anterior, si solo quiere comprobar la carga de trabajo de auditoría fiscal de todo el país o región, puede mejorar la distribución de datos si selecciona el número de identificación como clave. A veces, si elige una clave de partición o distribución diferente, puede distribuir los datos de manera más uniforme, aunque debe asegurarse de que esta elección no afecta a su lógica de negocios. Por ejemplo, para calcular la suma de impuestos para cada estado, puede designar _Estado_ como la clave de partición. Si sigue apareciendo el problema, pruebe a utilizar la opción 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opción 3: Agregar más claves de partición o distribución
 
 En lugar de usar solo _Estado_ como clave de partición, puede usar más de una clave para las particiones. Por ejemplo, considere la posibilidad de agregar _Código postal_ como una clave de partición adicional para reducir los tamaños de particiones de datos y distribuir más uniformemente los datos.
 
-### <a name="option-4-use-round-robin-distribution"></a>Opción 4: Utilice la distribución round robin
+### <a name="option-4-use-round-robin-distribution"></a>Opción 4: Usar la distribución round robin
 
-Si no encuentra una clave adecuada para la partición y distribución, puede intentar usar la distribución round robin. La distribución round robin trata por igual cada fila y la coloca de forma aleatoria en el depósito correspondiente. En este caso, los datos se distribuyen de manera uniforme, pero pierden información de localidad, un inconveniente que puede reducir el rendimiento de trabajo en algunas operaciones. Además, si está realizando una agregación para la clave asimétrica, el problema de asimetría persistirá de todos modos. Para obtener más información acerca de la distribución round robin, vea la sección de distribuciones de la tabla de U-SQL en [CREATE TABLE (U-SQL): Creación de una tabla con esquema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
+Si no encuentra una clave adecuada para la partición y distribución, puede intentar usar la distribución round robin. La distribución round robin trata por igual cada fila y la coloca de forma aleatoria en el depósito correspondiente. En este caso, los datos se distribuyen de manera uniforme, pero pierden información de localidad, un inconveniente que puede reducir el rendimiento de trabajo en algunas operaciones. Además, si está realizando una agregación para la clave asimétrica, el problema de asimetría persistirá de todos modos. Para más información sobre la distribución round robin, vea la sección U-SQL Table Distributions (Distribuciones de tabla U-SQL) en [CREATE TABLE (U-SQL): Creating a Table with Schema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch) (Creación de una tabla con esquema).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Solución 2: Mejorar el plan de consulta
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Opción 1: Use la instrucción CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Opción 1: Usar la instrucción CREATE STATISTICS
 
 U-SQL proporciona la instrucción CREATE STATISTICS en las tablas. Esta instrucción proporciona más información al optimizador de consultas sobre las características de los datos, como la distribución de los valores que se almacenan en una tabla. Para la mayoría de las consultas, el optimizador de consultas genera ya las estadísticas necesarias para un plan de consulta de alta calidad. En ocasiones, tendrá que mejorar el rendimiento de las consultas creando estadísticas adicionales con CREATE STATISTICS o modificando el diseño de la consulta. Para obtener más información, consulte la página [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics).
 
@@ -97,7 +97,7 @@ Ejemplo de código:
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
-### <a name="option-3-use-rowcount"></a>Opción 3: Utilice el recuento de filas  
+### <a name="option-3-use-rowcount"></a>Opción 3: Usar ROWCOUNT  
 Además de SKEWFACTOR, en casos concretos de combinación de clave asimétrica, si sabe que el otro conjunto de filas combinadas es pequeño, puede indicárselo al optimizador agregando la sugerencia ROWCOUNT en la instrucción U-SQL antes de JOIN. De esta manera, el optimizador puede elegir una estrategia de combinación de difusión para ayudar a mejorar el rendimiento. Tenga en cuenta que ROWCOUNT no resuelve el problema de simetría de datos, pero pueda ofrecer cierta ayuda adicional.
 
     OPTION(ROWCOUNT = n)
@@ -122,11 +122,11 @@ Ejemplo de código:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solución 3: Mejorar el Combinador y el reductor definido por el usuario
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solución 3: Mejorar el combinador y el reductor definidos por el usuario
 
 Es habitual que escriba un operador definido por el usuario para tratar con una lógica de procesos complicada, y un combinador y un reductor bien escritos pueden mitigar el problema de asimetría de datos en algunos casos.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opción 1: Utilizar un reductor recursivo si es posible
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opción 1: Usar un reductor recursivo si es posible
 
 De forma predeterminada, el reductor definido por el usuario se ejecuta como modo no recursivo, lo que significa que el trabajo reducido para una clave se va a distribuir a un solo vértice. Pero si hay asimetría de datos, los conjuntos de datos muy grandes pueden procesarse en un solo vértice y tener un tiempo de ejecución muy largo.
 
@@ -150,7 +150,7 @@ Ejemplo de código:
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opción 2: Usar el modo de Combinador de nivel de fila, si es posible
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opción 2: Usar el modo de combinador de nivel de fila si es posible
 
 De forma similar a la sugerencia ROWCOUNT para casos específicos de combinación de claves asimétricas, el modo de combinador intenta distribuir el enorme conjunto de valores de claves asimétricas en varios vértices para que el trabajo se puede ejecutar simultáneamente. El modo de combinador no puede resolver los problemas de asimetría de datos, pero puede proporcionar ayuda adicional para grandes conjuntos de valores de claves asimétricas.
 

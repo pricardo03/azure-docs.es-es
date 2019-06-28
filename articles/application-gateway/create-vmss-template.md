@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
 ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66134103"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creación de una instancia de Application Gateway con la plantilla de Azure Resource Manager
@@ -148,7 +148,7 @@ Si es la primera vez que usa Azure PowerShell, visite: [Instalación y configura
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Ejecute el **New AzResourceGroupDeployment** cmdlet para implementar la nueva red virtual mediante la plantilla anterior y el parámetro que descargó y modificó los archivos.
+1. Ejecute el cmdlet **New-AzResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó anteriormente.
     
     ```powershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
@@ -167,9 +167,9 @@ Para implementar la plantilla de Azure Resource Manager descargada mediante la C
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (o --name)**. Nombre del nuevo grupo de recursos. En este escenario, es *appgatewayRG*.
+    **-n (o --name)** . Nombre del nuevo grupo de recursos. En este escenario, es *appgatewayRG*.
     
-    **-l (o --location)**. Región de Azure donde se crea el nuevo grupo de recursos. En este escenario, es *westus*.
+    **-l (o --location)** . Región de Azure donde se crea el nuevo grupo de recursos. En este escenario, es *westus*.
 
 1. Ejecute el cmdlet `az group deployment create` para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó en el paso anterior. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
@@ -205,7 +205,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

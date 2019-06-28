@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119313"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Azure Mobile Apps
@@ -68,7 +68,7 @@ Para aprender a crear tablas en el back-end de Mobile Apps, consulte el [tema de
 Utilice uno de los métodos siguientes para instalar el paquete del SDK de cliente administrado para Mobile Apps desde [NuGet][9]:
 
 * **Visual Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Administrar paquetes NuGet**, busque el paquete `Microsoft.Azure.Mobile.Client` y haga clic en **Instalar**.
-* **Xamarin Studio** haga clic en el proyecto, haga clic en **agregar** > **agregar paquetes de NuGet**, busque el `Microsoft.Azure.Mobile.Client` del paquete y, a continuación, haga clic en **Agregar paquete** .
+* **Xamarin Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Add** (Agregar) >**Add NuGet Packages** (Agregar paquetes NuGet), busque el paquete `Microsoft.Azure.Mobile.Client` y haga clic en **Add Package** (Agregar paquete).
 
 En el archivo de la actividad principal, no olvide agregar la siguiente instrucción **using** :
 
@@ -378,7 +378,7 @@ Dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiem
 
 El servicio Mobile Apps es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Mobile Apps establece la propiedad `version` de ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera una excepción `MobileServicePreconditionFailedException<T>` . El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `version` correcto del back-end para confirmar los cambios.
 
-Defina una columna en la clase de tabla para la propiedad del sistema `version` con el fin de habilitar la simultaneidad optimista. Por ejemplo: 
+Defina una columna en la clase de tabla para la propiedad del sistema `version` con el fin de habilitar la simultaneidad optimista. Por ejemplo:
 
 ```csharp
 public class TodoItem
@@ -523,7 +523,7 @@ Las tablas sin conexión utilizan un almacén SQLite local para almacenar datos 
    * **Tiempo de ejecución de Windows 8.1:** Instale [SQLite for Windows 8.1][3].
    * **Windows Phone 8.1:** Instale [SQLite for Windows Phone 8.1][4].
    * **Plataforma universal de Windows** Instale [SQLite para la plataforma universal de Windows][5].
-3. (Opcional). En el caso de los dispositivos Windows, haga clic en **Referencias** > **Agregar referencia...**, expanda la carpeta **Windows** > **Extensiones** y habilite el SDK de **SQLite para Windows** apropiado, junto con el SDK de **Runtime de Visual C++ 2013 para Windows**.
+3. (Opcional). En el caso de los dispositivos Windows, haga clic en **Referencias** > **Agregar referencia...** , expanda la carpeta **Windows** > **Extensiones** y habilite el SDK de **SQLite para Windows** apropiado, junto con el SDK de **Runtime de Visual C++ 2013 para Windows**.
     Los nombres de SDK de SQLite varían ligeramente con cada plataforma de Windows.
 
 Para poder crear una referencia de tabla, debe prepararse el almacén local:
@@ -616,7 +616,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Se trata de una llamada de método con tipo que requiere que se defina el tipo de devolución de **MarkAllResult** . Se admiten métodos con y sin tipos.
 
 El método InvokeApiAsync() antepone "/api/" a la API a la que desea llamar, a menos que la API comience por "/".
-Por ejemplo: 
+Por ejemplo:
 
 * `InvokeApiAsync("completeAll",...)`llama a /api/completeAll en el back-end
 * `InvokeApiAsync("/.auth/me",...)`llama a /.auth/me en el back-end
@@ -657,7 +657,7 @@ La biblioteca de autenticación de Active Directory (ADAL) se puede usar para in
    * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en [Azure Portal].
    * Reemplace **INSERT-RESOURCE-ID-HERE** por el Id. de cliente del back-end de la aplicación móvil. El Id. de cliente en la pestaña **Opciones avanzadas** de **Configuración de Azure Active Directory** en el portal.
    * Reemplace **INSERT-CLIENT-ID-HERE** por el Id. de cliente que copió de la aplicación cliente nativa.
-   * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. El valor debería parecerse al siguiente: *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. El valor debería parecerse al siguiente: *https://contoso.azurewebsites.net/.auth/login/done* .
 
      El código necesario para cada plataforma es el siguiente:
 
@@ -909,7 +909,7 @@ Se necesita un SID del paquete para habilitar las notificaciones de inserción e
 
 Para obtener este valor:
 
-1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de Microsoft Store y haga clic en **Store** > **Asociar aplicación a Store…**.
+1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de Microsoft Store y haga clic en **Store** > **Asociar aplicación a Store…** .
 2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reserve un nuevo nombre de aplicación** y haga clic en **Reservar**.
 3. Después de que el registro de la aplicación se cree correctamente, seleccione el nombre de la aplicación, haga clic en **Siguiente** y, después, en **Asociar**.
 4. Inicie sesión en el [Centro de desarrollo de Windows] con su cuenta Microsoft. En **Mis aplicaciones**, haga clic en el registro de la aplicación que ha creado.

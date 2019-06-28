@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60919831"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Azure Monitor

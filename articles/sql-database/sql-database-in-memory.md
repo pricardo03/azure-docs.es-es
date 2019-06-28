@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: 5681b5aa46acc1192675da0b1cceee596dfa0105
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799903"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
@@ -83,7 +83,7 @@ La tecnología OLTP en memoria proporciona operaciones de acceso a datos sumamen
 
 - El formato **almacén de filas optimizadas para memoria**, en el que cada fila es un objeto de memoria independiente. Se trata de un formato clásico de OLTP en memoria optimizado para cargas de trabajo OLTP de alto rendimiento. Existen dos tipos de tablas optimizadas para memoria que se pueden usar en el formato de almacén de filas optimizadas para memoria:
   - *Tablas duraderas* (SCHEMA_AND_DATA), en las que las filas que se encuentran en la memoria se conservan después de reiniciar el servidor. Este tipo de tablas se comporta como una tabla de almacén de filas tradicional, con las ventajas adicionales de las optimizaciones en memoria.
-  - *Tablas no duraderas* (SCHEMA_ONLY) donde las filas son no se conservan después del reinicio. Este tipo de tabla está diseñado para datos temporales (por ejemplo, tablas temporales o de reemplazo) o para tablas en las que necesite cargar datos rápidamente antes de moverlos a alguna tabla persistente (denominadas "tablas de almacenamiento provisional").
+  - *Tablas no duraderas*  (SCHEMA_ONLY), en las que las filas no se conservan después del reinicio. Este tipo de tabla está diseñado para datos temporales (por ejemplo, tablas temporales o de reemplazo) o para tablas en las que necesite cargar datos rápidamente antes de moverlos a alguna tabla persistente (denominadas "tablas de almacenamiento provisional").
 - El formato **Almacén de columnas optimizadas para memoria**, en el que los datos se organizan en un formato de columnas. Esta estructura está diseñada para escenarios HTAP donde es necesario ejecutar consultas analíticas en la misma estructura de datos en la que se está ejecutando la carga de trabajo OLTP.
 
 > [!Note]

@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61073919"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
@@ -51,12 +51,12 @@ Una característica clave de una plantilla de Resource Manager es su capacidad p
 ## <a name="quick-trip-around-the-diagram"></a>Vista rápida al diagrama
 
 Empezando desde arriba, se escribe el código, se compila y prueba, y después se crea un paquete de instalación.
-Chocolatey admite diversos tipos de paquetes de instalación, como MSI, MSU o ZIP. Además, cuenta con toda la funcionalidad de PowerShell para realizar la instalación en sí si las funcionalidades nativas de Chocolatey no son suficientes. Coloque el paquete en algún lugar accesible: un repositorio de paquetes. En este ejemplo de uso se emplea una carpeta pública en una cuenta de almacenamiento de blobs de Azure, pero vale cualquier lugar. Chocolatey funciona de forma nativa con los servidores NuGet y otros para administrar los metadatos de los paquetes. [este artículo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) se describen las opciones. Este ejemplo de uso utiliza NuGet. Nuspec son los metadatos de los paquetes. Los nuspecs se "compilan" en forma de NuPkg y se almacenan en un servidor NuGet. Cuando la configuración solicita un paquete por su nombre y hace referencia a un servidor NuGet, el recurso de DSC de Chocolatey (ahora en la máquina virtual) toma el paquete y lo instala automáticamente. También se puede solicitar una versión específica de un paquete.
+Chocolatey admite diversos tipos de paquetes de instalación, como MSI, MSU o ZIP. Además, cuenta con toda la funcionalidad de PowerShell para realizar la instalación en sí si las funcionalidades nativas de Chocolatey no son suficientes. Coloque el paquete en un lugar accesible: un repositorio de paquetes. En este ejemplo de uso se emplea una carpeta pública en una cuenta de almacenamiento de blobs de Azure, pero vale cualquier lugar. Chocolatey funciona de forma nativa con los servidores NuGet y otros para administrar los metadatos de los paquetes. [este artículo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) se describen las opciones. Este ejemplo de uso utiliza NuGet. Nuspec son los metadatos de los paquetes. Los nuspecs se "compilan" en forma de NuPkg y se almacenan en un servidor NuGet. Cuando la configuración solicita un paquete por su nombre y hace referencia a un servidor NuGet, el recurso de DSC de Chocolatey (ahora en la máquina virtual) toma el paquete y lo instala automáticamente. También se puede solicitar una versión específica de un paquete.
 
 En la parte inferior izquierda de la imagen, se ve una plantilla de Azure Resource Manager. En este ejemplo de uso, la extensión de máquina virtual registra la máquina virtual con el servidor de extracción de Azure Automation State Configuration (es decir, un servidor de extracción) como nodo. La configuración se almacena en el servidor de extracción.
 En realidad, se almacena dos veces: una vez como texto sin formato y otra como archivo MOF (para aquellos a quienes les interese). En el portal, el MOF es una "configuración de nodo" (en lugar de simplemente una "configuración"). Es el artefacto que se asocia con un nodo para que el nodo conozca su configuración. Los siguientes detalles muestran cómo asignar la configuración de nodo al nodo.
 
-Se supone que ya está haciendo lo de arriba, al menos en su mayor parte. Crear el nuspec, compilarlo y almacenarlo en un servidor NuGet no es muy complicado y,  además, ya está administrando máquinas virtuales. Para dar el siguiente paso en la implementación continua, se debe configurar el servidor de extracción (una vez), registrar los nodos con él (una vez) y crear y almacenar la configuración allí (inicialmente). Luego, como los paquetes se actualizan e implementan en el repositorio, actualice la configuración y la configuración de nodo en el servidor de extracción (repítalo si es necesario).
+Se supone que ya está haciendo lo de arriba, al menos en su mayor parte. Crear el nuspec, compilarlo y almacenarlo en un servidor NuGet no es muy complicado y, además, ya está administrando máquinas virtuales. Para dar el siguiente paso en la implementación continua, se debe configurar el servidor de extracción (una vez), registrar los nodos con él (una vez) y crear y almacenar la configuración allí (inicialmente). Luego, como los paquetes se actualizan e implementan en el repositorio, actualice la configuración y la configuración de nodo en el servidor de extracción (repítalo si es necesario).
 
 No comenzar con una plantilla de Resource Manager también es perfectamente válido. Hay cmdlets de PowerShell diseñados para ayudarlo a registrar sus máquinas virtuales con el servidor de extracción y todo lo demás. Para más información, consulte este artículo: [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](automation-dsc-onboarding.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Revisar el acceso a los roles de recursos de Azure de PIM - Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo revisar el acceso de roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
+title: 'Revisión del acceso a los roles de recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
+description: Aprenda a revisar el acceso a los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,14 +17,14 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602206"
 ---
-# <a name="review-access-to-azure-resource-roles-in-pim"></a>Revisar el acceso a los roles de recursos de Azure en PIM
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica cómo las empresas administran el acceso con privilegios a los recursos de Azure. 
+# <a name="review-access-to-azure-resource-roles-in-pim"></a>Revisión del acceso a los roles de recursos de Azure en PIM
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica el modo en que las empresas administran el acceso con privilegios a los recursos de Azure. 
 
 Si se le ha asignado un rol administrativo, el administrador de roles con privilegios de su organización le puede pedir que revise y confirme periódicamente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.
 
@@ -54,4 +54,4 @@ Para buscar y completar la revisión de acceso, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Realizar una revisión de acceso de Mis roles de Azure AD en PIM](pim-how-to-perform-security-review.md)
+- [Realización de una revisión de acceso de los roles de Azure AD en PIM](pim-how-to-perform-security-review.md)

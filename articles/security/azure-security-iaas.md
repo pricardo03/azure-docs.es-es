@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
 ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145198"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
@@ -39,7 +39,7 @@ Los requisitos de seguridad varían en función de una serie de factores entre l
 El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan configurar nuevas máquinas virtuales y obtener acceso a ellas.
 
 > [!NOTE]
-> Para mejorar la seguridad de máquinas virtuales Linux en Azure, puede integrar con autenticación de Azure AD. Cuando usas [autenticación de Azure AD para máquinas virtuales Linux](../virtual-machines/linux/login-using-aad.md), controlar y aplicar directivas que permiten o deniegan el acceso a las máquinas virtuales de forma centralizada.
+> Para mejorar la seguridad de las máquinas virtuales Linux en Azure, puede integrarlas con la autenticación de Azure Active Directory (AD). Cuando se usa la [autenticación de Azure AD para máquinas virtuales Linux](../virtual-machines/linux/login-using-aad.md), se administran y se aplican de manera centralizada las directivas que permiten o deniegan el acceso a las máquinas virtuales.
 >
 >
 
@@ -107,8 +107,8 @@ Si usa Windows Update, deje habilitada la configuración automática de Windows 
 **Procedimiento recomendado**: Volver a implementar periódicamente las máquinas virtuales para forzar una nueva versión del sistema operativo.   
 **Detalles**: Defina la máquina virtual con una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para poder implementarla fácilmente. El uso de una plantilla le ofrece una máquina virtual segura y revisada cuando la necesite.
 
-**Procedimiento recomendado**: Aplicar rápidamente las actualizaciones de seguridad a las máquinas virtuales.   
-**Detalles**: Habilite Azure Security Center (gratuita o los niveles estándar) para [detecte si faltan actualizaciones de seguridad y aplicarlas](../security-center/security-center-apply-system-updates.md).
+**Procedimiento recomendado**: Aplique rápidamente las actualizaciones de seguridad a las máquinas virtuales.   
+**Detalles**: Habilite Azure Security Center (nivel Gratis o Estándar) para [detectar si faltan actualizaciones de seguridad y aplicarlas](../security-center/security-center-apply-system-updates.md).
 
 **Procedimiento recomendado**: Instalación de las últimas actualizaciones de seguridad.   
 **Detalles**: Algunas de las primeras cargas de trabajo que los clientes mueven a Azure son laboratorios y sistemas orientados externamente. Si las máquinas virtuales de Azure hospedan aplicaciones o servicios que deben estar accesibles desde Internet, esté atento a la aplicación de revisiones. Aplique revisiones no solo del sistema operativo. Las vulnerabilidades de aplicaciones de asociados a las que no se han aplicado revisiones también pueden provocar problemas que podrían haberse evitado si hubiera una buena administración de revisiones vigente.
@@ -136,7 +136,7 @@ Para supervisar la posición de seguridad de sus máquinas virtuales [Windows](.
 
 Security Center puede supervisar activamente si hay posibles amenazas, que se mostrarán en alertas de seguridad. Las amenazas correlacionadas se agregan en una única vista denominada incidente de seguridad.
 
-Almacena los datos en Security Center [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Registros de Azure Monitor proporciona un motor de lenguaje y análisis de consultas que se ofrece información sobre el funcionamiento de las aplicaciones y recursos. Los datos también se recopilan de [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), de las soluciones de administración y de los agentes instalados en máquinas virtuales locales en la nube o en el entorno local. Esta funcionalidad compartida le ayuda a formarse una imagen completa de su entorno.
+Security Center almacena datos en loa [registros de Azure Monitor](../log-analytics/log-analytics-overview.md). Los registros de Azure Monitor proporcionan un lenguaje de consulta y un motor de análisis que ofrece información sobre el funcionamiento de las aplicaciones y los recursos. Los datos también se recopilan de [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), de las soluciones de administración y de los agentes instalados en máquinas virtuales locales en la nube o en el entorno local. Esta funcionalidad compartida le ayuda a formarse una imagen completa de su entorno.
 
 Las organizaciones que no aplican una seguridad sólida a sus máquinas virtuales no están informadas de posibles intentos de eludir los controles de seguridad llevados a cabo por usuarios no autorizados.
 
@@ -161,10 +161,10 @@ Estos son algunos procedimientos recomendados para usar Azure Disk Encryption:
 **Detalles**: Azure Disk Encryption genera y escribe las claves de cifrado en el almacén de claves. La administración de claves de cifrado en el almacén de claves necesita la autenticación de Azure AD. Para ello, cree una aplicación de Azure AD. Para realizar la autenticación, se pueden usar la autenticación basada en secreto de cliente o la [autenticación de Azure AD basada en certificado del cliente](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Procedimiento recomendado**: Uso de una clave de cifrado de claves (KEK) para una brindar una capa adicional de seguridad para las claves de cifrado. Agregue una KEK al almacén de claves.   
-**Detalles**: Use la [agregar AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el módulo de seguridad de hardware (HSM) de administración de claves local. Para más información, consulte la [documentación de Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault. El mantenimiento de una copia de custodia de esta clave en un HSM de administración de claves local ofrece una protección adicional contra la eliminación accidental de claves.
+**Detalles**: Use el cmdlet [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el módulo de seguridad de hardware (HSM) de administración de claves local. Para más información, consulte la [documentación de Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Cuando se especifica una clave de cifrado de claves, Azure Disk Encryption usa esa clave para encapsular los secretos de cifrado antes de escribirlos en Key Vault. El mantenimiento de una copia de custodia de esta clave en un HSM de administración de claves local ofrece una protección adicional contra la eliminación accidental de claves.
 
 **Procedimiento recomendado**: Tomar una [instantánea](../virtual-machines/windows/snapshot-copy-managed-disk.md) o realizar una copia de seguridad antes de cifrar los discos. Las copias de seguridad proporcionan una opción de recuperación si se produce un error inesperado durante el cifrado.   
-**Detalles**: Las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Después de realiza una copia de seguridad, puede usar el **conjunto AzVMDiskEncryptionExtension** cmdlet para cifrar los discos administrados especificando el *- skipVmBackup* parámetro. Para más información sobre cómo realizar la copia de seguridad y restauración de máquinas virtuales cifradas, consulte el artículo sobre [Azure Backup](../backup/backup-azure-vms-encryption.md).
+**Detalles**: Las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Después de hacer la copia de seguridad, puede usar el cmdlet **Set-AzVMDiskEncryptionExtension** para cifrar los discos administrados mediante la especificación del parámetro *-skipVmBackup*. Para más información sobre cómo realizar la copia de seguridad y restauración de máquinas virtuales cifradas, consulte el artículo sobre [Azure Backup](../backup/backup-azure-vms-encryption.md).
 
 **Procedimiento recomendado**: Para garantizar que los secretos de cifrado no traspasen los límites regionales, Azure Disk Encryption necesita que Key Vault y las máquinas virtuales estén ubicadas en la misma región.   
 **Detalles**: Cree y use una instancia de Key Vault que se encuentre en la misma región que la máquina virtual que se va a cifrar.
@@ -174,17 +174,17 @@ Cuando se aplica Azure Disk Encryption, puede atender las siguientes necesidades
 - Las máquinas virtuales IaaS se protegen en reposo a través de la tecnología de cifrado estándar del sector para cumplir los requisitos de seguridad y cumplimiento de la organización.
 - Las máquinas virtuales IaaS se inician bajo directivas y claves controladas por el cliente, y puede auditar su uso en el almacén de claves.
 
-## <a name="restrict-direct-internet-connectivity"></a>Restringir la conectividad directa a internet
-Supervisar y restringir la conectividad de internet directa de máquina virtual. Los atacantes constantemente examen intervalos IP pública en la nube para los puertos de administración abierto e intente realizar ataques "fáciles", como contraseñas comunes y vulnerabilidades conocidas de sin revisiones. En la tabla siguiente se enumera las prácticas recomendadas para ayudar a proteger frente a estos ataques:
+## <a name="restrict-direct-internet-connectivity"></a>Restringir la conectividad directa a Internet
+Supervise y restrinja la conectividad directa a Internet de las máquinas virtuales. Los atacantes analizan constantemente los intervalos de IP de la nube pública en busca de puertos de administración abiertos e intentan realizar ataques "sencillos", como contraseñas comunes y vulnerabilidades conocidas sin revisiones. En esta tabla se enumeran los procedimientos recomendados para que sea más fácil protegerse frente a estos ataques:
 
-**Procedimiento recomendado**: Evitar la exposición accidental para enrutamiento y la seguridad de red.   
-**Detalles**: Utilice RBAC para asegurarse de que solo el grupo de la red central tiene permiso para los recursos de red.
+**Procedimiento recomendado**: Evitar la exposición accidental a la seguridad y el enrutamiento de redes.   
+**Detalles**: Use RBAC para asegurarse de que solo el grupo de redes central tiene permiso para los recursos de red.
 
-**Procedimiento recomendado**: Identificar y corregir las máquinas virtuales expuestas que permiten el acceso desde "cualquiera" dirección IP de origen.   
-**Detalles**: Use el centro de seguridad de Azure. Security Center recomendará restringir el acceso a través de los puntos de conexión accesible desde internet si alguno de los grupos de seguridad de red tiene una o varias reglas de entrada que permiten el acceso desde "cualquiera" dirección IP de origen. Security Center le recomendará que editar estas reglas de entrada a [restringir el acceso](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) a direcciones IP de origen que realmente necesiten acceder.
+**Procedimiento recomendado**: Identificar y corregir las máquinas virtuales expuestas que permiten el acceso desde "cualquier" dirección IP de origen.   
+**Detalles**: Use Azure Security Center. Security Center le recomendará que restrinja el acceso a través de puntos de conexión accesibles desde Internet si alguno de los grupos de seguridad de red tiene una o varias reglas de entrada que permiten el acceso desde “cualquier” dirección IP de origen. Security Center recomienda editar estas reglas de entrada para [restringir el acceso](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) a las direcciones IP de origen que realmente necesiten el acceso.
 
 **Procedimiento recomendado**: Restringir los puertos de administración (RDP, SSH).   
-**Detalles**: [Acceso de máquina virtual Just-in-time (JIT)](../security-center/security-center-just-in-time.md) puede utilizarse para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques al tiempo que proporciona un acceso sencillo a conectarse a máquinas virtuales cuando sea necesario. Cuando se habilita JIT, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de grupo de seguridad de red. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos están controlados por la solución JIT.
+**Detalles**: Puede usar el [acceso a VM Just-In-Time](../security-center/security-center-just-in-time.md) para bloquear el tráfico entrante a las máquinas virtuales de Azure. Para ello, se reduce la exposición a ataques y se proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando el acceso a Just-In-Time está habilitado, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de grupo de seguridad de red. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos los controla la solución Just-In-Time.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.

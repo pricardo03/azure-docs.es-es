@@ -1,17 +1,16 @@
 ---
-title: Personalizar reglas de firewall de aplicaciones web en Azure Application Gateway mediante PowerShell
+title: 'Personalización de reglas de firewall de aplicaciones web en Azure Application Gateway: PowerShell'
 description: En este artículo se proporciona información acerca de cómo personalizar las reglas de firewall de aplicaciones web en Application Gateway con PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 02/22/2019
-ms.date: 03/11/2019
-ms.author: v-junlch
+ms.date: 2/22/2019
+ms.author: victorh
 ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831459"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personalización de reglas de firewall de aplicaciones web mediante PowerShell
@@ -92,18 +91,18 @@ Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway 
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="mandatory-rules"></a>Normas obligatorias
+## <a name="mandatory-rules"></a>Reglas obligatorias
 
-En la lista siguiente contiene las condiciones que provocan el WAF bloquear la solicitud en el modo de prevención (en modo de detección, se registran como excepciones). Estos no se pueden configurar o deshabilitados:
+En la lista siguiente se indican las condiciones que provocan que el WAF bloquee la solicitud en el Modo de prevención (en el Modo de detección se registran como excepciones). No se pueden configurar o deshabilitar:
 
-* Error al analizar el cuerpo de solicitud tiene como resultado la solicitud está bloqueada, a menos que la inspección de cuerpo está desactivado (XML, JSON, datos de formulario)
-* Longitud de datos de solicitud de cuerpo (con ningún archivo) es mayor que el límite configurado
-* La solicitud es mayor que el límite de cuerpo (incluidos los archivos)
-* Se produjo un error interno en el motor de WAF
+* Error al analizar el cuerpo de la solicitud que da como resultado que la solicitud se bloquea, a menos que la inspección del cuerpo esté desactivada (XML, JSON, datos de formulario).
+* La longitud de datos (sin archivos) del cuerpo de la solicitud es mayor que el límite configurado.
+* El cuerpo de la solicitud (incluidos los archivos) es mayor que el límite.
+* Se ha producido un error interno en el motor de WAF.
 
-CRS 3.x específica:
+Regla específica de CRS 3.x:
 
-* Entrada de umbral superado de puntuación de anomalías
+* El resultado de anomalía de entrada ha superado el umbral.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -113,5 +112,3 @@ Después de configurar las reglas deshabilitadas, puede aprender a ver los regis
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-
-<!-- Update_Description: code update -->

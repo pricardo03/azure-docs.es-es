@@ -5,33 +5,33 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148157"
 ---
-Puede adjuntar un número de discos de datos a una máquina virtual de Azure. Según los objetivos de escalabilidad y rendimiento para discos de datos de la máquina virtual, puede determinar el número y tipo de disco que necesita para satisfacer los requisitos de capacidad y rendimiento.
+Puede asociar un número de discos de datos a una máquina virtual de Azure. Según los objetivos de escalabilidad y rendimiento de los discos de datos de una máquina virtual, puede determinar el número y el tipo de disco necesarios para satisfacer sus requisitos de capacidad y rendimiento.
 
 > [!IMPORTANT]
-> Para obtener un rendimiento óptimo, limite el número de discos muy usados que se conectan a la máquina virtual para evitar una posible limitación. Si todos los discos conectados no se usan mucho al mismo tiempo, la máquina virtual puede admitir un mayor número de discos.
+> Para obtener un rendimiento óptimo, limite el número de discos muy usados que se conectan a la máquina virtual para evitar una posible limitación. Si todos los discos asociados no se usan mucho al mismo tiempo, la máquina virtual puede admitir un mayor número de discos.
 
-**Discos administrados de Azure:**
+**Para discos administrados de Azure:**
 
-En la tabla siguiente se muestra el valor predeterminado y los límites máximos del número de recursos por región y suscripción
+En la tabla siguiente se muestran los límites predeterminado y máximo del número de recursos por región y suscripción.
 
 > | Recurso | Límite predeterminado  | Límite máximo |
 > | --- | --- | --- |
-> | Discos administrados estándar | 25 000 | 50,000 |
-> | Discos administrados de SSD estándar | 25 000 | 50,000 |
-> | Managed Disks Premium | 25 000 | 50,000 |
-> | Standard_LRS instantáneas | 25 000 | 50,000 |
-> | Standard_ZRS instantáneas | 25 000 | 50,000 |
-> | Imagen administrada | 25 000 | 50,000 |
+> | Discos administrados estándar | 25 000 | 50.000 |
+> | Discos administrados SSD estándar | 25 000 | 50.000 |
+> | Discos administrados Premium | 25 000 | 50.000 |
+> | Instantáneas Standard_LRS | 25 000 | 50.000 |
+> | Instantáneas Standard_ZRS | 25 000 | 50.000 |
+> | Imagen administrada | 25 000 | 50.000 |
 
-* **Para las cuentas de almacenamiento estándar:** Una cuenta de almacenamiento estándar tiene una tasa de solicitud total máximo de 20 000 IOPS. Número total de IOPS en todos los discos de máquina virtual en una cuenta de almacenamiento estándar no debe superar este límite.
+* **Para cuentas de almacenamiento estándar:** una cuenta de almacenamiento estándar tiene una tasa de solicitudes máxima total de 20 000 IOPS. El número total de IOPS en todos los discos de máquina virtual de una cuenta de almacenamiento estándar no debe superar este límite.
   
-    Puede calcular aproximadamente el número de discos muy usados que admite una cuenta de almacenamiento estándar único basada en el límite de tasa de solicitud. Por ejemplo, para una máquina virtual de nivel básico, el número máximo de discos muy usados está alrededor de 66, que es de 20 000/300 IOPS por disco. El número máximo de discos muy usados para una máquina virtual de nivel estándar es aproximadamente de 40, que es de 20 000/500 IOPS por disco. 
+    Puede calcular aproximadamente el número de discos muy usados que admite una sola cuenta de almacenamiento estándar en función del límite de tasa de solicitudes. Por ejemplo, en el caso de una máquina virtual de nivel Básico, el número máximo de discos muy usados está alrededor de 66, que equivale a 20 000/300 IOPS por disco. El número máximo de discos muy usados para una máquina virtual de nivel Estándar es de aproximadamente 40, que equivale a 20 000/500 IOPS por disco. 
 
-* **Para las cuentas de almacenamiento Premium:** Una cuenta de almacenamiento Premium tiene una tasa de rendimiento total máximo de 50 Gbps. La capacidad total de proceso en todos los discos de la máquina virtual no debe superar este límite.
+* **Para cuentas de almacenamiento premium:** una cuenta de almacenamiento premium tiene una capacidad total máxima de proceso de 50 Gbps. La capacidad total de proceso en todos los discos de la máquina virtual no debe superar este límite.
 

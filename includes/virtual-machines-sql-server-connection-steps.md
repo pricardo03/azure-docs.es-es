@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165491"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Apertura de puertos TCP en el firewall de Windows para la instancia predeterminada del motor de base de datos
@@ -26,12 +26,12 @@ ms.locfileid: "66165491"
 6. Haga clic en **Next**.
 7. En el cuadro de diálogo **Acción**, seleccione **Permitir la conexión** y haga clic en **Siguiente**.
    
-    **Nota de seguridad:** Seleccionar **permitir la conexión si es segura** puede proporcionar seguridad adicional. Seleccione esta opción si desea configurar opciones de seguridad adicionales en el entorno.
+    **Nota de seguridad:** si selecciona **Permitir la conexión si es segura**, puede proporcionar una mayor seguridad. Seleccione esta opción si desea configurar opciones de seguridad adicionales en el entorno.
    
     ![Permitir conexiones](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. En el cuadro de diálogo **Perfil**, seleccione **Público**, **Privado** y **Dominio**. A continuación, haga clic en **Siguiente**.
    
-    **Nota de seguridad:**  Seleccionar **pública** permite el acceso a través de internet. Cuando sea posible, seleccione un perfil más restrictivo.
+    **Nota de seguridad:**  si se selecciona **Público**, se permite el acceso a través de Internet. Cuando sea posible, seleccione un perfil más restrictivo.
    
     ![Perfil público](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. En el cuadro de diálogo **Nombre**, escriba el nombre y la descripción de esta regla y haga clic en **Finalizar**.
@@ -55,7 +55,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 1. Mientras está conectado a la máquina virtual, en la página de inicio, escriba **SQL Server Management Studio** y haga clic en el icono seleccionado.
    
     La primera vez que abra Management Studio se debe crear el entorno de Management Studio para los usuarios. Esta operación puede tardar unos minutos.
-2. Management Studio presenta el cuadro de diálogo **Conectar con el servidor** . En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectarse al motor de base de datos con el explorador de objetos [en lugar del nombre de la máquina virtual, se puede utilizar **(local)** o un punto (.) como **nombre del servidor**]. Seleccione **Windows autenticación**y dejar ***your_VM_name\your_local_administrator*** en el **nombre de usuario** cuadro. Haga clic en **Conectar**.
+2. Management Studio presenta el cuadro de diálogo **Conectar con el servidor** . En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectarse al motor de base de datos con el explorador de objetos [en lugar del nombre de la máquina virtual, se puede utilizar **(local)** o un punto (.) como **nombre del servidor**]. Seleccione **Autenticación de Windows** y deje ***nombre_de_su_VM\su_administrador_local*** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
    
     ![Conectar con el servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. En el Explorador de objetos de SQL Server Management Studio, haga clic con el botón derecho en el nombre de la instancia de SQL Server (el nombre de la máquina virtual) y, a continuación, haga clic en **Propiedades**.
@@ -67,14 +67,14 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 5. En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Aceptar** para aceptar el requisito de reiniciar SQL Server.
 6. En el Explorador de objetos, haga clic con el botón derecho en el servidor y, a continuación, haga clic en **Reiniciar**. (También se debe reiniciar Agente SQL Server si está en ejecución).
    
-    ![Reiniciar](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Reinicio](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Sí** para indicar que desea reiniciar SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Creación de inicios de sesión para la autenticación de SQL Server
 Para conectarse al motor de base de datos desde otro equipo, debe crear al menos un inicio de sesión para la autenticación de SQL Server.
 
 1. En el Explorador de objetos de SQL Server Management Studio, expanda la carpeta de la instancia de servidor en la que desea crear el nuevo inicio de sesión.
-2. Haga clic con el botón derecho en la carpeta **Security**, apunte a **Nuevo** y seleccione **Inicio de sesión...**.
+2. Haga clic con el botón derecho en la carpeta **Security**, apunte a **Nuevo** y seleccione **Inicio de sesión...** .
    
     ![Nuevo inicio de sesión](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. En el cuadro de diálogo **Inicio de sesión - Nuevo**, en la página **General**, escriba el nombre del usuario nuevo en el cuadro **Nombre de inicio de sesión**.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829589"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks
@@ -47,9 +47,9 @@ Las tareas de varios pasos permiten escenarios como la siguiente lógica:
 
 Una tarea de varios pasos de ACR Tasks se define como una serie de pasos dentro de un archivo YAML. Cada paso puede especificar dependencias tras la finalización correcta de uno o varios pasos anteriores. Están disponibles los siguientes tipos de pasos de tarea:
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): Crear una o más imágenes de contenedor usando la conocida `docker build` sintaxis, en serie o en paralelo.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Inserte las imágenes compiladas en un registro de contenedor. Se admiten registros privados como Azure Container Registry, dado que es el Docker Hub público.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Ejecutar un contenedor, de modo que puede funcionar como una función dentro del contexto de la tarea en ejecución. Puede pasar parámetros al elemento `[ENTRYPOINT]` del contenedor y especificar propiedades como env, detach y otros parámetros conocidos de `docker run`. El tipo de paso `cmd` permite pruebas unitarias y funcionales, con la ejecución simultánea del contenedor.
+* [`build`](container-registry-tasks-reference-yaml.md#build): compila una o varias imágenes de contenedor mediante sintaxis `docker build` conocida, en serie o en paralelo.
+* [`push`](container-registry-tasks-reference-yaml.md#push): inserta imágenes compiladas en un registro de contenedor. Se admiten registros privados como Azure Container Registry, dado que es el Docker Hub público.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): ejecuta un contenedor, de forma que puede operar como una función dentro del contexto de la tarea en ejecución. Puede pasar parámetros al elemento `[ENTRYPOINT]` del contenedor y especificar propiedades como env, detach y otros parámetros conocidos de `docker run`. El tipo de paso `cmd` permite pruebas unitarias y funcionales, con la ejecución simultánea del contenedor.
 
 Los fragmentos de código siguientes muestran cómo combinar estos tipos de pasos de la tarea. Las tareas de varios pasos pueden ser tan simples como la creación de una sola imagen a partir de un Dockerfile y la inserción en el registro, con un archivo YAML parecido a:
 

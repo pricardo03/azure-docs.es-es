@@ -1,6 +1,6 @@
 ---
-title: Las búsquedas guardadas en soluciones de administración | Microsoft Docs
-description: Las soluciones de administración incluyen normalmente búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución. Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico. En este artículo se describe cómo definir las búsquedas guardadas en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración de Log Analytics.
+title: Búsquedas guardadas en soluciones de administración | Microsoft Docs
+description: Las soluciones de administración incluyen normalmente búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución. Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico. En este artículo se describe cómo definir las búsquedas guardadas de Log Analytics en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104840"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
@@ -76,14 +76,14 @@ Los recursos de [búsquedas guardadas de Log Analytics](../../azure-monitor/log-
 
 En la tabla siguiente se describe cada propiedad de una búsqueda guardada.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | description |
 |:--- |:--- |
 | category | Categoría de la búsqueda guardada.  Las búsquedas guardadas en la misma solución comparten a menudo una única categoría por lo que están agrupadas juntas en la consola. |
 | displayname | Nombre para mostrar de la búsqueda guardada en el portal. |
 | query | La consulta que se ejecutará. |
 
 > [!NOTE]
-> Puede que necesite utilizar caracteres de escape en la consulta si incluye caracteres que puedan interpretarse como JSON. Por ejemplo, si la consulta era **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, en el archivo de solución debe escribirse como **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
+> Puede que necesite utilizar caracteres de escape en la consulta si incluye caracteres que puedan interpretarse como JSON. Por ejemplo, si la consulta era **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , en el archivo de solución debe escribirse como **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** .
 
 ## <a name="alerts"></a>Alertas
 Las [alertas de registro de Azure](../../azure-monitor/platform/alerts-unified-log.md) se crean mediante reglas de alerta de Azure que ejecutan consultas de registro especificadas a intervalos regulares. Si los resultados de la consulta coinciden con los criterios especificados, se crea un registro de alertas y se ejecutan una o varias acciones mediante [grupos de acciones](../../azure-monitor/platform/action-groups.md).
@@ -121,7 +121,7 @@ Una búsqueda guardada puede tener una o más programaciones y cada programació
     }
 En la tabla siguiente se describen las propiedades para los recursos de programación.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
 | interval      | Sí | Frecuencia con la que se ejecuta la consulta en minutos. |
@@ -174,18 +174,18 @@ Las acciones de alerta tienen la siguiente estructura. Aquí se incluyen las var
 
 En las tablas siguientes se describen las propiedades para los recursos de acción de alerta.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | type | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
 | name | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
-| description | Sin  | Descripción opcional de la alerta. |
-| severity | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
+| description | Sin | Descripción opcional de la alerta. |
+| Gravedad | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 
 #### <a name="threshold"></a>Umbral
 Esta sección es obligatoria. Define las propiedades para el umbral de alerta.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
 | Valor | Sí | Valor para comparar los resultados. |
@@ -196,7 +196,7 @@ Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
 > [!NOTE]
 > Las alertas de unidades métricas están actualmente en versión preliminar pública.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | TriggerCondition | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
 | Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
@@ -206,7 +206,7 @@ Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
 #### <a name="throttling"></a>Limitaciones
 Esta sección es opcional. Incluya esta sección si desea suprimir alertas en la misma regla durante cierto tiempo después de crear una alerta.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | DurationInMinutes | Sí, si hay una limitación de elementos incluida | Número de minutos para suprimir alertas después de crear una en la misma regla de alerta. |
 
@@ -215,11 +215,11 @@ Todas las alertas de Azure usan el grupo de acciones como el mecanismo predeterm
 
 Para los usuarios que han extendido sus alertas a Azure, ahora una programación tendrá los detalles del grupo de acciones junto con el umbral, para así poder crear una alerta. Antes de crear una alerta, es necesario definir los detalles de correo electrónico, las direcciones URL de webhooks, los detalles de automatización de runbooks y otras acciones dentro de un grupo de acciones. Es posible crear un [grupo de acciones desde Azure Monitor](../../azure-monitor/platform/action-groups.md) en el portal o usar el [grupo de acciones: plantilla de recursos](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | AzNsNotification | Sí | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
-| CustomEmailSubject | Sin  | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
-| CustomWebhookPayload | Sin  | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
+| CustomEmailSubject | Sin | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
+| CustomWebhookPayload | Sin | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
 
 #### <a name="actions-for-oms-legacy"></a>Acciones para OMS (heredado)
 
@@ -231,20 +231,20 @@ Cada programación tiene una acción **Alert**. Esto define los detalles de la a
 ##### <a name="emailnotification"></a>EmailNotification
  Esta sección es opcional. Inclúyala si desea que la alerta envíe un mensaje de correo electrónico a uno o varios destinatarios.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | Recipients | Sí | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
-| Subject | Sí | Línea del asunto del mensaje de correo electrónico. |
-| Attachment | Sin  | Los datos adjuntos no son compatibles actualmente. Si este elemento está incluido, debe ser **None** (Ninguno). |
+| Asunto | Sí | Línea del asunto del mensaje de correo electrónico. |
+| Datos adjuntos | Sin | Los datos adjuntos no son compatibles actualmente. Si este elemento está incluido, debe ser **None** (Ninguno). |
 
 ##### <a name="remediation"></a>Corrección
 Esta sección es opcional. Inclúyala si desea que se inicie un runbook en respuesta a la alerta. 
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | RunbookName | Sí | Nombre del runbook que se va a iniciar. |
 | WebhookUri | Sí | URI del webhook para el runbook. |
-| Expiry | Sin  | Fecha y hora a la que expira la corrección. |
+| Expiry | Sin | Fecha y hora a la que expira la corrección. |
 
 ##### <a name="webhook-actions"></a>Acciones de webhook
 
@@ -269,12 +269,12 @@ Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo d
     }
 En las tablas siguientes se describen las propiedades para los recursos de acción de Webhook.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | description |
 |:--|:--|:--|
 | Tipo | Sí | Tipo de la acción. Es **Webhook** para las acciones de webhook. |
 | Nombre | Sí | Nombre para mostrar de la acción. Esto no se muestra en la consola. |
 | webhookUri | Sí | URI del webhook. |
-| customPayload | Sin  | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
+| customPayload | Sin | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
 
 ## <a name="sample"></a>Muestra
 

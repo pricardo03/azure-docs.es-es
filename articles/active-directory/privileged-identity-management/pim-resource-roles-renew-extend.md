@@ -1,5 +1,5 @@
 ---
-title: Ampliar o renovar las asignaciones de roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
+title: Ampliación o renovación de asignaciones de roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
 description: Aprenda a ampliar o renovar asignaciones de roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a064fc67bf94ba6aa443e429fe83179d84cada84
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602721"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Ampliación o renovación de asignaciones de roles de recursos de Azure en PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) presenta nuevos controles para administrar el ciclo de vida de acceso y asignación de recursos de Azure. Los administradores pueden asignar pertenencia mediante las propiedades de fecha y hora de inicio y finalización. Cuando el fin de la asignación se aproxima, PIM envía notificaciones por correo electrónico a los usuarios o grupos afectados. También envía notificaciones por correo electrónico a los administradores del recurso para asegurarse de que se mantenga el acceso adecuado. Las asignaciones pueden renovarse y permanecer visibles en un estado expirado durante un máximo de 30 días, incluso si el acceso no se extiende.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) introduce nuevos controles para administrar el ciclo de vida de acceso y asignación de los recursos de Azure. Los administradores pueden asignar pertenencia mediante las propiedades de fecha y hora de inicio y finalización. Cuando el fin de la asignación se aproxima, PIM envía notificaciones por correo electrónico a los usuarios o grupos afectados. También envía notificaciones por correo electrónico a los administradores del recurso para asegurarse de que se mantenga el acceso adecuado. Las asignaciones pueden renovarse y permanecer visibles en un estado expirado durante un máximo de 30 días, incluso si el acceso no se extiende.
 
 ## <a name="who-can-extend-and-renew"></a>¿Quién puede ampliar y renovar?
 
@@ -41,7 +41,7 @@ Los administradores reciben notificaciones cuando un miembro de un rol que va a 
 
 En los pasos siguientes se describe el proceso de la solicitud, resolución o administración de una extensión o renovación de una asignación de roles. 
 
-### <a name="member-extend"></a>Extensión de miembro
+### <a name="member-extend"></a>Extensión de miembros
 
 Los miembros de una asignación de roles pueden extender las asignaciones de roles que expiran directamente tanto desde las pestañas **Elegible** o **Activo** de la página **Mis roles** de un recurso como desde el nivel superior de la página **Mis roles** del portal de PIM. Los miembros pueden solicitar una ampliación de los roles elegibles (asignados) y activos que expiran en los próximos 14 días.
 
@@ -49,7 +49,7 @@ Los miembros de una asignación de roles pueden extender las asignaciones de rol
 
 Cuando la fecha y hora de finalización de la asignación es anterior a 14 días, el botón para **Extender** se convierte en un vínculo activo en la interfaz de usuario. En el ejemplo siguiente, se supone que la fecha actual es el 27 de marzo.
 
-![Extender el botón](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
+![Botón Extender](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
 
 Para solicitar una extensión de la asignación de este rol, seleccione **Extender** para abrir el formulario de solicitud.
 
@@ -80,11 +80,11 @@ Además de usar el vínculo del correo electrónico, los administradores pueden 
 
 Cuando un administrador selecciona **Aprobar** o **Denegar**, se muestran los detalles de la solicitud, junto con un campo para especificar una justificación para los registros de auditoría.
 
-![Aprobar solicitud de asignación de roles](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
+![Aprobación de solicitud de asignaciones de roles](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
 
 Al aprobar una solicitud para extender la asignación de roles, los administradores de recursos pueden elegir una nueva fecha de inicio y finalización y un tipo de asignación. Cambiar el tipo de asignación puede ser necesario si el administrador quiere proporcionar acceso limitado para completar una tarea específica (por ejemplo, un día). En este ejemplo, el administrador puede cambiar la asignación de **Elegible** a **Activa**. Esto quiere decir que puede brindar acceso al solicitante sin requerirle que la activación.
 
-### <a name="admin-extend"></a>Ampliación de administradores
+### <a name="admin-extend"></a>Extensión del administrador
 
 Si un miembro del rol olvida solicitar la extensión de la pertenencia al rol, o no puede solicitarla, un administrador puede extender una asignación en nombre del miembro. Las extensiones administrativas de la pertenencia a un rol no requieren aprobación, pero se envían notificaciones a todos los administradores restantes después de haber extendido el rol.
 
@@ -96,11 +96,11 @@ Para extender una pertenencia a un rol, navegue a la vista de miembro o de rol d
 
 Aunque conceptualmente el proceso para solicitar una extensión es similar, el proceso para renovar una asignación de rol que ha expirado es diferente. Mediante los siguientes pasos, tanto los miembros como los administradores pueden renovar el acceso a los roles que hayan expirado cuando sea necesario.
 
-### <a name="member-renew"></a>Renovación de miembro
+### <a name="member-renew"></a>Renovación de los miembros
 
 Los miembros que ya no tengan acceso a recursos pueden tener acceso durante un período de hasta 30 días al historial de asignaciones expiradas. Para ello, vaya a **Mis roles** en el panel izquierdo y luego seleccione la pestaña **Roles expirados** en la sección de roles de recursos de Azure.
 
-![Pestaña roles expirados](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
+![Pestaña Roles expirados](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
 
 El valor predeterminado de la lista de roles que se muestra es **Roles elegibles**. Utilice el menú desplegable para alternar entre los roles asignados Elegibles y Activos.
 
@@ -122,7 +122,7 @@ Cuando un administrador selecciona **Aprobar** o **Denegar**, se muestran los de
 
 Al aprobar una solicitud para renovar la asignación de roles, los administradores de recursos deben especificar una nueva fecha de inicio y finalización y un tipo de asignación. 
 
-### <a name="admin-renew"></a>Renovación de administradores
+### <a name="admin-renew"></a>Renovación por parte de los administradores
 
 Los administradores de recursos pueden renovar las asignaciones de roles expirados en la pestaña **Miembros** del menú de navegación izquierdo de un recurso. También pueden renovar las asignaciones de roles expirados en la pestaña de roles **Expirados** de un rol de recursos.
 

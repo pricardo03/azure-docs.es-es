@@ -1,5 +1,5 @@
 ---
-title: 'Preguntas más frecuentes: Azure Active Directory de Azure Multi-factor Authentication'
+title: Preguntas más frecuentes sobre Azure Multi-Factor Authentication - Azure Active Directory
 description: Preguntas y respuestas más frecuentes relacionadas con Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228170"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
@@ -59,7 +59,7 @@ En Canadá, Microsoft utiliza los siguientes códigos cortos de SMS:
    * 759731 
    * 673801
 
-Microsoft no garantiza la entrega rápida y coherente de Multi-Factor Authentication por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, Microsoft puede agregar o quitar códigos cortos cuando lo estime oportuno, ya que se realizan ajustes de enrutamiento para mejorar la capacidad de entrega de SMS. Microsoft no admite códigos cortos para países o regiones, además de los Estados Unidos y Canadá.
+Microsoft no garantiza la entrega rápida y coherente de Multi-Factor Authentication por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, Microsoft puede agregar o quitar códigos cortos cuando lo estime oportuno, ya que se realizan ajustes de enrutamiento para mejorar la capacidad de entrega de SMS. Microsoft no admite códigos cortos para países o regiones que no sean Estados Unidos y Canadá.
 
 ## <a name="billing"></a>Facturación
 
@@ -87,7 +87,7 @@ Obtenga más información sobre las opciones en [Cómo conseguir Azure Multi-Fac
 
 En algunos casos, sí.
 
-Autenticación multifactor para administradores de Azure ofrece un subconjunto de características de Azure MFA sin costo alguno para tener acceso a Microsoft online services, incluidos el [portal Azure](https://portal.azure.com) y [centro de administración de Microsoft 365](https://admin.microsoft.com). Esta oferta se aplica solamente a los administradores globales en instancias de Azure Active Directory que no tienen la versión completa de Azure MFA a través de una licencia de MFA, un conjunto de productos o un proveedor independiente basado en el consumo. Si sus administradores usan la versión gratuita y usted adquiere una versión completa de Azure Multi-Factor Authentication, todos los administradores globales se elevan a la versión de pago automáticamente.
+Multi-Factor Authentication para administradores de Azure ofrece un subconjunto de características de Azure MFA sin costo para acceder a Microsoft Online Services, incluidos [Azure Portal](https://portal.azure.com) y el [Centro de administración de Microsoft 365](https://admin.microsoft.com). Esta oferta se aplica solamente a los administradores globales en instancias de Azure Active Directory que no tienen la versión completa de Azure MFA a través de una licencia de MFA, un conjunto de productos o un proveedor independiente basado en el consumo. Si sus administradores usan la versión gratuita y usted adquiere una versión completa de Azure Multi-Factor Authentication, todos los administradores globales se elevan a la versión de pago automáticamente.
 
 Multi-Factor Authentication para usuarios de Office 365 ofrece un subconjunto de características de Azure MFA sin costo para acceder a servicios de Office 365, incluidos Exchange Online y SharePoint Online. Esta oferta se aplica a los usuarios que tienen asignada una licencia de Office 365 cuando la instancia correspondiente de Azure Active Directory no tiene la versión completa de Azure MFA a través de una licencia de MFA, un paquete o un proveedor independiente basado en el consumo.
 
@@ -95,7 +95,7 @@ Multi-Factor Authentication para usuarios de Office 365 ofrece un subconjunto de
 
 Si la organización adquiere MFA como servicio independiente con facturación basada en el consumo, se elige un modelo de facturación cuando se crea un proveedor de MFA. No se puede cambiar el modelo de facturación después de que se crea un proveedor de MFA. Sin embargo, puede eliminar el proveedor de MFA y crear otro con un modelo de facturación distinto.
 
-Cuando se crea un proveedor de MFA, se puede vincular a un Azure Active Directory, o "Inquilino de Azure AD". Si el proveedor de MFA actual está vinculado a un inquilino de Azure AD, puede eliminar el proveedor de MFA y crear uno que esté vinculado al mismo inquilino de Azure AD. Como alternativa, si compra suficientes licencias de MFA, Azure AD Premium o Enterprise Mobility + Security (EMS) para abarcar a todos los usuarios habilitados para MFA, puede eliminar por completo el proveedor de MFA.
+Cuando se crea un proveedor de MFA, se puede vincular a una instancia de Azure Active Directory, o "inquilino de Azure AD". Si el proveedor actual de MFA está vinculado a un inquilino de Azure AD, puede eliminar el proveedor de MFA de manera segura y crear otro que esté vinculado al mismo inquilino de Azure AD. Como alternativa, si compra suficientes licencias de MFA, Azure AD Premium o Enterprise Mobility + Security (EMS) para abarcar a todos los usuarios habilitados para MFA, puede eliminar por completo el proveedor de MFA.
 
 Si el proveedor de MFA *no* está vinculado a un inquilino de Azure AD o si vincula el nuevo proveedor de MFA a un inquilino de Azure AD diferente, las opciones de configuración y ajustes de usuario no se transferirán. Además, los servidores Azure MFA se tendrán que reactivar mediante las credenciales de activación generadas a través del nuevo proveedor de MFA. Reactivar los servidores MFA para vincularlos al nuevo proveedor de MFA no afecta a la autenticación por llamada telefónica y mensaje de texto, sino que las notificaciones de aplicación móvil dejarán de funcionar para todos los usuarios hasta que se reactive la aplicación móvil.
 
@@ -142,15 +142,15 @@ Si la organización no tiene clientes heredados, no debe permitir que los usuari
 > [!NOTE]
 > Autenticación moderna para clientes de Office 2013
 >
-> Las contraseñas de aplicación solo son necesarias para las aplicaciones que no admiten la autenticación moderna. Los clientes de Office 2013 admiten protocolos de autenticación moderna, pero se deben configurar. Ahora la autenticación moderna está disponible para cualquier cliente que ejecutan la actualización de marzo de 2015 o posterior para Office 2013. Para obtener más información, consulte la entrada de blog [autenticación moderna actualizado Office 365](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+> Las contraseñas de aplicación solo son necesarias para las aplicaciones que no admiten la autenticación moderna. Los clientes de Office 2013 admiten protocolos de autenticación moderna, pero se deben configurar. Ahora la autenticación moderna está disponible para cualquier cliente con la actualización de marzo de 2015 o posterior de Office 2013. Para obtener más información, vea la entrada de blog [Autenticación moderna actualizada de Office 365](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
 **P: Mis usuarios dicen que hay ocasiones en que no reciben el mensaje de texto o que responder a mensajes de texto bidireccionales, pero se agota el tiempo de espera de la comprobación.**
 
-Tanto el envío de mensajes de texto como la recepción de respuestas en SMS bidireccionales no están garantizados, pues hay factores que no se pueden controlar y que podrían afectar a la confiabilidad del servicio. Estos factores incluyen el país o región de destino, el operador de telefonía móvil y la intensidad de señal.
+Tanto el envío de mensajes de texto como la recepción de respuestas en SMS bidireccionales no están garantizados, pues hay factores que no se pueden controlar y que podrían afectar a la confiabilidad del servicio. Estos factores incluyen el país o la región de destino, el operador del teléfono móvil y la intensidad de la señal.
 
 Si frecuentemente sus usuarios tienen problemas para recibir mensajes de texto de manera confiable, indíqueles que usen en su lugar el método de llamada de teléfono o aplicación móvil. La aplicación móvil puede recibir notificaciones con conexiones de telefonía móvil y Wi-Fi. Además, la aplicación móvil puede generar códigos de comprobación aunque el dispositivo no tenga señal. La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) y [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-En la medida de lo posible, recomendamos usar SMS unidireccionales en lugar de bidireccionales si tiene que usar mensajes de texto. SMS unidireccional es más confiable y evita que los usuarios incurran en cargos SMS globales como consecuencia de responder a un mensaje de texto enviado desde otro país o región.
+En la medida de lo posible, recomendamos usar SMS unidireccionales en lugar de bidireccionales si tiene que usar mensajes de texto. Los SMS unidireccionales son más seguros y evitan que los usuarios incurran en cargos SMS globales por responder a un mensaje de texto enviado desde otro país o región.
 
 **P: ¿Puedo cambiar la cantidad de tiempo que los usuarios tienen para escribir el código de verificación de un mensaje de texto antes de que se agote el tiempo de espera del sistema?**
 

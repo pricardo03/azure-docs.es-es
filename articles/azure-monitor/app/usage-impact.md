@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604196"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análisis de impacto con Application Insights
@@ -63,7 +63,7 @@ Impacto admite propiedades y medidas personalizadas y estándar, así que puede 
 2. Elija "País o región" en la lista desplegable **analyze how its** (Analizar su).
 3. En la lista desplegable **afecta el uso de**, seleccione un evento personalizado que corresponda a un elemento de la interfaz de usuario en la vista de página que eligió en el paso 1.
 
-En este caso, los resultados ya no se ajustan en un modelo de eje x continuo como lo hacían en el primer ejemplo. En su lugar, se presenta una visualización similar a un embudo segmentado. Ordenar por **uso** para ver la variación de conversión para el evento personalizado según el país o región.
+En este caso, los resultados ya no se ajustan en un modelo de eje x continuo como lo hacían en el primer ejemplo. En su lugar, se presenta una visualización similar a un embudo segmentado. Ordenar por **Uso** para ver la variación de conversión para el evento personalizado basándose en el país o región.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>¿Cómo calcula la herramienta Impacto la tasa de conversión?

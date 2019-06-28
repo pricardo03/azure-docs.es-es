@@ -10,42 +10,42 @@ ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
 ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551866"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
-Los conectores proporcionan acceso rápido de Azure Logic Apps a eventos, datos y acciones en otras aplicaciones, servicios, sistemas, protocolos y plataformas. Mediante el uso de conectores en las aplicaciones lógicas, ampliar las capacidades para las aplicaciones en la nube y locales realizar tareas con los datos que crea y ya tiene.
+Los conectores proporcionan acceso rápido desde Azure Logic Apps a eventos, datos y acciones entre otras aplicaciones, servicios, sistemas, protocolos y plataformas. El uso de conectores en las aplicaciones lógicas permite ampliar las funcionalidades de las aplicaciones locales y en la nube para realizar tareas con los datos que ya tiene y con los que cree.
 
-Aunque Logic Apps ofrece [más de 200 conectores](https://docs.microsoft.com/connectors), en este artículo se describen los conectores populares y más utilizados que miles de aplicaciones y millones de ejecuciones usan correctamente para el procesamiento de datos e información. Para encontrar la lista completa de conectores y la información de referencia de cada conector, como desencadenadores, acciones y los límites, revise las páginas de referencia de conector en [Introducción a los conectores](https://docs.microsoft.com/connectors). Además, obtenga más información sobre [desencadenadores y acciones](#triggers-actions), [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md), y [los detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Aunque Logic Apps ofrece [más de 200 conectores](https://docs.microsoft.com/connectors), en este artículo se describen los conectores populares y más utilizados que miles de aplicaciones y millones de ejecuciones usan correctamente para el procesamiento de datos e información. Para buscar la lista completa de conectores y la información de referencia de cada conector, como desencadenadores, acciones y límites, revise las páginas de referencia de conectores de [Introducción a los conectores](https://docs.microsoft.com/connectors). Además, obtenga más información sobre [desencadenadores y acciones](#triggers-actions), el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) y los [detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
-> Para integrar con un servicio o API que no tiene conector, puede directamente llamar al servicio a través de un protocolo como HTTP o crear un [conector personalizado](#custom).
+> Para integrar con un servicio o API que no tiene conector, puede llamar directamente al servicio a través de un protocolo como HTTP, o bien crear un [conector personalizado](#custom).
 
-Los conectores están disponibles como acciones y desencadenadores integrados o como conectores administrados:
+Los conectores están disponibles como desencadenadores y acciones integrados, o como conectores administrados:
 
-* [**Elementos integrados**](#built-ins): Estas acciones y desencadenadores integrados son "nativas" a Azure Logic Apps y le ayudan a que crear aplicaciones lógicas que se ejecutan según una programación personalizada, comunican con otros puntos de conexión, recibirán y responderán a las solicitudes y llamar a funciones de Azure, Azure API Apps (aplicaciones Web), sus propias API administrado y publicado con Azure API Management y las aplicaciones lógicas anidadas que pueden recibir solicitudes. También puede usar acciones integradas que le ayudarán a organizar y controlar el flujo de trabajo de la aplicación lógica, y a trabajar con datos.
+* [**Integrados**](#built-ins): estos desencadenadores y acciones integrados son "nativos" de Azure Logic Apps y ayudan a crear aplicaciones lógicas que se ejecutan en programaciones personalizadas, se comunican con otros puntos de conexión, reciben solicitudes y las responden, y llaman a funciones de Azure, aplicaciones de API de Azure (Web Apps), sus propias API administradas y publicadas con Azure API Management, y aplicaciones lógicas anidadas que pueden recibir solicitudes. También puede usar acciones integradas que le ayudarán a organizar y controlar el flujo de trabajo de la aplicación lógica, y a trabajar con datos.
 
   > [!NOTE]
-  > Las aplicaciones lógicas dentro de un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) puede acceder directamente a los recursos de red virtual de Azure.
-  > Cuando se usa una instancia de ISE, integrados desencadenadores y acciones que muestran la **Core** etiqueta que se ejecuta en el ISE mismo como las aplicaciones lógicas. Logic apps, integrados de los desencadenadores y acciones integradas que se ejecutan en el uso ISE un plan de precios diferente desde el plan de precios basado en consumo.
+  > Las aplicaciones lógicas en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) pueden acceder directamente a los recursos de una red virtual de Azure.
+  > Cuando se usa un ISE, los desencadenadores y acciones integrados en los que se muestra la etiqueta **Core** se ejecutan en el mismo ISE que las aplicaciones lógicas. Las aplicaciones lógicas y las acciones y los desencadenadores integrados que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo.
   >
-  > Para obtener más información acerca de cómo crear ISEs, consulte [conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
-  > Para obtener más información sobre los precios, consulte [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
+  > Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Para más información sobre los precios, vea [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-* **Conectores administrados**: Implementan y administran por Microsoft, estos conectores proporcionan desencadenadores y acciones para tener acceso a servicios en la nube, en los sistemas locales o ambos, incluido Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint y mucho más. Algunos conectores específicamente admiten escenarios de comunicación de negocio a negocio (B2B) y requieren un [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) que esté vinculado a la aplicación lógica. Antes de usar algunos conectores, es posible que deba crear conexiones, lo que se administran mediante Azure Logic Apps. 
+* **Conectores administrados**: Implementados y administrados por Microsoft, estos conectores proporcionan desencadenadores y acciones para acceder a servicios en la nube, sistemas locales o ambos, incluidos Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint y muchos más. Algunos conectores admiten específicamente escenarios de comunicación de negocio a negocio (B2B) y requieren una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada a la aplicación lógica. Antes de usar algunos conectores, es posible que tenga que crear conexiones, que se administran mediante Azure Logic Apps. 
 
-  Por ejemplo, si usa Microsoft BizTalk Server, logic apps pueden conectarse a y comunicarse con el servidor BizTalk Server mediante el [BizTalk Server connector local](#on-premises-connectors). 
+  Por ejemplo, si usa Microsoft BizTalk Server, las aplicaciones lógicas podrán conectarse y comunicarse con BizTalk Server mediante el [conector local de BizTalk Server](#on-premises-connectors). 
   Después, puede ampliar o realizar operaciones de BizTalk en las aplicaciones lógicas mediante los [conectores de la cuenta de integración](#integration-account-connectors).
 
-  Los conectores se clasifican como Standard o Enterprise. 
-  [Conectores de empresa](#enterprise-connectors) proporcionan acceso a sistemas empresariales como SAP, IBM MQ y IBM 3270 por un costo adicional. Para determinar si un conector es Standard o Enterprise, consulte los detalles técnicos en la página de referencia de cada conector en [Introducción a los conectores](https://docs.microsoft.com/connectors). 
+  Los conectores se clasifican como Estándar o Empresariales. 
+  Los [conectores empresariales](#enterprise-connectors) proporcionan acceso a sistemas empresariales como SAP, IBM MQ e IBM 3270 por un costo adicional. Para determinar si un conector es Estándar o Empresarial, vea los detalles técnicos en la página de referencia de cada conector en [Introducción a los conectores](https://docs.microsoft.com/connectors). 
 
-  También puede identificar los conectores mediante el uso de estas categorías, aunque algunos de los conectores pueden atravesar varias categorías. 
-  Por ejemplo, SAP es un conector de la empresa y un conector local:
+  También puede identificar los conectores mediante estas categorías, aunque algunos pueden ocupar varias. 
+  Por ejemplo, SAP es un conector empresarial y un conector local:
 
   |   |   |
   |---|---|
@@ -55,14 +55,14 @@ Los conectores están disponibles como acciones y desencadenadores integrados o 
   |||
 
   > [!NOTE]
-  > Las aplicaciones lógicas dentro de un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) puede acceder directamente a los recursos de red virtual de Azure. Cuando se usa una instancia de ISE, Standard y Enterprise de conectores que muestran la **ISE** etiqueta que se ejecuta en el ISE mismo como las aplicaciones lógicas. Los conectores que no muestran la etiqueta ISE se ejecutan en el servicio global de aplicaciones lógicas.
+  > Las aplicaciones lógicas en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) pueden acceder directamente a los recursos de una red virtual de Azure. Cuando se usa un ISE, los conectores estándar y empresariales en los que se muestra la etiqueta **ISE** se ejecutan en el mismo ISE que las aplicaciones lógicas. Los conectores en los que no se muestra la etiqueta ISE se ejecutan en el servicio global de Logic Apps.
   >
-  > Para los sistemas locales que están conectados a una red virtual de Azure, insertar el ISE en esa red para las aplicaciones lógicas pueden acceder directamente a esos sistemas mediante cualquier un conector que tiene un **ISE** etiqueta, una acción HTTP o un [conector personalizado](#custom). Logic apps y conectores que se ejecutan en el uso ISE de precios de un plan diferente desde el plan de precios basado en consumo. 
+  > En lo que respecta a los sistemas locales conectados a una red virtual de Azure, inserte el ISE en esa red para que las aplicaciones lógicas puedan acceder directamente a esos sistemas mediante un conector que tenga una etiqueta **ISE**, una acción HTTP o un [conector personalizado](#custom). Las aplicaciones lógicas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. 
   >
-  > Para obtener más información acerca de cómo crear ISEs, consulte [conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
-  > Para obtener más información sobre los precios, consulte [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
+  > Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Para más información sobre los precios, vea [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-  Para obtener la lista completa de conectores y la información de referencia de cada conector, como acciones y desencadenadores, que se definen mediante un archivo OpenAPI (anteriormente Swagger) descripción, además de los límites, puede encontrar la lista completa en la [Introducción a los conectores ](/connectors/). Para obtener más información, consulte [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md), y [los detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
+  Para obtener la lista completa de conectores y la información de referencia de cada conector, como acciones y desencadenadores, que se definen mediante una descripción de OpenAPI (anteriormente Swagger), además de los límites, vea la [Introducción a los conectores](/connectors/). Para obtener información sobre precios, vea [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) y [Detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 <a name="built-ins"></a>
 
@@ -80,7 +80,7 @@ Logic Apps proporciona desencadenadores y acciones integrados para que pueda cre
 
 ### <a name="control-workflow"></a>Controlar el flujo de trabajo
 
-Logic Apps proporciona acciones integradas para estructurar y controlar las acciones de flujo de trabajo de la aplicación lógica:
+Logic Apps proporciona acciones integradas para estructurar y controlar las acciones en el flujo de trabajo de la aplicación lógica:
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -95,16 +95,16 @@ Logic Apps proporciona acciones integradas para trabajar con salidas de datos y 
 
 |   |   | 
 |---|---| 
-| [![Icono integrado][data-operations-icon]<br/>**Operaciones de datos**][data-operations-doc] | Realiza operaciones con datos: <p>- **Redactar**: Crear una única salida de varias entradas con varios tipos. <br>- **Crear tabla CSV**: Crear una tabla de valores separados por comas (CSV) de una matriz con los objetos JSON. <br>- **Crear tabla HTML**: Crear una tabla HTML de una matriz con los objetos JSON. <br>- **Filtrar matriz**: Crear una matriz de elementos de otra matriz que cumplen los criterios. <br>- **Únase a**: Crear una cadena de todos los elementos de una matriz y separe los elementos con el delimitador especificado. <br>- **Analizar JSON**: Crear fácil de usar tokens de propiedades y sus valores en el contenido JSON para que pueda usar estas propiedades en el flujo de trabajo. <br>- **Seleccione**: Crear una matriz con los objetos JSON, transformar los elementos o los valores en otra matriz y asignar esos elementos a las propiedades especificadas. | 
-| ![Icono integrado][date-time-icon]<br/>**Fecha y hora** | Realiza operaciones con marcas de tiempo: <p>- **Agregar a la hora**: Agregar el número especificado de unidades a una marca de tiempo. <br>- **Convertir la zona horaria**: Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. <br>- **Hora actual**: Devuelve la marca de tiempo actual como una cadena. <br>- **Obtener la hora futura**: Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. <br>- **Obtener la hora pasada**: Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. <br>- **Restar tiempo**: Resta un número de unidades de tiempo de una marca de tiempo. |
-| [![Icono integrado][variables-icon]<br/>**Variables**][variables-doc] | Realiza operaciones con variables: <p>- **Anexar a la variable de matriz**: Insertar un valor como el último elemento en una matriz almacenado en una variable. <br>- **Anexar a la variable de cadena**: Insertar un valor como el último carácter en una cadena almacenada por una variable. <br>- **Reducir variable**: Disminuye una variable en un valor constante. <br>- **Incrementar variable**: Aumentar una variable en un valor constante. <br>- **Inicializar variable**: Cree una variable y declarar su tipo de datos y el valor inicial. <br>- **Establecer variable**: Asignar un valor diferente a una variable existente. |
+| [![Icono integrado][data-operations-icon]<br/>**Operaciones de datos**][data-operations-doc] | Realiza operaciones con datos: <p>- **Redactar**: crea una única salida a partir de varias entradas con varios tipos. <br>- **Crear tabla CSV**: crea una tabla con valores separados por comas (CSV) a partir de una matriz con objetos JSON. <br>- **Crear tabla HTML**: crea una tabla HTML a partir de una matriz con objetos JSON. <br>- **Filtrar matriz**: crea una matriz a partir de elementos de otra matriz que cumplen los criterios. <br>- **Unirse**: crea una cadena a partir de todos los elementos de una matriz y los separa con el delimitador especificado. <br>- **Analizar JSON**: crea tokens sencillos a partir de propiedades y sus valores en contenido JSON para que pueda usar esas propiedades en el flujo de trabajo. <br>- **Seleccionar**: crea una matriz con objetos JSON mediante la transformación de elementos o valores de otra matriz, y la asignación de esos elementos a propiedades especificadas. | 
+| ![Icono integrado][date-time-icon]<br/>**Fecha y hora** | Realiza operaciones con marcas de tiempo: <p>- **Agregar a la hora**: agrega el número especificado de unidades a una marca de tiempo. <br>- **Convertir la zona horaria**: Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. <br>- **Hora actual**: Devuelve la marca de tiempo actual como una cadena. <br>- **Obtener la hora futura**: Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. <br>- **Obtener la hora pasada**: Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. <br>- **Restar de la hora**: Resta un número de unidades de tiempo de una marca de tiempo. |
+| [![Icono integrado][variables-icon]<br/>**Variables**][variables-doc] | Realiza operaciones con variables: <p>- **Anexar a la variable de matriz**: inserta un valor como el último elemento en una matriz almacenada por una variable. <br>- **Anexar a la variable de cadena**: inserta un valor como el último carácter en una cadena almacenada por una variable. <br>- **Reducir variable**: reduce una variable por un valor constante. <br>- **Incrementar variable**: incrementa una variable por un valor constante. <br>- **Inicializar variable**: crea una variable y declara su tipo de datos y el valor inicial. <br>- **Establecer variable**: asigna otro valor a una variable existente. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
 
 ## <a name="managed-api-connectors"></a>Conectores de API administrados
 
-Logic Apps proporciona estos conectores estándares usados para la automatización de tareas, los procesos y flujos de trabajo con estos servicios o sistemas.
+Logic Apps proporciona estos conocidos conectores estándar para automatizar tareas, procesos y flujos de trabajo con estos servicios o sistemas.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -120,12 +120,12 @@ Logic Apps proporciona estos conectores estándares usados para la automatizaci�
 
 ## <a name="on-premises-connectors"></a>Conectores locales 
 
-Estos son algunos conectores estándares frecuentes que Logic Apps proporciona para tener acceso a datos y los recursos en los sistemas locales. Para poder crear una conexión a un sistema local, primero debe [descargar, instalar y configurar una puerta de enlace de datos local][gateway-doc]. Esta puerta de enlace proporciona un canal de comunicación seguro sin tener que configurar la infraestructura de red necesaria. 
+Estos son algunos de los conectores estándar más usados que proporciona Logic Apps para acceder a datos y recursos en sistemas locales. Para poder crear una conexión a un sistema local, primero debe [descargar, instalar y configurar una puerta de enlace de datos local][gateway-doc]. Esta puerta de enlace proporciona un canal de comunicación seguro sin tener que configurar la infraestructura de red necesaria. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
 | ![Icono de API][biztalk-server-icon]<br/>**BizTalk**</br> **Servidor** | [![Icono de API][file-system-icon]<br/>**File</br> System**][file-system-doc] | [![Icono de API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icono de API][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![Icono de API][mysql-icon]<br/>**MySQL** | 
-| [![Icono de API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icono de API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icono de API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icono de API][sql-server-icon]<br/>**SQL Server</br>**][sql-server-doc] | ![Icono de API][teradata-icon]<br/>**Teradata** | 
+| [![Icono de API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icono de API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icono de API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icono de API][sql-server-icon]<br/>**SQL Server</br>** ][sql-server-doc] | ![Icono de API][teradata-icon]<br/>**Teradata** | 
 |||||
 
 <a name="integration-account-connectors"></a>
@@ -145,39 +145,39 @@ Logic Apps proporciona conectores estándar para crear soluciones de negocio a n
 
 ## <a name="enterprise-connectors"></a>Conectores de empresa
 
-Logic Apps proporciona estos conectores de empresa para tener acceso a sistemas empresariales, como SAP y IBM MQ:
+Logic Apps proporciona estos conectores empresariales para acceder a sistemas empresariales, como SAP e IBM MQ:
 
 |   |   |   | 
 |---|---|---| 
-| [![Icono de la API][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![Icono de API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Icono de API][sap-icon]<br/>**SAP**][sap-connector-doc] |
+| [![Icono de API][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![Icono de API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Icono de API][sap-icon]<br/>**SAP**][sap-connector-doc] |
 |||| 
 
 <a name="triggers-actions"></a>
 
-## <a name="triggers-and-actions---more-info"></a>Desencadenadores y acciones - más información
+## <a name="triggers-and-actions---more-info"></a>Acciones y desencadenadores: más información
 
-Los conectores pueden proporcionar *desencadenadores*, *acciones*, o ambos. Un *desencadenador* es el primer paso en cualquier aplicación lógica, normalmente se especifica el evento que activa el desencadenador y comienza a ejecutar la aplicación lógica. Por ejemplo, el conector FTP tiene un desencadenador que inicia la aplicación lógica "cuando se agrega o modifica un archivo". Algunos desencadenadores con regularidad si el evento especificado o los datos y, a continuación, se activan cuando detectan el evento especificado o los datos. Otros desencadenadores esperaron, pero se activan al instante cuando se produce un evento específico o cuando hay nuevos datos disponibles. Los desencadenadores también pasan a lo largo de los datos requeridos para la aplicación lógica. La aplicación lógica puede leer y usar esos datos a lo largo del flujo de trabajo.
-Por ejemplo, el conector de Twitter tiene un desencadenador, "Cuando publique un nuevo tweet es", que pasa el tweet del contenido en el flujo de trabajo de la aplicación lógica. 
+Los conectores pueden proporcionar *desencadenadores*, *acciones* o ambos. Un *desencadenador* es el primer paso de cualquier aplicación lógica, y normalmente especifica el evento que activa el desencadenador e inicia la ejecución de la aplicación lógica. Por ejemplo, el conector FTP tiene un desencadenador que inicia la aplicación lógica "cuando se agrega o modifica un archivo". Algunos desencadenadores comprueban de forma periódica el evento o los datos especificados, y después se activan cuando detectan el evento o los datos especificados. Otros desencadenadores esperan pero se activan al instante cuando se produce un evento específico o cuando hay nuevos datos disponibles. Los desencadenadores también pasan los datos requeridos para la aplicación lógica. La aplicación lógica puede leer y usar esos datos a lo largo del flujo de trabajo.
+Por ejemplo, el conector de Twitter tiene un desencadenador, "Cuando se publique un nuevo tweet", que pasa el contenido del tweet al flujo de trabajo de la aplicación lógica. 
 
-Una vez que se activa un desencadenador, Azure Logic Apps crea una instancia de la aplicación lógica y comienza a ejecutar el *acciones* en el flujo de trabajo de la aplicación lógica. Las acciones son los pasos que siguen el desencadenador y realizan tareas de flujo de trabajo de la aplicación lógica. Por ejemplo, puede crear una aplicación lógica que obtiene los datos del cliente desde una base de datos SQL y procesar los datos en acciones posteriores. 
+Una vez que se activa un desencadenador, Azure Logic Apps crea una instancia de la aplicación lógica y comienza a ejecutar las *acciones* en el flujo de trabajo de la aplicación lógica. Las acciones son los pasos que sigue el desencadenador y realizan tareas en el flujo de trabajo de la aplicación lógica. Por ejemplo, puede crear una aplicación lógica que obtenga datos del cliente desde una base de datos SQL y los procese en acciones posteriores. 
 
-Estos son los tipos generales de los desencadenadores que proporciona Azure Logic Apps:
+Estos son los tipos generales de desencadenadores que proporciona Azure Logic Apps:
 
-* *Desencadenador de periodicidad*: Este desencadenador se ejecuta según una programación especificada y no está estrechamente asociado a un sistema o servicio determinado.
+* *Desencadenador de periodicidad*: este desencadenador se ejecuta según una programación especificada y no está estrechamente asociado a un sistema o servicio determinado.
 
-* *Desencadenador de sondeo*: Este desencadenador sondea periódicamente un servicio específico o un sistema según la programación especificada, buscando nuevos datos o si se produjo un evento específico. Si hay nuevos datos disponibles o se produjo el evento específico, el desencadenador crea y ejecuta una nueva instancia de la aplicación lógica, que ahora puede usar los datos que se pasan como entrada.
+* *Desencadenador de sondeo*: este desencadenador sondea de forma periódica un servicio o sistema específico según la programación especificada, para buscar datos nuevos o si se ha producido un evento específico. Si hay datos nuevos disponibles o se ha producido el evento específico, el desencadenador crea y ejecuta una nueva instancia de la aplicación lógica, que ahora puede usar los datos que se han pasado como entrada.
 
-* *Desencadenador de inserción*: Este desencadenador espera y escucha nuevos datos o para un evento que ocurra. Cuando hay nuevos datos disponibles o cuando se produce el evento, el desencadenador crea y ejecuta una instancia nueva de la aplicación lógica, que ahora puede usar los datos que se pasan como entrada.
+* *Desencadenador de push*: este desencadenador espera y escucha datos nuevos, o que se produzca un evento. Cuando hay datos nuevos disponibles o se produce el evento, el desencadenador crea y ejecuta una nueva instancia de la aplicación lógica, que ahora puede usar los datos que se han pasado como entrada.
 
 <a name="custom"></a>
 
 ## <a name="connector-configuration"></a>Configuración del conector
 
-Los desencadenadores y acciones de cada conector proporcionan sus propias propiedades para que configure. Muchos conectores también requieren que se cree primero un *conexión* al servicio de destino o al sistema y proporcione las credenciales de autenticación u otros detalles de configuración para poder usar un desencadenador o acción en la aplicación lógica. Por ejemplo, debe autorizar a una conexión a una cuenta de Twitter para acceder a datos o exponer en su nombre. 
+Los desencadenadores y las acciones de cada conector proporcionan sus propias propiedades que se pueden configurar. Muchos conectores también requieren que primero se cree una *conexión* al servicio o sistema de destino, y que proporcione credenciales de autenticación u otros detalles de configuración antes de poder usar un desencadenador o una acción en la aplicación lógica. Por ejemplo, tendrá que autorizar una conexión a una cuenta de Twitter para acceder a los datos o para que publique en su nombre. 
 
-Para los conectores que usan OAuth, la creación de una conexión significa iniciar sesión en el servicio, como Office 365, Salesforce o GitHub, donde el token de acceso se cifran y almacenan de forma segura en un almacén secreto de Azure. Otros conectores, como FTP y SQL, requieren una conexión que tiene los detalles de configuración, como la dirección del servidor, nombre de usuario y contraseña. Estos detalles sobre la configuración de la conexión también se cifran y se almacenan de forma segura. 
+Para los conectores que usan OAuth, crear una conexión significa iniciar sesión en el servicio (por ejemplo, Office 365, Salesforce o GitHub) donde el token de acceso se cifra y almacena de forma segura en un almacén de secretos de Azure. Otros conectores (como FTP y SQL) requieren una conexión con detalles de configuración como la dirección del servidor, el nombre de usuario y la contraseña. Estos detalles sobre la configuración de la conexión también se cifran y se almacenan de forma segura. 
 
-Las conexiones pueden tener acceso a servicio de destino o del sistema para siempre que lo permita ese servicio o sistema. Para los servicios que usan conexiones de OAuth de Azure Active Directory (AD), como Office 365 y Dynamics, Azure Logic Apps actualiza los tokens de acceso indefinidamente. Otros servicios podrían tener límites en cuánto tiempo Azure Logic Apps puede usar un token sin actualizar. Por lo general, algunas acciones invalidarán todos los tokens de acceso, por ejemplo, cambiar su contraseña.
+Las conexiones pueden acceder al servicio o sistema de destino siempre que ese servicio o sistema lo permita. Para los servicios que usan conexiones OAuth de Azure Active Directory (AD), como Office 365 y Dynamics, Azure Logic Apps actualiza los tokens de acceso de forma indefinida. Es posible que otros servicios tengan límites con respecto a cuánto tiempo puede usar Azure Logic Apps un token sin actualizar. Por lo general, algunas acciones invalidarán todos los tokens de acceso, por ejemplo, el cambio de la contraseña.
 
 <a name="custom"></a>
 
@@ -187,12 +187,12 @@ Para llamar a las API que ejecutan código personalizado o que no están disponi
 Para que las aplicaciones de API o los conectores personalizados sean públicos y cualquier persona pueda usarlos en Azure, [envíe los conectores para que Microsoft los certifique](../logic-apps/custom-connector-submit-certification.md).
 
 > [!NOTE]
-> Las aplicaciones lógicas dentro de un [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) puede acceder directamente a los recursos de red virtual de Azure.
-> Si tiene conectores personalizados que requieren la puerta de enlace de datos en el entorno local y crea los conectores fuera de una instancia de ISE, logic apps en una instancia de ISE también pueden usar los conectores.
+> Las aplicaciones lógicas en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) pueden acceder directamente a los recursos de una red virtual de Azure.
+> Si tiene conectores personalizados que requieren la puerta de enlace de datos local y los ha creado fuera de un ISE, las aplicaciones lógicas en un ISE también pueden usar esos conectores.
 >
-> Conectores personalizados creados dentro de una instancia de ISE no funcionan con la puerta de enlace de datos en el entorno local. Sin embargo, estos conectores pueden acceder directamente a orígenes de datos locales que están conectados a una red virtual de Azure hospeda el ISE. Por lo tanto, las aplicaciones lógicas en una instancia de ISE más probable es que no necesitan la puerta de enlace de datos al comunicarse con esos recursos.
+> Los conectores personalizados creados dentro de un ISE no funcionan con la puerta de enlace de datos local. Pero estos conectores pueden acceder directamente a orígenes de datos locales que están conectados a una red virtual de Azure en la que se hospeda el ISE. Por tanto, es muy probable que las aplicaciones lógicas en un ISE no necesiten la puerta de enlace de datos cuando se comuniquen con esos recursos.
 >
-> Para obtener más información acerca de cómo crear ISEs, consulte [conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> Para más información sobre cómo crear ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -243,7 +243,7 @@ Para que las aplicaciones de API o los conectores personalizados sean públicos 
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Conectar con Google Drive para trabajar con sus datos"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Conectar con Google Sheets para poder modificar sus hojas"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Conectar con Google Tasks para administrar las tareas"
-[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Conectarse a aplicaciones de 3270 en IBM mainframes"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Conexión a aplicaciones de 3270 en sistemas centrales de IBM"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Conectar con una instancia de IBM DB2 en la nube o local. Actualizar una fila, obtener una tabla, etc."
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Conectar con una instancia de Informix en la nube o local. Leer una fila, enumerar las tablas, etc."
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Conectarse a IBM MQ local o en Azure y enviar y recibir mensajes"

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: ef80ca290d2bd78ccdcd5e4109f9b1d7ecdab4f8
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729685"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure PowerShell
@@ -74,7 +74,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creación de las configuraciones IP y el puerto de front-end
 
-Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Asignar el *myAGPublicIPAddress* a la puerta de enlace de aplicaciones con [New AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
+Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Asigne *myAGPublicIPAddress* a Application Gateway mediante [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -155,7 +155,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Adición de un puerto de back-end y grupos de back-end de imágenes y vídeo
 
-Puede agregar grupos de back-end denominados *imagesBackendPool* y *videoBackendPool* a la puerta de enlace de aplicaciones mediante el uso de [agregar AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Puede agregar el puerto de front-end para los grupos con [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Luego puede enviar los cambios a la puerta de enlace de aplicaciones mediante [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
+Puede agregar los grupos de back-end llamados *imagesBackendPool* y *videoBackendPool* a la instancia de Application Gateway mediante [Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Puede agregar el puerto de front-end para los grupos con [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Luego puede enviar los cambios a la puerta de enlace de aplicaciones mediante [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -198,7 +198,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-url-path-map"></a>Adición de asignación de ruta de URL
 
-Las asignaciones de ruta de URL se aseguran de que las direcciones URL específicas se enrutan a grupos de back-end específicos. Puede crear asignaciones de ruta de acceso de URL *imagePathRule* y *videoPathRule* mediante [New AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) y [ Agregar-AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig).
+Las asignaciones de ruta de URL se aseguran de que las direcciones URL específicas se enrutan a grupos de back-end específicos. Puede crear asignaciones de ruta de URL *imagePathRule* y *videoPathRule* con [New-AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig) y [Add-AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -237,7 +237,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-routing-rule"></a>Adición de reglas de enrutamiento
 
-La regla de enrutamiento asocia la asignación de URL con el agente de escucha que ha creado. Puede agregar la regla denominada **rule2* mediante [agregar AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+La regla de enrutamiento asocia la asignación de URL con el agente de escucha que ha creado. Puede agregar la regla denominada **rule2* mediante [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -355,11 +355,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Cambiar la dirección URL de `http://<ip-address>:8080/video/test.htm`, sustituyendo su dirección IP dirección para `<ip-address>`, y debería ver algo parecido al ejemplo siguiente:
+Cambie la dirección URL a `http://<ip-address>:8080/video/test.htm`, y sustituya la dirección IP por `<ip-address>`; verá algo parecido al ejemplo siguiente:
 
 ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Cambiar la dirección URL de `http://<ip-address>:8080/video/test.htm` y debería ver algo parecido al ejemplo siguiente:
+Cambie la dirección URL a `http://<ip-address>:8080/video/test.htm` y verá algo parecido al ejemplo siguiente:
 
 ![Prueba de la dirección URL de vídeo en la puerta de enlace de aplicaciones](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 

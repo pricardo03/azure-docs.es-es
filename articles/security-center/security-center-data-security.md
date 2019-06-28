@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234074"
 ---
 # <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Security Center
@@ -48,7 +48,7 @@ Azure Security Center analiza los datos de los orígenes siguientes para proporc
 
 | Geoárea de la máquina virtual                              | Geoárea del área de trabajo |
 |-------------------------------------|---------------|
-| Estados Unidos, Brasil, Sudáfrica | Estados Unidos |
+| Estados Unidos, Brasil, Canadá | Estados Unidos |
 | Canadá                              | Canadá        |
 | Europa (excepto el Reino Unido)   | Europa        |
 | Reino Unido                      | Reino Unido |
@@ -88,7 +88,7 @@ Los clientes pueden utilizar Security Center en relación con datos de secuencia
 > [!NOTE]
 > Las recomendaciones de seguridad pueden utilizarse también a través de la API de REST. Lea [Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) (Referencia de la API de REST del proveedor de recursos de seguridad) para más información.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 En este documento, se ha explicado cómo se administran y protegen los datos en Azure Security Center. Para más información sobre Azure Security Center, consulte:
 
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md) : aprenda a planear y conozca las consideraciones de diseño necesarias para usar Azure Security Center.

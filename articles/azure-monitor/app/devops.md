@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899762"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detallados para servicios y aplicaciones web con Application Insights
@@ -133,7 +133,7 @@ Por ejemplo, es fácil:
 * Realizar un seguimiento de las sesiones y los tiempos de respuesta para usuarios específicos para que los equipos de operaciones y soporte técnico puedan proporcionar soporte al cliente al instante.
 * Determinar las características de aplicaciones utilizadas con frecuencia para responder a preguntas de priorización de características.
 
-El cliente DNN afirmó: "Application Insights nos ha proporcionado la parte que faltaba de la ecuación para poder combinar, ordenar, consultar y filtrar los datos de acuerdo con nuestras necesidades. Al permitir que nuestro equipo use su propio ingenio y experiencia para buscar datos con un lenguaje de consulta avanzado, hemos podido descubrir cosas y resolver problemas que ni siquiera sabíamos que teníamos. Un gran número de respuestas interesantes proceden de las preguntas que comienzan con *'Me pregunto si...'*".
+El cliente DNN afirmó: "Application Insights nos ha proporcionado la parte que faltaba de la ecuación para poder combinar, ordenar, consultar y filtrar los datos de acuerdo con nuestras necesidades. Al permitir que nuestro equipo use su propio ingenio y experiencia para buscar datos con un lenguaje de consulta avanzado, hemos podido descubrir cosas y resolver problemas que ni siquiera sabíamos que teníamos. Un gran número de respuestas interesantes proceden de las preguntas que comienzan con *'Me pregunto si...'* ".
 
 ## <a name="development-tools-integration"></a>Integración de herramientas de desarrollo
 ### <a name="configuring-application-insights"></a>Configuración de Application Insights
@@ -166,7 +166,7 @@ Cuando se genera una alerta, Application Insights puede crear automáticamente u
 ## <a name="next-steps"></a>Pasos siguientes
 Empezar a usar Application Insights es fácil. Tiene opciones principalmente para:
 
-* [Servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)y también para [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* [Servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md) y también para [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](../../azure-monitor/app/asp-net.md) o [Java](../../azure-monitor/app/java-get-started.md), así como para [Node.js](../../azure-monitor/app/nodejs.md) y [otros tipos](../../azure-monitor/app/platforms.md). 
 * Instrumentar [cualquier página web](../../azure-monitor/app/javascript.md) agregando un fragmento de código corto.
 

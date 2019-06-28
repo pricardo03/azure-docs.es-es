@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61004048"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
@@ -27,10 +27,10 @@ Data Catalog soluciona los problemas de detección de orígenes de datos y "dato
 ## <a name="what-are-its-target-audiences"></a>¿Cuáles son sus audiencias de destino?
 Data Catalog está diseñado tanto para usuarios técnicos como para no técnicos, entre los que se incluyen:
 
-* Los desarrolladores de datos y los profesionales de BI y análisis: Personas que son responsables de producir el contenido de datos y análisis para que otros lo consuman.
-* Administradores de datos: Personas que tienen conocimientos de los datos, lo que significa y cómo están diseñados para usarse.
-* Consumidores de datos: Las personas que necesitan para ser capaz de detectar fácilmente, comprender y conectarse a los datos que necesitan para realizar su trabajo, mediante la herramienta de su elección.
-* Central TI: Personas que necesitan hacer la puedan detectar cientos de orígenes de datos por los usuarios empresariales y que necesitan mantener una visión general sobre cómo se utilizan datos y por quién.
+* Desarrolladores de datos y profesionales de BI y de análisis: personas responsables de producir el contenido de datos y análisis para que otros usuarios lo consuman.
+* Administradores de datos: personas que tienen conocimientos de los datos, lo que significan y cómo están diseñados para usarse.
+* Consumidores de datos: aquellos que necesitan poder descubrir, conocer y conectarse fácilmente a los datos necesarios para realizar su trabajo con la herramienta que prefieran.
+* TI central: personas que necesitan que los usuarios profesionales puedan descubrir cientos de orígenes de datos y que necesitan tener siempre una visión general de cómo se usan los datos y quiénes los usan.
 
 ## <a name="what-is-its-availability-by-region"></a>¿Cuál es su disponibilidad por región?
 Actualmente, los servicios de Data Catalog están disponibles en los siguientes centros de datos:

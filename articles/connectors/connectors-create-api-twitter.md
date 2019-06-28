@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104993"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Supervisión y administración de Twitter con Azure Logic Apps
@@ -59,7 +59,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Twitter y pe
        O bien
 
      * Entre los pasos en los que desee agregar una acción, mueva el puntero sobre la flecha. 
-     Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+     Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
      
        En el cuadro de búsqueda, escriba "twitter" como filtro. 
        En la lista de acciones, seleccione la acción que desee.
@@ -76,7 +76,7 @@ Este desencadenador inicia un flujo de trabajo de la aplicación lógica cuando 
 
 Opcionalmente, puede incluir una condición de que los tweets válidos deben provenir de los usuarios con al menos un número especificado de seguidores.
 
-**Ejemplo Enterprise**: Puede utilizar este desencadenador para supervisar los tweets sobre su empresa y cargar contenido de los tweets en una base de datos SQL.
+**Ejemplo Enterprise**: puede usar este desencadenador para supervisar los tweets sobre su empresa y cargar el contenido de los tweets en una base de datos SQL.
 
 ### <a name="twitter-action-post-a-tweet"></a>Acción de Twitter: Publicar un tweet
 

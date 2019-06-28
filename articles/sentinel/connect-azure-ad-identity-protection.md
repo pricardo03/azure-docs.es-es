@@ -1,6 +1,6 @@
 ---
-title: Conectar los datos de Azure AD Identity Protection a la versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo conectarse a datos de Azure AD Identity Protection para Azure Sentinel.
+title: Conectar datos de Azure AD Identity Protection a Azure Sentinel, versión preliminar | Microsoft Docs
+description: Aprenda a conectar datos de Azure AD Identity Protection a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,41 +15,41 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 10dc31e21f20618450de6d99b3fce40d63272d31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204374"
 ---
-# <a name="connect-data-from-azure-ad-identity-protection"></a>Conectar los datos de Azure AD Identity Protection
+# <a name="connect-data-from-azure-ad-identity-protection"></a>Conectar datos de Azure AD Identity Protection
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Puede transmitir los registros de [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) en Azure Sentinel a las alertas de flujo en Azure Centinela para ver los paneles, crear alertas personalizadas y mejorará la investigación. Azure Active Directory Identity Protection proporciona una vista consolidada en usuarios de riesgo, eventos de riesgo y vulnerabilidades, con la capacidad de corregir el riesgo de inmediato y establecer directivas para resolver automáticamente los eventos futuros. El servicio se basa en la experiencia de Microsoft para proteger las identidades de consumidor y logra una de más de 13 millones inicios de sesión día. 
+Puede transmitir registros de [Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) a Azure Sentinel para transmitir alertas a Azure Sentinel que permitan ver paneles, crear alertas personalizadas y mejorar la investigación. Azure Active Directory Identity Protection proporciona una vista consolidada de los usuarios en riesgo, los eventos de riesgo y las vulnerabilidades, con la posibilidad de corregir el riesgo de inmediato y de establecer directivas para resolver eventos futuros automáticamente. Este servicio se basa en la experiencia de Microsoft a la hora de proteger las identidades de los consumidores, y logra una precisión increíble a partir de más 13 mil millones de inicios de sesión día. 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener un [licencia Azure Active Directory Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory/)
-- Usuario con permisos de administrador de seguridad o de administrador global
+- Tener una [licencia de Azure Active Directory Premium P1 o P2](https://azure.microsoft.com/pricing/details/active-directory/)
+- Un usuario que sea administrador global o que tenga permisos de administrador de seguridad
 
 
-## <a name="connect-to-azure-ad-identity-protection"></a>Conectarse a Azure AD Identity Protection
+## <a name="connect-to-azure-ad-identity-protection"></a>Conexión a Azure AD Identity Protection
 
-Si ya tiene Azure AD Identity Protection, asegúrese de que es [habilitado en la red](../active-directory/identity-protection/enable.md).
-Si se implementa Azure AD Identity Protection y obtención de datos, los datos de alerta fácilmente se pueden transmitir a Azure Sentinel.
-
-
-1. En Azure Sentinel, seleccione **conectores de datos** y, a continuación, haga clic en el **Azure AD Identity Protection** icono.
-
-2. Haga clic en **Connect** para iniciar el streaming de eventos de Azure AD Identity Protection en Azure Sentinel.
+Si ya tiene Azure AD Identity Protection, asegúrese de que está [habilitado en la red](../active-directory/identity-protection/enable.md).
+Si Azure AD Identity Protection ya está implementado y obteniendo datos, los datos de alertas se pueden transmitir a Azure Sentinel muy fácilmente.
 
 
-6. Para usar el esquema correspondiente en Log Analytics para las alertas de Azure AD Identity Protection, busque **IdentityProtectionLogs_CL**.
+1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **Azure AD Identity Protection**.
+
+2. Haga clic en **Connect** (Conectar) para iniciar la transmisión de eventos de Azure AD Identity Protection a Azure Sentinel.
+
+
+6. Para usar el esquema correspondiente en Log Analytics para encontrar alertas de Azure AD Identity Protection, busque **IdentityProtectionLogs_CL**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido cómo conectar Azure AD Identity Protection con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-- Obtenga información sobre cómo [Obtenga visibilidad sobre sus datos y las posibles amenazas](quickstart-get-visibility.md).
-- Introducción a [detección de amenazas con Azure Sentinel](tutorial-detect-threats.md).
+En este documento, ha aprendido a conectar Azure AD Identity Protection a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+- Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
+- Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats.md).

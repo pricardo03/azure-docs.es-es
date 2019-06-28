@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152387"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfiguración de un entorno de ejecución para la integración de SSIS en Azure
@@ -47,17 +47,17 @@ Después de aprovisionar e iniciar una instancia de Integration Runtime de SSIS 
 
 ### <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurar una instancia de IR de SSIS de Azure
 
-1. En primer lugar, detenga el tiempo de ejecución de integración de SSIS de Azure mediante el [Stop AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) cmdlet. Este comando libera todos sus nodos y detiene la facturación.
+1. En primer lugar, detenga la instancia de Azure-SSIS Integration Runtime con el cmdlet [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime). Este comando libera todos sus nodos y detiene la facturación.
 
     ```powershell
     Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
     ```
-2. A continuación, volver a configurar la integración de SSIS en Azure mediante el [conjunto AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) cmdlet. El siguiente comando de ejemplo permite escalar una instancia de Integration Runtime de SSIS de Azure a cinco nodos.
+2. A continuación, vuelva a configurar Azure-SSIS IR con el cmdlet [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime). El siguiente comando de ejemplo permite escalar una instancia de Integration Runtime de SSIS de Azure a cinco nodos.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
     ```  
-3. A continuación, inicie el tiempo de ejecución de integración de SSIS de Azure con el [inicio AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) cmdlet. Este comando asigna todos sus nodos para ejecutar paquetes SSIS.   
+3. Después, inicie Azure-SSIS Integration Runtime con el cmdlet [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime). Este comando asigna todos sus nodos para ejecutar paquetes SSIS.   
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName

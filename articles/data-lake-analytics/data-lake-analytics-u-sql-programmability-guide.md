@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811598"
 ---
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
@@ -133,7 +133,7 @@ Como se mencionó anteriormente, U-SQL ejecuta código en un formato de 64 bits 
 
 El archivo DLL y el de recursos de cada ensamblado cargado como, por ejemplo, un tiempo de ejecución diferente, un ensamblado nativo o un archivo de configuración pueden tener 400 MB como máximo. El tamaño total de recursos implementados, ya sea mediante DEPLOY RESOURCE o mediante referencias a ensamblados y a sus archivos adicionales, no puede superar los 3 GB.
 
-Por último, tenga en cuenta que cada base de datos de U-SQL solo puede contener una versión de cualquier ensamblado dado. Por ejemplo, si necesita las versiones 7 y 8 de la biblioteca de NewtonSoft Json.NET, debe registrarlos en dos bases de datos. Además, cada script solo puede hacer referencia a una versión de un archivo DLL de ensamblado dado. En este sentido, U-SQL sigue la semántica de control de versiones y la administración de ensamblados de C#.
+Por último, tenga en cuenta que cada base de datos de U-SQL solo puede contener una versión de cualquier ensamblado dado. Por ejemplo, si necesita tanto la versión 7 como la versión 8 de la biblioteca NewtonSoft Json.NET, debe registrarlos en dos bases de datos diferentes. Además, cada script solo puede hacer referencia a una versión de un archivo DLL de ensamblado dado. En este sentido, U-SQL sigue la semántica de control de versiones y la administración de ensamblados de C#.
 
 ## <a name="use-user-defined-functions-udf"></a>Uso de funciones definidas por el usuario: UDF
 Las funciones definidas por el usuario de U-SQL o UDF son rutinas programadas que aceptan parámetros, realizan una acción (como un cálculo complejo) y devuelven el resultado de esa acción como un valor. El valor devuelto de UDF solo puede ser un escalar único. Se puede llamar a UDF de U-SQL en un script base U-SQL como a cualquier otra función escalar de C#.
@@ -949,7 +949,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: Segundo parámetro para acumular.
 * TResult: tipo de valor de terminación devuelto.
 
-Por ejemplo: 
+Por ejemplo:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1067,11 +1067,11 @@ UDO normalmente se llama explícitamente en el script U-SQL como parte de las si
 ## <a name="use-user-defined-extractors"></a>Uso de extractores definidos por el usuario
 U-SQL permite importar datos externos utilizando una instrucción EXTRACT. La instrucción EXTRACT puede utilizar extractores UDO integrados:  
 
-* *Extractors.Text()*: proporciona extracción de archivos de texto delimitado con diferentes codificaciones.
+* *Extractors.Text()* : proporciona extracción de archivos de texto delimitado con diferentes codificaciones.
 
-* *Extractors.Csv()*: proporciona extracción de archivos de valores separados por comas (CSV) con diferentes codificaciones.
+* *Extractors.Csv()* : proporciona extracción de archivos de valores separados por comas (CSV) con diferentes codificaciones.
 
-* *Extractors.Tsv()*: proporciona extracción de archivos de valores separados por tabulaciones (TSV) con diferentes codificaciones.
+* *Extractors.Tsv()* : proporciona extracción de archivos de valores separados por tabulaciones (TSV) con diferentes codificaciones.
 
 Puede ser útil desarrollar un extractor personalizado. Esto puede resultar útil durante la importación de datos si se desea realizar alguna de las siguientes tareas:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Uso de outputters definidos por el usuario
 Outputter definido por el usuario es otro UDO de U-SQL que permite extender una funcionalidad integrada de U-SQL. Al igual que el extractor, hay varios outputters integrados.
 
-* *Outputters.Text()*: escribe datos en archivos de texto delimitado con diferentes codificaciones.
-* *Outputters.Csv()*: escribe datos en archivos de valores separados por comas (CSV) con diferentes codificaciones.
-* *Outputters.Tsv()*: escribe datos en archivos de valores separados por tabulaciones (TSV) con diferentes codificaciones.
+* *Outputters.Text()* : escribe datos en archivos de texto delimitado con diferentes codificaciones.
+* *Outputters.Csv()* : escribe datos en archivos de valores separados por comas (CSV) con diferentes codificaciones.
+* *Outputters.Tsv()* : escribe datos en archivos de valores separados por tabulaciones (TSV) con diferentes codificaciones.
 
 El outputter personalizado le permite escribir datos en un formato definido personalizado. Esto puede resultar útil para las siguientes tareas:
 

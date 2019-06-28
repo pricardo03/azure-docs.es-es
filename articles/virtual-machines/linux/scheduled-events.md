@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507924"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
@@ -46,19 +46,19 @@ Con Scheduled Events, la aplicación puede detectar cuándo se producirá el man
 
 Eventos programados proporciona eventos en los casos de uso siguientes:
 
-- [Mantenimiento iniciado por la plataforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (por ejemplo, VM reboot, migración en vivo o actualizaciones para el host de conservación de memoria)
+- [Mantenimiento iniciado por la plataforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (por ejemplo, reinicio de máquina virtual, migración en vivo o actualizaciones con conservación de memoria para el host)
 - Hardware degradado
 - Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
-- [Expulsión de la máquina virtual de baja prioridad](https://azure.microsoft.com/blog/low-priority-scale-sets) en escala establece
+- [Expulsión de la máquina virtual de baja prioridad](https://azure.microsoft.com/blog/low-priority-scale-sets) en conjuntos de escalado
 
 ## <a name="the-basics"></a>Conceptos básicos  
 
   Metadata Service expone información sobre la ejecución de máquinas virtuales mediante un punto de conexión de REST accesible desde la propia máquina virtual. La información se encuentra disponible a través de una dirección IP no enrutable, de modo que no se expone fuera de la máquina virtual.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ámbito
 Los eventos programados se entregan a:
 
-- Virtual Machines independientes.
+- Máquinas virtuales independientes.
 - Todas las máquinas virtuales en un servicio de nube.
 - Todas las máquinas virtuales de un conjunto de disponibilidad.
 - Todas las máquinas virtuales de un grupo de selección de ubicación de conjunto de escalado. 
@@ -75,11 +75,11 @@ Si la máquina virtual no se crea dentro de una red virtual (la opción predeter
 ### <a name="version-and-region-availability"></a>Disponibilidad por región y versión
 El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la actual es `2017-11-01`.
 
-| Version | Tipo de versión | Regiones | Notas de la versión | 
+| Versión | Tipo de versión | Regiones | Notas de la versión | 
 | - | - | - | - | 
-| 2017-11-01 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
+| 01-11-2017 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | Todo | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Preview | Todo | <li>Versión inicial.
+| 2017-03-01 | Vista previa | Todo | <li>Versión inicial.
 
 
 > [!NOTE] 
@@ -97,7 +97,7 @@ Si reinicia una máquina virtual, se programa un evento del tipo `Reboot`. Si vu
 
 ## <a name="use-the-api"></a>Uso de la API
 
-### <a name="headers"></a>Encabezados
+### <a name="headers"></a>encabezados
 Al realizar consultas a Metadata Service, debe proporcionar el encabezado `Metadata:true` para asegurarse de que la solicitud no se haya redirigido de manera involuntaria. El encabezado `Metadata:true` es necesario para todas las solicitudes de eventos programados. Un error al incluir el encabezado en la solicitud generará una respuesta del tipo "Solicitud incorrecta" de Metadata Service.
 
 ### <a name="query-for-events"></a>Consulta de eventos
@@ -130,7 +130,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 |Propiedad  |  DESCRIPCIÓN |
 | - | - |
 | EventId | Es un identificador único global del evento. <br><br> Ejemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Tipo de evento | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: La máquina Virtual está programada para pausarse durante unos segundos. Es posible que se suspenda la conectividad de red y CPU, pero no hay ningún impacto en la memoria o los archivos abiertos.<li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: Se está eliminando la máquina Virtual de baja prioridad (discos efímeros se pierden).|
+| EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: la máquina virtual está programada para pausarse durante unos segundos. Puede que se suspenda la conectividad de la CPU y la red, pero no afecta a la memoria ni a los archivos abiertos.<li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: Se está eliminando la máquina virtual de baja prioridad (se pierden los discos efímeros).|
 | ResourceType | Es el tipo de recurso al que este evento afecta. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Es la lista de recursos a los que este evento afecta. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en dicho dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Ni `Completed` ni otro estado similar se han proporcionado antes. El evento ya no vuelve cuando finaliza el evento.
@@ -139,12 +139,12 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 ### <a name="event-scheduling"></a>Programación de eventos
 Cada evento se programa una cantidad mínima de tiempo en el futuro en función de su tipo. Este tiempo se refleja en la propiedad `NotBefore` de un evento. 
 
-|Tipo de evento  | Aviso mínimo |
+|EventType  | Aviso mínimo |
 | - | - |
 | Freeze| 15 minutos |
-| Reiniciar | 15 minutos |
-| Reimplementar | 10 minutos |
-| Preferencia | 30 segundos |
+| Reboot | 15 minutos |
+| Volver a implementar | 10 minutos |
+| Preempt | 30 segundos |
 
 ### <a name="start-an-event"></a>Inicio de un evento 
 

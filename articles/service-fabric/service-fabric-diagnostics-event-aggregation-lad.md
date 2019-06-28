@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 212158d9a76fa2e49c60be0b5c52f281497c155b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393136"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Recopilación y agregación de eventos con Linux Azure Diagnostics
@@ -30,7 +30,7 @@ ms.locfileid: "60393136"
 
 Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster.
 
-Uno de los métodos para cargar y recopilar registros es usar la extensión Linux Azure Diagnostics (LAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. También puede usar un proceso externo para leer los eventos de almacenamiento y colocarlos en un producto de plataforma de análisis, como [registros de Azure Monitor](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
+Uno de los métodos para cargar y recopilar registros es usar la extensión Linux Azure Diagnostics (LAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. Además, puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto de plataforma de análisis, como los [registros de Azure Monitor](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
 
 ## <a name="log-and-event-sources"></a>Orígenes de eventos y registros
 

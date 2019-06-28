@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404091"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67125623"
 ---
-En un dispositivo de borde del cuadro de datos que tenga el rol de proceso configurado, un subconjunto de docker comandos están disponibles para supervisar o solucionar problemas de los módulos. Para ver una lista de comandos disponibles, [conectarse a la interfaz de PowerShell](#connect-to-the-powershell-interface) y usar el `dkrdbe` función.
+En un dispositivo de Data Box Edge que tenga el rol de proceso configurado, está disponible un subconjunto de comandos de Docker para supervisar o solucionar problemas de los módulos. Para ver una lista de comandos disponibles, [conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface) y utilice la función `dkrdbe`.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -35,28 +35,28 @@ Commands:
 
 [10.100.10.10]: PS>
 ```
-La tabla siguiente contiene una breve descripción de los comandos disponibles para `dkrdbe`:
+En la tabla siguiente se proporciona una breve descripción de los comandos disponibles para `dkrdbe`:
 
-|command  |Descripción |
+|command  |DESCRIPCIÓN |
 |---------|---------|
 |`image`     | Administrar imágenes       |
 |`images`     | Lista de imágenes         |
 |`inspect`     | Devolver información de bajo nivel sobre los objetos de Docker         |
-|`login`     | Inicie sesión en un registro de Docker         |
-|`logout`     | Cerrar la sesión de un registro de Docker         |
+|`login`     | Iniciar sesión en un registro de Docker         |
+|`logout`     | Cerrar sesión de un registro de Docker         |
 |`logs`     | Capturar los registros de un contenedor        |
 |`port`     | Enumerar asignaciones de puerto o una asignación específica para el contenedor        |
 |`ps`     | Enumerar contenedores        |
 |`pull`     | Extraer una imagen o un repositorio de un registro         |
 |`start`     | Iniciar uno o varios contenedores detenidos         |
-|`stats`     | Mostrar una secuencia en directo de estadísticas de uso de recursos de contenedores         |
+|`stats`     | Mostrar streaming en vivo de estadísticas de uso de recursos de los contenedores         |
 |`stop`     | Detener uno o varios contenedores en ejecución        |
-|`system`     | Administración de Docker         |
+|`system`     | Administrar Docker         |
 |`top`     | Mostrar los procesos en ejecución de un contenedor         |
 
-Para obtener ayuda para los comandos disponibles, use `dkrdbe <command-name> --help`.
+Para obtener ayuda sobre cualquier comando disponible, use `dkrdbe <command-name> --help`.
 
-Por ejemplo, para entender el uso de la `port` comando, escriba:
+Por ejemplo, para comprender el uso del comando `port`, escriba:
 
 ```powershell
 [10.100.10.10]: P> dkrdbe port --help
@@ -78,13 +78,13 @@ Options:
 [10.100.10.10]: PS>
 ```
 
-Los comandos disponibles para el `dkrdbe` función utiliza los mismos parámetros como los que se utilizan para los comandos de docker normales. Para las opciones y parámetros que se usan con el comando de docker, vaya a [usar la línea de comandos Docker](https://docs.docker.com/engine/reference/commandline/docker/).
+Los comandos disponibles para la función `dkrdbe` utilizan los mismos parámetros que los que se utilizan para los comandos de Docker normales. Para las opciones y los parámetros utilizados con el comando de Docker, vaya a [Uso de la línea de comandos de Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
-### <a name="to-check-if-the-module-deployed-successfully"></a>Para comprobar si el módulo se ha implementado correctamente
+### <a name="to-check-if-the-module-deployed-successfully"></a>Comprobación de si el módulo se ha implementado correctamente
 
-Proceso de los módulos son contenedores que tienen una lógica de negocios que se implementa. Para comprobar si un módulo de proceso se ha implementado correctamente, ejecute el `ps` comando y compruebe si se está ejecutando el contenedor (correspondiente al módulo de proceso).
+Los módulos de proceso son contenedores que tienen una lógica de negocios implementada. Para comprobar si un módulo de proceso se ha implementado correctamente, ejecute el comando `ps` y compruebe si el contenedor (correspondiente al módulo de proceso) se ejecuta.
 
-Para obtener la lista de todos los contenedores (incluidas aquellas que están en pausa), ejecute el `ps -a` comando.
+Para obtener la lista de todos los contenedores (incluidos aquellos que están en pausa), ejecute el comando `ps -a`.
 
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
@@ -96,9 +96,9 @@ acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/s
 [10.100.10.10]: PS>
 ```
 
-Si se produjo un error en la creación de la imagen de contenedor o durante la extracción de la imagen, ejecute `logs edgeAgent`.  `EdgeAgent` es el contenedor de tiempo de ejecución de IoT Edge es responsable del aprovisionamiento otros contenedores.
+Si se ha producido un error al crear la imagen de contenedor o durante la extracción de la imagen, ejecute `logs edgeAgent`.  `EdgeAgent` es el contenedor de tiempo de ejecución de IoT Edge, que es responsable del aprovisionamiento de otros contenedores.
 
-Dado que `logs edgeAgent` volcados de memoria de todos los registros, una buena forma de ver los errores recientes consiste en usar la opción `--tail 20`.
+Dado que `logs edgeAgent` hace un volcado de todos los registros, una buena forma de ver los errores recientes consiste en usar la opción `--tail 20`.
 
 
 ```powershell
@@ -117,12 +117,12 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 2019-02-28 23:38:28.480 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Agent.Core.Planners.HealthRestartPlanner] - HealthRestartPlanner created Plan, with 0 command(s).
 ```
 
-### <a name="to-get-container-logs"></a>Para obtener los registros de contenedor
+### <a name="to-get-container-logs"></a>Para obtener registros de contenedores
 
-Para obtener registros de un contenedor específico, en primer lugar el contenedor de lista y, a continuación, obtener los registros para el contenedor que le interesa.
+Para obtener los registros de un contenedor específico, primero enumere el contenedor y después obtenga los registros del contenedor en el que está interesado.
 
-1. [Conectarse a la interfaz de PowerShell](#connect-to-the-powershell-interface).
-2. Para obtener la lista de contenedores en ejecución, ejecute el `ps` comando.
+1. [Conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface).
+2. Para obtener la lista de contenedores en ejecución, ejecute el comando `ps`.
 
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
@@ -133,9 +133,9 @@ Para obtener registros de un contenedor específico, en primer lugar el contened
     acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
-3. Anote el identificador del contenedor para el contenedor que necesitan los registros.
+3. Anote el identificador del contenedor para el que necesita los registros.
 
-4. Para obtener los registros de un contenedor específico, ejecute el `logs` comando proporcionando el identificador del contenedor.
+4. Para obtener los registros de un contenedor específico, ejecute el comando `logs` proporcionando el identificador del contenedor.
 
     ```powershell
     [10.100.10.10]: PS>dkrdbe logs d99e2f91d9a8
@@ -150,18 +150,18 @@ Para obtener registros de un contenedor específico, en primer lugar el contened
     02/26/2019 18:23:38: Info: Processed event.
     ```
 
-### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Para supervisar las estadísticas de uso del dispositivo
+### <a name="to-monitor-the-usage-statistics-of-the-device"></a>Supervisión de las estadísticas de uso del dispositivo
 
-Para supervisar la memoria, el uso de CPU y E/S en el dispositivo, use el `stats` comando.
+Para supervisar la memoria, el uso de CPU y la E/S en el dispositivo, use el comando `stats`.
 
-1. [Conectarse a la interfaz de PowerShell](#connect-to-the-powershell-interface).
-2. Ejecute el `stats` comando con el fin de deshabilitar la secuencia en directo y extraer solo el primer resultado.
+1. [Conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface).
+2. Ejecute el comando `stats` para deshabilitar el streaming en vivo y extraer solo el primer resultado.
 
    ```powershell
    dkrdbe stats --no-stream
    ```
 
-   El ejemplo siguiente muestra el uso de este cmdlet:
+   En el ejemplo siguiente se muestra el uso de este cmdlet:
 
     ```
     [10.100.10.10]: P> dkrdbe stats --no-stream

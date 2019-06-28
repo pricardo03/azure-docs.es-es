@@ -17,10 +17,10 @@ ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65795776"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migración de una Base de datos SQL Server a SQL Server en una máquina virtual de Azure
@@ -31,7 +31,7 @@ Existen varios métodos para migrar una base de datos de usuario de SQL Server l
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
   > [!NOTE]
-  > SQL Server 2008 y SQL Server 2008 R2 se aproximan a los [final de su ciclo de vida de soporte técnico](https://www.microsoft.com/sql-server/sql-server-2008) para instancias locales. Para ampliar la compatibilidad, puede migrar la instancia de SQL Server a una máquina virtual de Azure o comprar las actualizaciones de seguridad extendida para mantenerlo en el entorno local. Para obtener más información, consulte [ampliar la compatibilidad de SQL Server 2008 y 2008 R2 con Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
+  > SQL Server 2008 y SQL Server 2008 R2 se aproximan al [final de su ciclo de vida de soporte técnico](https://www.microsoft.com/sql-server/sql-server-2008) para instancias locales. Para ampliar el soporte, puede migrar la instancia de SQL Server a una máquina virtual de Azure o comprar las actualizaciones de seguridad extendidas para mantenerlo en el entorno local. Para más información, vea [Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>¿Cuáles son los principales métodos de migración?
 Los principales métodos de migración son:

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409054"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programación de trabajos en varios dispositivos
@@ -68,7 +68,7 @@ La condición de consulta puede estar también en un solo identificador de dispo
 
 [Lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) aborda el lenguaje de consulta de IoT Hub con más detalle.
 
-El fragmento de código siguiente muestra la solicitud y respuesta para un trabajo programado para llamar a un método directo denominado testMethod en todos los dispositivos de contoso-hub-1:
+En este fragmento de código se muestra la solicitud y la respuesta para un trabajo programado para llamar a un método directo denominado testMethod en todos los dispositivos de contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
@@ -121,9 +121,9 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> El *updateTwin* propiedad requiere una coincidencia de etag válido; por ejemplo, `etag="*"`.
+> La propiedad *updateTwin* necesita una coincidencia de etag válida; por ejemplo, `etag="*"`.
 
-El fragmento de código siguiente muestra la solicitud y respuesta para un trabajo programado para actualizar las propiedades del dispositivo gemelo para dispositivo de prueba en contoso-hub-1:
+En este fragmento de código se muestra la solicitud y la respuesta para un trabajo programado para actualizar propiedades del dispositivo gemelo para dispositivo para test-device en contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -183,15 +183,15 @@ La siguiente lista muestra las propiedades y las descripciones correspondientes,
 | **startTime** |Hora de inicio proporcionada de la aplicación (ISO 8601) para el trabajo. |
 | **endTime** |Fecha proporcionada de IoT Hub (ISO 8601) cuando hay un trabajo completado. Válido solo después de que el trabajo alcance el estado 'completado'. |
 | **type** |Tipos de trabajos: |
-| | **scheduleUpdateTwin**: Un trabajo que se usa para actualizar un conjunto de propiedades deseadas o etiquetas. |
-| | **scheduleDeviceMethod**: Un trabajo que se utiliza para invocar un método de dispositivo en un conjunto de dispositivos gemelos. |
+| | **scheduleUpdateTwin**: trabajo que se usa para actualizar un conjunto determinado de propiedades o etiquetas. |
+| | **scheduleDeviceMethod**: trabajo que se usa para invocar un método de dispositivo en un conjunto de dispositivos gemelos. |
 | **estado** |Estado actual del trabajo. Posibles valores para el estado: |
-| | **pending**: Programado y en espera para que se tomen el servicio de trabajo. |
-| | **scheduled**: Programado para una hora en el futuro. |
-| | **running**: Trabajo activo actualmente. |
-| | **canceled**: Se canceló el trabajo. |
-| | **failed**: Error del trabajo. |
-| | **completed**: Ha completado el trabajo. |
+| | **pending**: programado y en espera a que lo recopile el servicio de trabajo. |
+| | **scheduled**: programado para una hora futura. |
+| | **running**: trabajo activo actualmente. |
+| | **canceled**: el trabajo se ha cancelado. |
+| | **failed**: error del trabajo. |
+| | **completed**: el trabajo se ha completado. |
 | **deviceJobStatistics** |Estadísticas sobre la ejecución del trabajo. |
 | | Propiedades **deviceJobStatistics**: |
 | | **deviceJobStatistics.deviceCount**: Número de dispositivos en el trabajo. |

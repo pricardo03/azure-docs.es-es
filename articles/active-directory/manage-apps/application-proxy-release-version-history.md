@@ -1,6 +1,6 @@
 ---
 title: 'Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones | Microsoft Docs'
-description: En este artículo se enumera todas las versiones de Azure AD Application Proxy y se describe las nuevas características y se han corregido problemas
+description: En este artículo se enumeran todas las versiones de Azure AD Application Proxy y se describen las nuevas características y los problemas corregidos
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,22 +17,22 @@ ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783286"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones
-En este artículo se enumera las versiones y las características de Azure Active Directory (Azure AD) Application Proxy que se han publicado. El equipo de Azure AD actualiza periódicamente el Proxy de aplicación con nuevas características y funcionalidades. Los conectores del Proxy de aplicación se actualizan automáticamente cuando se lanza una nueva versión.
+En este artículo se enumeran las versiones y características de Azure Active Directory (Azure AD) Application Proxy que se han publicado. El equipo de Azure AD actualiza periódicamente Application Proxy con nuevas características y funciones. Los conectores de Application Proxy se actualizan de forma automática cuando se publica una nueva versión.
 
-Presentamos una lista de los recursos relacionados:
+Esta es una lista de recursos relacionados:
 
 Recurso |  Detalles
 --------- | --------- |
-Cómo habilitar el Proxy de aplicación | Requisitos previos para habilitar el Proxy de aplicación, instalar y registrar un conector se describen en este [tutorial](application-proxy-add-on-premises-application.md).
-Descripción de los conectores del Proxy de aplicación de Azure AD | Obtenga más información sobre [administración del conector](application-proxy-connectors.md) y cómo los conectores [actualización automática](application-proxy-connectors.md#automatic-updates).
-Descargue el conector del Proxy de aplicación de Azure AD |  [Descargue la versión más reciente connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+Procedimientos para habilitar Application Proxy | Los requisitos previos para habilitar Application Proxy e instalar y registrar un conector se describen en este [tutorial](application-proxy-add-on-premises-application.md).
+Descripción de los conectores del Proxy de aplicación de Azure AD | Obtenga más información sobre la [administración de conectores](application-proxy-connectors.md) y cómo los conectores [se actualizan de forma automática](application-proxy-connectors.md#automatic-updates).
+Descarga del conector de Azure Active Directory Application Proxy |  [Descargue el conector más reciente](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
 ## <a name="156120"></a>1.5.612.0
 
@@ -42,15 +42,15 @@ Descargue el conector del Proxy de aplicación de Azure AD |  [Descargue la vers
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
-- Se agregó compatibilidad con WebSocket para la aplicación de QlikSense. Para obtener más información sobre cómo integrar QlikSense con el Proxy de aplicación, consulte este [tutorial](application-proxy-qlik.md). 
-- Ha mejorado el Asistente para la instalación para que sea más fácil de configurar a un proxy de salida. 
-- Establecer TLS 1.2 como el protocolo predeterminado para los conectores. 
-- Agrega un nuevo contrato de licencia del usuario final (CLUF).  
+- Se ha agregado compatibilidad con WebSocket para la aplicación QlikSense. Para más información sobre cómo integrar QlikSense con Application Proxy, vea este [tutorial](application-proxy-qlik.md). 
+- Se ha mejorado el asistente para la instalación con el fin de facilitar la configuración de un proxy de salida. 
+- Se ha establecido TLS 1.2 como el protocolo predeterminado para los conectores. 
+- Se ha agregado un nuevo contrato de licencia para el usuario final (CLUF).  
 
 ### <a name="fixed-issues"></a>Problemas corregidos
 
-- Se ha corregido un error que causaba algunas pérdidas de memoria en el conector.
-- Actualiza la versión de Azure Service Bus, que incluye una corrección de errores para los problemas de tiempo de espera del conector.
+- Se ha corregido un error que causaba algunas fugas de memoria en el conector.
+- Se ha actualizado la versión de Azure Service Bus, que incluye una corrección de errores para los problemas de tiempo de espera del conector.
 
 ## <a name="154020"></a>1.5.402.0
 
@@ -60,7 +60,7 @@ Descargue el conector del Proxy de aplicación de Azure AD |  [Descargue la vers
 
 ### <a name="fixed-issues"></a>Problemas corregidos
 
-- Se ha agregado compatibilidad con dominios personalizados que necesite la traducción de dominio en la cookie.
+- Se ha agregado compatibilidad con dominios personalizados que necesitan traducción de dominios en la cookie.
 
 ## <a name="151320"></a>1.5.132.0
 
@@ -70,7 +70,7 @@ Descargue el conector del Proxy de aplicación de Azure AD |  [Descargue la vers
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras 
 
-Mejor control sobre los límites de conexiones salientes de los conectores. 
+Se ha mejorado el control sobre los límites de conexiones salientes de los conectores. 
 
 ## <a name="15360"></a>1.5.36.0
 
@@ -80,14 +80,14 @@ Mejor control sobre los límites de conexiones salientes de los conectores.
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
-- Simplifica la incorporación y la administración con menos puertos necesarios. Proxy de aplicación ahora requiere abrir sólo dos puertos de salida estándares: 80 y 443. Proxy de aplicación sigue usando conexiones de solo salida, por lo que todavía no es necesario ningún componente en una red Perimetral. Para obtener más información, consulte nuestra [documentación sobre la configuración](application-proxy-add-on-premises-application.md).  
-- Si admite el proxy externo o el firewall, puede abrir ahora la red con DNS en lugar de intervalo de direcciones IP. Servicios de Proxy de aplicación requieren conexiones a *. msappproxy.net y *. servicebus.windows.net solo.
+- Se ha simplificado la incorporación y la administración con menos puertos necesarios. Ahora en Application Proxy solo es necesario abrir dos puertos de salida estándar: 443 y 80. En Application Proxy se siguen usando solo conexiones de salida, por lo que todavía no se necesita ningún componente en una red perimetral. Para más información, vea la  [documentación sobre la configuración](application-proxy-add-on-premises-application.md).  
+- Si el proxy externo o el firewall lo admite, ahora puede abrir la red por DNS en lugar de por intervalo de direcciones IP. Los servicios de Application Proxy requieren conexiones a *.msappproxy.net *.servicebus.windows.net únicamente.
 
 
 ## <a name="earlier-versions"></a>Versiones anteriores
 
-Si usa una versión del conector de Proxy de aplicación anteriores a 1.5.36.0, actualice a la versión más reciente para asegurarse de que la versión más reciente características admitidas por completo.
+Si usa una versión del conector de Application Proxy anterior a 1.5.36.0, actualice a la versión más reciente para asegurarse de que tiene todas las características admitidas más recientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre [el acceso remoto a aplicaciones locales a través de Azure AD Application Proxy](application-proxy.md).
+- Más información sobre [Acceso remoto a aplicaciones locales mediante Azure AD Application Proxy](application-proxy.md).
 - Para empezar a usar Application Proxy, consulte [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy](application-proxy-add-on-premises-application.md).

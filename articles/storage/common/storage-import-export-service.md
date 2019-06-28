@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603098"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
@@ -29,7 +29,7 @@ Considere el uso del servicio de Azure Import/Export cuando la carga o descarga 
 
 * **Migración de datos a la nube**: mueva rápidamente grandes cantidades de datos a Azure de manera rápida y rentable.
 * **Distribución de contenido**: envíe rápidamente datos a los sitios de cliente.
-* **Backup (Copia de seguridad)**: realice copias de seguridad de los datos locales para almacenarlos en Azure Storage.
+* **Backup (Copia de seguridad)** : realice copias de seguridad de los datos locales para almacenarlos en Azure Storage.
 * **Recuperación de datos**: recupere una gran cantidad de datos almacenados en el almacenamiento y recíbalos en su ubicación local.
 
 ## <a name="importexport-components"></a>Componentes de Import/Export
@@ -74,9 +74,9 @@ En un nivel alto, un trabajo de importación implica los siguientes pasos:
 8. Las unidades se devuelven usando la cuenta de la empresa de transporte al remite indicado en el trabajo de importación.
 
 > [!NOTE]
-> Para los envíos locales (dentro de país/región del centro de datos), comparta una cuenta de transportista nacionales 
+> Para los envíos locales (dentro del país o región del centro de datos), comparta una cuenta de transportista nacional 
 >
-> Para los envíos al exterior (fuera del país/región del centro de datos), comparta una cuenta de transportista internacionales
+> Para los envíos al extranjero (fuera del país o región del centro de datos), comparta una cuenta de transportista internacional
 
  ![Figura 1: Importación de flujos de trabajo](./media/storage-import-export-service/importjob.png)
 
@@ -104,31 +104,31 @@ En un nivel alto, un trabajo de exportación implica los siguientes pasos:
 10. Las unidades se devuelven usando la cuenta de la empresa de transporte al remite indicado en el trabajo de importación.
 
 > [!NOTE]
-> Para los envíos locales (dentro de país/región del centro de datos), comparta una cuenta de transportista nacionales 
+> Para los envíos locales (dentro del país o región del centro de datos), comparta una cuenta de transportista nacional 
 >
-> Para los envíos al exterior (fuera del país/región del centro de datos), comparta una cuenta de transportista internacionales
+> Para los envíos al extranjero (fuera del país o región del centro de datos), comparta una cuenta de transportista internacional
   
  ![Figura 2: Exportación de flujos de trabajo](./media/storage-import-export-service/exportjob.png)
 
 Para obtener instrucciones detalladas sobre la exportación de datos, vaya a [Exportación de datos desde Azure Blobs](storage-import-export-data-from-blobs.md).
 
-## <a name="region-availability"></a>Disponibilidad por región 
+## <a name="region-availability"></a>Disponibilidad en regiones 
 
 El servicio Azure Import/Export permite copiar datos en todas las cuentas de almacenamiento de Azure y desde estas. Las unidades de disco se pueden enviar a una de las ubicaciones de la lista. Si la cuenta de almacenamiento está en una ubicación de Azure que no se especifica aquí, se proporcionará una ubicación de envío alternativa cuando cree el trabajo.
 
 ### <a name="supported-shipping-locations"></a>Ubicaciones de envío admitidas
 
 
-|País o región  |País o región  |País o región  |País o región  |
+|País/región  |País/región  |País/región  |País/región  |
 |---------|---------|---------|---------|
 |Este de EE. UU    | Europa del Norte        | India Central        |US Gov Iowa         |
-|Oeste de EE. UU.     |Europa occidental         | Sur de la India        | US DoD oriental        |
-|Este de EE. UU. 2    | Asia oriental        |  Oeste de la India        | US DoD central        |
+|Oeste de EE. UU.     |Europa occidental         | Sur de la India        | Departamento de Defensa de EE. UU. Este        |
+|Este de EE. UU. 2    | Asia oriental        |  Oeste de la India        | Departamento de Defensa de EE. UU. Centro        |
 |Oeste de EE. UU. 2     | Sudeste asiático        | Centro de Canadá        | Este de China         |
 |Centro de EE. UU.     | Este de Australia        | Este de Canadá        | Norte de China        |
 |Centro-Norte de EE. UU     |  Sudeste de Australia       | Sur de Brasil        | Sur de Reino Unido 2        |
 |Centro-Sur de EE. UU     | Oeste de Japón        |Corea Central         | Centro de Alemania        |
-|Centro occidental de EE.UU.     |  Este de Japón       | US Gov Virginia        | Noreste de Alemania        |
+|Centro occidental de EE.UU.     |  Este de Japón       | Gobierno de EE. UU. - Virginia        | Noreste de Alemania        |
 
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
@@ -160,7 +160,7 @@ Al enviar unidades a Azure, pagar los gastos de envío al transportista. Cuando 
 
 **Costos de transacción**
 
-[Cargo de transacción de almacenamiento estándar](https://azure.microsoft.com/pricing/details/storage/) se aplican durante la importación, así como la exportación de datos. Los cargos de salida estándar también son aplicables, junto con los cargos de transacción de almacenamiento cuando se exportan datos desde el almacenamiento de Azure. Para obtener más información sobre los costos de salida, vea [precios de transferencias de datos.](https://azure.microsoft.com/pricing/details/data-transfers/).
+Se aplica un [cargo de transacción de almacenamiento estándar](https://azure.microsoft.com/pricing/details/storage/) durante la importación y la exportación de datos. También son aplicables cargos de salida estándar junto con los cargos de transacción de almacenamiento cuando se exportan datos desde Azure Storage. Para más información sobre los costos de salida, consulte [Detalles de precios de transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

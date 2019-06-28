@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390586"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL
@@ -30,7 +30,7 @@ En este artículo se muestra cómo crear y rellenar una instancia de Azure AD y,
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Crear y rellenar una instancia de Azure AD.
 
@@ -159,7 +159,7 @@ Después de aprovisionar un administrador de Azure AD para Instancia administrad
 
 Los dos procedimientos siguientes muestran cómo aprovisionar un administrador de Azure Active Directory para el servidor de Azure SQL Server en Azure Portal y mediante el uso de PowerShell.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 1. En [Azure Portal](https://portal.azure.com/), en la esquina superior derecha, seleccione la conexión para desplegar una lista de posibles instancias de Active Directory. Elija el Active Directory correcto como el valor predeterminado de Azure AD. En este paso se vincula la asociación de la suscripción de Active Directory con Azure SQL Server, de modo que se asegura de que la misma suscripción se use tanto para Azure AD como para SQL Server. (El servidor de Azure SQL se puede hospedar en Azure SQL Database o en Azure SQL Data Warehouse). ![choose-ad][8]
 
@@ -352,7 +352,7 @@ Use este método al conectarse con un nombre de entidad de seguridad de Azure AD
 Utilice este método para autenticarse en SQL DB/DW con Azure AD para los usuarios de Azure AD federados o nativos. Un usuario nativo es uno creado explícitamente en Azure AD y que se autentica mediante un nombre de usuario y una contraseña, mientras que un usuario federado es un usuario de Windows cuyo dominio está federado con Azure AD. El último método (usuario y contraseña) puede usarse cuando un usuario desea usar sus credenciales de Windows, pero su máquina local no está unida al dominio (es decir, mediante un acceso remoto). En este caso, un usuario de Windows puede indicar su cuenta de dominio y contraseña, y autenticarse en SQL DB/DW mediante credenciales federadas.
 
 1. Inicie Management Studio o Data Tools y, en el cuadro de diálogo **Conectar con el servidor** (o **Conectarse al motor de base de datos**), en el cuadro **Autenticación**, seleccione **Contraseña de Active Directory**.
-2. En el **nombre de usuario** , escriba el nombre de usuario de Azure Active Directory en el formato **username\@dominio.com**. Los nombres de usuario deben corresponderse con una cuenta de Azure Active Directory o una cuenta de un dominio federado con Azure Active Directory.
+2. En el cuadro **Nombre de usuario**, escriba el nombre de usuario de Azure Active Directory con el formato **nombreDeUsuario\@dominio.com**. Los nombres de usuario deben corresponderse con una cuenta de Azure Active Directory o una cuenta de un dominio federado con Azure Active Directory.
 3. En el cuadro **Contraseña** , escriba la contraseña de usuario de la cuenta de Azure Active Directory o de la cuenta de dominio federado.
 
     ![Selección de autenticación de contraseña de Active Directory][12]

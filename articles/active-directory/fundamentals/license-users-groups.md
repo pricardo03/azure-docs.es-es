@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60247603"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Asignación o eliminación de licencias mediante el portal de Azure Active Directory
@@ -47,7 +47,7 @@ Puede ver los productos disponibles, incluidas las licencias individuales, y com
 
     Aparece la página **Licencias**.
 
-    ![Página de licencias, con el número de productos adquiridos y las licencias asignadas](media/license-users-groups/license-details-blade.png)
+    ![Página de licencias, con el número de productos comprados y licencias asignadas](media/license-users-groups/license-details-blade.png)
     
 3. Seleccione el vínculo de **productos comprados** para ver la página **Productos** y los detalles de **Asignado**, **Disponible** y **Expira próximamente** para cada edición del producto específico.
 

@@ -5,30 +5,30 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161203"
 ---
-Dependiendo del sistema operativo de cliente, los procedimientos para conectarse de forma remota al dispositivo son diferentes.
+Dependiendo del sistema operativo del cliente, los procedimientos para conectarse de forma remota al dispositivo son diferentes.
 
-### <a name="remotely-connect-from-a-windows-client"></a>Conectarse de forma remota desde un cliente de Windows
+### <a name="remotely-connect-from-a-windows-client"></a>Conexión de forma remota desde un cliente de Windows
 
-Antes de comenzar, asegúrese de que el cliente de Windows se está ejecutando Windows PowerShell 5.0 o posterior.
+Antes de comenzar, asegúrese de que el cliente de Windows ejecuta Windows PowerShell 5.0 o posterior.
 
 Siga estos pasos para conectarse de forma remota desde un cliente de Windows.
 
-1. Ejecutar una sesión de Windows PowerShell como administrador.
-2. Asegúrese de que el servicio Administración remota de Windows se está ejecutando en el cliente. En el símbolo del sistema, escriba:
+1. Ejecute una sesión de Windows PowerShell como administrador.
+2. Asegúrese de que el servicio Administración remota de Windows se ejecuta en el cliente. En el símbolo del sistema, escriba:
 
     `winrm quickconfig`
 
-3. Asignar una variable a la dirección IP del dispositivo.
+3. Asigne una variable a la dirección IP del dispositivo.
 
     $ip = "<device_ip>"
 
-    Reemplace `<device_ip>` con la dirección IP del dispositivo.
+    Reemplace `<device_ip>` por la dirección IP de su dispositivo.
 
 4. Para agregar la dirección IP del dispositivo a la lista de hosts de confianza del cliente, escriba el siguiente comando:
 
@@ -38,7 +38,7 @@ Siga estos pasos para conectarse de forma remota desde un cliente de Windows.
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
 
-6. Proporcione la contraseña cuando se le solicite. Utilice la misma contraseña que se usa para iniciar sesión en la interfaz de usuario web local. La contraseña de la interfaz de usuario web local predeterminada es *Password1*. Cuando se conecta correctamente al dispositivo mediante PowerShell remoto, vea la siguiente salida de ejemplo:  
+6. Proporcione la contraseña cuando se le solicite. Use la misma contraseña que se emplea para iniciar sesión en la interfaz de usuario web local. La contraseña de la interfaz de usuario web local predeterminada es *Password1*. Cuando se conecte correctamente al dispositivo mediante PowerShell remoto, verá la siguiente salida de ejemplo:  
 
     ```
     Windows PowerShell
@@ -54,15 +54,15 @@ Siga estos pasos para conectarse de forma remota desde un cliente de Windows.
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Conectarse de forma remota desde un cliente Linux
+### <a name="remotely-connect-from-a-linux-client"></a>Conexión de forma remota desde un cliente de Linux
 
 En el cliente de Linux que usará para conectarse:
 
-- [Instalar la más reciente de PowerShell Core para Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) de GitHub para obtener la característica de comunicación remota SSH. 
-- [Instalar solo el `gss-ntlmssp` paquete desde el módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para los clientes de Ubuntu, use el siguiente comando:
+- [Instale la versión más reciente de PowerShell Core para Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) desde GitHub para obtener la característica de comunicación remota SSH. 
+- [Instale solo el paquete `gss-ntlmssp` desde el módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para los clientes de Ubuntu, use el siguiente comando:
     - `sudo apt-get install gss-ntlmssp`
 
-Para obtener más información, vaya a [comunicación remota de PowerShell a través de SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+Para más información, vaya a [Comunicación remota de PowerShell a través de SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
 
 Siga estos pasos para conectarse de forma remota desde un cliente NFS.
 
@@ -70,11 +70,11 @@ Siga estos pasos para conectarse de forma remota desde un cliente NFS.
 
     `sudo pwsh`
  
-2. Para conectar con el cliente remoto, escriba:
+2. Para conectarse mediante el cliente remoto, escriba:
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Cuando se le solicite, proporcione la contraseña utilizada para iniciar sesión en el dispositivo.
+    Cuando se le solicite, proporcione la contraseña usada para iniciar sesión en el dispositivo.
  
 > [!NOTE]
 > Este procedimiento no funciona en Mac OS.

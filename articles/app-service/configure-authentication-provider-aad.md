@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851382"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configuración de una aplicación de App Service para usar la información de inicio de sesión de Azure Active Directory
@@ -55,10 +55,10 @@ Los valores de configuración también se pueden especificar manualmente. Esta e
 4. En cuestión de segundos, debería ver aparecer el nuevo registro de aplicación recién creado.
 5. Una vez que se agrega el registro de aplicación, haga clic en el nombre del registro de aplicación, en **Configuración** en la parte superior y, luego, en **Propiedades** 
 6. En el cuadro **URI del identificador de la aplicación**, pegue la dirección URL de la aplicación (del paso 1) y péguela también en **Dirección URL de la página principal** y, luego, haga clic en **Guardar**
-7. Ahora haga clic en el **direcciones URL de respuesta**, edite el **dirección URL de respuesta**, pegue la dirección URL de aplicación (del paso 1) y luego anexarlo al final de la dirección URL, */.auth/login/aad/callback* (para ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Haga clic en **Save**(Guardar).
+7. Ahora haga clic en las **direcciones URL de respuesta**, edite la **dirección URL de respuesta**, péguela en Dirección URL de la aplicación (del paso 1) y luego anexe */.auth/login/aad/callback* al final de la dirección URL (por ejemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Haga clic en **Save**(Guardar).
 
    > [!NOTE]
-   > Puede usar el mismo registro de aplicación para varios dominios mediante la adición de más **direcciones URL de respuesta**. Asegúrese de que modelar cada instancia de App Service con su propio registro, por lo que tiene sus propios permisos y consentimiento. También considere el uso de registros de aplicaciones independientes para las ranuras de sitio independiente. Esto es para evitar que se comparten entre entornos, los permisos para que un error en el nuevo código que se está probando no afecta a la producción.
+   > Puede usar el mismo registro de aplicación para varios dominios mediante la adición de más **direcciones URL de respuesta**. Asegúrese de que modela cada instancia de App Service con su propio registro, de forma que tenga sus propios permisos y consentimiento. Considere también la posibilidad de usar registros de aplicaciones para ranuras de sitio independientes. Esto es para evitar que se compartan permisos entre entornos, de forma que si se produce un error en el nuevo código que está probando este no afecte a producción.
     
 8. En este punto, copie el **identificador de la aplicación** en cuestión. Consérvelo para usarlo más adelante. Lo necesitará para configurar la aplicación de App Service.
 9. Cierre la página **Aplicación registrada**. En la página **Registros de aplicaciones**, haga clic en el botón **Puntos de conexión** de la parte superior y luego copie la dirección URL de **PUNTO DE CONEXIÓN DE INICIO DE SESIÓN DE WS-FEDERATION**, pero quite `/wsfed` al final. El resultado final debería ser así: `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. El nombre de dominio puede ser diferente en el caso de una nube soberana. Esto servirá como dirección URL del emisor para su uso posterior.
@@ -79,12 +79,12 @@ Puede registrar a los clientes nativos, lo que proporciona mayor control sobre l
 1. Vaya a **Active Directory** en [Azure Portal].
 2. En el panel de la izquierda, seleccione **Registros de aplicaciones**. Haga clic en **Nuevo registro de aplicación** en la parte superior.
 4. En la página **crear**, escriba un **nombre** para el registro de aplicación. Seleccione **Nativo** en **Tipo de aplicación**.
-5. En el cuadro **URI de redirección**, especifique el punto de conexión */.auth/login/done* del sitio, con el esquema HTTPS. El valor debería parecerse al siguiente: *https://contoso.azurewebsites.net/.auth/login/done*. Si crea una aplicación de Windows, en su lugar, use el valor de [SID del paquete](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI.
+5. En el cuadro **URI de redirección**, especifique el punto de conexión */.auth/login/done* del sitio, con el esquema HTTPS. El valor debería parecerse al siguiente: *https://contoso.azurewebsites.net/.auth/login/done* . Si crea una aplicación de Windows, en su lugar, use el valor de [SID del paquete](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como URI.
 5. Haga clic en **Create**(Crear).
 6. Una vez que se ha agregado el registro de aplicación, selecciónelo para abrirlo. Busque el **Identificador de aplicación** y tome nota de este valor.
 7. Haga clic en **Toda la configuración** > **Permisos necesarios** > **Agregar** > **Seleccionar una API**.
 8. Escriba el nombre de la aplicación de App Service que registró anteriormente para buscar en ella, selecciónela y haga clic en **Seleccionar**.
-9. Seleccione **Acceso a \<app_name>**. Después, haga clic en **Seleccionar**. A continuación, haga clic en **Hecho**.
+9. Seleccione **Acceso a \<app_name>** . Después, haga clic en **Seleccionar**. A continuación, haga clic en **Hecho**.
 
 Ahora ha configurado una aplicación cliente nativa que puede acceder a la aplicación de App Service.
 

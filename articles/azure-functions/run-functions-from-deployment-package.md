@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
 ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787539"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
 > [!NOTE]
-> La funcionalidad descrita en este artículo no está disponible para aplicaciones de función que se ejecutan en Linux en un [plan de App Service](functions-scale.md#app-service-plan).
+> La funcionalidad descrita en este artículo no está disponible para las aplicaciones de función que se ejecutan en Linux en un [plan de App Service](functions-scale.md#app-service-plan).
 
 En Azure, puede ejecutar las funciones directamente desde un archivo del paquete de implementación de la aplicación de función. La otra opción consiste en implementar los archivos en el directorio `d:\home\site\wwwroot` de la aplicación de función.
 
@@ -44,11 +44,11 @@ Para permitir la ejecución de la aplicación de función desde un paquete, solo
 
 | Valor  | DESCRIPCIÓN  |
 |---------|---------|
-| **`1`**  | Se recomienda para las aplicaciones de función que se ejecutan en Windows. Ejecución desde un archivo de paquete en la carpeta `d:\home\data\SitePackages` de la aplicación de función. Si no [implementar con zip implementar](#integration-with-zip-deployment), esta opción requiere que la carpeta tenga también un archivo denominado `packagename.txt`. Este archivo contiene solo el nombre del archivo de paquete en la carpeta, sin ningún espacio en blanco. |
+| **`1`**  | Se recomienda para las aplicaciones de función que se ejecutan en Windows. Ejecución desde un archivo de paquete en la carpeta `d:\home\data\SitePackages` de la aplicación de función. Si no se va a [implementar con un archivo zip](#integration-with-zip-deployment), esta opción requiere que la carpeta tenga también un archivo denominado `packagename.txt`. Este archivo contiene solo el nombre del archivo de paquete en la carpeta, sin ningún espacio en blanco. |
 |**`<url>`**  | Ubicación del archivo de paquete específico que desea ejecutar. Cuando se usa Blob Storage, debe usar un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) para permitir que sistema en tiempo de ejecución de Functions acceda al paquete. Puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para cargar archivos de paquete en la cuenta de Blob Storage.         |
 
 > [!CAUTION]
-> Cuando se ejecuta una aplicación de función en Windows, la opción de dirección URL externa, el rendimiento es peor inicio en frío. Al implementar la aplicación de función en Windows, debe establecer `WEBSITE_RUN_FROM_PACKAGE` a `1` y publicar con la implementación de zip.
+> Al ejecutar una aplicación de función en Windows, la opción de dirección URL externa tiene peor rendimiento con el arranque en frío. Al implementar la aplicación de función en Windows, debe establecer `WEBSITE_RUN_FROM_PACKAGE` en `1` y publicar con implementación de un archivo zip.
 
 A continuación se muestra una aplicación de función configurada para ejecutarse desde un archivo .zip que se hospeda en Azure Blob Storage:
 
@@ -67,10 +67,10 @@ La [implementación de archivos ZIP][Zip deployment for Azure Functions] es una 
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-- Ejecutar desde el paquete realiza `wwwroot` de solo lectura, por lo que recibirá un error al escribir archivos en este directorio.
+- La ejecución desde el paquete hace que `wwwroot` sea de solo lectura, por lo que recibirá un error al escribir archivos en este directorio.
 - No se admiten los formatos de archivo tar y gzip.
-- Esta característica no se crean con la caché local.
-- Para mejorar el rendimiento de inicio en frío, utilice la opción de archivo Zip local (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- Esta característica no se crea con caché local.
+- Para mejorar el rendimiento del arranque en frío, utilice la opción de archivo zip local (`WEBSITE_RUN_FROM_PACKAGE` = 1).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

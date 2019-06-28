@@ -1,5 +1,5 @@
 ---
-title: 'Profundización: Azure Active Directory de restablecimiento de contraseña'
+title: 'Profundización en el autoservicio de restablecimiento de contraseña: Azure Active Directory'
 description: ¿Cómo funciona el autoservicio de restablecimiento de contraseña?
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415640"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
@@ -59,7 +59,7 @@ Lea los pasos siguientes para obtener información sobre la lógica de la págin
 
 ## <a name="authentication-methods"></a>Métodos de autenticación
 
-Si SSPR está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. En ocasiones, se hace referencia a estas opciones como "puertas". Se recomienda encarecidamente **elegir dos o más métodos de autenticación** para que los usuarios tengan más flexibilidad en caso de que no puedan acceder a uno cuando lo necesiten. Detalles adicionales sobre los métodos enumerados a continuación pueden encontrarse en el artículo [¿cuáles son los métodos de autenticación?](concept-authentication-methods.md).
+Si SSPR está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. En ocasiones, se hace referencia a estas opciones como "puertas". Se recomienda encarecidamente **elegir dos o más métodos de autenticación** para que los usuarios tengan más flexibilidad en caso de que no puedan acceder a uno cuando lo necesiten. Se puede encontrar información adicional sobre los siguientes métodos en el artículo [¿Qué son los métodos de autenticación?](concept-authentication-methods.md).
 
 * Notificación de la aplicación móvil (vista previa)
 * Código de la aplicación móvil (vista previa)
@@ -71,12 +71,12 @@ Si SSPR está habilitado, tiene que seleccionar al menos una de las opciones sig
 Los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado.
 
 > [!IMPORTANT]
-> A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios MFA y SSPR en inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
+> A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para los usuarios de MFA y SSPR en inquilinos de Azure AD gratis o de evaluación. Los mensajes SMS no se ven afectados por este cambio. Las llamadas de teléfono seguirán estando disponibles para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratis o de evaluación.
 
 > [!WARNING]
 > Las cuentas asignadas a los roles de administrador de Azure tendrán que usar los métodos definidos en la sección [Diferencias entre directivas de restablecimiento de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Selección de los métodos de autenticación en el portal de Azure][Authentication]
+![Selección de métodos de autenticación en Azure Portal][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 
@@ -126,7 +126,7 @@ Ejemplo:
 Al habilitar esta opción, un usuario debe completar el registro de restablecimiento de contraseña si inicia sesión en cualquier aplicación con Azure AD. Este flujo de trabajo incluye las siguientes aplicaciones:
 
 * Office 365
-* Azure Portal
+* Portal de Azure
 * Panel de acceso
 * Aplicaciones federadas
 * Aplicaciones personalizadas mediante Azure AD
@@ -160,7 +160,7 @@ Ejemplo: hay cuatro administradores en un entorno. El administrador A restablece
 
 Si instala, configura y habilita Azure AD Connect, tiene las opciones adicionales siguientes para integraciones locales. Si estas opciones están atenuadas, significa que la escritura diferida no se ha configurado correctamente. Para obtener más información, consulte [Configuración de la escritura diferida de contraseñas](howto-sspr-writeback.md).
 
-![Validando la escritura diferida de contraseñas está habilitada y el trabajo][Writeback]
+![Validación de escritura diferida de contraseñas habilitada en funcionamiento][Writeback]
 
 Esta página proporciona un estado rápido del cliente de escritura diferida con los siguientes mensajes que se muestran según la configuración actual:
 

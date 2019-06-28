@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
 ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785496"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database
@@ -83,9 +83,9 @@ Para obtener más información sobre la gramática de Transact-SQL, su uso y eje
 
 ### <a name="about-the-applies-to-tags"></a>Acerca de las etiquetas "Se aplica a"
 
-La referencia de Transact-SQL incluye artículos relacionados con las versiones de SQL Server que abarcan desde la de 2008 hasta la actual. Debajo del título del artículo hay una barra de iconos donde se muestran las cuatro plataformas de SQL Server y se indica la aplicabilidad. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. En el artículo  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  se indica que la instrucción se aplica a  **SQL Server (a partir de 2012)**. La instrucción no se aplica a SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse o Almacenamiento de datos paralelos.
+La referencia de Transact-SQL incluye artículos relacionados con las versiones de SQL Server que abarcan desde la de 2008 hasta la actual. Debajo del título del artículo hay una barra de iconos donde se muestran las cuatro plataformas de SQL Server y se indica la aplicabilidad. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. En el artículo  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  se indica que la instrucción se aplica a  **SQL Server (a partir de 2012)** . La instrucción no se aplica a SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse o Almacenamiento de datos paralelos.
 
-En algunos casos, el tema general de un artículo puede usarse en un producto, pero existen diferencias poco significativas entre productos. Las diferencias se indican en los puntos medios del artículo según corresponda. En algunos casos, el tema general de un artículo puede usarse en un producto, pero existen diferencias poco significativas entre productos. Las diferencias se indican en los puntos medios del artículo según corresponda. Por ejemplo, el artículo CREATE TRIGGER está disponible en SQL Database. No obstante, la opción **ALL SERVER** para desencadenadores de nivel de servidor indica que no se pueden usar desencadenadores de nivel de servidor en SQL Database. Use desencadenadores de nivel de base de datos en su lugar.
+En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. Por ejemplo, el artículo CREATE TRIGGER está disponible en SQL Database. No obstante, la opción **ALL SERVER** para desencadenadores de nivel de servidor indica que no se pueden usar desencadenadores de nivel de servidor en SQL Database. Use desencadenadores de nivel de base de datos en su lugar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

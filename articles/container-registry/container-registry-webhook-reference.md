@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331348"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referencia de webhook de Azure Container Registry
 
-También puede [configurar webhooks](container-registry-webhook.md) para el registro de contenedor que generan eventos cuando se realizan determinadas acciones en el mismo. Por ejemplo, habilitar webhooks que se desencadena cuando una imagen de contenedor o un gráfico de Helm se inserta en un registro o eliminado. Cuando se desencadena un webhook, Azure Container Registry emite una solicitud HTTP o HTTPS que contiene información sobre el evento a un punto de conexión que especifique. El punto de conexión, a continuación, puede procesar el webhook y actuar en consecuencia.
+También puede [configurar webhooks](container-registry-webhook.md) para el registro de contenedor que generan eventos cuando se realizan determinadas acciones en el mismo. Por ejemplo, habilite webhooks que se desencadenan cuando una imagen de contenedor o gráfico de Helm se inserta en un registro o se elimina. Cuando se desencadena un webhook, Azure Container Registry emite una solicitud HTTP o HTTPS que contiene información sobre el evento a un punto de conexión que especifique. El punto de conexión, a continuación, puede procesar el webhook y actuar en consecuencia.
 
 Las secciones siguientes detallan el esquema de las solicitudes de webhook generadas por eventos compatibles. Las secciones de evento contienen el esquema de carga para el tipo de evento, una carga de solicitud de ejemplo y uno o más comandos de ejemplo que desencadenarán el webhook.
 
@@ -42,31 +42,31 @@ Webhook que se desencadena cuando se inserta una imagen de contenedor en un repo
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|String|El identificador del evento de webhook.|
-|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|String|La acción que desencadenó el evento de webhook.|
+|`id`|Cadena|El identificador del evento de webhook.|
+|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`action`|Cadena|La acción que desencadenó el evento de webhook.|
 |[Destino](#target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
-### <a name="target"></a>Destino
+### <a name="target"></a>destino
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
+|`mediaType`|Cadena|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido. Igual que el campo de longitud.|
-|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`digest`|Cadena|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
 |`length`|Int32|El número de bytes del contenido. Igual que el campo de tamaño.|
-|`repository`|String|El nombre del repositorio.|
-|`tag`|String|El nombre de etiqueta de imagen.|
+|`repository`|Cadena|El nombre del repositorio.|
+|`tag`|Cadena|El nombre de etiqueta de imagen.|
 
-### <a name="request"></a>request
+### <a name="request"></a>solicitud
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`id`|String|El identificador de la solicitud que inició el evento.|
-|`host`|String|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
-|`method`|String|El método de la solicitud que generó el evento.|
-|`useragent`|String|El encabezado de agente de usuario de la solicitud.|
+|`id`|Cadena|El identificador de la solicitud que inició el evento.|
+|`host`|Cadena|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
+|`method`|Cadena|El método de la solicitud que generó el evento.|
+|`useragent`|Cadena|El encabezado de agente de usuario de la solicitud.|
 
 ### <a name="payload-example-image-push-event"></a>Ejemplo de carga: evento de inserción de imagen
 
@@ -92,7 +92,7 @@ Webhook que se desencadena cuando se inserta una imagen de contenedor en un repo
 }
 ```
 
-Ejemplo [CLI de Docker](https://docs.docker.com/engine/reference/commandline/cli/) comando que desencadena la imagen **inserción** webhook del evento:
+Comando de la [CLI de Docker](https://docs.docker.com/engine/reference/commandline/cli/) de ejemplo que desencadena el webhook del evento de **inserción** de imagen:
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
@@ -100,30 +100,30 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ## <a name="chart-push-event"></a>Evento de inserción de gráfico
 
-Se desencadena cuando se inserta un gráfico de Helm en un repositorio de Webhook.
+Webhook que se desencadena cuando se inserta un gráfico de Helm en un repositorio.
 
 ### <a name="chart-push-event-payload"></a>Carga del evento de inserción de gráfico
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|String|El identificador del evento de webhook.|
-|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|String|La acción que desencadenó el evento de webhook.|
+|`id`|Cadena|El identificador del evento de webhook.|
+|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`action`|Cadena|La acción que desencadenó el evento de webhook.|
 |[Destino](#helm_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 
-### <a name="helm_target"></a>Destino
+### <a name="helm_target"></a>destino
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
+|`mediaType`|Cadena|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido.|
-|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
-|`repository`|String|El nombre del repositorio.|
-|`tag`|String|El nombre de etiqueta del gráfico.|
-|`name`|String|El nombre del gráfico.|
-|`version`|String|La versión del gráfico.|
+|`digest`|Cadena|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`repository`|Cadena|El nombre del repositorio.|
+|`tag`|Cadena|El nombre de la etiqueta del gráfico.|
+|`name`|Cadena|El nombre del gráfico.|
+|`version`|Cadena|La versión del gráfico.|
 
-### <a name="payload-example-chart-push-event"></a>Ejemplo de carga: evento de inserción de gráfico
+### <a name="payload-example-chart-push-event"></a>Ejemplo de carga: evento de inserción del gráfico
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Se desencadena cuando se inserta un gráfico de Helm en un repositorio de Webhoo
 }
 ```
 
-Ejemplo [CLI de Azure](/cli/azure/acr) comando que desencadena la **chart_push** webhook del evento:
+Comando de la [CLI de Azure](/cli/azure/acr) de ejemplo que desencadena el webhook del evento **chart_push**:
 
 ```azurecli
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
@@ -150,15 +150,15 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 
 ## <a name="delete-event"></a>Eliminar evento
 
-Webhook se desencadena cuando un repositorio de imágenes o se elimina el manifiesto. No se desencadena cuando se elimina una etiqueta.
+Webhook que se desencadena cuando se elimina un repositorio de imágenes o un manifiesto. No se desencadena cuando se elimina una etiqueta.
 
 ### <a name="delete-event-payload"></a>Carga del evento de eliminación
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|String|El identificador del evento de webhook.|
-|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|String|La acción que desencadenó el evento de webhook.|
+|`id`|Cadena|El identificador del evento de webhook.|
+|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`action`|Cadena|La acción que desencadenó el evento de webhook.|
 |[Destino](#delete_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#delete_request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
@@ -166,18 +166,18 @@ Webhook se desencadena cuando un repositorio de imágenes o se elimina el manifi
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
-|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
-|`repository`|String|El nombre del repositorio.|
+|`mediaType`|Cadena|El tipo MIME del objeto al que se hace referencia.|
+|`digest`|Cadena|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`repository`|Cadena|El nombre del repositorio.|
 
 ### <a name="delete_request"></a> solicitud
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`id`|String|El identificador de la solicitud que inició el evento.|
-|`host`|String|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
-|`method`|String|El método de la solicitud que generó el evento.|
-|`useragent`|String|El encabezado de agente de usuario de la solicitud.|
+|`id`|Cadena|El identificador de la solicitud que inició el evento.|
+|`host`|Cadena|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
+|`method`|Cadena|El método de la solicitud que generó el evento.|
+|`useragent`|Cadena|El encabezado de agente de usuario de la solicitud.|
 
 ### <a name="payload-example-image-delete-event"></a>Ejemplo de carga: evento de eliminación de imagen
 
@@ -210,32 +210,32 @@ az acr repository delete --name MyRegistry --repository MyRepository
 az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
-## <a name="chart-delete-event"></a>Evento de eliminación del gráfico
+## <a name="chart-delete-event"></a>Evento de eliminación de gráfico
 
-Webhook que se desencadena cuando se elimina un repositorio o un gráfico de Helm. 
+Webhook que se desencadena cuando se elimina un gráfico de Helm o un repositorio. 
 
 ### <a name="chart-delete-event-payload"></a>Carga del evento de eliminación de gráfico
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|String|El identificador del evento de webhook.|
-|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|String|La acción que desencadenó el evento de webhook.|
+|`id`|Cadena|El identificador del evento de webhook.|
+|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`action`|Cadena|La acción que desencadenó el evento de webhook.|
 |[Destino](#chart_delete_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 
 ### <a name="chart_delete_target"></a> destino
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
+|`mediaType`|Cadena|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido.|
-|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
-|`repository`|String|El nombre del repositorio.|
-|`tag`|String|El nombre de etiqueta del gráfico.|
-|`name`|String|El nombre del gráfico.|
-|`version`|String|La versión del gráfico.|
+|`digest`|Cadena|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`repository`|Cadena|El nombre del repositorio.|
+|`tag`|Cadena|El nombre de la etiqueta del gráfico.|
+|`name`|Cadena|El nombre del gráfico.|
+|`version`|Cadena|La versión del gráfico.|
 
-### <a name="payload-example-chart-delete-event"></a>Ejemplo de carga: evento de eliminación del gráfico
+### <a name="payload-example-chart-delete-event"></a>Ejemplo de carga: evento de eliminación de gráfico
 
 ```JSON
 {
@@ -254,7 +254,7 @@ Webhook que se desencadena cuando se elimina un repositorio o un gráfico de Hel
 }
 ```
 
-Ejemplo [CLI de Azure](/cli/azure/acr) comando que desencadena la **chart_delete** webhook del evento:
+Comando de la [CLI de Azure](/cli/azure/acr) de ejemplo que desencadena el webhook del evento **chart_delete**:
 
 ```azurecli
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry

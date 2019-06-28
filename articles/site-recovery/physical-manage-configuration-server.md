@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119737"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
@@ -79,7 +79,7 @@ La versión más reciente del archivo de instalación del servidor de configurac
 9. En **Ubicación de instalación**, seleccione dónde quiere instalar los archivos binarios y almacenar la memoria caché. La unidad que seleccione debe tener al menos 5 GB de espacio disponible en disco, pero se recomienda usar una unidad de memoria caché con 600 GB o más de espacio libre.
 
     ![Ubicación de instalación](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. En **selección de red**, primero seleccione la NIC que utiliza el servidor de procesos integrados para detectar y forzar la instalación de mobility service en máquinas de origen y, a continuación, seleccione la NIC que utiliza el servidor de configuración para la conectividad con Azure. El puerto 9443 es el que se usa de forma predeterminada para enviar y recibir el tráfico de replicación, pero puede modificar este número de puerto para adecuarlo a los requisitos de su entorno. Además del puerto 9443, también se abre el puerto 443 que un servidor web utiliza para coordinar las operaciones de replicación. No use el puerto 443 para enviar o recibir tráfico de replicación.
+10. En **Selección de red**, seleccione en primer lugar la NIC que utiliza el servidor de procesos integrados para la detección y la instalación de inserción del servicio de movilidad en los equipos de origen y, después, seleccione la NIC que usa el servidor de configuración para la conectividad con Azure. El puerto 9443 es el que se usa de forma predeterminada para enviar y recibir el tráfico de replicación, pero puede modificar este número de puerto para adecuarlo a los requisitos de su entorno. Además del puerto 9443, también se abre el puerto 443 que un servidor web utiliza para coordinar las operaciones de replicación. No use el puerto 443 para enviar o recibir tráfico de replicación.
 
     ![Selección de red](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -217,7 +217,7 @@ Se puede modificar la configuración de proxy para el equipo del servidor de con
 
 ## <a name="upgrade-a-configuration-server"></a>Actualización de un servidor de configuración
 
-Los paquetes acumulativos se ejecutan para actualizar el servidor de configuración. Las actualizaciones se pueden aplicar para hasta las versiones N-4. Por ejemplo: 
+Los paquetes acumulativos se ejecutan para actualizar el servidor de configuración. Las actualizaciones se pueden aplicar para hasta las versiones N-4. Por ejemplo:
 
 - Si ejecuta 9.7, 9.8, 9,9 o 9.10, puede actualizar directamente a 9.11.
 - Si ejecuta la versión 9.6 o anterior, y desea actualizar a 9.11, primero debe actualizar a la versión 9.7 antes de a la versión 9.11.
@@ -288,7 +288,7 @@ Actualice el servidor como se indica a continuación:
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> El **-forzar** opción en el Remove-AzSiteRecoveryFabric puede utilizarse para forzar la eliminación del servidor de configuración.
+> La opción **-Force** de Remove-AzSiteRecoveryFabric se puede usar para forzar la eliminación del servidor de configuración.
 
 ## <a name="renew-ssl-certificates"></a>Renovación de certificados SSL
 El servidor de configuración lleva integrado un servidor web, que coordina las actividades de Mobility Service, los servidores de procesos y los servidores de destino maestros conectados a él. El servidor web usa un certificado SSL para autenticar clientes. El certificado expira después de tres años y se puede renovar en cualquier momento.

@@ -16,10 +16,10 @@ ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555889"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
@@ -36,7 +36,7 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 ### <a name="api-is-more-approachable"></a>La API es más cercana
 
 *  v3 se basa en una superficie de API unificada que expone la funcionalidad de administración y operaciones creada en Azure Resource Manager. Las plantillas de Azure Resource Manager se pueden usar para crear e implementar transformaciones, puntos de conexión de streaming, Eventos en directo, etc.
-* [Especificación de OpenAPI (anteriormente denominado Swagger)](https://aka.ms/ams-v3-rest-sdk) documento.
+* Documento [Especificación OpenAPI (anteriormente denominada Swagger)](https://aka.ms/ams-v3-rest-sdk).
     Expone el esquema para todos los componentes de servicio, incluida la codificación basada en archivos.
 * Diferentes SDK disponibles para [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) y Ruby.
 * La integración de la [CLI de Azure](https://aka.ms/ams-v3-cli-ref) para la compatibilidad de scripting sencilla.
@@ -72,21 +72,21 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
     * Evento en directo reemplaza a Canal.<br/>La facturación de Eventos en directo se basa en los medidores de Canal en vivo. Para más información, consulte la [facturación](live-event-states-billing.md) y los [precios](https://azure.microsoft.com/pricing/details/media-services/).
     * Salida en vivo reemplaza a Programa.
 * Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Los programas funcionaban de forma diferente en las API v2; deben iniciarse después de la creación.
-*  Para obtener información acerca de un trabajo, debe conocer el nombre de la transformación en la que se creó el trabajo. 
+*  Para obtener información sobre un trabajo, debe conocer el nombre de la transformación en la que se ha creado dicho trabajo. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Carencias de características con respecto a las API v2
 
 La API v3 tiene las siguientes carencias de características con respecto a la API v2. El trabajo para la solución de deficiencias está en curso.
 
 * El [codificador premium](../previous/media-services-premium-workflow-encoder-formats.md) y los [procesadores de análisis multimedia](../previous/media-services-analytics-overview.md) heredados (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) no son accesibles mediante v3.<br/>Los clientes que deseen migrar de Media Indexer 1 o 2 Preview pueden usar inmediatamente el valor preestablecido de AudioAnalyzer en la API v3.  Este valor preestablecido nuevo contiene más características que la instancia anterior de Media Indexer 1 o 2. 
-* Muchos de los [características avanzadas del Codificador multimedia estándar en la versión 2](../previous/media-services-advanced-encoding-with-mes.md) API actualmente no están disponibles en v3, tales como:
+* Muchas de las [características avanzadas de Media Encoder Standard de las API v2](../previous/media-services-advanced-encoding-with-mes.md) actualmente no están disponibles en v3, como:
     * Recorte (para escenarios en directo y a petición)
     * Unión de recursos
     * Superposiciones
     * Recorte
     * Sprites de miniaturas
-    * Insertar una pista de audio silenciosa cuando la entrada no tiene audio
-    * Insertar una pista de vídeo cuando la entrada no tiene ningún vídeo
+    * Inserción de una pista de audio silenciosa cuando la entrada no tiene audio
+    * Inserción de una pista de vídeo cuando la entrada no tiene vídeo
 * Los Eventos en directo con transcodificación actualmente no admiten la inserción de careta durante la transmisión y la inserción de anuncios mediante la llamada API. 
 
 > [!NOTE]
@@ -101,7 +101,7 @@ En la tabla siguiente se muestran las diferencias de código entre v2 y v3 para 
 |Crear un recurso y cargar un archivo |[Ejemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[Ejemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Enviar un trabajo|[Ejemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[Ejemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Se explica cómo crear una transformación y después enviar un trabajo.|
 |Publicar un recurso con cifrado AES |1. Crear ContentKeyAuthorizationPolicyOption<br/>2. Crear ContentKeyAuthorizationPolicy<br/>3. Crear AssetDeliveryPolicy<br/>4. Crear Asset y cargar contenido o enviar trabajo y usar el recurso de salida<br/>5. Asociar AssetDeliveryPolicy con Asset<br/>6. Crear ContentKey<br/>7. Adjuntar ContentKey a Asset<br/>8. Crear AccessPolicy<br/>9. Crear Locator<br/><br/>[Ejemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Crear ContentKeyPolicy<br/>2. Crear Asset<br/>3. Cargar contenido o usar Asset como JobOutput<br/>4. Creación de un localizador de streaming<br/><br/>[Ejemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
-|Obtener detalles del trabajo y administrar trabajos |[Administrar los trabajos con v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Administrar los trabajos con v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
+|Obtener detalles de un trabajo y administrar trabajos |[Administrar trabajos con v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Administrar trabajos con v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemas conocidos
 

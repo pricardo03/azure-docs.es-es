@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 095e66c6c5f75a27b1f0231dfe8cabfd4d741d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205173"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets de PowerShell y API de REST para SQL Data Warehouse
@@ -38,7 +38,7 @@ Pausa una base de datos denominada "Database02" que está hospedada en un servid
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Este ejemplo de una variación, canaliza el objeto recuperado a [Suspend AzSqlDatabase][Suspend-AzSqlDatabase].  El resultado es que se pausa la base de datos. El comando final muestra los resultados.
+Este ejemplo, que es una variación, canaliza el objeto recuperado a [Suspend-AzSqlDatabase][Suspend-AzSqlDatabase].  El resultado es que se pausa la base de datos. El comando final muestra los resultados.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -53,7 +53,7 @@ Reanuda el funcionamiento de una base de datos denominada "Database02" que está
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Este ejemplo, que es una variación, recupera una base de datos denominada "Database02" desde un servidor cuyo nombre es "Server01" que está incluido en un grupo de recursos denominado "ResourceGroup1". Canaliza el objeto recuperado a [reanudar AzSqlDatabase][Resume-AzSqlDatabase].
+Este ejemplo, que es una variación, recupera una base de datos denominada "Database02" desde un servidor cuyo nombre es "Server01" que está incluido en un grupo de recursos denominado "ResourceGroup1". Canaliza el objeto recuperado a [Resume-AzSqlDatabase][Resume-AzSqlDatabase].
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"

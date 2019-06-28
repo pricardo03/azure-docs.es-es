@@ -11,15 +11,15 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540860"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento
 
-La búsqueda cognitiva extrae y enriquece datos para que se puedan buscar en Azure Search. A los pasos de extracción y enriquecimiento los denominamos *aptitudes cognitivas*, combinadas en un *conjunto de aptitudes* al que se hace referencia durante la indexación. Puede usar un conjunto de habilidades [habilidades integrados](cognitive-search-predefined-skills.md) o habilidades personalizadas (consulte [ejemplo: crear una aptitud personalizada](cognitive-search-create-custom-skill-example.md) para obtener más información).
+La búsqueda cognitiva extrae y enriquece datos para que se puedan buscar en Azure Search. A los pasos de extracción y enriquecimiento los denominamos *aptitudes cognitivas*, combinadas en un *conjunto de aptitudes* al que se hace referencia durante la indexación. Un conjunto de aptitudes puede usar [aptitudes integradas](cognitive-search-predefined-skills.md) o aptitudes personalizadas (vea [Ejemplo: crear una aptitud personalizada](cognitive-search-create-custom-skill-example.md) para obtener más información).
 
 En este artículo aprenderá a crear una canalización de enriquecimiento para las aptitudes que desee utilizar. Se adjunta un conjunto de aptitudes a un [indexador](search-indexer-overview.md) de Azure Search. Una parte del diseño de canalización, que se trata en este artículo, es la construcción del propio conjunto de aptitudes. 
 
@@ -138,11 +138,11 @@ Al crear un conjunto de aptitudes, puede proporcionar una descripción para que 
 }
 ```
 
-La siguiente parte del conjunto de aptitudes es una matriz de aptitudes. Cada aptitud se puede considerar como un tipo primitivo de enriquecimiento. Cada aptitud realiza una tarea pequeña en esta canalización de enriquecimiento. Cada una de ellas toma una entrada (o un conjunto de entradas) y devuelve algunas salidas. Las secciones siguientes se centran en cómo especificar habilidades integrados y personalizados, encadenar conocimientos a través de referencias de entrada y salidas. Las entradas pueden proceder de datos de origen o de otra aptitud. Las salidas se pueden asignar a un campo en un índice de búsqueda o utilizarse como entrada para una aptitud de bajada.
+La siguiente parte del conjunto de aptitudes es una matriz de aptitudes. Cada aptitud se puede considerar como un tipo primitivo de enriquecimiento. Cada aptitud realiza una tarea pequeña en esta canalización de enriquecimiento. Cada una de ellas toma una entrada (o un conjunto de entradas) y devuelve algunas salidas. Las siguientes secciones se centran en cómo especificar aptitudes integradas y personalizadas al encadenar aptitudes mediante referencias de entrada y salida. Las entradas pueden proceder de datos de origen o de otra aptitud. Las salidas se pueden asignar a un campo en un índice de búsqueda o utilizarse como entrada para una aptitud de bajada.
 
-## <a name="add-built-in-skills"></a>Agregue las aptitudes integrados
+## <a name="add-built-in-skills"></a>Agregar aptitudes integradas
 
-Echemos un vistazo a la primera aptitud, que está integrado [habilidad de reconocimiento de entidades](cognitive-search-skill-entity-recognition.md):
+Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) integrada:
 
 ```json
     {
@@ -165,11 +165,11 @@ Echemos un vistazo a la primera aptitud, que está integrado [habilidad de recon
     }
 ```
 
-* Cada aptitud integrada tiene `odata.type`, `input`, y `output` propiedades. Las propiedades específicas de la aptitud proporcionan información adicional aplicable a dicha aptitud. Para el reconocimiento de entidades, `categories` es una entidad entre un conjunto fijo de tipos de entidad que el modelo previamente entrenado puede reconocer.
+* Cada aptitud integrada tiene las propiedades `odata.type`, `input` y `output`. Las propiedades específicas de la aptitud proporcionan información adicional aplicable a dicha aptitud. Para el reconocimiento de entidades, `categories` es una entidad entre un conjunto fijo de tipos de entidad que el modelo previamente entrenado puede reconocer.
 
-* Cada aptitud debe tener un ```"context"```. El contexto representa el nivel en el que tienen lugar las operaciones. En la aptitud anterior, el contexto es el documento completo, lo que significa que la habilidad de reconocimiento de entidades se llama una vez por documento. Las salidas también se producen en ese nivel. Más específicamente, ```"organizations"``` se generan como un miembro de ```"/document"```. En las aptitudes de bajada, puede hacer referencia a esta información recién creada como ```"/document/organizations"```.  Si el campo ```"context"``` no se establece explícitamente, el contexto predeterminado es el documento.
+* Cada aptitud debe tener un ```"context"```. El contexto representa el nivel en el que tienen lugar las operaciones. En la aptitud anterior, el contexto es todo el documento, lo que significa que a la aptitud de reconocimiento de entidades se la llama una vez por documento. Las salidas también se producen en ese nivel. Más específicamente, ```"organizations"``` se generan como un miembro de ```"/document"```. En las aptitudes de bajada, puede hacer referencia a esta información recién creada como ```"/document/organizations"```.  Si el campo ```"context"``` no se establece explícitamente, el contexto predeterminado es el documento.
 
-* La aptitud tiene una entrada denominada "text", con una entrada de origen establecida en ```"/document/content"```. La aptitud (reconocimiento de entidades) que opera en el *contenido* campo de cada documento, que es un campo estándar creados por el indexador de blobs de Azure. 
+* La aptitud tiene una entrada denominada "text", con una entrada de origen establecida en ```"/document/content"```. La aptitud (reconocimiento de entidades) funciona en el campo *content* de cada documento, que es un campo estándar creado por el indizador de blobs de Azure. 
 
 * La aptitud tiene una salida denominada ```"organizations"```. Salidas existen únicamente durante el procesamiento. Para encadenar esta salida a la entrada de una aptitud de bajada, haga referencia a la salida como ```"/document/organizations"```.
 
@@ -229,15 +229,15 @@ Recupere la estructura del enriquecedor de Entity Search de Bing personalizado:
     }
 ```
 
-Esta definición es una [aptitud personalizada](cognitive-search-custom-skill-web-api.md) que llama a una API web como parte del proceso de enriquecimiento. Para cada organización identificada por el reconocimiento de entidades, este aptitud llama a una API web para buscar la descripción de la organización. La orquestación de cuándo llamar a la API web y cómo pasar la información recibida se controla internamente mediante el motor de enriquecimiento. Sin embargo, se debe proporcionar la inicialización necesaria para llamar a esta API personalizada en JSON (por ejemplo, el identificador uri, httpHeaders y las entradas esperadas). Para obtener instrucciones para crear una API web personalizada para la canalización de enriquecimiento, consulte [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz personalizada).
+Esta definición es una [aptitud personalizada](cognitive-search-custom-skill-web-api.md) que llama a una API web como parte del proceso de enriquecimiento. En cada organización identificada por el reconocimiento de entidades, esta aptitud llama a una API web para encontrar la descripción de esa organización. La orquestación de cuándo llamar a la API web y cómo pasar la información recibida se controla internamente mediante el motor de enriquecimiento. Sin embargo, se debe proporcionar la inicialización necesaria para llamar a esta API personalizada en JSON (por ejemplo, el identificador uri, httpHeaders y las entradas esperadas). Para obtener instrucciones para crear una API web personalizada para la canalización de enriquecimiento, consulte [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz personalizada).
 
 Tenga en cuenta que el campo "context" está establecido en ```"/document/organizations/*"``` con un asterisco, lo que significa que se llama al paso de enriquecimiento *para cada* organización bajo ```"/document/organizations"```. 
 
 La salida, en este caso una descripción de la compañía, se genera para cada organización identificada. Cuando se hace referencia a la descripción en un paso de bajada (por ejemplo, en la extracción de frases clave), se usaría la ruta de acceso ```"/document/organizations/*/description"``` para hacerlo. 
 
-## <a name="add-structure"></a>Agregue estructura
+## <a name="add-structure"></a>Agregar estructura
 
-El conjunto de aptitudes genera información estructurada a partir de datos no estructurados. Considere el ejemplo siguiente:
+El conjunto de aptitudes genera información estructurada a partir de datos no estructurados. Considere el siguiente ejemplo:
 
 *"En el cuarto trimestre, Microsoft registró unos ingresos por valor de 1100 millones de dólares de LinkedIn, la compañía de red social que compró el año pasado. La adquisición permite a Microsoft combinar las funcionalidades de LinkedIn con su CRM y funcionalidades de Office. Los accionistas están satisfechos con el progreso hasta ahora.".*
 
@@ -245,13 +245,13 @@ Una salida probable sería una estructura generada similar a la siguiente ilustr
 
 ![Estructura de salida de ejemplo](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
 
-Hasta ahora, ha sido esta estructura solo para uso interno, sólo en memoria y sólo se utilizan en los índices de búsqueda de Azure. La adición de un almacén de información proporciona una manera de guardar enriquecimientos de forma para su uso fuera de la búsqueda.
+Hasta ahora, esta estructura ha sido solo de uso interno y solo de memoria, además de emplearse exclusivamente en índices de Azure Search. La adición de un almacén de conocimiento proporciona una manera de guardar enriquecimientos con forma para su uso más allá de la búsqueda.
 
 ## <a name="add-a-knowledge-store"></a>Agregar un almacén de conocimiento
 
-[Almacén de conocimiento](knowledge-store-concept-intro.md) es una característica de vista previa de Azure Search para guardar el documento enriquecido. Un almacén de conocimiento que cree, respaldado por una cuenta de almacenamiento de Azure, es el repositorio donde llega los datos enriquecidos. 
+El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica en vista previa de Azure Search para guardar el documento enriquecido. Un almacén de conocimiento que se crea, respaldado por una cuenta de Azure Storage, es el repositorio donde se colocan los datos enriquecidos. 
 
-Se agrega una definición de la tienda de conocimiento a un conjunto de habilidades. Para ver un tutorial de todo el proceso, consulte [cómo empezar a trabajar con el almacén de conocimiento](knowledge-store-howto.md).
+Una definición de almacén de conocimiento se agrega a un conjunto de aptitudes. Para obtener un tutorial de todo el proceso, vea [Introducción a Knowledge Store](knowledge-store-howto.md).
 
 ```json
 "knowledgeStore": {
@@ -273,7 +273,7 @@ Se agrega una definición de la tienda de conocimiento a un conjunto de habilida
 }
 ```
 
-Puede elegir guardar los documentos enriquecidos como tablas con relaciones jerárquicas conservadas o como documentos JSON en blob storage. Salida de cualquiera de las habilidades en el conjunto de habilidades puede proceder como entrada para la proyección. Si desea para proyectar los datos en una determinada forma, la actualización [aptitud conformador](cognitive-search-skill-shaper.md) ahora se puede modelar tipos complejos para su uso. 
+Puede optar por guardar los documentos enriquecidos como tablas con relaciones jerárquicas conservadas o como documentos JSON en Blob Storage. La salida de cualquiera de las aptitudes del conjunto de aptitudes puede servir como entrada de la proyección. Si quiere proyectar los datos en una determinada forma, la [aptitud Conformador](cognitive-search-skill-shaper.md) actualizada ahora puede modelar tipos complejos para su uso. 
 
 <a name="next-step"></a>
 

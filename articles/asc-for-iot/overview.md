@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es Azure Security Center para la versión preliminar de IoT | Microsoft Docs
-description: Obtenga información sobre Azure Security Center para el servicio y las características de IoT.
+title: Qué es Azure Security Center for IoT, versión preliminar | Microsoft Docs
+description: Obtenga información sobre las características y el servicio Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
 ms.openlocfilehash: 7efe32039f926ea9b5be3c24fa967dede72cd081
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192511"
 ---
-# <a name="introducing-azure-security-center-for-iot"></a>Introducción a Azure Security Center para IoT
+# <a name="introducing-azure-security-center-for-iot"></a>Presentación de Azure Security Center for IoT
 
 > [!IMPORTANT]
 > Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="secure-your-azure-iot-solution"></a>Proteger la solución de IoT de Azure 
+## <a name="secure-your-azure-iot-solution"></a>Proteger la solución de Azure IoT 
 
-Unificar la administración de seguridad y facilitar el análisis de amenazas de extremo a extremo y la protección en cargas de trabajo de nube híbrida y la solución de IoT de Azure. 
+Unifique la administración de seguridad y habilite la protección y los análisis de amenazas integrales en todas las cargas de trabajo de nube híbrida y en la solución de Azure IoT. 
 
-## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>Proteger IoT híbrida en la nube cargas de trabajo y frente a las cambiantes de ataques cibernéticos
+## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>Proteger IoT y las cargas de trabajo en la nube híbrida de ciberataques cambiantes
 
-Internet de las cosas rápidamente está transformando el mundo. Con la capacidad para desvelar datos detallados de los sistemas de back-end y dispositivos conectados, ahora puede transformar esa información en las aplicaciones y servicios eficaces para ayudar a su organización lograr niveles sin precedentes de funcionamiento y rendimiento de la empresa. Sin embargo, ya que miles de millones de nuevos dispositivos están conectados a internet e integradas en nuestra vida diaria y nuestras empresas; los equipos de operaciones de seguridad deben asegurarse de que sus estrategias de seguridad evolucionan con la rapidez suficiente para cubrir estas superficies de ataque de nuevo. Al igual que cualquier otro sistema, proteger la solución de IoT necesita protección en cada etapa de su implementación. 
+Internet de las cosas está transformando el mundo a gran velocidad. Si tiene capacidad para descubrir información de sus sistemas de backend y dispositivos conectados, ahora puede transformarla en aplicaciones y servicios eficaces que ayuden a su organización a alcanzar niveles de rendimiento operacional y comercial sin precedentes. Pero con los miles de millones de nuevos dispositivos conectados a Internet e integrados en nuestra vida diaria y en el ámbito laboral, los equipos de operaciones de seguridad deben asegurarse de que las estrategias de seguridad evolucionan con la rapidez suficiente como para cubrir estas nuevas superficies de ataque. Al igual que cualquier otro sistema, la solución de IoT necesita protección en cada etapa de su implementación. 
 
-Azure Security Center (ASC) para IoT simplifica la protección de cargas de trabajo híbridas ofreciendo visibilidad unificados y control, prevención de amenazas adaptable y detección de amenazas inteligente y respuesta a través de las cargas de trabajo que se ejecutan en el perímetro, de forma local en Azure y en otras nubes. 
+Azure Security Center (ASC) for IoT simplifica la protección de las cargas de trabajo híbridas al ofrecer una visibilidad y un control unificados, una prevención de amenazas adaptable y una detección y respuesta a amenazas inteligentes en todas las cargas de trabajo que se ejecutan en el perímetro, de forma local, en Azure y en otras nubes. 
 
-![ASC para arquitectura de IoT](./media/architecture/asc-for-iot-architecture.png)
+![Arquitectura de ASC for IoT](./media/architecture/asc-for-iot-architecture.png)
 
 ### <a name="unified-visibility-and-control"></a>Control y visibilidad unificados
 
-Obtenga una vista unificada de seguridad en todos los locales y en la nube cargas de trabajo, incluida la solución de IoT de Azure. Detectar automáticamente e incorporarlos nuevos dispositivos y aplicar directivas de seguridad a través de las cargas de trabajo (los dispositivos de hoja, dispositivos perimetrales, IOT Hub) para garantizar el cumplimiento con estándares de seguridad.
+Obtenga una vista unificada de la seguridad de todas las cargas de trabajo locales y en la nube, incluida la solución de Azure IoT. Detecte e incorpore automáticamente nuevos dispositivos y aplique directivas de seguridad a las cargas de trabajo (dispositivos Leaf, Edge e IOT Hub) para asegurar el cumplimiento de estándares de seguridad.
 
 ### <a name="adaptive-threat-prevention"></a>Prevención de amenazas adaptable
 
-Utilice ASC para IoT para supervisar continuamente la seguridad de máquinas, redes y servicios de Azure, incluido su solución de IoT de Azure desde dispositivos perimetrales a las aplicaciones. Puede elegir usar entre cientos de evaluaciones de seguridad integradas o crear los suyos propios en la central ASC para el panel del centro de IoT. Optimizar la configuración de seguridad y mejorar la calificación de seguridad con recomendaciones útiles a través de las máquinas virtuales, redes, aplicaciones y datos. Con las funcionalidades de IoT recién agregadas, ahora puede reducir la superficie de ataque para la solución de IoT de Azure y corregir problemas antes de que puedan ser usadas.
+Use ASC for IoT para supervisar constantemente la seguridad de los dispositivos IoT, las máquinas, las redes y los servicios de Azure (incluida la solución de Azure IoT) desde los dispositivos perimetrales hasta las aplicaciones. Puede elegir entre cientos de valoraciones de seguridad integradas, o bien crear las suyas propias en el panel central de ASC for IoT Hub. Optimice la configuración de seguridad y mejore su puntuación de seguridad con recomendaciones que le ayudarán a tomar medidas en las máquinas virtuales, las redes, las aplicaciones y los datos. Con la funcionalidad de IoT recién agregada, ya puede reducir el área expuesta a ataques en la solución de Azure IoT y solucionar los problemas antes de que los puedan aprovechar con un fin malintencionado.
 
-### <a name="intelligent-threat-detection-and-response"></a>Detección de amenazas inteligente y respuesta
+### <a name="intelligent-threat-detection-and-response"></a>Detección y respuesta inteligentes a amenazas
 
-Use análisis avanzado y Microsoft Intelligent Security Graph para adelantarse evolucionando a ciberataques. Análisis de comportamiento integrado y el aprendizaje automático identifican ataques y vulnerabilidades de día cero. Supervisar la solución de IoT para detectar ataques entrantes y posterior a la brecha de actividad. Optimizar dispositivos investigación y corrección con herramientas interactivas e inteligencia de amenazas contextual.
+Use análisis avanzados y el gráfico de seguridad inteligente de Microsoft para adelantarse a los ciberataques en constante cambio. La funcionalidad integrada de análisis del comportamiento y aprendizaje automático identifica ataques y vulnerabilidades de seguridad de día cero. Supervise la solución de IoT para detectar ataques entrantes y actividades posteriores a una infracción de seguridad. Optimice la investigación y la corrección de dispositivos con herramientas interactivas e inteligencia de amenazas contextual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta introducción, ha aprendido acerca de las características y servicios de ASC para IoT. Para obtener más información sobre procesos de ASC para arquitectura de IoT, los requisitos previos y obtenga información sobre cómo empezar a trabajar, consulte los artículos siguientes:
+En esta introducción, ha conocido las características y servicios de ASC for IoT. Para obtener más información sobre la arquitectura y los requisitos previos de ASC for IoT y saber cómo comenzar a usarlo, vea los artículos siguientes:
 
 - [Architecture](architecture.md)
-- [Requisitos previos del servicio](service-prerequisites.md)
+- [Requisitos previos de servicios](service-prerequisites.md)
 - [Introducción](getting-started.md)
-- [Definir la solución](quickstart-configure-your-solution.md)
-- [ASC para IoT preguntas más frecuentes](resources-frequently-asked-questions.md)
-- [ASC para las alertas de IoT](concept-security-alerts.md)
+- [Define your solution](quickstart-configure-your-solution.md) (Definir la solución)
+- [ASC for IoT FAQ](resources-frequently-asked-questions.md) (Preguntas más frecuentes sobre ASC for IoT)
+- [ASC for IoT alerts](concept-security-alerts.md) (Alertas de ASC for IoT)
 

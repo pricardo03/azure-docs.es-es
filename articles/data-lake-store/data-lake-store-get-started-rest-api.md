@@ -1,5 +1,5 @@
 ---
-title: 'API REST: Operaciones de administración en Azure Data Lake Storage Gen1 cuentas | Microsoft Docs'
+title: 'API REST: operaciones de administración de cuentas en Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Use Azure Data Lake Storage Gen1 y la API REST de WebHDFS para realizar operaciones de administración de cuentas en la cuenta de Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877118"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante API REST
@@ -32,7 +32,7 @@ En este artículo aprenderá a realizar operaciones de administración de cuenta
 ## <a name="prerequisites"></a>Requisitos previos
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](https://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)** . En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>¿Cómo se puede autenticar mediante Azure Active Directory?
 Puede usar dos enfoques para autenticar con Azure Active Directory.
@@ -74,7 +74,7 @@ Debe ver algo parecido al siguiente fragmento de código:
 ## <a name="next-steps"></a>Pasos siguientes
 * [Filesystem operations on Data Lake Storage Gen1 using REST API](data-lake-store-data-operations-rest-api.md) (Operaciones del sistema de archivos en Data Lake Storage Gen1 mediante la API REST).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Azure Data Lake Storage Gen1 REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/) (Referencia sobre la API de REST de Azure Data Lake Storage Gen1)
 * [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)
 

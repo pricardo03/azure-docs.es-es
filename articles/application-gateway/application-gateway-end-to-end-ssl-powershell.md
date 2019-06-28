@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
 ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729671"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
@@ -44,7 +44,7 @@ En este escenario:
 
 Para configurar SSL de un extremo a otro con una puerta de enlace de aplicaciones, hacen falta certificados para la puerta de enlace y los servidores back-end. El certificado de puerta de enlace se usa para derivar una clave simétrica según la especificación del protocolo SSL. A continuación, la clave simétrica se usa para cifrar y descifrar el tráfico que se envía a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico.
 
-Para el cifrado SSL de extremo a otro, se debe permitir explícitamente el back-end de la puerta de enlace de la aplicación. Cargue el certificado público de los servidores back-end en la puerta de enlace de aplicaciones. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esto protege aún más la comunicación de un extremo a otro.
+Para el cifrado SSL de un extremo a otro, la instancia de Application Gateway debe permitir el back-end de forma explícita. Cargue el certificado público de los servidores back-end en la puerta de enlace de aplicaciones. Al agregar el certificado, se garantiza que la puerta de enlace de aplicaciones solo se comunique con instancias back-end conocidas. Esto protege aún más la comunicación de un extremo a otro.
 
 El proceso de configuración se describe en las secciones siguientes.
 
@@ -231,9 +231,9 @@ Con todos los pasos anteriores, cree la puerta de enlace de aplicaciones. La cre
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Aplicar un certificado nuevo si ha caducado el certificado de back-end
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Aplicación de un certificado nuevo si el certificado de back-end ha caducado
 
-Utilice este procedimiento para aplicar un nuevo certificado si ha caducado el certificado de back-end.
+Use este procedimiento para aplicar un certificado nuevo si el certificado de back-end ha caducado.
 
 1. Recupere la puerta de enlace de aplicaciones que se actualizará.
 
@@ -241,33 +241,33 @@ Utilice este procedimiento para aplicar un nuevo certificado si ha caducado el c
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Agregue el nuevo recurso de certificado desde el archivo .cer, que contiene la clave pública del certificado y también puede ser el mismo certificado que se agrega al agente de escucha para la terminación SSL en application gateway.
+2. Agregue el nuevo recurso de certificado desde el archivo .cer, que contiene la clave pública del certificado y que también puede ser el mismo certificado que se agrega al agente de escucha para la terminación SSL en la instancia de Application Gateway.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
    ```
     
-3. Obtenga el nuevo objeto de certificado de autenticación en una variable (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+3. Incluya el nuevo objeto de certificado de autenticación en una variable (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
 
    ```powershell
    $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
    ```
  
- 4. Asignar el nuevo certificado en el **BackendHttp** configuración y hacer referencia a él con la variable $AuthCert. (Especifique el nombre de la configuración de HTTP que desea cambiar.)
+ 4. Asigne el nuevo certificado en el valor **BackendHttp** y hágale referencia con la variable $AuthCert. (Especifique el nombre del valor HTTP que quiere cambiar).
  
    ```powershell
    $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
    ```
     
- 5. Confirmar el cambio en la puerta de enlace de la aplicación y pasar la nueva configuración contenida en la variable $out.
+ 5. Confirme el cambio en la instancia de Application Gateway y pase la nueva configuración contenida en la variable $out.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw  
    ```
 
-## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Quitar un certificado expirado sin usar de la configuración de HTTP
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Eliminación de un certificado expirado sin usar de la configuración de HTTP
 
-Utilice este procedimiento para quitar un certificado expirado sin usar de la configuración de HTTP.
+Use este procedimiento para eliminar un certificado expirado sin usar de la configuración de HTTP.
 
 1. Recupere la puerta de enlace de aplicaciones que se actualizará.
 
@@ -275,19 +275,19 @@ Utilice este procedimiento para quitar un certificado expirado sin usar de la co
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Enumera el nombre del certificado de autenticación que desea quitar.
+2. Enumere el nombre del certificado de autenticación que quiera quitar.
 
    ```powershell
    Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
    ```
     
-3. Quite el certificado de autenticación de una puerta de enlace de la aplicación.
+3. Quite el certificado de autenticación de una instancia de Application Gateway.
 
    ```powershell
    $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
    ```
  
- 4. Confirmar el cambio.
+ 4. Confirme el cambio.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw

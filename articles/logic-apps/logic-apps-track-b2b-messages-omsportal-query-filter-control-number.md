@@ -1,5 +1,5 @@
 ---
-title: 'Crear consultas de seguimiento de mensajes B2B en registros de Azure Monitor: Azure Logic Apps | Microsoft Docs'
+title: 'Creación de consultas de seguimiento de mensajes B2B en registros de Azure Monitor: Azure Logic Apps | Microsoft Docs'
 description: Creación de consultas que realizan el seguimiento de mensajes AS2, X12 y EDIFACT en Azure Log Analytics para Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -10,15 +10,15 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846620"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Crear consultas de seguimiento de mensajes B2B en registros de Azure Monitor para Azure Logic Apps
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Creación de consultas de seguimiento de mensajes B2B en registros de Azure Monitor para Azure Logic Apps
 
-Para buscar AS2, X12 o EDIFACT mensajes de seguimiento con [registros de Azure Monitor](../log-analytics/log-analytics-overview.md), puede crear consultas que filtren las acciones según criterios específicos. Por ejemplo, puede encontrar mensajes según un número de control de intercambio específico.
+Para encontrar los mensajes AS2, X12 o EDIFACT en seguimiento con [registros de Azure Monitor](../log-analytics/log-analytics-overview.md), puede crear consultas que filtren las acciones según criterios específicos. Por ejemplo, puede encontrar mensajes según un número de control de intercambio específico.
 
 > [!NOTE]
 > En esta página ya se describieron los pasos para realizar estas tareas con Microsoft Operations Management Suite (OMS), que [se retirará en enero de 2019](../azure-monitor/platform/oms-portal-transition.md). Reemplace esos pasos por Azure Log Analytics. 
@@ -31,7 +31,7 @@ Para buscar AS2, X12 o EDIFACT mensajes de seguimiento con [registros de Azure M
 
 * Una cuenta de integración configurada con supervisión y registro. Obtenga información sobre [cómo crear una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) y [cómo configurar la supervisión y el registro de esa cuenta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Si no lo ha hecho ya, [publicar datos de diagnóstico a los registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) y [configurado en Azure Monitor registros de seguimiento de mensajes](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Si aún no lo ha hecho, [publique datos de diagnóstico para registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) y [establezca el seguimiento de mensajes en los registros de Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="create-queries-with-filters"></a>Creación de consultas con filtros
 
@@ -84,9 +84,9 @@ Para buscar mensajes según determinadas propiedades o valores, puede crear cons
 
 ## <a name="save-query"></a>Guardar consulta
 
-Para guardar la consulta en la vista **Registros (clásico)**, siga estos pasos:
+Para guardar la consulta en la vista **Registros (clásico)** , siga estos pasos:
 
-1. En la consulta de la página **Registros (clásico)**, elija **Analytics**. 
+1. En la consulta de la página **Registros (clásico)** , elija **Analytics**. 
 
    ![Elegir "Analytics"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
 

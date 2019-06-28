@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156652"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
@@ -34,7 +34,7 @@ El tutorial de este artículo usa una base de datos de Azure SQL que hospeda el 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
 Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Debe usar Data Factory versión 1 para crear un entorno de ejecución de integración SSIS de Azure. 
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 En esta sección, se usa Azure Portal para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
@@ -194,7 +194,7 @@ El siguiente procedimiento detalla los pasos para crear una factoría de datos. 
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Para crear la factoría de datos, ejecute el siguiente **New AzDataFactory** cmdlet, mediante las propiedades ResourceGroupName y Location de la variable $ResGrp: 
+5. Para crear la factoría de datos, ejecute el siguiente cmdlet **New-AzDataFactory** con las propiedades ResourceGroupName y Location de la variable $ResGrp: 
     
     ```powershell       
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
@@ -254,7 +254,7 @@ Este conjunto de datos de salida es un conjunto de datos ficticio que controla l
         }
     }
     ```
-2. Ejecute el **New AzDataFactoryDataset** para crear un conjunto de datos. 
+2. Ejecute el cmdlet **New-AzDataFactoryDataset** para crear un conjunto de datos. 
 
     ```powershell
     New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
@@ -296,7 +296,7 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
     }    
     ```
 
-2. Para crear la canalización: **RunSSISPackagePipeline**, ejecute el **New AzDataFactoryPipeline** cmdlet.
+2. Para crear la canalización: **RunSSISPackagePipeline**, ejecute el cmdlet **New-AzDataFactoryPipeline**.
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -304,13 +304,13 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
 
 ### <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
-1. Ejecute **Get AzDataFactorySlice** para obtener información sobre todos los segmentos de la salida conjunto de datos **, que es la tabla de salida de la canalización.
+1. Ejecute **Get-AzDataFactorySlice** para obtener detalles sobre todos los segmentos del conjunto de datos de salida**, que es la tabla de salida de la canalización.
 
     ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Observe que la StartDateTime que especifique aquí es la misma hora de inicio especificada en el JSON de la canalización. 
-1. Ejecute **Get AzDataFactoryRun** para obtener los detalles de actividad se ejecuta para un segmento específico.
+1. Ejecute **Get-AzDataFactoryRun** para más información de las ejecuciones de actividad para un segmento específico.
 
     ```powershell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

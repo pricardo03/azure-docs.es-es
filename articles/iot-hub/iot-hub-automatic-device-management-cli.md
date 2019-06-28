@@ -1,6 +1,6 @@
 ---
-title: Administración automática de dispositivos a escala con el centro de IoT de Azure (CLI) | Microsoft Docs
-description: Utilice Administración automática de dispositivos de Azure IoT Hub para asignar una configuración a varios dispositivos de IoT
+title: Administración de dispositivos automática a escala con Azure IoT Hub (CLI)| Microsoft Docs
+description: Uso de la administración de dispositivos automática de Azure IoT Hub para asignar una configuración a varios dispositivos IoT
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322595"
 ---
-# <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Administración automática de dispositivos IoT a escala mediante la CLI de Azure
+# <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Administración de dispositivos IoT automática a escala con CLI de Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Administración automática de dispositivos en Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de flotas de dispositivo de gran tamaño. Administración automática de dispositivos, puede tener como destino un conjunto de dispositivos basándose en sus propiedades, definir una configuración deseada y, a continuación, permitir que IoT Hub actualice los dispositivos cuando estén dentro del ámbito. Esta actualización se realiza mediante un _configuración automática de dispositivos_, lo que permite resumir la finalización y cumplimiento, controlar combinaciones y conflictos y revertir las configuraciones en un enfoque por fases.
+La administración de dispositivos automática de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos. Con la administración de dispositivos automática, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración que se quiera y luego permitir que IoT Hub actualice los dispositivos cuando estén dentro del ámbito. Esta actualización se realiza mediante la _configuración automática de dispositivos_, lo que permite resumir la finalización y el cumplimiento, controlar combinaciones y conflictos e implementar las configuraciones por fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Funciona de la administración automática de dispositivos mediante la actualización de un conjunto de dispositivos gemelos con las propiedades deseadas y un resumen de la que se basa en el dispositivo gemelo reporting propiedades notificadas.  Introduce una nueva clase y el documento JSON que llama a un *configuración* que tiene tres partes:
+La administración de dispositivos automática funciona mediante la actualización de un conjunto de dispositivos gemelos con las propiedades que se quieren y con la creación de informes de un resumen basado en las propiedades notificadas de los dispositivos gemelos.  Presenta una nueva clase y documento JSON, llamado *Configuración*, que tiene tres partes:
 
 * La **condición de destino** define el ámbito de los dispositivos gemelos que se van a actualizar. La condición de destino se especifica como una consulta de las propiedades notificadas o de las etiquetas de los dispositivos gemelos.
 
 * El **contenido de destino** define las propiedades deseadas que se van a agregar o actualizar en los dispositivos gemelos de destino. El contenido incluye una ruta de acceso a la sección de las propiedades que desea cambiar.
 
-* Las **métricas** definen el número de resúmenes de los distintos estados de configuración, como **Correcto**, **En curso** y **Error**. Las métricas personalizadas se especifican como consultas de las propiedades notificadas de los dispositivos gemelos.  Las métricas del sistema son las métricas predeterminadas que miden el estado de actualización gemelos, como el número de dispositivos gemelos que tienen como destino y el número de dispositivos gemelos que se han actualizado correctamente. 
+* Las **métricas** definen el número de resúmenes de los distintos estados de configuración, como **Correcto**, **En curso** y **Error**. Las métricas personalizadas se especifican como consultas de las propiedades notificadas de los dispositivos gemelos.  Las métricas del sistema son las métricas predeterminadas que miden el estado de los gemelos, como el número de dispositivos gemelos de destino y el número de gemelos que se han actualizado correctamente. 
 
 ## <a name="cli-prerequisites"></a>Requisitos previos de la CLI
 
@@ -43,7 +43,7 @@ Las configuraciones automáticas de dispositivos requieren el uso de dispositivo
 
 ## <a name="identify-devices-using-tags"></a>Identificación de dispositivos mediante etiquetas
 
-Antes de crear una configuración, debe especificar qué dispositivos desea afectar. Azure IoT Hub identifica los dispositivos mediante etiquetas en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
+Antes de crear una configuración tiene que especificar a qué dispositivos quiere que afecte esta configuración. Azure IoT Hub identifica los dispositivos mediante etiquetas en el dispositivo gemelo. Cada dispositivo puede tener varias etiquetas y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
 
 ```json
 "tags": {
@@ -56,7 +56,7 @@ Antes de crear una configuración, debe especificar qué dispositivos desea afec
 
 ## <a name="define-the-target-content-and-metrics"></a>Definir el contenido de destino y las métricas
 
-El contenido de destino y métrica de las consultas se especifican como documentos JSON que describen el dispositivo gemelo propiedades deseadas para el conjunto y las propiedades notificadas para medir.  Para crear una configuración automática de dispositivos mediante la CLI de Azure, guarde el contenido y las métricas de destino de forma local como archivos .txt. Utilice las rutas de acceso de archivo en una sección posterior al ejecutar el comando para aplicar la configuración en el dispositivo. 
+El contenido de destino y las consultas de métricas se especifican como documentos JSON que describen las propiedades del dispositivo gemelo que quiere establecer y las propiedades notificadas que se van a medir.  Para crear una configuración automática de dispositivos mediante la CLI de Azure, guarde el contenido y las métricas de destino de forma local como archivos .txt. Usará las rutas de acceso de los archivos en una sección posterior en la que ejecutará el comando para aplicar la configuración al dispositivo. 
 
 Aquí tiene un ejemplo de contenido de destino básico:
 
@@ -109,7 +109,7 @@ Use el comando siguiente para crear una configuración:
 
 * --**priority**: debe ser un entero positivo. En el caso de que dos o más configuraciones se destinen al mismo dispositivo, se aplicará la configuración que tenga el mayor valor numérico, según la prioridad.
 
-* --**metrics**: ruta de acceso de archivo a las consultas de métrica. Las métricas proporcionan el número de resúmenes de los diferentes Estados que un dispositivo puede notificar después de aplicar el contenido de la configuración. Por ejemplo, puede crear una métrica para los cambios de configuración pendientes, una métrica para los errores y una métrica para los cambios de configuración correctos. 
+* --**metrics**: ruta de acceso de archivo a las consultas de métrica. Las métricas proporcionan el número de resúmenes de los distintos estados que un dispositivo puede notificar después de aplicar el contenido de configuración. Por ejemplo, puede crear una métrica para los cambios de configuración pendientes, una métrica para los errores y una métrica para los cambios de configuración correctos. 
 
 ## <a name="monitor-a-configuration"></a>Supervisión de una configuración
 
@@ -130,7 +130,7 @@ Revise la configuración en la ventana de comandos. La propiedad **metrics** en
 
 * **appliedCount**: es una métrica del sistema que especifica la cantidad de dispositivos cuyo contenido de destino se ha aplicado.
 
-* **La métrica personalizada** -todas las métricas que haya definido son las métricas de usuario.
+* **La métrica personalizada**: cualquier métrica que haya definido se considera métrica de usuario.
 
 Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el siguiente comando:
 
@@ -194,7 +194,7 @@ az iot hub configuration delete --config-id [configuration id] \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, aprendió a configurar y supervisar dispositivos IoT a escala. Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
+En este artículo, ha aprendido cómo configurar y supervisar dispositivos IoT a escala. Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
 * [Administración de las identidades de dispositivo de IoT Hub de forma masiva](iot-hub-bulk-identity-mgmt.md)
 * [Métricas de IoT Hub](iot-hub-metrics.md)

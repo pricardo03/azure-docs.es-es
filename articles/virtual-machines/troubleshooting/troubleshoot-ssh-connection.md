@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61405278"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan.
@@ -49,7 +49,7 @@ Siga leyendo para conocer pasos y soluciones más detallados de solución de pro
 Puede restablecer las credenciales o la configuración de SSH mediante uno de los métodos siguientes:
 
 * [Azure Portal](#use-the-azure-portal): este método funciona muy bien si necesita restablecer rápidamente la configuración o la clave de SSH y no tiene instaladas las herramientas de Azure.
-* [Consola de serie de máquina virtual de Azure](https://aka.ms/serialconsolelinux) -la consola de serie de máquina virtual funciona independientemente de la configuración de SSH y le proporcionará una consola interactiva a la máquina virtual. De hecho, "no puede SSH" son las situaciones específicamente cuál fue la consola serie diseñado para ayudar a resolver. Más detalles a continuación.
+* [Consola serie de máquina virtual en Azure](https://aka.ms/serialconsolelinux): la consola serie de máquina virtual funcionará independientemente de la configuración de SSH y proporcionará una consola interactiva a la máquina virtual. De hecho, la consola serie se ha diseñado para resolver específicamente las situaciones de tipo "no se puede SSH". Más detalles a continuación.
 * [CLI de Azure](#use-the-azure-cli): si ya está en la línea de comandos, restablezca rápidamente la configuración o las credenciales de SSH. Si está trabajando con una máquina virtual clásica, puede usar la [CLI clásica de Azure](#use-the-azure-classic-cli).
 * [Extensión Azure VMAccessForLinux](#use-the-vmaccess-extension): permite crear y reutilizar archivos de definición json para restablecer la configuración o las credenciales de usuario de SSH.
 
@@ -78,22 +78,22 @@ Use la [verificación del flujo IP](../../network-watcher/network-watcher-check-
 
 Use la funcionalidad [Próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) de Network Watcher para confirmar que una ruta no impide que el tráfico se enrute hacia una máquina virtual o desde esta. También puede revisar las rutas efectivas para ver todas las rutas efectivas de una interfaz de red. Para más información, consulte [Uso de rutas eficaces para solucionar problemas de flujo de tráfico de máquinas virtuales](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-vm-serial-console"></a>Utilice la consola de serie de máquina virtual de Azure
-El [consola serie de máquina virtual de Azure](./serial-console-linux.md) proporciona acceso a una consola basada en texto para las máquinas virtuales de Linux. Puede usar la consola para solucionar problemas de la conexión SSH en un shell interactivo. Asegúrese de que se ha cumplido los [requisitos previos](./serial-console-linux.md#prerequisites) para usar la consola serie e intente los siguientes comandos para seguir solucionar problemas de la conectividad SSH.
+## <a name="use-the-azure-vm-serial-console"></a>Uso de la consola serie de máquina virtual en Azure
+La [consola serie de máquina virtual en Azure](./serial-console-linux.md) ofrece acceso a una consola basada en texto para máquinas virtuales de Linux. Puede usar la consola para solucionar problemas de la conexión SSH en un shell interactivo. Asegúrese de que se han cumplido los [requisitos previos](./serial-console-linux.md#prerequisites) para usar la consola serie y pruebe los siguientes comandos para tratar de solucionar los problemas de conectividad SSH.
 
-### <a name="check-that-ssh-is-running"></a>Compruebe que se está ejecutando SSH
-Puede usar el siguiente comando para comprobar si se está ejecutando SSH en la máquina virtual:
+### <a name="check-that-ssh-is-running"></a>Comprobación de que SSH se está ejecutando
+Puede usar el siguiente comando para comprobar si SSH se está ejecutando en la máquina virtual:
 ```
 $ ps -aux | grep ssh
 ```
-Si no hay ningún resultado, SSH está en funcionamiento.
+Si hay algún resultado, SSH se está ejecutando.
 
-### <a name="check-which-port-ssh-is-running-on"></a>Compruebe qué puerto SSH se está ejecutando en
-Puede usar el siguiente comando para comprobar qué puerto SSH se está ejecutando en:
+### <a name="check-which-port-ssh-is-running-on"></a>Comprobación del puerto en el que se está ejecutando SSH
+Puede usar el siguiente comando para comprobar el puerto en el que se está ejecutando SSH:
 ```
 $ sudo grep Port /etc/ssh/sshd_config
 ```
-El resultado será algo como:
+El resultado tendrá un aspecto similar al siguiente:
 ```
 Port 22
 ```
@@ -206,7 +206,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />Reinicio de una máquina virtual
 Si ha restablecido la configuración y las credenciales de usuario de SSH, o ha encontrado un error al hacerlo, puede intentar reiniciar la máquina virtual para solucionar los problemas de procesos subyacentes.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 Para reiniciar una máquina virtual mediante Azure Portal, seleccione la máquina virtual y, después, seleccione **Reiniciar**, como en el ejemplo siguiente:
 
 ![Reiniciar una máquina virtual en Azure Portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
@@ -233,7 +233,7 @@ Puede volver a implementar una máquina virtual en otro nodo dentro de Azure, lo
 >
 >
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 Para volver a implementar una máquina virtual mediante Azure Portal, seleccione la máquina virtual y desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas**. Seleccione **Volver a implementar**, como en el ejemplo siguiente:
 
 ![Nueva implementación de una máquina virtual en Azure Portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
@@ -255,7 +255,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Máquinas virtuales creadas con el modelo de implementación clásica
 Siga estos pasos para intentar resolver los errores de conexión SSH más habituales en las máquinas virtuales creadas con el modelo de implementación clásica: Después de cada paso, pruebe a conectarse a la máquina virtual.
 
-* Restablezca el acceso remoto desde [Azure Portal](https://portal.azure.com). En Azure Portal, seleccione su máquina virtual y, después, seleccione **Restablecer acceso remoto...**.
+* Restablezca el acceso remoto desde [Azure Portal](https://portal.azure.com). En Azure Portal, seleccione su máquina virtual y, después, seleccione **Restablecer acceso remoto...** .
 * Reinicie la máquina virtual. En [Azure Portal](https://portal.azure.com), seleccione su máquina virtual y, después, seleccione **Restablecer**.
 
 * Implemente de nuevo la máquina virtual en un nuevo nodo de Azure. Para más información sobre cómo volver a implementar una máquina virtual, consulte [Nueva implementación de la máquina virtual en un nuevo nodo de Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

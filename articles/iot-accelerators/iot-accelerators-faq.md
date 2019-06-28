@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447970"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
@@ -71,9 +71,9 @@ La versión anterior del acelerador de la solución de supervisión remota se co
 
 Sí, la nueva Supervisión remota está disponible en las mismas regiones geográficas.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>¿Qué es la diferencia entre eliminar un grupo de recursos en Azure portal y hacer clic en Eliminar en un acelerador de soluciones en azureiotsolutions.com?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>¿Cuál es la diferencia entre eliminar un grupo de recursos en Azure Portal y hacer clic en Eliminar en un acelerador de soluciones en azureiotsolutions.com?
 
-* Si elimina el Acelerador de soluciones en [azureiotsolutions.com](https://www.azureiotsolutions.com/), eliminar todos los recursos que se implementaron cuando creó el Acelerador de soluciones. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
+* Si elimina el acelerador de soluciones en [azureiotsolutions.com](https://www.azureiotsolutions.com/), elimina todos los recursos implementados cuando se creó el acelerador de soluciones. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
 * Si elimina el grupo de recursos en [Azure Portal](https://portal.azure.com), solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada al acelerador de la solución.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>¿Puedo seguir aprovechando mi inversión en aceleradores de soluciones de Azure IoT?
@@ -107,7 +107,7 @@ Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD 
 
 También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Exploración de las funcionalidades del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md)
+* [Exploración de las funcionalidades del acelerador de soluciones de supervisión remota](quickstart-remote-monitoring-deploy.md)
 * [Introducción al acelerador de la solución de mantenimiento predictivo](iot-accelerators-predictive-overview.md)
 * [Implementación del acelerador de soluciones de Connected Factory](quickstart-connected-factory-deploy.md)
 * [Seguridad de Internet de las cosas desde el principio](/azure/iot-fundamentals/iot-security-ground-up)

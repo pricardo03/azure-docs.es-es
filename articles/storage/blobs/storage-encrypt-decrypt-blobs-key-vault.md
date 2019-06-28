@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65788007"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault
@@ -48,7 +48,7 @@ Esta es una breve descripción de cómo funciona el cifrado del lado cliente:
 
 ## <a name="set-up-your-azure-key-vault"></a>Configuración de Azure Key Vault
 
-Para poder continuar con este tutorial, deberá realizar los pasos siguientes, que se describen en el tutorial [inicio rápido: Establecer y recuperar un secreto de Azure Key Vault mediante el uso de una aplicación web .NET](../../key-vault/quick-create-net.md):
+Para continuar con este tutorial, debe seguir los siguientes pasos que se describen en el tutorial [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET](../../key-vault/quick-create-net.md):
 
 * Cree un almacén de claves.
 * Agregue una clave o un secreto al almacén de claves.
@@ -123,7 +123,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Acceso a Storage y Key Vault en el programa
 
-En el método Main(), agregue el código siguiente.
+Agregue el siguiente código al método Main().
 
 ```csharp
 // This is standard code to interact with Blob storage.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
 ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336871"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Seguimiento del flujo en una aplicación de Cloud Services con Diagnósticos de Azure
@@ -27,9 +27,9 @@ El seguimiento es una manera de supervisar la ejecución de la aplicación mient
 ## <a name="use-trace-statements-and-trace-switches"></a>Uso de las instrucciones de seguimiento y los modificadores de seguimiento
 Implemente el seguimiento en la aplicación de Cloud Services al agregar [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) a la configuración de la aplicación y realizar llamadas a System.Diagnostics.Trace o a System.Diagnostics.Debug en el código de aplicación. Use el archivo de configuración *app.config* para los roles de trabajo y *web.config* para los roles web. Cuando se crea un nuevo servicio hospedado mediante una plantilla de Visual Studio, Diagnósticos de Azure se agrega automáticamente al proyecto y DiagnosticMonitorTraceListener se agrega al archivo de configuración adecuado para los roles que se añadan.
 
-Para obtener información acerca de cómo colocar instrucciones de seguimiento, vea [Cómo: Agregar instrucciones de seguimiento al código de aplicación](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+Para más información acerca de cómo colocar instrucciones de seguimiento, consulte [ Procedimiento para agregar instrucciones de seguimiento al código de una aplicación](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 
-Al colocar [modificadores de seguimiento](/dotnet/framework/debug-trace-profile/trace-switches) en el código, puede controlar si se realiza el seguimiento y cuál es su alcance. Con ello puede supervisar el estado de la aplicación en un entorno de producción. Esto es especialmente importante en una aplicación empresarial que usa varios componentes que se ejecutan en varios equipos. Para obtener más información, consulte [Instrucciones: Configurar modificadores de seguimiento](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
+Al colocar [modificadores de seguimiento](/dotnet/framework/debug-trace-profile/trace-switches) en el código, puede controlar si se realiza el seguimiento y cuál es su alcance. Con ello puede supervisar el estado de la aplicación en un entorno de producción. Esto es especialmente importante en una aplicación empresarial que usa varios componentes que se ejecutan en varios equipos. Para obtener más información, consulte [Instrucciones: Procedimiento para crear, inicializar y configurar modificadores de seguimiento](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
 
 ## <a name="configure-the-trace-listener-in-an-azure-application"></a>Configuración de la escucha de seguimiento en una aplicación de Azure
 Tendrá que configurar "agentes de escucha" para Trace, Debug y TraceSource, para recopilar y registrar los mensajes que se envían. Los agentes de escucha de recopilan, almacenan y enrutan los mensajes de seguimiento. Estos dirigen los resultados del seguimiento a un destino apropiado, como un registro, una ventana o un archivo de texto. Diagnósticos de Azure usa la clase [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) .
@@ -69,11 +69,11 @@ Para más información sobre los agentes de escucha, vea [Agentes de escucha de 
 Después de completar los pasos para agregar el agente de escucha, puede agregar instrucciones de seguimiento al código.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Para agregar instrucciones de seguimiento al código
-1. Abra un archivo de origen para la aplicación. Por ejemplo, el \<RoleName > archivo .cs para el rol de trabajador o web.
+1. Abra un archivo de origen para la aplicación. Por ejemplo, el archivo \<RoleName>.cs para el rol de trabajo o el rol web.
 2. Agregue la siguiente instrucción using si no se agregó ya:
     ```
         using System.Diagnostics;
     ```
-3. Agregue instrucciones de seguimiento en donde desee capturar información sobre el estado de la aplicación. Puede usar diversos métodos para dar formato al resultado de la instrucción de seguimiento. Para obtener más información, consulte [Instrucciones: Agregar instrucciones de seguimiento al código de aplicación](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+3. Agregue instrucciones de seguimiento en donde desee capturar información sobre el estado de la aplicación. Puede usar diversos métodos para dar formato al resultado de la instrucción de seguimiento. Para obtener más información, consulte [Instrucciones: Procedimiento para agregar instrucciones de seguimiento al código de una aplicación](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 4. Guarde el archivo de origen.
 

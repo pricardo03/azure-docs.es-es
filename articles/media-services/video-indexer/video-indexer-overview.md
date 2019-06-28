@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 2c72c7c493c0a887adab147054c725a2e1c0659f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799137"
 ---
 # <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
@@ -24,31 +24,31 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 ## <a name="video-insights"></a>Información de los vídeos
 
 - **Detección de caras**: detecta y agrupa las caras que aparecen en el vídeo.
-- **Identificación de celebridades**: Video Indexer identifica automáticamente las celebridades de más de 1 millón – como líderes mundiales, actores, actresses, atletas, los investigadores, negocios y líderes tecnológicos en todo el mundo. Los datos de estos famosos también pueden encontrarse en varios sitios web famosos, como IMDB y Wikipedia.
-- **Identificación facial basada en cuentas**:  Video Indexer entrena un modelo para una cuenta específica. A continuación, reconozca caras en el vídeo según el modelo entrenado. Para obtener más información, consulte [personalizar un modelo de persona desde el sitio Web de Video Indexer](customize-person-model-with-website.md) y [personalizar un modelo de la persona con la API de Video Indexer](customize-person-model-with-api.md).
+- **Identificación de celebridades**: Video Indexer identifica automáticamente más de un millón de famosos (como líderes mundiales, actores y actrices, atletas, investigadores y líderes empresariales y tecnológicos de todo el mundo). Los datos de estos famosos también pueden encontrarse en varios sitios web famosos, como IMDB y Wikipedia.
+- **Identificación facial basada en cuentas**:  Video Indexer entrena un modelo para una cuenta específica. A continuación reconoce las caras en el vídeo según el modelo entrenado. Para más información, consulte [Customize a Person model from the Video Indexer website](customize-person-model-with-website.md) (Personalización de un modelo de persona desde el sitio web de Video Indexer) y [Customize a Person model with the Video Indexer API](customize-person-model-with-api.md) (Personalización de un modelo de persona con Video Indexer API).
 - **Extracción de miniaturas de caras** ("mejor cara"): identifica automáticamente la mejor cara capturada en cada grupo de caras (según la calidad, el tamaño y la posición frontal) y la extrae como un recurso de imagen.
 - **Reconocimiento de texto visual** (OCR): extrae el texto que se muestra visualmente en el vídeo.
 - **Moderación de contenido visual**: Detecta los objetos visuales para adultos o subidos de tono.
 - **Identificación de etiquetas**: identifica los objetos visuales y las acciones que se muestran.
-- **Segmentación de la escena**: determina cuándo los cambios de una escena en según las indicaciones visuales de vídeo. Una escena representa un evento único y está compuesto por una serie de capturas consecutivas, que son semánticamente relacionados. 
-- **Detección de captura**: determina cuando se cambia una captura de vídeo en función de las indicaciones visuales. Una captura es una serie de marcos que se toman de la misma cámara imágenes en movimiento. Para obtener más información, consulte [escenas, capturas y fotogramas clave](scenes-shots-keyframes.md).
+- **Segmentación de escenas**: determina cuándo una escena cambia en el vídeo según indicaciones visuales. Una escena representa un evento único y se compone de una serie de cortes consecutivos que están semánticamente relacionadas. 
+- **Detección de cortes**: determina cuándo una escena cambia en el vídeo según indicaciones visuales. Un corte es una serie de fotogramas tomados a partir de la misma cámara de imágenes en movimiento. Para más información, consulte [Scenes, shots, and keyframes](scenes-shots-keyframes.md) (Escenas, cortes y fotogramas clave).
 - **Detección de fotogramas negros**: identifica los fotogramas negros presentados en el vídeo.
 - **Extracción de fotogramas clave**: detecta los fotogramas clave estables en un vídeo.
-- **Las sucesivas créditos**: identificar el principio y final de los créditos graduales al final de programas de TV y películas.
+- **Créditos de rodaje**: identifica el principio y el final de los créditos del final de las series de televisión y las películas.
 
 ## <a name="audio-insights"></a>Información de audio
 
-- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Idiomas admitidos son inglés, español, francés, alemán, italiano, chino (simplificado), japonés, ruso y portugués brasileño portugués le reserva a inglés cuando no se puede detectar el idioma.
-- **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Idiomas admitidos son inglés, español, francés, alemán, italiano, chino (simplificado), japonés, árabe, ruso, portugués (Brasil), Hindi y coreano.
-- **Subtítulos (CC)**: crea subtítulos en tres formatos: VTT, TTML y SRT.
+- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués brasileño y ruso. Se usará el inglés cuando el idioma no se pueda detectar.
+- **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son alemán, árabe, chino (simplificado), coreano, español, francés, hindi, inglés, italiano, japonés, portugués brasileño y ruso.
+- **Subtítulos (CC)** : crea subtítulos en tres formatos: VTT, TTML y SRT.
 - **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.
 - **Reducción de ruido**: borra el audio telefónico o las grabaciones ruidosas (basado en los filtros de Skype).
-- **Personalización de la transcripción** (CRIS): Entrena personalizado de voz a los modelos de texto para crear una transcripción específicas del sector. Para obtener más información, consulte [personalizar un modelo de lenguaje desde el sitio Web de Video Indexer](customize-language-model-with-website.md) y [personalizar un modelo de lenguaje con las API de indizador de vídeo](customize-language-model-with-api.md).
+- **Personalización de la transcripción** (CRIS): entrena modelos personalizados de conversión de voz en texto para crear transcripciones específicas del sector. Para más información, consulte [Customize a Language model from the Video Indexer website](customize-language-model-with-website.md) (Personalización de un modelo de lenguaje desde el sitio web de Video Indexer) y [Customize a Language model with the Video Indexer API](customize-language-model-with-api.md) (Personalización de un modelo de lenguaje con Video Indexer API).
 - **Enumeración de altavoz**: asigna y comprende las palabras que transmitió cada altavoz y cuándo.
 - **Estadísticas de altavoz**: proporciona las estadísticas de las relaciones de voz de los altavoces.
 - **Moderación de contenido textual**: detecta texto explícito en la transcripción de audio.
 - **Efectos de audio**: identifica los efectos de audio, como palmadas, voces y silencios.
-- **Detección de emociones**: Identifica emoticonos en función de voz (lo que se dice) y la tonalidad de voz (cómo es que se va a dicho).  La emoción podría ser: felicidad, tristeza, ira o miedo.
+- **Detección de emociones**: identifica emociones en función de la voz (lo que se dice) y el tono (cómo se dice).  La emoción podría ser: felicidad, tristeza, ira o miedo.
 - **Traducción**: crea traducciones de la transcripción de audio en 54 idiomas diferentes.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Información de audio y vídeo (varios canales)
@@ -72,7 +72,7 @@ Puede suscribirse al servicio mediante una cuenta existente de AAD, LinkedIn, Fa
 A continuación se presentan algunos escenarios en los que Video Indexer puede ser útil.
 
 - Búsqueda: las información extraída del vídeo se puede utilizar para mejorar la experiencia de búsqueda en una biblioteca de vídeos. Por ejemplo, la indexación de palabras habladas y caras puede permitir la experiencia de búsqueda de momentos en un vídeo en los que una persona en particular ha pronunciado ciertas palabras o cuando se han visto juntas a dos personas. La búsqueda basada en esta información de los vídeos se puede aplicar a agencias de noticias, instituciones educativas, emisoras, propietarios de contenido de entretenimiento, aplicaciones de línea de negocio de empresas y, en general, a cualquier sector que tenga una biblioteca de vídeos en la que los usuarios necesiten buscar.
-- Creación de contenido: insights extraen de vídeos y ayudan a crear eficazmente los contenidos como finalizadores, contenido de medios sociales, noticias clips etc. del contenido existente en el archivo de la organización 
+- Creación de contenido: información extraída de vídeos que ayuda a crear contenido eficazmente, como trailers, contenido de redes sociales, noticias, clips, etc., a partir de contenido existente en el archivo de la organización. 
 - Monetización: Video Indexer puede ayudar a mejorar el valor de los vídeos. Por ejemplo, los sectores que dependen de los ingresos por publicidad (por ejemplo, los medios de comunicación, las redes sociales, etc.), pueden entregar anuncios más relevantes con los conocimientos extraídos como señales adicionales para el servidor de anuncios (la presentación de un anuncio de calzado deportivo es más relevante en medio de un partido de fútbol que en una competición de natación).
 - Involucración del usuario: la información del vídeo se puede utilizar para mejorar la involucración de los usuarios al posicionar momentos de vídeo más relevantes para ellos. Como ejemplo, considere un vídeo educativo que explique las esferas durante los primeros 30 minutos y las pirámides durante los siguientes 30 minutos. El estudiante que lee sobre las pirámides se beneficiaría más si el vídeo se posiciona a partir del marcador de 30 minutos.
 

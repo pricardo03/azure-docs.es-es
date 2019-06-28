@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: yushwang
 ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786694"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
@@ -186,11 +186,11 @@ Esta sección se aplica al modelo de implementación de Resource Manager.
 Sí. Para más información, consulte la sección [BGP](#bgp).
 
 **Modelo de implementación clásica**<br>
- el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posible mediante el modelo de implementación clásica, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración de red. BGP aún no se admite con instancias de Red virtual de Azure y Puerta de enlace de VPN mediante el modelo de implementación clásica. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.
+el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posible mediante el modelo de implementación clásica, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración de red. BGP aún no se admite con instancias de Red virtual de Azure y Puerta de enlace de VPN mediante el modelo de implementación clásica. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>¿Azure genera la misma clave precompartida de IPsec/IKE para todas mis conexiones VPN para la misma red virtual?
 
-No, Azure de forma predeterminada genera distintas claves precompartidas para distintas conexiones VPN. Sin embargo, puede utilizar la API de REST para establecer la clave de VPN Gateway o el cmdlet PowerShell para establecer el valor de clave que prefiera. La clave debe ser caracteres ASCII imprimibles.
+No, Azure de forma predeterminada genera distintas claves precompartidas para distintas conexiones VPN. Sin embargo, puede utilizar la API de REST para establecer la clave de VPN Gateway o el cmdlet PowerShell para establecer el valor de clave que prefiera. La clave DEBE estar formada por caracteres ASCII imprimibles.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>¿Tengo más ancho de banda con más VPN de sitio a sitio que si tengo una única red virtual?
 
@@ -243,4 +243,4 @@ Consulte información adicional de redes virtuales adicionales en las [Preguntas
 * Para más información sobre VPN Gateway, consulte [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).
 * Para más información acerca de la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-**"OpenVPN" es una marca de OpenVPN Inc.**
+**"OpenVPN" es una marca comercial de OpenVPN Inc.**

@@ -1,5 +1,5 @@
 ---
-title: Agregue una página a la solución de supervisión remota UI - Azure | Microsoft Docs
+title: 'Adición de una página a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se muestra cómo agregar una nueva página a la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447087"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
@@ -154,7 +154,7 @@ Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuar
 
 1. Implemente una instancia **básica** del acelerador de la solución con la CLI **pcs**. Tome nota del nombre de la implementación y las credenciales proporcionadas para la máquina virtual. Para más información, vea [Implementación mediante la CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar el acceso SSH a la máquina virtual que hospeda los microservicios en la solución. Por ejemplo: 
+1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar el acceso SSH a la máquina virtual que hospeda los microservicios en la solución. Por ejemplo:
 
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -162,7 +162,7 @@ Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuar
 
     Sólo se debe habilitar el acceso SSH durante el desarrollo y pruebas. Si habilita SSH, [debe deshabilitarlo nuevamente tan pronto como sea posible](../security/azure-security-network-security-best-practices.md).
 
-1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo: 
+1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo:
 
     ```sh
     az resource list --resource-group {your solution name} -o table

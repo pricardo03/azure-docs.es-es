@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113990"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
@@ -74,7 +74,7 @@ Use estos pasos para configurar al cliente VPN de Windows nativo para la autenti
 
 ## <a name="installmac"></a>Mac (OS X)
 
- Tendrá que configurar manualmente el cliente de VPN nativo IKEv2 en cada equipo Mac que se conecte a Azure. Azure no proporciona el archivo mobileconfig para realizar la autenticación de certificados nativa de Azure. La carpeta **Generic** contiene toda la información que necesita para la configuración. Si no ve la carpeta Genérico en la descarga, es posible que IKEv2 no se haya seleccionado como tipo de túnel. Tenga en cuenta que la puerta de enlace VPN SKU básica no es compatible con IKEv2. Una vez que se seleccione IKEv2, vuelva a generar el archivo ZIP para recuperar la carpeta Genérico.<br>que son los archivos siguientes:
+ Tendrá que configurar manualmente el cliente de VPN nativo IKEv2 en cada equipo Mac que se conecte a Azure. Azure no proporciona el archivo mobileconfig para realizar la autenticación de certificados nativa de Azure. La carpeta **Generic** contiene toda la información que necesita para la configuración. Si no ve la carpeta Genérico en la descarga, es posible que IKEv2 no se haya seleccionado como tipo de túnel. Tenga en cuenta que la SKU de nivel Básico de VPN Gateway no admite IKEv2. Una vez que se seleccione IKEv2, vuelva a generar el archivo ZIP para recuperar la carpeta Genérico.<br>que son los archivos siguientes:
 
 * **VpnSettings.xml**, con configuración importante, como el tipo de túnel y la dirección del servidor. 
 * **VpnServerRoot.cer**, con el certificado raíz necesario para validar la puerta de enlace de VPN de Azure durante la instalación de la conexión de punto a sitio.
@@ -109,7 +109,7 @@ Siga los pasos siguientes para configurar el cliente de VPN nativo en equipos Ma
    ![identidad](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. En el campo **Id. local**, especifique el nombre del certificado (del paso 6). En este ejemplo, es "ikev2Client.com". A continuación, haga clic en el botón **Aplicar** para guardar los cambios.
 
-   ![aplicar](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. En el cuadro de diálogo **Red**, haga clic en **Aplicar** para guardar los cambios. A continuación, haga clic en **Conectar** para iniciar la conexión de punto a sitio a la red virtual de Azure.
 
 ## <a name="linuxgui"></a>Linux (GUI de StrongSwan)
@@ -168,7 +168,7 @@ Puede usar los siguientes comandos de la CLI o los pasos de strongSwan en la [GU
 1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
 2. `apt-get install libstrongswan-standard-plugins`
 
-### <a name="install-and-configure"></a>Instalar y configurar
+### <a name="install-and-configure"></a>Instalación y configuración
 
 1. Descargue el paquete de VPNClient desde Azure Portal.
 2. Extraiga el archivo.

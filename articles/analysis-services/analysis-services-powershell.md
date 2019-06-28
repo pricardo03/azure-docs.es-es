@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142293"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Administración de Azure Analysis Services con PowerShell
@@ -27,11 +27,11 @@ Las tareas de administración del servidor, como crear o eliminar un servidor, s
 
 Para la mayoría de las tareas de PowerShell, es necesario disponer de privilegios de administración en el servidor de Analysis Services que esté administrando. Las tareas programadas de PowerShell son operaciones desatendidas. La cuenta o entidad de servicio que ejecuta Scheduler debe tener privilegios de administrador en el servidor de Analysis Services. 
 
-Para las operaciones del servidor mediante cmdlets de PowerShell de Azure, su cuenta o la cuenta que ejecuta scheduler también debe pertenecer al rol de propietario del recurso en [Control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md). 
+Para las operaciones de servidor mediante cmdlets de Azure PowerShell, su cuenta o la cuenta que ejecuta Scheduler también debe pertenecer al rol de propietario del recurso en [Control de acceso basado en roles (RBAC) de Azure](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Operaciones de administración de recursos 
 
-Módulo - [Az.AnalysisServices](/powershell/module/az.analysisservices)
+Módulo: [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 |Cmdlet|DESCRIPCIÓN| 
 |------------|-----------------| 
@@ -52,9 +52,9 @@ Módulo: [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 |Cmdlet|DESCRIPCIÓN| 
 |------------|-----------------| 
 |[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Agrega una cuenta autenticada para utilizarla con las solicitudes de cmdlet de servidor de Azure Analysis Services.| 
-|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporta un registro de una instancia de servidor de Analysis Services en la sesión iniciada actualmente entorno tal como se especifica en el comando Add-AzAnalysisServicesAccount|  
-|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Reinicia una instancia de servidor de Analysis Services en el entorno actualmente conectado; especificado en el comando Add-AzAnalysisServicesAccount.|  
-|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Sincroniza una base de datos especificada en la instancia especificada del servidor de Analysis Services a todas las instancias de escalado horizontal de consultas en la sesión iniciada actualmente entorno tal como se especifica en el comando Add-AzAnalysisServicesAccount|  
+|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporta un registro a partir de una instancia de servidor de Analysis Services en el entorno actualmente conectado, tal como se especifica en el comando Add-AzAnalysisServicesAccount.|  
+|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Reinicia una instancia del servidor de Analysis Services en el entorno actualmente conectado; se especifica en el comando Add-AzAnalysisServicesAccount.|  
+|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Sincroniza una determinada base de datos de la instancia del servidor de Analysis Services especificada con todas las instancias de escalabilidad horizontal de consultas incluidas en el entorno que está conectado actualmente, tal y como se especifica en el comando Add-AzAnalysisServicesAccount.|  
 
 ## <a name="database-operations"></a>Operaciones de la base de datos
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
 ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789604"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
@@ -39,7 +39,7 @@ De forma predeterminada, Azure Backup Server se comunica con los servidores de V
 
 ### <a name="before-you-start"></a>Antes de comenzar
 
-- Si no desea usar HTTPS puede [deshabilitar la validación de certificados HTTPS para todos los servidores VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
+- Si no quiere usar HTTPS, puede [deshabilitar la validación de certificados HTTPS para todos los servidores VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Normalmente se usa un explorador de la máquina de Azure Backup Server para conectarse al servidor de vCenter o ESXi mediante el cliente web de vSphere. La primera vez que lo haga, la conexión no es segura y se mostrará lo siguiente.
 - Es importante entender cómo Azure Backup Server administra las copias de seguridad.
     - Como primer paso, Azure Backup Server realiza una copia de seguridad de los datos en el espacio de almacenamiento del disco local. Azure Backup Server usa un grupo de almacenamiento, un conjunto de discos y volúmenes en los que Azure Backup Server almacenará los datos protegidos en los puntos de recuperación del disco. El grupo de almacenamiento puede ser almacenamiento conectado directamente (DAS), una red de área de almacenamiento de canal de fibra o un dispositivo de almacenamiento o una red de área de almacenamiento iSCI. Es importante asegurarse de que tiene suficiente espacio de almacenamiento para la copia de seguridad local de los datos de la máquina virtual de VMware.
@@ -101,7 +101,7 @@ Configure un canal seguro como sigue:
 
 
 
-### <a name="disable-https-certificate-validation"></a>Deshabilitar la validación de certificados HTTPS
+### <a name="disable-https-certificate-validation"></a>Deshabilitación de la validación de certificados HTTPS
 
 Si su organización tiene límites de seguridad y no desea usar el protocolo HTTPS entre los servidores de VMware y la máquina de Azure Backup Server, deshabilite HTTPS como sigue:
 1. Copie y pegue el texto siguiente en el archivo .txt.
@@ -140,7 +140,7 @@ Azure Backup Server necesita una cuenta de usuario con permiso de acceso al host
 
      ![Jerarquía de privilegios primaria-secundaria](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
-### <a name="role-permissions"></a>Permisos de roles
+### <a name="role-permissions"></a>Permisos de los roles
 **6.5/6.0** | **5.5**
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace
@@ -171,7 +171,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Opción Usuarios y grupos](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    El **vCenter usuarios y grupos** aparecen el panel.
+    Aparece el panel **Usuarios y grupos de vCenter**.
 
 
 2. En el panel **Usuarios y grupos** de vCenter, seleccione la pestaña **Usuarios** y haga clic en el icono Agregar usuarios (el símbolo +).
@@ -353,17 +353,17 @@ Agregue máquinas virtuales de VMware para la copia de seguridad. Los grupos de 
 
      ![Resumen de configuración y miembros del grupo de protección](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
-## <a name="vmware-vsphere-67"></a>6.7 de VMWare vSphere
+## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
-Para hacerlo de copia de seguridad vSphere 6.7 lo siguiente:
+Para realizar una copia de seguridad de vSphere 6.7, siga estos pasos:
 
-- Habilitar TLS 1.2 en el servidor DPM
+- Habilite TLS 1.2 en el servidor DPM.
   >[!Note]
-  >6.7 y versiones posteriores de VMWare habilitó TLS como protocolo de comunicación.
+  >En VMWare 6.7 y versiones posteriores se ha habilitado TLS como protocolo de comunicación.
 
-- Establezca las claves del registro de la manera siguiente:  
+- Establezca las claves del Registro de esta forma:  
 
-  Editor del registro de Windows versión 5.00
+  Editor del Registro de Windows versión 5.00
 
   [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 

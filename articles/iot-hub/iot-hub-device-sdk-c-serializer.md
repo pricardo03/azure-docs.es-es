@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399272"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
@@ -194,7 +194,7 @@ Si ejecuta este código, se envía el siguiente mensaje a IoT Hub:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Observe que la serialización es JSON, que es el formato generado por la biblioteca de **serializador**. Observe también que cada miembro del objeto JSON serializado coincide con los miembros de **TestType** que definimos en nuestro modelo. Los valores también coinciden exactamente con los usados en el código. Sin embargo, tenga en cuenta que los datos binarios codificados en base64: "AQID" es el base64 codificación de {0 x 01, 0 x 02, 0 x 03}.
+Observe que la serialización es JSON, que es el formato generado por la biblioteca de **serializador**. Observe también que cada miembro del objeto JSON serializado coincide con los miembros de **TestType** que definimos en nuestro modelo. Los valores también coinciden exactamente con los usados en el código. Sin embargo, tenga en cuenta que los datos binarios están codificados en base64: "AQID" es la codificación en base64 de {0x01, 0x02, 0x03}.
 
 En este ejemplo se demuestra la ventaja de usar la biblioteca de **serializador** , y es que nos permite enviar JSON a la nube, sin tener que tratar explícitamente con la serialización en nuestra aplicación. De lo único de lo que nos tenemos que preocupar es de configurar los valores de los eventos de datos de nuestro modelo y, luego, llamar a API sencillas para enviar esos eventos a la nube.
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Tenga en cuenta que el modelo incluye dos eventos de datos: **Temperatura** y **humedad**. A diferencia de los ejemplos anteriores, el tipo de cada evento es una estructura definida mediante **DECLARE\_STRUCT**. **TemperatureEvent** incluye una medida de la temperatura y una marca de tiempo; **HumidityEvent** contiene una medida de humedad y una marca de tiempo. Este modelo nos proporciona una manera natural de modelar los datos para el escenario descrito anteriormente. Cuando enviemos un evento a la nube, enviaremos un par temperatura/marca de tiempo o humedad/marca de tiempo.
+Observe que el modelo incluye dos eventos de datos: **Temperature** y **Humidity**. A diferencia de los ejemplos anteriores, el tipo de cada evento es una estructura definida mediante **DECLARE\_STRUCT**. **TemperatureEvent** incluye una medida de la temperatura y una marca de tiempo; **HumidityEvent** contiene una medida de humedad y una marca de tiempo. Este modelo nos proporciona una manera natural de modelar los datos para el escenario descrito anteriormente. Cuando enviemos un evento a la nube, enviaremos un par temperatura/marca de tiempo o humedad/marca de tiempo.
 
 Podemos enviar un evento de temperatura a la nube mediante un código similar al siguiente:
 
@@ -514,7 +514,7 @@ Si va a enviar un mensaje a un dispositivo, debería hacerlo a través del SDK d
 {"Name" : "", "Parameters" : "" }
 ```
 
-Va a enviar un objeto JSON serializado con dos propiedades: **Nombre** es el nombre de la acción (mensaje) y **parámetros** contiene los parámetros de esa acción.
+Va a enviar un objeto JSON serializado con dos propiedades: **Name** es el nombre de la acción (mensaje) y **Parameters** contiene los parámetros de esa acción.
 
 Por ejemplo, para invocar **SetAirResistance** , puede enviar este mensaje a un dispositivo:
 

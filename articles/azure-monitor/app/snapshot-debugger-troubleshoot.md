@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas relacionados con Azure Application Insights Snapshot Debugger | Microsoft Docs
-description: Este artículo presenta los pasos de solución de problemas e información para ayudar a los desarrolladores que tienen problemas para habilitar o usar a Application Insights Snapshot Debugger.
+title: Solución de problemas relacionados con Azure Application Insights Snapshot Debugger | Microsoft Docs
+description: Este artículo muestra información y los pasos a seguir para la solución de problemas para ayudar a los desarrolladores que tienen dificultades para habilitar o usar Application Insights Snapshot Debugger.
 services: application-insights
 documentationcenter: ''
 author: brahmnes
@@ -13,14 +13,14 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60783982"
 ---
 # <a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
-Si habilita a Application Insights Snapshot Debugger para la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas. Puede haber muchas razones diferentes, ¿por qué no se generan las instantáneas. Puede ejecutar la comprobación de estado de instantánea para identificar algunas de las posibles causas comunes.
+Si habilitó Application Insights Snapshot Debugger para la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas. Puede haber muchas razones diferentes de por qué no se generan las instantáneas. Puede ejecutar la comprobación de estado de instantáneas para identificar algunas de las posibles causas comunes.
 
 ## <a name="use-the-snapshot-health-check"></a>Uso de la comprobación de estado de instantáneas
 Algunos problemas comunes provocan que no se muestre la opción Abrir instantánea de depuración. Por ejemplo, el uso de una instancia de Snapshot Collector no actualizada, el hecho de alcanzar el límite diario de carga o, quizás, la tardanza de la instantánea en cargarse. Use la comprobación de estado de instantáneas para solucionar problemas comunes.
@@ -41,7 +41,7 @@ Asegúrese de que está usando la clave de instrumentación correcta en la aplic
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Actualización a la versión más reciente del paquete NuGet
 
-Si se habilitó el depurador de instantáneas a través de la [panel Application Insights en el portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), a continuación, la aplicación debe ya se está ejecutando el paquete NuGet más reciente. Si se habilitó el depurador de instantáneas mediante la inclusión de la [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) paquete de NuGet, administrador del utilice Visual Studio de paquetes de NuGet para asegurarse de que usa la versión más reciente de Microsoft.ApplicationInsights.SnapshotCollector. Puede encontrar notas de la versión en https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Si se habilitó Snapshot Debugger con el [panel Application Insights en el portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), la aplicación ya debería estar ejecutando el paquete NuGet más reciente. Si se habilitó Snapshot Debugger mediante la inclusión del paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector), use el administrador de paquetes NuGet de Visual Studio para asegurarse de que usa la versión más reciente de Microsoft.ApplicationInsights.SnapshotCollector. Puede encontrar notas de la versión en https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ## <a name="check-the-uploader-logs"></a>Comprobar los registros de usuario de carga
 

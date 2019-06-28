@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.openlocfilehash: e8a85319a12f04a11e3914716d9ff84cdb6de8d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787874"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Establecimiento y recuperación de propiedades y metadatos
@@ -20,14 +20,14 @@ Objetos en las propiedades de compatibilidad de sistema de Azure Storage y metad
 
 * **Propiedades del sistema**:  En cada recurso de almacenamiento existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar. Las bibliotecas cliente de Azure Storage mantienen estas propiedades por usted.
 
-* **Los metadatos definidos por el usuario**: Los metadatos definidos por el usuario constan de uno o más pares de nombre-valor que especifique para un recurso de almacenamiento de Azure. Puede usar metadatos para almacenar valores adicionales con un recurso. Los valores de metadatos se proporcionan para uso personal y no afectan a cómo se comporta el recurso.
+* **Metadatos definidos por el usuario**: los metadatos definidos por el usuario se componen de uno o más pares nombre-valor que especifique para un recurso de Azure Storage. Puede usar metadatos para almacenar valores adicionales con un recurso. Los valores de metadatos se proporcionan para uso personal y no afectan a cómo se comporta el recurso.
 
 El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando al método **FetchAttributes** o **FetchAttributesAsync**. La excepción es si llama al método **Exists** o **ExistsAsync** en un recurso. Cuando se llama a uno de estos métodos, Azure Storage llama al método **FetchAttributes** adecuado en segundo plano como parte de la llamada al método **Exists**.
 
 > [!IMPORTANT]
 > Si descubre que no se han rellenado los valores de propiedad ni metadatos para un recurso de almacenamiento, compruebe que su código llama al método **FetchAttributes** o **FetchAttributesAsync**.
 >
-> Pares de nombre/valor de metadatos son encabezados HTTP válidos y, por lo que deben cumplir todas las restricciones que rigen los encabezados HTTP. Los nombres de los metadatos deben ser nombres válidos de encabezado HTTP válido y C# identificadores, puede contener únicamente caracteres ASCII y debe tratarse como mayúsculas y minúsculas. Los valores de metadatos que contiene caracteres no ASCII deben estar codificados en Base64 o codificados de dirección URL.
+> Los pares de nombre/valor de metadatos son encabezados HTTP válidos y, por tanto, deben cumplir todas las restricciones que controlan los encabezados HTTP. Los nombres de los metadatos deben ser nombres válidos de encabezado HTTP e identificadores de C# válidos, y solo pueden contener caracteres ASCII y no distinguir entre mayúsculas y minúsculas. Los valores de los metadatos que contengan caracteres distintos de ASCII deben estar codificados en Base64 o con direcciones URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Establecimiento y recuperación de propiedades
 Para recuperar valores de propiedad, llame al método **FetchAttributesAsync** en el blob o contenedor para rellenar las propiedades y, a continuación, lea los valores.
@@ -99,8 +99,8 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Biblioteca de cliente de Azure Storage para referencia de .NET](/dotnet/api/?term=Microsoft.Azure.Storage)
-* [Biblioteca de cliente de almacenamiento de Azure Blob para el paquete .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-* [Biblioteca de cliente de almacenamiento de Azure cola para el paquete .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-* [Biblioteca de cliente de almacenamiento de Azure archivo para el paquete .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+* [Documentación de referencia de la biblioteca cliente de Azure Storage para .NET](/dotnet/api/?term=Microsoft.Azure.Storage)
+* [Paquete de la biblioteca cliente de Azure Blob Storage para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Paquete de la biblioteca cliente de Azure Queue Storage para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Paquete de la biblioteca cliente de Azure File Storage para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
 

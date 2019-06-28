@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61086891"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
@@ -72,7 +72,7 @@ Actualmente, puede restaurar una instantánea solo a un nuevo volumen.
 
     *   **Red virtual**  
         Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
-        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede acceder a Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de VNET. Puede tener acceso al volumen de la red local a través de Express Route. 
+        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede acceder a Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de VNET. También puede acceder al volumen desde la red local mediante ExpressRoute. 
 
     * **Subred**  
         Especifique la subred que desea usar para el volumen.  

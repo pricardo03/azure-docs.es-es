@@ -1,6 +1,6 @@
 ---
-title: Eliminar red virtual después de eliminar la base de datos de SQL Azure instancia administrada | Microsoft Docs
-description: Obtenga información sobre cómo eliminar la red virtual después de eliminar la base de datos de SQL Azure instancia administrada.
+title: Eliminación de la red virtual después de eliminar una instancia administrada de Azure SQL Database | Microsoft Docs
+description: Obtenga información sobre cómo eliminar la red virtual después de eliminar una instancia administrada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: management
@@ -13,38 +13,38 @@ ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
 ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791373"
 ---
-# <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Eliminar la subred después de eliminar la base de datos de SQL Azure instancia administrada
+# <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Eliminación de la subred después de eliminar una instancia administrada de Azure SQL Database
 
-En este artículo proporciona instrucciones sobre cómo eliminar manualmente la subred después de eliminar el último de Azure SQL Database administre la instancia que residen en él.
+En este artículo se proporcionan instrucciones sobre cómo eliminar manualmente la subred después de eliminar la última instancia administrada de Azure SQL Database que reside en ella.
 
-El [clúster virtual](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que ha incluido la eliminó una instancia administrada se conservará durante 12 horas desde la eliminación de la instancia. El clúster virtual se mantiene activo por cuestiones de diseño para habilitar la creación más rápida de las instancias administradas en la misma subred. Mantener un clúster virtual vacío es de forma gratuita. Durante este período, no se puede eliminar la subred asociada con el clúster virtual.
+El [clúster virtual](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que contenía la instancia administrada eliminada se conservará durante 12 horas tras la eliminación de la instancia. El clúster virtual se mantiene activo por cuestiones de diseño para habilitar la rápida creación de instancias administradas en la misma subred. Mantener un clúster virtual vacío es gratuito. Durante este período, no se puede eliminar la subred asociada con el clúster virtual.
 
-Es posible a través de la eliminación manual del clúster virtual liberación inmediata de la subred usada por un clúster virtual vacío. Eliminación del clúster virtual se puede lograr a través de Azure portal o la API de clústeres virtuales.
+La liberación inmediata de la subred usada por un clúster virtual es posible mediante la eliminación manual del clúster virtual. El clúster virtual se puede eliminar mediante Azure Portal o la API de clústeres virtuales.
 
 > [!NOTE]
-> El clúster virtual no debe contener ninguna instancia administrada para la eliminación se realice correctamente.
+> Para que la eliminación se realice correctamente, el clúster virtual no debe contener ninguna instancia administrada.
 
-## <a name="delete-virtual-cluster-from-azure-portal"></a>Eliminar clúster virtual de Azure portal
+## <a name="delete-virtual-cluster-from-azure-portal"></a>Eliminación de un clúster virtual desde Azure Portal
 
-Para eliminar un clúster virtual mediante Azure portal, busque los recursos de clúster virtual mediante la búsqueda integrada.
+Para eliminar un clúster virtual mediante Azure Portal, busque los recursos de clúster virtual con la búsqueda integrada.
 
 ![Busque el clúster virtual.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
 
-Una vez que localice el clúster virtual que desea eliminar, seleccione este recurso y seleccione la opción de eliminación. Se le pedirá que confirme la eliminación de clúster virtual.
+Una vez que localice el clúster virtual que desea eliminar, seleccione este recurso y seleccione la opción Eliminar. Se le pedirá que confirme la eliminación del clúster virtual.
 
-![Eliminar clúster virtual.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
+![Elimine el clúster virtual.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Confirmación de que se ha eliminado el clúster virtual se proporciona en notificaciones de Azure portal. Eliminación correcta del clúster virtual libera inmediatamente la subred para volver a usarlo.
+En las notificaciones de Azure Portal encontrará la confirmación de que el clúster virtual se ha eliminado. La eliminación correcta del clúster virtual libera inmediatamente la subred para volver a usarla.
 
-## <a name="delete-virtual-cluster-using-api"></a>Eliminar clúster virtual mediante la API
+## <a name="delete-virtual-cluster-using-api"></a>Eliminación de un clúster virtual mediante la API
 
-Para eliminar un virtual del clúster a través del uso de API los parámetros de URI especificados en el [clústeres virtuales eliminación método](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+Para eliminar un clúster virtual mediante la API, utilice los parámetros de URI que se especifican en el [método de eliminación de clústeres virtuales](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320437"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
@@ -56,7 +56,7 @@ Puede elegir si desea recibir una notificación por correo electrónico de las c
 > [!NOTE]
 > Puede escribir un máximo de 20 direcciones de correo electrónico por dispositivo.
 
-Después de habilitar la notificación por correo electrónico para un dispositivo, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *alertas-storsimple-noreply\@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
+Después de habilitar la notificación por correo electrónico para un dispositivo, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *storsimple-alerts-noreply\@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Para habilitar la notificación de alertas por correo electrónico de un dispositivo
 1. Vaya al servicio StorSimple Device Manager. En la lista de dispositivos, seleccione y haga clic en el dispositivo que desea configurar.
@@ -68,7 +68,7 @@ Después de habilitar la notificación por correo electrónico para un dispositi
    
    1. En el campo **Enviar notificación por correo electrónico**, seleccione **SÍ**.
    2. En el campo **Administradores del servicio de correo electrónico**, seleccione **SÍ** para que el administrador de servicios y todos los coadministradores reciban las notificaciones de alerta.
-   3. En el campo **Otros destinatarios de correo electrónico** , escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato *alguien\@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo. 
+   3. En el campo **Otros destinatarios de correo electrónico** , escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres con el formato *someone\@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo. 
       
 3. Para enviar una notificación de correo electrónico de prueba, haga clic en **Enviar correo electrónico de prueba**. El servicio StorSimple Device Manager mostrará mensajes de estado mientras envía la notificación de prueba.
 
@@ -142,11 +142,11 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 
 Si se produce un error en la conectividad de la nube en el dispositivo de producción de StorSimple, según el estado del dispositivo, puede ocurrir lo siguiente:
 
-* **Para los datos locales en el dispositivo**: Durante algún tiempo, no se producirá ninguna interrupción y lecturas se seguirán atendiendo. Sin embargo, cuando el número de operaciones de E/S pendientes aumenta y excede el límite, las lecturas pueden comenzar a fallar.
+* **Para los datos locales en el dispositivo**: durante algún tiempo, no se producirá ninguna interrupción y las lecturas se seguirán atendiendo. Sin embargo, cuando el número de operaciones de E/S pendientes aumenta y excede el límite, las lecturas pueden comenzar a fallar.
 
     Según la cantidad de datos en el dispositivo, las escrituras seguirán también produciéndose en las primeras horas después de la interrupción de la conectividad de la nube. Las escrituras se ralentizarán y finalmente comenzarán a fallar si se interrumpe la conectividad de la nube durante varias horas. (Hay almacenamiento temporal en el dispositivo para los datos que se van a insertar en la nube. Este área se vacía cuando se envían los datos. Si se produce un error en la conectividad, los datos de este área de almacenamiento no se insertarán en la nube y se producirá un error de E/S).
-* **Para los datos en la nube**: Para la mayoría de los errores de conectividad en la nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde Azure Portal.
-* **Para las instantáneas de nube en curso**: La operación se reintenta varias veces dentro de 4 o 5 horas y si no se restaura la conectividad, se producirá un error en las instantáneas en la nube.
+* **Para los datos en la nube**: para la mayoría de errores de conectividad de la nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde Azure Portal.
+* **Para las instantáneas de nube en curso**: la operación se reintenta varias veces en 4 o 5 horas y, si no se restaura la conectividad, se produce un error en las instantáneas de nube.
 
 ### <a name="cluster-alerts"></a>Alertas de clúster
 
@@ -159,8 +159,8 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 | El dispositivo conmutó por error a <*nombre del dispositivo*>. |Conmutación por error no planeada. |StorSimple está diseñado para recuperarse automáticamente de las conmutaciones por error no planeadas. Si ve un gran número de estas alertas, póngase en contacto con el soporte técnico de Microsoft. |
 | El dispositivo conmutó por error a <*nombre del dispositivo*>. |Otras causas/causas desconocidas. |Si ve un gran número de estas alertas, póngase en contacto con el soporte técnico de Microsoft. Después de resolver el problema, borre esta alerta de la página de alertas. |
 | Un servicio de dispositivo crítico indica un estado error. |Error del servicio de ruta de datos. |Para recibir asistencia, póngase en contacto con el servicio de soporte técnico de Microsoft. |
-| La dirección IP virtual de la interfaz de red <*DATA #*> indica un estado de error. |Otras causas/causas desconocidas. |A veces las condiciones temporales pueden causar estas alertas. Si es el caso, esta alerta se borrará automáticamente después de un tiempo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. |
-| La dirección IP virtual de la interfaz de red <*DATA #*> indica un estado de error. |Nombre de la interfaz: <*DATA #*> La dirección IP `<IP address>` no se puede poner en línea porque se ha detectado una dirección IP duplicada en la red. |Asegúrese de que la dirección IP duplicada se quita de la red o vuelva a configurar la interfaz con una dirección IP diferente. |
+| La dirección IP virtual de la interfaz de red <*DATA #* > indica un estado de error. |Otras causas/causas desconocidas. |A veces las condiciones temporales pueden causar estas alertas. Si es el caso, esta alerta se borrará automáticamente después de un tiempo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. |
+| La dirección IP virtual de la interfaz de red <*DATA #* > indica un estado de error. |Nombre de la interfaz: <*DATA #* > La dirección IP `<IP address>` no se puede poner en línea porque se ha detectado una dirección IP duplicada en la red. |Asegúrese de que la dirección IP duplicada se quita de la red o vuelva a configurar la interfaz con una dirección IP diferente. |
 
 ### <a name="disaster-recovery-alerts"></a>Alertas de recuperación ante desastres
 
@@ -200,9 +200,9 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
 |:--- |:--- |:--- |
 | No se han podido iniciar los servicios de StorSimple. |Error de ruta de datos |Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
-| Se ha detectado una dirección IP duplicada para 'Data0'. | |El sistema ha detectado un conflicto para la dirección IP '10.0.0.1'. El recurso de red 'Data0' en el dispositivo  *\<dispositivo1 >* está sin conexión. Asegúrese de que ninguna otra entidad de esta red utilice esta dirección IP. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para resolver este problema, póngase en contacto con el administrador de red. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
-| La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. prefijo de longitud '22' en el dispositivo  *\<dispositivo1 >* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para obtener más información sobre los patrones de dirección URL en Azure portal, vaya a https:\//aka.ms/ss-8000-network-reqs. Si usa Azure Government Cloud, vaya a los patrones de URL de https:\//aka.ms/ss8000-gov-network-reqs.|
+| Se ha detectado una dirección IP duplicada para 'Data0'. | |El sistema ha detectado un conflicto para la dirección IP '10.0.0.1'. El recurso de red 'Data0' en el dispositivo *\<device1>* está sin conexión. Asegúrese de que ninguna otra entidad de esta red utilice esta dirección IP. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para resolver este problema, póngase en contacto con el administrador de red. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
+| La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. La longitud del prefijo '22' en el dispositivo *\<device1>* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para más información sobre los patrones de dirección URL en Azure Portal, vaya a https:\//aka.ms/ss-8000-network-reqs. Si usa Azure Government Cloud, vaya a los modelos de dirección URL de https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de rendimiento
 

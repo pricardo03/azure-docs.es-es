@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467740"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Linux en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Linux y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y distribuciones más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
 
 > [!NOTE]
-> Azure tiene ahora un servicio, el generador de imágenes de Azure (versión preliminar), para definir y crear sus propias imágenes personalizadas. Generador de imágenes de Azure se basa en Packer, por lo que puede usar incluso Packer shell aprovisionador secuencias de comandos existentes con él. Para empezar a trabajar con el generador de imágenes de Azure, consulte [crear una VM Linux con Azure Image Builder](image-builder.md).
+> Azure tiene ahora un servicio, Azure Image Builder (versión preliminar), para definir y crear sus propias imágenes personalizadas. Azure Image Builder se basa en Packer, por lo que puede usar incluso los scripts del aprovisionador de shell de Packer. Para empezar a trabajar con Azure Image Builder, vea [Vista previa: Crear una máquina virtual Linux con Azure Image Builder](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Creación del grupo de recursos de Azure

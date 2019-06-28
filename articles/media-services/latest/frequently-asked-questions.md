@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
 ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556279"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Media Services v3
@@ -24,9 +24,9 @@ En este artículo se ofrecen respuestas a las preguntas más frecuentes de Azure
 
 ## <a name="v3-apis"></a>API de la versión v3
 
-### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>¿Qué roles de Azure pueden realizar acciones en los recursos de Azure Media Services? 
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>¿Qué roles de Azure pueden realizar acciones en recursos de Azure Media Services? 
 
-Consulte [control de acceso basado en roles (RBAC) para cuentas de Media Services](rbac-overview.md).
+Vea [Control de acceso basado en roles (RBAC) para cuentas de Media Services](rbac-overview.md).
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>¿Cómo se pueden configurar las unidades reservadas de multimedia?
 
@@ -36,7 +36,7 @@ Para más información, consulte [Escalado de procesamiento de medios con la CLI
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>¿Cuál es el método recomendado para procesar vídeos?
 
-Use [transformaciones](https://docs.microsoft.com/rest/api/media/transforms) para configurar tareas comunes para codificar o analizar vídeos. Cada **Transformación** describe una receta, o un flujo de trabajo simple de tareas para procesar los archivos de vídeo o audio. Un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar el **transformar** a un determinado contenido de vídeo o audio de entrada. Una vez creada la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
+Use [transformaciones](https://docs.microsoft.com/rest/api/media/transforms) para configurar tareas comunes para codificar o analizar vídeos. Cada **Transformación** describe una receta, o un flujo de trabajo simple de tareas para procesar los archivos de vídeo o audio. Un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services de aplicar la **transformación** a un contenido de vídeo o audio de entrada determinado. Una vez creada la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
 
 ### <a name="how-does-pagination-work"></a>¿Cómo funciona la paginación?
 
@@ -44,9 +44,9 @@ Al usar la paginación, siempre debe usar el vínculo siguiente para enumerar la
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>¿Qué características todavía no están disponibles en Azure Media Services v3?
 
-Para obtener más información, consulte [característica vacíos con respecto a las API v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+Para obtener detalles, vea [Carencias de características con respecto a las API v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
-## <a name="live-streaming"></a>Streaming en vivo 
+## <a name="live-streaming"></a>Streaming en directo 
 
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>¿Cómo insertar pausas o vídeos y caretas de imagen durante una transmisión en directo?
 
@@ -70,7 +70,7 @@ El enfoque correcto consiste en aprovechar STS (servicio de token seguro):
 
 Según el perfil de usuario, agregue en STS notificaciones distintas (por ejemplo, "Usuario premium", "Usuario básico", "Usuario de evaluación gratuita"). Con notificaciones distintas en un token JWT, el usuario puede ver diferentes contenidos. Por supuesto, para otro contenido o recurso, la restricción ContentKeyPolicyRestriction tendrá el elemento RequiredClaims correspondiente.
 
-Use Azure Media Services API para configurar/clave de licencia de entrega y cifrar los recursos (como se muestra en [este ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+Use las API de Azure Media Services para configurar la entrega de claves o licencias y cifrar los recursos (como se muestra en [este ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 Para más información, consulte:
 

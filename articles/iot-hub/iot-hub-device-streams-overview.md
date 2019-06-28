@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
 ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401109"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flujos de dispositivos IoT Hub (versión preliminar)
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Solución de problemas a través de los registros de actividad de los flujos de dispositivos
 
-Puede configurar registros de Azure Monitor para recopilar el registro de actividad de secuencias de dispositivo en IoT Hub. Esto puede ser muy útil en los escenarios de solución de problemas.
+Puede configurar los registros de Azure Monitor para que recopilen el registro de actividad de los flujos de dispositivos en IoT Hub. Esto puede ser muy útil en los escenarios de solución de problemas.
 
-Siga los pasos siguientes para configurar registros de Azure Monitor para las actividades de flujo de dispositivo de IoT Hub:
+Siga estos pasos para configurar los registros de Azure Monitor para las actividades de flujo de dispositivos de IoT Hub:
 
 1. Vaya a la pestaña *Configuración de diagnóstico* en IoT Hub y haga clic en el vínculo *Activación del diagnóstico*.
 
    ![Texto alternativo](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Habilitación de los registros de diagnósticos")
 
 
-2. Proporcione un nombre para la configuración de diagnóstico y elija la opción *Enviar a Log Analytics*. Se le guiará para elegir un recurso de área de trabajo de Log Analytics existente o crear uno nuevo. Además, compruebe *DeviceStreams* de la lista.
+2. Proporcione un nombre para la configuración de diagnóstico y elija la opción *Enviar a Log Analytics*. Se le guiará para que elija un recurso existente del área de trabajo de Log Analytics o para que cree uno. Además, compruebe *DeviceStreams* de la lista.
 
     ![Texto alternativo](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "Habilitación de los registros de flujos de dispositivos")
 
@@ -153,7 +153,7 @@ Dos lados de cada flujo (en el lado del dispositivo y del servicio) usan el SDK 
 ## <a name="iot-hub-device-stream-samples"></a>Ejemplos de flujo de dispositivos de IoT Hub
 
 Hemos publicado [dos ejemplos de inicio rápido](/azure/iot-hub) para mostrar el uso que hacen las aplicaciones de los flujos de datos de los dispositivos.
-* El *echo* ejemplo muestra el uso de secuencias de dispositivo mediante programación (llamando a la API de SDK directamente).
+* En el ejemplo *echo*, se muestra el uso mediante programación de los flujos de los dispositivos (llamando directamente a las API del SDK).
 * En el ejemplo *local proxy*, se muestra el uso de la tunelización del tráfico de las aplicaciones cliente/servidor existentes (como aplicaciones SSH, RDP o web) mediante flujos de datos de dispositivos.
 
 Estos ejemplos se tratan con más detalle a continuación.

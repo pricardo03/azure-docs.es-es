@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405943"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versión actual](connector-oracle.md)
 
@@ -57,16 +57,16 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type se debe establecer en: **Oracle**. | Sí |
+| Tipo | La propiedad type se debe establecer en: **Oracle**. | Sí |
 | connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. <br><br>**Tipo de conexión admitido**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sí |
-| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 >[!TIP]
 >Si aparece un error que indica "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión y vuelva a intentarlo.
 
 **Para habilitar el cifrado en la conexión de Oracle**, tiene dos opciones:
 
-1.  Para usar **el cifrado Triple-DES (3DES) y el Estándar de cifrado avanzado (AES)**, en el lado servidor de Oracle, vaya a Oracle Advanced Security (OAS) y configure las opciones de cifrado; consulte [aquí](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) los detalles. El conector de Oracle ADF negocia automáticamente el método de cifrado para usar el que configura en OAS al establecer la conexión con Oracle.
+1.  Para usar **el cifrado Triple-DES (3DES) y el Estándar de cifrado avanzado (AES)** , en el lado servidor de Oracle, vaya a Oracle Advanced Security (OAS) y configure las opciones de cifrado; consulte [aquí](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) los detalles. El conector de Oracle ADF negocia automáticamente el método de cifrado para usar el que configura en OAS al establecer la conexión con Oracle.
 
 2.  Para usar **SSL**, siga estos pasos:
 
@@ -96,7 +96,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle.
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Ejemplo:** crea un archivo de truststore PKCS12 denominado MyTrustStoreFile con una contraseña
+        **Ejemplo**: Crea un archivo truststore PKCS12 denominado MyTrustStoreFile con contraseña
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
@@ -162,7 +162,7 @@ Para copiar datos con Oracle como origen o destino, establezca la propiedad type
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | Sí |
+| Tipo | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | Sí |
 | tableName |El nombre de la tabla de la base de datos Oracle a la que hace referencia el servicio vinculado. | Sí |
 
 **Ejemplo:**
@@ -194,8 +194,8 @@ Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource**. | Sí |
-| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | Sin  |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource**. | Sí |
+| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | Sin |
 
 Si no se especifica "oracleReaderQuery", las columnas que se definen en la sección "structure" del conjunto de datos se usan para construir una consulta (`select column1, column2 from mytable`) para ejecutarla en la base de datos Oracle. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
 
@@ -237,10 +237,10 @@ Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | Sí |
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
-| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | Sin  |
-| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | Sin  |
+| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | Sin |
+| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | Sin |
 
 **Ejemplo:**
 
@@ -281,25 +281,25 @@ Al copiar datos con Oracle como origen o destino, se usan las siguientes asignac
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(solo se admite en Oracle 10g y versiones posteriores) |
-| CHAR |string |
-| CLOB |string |
+| CHAR |Cadena |
+| CLOB |Cadena |
 | DATE |Datetime |
 | FLOAT |Decimal, String (si la precisión > 28) |
 | INTEGER |Decimal, String (si la precisión > 28) |
-| LONG |string |
+| LONG |Cadena |
 | LONG RAW |Byte[] |
-| NCHAR |string |
-| NCLOB |string |
+| NCHAR |Cadena |
+| NCLOB |Cadena |
 | NUMBER |Decimal, String (si la precisión > 28) |
-| NVARCHAR2 |string |
+| NVARCHAR2 |Cadena |
 | RAW |Byte[] |
-| ROWID |string |
+| ROWID |Cadena |
 | TIMESTAMP |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |string |
-| TIMESTAMP WITH TIME ZONE |string |
+| TIMESTAMP WITH LOCAL TIME ZONE |Cadena |
+| TIMESTAMP WITH TIME ZONE |Cadena |
 | UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |string |
-| XML |string |
+| VARCHAR2 |Cadena |
+| XML |Cadena |
 
 > [!NOTE]
 > Los tipos de datos INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND no son compatibles.

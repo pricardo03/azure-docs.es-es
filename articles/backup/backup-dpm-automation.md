@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
 ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127770"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
@@ -42,7 +42,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para comenzar, [descargar la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps).
+Para empezar, [descargue la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps).
 
 Las siguientes tareas de instalación y registro se pueden automatizar con PowerShell:
 
@@ -68,7 +68,7 @@ Los siguientes pasos le guiarán por el proceso de creación de un almacén de R
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. Use la **New AzRecoveryServicesVault** para crear un nuevo almacén. Asegúrese de especificar para el almacén la misma ubicación del grupo de recursos.
+3. Use el cmdlet **New-AzRecoveryServicesVault** para crear un nuevo almacén. Asegúrese de especificar para el almacén la misma ubicación del grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -88,9 +88,9 @@ Los siguientes pasos le guiarán por el proceso de creación de un almacén de R
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visualización de los almacenes de una suscripción
 
-Use **Get AzRecoveryServicesVault** para ver la lista de todos los almacenes de la suscripción actual. Este comando se puede usar para comprobar que se ha creado un almacén o para ver qué almacenes están disponibles en la suscripción.
+Utilice **Get-AzRecoveryServicesVault** para ver la lista de todos los almacenes de la suscripción actual. Este comando se puede usar para comprobar que se ha creado un almacén o para ver qué almacenes están disponibles en la suscripción.
 
-Ejecute el comando, Get-AzRecoveryServicesVault, y se muestran todos los almacenes de la suscripción.
+Ejecute el comando Get-AzRecoveryServicesVault y se mostrarán todos los almacenes de la suscripción.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -274,7 +274,7 @@ La lista de servidores en los que está instalado el agente de DPM y está siend
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-Ahora, capture la lista de orígenes de datos en ```$server``` con el cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). En este ejemplo estamos filtrando para el volumen *D:\\*  que queremos configurar para copia de seguridad. A continuación, este origen de datos se agrega al grupo de protección mediante el cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Recuerde usar el objeto de grupo de protección *modifiable* ```$MPG``` para realizar las incorporaciones.
+Ahora, capture la lista de orígenes de datos en ```$server``` con el cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). En este ejemplo se filtra para el volumen *D:\\* que se quiere configurar para la copia de seguridad. A continuación, este origen de datos se agrega al grupo de protección mediante el cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Recuerde usar el objeto de grupo de protección *modifiable* ```$MPG``` para realizar las incorporaciones.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

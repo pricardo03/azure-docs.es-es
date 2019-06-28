@@ -17,28 +17,28 @@ ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 58c8ca9bb9b4dfd58c801eb4dd1dad95c1969c18
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127623"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
-Obtenga información sobre cómo crear una máquina virtual de Windows mediante una plantilla de Azure Resource Manager y Azure PowerShell desde Azure Cloud shell. La plantilla usada en este artículo implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred. Para crear una máquina virtual Linux, consulte [cómo crear una máquina virtual Linux con plantillas de Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
+Aprenda a crear una máquina virtual Windows mediante una plantilla de Azure Resource Manager y Azure PowerShell desde Azure Cloud Shell. La plantilla usada en este artículo implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred. Para la creación de una máquina virtual Linux, consulte [Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
 
 ## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-Normalmente, la creación de una máquina virtual de Azure incluye dos pasos:
+La creación de una máquina virtual de Azure normalmente incluye dos pasos:
 
 - Cree un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual.
 - Cree una máquina virtual.
 
-En el ejemplo siguiente se crea una máquina virtual desde un [plantilla de inicio rápido de Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Esta es una copia de la plantilla:
+En el siguiente ejemplo se crea una máquina virtual a partir de una [plantilla de inicio rápido de Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Esta es una copia de la plantilla:
 
 [!code-json[create-windows-vm](~/quickstart-templates/101-vm-simple-windows/azuredeploy.json)]
 
-Para ejecutar el script de PowerShell, seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
+Para ejecutar el script de PowerShell, seleccione **Pruébelo** para abrir el shell de Azure Cloud. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -59,19 +59,19 @@ New-AzResourceGroupDeployment `
 
 ```
 
-Si decide instalar y usar PowerShell localmente, en lugar de hacerlo desde Azure Cloud shell, este tutorial requiere el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local en lugar de en el shell de Azure Cloud, en este tutorial necesitará el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 En el ejemplo anterior, especificó una plantilla almacenada en GitHub. También puede descargar o crear una plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
 
 Estos son algunos recursos adicionales:
 
 - Para aprender a desarrollar plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](/azure/azure-resource-manager/).
-- Para ver los esquemas de la máquina virtual de Azure, consulte [referencia de plantilla de Azure](/azure/templates/microsoft.compute/allversions).
-- Para ver más ejemplos de plantillas de máquina virtual, consulte [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+- Para ver los esquemas de la máquina virtual de Azure, consulte [Referencia sobre las plantillas de Azure](/azure/templates/microsoft.compute/allversions).
+- Para ver más ejemplos de plantilla de máquina virtual, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-the-virtual-machine"></a>Conexión a la máquina virtual
 
-El último comando de PowerShell desde el script anterior muestra el nombre de la máquina virtual. Para conectarse a la máquina virtual, consulte [cómo conectarse e iniciar sesión una máquina virtual de Azure ejecutando Windows](./connect-logon.md).
+El último comando de PowerShell del script anterior muestra el nombre de la máquina virtual. Para conectarse a la máquina virtual, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en esta](./connect-logon.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

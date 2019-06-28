@@ -1,5 +1,5 @@
 ---
-title: Conectar al servidor FTP - Azure Logic Apps
+title: 'Conexión al servidor FTP: Azure Logic Apps'
 description: Creación, supervisión y administración de archivos en un servidor FTP con Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408603"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creación, supervisión y administración de archivos FTP mediante Azure Logic Apps
@@ -30,9 +30,9 @@ Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permita
 
 ## <a name="limits"></a>límites
 
-* Acciones de FTP admiten sólo los archivos que están *50 MB o más pequeños* a menos que use [fragmentación del mensaje](../logic-apps/logic-apps-handle-large-messages.md), que le permiten superar este límite. Actualmente, los desencadenadores FTP no admiten la fragmentación.
+* Las acciones de FTP solo admiten archivos que tengan un máximo de *50 MB*, a menos que use la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md), que permite exceder ese límite. Actualmente, los desencadenadores de FTP no admiten la fragmentación.
 
-* El conector de FTP admite solo explícita FTP por SSL (FTPS) y no es compatible con FTPS implícito.
+* El conector de FTP solo admite FTP por SSL (FTPS) explícito y no es compatible con FTPS implícito.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -61,7 +61,7 @@ Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permita
    En la lista de acciones, seleccione la que desee.
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
-   Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+   Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
 
 1. Proporcione la información necesaria para la conexión y, a continuación, seleccione **Crear**:
 
@@ -69,7 +69,7 @@ Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permita
 
 Cuando se solicita el contenido del archivo, el desencadenador no obtiene los archivos mayores de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón:
 
-* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
+* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)** .
 
 * Siga el desencadenador con una acción que lea el archivo completo, como **Obtener contenido del archivo mediante ruta de acceso**, y haga que la acción use la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -83,9 +83,9 @@ Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando det
 
 **Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que describen los pedidos de los clientes. Luego, puede usar una acción de FTP, como **Obtener contenido de archivo** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
 
-Cuando se solicita el contenido del archivo, los desencadenadores no pueden obtener los archivos mayores de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+Cuando se solicita el contenido del archivo, los desencadenadores no pueden obtener archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
 
-* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
+* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)** .
 
 * Siga el desencadenador con una acción que lea el archivo completo, como **Obtener contenido del archivo mediante ruta de acceso**, y haga que la acción use la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -106,7 +106,7 @@ Este es un ejemplo que muestra este desencadenador: **When a file is added or mo
 
    ![Creación de una conexión al servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Junto al cuadro **Carpeta**, seleccione el icono de carpeta para que aparezca una lista. Para buscar la carpeta donde quiere supervisar los archivos nuevos o modificados, seleccione la flecha de ángulo derecho (**>**), vaya a esa carpeta y, luego, seleccione la carpeta.
+1. Junto al cuadro **Carpeta**, seleccione el icono de carpeta para que aparezca una lista. Para buscar la carpeta donde quiere supervisar los archivos nuevos o modificados, seleccione la flecha de ángulo derecho ( **>** ), vaya a esa carpeta y, luego, seleccione la carpeta.
 
    ![Busque y seleccione la carpeta para supervisar](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -122,9 +122,9 @@ Ahora que la aplicación lógica tiene un desencadenador, agregue las acciones q
 
 Esta acción obtiene el contenido de un archivo en un servidor FTP cuando ese archivo se agrega o actualiza. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una acción que obtiene el contenido del archivo después de que se agregue o modifique el archivo. 
 
-Cuando se solicita el contenido del archivo, los desencadenadores no pueden obtener los archivos mayores de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+Cuando se solicita el contenido del archivo, los desencadenadores no pueden obtener archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
 
-* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
+* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)** .
 
 * Siga el desencadenador con una acción que lea el archivo completo, como **Obtener contenido del archivo mediante ruta de acceso**, y haga que la acción use la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -152,7 +152,7 @@ Este es un ejemplo que muestra esta acción: **Obtener contenido**
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener información técnica acerca de los desencadenadores, acciones y los límites, que se describen mediante OpenAPI del conector (anteriormente Swagger) descripción, revise el [página de referencia del conector](/connectors/ftpconnector/).
+Para obtener información técnica acerca de los desencadenadores, las acciones y los límites, que se detallan en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia de los conectores](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

@@ -1,6 +1,6 @@
 ---
-title: Instalación de Windows de Azure Security Center para vista previa del agente de IoT | Microsoft Docs
-description: Obtenga información sobre cómo instalar Azure Security Center para el agente de IoT en los dispositivos de Windows de 32 bits o 64 bits.
+title: Instalación en Windows del agente de Azure Security Center for IoT, versión preliminar | Microsoft Docs
+description: Aprenda a instalar el agente de Azure Security Center for IoT en dispositivos Windows de 32 o 64 bits.
 services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
 ms.openlocfilehash: 64fc576885bb9d9c3c46aafd808db65d2f8ff77f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200608"
 ---
-# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implementar un centro de seguridad de Azure para IoT C#-basándose security agent para Windows
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implementación del agente de seguridad basado en C# de Azure Security Center for IoT para Windows
 
 > [!IMPORTANT]
 > Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Esta guía explica cómo instalar Azure Security Center (ASC) para IoT C#-en función de agente de seguridad en Windows.
+En esta guía se explica cómo instalar el agente de seguridad basado en C# de Azure Security Center (ASC) for IoT en Windows.
 
 En esta guía, aprenderá a: 
 > [!div class="checklist"]
@@ -40,7 +40,7 @@ En esta guía, aprenderá a:
 
 Para otras plataformas y versiones de agente, consulte [Elección del agente de seguridad correcto](how-to-deploy-agent.md).
 
-1. Derechos de administrador local en el equipo que desea instalar en. 
+1. Derechos de administrador local en el equipo de instalación. 
 
 1. [Crear un módulo de seguridad](quickstart-create-security-twin.md) para el dispositivo.
 
@@ -48,7 +48,7 @@ Para otras plataformas y versiones de agente, consulte [Elección del agente de 
 
 Para instalar al agente de seguridad, realice las siguientes operaciones:
 
-1. Para instalar el ASC para Windows IoT C# agente en el dispositivo, descargue la versión más reciente para la máquina desde la ASC para IoT [repositorio de GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Para instalar el agente de C# para Windows de ASC for IoT en el dispositivo, descargue la versión más reciente en el equipo desde la carpeta del [repositorio de GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS) de ASC for IoT.
 
 2. Extraiga el contenido del paquete y vaya a la carpeta /Install.
 
@@ -61,7 +61,7 @@ Para instalar al agente de seguridad, realice las siguientes operaciones:
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
     
-    Por ejemplo: 
+    Por ejemplo:
     
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -104,7 +104,7 @@ Si el agente no se inicia, active el registro (el registro está *desactivado* d
 
 Para activar el registro:
 
-1. Abra el archivo de configuración (General.config) para la edición con un editor de archivos estándar.
+1. Abra el archivo de configuración (General.config) de la edición mediante un editor de archivos estándar.
 
 1. Edite los valores siguientes:
 

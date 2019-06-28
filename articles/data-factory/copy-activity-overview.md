@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150868"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
@@ -54,15 +54,15 @@ La actividad de copia pasa por las siguientes fases para copiar datos de un orig
 
 La actividad de copia se puede usar para **copiar archivos tal cual** entre dos almacenes de datos basados en archivos, en cuyo caso los datos se copian de manera eficaz sin serialización ni deserialización.
 
-La actividad de copia también admite leer y escribir en archivos de formatos especificados: **Texto, JSON, Avro, ORC y Parquet**y comprimir y descomprimir archivos con los códecs siguientes: **GZip, Deflate, BZip2 y ZipDeflate**. Consulte [Formatos de archivo y de compresión admitidos](supported-file-formats-and-compression-codecs.md) para más información.
+La actividad de copia también admite leer y escribir en archivos de formatos especificados: **Texto, JSON, Avro, ORC y Parquet**, y compresión y descompresión de archivos con los códecs siguientes: **GZip, Deflate, BZip2 y ZipDeflate**. Consulte [Formatos de archivo y de compresión admitidos](supported-file-formats-and-compression-codecs.md) para más información.
 
 Por ejemplo, puede realizar las siguientes actividades de copia:
 
-* Copiar datos en un entorno local de SQL Server y escribirlos en Azure Data Lake Storage Gen2 en formato Parquet.
+* Copiar datos en la instancia local de SQL Server y escribirlos en Azure Data Lake Storage Gen2 en formato Parquet.
 * Copiar archivos en formato de texto (CSV) desde el sistema de archivos local y escribirlos en Blob de Azure en formato Avro.
-* Copie los archivos comprimidos del sistema de archivos local y, a continuación, descomprimir land a Azure Data Lake Storage Gen2.
+* Copiar archivos comprimidos del sistema de archivos local y, después, descomprimirlos en Azure Data Lake Storage Gen2.
 * Copiar datos en formato de texto comprimido GZip (CSV) desde Azure Blob Storage y escribirlos en Azure SQL Database.
-* Y muchos más casos con compresión y descompresión o de serialización/deserialización es necesario.
+* Y muchos más casos con serialización y deserialización, o compresión y descompresión.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
@@ -130,7 +130,7 @@ La plantilla siguiente de una actividad de copia contiene una lista exhaustiva d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
+| Tipo | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
 | inputs | Especifique el conjunto de datos que creó y que señala los datos de origen. La actividad de copia admite solo una entrada. | Sí |
 | outputs | Especifique el conjunto de datos que creó y que señala los datos de receptor. La actividad de copia admite solo una salida. | Sí |
 | typeProperties | Grupo de propiedades para configurar la actividad de copia. | Sí |
@@ -139,7 +139,7 @@ La plantilla siguiente de una actividad de copia contiene una lista exhaustiva d
 | translator | Especifique asignaciones de columna explícitas de origen a receptor. Se aplica cuando el comportamiento predeterminado de copia no puede satisfacer sus necesidades.<br/><br/>Obtenga información en [Asignación de tipos de datos y esquemas](copy-activity-schema-and-type-mapping.md). | Sin |
 | dataIntegrationUnits | Especifique la potencia de [Azure Integration Runtime](concepts-integration-runtime.md) para impulsar la copia de datos. Anteriormente conocidas como Unidades de movimiento de datos de nube (DMU). <br/><br/>Obtenga más información acerca de las [Unidades de integración de datos](copy-activity-performance.md#data-integration-units). | Sin |
 | parallelCopies | Especifique el paralelismo que desea que la actividad de copia use al leer datos desde el origen y copiar datos en el receptor.<br/><br/>Obtenga información en [Copia en paralelo](copy-activity-performance.md#parallel-copy). | Sin |
-| enableStaging<br/>stagingSettings | Elija esta opción almacenar provisionalmente los datos en un almacenamiento de blobs en lugar de copiar directamente los datos de origen a receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin |
+| enableStaging<br/>stagingSettings | Elija almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiarlos directamente del origen al receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos de origen a receptor.<br/><br/>Obtenga información en [Tolerancia a errores](copy-activity-fault-tolerance.md). | Sin |
 
 ## <a name="monitoring"></a>Supervisión
@@ -164,7 +164,7 @@ Haga clic en el vínculo "**Detalles**" en **Acciones** para ver los detalles de
 **Ejemplo: copia de Amazon S3 a Azure Data Lake Store**
 ![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**Ejemplo: copia de Azure SQL Database a Azure SQL Data Warehouse con una copia almacenada provisionalmente**
+**Ejemplo: copia de Azure SQL Database a Azure SQL Data Warehouse con una copia de almacenamiento temporal**
 ![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
 ### <a name="monitor-programmatically"></a>Supervisión mediante programación
@@ -177,13 +177,13 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | dataWritten | Tamaño de los datos escritos en el receptor | Valor Int64 en **bytes** |
 | filesRead | Número de archivos que se copia al copiar datos desde el almacenamiento de archivos. | Valor Int64 (sin unidad) |
 | filesWritten | Número de archivos que se copia al copiar datos al almacenamiento de archivos. | Valor Int64 (sin unidad) |
-| rowsRead | Número de filas que se va a leer desde el origen (no aplicable para copia binaria). | Valor Int64 (sin unidad) |
-| rowsCopied | Número de filas que se copian al receptor (no aplicable para copia binaria). | Valor Int64 (sin unidad) |
+| rowsRead | Número de filas que se leen desde el origen (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
+| rowsCopied | Número de filas que se copian en el receptor (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
 | rowsSkipped | Número de filas incompatibles que se omiten. Puede establecer "enableSkipIncompatibleRow" en true para activar la característica. | Valor Int64 (sin unidad) |
-| throughput | Relación con la que se transfieren los datos. | Número de punto flotante en **KB/s** |
-| copyDuration | La duración de la copia. | Valor Int32 en segundos |
+| throughput | Proporción de transferencia de los datos. | Número de punto flotante en **KB/s** |
+| copyDuration | Duración de la copia. | Valor Int32 en segundos |
 | sourcePeakConnections | Número máximo de conexiones simultáneas establecidas con el almacén de datos de origen durante la copia. | Valor Int32 |
-| sinkPeakConnections| Número máximo de conexiones simultáneas establecidas en el almacén de datos de receptor durante la copia.| Valor Int32 |
+| sinkPeakConnections| Número máximo de conexiones simultáneas establecidas con el almacén de datos de receptor durante la copia.| Valor Int32 |
 | sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | Boolean |
 | redshiftUnload | Si se usa UNLOAD cuando se copian datos desde Redshift. | Boolean |
 | hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | Boolean |

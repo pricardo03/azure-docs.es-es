@@ -8,59 +8,59 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606037"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>Ver historial de implementación con Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Visualización del historial de implementación con Azure Resource Manager
 
-Azure Resource Manager permite ver el historial de implementación y examinar las operaciones específicas en las implementaciones anteriores. Puede ver los recursos que se han implementado y obtener información sobre los errores.
+Azure Resource Manager permite ver el historial de implementación y examinar operaciones específicas de implementaciones anteriores. Puede ver los recursos que se han implementado y obtener información sobre los errores.
 
 Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 
-Para obtener detalles acerca de una implementación del historial de implementación.
+Para obtener detalles sobre una implementación del historial de implementación.
 
-1. Seleccione el grupo de recursos que desea examinar.
+1. Seleccione el grupo de recursos que quiera examinar.
 
-1. Seleccione el vínculo situado bajo **implementaciones**.
+1. Seleccione el vínculo situado bajo **Implementaciones**.
 
-   ![Seleccione el historial de implementación](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Selección del historial de implementación](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
 1. Seleccione una de las implementaciones del historial de implementación.
 
-   ![Seleccione la implementación](./media/resource-manager-deployment-operations/select-details.png)
+   ![Selección de la implementación](./media/resource-manager-deployment-operations/select-details.png)
 
-1. Se muestra un resumen de la implementación, incluida una lista de los recursos que se implementaron.
+1. Se muestra un resumen de la implementación, incluida una lista de los recursos que se han implementado.
 
     ![Resumen de implementación](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. Para ver la plantilla usada para la implementación, seleccione **plantilla**. Puede descargar la plantilla para volver a usarla.
+1. Para ver la plantilla que se ha usado para la implementación, seleccione **Plantilla**. Puede descargar la plantilla para reutilizarla.
 
-    ![Mostrar plantilla](./media/resource-manager-deployment-operations/show-template-from-history.png)
+    ![Mostrar la plantilla](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. Si se produjo un error en la implementación, verá un mensaje de error. Seleccione el mensaje de error para obtener más detalles.
+1. Si se ha producido un error en la implementación, verá un mensaje de error. Para obtener más detalles, seleccione el mensaje de error.
 
-    ![ver la implementación con errores](./media/resource-manager-deployment-operations/show-error.png)
+    ![Visualización de la implementación con errores](./media/resource-manager-deployment-operations/show-error.png)
 
 1. Se muestra el mensaje de error detallado.
 
-    ![Ver los detalles del error](./media/resource-manager-deployment-operations/show-details.png)
+    ![Visualización de los detalles del error](./media/resource-manager-deployment-operations/show-details.png)
 
-1. El identificador de correlación se utiliza para realizar un seguimiento de eventos relacionados y puede ser útil al trabajar con el soporte técnico para solucionar problemas de una implementación.
+1. El Id. de correlación se usa para realizar el seguimiento de eventos relacionados y puede ser útil al trabajar con el soporte técnico para solucionar un problema de implementación.
 
-    ![Obtener Id. de correlación](./media/resource-manager-deployment-operations/get-correlation-id.png)
+    ![Obtención del Id. de correlación](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. Para obtener más información sobre el paso con error, seleccione **detalles de la operación**.
+1. Para más información sobre el paso con error, seleccione **Detalles de la operación**.
 
-    ![Seleccione las operaciones de implementación](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![Selección de operaciones de implementación](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. Consulte los detalles de ese paso de la implementación.
+1. Verá los detalles de ese paso de la implementación.
 
-    ![Mostrar detalles de la operación](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![Representación de los detalles de la operación](./media/resource-manager-deployment-operations/show-operation-details.png)
 
 ## <a name="powershell"></a>PowerShell
 
@@ -78,7 +78,7 @@ O bien, puede filtrar los resultados para obtener únicamente las implementacion
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-El identificador de correlación se utiliza para realizar un seguimiento de eventos relacionados y puede ser útil al trabajar con el soporte técnico para solucionar problemas de una implementación. Para obtener el Id. de correlación, use:
+El Id. de correlación se usa para realizar el seguimiento de eventos relacionados y puede ser útil al trabajar con el soporte técnico para solucionar un problema de implementación. Para obtener el Id. de correlación, use:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -124,7 +124,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-Tenga en cuenta los valores serviceRequestId y trackingId de la operación. serviceRequestId puede resultar útil cuando se trabaja con el soporte técnico para solucionar un problema de implementación. Utilizará trackingId en el paso siguiente para centrarse en una operación determinada.
+Tenga en cuenta los valores serviceRequestId y trackingId de la operación. serviceRequestId puede resultar útil cuando se trabaja con el soporte técnico para solucionar un problema de implementación. Usará trackingId en el paso siguiente para centrarse en una operación determinada.
 
 Para obtener el mensaje de estado de una operación con error determinada, use el siguiente comando:
 
@@ -140,7 +140,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Cada operación de implementación en Azure incluye el contenido de la solicitud y de la respuesta. Durante la implementación, puede usar **DeploymentDebugLogLevel** parámetro para especificar que la solicitud o respuesta se registra.
+Cada operación de implementación en Azure incluye el contenido de la solicitud y de la respuesta. Durante la implementación, puede usar el parámetro **DeploymentDebugLogLevel** para especificar que la solicitud o la respuesta están registradas.
 
 Esa información se obtiene del registro y se guarda localmente mediante los siguientes comandos de PowerShell:
 
@@ -152,13 +152,13 @@ Esa información se obtiene del registro y se guarda localmente mediante los sig
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Para obtener el estado general de una implementación, use el **show de implementación de grupo de azure** comando.
+Para obtener el estado general de una implementación, use el comando **azure group deployment show**.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-El identificador de correlación se utiliza para realizar un seguimiento de eventos relacionados y puede ser útil al trabajar con el soporte técnico para solucionar problemas de una implementación.
+El Id. de correlación se usa para realizar el seguimiento de eventos relacionados y puede ser útil al trabajar con el soporte técnico para solucionar un problema de implementación.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -172,7 +172,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-Para obtener información acerca de una implementación, use el [obtener información acerca de una implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments) operación.
+Para obtener información sobre una implementación, use la operación [Obtener información sobre una implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -195,7 +195,7 @@ En la respuesta, observe en particular los elementos **provisioningState**, **co
 }
 ```
 
-Para obtener información acerca de las implementaciones, use [enumera todas las operaciones de implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments). 
+Para obtener información sobre las implementaciones, use [Enumerar todas las operaciones de implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments). 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

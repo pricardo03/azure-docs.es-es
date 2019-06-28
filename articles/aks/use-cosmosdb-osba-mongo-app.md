@@ -11,10 +11,10 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker para Azure
 ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61028421"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integración de la aplicación de MongoDB existente con la API de Azure Cosmos DB para MongoDB y Open Service Broker para Azure (OSBA)
@@ -189,7 +189,7 @@ Vaya a `http://localhost:8080` en el explorador. Observe que se han restaurado l
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Ejecución de la aplicación en el clúster de AKS
 
-Puede usar [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) para implementar la aplicación en el clúster de AKS. Espacios de desarrollo de Azure le ayuda a generar artefactos, como gráficos Dockerfiles y Helm e implementar y ejecutar una aplicación en AKS.
+Puede usar [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) para implementar la aplicación en el clúster de AKS. Azure Dev Spaces ayuda a generar artefactos, como gráficos de Dockerfiles y Helm, y a implementar y ejecutar una aplicación en AKS.
 
 Para habilitar Azure Dev Spaces en el clúster de AKS:
 
@@ -204,7 +204,7 @@ Use las herramientas de Azure Dev Spaces para preparar la aplicación para ejecu
 azds prep --public
 ```
 
-Este comando genera varios artefactos, incluida una carpeta *charts/*, que es el gráfico de Helm, en la raíz del proyecto. Este comando no puede generar un *Dockerfile* para este proyecto concreto, por lo que debe crearlo.
+Este comando genera varios artefactos, incluida una carpeta *charts/* , que es el gráfico de Helm, en la raíz del proyecto. Este comando no puede generar un *Dockerfile* para este proyecto concreto, por lo que debe crearlo.
 
 Cree un archivo en la raíz del proyecto denominado *Dockerfile* con este contenido:
 
@@ -267,7 +267,7 @@ press Ctrl+C to detach
 ...
 ```
 
-Vaya a la dirección URL mostrada en los registros. En el ejemplo anterior, se usaría *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/*. 
+Vaya a la dirección URL mostrada en los registros. En el ejemplo anterior, se usaría *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* . 
 
 Compruebe que puede ver la aplicación junto con los cambios.
 

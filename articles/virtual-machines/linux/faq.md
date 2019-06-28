@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: 0623a7aff15184822ee8abde0b3c751f8a105b5b
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65463578"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Preguntas frecuentes sobre las máquinas virtuales de Linux
@@ -36,7 +36,7 @@ Azure Managed Disks son las nuevas ofertas de almacenamiento en disco recomendad
 Las cuentas de Azure Storage también pueden proporcionar almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>¿Cómo puedo tener acceso a mi máquina virtual?
-Establecer una conexión remota para iniciar sesión la máquina virtual mediante Secure Shell (SSH). Consulte las instrucciones sobre cómo conectarse [desde Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [desde Linux y Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
+Establezca una conexión remota para iniciar sesión en la máquina virtual mediante Secure Shell (SSH). Consulte las instrucciones sobre cómo conectarse [desde Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [desde Linux y Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
 Si tiene problemas, consulte [Solución de problemas de conexiones de Secure Shell (SSH)](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -77,13 +77,13 @@ No se permiten los siguientes nombres de usuario:
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>¿Cuáles son los requisitos de contraseña cuando se crea una VM?
 
-Hay una contraseña diferente requisitos de longitud, dependiendo de la herramienta que usa:
+Hay distintos requisitos de longitud de contraseña, en función de la herramienta que use:
  - Portal: entre 12 y 72 caracteres
- - PowerShell - entre 8 y 123 caracteres
- - CLI - entre 12 y 123
+ - PowerShell: entre 8 y 123 caracteres
+ - CLI: entre 12 y 123 caracteres
  
 
-Las contraseñas también deben cumplir 3 de los requisitos de 4 complejidad siguientes:
+Las contraseñas también deben cumplir 3 de estos 4 requisitos de complejidad:
 
 * Deben incluir caracteres en minúsculas.
 * Deben incluir caracteres en mayúsculas.

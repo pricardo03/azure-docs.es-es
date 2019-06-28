@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65793672"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
@@ -80,7 +80,7 @@ Para admitir el entorno del clúster de conmutación por error, [SIOS DataKeeper
 
 Otra forma de controlar la agrupación en clústeres es implementar un clúster de recurso compartido de archivos. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha modificado recientemente el modelo de implementación de Central Services para acceder a los directorios globales de /sapmnt a través de una ruta de acceso UNC. Pero sigue siendo recomendable asegurarse de que el recurso compartido UNC /sapmnt tiene alta disponibilidad. Esto se puede realizar en la instancia de Central Services mediante Windows Server Failover Cluster con las características Servidor de archivos de escalabilidad horizontal (SOFS) y Espacios de almacenamiento directo (S2D) en Windows Server 2016. 
  > [!NOTE]
- > Actualmente la compatibilidad con Azure Site Recovery solo crash punto coherente con la replicación de máquinas virtuales con el nodo de directa y pasivos de espacios de almacenamiento de SIOS Datakeeper
+ > Actualmente, Azure Site Recovery solo admite la replicación de puntos de restauración coherentes con los bloqueos de las máquinas virtuales mediante espacios de almacenamiento directos y el nodo pasivo de SIOS Datakeeper.
 
 
 ## <a name="disaster-recovery-considerations"></a>Consideraciones acerca de la recuperación ante desastres

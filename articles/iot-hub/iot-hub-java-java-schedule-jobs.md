@@ -10,11 +10,11 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.openlocfilehash: ce7c70eef2d030a956ca5cc1ea85aff008074edb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572463"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Programación y difusión de trabajos (Java)
 
@@ -32,7 +32,7 @@ Para más información sobre estas funcionalidades, vea:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos](iot-hub-java-java-twin-getstarted.md)
 
-* Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-java.md)
+* Métodos directos: [Guía para desarrolladores de IoT Hub: métodos directos](iot-hub-devguide-direct-methods.md) y [Tutorial: Uso de métodos directos](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522201"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor para VM (versión preliminar): preguntas más frecuentes
@@ -25,18 +25,18 @@ Si las máquinas virtuales ya están conectadas a un área de trabajo de Log Ana
 
 Durante la incorporación, configuramos los contadores de rendimiento para el área de trabajo que harán que todas las máquinas virtuales que estén generando informes para el área de trabajo comiencen a recopilar esta información para su presentación y análisis en Azure Monitor para máquinas virtuales.  Como resultado, verá los datos de rendimiento de todas las máquinas virtuales conectadas al área de trabajo que seleccionó.  Solo se habilitan las características de mantenimiento y de asignación para las máquinas virtuales que ha especificado para la incorporación.
 
-Para obtener más información sobre qué rendimiento se habilitan los contadores, consulte nuestra [habilitar información general sobre](vminsights-enable-overview.md#performance-counters-enabled) artículo.
+Para más información sobre qué contadores de rendimiento están habilitados, consulte nuestro artículo de [información general de habilitación](vminsights-enable-overview.md#performance-counters-enabled).
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>¿Puede incorporarse a una nueva área de trabajo? 
 Si las máquinas virtuales no están conectadas actualmente a un área de trabajo de Log Analytics existente, deberá crear un área de trabajo para almacenar los datos. Un área de trabajo predeterminada se crea automáticamente si configura una sola máquina virtual de Azure para Azure Monitor para máquinas virtuales a través de Azure Portal.
 
-Si decide usar el método basado en la secuencia de comandos, se tratan estos pasos en el [habilitar Azure Monitor para las máquinas virtuales (versión preliminar) mediante la plantilla de Resource Manager o Azure PowerShell](vminsights-enable-at-scale-powershell.md) artículo. 
+Si decide usar el método basado en scripts, estos pasos se describen en el artículo [Habilitar Azure Monitor para VM (versión preliminar) mediante Azure PowerShell o una plantilla de Resource Manager](vminsights-enable-at-scale-powershell.md). 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>¿Qué puedo hacer si mi máquina virtual ya está generando informes para un área de trabajo?
 Si ya está recopilando datos de las máquinas virtuales, es posible que ya las haya configurado para que generen ubfirnes de datos a un área de trabajo de Log Analytics existente.  Siempre y cuando el área de trabajo se encuentre en una de nuestras regiones admitidas, podrá habilitar Azure Monitor para máquinas virtuales en esa área de trabajo preexistente.  Si el área de trabajo que ya está usando no está en una de nuestras regiones admitidas, no podrá incorporar Azure Monitor para máquinas virtuales en este momento.  Estamos trabajando para admitir más regiones.
 
 >[!NOTE]
->Configuramos los contadores de rendimiento para el área de trabajo que afecta a todas las máquinas virtuales que se comunican con el área de trabajo, independientemente de si ha elegido incorporarlas a Azure Monitor para máquinas virtuales. Para obtener más detalles sobre cómo se configuran los contadores de rendimiento para el área de trabajo, consulte nuestra [documentación](../../azure-monitor/platform/data-sources-performance-counters.md). Para obtener información acerca de los contadores configurados para Azure Monitor para las máquinas virtuales, consulte nuestra [habilitar Azure Monitor para máquinas virtuales](vminsights-enable-overview.md#performance-counters-enabled) artículo.  
+>Configuramos los contadores de rendimiento para el área de trabajo que afecta a todas las máquinas virtuales que se comunican con el área de trabajo, independientemente de si ha elegido incorporarlas a Azure Monitor para máquinas virtuales. Para obtener más detalles sobre cómo se configuran los contadores de rendimiento para el área de trabajo, consulte nuestra [documentación](../../azure-monitor/platform/data-sources-performance-counters.md). Para obtener información acerca de los contadores configurados para Azure Monitor para VM, consulte nuestro artículo sobre cómo [habilitar Azure Monitor para VM](vminsights-enable-overview.md#performance-counters-enabled).  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>¿Por qué no se pudo incorporar mi máquina virtual?
 Al incorporar una máquina virtual de Azure desde Azure Portal, se producen los pasos siguientes:
@@ -100,7 +100,7 @@ La característica de asignación de Azure Monitor para máquinas virtuales est�
 * Ahora se incluyen máquinas virtuales supervisadas en el nodo de grupo del cliente y el gráfico de anillos muestra la proporción de máquinas virtuales no supervisadas frente a las supervisadas en el grupo.  También puede usarse para filtrar la lista de máquinas cuando el grupo está expandido.
 * Ahora se incluyen las máquinas virtuales supervisadas en los nodos de grupo de los puertos del servidor, y el gráfico de anillos muestra la proporción de máquinas supervisadas frente a las no supervisadas en el grupo.  También puede usarse para filtrar la lista de máquinas cuando el grupo está expandido.
 * El estilo de la asignación se actualizó para que sea más coherente con el mapa de aplicación de Application Insights.
-* Se han actualizado los paneles laterales y no tiene el conjunto completo de integración que se admitían en Service Map - Update Management, Change Tracking, seguridad y servicio de asistencia. 
+* Los paneles laterales se han actualizado y aún no tienen el conjunto completo de integración que era compatible con Service Map: Update Management, Change Tracking, seguridad y Service Desk. 
 * La opción para elegir los grupos y máquinas que se asignarán se ha actualizado y ahora es compatible con las suscripciones, grupos de recursos, conjuntos de escalado de máquinas virtuales de Azure y servicios en la nube.
 * No puede crear grupos de máquinas de Service Map en la característica de asignación de Azure Monitor para máquinas virtuales.  
 
@@ -126,11 +126,11 @@ Aunque hemos realizado mejoras a la asignación para que controle configuracione
 
 La página de información general de una máquina virtual de Azure muestra gráficos basados en la medición de actividad de la máquina virtual invitada que realiza el host.  En el gráfico de red de la información general de la máquina virtual de Azure, solo se muestra el tráfico de red que se facturará.  Esto no incluye el tráfico entre redes virtuales.  Los datos y gráficos que se muestran en Azure Monitor para máquinas virtuales se basan en los datos de la máquina virtual invitada, y el gráfico de red muestra todo el tráfico TCP/IP entrante y saliente de esa máquina virtual, incluido el que fluye entre redes virtuales.
 
-## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>¿Cómo se mide el tiempo de respuesta para los datos almacenados en VMConnection y aparece en el panel de la conexión y los libros?
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>¿Cómo se mide el tiempo de respuesta de los datos almacenados en VMConnection y mostrados en el panel de conexión y los libros?
 
-Tiempo de respuesta es una aproximación. Puesto que no se instrumenta el código de la aplicación, que no sabemos realmente cuando comienza una solicitud y cuando llegue la respuesta. En su lugar, observamos que se envían en una conexión de datos y, a continuación, los datos devueltos en esa conexión. Nuestro agente realiza un seguimiento de estos envía y recibe e intenta emparejarlas: recibe una secuencia de envíos, seguido de una secuencia de se interpreta como un par de solicitud/respuesta. Tiempo que transcurre entre estas operaciones es el tiempo de respuesta. Se incluyen la latencia de red y el tiempo de procesamiento del servidor.
+El tiempo de respuesta es una aproximación. Puesto que no se instrumenta el código de la aplicación, no sabemos realmente cuándo comienza una solicitud y cuándo llega la respuesta. En su lugar, observamos el envío de datos en una conexión y, posteriormente, la devolución de los datos por esa conexión. Nuestro agente realiza un seguimiento de estos envíos y recepciones e intenta emparejarlos: una secuencia de envíos seguida de una secuencia de recepciones se interpreta como un par de solicitud y respuesta. El tiempo que transcurre entre estas operaciones es el tiempo de respuesta. Incluye la latencia de red y el tiempo de procesamiento del servidor.
 
-Esta aproximación funciona bien para los protocolos que se basa en solicitud/respuesta: una única solicitud sale de la conexión y recibe una respuesta única. Este es el caso de HTTP (S) (sin la canalización), pero no cumplida para otros protocolos.
+Esta aproximación funciona bien para protocolos que se basan en solicitud/respuesta: una única solicitud sale por la conexión y se recibe una única respuesta. Este es el caso de HTTP(S) (sin canalización), pero no es así para otros protocolos.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>¿Existen limitaciones si estoy en el plan de tarifa gratis de Log Analytics?
 Si ha configurado Azure Monitor con un área de trabajo de Log Analytics mediante el plan de tarifa *gratis*, la característica de asignación de Azure Monitor para máquinas virtuales solo admitirá cinco máquinas conectadas. Si tiene cinco máquinas virtuales conectadas a un área de trabajo gratuita, desconecte una para poder conectar otra nueva. La nueva máquina virtual que conecte no se supervisará ni se reflejará en la página de asignación.  
@@ -138,4 +138,4 @@ Si ha configurado Azure Monitor con un área de trabajo de Log Analytics mediant
 En esta condición, verá la opción **Probar ahora** al abrir la máquina virtual y seleccionar la opción **Insights (versión preliminar)** en el panel izquierdo, incluso después de que se haya instalado en la máquina virtual.  Sin embargo, no se le presentarán opciones como ocurriría si estas VM no estuvieran incorporadas en Azure Monitor para VM. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Revisión [habilitar Azure Monitor para las máquinas virtuales](vminsights-enable-overview.md) para comprender los requisitos y los métodos para habilitar la supervisión de las máquinas virtuales.
+Consulte [Habilitar Azure Monitor para VM](vminsights-enable-overview.md) para conocer los requisitos y los métodos necesarios para habilitar la supervisión de máquinas virtuales.

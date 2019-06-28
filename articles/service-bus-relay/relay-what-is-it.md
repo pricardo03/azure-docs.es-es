@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60420321"
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
@@ -82,7 +82,7 @@ El siguiente diagrama muestra el control de las solicitudes de transmisión entr
 5. La puerta de enlace reenvía la solicitud de conexión a la puerta de enlace correcta mencionada en el almacén de puerta de enlace. 
 6. La puerta de enlace envía una solicitud al cliente de escucha para que cree un canal temporal al nodo de la puerta de enlace que esté más próximo al cliente de envío. 
 7. El cliente de escucha crea un canal temporal a la puerta de enlace más cercana al cliente de envío. Ahora que la conexión está establecida entre los clientes a través de una puerta de enlace, estos pueden intercambiarse mensajes. 
-8. La puerta de enlace reenvía los mensajes desde el cliente escuchando para el cliente remitente. 
+8. La puerta de enlace reenvía cualquier mensaje del cliente de escucha al cliente de envío. 
 9. La puerta de enlace reenvía cualquier mensaje del cliente de envío al cliente de escucha.  
 
 ## <a name="next-steps"></a>Pasos siguientes

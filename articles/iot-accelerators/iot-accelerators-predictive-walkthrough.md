@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447535"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Introducción al acelerador de soluciones de mantenimiento predictivo
@@ -71,7 +71,7 @@ IoT Hub proporciona la confirmación de los comandos del dispositivo.
 El **host de procesador de eventos** se ejecuta en un trabajo web de Azure. El **procesador de eventos** toma los valores promedio de los sensores para un ciclo completado. Luego, pasa esos valores a un modelo entrenado para calcular la vida útil restante (RUL) de un motor. Una API proporciona acceso al modelo en un área de trabajo de Machine Learning que forma parte de la solución.
 
 ## <a name="machine-learning"></a>Machine Learning
-El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede desplazarse al área de trabajo de Machine Learning desde el icono de solución de la [azureiotsolutions.com] [ lnk-azureiotsolutions] página. El icono está disponible cuando la solución se encuentra en el estado **Listo**.
+El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede navegar al área de trabajo de Machine Learning desde el icono de solución de la página [azureiotsolutions.com][lnk-azureiotsolutions]. El icono está disponible cuando la solución se encuentra en el estado **Listo**.
 
 El modelo de Machine Learning está disponible como una plantilla que muestra cómo trabajar con la telemetría recopilada mediante los servicios de aceleradores de soluciones de IoT. Microsoft ha creado un [modelo de regresión][lnk_regression_model] de un motor de avión basado en datos disponibles públicamente<sup>\[1\]</sup>, e instrucciones paso a paso sobre cómo utilizar dicho modelo.
 

@@ -1,6 +1,6 @@
 ---
-title: HDInsight de Azure Accelerated escrituras de HBase de Apache
-description: Proporciona información general de la característica escribe acelerado de Azure HDInsight, que utiliza discos administrados premium para mejorar el rendimiento del registro de escritura anticipada de Apache HBase.
+title: Escrituras aceleradas de Azure HDInsight para Apache HBase
+description: Se proporciona una introducción de la característica Escrituras aceleradas de Azure HDInsight, que usa discos administrados premium para mejorar el rendimiento del registro de escritura previa de Apache HBase.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,43 +8,43 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 219899c2e336f544ff6572589cc79f84f555490d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233841"
 ---
-# <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>HDInsight de Azure Accelerated escrituras de HBase de Apache
+# <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Escrituras aceleradas de Azure HDInsight para Apache HBase
 
-En este artículo proporciona información general acerca del **Accelerated escribe** característica para Apache HBase en HDInsight de Azure y cómo se puede usar eficazmente para mejorar el rendimiento de escritura. **Accelerated escrituras** usa [discos administrados premium de Azure SSD](../../virtual-machines/linux/disks-types.md#premium-ssd) para mejorar el rendimiento de la Apache HBase de escritura anticipada Log (WAL). Para obtener más información acerca de Apache HBase, consulte [¿qué es Apache HBase en HDInsight](apache-hbase-overview.md).
+En este artículo se proporciona una base sobre la característica **Escrituras aceleradas** para Apache HBase en Azure HDInsight y cómo puede usarse de forma eficaz para mejorar el rendimiento de escritura. **Escrituras aceleradas** usa [discos administrados SSD premium de Azure](../../virtual-machines/linux/disks-types.md#premium-ssd) para mejorar el rendimiento del registro de escritura previa (WAL) de Apache HBase. Para obtener más información acerca de Apache HBase, consulte [Qué es Apache HBase en HDInsight](apache-hbase-overview.md).
 
-## <a name="overview-of-hbase-architecture"></a>Información general de arquitectura de HBase
+## <a name="overview-of-hbase-architecture"></a>Introducción a la arquitectura de HBase
 
-En HBase, una **fila** consta de uno o varios **columnas** y se identifica mediante un **clave de fila**. Varias filas constituyen un **tabla**. Las columnas contienen **celdas**, que son versiones con marca de tiempo del valor de esa columna. Las columnas se agrupan en **familias de columnas**, y todas las columnas de una familia de columnas se almacenan juntos en archivos de almacenamiento denominados **HFiles**.
+En HBase, una **fila** consta de una o varias **columnas** y se identifica mediante una **clave de fila**. Varias filas constituyen una **tabla**. Las columnas contienen **celdas**, que son versiones con marca de tiempo del valor de esa columna. Las columnas se agrupan en **familias de columnas**, y todas las columnas de una familia de columnas se almacenan juntas en archivos de almacenamiento denominados **HFiles**.
 
-**Regiones** en HBase se usan para equilibrar la carga de procesamiento de datos. En primer lugar, HBase almacena las filas de una tabla en una sola región. Las filas se distribuyen entre varias regiones, como la cantidad de datos en la que aumenta la tabla. **Los servidores de regiones** puede controlar las solicitudes de varias regiones.
+Las **regiones** en HBase se usan para equilibrar la carga de procesamiento de datos. En primer lugar, HBase almacena las filas de una tabla en una única región. Las filas se distribuyen entre varias regiones a medida que aumenta la cantidad de datos en la tabla. Los **servidores regionales** pueden controlar las solicitudes de varias regiones.
 
 ## <a name="write-ahead-log-for-apache-hbase"></a>Registro de escritura previa para Apache HBase
 
-HBase escribe primero las actualizaciones de datos en un tipo de registro de confirmación denominado una escritura anticipada Log (WAL). Después de la actualización se almacena en el WAL, se escribe en la memoria **MemStore**. Cuando los datos en memoria alcanza su capacidad máxima, ha escrito en el disco como un **HFile**.
+HBase primero escribe las actualizaciones de datos en un tipo de registro de confirmación denominado registro de escritura previa (WAL). Una vez que la actualización se ha almacenado en el WAL, se escribe en la memoria **MemStore**. Cuando los datos en la memoria alcanzan su capacidad máxima, se escriben en el disco como un **HFile**.
 
-Si un **RegionServer** se bloquea o deja de estar disponible antes de que se vacía, se puede usar el registro de escritura anticipada para reproducir las actualizaciones. Sin el WAL, si un **RegionServer** se bloquea antes del vaciado de las actualizaciones de un **HFile**, se pierden todas esas actualizaciones.
+Si un **RegionServer** se bloquea o deja de estar disponible antes de que se vacíe la MemStore, se puede usar el registro de escritura previa para reproducir las actualizaciones. Sin el WAL, si un **RegionServer** se bloquea antes de que las actualizaciones se vacíen en un **HFile**, se pierden todas esas actualizaciones.
 
-## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Característica de escrituras acelerado en Azure HDInsight para Apache HBase
+## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Característica Escrituras aceleradas de Azure HDInsight para Apache HBase
 
-La característica Accelerated escribe resuelve el problema de mayores latencias de escritura deberse al uso de registros de escritura previa que se encuentran en el almacenamiento en la nube.  Clústeres de la característica escribe acelerado para HDInsight Apache HBase, adjunta SSD-managed disks premium para cada RegionServer (nodo de trabajo). Escribir que registros con antelación, a continuación, se escriben en el sistema de archivos de Hadoop (HDFS) montado en estos discos administrados premium: en lugar de almacenamiento en la nube.  Discos administrados Premium utilizan discos de estado sólido (SSD) y ofrecen un excelente rendimiento de E/S con tolerancia a errores.  A diferencia de los discos no administrados, si una unidad de almacenamiento se bloquea, lo no afectará a otras unidades de almacenamiento en el mismo conjunto de disponibilidad.  Como resultado, discos administrados proporcionan una mejor resistencia para las aplicaciones y baja latencia de escritura. Para más información acerca de los discos administrados de Azure, consulte [de introducción a Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md). 
+La característica Escrituras aceleradas soluciona el problema de mayores latencias de escritura debidas al uso de registros de escritura previa que se encuentran en el almacenamiento en la nube.  La característica Escrituras aceleradas para clústeres de HDInsight Apache HBase adjunta discos SSD administrados a cada RegionServer (nodo de trabajo). En consecuencia, los registros de escritura previa se escriben en el sistema de archivos Hadoop (HDFS) montado en estos discos administrados premium en lugar de escribirse en el almacenamiento en la nube.  Los discos administrados Premium usan discos de estado sólido (SSD) y ofrecen un rendimiento de E/S excelente con tolerancia a errores.  A diferencia de los discos no administrados, si una unidad de almacenamiento se bloquea, eso no afectará a otras unidades de almacenamiento del mismo conjunto de disponibilidad.  Como resultado, los discos administrados proporcionan una baja latencia de escritura y una mejor resistencia para las aplicaciones. Para obtener más información sobre los discos administrados por Azure, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/windows/managed-disks-overview.md). 
 
-## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Cómo habilitar Accelerated escribe para HBase en HDInsight
+## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Cómo habilitar Escrituras aceleradas para HBase en HDInsight
 
-Para crear un nuevo clúster de HBase con la característica Accelerated escribe, siga los pasos de [configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) hasta llegar a **paso 3, almacenamiento**. En **configuración de Metastore**, haga clic en la casilla de verificación junto a **habilitar Accelerated escribe (versión preliminar)**. A continuación, continúe con los pasos restantes para crear un clúster.
+Para crear un nuevo clúster de HBase con la característica Escrituras aceleradas, siga los pasos de [Configuración de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) hasta llegar al **Paso 3, almacenamiento**. En **Configuración de Metastore**, haga clic en la casilla junto a **Habilitar Escrituras aceleradas (versión preliminar)** . A continuación, continúe con los pasos restantes para crear un clúster.
 
-![Habilitar la opción de escrituras acelerado para Apache HBase de HDInsight](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
+![Habilitar la opción de escrituras aceleradas para Apache HBase de HDInsight](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 
 ## <a name="other-considerations"></a>Otras consideraciones
 
-Para conservar la durabilidad de los datos, crear un clúster con un mínimo de tres nodos de trabajo. Una vez creado, no se puede escalar verticalmente el clúster a menos de tres nodos de trabajo.
+Para conservar la durabilidad de los datos, cree un clúster con un mínimo de tres nodos de trabajo. Una vez creado, el clúster no se puede reducir verticalmente a menos de tres nodos de trabajo.
 
-Vaciar o deshabilitar las tablas de HBase antes de eliminar el clúster, para que no pierda datos escribir directamente el registro.
+Vacíe o deshabilite las tablas de HBase antes de eliminar el clúster, de modo que no pierda los datos del registro de escritura previa.
 
 ```
 flush 'mytable'
@@ -56,5 +56,5 @@ disable 'mytable'
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Documentación de Apache HBase oficial sobre el [característica escribir directamente el registro](https://hbase.apache.org/book.html#wal)
-* Para actualizar el clúster de Apache HBase de HDInsight para usar Accelerated escribe, vea [migrar un clúster de Apache HBase a una nueva versión](apache-hbase-migrate-new-version.md).
+* Documentación oficial de Apache HBase sobre la [característica Registro de escritura previa](https://hbase.apache.org/book.html#wal)
+* Para actualizar el clúster de Apache HBase de HDInsight para usar Escrituras aceleradas, consulte [Migrar un clúster de Apache HBase a una nueva versión](apache-hbase-migrate-new-version.md).

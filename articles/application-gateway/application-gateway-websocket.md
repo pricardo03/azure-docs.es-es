@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831252"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Introducción a la compatibilidad de WebSocket en Application Gateway
@@ -22,17 +22,17 @@ El protocolo WebSocket, estándar en [RFC6455](https://tools.ietf.org/html/rfc64
 
 Puede seguir usando una escucha HTTP estándar en los puertos 80 o 443 para recibir tráfico de WebSocket. Después, el tráfico de WebSocket se dirige al servidor back-end con este protocolo habilitado utilizando el grupo back-end adecuado según lo especificado en las reglas de Application Gateway. El servidor back-end debe responder a los sondeos de la puerta de enlace de aplicaciones, que se describen en la sección de [información general sobre el sondeo de estado](application-gateway-probe-overview.md) . Los sondeos del estado de Application Gateway son solo HTTP o HTTPS. Cada servidor de back-end debe responder a los sondeos HTTP de Application Gateway para enrutar el tráfico de WebSocket al servidor.
 
-Se utiliza en aplicaciones que se benefician de la comunicación rápida y en tiempo real, como chat, paneles y aplicaciones de juego.
+Se usa en aplicaciones que se benefician de la comunicación rápida y en tiempo real, como el chat, paneles y aplicaciones de juego.
 
-## <a name="how-does-websocket-work"></a>¿Cómo funciona WebSocket
+## <a name="how-does-websocket-work"></a>Cómo funciona WebSocket
 
-Para establecer una conexión de WebSocket, un protocolo de enlace específica basadas en HTTP se intercambia entre el cliente y el servidor. Si se realiza correctamente, el protocolo de capa de aplicación es "actualizado" de HTTP a WebSockets, con la conexión TCP establecida previamente. Una vez que esto ocurre, HTTP está completamente fuera de la imagen; datos pueden enviarse o recibieron mediante el protocolo WebSocket, ambos puntos de conexión, hasta que se cierra la conexión de WebSocket. 
+Para establecer una conexión de WebSocket, se intercambia un protocolo de enlace específico basado en HTTP entre el cliente y el servidor. Si se realiza correctamente, el protocolo de capa de aplicación se "actualiza" de HTTP a WebSockets, mediante la conexión TCP establecida previamente. Una vez que esto ocurre, HTTP queda completamente fuera de juego. Los dos puntos de conexión pueden enviar o recibir los datos mediante el protocolo WebSocket, hasta que se cierra la conexión de WebSocket. 
 
 ![addcert](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento de configuración de agente de escucha
 
-Una escucha HTTP existente se puede utilizar para admitir tráfico de WebSocket. A continuación, se muestra un fragmento de código de un elemento httpListeners de un archivo de plantilla de ejemplo. Necesitaría los agentes de escucha de HTTP y HTTPS para admitir WebSocket y proteger el tráfico procedente de este protocolo. De forma similar puede usar el portal o Azure PowerShell para crear una puerta de enlace de aplicaciones con agentes de escucha en el puerto 80 o 443 para admitir el tráfico de WebSocket.
+Una escucha HTTP existente se puede utilizar para admitir tráfico de WebSocket. A continuación, se muestra un fragmento de código de un elemento httpListeners de un archivo de plantilla de ejemplo. Necesitaría los agentes de escucha de HTTP y HTTPS para admitir WebSocket y proteger el tráfico procedente de este protocolo. De forma similar, puede usar el portal o Azure PowerShell para crear una puerta de enlace de aplicaciones con clientes de escucha en el puerto 80 o 443, con el fin de admitir el tráfico de WebSocket.
 
 ```json
 "httpListeners": [

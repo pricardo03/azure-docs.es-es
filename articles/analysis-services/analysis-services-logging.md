@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142613"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
@@ -47,7 +47,7 @@ Al seleccionar **Motor**, se registran todos los [xEvents](https://docs.microsof
 |Descubra     |   Discover End      |
 |Notificación     |    Notificación     |
 |Sesión     |  Session Initialize       |
-|Bloqueos    |  Interbloqueo       |
+|Bloqueos    |  Deadlock       |
 |Procesamiento de consultas     |   VertiPaq SE Query Begin      |
 |Procesamiento de consultas     |   VertiPaq SE Query End      |
 |Procesamiento de consultas     |   VertiPaq SE Query Cache Match      |
@@ -56,7 +56,7 @@ Al seleccionar **Motor**, se registran todos los [xEvents](https://docs.microsof
 
 ### <a name="service"></a>Servicio
 
-|Nombre de operación  |Ocurre cuando  |
+|Nombre de la operación  |Ocurre cuando  |
 |---------|---------|
 |ResumeServer     |    Se reanuda un servidor     |
 |SuspendServer    |   Se pausa un servidor      |
@@ -71,7 +71,7 @@ La categoría Métricas registra las mismas [métricas de servidor](analysis-ser
 
 ## <a name="setup-diagnostics-logging"></a>Configuración del registro de diagnósticos
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 1. En [Azure Portal](https://portal.azure.com) > servidor, haga clic en **Registros de diagnóstico** en el panel de navegación izquierdo y luego en **Activar diagnósticos**.
 
@@ -83,7 +83,7 @@ La categoría Métricas registra las mismas [métricas de servidor](analysis-ser
 
     * **Archivar en una cuenta de almacenamiento**. Para usar esta opción, necesita una cuenta de almacenamiento existente a la cual conectarse. Vea [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md). Siga las instrucciones para crear un administrador de recursos, una cuenta de propósito general y, a continuación, seleccione la cuenta de almacenamiento volviendo a esta página en el portal. Las cuentas de almacenamiento recién creadas pueden tardar unos minutos en aparecer en el menú desplegable.
     * **Transmitir a un centro de eventos**. Para usar esta opción, necesita un espacio de nombres de Event Hubs y un centro de eventos al que conectarse. Para más información, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). Luego, vuelva a esta página en el portal para seleccionar el espacio de nombres de Event Hubs y el nombre de la directiva.
-    * **Enviar a Azure Monitor (área de trabajo de Log Analytics)**. Para usar esta opción, puede utilizar un área de trabajo ya existente o [crear un nuevo recurso de área de trabajo](../azure-monitor/learn/quick-create-workspace.md) en el portal. Para más información acerca de cómo ver los registros de Log Analytics, consulte [Visualización de los registros en el área de trabajo de Log Analytics](#view-logs-in-log-analytics-workspace) en este artículo.
+    * **Enviar a Azure Monitor (área de trabajo de Log Analytics)** . Para usar esta opción, puede utilizar un área de trabajo ya existente o [crear un nuevo recurso de área de trabajo](../azure-monitor/learn/quick-create-workspace.md) en el portal. Para más información acerca de cómo ver los registros de Log Analytics, consulte [Visualización de los registros en el área de trabajo de Log Analytics](#view-logs-in-log-analytics-workspace) en este artículo.
 
     * **Motor**. Seleccione esta opción para registrar xEvents. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
     * **Servicio**. Seleccione esta opción para registrar los eventos del nivel de servicio. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
@@ -188,7 +188,7 @@ Existen cientos de consultas que puede utilizar. Para más información acerca d
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Activación del registro con PowerShell
 
-En este tutorial rápido, se crea una cuenta de almacenamiento en la misma suscripción y grupo de recursos que el servidor de Analysis Services. Utilizamos conjunto AzDiagnosticSetting para activar los diagnósticos de registro y se envía la salida a la nueva cuenta de almacenamiento.
+En este tutorial rápido, se crea una cuenta de almacenamiento en la misma suscripción y grupo de recursos que el servidor de Analysis Services. A continuación, se usa Set-AzDiagnosticSetting para activar el registro de diagnóstico y se envía la salida a la nueva cuenta de almacenamiento.
 
 ### <a name="prerequisites"></a>Requisitos previos
 Para realizar este tutorial, necesitará los recursos siguientes:
@@ -242,9 +242,9 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Habilitar registro
+### <a name="enable-logging"></a>Habilitación del registro
 
-Para habilitar el registro, use el cmdlet Set-AzDiagnosticSetting junto con las variables para la nueva cuenta de almacenamiento, la cuenta de servidor y la categoría. Ejecute el siguiente comando y establezca la marca **-Enabled** en **$true**:
+Para habilitar el registro, use el cmdlet Set-AzDiagnosticSetting, junto con las variables de la nueva cuenta de almacenamiento, la cuenta de servidor y la categoría. Ejecute el siguiente comando y establezca la marca **-Enabled** en **$true**:
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -303,4 +303,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 Más información sobre los [registros de diagnóstico de recursos Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Consulte [conjunto AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) en la Ayuda de PowerShell.
+Consulte [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) en la Ayuda de PowerShell.

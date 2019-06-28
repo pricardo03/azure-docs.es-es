@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60420211"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay 
@@ -81,7 +81,7 @@ En primer lugar, cree un sistema de catálogo de productos local ficticio.  Este
 ### <a name="create-the-project"></a>Creación del proyecto
 1. Inicie Microsoft Visual Studio con privilegios de administrador. Para hacerlo, haga clic con el botón derecho en el icono del programa Visual Studio y, luego, haga clic en **Ejecutar como administrador**.
 2. En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
-3. En **Plantillas instaladas**, en **Visual C#**, haga clic en **Aplicación de consola (.NET Framework)**. En el cuadro **Nombre**, escriba el nombre **ProductsServer**:
+3. En **Plantillas instaladas**, en **Visual C#** , haga clic en **Aplicación de consola (.NET Framework)** . En el cuadro **Nombre**, escriba el nombre **ProductsServer**:
 
    ![Cuadro de diálogo Nuevo proyecto][11]
 4. Haga clic en **Aceptar** para crear el proyecto **ProductsServer**.
@@ -185,7 +185,7 @@ En primer lugar, cree un sistema de catálogo de productos local ficticio.  Este
         }
     }
     ```
-12. En el Explorador de soluciones, haga doble clic en el archivo **App.config** para abrirlo en el editor de Visual Studio. En la parte inferior de la `<system.ServiceModel>` elemento (pero aún dentro `<system.ServiceModel>`), agregue el código XML siguiente: Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres y *yourKey* por la clave SAS que recuperó anteriormente en el portal:
+12. En el Explorador de soluciones, haga doble clic en el archivo **App.config** para abrirlo en el editor de Visual Studio. En la parte inferior del elemento `<system.ServiceModel>` (pero aún dentro de `<system.ServiceModel>`), agregue el siguiente código XML: Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres y *yourKey* por la clave SAS que recuperó anteriormente en el portal:
 
     ```xml
     <system.serviceModel>
@@ -229,7 +229,7 @@ En esta sección va a crear una aplicación de ASP.NET simple que mostrará los 
 
 1. Asegúrese de que se está ejecutando Visual Studio con privilegios de administrador.
 2. En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
-3. En **Plantillas instaladas**, en **Visual C#**, haga clic en **Aplicación web ASP.NET (.NET Framework)**. Asigne al proyecto el nombre **ProductsPortal**. A continuación, haga clic en **Aceptar**.
+3. En **Plantillas instaladas**, en **Visual C#** , haga clic en **Aplicación web ASP.NET (.NET Framework)** . Asigne al proyecto el nombre **ProductsPortal**. A continuación, haga clic en **Aceptar**.
 
    ![Cuadro de diálogo Nuevo proyecto][15]
 
@@ -350,7 +350,7 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
 
    ![Incorporación como vínculo][24]
 
-6. Abra ahora el **HomeController.cs** de archivos en el editor de Visual Studio y reemplace la definición de espacio de nombres con el código siguiente: Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres de servicio y *yourKey* por su clave de SAS. Esto permite que el cliente llame al servicio local y que se devuelva el resultado de la llamada.
+6. Ahora abra el archivo **HomeController.cs** en el editor de Visual Studio y sustituya la definición del espacio de nombres por el código siguiente: Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres de servicio y *yourKey* por su clave de SAS. Esto permite que el cliente llame al servicio local y que se devuelva el resultado de la llamada.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -448,7 +448,7 @@ Antes de ejecutar la aplicación en la nube, debe asegurarse de que **ProductsPo
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-1. Presione F5 para compilar y ejecutar la aplicación. El servidor local (el **ProductsServer** aplicación de consola) debe iniciar primero y, a continuación, el **ProductsPortal** aplicación debe comenzar en una ventana del explorador, como se muestra en la captura de pantalla siguiente: Observe de nuevo que el inventario de productos muestra los datos recuperados del sistema local del servicio de productos y muestra esos datos en la aplicación web. Compruebe la dirección URL para asegurarse de que **ProductsPortal** se ejecuta en la nube como una aplicación web de Azure.
+1. Presione F5 para compilar y ejecutar la aplicación. Primero debe iniciarse el servidor local (la aplicación de consola **ProductsServer**) y luego la aplicación **ProductsPortal** en una ventana de explorador, tal como se muestra en la captura de pantalla siguiente: Observe de nuevo que el inventario de productos muestra los datos recuperados del sistema local del servicio de productos y muestra esos datos en la aplicación web. Compruebe la dirección URL para asegurarse de que **ProductsPortal** se ejecuta en la nube como una aplicación web de Azure.
 
    ![Ejecute la aplicación web en Azure][1]
 

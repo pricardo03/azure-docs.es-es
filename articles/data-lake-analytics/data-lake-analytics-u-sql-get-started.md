@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813848"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introducción a U-SQL en Azure Data Lake Analytics
@@ -27,7 +27,7 @@ U-SQL es un lenguaje que combina SQL declarativo con C# imperativo para permitir
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de seguir los ejemplos de U-SQL en este documento, lea y complete [Tutorial: Desarrollar scripts U-SQL mediante Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). En este tutorial se explican los mecanismos de uso de U-SQL con Herramientas de Azure Data Lake para Visual Studio.
+Antes de seguir con los ejemplos de U-SQL en este documento, lea y complete el [Tutorial: desarrollo de scripts U-SQL mediante herramientas de Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). En este tutorial se explican los mecanismos de uso de U-SQL con Herramientas de Azure Data Lake para Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>El primer script U-SQL
 
@@ -55,7 +55,7 @@ Este script no contiene ningún paso de transformación. Lee el archivo de orige
 Observe el signo de interrogación junto al tipo de datos en el campo `Duration`. Esto significa que el campo `Duration` podría ser nulo.
 
 ### <a name="key-concepts"></a>Conceptos clave
-* **Las variables de conjunto de filas**: Cada expresión de consulta que genera un conjunto de filas puede asignarse a una variable. U-SQL sigue el patrón de nomenclatura de variables de T-SQL (`@searchlog`, por ejemplo) en el script.
+* **Variables de conjunto de filas**: cada expresión de consulta que produce un conjunto de filas se puede asignar a una variable. U-SQL sigue el patrón de nomenclatura de variables de T-SQL (`@searchlog`, por ejemplo) en el script.
 * La palabra clave **EXTRACT** lee los datos de un archivo y define el esquema en la lectura. `Extractors.Tsv` es un extractor de U-SQL integrado para archivos de valores separados por tabulación. Puede desarrollar extractores personalizados.
 * **OUTPUT** escribe datos de un conjunto de filas en un archivo. `Outputters.Csv()` es un outputter U-SQL integrado para crear un archivo de valores separados por coma. También puede desarrollar outputters personalizados.
 

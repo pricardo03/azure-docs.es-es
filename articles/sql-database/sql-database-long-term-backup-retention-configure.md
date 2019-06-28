@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/17/2019
 ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164339"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database
@@ -45,7 +45,7 @@ Puede configurar SQL Database para [ conservar las copias de seguridad automatiz
 3. Cuando haya terminado, haga clic en **Aplicar**.
 
 > [!IMPORTANT]
-> Cuando se habilita una directiva de retención de copia de seguridad a largo plazo, puede tardar hasta 7 días para la primera copia de seguridad para convertirse en visible y disponible para restaurar. Para obtener detalles de la cadance de copia de seguridad de LTR, consulte [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md).
+> Cuando se habilita una directiva de retención de copia de seguridad a largo plazo, la primera copia de seguridad puede tardar hasta 7 días en mostrarse y estar disponible para restaurar. Para saber más sobre la cadencia de retención de copia de seguridad a largo plazo, vea [Retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md).
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Visualización y restauración de copias de seguridad mediante Azure Portal
 
@@ -79,7 +79,7 @@ Vea las copias de seguridad que se han conservado para una base de datos concret
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, vea [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 En las siguientes secciones se explica cómo usar PowerShell para configurar la retención de copias de seguridad a largo plazo, ver las copias de seguridad en el almacén de Azure SQL y realizar una restauración a partir de una copia de seguridad del almacén de Azure SQL.
 
@@ -93,11 +93,11 @@ Para administrar las copias de seguridad LTR, debe ser
 
 Si se requiere un control más pormenorizado, puede crear roles de RBAC personalizados y asignarlos en el ámbito de la **suscripción**. 
 
-Para **Get AzSqlDatabaseLongTermRetentionBackup** y **restauración AzSqlDatabase** el rol debe tener los siguientes permisos:
+Para **Get-AzSqlDatabaseLongTermRetentionBackup** y **Restore-AzSqlDatabase**, el rol debe tener los siguientes permisos:
 
 Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
  
-Para **Remove-AzSqlDatabaseLongTermRetentionBackup** el rol debe tener los siguientes permisos:
+Para **Remove-AzSqlDatabaseLongTermRetentionBackup**, el rol debe tener los siguientes permisos:
 
 Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 

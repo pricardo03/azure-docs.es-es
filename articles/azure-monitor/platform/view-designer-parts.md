@@ -1,6 +1,6 @@
 ---
-title: Guía de referencia a las partes del Diseñador de vistas en Azure Monitor | Microsoft Docs
-description: Al usar el Diseñador de vistas en Azure Monitor, puede crear vistas personalizadas que se muestran en el portal de Azure y contienen una gran variedad de visualizaciones de datos del área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
+title: Guía de referencia de los elementos del Diseñador de vistas en Azure Monitor | Microsoft Docs
+description: Con el uso del Diseñador de vistas en Azure Monitor se pueden crear vistas personalizadas que se muestran en Azure Portal y que contienen diferentes visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341930"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia a elementos de visualización del Diseñador de vistas en Azure Monitor
-Al usar el Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en el portal de Azure que puede ayudarle a visualizar los datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia de los elementos de visualización del Diseñador de vistas en Azure Monitor
+Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
 
 Para más información acerca del Diseñador de vistas, consulte:
 
@@ -33,9 +33,9 @@ En la tabla siguiente se describen los tipos de icono disponibles del Diseñador
 
 | Tipo de vista | DESCRIPCIÓN |
 |:--- |:--- |
-| [Lista de consultas](#list-of-queries-part) |Muestra una lista de consultas de registro. Puede seleccionar cada una de las consultas para mostrar los resultados. |
-| [Number and list](#number-and-list-part) (Número y lista) |El encabezado muestra un solo número que se muestra un recuento de registros de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
-| [Two numbers and list](#two-numbers-and-list-part) (Dos números y lista) |El encabezado presenta dos números que muestran recuentos de registros de consultas de registro independientes. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
+| [Lista de consultas](#list-of-queries-part) |Muestra una lista de las consultas de registros. Puede seleccionar cada una de las consultas para mostrar los resultados. |
+| [Number and list](#number-and-list-part) (Número y lista) |El encabezado presenta un solo número que muestra la cantidad de registros de una consulta de registros. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
+| [Two numbers and list](#two-numbers-and-list-part) (Dos números y lista) |El encabezado presenta dos números que muestran la cantidad de registros de consultas de registros independientes. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
 | [Donut and list](#donut-and-list-part) (Anillo y lista) |El encabezado muestra un solo número que resume una columna de valor de una consulta de registro. El anillo muestra gráficamente los resultados de los tres registros principales. |
 | [Two timelines and list](#two-timelines-and-list-part) (Dos escalas de tiempo y lista) |El encabezado presenta los resultados de dos consultas de registro en un período como gráficos de columnas con una llamada que muestra un solo número que resume una columna de valor de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
 | [Información](#information-part) |El encabezado muestra texto estático y un vínculo opcional. La lista muestra uno o varios elementos con texto y título estáticos. |
@@ -46,10 +46,10 @@ En la tabla siguiente se describen los tipos de icono disponibles del Diseñador
 Las siguientes secciones describen los tipos de icono y sus propiedades en detalle.
 
 > [!NOTE]
-> Las partes en las vistas se basan en [registrar consultas](../log-query/log-query-overview.md) en el área de trabajo de Log Analytics. No admiten actualmente [recursos consultas entre](../log-query/cross-workspace-query.md) para recuperar datos de Application Insights.
+> Los elementos de las vistas se basan en [consultas de registros](../log-query/log-query-overview.md) del área de trabajo de Log Analytics. Actualmente no se admiten las [consultas entre recursos](../log-query/cross-workspace-query.md) para recuperar datos de Application Insights.
 
 ## <a name="list-of-queries-part"></a>Elemento Lista de consultas
-El elemento lista de consultas muestra una lista de consultas de registro. Puede seleccionar cada una de las consultas para mostrar los resultados. La vista incluye una sola consulta de forma predeterminada y puede seleccionar **+ Query** (+ Consulta) para agregar más.
+El elemento Lista de consultas muestra una lista de las consultas de registros. Puede seleccionar cada una de las consultas para mostrar los resultados. La vista incluye una sola consulta de forma predeterminada y puede seleccionar **+ Query** (+ Consulta) para agregar más.
 
 ![Vista Lista de consultas](media/view-designer-parts/view-list-queries.png)
 
@@ -65,7 +65,7 @@ El elemento lista de consultas muestra una lista de consultas de registro. Puede
 | Nombre descriptivo | Nombre descriptivo que se muestra. |
 
 ## <a name="number-and-list-part"></a>Elemento Number and list (Número y lista)
-El encabezado muestra un solo número que se muestra un recuento de registros de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
+El encabezado presenta un solo número que muestra la cantidad de registros de una consulta de registros. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
 
 ![Vista Lista de consultas](media/view-designer-parts/view-number-list.png)
 
@@ -94,7 +94,7 @@ El encabezado muestra un solo número que se muestra un recuento de registros de
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Elemento Two numbers and list (Dos números y lista)
-El encabezado tiene dos números que se muestran un recuento de registros de consultas de registro independientes. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
+El encabezado tiene dos números que presentan la cantidad de registros de consultas de registros independientes. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período.
 
 ![Vista Dos números y lista](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -143,7 +143,7 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 | Consultar |Consulta que se ejecuta en el anillo. La primera propiedad es un valor de texto y la segunda, un valor numérico. |
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Anillo** |**&gt; Centro** |
-| Text |Texto que se muestra en la parte inferior del valor dentro del anillo. |
+| Texto |Texto que se muestra en la parte inferior del valor dentro del anillo. |
 | Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor.<ul><li>Suma: suma los valores de todos los registros.</li><li>Porcentaje: proporción de los registros devueltos por los valores de **Valores de resultado usados en la operación del centro** con respecto al número total de registros en la consulta.</li></ul> |
 | Valores de resultado usados en la operación central |También puede seleccionar el signo más (+) para agregar uno o varios valores. Los resultados de la consulta se limitan a los registros con los valores de propiedad especificados. Si no se agrega ningún valor, se incluirán todos los registros en la consulta. |
 | **Opciones adicionales** |**&gt; Colores** |
@@ -209,7 +209,7 @@ El encabezado muestra texto estático y un vínculo opcional. La lista muestra u
 | Nuevo grupo |Seleccione este vínculo para crear un grupo en la vista empezando por la actual. |
 | Color |Color de fondo del encabezado. |
 | **Encabezado** | |
-| Image |Archivo de imagen que se muestra en el encabezado. |
+| Imagen |Archivo de imagen que se muestra en el encabezado. |
 | Etiqueta |Texto que se muestra en el encabezado. |
 | **Encabezado** |**&gt; Vínculo** |
 | Etiqueta |Texto del vínculo. |
@@ -325,14 +325,14 @@ El separador de nombre y valor es el delimitador de carácter único para analiz
 Por ejemplo, una propiedad llamada *Location* que incluya valores como *Redmond-Building 41* y *Bellevue-Building 12*. Puede especificar un guión (-) para el separador de nombre y valor, y *City-Building* para el nombre. Este enfoque analiza cada valor en dos propiedades denominadas *City* y *Building*.
 
 ### <a name="click-through-navigation"></a>Navegación a través de un clic
-La navegación a través de un clic define la acción que se realizará al hacer clic en un encabezado o elemento de lista en una vista.  Así abrirá una consulta en el [Log Analytics](../../azure-monitor/log-query/portals.md) o iniciará otra vista.
+La navegación a través de un clic define la acción que se realizará al hacer clic en un encabezado o elemento de lista en una vista.  Así se abrirá una consulta en [Log Analytics](../../azure-monitor/log-query/portals.md) o se iniciará otra vista.
 
 En la tabla siguiente se describe la configuración de la navegación a través de un clic.
 
 | Configuración           | DESCRIPCIÓN |
 |:--|:--|
-| Búsqueda de registros (Automático) | Consulta de registro que se ejecuta cuando se selecciona un elemento de encabezado.  Se trata de la misma consulta de registro que se basa el elemento.
-| Búsqueda de registros        | Consulta de registro que se ejecuta cuando se selecciona un elemento en una lista.  Escriba la consulta en el cuadro **Consulta de navegación**.   Use *{selected item}* para incluir la sintaxis del elemento que ha seleccionado el usuario.  Por ejemplo, si la consulta tiene una columna llamada *Equipo* y la consulta de navegación es *{selected item}*, al seleccionar un equipo se ejecuta una consulta como *Equipo="miEquipo"*. Si la consulta de navegación es *Type=Event {selected item}*, se ejecuta la consulta *Type=Event Equipo="miEquipo"*. |
+| Búsqueda de registros (Automático) | La consulta de registros que se ejecuta cuando se selecciona un elemento de encabezado.  Se trata de la misma consulta de registros en la que se basa el elemento.
+| Búsqueda de registros        | La consulta de registros que se ejecuta cuando se selecciona un elemento de una lista.  Escriba la consulta en el cuadro **Consulta de navegación**.   Use *{selected item}* para incluir la sintaxis del elemento que ha seleccionado el usuario.  Por ejemplo, si la consulta tiene una columna llamada *Equipo* y la consulta de navegación es *{selected item}* , al seleccionar un equipo se ejecuta una consulta como *Equipo="miEquipo"* . Si la consulta de navegación es *Type=Event {selected item}* , se ejecuta la consulta *Type=Event Equipo="miEquipo"* . |
 | Ver              | Vista que se abre cuando se selecciona un elemento de encabezado o un elemento en una lista.  Seleccione el nombre de una vista en el área de trabajo en el cuadro **Nombre de la vista**. |
 
 
@@ -364,4 +364,4 @@ En la tabla siguiente se describe la configuración de los umbrales:
 | Color |Color que indica el valor de umbral. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre [registrar consultas](../log-query/log-query-overview.md) para admitir las consultas de elementos de visualización.
+* Obtenga información sobre las [consultas de registros](../log-query/log-query-overview.md) para poder realizar consultas en elementos de visualización.

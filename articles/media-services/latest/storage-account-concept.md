@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/11/2019
 ms.author: juliako
 ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550145"
 ---
 # <a name="cloud-upload-and-storage"></a>Carga y almacenamiento en la nube
@@ -31,11 +31,11 @@ Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier n�
 
 Se recomienda usar GPv2 para que pueda tener la ventaja de elegir entre niveles de acceso frecuente y niveles de acceso esporádico. Para más información sobre las cuentas de almacenamiento, consulte la [Información general acerca de la cuenta de Azure Storage](../../storage/common/storage-account-overview.md). 
 
-Hay diferentes SKU, puede elegir la cuenta de almacenamiento. Para más información, consulte los comandos [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial. 
+Hay diferentes SKU que puede elegir para la cuenta de almacenamiento. Para más información, consulte los comandos [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial. 
 
 ## <a name="assets-in-a-storage-account"></a>Recursos de una cuenta de almacenamiento
 
-En Media Services v3, se usan las API de almacenamiento para cargar archivos en recursos. Para obtener más información, consulte [concepto activos](assets-concept.md).
+En Media Services v3, se usan las API de almacenamiento para cargar archivos en recursos. Para obtener más información, vea [Recursos](assets-concept.md).
 
 > [!Note]
 > No debe intentar cambiar el contenido de los contenedores de blobs que generó el SDK de Media Services sin usar las API de Media Services.
@@ -52,16 +52,16 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 
 <sup>1</sup> En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2. Esto significa que la versión v3 funciona con los recursos cifrados de almacenamiento ya existentes pero no permitirá la creación de otros nuevos.
 
-## <a name="storage-account-errors"></a>Errores de la cuenta de almacenamiento
+## <a name="storage-account-errors"></a>Errores de cuentas de almacenamiento
 
-El estado "Desconectado" de una cuenta de Media Services indica que la cuenta ya no tiene acceso a una o varias de las cuentas de almacenamiento conectado debido a un cambio en las claves de acceso de almacenamiento. Media Services requiere claves de acceso de almacenamiento actualizada para realizar muchas tareas en la cuenta.
+El estado "Desconectado" de una cuenta de Media Services indica que la cuenta ya no tiene acceso a una o varias de las cuentas de almacenamiento asociadas debido a un cambio en las claves de acceso de almacenamiento. Media Services requiere claves de acceso de almacenamiento actualizadas para realizar muchas tareas en la cuenta.
 
-Las siguientes son los principales escenarios que daría lugar a una cuenta de Media Services si no tiene acceso a las cuentas de almacenamiento conectado. 
+Los siguientes son los principales escenarios que darían lugar a una cuenta de Media Services que no tiene acceso a las cuentas de almacenamiento asociadas. 
 
 |Problema|Solución|
 |---|---|
-|La cuenta de Media Services o cuentas de almacenamiento se han migrado para separar las suscripciones. |Migre las cuentas de almacenamiento o la cuenta de Media Services para que todos se encuentran en la misma suscripción. |
-|La cuenta de Media Services usa una cuenta de almacenamiento conectado en una suscripción diferente que tenía una cuenta de Media Services temprana donde esto se admite. Todas las cuentas de Media Services anticipadas se convirtieron en cuentas de administrador de recursos de Azure (ARM) en función moderna y tendrán un estado desconectado. |Migre la cuenta de almacenamiento o la cuenta de Media Services para que todos se encuentran en la misma suscripción.|
+|La cuenta de Media Services o las cuentas de almacenamiento asociadas se han migrado para separar las suscripciones. |Migre las cuentas de almacenamiento o la cuenta de Media Services para que todas estén en la misma suscripción. |
+|La cuenta de Media Services usa una cuenta de almacenamiento asociada en una suscripción diferente ya que se trata de una cuenta en la que anteriormente esto se admitía. Todas las cuentas antiguas de Media Services se convirtieron en cuentas basadas en Azure Resource Manager y tendrán el estado "Desconectado". |Migre la cuenta de almacenamiento o la cuenta de Media Services para que todas estén en la misma suscripción.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

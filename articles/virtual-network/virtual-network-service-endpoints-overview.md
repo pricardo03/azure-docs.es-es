@@ -14,10 +14,10 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61032582"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
@@ -28,21 +28,21 @@ Esta característica está disponible en los siguientes servicios y regiones de 
 
 **Disponibilidad general**
 
-- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: disponibilidad general en todas las regiones de Azure.
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de Azure.
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de Azure.
-- **[Servidor de Azure Database for PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
-- **[Servidor de Azure Database for MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
-- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de Azure.
-- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: disponibilidad general en todas las regiones de Azure.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de Azure.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibilidad general en todas las regiones de Azure.
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponible con carácter general en todas las regiones de Azure donde ADLS Gen1 está disponible.
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** : disponibilidad general en todas las regiones de Azure.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponibilidad general en todas las regiones de Azure.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponibilidad general en todas las regiones de Azure.
+- **[Servidor de Azure Database for PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
+- **[Servidor de Azure Database for MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
+- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** : disponibilidad general en las regiones de Azure en las que el servicio de base de datos esté disponible.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponibilidad general en todas las regiones de Azure.
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** : disponibilidad general en todas las regiones de Azure.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponibilidad general en todas las regiones de Azure.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponibilidad general en todas las regiones de Azure.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponible con carácter general en todas las regiones de Azure donde ADLS Gen1 está disponible.
 
 **Versión preliminar pública**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: Obtener una vista previa disponible en todas las regiones de Azure donde Azure Container Registry está disponible.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** : Hay una versión preliminar en todas las regiones de Azure donde está disponible Azure Container Registry.
 
 Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -132,7 +132,7 @@ No hay ningún cargo adicional para el uso de puntos de conexión de servicio. E
 
 No hay límite en el número total de puntos de conexión de servicio en una red virtual.
 
-Algunos servicios de Azure, como cuentas de almacenamiento de Azure, pueden exigir límites en el número de subredes que se usan para proteger el recurso. Consulte la documentación de varios servicios en [Pasos siguientes](#next-steps) para más información.
+Para determinados servicios de Azure (por ejemplo, cuentas de Azure Storage), puede aplicar límites en el número de subredes que se usan para proteger el recurso. Consulte la documentación de varios servicios en [Pasos siguientes](#next-steps) para más información.
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Directivas de puntos de conexión de servicio de red virtual 
 

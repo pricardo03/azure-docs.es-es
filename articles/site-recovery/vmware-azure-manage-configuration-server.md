@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171675"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware
@@ -258,7 +258,7 @@ También puede eliminar el servidor de configuración con PowerShell.
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> Puede usar el **-Force** opción en Remove-AzSiteRecoveryFabric para forzar la eliminación del servidor de configuración.
+> Puede usar la opción **-Force** de Remove-AzSiteRecoveryFabric para forzar la eliminación del servidor de configuración.
 
 ## <a name="generate-configuration-server-passphrase"></a>Generación de frase de contraseña del servidor de configuración
 
@@ -279,7 +279,7 @@ En lo que respecta a las implementaciones de servidores de configuración antes 
 - Aparece un banner de notificación en la página de recursos de almacén. Para más información, seleccione el banner.
 - Si ve el botón **Actualizar ahora**, quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
 
-### <a name="renew-the-certificate"></a>Renovar el certificado
+### <a name="renew-the-certificate"></a>Renovación del certificado
 
 1. En el almacén, abra **Site Recovery Infrastructure** >  (Infraestructura de Site Recovery) **Configuration Servers** (Servidores de configuración). Seleccione el servidor de configuración necesario.
 2. La fecha de expiración aparece en **Configuration Server health** (Mantenimiento del servidor de configuración).

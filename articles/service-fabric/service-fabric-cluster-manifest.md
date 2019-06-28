@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209716"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Opciones de configuración de un clúster de Windows independiente
@@ -122,7 +122,7 @@ La sección security es necesaria para un clúster de Service Fabric independien
 }
 ```
 
-El valor metadata es una descripción del clúster protegido y se puede establecer según su configuración. Los valores de ClusterCredentialType y ServerCredentialType determinan el tipo de seguridad que implementan el clúster y los nodos. Se puede establecer en *X509* para una seguridad basada en certificados o *Windows* seguridad basada en Active Directory. El resto de la sección security se basará en el tipo de la seguridad. Lea [Protección de un clúster independiente en Windows mediante certificados ](service-fabric-windows-cluster-x509-security.md) o [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) para obtener más información sobre cómo rellenar el resto de la sección security.
+El valor metadata es una descripción del clúster protegido y se puede establecer según su configuración. Los valores de ClusterCredentialType y ServerCredentialType determinan el tipo de seguridad que implementan el clúster y los nodos. Se pueden establecer en *X509* para una seguridad basada en certificados, o en *Windows* para una seguridad basada en Active Directory. El resto de la sección security se basará en el tipo de la seguridad. Lea [Protección de un clúster independiente en Windows mediante certificados ](service-fabric-windows-cluster-x509-security.md) o [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) para obtener más información sobre cómo rellenar el resto de la sección security.
 
 ### <a name="node-types"></a>Tipos de nodo
 La sección nodeTypes describe el tipo de los nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código: 
