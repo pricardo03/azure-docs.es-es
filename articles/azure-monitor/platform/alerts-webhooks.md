@@ -72,10 +72,10 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 | Campo | Obligatorio | Conjunto fijo de valores | Notas |
 |:--- |:--- |:--- |:--- |
 | status |Y |Activado, Resuelto |Estado de la alerta en función de las condiciones que haya establecido. |
-| contexto |Y | |Contexto de la alerta |
+| context |Y | |Contexto de la alerta |
 | timestamp |Y | |La hora en la que se desencadenó la alerta. |
 | id |Y | |Cada regla de alerta tiene un identificador único. |
-| Nombre |Y | |Nombre de la alerta |
+| name |Y | |Nombre de la alerta |
 | description |Y | |Descripción de la alerta. |
 | conditionType |Y |Métrica, Evento |Se admiten dos tipos de alertas: métrica y evento. Las alertas de métrica se basan en una condición de métrica. Las alertas de evento se basan en un evento del registro de actividad. Use este valor para comprobar si la alerta está basada en una métrica o en un evento. |
 | condition |Y | |Los campos específicos que buscar en función del campo **conditionType**. |
