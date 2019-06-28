@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240837"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
@@ -30,7 +30,7 @@ Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicac
 
 ![Recopilación de Syslog](media/data-sources-syslog/overview.png)
 
-Las siguientes características son compatibles con el recopilador de Syslog:
+Los recursos siguientes son compatibles con el recopilador de Syslog:
 
 * kern
 * user
@@ -46,7 +46,7 @@ Las siguientes características son compatibles con el recopilador de Syslog:
 * ftp
 * local0-local7
 
-Para cualquier otro recurso, [configure un origen de datos de los registros personalizados](data-sources-custom-logs.md) en Azure Monitor.
+Para cualquier otro recurso, [configure un origen de datos de registros personalizados](data-sources-custom-logs.md) en Azure Monitor.
  
 ## <a name="configuring-syslog"></a>Configuración de Syslog
 El agente de Log Analytics para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración. Puede configurar Syslog a través de Azure Portal o mediante la administración de archivos de configuración de sus agentes de Linux.
@@ -54,7 +54,7 @@ El agente de Log Analytics para Linux solo recopilará los eventos con los recur
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configuración de Syslog en Azure Portal
 Configure Syslog desde el [menú de datos en la configuración avanzada](agent-data-sources.md#configuring-data-sources). Esta configuración se entrega al archivo de configuración de cada agente de Linux.
 
-Para agregar un nuevo recurso, escriba su nombre y haga clic en **+**. Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar. No puede proporcionar criterios adicionales para filtrar mensajes.
+Para agregar un nuevo recurso, escriba su nombre y haga clic en **+** . Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar. No puede proporcionar criterios adicionales para filtrar mensajes.
 
 ![Configuración de Syslog](media/data-sources-syslog/configure.png)
 
@@ -203,7 +203,7 @@ Los registros de Syslog tienen un tipo **Syslog** y las propiedades que aparecen
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Computer |Nombre del equipo desde el que se recopiló el evento. |
+| Equipo |Nombre del equipo desde el que se recopiló el evento. |
 | Facility |Define la parte del sistema que ha generado el mensaje. |
 | HostIP |Dirección IP del sistema que envía el mensaje. |
 | HostName |Nombre del sistema que envía el mensaje. |

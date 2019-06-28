@@ -1,6 +1,6 @@
 ---
-title: Completar las tareas de contrato Enterprise de contrato de cliente de Microsoft - Azure | Microsoft Docs
-description: Obtenga información sobre cómo completar tareas de contrato Enterprise en la nueva cuenta de facturación.
+title: 'Finalización de tareas del Contrato Enterprise en el contrato de cliente de Microsoft: Azure | Microsoft Docs'
+description: Obtenga información sobre cómo completar tareas del Contrato Enterprise en la nueva cuenta de facturación.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -15,136 +15,136 @@ ms.workload: na
 ms.date: 02/24/2018
 ms.author: banders
 ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371348"
 ---
-# <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Completar tareas de contrato Enterprise en su cuenta de facturación para un contrato de cliente de Microsoft
+# <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft
 
-Si su organización ha firmado un contrato de cliente de Microsoft para renovar su inscripción al contrato Enterprise, se crea una nueva cuenta de facturación para el acuerdo. La facturación en la nueva cuenta se organiza de forma diferente a su contrato Enterprise. En este artículo se describe cómo puede usar la nueva cuenta de facturación para realizar las tareas realizadas en su contrato Enterprise.
+Si la organización ha firmado un contrato de cliente de Microsoft para renovar su inscripción al Contrato Enterprise, se crea una nueva cuenta de facturación para el contrato. La facturación de la nueva cuenta se organiza de forma diferente al Contrato Enterprise. En este artículo se describe cómo puede usar la nueva cuenta de facturación para realizar las tareas realizadas en el Contrato Enterprise.
 
-## <a name="how-billing-is-organized-in-the-new-account"></a>Cómo se organiza la facturación en la nueva cuenta
+## <a name="how-billing-is-organized-in-the-new-account"></a>Organización de la facturación en la nueva cuenta
 
-El diagrama siguiente describe cómo se organiza la facturación en la nueva cuenta de facturación.
+En el diagrama siguiente se describe cómo se organiza la facturación en la nueva cuenta de facturación.
 
-![Imagen de ea mca post transición jerarquía](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![Imagen de ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Contrato Enterprise   | Contrato de cliente de Microsoft    |
 |------------------------|--------------------------------------------------------|
-| Inscripción            | Use un perfil de facturación para administrar la facturación para su organización, similar a la inscripción al contrato Enterprise. Los administradores de empresa se conviertan en propietarios del perfil de facturación. Para más información sobre los perfiles de facturación, consulte [perfiles facturación](billing-mca-overview.md#understand-billing-profiles).
-| department            | Usar una sección de la factura para organizar los costos, similares a los departamentos de su inscripción al contrato Enterprise. Departamento se convierte en las secciones de la factura y administradores de departamento se conviertan en propietarios de las secciones de la factura correspondiente. Para más información acerca de las secciones de la factura, consulte [secciones de la factura de entender](billing-mca-overview.md#understand-invoice-sections). |
-| Cuenta               | No se admiten las cuentas que se crearon en su contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de factura correspondientes para su departamento. Los propietarios de cuentas pueden crear y administrar suscripciones para sus secciones de la factura. |
+| Inscripción            | Utilice un perfil de facturación para administrar la facturación de la organización, de forma similar a la inscripción al Contrato Enterprise. Los administradores de Enterprise se convierten en los propietarios del perfil de facturación. Para más información sobre los perfiles de facturación, consulte [Descripción de los perfiles de facturación](billing-mca-overview.md#understand-billing-profiles).
+| department            | Puede usar una sección de la factura para organizar los costos, de manera similar a los departamentos en la inscripción al contrato Enterprise. El departamento se convierte en las secciones de la factura y los administradores de departamento se convierten en los propietarios de las secciones de la factura respectivas. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#understand-invoice-sections). |
+| Cuenta               | No se admiten las cuentas que se crearon en el Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura. |
 
-## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>Cambios para los administradores de organización en la nueva cuenta de facturación
+## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>Cambios para los administradores de empresa en la nueva cuenta de facturación
 
-Los siguientes cambios se aplican a los administradores de empresa en un contrato Enterprise que se obtuvo renovar un contrato de cliente de Microsoft.
+Los siguientes cambios se aplican a los administradores de empresa en un Contrato Enterprise que se renovó a un contrato de cliente de Microsoft.
 
-- Se crea un perfil de facturación para la inscripción. Usará el perfil de facturación para administrar la facturación para su organización, al igual que su inscripción al contrato Enterprise. Para obtener más información sobre los perfiles de facturación, [perfiles facturación](billing-mca-overview.md#understand-billing-profiles).
-- Una sección de la factura se crea para cada departamento de su inscripción al contrato Enterprise. Usará las secciones de la factura para administrar tus departamentos. Puede crear nuevas secciones de la factura para configurar otros departamentos. Para más información acerca de las secciones de la factura, consulte [comprender la factura secciones](billing-mca-overview.md#understand-invoice-sections).
-- Deberá usar el rol de creador de la suscripción de Azure en las secciones se factura a asignar a otros usuarios permiso para crear suscripción de Azure, como las cuentas que se crearon en la inscripción al contrato Enterprise.
-- Deberá usar el [portal Azure](https://portal.azure.com) para administrar la facturación de su organización, en lugar del portal de EA de Azure.
+- Se crea un perfil de facturación para la inscripción. Va a utilizar un perfil de facturación para administrar la facturación de la organización, como la inscripción al Contrato Enterprise. Para más información, [comprenda los perfiles de facturación](billing-mca-overview.md#understand-billing-profiles).
+- Se crea una sección de factura para cada departamento en la inscripción al Contrato Enterprise. Usará las secciones de factura para administrar los departamentos. Puede crear nuevas secciones de factura para configurar otros departamentos. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#understand-invoice-sections).
+- Usará el rol de creador de suscripciones a Azure en las secciones de factura para dar permiso a otros para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise.
+- Deberá usar [Azure Portal](https://portal.azure.com) para administrar la facturación de la organización, en lugar del portal de Azure para Contrato Enterprise.
 
-Se proporcionan los siguientes roles en la nueva cuenta de facturación:
+Se proporcionan los roles siguientes en la nueva cuenta de facturación:
 
-**El propietario del perfil de facturación** -se le asigna el rol de propietario de facturación perfil en el perfil de facturación que se creó cuando se ha firmado el contrato. El rol permite administrar la facturación de su organización. Puede ver los cargos y facturas, organizar los costos en la factura, administrar métodos de pago y controlar el acceso a la facturación de su organización.
+**Propietario del perfil de facturación**: Se le asigna el rol de propietario del perfil de facturación en el perfil de facturación que se creó cuando se firmó el contrato. El rol permite administrar la facturación de la organización. Puede ver los cargos y las facturas, organizar los costos en la factura, administrar los métodos de pago y controlar el acceso a la facturación de la organización.
 
-**Propietario de la sección de factura** -se le asigna el rol de propietario de la sección de factura en todas las secciones de factura que se crean para los departamentos de su inscripción al contrato Enterprise. El rol le permite controlar quién puede crear suscripciones de Azure y adquirir otros productos.
+**Propietario de la sección de factura**: se le asigna el rol de propietario de la sección de factura en todas las secciones de factura que se crean para los departamentos en la inscripción de Contrato Enterprise. Este rol permite controlar quién puede crear suscripciones a Azure y comprar otros productos.
 
-### <a name="view-charges-and-credits-balance-for-your-organization"></a>Ver los cargos y créditos de saldo de su organización
+### <a name="view-charges-and-credits-balance-for-your-organization"></a>Visualización de los cargos y del saldo de crédito de la organización
 
-Use el perfil de facturación para realizar el seguimiento de los cargos y el saldo de créditos de Azure para su organización similar a su inscripción al contrato Enterprise.
+Utilice el perfil de facturación para realizar un seguimiento de los cargos y del saldo de crédito de Azure para la organización, de forma similar a la inscripción en Contrato Enterprise.
 
-Para obtener información sobre cómo ver el saldo de crédito para un perfil de facturación, consulte [realizar un seguimiento del saldo de crédito de Azure para el perfil de facturación](billing-mca-check-azure-credits-balance.md).
+Para saber cómo ver el saldo del crédito de un perfil de facturación, consulte [Seguimiento del saldo del crédito de Azure para el perfil de facturación](billing-mca-check-azure-credits-balance.md).
 
-Para obtener información sobre cómo ver los cargos para un perfil de facturación, consulte [comprender los cargos de facturación del su contrato cliente de Microsoft](billing-mca-understand-your-bill.md).
+Para más información sobre cómo ver los cargos de un perfil de facturación, consulte [Descripción de los cargos en la factura del contrato de cliente de Microsoft](billing-mca-understand-your-bill.md).
 
-### <a name="view-charges-for-a-department"></a>Ver cargos para un departamento
+### <a name="view-charges-for-a-department"></a>Visualización de los cargos de un departamento
 
-Se crea una sección de factura para cada departamento que tiene, en su contrato Enterprise. Puede ver los cargos de una sección de la factura en el portal de Azure. Para obtener más información, consulte [ver las transacciones en las secciones de la factura](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Se crea una sección de factura para cada departamento que tiene en el Contrato Enterprise. Puede ver los cargos de una sección de factura en Azure Portal. Para más información, consulte [Visualización de las transacciones por secciones de factura](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
-### <a name="view-charges-for-an-account"></a>Ver los cargos de una cuenta
+### <a name="view-charges-for-an-account"></a>Visualización de los cargos de una cuenta
 
-No se admiten las cuentas que se crearon en su inscripción al contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de factura correspondientes para su departamento. Los propietarios de cuentas pueden crear y administrar suscripciones para sus secciones de la factura.
+No se admiten las cuentas que se crearon en la inscripción al Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura.
 
-Para ver el costo agregado para las suscripciones que pertenecían a una cuenta, debe establecer un centro de costo para cada suscripción. A continuación, puede usar el archivo csv de uso y los cargos de Azure para filtrar las suscripciones mediante el centro de costo.
+Para ver el costo total de las suscripciones que pertenecían a una cuenta, debe establecer un centro de coste para cada suscripción. Después, puede usar el archivo csv de cargos y de uso de Azure para filtrar las suscripciones por centro de coste.
 
-### <a name="download-usage-and-charges-csv-price-sheet-and-tax-documents"></a>Descargar csv de uso y los cargos, hoja de precios y documentos de impuestos
+### <a name="download-usage-and-charges-csv-price-sheet-and-tax-documents"></a>Descarga de csv de cargos y de uso, hoja de precios y documentos fiscales
 
-Se genera una factura mensual por cada perfil de facturación de su cuenta de facturación. Para cada factura, puede descargar los archivos csv de uso y los cargos de Azure, hoja de precios y documento de impuestos (si procede). También puede descargar los archivos de csv Azure de uso y los cargos para los cargos del mes actual.
+Se genera una factura mensual por cada perfil de facturación de la cuenta de facturación. Para cada factura, puede descargar los archivos csv de cargos y de uso de Azure, la hoja de precios y el documento fiscal (si procede). También puede descargar los archivos csv de cargos y de uso de Azure para los cargos del mes actual.
 
-Para obtener información sobre cómo descargar archivos de csv de uso y los cargos de Azure, consulte [descargar uso para el contrato de cliente de Microsoft](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
+Para obtener información sobre cómo descargar archivos de csv de cargos y de uso de Azure, consulte [Descarga de uso para el contrato de cliente de Microsoft](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
 
-Para obtener información sobre cómo descargar la hoja de precios, consulte [descargar los precios de su contrato de cliente de Microsoft](billing-ea-pricing.md#view-and-download-pricing-for-your-microsoft-customer-agreement).
+Para saber cómo descargar la hoja de precios, consulte [Descarga de precios para el contrato de cliente de Microsoft](billing-ea-pricing.md#view-and-download-pricing-for-your-microsoft-customer-agreement).
 
-Para obtener información sobre cómo descargar los documentos de impuestos, consulte [ver los documentos de impuestos del contrato de cliente de Microsoft](billing-mca-download-tax-document.md#view-and-download-tax-documents).
+Para saber cómo descargar los documentos fiscales, consulte [Visualización de los documentos fiscales para el contrato de cliente de Microsoft](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
-### <a name="add-an-additional-enterprise-administrator"></a>Agregar un administrador de empresa adicionales
+### <a name="add-an-additional-enterprise-administrator"></a>Adición de un administrador de empresa adicional
 
-Los usuarios pueden acceder al perfil de facturación para permitirles ver y administrar la facturación para su organización. Puede usar el **Access Control (IAM)** página en el portal de Azure para dar acceso.  Para obtener más información acerca de los roles de perfil de facturación, vea [perfil roles y tareas de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Dé a los usuarios acceso al perfil de facturación para que puedan ver y administrar la facturación de la organización. Puede usar la página **Control de acceso (IAM)** en Azure Portal para dar acceso.  Para más información acerca de los roles del perfil de facturación, consulte [Tareas y roles del perfil de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-Para obtener información sobre cómo proporcionar, el acceso a su perfil de facturación, consulte [administrar roles de facturación en Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Para más información sobre cómo proporcionar el acceso al perfil de facturación, consulte [Administración de roles de facturación en Azure Portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-### <a name="create-a-new-department"></a>Crear un nuevo departamento
+### <a name="create-a-new-department"></a>Creación de un nuevo departamento
 
-Cree una sección de la factura para organizar los costos según sus necesidades, al igual que los departamentos de su inscripción al contrato Enterprise. Puede crear una nueva sección de factura en el portal de Azure. Para obtener más información, consulte [cree secciones en la factura para organizar los costos](billing-mca-section-invoice.md).
+Cree una sección de factura para organizar los costos según sus necesidades, al igual que los departamentos de la inscripción del Contrato Enterprise. Puede crear una nueva sección de facturas en Azure Portal. Para más información, consulte [Creación de secciones de la factura para organizar los costos](billing-mca-section-invoice.md).
 
 ### <a name="create-a-new-account"></a>Creación de una nueva cuenta
 
-Asigne el rol de creador de la suscripción de Azure en las secciones de factura que otorgarles permisos para crear suscripción de Azure, como las cuentas que se crean en la inscripción al contrato Enterprise de usuarios. Para obtener más información, consulte [asignar a otros usuarios permiso para crear suscripciones de Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Asigne a los usuarios el rol de creador de suscripciones a Azure en las secciones de factura para darles permiso para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
 
 ## <a name="changes-for-department-administrators-in-the-new-billing-account"></a>Cambios para los administradores de departamento en la nueva cuenta de facturación
 
-Los siguientes cambios se aplican a los administradores de departamento en un contrato Enterprise que se obtuvo renovar un contrato de cliente de Microsoft.
+Los siguientes cambios se aplican a los administradores de departamento en un Contrato Enterprise que se renovó a un contrato de cliente de Microsoft.
 
-- Una sección de la factura se crea para cada departamento de su inscripción al contrato Enterprise. Las secciones de la factura se usará para administrar sus departamentos. Para más información acerca de las secciones de la factura, consulte [comprender la factura secciones](billing-mca-overview.md#understand-invoice-sections).
-- Usará el rol de creador de la suscripción de Azure en la sección de la factura para asignar a otros usuarios permiso para crear suscripción de Azure, como las cuentas que se crean en la inscripción al contrato Enterprise.
-- Usará el portal de Azure para administrar la facturación para su organización, en lugar del portal de EA de Azure.
+- Se crea una sección de factura para cada departamento en la inscripción al Contrato Enterprise. Va a usar las secciones de factura para administrar los departamentos. Para más información sobre las secciones de la factura, consulte [Descripción de las secciones de factura](billing-mca-overview.md#understand-invoice-sections).
+- Usará el rol de creador de suscripciones a Azure en las secciones de factura para dar permiso a otros para crear suscripciones a Azure, como las cuentas que se crearon en la inscripción del Contrato Enterprise.
+- Deberá usar Azure Portal para administrar la facturación de la organización, en lugar del portal de Azure para Contrato Enterprise.
 
-Se proporcionan los siguientes roles en la nueva cuenta de facturación:
+Se proporcionan los roles siguientes en la nueva cuenta de facturación:
 
-**Propietario de la sección de factura** -se le asigna el rol de propietario de la sección de factura en la sección de factura que se crea para los departamentos que tenía en el contrato Enterprise. El rol le permite ver y cargos de seguimiento y controlar quién puede crear suscripciones de Azure y comprar otros productos de la sección de factura.
+**Propietario de la sección de factura**: se le asigna el rol de propietario de la sección de factura en la sección de factura que se crea para los departamentos que tenía en Contrato Enterprise. El rol le permite ver y realizar el seguimiento de los cargos, así como controlar quién puede crear suscripciones a Azure y comprar otros productos de la sección de factura.
 
-### <a name="view-charges-for-your-department"></a>Ver cargos para el departamento
+### <a name="view-charges-for-your-department"></a>Visualización de los cargos del departamento
 
-Puede ver los cargos de la sección de factura que se crea para su departamento en el portal de Azure [administración de costos + facturación página](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
+Puede ver los cargos de la sección de factura que se crea para el departamento en la página [Administración de costos + facturación](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview) de Azure Portal.
 
-### <a name="add-an-additional-department-administrator"></a>Agregar un administrador de departamento adicionales
+### <a name="add-an-additional-department-administrator"></a>Adición de un administrador de departamento adicional
 
-Se crea una sección de factura para cada departamento que tiene, en su contrato Enterprise. Puede usar el **acceso (IAM)** página en Azure portal para asignar a otros usuarios acceso para ver y administrar la sección de factura. Para más información acerca de los roles de la sección de factura, consulte [sección roles y tareas de factura](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+Se crea una sección de factura para cada departamento que tiene en el Contrato Enterprise. Puede usar la página **Control de acceso (IAM)** en Azure Portal para dar acceso a otros usuarios para ver y administrar la sección de factura. Para más información acerca de los roles de la sección de factura, consulte [Tareas y roles de la sección de factura](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-Para obtener información sobre cómo proporcionar, el acceso a la sección de factura, consulte [administrar roles de facturación en Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Para más información sobre cómo proporcionar el acceso a la sección de factura, consulte [Administración de roles de facturación en Azure Portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-### <a name="create-a-new-account-in-your-department"></a>Crear una nueva cuenta de su departamento
+### <a name="create-a-new-account-in-your-department"></a>Creación de una nueva cuenta del departamento
 
-Asignar el rol de creador de la suscripción de Azure en la sección de factura que se crea para su departamento de usuarios. Para obtener más información, consulte [asignar a otros usuarios permiso para crear suscripciones de Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Asigne a los usuarios el rol de creador de la suscripción a Azure en la sección de facturas que se ha creado para el departamento. Para más información, consulte [Asignación de permisos a otros usuarios para crear suscripciones a Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
 
-### <a name="view-charges-for-accounts-in-your-departments"></a>Ver cargos para las cuentas de tus departamentos
+### <a name="view-charges-for-accounts-in-your-departments"></a>Visualización de los cargos para las cuentas de los departamentos
 
-No se admiten las cuentas que se crearon en su inscripción al contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de factura correspondientes para su departamento. Los propietarios de cuentas pueden crear y administrar suscripciones para sus secciones de la factura.
+No se admiten las cuentas que se crearon en la inscripción al Contrato Enterprise en la nueva cuenta de facturación. Las suscripciones de la cuenta pertenecen a la sección de facturas correspondiente al departamento. Los propietarios de la cuenta pueden crear y administrar suscripciones para sus secciones de factura.
 
-Para ver el costo agregado para las suscripciones que pertenecían a una cuenta de su departamento, debe establecer un centro de costo para cada suscripción. A continuación, puede usar el archivo de uso y los cargos de Azure para filtrar las suscripciones mediante el centro de costo.
+Para ver el costo total de las suscripciones que pertenecían a una cuenta del departamento, debe establecer un centro de coste para cada suscripción. Después, puede usar el archivo csv de cargos y de uso de Azure para filtrar las suscripciones por centro de coste.
 
-## <a name="changes-for-account-owners-in-the-new-billing-account"></a>Cambios de los propietarios de cuenta de la nueva cuenta de facturación
+## <a name="changes-for-account-owners-in-the-new-billing-account"></a>Cambios para los propietarios de la cuenta en la nueva cuenta de facturación
 
-Los propietarios de cuentas en el contrato Enterprise obtención permiso para crear suscripciones de Azure en la nueva cuenta de facturación. Las suscripciones existentes de Azure pertenecen a la sección de factura que se crea para su departamento. Si su cuenta no pertenece a un departamento, las suscripciones pertenecen a una sección de factura con el nombre de sección de la factura de forma predeterminada.
+Los propietarios de cuentas en el Contrato Enterprise obtienen permiso para crear suscripciones a Azure en la nueva cuenta de facturación. Las suscripciones existentes a Azure pertenecen a la sección de factura que se creó para el departamento. Si la cuenta no pertenece a un departamento, las suscripciones pertenecen a una sección de factura que se conoce como sección de factura predeterminada.
 
-Para crear suscripciones adicionales de Azure, tiene la siguiente función en la nueva cuenta de facturación.
+Para crear suscripciones adicionales a Azure, se le asigna el siguiente rol en la nueva cuenta de facturación.
 
-**Creador de la suscripción de Azure** -se le asigna el rol de creador de la suscripción de azure en la sección de factura que se crea para su departamento en el contrato Enterprise. Si su cuenta no pertenece a un departamento, get rol creador de suscripción de Azure en una sección denominada sección predeterminada de la factura. La función le permite crear suscripciones de Azure para la sección de factura.
+**Creador de la suscripción a Azure**: se le asigna el rol de creador de la suscripción a Azure en la sección de factura que se crea para el departamento en el Contrato Enterprise. Si la cuenta no pertenece a un departamento, obtiene el rol de creador de la suscripción a Azure en una sección que se conoce como sección de factura predeterminada. El rol le permite crear suscripciones a Azure para la sección de factura.
 
 ### <a name="create-an-azure-subscription"></a>Cree una suscripción a Azure
 
-Puede crear suscripciones de Azure para la sección de factura en el portal de Azure. Para obtener más información, consulte [crear una suscripción de Azure adicional para el contrato de cliente de Microsoft](billing-mca-create-subscription.md)
+Puede crear suscripciones a Azure para la sección de factura en Azure Portal. Para más información, consulte [Creación de una suscripción a Azure adicional para el contrato de cliente de Microsoft](billing-mca-create-subscription.md).
 
-### <a name="view-charges-for-your-account"></a>Ver los cargos de la cuenta
+### <a name="view-charges-for-your-account"></a>Visualización de los cargos de la cuenta
 
-Para ver los cargos para las suscripciones que pertenecían a una cuenta, vaya a la [página suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure portal. La página suscripciones muestra los cargos para toda la suscripción.
+Para ver los cargos por suscripciones que pertenecían a una cuenta, vaya a la [página de suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal. La página de suscripciones muestra los cargos de todas las suscripciones.
 
-### <a name="view-charges-for-a-subscription"></a>Ver cargos para una suscripción
+### <a name="view-charges-for-a-subscription"></a>Visualización de cargos de una suscripción
 
-Puede ver los cargos para una suscripción o en el [página suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o el análisis de costos de Azure. Para obtener más información sobre análisis de costos de Azure, consulte [explore y analice los costos con análisis de costos](../cost-management/quick-acm-cost-analysis.md).
+Puede ver los cargos de una suscripción o en la [página de suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o el análisis de costos de Azure. Para más información sobre análisis de costos de Azure, consulte [Exploración y análisis de los costos con el análisis de costos](../cost-management/quick-acm-cost-analysis.md).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 
@@ -152,7 +152,7 @@ Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.az
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Descripción de cuenta de facturación de un contrato de cliente de Microsoft](billing-mca-overview.md)
-- [Comprender la factura](billing-understand-your-bill.md)
+- [Descripción de la cuenta de facturación del contrato de cliente de Microsoft](billing-mca-overview.md)
+- [Descripción de la factura](billing-understand-your-bill.md)
 - [Descripción de la factura](billing-understand-your-invoice.md)
-- [Obtener la propiedad de las suscripciones de Azure a otros usuarios de facturación](billing-mca-request-billing-ownership.md)
+- [Obtención de la propiedad de la facturación de las suscripciones a Azure de otros usuarios](billing-mca-request-billing-ownership.md)

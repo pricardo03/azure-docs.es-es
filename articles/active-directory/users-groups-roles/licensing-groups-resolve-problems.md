@@ -1,5 +1,5 @@
 ---
-title: 'Resolver problemas de asignación de licencias de un grupo: Azure Active Directory | Microsoft Docs'
+title: Resolución de problemas de asignación de licencias para un grupo en Azure Active Directory | Microsoft Docs
 description: Identificación y resolución de problemas de asignación de licencias cuando se utilizan licencias basadas en grupos con Azure Active Directory
 services: active-directory
 keywords: Licencias de Azure AD
@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466278"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
@@ -35,15 +35,15 @@ Cuando se usan licencias basadas en grupo, se pueden producir los mismos errores
 
 1. Para buscar usuarios con un estado de error en un grupo específico, abra el panel correspondiente al grupo. En **Licencias**, se muestra una notificación si hay usuarios en estado de error.
 
-   ![Mensaje de notificaciones de error y de grupo](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Mensaje de notificaciones de grupo y de error](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Seleccione la notificación para abrir una lista de todos los usuarios afectados. Puede seleccionar individualmente cada usuario para ver más detalles.
 
-   ![lista de usuarios en el grupo de licencias por estado de error](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lista de usuarios en estado de error de licencia de grupo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Para buscar todos los grupos que contienen al menos un error, en la hoja **Azure Active Directory** seleccione **Licencias** y, a continuación, seleccione **Información general**. Si algunos grupos requieren atención, aparece un cuadro de información.
 
-   ![Introducción e información acerca de los grupos en estado de error](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Introducción general y detalles sobre los grupos con estado de error](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Seleccione el cuadro para ver una lista de todos los grupos con errores. Puede seleccionar cada grupo para más detalles.
 
@@ -52,7 +52,7 @@ Cuando se usan licencias basadas en grupo, se pueden producir los mismos errores
 
 En las secciones siguientes se muestra una descripción de cada problema potencial y la manera de resolverlo.
 
-## <a name="not-enough-licenses"></a>No hay licencias suficientes.
+## <a name="not-enough-licenses"></a>No hay suficientes licencias
 
 **Problema:** No hay suficientes licencias disponibles para uno de los productos especificados en el grupo. Necesita adquirir más licencias para el producto o liberar las licencias sin usar de otros usuarios o grupos.
 
@@ -62,7 +62,7 @@ Para ver qué usuarios y grupos consumen las licencias, seleccione un producto. 
 
 **PowerShell:** Los cmdlets de PowerShell informan de este error como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planes del servicio en conflicto
+## <a name="conflicting-service-plans"></a>Planes de servicio en conflicto
 
 **Problema:** Uno de los productos especificados en el grupo contiene un plan de servicio que entra en conflicto con otro plan de servicio que ya está asignado al usuario a través de un producto diferente. Algunos planes de servicio se configuran de tal forma que no puedan asignarse al mismo usuario como otro plan de servicio relacionado.
 
@@ -77,7 +77,7 @@ El administrador es la única persona competente para decidir cómo resolver el 
 
 **PowerShell:** Los cmdlets de PowerShell informan de este error como _MutuallyExclusiveViolation_.
 
-## <a name="other-products-depend-on-this-license"></a>Otros productos dependen de esta licencia.
+## <a name="other-products-depend-on-this-license"></a>Otros productos dependen de esta licencia
 
 **Problema:** Uno de los productos que se especifica en el grupo contiene un plan de servicio que debe estar habilitado para otro plan de servicio, en otro producto, para funcionar. Este error se produce cuando Azure AD intenta quitar el plan del servicio subyacente. Por ejemplo, esto puede ocurrir cuando se elimina el usuario del grupo.
 
@@ -111,11 +111,11 @@ Si usa Exchange Online, es posible que algunos de los usuarios del inquilino no 
 
 Después de resolver los problemas de dirección del proxy para los usuarios afectados, asegúrese de forzar el procesamiento de la licencia en el grupo para asegurarse de que ahora se pueden aplicar las licencias.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Cambio de atributo de correo electrónico de AD y ProxyAddresses de Azure
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Cambio de los atributos Mail y ProxyAddresses de Azure AD
 
-**Problema:** Al actualizar la asignación de licencias en un grupo o un usuario, es posible que vea que se ha cambiado el atributo de correo electrónico de Azure AD y ProxyAddresses de algunos usuarios.
+**Problema:** al actualizar la asignación de licencias en un grupo o un usuario, es posible que vea que se han cambiado los atributos Mail y ProxyAddresses de Azure AD de algunos usuarios.
 
-Actualizar la asignación de licencias en un cálculo que se desencadene la dirección de lo proxy las causas usuario, lo que puede cambiar los atributos de usuario. Para comprender el motivo exacto del cambio y resolver el problema, consulte este artículo sobre [cómo se rellena el atributo proxyAddresses de Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+Si actualiza la asignación de licencias en un usuario, se desencadenará el cálculo de dirección proxy, lo que puede provocar un cambio en los atributos de usuario. Para comprender el motivo exacto del cambio y resolver el problema, consulte este artículo [Cómo se rellena el atributo proxyAddresses en Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>¿Qué ocurre si hay más de una licencia de producto en un grupo?
 

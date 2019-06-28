@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738489"
 ---
 # <a name="managing-azure-automation-data"></a>Administración de datos de Azure Automation
@@ -39,7 +39,7 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 
 La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar.
 
-Sin embargo, si necesita conservar los datos durante un período de tiempo más largo, puede reenviar los registros de trabajo a los registros de Azure Monitor runbook.  Para más información, consulte [reenviar datos de trabajo de Azure Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
+Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede reenviar los registros de trabajos del runbook a los registros de Azure Monitor.  Para más información, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Copia de seguridad de Azure Automation
 Cuando se elimina una cuenta de automatización en Microsoft Azure, se eliminan todos los objetos de la cuenta, incluidos runbooks, módulos, configuraciones, trabajos y recursos. No es posible recuperar los objetos una vez eliminada la cuenta.  Puede usar la información siguiente para crear una copia de seguridad de los contenidos de la cuenta de automatización antes de eliminarla. 

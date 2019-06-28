@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
 ms.openlocfilehash: a05f75a7e38ee7cd4dc056629d9acaacad875e08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730232"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores en Durable Functions (Azure Functions)
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Use `CancellationTokenSource` para cancelar un temporizador durable (C#) o una llamada `cancel()` en el `TimerTask` devuelto (JavaScript) si el código no va a esperar a que se complete. Durable Task Framework no cambiará el estado de una orquestación como "completado" hasta que se completan o se cancela todas las tareas pendientes.
+> Use `CancellationTokenSource` para cancelar un temporizador durable (C#) o una llamada `cancel()` en el `TimerTask` devuelto (JavaScript) si el código no va a esperar a que se complete. Durable Task Framework no cambiará el estado de una orquestación a "Completed" (Completado) hasta que todas las tareas pendientes se hayan completado o cancelado.
 
 Este mecanismo no finaliza realmente la ejecución de la función de actividad en curso. En su lugar, simplemente permite que la función de orquestador pase por alto el resultado y continúe. Si la aplicación de función usa su plan de consumo, se le seguirá facturando por el tiempo y la memoria consumidos por la función de actividad abandonada. De manera predeterminada, las funciones en ejecución en el plan de consumo tienen un tiempo de expiración de cinco minutos. Si se supera este límite, el host de Azure Functions se recicla para detener toda la ejecución y evitar una situación de facturación descontrolada. El [tiempo de expiración de la función se puede configurar](../functions-host-json.md#functiontimeout).
 

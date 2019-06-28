@@ -1,6 +1,6 @@
 ---
-title: 'Registros de diagnóstico de servicios de Azure Media esquemas: Azure'
-description: Este artículo muestra los esquemas de los registros de diagnóstico de Azure Media Services.
+title: 'Esquemas de registros de diagnóstico de Azure Media Services: Azure'
+description: En este artículo se muestran los esquemas de registros de diagnóstico de Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,41 +14,41 @@ ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
 ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322257"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas de registros de diagnóstico
 
-[Azure Monitor](../../azure-monitor/overview.md) habilita la supervisión de las métricas y registros de diagnóstico que le ayudarán a comprende cómo funcionan las aplicaciones. Puede supervisar los registros de diagnóstico de Media Services y crear alertas y notificaciones de los registros y métricas recopiladas. Puede enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)y exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), o usar 3 servicios de terceros.
+[Azure Monitor](../../azure-monitor/overview.md) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Puede supervisar registros de diagnóstico de Media Services y crear alertas y notificaciones para las métricas y los registros recopilados. Puede enviar registros a [Azure Storage](https://azure.microsoft.com/services/storage/), difundirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), o bien usar servicios de terceros.
 
-Para obtener información detallada, consulte [métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md) y [registros de Azure Monitor Diagnostics](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Para obtener información detallada, consulte [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md) y [Registros de diagnóstico de Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
-En este artículo se describe los esquemas de los registros de diagnóstico de Media Services.
+En este artículo se describen los esquemas de registros de diagnóstico de Media Services.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Esquema de registros de diagnósticos de nivel superior
 
-Para una descripción detallada del esquema de los registros de diagnóstico de nivel superior, consulte [compatible de servicios, esquemas y categorías para los registros de diagnóstico de Azure](../../azure-monitor/platform/tutorial-dashboards.md).
+Para obtener una descripción detallada del esquema de registros de diagnóstico de nivel superior, consulte [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](../../azure-monitor/platform/tutorial-dashboards.md).
 
-## <a name="key-delivery-log-schema"></a>Esquema de entrega de claves del registro
+## <a name="key-delivery-log-schema"></a>Esquema de registro de entrega de claves
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-Estas propiedades son específicas para el esquema de entrega de claves del registro.
+Estas propiedades son específicas del esquema de registro de entrega de claves.
 
-|Name|DESCRIPCIÓN|
+|NOMBRE|DESCRIPCIÓN|
 |---|---|
-|keyId|El identificador de la clave solicitada.|
-|keyType|Podría ser uno de los siguientes valores: "Borrar" (sin cifrado), "FairPlay", "PlayReady" o "Widevine".|
-|policyName|Nombre de la directiva de Azure Resource Manager.|
+|keyId|Identificador de la clave solicitada.|
+|keyType|Podría ser uno de los siguientes valores: "Clear" (sin cifrado), "FairPlay", "PlayReady" o "Widevine".|
+|policyName|Nombre de Azure Resource Manager de la directiva.|
 |tokenType|El tipo de token.|
-|statusMessage|El mensaje de estado.|
+|statusMessage|Mensaje de estado.|
 
 ### <a name="examples"></a>Ejemplos
 
-Propiedades del esquema de las solicitudes de entrega de claves.
+Propiedades del esquema de solicitudes de entrega de claves.
 
 ```json
 {
@@ -110,4 +110,4 @@ Propiedades del esquema de las solicitudes de entrega de claves.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md)
+[Supervisión de los registros de diagnóstico y las métricas de Media Services](media-services-metrics-diagnostic-logs.md)

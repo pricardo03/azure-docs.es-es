@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995651"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
@@ -26,12 +26,12 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Proyectos|2|100|
-|Imágenes de aprendizaje por proyecto |5.000|100 000|
+|Imágenes de aprendizaje por proyecto |5\.000|100 000|
 |Predicciones/mes|10 000 |Ilimitado|
 |Etiquetas/proyecto|50|500|
 |Iteraciones |10|10|
-|Min con la etiqueta imágenes por etiqueta de clasificación (50 o más recomendado) |5|5|
-|Min con la etiqueta imágenes por etiqueta, detección de objetos (50 o más recomendado)|15|15|
+|Mínimo de imágenes marcadas por etiqueta; clasificación (es recomendable 50 o más) |5|5|
+|Mínimo de imágenes marcadas por etiqueta; detección de objetos (es recomendable 50 o más)|15|15|
 |Durante cuánto tiempo se almacenan las imágenes de predicción|30 días|30 días|
 |Operaciones [Prediction](https://go.microsoft.com/fwlink/?linkid=865445) con almacenamiento (transacciones por segundo)|2|10|
 |Operaciones [Prediction](https://go.microsoft.com/fwlink/?linkid=865445) sin almacenamiento (transacciones por segundo)|2|20|

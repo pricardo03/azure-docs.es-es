@@ -1,6 +1,6 @@
 ---
-title: Cómo configurar el sistema y las identidades administradas asignada por el usuario en una escala de máquina virtual de Azure establece mediante la CLI de Azure
-description: Paso a paso las instrucciones para configurar el sistema y las identidades administradas asignada por el usuario en una escala de máquina virtual de Azure establecen, mediante la CLI de Azure.
+title: Cómo configurar las identidades administradas asignadas por el usuario y por el sistema en un conjunto de escalado de máquinas virtuales de Azure mediante la CLI de Azure
+description: Instrucciones paso a paso para configurar identidades administradas asignadas por el sistema y por el usuario en un conjunto de escalado de máquinas virtuales de Azure, mediante la CLI de Azure.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -16,10 +16,10 @@ ms.date: 02/15/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04a3c9eba1f6498796a7e617b400649963c996d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290970"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante la CLI de Azure
@@ -28,14 +28,14 @@ ms.locfileid: "60290970"
 
 Las identidades administradas para los recursos de Azure proporcionan a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 
-En este artículo, aprenderá a realizar las siguientes identidades administradas para las operaciones de recursos de Azure en un conjunto de escalado de máquina virtual de Azure, mediante la CLI de Azure:
+En este artículo obtendrá más información sobre cómo realizar las siguientes operaciones de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales de Azure mediante la CLI de Azure:
 - Habilitación y deshabilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure
 - Adición y eliminación de una identidad asignada por el usuario un conjunto de escalado de máquinas virtuales de Azure
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)**.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de control de acceso basado en rol:
 
@@ -57,7 +57,7 @@ En este artículo, aprenderá a realizar las siguientes identidades administrada
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
-En esta sección, obtendrá información sobre cómo habilitar y deshabilitar la identidad administrada para un conjunto mediante la CLI de Azure de escalado de máquina virtual de Azure asignado por el sistema.
+En esta sección, obtendrá información sobre cómo habilitar y deshabilitar la identidad administrada asignada por el sistema para un conjunto de escalado de máquinas virtuales de Azure mediante la CLI de Azure.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Habilitación de la identidad administrada asignada por el sistema durante la creación de un conjunto de escalado de máquinas virtuales de Azure
 
@@ -115,7 +115,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
 > [!NOTE]
-> Si ha aprovisionado la identidad administrada para la extensión de máquina virtual de los recursos de Azure (en desuso), deberá quitarla mediante [eliminación de az vmss extensión](https://docs.microsoft.com/cli/azure/vm/). Para obtener más información, consulte [migración desde la extensión de máquina virtual a Azure IMDS para la autenticación](howto-migrate-vm-extension.md).
+> Si ha aprovisionado la extensión de máquina virtual de identidad administrada de recursos de Azure (va a quedar en desuso), debe quitarla mediante [az vmss extension delete](https://docs.microsoft.com/cli/azure/vm/). Para obtener más información, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
@@ -123,7 +123,7 @@ En esta sección obtendrá más información sobre cómo habilitar y quitar una 
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Asignación de una identidad administrada asignada por el usuario durante la creación de un conjunto de escalado de máquinas virtuales
 
-En esta sección le guiará a través de la creación de un conjunto de escalado de máquinas virtuales y la asignación de una identidad administrada asignada por el usuario para el conjunto de escalado de máquinas virtuales. Si ya tiene un conjunto de escalado de máquinas virtuales que desea usar, omita esta sección y vaya a la siguiente.
+En esta sección se explica el proceso de creación de un conjunto de escalado de máquinas virtuales y de asignación de una identidad administrada asignada por el usuario al conjunto de escalado de máquinas virtuales. Si ya tiene un conjunto de escalado de máquinas virtuales que quiera usar, omita esta sección y vaya a la siguiente.
 
 1. Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar. Cree un [grupo de recursos](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para contener e implementar la identidad administrada asignada por el usuario mediante [az group create](/cli/azure/group/#az-group-create). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<LOCATION>` con sus propios valores. :
 
@@ -155,7 +155,7 @@ En esta sección le guiará a través de la creación de un conjunto de escalado
    }
    ```
 
-3. Crear un conjunto de escalado mediante [crear az vmss](/cli/azure/vmss/#az-vmss-create). En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales asociado con la nueva asignada por el usuario identidad administrada, según lo especificado por el `--assign-identity` parámetro. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` y `<USER ASSIGNED IDENTITY>` por sus propios valores. 
+3. Cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss/#az-vmss-create). En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales asociado a la nueva identidad administrada asignada por el usuario, según lo especificado por el parámetro `--assign-identity`. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` y `<USER ASSIGNED IDENTITY>` por sus propios valores. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -185,7 +185,7 @@ En esta sección le guiará a través de la creación de un conjunto de escalado
    }
    ```
 
-2. Asignar la identidad administrada asignada por el usuario para el escalado de máquinas virtuales establece mediante [asignar la identidad de az vmss](/cli/azure/vmss/identity). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VIRTUAL MACHINE SCALE SET NAME>` con sus propios valores. El parámetro `<USER ASSIGNED IDENTITY>` es la propiedad `name` del recurso de la identidad asignada por el usuario, tal como se creó en el paso anterior:
+2. Asigne a su conjunto de escalado de máquinas virtuales la identidad administrada asignada por el usuario mediante [az vmss identity assign](/cli/azure/vmss/identity). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VIRTUAL MACHINE SCALE SET NAME>` con sus propios valores. El parámetro `<USER ASSIGNED IDENTITY>` es la propiedad `name` del recurso de la identidad asignada por el usuario, tal como se creó en el paso anterior:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 1/19/2018
 ms.author: atsenthi
 ms.openlocfilehash: 53cab3591ea11721e36b48438f35df016e2a9f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60621501"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida de la aplicación de Service Fabric
@@ -29,7 +29,7 @@ Al igual que sucede con otras plataformas, una aplicación en Azure Service Fabr
 ## <a name="service-model-roles"></a>Roles del modelo de servicio
 Los roles del modelo de servicio son:
 
-* **Desarrollador del servicio**: Desarrolla servicios modulares y genéricos que se pueden reasignar y usar en varias aplicaciones del mismo tipo o tipos diferentes. Por ejemplo, un servicio de cola puede usarse para crear una aplicación de incidencias (departamento de soporte técnico) y una aplicación de comercio electrónico (carro de la compra).
+* **Desarrollador del servicio**: desarrolla servicios modulares y genéricos que se pueden volver a definir y usar en varias aplicaciones del mismo tipo o de tipos distintos. Por ejemplo, un servicio de cola puede usarse para crear una aplicación de incidencias (departamento de soporte técnico) y una aplicación de comercio electrónico (carro de la compra).
 * **Desarrollador de aplicaciones**: crea aplicaciones mediante la integración de una recopilación de servicios para satisfacer ciertos escenarios o requisitos específicos. Por ejemplo, un sitio web de comercio electrónico podría integrar "Servicio front-end sin estado JSON", "Servicio con estado de subasta" y "Servicio con estado de cola" para crear una solución de subasta.
 * **Administrador de aplicaciones**: toma decisiones sobre la configuración de las aplicaciones (relleno de los parámetros de la plantilla de configuración), implementación (asignación a recursos disponibles) y calidad de servicio. Por ejemplo, un administrador de aplicaciones decide la configuración regional de idioma (por ejemplo, inglés para Estados Unidos o japonés para Japón) de la aplicación. Una aplicación implementada diferente puede tener configuraciones distintas.
 * **Operador**: implementa aplicaciones basadas en la configuración de la aplicación y los requisitos especificados por el administrador de aplicaciones. Por ejemplo, un operador aprovisiona e implementa la aplicación y garantiza que se ejecuta en Azure. Los operadores supervisan la información de rendimiento y estado de la aplicación y mantiene la infraestructura física, según corresponda.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363605"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados de pruebas para la replicación de Hyper-V a un sitio secundario
@@ -108,7 +108,7 @@ Los resultados muestran claramente que Site Recovery, junto con la réplica de H
 
 | Server | RAM | Modelo | Procesador | Número de procesadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores de Hyper-V en clúster:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 tiene 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ a 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
+| Servidores de Hyper-V en clúster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 tiene 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ a 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Sitio secundario
@@ -120,7 +120,7 @@ Los resultados muestran claramente que Site Recovery, junto con la réplica de H
 
 | Server | RAM | Modelo | Procesador | Número de procesadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores de Hyper-V en clúster:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ a 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
+| Servidores de Hyper-V en clúster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ a 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ a 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
 | ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ a 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + rol de Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x 64) + VMM 2012 R2 |
@@ -175,10 +175,10 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 | CPU |Procesador(_Total)\% Hora del procesador |
 | Memoria disponible |\Memoria\MB disponibles |
 | E/S |\Disco físico(_Total)\Transferencias de disco/s |
-| Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Read operaciones por segundo |
-| Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Write operaciones/S |
-| Rendimiento de lectura de máquinas virtuales |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Read Bytes/seg. |
-| Rendimiento de escritura de máquinas virtuales |Dispositivo de almacenamiento virtual \Hyper-V (\<VHD >) \Write Bytes/seg. |
+| Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V\<VHD>\Operaciones de lectura/s |
+| Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s |\Dispositivo de almacenamiento virtual de Hyper-V\<VHD>\Operaciones de escritura/s |
+| Rendimiento de lectura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V\\<VHD>\Bytes leídos/s |
+| Rendimiento de escritura de máquinas virtuales |\Dispositivo de almacenamiento virtual de Hyper-V\<VHD>\Bytes escritos/s |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

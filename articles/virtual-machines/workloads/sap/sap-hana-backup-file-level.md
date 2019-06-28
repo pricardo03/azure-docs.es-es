@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: fc35077e00bc6322a815a52ca6ab3571a4e06d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60937807"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Azure Backup de SAP HANA en el nivel de archivo
@@ -36,7 +36,7 @@ Esta ilustración muestra el cuadro de diálogo del elemento de menú de copia d
 
 Aunque esta opción suena simple y sencilla, existen algunas consideraciones. Como se mencionó antes, una máquina virtual de Azure tiene una limitación del número de discos de datos que se pueden asociar. Es posible que no haya capacidad para almacenar archivos de copia de seguridad de SAP HANA en los sistemas de archivos de la máquina virtual, en función del tamaño de los requisitos de rendimiento del disco y la base de datos, que podría implicar la fragmentación de software en varios discos de datos. Se proporcionan más opciones para mover estos archivos de copia de seguridad y administrar las restricciones de tamaño de archivo y el rendimiento cuando se administran terabytes de datos más adelante en este artículo.
 
-Otra opción, que ofrece más libertad con respecto a la capacidad total, es Azure Blob Storage. Aunque un único blob también se restringe a 1 TB, la capacidad total de un único contenedor de blobs es actualmente de 500 TB. Además, ofrece a los clientes la opción de seleccionar el denominado almacenamiento de blobs en &quot;frío&quot;, que tiene un costo-beneficio. Consulte [almacenamiento de blobs de Azure: Capas de almacenamiento frecuente y esporádico](../../../storage/blobs/storage-blob-storage-tiers.md) para obtener más información sobre el almacenamiento de blobs esporádico.
+Otra opción, que ofrece más libertad con respecto a la capacidad total, es Azure Blob Storage. Aunque un único blob también se restringe a 1 TB, la capacidad total de un único contenedor de blobs es actualmente de 500 TB. Además, ofrece a los clientes la opción de seleccionar el denominado almacenamiento de blobs en &quot;frío&quot;, que tiene un costo-beneficio. Consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente y acceso esporádico](../../../storage/blobs/storage-blob-storage-tiers.md) para más información sobre el almacenamiento de blobs esporádico.
 
 Para obtener una seguridad adicional, utilice una cuenta de almacenamiento con replicación geográfica para almacenar las copias de seguridad de SAP HANA. Vea [Replicación de Azure Storage](../../../storage/common/storage-redundancy.md) para obtener más información sobre la replicación de la cuenta de almacenamiento.
 
@@ -70,7 +70,7 @@ La repetición de la misma copia de seguridad en software RAID con fragmentació
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copia de archivos de copia de seguridad de SAP HA en Azure Blob Storage
 
-Otra opción para almacenar rápidamente los archivos de copia de seguridad de SAP HANA es Azure Blob Storage. Un contenedor de blob único tiene un límite de 500 TB, que es suficiente para que algunos de los sistemas de SAP HANA más pequeños, en los que se usan los tipos de máquina virtual M32ts, M32ls, M64ls y GS5 de Azure, mantengan copias de seguridad de SAP HANA suficientes. Los clientes tienen la elección entre &quot;hot&quot; y &quot;frío&quot; el almacenamiento de blobs (consulte [Azure Blob Storage: Capas de almacenamiento frecuente y esporádico](../../../storage/blobs/storage-blob-storage-tiers.md)).
+Otra opción para almacenar rápidamente los archivos de copia de seguridad de SAP HANA es Azure Blob Storage. Un contenedor de blob único tiene un límite de 500 TB, que es suficiente para que algunos de los sistemas de SAP HANA más pequeños, en los que se usan los tipos de máquina virtual M32ts, M32ls, M64ls y GS5 de Azure, mantengan copias de seguridad de SAP HANA suficientes. Los clientes pueden elegir entre el almacenamiento de blobs &quot;frecuente&quot; y &quot;esporádico&quot; (consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente y acceso esporádico](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Con la herramienta blobxfer, es fácil copiar los archivos de copia de seguridad de SAP HANA directamente en Azure Blob Storage.
 

@@ -1,6 +1,6 @@
 ---
 title: Agregar supervisión y diagnósticos a una máquina virtual de Azure | Microsoft Docs
-description: Usar una plantilla de Azure Resource Manager para crear una nueva máquina virtual de Windows con la extensión de diagnósticos de Azure.
+description: Use una plantilla de Azure Resource Manager para crear una máquina virtual Windows con la extensión Azure Diagnostics.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -17,10 +17,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800016"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
@@ -63,7 +63,7 @@ En una máquina virtual sencilla basada en el Administrador de recursos, agregue
 ]
 ```
 
-Otra costumbre común es agregar la configuración de extensión en el nodo de recursos raíz de la plantilla en lugar de definirla en el nodo de recursos de la máquina virtual. Con este enfoque tiene que especificar explícitamente una relación jerárquica entre la extensión y la máquina virtual con los valores *name* y *type*. Por ejemplo:  
+Otra costumbre común es agregar la configuración de extensión en el nodo de recursos raíz de la plantilla en lugar de definirla en el nodo de recursos de la máquina virtual. Con este enfoque tiene que especificar explícitamente una relación jerárquica entre la extensión y la máquina virtual con los valores *name* y *type*. Por ejemplo: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",

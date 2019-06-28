@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372898"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generación de miniaturas de recorte inteligente con Computer Vision
@@ -38,15 +38,15 @@ También puede obtener las coordenadas del rectángulo de selección de esta mis
 
 La miniatura generada puede variar enormemente en función de la altura, anchura y la función de recorte inteligente que se especifiquen, tal como se muestra en la siguiente imagen.
 
-![Una imagen de las Montañas Rocosas junto a diversas configuraciones de recorte](./Images/thumbnail-demo.png)
+![Una imagen de una montaña junto a diversas configuraciones de recorte](./Images/thumbnail-demo.png)
 
 En la tabla siguiente se muestran las típicas miniaturas que se pueden generar con Computer Vision, teniendo en cuenta las imágenes de ejemplo. Las miniaturas se crearon para un destino con una altura y anchura específicas de 50 píxeles, y tienen la función de recorte inteligente habilitada.
 
-| Image | Miniatura |
+| Imagen | Miniatura |
 |-------|-----------|
-|![Mountain exterior al anochecer, con la silueta de una persona](./Images/mountain_vista.png) | ![Miniatura de montaña exterior al anochecer, con la silueta de una persona](./Images/mountain_vista_thumbnail.png) |
+|![Montaña al aire libre al atardecer, con la silueta de una persona](./Images/mountain_vista.png) | ![Miniatura de una montaña al aire libre al atardecer, con la silueta de una persona](./Images/mountain_vista_thumbnail.png) |
 |![Una flor blanca con un fondo verde](./Images/flower.png) | ![Miniatura Vision Analyze Flower](./Images/flower_thumbnail.png) |
-|![Una mujer en el tejado de un edificio](./Images/woman_roof.png) | ![miniatura de una mujer en el techo de un edificio](./Images/woman_roof_thumbnail.png) |
+|![Una mujer en el tejado de un edificio](./Images/woman_roof.png) | ![miniatura de una mujer en el tejado de un edificio de apartamentos](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

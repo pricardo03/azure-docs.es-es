@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345913"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
@@ -34,9 +34,9 @@ Las programaciones tienen las propiedades de la siguiente tabla.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Interval |Frecuencia con que se realiza la búsqueda. Se mide en minutos. |
+| Intervalo |Frecuencia con que se realiza la búsqueda. Se mide en minutos. |
 | QueryTimeSpan |Intervalo de tiempo en el que se evalúan los criterios. Debe ser igual o mayor que Intervalo. Se mide en minutos. |
-| `Version` |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
+| Versión |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos y un valor de Timespan de 30 minutos, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si los criterios siguieran evaluándose como True durante un intervalo de 30 minutos.
 
@@ -101,7 +101,7 @@ Todas las acciones tienen las propiedades de la siguiente tabla.  Los distintos 
 ### <a name="retrieving-actions"></a>Recuperar acciones
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure del área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use el método Get para recuperar todas las acciones de una programación.
 
@@ -124,7 +124,7 @@ El formato de solicitud para crear una acción varía según el tipo de acción.
 ### <a name="deleting-actions"></a>Eliminar acciones
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure del área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use el método Delete con el identificador de acción para eliminar esa acción.
 
@@ -145,7 +145,7 @@ Una programación debe tener una acción de alerta única y exclusivamente.  Las
 | Acciones de Webhook | Inserta datos de Alertas al servicio deseado como JSON |No se requiere si las alertas se extendieron a Azure|
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure del área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md).
 
 #### <a name="thresholds"></a>Umbrales
 Una acción de alerta debe tener un umbral única y exclusivamente.  Cuando los resultados de una búsqueda guardada coinciden con el umbral de una acción asociada a esa búsqueda, se ejecutan los demás procesos de esa acción.  Una acción también puede contener solo un umbral para que pueda usarse con acciones de otros tipos que no contienen umbrales.
@@ -154,7 +154,7 @@ Los umbrales tienen las propiedades de la siguiente tabla.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| `Operator` |Operador de la comparación de umbral. <br> gt = Mayor que <br>  lt = Menor que |
+| `Operator` |Operador de la comparación de umbral. <br> gt = Mayor que <br> lt = Menor que |
 | `Value` |Valor del umbral. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos, un valor de Timespan de 30 minutos y un valor de Threshold mayor que 10, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si devolviera 10 eventos creados durante un intervalo de 30 minutos.
@@ -354,14 +354,14 @@ Use el método Put con un identificador de acción existente para modificar un g
 Las notificaciones de correo electrónico envían correo a uno o más destinatarios.  Tienen las propiedades de la siguiente tabla.
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure del área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones como la notificación de correo electrónico se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones como la notificación de correo electrónico se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Recipients |Lista de direcciones de correo electrónico. |
-| Subject |Asunto del correo electrónico. |
-| Attachment |Actualmente no se admiten datos adjuntos, por lo que siempre aparecerá un valor "None". |
+| Asunto |Asunto del correo electrónico. |
+| Datos adjuntos |Actualmente no se admiten datos adjuntos, por lo que siempre aparecerá un valor "None". |
 
 La siguiente es una respuesta de ejemplo de una acción de notificación de correo con un umbral.  
 
@@ -398,7 +398,7 @@ Use el método Put con un identificador de acción existente para modificar una 
 Las correcciones inician un Runbook en Azure Automation que intenta corregir el problema identificado por la alerta.  Debe crear un webhook para el Runbook usado en una acción de corrección y, luego, especificar el URI en la propiedad WebhookUri.  Cuando esta acción se crea con Azure Portal, se crea automáticamente un nuevo webhook para el runbook.
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure del área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones como la corrección mediante runbook se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones como la corrección mediante runbook se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Las correcciones tienen las propiedades de la siguiente tabla.
 
@@ -457,7 +457,7 @@ El siguiente es un ejemplo completo que ilustra cómo crear una alerta de correo
 Las acciones de webhook inician un proceso llamando a una dirección URL y, opcionalmente, proporcionando una carga que se va a enviar.  Son similares a las acciones de corrección, salvo por el hecho de que están pensadas para webhooks que pueden invocar procesos que no tienen que ver con Runbooks de Azure Automation.  También ofrecen la posibilidad extra de proporcionar una carga adicional para entregarla en el proceso remoto.
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure del área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones como Webhook se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se extenderán automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para obtener más información, vea [Extensión de alertas de Log Analytics a Azure](../../azure-monitor/platform/alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones como Webhook se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante la [API Action Group](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Las acciones de webhook no tienen umbral, sino que deben agregarse a una programación que tenga una acción de alerta con un umbral.  

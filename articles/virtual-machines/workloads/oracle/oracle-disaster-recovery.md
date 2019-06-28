@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835898"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperación ante desastres para Oracle Database 12c en el entorno de Azure
@@ -32,7 +32,7 @@ ms.locfileid: "60835898"
 ## <a name="goals"></a>Objetivos
 - Diseñar la topología y configuración que satisfacen las necesidades de recuperación ante desastres.
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Escenario 1: Sitio principal y recuperación ante desastres en Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Escenario 1: sitios principal y de recuperación ante desastres en Azure
 
 Un cliente tiene una instalación de base de datos de Oracle en el sitio principal. El sitio de recuperación ante desastres (DR) se encuentra en una región diferente. El cliente utiliza Oracle Data Guard para la recuperación rápida entre estos sitios. El sitio principal tiene también una base de datos secundaria para informes y otros usos. 
 
@@ -52,13 +52,13 @@ A continuación, se muestra un resumen de la configuración de Azure:
 
 ![Captura de pantalla de la página de la topología de recuperación ante desastres](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Escenario 2: Sitio primario en el entorno local y sitio de recuperación ante desastres en Azure
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Escenario 2: sitio principal en ubicación local y sitio de recuperación ante desastres en Azure
 
 Un cliente tiene una instalación de base de datos de Oracle en un sitio local (sitio principal). Un sitio de recuperación ante desastres en Azure. Oracle Data Guard se usa para la recuperación rápida entre estos sitios. El sitio principal tiene también una base de datos secundaria para informes y otros usos. 
 
 Existen dos enfoques para esta instalación.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Enfoque 1: Conexiones directas entre local y Azure, que requieren puertos TCP abiertos en el firewall 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Enfoque 1: conexiones directas entre el sitio local y Azure, lo que requiere abrir puertos TCP en el firewall 
 
 No se recomiendan las conexiones directas porque exponen los puertos TCP al mundo exterior.
 

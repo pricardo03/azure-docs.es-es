@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306890"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos de Windows: CMD y PowerShell
@@ -118,7 +118,7 @@ Cuando se limita a los métodos disponibles en Windows de forma predeterminada, 
 ### <a name="disable-windows-firewall"></a>Deshabilitar el Firewall de Windows
 `netsh advfirewall set allprofiles state off`
 
-Puede usar este comando al solucionar problemas para excluir temporalmente el Firewall de Windows. Será habilitar en el próximo reinicio o cuando se habilita mediante el siguiente comando. No detenga el servicio Firewall de Windows (MPSSVC) o el servicio Motor de filtrado de base (BFE) como forma de excluir el Firewall de Windows. Si lo hace, se bloqueará toda la conectividad.
+Puede usar este comando al solucionar problemas para excluir temporalmente el Firewall de Windows. Se habilitará en el siguiente reinicio o cuando lo habilite mediante el siguiente comando. No detenga el servicio Firewall de Windows (MPSSVC) o el servicio Motor de filtrado de base (BFE) como forma de excluir el Firewall de Windows. Si lo hace, se bloqueará toda la conectividad.
 ### <a name="enable-windows-firewall"></a>Habilitar el Firewall de Windows
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Administración de usuarios y grupos

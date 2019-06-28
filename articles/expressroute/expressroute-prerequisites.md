@@ -9,10 +9,10 @@ ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883288"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Requisitos previos y lista de comprobación de ExpressRoute
@@ -30,8 +30,8 @@ Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que 
 * Aunque el proveedor no sea un asociado de conectividad ExpressRoute, puede conectarse a la nube de Microsoft mediante un [proveedor de intercambio de nube](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisitos de red
-* **Redundancia en cada ubicación de emparejamiento**: Microsoft requiere sesiones BGP redundantes configurarse entre los enrutadores de Microsoft y enrutadores de emparejamiento en cada circuito ExpressRoute (aunque haya simplemente [una conexión física a un intercambio en la nube](expressroute-faqs.md#onep2plink)).
-* **Redundancia para la recuperación ante desastres**: Microsoft recomienda encarecidamente que configurar al menos dos circuitos de ExpressRoute en distintas ubicaciones de emparejamiento para evitar un único punto de error.
+* **Redundancia en cada ubicación de emparejamiento**: Microsoft requiere que se configuren sesiones BGP redundantes entre enrutadores de Microsoft y enrutadores de emparejamiento en cada circuito ExpressRoute, aunque solo tenga [una conexión física a un intercambio de nube](expressroute-faqs.md#onep2plink).
+* **Redundancia para la recuperación ante desastres**: Microsoft recomienda encarecidamente configurar al menos dos circuitos ExpressRoute en distintas ubicaciones de emparejamiento para evitar un único punto de error.
 * **Enrutamiento**: según como se conecte a Microsoft Cloud, usted o su proveedor deben configurar y administrar las sesiones de BGP para los [dominios de enrutamiento](expressroute-circuit-peerings.md). Algunos proveedores de conectividad Ethernet o proveedores de intercambio en la nube pueden ofrecer administración de BGP como un servicio de valor añadido.
 * **NAT**: Microsoft solo acepta direcciones IP públicas a través de emparejamiento de Microsoft. Si usa direcciones IP privadas en la red local, usted o su proveedor deben convertir las direcciones IP privadas en direcciones IP públicas [con NAT](expressroute-nat.md).
 * **QoS**: Skype Empresarial cuenta con varios servicios (por ejemplo, voz, vídeo o texto) que requieren un tratamiento diferenciado de QoS. Usted y su proveedor deben seguir los [requisitos de QoS](expressroute-qos.md).

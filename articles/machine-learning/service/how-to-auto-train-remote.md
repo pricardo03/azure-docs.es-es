@@ -1,7 +1,7 @@
 ---
 title: Destinos de proceso remoto de ML automatizado
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo crear modelos mediante el aprendizaje automático automatizadas en un destino de proceso remoto de Azure Machine Learning con el servicio de Azure Machine Learning
+description: Aprenda a crear modelos mediante el aprendizaje automático automatizado en un destino de proceso remoto de Azure Machine Learning con Azure Machine Learning Service.
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -13,35 +13,35 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551334"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube
 
 En Azure Machine Learning, puede entrenar un modelo en los diferentes tipos de recursos de proceso que administra. El destino de proceso podría ser un equipo local o un equipo en la nube.
 
-Puede escalar verticalmente o escalar horizontalmente el experimento de aprendizaje automático mediante la adición de destinos de procesos adicionales, como Azure Machine Learning Compute (AmlCompute) fácilmente. AmlCompute es una infraestructura de proceso administrado que le permite crear fácilmente un proceso único o varios nodo.
+Mediante la incorporación de destinos de procesos adicionales como el proceso de Azure Machine Learning (AmlCompute), resulta fácil escalar vertical y horizontalmente el experimento de aprendizaje automático. AmlCompute es una infraestructura de proceso administrado que permite crear fácilmente un proceso de uno o varios nodos.
 
-En este artículo, aprenderá a crear un modelo con ML automatizada con AmlCompute.
+En este artículo, aprenderá a crear un modelo mediante ML automatizado con AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>¿En qué se diferencia el modo remoto del local?
 
-El tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" (Entrenamiento de un modelo de clasificación con el aprendizaje automático automatizado) le enseña a usar un equipo local para entrenar el modelo con ML automatizado.  El flujo de trabajo del entrenamiento local también se aplica a los destinos remotos. Sin embargo, con un proceso remoto, las iteraciones del experimento de ML automatizado se ejecutan de forma asincrónica. Esta funcionalidad le permite cancelar una iteración determinada, ver el estado de la ejecución y continuar trabajando en otras celdas del cuaderno de Jupyter. Para entrenar de forma remota, cree primero un destino de proceso remoto como AmlCompute. A continuación, configure el recurso remoto y envíe el código allí.
+El tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" (Entrenamiento de un modelo de clasificación con el aprendizaje automático automatizado) le enseña a usar un equipo local para entrenar el modelo con ML automatizado.  El flujo de trabajo del entrenamiento local también se aplica a los destinos remotos. Sin embargo, con un proceso remoto, las iteraciones del experimento de ML automatizado se ejecutan de forma asincrónica. Esta funcionalidad le permite cancelar una iteración determinada, ver el estado de la ejecución y continuar trabajando en otras celdas del cuaderno de Jupyter. Para entrenar de forma remota, en primer lugar cree un destino de proceso remoto, como AmlCompute. A continuación, configure el recurso remoto y envíe el código allí.
 
-Este artículo muestra los pasos adicionales necesarios para ejecutar un experimento de ML automatizado en un destino AmlCompute remoto. Aquí se usa, en todo el código, el objeto del área de trabajo, `ws` del tutorial.
+En este artículo se muestran los pasos adicionales necesarios para ejecutar un experimento de ML automatizado en un destino AmlCompute remoto. Aquí se usa, en todo el código, el objeto del área de trabajo, `ws` del tutorial.
 
 ```python
 ws = Workspace.from_config()
 ```
 
-## <a name="create-resource"></a>Crear recurso
+## <a name="create-resource"></a>Crear el recurso
 
-Crear el destino AmlCompute en el área de trabajo (`ws`) si aún no existe.  
+Cree el destino AmlCompute en el área de trabajo (`ws`) si aún no existe.  
 
-**Tiempo estimado**: La creación del destino AmlCompute tarda aproximadamente 5 minutos.
+**Tiempo estimado**: La creación del destino AmlCompute tarda aproximadamente cinco minutos.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -62,7 +62,7 @@ compute_target.wait_for_completion(show_output = True, min_node_count = None, ti
 
 Ahora puede usar el objeto `compute_target` como destino del proceso remoto.
 
-Restricciones de nombre de clúster incluyen:
+Entre las restricciones en los nombres del clúster se incluyen:
 + La longitud debe ser inferior a 64 caracteres.  
 + No puede contener ninguno de los caracteres siguientes: {`\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
@@ -215,10 +215,10 @@ Busque los registros en la DSVM en `/tmp/azureml_run/{iterationid}/azureml-logs`
 
 La recuperación de los datos de explicación de modelos le permite ver información detallada sobre los modelos para aumentar la transparencia sobre lo que se ejecuta en el back-end. En este ejemplo, ejecuta explicaciones de modelo únicamente para el mejor modelo de ajuste. Si se ejecuta para todos los modelos en la canalización, el tiempo de ejecución será significativo. La información de explicación de modelos incluye:
 
-* shap_values: La información de explicación generada por formas lib.
+* shap_values: Información de explicación generada por shap lib.
 * expected_values: Valor esperado del modelo que se aplica para el conjunto de datos X_train
-* overall_summary: Los valores de importancia de características de nivel de modelo en orden descendente.
-* overall_imp: Los nombres de características que se ordenan en el mismo orden que en overall_summary.
+* overall_summary: Valores de importancia de características a nivel del modelo en orden descendente.
+* overall_imp: Nombres de las características ordenados igual que overall_summary.
 * per_class_summary: Valores de importancia de características a nivel de la clase en orden descendente. Solo está disponible para el caso de clasificación.
 * per_class_imp: Nombres de las características ordenadas igual que per_class_summary. Solo está disponible para el caso de clasificación.
 
@@ -256,7 +256,7 @@ También puede visualizar la importancia de características mediante la UI del 
 
 ## <a name="example"></a>Ejemplo
 
-El [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) Bloc de notas muestra los conceptos de este artículo. 
+En el cuaderno [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) se muestran los conceptos de este artículo. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310441"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restauración de una instancia de Azure SQL Data Warehouse 
@@ -35,10 +35,10 @@ En este artículo, aprenderá cómo hacer lo siguiente en Azure Portal y PowerSh
 ## <a name="restore-through-powershell"></a>Restauración mediante PowerShell
 
 ## <a name="install-powershell"></a>Instale PowerShell.
-Para poder usar Azure PowerShell con SQL Data Warehouse, deberá instalar Azure PowerShell.  Puede comprobar la versión ejecutando **Get-Module - ListAvailable-nombre de Az**. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][How to install and configure Azure PowerShell].
+Para usar Azure Powershell con SQL Data Warehouse, se necesita instalar Azure PowerShell.  Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Az**. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][How to install and configure Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database-using-powershell"></a>Restauración de una base de datos activa o en pausa mediante PowerShell
-Para restaurar una base de datos desde un punto de restauración, use el [restauración AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet de PowerShell.
+Para restaurar una base de datos a partir de un punto de restauración, use el cmdlet [Restore-AzSqlDatabase][Restore-AzSqlDatabase] de PowerShell.
 
 1. Abra Windows PowerShell.
 
@@ -94,7 +94,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>Creación de una copia del almacenamiento de datos con puntos de restauración definidos por el usuario mediante PowerShell
-Para restaurar una base de datos desde un punto de restauración definido por el usuario, use el [restauración AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet de PowerShell.
+Para restaurar una base de datos a partir de un punto de restauración definido por el usuario, use el cmdlet [Restore-AzSqlDatabase][Restore-AzSqlDatabase] de PowerShell.
 
 1. Abra Windows PowerShell.
 2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
@@ -142,7 +142,7 @@ $RestoredDatabase.status
 ```
 
 ## <a name="restore-a-deleted-database-using-powershell"></a>Uso de PowerShell para restaurar una base de datos eliminada
-Para restaurar una base de datos eliminada, use el [restauración AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet.
+Para restaurar una base de datos eliminada, use el cmdlet [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
 
 1. Abra Windows PowerShell.
 2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
@@ -177,7 +177,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Uso de PowerShell para restaurar desde una región geográfica de Azure
-Para recuperar una base de datos, use el [restauración AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet.
+Para recuperar una base de datos, use el cmdlet [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
 
 > [!NOTE]
 > Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000**c**) como parámetro opcional.

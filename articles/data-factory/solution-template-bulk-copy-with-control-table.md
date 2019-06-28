@@ -1,6 +1,6 @@
 ---
-title: Copia masiva de una base de datos mediante el uso de una tabla de control con Azure Data Factory | Microsoft Docs
-description: Obtenga información sobre cómo usar una plantilla de solución para copiar datos de forma masiva desde una base de datos mediante el uso de una tabla de control externo para almacenar una lista de particiones de tablas de origen mediante el uso de Azure Data Factory.
+title: Copia masiva desde una base de datos con una tabla de control con Azure Data Factory | Microsoft Docs
+description: Obtenga información sobre cómo usar una plantilla de solución para la copia de datos masiva desde una base de datos con una tabla de control externa a fin de almacenar una lista de particiones de las tablas de origen con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.openlocfilehash: c4224693642e8c9f76deedc0c8ad8586e122cc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60635452"
 ---
-# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia masiva de una base de datos con una tabla de control
+# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia masiva desde una base de datos con una tabla de control
 
-Para copiar datos desde un almacén de datos en el servidor de Oracle, Teradata, Netezza o SQL Server a Azure SQL Data Warehouse, tendrá que cargar grandes cantidades de datos de varias tablas. Normalmente, los datos tienen que tener particiones en cada tabla para que pueda cargar filas con varios subprocesos en paralelo de una sola tabla. En este artículo se describe una plantilla para utilizarla en estos escenarios.
+Para copiar datos desde un almacenamiento de datos como Oracle Server, Netezza, Teradata o SQL Server en Azure SQL Data Warehouse, tiene que cargar enormes cantidades de datos de varias tablas. Normalmente, los datos se tienen que dividir aún más en cada tabla para poder cargar filas con varios subprocesos en paralelo desde una única tabla. En este artículo se describe una plantilla para utilizarla en estos escenarios.
 
- >! Tenga en cuenta si desea copiar datos de un número reducido de tablas con el volumen de datos relativamente pequeñas en SQL Data Warehouse, es más eficaz utilizar la [herramienta Copy Data de Azure Data Factory](copy-data-tool.md). La plantilla que se describe en este artículo es más que necesita para ese escenario.
+ >Nota: Si desea copiar datos desde un número reducido de tablas con un volumen de datos relativamente pequeño en SQL Data Warehouse, es más eficaz utilizar la [herramienta Copiar datos de Azure Data Factory](copy-data-tool.md). La plantilla que se describe en este artículo es más de lo que necesita para esa situación.
 
 ## <a name="about-this-solution-template"></a>Acerca de esta plantilla de solución
 
-Esta plantilla recupera una lista de particiones de base de datos de origen para copiar de una tabla de control externo. A continuación, recorre en iteración cada partición en la base de datos de origen y copia los datos en el destino.
+Esta plantilla recupera una lista de particiones de la base de datos de origen para copiar desde una tabla de control externa. A continuación, recorre en iteración cada partición en la base de datos de origen y copia los datos en el destino.
 
 La plantilla contiene tres actividades:
-- **Búsqueda** recupera la lista de particiones de base de datos está seguro de una tabla de control externo.
-- **ForEach** Obtiene la lista de particiones de la actividad de búsqueda y recorre en iteración cada partición para la actividad de copia.
-- **Copia** copia cada partición desde el almacén de base de datos de origen en el almacén de destino.
+- **Lookup** recupera una lista de particiones de la base de datos de origen para copiar desde una tabla de control externa.
+- **ForEach** obtiene la lista de particiones de la actividad Lookup y recorre en iteración cada partición para la actividad Copy.
+- **Copy** copia cada partición del almacén de la base de datos de origen en el almacén de destino.
 
 La plantilla define cinco parámetros:
 - *Control_Table_Name* es la tabla de control externo, que almacena la lista de partición para la base de datos de origen.
-- *Control_Table_Schema_PartitionID* es el nombre del nombre de columna en la tabla de control externo que almacena el identificador de cada partición. Asegúrese de que el Id. de partición es único para cada partición en la base de datos de origen.
-- *Control_Table_Schema_SourceTableName* es la tabla de control externo que almacena cada nombre de tabla de la base de datos de origen.
-- *Control_Table_Schema_FilterQuery* es el nombre de la columna en la tabla de control externo que almacena la consulta de filtro para obtener los datos de cada partición en la base de datos de origen. Por ejemplo, si la partición de los datos por año, la consulta que se almacena en cada fila podría ser similar a ' Seleccionar * desde el origen de datos donde LastModifytime > = '' 2015-01-01 00:00:00 '' y LastModifytime < = '' 23:59:59.999 2015-12-31'' '.
-- *Data_Destination_Folder_Path* es la ruta de acceso donde se copian los datos en el almacén de destino. Este parámetro solo está visible si el destino que elija es almacenamiento basado en archivos. Si elige SQL Data Warehouse como almacén de destino, este parámetro no es necesario. Pero los nombres de tabla y el esquema en el almacén de datos de SQL deben ser igual que las de la base de datos de origen.
+- *Control_Table_Schema_PartitionID* es el nombre de columna en la tabla de control externa que almacena cada identificador de partición. Asegúrese de que el identificador de partición es único para cada partición en la base de datos de origen.
+- *Control_Table_Schema_SourceTableName* es la tabla de control externa que almacena cada nombre de tabla desde la base de datos de origen.
+- *Control_Table_Schema_FilterQuery* es el nombre de la columna en la tabla de control externa que almacena la consulta de filtro para obtener los datos de cada partición de la base de datos de origen. Por ejemplo, si realizó una partición en los datos por año, la consulta almacenada en cada fila podría ser similar a select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999''.
+- *Data_Destination_Folder_Path* es la ruta de acceso donde se copian los datos en el almacén de destino. Este parámetro solo está visible si el destino que elija es un almacenamiento basado en archivo. Si elige SQL Data Warehouse como almacén de destino, el parámetro no es necesario. Pero los nombres de tabla y el esquema en SQL Data Warehouse deben ser iguales que los de la base de datos de origen.
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
-1. Crear una tabla de control en SQL Server o Azure SQL Database para almacenar la lista de particiones de base de datos de origen para la copia masiva. En el ejemplo siguiente, hay cinco particiones en la base de datos de origen. Son tres particiones para la *datasource_table*, y dos para el *project_table*. La columna *LastModifytime* se utiliza para dividir los datos de tabla *datasource_table* desde la base de datos de origen. La consulta que se utiliza para leer la primera partición es ' Seleccionar * desde datasource_table donde LastModifytime > = '' 2015-01-01 00:00:00 '' y LastModifytime < = '' 23:59:59.999 2015-12-31'' '. Puede usar una consulta similar para leer datos de otras particiones.
+1. Cree una tabla de control en un servidor SQL Server o Azure SQL Database para almacenar la lista de particiones de la base de datos de origen para la copia masiva. En el ejemplo siguiente, hay cinco particiones en la base de datos de origen. Tres particiones son para *datasource_table* y dos para *project_table*. La columna *LastModifytime* se utiliza para dividir los datos de la tabla *datasource_table* desde la base de datos de origen. La consulta que se usa para leer la primera partición es select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' y LastModifytime <= ''2015-12-31 23:59:59.999''. Puede usar una consulta similar para leer datos de otras particiones.
 
      ```sql
             Create table ControlTableForTemplate
@@ -64,35 +64,35 @@ La plantilla define cinco parámetros:
             (5, 'project_table','select * from project_table where ID >= 1000 and ID < 2000');
     ```
 
-2. Vaya a la **de base de datos de copia masiva** plantilla. Crear un **New** conexión a la tabla de control externo que ha creado en el paso 1.
+2. Vaya a la plantilla **Copia masiva desde base de datos**. Crear una conexión **nueva** a la tabla de control externo que ha creado en el paso 1.
 
     ![Creación de una nueva conexión a la tabla de control](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
 
-3. Crear un **New** conexión a la base de datos de origen que se va a copiar datos desde.
+3. Creación de una **nueva** conexión a la base de datos de origen desde la que está copiando datos.
 
      ![Creación de una nueva conexión a la base de datos de origen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
-4. Crear un **New** almacenar de conexión a los datos de destino que va a copiar los datos a.
+4. Cree una conexión **nueva** al almacén de datos de destino en el que está copiando datos.
 
     ![Creación de una nueva conexión al almacén de destino](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. Seleccione **usar esta plantilla**.
+5. Seleccione **Use this template** (Usar esta plantilla).
 
     ![Uso de esta plantilla](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
     
-6. Verá la canalización, como se muestra en el ejemplo siguiente:
+6. Ve la canalización, como se muestra en el ejemplo siguiente:
 
     ![Revisión de la canalización](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. Seleccione **depurar**, escriba el **parámetros**y, a continuación, seleccione **finalizar**.
+7. Seleccione **Depurar**, escriba los **parámetros** y, a continuación, seleccione **Finalizar**.
 
-    ![Haga clic en ** ** de depuración](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    ![Clic en **Depurar**](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 
-8. Debería ver resultados similares al ejemplo siguiente:
+8. Ve resultados similares al ejemplo siguiente:
 
     ![Revisión del resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Opcional) Si eligió SQL Data Warehouse como destino de los datos, debe especificar una conexión a Azure Blob storage para el almacenamiento provisional, según sea necesario por Polybase en SQL Data Warehouse. Asegúrese de que se ha creado el contenedor de Blob storage.
+9. (Opcional) Si elige SQL Data Warehouse como destino de datos, debe escribir una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere SQL Data Warehouse Polybase. Asegúrese de que ya ha creado el contenedor en Blob Storage.
     
     ![Configuración de PolyBase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

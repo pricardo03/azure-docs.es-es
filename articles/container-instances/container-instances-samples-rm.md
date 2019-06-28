@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
 ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60537962"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
@@ -25,7 +25,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 | | |
 |-|-|
 | **Aplicaciones** ||
-| [WordPress][app-wp] | Crea un sitio Web de WordPress y su base de datos MySQL en un grupo de contenedores. El contenido del sitio de WordPress y la base de datos MySQL se conservan en un recurso compartido de Azure Files. También crea una instancia de application gateway para exponer el acceso a la red pública de WordPress. |
+| [WordPress][app-wp] | Crea un sitio web de WordPress y su base de datos MySQL en un grupo de contenedores. El contenido del sitio de WordPress y la base de datos MySQL se conservan en un recurso compartido de Azure Files. También crea una instancia de puerta de enlace para exponer el acceso a la red pública de WordPress. |
 | [MS NAV con IIS y SQL Server][app-nav] | Implementa un único contenedor de Windows con un entorno de Dynamics NAV y Dynamics 365 Business Central con las características completas. |
 | **Volúmenes** ||
 | [emptyDir][vol-emptydir] | Implementa dos contenedores de Linux que comparten un volumen de emptyDir. |
@@ -34,7 +34,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 | **Redes** ||
 | [Contenedor con UDP expuesto][net-udp] | Implementa un contenedor de Windows o Linux que expone un puerto UDP. |
 | [Contenedor de Linux con dirección IP pública][net-publicip] | Implementa un único contenedor de Linux accesible a través de una dirección IP pública. |
-| [Implementar un grupo de contenedores con una red virtual (versión preliminar)][net-vnet] | Implementa una nueva red virtual, subred, perfil de red y grupo de contenedores. |
+| [Implementación de un contenedor de grupos con una red virtual (versión preliminar)][net-vnet] | Implementa una red virtual, subred, perfil de red y grupo de contenedores nuevos. |
 | **Recursos de Azure** ||
 | [Creación de cuenta de Azure Storage y recurso compartido de archivos][az-files] | Usa la CLI de Azure en una instancia del contenedor para crear una cuenta de almacenamiento y un recurso compartido de Azure Files.
 

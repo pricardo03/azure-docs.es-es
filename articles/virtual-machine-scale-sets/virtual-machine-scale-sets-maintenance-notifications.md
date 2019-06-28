@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
 ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618462"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
@@ -89,7 +89,7 @@ La columna **Mantenimiento de autoservicio** aparece ahora en la lista de conjun
 | Valor | DESCRIPCIÓN |
 |-------|-------------|
 | Sí | Al menos una máquina virtual del conjunto de escalado de máquinas virtuales está en una ventana de autoservicio. Puede iniciar el mantenimiento en cualquier momento durante esta ventana de autoservicio. | 
-| Sin  | No hay ninguna máquina virtual en una ventana de autoservicio en el conjunto de escalado de máquinas virtuales afectado. | 
+| Sin | No hay ninguna máquina virtual en una ventana de autoservicio en el conjunto de escalado de máquinas virtuales afectado. | 
 | - | Los conjuntos de escalado de máquinas virtuales no forman parte de una ola de mantenimiento planeado.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificaciones y alertas en el portal
@@ -98,7 +98,7 @@ Azure comunica una programación para el mantenimiento planeado enviando un corr
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú de la izquierda, seleccione **Monitor**. 
-3. En el panel **Monitor - Alertas (clásico)**, seleccione **+ Agregar alerta de registro de actividad**.
+3. En el panel **Monitor - Alertas (clásico)** , seleccione **+ Agregar alerta de registro de actividad**.
 4. En la página **Agregar alerta de registro de actividad**, seleccione o escriba la información solicitada. En **Criterios**, asegúrese de establecer los valores siguientes:
    - **Categoría de eventos**: Seleccione **Service Health**.
    - **Servicios**: Seleccione **Virtual Machine Scale Sets y Virtual Machines**.
@@ -129,7 +129,7 @@ Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus**:
 
 | Valor | Descripción |
 
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica si se puede iniciar el mantenimiento en la máquina virtual en este momento. | | PreMaintenanceWindowStartTime | El principio de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | PreMaintenanceWindowEndTime | El extremo de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | MaintenanceWindowStartTime | El principio del mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | MaintenanceWindowEndTime | El extremo de la ventana de mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | LastOperationResultCode | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. |
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la VM en este momento. | | PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. | | PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. | | MaintenanceWindowStartTime            | El comienzo del mantenimiento programado en el que Azure inicia el mantenimiento en la máquina virtual. | | MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual. | | LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. |
 
 
 
@@ -155,7 +155,7 @@ Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus** para ca
 
 | Valor | Descripción |
 
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica si se puede iniciar el mantenimiento en la máquina virtual en este momento. | | PreMaintenanceWindowStartTime | El principio de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | PreMaintenanceWindowEndTime | El extremo de la ventana de autoservicio mantenimiento puede iniciar el mantenimiento en la máquina virtual. | | MaintenanceWindowStartTime | El principio del mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | MaintenanceWindowEndTime | El extremo de la ventana de mantenimiento programado en el que Azure inicia el mantenimiento de la máquina virtual. | | LastOperationResultCode | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. |
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la VM en este momento. | | PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. | | PreMaintenanceWindowEndTime           | El final de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual. | | MaintenanceWindowStartTime            | El comienzo del mantenimiento programado en el que Azure inicia el mantenimiento en la máquina virtual. | | MaintenanceWindowEndTime              | El final de la ventana de mantenimiento programado en la que Azure inicia el mantenimiento en la máquina virtual. | | LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Inicio del mantenimiento en la instancia de máquina virtual mediante la CLI

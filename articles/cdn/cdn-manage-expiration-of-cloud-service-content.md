@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
 ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636712"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Administración de la expiración del contenido web en Azure CDN
@@ -72,7 +72,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 1. En **Reglas de almacenamiento en caché personalizadas**, cree dos condiciones de coincidencia:
 
-      a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el cuadro **Horas**.
+     a. Para la primera condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/*` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 4 en el cuadro **Horas**.
 
      b. Para la segunda condición de coincidencia, establezca **Condición de coincidencia** en **Ruta de acceso** y escriba `/webfolder1/file1.txt` en **Match value** (Valor de coincidencia). Establezca **Comportamiento de almacenamiento en caché** en **Invalidar** y escriba 2 en el cuadro **Horas**.
 
@@ -106,7 +106,7 @@ En el archivo de configuración XML de ejemplo siguiente se muestra cómo establ
 </configuration>
 ```
 
-Para usar el atributo **cacheControlMaxAge**, debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para obtener más información sobre la `<clientCache>` elemento, vea [memoria caché del cliente \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Para usar el atributo **cacheControlMaxAge**, debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para más información sobre el elemento `<clientCache>`, consulte el elemento [Client Cache \<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Establecimiento de los encabezados Cache-Control mediante programación
 Para las aplicaciones de ASP.NET, puede controlar el comportamiento de almacenamiento en caché de CDN mediante programación al establecer la propiedad **HttpResponse.Cache** de la API de .NET. Para más información sobre la propiedad **HttpResponse.Cache**, consulte [Propiedad HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) y [Clase HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  

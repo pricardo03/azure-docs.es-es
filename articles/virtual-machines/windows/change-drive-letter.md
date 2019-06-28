@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60844206"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows
@@ -64,5 +64,5 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual. Para 
 9. Reinicie la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Puede aumentar el almacenamiento disponible para la máquina virtual mediante [conectar un disco de datos adicionales](attach-managed-disk-portal.md).
+* Puede aumentar el almacenamiento disponible para la máquina virtual [conectando un disco de datos adicional](attach-managed-disk-portal.md).
 

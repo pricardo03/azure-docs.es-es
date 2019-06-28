@@ -1,6 +1,6 @@
 ---
-title: Asignar y quitar la asignación de roles de administrador con Azure PowerShell, Azure Active Directory | Microsoft Docs
-description: Para aquellos que administra con frecuencia las asignaciones de roles, ahora puede administrar a los miembros de un rol de administrador de Azure AD con Azure PowerShell.
+title: Asignación y eliminación de asignación de roles de administrador con Azure PowerShell - Azure Active Directory | Microsoft Docs
+description: Para aquellos que administran con frecuencia asignaciones de roles, ahora puede administrar miembros de un rol de administrador de Azure AD con Azure PowerShell.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -14,17 +14,17 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469101"
 ---
-# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Asignar roles de administrador de Azure Active Directory mediante PowerShell
+# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Asignación de roles de administrador de Azure Active Directory mediante PowerShell
 
-Puede automatizar la asignación de roles a las cuentas de usuario con Azure PowerShell. Este artículo se usa el [Azure Active Directory PowerShell versión 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) módulo.
+Puede automatizar la asignación de roles a las cuentas de usuario con Azure PowerShell. Este artículo se usa el módulo [Azure Active Directory PowerShell, versión 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
 
-## <a name="prepare-powershell"></a>Preparación de PowerShell
+## <a name="prepare-powershell"></a>Preparación para PowerShell
 
 En primer lugar, debe [descargar el módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -52,9 +52,9 @@ Ahora puede empezar a usar los cmdlets del módulo. Para ver una descripción co
 
 Conéctese a su inquilino de Azure AD con una cuenta de administrador global para asignar o quitar roles.
 
-## <a name="assign-a-single-role"></a>Asignar un único rol
+## <a name="assign-a-single-role"></a>Asignación de un rol único
 
-Para asignar un rol, primero debe obtener su nombre para mostrar y el nombre de la función que va a asignar. Cuando tenga el nombre para mostrar de la cuenta y el nombre del rol, use los siguientes cmdlets para asignar el rol al usuario.
+Para asignar un rol, primero debe obtener el nombre para mostrar y el nombre del rol que va a asignar. Cuando disponga del nombre para mostrar de la cuenta y el nombre del rol, use los siguientes cmdlets para asignar el rol al usuario.
 
 ``` PowerShell
 # Fetch user to assign to role
@@ -103,7 +103,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrin
 
 ## <a name="multiple-role-assignments"></a>Asignaciones de varios roles
 
-Ejemplos de asignar y eliminar varios roles al mismo tiempo.
+Ejemplos de asignación y eliminación de varios roles al mismo tiempo.
 
 ```powershell
 #File name

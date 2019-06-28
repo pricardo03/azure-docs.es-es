@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768057"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleración de sitios dinámicos a través de Azure CDN
@@ -27,7 +27,7 @@ Con la expansión de las redes sociales, el comercio electrónico y la web hiper
 
 La funcionalidad estándar de la red de entrega de contenido (CDN) incluye la posibilidad de almacenar en caché los archivos más cerca de los usuarios finales para acelerar la entrega de archivos estáticos. Pero con las aplicaciones web dinámicas, no es posible almacenar en caché ese contenido en ubicaciones perimetrales, porque el servidor genera el contenido en respuesta al comportamiento del usuario. Acelerar la entrega de este tipo de contenido es más complejo que el almacenamiento en caché perimetral tradicional y requiere una solución integral en la que se ajusten con precisión todos los elementos de toda la ruta de datos, desde el comienzo hasta la entrega. Con la optimización de sitios dinámicos (DSA) de Azure CDN, el rendimiento de las páginas web con contenido dinámico se ha mejorado de un modo contrastable.
 
-**Azure CDN de Akamai** y **Azure CDN de Verizon** ofrecen ambas optimización de DSA mediante el menú **Optimized for** (Optimizado para) durante la creación de los puntos de conexión. Aceleración de sitios dinámicos de Microsoft se ofrece a través de [Azure puerta delantera Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+**Azure CDN de Akamai** y **Azure CDN de Verizon** ofrecen ambas optimización de DSA mediante el menú **Optimized for** (Optimizado para) durante la creación de los puntos de conexión. La aceleración de sitios dinámicos de Microsoft se ofrece a través de [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Solo en los perfiles de **Azure CDN de Akamai** se permite cambiar la optimización de un punto de conexión de CDN una vez que se ha creado.

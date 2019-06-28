@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330880"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y CLI: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
@@ -27,11 +27,11 @@ En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrad
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 - Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
 - [Recomendado, pero opcional] Debe tener un módulo de seguridad de hardware (HSM) o un almacén de claves locales para crear una copia local del material de claves del protector de TDE.
-- Debe tener Azure PowerShell instalado y ejecutándose. 
+- Es preciso tener instalado y en ejecución Azure PowerShell. 
 - Cree una instancia de Azure Key Vault y una clave para usar para TDE.
   - [Instrucciones de PowerShell desde Key Vault](../key-vault/key-vault-overview.md)
   - [Instrucciones para usar un módulo de seguridad de hardware (HSM) y Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
@@ -54,7 +54,7 @@ Si ya tiene un servidor, use lo siguiente para agregar una identidad de Azure AD
    -AssignIdentity
    ```
 
-Si va a crear un servidor, use la [New AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet con la etiqueta-Identity para agregar una identidad de Azure AD durante la creación del servidor:
+Si va a crear un servidor, utilice el cmdlet [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) con la etiqueta -Identity para agregar una identidad de Azure AD durante la creación del servidor:
 
    ```powershell
    $server = New-AzSqlServer `
@@ -68,7 +68,7 @@ Si va a crear un servidor, use la [New AzSqlServer](/powershell/module/az.sql/ne
 
 ## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>Paso 2. Conceder permisos de Key Vault al servidor
 
-Use la [conjunto AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet para conceder al servidor de acceso a la clave del almacén antes de usar una clave de este para TDE.
+Utilice el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para conceder al servidor acceso al almacén de claves antes de usar una clave para TDE.
 
    ```powershell
    Set-AzKeyVaultAccessPolicy  `
@@ -79,9 +79,9 @@ Use la [conjunto AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azke
 
 ## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Paso 3. Agregar la clave de Key Vault al servidor y establecer el protector de TDE
 
-- Use la [agregar AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet para agregar la clave del almacén de claves en el servidor.
-- Use la [conjunto AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet para establecer la clave como protector del TDE para todos los recursos de servidor.
-- Use la [Get AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet para confirmar que el protector del TDE se ha configurado según lo previsto.
+- Utilice el cmdlet [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) para agregar la clave de Key Vault al servidor.
+- Utilice el cmdlet [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) para establecer la clave como protector de TDE para todos los recursos del servidor.
+- Utilice el cmdlet [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) para confirmar que el protector de TDE se ha configurado según lo previsto.
 
 > [!Note]
 > La longitud combinada para el nombre del almacén de claves y el nombre de la clave no puede superar los 94 caracteres.
@@ -113,7 +113,7 @@ Use la [conjunto AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azke
 
 ## <a name="step-4-turn-on-tde"></a>Paso 4 Activar TDE 
 
-Use la [conjunto AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet para activar el TDE.
+Utilice el cmdlet [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) para activar el TDE.
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption `
@@ -127,7 +127,7 @@ Ahora, la base de datos o el almacén de datos tienen TDE habilitado con una cla
 
 ## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Paso 5. Comprobar el estado de cifrado y la actividad de cifrado
 
-Use la [Get AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) para obtener el estado de cifrado y el [Get AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) para comprobar el progreso de cifrado de una base de datos o almacenamiento de datos.
+Utilice el cmdlet [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) para obtener el estado de cifrado y el cmdlet [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) para comprobar el progreso de cifrado para un almacén de datos o una base de datos.
 
    ```powershell
    # Get the encryption state
@@ -145,7 +145,7 @@ Use la [Get AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/ge
 
 ## <a name="other-useful-powershell-cmdlets"></a>Otros cmdlets útiles de PowerShell
 
-- Use la [conjunto AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet desactivar TDE.
+- Utilice el cmdlet [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) para desactivar TDE.
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption `
@@ -155,7 +155,7 @@ Use la [Get AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/ge
    -State "Disabled”
    ```
  
-- Use la [Get AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet para devolver la lista de claves de Key Vault agregado al servidor.
+- Utilice el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para devolver la lista de claves de Key Vault agregadas al servidor.
 
    ```powershell
    <# KeyId is an optional parameter, to return a specific key version #>
@@ -164,7 +164,7 @@ Use la [Get AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/ge
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
  
-- Use la [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) para quitar una clave de Key Vault desde el servidor.
+- Utilice el cmdlet [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) para quitar una clave de Key Vault del servidor.
 
    ```powershell
    <# The key set as the TDE Protector cannot be removed. #>
@@ -177,7 +177,7 @@ Use la [Get AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/ge
 ## <a name="troubleshooting"></a>solución de problemas
 
 Compruebe lo siguiente si se produce un problema:
-- Si no se encuentra el almacén de claves, asegúrese de que se encuentra en la suscripción correcta con el [Get AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
+- Si no se encuentra el almacén de claves, asegúrese de que está en la suscripción correcta mediante el cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
    ```powershell
    Get-AzSubscription `

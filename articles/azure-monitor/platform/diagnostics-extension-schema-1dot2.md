@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237833"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuración de Diagnósticos de Azure 1.2
@@ -21,7 +21,7 @@ ms.locfileid: "60237833"
 > Diagnósticos de Azure es el componente que se usa para recopilar contadores de rendimiento y otras estadísticas de Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric y Cloud Services.  Esta página solo es pertinente si está usando uno de estos servicios.
 >
 
-Diagnósticos de Azure se usan con otros productos de diagnósticos de Microsoft como Azure Monitor, que incluye Application Insights y Log Analytics.
+Azure Diagnostics se usa con otros productos de diagnósticos de Microsoft, como Azure Monitor, que incluye Application Insights y Log Analytics.
 
 Este esquema define los valores posibles que puede usar para inicializar valores de configuración de diagnóstico cuando se inicia el monitor de diagnóstico.  
 
@@ -112,7 +112,7 @@ Define las opciones de configuración para los datos de telemetría que se van a
 |**DiagnosticInfrastructureLogs**|Habilite la recopilación de registros generados por Diagnósticos de Azure. Los registros de infraestructura de diagnóstico son útiles para solucionar problemas del mismo sistema de diagnóstico. Los atributos opcionales son:<br /><br /> -                     **scheduledTransferLogLevelFilter**: configura el nivel de gravedad mínimo de los registros recopilados.<br /><br /> -                     **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**Directorios**|Habilita la recopilación del contenido de un directorio, los registros de solicitud de acceso de error de IIS o los registros de IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwProviders**|Configura la recopilación de eventos ETW en EventSource o el manifiesto de ETW en función de los proveedores.|  
-|**Métricas**|Este elemento le permite generar una tabla de contadores de rendimiento optimizada para las consultas rápidas. Cada contador de rendimiento que se define en el elemento **PerformanceCounters** se almacena en la tabla de métricas además de la tabla de contadores de rendimiento. Atributo necesario:<br /><br /> **resourceId**: es el identificador de recurso de la máquina virtual en donde se va a implementar Diagnósticos de Azure. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** -> **<Nombre\>**. Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.|  
+|**Métricas**|Este elemento le permite generar una tabla de contadores de rendimiento optimizada para las consultas rápidas. Cada contador de rendimiento que se define en el elemento **PerformanceCounters** se almacena en la tabla de métricas además de la tabla de contadores de rendimiento. Atributo necesario:<br /><br /> **resourceId**: es el identificador de recurso de la máquina virtual en donde se va a implementar Diagnósticos de Azure. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** ->  **<Nombre\>** . Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.|  
 |**PerformanceCounters**|Habilita la recopilación de contadores de rendimiento. Atributo opcional:<br /><br /> **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un ["tipo de datos de duración" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**WindowsEventLog**|Habilita la recopilación de registros de eventos de Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un ["tipo de datos de duración" XML](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
@@ -199,5 +199,5 @@ Define las opciones de configuración para los datos de telemetría que se van a
 
 |Nombre del elemento|DESCRIPCIÓN|  
 |------------------|-----------------|  
-|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo: <br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recopilar todos los eventos, especifique "*".|
+|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recopilar todos los eventos, especifique "*".|
 

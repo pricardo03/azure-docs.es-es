@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306958"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Restablecimiento de las contraseñas locales de Linux en máquinas virtuales de Azure
@@ -106,4 +106,4 @@ No puede iniciar sesión en la máquina virtual y recibe un mensaje que indica q
 
 * [Solución de problemas de máquinas virtuales de Azure mediante la conexión de un disco de SO a otra máquina virtual de Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [CLI de Azure: Cómo eliminar y volver a implementar una máquina virtual desde el disco duro virtual](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [CLI de Azure: cómo eliminar y volver a implementar una máquina virtual desde VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

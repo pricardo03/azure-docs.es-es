@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: b-juche
 ms.openlocfilehash: a401cae7140d9ceec5ec81274e1b6f3b2b46b55a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371536"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montaje o desmontaje de un volumen para máquinas virtuales Linux 
 
 Puede montar o desmontar un volumen para máquinas virtuales Windows o Linux según sea necesario.  Las instrucciones de montaje para las máquinas virtuales Linux están disponibles en Azure NetApp Files.  
 
-1. Haga clic en el **volúmenes** hoja y, a continuación, seleccione el volumen que desea montar. 
-2. Haga clic en **instrucciones de montaje** del volumen seleccionado y, a continuación, siga las instrucciones para montar el volumen. 
+1. Haga clic en la hoja **Volúmenes** y seleccione el volumen para el que desea realizar el montaje. 
+2. Haga clic en **Instrucciones de montaje** en el volumen seleccionado y siga las instrucciones para montar el volumen. 
 
     ![Instrucciones de montaje NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
 

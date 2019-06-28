@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: sajagtap
 ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228115"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderación de vídeo con revisión humana
 
-Utilice Content Moderator asistida por máquina [moderación de vídeo](video-moderation-api.md) y [herramienta de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) vídeos moderados y las transcripciones de adulto (explícito) y subido de tono contenido (sugerida) para obtener los mejores resultados para su negocio.
+Use [moderación de vídeo](video-moderation-api.md) asistida automáticamente de Content Moderator y [herramientas de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar vídeos y transcripciones de contenido para adultos (explícito) y subido de tono (sugerente) a fin de obtener los mejores resultados para su negocio.
 
 ## <a name="video-trained-classifier-preview"></a>Clasificador entrenado con vídeo (vista previa)
 

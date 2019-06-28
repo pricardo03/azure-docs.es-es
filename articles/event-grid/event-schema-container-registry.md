@@ -1,6 +1,6 @@
 ---
 title: Esquema de eventos de Container Registry de Azure Event Grid
-description: Describe las propiedades que se proporcionan para los eventos de registro de contenedor con Azure Event Grid
+description: Describe las propiedades que se proporcionan para eventos de Container Registry con Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345471"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos de Azure Event Grid para Container Registry
@@ -27,8 +27,8 @@ Azure Container Registry emite los siguientes tipos de evento:
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Se genera cuando se inserta una imagen. |
 | Microsoft.ContainerRegistry.ImageDeleted | Se genera cuando se elimina una imagen. |
-| Microsoft.ContainerRegistry.ChartPushed | Se genera cuando se inserta un gráfico de Helm. |
-| Microsoft.ContainerRegistry.ChartDeleted | Se genera cuando se elimina un gráfico de Helm. |
+| Microsoft.ContainerRegistry.ChartPushed | Se genera cuando se inserta un gráfico Helm. |
+| Microsoft.ContainerRegistry.ChartDeleted | Se genera cuando se elimina un gráfico Helm. |
 
 ## <a name="example-event"></a>Evento de ejemplo
 
@@ -95,7 +95,7 @@ El esquema para un evento de eliminación de una imagen es similar:
 }]
 ```
 
-El esquema para un gráfico que se insertan eventos es similar al esquema de un evento con imágenes insertado, pero no incluye un objeto de solicitud:
+El esquema para un evento que se inserta en un gráfico es similar al esquema de un evento con imágenes insertadas, pero no incluye un objeto de solicitud:
 
 ```json
 [{
@@ -123,7 +123,7 @@ El esquema para un gráfico que se insertan eventos es similar al esquema de un 
 }]
 ```
 
-El esquema para un evento eliminado de gráfico es similar al esquema de un evento eliminado con imágenes, pero no incluye un objeto de solicitud:
+El esquema para un evento que se elimina de un gráfico es similar al esquema de un evento con imágenes eliminadas, pero no incluye un objeto de solicitud:
 
 ```json
 [{
@@ -173,7 +173,7 @@ El objeto data tiene las siguientes propiedades:
 | id | string | El identificador de evento. |
 | timestamp | string | La hora a la que se produjo el evento. |
 | action | string | La acción que abarca el evento proporcionado. |
-| target | objeto | El destino del evento. |
+| Destino | objeto | El destino del evento. |
 | request | objeto | La solicitud que generó el evento. |
 
 El objeto target tiene las siguientes propiedades:
@@ -185,8 +185,8 @@ El objeto target tiene las siguientes propiedades:
 | digest | string | El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro. |
 | length | integer | El número de bytes del contenido. Igual que el campo de tamaño. |
 | repository | string | El nombre del repositorio. |
-| tag | string | El nombre de la etiqueta. |
-| name | string | El nombre del gráfico. |
+| etiqueta | string | El nombre de la etiqueta. |
+| Nombre | string | El nombre del gráfico. |
 | version | string | La versión del gráfico. |
 
 El objeto request tiene las siguientes propiedades:

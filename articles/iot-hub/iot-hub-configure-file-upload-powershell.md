@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318467"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
@@ -29,7 +29,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * [Cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Un centro de Azure IoT. Si no tiene un centro de IoT, puede usar el [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para crear uno o usar el portal para [crear un IoT hub](iot-hub-create-through-portal.md).
+* Un centro de Azure IoT. Si no dispone de un centro de IoT, puede usar el [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para crear uno o usar el portal para [crear un centro de IoT](iot-hub-create-through-portal.md).
 
 * Una cuenta de almacenamiento de Azure. Si no tiene una cuenta de almacenamiento de Azure, puede usar los [cmdlets de PowerShell de Azure Storage](https://docs.microsoft.com/powershell/module/az.storage/) para crear una o usar el portal para [crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md).
 
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
-1. En el símbolo del sistema de PowerShell, ejecute el **Connect AzAccount** cmdlet:
+1. En el símbolo del sistema de PowerShell, ejecute el cmdlet **Connect-AzAccount**:
 
     ```powershell
     Connect-AzAccount

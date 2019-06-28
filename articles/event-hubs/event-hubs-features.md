@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822022"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
@@ -33,7 +33,7 @@ Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámb
 
 [Esta característica](event-hubs-for-kafka-ecosystem-overview.md) proporciona un punto de conexión que permite a los clientes comunicarse con Event Hubs mediante el protocolo de Kafka. Esta integración proporciona a los clientes un punto de conexión de Kafka. Esto permite a los clientes configurar sus aplicaciones existentes de Kafka para comunicarse con Event Hubs, lo que proporciona una alternativa a ejecutar sus propios clústeres de Kafka. Event Hubs para Apache Kafka es compatible con el protocolo de Kafka 1.0 y versiones posterior. 
 
-Con esta integración, no es necesario ejecutar clústeres de Kafka o administrarlos con Zookeeper. Esto también permite trabajar con algunas de las características más exigentes de Event Hubs, como captura, inflado automático y recuperación ante desastres geográfica.
+Con esta integración, no es necesario ejecutar clústeres de Kafka ni administrarlos con Zookeeper. Esto también permite trabajar con algunas de las características más exigentes de Event Hubs, como captura, inflado automático y recuperación ante desastres geográfica.
 
 Esta integración también permite a las aplicaciones, como Mirror Maker, o a marcos como Kafka Connect, funcionar sin clúster con tan solo unos cambios de configuración. 
 
@@ -79,7 +79,7 @@ Event Hubs retiene datos durante un tiempo de retención configurado que se apli
 
 El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta la escala a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Puede aumentar el número de particiones más allá de 32 poniéndose en contacto con el equipo de Event Hubs.
 
-Aunque las particiones son identificables y se pueden realizar envíos a estas directamente, no se recomienda hacerlo. En su lugar, puede usar construcciones de nivel superior que se introdujo en la [publicador de eventos](#event-publishers) y secciones de capacidad. 
+Aunque las particiones son identificables y se pueden realizar envíos a estas directamente, no se recomienda hacerlo. En su lugar, puede usar las construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#event-publishers) y Capacidad. 
 
 Las particiones se rellenan con una secuencia de datos de eventos que contienen el cuerpo del evento, un contenedor de propiedades definidas por el usuario y diversos metadatos, como su desplazamiento en la partición y su número en la secuencia de streaming.
 
@@ -160,7 +160,7 @@ Hay dos factores que influyen en el escalado con Event Hubs.
 
 ### <a name="throughput-units"></a>Unidades de procesamiento
 
-La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rendimiento*. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Permite un procesamiento individual:
+La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rendimiento*. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Un único procesamiento le permite:
 
 * Entrada: hasta 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero.
 * Salida: hasta 2 MB por segundo o 4096 eventos por segundo.
@@ -171,11 +171,11 @@ Las unidades de procesamiento se adquieren previamente y se facturan por hora. C
 
 ### <a name="partitions"></a>Particiones
 
-Las particiones permiten que se escala para el procesamiento de bajada. Debido al modelo de consumidor con particiones que Event Hubs se ofrece con particiones, puede escalar horizontalmente al procesar los eventos al mismo tiempo. Un centro de eventos puede tener hasta 32 particiones.
+Las particiones permiten escalar el procesamiento de bajada. Gracias al modelo de consumidor con particiones que ofrece Event Hubs con particiones, puede escalar horizontalmente al procesar los eventos al mismo tiempo. Un centro de eventos puede tener hasta 32 particiones.
 
-Se recomienda que equilibre las particiones y las unidades de rendimiento 1:1 para lograr una escalabilidad óptima. Una sola partición tiene una entrada y salida de hasta una unidad de rendimiento garantizado. Aunque puede ser capaz de lograr un mayor rendimiento en una partición, no se garantiza el rendimiento. Se trata de por qué se recomienda encarecidamente que el número de particiones en un centro de eventos sea mayor o igual que el número de unidades de rendimiento.
+Se recomienda equilibrar las unidades de procesamiento y las particiones 1:1 para lograr una escalabilidad óptima. Una sola partición tiene una entrada y una salida garantizadas de hasta una unidad de procesamiento. Aunque puede lograr un mayor procesamiento en una partición, no se garantiza el rendimiento. Por este motivo, se recomienda encarecidamente que el número de particiones en un centro de eventos sea mayor o igual que el número de unidades de procesamiento.
 
-¿Dado que el rendimiento total que planea que necesitan, sabrá que el número de unidades de rendimiento que requiere y el número mínimo de particiones, pero a cuántas particiones se deben tener? Elija el número de particiones basadas en el que desea lograr el paralelismo de bajada, así como las futuras necesidades de rendimiento. No hay ningún cargo por el número de particiones que tiene dentro de un centro de eventos.
+Dado el procesamiento total que planea necesitar, conoce el número de unidades de procesamiento que precisa y el número mínimo de particiones, pero, ¿cuántas particiones debería tener? Elija el número de particiones en función del paralelismo de bajada que quiere conseguir, así como de las futuras necesidades de procesamiento. No hay ningún cargo por el número de particiones que tiene dentro de un centro de eventos.
 
 Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

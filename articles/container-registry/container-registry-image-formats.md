@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: danlep
 ms.openlocfilehash: fe129847e685c7151a9b7ad7ea65abbd38530733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827466"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de contenido admitidos en Azure Container Registry
@@ -29,11 +29,11 @@ Se admiten los siguientes formatos de imagen de contenedor de Docker:
 
 ## <a name="oci-images"></a>Imágenes OCI
 
-Azure Container Registry admite también las imágenes que cumplen el [especificación de formato de imagen de capa de sockets seguros (OCI, Open Container Initiative)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Los formatos de empaquetado incluyen [singularidad en la imagen de formato (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry admite también imágenes que cumplen la [especificación de formato de imagen de Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Entre los formatos de empaquetado se incluye [Singularity Image Format (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
 
 ## <a name="helm-charts"></a>Gráficos de Helm
 
-Azure Container Registry puede hospedar los repositorios para [gráficos de Helm](https://helm.sh/), un formato de empaquetado que se usa para administrar e implementar rápidamente aplicaciones de Kubernetes. Se admite la versión 2.11.0 o posterior del [cliente de Helm](https://docs.helm.sh/using_helm/#installing-helm).
+Azure Container Registry también puede hospedar repositorios para [gráficos de Helm](https://helm.sh/), un formato de empaquetado que se usa para administrar e implementar rápidamente aplicaciones de Kubernetes. Se admite la versión 2.11.0 o posterior del [cliente de Helm](https://docs.helm.sh/using_helm/#installing-helm).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

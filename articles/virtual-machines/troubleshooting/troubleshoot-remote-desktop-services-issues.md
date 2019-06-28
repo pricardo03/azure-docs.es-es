@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318907"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure
@@ -57,8 +57,8 @@ Cuando intenta conectarse a una máquina virtual, se encuentra con los siguiente
 Este problema se produce porque los Servicios de Escritorio remoto no están ejecutándose en la máquina virtual. La causa dependerá de los siguientes escenarios: 
 
 - El servicio TermService se ha establecido en **Deshabilitado**. 
-- El servicio de Terminal Server se bloquea o no responde. 
-- La inicialización no se inicia debido a una configuración incorrecta.
+- El servicio TermService se bloquea o no responde. 
+- El servicio TermService no se inicia debido a una configuración incorrecta.
 
 ## <a name="solution"></a>Solución
 

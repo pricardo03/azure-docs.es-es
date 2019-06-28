@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343432"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recepción de eventos desde Event Hubs mediante Apache Storm
@@ -29,7 +29,7 @@ ms.locfileid: "60343432"
 Para más información sobre los patrones de recepción de Event Hubs, vea la [información general de Event Hubs][Event Hubs overview].
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar con la Guía de inicio rápido, **crear un espacio de nombres de Event Hubs y un centro de eventos**. Use la [portal Azure](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). 
+Antes de empezar con el inicio rápido, **cree un espacio de nombres de Event Hubs y un centro de eventos**. Use [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Creación del proyecto y adición de código
 

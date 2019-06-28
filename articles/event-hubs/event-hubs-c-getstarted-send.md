@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: a8f647018ba6ed3c9e951db2054036b60c7d4ab5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822476"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envío de eventos a Azure Event Hubs mediante C
@@ -34,7 +34,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Un entorno de desarrollo de C. Para este tutorial se presupone el uso de la pila de gcc en una máquina virtual Linux de Azure con Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* **Crear un espacio de nombres de Event Hubs y un centro de eventos**. Use la [portal Azure](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). Obtenga el valor de la clave de acceso para el centro de eventos siguiendo las instrucciones del artículo: [Obtenga la cadena de conexión](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilice la clave de acceso en el código que escriba más adelante en este tutorial. El nombre de la clave predeterminada es: **RootManageSharedAccessKey**.
+* **Creación de un espacio de nombres de Event Hubs y un centro de eventos**. Use [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). Obtenga el valor de la clave de acceso para el centro de eventos siguiendo las instrucciones del artículo: [Obtenga la cadena de conexión](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilice la clave de acceso en el código que escriba más adelante en este tutorial. El nombre de la clave predeterminada es: **RootManageSharedAccessKey**.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Escritura de código para enviar mensajes a Event Hubs
 En esta sección se muestra cómo se escribe una aplicación en C para enviar eventos al centro de eventos. El código usa la biblioteca Proton AMQP del [proyecto Apache Qpid](https://qpid.apache.org/). Esto es parecido a usar temas y colas de Service Bus con AMQP desde C como se muestra [en este ejemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para más información, consulte la [documentación de Qpid Proton](https://qpid.apache.org/proton/index.html).
@@ -158,7 +158,7 @@ Felicidades. Ha enviado mensajes a un centro de eventos.
 Lea los siguientes artículos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Características y la terminología de Azure Event Hubs](event-hubs-features.md).
+- [Características y terminología de Azure Event Hubs](event-hubs-features.md).
 
 
 <!-- Images. -->

@@ -9,10 +9,10 @@ ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: bee414ada61e2cfcf7609b02ef1da7323a0fe0e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304646"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creación de tareas de monitor de Azure Automation para realizar un seguimiento de los cambios de archivo en un equipo local
@@ -38,7 +38,7 @@ Los siguientes requisitos son necesarios para completar este tutorial:
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) donde se ejecuta la tarea de monitor.
 
 > [!NOTE]
-> No se admiten las tareas del monitor en Azure China.
+> No se admiten tareas de monitor en Azure China.
 
 ## <a name="import-a-watcher-runbook"></a>Importar un runbook de monitor
 

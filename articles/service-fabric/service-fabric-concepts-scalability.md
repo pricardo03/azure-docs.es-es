@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 14a7389fe562b5f3206b81411d2224257051c636
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60781144"
 ---
 # <a name="scaling-in-service-fabric"></a>Reducción horizontalmente de Service Fabric
@@ -125,7 +125,7 @@ Para más información, consulte el artículo sobre el [escalado de clústeres](
 ## <a name="putting-it-all-together"></a>Resumen
 Tomemos todas las ideas que analizamos aquí y hablemos sobre un ejemplo. Considere el servicio siguiente: intenta crear un servicio que actúe como libreta de direcciones con nombres e información de contacto. 
 
-Derecha por adelantado, tiene una serie de preguntas relacionadas con la escala: ¿Cuántos usuarios tendrá? ¿Cuántos contactos almacenará cada usuario? Tratar de saber esta información cuando está configurado el servicio por primera vez es complicado. Supongamos que va a utilizar un servicio estático único con un número de particiones específico. Las consecuencias de elegir un recuento de particiones incorrecto podrían significar que tenga que escalar problemas más adelante. De forma similar, incluso si elige el número correcto, es posible que no disponga de toda la información que necesita. Por ejemplo, también tiene que decidir el tamaño del clúster previamente, en relación con el número de nodos y sus tamaños. Normalmente es difícil predecir la cantidad de recursos que va a consumir un servicio durante su vigencia. También puede ser difícil saber de antemano el patrón de tráfico que ve realmente el servicio. Por ejemplo, puede que haya personas que lo primero que haga en la mañana sea agregar y quitar sus contactos o puede que distribuya esta tarea de forma equitativa durante el transcurso del día. Según esta información, puede que necesite escalar o reducir horizontalmente. Quizá que puede aprender a predecir cuándo se va a necesitar realizar una escalación horizontal, pero, probablemente, en cualquier caso va a necesitar reaccionar ante el cambiante consumo de recursos del servicio. Esto puede implicar el cambio del tamaño del clúster con el fin de proporcionar más recursos cuando la reorganización del uso de los recursos existentes no sea suficiente. 
+En principio, tiene una serie de preguntas relacionadas con la escala: ¿Cuántos usuarios tendrá? ¿Cuántos contactos almacenará cada usuario? Tratar de saber esta información cuando está configurado el servicio por primera vez es complicado. Supongamos que va a utilizar un servicio estático único con un número de particiones específico. Las consecuencias de elegir un recuento de particiones incorrecto podrían significar que tenga que escalar problemas más adelante. De forma similar, incluso si elige el número correcto, es posible que no disponga de toda la información que necesita. Por ejemplo, también tiene que decidir el tamaño del clúster previamente, en relación con el número de nodos y sus tamaños. Normalmente es difícil predecir la cantidad de recursos que va a consumir un servicio durante su vigencia. También puede ser difícil saber de antemano el patrón de tráfico que ve realmente el servicio. Por ejemplo, puede que haya personas que lo primero que haga en la mañana sea agregar y quitar sus contactos o puede que distribuya esta tarea de forma equitativa durante el transcurso del día. Según esta información, puede que necesite escalar o reducir horizontalmente. Quizá que puede aprender a predecir cuándo se va a necesitar realizar una escalación horizontal, pero, probablemente, en cualquier caso va a necesitar reaccionar ante el cambiante consumo de recursos del servicio. Esto puede implicar el cambio del tamaño del clúster con el fin de proporcionar más recursos cuando la reorganización del uso de los recursos existentes no sea suficiente. 
 
 Pero ¿por qué debería intentar incluso elegir un esquema de una partición para todos los usuarios? ¿Por qué limitarse a un servicio y a un clúster estático? La situación real es normalmente más dinámica. 
 

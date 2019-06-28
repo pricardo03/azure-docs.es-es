@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387475"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos del sistema de Azure Data Box Disk
@@ -29,7 +29,7 @@ Aquí se proporciona una lista de los sistemas operativos compatibles para la op
 | **Sistema operativo** | **Versiones probadas** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-|  Windows |7, 8, 10 |
+| Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Otro software necesario para los clientes Windows
@@ -70,7 +70,7 @@ Aquí se proporciona una lista de los tipos de almacenamiento compatibles para D
 
 ## <a name="supported-storage-types-for-upload"></a>Tipos de almacenamiento admitidos para la carga
 
-Presentamos una lista de los tipos de almacenamiento compatibles para cargar en Azure mediante discos de Data Box.
+A continuación se muestra una lista de los tipos de almacenamiento admitidos para cargar en Azure mediante Data Box Disk.
 
 | **Formato de archivo** | **Notas** |
 | --- | --- |

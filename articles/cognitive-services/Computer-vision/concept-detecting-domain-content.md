@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368090"
 ---
 # <a name="detect-domain-specific-content"></a>Detectar contenido específico del dominio
@@ -30,7 +30,7 @@ Puede analizar una imagen usando solo el modelo específico de dominio elegido m
 
 El siguiente es una muestra de respuesta JSON devuelta por la API **models/celebrities/analyze** para la imagen especificada:
 
-![Satya Nadella permanente, sonriendo](./images/satya.jpeg)
+![Satya Nadella en pie, sonriendo](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ La siguiente respuesta JSON muestra el modo en que el análisis específico del 
 
 Actualmente, Computer Vision admite los siguientes modelos específicos de dominio:
 
-| Name | DESCRIPCIÓN |
+| NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | celebrities | Reconocimiento de celebridades, compatible con imágenes clasificadas en la categoría `people_`. |
 | landmarks | Reconocimiento de puntos de referencia, compatible con imágenes clasificadas en las categorías `outdoor_` o `building_`. |

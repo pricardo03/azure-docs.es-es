@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996204"
 ---
 # <a name="handling-event-grid-events"></a>Control de eventos de Event Grid
@@ -24,7 +24,7 @@ Los eventos de Media Services permiten que las aplicaciones reaccionen a distint
 
 La disponibilidad de los eventos de Media Services está asociada a la [disponibilidad](../../event-grid/overview.md) de Event Grid. Estarán disponibles en otras regiones cuando lo esté Event Grid.  
 
-## <a name="media-services-events-and-schemas"></a>Los esquemas y los eventos de Media Services
+## <a name="media-services-events-and-schemas"></a>Esquemas y eventos de Media Services
 
 Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores. Los eventos de Media Services contienen toda la información necesaria para responder a cualquier cambio que se produzca en los datos. Puede identificar un evento de Media Services porque la propiedad eventType comienza por "Microsoft.Media".
 

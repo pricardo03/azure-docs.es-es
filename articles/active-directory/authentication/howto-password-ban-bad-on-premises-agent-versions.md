@@ -1,5 +1,5 @@
 ---
-title: 'En el entorno local la protección con contraseña de Azure AD agente historial de versiones: Azure Active Directory'
+title: 'Historial de versiones del agente de protección con contraseña de Azure AD local: Azure Active Directory'
 description: Historial de cambios de comportamiento y versiones de los documentos
 services: active-directory
 ms.service: active-directory
@@ -12,40 +12,40 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358215"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historial de versiones del agente de protección con contraseña de Azure AD
 
 ## <a name="121250"></a>1.2.125.0
 
-Fecha de lanzamiento: 3/22/2019
+Fecha de lanzamiento: 22/3/2019
 
-* Corregir errores tipográficos menores en los mensajes de registro de eventos
-* Actualizar contrato de licencia para la versión final de la disponibilidad General
+* Corregir pequeños errores tipográficos en los mensajes de registro de eventos
+* Actualizar el contrato CLUF a la versión final de disponibilidad general
 
 > [!NOTE]
-> 1.2.125.0 es la compilación de la disponibilidad General. Agradecimiento otra vez para todo el mundo ha proporcionado comentarios sobre el producto.
+> La compilación 1.2.125.0 es la compilación de disponibilidad general. Gracias de nuevo a todos los que han dado su opinión sobre el producto.
 
 ## <a name="121160"></a>1.2.116.0
 
-Fecha de lanzamiento: 3/13/2019
+Fecha de lanzamiento: 13/3/2019
 
-* Los cmdlets de Get-AzureADPasswordProtectionProxy y Get-AzureADPasswordProtectionDCAgent ahora la versión del software de informe y de Azure actual de inquilinos con las siguientes limitaciones:
-  * Versión del software y los datos de inquilino de Azure solo están disponibles para los agentes del controlador de dominio y servidores proxy que ejecuta la versión 1.2.116.0 o posterior.
-  * No se pueden registrar datos de inquilino de Azure hasta que un nuevo registro (o renovación) del servidor proxy o se ha producido el bosque.
-* El servicio de Proxy requiere ahora que está instalado .NET 4.7.
-  * .NET 4.7 ya debe instalarse en un servidor de Windows completamente actualizada. Si esto no es el caso, descargue y ejecute el instalador se encuentra en [The .NET Framework 4.7 instalador sin conexión para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-  * En los sistemas de Server Core puede ser necesario pasar la marca/q al instalador de .NET 4.7 hacer que se realice correctamente.
-* El servicio de Proxy ahora admite la actualización automática. La actualización automática utiliza el servicio de actualizador de agente de conexión de Microsoft Azure AD que está instalado por en paralelo con el servicio de Proxy. La actualización automática está activada de forma predeterminada.
-* La actualización automática se puede habilitar o deshabilita mediante el cmdlet Set-AzureADPasswordProtectionProxyConfiguration. La configuración actual se puede consultar mediante el cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
-* El binario del servicio para el servicio del agente de controlador de dominio ha cambiado a AzureADPasswordProtectionDCAgent.exe.
-* Ha cambiado el binario del servicio para el servicio de Proxy a AzureADPasswordProtectionProxy.exe. Las reglas de firewall que deba modificarse en consecuencia, si un firewall de terceros está en uso.
-  * Nota: si se estaba usando un archivo de configuración de proxy de http en un servidor Proxy anterior instale, deberá cambiar el nombre (desde *proxyservice.exe.config* a *AzureADPasswordProtectionProxy.exe.config*) después de esto Actualizar.
-* Se quitaron todas las comprobaciones de la funcionalidad de tiempo limitado desde el agente de controlador de dominio.
+* Los cmdlets Get-AzureADPasswordProtectionProxy y Get-AzureADPasswordProtectionDCAgent ahora informan de la versión de software y del inquilino actual de Azure con las siguientes limitaciones:
+  * La versión de software y los datos del inquilino de Azure solo están disponibles para los agentes de controlador de dominio y servidores proxy que ejecuten la versión 1.2.116.0 o posterior.
+  * Los datos de los inquilinos de Azure no se pueden informar hasta que se haya producido un nuevo registro (o renovación) del proxy o del bosque.
+* El servicio de proxy requiere ahora que esté instalado .NET 4.7.
+  * NET 4.7 ya debería estar instalado en un servidor Windows completamente actualizado. Si este no es el caso, descargue y ejecute el instalador que se encuentra en [el instalador sin conexión de .NET Framework 4.7 para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * En los sistemas Server Core puede que sea necesario pasar la marca /q al instalador .NET 4.7 para que se realice correctamente.
+* El servicio de proxy ahora admite la actualización automática. La actualización automática utiliza el servicio Agent Updater de Microsoft Azure AD Connect, que se instala junto con el servicio de proxy. La actualización automática está activada de forma predeterminada.
+* La actualización automática se puede habilitar o deshabilitar con el cmdlet Set-AzureADPasswordProtectionProxyConfiguration. La configuración actual se puede consultar mediante el cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
+* El binario del servicio para el servicio de agente de controlador de dominio ha cambiado a AzureADPasswordProtectionDCAgent.exe.
+* Ha cambiado el binario del servicio para el servicio de proxy a AzureADPasswordProtectionProxy.exe. Es posible que haya que modificar las reglas del firewall en consecuencia si se utiliza un firewall de terceros.
+  * NOTA: Si se estaba utilizando un archivo de configuración de proxy http en una instalación anterior del servicio de proxy, habrá que cambiarle el nombre (de *proxyservice.exe.config* a *AzureADPasswordProtectionProxy.exe.config*) después de esta actualización.
+* Todas las comprobaciones de funcionalidad limitadas en el tiempo se han eliminado del agente de DC.
 * Correcciones de errores menores y mejoras en el registro.
 
 ## <a name="12650"></a>1.2.65.0

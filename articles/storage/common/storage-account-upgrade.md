@@ -1,6 +1,6 @@
 ---
-title: Actualice a una cuenta de almacenamiento de uso general v2 - almacenamiento de Azure | Microsoft Docs
-description: Actualice a las cuentas de almacenamiento de uso general v2.
+title: 'Actualización a una cuenta de almacenamiento de uso general v2: Azure Storage | Microsoft Docs'
+description: Actualice a cuentas de almacenamiento de uso general v2.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115643"
 ---
-# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualizar a una cuenta de almacenamiento de uso general v2
+# <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
-Las cuentas de almacenamiento de uso general v2 admiten las características más recientes de Azure Storage e incorporan toda la funcionalidad de uso general v1 y cuentas de Blob storage. Las cuentas de uso general v2 se recomiendan para la mayoría de los escenarios de almacenamiento. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector.
+Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas características de Azure Storage e incorporan todas las funcionalidades de las cuentas de Blob Storage y de uso general v1. Las cuentas de uso general v2 se recomiendan para la mayoría de los escenarios de almacenamiento. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector.
 
-Actualizar a una cuenta de almacenamiento de uso general v2 de su uso general v1 o cuentas de Blob storage es sencillo. Puede usar Azure Portal, PowerShell, o la CLI de Azure para realizar la actualización.
+El proceso de actualizar a una cuenta de almacenamiento de uso general v2 desde la cuenta de uso general v1 o de Blob Storage es sencillo. Puede usar Azure Portal, PowerShell, o la CLI de Azure para realizar la actualización.
 
 > [!IMPORTANT]
-> Actualizar un uso general v1 o cuenta de Blob storage para uso general v2 es permanente y no se puede deshacer.
+> La actualización de una cuenta de uso general v1 o de Blob Storage a una de uso general v2 es permanente y no se puede deshacer.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Actualización con Azure Portal
 
@@ -32,13 +32,13 @@ Actualizar a una cuenta de almacenamiento de uso general v2 de su uso general v1
 5. En **Confirmar actualización**, escriba el nombre de la cuenta.
 6. Haga clic en **Actualizar** en la parte inferior de la hoja.
 
-    ![Tipo de cuenta de actualización](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    ![Actualización del tipo de cuenta](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
 ## <a name="upgrade-with-powershell"></a>Actualización con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante PowerShell, primero actualice PowerShell para usar la versión más reciente de la **Az.Storage** módulo. Para obtener información acerca de cómo instalar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante PowerShell, primero hay que actualizar PowerShell con el fin de usar la versión más reciente del módulo **Az.Storage**. Para obtener información acerca de cómo instalar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Luego, llame al siguiente comando para actualizar la cuenta, pero sustituya el nombre de su grupo de recursos y cuenta de almacenamiento:
 
@@ -48,7 +48,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Actualización con la CLI de Azure
 
-Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante la CLI de Azure, instale primero la versión más reciente de la CLI de Azure. Para obtener información acerca de cómo instalar la CLI, consulte [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalación de la CLI de Azure 2.0).
+Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante la CLI de Azure, primero instale la versión más reciente de la CLI de Azure. Para obtener información acerca de cómo instalar la CLI, consulte [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalación de la CLI de Azure 2.0).
 
 Luego, llame al siguiente comando para actualizar la cuenta, pero sustituya el nombre de su grupo de recursos y cuenta de almacenamiento:
 
@@ -58,20 +58,20 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Especificación de un nivel de acceso para los datos de blob
 
-Las cuentas de uso general v2 son compatibles con todos los servicios de almacenamiento y objetos de datos de Azure, pero los niveles de acceso están disponibles solo para blobs en Blob Storage. Al actualizar a una cuenta de almacenamiento de uso general v2, puede especificar un nivel de acceso para los datos blob.
+Las cuentas de uso general v2 son compatibles con todos los servicios de almacenamiento y objetos de datos de Azure, pero los niveles de acceso están disponibles solo para blobs en Blob Storage. Al actualizar a una cuenta de almacenamiento de uso general v2, puede especificar un nivel de acceso para los datos de blob.
 
 Los niveles de acceso le permiten elegir el almacenamiento más rentable en función de los patrones de uso previsto. Los blobs en bloques pueden almacenarse en nivel con un acceso frecuente, esporádico o de archivo. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo](../blobs/storage-blob-storage-tiers.md).
 
-De forma predeterminada, se crea una nueva cuenta de almacenamiento en el nivel de acceso frecuente y se actualiza una cuenta de almacenamiento de uso general v1 a la capa de acceso frecuente. Si está explorando qué nivel de acceso debe usar para los datos después de la actualización, considere su escenario. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
+De forma predeterminada, se crea una cuenta de almacenamiento en el nivel de almacenamiento de acceso frecuente y se actualiza una cuenta de almacenamiento de uso general v1 al nivel de acceso frecuente. Si está explorando qué nivel de acceso debe usar para los datos después de la actualización, considere su escenario. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
 
-* Tiene una cuenta de almacenamiento de uso general v1 y quiere evaluar una actualización a una cuenta de almacenamiento de uso general v2, con el nivel de acceso de almacenamiento para los datos blob.
-* Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene uno y desea evaluar si debe utilizar el nivel de acceso de almacenamiento frecuente o esporádico para los datos blob.
+* Tiene una cuenta de almacenamiento de uso general v1 y quiere evaluar una actualización a una cuenta de almacenamiento de uso general v2 con el nivel de almacenamiento de acceso correcto para datos de blob.
+* Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene una y quiere evaluar si debe usar el nivel de almacenamiento de acceso frecuente o esporádico para los datos de blob.
 
-En ambos casos, la primera prioridad es estimar el costo de almacenamiento, acceso y operar en los datos almacenados en una cuenta de almacenamiento de uso general v2 y compararlo con los costos actuales.
+En ambos casos, la prioridad es estimar el coste del almacenamiento, el acceso y el uso de los datos almacenados en una cuenta de almacenamiento de uso general v2 y compararlo con los costes actuales.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-Actualizar una cuenta de almacenamiento v1 a una cuenta de uso general v2 es gratuito. Sin embargo, cambiar el nivel de acceso de almacenamiento puede causar cambios en la factura. 
+El proceso de actualización de la cuenta de almacenamiento v1 a una cuenta de uso general v2 es gratuito. Aun así, la modificación del nivel de almacenamiento de acceso puede causar cambios en la factura. 
 
 Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamiento de blobs basado en el nivel de cada blob. Al usar una cuenta de almacenamiento, se aplican las siguientes consideraciones de facturación:
 
@@ -83,7 +83,7 @@ Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamien
 
 * **Costos de transferencia de datos de replicación geográfica**: este cargo solo se aplica a las cuentas con replicación geográfica configurada, incluidas GRS y RA-GRS. La transferencia de datos de replicación geográfica incurre en un cargo por gigabyte.
 
-* **Costos de transferencia de datos salientes**: Las transferencias de datos de salida (datos que se transfieren fuera de una región de Azure) incurren en la facturación para el uso de ancho de banda en una base por gigabyte, coherente con las cuentas de almacenamiento de uso general.
+* **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
 
 * **Cambio del nivel de almacenamiento de acceso**: el cambio del nivel de almacenamiento de acceso de la cuenta que pasa de esporádico a frecuente conlleva un cargo igual a la lectura de todos los datos existentes en la cuenta de almacenamiento. Sin embargo, cambiar el nivel de almacenamiento de acceso de la cuenta de frecuente a esporádico genera un cargo igual que escribir todos los datos en el nivel de acceso esporádico (solo cuentas de uso general v2).
 
@@ -92,7 +92,7 @@ Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamien
 
 ### <a name="estimate-costs-for-your-current-usage-patterns"></a>Calculo de los costos de los patrones de uso actual
 
-Para calcular el costo de almacenar y acceder a datos blob en una cuenta de almacenamiento de uso general v2 en un nivel en particular, evaluar el patrón de uso existente o realizar una aproximación al patrón de uso esperado. En general, será preciso conocer:
+Para calcular el coste del almacenamiento y el acceso a los datos de blob en una cuenta de almacenamiento de uso general v2 en un nivel específico, es preciso evaluar el patrón de uso existente o realizar una aproximación al patrón de uso esperado. En general, será preciso conocer:
 
 * El consumo de almacenamiento de blobs, en gigabytes, incluido:
     - ¿Cuántos datos se almacenan en la cuenta de almacenamiento?
@@ -118,11 +118,11 @@ Si está habilitado, los datos de capacidad se registran a diario en el servicio
 Para supervisar los patrones de acceso a los datos de la cuenta de almacenamiento de blobs, es preciso habilitar la métrica de transacción horaria desde la API. Con la métrica de transacción horaria habilitada, las transacciones por API se agregan cada hora y se registran como una entrada de tabla que se escribe en la tabla *$MetricsHourPrimaryTransactionsBlob* dentro de la misma cuenta de almacenamiento. La tabla *$MetricsHourSecondaryTransactionsBlob* registra las transacciones en el punto de conexión secundario cuando se usan cuentas de almacenamiento de RA-GRS.
 
 > [!NOTE]
-> Si tiene una cuenta de almacenamiento de uso general en el que ha almacenado blobs en páginas y discos de máquinas virtuales o las colas, archivos o tablas, junto con el bloque y anexar los datos de blob, este proceso de estimación no es aplicable. Los datos de capacidad no diferencian los blobs en bloques de otros tipos, por lo que no proporcionan los datos de capacidad de los restantes tipos de datos. Si usa estos tipos, una metodología alternativa consiste en examinar las cantidades en la factura más reciente.
+> Si tiene una cuenta de almacenamiento de uso general en la que ha almacenado blobs en páginas y discos de máquina virtual, o bien colas, archivos o tablas, junto con datos de blobs en bloques y en anexos, este proceso de estimación no se puede aplicar. Los datos de capacidad no diferencian los blobs en bloques de otros tipos, por lo que no proporcionan los datos de capacidad de los restantes tipos de datos. Si usa estos tipos, una metodología alternativa consiste en examinar las cantidades en la factura más reciente.
 
 Para obtener una buena aproximación a su patrón de acceso y consumo de datos, se recomienda elegir un período de retención de métricas que sea representativo de su uso habitual y extrapolarlo. Una opción es conservar los datos de las métricas siete días y recopilar los datos todas las semanas, con el fin de realizar el análisis al final del mes. Otra opción es conservar los datos de las métricas de los últimos 30 días y recopilar y analizar los datos al final del período de 30 días.
 
-Para obtener más información sobre cómo habilitar, recopilar y visualizar datos de métricas, consulte [métricas de Storage analytics](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para obtener más información sobre cómo habilitar, recopilar y visualizar datos de métricas, consulte [Métricas de análisis de Storage](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > El almacenamiento, acceso y descarga de datos de análisis también se cobra como los datos de usuario normales.
@@ -137,12 +137,12 @@ Posteriormente, esta capacidad total consumida por los datos del usuario y los r
 
 #### <a name="transaction-costs"></a>Costos de transacciones
 
-La suma de *'TotalBillableRequests'*, en todas las entradas de una API en la tabla de métricas de transacciones indica el número total de transacciones de dicha API determinada. *Por ejemplo,*, el número total de transacciones *'GetBlob'* en un período dado se puede calcular mediante la suma del número total de solicitudes facturables para todas las entradas con la clave de fila *'user;GetBlob'*.
+La suma de *'TotalBillableRequests'* , en todas las entradas de una API en la tabla de métricas de transacciones indica el número total de transacciones de dicha API determinada. *Por ejemplo,* , el número total de transacciones *'GetBlob'* en un período dado se puede calcular mediante la suma del número total de solicitudes facturables para todas las entradas con la clave de fila *'user;GetBlob'* .
 
 Para calcular los costos de transacción de las cuentas de Blob Storage, es preciso que desglose las transacciones en tres grupos, ya que tienen precios diferentes.
 
-* Transacciones de escritura como *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* y *'CopyBlob'*.
-* Transacciones de eliminación como *'DeleteBlob'* y *'DeleteContainer'*.
+* Transacciones de escritura como *'PutBlob'* , *'PutBlock'* , *'PutBlockList'* , *'AppendBlock'* , *'ListBlobs'* , *'ListContainers'* , *'CreateContainer'* , *'SnapshotBlob'* y *'CopyBlob'* .
+* Transacciones de eliminación como *'DeleteBlob'* y *'DeleteContainer'* .
 * Las restantes transacciones.
 
 Para calcular los costos de transacción de las cuentas de almacenamiento de GPv1, es preciso agregar todas las transacciones, independientemente de la operación o API.
@@ -153,9 +153,9 @@ Aunque el análisis del almacenamiento no proporciona la cantidad de datos leíd
 
 Para calcular los costos de acceso a los datos en las cuentas de Blob Storage, es preciso que desglose las transacciones en dos grupos.
 
-* La cantidad de datos que se recuperan de la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalEgress'* principalmente en las operaciones *'GetBlob'* y *'CopyBlob'*.
+* La cantidad de datos que se recuperan de la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalEgress'* principalmente en las operaciones *'GetBlob'* y *'CopyBlob'* .
 
-* La cantidad de datos que se escriben en la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalIngress'* principalmente en las operaciones *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* y *'AppendBlock'*.
+* La cantidad de datos que se escriben en la cuenta de almacenamiento se puede calcular examinando la suma de *'TotalIngress'* principalmente en las operaciones *'PutBlob'* , *'PutBlock'* , *'CopyBlob'* y *'AppendBlock'* .
 
 El costo de transferencia de datos de replicación geográfica para cuentas de Blob Storage también puede calcularse mediante la valoración de la cantidad de datos escritos cuando se usa una cuenta de almacenamiento GRS o RA-GRS.
 

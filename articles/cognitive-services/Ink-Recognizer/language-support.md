@@ -1,7 +1,7 @@
 ---
-title: Compatibilidad de idioma y región para la API de reconocimiento de tinta
+title: Compatibilidad de idioma y región con Ink Recognizer API
 titleSuffix: Azure Cognitive Services
-description: Una lista de los lenguajes naturales compatibles con la API de reconocimiento de tinta.
+description: Una lista de idiomas naturales admitidos por Ink Recognizer API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026304"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Compatibilidad de idioma y región para la API de reconocimiento de tinta
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Compatibilidad de idioma y región con Ink Recognizer API
 
-En este artículo se explica qué lenguajes se admiten para la API de reconocimiento de tinta. Contenido de entrada de lápiz digital escrita en los idiomas siguientes puede ser interpretado y procesado por la API.
+En este artículo se explica qué idiomas se admiten en Ink Recognizer API. El contenido de tinta digital escrito en los idiomas siguientes se puede interpretar y procesar mediante la API.
 
 ## <a name="supported-languages"></a>Idiomas admitidos
 
@@ -54,7 +54,7 @@ En este artículo se explica qué lenguajes se admiten para la API de reconocimi
 | Italiano (Italia)                            |     `it-IT`     |
 | Japonés                                   |     `ja-JP`     |
 | Kinyarwanda                                |     `rw-RW`     |
-| Suajili (Kenia)                          |     `sw-KE`     |
+| Kiswahili (Kenia)                          |     `sw-KE`     |
 | Coreano                                     |     `ko-KR`     |
 | Luxemburgués                              |     `lb-LU`     |
 | Malayo (Brunéi Darussalam)                  |     `ms-BN`     |
@@ -76,7 +76,7 @@ En este artículo se explica qué lenguajes se admiten para la API de reconocimi
 | Serbio (latino, Bosnia y Herzegovina)    |  `sr-Latn-BA`   |
 | Serbio (latino, Montenegro)                |  `sr-Latn-ME`   |
 | Serbio (latino, Serbia)                    |  `sr-Latn-RS`   |
-| Setsuana (Sudáfrica)                    |     `tn-ZA`     |
+| Setswana (Sudáfrica)                    |     `tn-ZA`     |
 | Eslovaco                                     |     `sk-SK`     |
 | Esloveno                                  |     `sl-SI`     |
 | Español (Argentina)                        |     `es-AR`     |
@@ -89,7 +89,7 @@ En este artículo se explica qué lenguajes se admiten para la API de reconocimi
 | Xhosa                                      |     `xh-ZA`     |
 | Zulú                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
-* [¿Qué es la API de reconocimiento de tinta?](overview.md)
-* [Envío de trazos de tinta digital a la API de reconocimiento de tinta](concepts/send-ink-data.md)
+* [¿Qué es la API Ink Recognizer?](overview.md)
+* [Envío de datos de entrada de lápiz a la API Ink Recognizer](concepts/send-ink-data.md)

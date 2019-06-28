@@ -14,10 +14,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748138"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
@@ -133,7 +133,7 @@ La consulta en el trabajo de Stream Analytics se pasa a través de los datos sin
 
 ### <a name="configure-job-input"></a>Configuración de la entrada del trabajo
 
-1. En el mensaje de notificación, seleccione **ir al recurso** para ver el **trabajo de Stream Analytics** página. 
+1. En el mensaje de notificación, seleccione **Ir al recurso** para ver la página **Trabajo de Stream Analytics**. 
 2. Seleccione **Entradas** en la sección **TOPOLOGÍA DE TRABAJO** en el menú izquierdo.
 3. Seleccione **Add stream input** (Agregar entrada de flujo) y, luego, seleccione **Event Hub** (Centro de eventos). 
 

@@ -12,10 +12,10 @@ ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472105"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Prueba de la base de conocimiento de forma interactiva en QnA Maker
@@ -63,18 +63,18 @@ Puede agregar formas alternativas de una pregunta a una respuesta determinada. E
 
 Puede agregar una respuesta nueva si cualquiera de las respuestas existentes coincidentes son incorrectas o la respuesta no existe en la base de conocimiento (ninguna coincidencia adecuada encontrada en la base de conocimiento). 
 
-En la parte inferior de la lista de las respuestas, use el cuadro de texto para escribir una respuesta nueva y presione ENTRAR para agregarlo. 
+En la parte inferior de la lista de las respuestas, use el cuadro de texto para escribir una nueva respuesta y presione Entrar para agregarla. 
 
 Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado un par pregunta-respuesta nuevo a la base de conocimiento. 
 
 > [!NOTE]
 > Todas las modificaciones realizadas en la base de conocimiento solo se guardan si presiona el botón **Guardar y entrenar**.
 
-## <a name="test-the-published-knowledge-base"></a>Probar la base de conocimiento publicada
+## <a name="test-the-published-knowledge-base"></a>Prueba de la base de conocimiento publicada
 
-Puede probar la versión publicada de la base de conocimiento en el panel prueba. Una vez que ha publicado la KB, seleccione el **publica KB** cuadro y enviar una consulta para obtener los resultados de la KB publicados.
+Puede probar la versión publicada de la base de conocimiento en el panel prueba. Una vez publicada la base de conocimiento, seleccione el cuadro **Published KB** (Base de conocimiento publicada) y envíe una consulta para obtener resultados de esta.
 
-![Probar con un KB publicados](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Prueba en una base de conocimiento publicada](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

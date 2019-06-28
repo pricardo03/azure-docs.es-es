@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764377"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guía de programación de Azure Event Hubs
@@ -58,7 +58,7 @@ Para enviar eventos a un centro de eventos, cree una instancia [EventHubClient][
 
 ## <a name="event-serialization"></a>Serialización de eventos
 
-La clase [EventData][] tiene [dos constructores sobrecargados](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) que aceptan diversos parámetros, bytes o una matriz de bytes, que representan la carga de datos de eventos. Cuando se usa JSON con [EventData][], puede usar **Encoding.UTF8.GetBytes()** para recuperar la matriz de bytes de una cadena codificada con JSON. Por ejemplo: 
+La clase [EventData][] tiene [dos constructores sobrecargados](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) que aceptan diversos parámetros, bytes o una matriz de bytes, que representan la carga de datos de eventos. Cuando se usa JSON con [EventData][], puede usar **Encoding.UTF8.GetBytes()** para recuperar la matriz de bytes de una cadena codificada con JSON. Por ejemplo:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -107,10 +107,10 @@ Para usar la clase [EventProcessorHost][], puede implementar [IEventProcessor](/
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Para iniciar el procesamiento de eventos, cree una instancia de [EventProcessorHost][], proporcionando los parámetros adecuados para el centro de eventos. Por ejemplo: 
+Para iniciar el procesamiento de eventos, cree una instancia de [EventProcessorHost][], proporcionando los parámetros adecuados para el centro de eventos. Por ejemplo:
 
 > [!NOTE]
-> EventProcessorHost y sus clases relacionadas se muestran en el **Microsoft.Azure.EventHubs.Processor** paquete. Agregar el paquete al proyecto de Visual Studio siguiendo las instrucciones de [en este artículo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) o emitiendo el comando siguiente en el [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) ventana:`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost y sus clases relacionadas se ofrecen en el paquete **Microsoft.Azure.EventHubs.Processor**. Agregue el paquete al proyecto de Visual Studio siguiendo las instrucciones de [este artículo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) o emitiendo el comando siguiente en la ventana de la [Consola del Administrador de paquetes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console):`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

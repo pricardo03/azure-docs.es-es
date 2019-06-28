@@ -1,5 +1,5 @@
 ---
-title: Empezar a usar PIM - Azure Active Directory | Microsoft Docs
+title: 'Primer uso de PIM: Azure Active Directory | Microsoft Docs'
 description: Aprenda a habilitar y empezar a usar Azure AD Privileged Identity Management (PIM) en Azure Portal.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290049"
 ---
 # <a name="start-using-pim"></a>Primer uso de PIM
@@ -38,7 +38,7 @@ Para más información, consulte los [Requisitos de licencia para usar PIM](subs
 
 ## <a name="first-person-to-use-pim"></a>Primera persona que usa PIM
 
-Si es la primera persona que usa PIM en el directorio, se le asignarán automáticamente los roles de [Administrador de seguridad](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) y [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) en el directorio. Solo los administradores de roles con privilegios pueden administrar las asignaciones de roles de Azure AD de los usuarios. Además, puede elegir ejecutar el [Asistente para seguridad](pim-security-wizard.md) que le guía por la experiencia inicial de detección y asignación.
+Si es la primera persona que usa PIM en el directorio, se le asignarán automáticamente los roles de [Administrador de seguridad](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) y [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) en el directorio. Solo los administradores de rol con privilegios pueden administrar las asignaciones de roles de los usuarios de Azure AD. Además, puede elegir ejecutar el [Asistente para seguridad](pim-security-wizard.md) que le guía por la experiencia inicial de detección y asignación.
 
 ## <a name="enable-pim"></a>Habilitación de PIM
 
@@ -108,7 +108,7 @@ Una vez que se configura PIM, puede realizar las tareas de administración de id
 | **Mis solicitudes** | Muestra las solicitudes pendientes para activar las asignaciones de rol elegibles. |
 | **Aprobar solicitudes** | Muestra una lista de las solicitudes realizadas por los usuarios de su directorio para activar roles elegibles que usted tiene designados para aprobar. |
 | **Revisar acceso** | Enumera las revisiones de acceso activas que tiene asignadas para completar, tanto si revisa el acceso usted mismo como si lo hace otro usuario. |
-| **Roles de Azure AD** | Muestra un panel y la configuración de roles con privilegios a los administradores administrar las asignaciones de roles de Azure AD. Este panel está deshabilitado para todos aquellos que no sean administradores de roles con privilegios. Estos usuarios tienen acceso a un panel especial denominado My view (Mi vista). El panel My view (Mi vista) solo muestra información sobre el acceso al panel del usuario, no del inquilino completo. |
+| **Roles de Azure AD** | Muestra un panel y los valores de los administradores de rol con privilegios para administrar las asignaciones de roles de Azure AD. Este panel está deshabilitado para todos aquellos que no sean administradores de roles con privilegios. Estos usuarios tienen acceso a un panel especial denominado My view (Mi vista). El panel My view (Mi vista) solo muestra información sobre el acceso al panel del usuario, no del inquilino completo. |
 | **Recursos de Azure** | Muestra un panel y los valores de los administradores de rol con privilegios para administrar las asignaciones de roles de recursos de Azure. Este panel está deshabilitado para todos aquellos que no sean administradores de roles con privilegios. Estos usuarios tienen acceso a un panel especial denominado My view (Mi vista). El panel My view (Mi vista) solo muestra información sobre el acceso al panel del usuario, no del inquilino completo. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Incorporación de un icono de PIM al panel
@@ -133,5 +133,5 @@ Para que abrir PIM sea más fácil, debe agregar un icono de PIM al panel de Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignar roles de Azure AD en PIM](pim-how-to-add-role-to-user.md)
+- [Asignación de roles de Azure AD en PIM](pim-how-to-add-role-to-user.md)
 - [Detección de recursos de Azure que se administran en PIM](pim-resource-roles-discover-resources.md)

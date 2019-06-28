@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
 ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640487"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
@@ -94,7 +94,7 @@ Puede ver los almacenes de claves en estado eliminado asociados a su suscripció
 ```azurecli
 az keyvault list-deleted
 ```
-- *Id. de* puede usarse para identificar el recurso durante la recuperación o purga. 
+- El campo *ID* se puede usar para identificar el recurso durante la recuperación o purga. 
 - *Resource ID* (Identificador de recurso) es el identificador de recurso original de este almacén. Puesto que este almacén de claves está ahora en estado eliminado, no existe ningún recurso con ese identificador de recurso. 
 - *Scheduled Purge Date* (Fecha de purga programada) es la fecha en la que el almacén se eliminará definitivamente si no se realiza ninguna acción. El período de retención predeterminado que se utiliza para calcular la *fecha de purga programada* es de 90 días.
 
@@ -195,7 +195,7 @@ Al igual que las claves, los secretos se administran con sus propios comandos:
 > [!IMPORTANT]
 > Si purga un almacén de claves o uno de los objetos que contiene, se eliminará definitivamente, lo que significa que no se podrá recuperar.
 
-La función de depuración se utiliza para eliminar permanentemente un objeto de almacén de claves o un almacén de claves completo, que anteriormente se ha eliminado de forma temporal. Como se muestra en la sección anterior, los objetos almacenados en un almacén de claves con la característica de eliminación temporal habilitada pueden pasar por varios estados:
+La función de purga se usa para eliminar permanentemente un objeto del almacén de claves o un almacén de claves completo que anteriormente se habían eliminado temporalmente. Como se muestra en la sección anterior, los objetos almacenados en un almacén de claves con la característica de eliminación temporal habilitada pueden pasar por varios estados:
 
 - **Activo**: antes de la eliminación.
 - **Eliminado temporalmente**: después de la eliminación, puede mostrarse y recuperarse para volver al estado activo.
@@ -223,19 +223,19 @@ La lista de objetos del almacén de claves eliminado también muestra cuándo se
 >[!IMPORTANT]
 >Un objeto de almacén purgado, desencadenado por el valor de su campo de *fecha de purga programada*, se eliminará permanentemente. No se podrá volver a recuperar.
 
-## <a name="enabling-purge-protection"></a>Habilitar la protección de purgas
+## <a name="enabling-purge-protection"></a>Habilitación de la protección de purgas
 
-Cuando la protección de purgas está en un almacén o un objeto de eliminados no se puede purgar estado hasta que haya transcurrido el período de retención de 90 días. El almacén u objeto todavía se puede recuperar. Esta característica ofrece seguridad añadida de que un almacén o un objeto nunca puede ser permanentemente eliminado hasta que haya transcurrido el período de retención período.
+Cuando la protección de purgas está activada, un almacén o un objeto en estado eliminado no se puede purgar hasta que ha transcurrido el período de retención de 90 días. El almacén u objeto todavía se puede recuperar. Esta característica ofrece mayor seguridad de que un almacén u objeto nunca se va a eliminar de forma permanente hasta que haya transcurrido el período de retención.
 
 Puede habilitar la protección de purgas solo si también está habilitada la eliminación temporal. 
 
-Para activar ambas eliminación temporal y purgar la protección al crear un almacén, use el [crear az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
+Para activar la eliminación temporal y la protección de purgas al crear un almacén, use el comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
 
 ```
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-Para agregar protección de purgas para un almacén existente (que ya tenga habilitada la eliminación temporal), use el [actualización de az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) comando:
+Para agregarle la protección de purgas a un almacén existente (que ya tenga habilitada la eliminación temporal), use el comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update):
 
 ```
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true

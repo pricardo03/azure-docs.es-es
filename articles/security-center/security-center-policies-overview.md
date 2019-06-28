@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec674641991a1b5a1e0ca92c133be235dd91dfae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703530"
 ---
 # <a name="security-center-settings"></a>Configuración de Security Center
@@ -29,7 +29,7 @@ Las siguientes opciones están disponibles en Directiva de seguridad:
 - **Recopilación de datos**: determina el aprovisionamiento del agente y la configuración de la [colección de datos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
 - **Directiva de seguridad**: determina qué controles Security Center supervisa y recomienda. Puede editar la [directiva de seguridad](tutorial-security-policy.md) en Security Center. También puede usar [Azure Policy](tutorial-security-policy.md) para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración. 
 - **Notificaciones por correo electrónico**: determina los contactos de seguridad y la configuración de [notificaciones por correo electrónico](security-center-provide-security-contact-details.md).
-- **Plan de tarifa**: define la [selección de precios](security-center-pricing.md) gratuitos o estándar. El plan elegido determina qué características de Security Center están disponibles para los recursos del ámbito. Puede especificar un nivel para las suscripciones y áreas de trabajo.
+- **Plan de tarifa**: define la [selección de precios](security-center-pricing.md) gratuitos o estándar. El plan elegido determina qué características de Security Center están disponibles para los recursos del ámbito. Puede especificar un plan para las suscripciones y las áreas de trabajo.
 
 > [!NOTE]
 > Puede establecerlas todas por suscripción. En Áreas de trabajo, solo puede establecer Recopilación de datos y Plan de tarifa.
@@ -37,7 +37,7 @@ Las siguientes opciones están disponibles en Directiva de seguridad:
 
 
 ## <a name="who-can-edit-security-policies"></a>¿Quién puede editar directivas de seguridad?
-Security Center usa el control de acceso basado en rol (RBAC), que proporciona roles integrados que se pueden asignar a usuarios, grupos y servicios en Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que tiene acceso. Lo que significa que los usuarios tienen asignados la función de *propietario*, *colaborador*, o *lector* a la suscripción que pertenece el recurso. Además de estos roles, hay dos roles específicos de Security Center:
+Security Center usa el control de acceso basado en rol (RBAC), que proporciona roles integrados que se pueden asignar a usuarios, grupos y servicios en Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que tiene acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción a la que pertenece el recurso. Además de estos roles, hay dos roles específicos de Security Center:
 
 - **Lector de seguridad**: el usuario tiene derecho a visualizar el contenido de Security Center (recomendaciones, alertas, directivas y estados) pero no puede realizar cambios.
 - **Administrador de seguridad**: tiene los mismos derechos que el *lector de seguridad*, pero también puede actualizar la directiva de seguridad o descartar recomendaciones y alertas.
@@ -46,7 +46,7 @@ Security Center usa el control de acceso basado en rol (RBAC), que proporciona r
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha aprendido a configurar directivas de seguridad en Azure Security Center. Para obtener más información sobre Azure Security Center, consulte los siguientes artículos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): Obtenga información sobre cómo configurar directivas de seguridad para las suscripciones de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones de Azure.
 * [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): Aprenda cómo las recomendaciones de Security Center como ayuda para proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): Aprenda a supervisar el estado de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): Aprenda a administrar y responder a las alertas de seguridad.

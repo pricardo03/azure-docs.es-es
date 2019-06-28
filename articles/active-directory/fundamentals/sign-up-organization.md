@@ -1,5 +1,5 @@
 ---
-title: Suscríbase a su organización, Azure Active Directory | Microsoft Docs
+title: 'Suscripción de la organización: Azure Active Directory | Microsoft Docs'
 description: Instrucciones acerca de cómo suscribir su organización para usar Azure y Azure Active Directory.
 services: active-directory
 author: eross-msft
@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246894"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Suscripción de la organización para usar Azure Active Directory

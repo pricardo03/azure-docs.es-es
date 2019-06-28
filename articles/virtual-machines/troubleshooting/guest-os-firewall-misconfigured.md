@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711023"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>El firewall de SO invitado de máquina virtual de Azure no está correctamente configurado
@@ -98,7 +98,7 @@ En la instancia de acceso a la consola serie, puede consultar el estado actual d
 
 ### <a name="offline-mitigations"></a>Mitigaciones sin conexión
 
-1.  Para habilitar o deshabilitar reglas de firewall, consulte [habilitar o deshabilitar una regla de firewall en un sistema operativo invitado de máquina virtual de Azure](enable-disable-firewall-rule-guest-os.md).
+1.  Para habilitar o deshabilitar reglas de firewall, consulte [Habilitar o deshabilitar una regla de firewall en un sistema operativo invitado de máquina virtual de Azure](enable-disable-firewall-rule-guest-os.md).
 
 2.  Compruebe si se encuentra en el [escenario de tráfico entrante bloqueado por el firewall del SO invitado](guest-os-firewall-blocking-inbound-traffic.md).
 

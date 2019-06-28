@@ -2,25 +2,24 @@
 title: Procesar reglas configurables basadas en umbrales en Azure Stream Analytics
 description: En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que tenga reglas configurables basadas en umbrales Azure Stream Analytics.
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
-manager: digimobile
+author: zhongc
+ms.author: zhongc
+manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 08/20/2018
+ms.date: 04/30/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761733"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Procesar reglas configurables basadas en umbrales en Azure Stream Analytics
 En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que use reglas configurables basadas en umbrales Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Escenario: Alertas basadas en umbrales de regla ajustables
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Escenario: alertas basadas en umbrales de regla ajustables
 Es posible que deba generar una alerta cuando los eventos de streaming de entrada hayan alcanzado un determinado valor, o cuando un valor agregado basado en los eventos de streaming de entrada supere un cierto umbral. Es fácil configurar una consulta de Stream Analytics que compare el valor con un umbral estático que sea fijo y predeterminado. Un umbral fijo puede estar codificado de forma rígida en la sintaxis de consultas de streaming mediante comparaciones numéricas simples (mayor que, menor que y es igual a).
 
 En algunos casos, los valores de umbral deben poder configurarse con mayor facilidad sin necesidad de editar la sintaxis de consulta cada vez que cambia un valor de umbral. En otros casos, puede que necesite que la misma consulta procese varios dispositivos o usuarios, donde cada una tenga valores de umbral distintos en cada tipo de dispositivo. 
@@ -47,6 +46,7 @@ Estos datos de referencia de ejemplo muestran cómo podría representarse una re
 - Tenga en cuenta que la regla tiene un campo **operator**, que se interpreta dinámicamente en la sintaxis de consulta más adelante en `AVGGREATEROREQUAL`. 
 - La regla filtra los datos en una clave de dimensión determinada `2` con el valor `C1`. Otros campos son una cadena vacía, lo que indica que no se filtre el flujo de entrada según esos campos de evento. Podría configurar reglas de CPU adicionales para filtrar otros campos coincidentes según sea necesario.
 - No todas las columnas deben incluirse en el evento de alerta de salida. En este caso, la clave `includedDim` número `2` está activada en `TRUE` para representar que el campo número 2 de datos del evento en el flujo se incluirá en los eventos de salida aptos. Los demás campos no se incluyen en el resultado de la alerta, pero se puede ajustar la lista de campos.
+
 
 ```json
 {
@@ -292,4 +292,3 @@ En este ejemplo, los datos de salida JSON muestran que se produjo un evento de a
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
-<!--Update_Description: updat meta properties, wording update-->

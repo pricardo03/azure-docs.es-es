@@ -3,17 +3,16 @@ title: 'Generación y exportación de certificados para conexiones de punto a si
 description: Cree un certificado raíz autofirmado, exporte la clave pública y genere los certificados de cliente mediante MakeCert.
 services: vpn-gateway
 documentationcenter: na
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/01/2018
-ms.author: v-jay
+ms.date: 09/05/2018
+ms.author: cherylmc
 ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768113"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generación y exportación de certificados para conexiones de punto a sitio con MakeCert
@@ -29,7 +28,7 @@ Aunque se recomienda utilizar los [pasos de Windows 10 PowerShell](vpn-gateway-c
 Los siguientes pasos le mostrarán cómo crear un certificado autofirmado mediante MakeCert. Estos pasos no son específicos del modelo de implementación. Son válidos para el Administrador de recursos y la versión clásica.
 
 1. Descargue e instale [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Después de la instalación, normalmente puede encontrar la utilidad makecert.exe bajo esta ruta de acceso: ' C:\Program archivos (x86) kits\10\bin\<arch >'. Sin embargo, es posible que se haya instalado en otra ubicación. Abra un símbolo del sistema como administrador y navegue hasta la ubicación de la utilidad MakeCert. Puede usar el siguiente ejemplo y ajustar la ubicación adecuada:
+2. Después de la instalación, la utilidad makecert.exe se encuentra normalmente en esta ruta de acceso: "C:\Archivos de programa (x86)\Windows Kits\10\bin\<arch>". Sin embargo, es posible que se haya instalado en otra ubicación. Abra un símbolo del sistema como administrador y navegue hasta la ubicación de la utilidad MakeCert. Puede usar el siguiente ejemplo y ajustar la ubicación adecuada:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64

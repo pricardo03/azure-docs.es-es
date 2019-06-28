@@ -14,14 +14,14 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60823987"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Movimiento de datos desde una base de datos de Cassandra local con Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-onprem-cassandra-connector.md)
 > * [Versión 2 (versión actual)](../connector-cassandra.md)
 
@@ -70,10 +70,10 @@ La tabla siguiente incluye una descripción de los elementos JSON específicos p
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/><br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
 | puerto |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es: 9042 |
 | authenticationType |Básica o anónima |Sí |
-| username |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
-| password |Especifique la contraseña para la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
+| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
+| contraseña |Especifique la contraseña para la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | gatewayName |Nombre de la puerta de enlace que se va a utilizar en la conexión con la base de datos de Cassandra local. |Sí |
-| encryptedCredential |Credencial cifrada por la puerta de enlace. |Sin  |
+| encryptedCredential |Credencial cifrada por la puerta de enlace. |Sin |
 
 >[!NOTE]
 >Actualmente no se admite la conexión a Cassandra mediante SSL.
@@ -262,20 +262,20 @@ Consulte las [propiedades de tipo RelationalSource](#copy-activity-properties) p
 ### <a name="type-mapping-for-cassandra"></a>Asignación de tipos de Cassandra
 | Tipo de Cassandra | Tipo basado en .NET |
 | --- | --- |
-| ASCII |string |
+| ASCII |Cadena |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
 | DECIMAL |Decimal |
 | DOUBLE |DOUBLE |
 | FLOAT |Single |
-| INET |string |
+| INET |Cadena |
 | INT |Int32 |
-| TEXT |string |
-| TIMESTAMP |DateTime |
+| TEXT |Cadena |
+| TIMESTAMP |Datetime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |string |
+| VARCHAR |Cadena |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -330,17 +330,17 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 #### <a name="table-exampletablevtmap"></a>Tabla “ExampleTable_vt_Map”:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una  |
+| 1 |S1 |Una |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>Tabla “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una  |
+| 1 |Una |
 | 1 |b |
 | 1 |C |
-| 3 |Una  |
+| 3 |Una |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor

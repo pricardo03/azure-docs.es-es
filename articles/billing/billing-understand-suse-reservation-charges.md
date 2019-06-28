@@ -1,6 +1,6 @@
 ---
-title: Descuento del plan de software - Azure | Microsoft Docs
-description: Obtenga información sobre cómo se aplican descuentos de plan de software a software en máquinas virtuales.
+title: 'Descuento del plan de software: Azure | Microsoft Docs'
+description: Obtenga información sobre cómo se aplican los descuentos del plan de software al software en máquinas virtuales.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -13,43 +13,43 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370242"
 ---
 # <a name="azure-software-plan-discount"></a>Descuento del plan de software de Azure
 
-Los planes de software de Azure para SUSE y RedHat son las reservas de direcciones que se aplican a las máquinas virtuales implementadas. El descuento del plan de software se aplica al uso de máquinas virtuales implementadas que coincidan con la reserva de software.
+Los planes de software de Azure para SUSE y Red Hat son las reservas que se aplican a las máquinas virtuales implementadas. El descuento del plan de software se aplica al uso de máquinas virtuales implementadas que coincidan con la reserva de software.
 
-Cuando apague una máquina virtual, el descuento se aplica automáticamente a otra máquina virtual coincidente, si está disponible. Un plan de software incluye el costo de ejecutar el software en una máquina virtual. Otros gastos tales como proceso, almacenamiento y redes se cobran por separado.
+Cuando apaga una máquina virtual, el descuento se aplica automáticamente a otra máquina virtual coincidente, si está disponible. Un plan del software cubre el costo de ejecutar el software SUSE en una máquina virtual. Otros gastos tales como proceso, almacenamiento y redes se cobran por separado.
 
-Para comprar el plan adecuado, debe comprender el uso de la máquina virtual y el número de vCPU en esas máquinas virtuales. Utilice las secciones siguientes para ayudar a identificar lo que desean comprar, según los datos de uso.
+Para comprar el plan adecuado, debe comprender el uso de la máquina virtual y el número de vCPU de dichas máquinas virtuales. Utilice las secciones siguientes para ayudar a identificar el plan que debe comprar en función de los datos de uso.
 
-## <a name="how-reservation-discount-is-applied"></a>Cómo se aplica el descuento de reserva
+## <a name="how-reservation-discount-is-applied"></a>Aplicación del descuento por reserva
 
-Un descuento de reserva es "*-it-o-perder-usarla*". Por lo tanto, si no tiene recursos coincidentes para cualquier hora, perder una cantidad de reserva para esa hora. No se puede llevar a cabo reenviar horas reservadas no utilizadas.
+Un descuento de reserva significa "*usarlo o perderlo*". Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
-Cuando se apaga un recurso, el descuento de reserva se aplica automáticamente a otro recurso coincidente en el ámbito especificado. Si se encuentra ningún recurso coincidente en el ámbito especificado, que son las horas reservadas *pierde*.
+Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se *pierden*.
 
-## <a name="review-redhat-vm-usage-before-you-buy"></a>Revise el uso de RedHat VM antes de comprar
+## <a name="review-redhat-vm-usage-before-you-buy"></a>Revisión del uso de la máquina virtual de Red Hat antes de la compra
 
-Obtener el nombre del producto de los datos de uso y comprar el plan de Red Hat con el mismo tipo y tamaño.
+Obtenga el nombre del producto de los datos de uso y compre el plan de Red Hat con el mismo tipo y tamaño.
 
-Por ejemplo, si su uso tiene producto **Red Hat Enterprise Linux - 1-4 vCPU VM licencia**, que debe comprar **Red Hat Enterprise Linux** para **1-4 vCPU VM**.
+Por ejemplo, si su uso tiene el producto **Red Hat Enterprise Linux - 1-4 licencias de máquina virtual con vCPU**, debe comprar **Red Hat Enterprise Linux** para **máquinas virtuales con 1 a 4 vCPU**.
 
 <!--ADD RHEL SCREENSHOT -->
 
-## <a name="review-suse-vm-usage-before-you-buy"></a>Revise el uso de SUSE VM antes de comprar
+## <a name="review-suse-vm-usage-before-you-buy"></a>Revisión del uso de máquinas virtuales SUSE antes de la compra
 
-Obtener el nombre del producto de los datos de uso y comprar el plan SUSE con el mismo tipo y tamaño.
+Obtenga el nombre del producto de los datos de uso y compre el plan de SUSE con el mismo tipo y tamaño.
 
-Por ejemplo, si es el uso de producto **SUSE Linux Enterprise Server prioridad - 2-4 vCPU de VM**, que debe comprar **prioridad de SUSE Linux Enterprise Server** para **2-4 vCPU**.
+Por ejemplo, si es el uso de producto **SUSE Linux Enterprise Server Prioritaria - Soporte técnico de máquinas virtuales con 2 a 4 vCPU**, debe comprar **SUSE Linux Enterprise Server Prioritaria** para **2 a 4 vCPU**.
 
-![Ejemplo de seleccionar el producto para comprar](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
+![Ejemplo sobre cómo seleccionar el producto para comprar](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
 
-## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>Descuento se aplica a los diferentes tamaños de VM para los planes SUSE
+## <a name="discount-applies-to-different-vm-sizes-for-suse-plans"></a>El descuento se aplica a los diferentes tamaños de VM para los planes SUSE
 
 Del mismo modo que con las instancias de VM reservadas, las compras de planes SUSE ofrecen flexibilidad de tamaño de instancia. Esto significa que el descuento se aplica incluso cuando se implementa una VM con un recuento de vCPU diferente. El descuento se aplica a los diferentes tamaños de VM del plan de software.
 
@@ -145,7 +145,7 @@ Nombres de marketplace de Azure Portal:
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

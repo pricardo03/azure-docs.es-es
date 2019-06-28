@@ -1,5 +1,5 @@
 ---
-title: Streaming en vivo con codificadores locales mediante Azure portal | Microsoft Docs
+title: Streaming en vivo con codificadores locales mediante Azure Portal | Microsoft Docs
 description: Este tutorial le guiará por los pasos para crear un canal que esté configurado para una entrega de paso a través.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9a8ab024443744f50482dd2ca1cfb33db43359e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463379"
 ---
-# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realice streaming en vivo con codificadores locales mediante Azure portal
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realización de streaming en vivo con codificadores locales mediante Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -30,7 +30,7 @@ ms.locfileid: "61463379"
 > 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Este tutorial le guiará por los pasos para usar el Portal de Azure para crear un **Canal** que esté configurado para una entrega de paso a través. 
 

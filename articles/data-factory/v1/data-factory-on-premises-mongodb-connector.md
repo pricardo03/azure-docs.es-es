@@ -14,14 +14,14 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824191"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Movimiento de datos de MongoDB mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-on-premises-mongodb-connector.md)
 > * [Versión 2 (versión actual)](../connector-mongodb.md)
 
@@ -67,11 +67,11 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesMongoDb** |Sí |
-| server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
-| port |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
+| Servidor |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
+| puerto |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
 | authenticationType |Básica o anónima. |Sí |
-| username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
-| password |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
+| nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
+| contraseña |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |Opcional (si se usa la autenticación básica). Valor predeterminado: se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
 | gatewayName |Nombre de la puerta de enlace que accede al almacén de datos. |Sí |
@@ -297,14 +297,14 @@ Al mover datos a MongoDB, se usarán las asignaciones siguientes de tipos MongoD
 | --- | --- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| Date |DateTime |
+| Date |Datetime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |string |
-| string |string |
+| ObjectID |Cadena |
+| string |Cadena |
 | UUID |Guid |
-| Object |Renormalizado en columnas acopladas con “_” como separador anidado |
+| Objeto |Renormalizado en columnas acopladas con “_” como separador anidado |
 
 > [!NOTE]
 > Para más información sobre la compatibilidad para matrices con tablas virtuales, consulte la sección [Compatibilidad para tipos complejos que usan tablas virtuales](#support-for-complex-types-using-virtual-tables) que aparece más adelante.

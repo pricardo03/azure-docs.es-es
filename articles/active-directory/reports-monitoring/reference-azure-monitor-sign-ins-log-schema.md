@@ -1,6 +1,6 @@
 ---
-title: Esquema de registro de inicio de sesión de Azure Active Directory en Azure Monitor | Microsoft Docs
-description: Describe el inicio de sesión de Azure AD del esquema de registro para su uso en Azure Monitor
+title: Esquema de registros de inicio de sesión de Azure Active Directory en Azure Monitor | Microsoft Docs
+description: Se describe el esquema de registros de inicio de sesión de Azure AD para su uso en Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285191"
 ---
-# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar el esquema de los registros de inicio de sesión de Azure AD en Azure Monitor
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretación del esquema de registros de inicio de sesión de Azure AD en Azure Monitor
 
 En este artículo se describe el esquema de registro de inicio de sesión de Azure Active Directory (Azure AD) en Azure Monitor. La mayoría de la información relacionada con los inicios de sesión se proporciona en el atributo *Properties* del objeto `records`.
 
@@ -146,10 +146,10 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 | Nombre del campo | DESCRIPCIÓN |
 |------------|-------------|
 | Hora | Fecha y hora en formato UTC. |
-| resourceId | Este valor no se ha asignado, y puede ignorar este campo de forma segura.  |
+| ResourceId | Este valor no se ha asignado, y puede ignorar este campo de forma segura.  |
 | nombreOperación | Para inicios de sesión, este valor es siempre *Actividad de inicio de sesión*. |
 | OperationVersion | Versión de la API REST solicitada por el cliente. |
-| Category | Para inicios de sesión, este valor es siempre *SignIn*. | 
+| Categoría | Para inicios de sesión, este valor es siempre *SignIn*. | 
 | TenantId | GUID del inquilino asociado con los registros. |
 | ResultType | El resultado de la operación de inicio de sesión puede ser *Correcto* o *Error*. | 
 | ResultSignature | Contiene el código de error, si existe, de la operación de inicio de sesión. |
@@ -159,7 +159,7 @@ En este artículo se describe el esquema de registro de inicio de sesión de Azu
 | CorrelationId | GUID opcional que el cliente pasa. Este valor puede ayudar a poner en correlación las operaciones de cliente con las operaciones de servidor y es útil al realizar el seguimiento de los registros que se distribuyen entre servicios. |
 | Identidad | Identidad del token que se ha presentado al realizar la solicitud. Puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
 | Nivel | Proporciona el tipo de mensaje. Para la auditoría, siempre es *informativo*. |
-| Location | Indica la ubicación de la actividad de inicio de sesión. |
+| Ubicación | Indica la ubicación de la actividad de inicio de sesión. |
 | Properties (Propiedades) | Enumera todas las propiedades asociadas con los inicios de sesión. Para más información, consulte [Referencia de Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Este esquema usa los mismos nombres de atributo que el recurso de inicio de sesión, para fines de legibilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes

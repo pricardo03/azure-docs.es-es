@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729244"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con ancho de banda de red moderado a elevado
@@ -69,7 +69,7 @@ Si usa la transferencia de datos sin conexión, use la siguiente tabla para comp
 |    Factor de forma                      |    5 SSD por pedido             |    1 x 50 libras dispositivo de tamaño de escritorio por pedido    |    1 x ~500 libras dispositivo grande por pedido    |    Hasta 10 HDD/SSD por pedido        |
 |    Tiempo de instalación inicial               |    Bajo <br>(15 min)            |    De bajo a moderado <br> (<30 min)               |    Moderado<br>(De 1 a 2 horas)               |    De moderado a difícil<br>(variable) |
 |    Envío de datos a Azure               |    Sí                          |    Sí                                           |    Sí                                   |    Sí                                 |
-|    Exportar datos de Azure           |    Sin                            |    No                                            |    No                                    |    Sí                                 |
+|    Exportar datos de Azure           |    Sin                           |    No                                            |    No                                    |    Sí                                 |
 |    Cifrado                       |    AES de 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES de 128 bits                         |
 |    Hardware                         |     Proporcionado por Microsoft          |    Proporcionado por Microsoft                            |    Proporcionado por Microsoft                    |    Proporcionado por el cliente                   |
 |    interfaz de red                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -83,13 +83,13 @@ Si usa la transferencia de datos en línea, use la tabla en la sección siguient
 
 ### <a name="high-network-bandwidth"></a>Ancho de banda de red elevado
 
-|                                     |    Herramientas de AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    API REST y SDK de Azure Storage                   |    Puerta de enlace de datos cuadro o el borde del cuadro de datos          |    Azure Data Factory                                            |
+|                                     |    Herramientas de AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    API REST y SDK de Azure Storage                   |    Data Box Edge o Data Box Gateway          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo de datos                  |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files                           |   Admite más de 70 conectores de datos para almacenes y formatos de datos    |
 |    Factor de forma                |    Herramientas de línea de comandos                        |    Interfaz programática                    |    Microsoft proporciona un dispositivo <br>virtual o físico     |    Servicio en Azure Portal                                            |
 |    Instalación única inicial     |    Fácil               |    Moderado                       |    Fácil (< 30 minutos) a moderada (entre 1 y 2 horas)            |    Amplia                                                          |
-|    Procesamiento previo de datos              |    Sin                                         |    Sin                                         |    Sí (con proceso perimetral)                               |    Sí                                                                |
-|    Transferencia desde otras nubes       |    Sin                                         |    No                                        |    No                                                    |    Sí                                                                |
+|    Procesamiento previo de datos              |    Sin                                        |    Sin                                        |    Sí (con proceso perimetral)                               |    Sí                                                                |
+|    Transferencia desde otras nubes       |    Sin                                        |    No                                        |    No                                                    |    Sí                                                                |
 |    Tipo de usuario                        |    Profesional de TI o desarrollador                                       |    Desarrollo                                       |    Profesional de TI                                                |    Profesional de TI                                                             |
 |    Precios                          |    Gratis, se aplican los cargos de salida         |    Gratis, se aplican los cargos de salida         |    [Precios](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Precios](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 

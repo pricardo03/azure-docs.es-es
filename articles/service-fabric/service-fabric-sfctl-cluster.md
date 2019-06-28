@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837339"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -140,7 +140,7 @@ Obtiene el manifiesto de clúster de Service Fabric. El manifiesto de clúster c
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Cancela una operación de error provocada por el usuario.
 
-Las siguientes API de inician las operaciones de error que pueden cancelarse mediante el uso de CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force es false, la operación inducida por el usuario especificado se detendrá y se limpiará correctamente.  Si force es true, se anulará el comando y puede quedar algún estado interno.  Debe utilizarse con cuidado la especificación de force como true. No se permite llamar a esta API con force establecido en true hasta que esta API se haya llamado en el mismo comando de prueba con force establecido en false primero, o a menos que el comando de prueba ya tenga un elemento OperationState de OperationState.RollingBack. 
+Las siguientes API inician operaciones de error que se pueden cancelar mediante CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force es false, la operación inducida por el usuario especificado se detendrá y se limpiará correctamente.  Si force es true, se anulará el comando y puede quedar algún estado interno.  Debe utilizarse con cuidado la especificación de force como true. No se permite llamar a esta API con force establecido en true hasta que esta API se haya llamado en el mismo comando de prueba con force establecido en false primero, o a menos que el comando de prueba ya tenga un elemento OperationState de OperationState.RollingBack. 
 
 Aclaración\: OperationState.RollingBack significa que el sistema limpia o limpiará el estado interno del sistema causado por la ejecución del comando.  No restaurará los datos si el comando de prueba iba a causar pérdida de datos.  Por ejemplo, si llama a StartDataLoss y luego llama a esta API, el sistema solo limpiará el estado interno de la ejecución del comando. No restaurará datos de la partición de destino si el comando ha progresado lo suficiente para provocar la pérdida de datos. 
 

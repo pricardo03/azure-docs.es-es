@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148195"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creación de una aplicación de LUIS en el portal de LUIS
@@ -56,30 +56,30 @@ Puede crear una aplicación con las API de creación de dos maneras:
     > [!NOTE]
     > La referencia cultural no se puede cambiar una vez creada la aplicación. 
 
-## <a name="import-an-app-from-file"></a>Importar una aplicación desde archivo
+## <a name="import-an-app-from-file"></a>Importación de una aplicación desde un archivo
 
 1. En la página **My Apps** (Mis aplicaciones), haga clic en **Import new app** (Importar aplicación nueva).
-1. En el cuadro de diálogo emergente, seleccione un archivo de aplicación válido de JSON y, a continuación, seleccione **realiza**.
+1. En el cuadro de diálogo emergente, seleccione un archivo JSON de aplicación válido y, luego, seleccione **Done** (Listo).
 
 ### <a name="import-errors"></a>Errores de importación
 
 Errores posibles son: 
 
-* Una aplicación con ese nombre ya existe. Volver a importar la aplicación y establezca el **nombre opcional** a un nuevo nombre. 
+* Una aplicación con ese nombre ya existe. Vuelva a importar la aplicación y establezca el **nombre opcional** en un nuevo nombre. 
 
-## <a name="export-app-for-backup"></a>Exportar aplicación de copia de seguridad
+## <a name="export-app-for-backup"></a>Exportación de una aplicación para copia de seguridad
 
-1. En **mis aplicaciones** página, seleccione **exportar**.
-1. Seleccione **exportar como JSON**. El explorador descarga la versión activa de la aplicación.
-1. Agregue este archivo en el sistema de copia de seguridad para archivar el modelo.
+1. En la página **My Apps** (Mis aplicaciones), seleccione **Exportar**.
+1. Seleccione **Export as JSON** (Exportar como JSON). El explorador descarga la versión activa de la aplicación.
+1. Agregue este archivo al sistema de copia de seguridad para archivar el modelo.
 
-## <a name="export-app-for-containers"></a>Exportar Apps for containers
+## <a name="export-app-for-containers"></a>Exportación de una aplicación para contenedores
 
-1. En **mis aplicaciones** página, seleccione **exportar**.
-1. Seleccione **exportar como contenedor** , a continuación, seleccione qué ranura publicada (producción o fase) que desea exportar.
-1. Use este archivo con su [contenedor LUIS](luis-container-howto.md). 
+1. En la página **My Apps** (Mis aplicaciones), seleccione **Exportar**.
+1. Seleccione **Export as container** (Exportar como contenedor) y, luego, seleccione qué ranura publicada (producción o ensayo) quiere exportar.
+1. Use este archivo con su [contenedor de LUIS](luis-container-howto.md). 
 
-    Si está interesado en exportar un modelo pero no aún modelo publicado para usar con el contenedor de LUIS, vaya a la **versiones** página y exportar desde allí. 
+    Si está interesado en exportar un modelo entrenado, pero que aún no se ha publicado, para usarlo con el contenedor de LUIS, vaya a la página **Versions** (Versiones) y expórtelo desde allí. 
 
 ## <a name="delete-app"></a>Eliminar la aplicación
 

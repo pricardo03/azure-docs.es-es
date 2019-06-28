@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736297"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Cómo hace coincidir Front Door las solicitudes con una regla de enrutamiento
@@ -29,7 +29,7 @@ Una configuración de regla de enrutamiento de Front Door se compone de dos part
 Las propiedades siguientes determinan si la solicitud entrante coincide con la regla de enrutamiento (o el lado izquierdo):
 
 * **Protocolos HTTP** (HTTP/HTTPS)
-* **Hosts** (por ejemplo, www\.foo.com, \*. bar.com)
+* **Hosts** (por ejemplo, www\.foo.com, \*.bar.com)
 * **Rutas de acceso** (por ejemplo, /\*, /Users/\*, /file.gif)
 
 Estas propiedades se expanden de forma interna para que cada combinación de protocolo, host y ruta de acceso sea un conjunto de posible coincidencia.
@@ -50,7 +50,7 @@ Para explicar más este proceso, echemos un vistazo a un ejemplo de configuraci�
 
 | Regla de enrutamiento | Hosts de front-end | Ruta de acceso |
 |-------|--------------------|-------|
-| Una  | foo.contoso.com | /\* |
+| Una | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
@@ -71,7 +71,7 @@ Después de determinar el host de front-end específico y filtrar las reglas de 
 
 1. Busque cualquier regla enrutamiento con una coincidencia exacta con la ruta de acceso.
 2. Si ninguna ruta de acceso presenta una coincidencia exacta, busque las reglas de enrutamiento con una ruta de acceso con un carácter comodín que coincida.
-3. Si no hay reglas de enrutamiento se encuentran con una ruta coincidente, rechace la solicitud y devolver un 400: Error de solicitud incorrecta respuesta HTTP.
+3. Si no hay reglas de enrutamiento con una ruta coincidente, rechace la solicitud y devuelva una respuesta de error HTTP 400: solicitud incorrecta.
 
 >[!NOTE]
 > Las rutas de acceso sin un carácter comodín se consideran con coincidencia exacta. Incluso si la ruta de acceso termina en una barra diagonal, todavía se considera una coincidencia exacta.
@@ -80,7 +80,7 @@ Para explicarlo mejor, echemos un vistazo a otra serie de ejemplos:
 
 | Regla de enrutamiento | Host de front-end    | Ruta de acceso     |
 |-------|---------|----------|
-| Una      | www\.contoso.com | /        |
+| Una     | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Dada esa configuración, daría lugar a la tabla de búsqueda de coincidencias d
 
 | Solicitud entrante    | Ruta coincidente |
 |---------------------|---------------|
-| www\.contoso.com/            | Una              |
+| www\.contoso.com/            | Una             |
 | www\.contoso.com/a           | b             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
@@ -114,7 +114,7 @@ Dada esa configuración, daría lugar a la tabla de búsqueda de coincidencias d
 >
 > | Enrutar | Host             | Ruta de acceso    |
 > |-------|------------------|---------|
-> | Una      | profile.contoso.com | /api/\* |
+> | Una     | profile.contoso.com | /api/\* |
 >
 > Tabla de búsqueda de coincidencias:
 >

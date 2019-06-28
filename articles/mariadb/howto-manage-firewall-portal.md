@@ -7,16 +7,16 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60746409"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Crear y administrar reglas de firewall de Azure Database for MariaDB mediante Azure Portal
-Las reglas de firewall de nivel de servidor pueden usarse para administrar el acceso a una base de datos de Azure para el servidor de MariaDB desde una dirección IP especificada o un intervalo de direcciones IP.
+Las reglas de firewall de nivel de servidor se pueden usar para administrar el acceso a un servidor de Azure Database for MariaDB desde una dirección IP o desde un intervalo de direcciones IP específicos.
 
-Reglas virtuales Network (VNet) también pueden usarse para proteger el acceso a su servidor. Obtenga más información sobre [reglas mediante el portal de Azure y los puntos de conexión de servicio creación y administración de red Virtual](howto-manage-vnet-portal.md).
+Las reglas de la red virtual también pueden usarse para proteger el acceso a su servidor. Obtenga más información sobre la [creación y la administración de reglas y puntos de conexión de servicio de red virtual mediante Azure Portal](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creación de una regla de firewall de nivel a servidor en Azure Portal
 
@@ -55,5 +55,5 @@ Repita los pasos para administrar las reglas de firewall.
 * Para eliminar una regla existente, haga clic en los puntos suspensivos […] y luego haga clic en **Eliminar**. Haga clic en **Guardar** para guardar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
- - De forma similar, puede utilizar scripts para [crear y administrar Azure Database for MariaDB reglas de firewall mediante la CLI de Azure](howto-manage-firewall-cli.md).
- - Proteger aún más el acceso a su servidor [reglas mediante el portal de Azure y los puntos de conexión de servicio creación y administración de red Virtual](howto-manage-vnet-portal.md).
+ - De modo similar, puede utilizar scripts para la [creación y administración de reglas de firewall de Azure Database for MariaDB mediante la CLI de Azure](howto-manage-firewall-cli.md).
+ - Proteja más el acceso al servidor con [la creación y la administración de reglas y puntos de conexión de servicio de red virtual mediante Azure Portal](howto-manage-vnet-portal.md).

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721018"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referencia de Project Answer Search versión 7
@@ -35,7 +35,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 La solicitud debe utilizar el protocolo HTTPS e incluir el parámetro de consulta siguiente:
--  `q=<URL>` -La consulta que identifica el objeto de búsqueda
+-  `q=<URL>`: consulta que identifica el objeto de la búsqueda
 
 Para ver ejemplos en los que se muestra cómo realizar solicitudes, consulte [Inicio rápido de C#](c-sharp-quickstart.md) o [Inicio rápido de Java](java-quickstart.md). 
 
@@ -83,20 +83,20 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta.  
   
   
-|NOMBRE|Value|Type|Obligatorio|  
+|NOMBRE|Valor|Type|Obligatorio|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Mercado de dónde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte Códigos de mercado.<br /><br /> **NOTA:** URL Preview API solo admite actualmente el mercado estadounidense y el idioma inglés.<br /><br />|string|Sí|  
-|<a name="query" />q|Dirección URL para la vista previa.|string|Sí|  
-|<a name="responseformat" />responseFormat|Tipo de medio que se usará para la respuesta. A continuación se indican los valores posibles que no distinguen entre mayúsculas y minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> El valor predeterminado es JSON. Para obtener información acerca de los objetos JSON que contiene la respuesta, consulte [Objetos de respuesta](#response-objects).<br /><br />  Si especifica JsonLd, el cuerpo de respuesta incluye objetos JSON-LD que contienen los resultados de la búsqueda. Para obtener información acerca de JSON-LD, consulte [JSON-LD](https://json-ld.org/).|string|Sin |  
-|<a name="safesearch" />safeSearch|Filtro que se usa para filtrar el contenido para adultos. Estos son los posibles valores posibles de filtro (no distingue entre mayúsculas y minúsculas).<br /><ul><li>Desactivado: devuelve páginas web con texto, imágenes o vídeos para adultos.<br /><br/></li><li>Moderado: devuelve páginas web con texto para adultos, pero no imágenes o vídeos para adultos.<br /><br/></li><li>Estricto: no devuelve páginas web con texto, imágenes o vídeos para adultos.</li></ul><br /> El valor predeterminado es Moderado.<br /><br /> **NOTA:** Si la solicitud proviene de un mercado para el que la directiva para adultos de Bing requiere que `safeSearch` se defina como Estricto, Bing ignora el valor `safeSearch` y usa Estricto.<br/><br/>**NOTA:** Si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta contenga contenido para adultos, independientemente del valor asignado al parámetro de consulta `safeSearch`. Use `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos. |string|Sin |  
-|<a name="setlang" />setLang|Idioma que se usará para las cadenas de la interfaz de usuario. Especifique el idioma con el código ISO 639-1 de 2 letras. Por ejemplo, el código de idioma de inglés es EN. El valor predeterminado es EN (inglés).<br /><br /> Aunque sea opcional, siempre debe especificar el idioma. Normalmente, se establece `setLang` como el mismo idioma especificado por `mkt`, salvo que el usuario quiera que las cadenas de la interfaz de usuario se muestren en otro idioma.<br /><br /> Este parámetro y el encabezado [Accept-Language](#acceptlanguage) son mutuamente excluyentes: no especifique los dos.<br /><br /> Una cadena de interfaz de usuario es aquella que se usa como etiqueta en una interfaz de usuario. Hay pocas cadenas de interfaz de usuario en los objetos de respuesta JSON. Además, los vínculos a las propiedades de Bing.com de los objetos de respuesta aplican el idioma especificado.|string|Sin | 
+|<a name="mkt" />mkt|Mercado de dónde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte Códigos de mercado.<br /><br /> **NOTA:** URL Preview API solo admite actualmente el mercado estadounidense y el idioma inglés.<br /><br />|Cadena|Sí|  
+|<a name="query" />q|Dirección URL para la vista previa.|Cadena|Sí|  
+|<a name="responseformat" />responseFormat|Tipo de medio que se usará para la respuesta. A continuación se indican los valores posibles que no distinguen entre mayúsculas y minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> El valor predeterminado es JSON. Para obtener información acerca de los objetos JSON que contiene la respuesta, consulte [Objetos de respuesta](#response-objects).<br /><br />  Si especifica JsonLd, el cuerpo de respuesta incluye objetos JSON-LD que contienen los resultados de la búsqueda. Para obtener información acerca de JSON-LD, consulte [JSON-LD](https://json-ld.org/).|Cadena|Sin|  
+|<a name="safesearch" />safeSearch|Filtro que se usa para filtrar el contenido para adultos. Estos son los posibles valores posibles de filtro (no distingue entre mayúsculas y minúsculas).<br /><ul><li>Desactivado: devuelve páginas web con texto, imágenes o vídeos para adultos.<br /><br/></li><li>Moderado: devuelve páginas web con texto para adultos, pero no imágenes o vídeos para adultos.<br /><br/></li><li>Estricto: no devuelve páginas web con texto, imágenes o vídeos para adultos.</li></ul><br /> El valor predeterminado es Moderado.<br /><br /> **NOTA:** Si la solicitud proviene de un mercado para el que la directiva para adultos de Bing requiere que `safeSearch` se defina como Estricto, Bing ignora el valor `safeSearch` y usa Estricto.<br/><br/>**NOTA:** Si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta contenga contenido para adultos, independientemente del valor asignado al parámetro de consulta `safeSearch`. Use `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos. |Cadena|Sin|  
+|<a name="setlang" />setLang|Idioma que se usará para las cadenas de la interfaz de usuario. Especifique el idioma con el código ISO 639-1 de 2 letras. Por ejemplo, el código de idioma de inglés es EN. El valor predeterminado es EN (inglés).<br /><br /> Aunque sea opcional, siempre debe especificar el idioma. Normalmente, se establece `setLang` como el mismo idioma especificado por `mkt`, salvo que el usuario quiera que las cadenas de la interfaz de usuario se muestren en otro idioma.<br /><br /> Este parámetro y el encabezado [Accept-Language](#acceptlanguage) son mutuamente excluyentes: no especifique los dos.<br /><br /> Una cadena de interfaz de usuario es aquella que se usa como etiqueta en una interfaz de usuario. Hay pocas cadenas de interfaz de usuario en los objetos de respuesta JSON. Además, los vínculos a las propiedades de Bing.com de los objetos de respuesta aplican el idioma especificado.|Cadena|Sin| 
 
 
 ## <a name="response-objects"></a>Objetos de respuesta  
 El esquema de respuesta es un objeto [WebPage] o ErrorResponse, como se muestra en Web Search API. Si se produce un error en la solicitud, el objeto de nivel superior es el objeto [ErrorResponse](#errorresponse).
 
 
-|Object|DESCRIPCIÓN|  
+|Objeto|DESCRIPCIÓN|  
 |------------|-----------------|  
 |[WebPage]|Objeto JSON de nivel superior que contiene los atributos de la vista previa.|  
 |[Fact]|Objeto JSON de nivel superior que contiene los datos.| 
@@ -108,20 +108,20 @@ Define el error que se produjo.
   
 |Elemento|DESCRIPCIÓN|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|Código de error que identifica la categoría de error. Para obtener una lista de los códigos posibles, consulte [Códigos de error](#error-codes).|string|  
-|<a name="error-message" />message|Descripción del error.|string|  
-|<a name="error-moredetails" />moreDetails|Descripción que proporciona información adicional sobre el error.|string|  
-|<a name="error-parameter" />parameter|Parámetro de consulta de la solicitud que causó el error.|string|  
-|<a name="error-subcode" />subCode|Código de error que identifica el error. Por ejemplo, si `code` es InvalidRequest, `subCode` puede ser ParameterInvalid o ParameterInvalidValue. |string|  
-|<a name="error-value" />value|Valor del parámetro de consulta que no era válido.|string|  
+|<a name="error-code" />code|Código de error que identifica la categoría de error. Para obtener una lista de los códigos posibles, consulte [Códigos de error](#error-codes).|Cadena|  
+|<a name="error-message" />message|Descripción del error.|Cadena|  
+|<a name="error-moredetails" />moreDetails|Descripción que proporciona información adicional sobre el error.|Cadena|  
+|<a name="error-parameter" />parameter|Parámetro de consulta de la solicitud que causó el error.|Cadena|  
+|<a name="error-subcode" />subCode|Código de error que identifica el error. Por ejemplo, si `code` es InvalidRequest, `subCode` puede ser ParameterInvalid o ParameterInvalidValue. |Cadena|  
+|<a name="error-value" />value|Valor del parámetro de consulta que no era válido.|Cadena|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|_type|Sugerencia de tipo.|string|  
+|_type|Sugerencia de tipo.|Cadena|  
 |<a name="errors" />errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)|  
 
   
@@ -129,55 +129,55 @@ Objeto de nivel superior que la respuesta incluye cuando se produce un error en 
 ### <a name="license"></a>Licencia  
 Define la licencia bajo la que se pueden usar el texto o la foto.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|Nombre|Nombre de la licencia.|string|  
-|url|La dirección URL a un sitio web en el que el usuario puede obtener más información acerca de la licencia.<br /><br /> Utilice el nombre y la dirección URL para crear un hipervínculo.|string|  
+|Nombre|Nombre de la licencia.|Cadena|  
+|url|La dirección URL a un sitio web en el que el usuario puede obtener más información acerca de la licencia.<br /><br /> Utilice el nombre y la dirección URL para crear un hipervínculo.|Cadena|  
   
 
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Define una regla contractual para la atribución de licencia.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|_type|Una sugerencia de tipo, que se establece en LicenseAttribution.|string|  
+|_type|Una sugerencia de tipo, que se establece en LicenseAttribution.|Cadena|  
 |license|Licencia con la que puede utilizarse el contenido.|[License](#license)|  
-|licenseNotice|Licencia que se muestra al lado del campo de destino. Por ejemplo, "Texto bajo licencia CC-BY-SA".<br /><br /> Use el nombre y la dirección URL de la licencia en el campo `license` para crear un hipervínculo al sitio web que describe los detalles de la licencia. Luego, reemplace el nombre de la licencia en la cadena `licenseNotice` (por ejemplo, CC-BY-SA) por el hipervínculo que acaba de crear.|string|  
+|licenseNotice|Licencia que se muestra al lado del campo de destino. Por ejemplo, "Texto bajo licencia CC-BY-SA".<br /><br /> Use el nombre y la dirección URL de la licencia en el campo `license` para crear un hipervínculo al sitio web que describe los detalles de la licencia. Luego, reemplace el nombre de la licencia en la cadena `licenseNotice` (por ejemplo, CC-BY-SA) por el hipervínculo que acaba de crear.|Cadena|  
 |mustBeCloseToContent|Booleano que determina si el contenido de la regla debe colocarse cerca del campo al que se aplica la regla. Si el valor es **true**, los contenidos deben colocarse cerca unos de otros. Si el valor es **false**, o este campo no existe, el contenido se pueden colocar a discreción del autor de la llamada.|Boolean|  
-|targetPropertyName|El nombre del campo al que se aplica la regla.|string|  
+|targetPropertyName|El nombre del campo al que se aplica la regla.|Cadena|  
   
 
 ### <a name="link"></a>Vínculo  
 Define los componentes de un hipervínculo.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|_type|Sugerencia de tipo.|string|  
-|text|Texto que se muestra.|string|  
-|url|Una dirección URL. Use la dirección URL y el texto que se muestra para crear un hipervínculo.|string|  
+|_type|Sugerencia de tipo.|Cadena|  
+|text|Texto que se muestra.|Cadena|  
+|url|Una dirección URL. Use la dirección URL y el texto que se muestra para crear un hipervínculo.|Cadena|  
   
 
 ### <a name="linkattribution"></a>LinkAttribution  
 Define una regla contractual para la atribución del vínculo.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|_type|Una sugerencia de tipo, que se establece en LinkAttribution.|string|  
+|_type|Una sugerencia de tipo, que se establece en LinkAttribution.|Cadena|  
 |mustBeCloseToContent|Booleano que determina si el contenido de la regla debe colocarse cerca del campo al que se aplica la regla. Si el valor es **true**, los contenidos deben colocarse cerca unos de otros. Si el valor es **false**, o este campo no existe, el contenido se pueden colocar a discreción del autor de la llamada.|Boolean|  
-|targetPropertyName|El nombre del campo al que se aplica la regla.<br /><br /> Si no se especifica un destino, la atribución se aplica a la entidad en conjunto y se debe mostrar inmediatamente después de la presentación de la entidad. Si hay varias reglas de atribución de texto y vínculos que no especifiquen un destino, debe concatenarlas y mostrarlas con una etiqueta "Datos de:". Por ejemplo, "Datos de < nombre1 proveedor\> &#124; < nombre2 proveedor\>".|string|  
-|text|El texto de la atribución.|string|  
-|url|La dirección URL al sitio web del proveedor. Use `text` y la dirección URL para crear el hipervínculo.|string|  
+|targetPropertyName|El nombre del campo al que se aplica la regla.<br /><br /> Si no se especifica un destino, la atribución se aplica a la entidad en conjunto y se debe mostrar inmediatamente después de la presentación de la entidad. Si hay varias reglas de atribución de texto y vínculos que no especifiquen un destino, debe concatenarlas y mostrarlas con una etiqueta "Datos de:". Por ejemplo, "Datos de < nombre1 proveedor\> &#124; < nombre2 proveedor\>".|Cadena|  
+|text|El texto de la atribución.|Cadena|  
+|url|La dirección URL al sitio web del proveedor. Use `text` y la dirección URL para crear el hipervínculo.|Cadena|  
   
   
 ### <a name="mediaattribution"></a>MediaAttribution  
 Define una regla contractual para la atribución del soporte físico.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|_type|Una sugerencia de tipo, que se establece en MediaAttribution.|string|  
+|_type|Una sugerencia de tipo, que se establece en MediaAttribution.|Cadena|  
 |mustBeCloseToContent|Booleano que determina si el contenido de la regla debe colocarse cerca del campo al que se aplica la regla. Si el valor es **true**, los contenidos deben colocarse cerca unos de otros. Si el valor es **false**, o este campo no existe, el contenido se pueden colocar a discreción del autor de la llamada.|Boolean|  
-|targetPropertyName|El nombre del campo al que se aplica la regla.|string|  
-|url|La dirección URL que se usa para crear un hipervínculo del contenido multimedia. Por ejemplo, si el destino es una imagen, usaría la dirección URL para que se pueda hacer clic en la imagen.|string|  
+|targetPropertyName|El nombre del campo al que se aplica la regla.|Cadena|  
+|url|La dirección URL que se usa para crear un hipervínculo del contenido multimedia. Por ejemplo, si el destino es una imagen, usaría la dirección URL para que se pueda hacer clic en la imagen.|Cadena|  
   
   
   
@@ -186,23 +186,23 @@ Define un anunciante.
   
 Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o ambos.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|Nombre|Nombre del publicador.|string|  
-|url|La dirección URL al sitio web del anunciante.<br /><br /> Tenga en cuenta que es posible que el publicador no publique un sitio web.|string|  
+|Nombre|Nombre del publicador.|Cadena|  
+|url|La dirección URL al sitio web del anunciante.<br /><br /> Tenga en cuenta que es posible que el publicador no publique un sitio web.|Cadena|  
   
   
 
 ### <a name="webpage"></a>WebPage  
 Define la información acerca de una página web en la vista previa.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|
-|Nombre|Título de la página (no necesariamente el título HTML).|string|
-|url|Dirección URL que se rastreó realmente (la solicitud puede tener redireccionamientos con seguimiento)|string|  
-|description|Breve descripción de la página y el contenido|string|  
+|Nombre|Título de la página (no necesariamente el título HTML).|Cadena|
+|url|Dirección URL que se rastreó realmente (la solicitud puede tener redireccionamientos con seguimiento)|Cadena|  
+|description|Breve descripción de la página y el contenido|Cadena|  
 |isFamilyFriendly|Más preciso para elementos del índice web; las capturas en tiempo real realizan esta detección basada únicamente en la dirección URL y no en el contenido de la página.|boolean|
-|primaryImageOfPage/contentUrl|Dirección URL de una imagen representativa que se incluirá en la vista previa.|string| 
+|primaryImageOfPage/contentUrl|Dirección URL de una imagen representativa que se incluirá en la vista previa.|Cadena| 
   
   
 ### <a name="querycontext"></a>QueryContext  
@@ -211,38 +211,38 @@ Define el contexto de la consulta que Bing ha usado para la solicitud.
 |Elemento|DESCRIPCIÓN|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Un valor booleano que indica si la consulta especificada está prevista para adultos. El valor es **true** si la consulta está prevista para adultos; de lo contrario, es **false**.|Boolean|  
-|alterationOverrideQuery|La cadena de consulta que se usa para forzar a Bing a usar la cadena original. Por ejemplo, si la cadena de consulta es *navegar a sotavento*, la cadena de consulta de invalidación será *+ navegar a sotavento*. No olvide codificar la cadena de consulta que da lugar a *%2Bnavegar+a sotavento*.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|string|  
-|alteredQuery|La cadena de consulta que utiliza Bing para realizar la consulta. Bing usa la cadena modificada si la cadena de consulta original contenía errores de ortografía. Por ejemplo, si la cadena de consulta es `saling downwind`, la cadena de consulta modificada será `sailing downwind`.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|string|  
+|alterationOverrideQuery|La cadena de consulta que se usa para forzar a Bing a usar la cadena original. Por ejemplo, si la cadena de consulta es *navegar a sotavento*, la cadena de consulta de invalidación será *+ navegar a sotavento*. No olvide codificar la cadena de consulta que da lugar a *%2Bnavegar+a sotavento*.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|Cadena|  
+|alteredQuery|La cadena de consulta que utiliza Bing para realizar la consulta. Bing usa la cadena modificada si la cadena de consulta original contenía errores de ortografía. Por ejemplo, si la cadena de consulta es `saling downwind`, la cadena de consulta modificada será `sailing downwind`.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|Cadena|  
 |askUserForLocation|Un valor booleano que indica si Bing requiere la ubicación del usuario para proporcionar resultados precisos. Si ha especificado la ubicación del usuario mediante los encabezados [X-MSEdge-ClientIP](#clientip) y [X-Search-Location](#location), puede omitir este campo.<br /><br /> En consultas relacionadas con la ubicación, como "clima de hoy" o "restaurantes cerca de mí", que necesitan la ubicación del usuario para proporcionar resultados precisos, este campo se establece en **true**.<br /><br /> En consultas relacionadas con la ubicación que incluyan la ubicación (por ejemplo, "clima en Seattle"), este campo se establece en **false**. Este campo también se establece en **false** en las consultas no relacionadas con la ubicación, como los "más vendidos".|Boolean|  
-|originalQuery|La cadena de consulta como se especifica en la solicitud.|string|  
+|originalQuery|La cadena de consulta como se especifica en la solicitud.|Cadena|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |-------------|-----------------|----------|
-|id|Identificador de recursos.|string|
+|id|Identificador de recursos.|Cadena|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define un grupo de resultados de la búsqueda grupo, como línea principal.
 
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |-------------|-----------------|----------|
 |items|Una lista de resultados de la búsqueda que se muestran en el grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define un elemento del resultado de la búsqueda que se muestra.
 
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Índice basado en cero del elemento en la respuesta que se muestra. Si el elemento no incluye este campo, muestre todos los elementos en la respuesta. Por ejemplo, muestre todos los artículos de noticias en la respuesta de News.|Entero|
-|answerType|La respuesta que contiene el elemento que se muestra. Por ejemplo, News.<br /><br />Use el tipo para encontrar la respuesta en el objeto SearchResponse. El tipo es el nombre de un campo de SearchResponse.<br /><br /> Sin embargo, ese el tipo de respuesta solo si el objeto incluye el campo de valor; de lo contario, omítalo.|string|
+|answerType|La respuesta que contiene el elemento que se muestra. Por ejemplo, News.<br /><br />Use el tipo para encontrar la respuesta en el objeto SearchResponse. El tipo es el nombre de un campo de SearchResponse.<br /><br /> Sin embargo, ese el tipo de respuesta solo si el objeto incluye el campo de valor; de lo contario, omítalo.|Cadena|
 |textualIndex|El índice de la respuesta en textualAnswers que se muestra.| Entero sin signo|
 |value|El identificador que identifica una respuesta que se muestra o un elemento de una respuesta que se muestra. Si el identificador identifica una respuesta, muestre todos los elementos de la respuesta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Define que lugar de la página de resultados de la búsqueda debe colocarse el contenido y en qué orden.  
   
-|NOMBRE|Value|  
+|NOMBRE|Valor|  
 |----------|-----------|  
 |<a name="ranking-mainline" />línea principal|Los resultados de la búsqueda se muestran en la línea principal.|  
 |<a name="ranking-pole" />polo|Los resultados de la búsqueda a los que se debe proporcionar el tratamiento más visible (por ejemplo, se muestran encima de la línea principal y la barra lateral).|  
@@ -254,19 +254,19 @@ Define el objeto de nivel superior que la respuesta incluye cuando la solicitud 
   
 Tenga en cuenta que si el servicio sospecha de un ataque de denegación de servicio, la solicitud se realizará correctamente (código de estado HTTP 200 OK); sin embargo, el cuerpo de la respuesta estará vacío.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|_type|Sugerencia de tipo, que se establece en SearchResponse.|string|  
+|_type|Sugerencia de tipo, que se establece en SearchResponse.|Cadena|  
 |WebPage|Un objeto JSON que define la versión preliminar|string|  
   
   
 ### <a name="textattribution"></a>TextAttribution  
 Define una regla contractual para la atribución de texto sin formato.  
   
-|NOMBRE|Value|Type|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
-|_type|Una sugerencia de tipo, que se establece en TextAttribution.|string|  
-|text|El texto de la atribución.<br /><br /> La atribución de texto se aplica a la entidad en conjunto y se debe mostrar inmediatamente después de la presentación de la entidad. Si hay varias reglas de atribución de texto o vínculos que no especifiquen un destino, debe concatenarlas y mostrarlas con una etiqueta "Datos de:".|string| 
+|_type|Una sugerencia de tipo, que se establece en TextAttribution.|Cadena|  
+|text|El texto de la atribución.<br /><br /> La atribución de texto se aplica a la entidad en conjunto y se debe mostrar inmediatamente después de la presentación de la entidad. Si hay varias reglas de atribución de texto o vínculos que no especifiquen un destino, debe concatenarlas y mostrarlas con una etiqueta "Datos de:".|Cadena| 
 
 
 ## <a name="error-codes"></a>Códigos de error

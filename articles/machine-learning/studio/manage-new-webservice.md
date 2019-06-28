@@ -1,7 +1,7 @@
 ---
 title: Administración de servicios web
 titleSuffix: Azure Machine Learning Studio
-description: Administrar los servicios de Machine Learning nuevos y Web clásicos mediante el portal de servicios Web de Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
+description: Administre los servicios web nuevos y clásicos de Machine Learning mediante el portal de servicios web de Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861742"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio

@@ -10,10 +10,10 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60929266"
 ---
 # <a name="my-first-python-runbook"></a>Mi primer runbook de Python
@@ -81,7 +81,7 @@ En este caso, no tiene una versión publicada aún porque acaba de crear el runb
 1. Haga clic en **Publicar** para publicar el runbook y en **Sí** cuando se le solicite.
 1. Si se desplaza a la izquierda para ver el runbook en el panel **Runbooks**, se muestra **Publicado** en **Estado de creación**.
 1. Desplácese de nuevo a la derecha para ver el panel de **MyFirstRunbook-Python**.
-   Las opciones en la parte superior nos permiten iniciar el runbook, ver el runbook, o programarlo para que se inicie en algún momento en el futuro.
+   Las opciones en la parte superior nos permiten iniciar el runbook, verlo o programarlo para que se inicie en algún momento en el futuro.
 2. Desea iniciar el runbook, así es que haga clic en **Iniciar** y, después, en **Aceptar** cuando se abra la hoja Iniciar Runbook.
 3. Se abre un panel de trabajo para el trabajo de runbook que acaba de crear. Puede cerrar este panel, pero en este caso déjelo abierto para que pueda ver el progreso del trabajo.
 1. El estado del trabajo se muestra en **Resumen del trabajo** y coincide con los estados que vio cuando probó el runbook.

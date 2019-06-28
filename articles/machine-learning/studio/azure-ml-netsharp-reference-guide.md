@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751675"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
@@ -89,17 +89,17 @@ Por ejemplo, la siguiente instrucción define una constante `x`:
 
 `Const X = 28;`
 
-Para definir simultáneamente dos o más constantes, escriba los valores y nombres del identificador entre llaves y sepárelos con punto y coma. Por ejemplo: 
+Para definir simultáneamente dos o más constantes, escriba los valores y nombres del identificador entre llaves y sepárelos con punto y coma. Por ejemplo:
 
 `Const { X = 28; Y = 4; }`
 
-La parte derecha de cada expresión de asignación puede ser un entero, un número real, un valor booleano (verdadero/falso) o una expresión matemática. Por ejemplo: 
+La parte derecha de cada expresión de asignación puede ser un entero, un número real, un valor booleano (verdadero/falso) o una expresión matemática. Por ejemplo:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Declaración de capas
 
-La declaración de capa es obligatoria. Define el tamaño y el origen de la capa, incluidos sus atributos y agrupaciones de conexión. La instrucción de la declaración empieza por el nombre de la capa (de entrada, oculta o de salida) seguida por las dimensiones de la capa (una tupla de enteros positivos). Por ejemplo: 
+La declaración de capa es obligatoria. Define el tamaño y el origen de la capa, incluidos sus atributos y agrupaciones de conexión. La instrucción de la declaración empieza por el nombre de la capa (de entrada, oculta o de salida) seguida por las dimensiones de la capa (una tupla de enteros positivos). Por ejemplo:
 
 ```Net#
 input Data auto;
@@ -450,7 +450,7 @@ output Digit [10] from Hid3 all;
 + La palabra clave `convolve` indica que las capas llamadas `Conv1` y `Conv2` son capas convolucionales. Cada una de estas declaraciones de capa está seguida por una lista de los atributos de convolución.
 + La red tiene una tercera capa oculta, `Hid3`, que está totalmente conectada a la segunda capa oculta, `Conv2`.
 + La capa de salida, `Digit`, está conectada solo a la tercera capa oculta, `Hid3`. La palabra clave `all` indica que la capa de salida está conectada por completo a `Hid3`.
-+ La aridad de la convolución es tres: la longitud de las tuplas `InputShape`, `KernelShape`, `Stride`, y `Sharing`.
++ La aridad de la convolución es tres: la longitud de las tuplas `InputShape`, `KernelShape`, `Stride` y `Sharing`.
 + El número de ponderaciones por kernel es `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. O `26 * 50 = 1300`.
 + Puede calcular los nodos en cada capa oculta del modo siguiente:
 

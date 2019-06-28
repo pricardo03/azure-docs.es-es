@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61296171"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Crear una imagen personalizada a partir de un archivo VHD
@@ -60,9 +60,9 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
 
 1. También puede escribir el nombre, la oferta y el publicador del plan si la imagen que se usa para crear la imagen personalizada no es una imagen con licencia (publicada por Microsoft).
 
-   - **Nombre del plan:** Escriba el nombre de la imagen de Marketplace (SKU) del que se crea esta imagen personalizada 
-   - **Plan de oferta:** Escriba el producto (oferta) de la imagen de Marketplace desde la que se crea esta imagen personalizada 
-   - **Publicador del plan:** Escriba el publicador de la imagen de Marketplace desde la que se crea esta imagen personalizada
+   - **Nombre del plan:** escriba el nombre de la imagen de Marketplace (SKU) a partir de la cual se crea esta imagen personalizada 
+   - **Oferta del plan:** especifique el producto (oferta) de la imagen de Marketplace a partir de la cual se crea esta imagen personalizada. 
+   - **Publicador del plan:** escriba el publicador de la imagen de Marketplace a partir de la cual se crea esta imagen personalizada.
 
    > [!NOTE]
    > Si la imagen que usa para crear una imagen personalizada **no** es una imagen con licencia, estos campos están vacíos y se pueden rellenar si así lo decide. Si la imagen **es** una imagen con licencia, los campos se rellenan automáticamente con la información del plan. Si intenta cambiarlos en este caso, aparecerá un mensaje de advertencia.

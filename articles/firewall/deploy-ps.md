@@ -1,19 +1,19 @@
 ---
-title: Implementar y configurar Firewall de Azure con Azure PowerShell
-description: En este artículo, aprenderá a implementar y configurar Firewall de Azure con Azure PowerShell.
+title: Implementación y configuración de Azure Firewall mediante Azure PowerShell
+description: En este artículo, aprenderá a implementar y configurar Azure Firewall mediante Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410240"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementar y configurar Firewall de Azure con Azure PowerShell
+# <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementación y configuración de Azure Firewall mediante Azure PowerShell
 
 El control del acceso de red saliente es una parte importante de un plan de seguridad de red de ámbito general. Por ejemplo, es posible que desee limitar el acceso a sitios web. O bien, que desee limitar las direcciones IP de salida y los puertos a los que se puede acceder.
 
@@ -42,13 +42,13 @@ En este artículo, aprenderá a:
 > * Configuración de una regla de red para permitir el acceso a los servidores DNS externos
 > * Probar el firewall
 
-Si lo prefiere, puede completar este procedimiento mediante la [portal Azure](tutorial-firewall-deploy-portal.md).
+Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure Portal](tutorial-firewall-deploy-portal.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Este procedimiento requiere que PowerShell se ejecuta localmente. Debe tener instalados el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Después de verificar la versión de PowerShell, ejecute `Connect-AzAccount` para crear una conexión con Azure.
+En este procedimiento es necesario ejecutar PowerShell de forma local. Debe tener instalados el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Después de verificar la versión de PowerShell, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="set-up-the-network"></a>Configuración de la red
 
@@ -56,7 +56,7 @@ En primer lugar, cree un grupo de recursos para que contenga los recursos necesa
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-El grupo de recursos contiene todos los recursos para la implementación.
+El grupo de recursos contiene todos los recursos necesarios para la implementación.
 
 ```azurepowershell
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
@@ -75,7 +75,7 @@ $Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.
 > [!NOTE]
 > El tamaño mínimo de la subred AzureFirewallSubnet es /26.
 
-Ahora, cree la red virtual:
+Ahora cree la red virtual:
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquelas en las subredes adecuadas.
 Cuando se le solicite, escriba el nombre de usuario y la contraseña de la máquina virtual.
 
-Cree la máquina virtual de Jump-Srv.
+Cree la máquina virtual Srv-Jump.
 
 ```azurepowershell
 New-AzVm `
@@ -100,7 +100,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-Cree una máquina virtual de carga de trabajo con ninguna dirección IP pública.
+Cree una máquina virtual de carga de trabajo sin ninguna dirección IP pública.
 Cuando se le solicite, escriba el nombre de usuario y la contraseña de la máquina virtual.
 
 ```azurepowershell
@@ -120,7 +120,7 @@ New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -
 
 ## <a name="deploy-the-firewall"></a>Implementación del firewall
 
-Ahora puede implementar el servidor de seguridad en la red virtual.
+Ahora, implemente el firewall en la red virtual.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -139,7 +139,7 @@ Anote la dirección IP privada. Se usará más adelante al crear la ruta predete
 
 ## <a name="create-a-default-route"></a>Crear una ruta predeterminada
 
-Crear una tabla, con la propagación del enrutamiento BGP deshabilitada
+Creación de una tabla con la propagación de la ruta BGP deshabilitada
 
 ```azurepowershell
 $routeTableDG = New-AzRouteTable `
@@ -202,7 +202,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Cambio de la dirección DNS principal y secundaria para la interfaz de red **Srv-Work**
 
-Con fines de prueba en este procedimiento, configure las direcciones del servidor principales y secundarias DNS. Esto no es un requisito general de Azure Firewall.
+Con fines de prueba para este procedimiento, configure las direcciones DNS principal y secundaria del servidor. Esto no es un requisito general de Azure Firewall.
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -214,22 +214,22 @@ $NIC | Set-AzNetworkInterface
 
 Ahora, pruebe el firewall para confirmar que funciona según lo previsto.
 
-1. Tenga en cuenta la dirección IP privada para el **Srv trabajo** máquina virtual:
+1. Anote la dirección IP privada de la máquina virtual **Srv-Work**:
 
    ```
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. Conecte un escritorio remoto a la máquina virtual **Srv-Jump** e inicie sesión. Desde ahí, abra una conexión a escritorio remota para el **Srv trabajo** dirección IP privada y el inicio de sesión.
+1. Conecte un escritorio remoto a la máquina virtual **Srv-Jump** e inicie sesión. Desde ahí, abra una conexión del escritorio remoto a la dirección IP privada de **Srv-Work** e inicie sesión.
 
-3. En **SRV trabajo**, abra una ventana de PowerShell y ejecute los siguientes comandos:
+3. En **SRV-Work**, abra una ventana de PowerShell y ejecute los comandos siguientes:
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Ambos comandos deben devolver respuestas, que muestra que obtienen las consultas DNS a través del firewall.
+   Ambos comandos deben devolver respuestas en las que se muestre que sus consultas de DNS están pasando por el firewall.
 
 1. Ejecute los comandos siguientes:
 
@@ -241,7 +241,7 @@ Ahora, pruebe el firewall para confirmar que funciona según lo previsto.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Deben ejecutarse correctamente las solicitudes www.google.com y deben generar un error en las solicitudes de www.microsoft.com. Esto demuestra que las reglas de firewall están funcionando según lo previsto.
+   Las solicitudes de www.google.com deberían realizarse correctamente, mientras que las solicitudes de www.microsoft.com deberían dar error. Esto demostraría que las reglas de firewall están funcionando según lo previsto.
 
 Con ello, ha comprobado que las reglas de firewall funcionan:
 
@@ -250,7 +250,7 @@ Con ello, ha comprobado que las reglas de firewall funcionan:
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Puede mantener los recursos de servidor de seguridad para el tutorial siguiente, o si ya no es necesario, elimine el **Test-FW-RG** grupo de recursos para eliminar todos los recursos relacionados con el firewall:
+Puede conservar los recursos relacionados con el firewall para el siguiente tutorial o, si ya no los necesita, eliminar el grupo de recursos **Test-FW-RG** para eliminarlos todos:
 
 ```azurepowershell
 Remove-AzResourceGroup -Name Test-FW-RG

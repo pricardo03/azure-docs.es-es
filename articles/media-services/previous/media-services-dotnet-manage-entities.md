@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61235432"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Media Services para .NET
@@ -29,7 +29,7 @@ ms.locfileid: "61235432"
 > 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 En este tema se muestra cómo administrar entidades de Azure Media Services con. NET.
 
@@ -203,7 +203,7 @@ Para obtener más información sobre las opciones de entrega de recursos, consul
 ```
 
 ## <a name="list-all-access-policies"></a>Lista de todas las directivas de acceso
-En Media Services, puede definir una directiva de acceso en un recurso o sus archivos. Una directiva de acceso define los permisos de un archivo o un recurso (tipo de acceso y la duración). En el código de Media Services, normalmente se define una directiva de acceso mediante la creación de un objeto IAccessPolicy y, a continuación, su asociación a un recurso existente. A continuación, cree un objeto ILocator, que le permite proporcionar acceso directo a los recursos de Media Services. El proyecto de Visual Studio que acompaña a esta serie de documentación contiene varios ejemplos de código que muestran cómo crear y asignar directivas de acceso y localizadores a los activos.
+En Media Services, puede definir una directiva de acceso en un recurso o sus archivos. Una directiva de acceso define los permisos de un archivo o un recurso (tipo de acceso y la duración). En el código de Media Services, normalmente se define una directiva de acceso mediante la creación de un objeto IAccessPolicy y, a continuación, su asociación a un recurso existente. A continuación, cree un objeto ILocator, que permite proporcionar acceso directo a los recursos de Media Services. El proyecto de Visual Studio que acompaña a esta serie de documentación contiene varios ejemplos de código que muestran cómo crear y asignar directivas de acceso y localizadores a los activos.
 
 En el ejemplo de código siguiente se muestra cómo enumerar todas las directivas de acceso del servidor y se muestra el tipo de permisos asociado a cada uno. Otra manera útil para ver las directivas de acceso es enumerar todos los objetos de ILocator en el servidor y, a continuación, para cada localizador, puede enumerar su directiva de acceso asociada mediante su propiedad AccessPolicy.
 

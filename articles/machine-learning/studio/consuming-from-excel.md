@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
 ms.openlocfilehash: ef1d8f1a72c5936ff661636c4c51acf439a0a5ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773797"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Consumir un servicio web de Azure Machine Learning Studio en Excel
@@ -34,7 +34,7 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
 
 1. En la pestaña **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** de esa fila.
 
-    ![Descargue el libro de Excel mediante el portal de servicios Web de Studio](./media/consuming-from-excel/excellink.png)
+    ![Descarga del libro de Excel mediante el portal de servicio web de Studio](./media/consuming-from-excel/excellink.png)
 2. Haga clic en **Descargar el libro de Excel**.
 
 **Servicio web nuevo**
@@ -47,13 +47,13 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
 1. Abra el libro.
 2. Aparecerá una advertencia de seguridad; haga clic en el botón **Habilitar edición** .
 
-    ![Habilitar la edición quitar la advertencia de seguridad de la vista protegida](./media/consuming-from-excel/enableeditting.png)
+    ![Habilitar la edición para quitar la advertencia de seguridad de la vista protegida](./media/consuming-from-excel/enableeditting.png)
 3. Aparecerá una advertencia de seguridad. Haga clic en el botón **Habilitar contenido** para ejecutar macros en la hoja de cálculo.
 
-    ![Habilitar el contenido descartar la advertencia de seguridad que se deshabilitan las macros](./media/consuming-from-excel/enablecontent.png)
+    ![Habilitar el contenido para descartar la advertencia de seguridad que deshabilita las macros](./media/consuming-from-excel/enablecontent.png)
 4. Una vez que las macros están habilitadas, se generará una tabla. Las columnas en azul son necesarias como entrada al servicio web RRS, o como **PARÁMETROS**. Tenga en cuenta la salida del servicio RRS, los **VALORES PREDICHOS** en verde. Cuando se llenan todas las columnas de una fila determinada, el libro llama a la API de puntuación automáticamente y muestra los resultados con puntuación.
 
-    ![Tabla de entradas de parámetro y resultante valores predichos](./media/consuming-from-excel/sampletable.png)
+    ![Tabla para entradas de parámetro y valores predichos resultantes](./media/consuming-from-excel/sampletable.png)
 5. Para puntuar más de una fila, rellene la segunda fila con datos y se generarán los valores predichos. Incluso puede pegar varias filas a la vez.
 
 Puede utilizar cualquiera de las funciones de Excel (gráficos, asignación de energía, formato condicional, etc.) con los valores de predicción como ayuda para visualizar los datos.

@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 03/15/2019
+ms.date: 10/09/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350497"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect y la federación
@@ -37,7 +36,7 @@ Este tema constituye la principal referencia de las funcionalidades relacionadas
 | **Instalación de AD FS mediante Azure AD Connect** | |
 | [Requisitos previos](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Consulte los requisitos previos para una correcta instalación de AD FS a través de Azure AD Connect. |
 | [Configuración de una granja de servidores de AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Instale una nueva granja de servidores de AD FS mediante Azure AD Connect. |
-| [Federación con Azure AD mediante el identificador de inicio de sesión alternativo](how-to-connect-fed-management.md#alternateid) | Configuración de la federación con un identificador de inicio de sesión alternativo  |
+| [Federación con Azure AD mediante un identificador de inicio de sesión alternativo](how-to-connect-fed-management.md#alternateid) | Configuración de la federación con un identificador de inicio de sesión alternativo  |
 | **Modificación de la configuración de AD FS** | |
 | [Reparación de la confianza](how-to-connect-fed-management.md#repairthetrust) |Repare la confianza actual entre AD FS local y Office 365 o Azure. |
 | [Adición de un nuevo servidor de AD FS](how-to-connect-fed-management.md#addadfsserver) |Expansión de la granja de servidores de AD FS con un servidor de AD FS adicional después de la instalación inicial. |
@@ -56,5 +55,3 @@ Este tema constituye la principal referencia de las funcionalidades relacionadas
 * [Federación de dos instancias de Azure AD con una instancia única de AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [Implementación de AD FS en Azure](how-to-connect-fed-azure-adfs.md)
 * [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-<!-- Update_Description: update metedata properties -->

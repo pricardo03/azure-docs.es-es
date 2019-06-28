@@ -1,6 +1,6 @@
 ---
-title: Solución de supervisión de contenedores en Azure Monitor | Microsoft Docs
-description: La solución de supervisión de contenedores en Azure Monitor le ayuda a ver y administrar Windows y Docker hosts de contenedores en una sola ubicación.
+title: Solución de supervisión de contenedores en Azure Monitor | Microsoft Docs
+description: La solución de supervisión de contenedores de Azure Monitor le ayuda a ver y administrar los hosts de contenedores de Docker y Windows en una sola ubicación.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60496210"
 ---
-# <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
+# <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
 
 ![Símbolo de Containers](./media/containers/containers-symbol.png)
 
-Este artículo describe cómo configurar y usar la solución de supervisión de contenedores en Azure Monitor, que le permite ver y administrar Windows y Docker hosts de contenedores en una sola ubicación. Docker es un sistema de virtualización de software que usa para crear contenedores que automatizan la implementación de software en su infraestructura de TI.
+En este artículo se describe cómo configurar y usar la solución de supervisión de contenedores de Azure Monitor, que le permite ver y administrar los hosts de contenedores de Docker y Windows en una sola ubicación. Docker es un sistema de virtualización de software que usa para crear contenedores que automatizan la implementación de software en su infraestructura de TI.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -38,7 +38,7 @@ La solución muestra qué contenedores están en ejecución, qué imagen de cont
 
 Si está interesado en supervisar el rendimiento de las cargas de trabajo implementadas en entornos de Kubernetes hospedado en Azure Kubernetes Service (AKS), consulte [Monitor Azure Kubernetes Service](../../azure-monitor/insights/container-insights-overview.md) (Supervisión de Azure Kubernetes Service). La solución de supervisión de contenedores no incluye compatibilidad con la supervisión de esa plataforma.  
 
-El siguiente diagrama muestra las relaciones entre varios hosts de contenedor y los agentes con Azure Monitor.
+En el siguiente diagrama se muestran las relaciones entre varios hosts y agentes de contenedor con Azure Monitor.
 
 ![Diagrama de contenedores](./media/containers/containers-diagram.png)
 
@@ -47,9 +47,9 @@ El siguiente diagrama muestra las relaciones entre varios hosts de contenedor y 
 Antes de comenzar, revise los detalles siguientes para comprobar que cumple los requisitos previos.
 
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Compatibilidad con solución de supervisión de contenedores para el orquestador y la plataforma de sistema operativo de Docker
-En la tabla siguiente se describe el soporte técnico de inventario de contenedor, el rendimiento y registros de supervisión con Azure Monitor del sistema operativo y orquestación de Docker.   
+En este artículo, los espacios de direcciones de red virtual de radio son 10.0.2.0/24 y 10.0.3.0/24.En la tabla siguiente se hace un resumen de la compatibilidad de supervisión del sistema operativo y la orquestación de Docker con el inventario, el rendimiento y el registro de contenedores con Azure Monitor.   
 
-| | ACS | Linux |  Windows | Contenedor<br>Inventario | Imagen<br>Inventario | Nodo<br>Inventario | Contenedor<br>Rendimiento | Contenedor<br>Evento | Evento<br>Registro | Contenedor<br>Registro |
+| | ACS | Linux | Windows | Contenedor<br>Inventario | Imagen<br>Inventario | Nodo<br>Inventario | Contenedor<br>Rendimiento | Contenedor<br>Evento | Evento<br>Registro | Contenedor<br>Registro |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -97,22 +97,22 @@ En la tabla siguiente se describe el soporte técnico de inventario de contenedo
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
-1. Agregue la solución de supervisión de contenedores al área de trabajo de Log Analytics [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o mediante el proceso descrito en [agregar soluciones desde la Galería de soluciones de supervisión](../../azure-monitor/insights/solutions.md).
+1. Agregue la solución de supervisión de contenedores al área de trabajo de Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [adición de soluciones desde la Galería de soluciones](../../azure-monitor/insights/solutions.md).
 
 2. Instale y use Docker con un agente de Log Analytics. En función de su sistema operativo y del orquestador de Docker, puede usar los métodos siguientes para configurar el agente.
    - Para hosts independientes:
      - En sistemas operativos compatibles con Linux, instale y ejecute Docker y, después, instale y configure el [Agente de Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
      - En CoreOS, no se puede ejecutar el agente de Log Analytics para Linux. En su lugar, ejecute una versión en contenedores del agente de Log Analytics para Linux. Examine los hosts de contenedores de Linux, incluido CoreOS, o los hosts de contenedores de Azure Government Linux, incluido CoreOS, si va a trabajar con contenedores en la nube de Azure Government.
-     - En Windows Server 2016 y Windows 10, instale el cliente y el motor de Docker, a continuación, conecte un agente para recopilar información y enviarla a Azure Monitor. Consulte [Instalación y configuración de hosts de contenedor de Windows](#install-and-configure-windows-container-hosts) si tiene un entorno Windows.
+     - En Windows Server 2016 y Windows 10, instale el cliente de Docker y Docker Engine y luego conecte un agente para recopilar información y enviarla a Azure Monitor. Consulte [Instalación y configuración de hosts de contenedor de Windows](#install-and-configure-windows-container-hosts) si tiene un entorno Windows.
    - Para la orquestación de múltiples hosts de Docker:
      - Si tiene un entorno Red Hat OpenShift, vea Configuración de un agente de Log Analytics para Red Hat OpenShift.
      - Si tiene un clúster de Kubernetes con Azure Container Service:
        - Vea [Configurar un agente de Linux de Log Analytics para Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Vea [Configurar un agente de Windows de Log Analytics para Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Vea Uso de Helm para implementar un agente de Log Analytics en Linux Kubernetes.
-     - Si tiene un clúster de DC/OS de Azure Container Service, obtenga más información en [supervisión de un clúster de DC/OS de Azure Container Service con Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Si tiene un clúster DC/OS de Azure Container Service, obtenga más información en el artículo sobre [supervisión de un clúster de DC/OS de Azure Container Service con Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
      - Si tiene un entorno en modo Docker Swarm, obtenga más información en Configuración de un agente de Log Analytics para Docker Swarm.
-     - Si tiene un clúster de Service Fabric, obtenga más información en [supervisar contenedores con Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+     - Si tiene un clúster de Service Fabric, obtenga más información en el artículo sobre [supervisión de contenedores con Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Revise el artículo [Docker Engine en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obtener información adicional sobre cómo instalar y configurar Docker Engine en equipos con Windows.
 
@@ -192,12 +192,12 @@ Hay tres formas de agregar el agente de Log Analytics a Red Hat OpenShift para e
 
 * [Instalar el agente de Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) directamente en cada nodo de OpenShift  
 * [Habilitar la extensión de máquina virtual de Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) en cada nodo de OpenShift que reside en Azure  
-* Instale al agente de Log Analytics como un daemon-set de OpenShift  
+* Instalación del agente de Log Analytics como daemon-set de OpenShift  
 
 En esta sección, se describen los pasos necesarios para instalar al agente de Log Analytics como daemon-set de OpenShift.  
 
 1. Inicie sesión en el nodo maestro de OpenShift y copie el archivo yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) de GitHub en el nodo maestro y modifique el valor con el identificador del área de trabajo de Log Analytics y con la clave principal.
-2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario.
+2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -236,7 +236,7 @@ En esta sección, se describen los pasos necesarios para instalar al agente de L
 Siga este procedimiento si quiere usar secretos para proteger el identificador y la clave principal del área de trabajo de Log Analytics al usar el archivo yaml de daemon-set del agente de Log Analytics.
 
 1. Inicie sesión en el nodo principal de OpenShift y copie el archivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) y el script de generación de secretos [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) de GitHub.  Este script genera el archivo yaml de secretos para el identificador y la clave principal del área de trabajo de Log Analytics para proteger su información secreta.  
-2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador `<WSID>` y la clave principal `<KEY>` del área de trabajo de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
+2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador `<WSID>` y la clave principal `<KEY>` del área de trabajo de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -494,11 +494,11 @@ Use la información de la sección para instalar y configurar hosts de contenedo
 
 #### <a name="preparation-before-installing-windows-agents"></a>Preparación antes de instalar agentes de Windows
 
-Antes de instalar agentes en equipos con Windows, debe configurar el servicio Docker. La configuración permite que el agente de Windows o la extensión de máquina virtual de Azure Monitor para usar el socket de TCP de Docker para que los agentes puedan acceder el demonio de Docker de forma remota y para capturar datos para la supervisión.
+Antes de instalar agentes en equipos con Windows, debe configurar el servicio Docker. La configuración permite que el agente de Windows o la extensión de máquina virtual de Azure Monitor utilice el socket TCP de Docker para que los agentes puedan acceder al demonio de Docker de forma remota y capturar datos para supervisión.
 
-##### <a name="to-configure-the-docker-service"></a>Para configurar el servicio de Docker  
+##### <a name="to-configure-the-docker-service"></a>Para configurar el servicio Docker  
 
-Realice los siguientes comandos de PowerShell para habilitar la canalización TCP y canalizaciones con nombre para Windows Server:
+Ejecute los siguientes comandos de PowerShell para habilitar la canalización TCP y canalizaciones con nombre en Windows Server:
 
 ```
 Stop-Service docker
@@ -512,7 +512,7 @@ Para más información sobre la configuración del demonio de Docker usada con c
 
 #### <a name="install-windows-agents"></a>Instalación de agentes de Windows
 
-Para habilitar la supervisión de contenedores de Hyper-V y Windows, instale Microsoft Monitoring Agent (MMA) en equipos Windows que sean hosts de contenedores. Para equipos que ejecutan Windows en su entorno local, consulte [equipos Windows conectarse a Azure Monitor](../../azure-monitor/platform/agent-windows.md). Para las máquinas virtuales que se ejecutan en Azure, conéctelas al uso de Azure Monitor el [extensión de máquina virtual](../../azure-monitor/learn/quick-collect-azurevm.md).
+Para habilitar la supervisión de contenedores de Hyper-V y Windows, instale Microsoft Monitoring Agent (MMA) en equipos Windows que sean hosts de contenedores. Para equipos con Windows en su entorno local, consulte el artículo sobre [conexión de equipos Windows a Azure Monitor](../../azure-monitor/platform/agent-windows.md). En máquinas virtuales que se ejecutan en Azure, conéctelas a Azure Monitor mediante la [extensión de máquina virtual](../../azure-monitor/learn/quick-collect-azurevm.md).
 
 Puede supervisar los contenedores de Windows que se ejecutan en Service Fabric. Sin embargo, actualmente solo las [máquinas virtuales que se ejecutan en Azure](../../azure-monitor/learn/quick-collect-azurevm.md) y en [equipos Windows de su entorno local](../../azure-monitor/platform/agent-windows.md) son compatibles con Service Fabric.
 
@@ -555,7 +555,7 @@ Las etiquetas que se anexan a los tipos de datos *PodLabel* son sus propias etiq
 
 
 ## <a name="monitor-containers"></a>Supervisión de contenedores
-Una vez que tenga habilitada la solución en Azure portal, la **contenedores** icono muestra información resumida sobre los hosts de contenedores y los contenedores que se ejecutan en hosts.
+Una vez habilitada la solución en Azure Portal, el icono **Contenedores** muestra la información de resumen de los hosts de contenedores y de los contenedores en ejecución en los hosts.
 
 
 ![Icono de Containers](./media/containers/containers-title.png)
@@ -588,11 +588,11 @@ En el área **Estado del contenedor**, haga clic en la parte superior, como se m
 
 ![Estado de los contenedores](./media/containers/containers-status.png)
 
-Log Analytics se abre, muestra información sobre el estado de los contenedores.
+Se abre Log Analytics, con información sobre el estado de los contenedores.
 
-![Análisis de registros para contenedores](./media/containers/containers-log-search.png)
+![Log Analytics para contenedores](./media/containers/containers-log-search.png)
 
-Desde aquí, puede editar la consulta de búsqueda para modificarla y encontrar la información específica que le interesa. Para obtener más información acerca de las consultas de registro, consulte [registro las consultas en Azure Monitor](../log-query/log-query-overview.md).
+Desde aquí, puede editar la consulta de búsqueda para modificarla y encontrar la información específica que le interesa. Para obtener más información sobre las consultas de registro, consulte el artículo sobre [consultas de registro en Azure Monitor](../log-query/log-query-overview.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Solución de problemas mediante la búsqueda de un contenedor con error
 
@@ -601,16 +601,16 @@ Log Analytics marca un contenedor como **Failed** (Error) si ha terminado con un
 ### <a name="to-find-failed-containers"></a>Para buscar contenedores con errores
 1. Haga clic en el área **Estado del contenedor**.  
    ![estado de los contenedores](./media/containers/containers-status.png)
-2. Log Analytics se abre y muestra el estado de los contenedores, similares al siguiente.  
+2. Log Analytics se abre y muestra el estado de los contenedores, de forma similar a lo siguiente.  
    ![estado de los contenedores](./media/containers/containers-log-search.png)
-3. Expanda la línea de error y haga clic en + para agregar sus criterios de la consulta. A continuación, marque como comentario la línea de resumen en la consulta.
+3. Expanda la línea Erróneo y haga clic en + para agregar sus criterios a la consulta. Marque como comentario la línea Resumir de la consulta.
    ![contenedores con errores](./media/containers/containers-state-failed-select.png)  
-1. Ejecute la consulta y, a continuación, expanda una línea en los resultados para ver el identificador de la imagen.  
+1. Ejecute la consulta y expanda una línea de los resultados para ver el identificador de la imagen.  
    ![contenedores con errores](./media/containers/containers-state-failed.png)  
 1. Escriba lo siguiente en la consulta de registro. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalles de la imagen como tamaño de la imagen y el número de imágenes detenidas y con error.  
    ![contenedores con errores](./media/containers/containers-failed04.png)
 
-## <a name="query-logs-for-container-data"></a>Consultas de registros de datos del contenedor
+## <a name="query-logs-for-container-data"></a>Consulta de registros de datos de contenedor
 Cuando está solucionando un error específico, puede resultar de ayuda ver dónde se está produciendo en su entorno. Los siguientes tipos de registro le ayudarán a crear consultas que devuelven la información que desea.
 
 
@@ -624,11 +624,11 @@ Cuando está solucionando un error específico, puede resultar de ayuda ver dón
 - **KubePodInventory_CL** use este tipo cuando desee conocer la información de la jerarquía del clúster.
 
 
-### <a name="to-query-logs-for-container-data"></a>Consultas de registros de datos del contenedor
+### <a name="to-query-logs-for-container-data"></a>Para consultar registros de datos de contenedor
 * Elija una imagen que sabe que ha tenido errores recientemente y busque los registros de errores de ella. Para empezar, busque un nombre de contenedor que esté ejecutando esa imagen con una búsqueda **ContainerInventory**. Por ejemplo, busque `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`.  
     ![Búsqueda de contenedores de Ubuntu](./media/containers/search-ubuntu.png)
 
-  Expanda cualquier fila de los resultados para ver los detalles de ese contenedor.
+  Expanda cualquier fila de los resultados para ver los detalles del contenedor.
 
 
 ## <a name="example-log-queries"></a>Consultas de registro de ejemplo
@@ -637,10 +637,10 @@ Suele resultar útil crear consultas a partir de un ejemplo o dos y modificarlas
 ![Consultas de contenedores](./media/containers/containers-queries.png)
 
 
-## <a name="saving-log-queries"></a>Guardar consultas de registro
-Guardado de consultas es una característica estándar de Azure Monitor. Guárdelas para volver a usar en el futuro aquellas que haya encontrado más útiles.
+## <a name="saving-log-queries"></a>Guardado de consultas de registro
+El guardado de consultas es una característica estándar de Azure Monitor. Guárdelas para volver a usar en el futuro aquellas que haya encontrado más útiles.
 
 Después de crear una consulta que encuentre útil, guárdela haciendo clic en **Favoritos** en la parte superior de la página Búsqueda de registros. Podrá volver a acceder fácilmente a ella más adelante desde la página **Mi panel**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Consultar registros](../log-query/log-query-overview.md) para ver los registros de datos detallados del contenedor.
+* [Consulta de registros](../log-query/log-query-overview.md), para ver los registros de datos detallados de los contenedores.

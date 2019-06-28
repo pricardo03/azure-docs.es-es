@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Creación de Unity con Azure anclajes espaciales
+title: "Compilación en Unity con Azure\_Spatial\_Anchors"
 metadata:
   document_id: null
-  title: Introducción a Azure de Unity de delimitadores espaciales | Microsoft Docs
+  title: "Información general de Unity con Azure\_Spatial\_Anchors | Microsoft\_Docs"
   meta.description: Learn how Azure Spatial Anchors can be used within Unity Apps.
   services: azure-spatial-anchors
   author: rgarcia
@@ -18,7 +18,7 @@ sections:
   - title: null
     items:
       - type: paragraph
-        text: 'Los desarrolladores pueden elegir Unity para crear e implementar aplicaciones de realidad mixta que utilizan Azure espacial delimitadores. Se admiten las siguientes plataformas:'
+        text: "Los desarrolladores pueden elegir Unity para crear e implementar aplicaciones de realidad mixta que utilizan Azure\_Spatial\_Anchors. Se admiten las siguientes plataformas:"
       - type: list
         style: icon48
         items:

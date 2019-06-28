@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726815"
 ---
 # <a name="actor-timers-and-reminders"></a>Recordatorios y temporizadores de los actores
@@ -167,7 +167,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-En este ejemplo, `"Pay cell phone bill"` es el nombre del recordatorio. Se trata de una cadena que el actor usa para identificar un recordatorio de forma única. `BitConverter.GetBytes(amountInDollars)`(C#) es el contexto que está asociado con el recordatorio. Se pasará al actor como argumento a la devolución de llamada de recordatorio, es decir `IRemindable.ReceiveReminderAsync`(C#) o `Remindable.receiveReminderAsync`(Java).
+En este ejemplo, `"Pay cell phone bill"` es el nombre del recordatorio. Se trata de una cadena que el actor usa para identificar un recordatorio de forma única. `BitConverter.GetBytes(amountInDollars)`(C#) es el contexto que está asociado con el recordatorio. Se pasará al actor como un argumento en la devolución de llamada del recordatorio, es decir, `IRemindable.ReceiveReminderAsync`(C#) o `Remindable.receiveReminderAsync`(Java).
 
 Los actores que usan recordatorios deben implementar la interfaz `IRemindable` , tal y como se muestra en el ejemplo siguiente.
 

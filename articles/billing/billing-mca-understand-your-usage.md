@@ -1,6 +1,6 @@
 ---
-title: Descripción de los términos en los CSV de cargos y el uso de Azure para un contrato de cliente de Microsoft | Microsoft Docs
-description: Obtenga información sobre cómo leer y entender las secciones del uso de Azure y los cargos de CSV para el perfil de facturación
+title: Descripción de los términos en el archivo CSV de cargos y de uso de Azure para un contrato de cliente de Microsoft | Microsoft Docs
+description: Aprenda a leer y entender las secciones del archivo de cargos y de uso de Azure para el perfil de facturación
 services: ''
 documentationcenter: ''
 author: bandersmsft
@@ -15,28 +15,28 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371315"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Descripción de los términos en los CSV de cargos y el uso de Azure para un contrato de cliente de Microsoft
+# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Descripción de los términos en el archivo CSV de cargos y de uso de Azure para un contrato de cliente de Microsoft
 
-En este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artículo se aplica a una cuenta de facturación para un contrato de cliente de Microsoft. [Compruebe si tiene acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-El archivo CSV de uso y los cargos de Azure contiene los cargos de nivel de uso diario y por medidor del período de facturación actual.
+El archivo CSV de cargos y de uso de Azure contiene los cargos por uso diario y por medidor del periodo de facturación actual.
 
-Para obtener el archivo de uso y los cargos de Azure, consulte [ver y descargar uso de Azure y los cargos de su contrato de cliente de Microsoft](billing-download-azure-daily-usage.md).
+Para obtener el archivo de cargos y de uso de Azure, consulte [Visualización y descarga de cargos y de uso de Azure del contrato de cliente de Microsoft](billing-download-azure-daily-usage.md).
 Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo.
 
 Los cargos de uso son los cargos **mensuales** totales de una suscripción. Los cargos de uso no tienen en cuenta los créditos o descuentos.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Cambios en el CSV de cargos y el uso de Azure para contratos Enterprise
+## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Cambios en el CSV de cargos y de uso de Azure para el Contrato Enterprise
 
-Si fuese un cliente EA, observará que los términos en el perfil de facturación archivo CSV de uso de Azure son diferentes de los términos en el archivo CSV de uso de EA Azure. Esta es una asignación de términos de uso EA en términos de uso de perfil de facturación:
+Si era cliente de Contrato Enterprise, observará que los términos del archivo CSV de uso de Azure del perfil de facturación son diferentes de los términos del archivo CSV de uso de Azure para Contrato Enterprise. A continuación se muestra una asignación de los términos de uso del Contrato Enterprise a los términos de uso del perfil de facturación:
 
-| Uso de Azure EA CSV | Uso de contrato de cliente de Microsoft Azure y los cargos de CSV |
+| CSV de uso de Azure para Contrato Enterprise | CSV de cargos y de uso de Azure para el contrato de cliente de Microsoft |
 | --- | --- |
 | Date | date |
 | Mes| date |
@@ -44,94 +44,94 @@ Si fuese un cliente EA, observará que los términos en el perfil de facturació
 | Year | date |
 | Producto | product |
 | Id. del medidor | meterID |
-| Categoría del medidor | meterCategory |
-| Subcategoría del medidor | meterSubCategory |
-| Región del medidor | meterRegion |
-| Nombre del medidor | meterName |
+| MeterCategory | meterCategory |
+| MeterSubCategory | meterSubCategory |
+| MeterRegion | meterRegion |
+| MeterName | meterName |
 | ConsumedQuantity | quantity |
-| Tasa de recursos | effectivePrice | <!-- this was highlighted -->
-| Coste ampliado | cost |
-| Ubicación de los recursos | resourceLocation |
-| Servicio consumido | consumedService |
+| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ExtendedCost | cost |
+| ResourceLocation | resourceLocation |
+| ConsumedService | consumedService |
 | InstanceId | instanceId |
-| Información del servicio 1 | serviceInfo1 |
-| Información del servicio 2 | serviceInfo2 |
-| Información adicional | additionalInfo |
+| ServiceInfo1 | serviceInfo1 |
+| ServiceInfo2 | serviceInfo2 |
+| AdditionalInfo | additionalInfo |
 | Etiquetas | etiquetas |
-| Identificador del servicio del almacén | N/D |
+| StoreServiceIdentifier | N/D |
 | DepartmentName | invoiceSection | <!-- this was highlighted -->
 | CostCenter | costCenter |
-| Unidad de medida | unidad de medida |
+| UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
 | ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
 
 <!-- TO DO: Marketplace CSV? -->
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Términos y descripciones de los archivos de Azure de uso y los cargos detallados
+## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Términos y descripciones detallados del archivo de cargos y de uso de Azure
 
-La siguiente sección describe los términos importantes que se muestra en el archivo de uso y los cargos de Azure.
+En la sección siguiente se describen los términos importantes que se muestran en el archivo de cargos y de uso de Azure.
 
 Término | DESCRIPCIÓN
 --- | ---
-invoiceId | El identificador único del documento aparecen en la factura PDF
-previousInvoiceId | Referencia a una factura original si este elemento es un reembolso
+invoiceId | Identificador único del documento mostrado en el PDF de la factura
+previousInvoiceId | Referencia a una factura original si este elemento de línea es un reembolso
 billingAccountName | Nombre de la cuenta de facturación
-billingAccountId | Identificador único para la raíz de la cuenta de facturación
-billingProfileId | Nombre del perfil de facturación que se acumularán los cargos que se facturan
-billingProfileName | Identificador único para el perfil de facturación que se acumularán los cargos que se facturan
-invoiceSectionId | Identificador único para la sección de factura
-invoiceSectionName | Nombre de la sección de factura
-costCenter | El centro de costo definido en la suscripción para el seguimiento de los costos (disponibles solo en períodos de facturación abiertos)
-billingPeriodStartDate | La fecha de inicio del período de facturación para el que se genera la factura
-billingPeriodEndDate | La fecha de finalización del período de facturación para el que se genera la factura
-servicePeriodStartDate | La fecha de inicio del período de evaluación que tiene definido y bloquea los precios del servicio consumido o adquirido
-servicePeriodEndDate | La fecha de finalización del período de evaluación que tiene definido y bloquea los precios del servicio consumido o adquirido
-date | Para Azure y Marketplace cargos de basada en uso, esta es la fecha de clasificación. Para las compras de un solo uso (las reservas de direcciones, Marketplace) o los cargos periódicos fijos (ofertas de soporte técnico), esta es la fecha de compra.
-serviceFamily | Familia de servicio que pertenece el servicio
-productOrderId | Identificador único para el pedido de producto
-productOrderName | Nombre único para el pedido de producto
+billingAccountId | Identificador único de la cuenta raíz
+billingProfileId | Nombre del perfil de facturación que acumulará los cargos que se facturan
+billingProfileName | Identificador único para el perfil de facturación que acumulará los cargos que se facturan
+invoiceSectionId | Identificador único de la sección de facturas
+invoiceSectionName | Nombre de la sección de facturas
+costCenter | Centro de coste definido en la suscripción para el seguimiento de los costos (disponible solo en períodos de facturación abiertos)
+billingPeriodStartDate | Fecha de inicio del período de facturación para el que se genera la factura
+billingPeriodEndDate | Fecha de finalización del período de facturación para el que se genera la factura
+servicePeriodStartDate | Fecha de inicio del período de calificación que ha definido y bloqueado los precios para el servicio consumido o adquirido.
+servicePeriodEndDate | Fecha de finalización del período de calificación que ha definido y bloqueado los precios para el servicio consumido o adquirido.
+date | Para cargos basados en uso de Azure y Marketplace, esta es la fecha de calificación. Para las compras únicas (reservas, Marketplace) o los cargos periódicos fijos (ofertas de soporte técnico), esta es la fecha de compra.
+serviceFamily | Familia de servicios a la que pertenece el servicio
+productOrderId | Identificador único del pedido de productos
+productOrderName | Nombre único para el pedido del producto
 consumedService | Nombre del servicio consumido
-meterId | El identificador único para el medidor
-meterName | El nombre del medidor
-meterCategory | Nombre de la categoría de clasificación para el medidor. Por ejemplo, *servicios en la nube*, *redes*, etcetera.
-meterSubCategory | Nombre de la categoría de medidor subclasificación
-meterRegion | Nombre de la región donde el medidor para el servicio está disponible. Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos.
-offer | Nombre de la oferta adquirida
-productId | Identificador único para el producto que se acumularán los cargos
-product | Nombre del producto que se acumularán los cargos
-Id. de suscripción | Identificador único para la suscripción que se acumularán los cargos
-subscriptionName | Nombre de la suscripción que se acumularán los cargos
-reservationId | Identificador único para la instancia de la reserva adquirida
-reservationName | Nombre de la instancia de la reserva adquirida
+meterId | Identificador único para el medidor
+meterName | Nombre del medidor
+meterCategory | Nombre de la categoría de clasificación para el medidor. Por ejemplo, *Cloud Services*, *Redes*, etc.
+meterSubCategory | Nombre de la categoría de subclasificación del medidor
+meterRegion | Nombre de la región donde está disponible el medidor para el servicio. Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos.
+offer | Nombre de la oferta comprada
+productId | Identificador único para el producto que acumula los cargos
+product | Nombre del producto que acumula los cargos
+Id. de suscripción | Identificador único para la suscripción que acumula los cargos
+subscriptionName | Nombre de la suscripción que acumula los cargos
+reservationId | Identificador único de la instancia de la reserva comprada
+reservationName | Nombre de la instancia de la reserva comprada
 publisherType | Tipo de publicador (valores: firstParty, thirdPartyReseller, thirdPartyAgency)
-publisherName | Publicador para los servicios de Marketplace
-resourceGroupId | Identificador único para el grupo de recursos asociado al recurso
+publisherName | Publicador de los servicios de Marketplace
+ResourceGroupId | Nombre del grupo de recursos de Azure asociado al recurso
 resourceGroupName | Nombre del grupo de recursos asociado al recurso
 resourceId | Identificador único para la instancia del recurso
 resourceType | Tipo de instancia del recurso
-resourceLocation | Identifica la ubicación del centro de datos donde se ejecuta el recurso.
-location | Ubicación normalizada del recurso si se configuran las ubicaciones de recursos diferente para las mismas regiones
-quantity | El número de unidades adquiridas o consumidos
-unitOfMeasure | La unidad de medida para la facturación para el servicio. Por ejemplo, los servicios de proceso se facturan por hora.
-chargeType | El tipo de gasto. Valores: <ul><li>AsCharged-Usage: Gastos acumulados en función del uso de un servicio de Azure. Esto incluye el uso con máquinas virtuales que no se le cobrará por las instancias reservadas.</li><li>AsCharged-PurchaseMarketplace: Un solo uso o fijos los cargos periódicos de las compras de Marketplace</li><li>AsCharged-UsageMarketplace: Cargos para los servicios de Marketplace que se cobran en función de las unidades de consumo</li></ul>
-isAzureCreditEligible | Marca que indica si la carga en el servicio es elegible para pagar por usar créditos de Azure (valores: True, False)
+resourceLocation | Identifica la ubicación del centro de datos donde se está ejecutando el recurso
+location | Ubicación normalizada del recurso si se configuran diferentes ubicaciones de recursos para las mismas regiones
+quantity | Número de unidades compradas o consumidas
+unitOfMeasure | Unidad de medida para facturar por el servicio Por ejemplo, los servicios de proceso se facturan por hora.
+chargeType | Tipo de cargo. Valores: <ul><li>AsCharged-Usage: Los cargos que se acumulan en función del uso de un servicio de Azure. Esto incluye el uso en máquinas virtuales que no se cobran debido a instancias reservadas.</li><li>AsCharged-PurchaseMarketplace: Cargos únicos o periódicos fijos por compras en Marketplace</li><li>AsCharged-UsageMarketplace: Cargos por servicios de Marketplace que se cobran en función de unidades de consumo</li></ul>
+isAzureCreditEligible | Marca que indica si el cargo por el servicio es elegible para su pago mediante créditos de Azure (valores: True, False)
 serviceInfo1 | Metadatos específicos del servicio
 serviceInfo2 | Campo heredado que captura los metadatos específicos del servicio opcional.
-additionalInfo | Metadatos específicos del servicio adicional.
-etiquetas | Etiquetas que se asigna al recurso
+additionalInfo | Metadatos adicionales específicos del servicio.
+etiquetas | Etiqueta asignada al recurso
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>¿Cómo asegurarme de que los cargos de mi archivo de uso y los cargos de Azure son correctos?
+### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>¿Cómo puedo asegurarme de que los cargos de mi archivo de cargos y de uso son correctos?
 
-Si hay un cargo en el archivo de uso detallado que le gustaría obtener más información, consulte [comprender los cargos de facturación de su perfil de facturación](billing-mca-understand-your-bill.md)
+Si hay un cargo en el archivo de uso detallado del que quiera tener más detalles, consulte [Descripción de los cargos en la factura del perfil de facturación.](billing-mca-understand-your-bill.md)
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobar el acceso a un contrato de cliente de Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobación del acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ver y descargar la factura de Microsoft Azure](billing-download-azure-invoice.md)
-- [Ver y descargar los cargos y el uso de Microsoft Azure](billing-download-azure-daily-usage.md)
+- [Visualización y descarga de la factura de Microsoft Azure](billing-download-azure-invoice.md)
+- [Visualización y descarga de los datos de uso y los cargos de Microsoft Azure](billing-download-azure-daily-usage.md)

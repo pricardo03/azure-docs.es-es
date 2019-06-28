@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: c089d54544217cf72f81a2535ceede50d25b9b61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362193"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell
 > [!div class="op_single_selector"]
-> * [Clásico: UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Clásico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Clásica: UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Clásica: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Antes de comenzar, considere que ahora puede completar esta tarea en un modelo de Azure Resource Manager. Se recomienda el modelo de Azure Resource Manager para las implementaciones nuevas. Consulte [Grupos de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
@@ -239,7 +239,7 @@ El servidor de controlador de dominio ya está aprovisionado correctamente. A co
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    El GUID especificado anteriormente es el GUID para el tipo de objeto del equipo. La cuenta **CORP\Install** necesita los permisos **Leer todas las propiedades** y **Crear objetos de equipo** para crear los objetos de Active Directory para el clúster de conmutación por error. El permiso **Leer todas las propiedades** ya se concede a CORP\Install de forma predeterminada, por lo que no es necesario concederlo explícitamente. Para obtener más información sobre los permisos necesarios para crear el clúster de conmutación por error, consulte [guía paso a paso de clúster de conmutación por error: Configurar cuentas en Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    El GUID especificado anteriormente es el GUID para el tipo de objeto del equipo. La cuenta **CORP\Install** necesita los permisos **Leer todas las propiedades** y **Crear objetos de equipo** para crear los objetos de Active Directory para el clúster de conmutación por error. El permiso **Leer todas las propiedades** ya se concede a CORP\Install de forma predeterminada, por lo que no es necesario concederlo explícitamente. Para más información sobre los permisos necesarios para crear el clúster de conmutación por error, consulte [Guía paso a paso de clústeres de conmutación por error: Configuración de cuentas en Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
     Ahora que terminó de configurar Active Directory y los objetos de usuario, creará dos máquinas virtuales de SQL Server y las unirá a este dominio.
 
@@ -380,15 +380,15 @@ El servidor de controlador de dominio ya está aprovisionado correctamente. A co
 ## <a name="initialize-the-failover-cluster-vms"></a>Inicialización de las máquinas virtuales de clúster de conmutación por error
 En esta sección, deberá modificar los tres servidores que usará en el clúster de conmutación por error y la instalación de SQL Server. Concretamente:
 
-* Todos los servidores: Deberá instalar el **agrupación en clústeres de conmutación por error** característica.
-* Todos los servidores: Deberá agregar **CORP\Install** que la máquina **administrador**.
-* ContosoSQL1 y ContosoSQL2 solamente: Deberá agregar **CORP\Install** como un **sysadmin** rol en la base de datos de forma predeterminada.
-* ContosoSQL1 y ContosoSQL2 solamente: Deberá agregar **NT AUTHORITY\System** como un inicio de sesión con los permisos siguientes:
+* Todos los servidores: tiene que instalar la característica **Clústeres de conmutación por error**.
+* Todos los servidores: tiene que agregar **CORP\Install** como **administrador** de la máquina.
+* ContosoSQL1 y ContosoSQL2 solamente: tendrá que agregar **CORP\Install** como un rol de **sysadmin** en la base de datos predeterminada.
+* ContosoSQL1 y ContosoSQL2 solamente: tendrá que agregar **NT AUTHORITY\System** como inicio de sesión con los permisos siguientes:
 
   * Modificar cualquier grupo de disponibilidad
   * Conectar SQL
   * Ver estado del servidor
-* ContosoSQL1 y ContosoSQL2 solamente: El **TCP** protocolo ya está habilitado en la máquina virtual de SQL Server. Sin embargo, tendrá que abrir el firewall para el acceso remoto de SQL Server.
+* ContosoSQL1 y ContosoSQL2 solamente: el protocolo **TCP** ya está habilitado en la máquina virtual con SQL Server. Sin embargo, tendrá que abrir el firewall para el acceso remoto de SQL Server.
 
 De este modo, estará listo para comenzar. A partir de **ContosoQuorum**, siga los pasos que se indican a continuación:
 

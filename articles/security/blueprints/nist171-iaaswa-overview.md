@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: b30094e264086f018acbf84144300df46c60ac4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610270"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Azure Security and Compliance Blueprint: aplicación web IaaS para NIST SP 800-171
@@ -59,7 +59,7 @@ Esta solución usa los siguientes servicios de Azure. Para obtener más informac
 - Azure Active Directory
 - Azure Key Vault
 - Azure Load Balancer
-- Monitor de Azure (registros)
+- Azure Monitor (registros)
 - Azure Resource Manager
 - Azure Security Center
 - Azure Storage
@@ -70,7 +70,7 @@ Esta solución usa los siguientes servicios de Azure. Para obtener más informac
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 En la siguiente sección se detallan los elementos de desarrollo e implementación.
 
-**Host de tipo bastión**: El host bastión es el único punto de entrada que los usuarios pueden usar para tener acceso a los recursos implementados en este entorno. El host de tipo bastión proporciona una conexión segura a los recursos implementados al permitir solo el tráfico remoto desde las direcciones IP públicas de una lista segura. Para permitir el tráfico del escritorio remoto, el origen del tráfico se debe definir en el grupo de seguridad de red (NSG).
+**Host de tipo bastión**: el host de tipo bastión es el único punto de entrada que pueden emplear los usuarios para acceder a los recursos implementados en este entorno. El host de tipo bastión proporciona una conexión segura a los recursos implementados al permitir solo el tráfico remoto desde las direcciones IP públicas de una lista segura. Para permitir el tráfico del escritorio remoto, el origen del tráfico se debe definir en el grupo de seguridad de red (NSG).
 
 Esta solución crea una máquina virtual como host de tipo bastión unido mediante dominio con las siguientes configuraciones:
 -   [Extensión antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
@@ -82,7 +82,7 @@ Esta solución crea una máquina virtual como host de tipo bastión unido median
 ### <a name="virtual-network"></a>Virtual network
 La arquitectura define una red virtual privada con un espacio de direcciones de 10.200.0.0/16.
 
-**Grupos de seguridad de red**: Esta solución implementa los recursos en una arquitectura con subredes independientes para web, base de datos, Active Directory y administración dentro de una red virtual. Las subredes se separan lógicamente con reglas de grupos de seguridad de red aplicadas a las distintas subredes. Las reglas restringen el tráfico entre las subredes a solo el que es necesario para la funcionalidad del sistema y de la administración.
+**Grupos de seguridad de red**: esta solución implementa los recursos en una arquitectura con subredes independientes para la web, la base de datos, Active Directory y la administración dentro de una red virtual. Las subredes se separan lógicamente con reglas de grupos de seguridad de red aplicadas a las distintas subredes. Las reglas restringen el tráfico entre las subredes a solo el que es necesario para la funcionalidad del sistema y de la administración.
 
 Consulte la configuración de los [grupos de seguridad de red](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implementados con esta solución. Las organizaciones pueden configurar grupos de seguridad de red editando el archivo anterior usando [esta documentación](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) como guía.
 
@@ -101,7 +101,7 @@ La arquitectura protege los datos en reposo aplicando varias medidas. Entre esta
 
 **Azure Storage**: para cumplir los requisitos de los datos en reposo cifrados, todo [Storage](https://azure.microsoft.com/services/storage/) usa [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esta característica ayuda a proteger y salvaguardar los datos en apoyo de los compromisos de seguridad y requisitos de cumplimiento de la organización definidos por la directiva NIST SP 800-171.
 
-**Azure Disk Encryption**: Cifrado de disco se utiliza para los discos de máquina virtual IaaS con Windows cifrados. [Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usa la característica BitLocker de Windows para proporcionar el cifrado del volumen de discos de datos y sistema operativo. La solución se integra con Key Vault para ayudarle a controlar y administrar las claves de cifrado del disco.
+**Azure Disk Encryption**: Disk Encryption se usa para los discos cifrados de máquinas virtuales de IaaS de Windows. [Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usa la característica BitLocker de Windows para proporcionar el cifrado del volumen de discos de datos y sistema operativo. La solución se integra con Key Vault para ayudarle a controlar y administrar las claves de cifrado del disco.
 
 **SQL Server**: La instancia de SQL Server usa las siguientes medidas de seguridad de base de datos:
 -   La [auditoría de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) realiza el seguimiento de eventos de base de datos y los escribe en registros de auditoría.
@@ -119,7 +119,7 @@ Las siguientes tecnologías proporcionan funcionalidades de administración del 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecta posibles vulnerabilidades que afecten a las identidades de una organización. Configura respuestas automatizadas a acciones sospechosas detectadas que están relacionadas con las identidades de una organización. También investiga incidentes sospechosos para tomar las medidas adecuadas para resolverlos.
 
 ### <a name="security"></a>Seguridad
-**Administración de secretos**: La solución utiliza [Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves y secretos. Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Las siguientes funcionalidades de Key Vault ayudan a los clientes a proteger los datos:
+**Administración de secretos**: la solución utiliza [Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves y secretos. Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Las siguientes funcionalidades de Key Vault ayudan a los clientes a proteger los datos:
 - Se configuran directivas de acceso avanzadas según las necesidades.
 - Se definen directivas de acceso a Key Vault con los permisos mínimos requeridos para las claves y los secretos.
 - Todas las claves y los secretos en Key Vault tienen fechas de expiración.
@@ -129,9 +129,9 @@ Las siguientes tecnologías proporcionan funcionalidades de administración del 
 - Las operaciones criptográficas permitidas para las claves están restringidas únicamente a las requeridas.
 - La solución se integra con Key Vault para administrar los secretos y las claves de cifrado de disco de las máquinas virtuales de IaaS.
 
-**Administración de revisiones**: Implementado como parte de esta arquitectura de referencia de las máquinas virtuales de Windows se configuran de forma predeterminada para recibir actualizaciones automáticas de Windows Update Service. Esta solución también incluye el servicio [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro), con el que se pueden crear implementaciones actualizadas para aplicar revisiones a las máquinas virtuales cuando sea necesario.
+**Administración de revisiones**: las máquinas virtuales Windows implementadas como parte de esta arquitectura de referencia se configuran de forma predeterminada para recibir actualizaciones automáticas desde Windows Update Service. Esta solución también incluye el servicio [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro), con el que se pueden crear implementaciones actualizadas para aplicar revisiones a las máquinas virtuales cuando sea necesario.
 
-**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para las VM que proporciona funcionalidad de protección en tiempo real que ayuda a identifica y quita virus, spyware y otro software malintencionado. Los clientes pueden configurar alertas para que se generen si un software malintencionado o no deseado conocido intenta instalarse o ejecutarse en máquinas virtuales protegidas.
+**Protección contra malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para máquinas virtuales ofrece una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado. Los clientes pueden configurar alertas para que se generen si un software malintencionado o no deseado conocido intenta instalarse o ejecutarse en máquinas virtuales protegidas.
 
 **Azure Security Center**: con [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), los clientes pueden aplicar y administrar de forma centralizada las directivas de seguridad entre cargas de trabajo, limitar la exposición a amenazas y detectar ataques y responder a estos. Security Center también accede a las configuraciones existentes de los servicios de Azure para proporcionar recomendaciones de configuración y servicio que ayuden a mejorar la postura de seguridad y a proteger los datos.
 
@@ -141,7 +141,7 @@ Security Center proporciona incidentes y alertas de seguridad prioritarias. Secu
 
 Esta arquitectura de referencia usa la capacidad de [evaluación de vulnerabilidad](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) en Security Center. Una vez configurado, un agente de asociado (por ejemplo, Qualys) informa de los datos de vulnerabilidades a la plataforma de administración del asociado. Este, a su vez, proporciona datos de supervisión del estado y las vulnerabilidades a Security Center. Los clientes pueden usar esta información para identificar rápidamente las máquinas virtuales vulnerables.
 
-**Azure Application Gateway**: La arquitectura reduce el riesgo de vulnerabilidades de seguridad mediante el uso de application gateway con firewall de aplicaciones web configurado y el conjunto de reglas OWASP habilitado. Entre estas funcionalidades, cabe destacar:
+**Azure Application Gateway**: la arquitectura reduce el riesgo de aparición de puntos vulnerables en la seguridad, ya que usa Azure Application Gateway con el firewall de aplicaciones web configurado y el conjunto de reglas OWASP habilitado. Entre estas funcionalidades, cabe destacar:
 
 - [SSL de un extremo a otro](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 - Opción para habilitar la [descarga SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
@@ -154,11 +154,11 @@ Esta arquitectura de referencia usa la capacidad de [evaluación de vulnerabilid
 
 ### <a name="business-continuity"></a>Continuidad del negocio
 
-**Alta disponibilidad**: La solución implementa todas las máquinas virtuales en un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Los conjuntos de disponibilidad garantizan que las máquinas virtuales se distribuyan entre varios clústeres de hardware aislados para mejorar la disponibilidad. Durante un evento de mantenimiento planeado o no planeado hay al menos una máquina virtual disponible para cumplir el 99,95% del Acuerdo de Nivel de Servicio de Azure.
+**Alta disponibilidad**: la solución implementa todas las máquinas virtuales en un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Los conjuntos de disponibilidad garantizan que las máquinas virtuales se distribuyan entre varios clústeres de hardware aislados para mejorar la disponibilidad. Durante un evento de mantenimiento planeado o no planeado hay al menos una máquina virtual disponible para cumplir el 99,95% del Acuerdo de Nivel de Servicio de Azure.
 
-**Almacén de Recovery Services**: El [almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) aloja datos de copia de seguridad y protege todas las configuraciones de Azure Virtual Machines en esta arquitectura. Con los almacenes de Recovery Services, los clientes pueden restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual. Este proceso acelera los tiempos de restauración.
+**Almacén de Recovery Services**: El [almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) aloja datos de copia de seguridad y protege todas las configuraciones de Azure Virtual Machines en esta arquitectura. Con los almacenes de Recovery Services, los clientes pueden restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual. Este proceso acelera los tiempos de restauración.
 
-**Testigo en la nube**: [Testigo en la nube](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) es un tipo de testigo de quórum de clúster de conmutación por error de Windows Server 2016 que utiliza Azure como punto de arbitraje. Testigo en la nube, como cualquier otro testigo del cuórum, tiene voto y puede participar en los cálculos del cuórum. Usa el almacenamiento de blobs de Azure estándar disponible públicamente. Esta disposición elimina la sobrecarga de mantenimiento adicional de las máquinas virtuales hospedadas en una nube pública.
+**Testigo en la nube**: El [testigo en la nube](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) es un tipo de testigo del cuórum de clúster de conmutación por error en Windows Server 2016 que usa Azure como punto de arbitraje. Testigo en la nube, como cualquier otro testigo del cuórum, tiene voto y puede participar en los cálculos del cuórum. Usa el almacenamiento de blobs de Azure estándar disponible públicamente. Esta disposición elimina la sobrecarga de mantenimiento adicional de las máquinas virtuales hospedadas en una nube pública.
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
 
@@ -166,9 +166,9 @@ Los servicios de Azure proporcionan un registro completo de la actividad de usua
 - **Registros de actividad**: los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico**: los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault y registros de firewall y acceso a Application Gateway. Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. Los usuarios pueden configurar el período de retención (de hasta 730 días) para satisfacer sus requisitos específicos.
 
-**Registros de Azure Monitor**: Estos registros se consolidan en [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para procesamiento, almacenamiento e informes de panel. Una vez recopilados, los datos se organizan en tablas independientes por tipo de datos en las áreas de trabajo de Log Analytics. De este modo, todos los datos se pueden analizar juntos, independientemente de su fuente original. Security Center se integra con los registros de Azure Monitor. Los clientes pueden usar las consultas de Kusto para acceder a sus datos de eventos de seguridad y la combinamos con datos de otros servicios.
+**Registros de Azure Monitor**: esos registros se consolidan en [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para el procesamiento, el almacenamiento y la creación de informes de panel. Una vez recopilados, los datos se organizan en tablas independientes por tipo de datos en las áreas de trabajo de Log Analytics. De este modo, todos los datos se pueden analizar juntos, independientemente de su fuente original. Security Center se integra con registros de Azure Monitor. Los clientes pueden usar las consultas de Kusto para acceder a sus datos de eventos de seguridad y combinarlos con los datos de otros servicios.
 
-El siguiente Azure [soluciones de supervisión](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) se incluyen como parte de esta arquitectura:
+Como parte de esta arquitectura se incluyen las siguientes [soluciones de supervisión](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) de Azure:
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor de forma periódica. Proporciona una lista priorizada de recomendaciones específicas para la infraestructura de servidor implementada.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la solución SQL Health Check evalúa el riesgo y el estado de los entornos de servidor de forma periódica. Proporciona a los clientes una lista priorizada de recomendaciones específicas de la infraestructura de servidor implementada.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la solución Agent Health informa de cuántos agentes se implementan y su distribución geográfica. También informa de cuántos agentes no responden y del número de agentes que envían datos operativos.

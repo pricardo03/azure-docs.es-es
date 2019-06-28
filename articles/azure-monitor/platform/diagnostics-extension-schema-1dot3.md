@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238062"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
@@ -31,7 +31,7 @@ Esta página es válida para las versiones 1.3 y posterior (Azure SDK 2.4 y post
 
 El archivo de configuración descrito en este artículo se usa para establecer la configuración de diagnóstico al iniciar el monitor de diagnóstico.  
 
-La extensión se usa junto con otros productos de diagnósticos de Microsoft como Azure Monitor, que incluye Application Insights y Log Analytics.
+La extensión se usa junto con otros productos de diagnósticos de Microsoft, como Azure Monitor, que incluye Application Insights y Log Analytics.
 
 
 
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Le permite generar una tabla de contadores de rendimiento optimizada para las consultas rápidas. Cada contador de rendimiento que se define en el elemento **PerformanceCounters** se almacena en la tabla de métricas además de la tabla de contadores de rendimiento.  
 
- El atributo **resourceId** es necesario.  El identificador de recurso de la máquina virtual o conjunto de escalado de máquinas virtuales en donde se va a implementar Azure Diagnostics. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** -> **<Nombre\>**. Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.  
+ El atributo **resourceId** es necesario.  El identificador de recurso de la máquina virtual o conjunto de escalado de máquinas virtuales en donde se va a implementar Azure Diagnostics. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** ->  **<Nombre\>** . Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.  
 
 |Elementos secundarios|DESCRIPCIÓN|  
 |--------------------|-----------------|  
@@ -598,7 +598,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento secundario|DESCRIPCIÓN|  
 |-------------------|-----------------|  
-|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo: <br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recopilar todos los eventos, especifique "*".|  
+|**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recopilar todos los eventos, especifique "*".|  
 
 
 

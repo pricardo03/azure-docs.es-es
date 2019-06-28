@@ -9,10 +9,10 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237645"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Prepararse para el cambio de formato a los registros de diagnóstico de Azure Monitor archivados en una cuenta de almacenamiento
@@ -24,7 +24,7 @@ ms.locfileid: "60237645"
 
 ## <a name="what-is-changing"></a>Lo que está cambiando
 
-Azure Monitor ofrece una funcionalidad que le permite enviar datos de diagnóstico de recursos y datos de registro de actividad en una cuenta de almacenamiento de Azure, el espacio de nombres de Event Hubs, o en un área de trabajo de Log Analytics en Azure Monitor. Para solucionar un problema de rendimiento del sistema, **a las 12:00 de la noche (UTC) del 1 de noviembre de 2018** se cambiará el formato de los datos de registro que se envían a Blob Storage. Si tiene herramientas que leen los datos fuera de Blob Storage, deberá actualizarlas para que entiendan el formato de datos nuevo.
+Azure Monitor ofrece una funcionalidad que permite enviar datos de diagnóstico de recursos y datos de registro de actividad a una cuenta de almacenamiento de Azure, al espacio de nombres de Event Hubs o al área de trabajo de Log Analytics en Azure Monitor. Para solucionar un problema de rendimiento del sistema, **a las 12:00 de la noche (UTC) del 1 de noviembre de 2018** se cambiará el formato de los datos de registro que se envían a Blob Storage. Si tiene herramientas que leen los datos fuera de Blob Storage, deberá actualizarlas para que entiendan el formato de datos nuevo.
 
 * A las 12:00 de la noche (UTC) del jueves 1 de noviembre de 2018, el formato de blob se cambiará a [JSON Lines](http://jsonlines.org/). Esto significa que todos los registros se delimitarán mediante una nueva línea, sin matrices de registros exteriores y sin comas entre los registros JSON.
 * El formato de blob cambia para todas las configuraciones de diagnóstico en todas las suscripciones a la vez. En el primer archivo PT1H.json emitido para el 1 de noviembre se usará este formato nuevo. Los nombres de blobs y contenedores se mantienen sin cambios.

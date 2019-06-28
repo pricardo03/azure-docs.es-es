@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618003"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
@@ -54,6 +54,6 @@ Las extensiones instalan las aplicaciones. Como en todas las aplicaciones, exist
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre cómo funcionan las extensiones y el agente de Linux, vea [Azure VM extensions and features for Linux](features-linux.md) (Características y extensiones de máquina virtual de Azure para Linux).
 * Para más información sobre cómo funcionan las extensiones de Windows y Windows Guest Agent, consulte [Características y extensiones de las máquinas virtuales de Azure para Windows](features-windows.md).  
-* Para instalar el agente de invitado de Windows, consulte [información general sobre el agente de máquina Virtual Windows Azure](agent-windows.md).  
-* Para instalar el agente de Linux, consulte [información general del agente de máquina Virtual de Linux de Azure](agent-linux.md).  
+* Para instalar Windows Guest Agent, vea [Información general del agente de máquina virtual de Azure](agent-windows.md).  
+* Para instalar el agente de Linux, vea [Información y uso del agente de Linux de Azure](agent-linux.md).  
 

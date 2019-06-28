@@ -19,10 +19,10 @@ ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544504"
 ---
 # <a name="federation-metadata"></a>Metadatos de federación
@@ -50,7 +50,7 @@ Por ejemplo, un punto de conexión específico del inquilino podría ser `https:
 ## <a name="contents-of-federation-metadata"></a>Contenido de los metadatos de federación
 La siguiente sección proporciona la información necesaria para los servicios que consumen los tokens emitidos por Azure AD.
 
-### <a name="entity-id"></a>Id. de entidad
+### <a name="entity-id"></a>El identificador de entidad
 El elemento `EntityDescriptor` contiene un atributo `EntityID`. El valor del atributo `EntityID` representa al emisor; es decir, al servicio de token de seguridad (STS) que emitió el token. Es importante validar al emisor cuando reciba un token.
 
 Los metadatos siguientes muestran un ejemplo de un elemento `EntityDescriptor` específico del inquilino con un elemento `EntityID`.
@@ -73,7 +73,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>Certificados de firma de tokens
-Cuando un servicio recibe un token emitido por un inquilino de Azure AD, la firma del token debe validarse con una clave de firma que se publica en el documento de metadatos de federación. Los metadatos de federación incluyen la parte pública de los certificados que utilizan los inquilinos para la firma de tokens. Los bytes sin formato del certificado aparecen en el elemento `KeyDescriptor` . El certificado de la firma del token es válido para la firma solo cuando el valor del atributo `use` es `signing`.
+Cuando un servicio recibe un token emitido por un inquilino de Azure AD, la firma del token debe validarse con una clave de firma que se publica en el documento de metadatos de federación. Los metadatos de federación incluyen la parte pública de los certificados que utilizan los inquilinos para la firma de tokens. Los bytes sin formato del certificado aparecen en el elemento `KeyDescriptor` . El certificado de la firma del token es válido para la firma solo cuando el valor del atributo `use` es `signing`.
 
 Un documento de metadatos de federación que haya publicado Azure AD puede tener varias claves de firma, como en aquellos casos en que Azure AD se está preparando para actualizar el certificado de firma. Cuando un documento de metadatos de federación incluye más de un certificado, un servicio que está validando los tokens debe admitir todos los certificados del documento.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60809750"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico
@@ -20,7 +20,7 @@ El [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/rol
 La creación de solicitudes de soporte técnico en Azure Portal, [portal.azure.com](https://portal.azure.com), usa el modelo RBAC de Azure para definir quién puede crear y administrar solicitudes de soporte técnico.
 El acceso se concede mediante la asignación del rol RBAC adecuado a los usuarios, grupos y aplicaciones de un determinado ámbito, que puede ser una suscripción, un grupo de recursos o un recurso.
 
-Veamos un ejemplo: Como propietario de un grupo de recursos con permisos de lectura en el ámbito de la suscripción, puede administrar todos los recursos en el grupo de recursos, como sitios Web, máquinas virtuales y subredes.
+Veamos un ejemplo: como propietario de un grupo de recursos con permisos de lectura en el ámbito de la suscripción, puede administrar todos los recursos del grupo de recursos, como sitios web, máquinas virtuales y subredes.
 Sin embargo, al intentar crear una solicitud de soporte técnico en el recurso de la máquina virtual, aparece el siguiente error
 
 ![Error de suscripción](./media/create-manage-support-requests-using-access-control/subscription-error.png)

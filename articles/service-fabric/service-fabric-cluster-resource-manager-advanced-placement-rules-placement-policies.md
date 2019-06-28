@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386464"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Directivas de colocación de servicios de Service Fabric
@@ -88,7 +88,7 @@ El dominio principal preferido especifica el dominio de error en el que colocar 
 
 <center>
 
-![Conmutación por error y dominios principales preferidos][Image3]
+![Dominios principales preferidos y conmutación por error][Image3]
 </center>
 
 ```csharp

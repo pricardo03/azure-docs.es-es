@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60302812"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Use de StorSimple Device Manager para administrar alertas de la matriz virtual de StorSimple
@@ -39,7 +39,7 @@ Puede elegir si desea recibir una notificación por correo electrónico sobre la
 > [!NOTE]
 > Puede escribir un máximo de 20 direcciones de correo electrónico por matriz virtual.
 
-Después de habilitar la notificación por correo electrónico para una matriz virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *alertas-storsimple-noreply\@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
+Después de habilitar la notificación por correo electrónico para una matriz virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *storsimple-alerts-noreply\@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Para habilitar la notificación de alertas por correo electrónico de alertas
 
@@ -53,7 +53,7 @@ Después de habilitar la notificación por correo electrónico para una matriz v
    
    1. En el campo **Habilitar notificación por correo electrónico**, seleccione **SÍ**.
    2. En el campo **Administradores del servicio de correo electrónico**, seleccione **SÍ** si desea que el administrador de servicios y todos los coadministradores reciban las notificaciones de alerta.
-   3. En el campo **Destinatarios de correo electrónico adicionales**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato *alguien\@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
+   3. En el campo **Destinatarios de correo electrónico adicionales**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres con el formato *someone\@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
       
        ![configuración de notificaciones de alerta](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Para enviar una notificación de correo electrónico de prueba, haga clic en **Enviar correo electrónico de prueba**. El servicio StorSimple Device Manager mostrará mensajes de estado mientras envía la notificación de prueba.
@@ -143,8 +143,8 @@ Las siguientes tablas enumeran algunas de las alertas de StorSimple que pueden e
 
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
 |:--- |:--- |:--- |
-| La copia de seguridad de <*nombre de dispositivo*\> no se pudo completar. |Error de trabajo de copia de seguridad. |No se pudo crear una copia de seguridad. Tenga en cuenta alguna de las siguientes opciones:<ul><li>Podrían existir problemas de conectividad que impiden que la operación de copia de seguridad se complete correctamente. Asegúrese de que no hay ningún problema de conectividad. Para obtener más información sobre cómo solucionar problemas de conectividad, vaya a la [interfaz de usuario web local](storsimple-ova-web-ui-admin.md) del dispositivo virtual.</li><li>Ha alcanzado el límite de almacenamiento disponible. Para liberar espacio, considere la posibilidad de eliminar las copias de seguridad que ya no son necesarias.</li></ul>  Resuelva los problemas, borre la alerta y vuelva a intentar la operación. |
-| No se puedo completar la clonación de <*nombre de dispositivo*\>. |Error de trabajo de clonación. |No se pudo crear una clonación. Tenga en cuenta alguna de las siguientes opciones:<ul><li>La lista de copia de seguridad puede no ser válida. Actualice la lista para comprobar que sigue siendo válida</li><li>Los problemas de conectividad pueden evitar que la operación de clonación se complete correctamente. Asegúrese de que no hay ningún problema de conectividad.</li><li>Ha alcanzado el límite de almacenamiento disponible. Para liberar espacio, considere la posibilidad de eliminar las copias de seguridad que ya no son necesarias.</li></ul> Resuelva los problemas, borre la alerta y vuelva a intentar la operación. |
+| La copia de seguridad de <*nombre de dispositivo*\> no se pudo completar. |Error de trabajo de copia de seguridad. |No se pudo crear una copia de seguridad. Tenga en cuenta alguna de las siguientes opciones:<ul><li>Podrían existir problemas de conectividad que impiden que la operación de copia de seguridad se complete correctamente. Asegúrese de que no hay ningún problema de conectividad. Para obtener más información sobre cómo solucionar problemas de conectividad, vaya a la [interfaz de usuario web local](storsimple-ova-web-ui-admin.md) del dispositivo virtual.</li><li>Ha alcanzado el límite de almacenamiento disponible. Para liberar espacio, considere la posibilidad de eliminar las copias de seguridad que ya no son necesarias.</li></ul> Resuelva los problemas, borre la alerta y vuelva a intentar la operación. |
+| No se puedo completar la clonación de <*nombre de dispositivo*\>. |Error de trabajo de clonación. |No se pudo crear una clonación. Tenga en cuenta alguna de las siguientes opciones:<ul><li>La lista de copia de seguridad puede no ser válida. Actualice la lista para comprobar que sigue siendo válida</li><li>Los problemas de conectividad pueden evitar que la operación de clonación se complete correctamente. Asegúrese de que no hay ningún problema de conectividad.</li><li>Ha alcanzado el límite de almacenamiento disponible. Para liberar espacio, considere la posibilidad de eliminar las copias de seguridad que ya no son necesarias.</li></ul>Resuelva los problemas, borre la alerta y vuelva a intentar la operación. |
 
 ### <a name="networking-alerts"></a>Alertas de red
 

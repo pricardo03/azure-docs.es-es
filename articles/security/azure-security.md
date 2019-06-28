@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610513"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
@@ -75,7 +75,7 @@ Las funcionalidades integradas se organizan en seis (6) áreas funcionales: Oper
 En esta sección se proporciona información adicional acerca de características fundamentales para las operaciones de seguridad y un resumen de estas funcionalidades.
 
 ### <a name="security-and-audit-dashboard"></a>Panel Security and Audit
-La solución [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ofrece una vista completa de la situación de seguridad de TI de su organización con [consultas de búsqueda integradas](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) para problemas importantes que requieren su atención. El [seguridad y auditoría](https://technet.microsoft.com/library/mt484091.aspx) panel es la pantalla principal para todo lo relacionado con la seguridad de registros de Azure Monitor. Proporciona información de alto nivel sobre el estado de seguridad de los equipos. También incluye la capacidad de ver todos los eventos de las últimas 24 horas, 7 días o cualquier otro intervalo personalizado.
+La solución [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ofrece una vista completa de la situación de seguridad de TI de su organización con [consultas de búsqueda integradas](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) para problemas importantes que requieren su atención. El panel de [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) es la pantalla principal para todo lo relacionado con la seguridad en los registros de Azure Monitor. Proporciona información de alto nivel sobre el estado de seguridad de los equipos. También incluye la capacidad de ver todos los eventos de las últimas 24 horas, 7 días o cualquier otro intervalo personalizado.
 
 Además, puede configurar Security & Compliance para [llevar a cabo automáticamente acciones específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) cuando se detecte un evento concreto.
 
@@ -95,9 +95,9 @@ Si hay bloqueos, errores o problemas de rendimiento, puede buscar en los datos d
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure ([registro de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) como de cada recurso individual de Azure ([registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Puede usar Azure Monitor para que le alerte sobre eventos relacionados con la seguridad que se generen en registros de Azure.
 
 ### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
-[Registros de Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) : proporciona una solución de administración de TI para un entorno local y la infraestructura de basado en la nube de terceros (como AWS) además de los recursos de Azure. Datos de Azure Monitor se pueden enrutar directamente a los registros de Azure Monitor para que pueda ver las métricas y registros de todo el entorno en un solo lugar.
+[Registros de Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/): ofrece una solución de administración de TI tanto para infraestructura local como para la basada en la nube de terceros (como AWS), además de recursos de Azure. Los datos de Azure Monitor se pueden enrutar directamente a los registros de Azure Monitor para poder ver los registros y las métricas de todo el entorno en un único lugar.
 
-Registros de Azure Monitor pueden ser una herramienta útil en el análisis forense y otros de seguridad, como la herramienta le permite buscar rápidamente grandes cantidades de entradas relacionadas con la seguridad con un enfoque de consulta flexible. Además, en el entorno local [los registros de firewall y proxy se pueden exportar a Azure y disponible para su análisis con los registros de Azure Monitor.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
+Los registros de Azure Monitor pueden ser una herramienta útil en el análisis forense y otros análisis de seguridad, ya que permiten buscar rápidamente entre grandes cantidades de entradas relacionadas con la seguridad siguiendo un enfoque de consulta flexible. Además, los [registros de proxy y firewall locales se pueden exportar a Azure y poner a disposición para su análisis con registros de Azure Monitor.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) es un consultor personalizado en la nube que le ayudará a optimizar las implementaciones de Azure. Analiza la telemetría de uso y configuración de los recursos y, posteriormente, recomienda soluciones que ayudan a mejorar el [rendimiento](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), la [seguridad](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) y la [alta disponibilidad](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) de los recursos, al mismo tiempo que busca oportunidades para [reducir el gasto general en Azure](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor proporciona recomendaciones de seguridad, que pueden mejorar de forma notable la posición general de seguridad para las soluciones que se implementan en Azure. Estas recomendaciones se extraen del análisis de seguridad realizado por [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)
@@ -149,7 +149,7 @@ En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguient
 -   Errores de aplicación (muestra eventos de excepción)
 -   Rendimiento (muestra eventos de rendimiento)
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad del almacenamiento de Azure y un resumen de estas funcionalidades.
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
@@ -287,7 +287,7 @@ Puede administrar la lista de servidores DNS usados en una red virtual en el Por
 
 ### <a name="azure-dns"></a>Azure DNS
 El [sistema de nombres de dominio](https://technet.microsoft.com/library/bb629410.aspx), o DNS, es responsable de traducir (o resolver) el nombre del sitio web o del servicio en su dirección IP. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) es un servicio de hospedaje para dominios DNS que permite resolver nombres mediante la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. DNS es compatible con el aspecto de disponibilidad, parte de la tríada de seguridad formada también por la confidencialidad y la integridad.
-### <a name="azure-monitor-logs-nsgs"></a>Azure Monitor registros NSG
+### <a name="azure-monitor-logs-nsgs"></a>Grupos de seguridad de red de registros de Azure Monitor
 Puede habilitar las siguientes categorías de registro de diagnóstico para los NSG:
 -   Evento: contiene entradas para las que se aplican reglas de NSG a las máquinas virtuales y a los roles de instancia en función de la dirección MAC. El estado de estas reglas se recopila cada 60 segundos.
 

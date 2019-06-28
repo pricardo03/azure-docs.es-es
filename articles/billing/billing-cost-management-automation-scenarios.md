@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232483"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Escenarios de automatización de administración de costos y facturación
@@ -143,4 +143,4 @@ Estas API ofrecen conjuntos similares de datos, pero tienen distintas audiencias
 
 - Para comparar la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal, consulte [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md).
 
-- Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+- Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

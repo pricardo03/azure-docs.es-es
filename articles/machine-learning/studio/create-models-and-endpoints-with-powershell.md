@@ -1,5 +1,5 @@
 ---
-title: Crear varios puntos de conexión para un modelo
+title: Creación de varios puntos de conexión para un modelo
 titleSuffix: Azure Machine Learning Studio
 description: Use PowerShell para crear varios modelos de Machine Learning y puntos de conexión de servicio web con el mismo algoritmo pero con conjuntos de datos de entrenamiento distintos.
 services: machine-learning
@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
 ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773712"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Uso de PowerShell para crear varios modelos y puntos de conexión de servicio web a partir de un experimento
@@ -44,7 +44,7 @@ Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-R
 
 El experimento usa un módulo **Importar datos** para importar el conjunto de datos de entrenamiento *customer001.csv* desde una cuenta de almacenamiento de Azure. Supongamos que ha recopilado los conjuntos de datos de entrenamiento de todas las ubicaciones de alquiler de bicicletas y los ha almacenado en la misma ubicación de Blob Storage con nombres de archivo que van desde *rentalloc001.csv* a *rentalloc10.csv*.
 
-![Módulo de lector importa datos de un blob de Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![El módulo de lector importa datos de un blob de Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Tenga en cuenta que se ha agregado el módulo **Web Service Output** (Resultados de servicio web) al módulo **Train Model** (Entrenar modelo).
 Cuando este experimento se implementa como un servicio web, el punto de conexión asociado a esa salida devuelve el modelo entrenado con el formato de un archivo .ilearner.
@@ -52,7 +52,7 @@ Cuando este experimento se implementa como un servicio web, el punto de conexió
 Observe también que configura un parámetro de servicio web que define la dirección URL que el módulo **Importar datos** utiliza. Esto le permite utilizar el parámetro para especificar conjuntos de datos de entrenamiento individuales para entrenar el modelo para cada ubicación.
 Hay otras maneras de hacer esto. Puede utilizar una consulta SQL con un parámetro de servicio web para obtener datos de una base de datos de SQL Azure. O bien, puede usar el módulo **Web Service Input** (Entrada de servicio web) para pasar un conjunto de datos al servicio web.
 
-![Genera un módulo modelo entrenado para un módulo de salida del servicio Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Salidas del módulo de un módulo entrenado a un módulo de salida de servicio web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Ahora, vamos a ejecutar este experimento de entrenamiento utilizando el valor predeterminado *rental001.csv* como el conjunto de datos de entrenamiento. Si ve los resultados del módulo **Evaluar**, después de hacer clic en los resultados y seleccionar **Visualizar**, verá que obtiene un rendimiento aceptable de *AUC* = 0,91. En este momento, está listo para implementar un servicio web fuera de este experimento de entrenamiento.
 

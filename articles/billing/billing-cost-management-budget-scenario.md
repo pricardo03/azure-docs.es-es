@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 03/13/2019
 ms.author: erikre
 ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617386"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
@@ -289,7 +289,7 @@ Ya ha terminado con todos los componentes de apoyo necesarios para organizar efi
 
 ## <a name="create-the-azure-budget"></a>Creación del presupuesto de Azure
 
-Puede crear un presupuesto en Azure portal mediante el [característica presupuesto](../cost-management/tutorial-acm-create-budgets.md) en Cost Management. O bien, puede crear un presupuesto con las API de REST, cmdlets de Powershell, o usar la CLI. El siguiente procedimiento usa la API REST. Antes de llamar a la API REST, necesitará un token de autorización. Para crear un token de autorización, puede usar el proyecto [ARMClient](https://github.com/projectkudu/ARMClient). **ARMClient** le permite autenticarse en Azure Resource Manager y obtener un token para llamar a las API.
+Puede crear un presupuesto en Azure Portal mediante el [característica Presupuesto](../cost-management/tutorial-acm-create-budgets.md) en Cost Management. O bien, puede crear un presupuesto con las API REST, los cmdlets de Powershell o la CLI. El siguiente procedimiento usa la API REST. Antes de llamar a la API REST, necesitará un token de autorización. Para crear un token de autorización, puede usar el proyecto [ARMClient](https://github.com/projectkudu/ARMClient). **ARMClient** le permite autenticarse en Azure Resource Manager y obtener un token para llamar a las API.
 
 ### <a name="create-an-authentication-token"></a>Creación de un token de autenticación
 
@@ -328,7 +328,7 @@ A continuación, configurará **Postman** para crear un presupuesto mediante una
 8.  Establezca el **Valor** en el token que se creó mediante ArmClient al final de la última sección.
 9.  Seleccione la pestaña **Cuerpo** dentro de Postman.
 10. Seleccione el botón de opción **raw**.
-11. En el cuadro de texto, pegue la por debajo de la definición del presupuesto de ejemplo, sin embargo, debe reemplazar el **subscriptionid**, **budgetname**, y **actiongroupname** parámetros con el Id. de suscripción, un nombre único para su presupuesto y el nombre del grupo de acción que creó en la dirección URL y el cuerpo de solicitud:
+11. En el cuadro de texto, pegue la definición del presupuesto de ejemplo siguiente; sin embargo, debe reemplazar los parámetros **subscriptionid**, **budgetname** y **actiongroupname** con el identificación de suscripción, un nombre único para su presupuesto y el nombre del grupo de acciones que creó tanto en la dirección URL como en el cuerpo de la solicitud:
 
     ```
         {

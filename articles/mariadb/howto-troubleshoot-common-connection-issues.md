@@ -8,10 +8,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: f5c5a980a99bac3bf02eaaf9c072861ca753d449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038503"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solución de problemas de conexión a Azure Database for MariaDB
@@ -48,7 +48,7 @@ Si la aplicación no se puede conectar a Azure Database for MariaDB de forma per
 
 * Configuración del firewall: el firewall del servidor o el cliente de Azure Database for MariaDB bloquea las conexiones.
 * Reconfiguración de red del cliente: Se agregó una nueva dirección IP o un servidor proxy.
-* Error del usuario: Por ejemplo, que es posible que haya escrito correctamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o falta un  *\@servername* sufijo en el nombre de usuario.
+* Error del usuario: por ejemplo, puede que haya escrito incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión, o que falte un sufijo *\@servername* en el nombre de usuario.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes
 

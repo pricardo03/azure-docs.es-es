@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60622290"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
@@ -51,15 +51,15 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Funciona el servidor que hospeda esta máquina virtual?</li><li>¿Se ha completado el arranque del sistema operativo host?</li><li>¿Está l contenedor de la máquina virtual aprovisionado y encendido?</li><li>¿Hay conectividad de red entre el host y la cuenta de almacenamiento?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/Factories
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Ha habido errores de ejecución de canalización?</li><li>¿El clúster hospeda la factoría de datos en buen estado?</li></ul>|
+|<ul><li>¿Ha habido errores de ejecución de la canalización?</li><li>¿El clúster que hospeda la instancia de Data Factory está en buen estado?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Los usuarios tienen problemas para enviar o mostrar sus trabajos de Data Lake Analytics?</li><li>¿Son los trabajos de Data Lake Analytics no se puede completar debido a errores del sistema?</li></ul>|
+|<ul><li>¿Los usuarios tienen problemas para enviar o mostrar sus trabajos de Data Lake Analytics?</li><li>¿Los trabajos de Data Lake Analytics no se pueden completar por errores del sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -70,22 +70,22 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿El servicio de migración de base de datos no pudo aprovisionar?</li><li>¿Se ha detenido el servicio de migración de base de datos debido a la solicitud de usuario o de inactividad?</li></ul>|
+|<ul><li>¿El servicio de migración de la base de datos ha dado un error al aprovisionar?</li><li>¿El servicio de migración de la base de datos se detuvo debido a inactividad o a una solicitud de usuario?</li></ul>|
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Es el servidor no está disponible debido a mantenimiento?</li><li>¿Es el servidor no está disponible debido a una reconfiguración?</li></ul>|
+|<ul><li>¿El servidor no está disponible debido a tareas de mantenimiento?</li><li>¿El servidor no está disponible debido a una reconfiguración?</li></ul>|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Es el servidor no está disponible debido a mantenimiento?</li><li>¿Es el servidor no está disponible debido a una reconfiguración?</li></ul>|
+|<ul><li>¿El servidor no está disponible debido a tareas de mantenimiento?</li><li>¿El servidor no está disponible debido a una reconfiguración?</li></ul>|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Es el servidor no está disponible debido a mantenimiento?</li><li>¿Es el servidor no está disponible debido a una reconfiguración?</li></ul>|
+|<ul><li>¿El servidor no está disponible debido a tareas de mantenimiento?</li><li>¿El servidor no está disponible debido a una reconfiguración?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Comprobaciones ejecutadas|
@@ -100,12 +100,12 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿El espacio de nombres de Event Hubs está experimentando errores generados por el usuario?</li><li>¿Es el espacio de nombres de Event Hubs se está actualizando?</li></ul>|
+|<ul><li>¿El espacio de nombres de Event Hubs está experimentando errores generados por el usuario?</li><li>¿Se está actualizando el espacio de nombres de Event Hubs actualmente?</li></ul>|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Existen servicios principales en el clúster de HDInsight?</li><li>¿Puede acceder al clúster de HDInsight a la clave de cifrado de BYOK en reposo?</li></ul>|
+|<ul><li>¿Los servicios principales están disponibles en el clúster de HDInsight?</li><li>¿Puede acceder el clúster de HDInsight a la clave de cifrado de BYOK en reposo?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Comprobaciones ejecutadas|
@@ -115,7 +115,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Es el rendimiento de la puerta de enlace de aplicación degradada?</li><li>¿Es la puerta de enlace de aplicaciones disponible?</li></ul>|
+|<ul><li>¿El rendimiento de la instancia de Application Gateway ha disminuido?</li><li>¿Application Gateway está disponible?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Comprobaciones ejecutadas|
@@ -125,12 +125,12 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Es correcto el circuito de ExpressRoute?</li></ul>|
+|<ul><li>¿El circuito de ExpressRoute está en buen estado?</li></ul>|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿La puerta delantera back-ends responden con errores a los sondeos de estado?</li><li>¿Se retrasan los cambios de configuración?</li></ul>|
+|<ul><li>¿Los elementos de back-end de Front Door devuelven errores en los sondeos de mantenimiento?</li><li>¿Se han retrasado los cambios en la configuración?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Comprobaciones ejecutadas|
@@ -145,7 +145,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Hay retrasos del área de trabajo de indexación?</li></ul>|
+|<ul><li>¿Hay retrasos en la indexación del área de trabajo?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Comprobaciones ejecutadas|
@@ -155,7 +155,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Está el SO del host en funcionamiento?</li><li>¿Se puede acceder a workspaceCollection desde fuera del centro de datos?</li><li>¿Está disponible el proveedor de recursos de Power BI?</li><li>¿Es el servicio Power BI disponibles en la región adecuada?</li></ul>|
+|<ul><li>¿Está el SO del host en funcionamiento?</li><li>¿Se puede acceder a workspaceCollection desde fuera del centro de datos?</li><li>¿Está disponible el proveedor de recursos de Power BI?</li><li>¿Está disponible el servicio de Power BI en la región adecuada?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Comprobaciones ejecutadas|

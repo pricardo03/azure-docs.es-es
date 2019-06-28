@@ -1,6 +1,6 @@
 ---
-title: Patrones y expresiones de enlace de azure Functions
-description: Aprenda a crear diferentes expresiones de enlace de Azure Functions según los patrones comunes.
+title: Patrones y expresiones de enlace de Azure Functions
+description: Aprenda a crear diferentes expresiones de enlace de Azure Functions según patrones comunes.
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -8,19 +8,18 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/20/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437878"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Los patrones de expresiones de enlace de Azure Functions
+# <a name="azure-functions-binding-expression-patterns"></a>Patrones de expresiones de enlace de Azure Functions
 
-Una de las características más eficaces de [desencadenadores y enlaces](./functions-triggers-bindings.md) es *expresiones de enlace*. En el archivo *function.json*, y en el código y en los parámetros de función, puede usar expresiones que se resuelvan como valores procedentes de diversos orígenes.
+Una de las características más eficaces de los [desencadenadores y enlaces](./functions-triggers-bindings.md) son las *expresiones de enlace*. En el archivo *function.json*, y en el código y en los parámetros de función, puede usar expresiones que se resuelvan como valores procedentes de diversos orígenes.
 
 La mayoría de las expresiones se identifican encerrándolas entre llaves. Por ejemplo, en una función de desencadenador de cola, `{queueTrigger}` se resuelve como el texto del mensaje de cola. Si la propiedad `path` de un enlace de blob de salida es `container/{queueTrigger}` y la función se desencadena mediante un mensaje de cola `HelloWorld`, se crea un blob denominado `HelloWorld`.
 
@@ -175,7 +174,7 @@ A estos valores de metadatos se accede en las propiedades del archivo *function.
 
 Los detalles sobre las propiedades de metadatos de cada desencadenador se describen en el artículo de referencia correspondiente. Para un ejemplo, consulte la sección acerca de los [metadatos de los desencadenadores de cola](functions-bindings-storage-queue.md#trigger---message-metadata). También podrá encontrar documentación en la pestaña **Integrar** del portal, en la sección **Documentación**, debajo del área de configuración de enlaces.  
 
-## <a name="json-payloads"></a>Cargas de JSON
+## <a name="json-payloads"></a>Cargas JSON
 
 Cuando una carga de desencadenador es JSON, puede hacer referencia a sus propiedades en la configuración de otros enlaces de la misma función y del código de función.
 
@@ -313,6 +312,4 @@ En C# y otros lenguajes .NET, puede usar un patrón de enlace imperativo, en con
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Utilice el valor devuelto de función de Azure](./functions-bindings-return-value.md)
-
-<!-- Update_Description: link update -->
+> [Uso del valor devuelto de una función de Azure](./functions-bindings-return-value.md)

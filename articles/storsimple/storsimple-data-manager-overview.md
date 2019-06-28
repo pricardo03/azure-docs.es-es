@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
 ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630705"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
@@ -68,9 +68,9 @@ Es recomendable que:
  - La cuenta de almacenamiento de origen (la asociada con el dispositivo de StorSimple) y la cuenta de almacenamiento de destino (donde quiere los datos en formato nativo) estén en la misma región de Azure.
  - Incorpore Data Manager y la definición del trabajo en la región que contiene la cuenta de almacenamiento de StorSimple. Si esto no es posible, incorpore Data Manager en la región de Azure más próxima y, a continuación, cree la definición del trabajo en la misma región que la cuenta de almacenamiento de StorSimple. 
 
-    Si la cuenta de almacenamiento de StorSimple no está en las 26 regiones que admiten la creación de la definición de trabajo, se recomienda que no ejecute StorSimple Data Manager como ver largas latencias y cargos de salida posibles.
+    Si la cuenta de almacenamiento de StorSimple no está en una de las 26 regiones que admiten la creación de la definición de trabajo, se recomienda que no ejecute StorSimple Data Manager, puesto que tendrá largas latencias y cargos de salida potenciales.
     
-Microsoft se esfuerza por garantizar que los servicios de Azure siempre están disponibles en todas las regiones. Sin embargo, pueden producirse interrupciones de servicio no planeada durante breves períodos en una región determinada. En tales casos, puede abrir una definición de trabajos y Administrador de datos en una región que no se ve afectada por la interrupción y ejecutar el trabajo de transformación. Podría encontrar alguna latencia adicional en este escenario, pero esto puede ser la estrategia de recuperación en el caso excepcional de una interrupción regional.
+Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén disponibles en todas las regiones. Sin embargo, pueden producirse interrupciones de servicio no planeadas durante breves períodos en una región determinada. En tales casos, puede abrir una definición de trabajos y Data Manager en una región que no se esté afectada por la interrupción y ejecutar el trabajo de transformación. Podría encontrar alguna latencia adicional en este escenario, pero podría ser la estrategia de recuperación en el caso excepcional de una interrupción regional.
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 

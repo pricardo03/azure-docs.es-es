@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072374"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
@@ -30,7 +30,7 @@ Si necesita una aplicación cliente de LUIS multilingüe como un bot de chat, di
 
 LUIS entiende expresiones en los idiomas siguientes:
 
-| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frase | \**[Análisis de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Las opiniones y<br>palabras clave)|
+| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Recomendaciones de la lista de frases | \**[Análisis de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Las opiniones y<br>palabras clave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglés de Estados Unidos |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chino](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -53,7 +53,7 @@ La compatibilidad con idiomas varía para las [entidades creadas previamente](lu
 
  - En la referencia cultural `zh-cn`, LUIS espera el juego de caracteres de chino simplificado en lugar del juego de caracteres tradicional.
  - Los nombres de las intenciones, entidades, características y expresiones regulares pueden estar en caracteres chinos o romanos.
- - Consulte la [referencia dominios creados previamente](luis-reference-prebuilt-domains.md) para obtener información en el que se admiten los dominios creados previamente en el `zh-cn` referencia cultural.
+ - Consulte la [referencia de dominios creados previamente](luis-reference-prebuilt-domains.md) para obtener información sobre los dominios creados previamente que se admiten en la referencia cultural `zh-cn`.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*Notas de compatibilidad para Japonés
@@ -95,16 +95,16 @@ Para realizar el aprendizaje automático, LUIS divide una expresión en [tokens]
 |Español (es-ES)|✔||||
 |Español (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Versiones de tokenizer personalizado
+### <a name="custom-tokenizer-versions"></a>Versiones de tokenizador personalizadas
 
-Las referencias culturales siguientes tienen versiones de tokenizer personalizado:
+Las referencias culturales siguientes tienen versiones de tokenizador personalizadas:
 
-|Referencia cultural|Version|Propósito|
+|Referencia cultural|Versión|Propósito|
 |--|--|--|
-|Alemán<br>`de-de`|1.0.0|Acorta palabras dividiéndolos mediante un tokenizer basados en aprendizaje de máquina que intenta dividir palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ich fahre einen krankenwagen` como una declaración, se convierte en `Ich fahre einen kranken wagen`. Lo que permite el marcado de `kranken` y `wagen` por separado como entidades diferentes.|
-|Alemán<br>`de-de`|1.0.2|Acorta palabras dividiéndolos en espacios.<br> Si un usuario escribe `Ich fahre einen krankenwagen` como una declaración, sigue siendo un token único. Por lo tanto `krankenwagen` está marcada como una sola entidad. |
+|Alemán<br>`de-de`|1.0.0|Acorta las palabras mediante su división por medio de un tokenizador basado en aprendizaje automático que intenta desglosar las palabras compuestas en sus componentes únicos.<br>Si un usuario escribe `Ich fahre einen krankenwagen` como expresión, se convierte en `Ich fahre einen kranken wagen`. Esto permite el marcado de `kranken` y `wagen` por separado como entidades diferentes.|
+|Alemán<br>`de-de`|1.0.2|Acorta las palabras mediante su división en espacios.<br> Si un usuario escribe `Ich fahre einen krankenwagen` como expresión, sigue siendo un token único. Por lo tanto, `krankenwagen` se marca como una única entidad. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versiones de tokenizer
+### <a name="migrating-between-tokenizer-versions"></a>Migración entre versiones de tokenizador
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +207,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Tokenización se produce en el nivel de aplicación. No hay ninguna compatibilidad para la tokenización de nivel de versión. 
+La tokenización se produce en el nivel de aplicación. No hay ninguna compatibilidad con la tokenización de nivel de versión. 
 
-[Importe el archivo como una nueva aplicación](luis-how-to-start-new-app.md#import-an-app-from-file), en lugar de una versión. Esta acción significa que la nueva aplicación tiene un identificador de aplicación diferentes, pero usa la versión de tokenizer especificada en el archivo. 
+[Importe el archivo como una nueva aplicación](luis-how-to-start-new-app.md#import-an-app-from-file), en lugar de una versión. Esta acción significa que la nueva aplicación tiene un identificador de aplicación diferente, pero usa la versión de tokenizador especificada en el archivo. 

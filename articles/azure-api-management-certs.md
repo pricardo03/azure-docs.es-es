@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60742975"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carga de un certificado de administración de servicios de Azure
@@ -33,7 +33,7 @@ Si deseara más información acerca de los certificados de Azure (incluido cómo
 
 También puede usar [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar el código de cliente para fines de automatización.
 
-**Nota:** Debe ser Coadministrador en la suscripción para realizar operaciones en certificados de administración. [Más información](https://go.microsoft.com/fwlink/?linkid=849300) acerca de cómo agregar o quitar coadministradores en el nuevo Azure Portal 
+**Nota:** Debe ser coadministrador en la suscripción para realizar cualquier operación en certificados de administración. [Más información](https://go.microsoft.com/fwlink/?linkid=849300) acerca de cómo agregar o quitar coadministradores en el nuevo Azure Portal 
 
 ## <a name="upload-a-management-certificate"></a>Carga de un certificado de administración
 Una vez que tenga creado un certificado de administración, (archivo .cer con solo la clave pública) puede cargarlo en el portal. Cuando el certificado esté disponible en el portal, cualquiera que tenga un certificado que coincida (clave privada) puede conectarse a través de Management API y obtener acceso a los recursos de la suscripción asociada.

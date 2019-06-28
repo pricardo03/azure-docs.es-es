@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
 ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773934"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
@@ -22,7 +22,7 @@ En este artículo se describe cómo excluir discos de la replicación. Esta excl
 
 **Característica** | **VMware a Azure** | **Hyper-V en Azure** | **De Azure a Azure**| **De Hyper-V a Hyper-V** 
 --|--|--|--|--
-Excluir el disco | Sí | Sí | No | Sin 
+Excluir el disco | Sí | Sí | No | Sin
 
 ## <a name="why-exclude-disks-from-replication"></a>¿Por qué excluir discos de la replicación?
 A menudo es necesario excluir discos de replicación porque:
@@ -73,7 +73,7 @@ Los discos de la máquina virtual de origen son los siguientes:
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 DB-Disk2 (disco excluido de la protección) | Disk2 | E:\ | Archivos temporales
-DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\) <br /> <br />Anote la ruta de acceso de carpeta antes de la conmutación por error.
+DB-Disk3 (disco excluido de la protección) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\) <br /> <br />Anote la ruta de acceso de la carpeta antes de que se produzca la conmutación por error.
 DB-Disk4 | Disk4 |G:\ |Database2 del usuario
 
 Dado que la renovación de datos en dos discos de la máquina virtual es temporal, al mismo tiempo que protege la máquina virtual de SalesDB, excluya Disk2 y Disk3 de la replicación. Azure Site Recovery no replicará esos discos. En la conmutación por error, esos discos no estarán presentes en la máquina virtual de conmutación por error de Azure.

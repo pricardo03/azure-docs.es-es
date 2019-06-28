@@ -1,6 +1,6 @@
 ---
-title: Supervisión de métricas y registros en el servicio de puerta de entrada de Azure | Microsoft Docs
-description: En este artículo se describe los diferentes métricas y registros de acceso que admite el servicio de puerta de entrada de Azure
+title: Supervisión de métricas y registro en Azure Front Door Service| Microsoft Docs
+description: Este artículo describe las diferentes métricas y registros de acceso que admite Azure Front Door Service.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,85 +12,85 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736808"
 ---
-# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Supervisión de métricas y registros en el servicio de puerta de entrada de Azure
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Supervisión de métricas y registro en Azure Front Door Service
 
-Mediante el servicio de puerta de entrada de Azure, puede supervisar los recursos de las maneras siguientes:
+Con Azure Front Door Service, puede supervisar los recursos de las siguientes maneras:
 
 - **Métricas**. Application Gateway actualmente tiene siete métricas para ver los contadores de rendimiento.
-- **Los registros**. Registros de diagnóstico y actividad permiten rendimiento, acceso y otros datos que se guarden o consuman desde un recurso con fines de supervisión.
+- **Registros**. Los registros de actividad y diagnóstico permiten que un recurso guarde o consuma datos de rendimiento, acceso u otros con fines de supervisión.
 
 ### <a name="metrics"></a>Métricas
 
-Las métricas son una característica de determinados recursos de Azure que le permiten ver los contadores de rendimiento en el portal. Estas son las métricas de puerta de entrada disponibles:
+Las métricas son una característica de determinados recursos de Azure en los que puede ver contadores de rendimiento en el portal. Las métricas siguientes están disponibles en Front Door:
 
 | Métrica | Nombre de métrica para mostrar | Unidad | Dimensiones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
-| RequestCount | Recuento de solicitudes | Número | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de solicitudes de cliente que atiende Front Door.  |
+| RequestCount | Recuento de solicitudes | Recuento | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de solicitudes de cliente que atiende Front Door.  |
 | RequestSize | Tamaño de la solicitud | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de bytes enviados como solicitudes de clientes a Front Door. |
 | ResponseSize | Tamaño de la respuesta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Número de bytes enviados como respuestas de Front Door a los clientes. |
-| TotalLatency | Latencia total | Milisegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | El tiempo se calcula de la solicitud de cliente recibida por la puerta delantera hasta que el cliente reconoce el último byte de respuesta de la puerta de entrada. |
-| BackendRequestCount | Recuento de solicitudes de back-end | Número | HttpStatus</br>HttpStatusGroup</br>Back-end | Número de solicitudes enviadas de Front Door a los servidores back-end. |
+| TotalLatency | Latencia total | Milisegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Tiempo calculado desde que Front Door recibe la solicitud de cliente hasta que el cliente reconoce el último byte de respuesta de Front Door. |
+| BackendRequestCount | Recuento de solicitudes de back-end | Recuento | HttpStatus</br>HttpStatusGroup</br>Back-end | Número de solicitudes enviadas de Front Door a los servidores back-end. |
 | BackendRequestLatency | Latencia de las solicitudes de back-end | Milisegundos | Back-end | Tiempo calculado desde que Front Door envía la solicitud al servidor back-end hasta que Front Door recibe el último byte de respuesta del servidor back-end. |
 | BackendHealthPercentage | Porcentaje de estado del back-end | Percent | Back-end</br>BackendPool | El porcentaje de sondeos de estado correctos de Front Door a los servidores back-ends. |
-| WebApplicationFirewallRequestCount | Recuento de solicitudes del firewall de aplicaciones web | Número | PolicyName</br>RuleName</br>. | Número de solicitudes de cliente procesadas por la seguridad del nivel de aplicación de Front Door. |
+| WebApplicationFirewallRequestCount | Recuento de solicitudes del firewall de aplicaciones web | Recuento | PolicyName</br>RuleName</br>. | Número de solicitudes de cliente procesadas por la seguridad del nivel de aplicación de Front Door. |
 
 ## <a name="activity-log"></a>Registros de actividad
 
-Los registros de actividad proporcionan información sobre las operaciones realizadas en el servicio de puerta de entrada. También determinan qué, quién y cuándo para cualquier escritura (put, post o delete) realizadas en el servicio de puerta de entrada.
+Los registros de actividad proporcionan información sobre las operaciones realizadas en Front Door Service. También determinan qué, quién y cuándo para cualquier operación de escritura (put, post o delete) realizada en Front Door Service.
 
 >[!NOTE]
->Los registros de actividad no incluyen las operaciones de lectura (get). También no incluyen las operaciones que realizan mediante el portal de Azure o la API de administración original.
+>Los registros de actividad no incluyen operaciones de lectura (get). Tampoco incluyen operaciones realizadas con Azure Portal o la Management API original.
 
-Registros de actividad de acceso en el servicio de puerta de entrada o de todos los registros de los recursos de Azure en Azure Monitor. Para ver los registros de actividad:
+Acceda a registros de actividad en el servicio Front Door Service o a los registros de todos los recursos de Azure en Azure Monitor. Para ver los registros de actividad:
 
-1. Seleccione la instancia de puerta de entrada.
-2. Seleccione **registro de actividad**.
+1. Seleccione la instancia de Front Door.
+2. Seleccione **Registro de actividad**.
 
     ![Registro de actividades](./media/front-door-diagnostics/activity-log.png)
 
-3. Elija un ámbito de filtrado y, a continuación, seleccione **aplicar**.
+3. Elija un ámbito de filtrado y, a continuación, seleccione **Aplicar**.
 
 ## <a name="diagnostic-logging"></a>Registros de diagnóstico
-Los registros de diagnóstico proporcionan información valiosa sobre las operaciones y errores que son importantes para la auditoría y solución de problemas. Los registros de diagnóstico difieren de los registros de actividad.
+Los registros de diagnóstico proporcionan información valiosa acerca de las operaciones y los errores que son importantes para la auditoría, así como para solucionar problemas. Los registros de diagnóstico son diferentes de los registros de actividad.
 
-Los registros de actividad proporcionan información sobre las operaciones realizadas en recursos de Azure. Los registros de diagnóstico proporcionan información sobre las operaciones que realiza el recurso. Para obtener más información, consulte [los registros de diagnóstico de Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md).
+Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que realiza el recurso. Para más información, vea [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ![Registros de diagnóstico](./media/front-door-diagnostics/diagnostic-log.png)
 
-Para configurar los registros de diagnóstico para el servicio de puerta de entrada:
+Para configurar los registros de diagnóstico para Front Door Service:
 
-1. Seleccione el servicio de puerta de Azure.
+1. Seleccione su instancia del servicio Azure Front Door Service.
 
-2. Elija **configuración de diagnóstico**.
+2. Seleccione **Configuración de diagnóstico**.
 
-3. Seleccione **Activar diagnósticos**. Archivar registros de diagnóstico, junto con las métricas para una cuenta de almacenamiento, transmitirlos a event hubs o enviarlos a los registros de Azure Monitor.
+3. Seleccione **Activar diagnósticos**. Archive los registros de diagnóstico junto con las métricas en una cuenta de almacenamiento, transmítalos en secuencias a un centro de eventos o envíelos a los registros de Azure Monitor.
 
-Servicio de puerta de entrada actualmente proporciona los registros de diagnóstico (cada hora por lotes). Registros de diagnóstico proporcionan solicitudes API individuales con cada entrada que tenga el siguiente esquema:
+Front Door Service actualmente proporciona los registros de diagnóstico (agrupados por lotes). Los registros de diagnóstico proporcionan solicitudes API individuales con cada entrada con el siguiente esquema:
 
 | Propiedad  | DESCRIPCIÓN |
 | ------------- | ------------- |
 | ClientIp | Dirección IP del cliente que realizó la solicitud. |
-| ClientPort | El puerto IP del cliente que realizó la solicitud. |
+| ClientPort | Puerto IP del cliente que realizó la solicitud. |
 | HttpMethod | Método HTTP utilizado por la solicitud. |
 | HttpStatusCode | El código de estado HTTP devuelto desde el servidor proxy. |
-| HttpStatusDetails | Estado resultante en la solicitud. Significado de este valor de cadena puede encontrarse en una tabla de referencia de estado. |
-| HttpVersion | Tipo de la solicitud o la conexión. |
-| RequestBytes | El tamaño del mensaje de solicitud en bytes, incluidos los encabezados de solicitud y el cuerpo de solicitud HTTP. |
+| HttpStatusDetails | Estado resultante en la solicitud. El significado de este valor de cadena puede encontrarse en una tabla de referencia de estado. |
+| HttpVersion | Tipo de la solicitud o conexión. |
+| RequestBytes | El tamaño del mensaje de solicitud HTTP en bytes, incluidos los encabezados de solicitud y el cuerpo de solicitud. |
 | RequestUri | URI de la solicitud recibida. |
-| ResponseBytes | Bytes enviados por el servidor back-end como la respuesta.  |
-| RoutingRuleName | El nombre de la regla de enrutamiento que coinciden con la solicitud. |
+| ResponseBytes | Bytes enviados por el servidor back-end como respuesta.  |
+| RoutingRuleName | El nombre de la regla de enrutamiento que coincidió con la solicitud. |
 | SecurityProtocol | La versión del protocolo TLS/SSL utilizada por la solicitud o null si no hay cifrado. |
 | TimeTaken | El período de tiempo que tardó la acción, en milisegundos. |
-| UserAgent | El tipo de explorador que usa el cliente |
-| TrackingReference | La cadena de referencia exclusivo que identifica una solicitud atendida por puerta de entrada, también se envía como encabezado X-Azure-Ref al cliente. Se requiere para buscar los detalles en los registros de acceso para una solicitud específica. |
+| UserAgent | El tipo de explorador utilizado por el cliente. |
+| TrackingReference | La cadena de referencia exclusiva que identifica una solicitud atendida por Front Door, que también se envía como encabezado X-Azure-Ref al cliente. Se requiere para buscar los detalles en los registros de acceso para una solicitud específica. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Crear un perfil de la puerta delantera](quickstart-create-front-door.md)
-- [Cómo funciona la puerta de entrada](front-door-routing-architecture.md)
+- [Cree una instancia de Front Door](quickstart-create-front-door.md)
+- Información acerca de cómo [funciona Front Door](front-door-routing-architecture.md)

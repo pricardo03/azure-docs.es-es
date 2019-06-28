@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65152728"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)
@@ -22,7 +22,7 @@ El entorno de ejecución de Azure IoT Edge es lo que convierte a un dispositivo 
 
 Para más información acerca de cómo funciona el entorno de ejecución de IoT Edge y los componentes que se incluyen, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
 
-En este artículo se enumera los pasos para instalar el runtime de Azure IoT Edge en un dispositivo Linux ARM32v7/armhf IoT Edge. Por ejemplo, estos pasos podrían funcionar con dispositivos Raspberry Pi. Para obtener una lista de sistemas operativos de ARM32 compatibles, consulte [sistemas compatibles con Azure IoT Edge](support.md#operating-systems). 
+En este artículo se enumeran los pasos para instalar el entorno de ejecución de Azure IoT Edge en un dispositivo perimetral de IoT Edge de Linux ARM32v7/armhf. Por ejemplo, estos pasos podrían funcionar con dispositivos Raspberry Pi. Para obtener una lista de los sistemas operativos ARM32 compatibles, consulte [Sistemas compatibles con Azure IoT Edge](support.md#operating-systems). 
 
 >[!NOTE]
 >Los paquetes en los repositorios de software de Linux están sujetos a los términos de licencia que se encuentran en cada paquete (/usr/share/doc/*nombre-de-paquete*). Lea los términos de licencia antes de usar el paquete. La instalación y uso del paquete constituye la aceptación de estos términos. Si no acepta los términos de licencia, no utilice el paquete.
@@ -31,7 +31,7 @@ En este artículo se enumera los pasos para instalar el runtime de Azure IoT Edg
 
 Azure IoT Edge utiliza un runtime de contenedor [compatible con OCI](https://www.opencontainers.org/). En los escenarios de producción, se recomienda encarecidamente utilizar el motor [basado en Moby](https://mobyproject.org/) que se proporciona a continuación. Es el único motor de contenedor compatible oficialmente con Azure IoT Edge. Las imágenes de los contenedores Docker CE/EE son compatibles con el entorno de ejecución basado en Moby.
 
-El siguiente comando instala el motor de Moby y la interfaz de línea de comandos (CLI). La CLI es útil para el desarrollo pero opcional para implementaciones de producción.
+Los siguientes comandos instalan tanto el motor basado en Moby como la interfaz de la línea de comandos (CLI). La CLI es útil para el desarrollo pero opcional para implementaciones de producción.
 
 ```bash
 # You can copy the entire text from this code block and 
@@ -49,7 +49,7 @@ sudo apt-get install -f
 
 ## <a name="install-the-iot-edge-security-daemon"></a>Instalación del demonio de seguridad de IoT Edge
 
-El **daemon de seguridad de IoT Edge** proporciona y mantiene los estándares de seguridad en el dispositivo de IoT Edge. El demonio se inicia en cada arranque e inicia el resto del entorno de ejecución de IoT Edge para arrancar el dispositivo. 
+El **demonio de seguridad de IoT Edge** proporciona y mantiene los estándares de seguridad en el dispositivo IoT Edge. El demonio se inicia en cada arranque e inicia el resto del entorno de ejecución de IoT Edge para arrancar el dispositivo. 
 
 
 ```bash
@@ -70,13 +70,13 @@ sudo apt-get install -f
 
 Configure el entorno de ejecución de Azure IoT Edge para vincular el dispositivo físico con una identidad de dispositivo que exista en un centro de Azure IoT. 
 
-El demonio se puede configurar mediante el archivo de configuración en `/etc/iotedge/config.yaml`. El archivo está protegido contra escritura de forma predeterminada, por lo que es posible que necesite permisos elevados para editarlo.
+El demonio se puede configurar mediante el archivo de configuración en `/etc/iotedge/config.yaml`. El archivo está protegido contra escritura de forma predeterminada, por lo que puede que necesite permisos elevados para editarlo.
 
 Un único dispositivo de IoT Edge se puede aprovisionar manualmente mediante una cadena de conexiones de dispositivo proporcionada por IoT Hub. O bien, puede usar el servicio Device Provisioning para aprovisionar dispositivos automáticamente, lo que resulta útil cuando tiene muchos dispositivos para aprovisionar. Según la elección de aprovisionamiento, elija el script de instalación adecuado. 
 
 ### <a name="option-1-manual-provisioning"></a>Opción 1: Aprovisionamiento manual
 
-Para aprovisionar manualmente un dispositivo, deberá proporcionar con un [cadena de conexión de dispositivo](how-to-register-device-portal.md) que puede crear mediante el registro de un nuevo dispositivo de IoT Edge en IoT hub.
+Para aprovisionar manualmente un dispositivo, debe proporcionarle una [cadena de conexión de dispositivo](how-to-register-device-portal.md), que puede crear mediante el registro de un dispositivo IoT Edge nuevo en su instancia de IoT Hub.
 
 Abra el archivo de configuración. 
 
@@ -144,7 +144,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 
-Si uso los pasos de **configuración manual** de la sección anterior, el entorno de ejecución de IoT Edge debe haberse aprovisionado correctamente y estar en ejecución en el dispositivo. O bien, si ha usado el **configuración automática** pasos, deberá completar algunos pasos adicionales para que el tiempo de ejecución puede registrar el dispositivo con IoT hub en su nombre. Para los pasos siguientes, vea [creación y aprovisionamiento de un dispositivo de TPM IoT Edge simulado en una máquina virtual Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
+Si uso los pasos de **configuración manual** de la sección anterior, el entorno de ejecución de IoT Edge debe haberse aprovisionado correctamente y estar en ejecución en el dispositivo. Si ha usado los pasos de **configuración automática**, deberá completar algunos pasos adicionales para que el entorno de ejecución pueda registrar el dispositivo con IoT Hub en su nombre. Para los pasos siguientes, consulte [Creación y aprovisionamiento de un dispositivo de IoT Edge con un TPM virtual en una máquina virtual Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
 Puede comprobar el estado del demonio de IoT Edge mediante lo siguiente:
 
@@ -205,6 +205,6 @@ sudo apt-get remove --purge moby-engine
 
 Ahora que tiene un dispositivo IoT Edge aprovisionado con el entorno de ejecución instalado, puede [implementar módulos de IoT Edge](how-to-deploy-modules-portal.md).
 
-Si tiene problemas con el tiempo de ejecución de IoT Edge que se instale correctamente, consulte el [solución de problemas](troubleshoot.md#stability-issues-on-resource-constrained-devices) página.
+Si tiene problemas con la instalación correcta del entorno de ejecución de Azure IoT Edge, consulte la página de [solución de problemas](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
 Para actualizar una instalación existente a la versión más reciente de IoT Edge, vea [Actualice el archivo de configuración del demonio de seguridad y el entorno de ejecución de IoT Edge](how-to-update-iot-edge.md).

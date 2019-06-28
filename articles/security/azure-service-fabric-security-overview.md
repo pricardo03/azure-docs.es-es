@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610887"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Introducción a la seguridad de Azure Service Fabric
@@ -87,7 +87,7 @@ El flujo de trabajo de la supervisión y el diagnóstico consta de tres pasos:
 
 2.  **Agregación de eventos**: para poder mostrar los eventos generados antes hay que recopilarlos y agregarlos. Normalmente, se recomienda usar [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similar a la recopilación de registros basada en agentes) o [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (recopilación de registros en proceso).
 
-3.  **Análisis**: para poder analizar y mostrar eventos, es necesario que puedan visualizarse y que permitan acceder a ellos en algún formato. Hay varias plataformas para el análisis y la visualización de datos de supervisión y diagnóstico. Se recomienda [registros de Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) y [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) porque integran correctamente con Service Fabric.
+3.  **Análisis**: para poder analizar y mostrar eventos, es necesario que puedan visualizarse y que permitan acceder a ellos en algún formato. Hay varias plataformas para el análisis y la visualización de datos de supervisión y diagnóstico. Se recomiendan los [registros de Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) y [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights), ya que se integran bien con Service Fabric.
 
 También puede usar [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) para supervisar muchos de los recursos de Azure que incorporan un clúster de Service Fabric.
 

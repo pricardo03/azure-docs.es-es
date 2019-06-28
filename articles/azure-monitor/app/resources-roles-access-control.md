@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60373715"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, roles y control de acceso en Application Insights
@@ -48,7 +48,7 @@ En primer lugar, vamos a ver algunas definiciones:
 
 ## <a name="access"></a> Control de acceso para el grupo de recursos
 
-Es importante comprender que, además del recurso que ha creado para su aplicación, también hay recursos ocultos independientes para las alertas y las pruebas web. Están conectados al mismo [grupo de recursos](#resource-group) como recurso de Application Insights. También podría haber colocado ahí otros servicios de Azure, como sitios web o almacenamiento.
+Es importante comprender que, además del recurso que ha creado para su aplicación, también hay recursos ocultos independientes para las alertas y las pruebas web. Estos están conectados al mismo [grupo de recursos](#resource-group) que el recurso de Application Insights. También podría haber colocado ahí otros servicios de Azure, como sitios web o almacenamiento.
 
 Para controlar el acceso a estos recursos, se recomienda por lo tanto lo siguiente:
 

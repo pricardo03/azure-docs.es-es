@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318704"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solución de problemas de mensajes de error específicos de RDP en una máquina virtual Windows en Azure
@@ -37,7 +37,7 @@ Para obtener información sobre mensajes de error específicos, vea los siguient
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>Se desconectó la sesión remota porque no hay servidores de licencias de Escritorio remoto disponibles para proporcionar una licencia.
-Causa: Ha expirado el período de gracia de licencias de 120 días para el rol de servidor de escritorio remoto y deberá instalar licencias.
+Causa: el período de gracia de licencias de 120 días para el rol de servidor de Escritorio remoto expiró y necesita instalar licencias.
 
 Como solución alternativa, guarde una copia local del archivo RDP desde el portal y ejecute este comando en un símbolo del sistema de PowerShell para conectarse. Con este paso se deshabilita la obtención de licencias solo de esa conexión:
 
@@ -50,7 +50,7 @@ Para obtener más información, consulte la entrada de blog [Azure VM fails with
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>Remote Desktop can't find the computer "name" (Escritorio remoto no puede encontrar el equipo "nombre").
-Causa: El cliente de escritorio remoto en el equipo no puede resolver el nombre del equipo en la configuración del archivo RDP.
+Causa: el cliente de Escritorio remoto del equipo no puede resolver el nombre del equipo en la configuración del archivo RDP.
 
 Posibles soluciones:
 
@@ -68,9 +68,9 @@ La parte de la dirección de este archivo RDP tiene:
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Error de autenticación. No se puede conectar con la autoridad de seguridad Local.
-Causa: La máquina virtual de destino no encuentra la autoridad de seguridad en la parte del nombre de usuario de las credenciales.
+Causa: la VM de destino no encuentra la autoridad de seguridad en la parte del nombre de usuario de las credenciales.
 
-Cuando es el nombre de usuario en el formulario *Autoridaddeseguridad*\\*UserName* (ejemplo: CORP\User1), el *Autoridaddeseguridad* parte es el nombre del equipo de la máquina virtual (para la entidad de seguridad local) o un nombre de dominio de Active Directory.
+Si el nombre de usuario tiene la forma *autoridadDeSeguridad*\\*nombreDeUsuario* (ejemplo: CORP\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
 
 Posibles soluciones:
 
@@ -80,13 +80,13 @@ Posibles soluciones:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Error de seguridad de Windows: Las credenciales no funcionaron.
-Causa: La máquina virtual de destino no puede validar el nombre de cuenta y la contraseña.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Error de seguridad de Windows: las credenciales no han funcionado.
+Causa: la VM de destino no pudo validar el nombre y la contraseña de la cuenta.
 
 Un equipo con Windows puede validar las credenciales de una cuenta local o de una cuenta de dominio.
 
-* Para las cuentas locales, use el *ComputerName*\\*UserName* sintaxis (ejemplo: SQL1\Admin4798).
-* Para las cuentas de dominio, use el *DomainName*\\*UserName* sintaxis (ejemplo: CONTOSO\peterodman).
+* Para las cuentas locales, use la sintaxis *nombreDeEquipo*\\*nombreDeUsuario* (ejemplo: SQL1\Admin4798).
+* Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\\*nombreDeUsuario* (ejemplo: CONTOSO\peterodman).
 
 Si promovió su máquina virtual a un controlador de dominio de un nuevo bosque de Active Directory, la cuenta de administrador local con la que inició sesión se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. A continuación, se elimina la cuenta local.
 
@@ -99,7 +99,7 @@ Si necesita cambiar la contraseña de la cuenta de administrador local, consulte
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>This computer can't connect to the remote computer (Este equipo no se puede conectar al equipo remoto).
-Causa: La cuenta que se usa para conectarse no tiene derechos de inicio de sesión de escritorio remoto.
+Causa: la cuenta usada para conectarse no tiene derechos de inicio de sesión de Escritorio remoto.
 
 Todos los equipos de Windows tienen un grupo local Usuarios de escritorio remoto que contiene las cuentas y los grupos que pueden iniciar sesión en él de forma remota. Los miembros del grupo de administradores locales también tienen acceso, aunque esas cuentas no se enumeran en el grupo local Usuarios de escritorio remoto. Para los equipos unidos a un dominio, el grupo de administradores locales también contiene los administradores de dominio correspondientes al dominio.
 

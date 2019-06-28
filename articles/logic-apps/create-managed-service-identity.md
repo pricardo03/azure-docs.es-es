@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416114"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticación y acceso a los recursos con identidades administradas en Azure Logic Apps
@@ -43,7 +43,7 @@ Para las identidades administradas asignadas por el sistema, no tiene que crear 
 
 <a name="azure-portal"></a>
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Para habilitar una identidad administrada asignada por el sistema para la aplicación lógica mediante Azure Portal, active el valor **Asignado por el sistema** en la configuración de la identidad de la aplicación lógica.
 
@@ -132,7 +132,7 @@ Para proporcionar acceso a otro recurso de Azure para la identidad administrada 
 
 1. En Azure Portal, vaya al recurso de Azure en el que quiere asignar acceso para la identidad administrada. 
 
-1. En menú del recurso, seleccione **control de acceso (IAM)**. En la barra de herramientas, elija **agregar** > **Agregar asignación de roles**.
+1. En el menú del recurso, seleccione **Control de acceso (IAM)** . En la barra de herramientas, seleccione **Agregar** > **Agregar asignación de roles**.
 
    ![Agregar asignación de roles](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
@@ -182,7 +182,7 @@ Para deshabilitar una identidad administrada asignada por el sistema en la aplic
 
 Cuando se elimina la aplicación lógica, Azure quita automáticamente de Azure AD la identidad asignada por el sistema a la aplicación lógica.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Para quitar una identidad administrada asignada por el sistema para la aplicación lógica mediante Azure Portal, desactive el valor **Asignado por el sistema** en la configuración de la identidad de la aplicación lógica.
 

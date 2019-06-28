@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822328"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
 Puede ver dos tipos de registros para Event Hubs de Azure:
 
-* **[Registros de actividad](../azure-monitor/platform/activity-logs-overview.md)**: Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
-* **[Registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)**: Puede configurar registros de diagnóstico para obtener una vista más completa de todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
+* **[Registros de actividad](../azure-monitor/platform/activity-logs-overview.md)** : Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
+* **[Registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)** : Puede configurar registros de diagnóstico para obtener una vista más completa de todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
 ## <a name="enable-diagnostic-logs"></a>Habilitar registros de diagnóstico
 
@@ -48,7 +48,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
     ![Cambio del estado de registros de diagnósticos](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Establecer el destino de archivo que desee; Por ejemplo, registros de Azure Monitor, un centro de eventos o una cuenta de almacenamiento.
+5.  Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o registros de Azure Monitor.
 
 6.  Guarde la nueva configuración de diagnóstico.
 

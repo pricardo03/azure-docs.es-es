@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60828129"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configuración de los contenedores de docker de Text Analytics
@@ -31,11 +31,11 @@ Text Analytics proporciona a cada contenedor un marco de configuración común, 
 
 ## <a name="apikey-configuration-setting"></a>Opción de configuración ApiKey
 
-La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para la ApiKey y el valor debe ser una clave válida para el _Cognitive Services_ recurso especificado para el [ `Billing` ](#billing-configuration-setting) opción de configuración.
+La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para ApiKey que debe ser una clave válida para el recurso de _Cognitive Services_ especificado para la opción de configuración [`Billing`](#billing-configuration-setting).
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: **Cognitivas Services** administración de recursos, en **claves**
+* Azure Portal: Administración de recursos de **Cognitivas Services**, en **Claves**
 
 ## <a name="applicationinsights-setting"></a>Opción de configuración ApplicationInsights
 
@@ -43,17 +43,17 @@ Este valor se puede encontrar en el siguiente lugar:
 
 ## <a name="billing-configuration-setting"></a>Opción de configuración Billing
 
-El `Billing` configuración especifica el URI del extremo de la _Cognitive Services_ recursos en Azure se usan para medir la información de facturación para el contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de extremo válido para un __Cognitive Services_ recursos en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
+La opción de configuración `Billing` especifica el URI del punto de conexión del recurso de _Cognitive Services_ que se usa para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración que debe ser un URI de punto de conexión válido para un recurso de _Cognitive Services_ en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: **Cognitivas Services** información general, con la etiqueta `Endpoint`
+* Azure Portal: Información general de **Cognitivas Services**, con la etiqueta `Endpoint`
 
-Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.
+Deberá agregar el enrutamiento `text/analytics/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI.
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
+|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -81,8 +81,8 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | string | Los contenedores de Text Analytics no usan esto.|
-|Opcional| `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | Cadena | Los contenedores de Text Analytics no usan esto.|
+|Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
@@ -91,20 +91,20 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 * **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
 * **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
 
-Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.
+Deberá agregar el enrutamiento `text/analytics/v2.0` al URI del punto de conexión, tal como se muestra en el siguiente ejemplo de BILLING_ENDPOINT_URI.
 
 Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | La clave de punto de conexión de la `Cognitive Services` recurso disponible en Azure `Cognitive Services` página claves. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | El valor de punto de conexión de facturación está disponible en Azure `Cognitive Services` página de información general.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|{BILLING_KEY} | La clave del punto de conexión del recurso `Cognitive Services` disponible en la página Claves de Azure `Cognitive Services`. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Cognitive Services`.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](how-tos/text-analytics-how-to-install-containers.md#billing).
-> El valor de ApiKey es el **clave** desde Azure `Cognitive Services` página claves de recursos. 
+> El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Cognitive Services`. 
 
-## <a name="key-phrase-extraction-container-docker-examples"></a>Ejemplos de docker de contenedor de extracción de frases clave
+## <a name="key-phrase-extraction-container-docker-examples"></a>Ejemplos de docker del contenedor de extracción de frases clave
 
 Los siguientes ejemplos de docker son para el contenedor de extracción de frases clave. 
 

@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348099"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
@@ -53,7 +53,7 @@ Para obtener información general sobre la seguridad operativa, del servicio y d
 - **STS de Azure AD**: un servicio de token de seguridad (STS) sin estado que procesa las solicitudes de inicio de sesión y genera tokens de seguridad para los clientes, servicios o exploradores de los usuarios, según proceda.
 - **Azure Service Bus**: proporciona comunicación habilitada para la nube con mensajería empresarial y retransmite comunicación que ayuda a conectar las soluciones locales con la nube.
 - **Agente de autenticación de Azure AD Connect**: un componente local que escucha las solicitudes de validación de contraseña y las responde.
-- **Azure SQL Database**: retiene información sobre los agentes de autenticación del inquilino, incluidos los metadatos y las claves de cifrado.
+- **Azure SQL Database**: retiene información sobre los agentes de autenticación del inquilino, incluidos los metadatos y las claves de cifrado.
 - **Active Directory**: es el entorno local de Active Directory, donde se almacenan las cuentas de usuario y las contraseñas correspondientes.
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Instalación y registro de los agentes de autenticación
@@ -147,7 +147,7 @@ La autenticación de paso a través administra una solicitud de inicio de sesió
 12. El agente de autenticación recibe un resultado de Active Directory como, por ejemplo: correcto, nombre de usuario o contraseña incorrectos o contraseña expirada.
 
    > [!NOTE]
-   > Si el agente de autenticación se produce un error durante el proceso de inicio de sesión, se quita la solicitud de inicio de sesión completamente. No hay ninguna entrega de solicitudes de inicio de sesión de un agente de autenticación a otro agente de autenticación local. Estos agentes solo se comunican con la nube y no entre sí.
+   > Si el agente de autenticación produce un error durante el proceso de inicio de sesión, se elimina completamente la solicitud de inicio de sesión. No hay transferencia de solicitudes de inicio de sesión de un agente de autenticación a otro en el entorno local. Estos agentes solo se comunican con la nube y no entre sí.
 13. El agente de autenticación reenvía el resultado al servicio STS de Azure AD por un canal HTTPS saliente autenticado mutuamente a través del puerto 443. La autenticación mutua usa el mismo certificado emitido anteriormente al agente de autenticación durante el registro.
 14. STS de Azure AD verifica que este resultado se pone en correlación con la solicitud de inicio de sesión específica del inquilino.
 15. STS de Azure AD continúa con el procedimiento de inicio de sesión según la configuración. Por ejemplo, si la validación de contraseña es correcta, el usuario podría tener que someterse a Multi-Factor Authentication o se le podría redirigir de nuevo a la aplicación.
@@ -184,7 +184,7 @@ Para renovar la confianza de un agente de autenticación con Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Actualización automática de los agentes de autenticación
 
-La aplicación del actualizador actualiza automáticamente el agente de autenticación cuando se lanza una nueva versión (con correcciones de errores o mejoras de rendimiento). La aplicación actualizadora no controla las solicitudes de validación de contraseña para el inquilino.
+La aplicación del actualizador actualiza automáticamente el agente de autenticación cuando se lanza una nueva versión (con correcciones de errores o mejoras de rendimiento). Esta aplicación no controla las solicitudes de validación de contraseña del inquilino.
 
 Azure AD hospeda la nueva versión del software como un **paquete de Windows Installer (MSI)** firmado. El archivo MSI se firma mediante [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) con SHA256 como algoritmo de resumen. 
 
@@ -206,7 +206,7 @@ Para actualizar automáticamente un agente de autenticación:
     - Reinicia el servicio del agente de autenticación.
 
 >[!NOTE]
->Si tiene varios agentes de autenticación registrados en el inquilino, Azure AD no renueva sus certificados ni los actualiza al mismo tiempo. En su lugar, Azure AD hace una en un momento para garantizar la alta disponibilidad de las solicitudes de inicio de sesión.
+>Si tiene varios agentes de autenticación registrados en el inquilino, Azure AD no renueva sus certificados ni los actualiza al mismo tiempo. En su lugar, Azure AD lo hace una a la vez para garantizar la alta disponibilidad de las solicitudes de inicio de sesión.
 >
 
 

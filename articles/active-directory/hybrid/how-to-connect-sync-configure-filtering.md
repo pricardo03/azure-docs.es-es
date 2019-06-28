@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243507"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronización de Azure AD Connect: Configuración del filtrado
@@ -99,12 +99,12 @@ La configuración del filtrado basado en dominios consta de estos pasos:
 3. [Aplicación y comprobación de los cambios](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Selección de los dominios que se van a sincronizar
-Hay dos maneras de seleccionar los dominios para sincronizarse:
+Existen dos formas de seleccionar los dominios que se van a sincronizar:
     - Uso del servicio de sincronización
-    - Usar al Asistente de Azure AD Connect.
+    - Uso del asistente de Azure AD Connect.
 
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Seleccione los dominios se sincronicen con el servicio de sincronización
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Selección de los dominios que se van a sincronizar mediante el servicio de sincronización
 Para configurar el filtro de dominio, realice los pasos siguientes:
 
 1. Inicie sesión en el servidor donde se ejecuta la sincronización de Azure AD Connect con una cuenta que pertenezca al grupo de seguridad **ADSyncAdmins** .
@@ -119,15 +119,15 @@ Para configurar el filtro de dominio, realice los pasos siguientes:
 6. Cuando termine, haga clic en el botón **Aceptar** para cerrar el cuadro de diálogo **Propiedades**. Si quitó dominios del bosque, aparecerá un mensaje para indicar que se eliminó un dominio y se borrará esa configuración.
 7. Pase a ajustar el valor de los perfiles de ejecución.
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Seleccione los dominios se sincronicen con el Asistente de Azure AD Connect
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Selección de los dominios que se van a sincronizar mediante el asistente de Azure AD Connect
 Para configurar el filtro de dominio, realice los pasos siguientes:
 
-1.  Iniciar al Asistente de Azure AD Connect
+1.  Inicie el asistente de Azure AD Connect.
 2.  Haga clic en **Configurar**.
-3.  Seleccione **personalizar las opciones de sincronización** y haga clic en **siguiente**.
+3.  Seleccione **Personalizar las opciones de sincronización** y, después, haga clic en **Siguiente**.
 4.  Escriba sus credenciales de Azure AD
-5.  En el **directorios conectados** pantalla clic **siguiente**.
-6.  En el **página filtrada de dominios y unidades Organizativas** haga clic en **actualizar**.  Ahora aparecen nuevos dominios negativos y los dominios eliminados desaparecerán.
+5.  En la pantalla **Directorios conectados**, haga clic en **Siguiente**.
+6.  En la **página Filtrado de dominios y unidades organizativas**, haga clic en **Actualizar**.  Ahora aparecerán nuevos dominios y los dominios eliminados desaparecerán.
    ![Particiones](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Actualización de los perfiles de ejecución
@@ -216,9 +216,9 @@ El filtrado entrante utiliza la configuración predeterminada en la que los obje
 
 En el filtrado entrante se utilizará el **ámbito** para determinar qué objetos se sincronizan y cuáles no. Aquí realizará ajustes para satisfacer los requisitos de su organización. El módulo de ámbito cuenta con un **grupo** y una **cláusula** para determinar cuándo una regla de sincronización está dentro de él. Un grupo contiene una o varias cláusulas. Existe un operador lógico AND entre varias cláusulas y un operador lógico OR entre varios grupos.
 
-Veamos un ejemplo:   
+Veamos un ejemplo:  
 ![Ámbito](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Se debe leer como **(departamento = TI) O BIEN (departamento = Ventas Y c = Estados Unidos)**.
+Se debe leer como **(departamento = TI) O BIEN (departamento = Ventas Y c = Estados Unidos)** .
 
 En los ejemplos y los pasos siguientes, usaremos el objeto de usuario como ejemplo, pero esto sirve para todo tipo de objetos.
 
@@ -278,7 +278,7 @@ En este ejemplo, se cambia el filtrado de manera que se sincronicen solo los usu
 4. Según la versión de Connect que utilice, o bien busque la regla denominada **Out to AAD – User Join** (Salida a AAD - Unión de usuario) o la regla **Out a AAD - User Join SOAInAD** (Salida a AAD - SOAInAD de unión de usuario) y haga clic en **Editar**.
 5. En el elemento emergente, responda **Sí** para crear una copia de la regla.
 6. En la página **Descripción**, cambie la **Precedencia** a un valor sin usar, como 50.
-7. Haga clic en **Scoping filter** (Filtro de ámbito) en el panel de navegación izquierdo y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **mail**. En **Operador**, seleccione **ENDSWITH**. En **valor**, tipo  **\@contoso.com**y, a continuación, haga clic en **Agregar cláusula**. En **Atributo**, seleccione **userPrincipalName**. En **Operador**, seleccione **ENDSWITH**. En **valor**, tipo  **\@contoso.com**.
+7. Haga clic en **Scoping filter** (Filtro de ámbito) en el panel de navegación izquierdo y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **mail**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **\@contoso.com** y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **userPrincipalName**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **\@contoso.com**.
 8. Haga clic en **Save**(Guardar).
 9. Para completar la configuración, debe ejecutar una **sincronización completa**. Continúe leyendo la sección [Aplicación y comprobación de los cambios](#apply-and-verify-changes).
 

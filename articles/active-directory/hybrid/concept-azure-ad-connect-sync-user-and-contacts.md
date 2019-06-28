@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245493"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos
@@ -51,9 +51,9 @@ Puntos importantes para tener en cuenta durante la sincronización de grupos de 
     
       * Un grupo de Active Directory cuyo atributo proxyAddress tiene el valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* no estará habilitado para correo electrónico en Azure AD. No tiene ninguna dirección SMTP.
       
-      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* estará habilitado para correo en Azure AD.
+      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* estará habilitado para correo electrónico en Azure AD.
       
-      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup" "," smtp:johndoe\@contoso.com "}* también estará habilitado para correo electrónico en Azure AD.
+      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* estará habilitado también para correo electrónico en Azure AD.
 
 ## <a name="contacts"></a>Contactos
 Tras una fusión o una adquisición donde la solución GALSync actúa como puente entre dos o más bosques de Exchange, es habitual que los contactos representen a un usuario en un bosque diferente. El objeto de contacto siempre se une desde el espacio del conector al metaverso mediante el atributo de correo. Si ya existe un objeto de contacto o un objeto de usuario con la misma dirección de correo, los objetos se unen. Esto se configura en la regla **In from AD – Contact Join**. Existe también una regla llamada **In from AD – Contact Common** con un flujo de atributos al atributo de metaverso **sourceObjectType** con la constante **Contact**. Esta regla tiene una precedencia muy baja, por lo que si algún objeto de usuario se une al mismo objeto de metaverso, la regla **In from AD – User Common** aportará el valor User a este atributo. Con esta regla, este atributo tendrá el valor Contact si no se ha unido ningún usuario y el valor User si se ha encontrado por lo menos un usuario.

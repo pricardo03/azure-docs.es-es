@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343773"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-sap-hana-connector.md)
 > * [Versión actual](connector-sap-hana.md)
 
@@ -59,10 +59,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP HANA:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapHana** | Sí |
-| server | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | Sí |
+| Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos SAP HANA.<br/>Los valores permitidos son: **Basic** y **Windows** | Sí |
 | userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
-| password | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
@@ -121,7 +121,7 @@ Para copiar datos desde SAP HANA, establezca el tipo de origen de la actividad d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Sí |
 
 **Ejemplo:**
@@ -162,23 +162,23 @@ Al copiar datos desde SAP HANA, se usan las siguientes asignaciones de tipos de 
 
 | Tipo de datos de SAP HANA | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| ALPHANUM | String |
+| ALPHANUM | Cadena |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATE | DateTime |
+| DATE | Datetime |
 | DECIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | String |
+| NVARCHAR | Cadena |
 | REAL | Single |
-| SECONDDATE | DateTime |
+| SECONDDATE | Datetime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
-| TIMESTAMP | DateTime |
+| TIMESTAMP | Datetime |
 | TINYINT | Byte |
-| VARCHAR | String |
+| VARCHAR | Cadena |
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 

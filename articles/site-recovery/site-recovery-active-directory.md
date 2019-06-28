@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038841"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configuración de la recuperación ante desastres para Active Directory y DNS
@@ -106,9 +106,9 @@ Al iniciar una conmutación por error de prueba, no incluya todos los controlado
 A partir de Windows Server 2012, [se han integrado medidas de seguridad adicionales en Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Estas medidas de seguridad ayudan a proteger los controladores de dominio virtualizados frente a las reversiones de USN, si la plataforma de hipervisor subyacente admite **VM-GenerationID**. Azure es compatible con **VM-GenerationID**. Debido a esto, los controladores de dominio que ejecutan Windows Server 2012 o posterior en máquinas virtuales de Azure disponen de estas medidas de seguridad adicionales.
 
 
-Cuando **VM-GenerationID** se restablece, el valor **InvocationID** de la base de datos de AD DS también se restablece. Además, se descarta el grupo RID y carpeta sysvol se marca como no autoritativo. Para obtener más información, consulte [Introducción a la virtualización de Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) y [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualización segura de DFSR).
+Cuando **VM-GenerationID** se restablece, el valor **InvocationID** de la base de datos de AD DS también se restablece. Además, se descarta el grupo RID y la carpeta sysvol se marca como no autoritativa. Para obtener más información, consulte [Introducción a la virtualización de Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) y [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/) (Virtualización segura de DFSR).
 
-La conmutación por error a Azure podría provocar el restablecimiento de **VM-GenerationID**. Restablecer **VM-GenerationID** activa medidas de seguridad adicionales cuando la máquina virtual del controlador de dominio se inicia en Azure. Esto podría dar lugar a un *un retraso importante* en su capacidad iniciar sesión en la máquina virtual de controlador de dominio.
+La conmutación por error a Azure podría provocar el restablecimiento de **VM-GenerationID**. Restablecer **VM-GenerationID** activa medidas de seguridad adicionales cuando la máquina virtual del controlador de dominio se inicia en Azure. Esta situación puede dar lugar a un *retraso importante* para el inicio de sesión en la máquina virtual del controlador de dominio.
 
 Puesto que este controlador de dominio se utiliza solo en una conmutación por error de prueba, las medidas de seguridad de virtualización no son necesarias. Para asegurarse de que no cambie el valor de **VM-GenerationID** de la máquina virtual del controlador de dominio, puede cambiar el valor de DWORD siguiente a **4** en el controlador de dominio local:
 
@@ -128,9 +128,9 @@ Si se han activado medidas de seguridad de virtualización después de una conmu
 
     ![Cambio del Id. de invocación](./media/site-recovery-active-directory/Event1109.png)
 
-* Carpeta SYSVOL y NETLOGON los recursos compartidos no están disponibles.
+* Los recursos compartidos de la carpeta sysvol y de NETLOGON no están disponibles.
 
-    ![Uso compartido de carpetas de SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Recurso compartido de la carpeta sysvol](./media/site-recovery-active-directory/sysvolshare.png)
 
     ![Carpeta sysvol de NtFrs](./media/site-recovery-active-directory/Event13565.png)
 
@@ -146,7 +146,7 @@ Si se han activado medidas de seguridad de virtualización después de una conmu
 >
 >
 
-1. En el símbolo del sistema, ejecute el siguiente comando para comprobar si las carpetas de sysvol y NETLOGON están compartidas:
+1. En un símbolo del sistema, ejecute el siguiente comando para comprobar si las carpetas sysvol y NETLOGON están compartidas:
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ Si se cumplen las condiciones anteriores, es probable que el controlador de domi
     * Aunque no se recomienda la [replicación FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si utiliza la replicación de FRS, siga los pasos para una restauración autoritativa. El proceso se describe en [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762) (Uso de la clave del Registro BurFlags para reinicializar el servicio de replicación de archivos).
 
         Para obtener más información sobre BurFlags, consulte la entrada de blog [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/) (D2 y D4: ¿para qué sirven?).
-    * Si utiliza la replicación DFSR, complete los pasos para una restauración autoritativa. El proceso se describe en [forzar una sincronización autoritativa y no autoritativa para sysvol replicado mediante DFSR carpeta (por ejemplo, "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
+    * Si utiliza la replicación DFSR, complete los pasos para una restauración autoritativa. El proceso se describe en [Cómo forzar una sincronización autoritaria y no autoritaria de SYSVOL DFSR replicado (por ejemplo, "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
 
         También puede utilizar las funciones de PowerShell. Para obtener más información, consulte [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) (Funciones de PowerShell para restauración autoritativa y no autoritativa de DFSR-SYSVOL).
 

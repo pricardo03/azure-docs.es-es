@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
 ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306533"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Generación de perfiles de aplicaciones web de Azure en Linux de ASP.NET Core con Application Insights Profiler
@@ -53,7 +53,7 @@ Las instrucciones siguientes se aplican a todos los entornos de desarrollo Windo
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Habilite Application Insights en Program.cs:
+1. Habilitación de Application Insights en Program.cs:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -62,7 +62,7 @@ Las instrucciones siguientes se aplican a todos los entornos de desarrollo Windo
             .UseStartup<Startup>();
     ```
     
-1. Habilitar a Profiler en Startup.cs:
+1. Habilitación de Profiler en Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -176,8 +176,8 @@ Debería ver una salida similar a la del siguiente ejemplo:
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Botón de perfil ahora no funciona para Linux Profiler
-La versión de Linux del generador de perfiles de App Insights no admite aún a petición, generar perfiles utilizando ahora el perfil de botón.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>El botón Generar perfiles ahora no funciona para Linux Profiler
+La versión de Linux del generador de perfiles de App Insights aún no admite la generación de perfiles a petición mediante el botón Generar perfiles ahora.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

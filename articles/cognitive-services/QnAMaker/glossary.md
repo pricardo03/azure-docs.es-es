@@ -12,10 +12,10 @@ ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61430688"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glosario del servicio y la base de conocimiento de QnA Maker
@@ -42,4 +42,4 @@ Una consulta de usuario es la pregunta que el usuario final o el evaluador formu
 La respuesta es la respuesta que se recupera de la base de conocimientos, en función de la coincidencia más alta para una consulta de usuario dada.
 
 ## <a name="confidence-score"></a>Puntuación de confianza
-La puntuación de confianza de la respuesta es un valor numérico entre 0 y 100, siendo 100 coincidencia exacta entre la consulta del usuario y una pregunta de la base de conocimientos, que indica si la respuesta que se ha proporcionado es la correcta y adecuada para una consulta de usuario determinada. Las respuestas normalmente se clasifican según la puntuación de confianza y el otro con la puntuación de confianza mayor que sirve como la [respuesta predeterminada](concepts/confidence-score.md#change-default-answer).
+La puntuación de confianza de la respuesta es un valor numérico entre 0 y 100, siendo 100 coincidencia exacta entre la consulta del usuario y una pregunta de la base de conocimientos, que indica si la respuesta que se ha proporcionado es la correcta y adecuada para una consulta de usuario determinada. Las respuestas se suelen clasificar por la puntuación de confianza y la de mayor puntuación es la que se sirve como [respuesta predeterminada](concepts/confidence-score.md#change-default-answer).

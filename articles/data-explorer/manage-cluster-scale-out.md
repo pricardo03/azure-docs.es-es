@@ -1,6 +1,6 @@
 ---
-title: Escalar horizontalmente un clúster del explorador de datos de Azure
-description: En este artículo se describe los pasos para el escalado horizontal y vertical en un clúster del explorador de datos de Azure basado en la variable a petición.
+title: Escalado horizontal de un clúster de Azure Data Explorer
+description: En este artículo se describen los pasos para escalar y reducir horizontalmente un clúster de Azure Data Explorer en función de los cambios en la demanda.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,35 +8,35 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60758677"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clúster para ajustarse a los cambios en la demanda
 
-Ajustar el tamaño de un clúster de forma adecuada es fundamental para el rendimiento del Explorador de datos de Azure. Pero no se puede predecir la demanda en un clúster con una precisión absoluta. Un tamaño de clúster estático puede provocar infrautilización o sobreutilización, ninguno de los cuales es ideal.
+Ajustar el tamaño de un clúster de forma adecuada es fundamental para el rendimiento del Explorador de datos de Azure. Pero no se puede predecir la demanda en un clúster con una precisión absoluta. El tamaño de un clúster estático puede provocar una infrautilización o sobreutilización, y ninguna de estas situaciones es la ideal.
 
-Un enfoque mejor es *escalar* un clúster, es decir, agregar y quitar capacidad con los cambios en la demanda. Hay dos flujos de trabajo para el escalado: escalado vertical y horizontal. En este artículo se explica el flujo de trabajo de escalabilidad horizontal.
+Un enfoque mejor es *escalar* un clúster, es decir, agregar y quitar capacidad con los cambios en la demanda. Existen dos flujos de trabajo de escalado: escalado vertical y escalado horizontal. En este artículo se explica el flujo de trabajo de escalabilidad horizontal.
 
-En este artículo se muestra cómo administrar el clúster escalado horizontal, también conocida como escalado automático. El escalado automático permite escalar horizontalmente el recuento de instancias automáticamente según las programaciones y reglas predefinidas. Especifique la configuración de escalado automático para el clúster en Azure portal, tal como se describe en este artículo.
+En este artículo se muestra cómo administrar la escalabilidad horizontal de clústeres, también conocida como escalabilidad automática. La escalabilidad automática permite escalar horizontalmente el total de instancias automáticamente en función de las programaciones y reglas predefinidas. Especifique la configuración de escalabilidad automática para el clúster en Azure Portal, tal como se describe en este artículo.
 
-## <a name="steps-to-configure-autoscale"></a>Pasos para configurar el escalado automático
+## <a name="steps-to-configure-autoscale"></a>Pasos para configurar la escalabilidad automática
 
-En el portal de Azure, vaya a su recurso de clúster del explorador de datos. En el **configuración** encabezado, seleccione **escalar horizontalmente**. En el **configurar** ficha, seleccione **habilitar escalado automático**.
+En Azure Portal, vaya al recurso de clúster de Data Explorer. En el encabezado **Configuración**, seleccione **Escalar horizontalmente**. En la pestaña **Configurar**, seleccione **Habilitar escalado automático**.
 
    ![Habilitar escalado automático](media/manage-cluster-scaling/enable-autoscale.png)
 
-En el gráfico siguiente se muestra el flujo de los pasos siguientes. Más detalles a continuación en el gráfico.
+En el gráfico siguiente se muestra el flujo de los pasos siguientes. Más detalles después del gráfico.
 
-1. En el **nombre de la configuración de escalado automático** cuadro, proporcione un nombre, como *escalada: uso de caché*. 
+1. En la casilla **Nombre de ajuste de escalado automático**, escriba un nombre, como *Escalado horizontal: utilización de caché*. 
 
    ![Regla de escalado](media/manage-cluster-scaling/scale-rule.png)
 
-2. Para **modo escala**, seleccione **escalado según una métrica**. Este modo proporciona escalado dinámico. También puede seleccionar **escala a un número específico de instancias**.
+2. En **Modo de escala**, seleccione **Escalado basado en una métrica**. Este modo proporciona escalado dinámico. También puede seleccionar **Escalar a un número específico de instancias**.
 
-3. Seleccione **+ agregar una regla**.
+3. Seleccione **+Agregar una regla**.
 
 4. En la sección**Escalar regla** de la derecha, proporcione valores para cada ajuste.
 
@@ -48,7 +48,7 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Más detal
     | **Nombre de la métrica** | Seleccione la métrica en la que quiera que se base la operación de escalado, como **Cache Utilization**. |
     | **Estadísticas de intervalo de agregación** | Elija entre **Promedio**, **Mínimo**, **Máximo** y **Suma**. |
     | **Operador** | Elija la opción adecuada, como **Mayor o igual que**. |
-    | **Umbral** | Elija un valor apropiado. Por ejemplo, para la utilización de memoria caché, el 80 por ciento es un buen punto de partida. |
+    | **Umbral** | Elija un valor apropiado. Por ejemplo, para el uso de memoria caché, el 80 % es un buen punto inicial. |
     | **Duración (en minutos)** | Elija un período apropiado para que el sistema busque al calcular las métricas. Comience con el valor predeterminado de 10 minutos. |
     |  |  |
 
@@ -74,12 +74,12 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Más detal
 
 7. Seleccione **Guardar**.
 
-Ha configurado una operación de escalado horizontal para el clúster del Explorador de datos de Azure. Agregue otra regla para una operación de reducción horizontal. Esta configuración permite que el clúster se escale dinámicamente según las métricas que especifique.
+Ha configurado una operación de escalado horizontal para el clúster del Explorador de datos de Azure. Agregue otra regla para una operación de reducción horizontal. Esta configuración permite que el clúster se escale dinámicamente en función de las métricas que especifique.
 
-También puede [administrar clúster escalado](manage-cluster-scale-up.md) para ajustar el tamaño adecuado de un clúster.
+También puede [administrar el escalado vertical del clúster](manage-cluster-scale-up.md) para ajustar correctamente el tamaño de un clúster.
 
-Si necesita ayuda con problemas de escalado de clústeres, [abrir una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) en Azure portal.
+Si necesita ayuda por problemas relacionados con el escalado de un clúster, abra una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Supervisar el rendimiento, mantenimiento y uso con métricas de explorador de datos de Azure](using-metrics.md)
+[Supervisión del rendimiento, el mantenimiento y el uso de Azure Data Explorer con métricas](using-metrics.md)

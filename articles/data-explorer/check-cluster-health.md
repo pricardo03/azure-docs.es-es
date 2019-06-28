@@ -1,6 +1,6 @@
 ---
 title: Comprobar el estado de un clúster del Explorador de datos de Azure
-description: Este artículo describe los pasos para supervisar el estado del clúster de explorador de datos de Azure.
+description: En este artículo se describen los pasos para supervisar el estado del clúster de Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a280d8869a3790444a97c38f792a3d9eeb6bde1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861325"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Comprobar el estado de un clúster del Explorador de datos de Azure

@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/13/2017
-ms.date: 04/09/2019
+ms.date: 07/13/2017
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384720"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos paralelos del servicio de sincronización de Azure AD Connect
@@ -39,11 +38,11 @@ Tienen varios sufijos UPN en su instancia de Active Directory local, pero solo s
 ### <a name="userprincipalname"></a>userPrincipalName
 Un usuario tiene los siguientes valores de atributo en un dominio no comprobado:
 
-| Atributo | Value |
+| Atributo | Valor |
 | --- | --- |
 | userPrincipalName local | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName de Azure AD | lee.sperry@fabrikam.com |
-| userPrincipalName de Azure AD | lee.sperry@fabrikam.partner.onmschina.cn |
+| userPrincipalName de Azure AD | lee.sperry@fabrikam.onmicrosoft.com |
 
 El atributo userPrincipalName es el valor que aparece cuando se usa PowerShell.
 
@@ -54,12 +53,12 @@ El mismo proceso para incluir solo dominios comprobados también se produce para
 
 Para un usuario del buzón, de forma local o en Exchange Online, aparecen únicamente los valores para los dominios comprobados. Debería ser parecido a esto:
 
-| Atributo | Value |
+| Atributo | Valor |
 | --- | --- |
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | ProxyAddresses de Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-En este caso **smtp:abbie.spencer\@fabrikam.com** se quitó porque no ha sido comprobado ese dominio. Pero Exchange también agregado **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam no ha usado Lync o Skype local, pero Azure AD y Exchange Online se preparan para ello.
+En este caso**smtp:abbie.spencer\@fabrikam.com** se quitó porque no se ha comprobado el dominio. Pero Exchange también ha agregado **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam no ha usado Lync o Skype local, pero Azure AD y Exchange Online se preparan para ello.
 
 Esta lógica para proxyAddresses se conoce como **ProxyCalc**. ProxyCalc se llama con cada cambio en un usuario cuando:
 
@@ -75,8 +74,6 @@ ProxyCalc puede tardar algún tiempo en procesar un cambio en un usuario y no es
 ### <a name="quarantined-attribute-values"></a>Valores de atributo en cuarentena
 Los atributos paralelos también se utilizan cuando hay valores de atributo duplicados. Para más información, consulte [Resistencia de atributos duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).
-
-<!-- Update_Description: wording update -->

@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60688868"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conexión a un servidor IBM MQ desde las aplicaciones lógicas mediante el conector de MQ
@@ -34,7 +34,7 @@ El conector de MQ incluye las siguientes acciones. No hay desencadenadores.
 * Si usa un servidor local de MQ, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. Si el servidor MQ está públicamente disponible o disponible en Azure, no se necesita ni se usa la puerta de enlace de datos.
 
     > [!NOTE]
-    > El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para el conector de MQ funcione.
+    > El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para que el conector de MQ funcione.
 
 * Cree el recurso de Azure para la puerta de enlace de datos local: [Configuración de la conexión de la puerta de enlace de datos](../logic-apps/logic-apps-gateway-connection.md).
 

@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783845"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy y Tableau 
@@ -50,7 +50,7 @@ Si desea:
 **Para publicar la aplicación**: 
 
 
-1. Inicie sesión en el [portal Azure](https://portal.azure.com) como administrador de aplicaciones. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la aplicación. 
 
 2. Seleccione **Azure Active Directory > Aplicaciones empresariales**. 
 
@@ -74,7 +74,7 @@ Si desea:
 
  
 
-## <a name="testing"></a>Pruebas 
+## <a name="testing"></a>Prueba 
 
 La aplicación ya se puede probar. Acceda a la dirección URL externa que usó para publicar Tableu e inicie sesión como usuario asignado a ambas aplicaciones.
 

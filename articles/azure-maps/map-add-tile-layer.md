@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 3a773c24993d229f20df698113ff7535fea634ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769233"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adición de una capa de mosaico a un mapa
@@ -73,4 +73,4 @@ Más información sobre las clases y los métodos utilizados en este artículo:
 Para obtener más ejemplos de código para agregar a los mapas:
 
 > [!div class="nextstepaction"]
-> [Agregar una capa de imagen](./map-add-image-layer.md)
+> [Adición de una capa de imagen](./map-add-image-layer.md)

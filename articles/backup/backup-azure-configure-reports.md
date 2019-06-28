@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60642781"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
@@ -29,7 +29,7 @@ Descargue la aplicación más reciente (versión 1.8) para evitar este problema.
 - Los informes de Azure Backup se admiten para copias de seguridad de máquinas virtuales de Azure y copias de seguridad de archivos y carpetas con el Agente de Azure Recovery Services.
 - Los informes para Azure SQL Database, recursos compartidos de Azure Files, Data Protection Manager y Azure Backup Server no se admiten en este momento.
 - Puede ver los informes de los almacenes y las suscripciones, en caso de que la misma cuenta de almacenamiento esté configurada para cada uno de los almacenes. La cuenta de almacenamiento seleccionada debe estar en la misma región que el almacén de Recovery Services.
-- La frecuencia de actualización programada para los informes es de 24 horas en Power BI. También puede realizar una actualización ad hoc de los informes en Power BI. En este caso, los últimos datos de la cuenta de almacenamiento del cliente se utilizan para representar los informes.
+- La frecuencia de actualización programada para los informes es de 24 horas en Power BI. También puede realizar una actualización ad hoc de los informes en Power BI. En este caso, los últimos datos de la cuenta de almacenamiento del cliente se utilizan para representar los informes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Cree una [cuenta de Azure Storage](../storage/common/storage-quickstart-create-account.md) para informes. Esta cuenta de almacenamiento se usa para almacenar datos relacionados con los informes.

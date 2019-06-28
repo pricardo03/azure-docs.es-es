@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
 ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334273"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Procedimiento recomendado para administrar ensamblados de U-SQL en una canalización de CI/CD
@@ -58,7 +58,7 @@ Siga estos pasos para crear proyectos y agregarles referencias.
 
 7. Agregue **Dependencias administradas** y **Archivos adicionales**, si los hay. Al agregar archivos adicionales, la herramienta usa la ruta de acceso relativa para asegurarse de que puede encontrar los ensamblados en la máquina local y en la máquina de compilación más adelante.
 
-**\@_DeployTempDirectory** en el editor de la ventana en la parte inferior es una variable predefinida que señala la herramienta en la carpeta de salida de compilación. En la carpeta de salida de compilación, cada ensamblado tiene una subcarpeta denominada con el nombre del ensamblado. Todos los archivos adicionales y DLL están en esa subcarpeta.
+**\@_DeployTempDirectory** en la ventana del editor de la parte inferior es una variable predefinida que dirige la herramienta a la carpeta de salida de compilación. En la carpeta de salida de compilación, cada ensamblado tiene una subcarpeta denominada con el nombre del ensamblado. Todos los archivos adicionales y DLL están en esa subcarpeta.
 
 ## <a name="build-a-u-sql-database-project"></a>Compilación de un proyecto de base de datos U-SQL
 

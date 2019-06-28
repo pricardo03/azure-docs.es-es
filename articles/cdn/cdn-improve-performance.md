@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60637035"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en Azure CDN
@@ -101,9 +101,9 @@ Los niveles Standard y Premium de CDN proporcionan la misma funcionalidad de com
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Perfiles Azure CDN Estándar de Microsoft
 
 En el caso de los perfiles **Azure CDN Estándar de Microsoft**, solo se comprimen los archivos que se pueden elegir. Para ser elegible para la compresión, un archivo debe cumplir con los siguientes requisitos:
-- Ser de un tipo MIME que se ha [configurado para la compresión](#enabling-compression).
-- Ser mayor que 1 KB
-- Ser menor que 8 MB
+- Debe tener un tipo MIME que esté [configurado para la compresión](#enabling-compression).
+- Debe tener más de 1 KB
+- Debe tener menos de 8 MB
 
 Estos perfiles admiten las codificaciones de compresión siguientes:
 - gzip (GNU zip)
@@ -117,7 +117,7 @@ Cuando una solicitud de un activo especifica la compresión gzip y la solicitud 
 
 Con los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon**, solo se comprimen determinados archivos válidos. Para ser elegible para la compresión, un archivo debe cumplir con los siguientes requisitos:
 - Debe tener más de 128 bytes
-- Tener menos de 3 MB
+- Debe tener menos de 3 MB
 
 Estos perfiles admiten las codificaciones de compresión siguientes:
 - gzip (GNU zip)
@@ -165,6 +165,6 @@ En el caso de los puntos de conexión habilitados streaming de Media Services CD
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Solución de problemas de compresión de archivos de red CDN](cdn-troubleshoot-compression.md)    
 

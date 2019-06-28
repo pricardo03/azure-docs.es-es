@@ -1,5 +1,5 @@
 ---
-title: Cómo rotar la clave de acceso de Azure SignalR Service
+title: Rotación de claves de acceso para Azure SignalR Service
 description: Información general acerca de los motivos por los qué el cliente debe cambiar periódicamente las claves de acceso y cómo hacerlo con la GUI de Azure Portal y la CLI de Azure.
 author: sffamily
 ms.service: signalr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 15b0ff0bbb96e5fa96d81cfa265e83abf749cf85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60688898"
 ---
-# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Cómo rotar la clave de acceso de Azure SignalR Service
+# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Rotación de claves de acceso para Azure SignalR Service
 
 Cada instancia de Azure SignalR Service tiene un par de claves de acceso, llamadas claves principal y secundaria, que se usan para autenticar a los clientes de SignalR cuando se realizan solicitudes al servicio. Las claves están asociadas con la dirección URL del punto de conexión de instancia. Mantenga seguras las claves y realice su rotación de forma periódica. Como se le proporcionan dos claves de acceso, puede mantener las conexiones con una mientras se regenera la otra.
 

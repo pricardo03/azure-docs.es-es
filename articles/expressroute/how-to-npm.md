@@ -9,10 +9,10 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60840326"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
@@ -60,7 +60,7 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. En la parte inferior de la página **Network Performance Monitor** principal, haga clic en **Crear** para abrir la página **Network Performance Monitor - Crear nueva solución**. Haga clic en **Área de trabajo de Log Analytics - Seleccionar un área de trabajo** para abrir la página Áreas de trabajo. Haga clic en **+Crear área de trabajo nueva** para abrir la página Área de trabajo.
-3. En el **área de trabajo de Log Analytics** página, seleccione **crear nuevo**, a continuación, configure las siguientes opciones:
+3. En la página **Área de trabajo de Log Analytics**, seleccione **Crear nuevo** y configure las siguientes opciones:
 
    * Área de trabajo de Log Analytics: escriba un nombre para el área de trabajo.
    * Suscripción : si tiene varias suscripciones, elija la que desea asociar con el área de trabajo nueva.
@@ -100,7 +100,7 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
 2. En la página **principal**, haga clic en **Siguiente**.
 3. En la página **Términos de licencia**, lea la licencia y haga clic en **Acepto**.
 4. En la página **Carpeta de destino**, cambie o mantenga la carpeta de instalación predeterminada y haga clic en **Siguiente**.
-5. En el **opciones de configuración de agente** página, puede elegir conectar el agente a Operations Manager o los registros de Azure Monitor. O bien, puede dejar las opciones en blanco si desea configurar el agente más adelante. Tras efectuar la selección, haga clic en **Siguiente**.
+5. En la página **Opciones de instalación del agente**, puede decidir si quiere conectar el agente a los registros de Azure Monitor o a Operations Manager. O bien, puede dejar las opciones en blanco si desea configurar el agente más adelante. Tras efectuar la selección, haga clic en **Siguiente**.
 
    * Si decide conectar el agente a **Azure Log Analytics**, pegue el **identificador del área de trabajo** y la **clave del área de trabajo** (clave principal) que copió en el Bloc de notas en la sección anterior. A continuación, haga clic en **Siguiente**.
 
@@ -113,7 +113,7 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
      ![Cuenta](./media/how-to-npm/10.png)
 6. En la página **Preparado para instalar**, revise las opciones seleccionadas y haga clic en **Instalar**.
 7. En la página **La configuración finalizó correctamente**, haga clic en **Finalizar**.
-8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Puede revisar la configuración y compruebe que el agente está conectado a los registros de Azure Monitor. Cuando se conecta, el agente muestra un mensaje que indica: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent se ha conectado correctamente al servicio Microsoft Operations Management Suite).
+8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Ahí puede revisar la configuración y comprobar que el agente está conectado a los registros de Azure Monitor. Cuando se conecta, el agente muestra un mensaje que indica: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent se ha conectado correctamente al servicio Microsoft Operations Management Suite).
 
 9. Repita este procedimiento con cada red virtual que quiera que se supervise.
 
@@ -137,7 +137,7 @@ Puede comprobar fácilmente si los agentes se están comunicando.
 1. En un servidor con el agente de supervisión, abra el **Panel de Control**.
 2. Abra **Microsoft Monitoring Agent**.
 3. Haga clic en la pestaña **Azure Log Analytics**.
-4. En el **estado** columna, debería ver que el agente se conectó correctamente a los registros de Azure Monitor.
+4. En la columna **Estado**, verá que el agente se conectó correctamente a los registros de Azure Monitor.
 
    ![status](./media/how-to-npm/12.png)
 

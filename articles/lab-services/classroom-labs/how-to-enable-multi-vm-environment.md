@@ -1,6 +1,6 @@
 ---
-title: Habilite entornos de varias máquinas virtuales en Azure Lab Services | Microsoft Docs
-description: Obtenga información sobre cómo crear un entorno con varias máquinas virtuales dentro de una máquina virtual de plantilla en un laboratorio de Azure Lab Services.
+title: Habilitación de entornos con varias máquinas virtuales en Azure Lab Services | Microsoft Docs
+description: Obtenga información sobre cómo crear un entorno con varias máquinas virtuales dentro de una máquina virtual de plantilla en un laboratorio educativo de Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702441"
 ---
-# <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Crear un entorno con varias máquinas virtuales dentro de una máquina virtual de un laboratorio de clase de plantilla
-Actualmente Azure Lab Services le permite configurar la máquina virtual de una plantilla en un laboratorio y realizar una copia única disponible para cada uno de los usuarios. Pero si es un profesor que enseña una clase de TI acerca de cómo configurar los firewalls o servidores, puede que necesite proporcionar a cada uno de los estudiantes un entorno en el que varias máquinas virtuales pueden comunicarse entre sí a través de una red.
+# <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Creación de un entorno con varias máquinas virtuales en una máquina virtual de plantilla de un laboratorio educativo
+Actualmente, Azure Lab Services le permite configurar una máquina virtual de una plantilla en un laboratorio y realizar una copia única disponible para cada uno de los usuarios. Pero si es usted un profesor de una materia de informática que enseña cómo configurar firewalls o servidores, puede que necesite proporcionar a cada uno de los alumnos un entorno en el que varias máquinas virtuales puedan comunicarse entre sí a través de una red.
 
-Virtualización anidada le permite crear un entorno de varias máquinas virtuales dentro de la máquina virtual de un laboratorio plantilla. Publicar la plantilla proporciona a cada usuario en el laboratorio con una máquina virtual configurado con varias máquinas virtuales dentro de él.
+La virtualización anidada le permite crear un entorno de varias máquinas virtuales dentro de una máquina virtual de plantilla de un laboratorio. La publicación de la plantilla proporcionará a cada usuario del laboratorio una máquina virtual configurada con varias máquinas virtuales dentro.
 
 ## <a name="what-is-nested-virtualization"></a>¿Qué es la virtualización anidada?
-Virtualización anidada le permite crear máquinas virtuales dentro de una máquina virtual. Virtualización anidada se realiza a través de Hyper-V y solo está disponible en las máquinas virtuales de Windows.
+La virtualización anidada le permite crear máquinas virtuales dentro de una máquina virtual. La virtualización anidada se realiza a través de Hyper-V y solo está disponible en las máquinas virtuales de Windows.
 
-Para obtener más información acerca de la virtualización anidada, consulte los artículos siguientes:
+Para más información sobre la virtualización anidada, vea los siguientes artículos:
 
 - [Virtualización anidada en Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
-- [Cómo habilitar la virtualización anidada en una máquina virtual de Azure](../../virtual-machines/windows/nested-virtualization.md)
+- [Habilitación de la virtualización anidada en una máquina virtual de Azure](../../virtual-machines/windows/nested-virtualization.md)
 
-## <a name="use-nested-virtualization-in-azure-lab-services"></a>Usar la virtualización anidada en Azure Lab Services
+## <a name="use-nested-virtualization-in-azure-lab-services"></a>Uso de la virtualización anidada en Azure Lab Services
 Los pasos importantes son:
 
-1. Crear un **grandes** tamaño **Windows** máquina de la plantilla para el laboratorio. 
-2. Conectarse a él y [habilitar virtualización anidada](../../virtual-machines/windows/nested-virtualization.md).
+1. Crear una máquina de plantilla de **gran** tamaño de **Windows** para el laboratorio. 
+2. Conectarla y [habilitar la virtualización anidada](../../virtual-machines/windows/nested-virtualization.md).
 
 
-El siguiente procedimiento proporcionan los pasos detallados: 
+El procedimiento siguiente proporciona los pasos detallados: 
 
-1. Si aún no tiene uno, cree una cuenta de laboratorio. Para obtener instrucciones, consulte [Tutorial: Configurar una cuenta de laboratorio con Azure Lab Services](tutorial-setup-lab-account.md).
+1. Cree una cuenta de laboratorio si todavía no tiene una. Para obtener instrucciones, consulte: [Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services](tutorial-setup-lab-account.md).
 2. Vaya al [sitio web de Azure Lab Services](https://labs.azure.com). 
 3. Seleccione **Iniciar sesión** y escriba las credenciales. Azure Lab Services es compatible con cuentas profesionales y cuentas Microsoft. 
 4. En la ventana **Nuevo laboratorio**, lleve a cabo las siguientes acciones: 
@@ -52,8 +52,8 @@ El siguiente procedimiento proporcionan los pasos detallados:
 
         ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. En la página **Seleccionar especificaciones de máquina virtual**, realice los pasos siguientes:
-    1. Seleccione **grande** para el tamaño de máquinas virtuales (VM) que se creará en el laboratorio. Actualmente, solo el tamaño grande es compatible con la virtualización anidada.
-    2. Elija una imagen de máquina virtual que sea un **imagen de Windows**. Virtualización anidada solo está disponible en equipos de Windows. 
+    1. Seleccione **Grande** para el tamaño de máquinas virtuales (VM) que se creará en el laboratorio. Actualmente, el tamaño grande es el único compatible con la virtualización anidada.
+    2. Elija una imagen de máquina virtual que sea una **imagen de Windows**. La virtualización anidada solo está disponible en equipos de Windows. 
     3. Seleccione **Next** (Siguiente).
 
         ![Especificaciones de máquina virtual](../media/how-to-enable-multi-vm-environment/large-windows-vm.png)    
@@ -72,12 +72,12 @@ El siguiente procedimiento proporcionan los pasos detallados:
 7. Una vez completada la configuración de la plantilla, verá la siguiente página: 
 
     ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. En el **configurar plantilla** página, seleccione **Connect** para conectarse a la plantilla de máquina virtual para configurar la virtualización anidada. También puede configurar más adelante después de completar los pasos descritos en este asistente. 
-9. Dentro de la máquina virtual de plantilla, configure la virtualización anidada y configurar una red virtual con varias máquinas virtuales. Para obtener instrucciones paso a paso detalladas, consulte [cómo habilitar virtualización anidada en una máquina virtual de Azure](../../virtual-machines/windows/nested-virtualization.md). Este es un resumen rápido de los pasos: 
-    1. Habilitar la característica de Hyper-V en la máquina virtual de plantilla.
-    2. Configurar una red virtual interna con conectividad a internet para las máquinas virtuales anidadas
-    3. Creación de máquinas virtuales a través del Administrador de Hyper-V
-    4. Asignar una dirección IP a las máquinas virtuales
+8. En la página **Configurar plantilla**, seleccione **Conectar** para conectarse a la máquina virtual de plantilla a fin de configurar la virtualización anidada. También puede configurarla más adelante, después de completar los pasos descritos en este asistente. 
+9. Dentro de la máquina virtual de plantilla, configure la virtualización anidada y una red virtual con varias máquinas virtuales. Para obtener instrucciones paso a paso detalladas, consulte [Habilitación de la virtualización anidada en una máquina virtual de Azure](../../virtual-machines/windows/nested-virtualization.md). Este es un resumen rápido de los pasos: 
+    1. Habilite la característica de Hyper-V en la máquina virtual de plantilla.
+    2. Configure una red virtual interna con conectividad a Internet para las máquinas virtuales anidadas.
+    3. Cree máquinas virtuales a través del Administrador de Hyper-V.
+    4. Asigne una dirección IP a las máquinas virtuales.
 10. Seleccione **Siguiente** en la página de plantilla. 
 11. En la página **Publicar la plantilla**, realice las acciones siguientes. 
     1. Para publicar inmediatamente la plantilla, seleccione **Publicar**.  
@@ -100,4 +100,4 @@ El siguiente procedimiento proporcionan los pasos detallados:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora, cada usuario obtiene una sola máquina virtual que incluye un entorno de varias máquinas virtuales dentro de él. Para obtener información sobre cómo agregar usuarios a la práctica y enviar el vínculo de registro a ellos, consulte el artículo siguiente: [Agregar usuarios al laboratorio](tutorial-setup-classroom-lab.md#add-users-to-the-lab).
+Ahora, cada usuario obtiene una sola máquina virtual que incluye un entorno de varias máquinas virtuales. Para obtener información sobre cómo agregar usuarios al laboratorio y enviarles un vínculo de registro, consulte el artículo siguiente: [Incorporación de usuarios al laboratorio](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

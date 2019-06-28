@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65442388"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de puerta de enlace de datos cuadro de Azure
+# <a name="azure-data-box-gateway-system-requirements"></a>Requisitos del sistema de Azure Data Box Gateway
 
 En este artículo se describen los requisitos del sistema importantes de la solución Microsoft Azure Data Box Gateway y de los clientes que se conectan a Data Box Gateway. Es aconsejable que revise cuidadosamente la siguiente información antes de implementar Data Box Gateway y que luego la consulte según sea necesario durante la implementación y el funcionamiento posterior.
 
@@ -34,7 +34,7 @@ El sistema host subyacente para Data Box Gateway puede dedicar los recursos sigu
 | Procesadores virtuales (núcleos)   | Cuatro como mínimo |
 | Memoria  | 8 GB como mínimo|
 | Disponibilidad|Nodo único|
-| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
+| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
 | Interfaces de red|Una o varias interfaces de red virtual|
 
 
@@ -85,7 +85,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-azure-government"></a>Patrones de URL para Azure Government
+### <a name="url-patterns-for-azure-government"></a>Patrones de dirección URL para Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 

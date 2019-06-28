@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 48a30ef86cdb10b540ffe1231294542ccff87255
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60622327"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Creación y administración de máquinas virtuales con DevTest Labs mediante la CLI de Azure
-Este inicio rápido le ayudará a crear, iniciar, conectarse, actualizar y limpiar una máquina de desarrollo en su laboratorio. 
+Este inicio rápido le ayudará a crear, iniciar, actualizar y limpiar una máquina de desarrollo en el laboratorio, así como conectarse a ella. 
 
 Antes de empezar:
 
@@ -30,15 +30,15 @@ Antes de empezar:
 * [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Para empezar, ejecute az login para crear una conexión con Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Creación y comprobación de la máquina virtual 
-Antes de ejecutar los comandos relacionados de DevTest Labs, establecer el contexto de Azure adecuado mediante la `az account set` comando:
+Antes de ejecutar los comandos relacionados de DevTest Labs, establezca el contexto de Azure adecuado mediante el comando `az account set`:
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
 ```
 
-El comando para crear una máquina virtual es: `az lab vm create`. El grupo de recursos para el laboratorio, el nombre de laboratorio y el nombre de máquina virtual son todo lo necesario. El resto de los argumentos cambian según el tipo de máquina virtual.
+El comando para crear una máquina virtual es `az lab vm create`. Solo se necesita el grupo de recursos para el laboratorio, el nombre del laboratorio y el nombre de la máquina virtual. El resto de los argumentos cambian según el tipo de máquina virtual.
 
-El siguiente comando crea una imagen basada en Windows desde Azure Marketplace. El nombre de la imagen es la misma que verían al crear una máquina virtual mediante el portal de Azure. 
+El siguiente comando crea una imagen basada en Windows desde Azure Marketplace. El nombre de la imagen es el mismo que vería al crear una máquina virtual mediante Azure Portal. 
 
 ```azurecli
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3’ --admin-username 'AdminUser' --admin-password 'Password1!'
@@ -50,18 +50,18 @@ El siguiente comando crea una máquina virtual basada en una imagen personalizad
 az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "My Custom Image" --image-type custom --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
 ```
 
-El **tipo de imagen** argumento ha cambiado de **galería** a **personalizado**. El nombre de la imagen coincida con lo que se ve si fuera a crear la máquina virtual en Azure portal.
+El argumento **image-type** ha cambiado de **gallery** a **custom**. El nombre de la imagen coincide con lo que se ve si fuera a crear la máquina virtual en Azure Portal.
 
-El siguiente comando crea una máquina virtual desde una imagen de marketplace con ssh autenticación:
+El siguiente comando crea una máquina virtual desde una imagen de Marketplace mediante autenticación ssh:
 
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 
-También puede crear máquinas virtuales basadas en las fórmulas estableciendo el **tipo de imagen** parámetro **fórmula**. Si tiene que elegir una red virtual específica para la máquina virtual, use el **nombre de red virtual** y **subred** parámetros. Para obtener más información, consulte [crear az lab vm](/cli/azure/lab/vm#az-lab-vm-create).
+También puede crear máquinas virtuales basadas en las fórmulas estableciendo el parámetro **image-type** en **formula**. Si tiene que elegir una red virtual específica para la máquina virtual, use los parámetros **vnet-name** y **subnet**. Para obtener más información, consulte[az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
 
 ## <a name="verify-that-the-vm-is-available"></a>Compruebe que la máquina virtual esté disponible.
-Use el `az lab vm show` comando para comprobar que la máquina virtual está disponible antes de iniciar y conectarse a él. 
+Use el comando `az lab vm show` para comprobar que la máquina virtual está disponible antes de iniciarla y conectarse a ella. 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -81,13 +81,13 @@ El siguiente comando de ejemplo inicia una máquina virtual:
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 
-Conectarse a una máquina virtual: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) o [escritorio remoto](../virtual-machines/windows/connect-logon.md).
+Conexión a una máquina virtual: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) o [Escritorio remoto](../virtual-machines/windows/connect-logon.md).
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
 
 ## <a name="update-the-virtual-machine"></a>Actualización de la máquina virtual
-El comando de ejemplo siguiente aplica a los artefactos a una máquina virtual:
+El siguiente comando de ejemplo aplica artefactos a una máquina virtual:
 
 ```azurecli
 az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resource-group sampleResourceGroup  --artifacts @/artifacts.json
@@ -147,4 +147,4 @@ az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group s
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el siguiente contenido: [Documentación de la CLI de Azure para Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 
+Vea el siguiente contenido: [Documentación de la CLI de Azure para Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest) 

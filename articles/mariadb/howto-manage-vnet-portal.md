@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 6644b6ae3a9482a1bd3f840a814d3bb6361517fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745915"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Crear y administrar las reglas y puntos de conexión del servicio de red virtual de Azure Database for MariaDB mediante Azure Portal
@@ -24,10 +24,10 @@ Las reglas y los puntos de conexión de los servicios de red virtual (VNet) ampl
 
 1. En la página del servidor de MariaDB, en el encabezado Configuración, haga clic en **Seguridad de conexión** para abrir la página de seguridad de conexión de Azure Database for MariaDB.
 
-2. Asegúrese de que permitir el acceso al control de servicios de Azure está establecido en **OFF**.
+2. Asegúrese de que el control Permitir el acceso a los servicios de Azure está configurado en**Desactivado**.
 
 > [!Important]
-> Si se establece en ON, el servidor de base de datos de MariaDB de Azure acepta la comunicación desde cualquier subred. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión de servicio de Microsoft Azure Virtual Network, en coordinación con la característica de la regla de red virtual de Azure Database for MariaDB, puede reducir el área expuesta de seguridad.
+> Si lo establece en Activado, el servidor de Azure MariaDB Database acepta la comunicación desde cualquier subred. Si deja el control establecido en Activado, el número de accesos podría ser excesivo desde un punto de vista de seguridad. La característica de punto de conexión del servicio Microsoft Azure Virtual Network, junto con la característica de la regla de red virtual de Azure Database for MariaDB, pueden reducir el área expuesta de seguridad.
 
 3. A continuación, haga clic en **+ Agregar una red virtual existente**. Si no tiene ninguna red virtual, puede hacer clic en **+ Crear nueva red virtual** para crear una. Consulte [Quickstart: Creación de una red virtual mediante Azure Portal](../virtual-network/quick-create-portal.md)
 

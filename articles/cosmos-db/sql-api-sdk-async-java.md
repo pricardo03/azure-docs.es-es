@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 3/5/2019
 ms.author: moderakh
 ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "57570103"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
@@ -45,15 +45,15 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
-* Corrección de errores de pérdida de recursos en client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+* Corrección de errores para la fuga de recursos en client#close() ([github 88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
-* Se ha agregado continuación token compatibilidad con las consultas entre particiones.
+* Se ha agregado compatibilidad de token de continuación para las consultas entre particiones.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 * Se han corregido algunos errores en modo directo.
-* Registro mejorado en modo directo.
-* Administración de conexiones mejorada.
+* Se ha mejorado el registro en modo directo.
+* Se ha mejorado la administración de conexiones.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * La conectividad de modo directo ya está generalmente disponible (GA). Para un ejemplo que usa conectividad de modo directo, consulte el repositorio de GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).

@@ -16,10 +16,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248051"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
@@ -31,7 +31,7 @@ Antes de crear una incidencia de soporte técnico, consulte los recursos siguien
 
 * Para consultar contenido como información de procedimientos o ejemplos de código para profesionales de TI y desarrolladores, vea la [documentación técnica en docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* El [comunidad técnica de Microsoft](https://techcommunity.microsoft.com/) es el lugar para nuestros clientes y asociados de pro de TI colaborar, compartir y aprender. El [Microsoft Technical Community Center de Info](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) se usa para anuncios, blogs, formular-me-nada (AMA) interacciones con expertos y mucho más. También puede [unirse a la comunidad para enviar sus ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* La [Comunidad técnica de Microsoft](https://techcommunity.microsoft.com/) es el lugar en el que nuestros asociados profesionales de TI y los clientes colaboran, comparten información y aprenden. El [Centro de información de la Comunidad técnica de Microsoft](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) se usa para anuncios, entradas de blog, interacciones AMA ("pregunta lo que quieras") con expertos y mucho más. También puede [unirse a la comunidad para enviar sus ideas](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Abrir una incidencia de soporte técnico
@@ -41,7 +41,7 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en Azure Portal
 
 > [!NOTE]
-> Para problemas de facturación o suscripción, debe usar el [centro de administración de Microsoft 365](https://admin.microsoft.com).
+> Si se trata de problemas relativos a la facturación o la suscripción, debe usar el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 > 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
@@ -59,14 +59,14 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
 7. Agregue el resto de información relativa al problema y haga clic en **Siguiente**.
   
 8. Proporcione su información de contacto y seleccione **Crear**.
-  ![captura de pantalla de autoayuda de categoría de problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+  ![Captura de pantalla de autoayuda para la categoría de problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en el centro de administración de Microsoft 365
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Cómo abrir una incidencia de soporte técnico de Azure AD en el Centro de administración de Microsoft 365
 
 > [!NOTE]
-> Soporte técnico de Azure AD en el [centro de administración de Microsoft 365](https://admin.microsoft.com) se ofrece solo para administradores. 
+> En el [Centro de administración de Microsoft 365](https://admin.microsoft.com) solo se ofrece soporte técnico de Azure AD para administradores. 
 
-1. Inicie sesión en el [centro de administración de Microsoft 365](https://admin.microsoft.com) con una cuenta que tenga una licencia de Security (EMS) de Enterprise Mobility +.
+1. Inicie sesión en el [Centro de administración de Microsoft 365](https://admin.microsoft.com) con una cuenta que tenga una licencia de Enterprise Mobility + Security (EMS).
 
 2. En el icono **Soporte técnico**, seleccione **Nueva solicitud de servicio**:
 

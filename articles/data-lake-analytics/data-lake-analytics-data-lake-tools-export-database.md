@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628580"
 ---
 # <a name="export-a-u-sql-database"></a>Exportación de una base de datos de U-SQL
@@ -45,7 +45,7 @@ La acción de exportación se realiza mediante la ejecución de un trabajo de U-
 
 ![Asistente para exportación de base de datos: selección de Exportar objetos](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
 
-### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Paso 3: Compruebe la lista de objetos y otras configuraciones
+### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Paso 3: Comprobar la lista de objetos y otras configuraciones
 
 En este paso, puede comprobar los objetos seleccionados en la casilla **Exportar lista de objetos**. Si hay errores, seleccione **Anterior** para volver atrás y configurar correctamente los objetos que desea exportar.
 

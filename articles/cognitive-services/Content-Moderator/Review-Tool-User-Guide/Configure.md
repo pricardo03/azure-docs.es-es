@@ -1,7 +1,7 @@
 ---
-title: Configurar opciones de herramienta de revisión - Content Moderator
+title: 'Configuración de la herramienta de revisión: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Utilice la herramienta de revisión para configurar o recuperar su equipo, etiquetas, conectores, flujos de trabajo y las credenciales para Content Moderator.
+description: Use la herramienta de revisión para configurar o recuperar su equipo, etiquetas, conectores, flujos de trabajo y credenciales de Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -11,88 +11,88 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61285549"
 ---
 # <a name="configure-the-review-tool"></a>Configuración de la herramienta de revisión
 
-El [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) tiene varias características importantes que puede tener acceso a través de la **configuración** menú en el panel.
+La [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) presenta varias características importantes a las que puede acceder mediante el menú **Settings** (Configuración) del panel.
 
-![Content Moderator Review demasiado menú Configuración](images/settings-1.png)
+![Menú de configuración de la herramienta de revisión de Content Moderator](images/settings-1.png)
 
-## <a name="manage-team-and-subteams"></a>Administrar el equipo y subequipos
+## <a name="manage-team-and-subteams"></a>Administración de equipo y subequipos
 
-El **equipo** pestaña le permite administrar su equipo y subequipos&mdash;grupos de usuarios que pueden recibir una notificación cuando determinados [revisiones humanas](../review-api.md#reviews) se inician. Solo puede tener un equipo (que se crea al registrarse con la herramienta de revisión), pero puede crear varios subequipos. El administrador del equipo puede invitar a miembros, establezca sus permisos y asignarlos a distintos subequipos.
+La pestaña **Team** (Equipo) le permite administrar el equipo y los subequipos&mdash;grupos de usuarios que pueden recibir una notificación cuando se inicien determinadas [revisiones humanas](../review-api.md#reviews). Solo puede tener un equipo (que se crea al registrarse con la herramienta de revisión), pero puede crear varios subequipos. El administrador del equipo puede invitar a miembros, establecer sus permisos y asignarlos a distintos subequipos.
 
-![Revise la configuración del equipo de herramientas](images/settings-2-team.png)
+![Configuración de equipos de la herramienta de revisión](images/settings-2-team.png)
 
-Los subequipos son útiles para crear equipos de escalamiento o equipos dedicados a revisar categorías específicas de contenido. Por ejemplo, podría enviar contenido para adultos en un equipo independiente para su revisión.
+Los subequipos son útiles para crear equipos de escalamiento o equipos dedicados a revisar categorías específicas de contenido. Por ejemplo, podría enviar contenido para adultos a otro equipo para que lo revisen más a fondo.
 
-Esta sección explica cómo crear subequipos y asignar rápidamente las revisiones sobre la marcha. Sin embargo, puede usar [flujos de trabajo](workflows.md) para asignar revisiones según criterios específicos.
+En esta sección se explica cómo crear subequipos y asignar rápidamente revisiones sobre la marcha. Sin embargo, puede usar [flujos de trabajo](workflows.md) para asignar revisiones según criterios específicos.
 
 ### <a name="create-a-subteam"></a>Creación de un subequipo
 
-Vaya a la **subequipos** sección y haga clic en **Enreda agregar**. Escriba el nombre de equipo secundario en el cuadro de diálogo y haga clic en **guardar**.
+Vaya a la sessión **Subteams** (Subequipos) y haga clic en **Add Subteam** (Agregar subequipo) Escriba el nombre del subequipo en el cuadro de diálogo y haga clic en **Save** (Guardar).
 
 ![Nombre del subequipo](images/1-Teams-2.PNG)
 
-#### <a name="invite-teammates"></a>Invitar a compañeros de equipo
+#### <a name="invite-teammates"></a>Invitación a compañeros de equipo
 
-No se puede asignar un usuario a un equipo secundario si aún no están un miembro del equipo de forma predeterminada, por lo que deberá agregar revisores al equipo de forma predeterminada, en primer lugar. Haga clic en **invitar** en el **equipo** ficha.
+No puede asignar a alguien a un subequipo si no es ya miembro del equipo predeterminado, así que primero debe agregar revisores al equipo predeterminado. Haga clic en **Invite** (Invitar) en la pestaña **Team** (Equipo).
 
 ![Invitar a usuarios](images/invite-users.png)
 
-#### <a name="assign-teammates-to-subteam"></a>Asignar los miembros del equipo para subteam
+#### <a name="assign-teammates-to-subteam"></a>Asignación de los miembros del equipo al subequipo
 
-Haga clic en el **Add Member** botón para asignar los miembros del equipo de forma predeterminada a uno o más equipos secundarios. Solo puede agregar usuarios existentes a un subequipo. Para agregar nuevos usuarios que no están en la herramienta de revisión, invíteles mediante el botón "Invite" (Invitar) en la página de configuración del equipo.
+Haga clic en el botón **Add Member** (Agregar miembro) para asignar miembros del equipo predeterminado a uno o varios subequipos. Solo puede agregar usuarios existentes a un subequipo. Para agregar nuevos usuarios que no están en la herramienta de revisión, invíteles mediante el botón "Invite" (Invitar) en la página de configuración del equipo.
 
 ![Asignar miembros del subequipo](images/1-Teams-3.PNG)
 
-### <a name="assign-reviews-to-subteams"></a>Asignar las revisiones en los equipos secundarios
+### <a name="assign-reviews-to-subteams"></a>Asignación de revisiones a los subequipos
 
-Una vez que ha creado sus equipos secundarios y asigna los miembros, puede comenzar a asignar contenido [revisa](../review-api.md#reviews) a esos equipos secundarios. Esto se realiza desde el **revisión** pestaña del sitio.
-Para asignar el contenido a un equipo secundario, haga clic en el botón de puntos suspensivos en la esquina superior derecha, seleccione **mover a**y seleccione un equipo secundario.
+Después de haber creado sus subequipos y haber asignado los miembros, puede comenzar a asignar [revisiones](../review-api.md#reviews) de contenido a esos subequipos. Para ello se usa la pestaña **Review** (Revisar) del sitio.
+Para asignar contenido a un subequipo, haga clic en el botón de puntos suspensivos en la esquina superior derecha, seleccione **Move to** (Mover a) y seleccione un subequipo.
 
 ![Asignar una revisión de imagen a un subequipo](images/3-review-image-subteam-1.png)
 
 ### <a name="switch-between-subteams"></a>Cambiar entre subequipos
 
-Si es miembro de más de un grupo, puede cambiar entre los subequipos para cambiar qué revisiones de contenido se muestran al usuario. En el **revisión** pestaña, seleccione el menú desplegable con la etiqueta **predeterminado** y seleccione **Enreda elija**. Puede ver las revisiones de contenido para subequipos diferentes, pero solo aquellos de los cuales el miembro.
+Si es miembro de más de un subequipo, puede cambiar entre esos subequipos y modificar las revisiones de contenido que se muestran al usuario. En la pestaña **Review** (Revisar), seleccione el menú desplegable llamado **Default** (Predeterminado) y seleccione **Choose Subteam** (Elegir subequipo). Puede ver las revisiones de contenido de subequipos diferentes, pero solo si es miembro de ellos.
 
 ![Cambiar entre subequipos](images/3-review-image-subteam-2.png)
 
 ## <a name="tags"></a>Etiquetas
 
-El **etiquetas** ficha permite definir las etiquetas de moderación personalizadas además de las etiquetas de moderación de dos valores predeterminados&mdash;**isadult** (**un**) y **isracy**  (**r**). Cuando se crea una etiqueta personalizada, estará disponible en las revisiones junto con las etiquetas predeterminadas. Puede cambiar qué etiquetas se mostrarán en las revisiones cambiando su configuración de visibilidad.
+La pestaña **Tags** (Etiquetas) le permite definir etiquetas de moderación personalizadas, que se suman a las dos etiquetas de moderación predeterminadas&mdash;**isadult** (**a**) y **isracy** (**r**). Cuando se crea una etiqueta personalizada, se vuelve disponible en las revisiones junto con las etiquetas predeterminadas. Puede cambiar qué etiquetas mostrar en las revisiones cambiando su configuración de visibilidad.
 
-![Ver las etiquetas, incluidas las casillas de verificación "Está visible"](images/tags-4-disable.png)
+![Vista de etiquetas, que incluye las casillas "Is visible" (Está visible)](images/tags-4-disable.png)
 
-### <a name="create-custom-tags"></a>Crear etiquetas personalizadas
+### <a name="create-custom-tags"></a>Creación de etiquetas personalizadas
 
-Para crear una nueva etiqueta, debe escribir un código corto, nombre y descripción en los campos correspondientes.
+Para crear una etiqueta, debe escribir un código corto, el nombre y la descripción en los campos correspondientes.
 
-- **Breve código**: Escriba un código de dos letras para la etiqueta. Ejemplo: **cb**
-- **Nombre**: Escriba un nombre de etiqueta a corto y descriptivo en minúsculas, sin espacios en blanco. Ejemplo: **isbullying**.
-- **Descripción**: (opcional) escriba una descripción del tipo de contenido que los destinos de la etiqueta. Ejemplo: **Representaciones o instancias de ciberseguridad pueden ser la intimidación**.
+- **Short code** (Código corto): escriba un código de dos letras para la etiqueta. Por ejemplo, **cb**
+- **Nombre**: Escriba un nombre de etiqueta corto y descriptivo en minúsculas, sin espacios. Por ejemplo, **isbullying**.
+- **Description** (Descripción): (opcional) escriba una descripción del tipo de contenido que identifica la etiqueta. Ejemplo: **Representaciones o ejemplos de ciberacoso**.
 
-Haga clic en **agregar** para agregar una etiqueta y haga clic en **guardar** cuando haya terminado de crear etiquetas.
+Haga clic en **Add** (Agregar) para agregar una etiqueta y haga clic en **Save** (Guardar) cuando haya terminado de crear etiquetas.
 
-![Herramienta de revisión de crear el nuevo cuadro de diálogo de etiqueta](images/settings-3-tags.png)
+![Cuadro de diálogo de creación de etiquetas de la herramienta de revisión](images/settings-3-tags.png)
 
-### <a name="delete-tags"></a>Eliminar etiquetas
+### <a name="delete-tags"></a>Eliminación de etiquetas
 
-Puede eliminar etiquetas personalizadas, seleccione el icono de Papelera junto a sus entradas en la lista de etiquetas, pero no se puede eliminar las etiquetas predeterminadas.
+Puede eliminar etiquetas personalizadas son solo seleccionar el icono de Papelera junto a sus entradas en la lista de etiquetas, pero no puede eliminar las etiquetas predeterminadas.
 
 ## <a name="connectors"></a>Conectores
 
-El **conectores** pestaña le permite administrar sus conectores, que son complementos específicos del servicio que pueden procesar el contenido de distintas maneras como parte del contenido [flujos de trabajo](../review-api.md#workflows).
+La pestaña **Connectors** (Conectores) le permite administrar los conectores, que son complementos específicos del servicio que pueden procesar contenido de distintas maneras como parte de los [flujos de trabajo](../review-api.md#workflows) de contenido.
 
-El conector de forma predeterminada al crear un flujo de trabajo es el conector de Content Moderator, que puede marcar contenido como **para adultos** o **subido de tono**, busque palabras soeces y así sucesivamente. Sin embargo, puede usar otros conectores, se mencionan aquí, siempre que tengan credenciales de sus respectivos servicios (para usar el conector de Face API, por ejemplo, deberá obtener un [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview) clave de suscripción).
+El conector predeterminado al crear un flujo de trabajo es el conector de Content Moderator, que puede marcar contenido como **adulto** o **subido de tono**, buscar palabras soeces, etc. Sin embargo, puede usar otros conectores, aquí enumerados, siempre que tenga credenciales para sus respectivos servicios (para usar el conector de Face API, por ejemplo, deberá obtener una clave de suscripción de [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)).
 
-El [herramienta de revisión](./human-in-the-loop.md) incluye los conectores siguientes:
+La [herramienta de revisión](./human-in-the-loop.md) incluye los conectores siguientes:
 
 - Emotion API
 - Face API
@@ -101,38 +101,38 @@ El [herramienta de revisión](./human-in-the-loop.md) incluye los conectores sig
 
 ### <a name="add-a-connector"></a>Agregar un conector
 
-Para agregar un conector (y que esté disponible para su uso en contenido [flujos de trabajo](../review-api.md#workflows)), seleccione la **Connect** botón. En el cuadro de diálogo siguiente, escriba la clave de suscripción para ese servicio. Cuando haya terminado, el conector nuevo debe aparecer en la parte superior de la página.
+Para agregar un conector (y que esté disponible para su uso en los [flujos de trabajo](../review-api.md#workflows)) de contenido, seleccione el botón **Connect** (Conectar) adecuado. En el cuadro de diálogo siguiente, escriba la clave de suscripción para ese servicio. Cuando haya terminado, el nuevo conector debe aparecer en la parte superior de la página.
 
 ![Configuración de conectores de Content Moderator](images/settings-4-connectors.png)
 
 ## <a name="workflows"></a>Flujos de trabajo
 
-El **flujos de trabajo** pestaña le permite administrar su [flujos de trabajo](../review-api.md#workflows). Flujos de trabajo son los filtros basados en la nube para el contenido, y trabajar con conectores para ordenar el contenido de varias maneras y tomar las medidas adecuadas. En este caso, puede definir, editar y probar los flujos de trabajo. Consulte [definir y usar flujos de trabajo](Workflows.md) para obtener instrucciones sobre cómo hacerlo.
+La pestaña **Workflows** (Flujos de trabajo) le permite administrar sus [flujos de trabajo](../review-api.md#workflows). Los flujos de trabajo son filtros basados en la nube del contenido, y funcionan con conectores para ordenarlo de diversas maneras y realizar las acciones adecuadas. Aquí, puede definir, editar y probar los flujos de trabajo. Consulte [Definición y uso de los flujos de trabajo](Workflows.md) para guiarle en este procedimiento.
 
 ![Configuración de flujos de trabajo de Content Moderator](images/settings-5-workflows.png)
 
 ## <a name="credentials"></a>Credenciales
 
-El **credenciales** ficha proporciona acceso rápido a su clave de suscripción de Content Moderator, que necesitará para tener acceso a cualquiera de los servicios de moderación de una llamada de REST o SDK de cliente.
+La pestaña **Credentials** (Credenciales) proporciona acceso rápido a su clave de suscripción de Content Moderator, que necesitará para acceder a cualquiera de los servicios de moderación desde una llamada de REST o el SDK de cliente.
 
 ![Credenciales de Content Moderator](images/settings-6-credentials.png)
 
-### <a name="use-external-credentials-for-workflows"></a>Uso de credenciales externas para los flujos de trabajo
+### <a name="use-external-credentials-for-workflows"></a>Uso de credenciales externas para flujos de trabajo
 
-El [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) genera una clave de prueba gratuita para los servicios de Azure Content Moderator cuando se suscriba, pero también puede configurarlo para usar una existente de la clave de su cuenta de Azure. Esto se recomienda para escenarios a gran escala, como las claves de prueba gratuita poseen límites de uso estricto ([precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/)).
+La [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) genera una clave de evaluación gratuita para los servicios de Azure Content Moderator cuando se registra, pero también puede configurarlo para usar una clave existente de su cuenta de Azure. Esta opción se recomienda para escenarios a gran escala, ya que las claves de evaluación gratuita poseen límites de uso estrictos ([Precios y límites](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/)).
 
-Si ha creado un [recursos Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) en Azure, navegue hasta ella en Azure portal y seleccione el **claves** hoja. Copie una de las claves.
+Si ha creado un [recurso de Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) en Azure, diríjase a él en Azure Portal y seleccione la hoja **Claves**. Copie una de las claves.
 
 ![Claves de Content Moderator en Azure Portal](images/credentials-azure-portal-keys.PNG)
 
-En el [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com)del **credenciales** ficha, vaya a la **Workflow Settings** panel, seleccione **editar**y pegue la clave en el **Ocp-Apim-Subscription-Key** campo. Ahora, los flujos de trabajo que llaman a las API de moderación usará su credencial de Azure.
+En la pestaña **Credentials** (Credenciales) de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com), vaya al panel **Workflow Settings** (Configuración del flujo de trabajo), seleccione **Edit** (Editar) y pegue la clave en el campo **Ocp-Apim-Subscription-Key**. Ahora, los flujos de trabajo que llaman a las API de moderación usarán su credencial de Azure.
 
 > [!NOTE]
-> Los otros dos campos en el **Workflow Settings** panel son para las listas personalizadas de término y la imagen. Consulte la [términos personalizado](../try-terms-list-api.md) o [imágenes personalizadas](../try-image-list-api.md) guías para obtener información acerca de estos.
+> Los otros dos campos del panel **Workflow Settings** (Configuración del flujo de trabajo) son para listas de términos e imágenes personalizadas. Consulte las guías de [términos personalizado](../try-terms-list-api.md) o [imágenes personalizadas](../try-image-list-api.md) para más información al respecto.
 
-### <a name="use-your-azure-account-with-the-review-apis"></a>Use su cuenta de Azure con las API de revisión
+### <a name="use-your-azure-account-with-the-review-apis"></a>Uso de la cuenta de Azure con las API de revisión
 
-Para usar la clave de Azure con las API de revisión, deberá recuperar su identificador de recurso. Vaya al recurso de Content Moderator en Azure portal y seleccione el **propiedades** hoja. Copie el valor de Id. de recurso y péguelo en el **los identificadores de recursos en la lista blanca** campo de la herramienta de revisión **credenciales** ficha.
+Para usar la clave de Azure con las API de revisión, deberá recuperar su identificador de recurso. Vaya al recurso de Content Moderator en Azure Portal y seleccione la hoja **Propiedades**. Copie el valor del identificador de recurso y péguelo en el campo **Whitelisted Resource Id(s)** (Identificador de recursos en lista de permitidos) de la pestaña **Credentials** (Credenciales).
 
 ![Id. de recurso de Content Moderator en Azure Portal](images/credentials-azure-portal-resourceid.PNG)
 
@@ -140,4 +140,4 @@ Si ha especificado la clave de suscripción en ambos lugares, no se usará la cl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga el [inicio rápido de herramienta de revisión](../quick-start.md) para empezar a usar la herramienta de revisión en escenarios de moderación de contenido.
+Siga el [inicio rápido de la herramienta de revisión](../quick-start.md) para empezar a usar la herramienta de revisión en escenarios de moderación de contenido.

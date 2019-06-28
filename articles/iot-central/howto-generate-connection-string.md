@@ -1,6 +1,6 @@
 ---
-title: Generar una cadena de conexión de dispositivo de Azure IoT Central | Microsoft Docs
-description: Como desarrollador del dispositivo, ¿cómo puedo generar una cadena de conexión para el dispositivo que necesita para conectarse a una aplicación IoT Central?
+title: Generación de una cadena de conexión de dispositivos para Azure IoT Central | Microsoft Docs
+description: Como desarrollador de dispositivos, ¿cómo puedo generar una cadena de conexión para un dispositivo que es necesario conectar a una aplicación de IoT Central?
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/09/2019
@@ -9,40 +9,40 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f302cbfa7152ae30be434f560c0c39056d40f9f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60885645"
 ---
-# <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Generar una cadena de conexión de dispositivo para conectarse a una aplicación de Azure IoT Central
+# <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Generación de una cadena de conexión de dispositivo para conectarse a una aplicación de Azure IoT Central
 
-Este artículo se describe cómo, como un desarrollador de dispositivos, para generar una cadena de conexión para el dispositivo que necesita para conectarse a una aplicación IoT Central. El procedimiento descrito en este artículo muestra cómo conectarse rápidamente a un único dispositivo con una firma de acceso compartido (SAS). Este enfoque es útil cuando está experimentando con IoT Central o dispositivos de prueba. Enfoques alternativos utilizar en un entorno de producción, consulte [conectividad de dispositivos en Azure IoT Central](concepts-connectivity.md).
+En este artículo se describe cómo, como desarrollador de dispositivos, generar una cadena de conexión para un dispositivo que es necesario conectar a una aplicación de IoT Central. El procedimiento descrito en este artículo muestra cómo conectar rápidamente un único dispositivo mediante una firma de acceso compartido (SAS). Este enfoque es útil cuando está experimentando con IoT Central o probado dispositivos. Para ver enfoques alternativos que se pueden usar en un entorno de producción, consulte [Conectividad de dispositivos en Azure IoT Central](concepts-connectivity.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo:
 
 - Una aplicación de Azure IoT Central. Para más información, consulte la [guía de inicio rápido para crear una aplicación](quick-deploy-iot-central.md).
-- Una máquina de desarrollo con [Node.js](https://nodejs.org/) versión 8.0.0 o posterior instalado. Puede ejecutar `node --version` en la línea de comandos para comprobar la versión. Node.js está disponible para una amplia variedad de sistemas operativos.
+- Una máquina de desarrollo que tenga instalado [Node.js](https://nodejs.org/) versión 8.0.0 o posterior. Puede ejecutar `node --version` en la línea de comandos para comprobar la versión. Node.js está disponible para una amplia variedad de sistemas operativos.
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Los pasos siguientes describen cómo obtener la información que necesita generar una cadena de conexión de SAS para un dispositivo:
+En los pasos siguientes se describe cómo obtener la información que necesita para generar una cadena de conexión de SAS para un dispositivo:
 
-1. En el **Device Explorer**, busque el dispositivo real que desea conectarse a la aplicación:
+1. En el **Explorador de dispositivos**, busque el dispositivo real que quiere conectar a la aplicación:
 
-    ![Seleccione un dispositivo real](media/howto-generate-connection-string/real-devices.png)
+    ![Seleccionar un dispositivo real](media/howto-generate-connection-string/real-devices.png)
 
-1. En el **dispositivo** página, seleccione **Connect**:
+1. En la página **Dispositivo**, seleccione **Conectar**:
 
-    ![Seleccione Conectar](media/howto-generate-connection-string/connect.png)
+    ![Seleccionar Conectar](media/howto-generate-connection-string/connect.png)
 
-1. Tome nota de los detalles de conexión, **Id. de ámbito**, **Id. de dispositivo**, y **clave principal de dispositivo**, para usar en los pasos siguientes:
+1. Anote los detalles de la conexión, **Id. de ámbito**, **Id. de dispositivo** y **Device Primary key** (Clave principal de dispositivo); los necesitará en los pasos siguientes:
 
     ![Detalles de conexión](media/howto-generate-connection-string/device-connect.png)
 
-    Puede copiar los valores de esta página para guardar.
+    Puede copiar los valores de esta página para guardarlos.
 
 ## <a name="generate-the-connection-string"></a>Generación de la cadena de conexión
 
@@ -50,7 +50,7 @@ Los pasos siguientes describen cómo obtener la información que necesita genera
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha generado una cadena de conexión para un dispositivo real para conectarse a la aplicación de Azure IoT Central, estos son los siguientes pasos sugeridos:
+Ahora que ha generado una cadena de conexión para un dispositivo real para conectar a la aplicación de Azure IoT Central, estos son los siguientes pasos sugeridos:
 
 * [Preparación y conexión de un dispositivo DevKit (C)](howto-connect-devkit.md)
 * [Preparación y conexión de un dispositivo Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)

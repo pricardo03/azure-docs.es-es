@@ -13,15 +13,15 @@ ms.reviewer: genemi, vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331152"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creación de una regla de red virtual y un punto de conexión de servicio virtual para SQL
 
-Las *reglas de red virtual* son una característica de firewall que controla si el servidor de base de datos de las bases de datos únicas y el grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o las bases de datos de [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales.
+Las *reglas de red virtual* son una característica de firewall que controla si el servidor de las bases de datos únicas y el grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o las bases de datos de [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales.
 
 > [!IMPORTANT]
 > Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. En cambio, este artículo *no* se aplica a la implementación de la **instancia administrada** de Azure SQL Database, ya que no tiene un punto de conexión de servicio asociado a ella.
@@ -38,13 +38,13 @@ Sus motivaciones para crear una regla se explican en: [Disponibilidad general de
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 ## <a name="major-cmdlets"></a>Cmdlets principales
 
-Este artículo se resalta el **New AzSqlServerVirtualNetworkRule** cmdlet que agrega el punto de conexión de la subred a la lista de control de acceso (ACL) de su servidor de Azure SQL Database, con lo que se crea una regla.
+En este artículo se resalta el cmdlet **New-AzSqlServerVirtualNetworkRule**, que agrega el punto de conexión de la subred a la lista de control de acceso (ACL) de su servidor de Azure SQL Database, lo que crea una regla.
 
-En la lista siguiente se muestra la secuencia de otros *principales* cmdlets que se debe ejecutar para prepararse para la llamada a **New AzSqlServerVirtualNetworkRule**. En este artículo, estas llamadas se producen en el [script 3: "regla de red virtual"](#a-script-30):
+En la lista siguiente se muestra la secuencia de otros cmdlets *principales* que debe ejecutar para prepararse para la llamada a **New-AzSqlServerVirtualNetworkRule**. En este artículo, estas llamadas se producen en el [script 3: "regla de red virtual"](#a-script-30):
 
 1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): crea un objeto de subred.
 2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): crea su red virtual y le proporciona la subred.

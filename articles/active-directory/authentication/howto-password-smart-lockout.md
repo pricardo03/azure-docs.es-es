@@ -1,5 +1,5 @@
 ---
-title: 'Evitar los ataques de fuerza bruta con Azure AD inteligente bloqueo: Azure Active Directory'
+title: 'Prevención de ataques por fuerza bruta mediante el bloqueo inteligente de Azure AD: Azure Active Directory'
 description: El bloqueo inteligente de Azure Active Directory ayuda a proteger las organizaciones frente a los ataques por fuerza bruta que intentan adivinar contraseñas.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358147"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
@@ -55,7 +55,7 @@ Siga estas instrucciones para comprobar la directiva de bloqueo de cuentas de Ac
 3. Vaya a **Configuración del equipo** > **Directivas** > **Configuración de Windows** > **Configuración de seguridad**  >  **Directivas de cuenta** > **Directiva de bloqueo de cuenta**.
 4. Compruebe los valores de **Umbral de bloqueo de cuenta** y **Restablecer contador de bloqueo de cuenta tras**.
 
-![Modificar la directiva de bloqueo de cuenta de Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificación de la directiva de bloqueo de cuentas de Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Administración de los valores de bloqueo inteligente de Azure AD
 
@@ -74,7 +74,7 @@ Para comprobar o modificar los valores de bloqueo inteligente para su organizaci
 
 ## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Cómo determinar si la característica de bloqueo inteligente está funcionando o no
 
-Cuando se desencadena el umbral de bloqueo inteligente, mientras que la cuenta está bloqueada obtendrá el siguiente mensaje:
+Cuando se desencadena el umbral de bloqueo inteligente, aparecerá el siguiente mensaje mientras la cuenta está bloqueada:
 
 **Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Vuelva a intentarlo y, si sigue teniendo problemas, póngase en contacto con su administrador.**
 

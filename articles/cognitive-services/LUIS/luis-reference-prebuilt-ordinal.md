@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 752a26b21854ec9030fc1945024ae461445815a9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146715"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>entidad precompilada Ordinal para una aplicación de LUIS
@@ -61,9 +61,9 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.ordin
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versión de API preliminar 3.x
+### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
 
-El siguiente JSON es con el `verbose` parámetro establecido en `false`:
+El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
 ```json
 {
@@ -88,7 +88,7 @@ El siguiente JSON es con el `verbose` parámetro establecido en `false`:
 }
 ```
 
-El siguiente JSON es con el `verbose` parámetro establecido en `true`:
+El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
 {
@@ -130,4 +130,4 @@ El siguiente JSON es con el `verbose` parámetro establecido en `true`:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre la [porcentaje](luis-reference-prebuilt-percentage.md), [número de teléfono](luis-reference-prebuilt-phonenumber.md), y [temperatura](luis-reference-prebuilt-temperature.md) entidades. 
+Más información sobre las entidades [percentage](luis-reference-prebuilt-percentage.md), [phonenumber](luis-reference-prebuilt-phonenumber.md) y [temperature](luis-reference-prebuilt-temperature.md). 

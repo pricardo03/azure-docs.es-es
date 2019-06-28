@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: lyrana
 ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533837"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Conexión y autenticación en las API
@@ -25,11 +25,11 @@ Para integrar una aplicación o un servicio con Azure AD, el desarrollador debe 
 
 Azure AD admite [cinco escenarios principales de aplicación](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types):
 
-* Aplicación de página única (SPA): Un usuario debe iniciar sesión una aplicación de una página que está protegida por Azure AD.
-* Explorador Web a aplicación web: Un usuario debe iniciar sesión en una aplicación web que está protegida por Azure AD.
-* Aplicación nativa a API web: Una aplicación nativa que se ejecuta en un teléfono, tableta o PC debe autenticar un usuario para obtener recursos de una API web protegida por Azure AD.
-* Aplicación Web a API web: una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
-* Aplicación de servidor o demonio a API web: Una aplicación de demonio o una aplicación de servidor con ningún web UI necesita obtener recursos desde una API web protegida por Azure AD.
+* Aplicación de página única (SPA): un usuario tiene que iniciar sesión en una aplicación de página única protegida por Azure AD.
+* Explorador web a aplicación web: un usuario tiene que iniciar sesión en una aplicación web protegida por Azure AD.
+* Aplicación nativa a API web: una aplicación nativa que se ejecuta en teléfonos, tabletas o equipos tiene que autenticar a un usuario para obtener recursos de una API web protegida por Azure AD.
+* Aplicación web a API web: una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
+* Aplicación de servidor o de demonio a API web: una aplicación de demonio o de servidor sin interfaz de usuario web tiene que obtener recursos de una API web protegida por Azure AD.
 
 La biblioteca de autenticación de Azure para Windows ofrece muchas alternativas para adquirir tokens de Active Directory. Para obtener más información en la biblioteca y ejemplos de código, vea [este artículo](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 

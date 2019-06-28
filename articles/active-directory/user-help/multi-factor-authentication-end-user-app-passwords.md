@@ -1,6 +1,6 @@
 ---
-title: 'Cómo administrar contraseñas de aplicación: Azure Active Directory | Microsoft Docs'
-description: Obtenga información sobre las contraseñas de aplicación y qué están destinados con respecto a la verificación en dos pasos.
+title: 'Administración de contraseñas de aplicaciones: Azure Active Directory | Microsoft Docs'
+description: Comprenda qué son las contraseñas de aplicaciones y para qué se utilizan con respecto la verificación en dos pasos.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,10 +15,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334987"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
@@ -40,7 +40,7 @@ Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
 Recibirá una contraseña de la aplicación durante el registro inicial de verificación en dos pasos. Si necesita más de una contraseña, puede crear contraseñas adicionales, según cómo utilice la verificación en dos pasos:
 
-- **Utiliza la verificación en dos pasos para la cuenta profesional o educativa y el portal Mis aplicaciones.** Crear y eliminar las contraseñas de aplicación siguiendo las instrucciones de crear y eliminar contraseñas de aplicación mediante la sección portal de MyApps de este artículo. Para obtener más información sobre el portal Mis aplicaciones y cómo usarlo, consulte [¿Qué es el portal Mis aplicaciones de Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+- **Utiliza la verificación en dos pasos para la cuenta profesional o educativa y el portal Mis aplicaciones.** Cree y elimine las contraseñas de aplicaciones mediante las instrucciones de la sección Creación y eliminación de contraseñas de aplicaciones en el portal Mis aplicaciones de este artículo. Para obtener más información sobre el portal Mis aplicaciones y cómo usarlo, consulte [¿Qué es el portal Mis aplicaciones de Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
 - **Utiliza la verificación en dos pasos para la cuenta profesional o educativa y el portal de Office 365.** Cree y elimine las contraseñas de aplicaciones mediante las instrucciones de la sección [Creación y eliminación de contraseñas de aplicaciones en el portal de Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) de este artículo.
 
@@ -89,7 +89,7 @@ Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y
 
 1. Inicie sesión en su cuenta profesional o educativa.
 
-2. Vaya a [ https://portal.office.com ](https://portal.office.com), seleccione el **configuración** icono desde la esquina superior derecha de la **portal de Office 365** página y, a continuación, expanda **seguridad adicional comprobación**.
+2. Vaya a [https://portal.office.com](https://portal.office.com), seleccione el icono **Configuración** en la parte superior derecha de la página **Portal de Office 365** y, a continuación, expanda **Comprobación de seguridad adicional**.
 
     ![Portal de Office que muestra la ampliación del área de comprobación de seguridad adicional](media/security-info/security-info-o365password.png)
 
@@ -105,7 +105,7 @@ Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y
 
 1. Inicie sesión en su cuenta profesional o educativa.
 
-2. Vaya a [ https://portal.office.com ](https://portal.office.com), seleccione el **configuración** icono desde la esquina superior derecha de la **portal de Office 365** página y, a continuación, seleccione **seguridad adicional comprobación**.
+2. Vaya a [https://portal.office.com](https://portal.office.com), seleccione el icono **Configuración** en la parte superior derecha de la página **Portal de Office 365** y, a continuación, seleccione **Comprobación de seguridad adicional**.
 
 3. Seleccione el vínculo **Crear y administrar contraseñas de aplicaciones** para abrir la página **Contraseñas de aplicaciones**.
 

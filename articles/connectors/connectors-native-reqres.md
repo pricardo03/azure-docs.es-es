@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538149"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introducción a los componentes de solicitud y respuesta
@@ -37,7 +37,7 @@ Para empezar a usar las acciones de solicitud y respuesta en una aplicación ló
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. 
 [Más información sobre los desencadenadores](../connectors/apis-list.md).
 
-Esta es una secuencia de ejemplo de cómo configurar una solicitud HTTP en el Diseñador de aplicaciones lógicas.
+Esta es una secuencia de ejemplo de cómo configurar una solicitud HTTP en el diseñador de aplicaciones lógicas.
 
 1. Agregue el desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica. También puede proporcionar un esquema JSON (mediante una herramienta como [JSONSchema.net](https://jsonschema.net)) para el cuerpo de solicitud. Esto permite al diseñador generar tokens para las propiedades de la solicitud HTTP.
 2. Agregue otra acción para que pueda guardar la aplicación lógica.

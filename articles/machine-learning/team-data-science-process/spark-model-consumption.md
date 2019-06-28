@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253160"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalización de modelos de aprendizaje automático creados con Spark
@@ -43,7 +43,7 @@ Para modificar este cuaderno de Jupyter para Spark 1.6 para usarlo con un clúst
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configuración: Ubicaciones de almacenamiento, bibliotecas y el contexto de Spark preestablecido
 Spark puede leer y escribir en un blob de Azure Storage (WASB), por lo que cualquiera de los datos existentes almacenados allí pueden procesarse mediante Spark y volver a almacenarse en WASB.
 
-Para guardar modelos o archivos en WASB, la ruta de acceso debe especificarse correctamente. Se puede hacer referencia al contenedor predeterminado asociado al clúster de Spark con una ruta de acceso que comience por *"wasb///"*. El ejemplo de código siguiente especifica la ubicación de los datos que se van a leer y la ruta de acceso del directorio de almacenamiento del modelo donde se guardará la salida del modelo. 
+Para guardar modelos o archivos en WASB, la ruta de acceso debe especificarse correctamente. Se puede hacer referencia al contenedor predeterminado asociado al clúster de Spark con una ruta de acceso que comience por *"wasb///"* . El ejemplo de código siguiente especifica la ubicación de los datos que se van a leer y la ruta de acceso del directorio de almacenamiento del modelo donde se guardará la salida del modelo. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Establecimiento de rutas de directorio para las ubicaciones de almacenamiento de WASB
 Los modelos se guardan en: "wasb:///user/remoteuser/NYCTaxi/Models". Si esta ruta de acceso no está configurada correctamente, no se cargará los modelos para su puntuación.
@@ -112,7 +112,7 @@ Los kernels de PySpark que se proporcionan con cuadernos de Jupyter Notebook tie
 El kernel PySpark proporciona algunas “instrucciones mágicas” predefinidas, que son comandos especiales que se pueden llamar con %%. Hay dos comandos de este tipo que se utilizan en estos ejemplos de código.
 
 * **%%local** Especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
-* **%% sql -o \<nombre de variable >** 
+* **%%sql -o \<nombre de la variable>** 
 * Ejecuta una consulta de Hive en el sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
 
 Para obtener más información sobre los kernels de cuadernos de Jupyter Notebook y las instrucciones mágicas predefinidas llamadas con %% (por ejemplo, %%local) que proporcionan, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -526,7 +526,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 ## <a name="consume-spark-models-through-a-web-interface"></a>Uso de modelos de Spark mediante una interfaz web
 Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información sobre Livy, consulte: [Envío remoto de trabajos de Spark mediante Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
-Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde   
+Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En este caso, se carga el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 > [!NOTE]

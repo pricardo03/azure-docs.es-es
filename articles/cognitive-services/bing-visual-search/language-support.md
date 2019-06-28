@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866243"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Compatibilidad de idiomas y regiones para Bing Visual Search API
@@ -34,7 +34,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 > - Las páginas de recetas, compras y conclusiones solo están disponibles en el mercado de en-US.
 
 
-## <a name="countriesregions"></a>Países/regiones
+## <a name="countriesregions"></a>Países o regiones
 
 |País/región|Código|
 |-------|----|

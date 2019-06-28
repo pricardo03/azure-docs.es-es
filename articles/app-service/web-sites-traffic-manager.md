@@ -17,10 +17,10 @@ ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 79fe3bce558a8315f5fbf7dbc82a4979e8e24238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831986"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Control del tráfico de Azure App Service con Azure Traffic Manager
@@ -43,7 +43,7 @@ Azure Traffic Manager utiliza cuatro métodos de enrutamiento distintos. Estos m
 Para más información, consulte [Métodos de enrutamiento de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>App Service y perfiles de Traffic Manager
-Para configurar el control de tráfico de la aplicación de App Service, cree un perfil de Azure Traffic Manager que utilice uno de los cuatro métodos de carga equilibrio se ha descrito anteriormente y, a continuación, agregue los puntos de conexión (en este caso, App Service) para el que desea controlar el tráfico a la perfil. El estado de la aplicación (en ejecución, detenido o eliminado) se comunica con frecuencia al perfil para que Azure Traffic Manager dirija el tráfico en consecuencia.
+Para configurar el control del tráfico de la aplicación de App Service, puede crear un perfil en Azure Traffic Manager que utilice uno de los cuatro métodos de equilibrio de carga descritos anteriormente y, luego, agregar los puntos de conexión (en este caso, App Service) para los que desea controlar el tráfico al perfil. El estado de la aplicación (en ejecución, detenido o eliminado) se comunica con frecuencia al perfil para que Azure Traffic Manager dirija el tráfico en consecuencia.
 
 Cuando utilice el Administrador de tráfico de Azure con Azure, tenga en cuenta los siguientes puntos:
 

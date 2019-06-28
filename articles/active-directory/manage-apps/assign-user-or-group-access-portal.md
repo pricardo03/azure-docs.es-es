@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 702eb5008c60764cd84e2787a8e2c2818d3f9268
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780930"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory
@@ -33,15 +33,15 @@ Para asignar un usuario o un grupo a una aplicación empresarial, debe contar co
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 1. Seleccione **Todos los servicios**, escriba Azure Active Directory en el cuadro de texto y seleccione **Entrar**.
 1. Seleccione **Aplicaciones empresariales**.
-1. En el **aplicaciones empresariales - todas las aplicaciones** panel, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
-1. En el ***appname*** panel (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione **usuarios y grupos**.
-1. En el ***appname*** **-grupos de usuarios y** panel, seleccione **Agregar usuario**.
-1. En el **Agregar asignación** panel, seleccione **usuarios y grupos**.
+1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
+1. En el panel ***nombreDeLaAplicación*** (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione **Usuarios y grupos**.
+1. En el panel ***nombreDeLaAplicación*** **- Usuarios y grupos**, seleccione **Agregar usuario**.
+1. En el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Asignación de un usuario o un grupo a la aplicación](./media/assign-user-or-group-access-portal/assign-users.png)
-1. En el **usuarios y grupos** panel, seleccione uno o más usuarios o grupos de la lista y, a continuación, elija el **seleccione** situado en la parte inferior del panel.
-1. En el **Agregar asignación** panel, seleccione **rol**. A continuación, en el **Seleccionar rol** panel, seleccione un rol que se aplicará a los usuarios o grupos seleccionados, a continuación, seleccione **Aceptar** en la parte inferior del panel.
-1. En el **Agregar asignación** panel, seleccione el **asignar** situado en la parte inferior del panel. Los usuarios o grupos asignados tienen definidos los permisos por el rol seleccionado para esta aplicación empresarial.
+1. En el panel **Usuarios y grupos**, seleccione uno o varios usuarios o grupos de la lista y, luego, haga clic en el botón **Seleccionar** en la parte inferior del panel.
+1. En el panel **Agregar asignación**, seleccione **Rol**. Después, en el panel **Seleccionar rol**, seleccione el rol que quiere aplicar a los usuarios o grupos seleccionados y, luego, haga clic en **Aceptar** en la parte inferior del panel.
+1. En el panel **Agregar asignación**, haga clic en el botón **Asignar** en la parte inferior del panel. Los usuarios o grupos asignados tienen definidos los permisos por el rol seleccionado para esta aplicación empresarial.
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>Permitir a los usuarios tener acceso a una aplicación: portal
 Para permitir a los usuarios tener acceso a una aplicación:
@@ -51,12 +51,12 @@ Para permitir a los usuarios tener acceso a una aplicación:
 1. Seleccione **Aplicaciones empresariales**.
 1. En el panel **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. A continuación se muestran las aplicaciones que se pueden administrar.
 1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, seleccione una aplicación.
-1. En el ***appname*** panel, seleccione **propiedades**.
-1. En el  ***appname* -propiedades** panel, establezca la **asignación de usuarios necesaria?** si se establece en **No**. 
+1. En el panel hoja ***nombreDeLaAplicación***, seleccione **Propiedades**.
+1. En el panel ***nombreDeLaAplicación* - Propiedades**, establezca la opción de configuración **¿Asignación de usuarios?** en **No**. 
 
-La opción **¿Asignación de usuarios?**:
+La opción **¿Asignación de usuarios?** :
 
-- No afecta a si una aplicación aparece en el panel de acceso de la aplicación o no. Para mostrar la aplicación en el panel de acceso, debe asignar un grupo o usuario adecuado a la aplicación.
+- No afecta a si una aplicación aparece o no en el panel de acceso de la aplicación. Para mostrar la aplicación en el panel de acceso, debe asignar un grupo o usuario adecuado a la aplicación.
 - Solo las funciones con las aplicaciones en la nube configuradas para el inicio de sesión único de SAML, y aplicaciones locales configuradas con el proxy de aplicación. Vea [Inicio de sesión único para aplicaciones](what-is-single-sign-on.md).
 - Requiere que los usuarios den su consentimiento a una aplicación. Un administrador puede conceder consentimiento para todos los usuarios.  Vea [Configure el modo en que los usuarios finales dan su consentimiento a una aplicación](configure-user-consent.md).
 

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308200"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de rendimiento para máquinas virtuales de Azure
@@ -42,7 +42,7 @@ El diagnóstico de rendimiento instalan una extensión de máquina virtual que e
     ![Captura de pantalla de Azure Portal, con el botón Install performance diagnostics (Instalar diagnóstico de rendimiento) resaltado](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > En esta captura de pantalla, se oculta la hoja de nombres de máquina virtual.
+    > En esta captura de pantalla, la hoja de nombres de máquinas virtuales está oculta.
 1. Seleccione una cuenta de almacenamiento (opcional)
 
     Si quiere usar una sola cuenta de almacenamiento para almacenar los resultados de los diagnósticos de rendimiento de varias máquinas virtuales, puede seleccionar una cuenta de almacenamiento haciendo clic en el botón **Configuración** de la barra de herramientas. Haga clic en el botón **Aceptar** una vez que seleccione la cuenta de almacenamiento.
@@ -143,10 +143,10 @@ Puede ver la información de la cuenta de almacenamiento si usa el botón Config
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>¿Cómo comparto estos datos con el soporte técnico de Microsoft? 
 Existen varias formas de compartir el informe de diagnóstico con Microsoft.
 
-**Opción 1:** Compartir automáticamente el informe más reciente  
+**Opción 1:** compartir automáticamente el último informe  
 Al abrir una incidencia de soporte técnico con Microsoft, es importante compartir el informe de diagnóstico de rendimiento. Si optó por compartir esta información con Microsoft mientras ejecuta los diagnósticos (al seleccionar la casilla "**Accedo a compartir la información de diagnóstico con Microsoft**"), Microsoft podrá obtener acceso al informe desde su cuenta de almacenamiento mediante un vínculo SAS, que le llevará al archivo .zip de salida; este archivo se guardará un máximo de 30 días a partir de la fecha de ejecución. Recuerde que solo el último informe está disponible para que el ingeniero del soporte técnico pueda acceder al mismo. 
 
-**Opción 2:** Generar una firma de acceso compartido para el archivo comprimido del informe de diagnóstico  
+**Opción 2:** generar una Firma de acceso compartido para el archivo comprimido del informe de diagnóstico  
 Puede compartir un vínculo al archivo comprimido de informes si usa las firmas de acceso compartido. Para ello, siga estos pasos. 
 1.  En Azure Portal, busque la cuenta de almacenamiento en la que se almacenan los datos de diagnóstico.
 1.  Seleccione **Blob** en la sección **Blob service**. 
@@ -156,7 +156,7 @@ Puede compartir un vínculo al archivo comprimido de informes si usa las firmas 
 1.  Haga clic en **Generate blob SAS token and URL** (Generar token SAS de blob y URL).
 1.  Copie la **dirección URL del blob SAS** y compártala con el ingeniero del soporte técnico. 
 
-**Opción 3:** Descargar el informe de la cuenta de almacenamiento
+**Opción 3:** descargar el informe de la cuenta de almacenamiento
 
 También puede buscar el archivo comprimido del informe de diagnóstico de rendimiento mediante los pasos 1 a 4 de la opción 2. Seleccione la opción para descargar el archivo y compártalo por correo electrónico, o solicite instrucciones al ingeniero del soporte técnico para que cargue el archivo.  
 

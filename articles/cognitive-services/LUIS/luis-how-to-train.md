@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
 ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195865"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entrenamiento de la versión activa de la aplicación de LUIS 
@@ -44,9 +44,9 @@ Para iniciar el proceso iterativo en el [portal de LUIS](https://www.luis.ai), p
 >[!NOTE]
 >Si tiene uno o varios intentos en la aplicación que no contienen expresiones de ejemplo, no podrá entrenar la aplicación. Agregue expresiones para todas las intenciones. Para más información, consulte [Add example utterances](luis-how-to-add-example-utterances.md) (Adición de expresiones de ejemplo).
 
-## <a name="training-date-and-time"></a>Hora y fecha de entrenamiento
+## <a name="training-date-and-time"></a>Fecha y hora del entrenamiento
 
-Hora y fecha de entrenamiento es GMT + 2. 
+La fecha y la hora de entrenamiento son GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Entrenamiento con todos los datos
 

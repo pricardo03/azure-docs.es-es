@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47626cbd8d5b8a5ddf7cc5c6ea42fb9453e5bfb2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540681"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
@@ -43,7 +43,7 @@ Un [flujo de concesión de autorizaciones de OAuth 2.0](developer-glossary.md#au
 
 En las siguientes secciones veremos cómo el modelo de aplicaciones de Azure AD representa una aplicación en tiempo de diseño y en tiempo de ejecución.
 
-## <a name="application-registration"></a>Registro de aplicaciones
+## <a name="application-registration"></a>Registro de la aplicación
 
 Al registrar una aplicación de Azure AD en [Azure Portal][AZURE-Portal], se crean dos objetos en el inquilino de Azure AD:
 
@@ -52,7 +52,7 @@ Al registrar una aplicación de Azure AD en [Azure Portal][AZURE-Portal], se cre
 
 ### <a name="application-object"></a>Objeto de aplicación
 
-Una aplicación de Azure AD se define por su único objeto de aplicación, que reside en el inquilino de Azure AD donde se registró la aplicación, conocido como inquilino "principal" de la aplicación. Microsoft Graph [entidad de aplicación] [ MS-Graph-App-Entity] define el esquema de propiedades de un objeto de aplicación.
+Una aplicación de Azure AD se define por su único objeto de aplicación, que reside en el inquilino de Azure AD donde se registró la aplicación, conocido como inquilino "principal" de la aplicación. La [entidad de aplicación][MS-Graph-App-Entity] de Microsoft Graph define el esquema para las propiedades de un objeto de aplicación.
 
 ### <a name="service-principal-object"></a>Objeto de entidad de servicio
 
@@ -60,7 +60,7 @@ Para acceder a los recursos que están protegidos por un inquilino de Azure AD, 
 
 La entidad de seguridad define la directiva de acceso y los permisos para el usuario o aplicación de ese inquilino de Azure AD. Esto habilita características básicas como la autenticación del usuario o de la aplicación durante el inicio de sesión y la autorización durante el acceso a los recursos.
 
-Cuando una aplicación tiene permiso para acceder a los recursos de un inquilino (tras el registro o [consentimiento](developer-glossary.md#consent)), se crea un objeto de entidad de seguridad de servicio. Microsoft Graph [entidad ServicePrincipal] [ MS-Graph-Sp-Entity] define el esquema de propiedades de un objeto entidad de servicio.
+Cuando una aplicación tiene permiso para acceder a los recursos de un inquilino (tras el registro o [consentimiento](developer-glossary.md#consent)), se crea un objeto de entidad de seguridad de servicio. La [entidad ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph define el esquema para las propiedades de un objeto de entidad de servicio.
 
 ### <a name="application-and-service-principal-relationship"></a>Relación entre la aplicación y la entidad de servicio
 
@@ -95,9 +95,9 @@ En este escenario de ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede usar el [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar la aplicación y objetos de entidad de servicio.
-- Puede tener acceso a objetos de aplicación de la aplicación mediante Microsoft Graph API, el [del portal de Azure] [ AZURE-Portal] editor de manifiestos de aplicación, o [cmdlets de PowerShell de Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) , tal como está representada por su OData [entidad de aplicación][MS-Graph-App-Entity].
-- Puede tener acceso a objeto de entidad de servicio de la aplicación a través de Microsoft Graph API o [cmdlets de PowerShell de Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tal como está representada por su OData [entidad ServicePrincipal] [ MS-Graph-Sp-Entity].
+- Puede usar [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar tanto objetos de aplicación como objetos de entidad de servicio.
+- Se puede acceder al objeto de aplicación de la aplicación mediante Microsoft Graph API, el editor de manifiestos de la aplicación de [Azure Portal][AZURE-Portal] o con [cmdlets de Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tal y como se representa mediante su [entidad Application][MS-Graph-App-Entity] de OData.
+- Se puede acceder al objeto de entidad de servicio de la aplicación mediante Microsoft Graph API o con [cmdlets de Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tal y como se representa mediante su entidad [ServicePrincipal][MS-Graph-Sp-Entity] de OData.
 
 <!--Image references-->
 

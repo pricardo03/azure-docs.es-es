@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812943"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Almacenamiento y eliminación de datos en Cognitive Services de Language Understanding (LUIS)
@@ -26,26 +26,26 @@ Los usuarios tienen un control total sobre la [exportación](luis-how-to-start-n
 
 ## <a name="utterances"></a>Grabaciones de voz
 
-Grabaciones de voz se pueden almacenar en dos lugares diferentes. 
+Las expresiones se pueden almacenar en dos lugares diferentes. 
 
-* Durante la **el proceso de creación**, grabaciones de voz se crean y almacenan en la intención. Grabaciones de voz en intenciones son necesarios para una aplicación de LUIS correctamente. Una vez que la aplicación se publica y se recibe en el punto de conexión, cadena de consulta de la solicitud de punto de conexión, las consultas `log=false`, determina si la declaración de punto de conexión se almacena. Si se almacena el punto de conexión, se convierte en parte de las declaraciones de aprendizaje activo se encuentra en la **compilar** sección del portal, en la **revisar grabaciones de voz de punto de conexión** sección. 
-* Cuando se **revisar grabaciones de voz de punto de conexión**y agregue una declaración para una intención, la declaración ya no se almacena como parte de las declaraciones de punto de conexión para su revisión. Se agrega a las intenciones de la aplicación. 
+* Durante el **proceso de creación**, las expresiones se crean y almacenan en la intención. Las expresiones de intenciones son necesarias para crear una aplicación de LUIS correctamente. Una vez que la aplicación se publica y recibe consultas en el punto de conexión, la cadena de consulta de la solicitud del punto de conexión, las consultas `log=false`, determina si se almacena la expresión del punto de conexión. Si se almacena el punto de conexión, se convierte en parte de las expresiones del aprendizaje activo que se encuentran en la sección **Build** (compilación) del portal, en la sección **Review endpoint utterances** (Revisar las expresiones del punto de conexión). 
+* Al **revisar las expresiones del punto de conexión** y agregar una expresión a una intención, la expresión ya no se almacena como parte de las expresiones del punto de conexión que se van a revisar. Se agrega a las intenciones de la aplicación. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>Eliminar grabaciones de voz de ejemplo de una intención
+### <a name="delete-example-utterances-from-an-intent"></a>Eliminación de expresiones de ejemplo de una intención
 Elimine expresiones de ejemplo que se han usado para entrenar a [LUIS](luis-reference-regions.md). Si elimina una expresión de ejemplo desde la aplicación de LUIS, se eliminará del servicio web de LUIS y no estará disponible para la exportación.
 
 <a name="utterances-in-review"></a>
 
-### <a name="delete-utterances-in-review-from-active-learning"></a>Eliminar grabaciones de voz en la revisión de aprendizaje activo
+### <a name="delete-utterances-in-review-from-active-learning"></a>Eliminación de expresiones de la revisión desde el aprendizaje activo
 
 Puede eliminar expresiones de la lista de expresiones de usuario que LUIS sugiere en la página **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Revisar expresiones de punto de conexión). La eliminación de las expresiones de esta lista evita que se sugieran, pero no las elimina de los registros.
 
-Si no desea que las declaraciones de aprendizaje activo, puede [deshabilitar aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Deshabilitar el aprendizaje activo también deshabilita el registro.
+Si no quiere expresiones de aprendizaje activo, puede [deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Al deshabilitar el aprendizaje activo también se deshabilita el registro.
 
-### <a name="disable-logging-utterances"></a>Deshabilitar registro grabaciones de voz
-[Deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning) se deshabilita el registro.
+### <a name="disable-logging-utterances"></a>Deshabilitación de expresiones del registro
+[Al deshabilitar el aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning) se deshabilita el registro.
 
 
 <a name="accounts"></a>

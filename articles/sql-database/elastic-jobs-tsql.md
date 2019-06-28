@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475820"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
@@ -284,7 +284,7 @@ select * from jobs.jobsteps
 ```
 
 
-## <a name="begin-ad-hoc-execution-of-a-job"></a>Comenzar la ejecución ad hoc de un trabajo
+## <a name="begin-ad-hoc-execution-of-a-job"></a>Inicio de la ejecución ad hoc de un trabajo
 
 En el ejemplo siguiente se muestra cómo iniciar un trabajo inmediatamente.  
 Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
@@ -447,16 +447,16 @@ Agrega un nuevo trabajo.
   
 #### <a name="arguments"></a>Argumentos  
 
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo. El nombre debe ser único y no puede contener el carácter de porcentaje (%). job_name es nvarchar(128), sin ningún valor predeterminado.
 
-[  **\@descripción =** ] 'description'  
+[ **\@description =** ] 'description'  
 Descripción del trabajo. description es nvarchar(512), con un valor predeterminado de NULL. Si description se omite, se utiliza una cadena vacía.
 
-[  **\@habilitado =** ] habilitado  
+[ **\@enabled =** ] enabled  
 Indica si la programación del trabajo está habilitada. El valor de enabled es de tipo bit, con un valor predeterminado de 0 (deshabilitado). Si es 0, el trabajo no se habilita y no se ejecuta según la programación; sin embargo, se puede ejecutar manualmente. Si es 1, el trabajo se ejecuta según la programación y también se puede ejecutar manualmente.
 
-[  **\@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =** ] schedule_interval_type  
 El valor indica cuándo se ejecutará el trabajo. schedule_interval_type es nvarchar(50), con un valor predeterminado de Once y puede tener uno de los siguientes valores:
 - 'Once',
 - 'Minutes'
@@ -474,7 +474,7 @@ Fecha en que puede comenzar la ejecución del trabajo. schedule_start_time es DA
 [ **\@schedule_end_time =** ] schedule_end_time  
 Fecha en que puede detenerse la ejecución del trabajo. schedule_end_time es DATETIME2, con un valor predeterminado de 9999-12-31 11:59:59.0000000. 
 
-[  **\@job_id =** ] job_id salida  
+[ **\@job_id =** ] job_id OUTPUT  
 Número de identificación del trabajo asignado al trabajo si se creó correctamente. job_id es una variable de salida de tipo uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -510,16 +510,16 @@ Actualiza un trabajo existente.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo que se debe actualizar. job_name es nvarchar(128).
 
-[  **\@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 Nuevo nombre del trabajo. new_name es nvarchar(128).
 
-[  **\@descripción =** ] 'description'  
+[ **\@description =** ] 'description'  
 Descripción del trabajo. description es nvarchar(512).
 
-[  **\@habilitado =** ] habilitado  
+[ **\@enabled =** ] enabled  
 Especifica si la programación del trabajo está habilitado (1) o no habilitada (0). El valor de enabled es de tipo bit.
 
 [ **\@schedule_interval_type=** ] schedule_interval_type  
@@ -567,10 +567,10 @@ Elimina un trabajo existente.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo que se debe eliminar. job_name es nvarchar(128).
 
-[  **\@forzar =** ] forzar  
+[ **\@force =** ] force  
 Especifica la eliminación si el trabajo tiene ejecuciones en curso y la cancelación de todas las ejecuciones en curso (1) o un error si existen ejecuciones de trabajos en curso (0). El valor de force es de tipo bit.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -622,13 +622,13 @@ Agrega un paso a un trabajo.
 
 #### <a name="arguments"></a>Argumentos
 
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo al que se va a agregar el paso. job_name es nvarchar(128).
 
-[  **\@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 Número de identificación de secuencia del paso de trabajo. Los números de identificación de pasos se inician en 1 e incrementan sin interrupciones. Si un paso existente ya tiene este identificador, dicho paso y todos los pasos siguientes verán su identificador incrementado para que se pueda insertar el nuevo paso en la secuencia. Si no se especifica, step_id se asignará automáticamente al último paso de la secuencia. step_id es int.
 
-[  **\@step_name =** ] step_name  
+[ **\@step_name =** ] step_name  
 Nombre del paso. Debe especificarse, excepto para el primer paso de un trabajo que (por comodidad) tiene un nombre predeterminado de 'JobStep'. step_name es nvarchar(128).
 
 [ **\@command_type =** ] 'command_type'  
@@ -656,7 +656,7 @@ Retraso que se producirá antes del primer reintento,si el paso de trabajo no se
 [ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 Retraso máximo entre los reintentos. Si el retraso entre los reintentos creciera por encima de este valor, se limitaría a este valor en su lugar. maximum_retry_interval_seconds es int, con un valor predeterminado de 120.
 
-[  **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 Multiplicador que se aplicará al retraso de reintentos si varios intentos de ejecución del paso de trabajo generan un error. Por ejemplo, si el primer reintento tuvo un retraso de 5 segundos y el multiplicador de retroceso es 2.0, el segundo reintento tendrá un retraso de 10 segundos y el tercero, de 20 segundos. retry_interval_backoff_multiplier es real, con un valor predeterminado de 2.0.
 
 [ **\@retry_attempts =** ] retry_attempts  
@@ -691,10 +691,10 @@ Si no es null, nombre del esquema SQL que contiene la tabla de destino de salida
 [ **\@output_table_name =** ] 'output_table_name'  
 Si no es null, nombre de la tabla en la que se escribirá el primer conjunto de resultados del comando. Si la tabla no existe todavía, se creará de acuerdo con el esquema del conjunto de resultados devuelto. Debe especificarse si output_type es igual a SqlDatabase. output_table_name es nvarchar(128), con un valor predeterminado de NULL.
 
-[  **\@job_version =** ] job_version salida  
+[ **\@job_version =** ] job_version OUTPUT  
 Parámetro de salida al que se asignará el número de versión de trabajo nuevo. job_version es int.
 
-[  **\@max_parallelism =** ] max_parallelism salida  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 Nivel máximo de paralelismo por grupo elástico. Si está establecido, el paso de trabajo se restringirá para que solo se ejecute en un máximo de las bases de datos por grupo elástico. Esto se aplica a cada grupo elástico que se incluya directamente en el grupo de destino o se encuentre dentro de un servidor incluido en el grupo de destino. max_parallelism es int.
 
 
@@ -746,19 +746,19 @@ Actualiza un paso de trabajo.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo al que pertenece el paso. job_name es nvarchar(128).
 
-[  **\@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 Número de identificación del paso de trabajo que se va a modificar. Debe especificarse step_id o step_name. step_id es int.
 
-[  **\@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 Nombre del paso que se va a modificar. Debe especificarse step_id o step_name. step_name es nvarchar(128).
 
-[  **\@new_id =** ] new_id  
+[ **\@new_id =** ] new_id  
 Nuevo número de identificación de secuencia del paso de trabajo. Los números de identificación de pasos se inician en 1 e incrementan sin interrupciones. Si un paso se reordena, los otros pasos se renumerarán automáticamente.
 
-[  **\@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 Nuevo nombre del paso. new_name es nvarchar(128).
 
 [ **\@command_type =** ] 'command_type'  
@@ -786,7 +786,7 @@ Retraso que se producirá antes del primer reintento,si el paso de trabajo no se
 [ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 Retraso máximo entre los reintentos. Si el retraso entre los reintentos creciera por encima de este valor, se limitaría a este valor en su lugar. maximum_retry_interval_seconds es int, con un valor predeterminado de 120.
 
-[  **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 Multiplicador que se aplicará al retraso de reintentos si varios intentos de ejecución del paso de trabajo generan un error. Por ejemplo, si el primer reintento tuvo un retraso de 5 segundos y el multiplicador de retroceso es 2.0, el segundo reintento tendrá un retraso de 10 segundos y el tercero, de 20 segundos. retry_interval_backoff_multiplier es real, con un valor predeterminado de 2.0.
 
 [ **\@retry_attempts =** ] retry_attempts  
@@ -815,10 +815,10 @@ Si no es null, nombre del esquema SQL que contiene la tabla de destino de salida
 [ **\@output_table_name =** ] 'output_table_name'  
 Si no es null, nombre de la tabla en la que se escribirá el primer conjunto de resultados del comando. Si la tabla no existe todavía, se creará de acuerdo con el esquema del conjunto de resultados devuelto. Debe especificarse si output_type es igual a SqlDatabase. Para restablecer el valor de output_server_name a NULL, establece el valor de este parámetro en '' (cadena vacía). output_table_name es nvarchar(128), con un valor predeterminado de NULL.
 
-[  **\@job_version =** ] job_version salida  
+[ **\@job_version =** ] job_version OUTPUT  
 Parámetro de salida al que se asignará el número de versión de trabajo nuevo. job_version es int.
 
-[  **\@max_parallelism =** ] max_parallelism salida  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 Nivel máximo de paralelismo por grupo elástico. Si está establecido, el paso de trabajo se restringirá para que solo se ejecute en un máximo de las bases de datos por grupo elástico. Esto se aplica a cada grupo elástico que se incluya directamente en el grupo de destino o se encuentre dentro de un servidor incluido en el grupo de destino. Para restablecer el valor de max_parallelism a null, establece el valor de este parámetro en -1. max_parallelism es int.
 
 
@@ -853,16 +853,16 @@ Quita un paso de un trabajo.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo del que se quitará el paso. job_name es nvarchar(128), sin ningún valor predeterminado.
 
-[  **\@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 Número de identificación del paso de trabajo que se va a eliminar. Debe especificarse step_id o step_name. step_id es int.
 
-[  **\@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 Nombre del paso que se va a eliminar. Debe especificarse step_id o step_name. step_name es nvarchar(128).
 
-[  **\@job_version =** ] job_version salida  
+[ **\@job_version =** ] job_version OUTPUT  
 Parámetro de salida al que se asignará el número de versión de trabajo nuevo. job_version es int.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -897,10 +897,10 @@ Inicia la ejecución de un trabajo.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo del que se quitará el paso. job_name es nvarchar(128), sin ningún valor predeterminado.
 
-[  **\@job_execution_id =** ] job_execution_id salida  
+[ **\@job_execution_id =** ] job_execution_id OUTPUT  
 Parámetro de salida al que se asignará el identificador de la ejecución del trabajo. job_version es uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -928,7 +928,7 @@ Detiene una ejecución de trabajo.
 
 
 #### <a name="arguments"></a>Argumentos
-[  **\@job_execution_id =** ] job_execution_id  
+[ **\@job_execution_id =** ] job_execution_id  
 Número de identificación de la ejecución del trabajo que se va a detener. job_execution_id es uniqueidentifier, con un valor predeterminado de NULL.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -958,10 +958,10 @@ Agrega un grupo de destino.
 
 
 #### <a name="arguments"></a>Argumentos
-[  **\@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 Nombre del grupo de destino que se va a crear. target_group_name es nvarchar(128), sin ningún valor predeterminado.
 
-[  **\@target_group_id =** ] target_group_id el destino de salida de grupo número de identificación asignado al trabajo si se creó correctamente. target_group_id es una variable de salida de tipo uniqueidentifier, con un valor predeterminado de NULL.
+[ **\@target_group_id =** ] target_group_id OUTPUT Número de identificación del grupo de destino asignado al trabajo si se creó correctamente. target_group_id es una variable de salida de tipo uniqueidentifier, con un valor predeterminado de NULL.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (correcto) o 1 (error)
@@ -988,7 +988,7 @@ Elimina un grupo de destino.
 
 
 #### <a name="arguments"></a>Argumentos
-[  **\@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 Nombre del grupo de destino que se va a eliminar. target_group_name es nvarchar(128), sin ningún valor predeterminado.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -1022,7 +1022,7 @@ Agrega una base de datos o un grupo de bases de datos a un grupo de destino.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **\@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 Nombre del grupo de destino al que se agregará el miembro. target_group_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@membership_type =** ] 'membership_type'  
@@ -1034,19 +1034,19 @@ Tipo de base de datos de destino o colección de bases de datos que incluye toda
 [ **\@refresh_credential_name =** ] 'refresh_credential_name'  
 El nombre del servidor de SQL Database. refresh_credential_name es nvarchar(128), sin ningún valor predeterminado.
 
-[  **\@nombre_servidor =** ] 'nombreDeServidor'  
+[ **\@server_name =** ] 'server_name'  
 Nombre del servidor de SQL Database que se debe agregar al grupo de destino especificado. server_name debe especificarse cuando target_type es ‘SqlServer’. server_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@database_name =** ] 'database_name'  
 Nombre de la base de datos que debe agregarse al grupo de destino especificado. database_name debe especificarse cuando target_type es ‘SqlDatabase’. database_name es nvarchar(128), sin ningún valor predeterminado.
 
-[  **\@elastic_pool_name =** ] 'elastic_pool_name'  
+[ **\@elastic_pool_name =** ] 'elastic_pool_name'  
 Nombre del grupo elástico que se debe agregar al grupo de destino especificado. elastic_pool_name debe especificarse cuando target_type es ‘SqlElasticPool’. elastic_pool_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **\@shard_map_name =** ] 'shard_map_name'  
 Nombre del grupo de mapas de particiones que se debe agregar al grupo de destino especificado. elastic_pool_name debe especificarse cuando target_type es ‘SqlSqlShardMap’. shart_map_name es nvarchar(128), sin ningún valor predeterminado.
 
-[  **\@target_id =** ] target_group_id salida  
+[ **\@target_id =** ] target_group_id OUTPUT  
 Número de identificación de destino asignado al miembro del grupo de destino si se agregó al grupo de destino. target_id es una variable de salida de tipo uniqueidentifier, con un valor predeterminado de NULL.
 Valores de código de retorno 0 (correcto) o 1 (error)
 
@@ -1157,10 +1157,10 @@ Quita los registros del historial de un trabajo.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **\@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 Nombre del trabajo del que se van a eliminar los registros de historial. job_name es nvarchar(128), con un valor predeterminado de NULL. Se debe especificar job_id o job_name, pero no pueden especificarse ambos.
 
-[  **\@job_id =** ] job_id  
+[ **\@job_id =** ] job_id  
  Número de identificación del trabajo para los registros que se van a eliminar. job_id es uniqueidentifier, con un valor predeterminado de NULL. Se debe especificar job_id o job_name, pero no pueden especificarse ambos.
 
 [ **\@oldest_date =** ] oldest_date  

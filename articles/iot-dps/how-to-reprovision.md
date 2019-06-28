@@ -2,33 +2,32 @@
 title: Reaprovisionamiento de dispositivos en Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Reaprovisionamiento de dispositivos con la instancia de Device Provisioning Service
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/04/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627361"
 ---
 # <a name="how-to-reprovision-devices"></a>Reaprovisionamiento de dispositivos
 
 Durante el ciclo de vida de una solución de IoT, es habitual mover los dispositivos entre centros de IoT. Las razones de este movimiento pueden incluir los siguientes escenarios:
 
-* **Ubicación geográfica**: Cuando un dispositivo se desplaza entre las ubicaciones, mejora la latencia de red haciendo que el dispositivo se migran a un centro de IoT más cercanos a cada ubicación.
+* **Geolocalización**: puesto que un dispositivo se mueve entre ubicaciones, la latencia de red se mejora mediante la migración del dispositivo a un centro de IoT Hub más cercano a cada ubicación.
 
-* **Servicios multiinquilino**: Un dispositivo podría utilizado dentro de la misma solución de IoT, pero puede reasignar o concedió a un cliente nuevo, o un sitio de cliente. Este nuevo cliente se puede atender mediante un centro de IoT diferente.
+* **Servicios multiinquilino**: un dispositivo puede usarse dentro de la misma solución de IoT y reasignarse o alquilarse a un nuevo cliente o al sitio de un cliente. Este nuevo cliente se puede atender mediante un centro de IoT diferente.
 
-* **Cambio de la solución**: Se puede mover un dispositivo en una solución de IoT nueva o actualizada. Esta reasignación puede requerir que el dispositivo se comunique con un nuevo centro de IoT que esté conectado a otros componentes del back-end. 
+* **Cambio de la solución**: un dispositivo se podría mover a una solución de IoT nueva o actualizada. Esta reasignación puede requerir que el dispositivo se comunique con un nuevo centro de IoT que esté conectado a otros componentes del back-end. 
 
-* **Cuarentena**: Similar a un cambio de la solución. Un dispositivo que no funciona correctamente, que está en peligro o no actualizado se puede reasignar a un centro de IoT para actualizarse y volver a estar en condiciones. Una vez que el dispositivo está funcionando correctamente, se vuelve a migrar a su centro principal.
+* **Cuarentena**: es similar a un cambio de la solución. Un dispositivo que no funciona correctamente, que está en peligro o no actualizado se puede reasignar a un centro de IoT para actualizarse y volver a estar en condiciones. Una vez que el dispositivo está funcionando correctamente, se vuelve a migrar a su centro principal.
 
-Para más una descripción más detallada de restablecimiento del servicio, consulte [reaprovisionamiento conceptos de dispositivo de IoT Hub](concepts-device-reprovision.md).
+Para una descripción más detallada del reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configuración de la directiva de asignación de inscripciones
@@ -43,11 +42,11 @@ En los pasos siguientes se configura la directiva de asignación para la inscrip
 
 3. En **Select how you want to assign devices to hubs** (Seleccionar cómo asignar los dispositivos a los centros), seleccione las siguientes directivas de asignación:
 
-    * **Latencia más baja**: Esta directiva asigna dispositivos al centro de IoT vinculados que dará como resultado las comunicaciones de latencia más bajas entre el dispositivo e IoT Hub. Esta opción permite que el dispositivo se comunique con el centro de IoT más cercano en función de la ubicación. 
+    * **Latencia más baja**: esta directiva asigna dispositivos al centro de IoT Hub vinculado que dará lugar a comunicaciones de latencia más baja entre el dispositivo e IoT Hub. Esta opción permite que el dispositivo se comunique con el centro de IoT más cercano en función de la ubicación. 
     
-    * **Distribución uniformemente ponderada**: Esta directiva distribuye los dispositivos en los centros de IoT vinculados en función del peso de asignación asignado a cada centro de IoT vinculado. Esta directiva permite equilibrar la carga de los dispositivos entre un grupo de centros vinculados en función de los pesos de asignación establecidos sobre esos centros. Si va a aprovisionar dispositivos para un único centro de IoT, se recomienda esta configuración. Esta es la configuración predeterminada. 
+    * **Distribución ponderada uniformemente**: esta directiva distribuye los dispositivos entre los centros de IoT Hub vinculados en función del peso de asignación asignado a cada centro de IoT Hub vinculado. Esta directiva permite equilibrar la carga de los dispositivos entre un grupo de centros vinculados en función de los pesos de asignación establecidos sobre esos centros. Si va a aprovisionar dispositivos para un único centro de IoT, se recomienda esta configuración. Esta es la configuración predeterminada. 
     
-    * **Configuración estática**: Esta directiva requiere que un centro de IoT deseado se muestran en la entrada de inscripción para un dispositivo se aprovisione. Esta directiva permite designar un único centro de IoT al que quiere asignar los dispositivos.
+    * **Configuración estática**: esta directiva requiere que el centro de IoT Hub deseado se muestre en la entrada de inscripción del dispositivo que se va a aprovisionar. Esta directiva permite designar un único centro de IoT al que quiere asignar los dispositivos.
 
 4. En **Select the IoT hubs this group can be assigned to** (Seleccionar los centros de IoT a los que se puede asignar este grupo), seleccione los centros de IoT vinculados que quiere incluir con la directiva de asignación. También puede agregar un nuevo centro de IoT vinculado mediante el botón **Link a new IoT Hub** (Vincular a un nuevo centro de IoT).
 
@@ -71,9 +70,9 @@ En los pasos siguientes se configura la directiva de asignación para la inscrip
 
 3. En **Seleccione cómo desea que los datos del dispositivo para administrarse en reaprovisionamiento a un centro de IoT diferentes**, elija una de las siguientes directivas de reaprovisionamiento:
 
-    * **Volver a aprovisionar y migrar datos**: Esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud de aprovisionamiento. Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. Toda la información sobre el estado del dispositivo de ese centro de IoT inicial se migrará al nuevo centro de IoT. Durante la migración, el estado del dispositivo será **Assigning** (Asignando).
+    * **Volver a aprovisionar y migrar datos**: esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud de aprovisionamiento. Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. Toda la información sobre el estado del dispositivo de ese centro de IoT inicial se migrará al nuevo centro de IoT. Durante la migración, el estado del dispositivo será **Assigning** (Asignando).
 
-    * **Volver a aprovisionar y restablecer a la configuración inicial**: Esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud de aprovisionamiento. Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. Se proporcionan al nuevo centro de IoT los datos de configuración iniciales que recibió la instancia del servicio de aprovisionamiento al aprovisionar el dispositivo. Durante la migración, el estado del dispositivo será **Assigning** (Asignando).
+    * **Volver a aprovisionar y restablecer a la configuración inicial**: esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud de aprovisionamiento. Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. Se proporcionan al nuevo centro de IoT los datos de configuración iniciales que recibió la instancia del servicio de aprovisionamiento al aprovisionar el dispositivo. Durante la migración, el estado del dispositivo será **Assigning** (Asignando).
 
 4. Haga clic en **Save** (Guardar) para permitir el reaprovisionamiento del dispositivo en función de los cambios.
 
@@ -94,8 +93,8 @@ Si quiere ver un ejemplo de código para enviar solicitudes de aprovisionamiento
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más Reprovisioning, vea [reaprovisionamiento conceptos de dispositivo de IoT Hub](concepts-device-reprovision.md) 
-- Para obtener información más Desaprovisionamiento de usuarios, consulte [Desaprovisionamiento de dispositivos que automática aprovisionados](how-to-unprovision-devices.md) 
+- Para obtener más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
+- Para obtener más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md). 
 
 
 

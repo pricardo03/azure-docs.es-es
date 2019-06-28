@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: manayar
 ms.openlocfilehash: 3846815dabdc9e351f3d8449feb88affb9c6efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803447"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales
@@ -43,7 +43,7 @@ Puede configurar el escalado vertical para que se desencadene en función de las
 4. Agregue una alerta a su conjunto de escalado de máquinas virtuales mediante una notificación de webhook.
 
 > [!NOTE]
-> Debido al tamaño de la primera máquina virtual, los tamaños a los que se puede escalar pueden estar limitados en virtud de la disponibilidad de los demás tamaños en el clúster donde actualmente está implementada la máquina virtual. En los runbooks de automatización publicados que se usan en este artículo nos hacemos cargo de esta situación y solo escalamos dentro de los siguientes pares de tamaños de máquina virtual. Esto significa que una máquina virtual Standard_D1v2 no se aumentará de manera repentina a Standard_G5 ni se reducirá a Basic_A0. También no se admite la máquina de Virtual restringida tamaños escalar horizontal y verticalmente. Puede elegir escalar entre los siguientes pares de tamaños:
+> Debido al tamaño de la primera máquina virtual, los tamaños a los que se puede escalar pueden estar limitados en virtud de la disponibilidad de los demás tamaños en el clúster donde actualmente está implementada la máquina virtual. En los runbooks de automatización publicados que se usan en este artículo nos hacemos cargo de esta situación y solo escalamos dentro de los siguientes pares de tamaños de máquina virtual. Esto significa que una máquina virtual Standard_D1v2 no se aumentará de manera repentina a Standard_G5 ni se reducirá a Basic_A0. Además, no se admite el escalado y la reducción verticales de tamaños de máquina virtual restringidos. Puede elegir escalar entre los siguientes pares de tamaños:
 > 
 > | Pares de escalado de tamaños de VM |  |
 > | --- | --- |

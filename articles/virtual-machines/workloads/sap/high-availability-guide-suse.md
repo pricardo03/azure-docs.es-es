@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
 ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142970"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
@@ -29,15 +29,15 @@ ms.locfileid: "65142970"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -88,7 +88,7 @@ Para lograr alta disponibilidad, SAP NetWeaver requiere un servidor NFS. El serv
 El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga (A)SCS y ERS.
 
 > [!IMPORTANT]
-> Clústeres de varios SID de SAP ASCS/ERS con SUSE Linux como sistema operativo invitado en máquinas virtuales de Azure es **no admite**. Agrupación en clústeres de varios SID, se describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker
+> La agrupación en clústeres de varios SID de SAP ASCS/ERS con SUSE Linux como sistema operativo invitado en las VM de Azure **NO se admite**. La agrupación en clústeres de varios SID describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -99,7 +99,7 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
 * Puerto de sondeo
   * Puerto 620<strong>&lt;nr&gt;</strong>
 * Carga 
-* las reglas de equilibrio
+* reglas de equilibrio
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -137,8 +137,8 @@ Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP A
 
 Para implementar todos los recursos necesarios, puede usar una de las plantillas de inicio rápido de GitHub. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc. Siga estos pasos para implementar la plantilla:
 
-1. Abra el [plantilla de varios SID de ASCS/SCS] [ template-multisid-xscs] o el [plantilla convergente] [ template-converged] en el portal de Azure. 
-   La plantilla ASCS/SCS solo crea las reglas de equilibrio de carga para las instancias ERS (solo Linux) y SAP NetWeaver ASCS/SCS, mientras que la plantilla combinada también crea las reglas de equilibrio de carga para una base de datos (por ejemplo Microsoft SQL Server o SAP HANA). Si tiene previsto instalar un sistema basado en SAP NetWeaver y desea instalar la base de datos en las mismas máquinas, use la [plantilla convergente][template-converged].
+1. Abra la [plantilla ASCS/SCS de varios SID][template-multisid-xscs] o la [plantilla convergente][template-converged] en Azure Portal. 
+   La plantilla ASCS/SCS solo crea las reglas de equilibrio de carga para las instancias ASCS/SCS y ERS (solo Linux) de SAP NetWeaver, mientras que la plantilla convergente también crea las reglas de equilibrio de carga para una base de datos (por ejemplo, Microsoft SQL Server o SAP HANA). Si tiene previsto instalar un sistema basado en SAP NetWeaver y desea instalar la base de datos en las mismas máquinas, use la [plantilla convergente][template-converged].
 1. Escriba los siguientes parámetros:
    1. Prefijo de recurso (solo la plantilla de varios ASCS/SCS de varios SID)  
       Escriba el prefijo que desea usar. El valor se usa como prefijo de los recursos que se implementan.
@@ -157,7 +157,7 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
    9. Nombre de usuario y contraseña del administrador  
       Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
    10. Identificador de subred  
-   Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: /subscriptions/**&lt;id. de suscripción&gt;**/resourceGroups/**&lt;nombre del grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nombre de red virtual&gt;**/subnets/**&lt;nombre de subred&gt;**
+   Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: /subscriptions/ **&lt;id. de suscripción&gt;** /resourceGroups/ **&lt;nombre del grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nombre de red virtual&gt;** /subnets/ **&lt;nombre de subred&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementación manual de Linux mediante Azure Portal
 
@@ -206,7 +206,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
          * Repita los pasos anteriores para crear un sondeo de estado para ERS (por ejemplo 621**02** y **nw1-aers-hp**).
    1. Reglas de equilibrio de carga
       1. TCP 32**00** para ASCS
-         1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar
+         1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
          1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-3200**).
          1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-ascs-frontend**).
          1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
@@ -219,7 +219,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
          * Repita los pasos anteriores para los puertos 33**02**, 5**02**13, 5**02**14, 5**02**16 y TCP para ASCS ERS
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en máquinas virtuales de Azure que se encuentre detrás de equilibrador de carga de Azure. Habilitar las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Para obtener información detallada, consulte [sondeos de estado de equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Lea [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.
 
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
@@ -227,7 +227,7 @@ Siga los pasos que se describen en [Configuración de Pacemaker en SUSE Linux En
 
 ### <a name="installation"></a>Instalación
 
-Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
+Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
 1. **[A]** Instale el conector de SUSE
 
@@ -536,7 +536,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 1. **[1]** Cree los recursos de clúster de SAP
 
-Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recursos como sigue:
+Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recursos tal como se indica:
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -564,8 +564,8 @@ Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recur
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  SAP ha introducido soporte técnico para el servidor 2, incluida la replicación, a partir de SAP NW 7.52 de puesta en cola. A partir de ABAP plataforma 1809, poner en cola el servidor 2 está instalado de forma predeterminada. Consulte SAP nota [2630416](https://launchpad.support.sap.com/#/notes/2630416) para la compatibilidad con el servidor 2 de puesta en cola.
-Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definir los recursos como sigue:
+  SAP introdujo una opción de compatibilidad con el servidor 2 de puesta en cola, incluida la replicación, a partir de la versión de SAP NW 7.52. A partir de la plataforma ABAP (versión 1809), el servidor 2 de puesta en cola está instalado de forma predeterminada. Consulte la nota de SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) para consultar la compatibilidad con el servidor 2 de puesta en cola.
+Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), defina los recursos tal como se indica:
 
 <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -591,7 +591,7 @@ Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte SAP nota [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Si está actualizando desde una versión anterior y va a cambiar al servidor 2 de puesta en cola, consulte la nota de SAP [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
@@ -996,7 +996,7 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Cree un bloqueo de puesta en cola; por ejemplo, edite un usuario en la transacción su01. Ejecute los comandos siguientes como \<sapsid>adm en el nodo donde se ejecuta la instancia de ASCS. Los comandos detendrán la instancia de ASCS y la volverán a iniciar. Si usa la arquitectura de servidor 1 de puesta en cola, se espera el bloqueo de puesta en cola se perderá en esta prueba. Si usa la arquitectura de servidor 2 de puesta en cola, se conservarán la puesta en cola. 
+   Cree un bloqueo de puesta en cola; por ejemplo, edite un usuario en la transacción su01. Ejecute los comandos siguientes como \<sapsid>adm en el nodo donde se ejecuta la instancia de ASCS. Los comandos detendrán la instancia de ASCS y la volverán a iniciar. Si usa la arquitectura deL servidor 1 de puesta en cola, es posible que el bloqueo de puesta en cola se pierda en esta prueba. Si usa la arquitectura del servidor 2 de puesta en cola, se conservará la puesta en cola. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
 ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440155"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detección y solución de problemas de desconexiones con Azure IoT Hub
@@ -45,7 +45,7 @@ Para obtener más información, consulte [Supervisión del mantenimiento de Azur
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Configuración de alertas de la métrica de recuento de _dispositivos conectados_
 
-Para obtener alertas cuando los dispositivos se desconectan, configurar alertas en el **(versión preliminar) de los dispositivos conectados** métrica.
+Para recibir alertas cuando se desconecten los dispositivos, configure alertas en la métrica **dispositivos conectados (versión preliminar)** .
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
@@ -53,17 +53,17 @@ Para obtener alertas cuando los dispositivos se desconectan, configurar alertas 
 
 3. Seleccione **Alertas**.
 
-4. Seleccione **nueva regla de alerta**.
+4. Seleccione **Nueva regla de alertas**.
 
-5. Seleccione **Agregar condición**, a continuación, seleccione "Conectado los dispositivos (versión preliminar)".
+5. Seleccione **Agregar condición** y, a continuación, seleccione "Dispositivos conectados (versión preliminar)".
 
-6. Fin de configurar los umbrales deseados y las opciones de alertas por indicaciones siguientes.
+6. Siga las indicaciones para terminar de configurar las opciones deseadas de umbrales y alerta.
 
 Para obtener más información, consulte [¿Qué son las alertas clásicas en Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="resolve-connectivity-errors"></a>Resolución de errores de conectividad
 
-Cuando active las alertas y los registros de diagnóstico de los dispositivos conectados, recibirá alertas cuando se produzca algún error. En esta sección se describe cómo resolver problemas comunes cuando reciba una alerta. Los pasos siguientes se supone que ha configurado los registros de Azure Monitor para los registros de diagnóstico.
+Cuando active las alertas y los registros de diagnóstico de los dispositivos conectados, recibirá alertas cuando se produzca algún error. En esta sección se describe cómo resolver problemas comunes cuando reciba una alerta. En los pasos siguientes se da por sentado que ha configurado los registros de Azure Monitor para los registros de diagnóstico.
 
 1. Vaya a su área de trabajo de **Log Analytics** en Azure Portal.
 

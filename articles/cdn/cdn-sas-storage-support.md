@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324159"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
@@ -39,7 +39,7 @@ Cuando haya generado un token de SAS, tiene acceso a su archivo de Blob Storage 
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
-Por ejemplo: 
+Por ejemplo:
  ```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
@@ -48,7 +48,7 @@ Para más información sobre cómo establecer los parámetros, consulte [Conside
 
 ![Configuración de SAS de la red CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opción 1: Uso de SAS con paso a través a blob storage desde la red CDN de Azure
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opción 1: Uso de SAS con paso a través a Blob Storage desde Azure CDN
 
 Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde Azure CDN al servidor de origen.
  
@@ -60,7 +60,7 @@ Esta opción es la más simple y solo usa un único token de SAS, que se pasa de
    
    La dirección URL del punto de conexión de CDN resultante tiene el formato siguiente: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
-   Por ejemplo:    
+   Por ejemplo:   
    ```
    https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
@@ -91,7 +91,7 @@ Esta opción solo está disponible para los perfiles de **Azure CDN Premium de V
 
 2. Una vez que la nueva regla esté activa, cualquiera puede acceder a los archivos del contenedor especificado en el punto de conexión de CDN, con independencia de si usan un token de SAS en la dirección URL. Este es el formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
-   Por ejemplo:    
+   Por ejemplo:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
@@ -106,7 +106,7 @@ Para usar la autenticación de token de seguridad de Azure CDN, debe tener un pe
    Una dirección URL de punto de conexión de token de seguridad tiene el formato siguiente:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
-   Por ejemplo:    
+   Por ejemplo:   
    ```
    https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```

@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610738"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Movimiento de datos de Teradata mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-onprem-teradata-connector.md)
 > * [Versión 2 (versión actual)](../connector-teradata.md)
 
@@ -65,10 +65,10 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesTeradata** |Sí |
-| server |Nombre del servidor de Teradata. |Sí |
+| Servidor |Nombre del servidor de Teradata. |Sí |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Teradata. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
-| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
+| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos Teradata local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -285,11 +285,11 @@ Al mover datos a Teradata, se usan las asignaciones siguientes de tipo Teradata 
 
 | Tipo de base de datos Teradata | Tipo .NET Framework |
 | --- | --- |
-| Char |String |
-| Clob |String |
-| Graphic |String |
-| VarChar |String |
-| VarGraphic |String |
+| Char |Cadena |
+| Clob |Cadena |
+| Graphic |Cadena |
+| VarChar |Cadena |
+| VarGraphic |Cadena |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
@@ -300,10 +300,10 @@ Al mover datos a Teradata, se usan las asignaciones siguientes de tipo Teradata 
 | Entero |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Date |DateTime |
+| Date |Datetime |
 | Hora |TimeSpan |
-| Time With Time Zone |String |
-| Timestamp |DateTime |
+| Time With Time Zone |Cadena |
+| Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
@@ -315,15 +315,15 @@ Al mover datos a Teradata, se usan las asignaciones siguientes de tipo Teradata 
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
-| Interval Month |String |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
-| Xml |String |
+| Interval Year |Cadena |
+| Interval Year To Month |Cadena |
+| Interval Month |Cadena |
+| Period(Date) |Cadena |
+| Period(Time) |Cadena |
+| Period(Time With Time Zone) |Cadena |
+| Period(Timestamp) |Cadena |
+| Period(Timestamp With Time Zone) |Cadena |
+| Xml |Cadena |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).

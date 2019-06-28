@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614393"
 ---
 # <a name="application-upgrade-parameters"></a>Parámetros de actualización de la aplicación
@@ -94,7 +94,7 @@ Las actualizaciones de aplicaciones de Service Fabric mediante la CLI de Service
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| application-id  |Identificador de la aplicación que se actualiza. <br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:" A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric: / myapp/app1 ', la identidad de aplicación sería" myapp\~app1' en 6.0 + y "myapp/app1" en versiones anteriores.|
+| application-id  |Identificador de la aplicación que se actualiza. <br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:" A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp\~app1' in 6.0+ and 'myapp/app1" en las versiones anteriores.|
 application-version |La versión del tipo de aplicación al que se dirige la actualización.|
 parameters  |Una lista codificada en JSON de reemplazos de parámetros de aplicación que se aplicarán al actualizar la aplicación.|
 

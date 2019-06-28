@@ -9,10 +9,10 @@ ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60886871"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creación del puente de dispositivos de IoT Central para conectar otras nubes de IoT a IoT Central
@@ -28,7 +28,7 @@ El puente de dispositivos de IoT Central es una solución de código abierto en 
 -   Plan de consumo
 -   Azure Key Vault
 
-La aplicación de función es la pieza fundamental del puente de dispositivo. Recibe las solicitudes HTTP POST desde otras plataformas de IoT o desde cualquier plataforma personalizada a través de una integración de webhook sencilla. Se incluyen ejemplos que muestran cómo conectarse a las nubes de Sigfox Particle y TTN. Puede ampliar fácilmente esta solución para conectarse a su nube de IoT personalizada si su plataforma puede enviar solicitudes HTTP POST a la aplicación de función.
+La aplicación de función es la pieza fundamental del puente de dispositivos. Recibe las solicitudes HTTP POST desde otras plataformas de IoT o desde cualquier plataforma personalizada a través de una integración de webhook sencilla. Se incluyen ejemplos que muestran cómo conectarse a las nubes de Sigfox Particle y TTN. Puede ampliar fácilmente esta solución para conectarse a su nube de IoT personalizada si su plataforma puede enviar solicitudes HTTP POST a la aplicación de función.
 La aplicación de función transforma los datos en un formato aceptado por IoT Central y los reenvía a través de las API de DPS.
 
 ![Captura de pantalla de Azure Functions](media/howto-build-iotc-device-bridge/azfunctions.png)

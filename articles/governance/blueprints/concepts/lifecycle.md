@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683196"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint
@@ -34,7 +34,7 @@ Para comprender totalmente un plano técnico y sus fases, se describirá un cicl
 
 Al crear un plano técnico, agréguele artefactos, guárdelo en un grupo de administración o una suscripción, y proporcione un nombre y una versión que sean únicos. En este momento, el plano técnico está en modo **borrador** y aún no se puede asignar. Sin embargo, mientras se encuentre en el modo **borrador** se puede seguir actualizando y modificando.
 
-Un plano técnico que no se haya publicado nunca en el modo **borrador** muestra un icono diferente en la página **Definiciones del plano técnico** del icono de aquellos que se hayan **publicado**. El **versión más reciente** se muestra como **borrador** para estos nunca publican planos.
+Un plano técnico que no se haya publicado nunca en el modo **borrador** muestra un icono diferente en la página **Definiciones del plano técnico** del icono de aquellos que se hayan **publicado**. La **versión más reciente** aparece como **borrador** para estos planos técnicos que no se han publicado nunca.
 
 Cree y edite un plano técnico con [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) o la [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -69,11 +69,11 @@ Cada versión de un plano técnico es un objeto único que se puede **publicar**
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. Seleccione **definiciones del plano** desde la página a la izquierda y el uso de las opciones de filtro para buscar el proyecto que desea eliminar una versión de. Haga clic en él para abrir la página de edición.
+1. Seleccione **Definiciones del plano técnico** de la página de la izquierda y use las opciones de filtro para buscar el plano técnico del que desea eliminar una versión. Haga clic en él para abrir la página de edición.
 
 1. Haga clic en la pestaña **Versiones publicadas** y busque la versión que desea eliminar.
 
-1. Haga doble clic en la versión que quiere eliminar y seleccione **eliminar esta versión**.
+1. Haga clic con el botón derecho en la versión que quiere eliminar y seleccione **Eliminar esta versión**.
 
 ## <a name="deleting-the-blueprint"></a>Eliminación del plano técnico
 

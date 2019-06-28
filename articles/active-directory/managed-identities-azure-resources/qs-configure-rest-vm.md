@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18350337ba44d969173d518a4bc8dfe40185de21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112715"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API REST
@@ -35,7 +35,7 @@ En este artículo, mediante CURL para llamar al punto de conexión REST de Azure
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)**.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Si usa Windows, instale el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o [Azure Cloud Shell](../../cloud-shell/overview.md) en Azure Portal.
 - [Instale la consola local de la CLI de Azure](/cli/azure/install-azure-cli) si utiliza el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
@@ -515,7 +515,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    |---------|---------|
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.
 
-    Si tiene cualquier usuario o las identidades administradas asignado por el sistema asignadas a la máquina virtual tal como se mencionó en el `identity` de valor en la respuesta, vaya al paso 5 que muestra cómo conservar la identidad administrada asignado por el sistema al agregar una identidad administrada asignada por el usuario en la máquina virtual.
+    Si tiene identidades administradas asignadas por el usuario o por el sistema asignadas a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 5, en el que se muestra cómo conservar la identidad administrada asignada por el sistema mientras se agrega una identidad administrada asignada por el usuario en la máquina virtual.
 
 4. Si no tiene ninguna identidad administrada asignada por el usuario en la máquina virtual, use el siguiente comando CURL para llamar al punto de conexión REST de Azure Resource Manager para asignar la primera identidad administrada asignada por el usuario a la máquina virtual.
 

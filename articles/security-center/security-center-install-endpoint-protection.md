@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906587"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
@@ -47,7 +47,7 @@ En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en 
 
 ## <a name="install-antimalware-on-azure-vms"></a>Instalar un antimalware en máquinas virtuales de Azure
 
-1. Seleccione **proceso y aplicaciones** en el menú principal de Security Center o **Introducción**.
+1. Seleccione **Compute & apps** (Proceso y aplicaciones) en el menú principal de Security Center o en **Información general**.
 
    ![Seleccionar Proceso][1]
 
@@ -60,7 +60,7 @@ En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en 
    - Proveedores de Endpoint Protection instalados: Se muestran los distintos proveedores identificados por Security Center.
    - Installed endpoint protection health state (Estado de mantenimiento de Endpoint Protection instalado): Se muestra el estado de mantenimiento de las máquinas virtuales y equipos que tienen instalada una solución de Endpoint Protection. En el gráfico se muestra el número de máquinas virtuales y de equipos que están en buen estado y los que tienen una protección insuficiente.
    - Malware detectado: Se muestra el número de máquinas virtuales y de equipos en los que Security Center ha notificado que se ha detectado un malware.
-   - Equipos atacados: muestra el número de máquinas virtuales y equipos que Security Center ha notificado ataques de malware.
+   - Equipos atacados: se muestra el número de máquinas virtuales y de equipos en los que Security Center ha notificado ataques de malware.
 
    En la parte inferior del panel hay una lista de problemas de Endpoint Protection que incluye la información siguiente:  
 
@@ -84,7 +84,7 @@ En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en 
 
    ![Seleccionar Endpoint protection not installed on non-Azure computers (Endpoint Protection no instalado en los equipos que no son de Azure)][4]
 
-2. En **Endpoint protection not installed on non-Azure computers** (Endpoint Protection no instalado en los equipos que no son de Azure), seleccione un área de trabajo. Una consulta de búsqueda de registros de Azure Monitor filtrada al área de trabajo se abre y muestra los equipos que les falta antimalware. Seleccione un equipo de la lista para más información.
+2. En **Endpoint protection not installed on non-Azure computers** (Endpoint Protection no instalado en los equipos que no son de Azure), seleccione un área de trabajo. Se abre una consulta de búsqueda de registros de Azure Monitor filtrada por el área de trabajo, donde se muestran los equipos a los que les falta antimalware. Seleccione un equipo de la lista para más información.
 
    ![Búsqueda de registros de Azure Monitor][5]
 

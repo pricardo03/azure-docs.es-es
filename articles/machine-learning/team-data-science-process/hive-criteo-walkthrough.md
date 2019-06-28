@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306009"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
@@ -52,7 +52,7 @@ En este tutorial, se describen dos problemas de predicción de ejemplo:
 1. **Clasificación binaria**: predice si un usuario ha hecho clic o no en un anuncio:
 
    * Clase 0: no hace clic
-   * Clase 1: Haga clic en 
+   * Clase 1: Haga clic en
 2. **Regresión**. predice la probabilidad de que se haga clic en un anuncio en función de las características del usuario.
 
 ## <a name="setup"></a>Configuración de un clúster de Hadoop de HDInsight para la ciencia de los datos
@@ -81,7 +81,7 @@ Los datos residen en una ubicación pública de [Azure Blob Storage](../../stora
    1. La subcarpeta *raw/count/* contiene los primeros 21 días de datos, desde day\_00 hasta day\_20
    2. La subcarpeta *raw/train/* consta de un único día de datos, day\_21
    3. La subcarpeta *raw/test/* consta de dos días de datos, day\_22 y day\_23
-2. Para aquellos que quieran empezar con los datos gzip sin formato, podrán encontrar estos datos también en la carpeta principal *raw/*, como day_NN.gz, donde NN es un valor entre 00 y 23.
+2. Para aquellos que quieran empezar con los datos gzip sin formato, podrán encontrar estos datos también en la carpeta principal *raw/* , como day_NN.gz, donde NN es un valor entre 00 y 23.
 
 Más adelante en este tutorial, al hablar de la creación de tablas de Hive, se expone un enfoque alternativo para acceder a estos datos, explorarlos y modelarlos que no requiere ninguna descarga local.
 
@@ -117,7 +117,7 @@ Después de que aparezca Hive REPL con un signo "hive >", solo tendrá que corta
 El código siguiente crea una base de datos "criteo" y, a continuación, genera 4 tablas:
 
 * una *tabla para generar recuentos*, correspondientes a los días desde day\_00 a day\_20,
-* una *tabla que se usa como el conjunto de datos "train"*, correspondiente a day\_21, y
+* una *tabla que se usa como el conjunto de datos "train"* , correspondiente a day\_21, y
 * dos *tablas que se usan como los conjuntos de datos de prueba* correspondientes a day\_22 y day\_23, respectivamente.
 
 Divida el conjunto de datos de prueba en dos tablas diferentes porque uno de los días es festivo. El objetivo consiste en determinar si el modelo puede detectar diferencias entre un día festivo y uno laborable a partir de la proporción de clics.
@@ -417,7 +417,7 @@ Para crear tablas de recuento en los datos de recuento, se utilizan los datos de
 Nuestro proceso de creación de modelos con Azure Machine Learning consta de estos pasos:
 
 1. [Obtención de los datos a partir de las tablas de Hive para Azure Machine Learning](#step1)
-2. [Creación del experimento: limpiar los datos y convertirla en una función con las tablas de recuento](#step2)
+2. [Creación del experimento: limpieza de los datos y caracterización con tablas de recuento](#step2)
 3. [Crear, entrenar y puntuar el modelo](#step3)
 4. [Evaluación del modelo](#step4)
 5. [Publicación del modelo como un servicio web](#step5)
@@ -451,7 +451,7 @@ Haga clic con el botón derecho en el puerto de salida del módulo **Importar da
 
 Para seleccionar el conjunto de datos guardado para usarlo en un experimento de aprendizaje automático, busque los conjuntos de datos usando el cuadro **Búsqueda** que se muestra en la siguiente ilustración. A continuación, escriba parcialmente el nombre que asignó al conjunto de datos para acceder a él y arrastre el conjunto de datos hasta el panel principal. Al depositarlo en el panel principal, se selecciona para su uso en el modelado de Aprendizaje automático.
 
-![Arrastre el conjunto de datos hasta el panel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Movimiento de arrastre del conjunto de datos hasta el panel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración tienen únicamente fines ilustrativos.\*\*
@@ -555,7 +555,7 @@ Una vez que tenga un modelo entrenado, estará preparado para puntuar el conjunt
 ![Score Model module](./media/hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="step4"></a> Paso 4: Evaluación del modelo
-Por último, debe analizar el rendimiento del modelo. Normalmente, para los problemas de clasificación (binarios) de dos clases, una buena medida es AUC. Para visualizar esto, conectamos el módulo **Puntuar modelo** con un módulo **Evaluar modelo**. Al hacer clic en **Visualizar** en el módulo **Evaluate Model (Evaluar modelo)**, se genera un gráfico como el siguiente:
+Por último, debe analizar el rendimiento del modelo. Normalmente, para los problemas de clasificación (binarios) de dos clases, una buena medida es AUC. Para visualizar esto, conectamos el módulo **Puntuar modelo** con un módulo **Evaluar modelo**. Al hacer clic en **Visualizar** en el módulo **Evaluate Model (Evaluar modelo)** , se genera un gráfico como el siguiente:
 
 ![Módulo Evaluación del modelo de BDT](./media/hive-criteo-walkthrough/0Tl0cdg.png)
 
@@ -566,7 +566,7 @@ En los problemas de clasificación binarios (o de dos clases), una buena medida 
 ### <a name="step5"></a> Paso 5: Publicación del modelo como un servicio web
 La capacidad de publicar un modelo de Azure Machine Learning como servicios web con una complicación mínima es una característica valiosa para que esté ampliamente disponible. Una vez hecho esto, cualquier persona puede realizar llamadas al servicio web con los datos de entrada para los que necesitan predicciones, y el servicio web usa el modelo para devolver dichas predicciones.
 
-Para ello, primero guarde el modelo con el que hemos entrenado como un objeto del Modelo entrenado. Haga clic con el botón derecho en el módulo **Entrenar modelo** y use la opción **Save as Trained Model (Guardar como modelo entrenado)**.
+Para ello, primero guarde el modelo con el que hemos entrenado como un objeto del Modelo entrenado. Haga clic con el botón derecho en el módulo **Entrenar modelo** y use la opción **Save as Trained Model (Guardar como modelo entrenado)** .
 
 A continuación, cree puertos de entrada y salida para nuestro servicio web:
 

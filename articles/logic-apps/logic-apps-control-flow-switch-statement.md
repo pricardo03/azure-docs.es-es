@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683179"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Crear instrucciones switch que controlen las acciones de los flujos de trabajo en función de valores específicos en Azure Logic Apps
@@ -32,7 +32,7 @@ Por ejemplo, imagine que desea una aplicación lógica que lleve a cabo pasos di
 
 * Para seguir el ejemplo de este artículo, [cree una aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) con una cuenta de Outlook.com o de Office 365 Outlook.
 
-  1. Al agregar la acción enviar correo electrónico, busque y seleccione esta acción en su lugar: **Enviar un correo electrónico de aprobación**
+  1. Al agregar la acción para enviar correo electrónico, encuentre y seleccione esta acción en su lugar: **Enviar un correo electrónico de aprobación**
 
      ![Selección de "Enviar correo electrónico de aprobación"](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -45,9 +45,9 @@ Por ejemplo, imagine que desea una aplicación lógica que lleve a cabo pasos di
 
 1. En este ejemplo, agregue una instrucción switch al final del flujo de trabajo de ejemplo. Después del último paso, elija **Nuevo paso**.
 
-   Si desea agregar una instrucción switch entre los pasos, mueva el puntero sobre la flecha donde desea agregar la instrucción switch. Elija el **signo más** (**+**) que aparece y, luego, elija **Agregar una acción**.
+   Si desea agregar una instrucción switch entre los pasos, mueva el puntero sobre la flecha donde desea agregar la instrucción switch. Elija el **signo más** ( **+** ) que aparece y, luego, elija **Agregar una acción**.
 
-1. En el cuadro de búsqueda, escriba "switch" como filtro. Seleccione esta acción: **Modificador - Control**
+1. En el cuadro de búsqueda, escriba "switch" como filtro. Seleccione esta acción: **Switch - Control**
 
    ![Agregar switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 

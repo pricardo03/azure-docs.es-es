@@ -13,19 +13,19 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369227"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Ver las reservas de Azure en Azure portal
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Visualización de las reservas de Azure en Azure Portal
 
-Dependiendo del tipo de suscripción y los permisos, hay un par de formas de ver las reservas de Azure.
+Dependiendo del tipo de suscripción y los permisos, hay un par de maneras de ver las reservas para Azure.
 
-## <a name="view-purchased-reservations"></a>Ver las reservas adquiridas
+## <a name="view-purchased-reservations"></a>Visualización de las reservas adquiridas
 
-De forma predeterminada, al comprar una reserva, usted y el administrador de cuenta pueden ver la reserva. Usted y el Administrador de cuenta obtienen automáticamente el rol de propietario en el pedido de reserva y la reserva. Para permitir que otras personas ver la reserva, debe agregarlos como un **propietario** o **lector** en el pedido de reserva o reserva.
+De forma predeterminada, al comprar una reserva, usted y el administrador de cuenta pueden ver la reserva. El usuario y el administrador de cuenta obtienen automáticamente el rol de propietario en el pedido de la reserva y en la reserva. Para permitir que otras personas vean la reserva, debe agregarlos a ella como **propietario** o **lector** en el pedido de la reserva o reserva.
 
 Para más información, consulte [Agregar o cambiar los usuarios que pueden administrar una reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
@@ -33,12 +33,12 @@ Para ver una reserva como propietario o lector,
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Busque **Reservations**.
-    ![Captura de pantalla que muestra la búsqueda de Azure portal](./media/billing-view-reservation/portal-reservation-search.png)  
-3. La lista muestra todas las reservas donde tiene el rol propietario o el lector. Cada reserva, muestra el último porcentaje de uso conocido.  
+    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/billing-view-reservation/portal-reservation-search.png)  
+3. La lista muestra todas las reservas donde tenga el rol de propietario o lector. Cada reserva muestra el último porcentaje de utilización conocido.  
     ![Ejemplo que muestra una lista de reservas](./media/billing-view-reservation/view-reservations.png)
-4. Seleccionar una reserva y ver la tendencia de utilización de los últimos cinco días.  
-    ![Tendencias de uso de reserva de ejemplo que muestra](./media/billing-view-reservation/reservation-utilization.png)
-5. También puede obtener el [utilización de la reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) mediante la API de uso de instancias reservadas y con el [paquete de contenido de Power BI de Microsoft Azure consumo Insights](/power-bi/service-connect-to-azure-consumption-insights).
+4. Seleccione una reserva y vea la tendencia de utilización de los últimos cinco días.  
+    ![Ejemplo que muestra las tendencias de uso de las reservas](./media/billing-view-reservation/reservation-utilization.png)
+5. También puede obtener la [utilización de la reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) con la API de uso de instancias reservadas y con el [paquete de contenido de Power BI de Microsoft Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
 Si necesita cambiar el ámbito de una reserva, dividir una reserva o cambiar quién puede administrar una reserva, consulte [Administración de reservas para los recursos de Azure](billing-manage-reserved-vm-instance.md).
 
@@ -65,21 +65,21 @@ Para obtener los datos mediante una API, consulte [Get Reserved Instance transac
 
 Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
 
-- [¿Cuáles son las reservas para Azure?](billing-save-compute-costs-reservations.md)
-- [Administrar reservas para Azure](billing-manage-reserved-vm-instance.md)
+- [Qué son las reservas de Azure](billing-save-compute-costs-reservations.md)
+- [Administración de las reservas de Azure](billing-manage-reserved-vm-instance.md)
 
-Comprar un plan de servicio:
+Compra de un plan de servicio:
 
 - [Pago por adelantado de la capacidad reservada de Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
+- [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 
-Comprar un plan de software:
+Compra de un plan de software:
 
-- [Pago por adelantado para los planes de software de Red Hat de las reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Pago por adelantado para planes de software de Red Hat con reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Pago por adelantado para planes de software SUSE con Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-Entender el uso de:
+Descripción del uso:
 
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
@@ -87,4 +87,4 @@ Entender el uso de:
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

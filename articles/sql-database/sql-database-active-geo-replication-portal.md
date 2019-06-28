@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60864139"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
@@ -73,7 +73,7 @@ La base de datos secundaria se puede cambiar para convertirse en la principal.
     ![Conmutación por error](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Haga clic en **Sí** para iniciar la conmutación por error.
 
-El comando cambiará inmediatamente la base de datos secundaria al rol principal. Este proceso normalmente tardará dentro de 30 segundos o menos.
+El comando cambiará inmediatamente la base de datos secundaria al rol principal. Este proceso normalmente tardará 30 segundos o menos.
 
 Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. Si la base de datos principal tiene varias bases de datos secundarias, el comando reconfigura automáticamente las demás secundarias para conectarse a la nueva principal. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse.
 

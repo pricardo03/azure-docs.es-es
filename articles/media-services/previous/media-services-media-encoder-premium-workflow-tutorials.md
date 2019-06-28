@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61242045"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
@@ -760,7 +760,7 @@ Esto se realizó mediante operaciones de manipulación de cadenas normales. El x
 
 *Registro de la lista resultante de clips*
 
-Realice una ejecución de prueba para ver cómo se han recortado las secuencias de audio y vídeo. Como llevará a cabo la ejecución de más de una prueba con valores diferentes para los puntos de recorte, observará que, sin embargo, estos no se tienen en cuenta. La razón de esto es que el diseñador, a diferencia del tiempo de ejecución de Azure, NO reemplaza el xml de la lista de clips en cada ejecución. Esto significa que solo la primera vez que ha establecido los puntos inicial y de, hará que el código xml transformar, todas las otras veces, nuestra cláusula de restricción (si (`clipListXML.indexOf("<trim>") == -1`)) impedirá que el flujo de trabajo agregue otro elemento de recorte cuando ya hay uno presente.
+Realice una ejecución de prueba para ver cómo se han recortado las secuencias de audio y vídeo. Como llevará a cabo la ejecución de más de una prueba con valores diferentes para los puntos de recorte, observará que, sin embargo, estos no se tienen en cuenta. La razón de esto es que el diseñador, a diferencia del tiempo de ejecución de Azure, NO reemplaza el xml de la lista de clips en cada ejecución. Esto significa que solo se transformará el XML la primera vez que se hayan configurado los puntos de inicio y de finalización; el resto de las veces, nuestra cláusula de restricción (if(`clipListXML.indexOf("<trim>") == -1`)) impedirá que el flujo de trabajo agregue otro elemento de recorte cuando ya haya uno presente.
 
 Para facilitar que el flujo de trabajo realice la prueba localmente, es conveniente agregar algún código de mantenimiento interno que inspeccione si ya existe un elemento de recorte. Si es así, podemos quitarlo antes de continuar, modificando el xml con los nuevos valores. En lugar de usar manipulaciones de cadenas simples, probablemente es más seguro hacerlo mediante la redistribución de modelos de objeto xml reales.
 

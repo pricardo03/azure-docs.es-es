@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826261"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solución de problemas: Error al crear o eliminar una base de datos o una tabla en el Explorador de datos de Azure
@@ -36,7 +36,7 @@ Asegúrese de que tiene los permisos adecuados. Para eliminar una base de datos 
 
     Para más información acerca de los permisos, consulte [Administración de permisos de bases de datos](manage-database-permissions.md).
 
-1. Asegúrese de que no haya una tabla con el mismo nombre. Si existe, a continuación, puede: Crear una tabla con un nombre diferente; cambiar el nombre de la tabla existente (requiere *tabla admin* rol); o quitar la tabla existente (requiere *Administrador de base de datos* rol). Use los comandos siguientes.
+1. Asegúrese de que no haya una tabla con el mismo nombre. Si existe, puede: Crear una tabla con un nombre diferente; cambiar el nombre de la tabla existente (requiere el rol *administrador de tablas*); o quitar la tabla existente (requiere el rol *administrador de base de datos*). Use los comandos siguientes.
 
     ```Kusto
     .drop table <TableName>

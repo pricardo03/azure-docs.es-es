@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769692"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adición de una capa de burbuja a un mapa
@@ -21,7 +21,7 @@ ms.locfileid: "60769692"
 En este artículo se explica cómo puede representar datos de punto de un origen de datos como una capa de burbuja en un mapa. Las capas de burbuja representan puntos como círculos en el mapa con un radio de píxel fijo. 
 
 > [!TIP]
-> Las capas de burbuja de forma predeterminada representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo se representa la geometría de punto de conjunto de características el `filter` propiedad de la capa a `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
+> Las capas de burbuja de forma predeterminada representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características de geometría de puntos, configure la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Adición de una capa de burbuja
 

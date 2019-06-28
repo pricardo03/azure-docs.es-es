@@ -17,10 +17,10 @@ ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370617"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Descripción de la facturación de Azure para gastos de servicios externos
@@ -88,5 +88,5 @@ Si desea cancelar el pedido de servicio externo, debe eliminar el recurso en [Az
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

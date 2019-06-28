@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148634"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada DatetimeV2 para una aplicación de LUIS
@@ -206,15 +206,15 @@ En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2**
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Versión de API preliminar 3.x
+## <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
 
-Respuesta JSON DatetimeV2 ha cambiado en la API V3. 
+La respuesta JSON DatetimeV2 ha cambiado en la API V3. 
 
-Cambios entre la API V2:
-* `datetimeV2.timex.type` ya no se devuelve la propiedad porque se devuelve en el nivel primario, `datetimev2.type`. 
-* El `datetimeV2.timex` propiedad ha cambiado a `datetimeV2.value`.
+Cambios de la API V2:
+* La propiedad `datetimeV2.timex.type` ya no se devuelve la propiedad porque se devuelve en el nivel primario, `datetimev2.type`. 
+* La propiedad `datetimeV2.timex` se llama ahora `datetimeV2.value`.
 
-Para la declaración, `8am on may 2nd 2017`, la versión V3 de DatetimeV2 es:
+Para la expresión, `8am on may 2nd 2017`, la versión V3 de DatetimeV2 es:
 
 ```JSON
 {
@@ -244,7 +244,7 @@ Para la declaración, `8am on may 2nd 2017`, la versión V3 de DatetimeV2 es:
 }
 ```
 
-El siguiente JSON es con el `verbose` parámetro establecido en `false`:
+El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
 ```json
 {

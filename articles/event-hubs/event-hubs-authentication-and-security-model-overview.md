@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822579"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Event Hubs: modelo de autenticación y seguridad
@@ -68,7 +68,7 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Generación de tokens
 
-Puede generar tokens con la clave de SAS. Solo debe generar un token por cliente. Los tokens se pueden producir con el método siguiente. Todos los tokens se generan con la clave **EventHubSendKey** . A cada token se le asigna un URI único. El parámetro 'resource' corresponde a la URI del extremo del servicio (centro de eventos en este caso).
+Puede generar tokens con la clave de SAS. Solo debe generar un token por cliente. Los tokens se pueden producir con el método siguiente. Todos los tokens se generan con la clave **EventHubSendKey** . A cada token se le asigna un URI único. El parámetro "resource" corresponde al punto de conexión del URI del servicio (el centro de eventos en este caso).
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)

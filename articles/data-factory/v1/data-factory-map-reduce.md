@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824225"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Actividades de transformación"]
 > * [Actividad de Hive](data-factory-hive-activity.md) 
 > * [Actividad de Pig](data-factory-pig-activity.md)
 > * [Actividad MapReduce](data-factory-map-reduce.md)
@@ -184,7 +184,7 @@ La canalización de este ejemplo tiene solo una actividad de tipo: HDInsightMapR
 
 | Propiedad | Notas |
 |:--- |:--- |
-| type |El tipo debe establecerse en **HDInsightMapReduce**. |
+| Tipo |El tipo debe establecerse en **HDInsightMapReduce**. |
 | className |El nombre de la clase es: **wordcount** |
 | jarFilePath |Ruta de acceso al archivo .jar que contiene la clase anterior. Si copia/pega el código siguiente, no olvide cambiar el nombre del clúster. |
 | jarLinkedService |Servicio vinculado a Azure Storage que contiene el archivo jar. Este servicio vinculado hace referencia al almacenamiento asociado al clúster de HDInsight. |
@@ -246,7 +246,7 @@ Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster d
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad de Pig](data-factory-pig-activity.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)

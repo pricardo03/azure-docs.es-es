@@ -17,10 +17,10 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60269454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Tutorial: Integración de Azure Active Directory con iWellnessNow
@@ -61,7 +61,7 @@ Para configurar la integración de iWellnessNow en Azure AD, es preciso agregar 
 
 **Para agregar iWellnessNow desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**. 
 
     ![Botón Azure Active Directory][1]
 
@@ -85,11 +85,11 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 
 Para configurar y probar el inicio de sesión único de Azure AD con iWellnessNow, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de iWellnessNow](#create-an-iwellnessnow-test-user)**, para tener un homólogo de Britta Simon en iWellnessNow que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de iWellnessNow](#create-an-iwellnessnow-test-user)** , para tener un homólogo de Britta Simon en iWellnessNow que esté vinculado a su representación en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -109,7 +109,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Carga de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
 
-     a. Haga clic en **Cargar el archivo de metadatos**.
+    a. Haga clic en **Cargar el archivo de metadatos**.
 
     ![Configuración de carga de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_uploadconfig.png)
 
@@ -119,11 +119,11 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
 
-1. Si no tienes **archivo de metadatos del proveedor de servicios** y desea configurar la aplicación en **IDP** iniciado por el modo, realice los pasos siguientes:
+1. Si no tiene el **archivo de metadatos del proveedor de servicios** y quiere configurar la aplicación en el modo iniciado por **IDP**, realice los siguientes pasos:
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://<CustomerName>.iwellnessnow.com`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://<CustomerName>.iwellnessnow.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<CustomerName>.iwellnessnow.com/ssologin`.
 
@@ -170,7 +170,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/iwellnessnow-tutorial/create_aaduser_04.png)
 
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 

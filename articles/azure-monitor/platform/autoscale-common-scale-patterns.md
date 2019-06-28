@@ -9,10 +9,10 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534257"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Información general sobre los patrones comunes de escalado automático
@@ -54,7 +54,7 @@ Tiene una aplicación web (rol de VMSS o de servicio en la nube) y:
 
 ## <a name="scale-based-on-custom-metric"></a>Escalado en función de métricas personalizadas
 
-Tiene un front-end web y una capa de API que se comunica con el back-end.
+Tiene un front-end web y un nivel de API que se comunica con el back-end.
 
 - Quiere escalar el nivel de API en función de los eventos personalizados en el front-end (ejemplo: Quiere escalar el proceso de finalización de la compra en función del número de artículos en el carro de la compra).
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/15/2018
 ms.author: aljo
 ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60946678"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementación de un ejecutable existente en Service Fabric
@@ -33,7 +33,7 @@ Hay diversas ventajas inherentes a la ejecución de un ejecutable invitado en un
 * Supervisión del estado. La supervisión del mantenimiento de Service Fabric detecta si hay una aplicación en funcionamiento y proporciona información de diagnóstico si se produce un error.   
 * Administración del ciclo de vida de las aplicaciones. Además de actualizaciones sin tiempo de inactividad, Service Fabric proporciona reversión automática a la versión anterior, en caso de que se notifique un evento de mantenimiento incorrecto durante una actualización.    
 * Densidad. Se pueden ejecutar varias aplicaciones en el clúster, lo que elimina la necesidad de que cada aplicación se ejecute en su propio hardware.
-* Detectabilidad: Con REST se puede llamar al servicio de nombres de Service Fabric para buscar otros servicios en el clúster. 
+* Detectabilidad: con REST puede llamar al servicio de nombres de Service Fabric para buscar otros servicios en el clúster. 
 
 ## <a name="samples"></a>Ejemplos
 * [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)

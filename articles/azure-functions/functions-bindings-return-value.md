@@ -1,6 +1,6 @@
 ---
-title: Uso de valor devuelto de una función de Azure
-description: Aprenda a administrar los valores devueltos para las funciones de Azure
+title: Uso del valor devuelto de una función de Azure
+description: Aprenda a administrar valores devueltos de Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -8,24 +8,23 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 01/14/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
+ms.date: 01/14/2019
+ms.author: cshoe
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437725"
 ---
-# <a name="using-the-azure-function-return-value"></a>Utilice el valor devuelto de función de Azure
+# <a name="using-the-azure-function-return-value"></a>Uso del valor devuelto de una función de Azure
 
-En este artículo se explica cómo de los valores de retorno dentro de una función.
+En este artículo se explica cómo funcionan los valores devueltos dentro de una función.
 
-En los lenguajes que tienen un valor devuelto, puede enlazar una función [enlace de salida](./functions-triggers-bindings.md#binding-direction) al valor devuelto:
+En los lenguajes que tienen un valor devuelto, puede enlazar el [enlace de salida](./functions-triggers-bindings.md#binding-direction) de una función al valor devuelto:
 
-- En una biblioteca de clases C#, aplique el atributo de enlace de salida para el valor devuelto del método.
-- En otros lenguajes, establezca la propiedad `name` de *function.json* en `$return`.
+* En una biblioteca de clases C#, aplique el atributo de enlace de salida para el valor devuelto del método.
+* En otros lenguajes, establezca la propiedad `name` de *function.json* en `$return`.
 
 Si hay varios enlaces de salida, use el valor devuelto para solo uno de ellos.
 
@@ -33,11 +32,11 @@ En C# y script de C#, los parámetros `out` y los [objetos de recopilador](funct
 
 Vea el ejemplo específico del lenguaje que muestra el uso del valor devuelto:
 
-- [C#](#c-example)
-- [Script de C# (.csx)](#c-script-example)
-- [F#](#f-example)
-- [JavaScript](#javascript-example)
-- [Python](#python-example)
+* [C#](#c-example)
+* [Script de C# (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ## <a name="c-example"></a>Ejemplo de C#
 
@@ -169,5 +168,4 @@ def main(input: azure.functions.InputStream) -> str:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Controlar los errores de enlace de Azure Functions](./functions-bindings-errors.md)
-
+> [Control de errores de enlace de Azure Functions](./functions-bindings-errors.md)

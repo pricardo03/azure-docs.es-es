@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: danis
 ms.openlocfilehash: da539a5bebc1613115f89a7b47c513ce486b5e3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627943"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparación de la imagen de máquina virtual Linux en Azure para usarse con cloud-init
@@ -27,7 +27,7 @@ En este artículo se explica cómo utilizar una máquina virtual de Azure y prep
 ## <a name="prerequisites"></a>Requisitos previos
 En este documento se da por hecho que ya tiene una máquina virtual Azure en ejecución que ejecute una versión compatible del sistema operativo Linux. Ya ha configurado la máquina para satisfacer sus necesidades, ha instalado todos los módulos necesarios, ha procesado todas las actualizaciones necesarias y ha probado la máquina para asegurarse de que cumple los requisitos. 
 
-## <a name="preparing-rhel-76--centos-76"></a>Preparación de 7.6 RHEL / CentOS 7.6
+## <a name="preparing-rhel-76--centos-76"></a>Preparación de RHEL 7.6/CentOS 7.6
 Necesita SSH en la máquina virtual Linux y ejecutar los comandos siguientes para instalar cloud-init.
 
 ```bash

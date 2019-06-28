@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785338"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Inicio rápido: Importación de un archivo BACPAC en una base de datos de Azure SQL Database
@@ -33,7 +33,7 @@ Puede importar una base de datos de SQL Server a una base de datos de Azure SQL 
 [Azure Portal](https://portal.azure.com) *solo* admite la creación de una base de datos única en Azure SQL Database y *solo* desde un archivo BACPAC almacenado en Azure Blob Storage.
 
 > [!NOTE]
-> [Una instancia administrada](sql-database-managed-instance.md) no admite actualmente la migración de una base de datos a una base de datos de instancias desde un archivo BACPAC mediante Azure Portal. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
+> [Las instancias administradas](sql-database-managed-instance.md) no admiten actualmente la migración de una base de datos a una base de datos de instancia desde un archivo BACPAC mediante Azure Portal. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
 
 1. Para importar a partir de un archivo BACPAC en una base de datos única mediante Azure Portal, abra la página del servidor de bases de datos que corresponda y, en la barra de herramientas, seleccione **Importar base de datos**.  
 
@@ -79,14 +79,14 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>Importación en una base de datos única a partir de un archivo BACPAC mediante PowerShell
 
 > [!NOTE]
-> [Una instancia administrada](sql-database-managed-instance.md) no admite actualmente la migración de una base de datos en una base de datos de instancia de un archivo BACPAC mediante Azure PowerShell. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
+> Las [instancias administradas](sql-database-managed-instance.md) no admiten actualmente la migración de una base de datos a una base de datos de instancia desde un archivo BACPAC mediante Azure PowerShell. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
-Use la [New AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet para enviar una solicitud de base de datos de importación para el servicio de Azure SQL Database. En función del tamaño de la base de datos, la importación puede tardar en completarse.
+Use el cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) para enviar una solicitud de importación de base de datos al servicio Azure SQL Database. En función del tamaño de la base de datos, la importación puede tardar en completarse.
 
  ```powershell
  $importRequest = New-AzSqlDatabaseImport 
@@ -104,7 +104,7 @@ Use la [New AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimpo
 
  ```
 
- Puede usar el [Get AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet comprobación del progreso de la importación. Si el cmdlet se ejecuta inmediatamente después de la solicitud, por lo general devuelve **Estado: En curso**. La importación se completa cuando se ve **Estado: Correcto**.
+ Puede usar el cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) para comprobar el progreso de la importación. Si el cmdlet se ejecuta inmediatamente después de la solicitud, por lo general devuelve **Estado: En curso**. La importación se completa cuando se ve **Estado: Correcto**.
 
 ```powershell
 $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

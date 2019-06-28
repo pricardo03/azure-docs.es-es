@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631980"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e identificador de usuario de Azure Notebooks
@@ -46,7 +46,7 @@ También aparece un comando **Configurar identificador de usuario** junto al nom
 
 También puede cambiar el identificador de usuario en cualquier momento en la página del perfil.
 
-Debe estar compuesto por un identificador de usuario de entre cuatro y dieciséis letras, números y guiones. No se permite ningún otro carácter y el identificador de usuario no puede comenzar o finalizar con un guion ni usar varios guiones en una fila. Puesto que los identificadores de usuario son únicos en todas las cuentas de Azure Notebooks, verá el mensaje, "Id. de usuario ya está en uso". (El mensaje también aparece si intenta usar una marca registrada de Microsoft como un identificador de usuario.) En estos casos, elija un identificador de usuario diferente.
+Un identificador de usuario debe estar compuesto por entre cuatro y seis letras, números y guiones. No se permite ningún otro carácter y el identificador de usuario no puede comenzar o finalizar con un guion ni usar varios guiones en una fila. Puesto que los identificadores de usuario son únicos en todas las cuentas de Azure Notebooks, verá un mensaje que indica que el identificador de usuario ya está en uso. (El mensaje también aparece si intenta usar una marca registrada de Microsoft como identificador de usuario). En estos casos, elija otro identificador de usuario.
 
 > [!Important]
 > El cambio de identificador invalida cualquier dirección URL que haya compartido usando el identificador anterior. Puede cambiar el identificador de vuelta a su identificador anterior para volver a validar los vínculos. Sin embargo, es posible que otro usuario reclame un identificador sin usar mientras tanto.

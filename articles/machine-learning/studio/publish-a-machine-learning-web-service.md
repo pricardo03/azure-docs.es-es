@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334035"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implementación de un servicio web de Azure Machine Learning Studio
@@ -32,9 +32,9 @@ La entrada de BES es similar a la entrada de datos que se emplea en RRS. La dife
 
 Desde un punto de vista general, implementará el modelo en tres pasos:
 
-* **[Crear un experimento de entrenamiento]**: en Studio, puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
-* **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
-* **Implementarlo** como un **[Servicio web nuevo]** o un **[servicio web clásico]**: al implementar el experimento predictivo como un servicio web de Azure, los usuarios pueden enviar datos al modelo y recibir las predicciones de este.
+* **[Crear un experimento de entrenamiento]** : en Studio, puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
+* **[Convertirlo en un experimento predictivo]** : una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
+* **Implementarlo** como un **[Servicio web nuevo]** o un **[servicio web clásico]** : al implementar el experimento predictivo como un servicio web de Azure, los usuarios pueden enviar datos al modelo y recibir las predicciones de este.
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
 
@@ -93,23 +93,23 @@ En la página de pruebas RRS se muestran las entradas, las salidas y los paráme
 
 Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores adecuados de las entradas y haga clic en **Test Request-Response**(Probar solicitud-respuesta). Los resultados de predicción se mostrarán en la columna de salida de la izquierda.
 
-![Escriba los valores adecuados para probar el servicio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Escritura de los valores adecuados para probar el servicio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Para realizar pruebas BES, haga clic en **Batch**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
 
 Para ello, abra Machine Learning Studio. Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**.
 
-![Descargue el conjunto de datos en el lienzo de Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Descarga del conjunto de datos en el lienzo de Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Haga clic en **Probar**. El estado del trabajo de ejecución por lotes se muestra a la derecha de **Test Batch Jobs** (Probar trabajos por lotes).
 
-![Probar el trabajo de ejecución por lotes con el portal de servicios web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Prueba del trabajo de ejecución por lotes con el portal de servicios web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 En la página **CONFIGURACIÓN**, puede cambiar la descripción y el título, actualizar la clave de la cuenta de almacenamiento y habilitar los datos de ejemplo para el servicio web.
 
-![Configurar el servicio web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![Configuración del servicio web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>Acceso al servicio web nuevo
 
@@ -161,7 +161,7 @@ Ahora que ha preparado el experimento predictivo suficientemente, puede implemen
 
 Para implementar el experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo del experimento y luego haga clic en **Deploy Web Service** (Implementar servicio web). El servicio web está configurado y se colocará en el panel del servicio web.
 
-![Implementar el servicio web desde Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Implementación de servicios web desde Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Prueba del servicio web clásico
 
@@ -181,7 +181,7 @@ Puede dar una descripción para los datos de entrada, los de salida y los parám
 
 Puede habilitar el registro para diagnosticar cualquier error que vea al acceder al servicio web. Para más información, consulte [Habilitación del registro para los servicios web de Machine Learning Studio](web-services-logging.md).
 
-![Habilitar el registro en el portal de servicios web](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Habilitación del registro en el portal de servicios web](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 También puede configurar los puntos de conexión del servicio web en el portal Servicios web Azure Machine Learning de una forma parecida al procedimiento mostrado anteriormente en la sección Servicio web nuevo. Las opciones son diferentes: puede agregar o cambiar la descripción del servicio, habilitar el registro y habilitar datos de ejemplo para las pruebas.
 

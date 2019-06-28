@@ -12,10 +12,10 @@ ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794879"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar una base de conocimiento mediante la exportación e importación
@@ -56,7 +56,7 @@ La migración de una base de conocimiento requiere la exportación de una base d
     En este punto, todo el contenido de la base de conocimiento (preguntas, respuestas y metadatos) junto con los nombres de los archivos de código fuente y las direcciones URL, se importan a la base de conocimiento nueva. 
 
 ## <a name="chat-logs-and-alterations"></a>Modificaciones y registros de chat
-Las alteraciones (sinónimos) que no distinguen mayúsculas de minúsculas no se importan de forma automática. Use la [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) para mover las modificaciones en la nueva base de conocimiento.
+Las alteraciones (sinónimos) que no distinguen mayúsculas de minúsculas no se importan de forma automática. Use las [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) para mover las modificaciones en la nueva base de conocimiento.
 
 No hay forma de migrar registros de chat, ya que la base de conocimiento nueva usa Application Insights para almacenar registros de chat. 
 

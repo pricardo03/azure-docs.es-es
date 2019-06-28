@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
 ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703411"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa de ruta de preparación para Azure Security Center
@@ -118,7 +118,7 @@ Artículos
 * [Procedimientos recomendados de seguridad de red](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [Recomendaciones sobre PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Cumplimiento normativo](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Los clientes de log analytics ahora pueden usar Azure Security Center para proteger sus cargas de trabajo de nube híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Los clientes de Log Analytics pueden usar ahora Azure Security Center para proteger sus cargas de trabajo en la nube híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/).
 
 ## <a name="community-resources"></a>Recursos de la comunidad
 

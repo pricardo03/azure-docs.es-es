@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685557"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo con ámbitos en Azure Logic Apps
@@ -54,7 +54,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
 1. Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> si aún no lo ha hecho. Crear una aplicación lógica en blanco.
 
-1. Agregar el **programación - periodicidad** desencadenador con esta configuración: **Intervalo** = "1" y **frecuencia** = "Minuto"
+1. Agregue el desencadenador **Programación: Periodicidad** con estos valores: **Intervalo** = "1" y **Frecuencia** = "Minuto"
 
    ![Configurar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -92,7 +92,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 1. [Agregue una condición](../logic-apps/logic-apps-control-flow-conditional-statement.md) que compruebe si el tiempo de trayecto con el tráfico actual supera el tiempo especificado. 
    Para este ejemplo, siga estos pasos:
 
-   1. Cambie el nombre de la condición por esta descripción: **Si el tiempo de tráfico es posterior a la hora especificada**
+   1. Cambie el nombre de la condición por esta descripción: **Si la hora de tráfico es posterior a la hora especificada**
 
    1. En la columna más a la izquierda, haga clic dentro del cuadro **Elegir un valor** para que aparezca la lista de contenido dinámico. En la lista, seleccione el campo **Travel Duration Traffic** (Tráfico de duración del desplazamiento), que está en segundos. 
 
@@ -100,7 +100,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
    1. En el cuadro del medio, seleccione este operador: **es mayor que**
 
-   1. En la columna más a la derecha, escriba este valor de comparación, que se encuentra en segundos y equivale a 10 minutos: **600**
+   1. En la columna más a la derecha, escriba este valor de comparación, que está en segundos y equivale a 10 minutos: **600**
 
       Una vez que haya terminado, la condición debe ser parecida a la de este ejemplo:
 
@@ -125,7 +125,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
    1. En la lista de contenido dinámico, elija **Expresión**.
 
-   1. Busque y seleccione la función **div()**. 
+   1. Busque y seleccione la función **div()** . 
       Coloque el cursor dentro de los paréntesis de la función.
 
    1. Mientras el cursor se encuentre dentro de los paréntesis de la función, elija **Contenido dinámico** para que aparezca la lista de contenido dinámico. 
@@ -147,7 +147,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
    1. Cuando termine, elija **Aceptar**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Después de la expresión se resuelve, agregue este texto con un espacio inicial: ``` minutes```
+   1. Una vez que la expresión se resuelve, agregue este texto con un espacio inicial: ``` minutes```
   
        Ahora, el campo **Cuerpo** es similar a este ejemplo:
 
@@ -165,7 +165,7 @@ A continuación, agregue un ámbito para que pueda agrupar acciones específicas
 1. Agregue un ámbito a la ubicación del flujo de trabajo que quiera. Por ejemplo, para agregar un ámbito entre pasos existentes en el flujo de trabajo de la aplicación lógica, siga estos pasos: 
 
    1. Mueva el puntero sobre la flecha donde quiere agregar el ámbito. 
-   Elija el **signo más** (**+**) > **Agregar una acción**.
+   Elija el **signo más** ( **+** ) > **Agregar una acción**.
 
       ![Agregar un ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
@@ -183,7 +183,7 @@ A continuación, agregue un ámbito para que pueda agrupar acciones específicas
 
    ![Ámbito agregado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambie el nombre de la condición por esta descripción: **Si no se pudo de ámbito**
+1. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambie el nombre de la condición por esta descripción: **Si el ámbito dio error**
 
    ![Agregar condición para comprobar el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

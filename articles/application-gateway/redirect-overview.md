@@ -11,28 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 3/19/2018
+ms.author: amsriva
 ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715814"
 ---
 # <a name="application-gateway-redirect-overview"></a>Introducción a la redirección de Application Gateway
 
-Puede usar la puerta de enlace de aplicación para redirigir el tráfico.  Tiene un mecanismo de redirección genérico que permite redirigir el tráfico recibido en un agente de escucha a otro agente de escucha o a un sitio externo. Esto simplifica la configuración de la aplicación, optimiza el uso de recursos y admite nuevos escenarios de redirección incluida la global y la basada en la ruta de acceso.
+Puede usar Application Gateway para redirigir el tráfico.  Cuenta con un mecanismo de redireccionamiento genérico que permite el redireccionamiento del tráfico recibido en un cliente de escucha a otro cliente de escucha o a un sitio externo. Esto simplifica la configuración de la aplicación, optimiza el uso de recursos y admite nuevos escenarios de redirección incluida la global y la basada en la ruta de acceso.
 
-Es un escenario común de redirección para muchas aplicaciones web compatibles con HTTP automática al redireccionamiento de HTTPS para asegurarse de que todas las comunicaciones entre la aplicación y sus usuarios se realiza a través de una ruta de acceso cifrada. En el pasado, los clientes usaban técnicas como la creación de un grupo back-end dedicado cuya única finalidad era redirigir las solicitudes que recibía de HTTP a HTTPS. Con compatibilidad con la redirección de Application Gateway, puede hacerlo simplemente con agregar una nueva configuración de redirección a una regla de enrutamiento y especificar otro agente de escucha con el protocolo HTTPS como el agente de escucha de destino.
+Resulta un escenario de redireccionamiento común para muchas aplicaciones web el admitir la redirección automática de HTTP a HTTPS para asegurarse de que toda la comunicación entre la aplicación y sus usuarios se produce a través de una ruta de acceso cifrada. En el pasado, los clientes usaban técnicas como la creación de un grupo back-end dedicado cuya única finalidad era redirigir las solicitudes que recibía de HTTP a HTTPS. Gracias a la compatibilidad con el redireccionamiento de Application Gateway, puede realizar esta tarea simplemente agregando una nueva configuración de redireccionamiento a una regla de enrutamiento y especificando otro agente de escucha con el protocolo HTTPS como agente de escucha de destino.
 
-Se admiten los siguientes tipos de redirección:
+Se admiten los siguientes tipos de redireccionamiento:
 
-- 301 Permanent Redirect
+- 301 (redirección permanente)
 - 302 (encontrado)
-- 303 ver otras
-- Redirección temporal 307
+- 303 (ver otras)
+- 307 (redirección temporal)
 
 La compatibilidad con la redirección de Application Gateway ofrece las siguientes funcionalidades:
 
@@ -46,10 +45,8 @@ La compatibilidad con la redirección de Application Gateway ofrece las siguient
 
 ![redirección](./media/redirect-overview/redirect.png)
 
-Con este cambio, los clientes tienen que crear un nuevo objeto de configuración de redireccionamiento, que especifique el agente de escucha de destino o el sitio externo al que se desea dirigir el redireccionamiento. El elemento de configuración también admite opciones para anexar la cadena de consulta y la ruta de acceso URI para la dirección URL redirigida. También puede elegir el tipo de redirección. Una vez creada esta configuración de redireccionamiento, se adjunta al agente de escucha de origen a través de una nueva regla. Cuando se usa una regla básica, la configuración de redirección se asocia a un agente de escucha de origen y es una redirección global. Cuando se utiliza una regla basada en rutas de acceso, la configuración de redireccionamiento se define en el mapa de rutas de acceso de dirección URL. Por lo tanto, solo se aplica al área específica de la ruta de acceso de un sitio.
+Con este cambio, los clientes tienen que crear un nuevo objeto de configuración de redireccionamiento, que especifique el agente de escucha de destino o el sitio externo al que se desea dirigir el redireccionamiento. El elemento de configuración también admite opciones para anexar la cadena de consulta y la ruta de acceso URI para la dirección URL redirigida. También puede elegir el tipo de redireccionamiento. Una vez creada esta configuración de redireccionamiento, se adjunta al agente de escucha de origen a través de una nueva regla. Cuando se usa una regla básica, la configuración de redirección se asocia a un agente de escucha de origen y es una redirección global. Cuando se utiliza una regla basada en rutas de acceso, la configuración de redireccionamiento se define en el mapa de rutas de acceso de dirección URL. Por lo tanto, solo se aplica al área específica de la ruta de acceso de un sitio.
 
 ### <a name="next-steps"></a>Pasos siguientes
 
 [Configuración de la redirección de direcciones URL en una puerta de enlace de aplicaciones](tutorial-url-redirect-powershell.md)
-
-<!-- Update_Description: wording update -->

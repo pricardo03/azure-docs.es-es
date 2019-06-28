@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331033"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de búfer de anillo para eventos extendidos en SQL Database
@@ -30,7 +30,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 1. Crea una tabla con datos con los cuales demostrarse.
 2. Crea una sesión para un evento extendido existente, es decir, **sqlserver.sql_statement_starting**.
    
-   * El evento se limita a las instrucciones SQL que contienen una cadena Update determinada: **statement LIKE '%UPDATE tabEmployee%'**.
+   * El evento se limita a las instrucciones SQL que contienen una cadena Update determinada: **statement LIKE '%UPDATE tabEmployee%'** .
    * Elige enviar la salida del evento a un destino de tipo búfer en anillo, es decir, **package0.ring_buffer**.
 3. Inicia la sesión de eventos.
 4. Emite un par de instrucciones SQL UPDATE simple.
@@ -55,7 +55,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 
 ## <a name="code-sample"></a>Código de ejemplo
 
-Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de anillo se puede ejecutar en Azure SQL Database o en Microsoft SQL Server. La diferencia es la presencia del nodo "_database" en el nombre de algunas vistas de administración dinámica (DMV), como se usa en la cláusula FROM del paso 5. Por ejemplo: 
+Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de anillo se puede ejecutar en Azure SQL Database o en Microsoft SQL Server. La diferencia es la presencia del nodo "_database" en el nombre de algunas vistas de administración dinámica (DMV), como se usa en la cláusula FROM del paso 5. Por ejemplo:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -223,7 +223,7 @@ Para ver los resultados, hemos hecho clic en la celda bajo el encabezado de colu
 
 Luego, en el panel de resultados, hemos hecho clic en la celda bajo el encabezado de columna **target_data_XML**. Al hace este clic, se creó otra pestaña de archivo en ssms.exe donde se mostró el contenido de la celda de resultado, como XML.
 
-El resultado se muestra en el bloque siguiente. Parece largo, pero son solo dos  **\<evento >** elementos.
+El resultado se muestra en el bloque siguiente. Parece largo, pero son solo dos elementos **\<evento>** .
 
 &nbsp;
 

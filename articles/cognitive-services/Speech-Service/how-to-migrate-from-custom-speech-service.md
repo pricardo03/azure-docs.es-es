@@ -1,7 +1,7 @@
 ---
 title: Migración de Custom Speech Service al servicio de Voz
 titlesuffix: Azure Cognitive Services
-description: Custom Speech Service ahora forma parte de los servicios de voz. Cambiar a los servicios de voz para beneficiarse de las últimas actualizaciones de calidad y la característica.
+description: Custom Speech Service ahora forma parte de los servicios de Voz. Cambie a los servicios de Voz para aprovechar las actualizaciones más recientes de calidad y características.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -12,17 +12,17 @@ ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995665"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar de Custom Speech Service al servicio Voz
 
 Use este artículo para obtener información sobre cómo migrar sus aplicaciones de Custom Speech Service al servicio Voz.
 
-Custom Speech Service ahora forma parte del servicio Voz. Cambiar a los servicios de voz para beneficiarse de las últimas actualizaciones de calidad y la característica.
+Custom Speech Service ahora forma parte del servicio Voz. Cambie a los servicios de Voz para aprovechar las actualizaciones más recientes de calidad y características.
 
 ## <a name="migration-for-new-customers"></a>Migración para los nuevos clientes
 
@@ -39,11 +39,11 @@ El modelo de precios es más sencillo, al pasar a un modelo de precios por hora 
 
 3. Siga las guías de inicio rápido y los ejemplos del SDK para usar las API correctas. Si usa las API de REST, también debe usar los puntos de conexión y las claves de recursos correctos.
 
-4. Actualizar la aplicación cliente para usar las API y servicios de voz.
+4. Actualice la aplicación cliente para usar las API y los servicios de Voz.
 
 ## <a name="migration-for-existing-customers"></a>Migración para los clientes actuales
 
-Migrar las claves de recursos existentes a los servicios de voz en el portal de servicios de voz. Para ello, siga los pasos que se describen a continuación:
+Migre sus claves de recursos existentes a los servicios de Voz en el portal de los servicios de Voz. Para ello, siga los pasos que se describen a continuación:
 
 > [!NOTE]
 > Las claves de recursos solo se pueden migrar en la misma región.
@@ -56,10 +56,10 @@ Migrar las claves de recursos existentes a los servicios de voz en el portal de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Pruebe los servicios de voz de forma gratuita](get-started.md).
+* [Prueba gratuita de los servicios de Voz](get-started.md).
 * Obtenga información sobre los conceptos de [conversión de voz en texto](./speech-to-text.md).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es el servicio Voz?](overview.md)
-* [Documentación de servicios de voz y Speech SDK](speech-sdk.md#get-the-sdk)
+* [Documentación de los servicios de Voz y Speech SDK](speech-sdk.md#get-the-sdk)

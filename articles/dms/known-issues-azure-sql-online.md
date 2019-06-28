@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
 ms.openlocfilehash: 00ed2f20884c3cd8f49307bd726f14f3007f884f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534460"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB
@@ -23,7 +23,7 @@ ms.locfileid: "60534460"
 A continuación se describen problemas conocidos y limitaciones relacionadas con las migraciones en línea de SQL Server a Azure SQL Database.
 
 > [!IMPORTANT]
-> Con las migraciones en línea de SQL Server a Azure SQL Database, no se admite la migración de los tipos de datos SQL_variant.
+> Con las migraciones en línea de SQL Server a Azure SQL Database, no se admite la migración de los tipos de datos SQL_variant.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migración de tablas temporales no compatibles
 
@@ -97,7 +97,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Solución alternativa**
 
-Si tiene una columna LOB que es mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Si tiene una columna de LOB que es mayor que 32 KB, póngase en contacto con el equipo de ingeniería escribiendo un correo electrónico a [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problemas con las columnas de marca de tiempo
 
@@ -107,13 +107,13 @@ DMS no migra el valor de marca de tiempo de origen; en su lugar, DMS genera un n
 
 **Solución alternativa**
 
-Si necesita DMS para migrar el valor de marca de tiempo exacta almacenado en la tabla de origen, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Si necesita DMS para migrar el valor de marca de tiempo exacto almacenado en la tabla de origen, póngase en contacto con el equipo de ingeniería escribiendo un correo electrónico a [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Errores de migración de datos no proporcionan detalles adicionales en la hoja de estado detallado de la base de datos.
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Los errores de migración de datos no proporcionan detalles adicionales en la hoja de estado detallado de la base de datos.
 
 **Síntoma**
 
-Si se encuentra con errores de migración en la vista de estado de detalles de las bases de datos, seleccionando la **errores de migración de datos** vínculo en la cinta de opciones superior no puede proporcionar detalles adicionales específicos de los errores de migración.
+Cuando vea los errores de migración en la vista de estado de detalles de las bases de datos, si selecciona el vínculo **Errores de migración de datos** en la cinta de opciones superior, es posible que no se proporcionen detalles adicionales específicos de los errores de migración.
 
 ![ejemplo no detallado de errores de migración de datos](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

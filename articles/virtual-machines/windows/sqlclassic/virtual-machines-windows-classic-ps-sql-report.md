@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609811"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
@@ -120,11 +120,11 @@ Se creó un certificado autofirmado en la máquina virtual cuando se aprovision�
    
    1. En Azure Portal, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
       
-       ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
+       ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
       
        Por ejemplo, en la siguiente imagen, el nombre de la máquina virtual es **ssrsnativecloud** y el nombre del usuario es **testuser**.
       
-       ![inicio de sesión incluye el nombre de máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![el inicio de sesión incluye la máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Ejecute mmc.exe. Para obtener más información, consulte [Instrucciones: Visualización de certificados con el complemento MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. En el menú de la aplicación de consola **Archivo**, agregue el complemento **Certificados**, seleccione **Cuenta de equipo** cuando se le pida y luego haga clic en **Siguiente**.
    4. Seleccione **Equipo local** para administrar y luego haga clic en **Finalizar**.
@@ -156,11 +156,11 @@ Para usar el script de Windows PowerShell para configurar el servidor de informe
 
 1. En Azure Portal, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
    
-    ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
+    ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
    
     Por ejemplo, en la siguiente imagen, el nombre de la máquina virtual es **ssrsnativecloud** y el nombre del usuario es **testuser**.
    
-    ![inicio de sesión incluye el nombre de máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![el inicio de sesión incluye la máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. En la máquina virtual, abra **Windows PowerShell ISE** con privilegios administrativos. El PowerShell ISE se instala de forma predeterminada en Windows Server 2012. Se recomienda utilizar el ISE en lugar de una ventana de Windows PowerShell estándar, por lo que puede pegar el script en el ISE, modificar el script y luego ejecutar el script.
 3. En Windows PowerShell ISE, haga clic en el menú **Vista** y luego haga clic en **Mostrar panel de scripts**.
 4. Copie el siguiente script y pegue el script en el panel de scripts de Windows PowerShell ISE.
@@ -290,11 +290,11 @@ Para usar Windows PowerShell para configurar el servidor de informes, complete l
 
 1. En Azure Portal, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
    
-    ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
+    ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
    
     Por ejemplo, en la siguiente imagen, el nombre de la máquina virtual es **ssrsnativecloud** y el nombre del usuario es **testuser**.
    
-    ![inicio de sesión incluye el nombre de máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![el inicio de sesión incluye la máquina virtual](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. En la máquina virtual, abra **Windows PowerShell ISE** con privilegios administrativos. El PowerShell ISE se instala de forma predeterminada en Windows Server 2012. Se recomienda utilizar el ISE en lugar de una ventana de Windows PowerShell estándar, por lo que puede pegar el script en el ISE, modificar el script y luego ejecutar el script.
 3. Para habilitar la ejecución de scripts, ejecute el siguiente comando de Windows PowerShell:
    
@@ -564,7 +564,7 @@ Para comprobar que la funcionalidad del servidor de informes básica funciona, a
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Crear usuarios y asignar roles
-Después de configurar y comprobar el servidor de informes, una tarea administrativa común es crear uno o más usuarios y asignar usuarios a roles de Reporting Services. Para obtener más información, vea lo siguiente: 
+Después de configurar y comprobar el servidor de informes, una tarea administrativa común es crear uno o más usuarios y asignar usuarios a roles de Reporting Services. Para obtener más información, vea lo siguiente:
 
 * [Crear una cuenta de usuarios local](https://technet.microsoft.com/library/cc770642.aspx)
 * [Conceder a un usuario acceso a un servidor de informes (Administrador de informes)](https://msdn.microsoft.com/library/ms156034.aspx)
@@ -582,7 +582,7 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
      Para más información, consulte [Instalar, desinstalar y asistencia del Generador de informes](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools: máquina virtual**:  si ha creado la máquina virtual con SQL Server 2012, SQL Server Data Tools se instala en la máquina virtual y se puede usar para crear **proyectos del Servidor de informes** e informes en la máquina virtual. SQL Server Data Tools puede publicar los informes en el servidor de informes en la máquina virtual.
   
-    Si ha creado la máquina virtual con SQL server 2014, puede instalar SQL Server Data Tools- BI para Visual Studio. Para obtener más información, vea lo siguiente: 
+    Si ha creado la máquina virtual con SQL server 2014, puede instalar SQL Server Data Tools- BI para Visual Studio. Para obtener más información, vea lo siguiente:
   
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)

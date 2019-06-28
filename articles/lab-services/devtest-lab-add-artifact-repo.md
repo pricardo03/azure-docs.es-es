@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311733"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
@@ -30,7 +30,7 @@ Ofrecemos un [repositorio de GitHub de artefactos](https://github.com/Azure/azur
 Cuando crea una máquina virtual, puede guardar la plantilla de Resource Manager, personalizarla si lo desea y usarla más adelante para crear más máquinas virtuales. Debe crear su propio repositorio privado para almacenar las plantillas personalizadas de Resource Manager.  
 
 * Para obtener información sobre cómo crear un repositorio de GitHub, consulte [Entrenamiento militar de GitHub](https://help.github.com/categories/bootcamp/).
-* Para obtener información sobre cómo crear un proyecto de servicios de DevOps de Azure que tiene un repositorio de Git, consulte [conectar con servicios de Azure DevOps](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Para aprender a crear un proyecto de Azure DevOps Services con un repositorio de Git, consulte [Conexión con Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La siguiente ilustración es un ejemplo del aspecto que podría tener en GitHub un repositorio que contiene artefactos:  
 
@@ -54,7 +54,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación de Azure Repos y el token de acceso personal
 
-1. Vaya a la página principal de la colección de equipo (por ejemplo, https://contoso-web-team.visualstudio.com)) y después seleccione el proyecto.
+1. Vaya a la página principal de la colección de equipo (por ejemplo, https://contoso-web-team.visualstudio.com) ) y después seleccione el proyecto.
 2. En la página de inicio del proyecto, seleccione **Código**.
 3. Para ver la dirección URL de clonación, en la página **Código** del proyecto, seleccione **Clonar**.
 4. Guarde la dirección URL. Usará la dirección URL más adelante.
@@ -74,7 +74,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista de servicios.
 3. En la lista de laboratorios, seleccione el suyo. 
-4. Seleccione **Configuration and policies** (Directivas y configuración)  > **Repositorios** > **+ Agregar**.
+4. Seleccione **Configuration and policies** (Directivas y configuración)  > **Repositorios** >  **+ Agregar**.
 
     ![Botón Agregar repositorio](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. En la segunda página **Repositorios**, especifique la información siguiente:

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311053"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
@@ -43,7 +43,7 @@ El primer paso es usar PowerShell para iniciar sesión en su cuenta de Azure y s
 
 ## <a name="provision-a-service-bus-namespace"></a>Aprovisionar un espacio de nombres de Service Bus
 
-Al trabajar con espacios de nombres de Service Bus, puede usar el [Get AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)y [ Conjunto AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) cmdlets.
+Al trabajar con espacios de nombres de Service Bus, puede usar los cmdlets [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace) y [Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace).
 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
@@ -83,7 +83,7 @@ Esta parte del script hace lo siguiente:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Creación de una regla de autorización de espacios de nombres
 
-En el ejemplo siguiente se muestra cómo administrar las reglas de autorización de espacio de nombres mediante el [New AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [ Conjunto AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule), y [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) cmdlets.
+En el ejemplo siguiente se muestra cómo administrar las reglas de autorización de espacios de nombres mediante los cmdlets [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule) y [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -147,7 +147,7 @@ else
 
 ### <a name="modify-queue-properties"></a>Modificación de las propiedades de una cola
 
-Después de ejecutar el script en la sección anterior, puede usar el [conjunto AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) cmdlet para actualizar las propiedades de una cola, como se muestra en el ejemplo siguiente:
+Después de ejecutar el script de la sección anterior, puede usar el cmdlet [Set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) para actualizar las propiedades de una cola, como en el ejemplo siguiente:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True

@@ -11,14 +11,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764414"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-stored-proc-activity.md)
 > * [Versión actual](transform-data-using-stored-procedure.md)
 
@@ -68,11 +68,11 @@ En la tabla siguiente se describen estas propiedades JSON:
 | Propiedad                  | DESCRIPCIÓN                              | Obligatorio |
 | ------------------------- | ---------------------------------------- | -------- |
 | Nombre                      | Nombre de la actividad                     | Sí      |
-| description               | Texto que describe para qué se usa la actividad. | Sin        |
+| description               | Texto que describe para qué se usa la actividad. | Sin       |
 | Tipo                      | Para la actividad de procedimiento almacenado, el tipo de actividad es **SqlServerStoredProcedure** | Sí      |
 | linkedServiceName         | Referencia a **Azure SQL Database**, **Azure SQL Data Warehouse** o **SQL Server** registrada como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | storedProcedureName       | Especifique el nombre del procedimiento almacenado que se invocará. | Sí      |
-| storedProcedureParameters | Especifique los valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use `"param1": { "value": null }` (todo en minúsculas). | Sin        |
+| storedProcedureParameters | Especifique los valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use `"param1": { "value": null }` (todo en minúsculas). | Sin       |
 
 ## <a name="error-info"></a>Información de error
 

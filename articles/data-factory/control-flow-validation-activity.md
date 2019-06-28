@@ -1,6 +1,6 @@
 ---
-title: Actividad de validación en Azure Data Factory | Microsoft Docs
-description: La actividad de validación no continuar la ejecución de la canalización hasta que valida el conjunto de datos conectado con determinados criterios que el usuario especifica.
+title: Actividad de validación en Azure Data Factory | Microsoft Docs
+description: La actividad de validación no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764329"
 ---
-# <a name="validation-activity-in-azure-data-factory"></a>Actividad de validación en Azure Data Factory
-Puede usar una validación para asegurarse de que la canalización solo continúa la ejecución una vez que se ha validado el archivo adjunto en una canalización de referencia de conjunto de datos existe, que cumpla los criterios especificados o se ha alcanzado el tiempo de espera.
+# <a name="validation-activity-in-azure-data-factory"></a>Actividad de validación en Azure Data Factory
+Puede usar una validación en una canalización para asegurarse de que la canalización solo continúe la ejecución una vez que haya validado la existencia de la referencia del conjunto de datos adjunto, que cumple con los criterios especificados o que se haya alcanzado el tiempo de expiración.
 
 
 ## <a name="syntax"></a>Sintaxis
@@ -61,13 +61,13 @@ Puede usar una validación para asegurarse de que la canalización solo continú
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad "Validación" | string | Sí |
-Tipo | Debe establecerse en **validación**. | string | Sí |
-dataset | Actividad va a bloquear la ejecución hasta que ha validado esta referencia de conjunto de datos existe y que cumple los criterios especificados, o se ha alcanzado el tiempo de espera. Conjunto de datos proporcionado debe admitir la propiedad "MinimumSize" o "ChildItems". | Referencia de conjunto de datos | Sí |
-timeout | Especifica el tiempo de espera para que se ejecute la actividad. Si se especifica ningún valor, el valor predeterminado es 7 días ("7.00:00:00"). El formato es d.hh:mm:ss | string | Sin  |
-Modo de suspensión | Un retardo en segundos entre los intentos de validación. Si se especifica ningún valor, el valor predeterminado es 10 segundos. | Entero | Sin  |
-childItems | Comprueba si la carpeta tiene elementos secundarios. Se puede establecer en true: Validar que la carpeta existe y que tiene elementos. Bloquea hasta que al menos un elemento está presente en la carpeta o se alcanza el valor de tiempo de espera.-false: Validar que la carpeta existe y que está vacía. Se bloquea hasta que la carpeta está vacía o hasta que el tiempo de espera se alcanza el valor. Si se especifica ningún valor, actividad se bloqueará hasta que exista la carpeta o hasta que se alcanza el tiempo de espera. | Boolean | Sin  |
-minimumSize | Tamaño mínimo de un archivo en bytes. Si se especifica ningún valor, valor predeterminado es de 0 bytes | Entero | Sin  |
+Nombre | Nombre de la actividad de validación | Cadena | Sí |
+Tipo | Debe establecerse en **Validación**. | Cadena | Sí |
+dataset | La actividad bloqueará la ejecución hasta que haya validado la existencia de esta referencia del conjunto de datos y que cumple con los criterios especificados, o se haya alcanzado el tiempo de expiración. El conjunto de datos proporcionado debe admitir la propiedad "MinimumSize" o "ChildItems". | Referencia del conjunto de datos | Sí |
+timeout | Especifica el tiempo de espera para que se ejecute la actividad. Si no se especifica ningún valor, el valor predeterminado es 7 días ("7.00:00:00"). El formato es d.hh:mm:ss | Cadena | Sin |
+en reposo | Un retardo en segundos entre los intentos de validación. Si no se especifica ningún valor, el valor predeterminado es 10 segundos. | Entero | Sin |
+childItems | Comprueba si la carpeta tiene elementos secundarios. Se puede establecer en -true: valida que la carpeta existe y que tiene elementos. Se bloquea hasta que al menos un elemento está presente en la carpeta o se alcanza el valor del tiempo de expiración. -false: valida que la carpeta existe y está vacía. Se bloquea hasta que la carpeta está vacía o hasta que se alcanza el valor del tiempo de expiración. Si no se especifica ningún valor, la actividad se bloqueará hasta que exista la carpeta o hasta que se alcance el tiempo de espera. | Boolean | Sin |
+minimumSize | Tamaño mínimo de un archivo en bytes. Si no se especifica ningún valor, el valor predeterminado es 0 bytes. | Entero | Sin |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

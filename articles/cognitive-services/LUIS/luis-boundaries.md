@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154572"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
@@ -34,8 +34,8 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 | Entidades externas | sin límites |
 | [Intenciones][intents]|500 por aplicación: 499 intenciones personalizadas y la intención _Ninguno_ necesaria.<br>La aplicación [basada en la distribución](https://aka.ms/dispatch-tool) tiene 500 orígenes de distribución correspondientes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Elemento principal: 50, elemento secundario: 20 000 elementos. El nombre canónico es *Máximo de caracteres predeterminado. Los valores de los sinónimos no tienen ninguna restricción de longitud. |
-| [Ha aprendido la máquina entidades + roles](./luis-concept-entity-types.md):<br> Compuesto,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, lo que limita las visitas del usuario en primer lugar. Un rol de cuenta como una entidad con el fin de este límite. Un ejemplo es una composición con una entidad sencilla que tiene 2 roles: 1 simple compuesto + 1 + 2 roles = 4 de las 330 entidades.|
-| [Versión preliminar: las entidades de la lista dinámica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~ 1 KB por solicitud de punto de conexión de predicción de consulta|
+| [Entidades con aprendizaje automático y roles](./luis-concept-entity-types.md):<br> compuesta,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, el que sea que alcance primero el usuario. Un rol cuenta como una entidad para los fines de este límite. Un ejemplo es una composición con una entidad sencilla que tiene 2 roles: 1 compuesta + 1 simple + 2 roles = 4 de las 330 entidades.|
+| [Versión preliminar: entidades de lista dinámica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1 K por solicitud de punto de conexión de predicción de consulta|
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicación, 3 entidades Pattern.any por patrón |
 | [Lista de frases][phrase-list]|10 listas de frases, 5000 elementos por lista|
@@ -43,7 +43,7 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 | [Entidades de expresión regular](./luis-concept-entity-types.md)|20 entidades<br>Máximo de 500 caracteres por patrón de la entidad de expresiones regulares|
 | [Roles](luis-concept-roles.md)|300 roles por aplicación. 10 roles por entidad|
 | [Expresión][utterances] | 500 caracteres|
-| [Expresiones][utterances] | 15 000 por aplicación - no hay ningún límite en el número de grabaciones de voz por intención|
+| [Expresiones][utterances] | 15 000 por aplicación: no hay ningún límite en el número de expresiones por intención|
 | [Versiones](luis-concept-version.md)| ilimitado |
 | [Nombre de la versión][luis-how-to-manage-versions] | 10 caracteres, restringido a caracteres alfanuméricos y punto (.) |
 
@@ -53,11 +53,11 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 
 ## <a name="object-naming"></a>Denominación de objeto
 
-No utilice los siguientes caracteres en los siguientes nombres.
+No use los siguientes caracteres en los siguientes nombres.
 
-|Object|Excluir caracteres adicionales.|
+|Objeto|Excluir caracteres|
 |--|--|
-|Nombres de intenciones, entidades y rol|`:`<br>`$`|
+|Nombres de intención, entidad y rol|`:`<br>`$`|
 |Nombre de la versión|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Uso de las claves

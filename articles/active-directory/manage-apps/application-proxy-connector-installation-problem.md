@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c82bba6ccb1eaa1933176362e34b8c3e30c37f8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783632"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
@@ -64,13 +64,13 @@ Cuando se produce un error en la instalación de un conector, la causa principal
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Comprobación de que se use el administrador para instalar el conector
 
-**Objetivo:** compruebe que el usuario que intenta instalar el conector sea un administrador con las credenciales correctas. Actualmente, el usuario debe ser al menos un administrador de aplicaciones para la instalación se realice correctamente.
+**Objetivo:** compruebe que el usuario que intenta instalar el conector sea un administrador con las credenciales correctas. Actualmente, el usuario debe ser como mínimo administrador de aplicaciones para que la instalación se complete correctamente.
 
 **Para comprobar que las credenciales sean correctas:**
 
 Conéctese a <https://login.microsoftonline.com> y use las mismas credenciales. Asegúrese de que el inicio de sesión se haya realizado correctamente. Para comprobar el rol de usuario, vaya a **Azure Active Directory** -&gt; **Usuarios y grupos** -&gt; **Todos los usuarios**. 
 
-Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado es "Administrador de la aplicación". Si no puede acceder a alguna de las páginas en estos pasos, significa que no tiene el rol necesario.
+Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado sea "Administrador de aplicaciones". Si no puede acceder a alguna de las páginas en estos pasos, significa que no tiene el rol necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-connectors.md)

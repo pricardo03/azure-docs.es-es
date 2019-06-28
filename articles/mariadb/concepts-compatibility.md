@@ -1,27 +1,27 @@
 ---
-title: Azure Database for MariaDB controladores y compatibilidad de las herramientas de administración
-description: En este artículo se describe los controladores de MariaDB y herramientas de administración que son compatibles con Azure Database for MariaDB.
+title: Compatibilidad de los controladores y las herramientas de administración de Azure Database for MariaDB
+description: En este artículo se describen las herramientas de administración y los controladores de MariaDB compatibles con Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.openlocfilehash: 7a3d9a5f87a565625052fc54e3ecccc99fd928a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61386830"
 ---
-# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>MariaDB controladores y herramientas de administración compatibles con Azure Database for MariaDB
+# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Herramientas de administración y controladores de MariaDB compatibles con Azure Database for MariaDB
 
-En este artículo se describe los controladores y herramientas de administración que son compatibles con Azure Database for MariaDB.
+En este artículo se describen las herramientas de administración y los controladores compatibles con Azure Database for MariaDB.
 
 ## <a name="mariadb-drivers"></a>Controladores de MariaDB
 
-Azure Database for MariaDB usa la edición community de servidor MariaDB. Por lo tanto, es compatible con una amplia variedad de controladores y lenguajes de programación. API y el protocolo de MariaDB son compatibles con las que usan MySQL. Esto significa que los conectores que funcionan con MySQL deben funcionar también con MariaDB.
+Azure Database for MariaDB usa la edición de la comunidad del servidor de MariaDB. Por lo tanto, es compatible con una amplia variedad de controladores y lenguajes de programación. La API y el protocolo de MariaDB son compatibles con los usados en MySQL. Esto significa que los conectores que funcionan con MySQL deben funcionar también con MariaDB.
 
-El objetivo es compatible con las tres versiones más recientes MariaDB controladores y con esfuerzos con los autores de la Comunidad de código abierto para mejorar constantemente la funcionalidad y facilidad de uso de los controladores de MariaDB. En la tabla siguiente se proporciona una lista de controladores que se han probado y que resultaron para ser compatibles con Azure Database for MariaDB 10.2:
+El objetivo es la compatibilidad con las tres versiones más recientes de los controladores de MariaDB, y continúan las labores con los autores de la comunidad de código abierto para mejorar constantemente la funcionalidad y la facilidad de uso de los controladores de MariaDB. En la tabla siguiente se proporciona una lista de controladores que ha demostrado ser compatibles con Azure Database for MariaDB 10.2:
 
 **Controlador** | **Vínculos** | **Versiones compatibles** | **Versiones incompatibles** | **Notas**
 ---|---|---|---|---
@@ -35,7 +35,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 y a
 
 ## <a name="management-tools"></a>Herramientas de administración
 
-La ventaja de compatibilidad se amplía también a las herramientas de administración de base de datos. Las herramientas existentes deben continuar funcionando con Azure Database for MariaDB, siempre y cuando la manipulación de la base de datos funciona dentro de los confines de permisos de usuario. Tres herramientas comunes de administración de base de datos que han sido probadas y que resultaron para ser compatibles con Azure Database for MariaDB 10.2 se muestran en la tabla siguiente:
+La ventaja de compatibilidad se amplía también a las herramientas de administración de base de datos. Sus herramientas actuales deben continuar funcionando con Azure Database for MariaDB, siempre y cuando la manipulación de la base de datos tenga lugar dentro de los límites establecidos por los permisos de usuario. En la tabla siguiente se indican las tres herramientas comunes de administración de base de datos que se han demostrado ser compatibles con Azure Database for MariaDB 10.2:
 
 | | **MySQL Workbench 6.x y superiores** | **Navicat 12** | **PHPMyAdmin 4.x y superiores**
 ---|---|---|---

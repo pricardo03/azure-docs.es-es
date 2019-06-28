@@ -10,14 +10,14 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332659"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locales recomendados
-Cuando realice streaming en directo con Azure Media Services, puede especificar cómo desea que el canal reciba la transmisión de entrada. Si decide usar un codificador local en un canal de codificación en directo, el codificador debe insertar una transmisión de alta calidad sola velocidad de bits como salida. Si decide usar un codificador local en con un paso a través del canal, el codificador debe insertar una secuencia de varias velocidades de bits como salida con todas las calidades de salida deseado. Para obtener más información, consulte [streaming en vivo con en local de los codificadores](media-services-live-streaming-with-onprem-encoders.md).
+Cuando realice streaming en directo con Azure Media Services, puede especificar cómo desea que el canal reciba la transmisión de entrada. Si elige usar un codificador local con un canal de codificación en directo, el codificador debe insertar una transmisión con velocidad de bits única de alta calidad como salida. Si elige usar un codificador local con un canal de paso a través, el codificador debe insertar una transmisión con múltiples velocidades de bits como salida con todas las cualidades de salida deseadas. Para más información, consulte el artículo sobre [streaming en directo con codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services recomienda usar uno de los codificadores en directo que tienen RTMP como salida:
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Azure Media Services recomienda usar uno de los codificadores en directo siguien
 > [!NOTE]
 > Un codificador en directo puede enviar una transmisión con una sola velocidad de bits a un canal de paso a través, pero esta configuración no se recomienda porque no permite el streaming con velocidad de bits adaptable al cliente.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Cómo convertirse en un socio de codificador local en
-Como un Azure Media Services en el socio de codificador local, Media Services promueve su producto al recomendar su codificador a clientes empresariales. Para convertirse en un socio de codificador en entorno local, debe comprobar la compatibilidad del codificador en entorno local con Media Services. Para hacerlo, complete las comprobaciones siguientes:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Convertirse en un asociado de codificador local
+Como asociado de codificador local de Azure Media Services, Media Services promueve su producto al recomendar su codificador a clientes empresariales. Para convertirse en un asociado de codificador local, debe comprobar la compatibilidad del codificador local con Media Services. Para hacerlo, complete las comprobaciones siguientes:
 
 Comprobación del canal de paso a través
 1. Cree o visite la cuenta de Azure Media Services

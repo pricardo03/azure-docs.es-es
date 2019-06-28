@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 4a1f9556413df7ad8954171d2b446419d3bc2975
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366595"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
@@ -88,7 +88,7 @@ Este procedimiento le guía en la creación de una red virtual y conexiones de s
 1. Inicie sesión y seleccione su suscripción.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Establezca las variables.
+2. Configure las variables.
 
    ```azurepowershell-interactive
    $location = "Central US"
@@ -220,7 +220,7 @@ Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Incorporación de la configuración de punto a sitio a la puerta de enlace de VPN
 
-Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en una configuración de coexistencia, puede seguir los pasos que se indican a continuación. Para cargar el certificado raíz VPN, debe instalar PowerShell localmente en el equipo, o usar el portal de Azure.
+Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en una configuración de coexistencia, puede seguir los pasos que se indican a continuación. Para cargar el certificado raíz VPN, debe instalar PowerShell localmente en el equipo, o utilizar Azure Portal.
 
 1. Agregue el grupo de direcciones de clientes de VPN.
 
@@ -228,7 +228,7 @@ Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
    Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. En Azure, cargue el certificado raíz de VPN de la puerta de enlace de VPN. En este ejemplo, se supone que el certificado raíz se almacena en el equipo local donde se ejecutan los siguientes cmdlets de PowerShell y que está ejecutando PowerShell localmente. También puede cargar el certificado mediante el portal de Azure.
+2. En Azure, cargue el certificado raíz de VPN de la puerta de enlace de VPN. En este ejemplo, se supone que el certificado raíz se almacena en la máquina local donde se ejecutan los siguientes cmdlets de PowerShell y que el usuario está ejecutando PowerShell localmente. También puede cargar el certificado con Azure Portal.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

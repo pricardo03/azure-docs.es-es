@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306332"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Generación de perfiles de aplicaciones de producción en Azure con Application Insights
@@ -30,7 +30,7 @@ Profiler funciona con aplicaciones .NET implementadas en los siguientes servicio
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines y Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**Vista previa** aplicaciones Web de Azure Linux de ASP.NET Core](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [**VERSIÓN PRELIMINAR** Aplicaciones web con Linux en Azure para ASP.NET Core](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Si ha habilitado Profiler, pero no ve los seguimientos, consulte nuestra [Guía de solución de problemas.](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)
 
@@ -75,7 +75,7 @@ Si **clr!ThePreStub** tarda mucho tiempo con una solicitud, significa que la sol
 
 ### <a id="ngencold"></a>Código de carga ([COLD])
 
-Si el nombre del método contiene **[COLD]**, por ejemplo, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, significa que el entorno en tiempo de ejecución de .NET Framework es la primera vez que ejecuta código que no está optimizado mediante la [optimización guiada por perfiles](/cpp/build/profile-guided-optimizations). Para cada método, debe presentarse como máximo una vez durante el proceso.
+Si el nombre del método contiene **[COLD]** , por ejemplo, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, significa que el entorno en tiempo de ejecución de .NET Framework es la primera vez que ejecuta código que no está optimizado mediante la [optimización guiada por perfiles](/cpp/build/profile-guided-optimizations). Para cada método, debe presentarse como máximo una vez durante el proceso.
 
 Si el código de carga tarda una cantidad de tiempo considerable con una solicitud, significa que la solicitud es la primera en ejecutar la parte no optimizada del método. Considere la posibilidad de usar un proceso de preparación que ejecute esa parte del código antes de que los usuarios accedan e él.
 
@@ -95,9 +95,9 @@ Métodos como **SqlCommand.Execute** indican que el código está a la espera de
 
 **BLOCKED_TIME** indica que el código está a la espera de que otro recurso esté disponible. Por ejemplo, podría estar esperando un objeto de sincronización, a que un subproceso esté disponible o a que termine una solicitud.
 
-### <a name="unmanaged-async"></a>Asincrónico no administrado
+### <a name="unmanaged-async"></a>Async no administrada
 
-.NET framework emite eventos ETW y pasa los identificadores de actividad entre los subprocesos de modo que se pueden realizar el seguimiento de las llamadas asincrónicas a través de subprocesos. Código no administrado (código nativo) y algunos estilos anterior del código asincrónico faltan estos eventos y los identificadores de actividad, por lo que el generador de perfiles no puede saber qué subproceso y lo que se ejecutan funciones en el subproceso. Esto se denomina 'Async no administrada' en la pila de llamadas. Si descargó el archivo ETW, es posible que pueda usar [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obtener más información sobre lo que sucede.
+.NET Framework emite eventos ETW y pasa identificadores de actividad entre subprocesos para que se pueda realizar un seguimiento de las llamadas asincrónicas entre subprocesos. Tanto al código no administrado (código nativo) como a algunos estilos anteriores les faltan estos eventos e identificadores de actividad, de modo que el generador de perfiles no puede informar sobre qué subproceso y qué funciones se ejecutan en el subproceso. Esto se etiqueta como "Async no administrada" en la pila de llamadas. Si descarga el archivo ETW, es posible que pueda usar [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obtener más información sobre lo que sucede.
 
 ### <a id="cpu"></a>Tiempo de CPU
 

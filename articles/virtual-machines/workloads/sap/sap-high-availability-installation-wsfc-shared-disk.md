@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714464"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure
@@ -192,7 +192,7 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 
    La dirección IP del nombre de host de ASCS/SCS de SAP virtual (pr1-ascs-sap) es la misma dirección IP de Azure Load Balancer (pr1-lb-ascs).
 
-   ![Figura 1: Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP][sap-ha-guide-figure-3046]
+   ![Ilustración 1: Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP][sap-ha-guide-figure-3046]
 
    _**Ilustración 1:** Definición de la entrada DNS del nombre virtual del clúster de ASCS/SCS de SAP y la dirección TCP/IP_
 
@@ -389,9 +389,9 @@ Es fácil probar y supervisar la conmutación por error de la instancia de ASCS/
 
 El grupo de clústeres SAP PR1 se ejecuta en el nodo de clúster A. Por ejemplo, en pr1-ascs-0. Asigne la unidad de disco compartido S, que forma parte del grupo de clústeres SAP PR1, al nodo de clúster A. La instancia de ASCS/SCS también usa la unidad de disco S. 
 
-![Figura 6: Administrador de clústeres de conmutación por error: SAP \<SID\> grupo de clúster se está ejecutando en el nodo de clúster][sap-ha-guide-figure-5000]
+![Figura 6: Administrador de clústeres de conmutación por error: El grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster A][sap-ha-guide-figure-5000]
 
-_**Figura 6:** Administrador de clústeres de conmutación por error: SAP \<SID\> grupo de clúster se está ejecutando en el nodo de clúster_
+_**Figura 6:** Administrador de clústeres de conmutación por error: El grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster A_
 
 En la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración, puede ver que los datos del disco compartido se replican sincrónicamente desde la unidad de volumen de origen S en el nodo de clúster A. Por ejemplo, de pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
 
@@ -418,9 +418,9 @@ _**Figura 7:** En SIOS DataKeeper, replique el volumen local desde el nodo de cl
 
    Después de la conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B. Por ejemplo, en pr1-ascs-1.
 
-   ![Figura 8: Conmutación por error de administrador de clústeres de SAP \<SID\> grupo de clúster se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
+   ![Figura 8: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
 
-   _**Figura 8**: Conmutación por error de administrador de clústeres de SAP \<SID\> grupo de clúster se ejecuta en el nodo del clúster B_
+   _**Figura 8**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B_
 
    Ahora, el disco compartido está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
 

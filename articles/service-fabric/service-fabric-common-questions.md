@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
 ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153829"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
@@ -136,7 +136,7 @@ No. No se admiten máquinas virtuales de prioridad baja.
 Los siguientes son medios para que la aplicación obtenga las credenciales de autenticación en KeyVault:
 
 A. Durante el trabajo de compilación/empaquetado de aplicaciones, puede extraer un certificado en el paquete de datos de la aplicación de Service Fabric y usarlo para autenticarse en KeyVault.
-B. Para hosts MSI habilitado del conjunto de escalado de máquinas virtuales, puede desarrollar un PowerShell SetupEntryPoint simple para la aplicación de CF para obtener [un token de acceso desde el punto de conexión MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)y, a continuación, [recuperar los secretos de KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. Para hosts con MSI habilitado en el conjunto de escalado de máquinas virtuales, puede desarrollar un PowerShell SetupEntryPoint sencillo para que la aplicación de Service Fabric obtenga [un token de acceso del punto de conexión MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token) y después [recuperar los secretos de KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Diseño de aplicaciones
 
@@ -192,4 +192,4 @@ Siga el [blog de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre [principales conceptos de Service Fabric](service-fabric-technical-overview.md) y [procedimientos recomendados](service-fabric-best-practices-overview.md) hielo Fabric concepts](service-fabric-technical-overview.md) y [procedimientos recomendados](service-fabric-best-practices-overview.md)
+Conozca los [principales conceptos de Service Fabric](service-fabric-technical-overview.md) y los [procedimientos recomendados](service-fabric-best-practices-overview.md).

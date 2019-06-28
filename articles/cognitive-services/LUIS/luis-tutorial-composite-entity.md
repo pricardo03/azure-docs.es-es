@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
 ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073701"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupación y extracción de datos relacionados
@@ -85,17 +85,17 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 1. Seleccione **TransferEmployeeToDepartment** en la lista de intenciones.
 
-1. En la declaración `place John Jackson in engineering`, seleccione la entidad personName, `John Jackson`, a continuación, seleccione **ajustar en entidad compuesta** en la lista del menú emergente de la declaración siguiente. 
+1. En la expresión `place John Jackson in engineering`, seleccione la entidad personName, `John Jackson` y, luego, seleccione **Wrap in composite entity** (Ajustar en la entidad compuesta) en la lista del menú emergente de la siguiente expresión: 
 
-    ![Captura de pantalla de selección de ajuste compuesto en la lista desplegable del cuadro de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![Captura de pantalla de selección del ajuste compuesto en el cuadro de diálogo desplegable](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. A continuación, seleccione inmediatamente la última entidad, `engineering`, en la expresión. Se dibuja una barra verde debajo de las palabras seleccionadas que indica una entidad compuesta. En el menú emergente, escriba el nombre compuesto `TransferEmployeeInfo` y, a continuación, seleccione Intro. 
 
-    ![Captura de pantalla de escribir el nombre compuesto en la lista desplegable del cuadro de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
+    ![Captura de pantalla de inserción del nombre compuesto en el cuadro de diálogo desplegable](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
 1. En **What type of entity do you want to create?** (¿Qué tipo de entidad quiere crear?), todos los campos necesarios están en la lista: `personName` y `Department`. Seleccione **Listo**. Observe que la entidad creada previamente, personName, se ha agregado a la entidad compuesta. Si puede hacer que una entidad creada previamente aparezca entre los tokens de inicio y finalización de una entidad compuesta, la entidad compuesta debe contener estas entidades creadas previamente. Si no se incluyen las entidades creadas previamente, la entidad compuesta no se predice correctamente, pero cada elemento individual, sí.
 
-    ![Captura de pantalla de escribir el nombre compuesto en la lista desplegable del cuadro de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
+    ![Captura de pantalla de inserción del nombre compuesto en el cuadro de diálogo desplegable](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Etiquetado de expresiones de ejemplo con una entidad compuesta
 

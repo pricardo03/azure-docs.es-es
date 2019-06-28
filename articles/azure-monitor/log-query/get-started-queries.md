@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
 ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519011"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introducción a las consultas de registro en Azure Monitor
 
 
 > [!NOTE]
-> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) antes de completar este tutorial.
+> Antes de realizar este tutorial, debe completar [Introducción a Log Analytics de Azure Monitor](get-started-portal.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este tutorial obtendrá información sobre cómo escribir consultas de registro de Azure Monitor. Le mostrará cómo:
+En este tutorial aprenderá a escribir consultas de registro de Azure Monitor. Le mostrará cómo:
 
 - Comprender la estructura de las consultas
 - Ordenar los resultados de la consulta
@@ -108,7 +108,7 @@ SecurityEvent
 
 Al escribir las condiciones de filtro, puede usar las siguientes expresiones:
 
-| Expresión | DESCRIPCIÓN | Ejemplo |
+| Expression | DESCRIPCIÓN | Ejemplo |
 |:---|:---|:---|
 | == | Coincidencia con igualdad<br>(distingue mayúsculas y minúsculas) | `Level == 8` |
 | =~ | Coincidencia con igualdad<br>(no distingue mayúsculas y minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -179,7 +179,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** mantiene todas las columnas originales en el conjunto de resultados y define otras adicionales. La consulta siguiente utiliza **ampliar** para agregar la *EventCode* columna. Tenga en cuenta que esta columna no se muestren al final de los resultados de la tabla en cuyo caso se necesitaría expandir los detalles de un registro para verlo.
+**extend** mantiene todas las columnas originales en el conjunto de resultados y define otras adicionales. La consulta siguiente usa **extend** para agregar la columna *EventCode*. Tenga en cuenta que es posible que esta columna no se muestre al final de los resultados de la tabla, en cuyo caso sería necesario expandir los detalles de un registro para verlo.
 
 ```Kusto
 SecurityEvent
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumen por una columna de tiempo
 La agrupación de resultados también puede basarse en una columna de tiempo o con cualquier otro valor continuo. Sin embargo, simplemente resumir por `by TimeGenerated` crearía grupos para cada milisegundo del intervalo de tiempo, ya que son valores únicos. 
 
-Para crear grupos basados en valores continuos es mejor dividir el intervalo en unidades manejables mediante **bin**. En la siguiente consulta se analizan los registros *Perf* que miden la memoria libre (*Available MBytes*) en un equipo específico. Calcula el valor promedio de cada período de 1 hora durante los últimos 7 días:
+Para crear grupos basados en valores continuos es mejor dividir el intervalo en unidades manejables mediante **bin**. En la siguiente consulta se analizan los registros *Perf* que miden la memoria libre (*Available MBytes*) en un equipo específico. Se calcula el valor promedio de cada período de 1 hora durante los últimos 7 días:
 
 ```Kusto
 Perf 

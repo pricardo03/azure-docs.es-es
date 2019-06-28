@@ -17,10 +17,10 @@ ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800218"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
@@ -108,12 +108,12 @@ Consulte la documentación en el [repositorio de agente Linux de Azure en GitHub
 
 ## <a name="command-line-options"></a>Opciones de la línea de comandos
 ### <a name="flags"></a>Marcas
-* verbose: Aumentar el nivel de detalle de comando especificado
-* Force: Omitir la confirmación interactiva de algunos comandos
+* verbose: aumenta el nivel de detalle de un comando específico.
+* force: omite la confirmación interactiva de algunos comandos.
 
 ### <a name="commands"></a>Comandos:
-* Ayuda: Enumera los comandos admitidos y las marcas.
-* deprovision: Intenta limpiar el sistema y dejarlo adecuado para un reaprovisionamiento. La operación siguiente elimina:
+* help: enumera los comandos y las marcas compatibles.
+* deprovision: intenta limpiar el sistema y prepararlo para un reaprovisionamiento. La operación siguiente elimina:
   
   * Todas las claves de host de SSH (si Provisioning.RegenerateSshHostKeyPair es "y" en el archivo de configuración)
   * Configuración de Nameserver en /etc/resolv.conf
@@ -126,11 +126,11 @@ Consulte la documentación en el [repositorio de agente Linux de Azure en GitHub
 > 
 > 
 
-* Desaprovisionamiento + usuario: Todo lo que lleva a cabo en - deprovision (arriba) y también elimina la última cuenta de usuario aprovisionada (obtenida desde /var/lib/waagent) y los datos asociados. Este parámetro está presente cuando se desaprovisiona una imagen que se estaba aprovisionando anteriormente en Azure de modo que se pueda capturar y volver a usar.
-* Versión: Muestra la versión de waagent
-* serialconsole: Configura GRUB para marcar ttyS0 (el primer puerto serie) como la consola de arranque. Esto asegura que los registros de arranque del kernel se envíen al puerto serie y queden disponibles para su depuración.
-* daemon: Ejecución de waagent como un daemon para administrar la interacción con la plataforma. Este argumento se especifica en waagent en el script init de waagent.
-* Inicio: Ejecución de waagent como un proceso en segundo plano
+* deprovision+user: realiza todo de -deprovision (arriba) y también elimina la última cuenta de usuario aprovisionada (obtenida de /var/lib/waagent) y los datos asociados. Este parámetro está presente cuando se desaprovisiona una imagen que se estaba aprovisionando anteriormente en Azure de modo que se pueda capturar y volver a usar.
+* version: muestra la versión de waagent.
+* serialconsole: configura GRUB para marcar ttyS0 (el primer puerto serie) como la consola de arranque. Esto asegura que los registros de arranque del kernel se envíen al puerto serie y queden disponibles para su depuración.
+* daemon: ejecuta waagent como un demonio para administrar la interacción con la plataforma. Este argumento se especifica en waagent en el script init de waagent.
+* start: ejecuta waagent como proceso en segundo plano.
 
 ## <a name="configuration"></a>Configuración
 Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. A continuación se muestra un archivo de configuración de ejemplo:
@@ -231,7 +231,7 @@ Esta opción permite restablecer la contraseña del usuario SYS; de forma predet
 Type: String  
 Default: 6
 ```
-Algoritmo usado por el cifrado al generar el hash de contraseña.   
+Algoritmo usado por el cifrado al generar el hash de contraseña.  
  1 - MD5  
  2a - Blowfish  
  5 - SHA-256  
@@ -344,6 +344,6 @@ Las imágenes de tipo Ubuntu Cloud Images usan [cloud-init](https://launchpad.ne
 
 * Para más información, vea los recursos siguientes para configurar el punto de montaje del disco de recursos e intercambiar espacio en Ubuntu Cloud Images durante el aprovisionamiento:
   
-  * [Ubuntu Wiki: Configurar particiones de intercambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Configure Swap Partitions](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409) (Configuración de particiones de intercambio)
   * [Inyección de datos personalizados en una máquina virtual de Azure](../windows/classic/inject-custom-data.md)
 

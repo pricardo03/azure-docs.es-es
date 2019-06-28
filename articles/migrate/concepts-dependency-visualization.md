@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201574"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
@@ -26,7 +26,7 @@ Con la visualización de dependencias en Azure Migrate puede crear grupos para e
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
-Azure Migrate utiliza la [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solución en [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) para la visualización de dependencias.
+Azure Migrate utiliza la solución [Service Map](../operations-management-suite/operations-management-suite-service-map.md) de los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) para la visualización de dependencias.
 - Si quiere aprovechar la visualización de dependencias, necesita asociar un área de trabajo de Log Analytics, actual o nueva, con un proyecto de Azure Migrate.
 - Solo se puede crear o vincular un área de trabajo en la misma suscripción donde se crea el proyecto de migración.
 - Para asociar un área de trabajo de Log Analytics a un proyecto, vaya a la sección **Essentials** de la página **Introducción** del proyecto y haga clic en **Requiere configuración**.

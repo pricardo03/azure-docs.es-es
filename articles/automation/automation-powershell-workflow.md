@@ -4,17 +4,16 @@ description: Este artículo está destinado como una lección rápida para que l
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: WenJason
-ms.author: v-jay
-origin.date: 12/14/2018
-ms.date: 04/01/2019
+author: georgewallace
+ms.author: gwallace
+ms.date: 12/14/2018
 ms.topic: conceptual
-manager: digimobile
+manager: carmonm
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738339"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation
@@ -56,7 +55,7 @@ No puede usar parámetros posicionales con actividades y cmdlets en un flujo de 
 
 Por ejemplo, considere el siguiente código que obtiene todos los servicios en ejecución.
 
-```powershell
+```azurepowershell-interactive
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -73,7 +72,7 @@ Workflow Get-RunningServices
 
 Los objetos de los flujos de trabajo están deserializados.  Esto significa que sus propiedades siguen estando disponibles, pero no sus métodos.  Por ejemplo, considere el siguiente código de PowerShell que detiene un servicio mediante el método Stop del objeto Service.
 
-```powershell
+```azurepowershell-interactive
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -172,7 +171,7 @@ Parallel
 
 Por ejemplo, considere los siguientes comandos de PowerShell que copian varios archivos a un destino de red.  Estos comandos se ejecutan secuencialmente de modo que un archivo debe terminar de copiarse antes de que comience el siguiente.
 
-```powershell
+```azurepowershell-interactive
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -227,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Puntos de control
 
-Un *punto de control* es una instantánea del estado actual del flujo de trabajo que incluye el valor actual de las variables y cualquier salida generada en ese punto. Si un flujo de trabajo termina en error o se suspende, la próxima vez que se ejecute comenzará desde su último punto de comprobación, en lugar de desde el inicio del flujo de trabajo.  Puede establecer un punto de control en un flujo de trabajo con la actividad **Checkpoint-Workflow** . Azure Automation tiene una característica denominada [reparto equitativo](automation-runbook-execution.md#fair-share), donde se descarga cualquier runbook que se ejecuta durante 3 horas para permitir que otros runbooks ejecutar. Finalmente, se volverá a cargar el runbook descargado y, cuando lo está, reanudará la ejecución desde el último punto de comprobación realizada en el runbook. Con el fin de garantizar que el runbook se completará al final, debe agregar los puntos de control a intervalos que se ejecutan durante menos de 3 horas. Si durante cada ejecución se agrega un nuevo punto de control, y si el runbook obtiene expulsan después de 3 horas debido a un error, a continuación, el runbook se reanudará indefinidamente.
+Un *punto de control* es una instantánea del estado actual del flujo de trabajo que incluye el valor actual de las variables y cualquier salida generada en ese punto. Si un flujo de trabajo termina en error o se suspende, la próxima vez que se ejecute comenzará desde su último punto de comprobación, en lugar de desde el inicio del flujo de trabajo.  Puede establecer un punto de control en un flujo de trabajo con la actividad **Checkpoint-Workflow** . Azure Automation tiene una característica denominada [distribución equilibrada](automation-runbook-execution.md#fair-share), donde se descarga cualquier runbook que se ejecute durante 3 horas para permitir la ejecución de otros runbooks. Finalmente, el runbook descargado se volverá a cargar, y cuando esté cargado, se reanudará la ejecución desde el último punto de control tomado en el runbook. Con el fin de garantizar que el runbook finalmente se complete, debe agregar puntos de control en intervalos que se ejecuten durante menos de 3 horas. Si durante cada ejecución se agrega un nuevo punto de control, y si el runbook se expulsa después de 3 horas debido a un error, el runbook se reanudará indefinidamente.
 
 En el código de ejemplo siguiente, se produce una excepción después de Activity2 que provoca la finalización del flujo de trabajo. Cuando se vuelve a ejecutar el flujo de trabajo, se inicia ejecutando Activity2, ya que estaba justo después del último punto de comprobación establecido.
 
@@ -276,13 +275,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+        $null = Connect-AzureRmAccount -Credential $Cred
         }
 }
 ```

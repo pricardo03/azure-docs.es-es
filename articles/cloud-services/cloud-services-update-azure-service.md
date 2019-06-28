@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653914"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Actualización de un servicio en la nube
@@ -60,7 +60,7 @@ La siguiente tabla muestra los cambios permitidos en un servicio durante una act
 | Configuración de almacenamiento local |Solo aumentar<sup>2</sup> |Sí |Sí |
 | Agregar o quitar roles en un servicio |Sí |Sí |Sí |
 | Número de instancias de un rol concreto |Sí |Sí |Sí |
-| Número o tipo de puntos de conexión de un servicio |Sí<sup>2</sup> |Sin  |Sí |
+| Número o tipo de puntos de conexión de un servicio |Sí<sup>2</sup> |Sin |Sí |
 | Nombres y valores de configuración |Sí |Sí |Sí |
 | Valores (pero no nombres) de configuración |Sí |Sí |Sí |
 | Incorporación de nuevos certificados |Sí |Sí |Sí |
@@ -141,7 +141,7 @@ Esta funcionalidad la proporcionan las características siguientes:
   1. El elemento bloqueado permite detectar cuándo se puede invocar una operación de mutación en una implementación determinada.
   2. El elemento RollbackAllowed permite detectar cuándo la operación de [Actualización o reversión de la actualización](/previous-versions/azure/reference/hh403977(v=azure.100)) puede llamarse en una implementación determinada.
 
-  Para realizar una reversión, no es necesario comprobar los dos elementos Locked y RollbackAllowed. Es suficiente con confirmar que RollbackAllowed está establecido en true. Estos elementos solo se devuelven si estos métodos se invocan utilizando el encabezado de solicitud establecido en "x-ms-version: 2011-10-01 "o una versión posterior. Para obtener más información acerca de los encabezados de control de versiones, consulte [Control de versiones de la administración del servicio](/previous-versions/azure/gg592580(v=azure.100)).
+  Para realizar una reversión, no es necesario comprobar los dos elementos Locked y RollbackAllowed. Es suficiente con confirmar que RollbackAllowed está establecido en true. Estos elementos solo se devuelven si estos métodos se invocan usando el encabezado de solicitud establecido en "x-ms-version: 2011-10-01" o una versión posterior. Para obtener más información acerca de los encabezados de control de versiones, consulte [Control de versiones de la administración del servicio](/previous-versions/azure/gg592580(v=azure.100)).
 
 Hay algunas situaciones en las que no se admite la reversión de una actualización, estas son las siguientes:
 
@@ -162,11 +162,11 @@ Una vez que el controlador de tejido de Azure ha recibido la solicitud inicial p
 
 Iniciar una segunda operación de actualización mientras se está realizando la primera actualización, funcionará de una forma similar a la operación de reversión. Si la segunda actualización está en modo automático, el primer dominio de actualización se actualizará inmediatamente, lo que posiblemente ocasionará que las instancias de varios dominios de actualización estén sin conexión al mismo tiempo.
 
-Las operaciones de mutación son los siguientes: [Cambiar configuración de implementación](/previous-versions/azure/reference/ee460809(v=azure.100)), [actualizar implementación](/previous-versions/azure/reference/ee460793(v=azure.100)), [actualizar estado de implementación](/previous-versions/azure/reference/ee460808(v=azure.100)), [eliminar implementación](/previous-versions/azure/reference/ee460815(v=azure.100)), y [reversión Actualizar](/previous-versions/azure/reference/hh403977(v=azure.100)).
+Las operaciones de mutación son las siguientes: [Cambiar configuración de implementación](/previous-versions/azure/reference/ee460809(v=azure.100)), [Actualizar implementación](/previous-versions/azure/reference/ee460793(v=azure.100)), [Actualizar estado de la implementación](/previous-versions/azure/reference/ee460808(v=azure.100)), [Eliminar implementación](/previous-versions/azure/reference/ee460815(v=azure.100)) y [Actualización o reversión de la actualización](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 Dos operaciones, [Obtener implementación](/previous-versions/azure/reference/ee460804(v=azure.100)) y [Obtener propiedades de servicio en la nube](/previous-versions/azure/reference/ee460806(v=azure.100)), devuelven la marca de bloqueado que se puede examinar para determinar si una operación de mutación se puede llamar en una implementación determinada.
 
-Para poder llamar a la versión de estos métodos que devuelve la marca de bloqueado, debe establecer el encabezado de solicitud en "x-ms-version: 2011-10-01 "o una versión posterior. Para obtener más información acerca de los encabezados de control de versiones, consulte [Control de versiones de la administración del servicio](/previous-versions/azure/gg592580(v=azure.100)).
+Para llamar a la versión de estos métodos que devuelve la marca de bloqueado, debe establecer el encabezado de solicitud a "x-ms-version: 2011-10-01" o una versión posterior. Para obtener más información acerca de los encabezados de control de versiones, consulte [Control de versiones de la administración del servicio](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

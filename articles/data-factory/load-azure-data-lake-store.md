@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549186"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen1 mediante Azure Data Factory
@@ -26,10 +26,10 @@ Azure Data Factory es un servicio de integración de datos en la nube totalmente
 
 Azure Data Factory ofrece las siguientes ventajas para cargar datos en Data Lake Storage Gen1:
 
-* **Fácil de configurar**: Un asistente intuitivo de 5 pasos sin necesidad de scripting.
-* **Almacén de datos enriquecidos admiten**: Compatibilidad integrada para un amplio conjunto de servidores locales y almacenes de datos basado en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Seguro y conforme**: Se transfieran a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
-* **Alto rendimiento**: Hasta la velocidad de carga de datos de 1 GB/s en Data Lake Storage Gen1. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
+* **Fácil de configurar**: con un asistente intuitivo en cinco pasos sin necesidad de scripting.
+* **Amplia compatibilidad para el almacenamiento de datos**: compatibilidad integrada para un amplio conjunto de almacenes de datos tanto locales como en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Seguro y compatible**: los datos se transfieren a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
+* **Alto rendimiento**: hasta 1 GB/s de velocidad de carga de datos en Data Lake Storage Gen1. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
 
 En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Factory para _cargar datos de Amazon S3 en Data Lake Storage Gen1_. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
 
@@ -39,7 +39,7 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Cuenta de Data Lake Storage Gen1: Si no tienes una cuenta de Data Lake Storage Gen1, consulte las instrucciones de [crear una cuenta de Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
+* Cuenta de Data Lake Storage Gen1: si no tiene una cuenta de Data Lake Storage Gen1, consulte las instrucciones de [Creación de una cuenta de Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
 * Amazon S3: En este artículo se muestra cómo copiar datos de Amazon S3. Puede usar otros almacenes de datos siguiendo los mismos pasos.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
@@ -52,7 +52,7 @@ En este artículo se muestra cómo utilizar la herramienta Copy Data de Data Fac
       
    ![Página New data factory (Nueva factoría de datos)](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSG1Demo\" no está disponible", escriba uno diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadADLSG1Demo\" no está disponible", escriba uno diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_ **ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
     * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versión**: seleccione **V2**.

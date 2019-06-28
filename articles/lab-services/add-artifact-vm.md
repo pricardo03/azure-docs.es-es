@@ -1,6 +1,6 @@
 ---
-title: Agregar un artefacto a una máquina virtual en Azure DevTest Labs | Microsoft Docs
-description: Obtenga información sobre cómo agregar un artefacto a una máquina virtual en un laboratorio en Azure DevTest Labs
+title: Incorporación de un artefacto a una máquina virtual en Azure DevTest Labs | Microsoft Docs
+description: Obtenga información sobre cómo agregar un artefacto a una máquina virtual en un laboratorio de Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60304290"
 ---
-# <a name="add-an-artifact-to-a-vm"></a>Agregar un artefacto a una máquina virtual
-Al crear una máquina virtual, puede agregar artefactos existentes en él. Estos artefactos pueden ser desde el [repositorio de Git de DevTest Labs público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o desde su propio repositorio de Git. Este artículo muestra cómo agregar los artefactos en Azure portal y mediante el uso de Azure PowerShell. 
+# <a name="add-an-artifact-to-a-vm"></a>Incorporación de un artefacto a una máquina virtual
+Al crear una máquina virtual, puede agregar artefactos existentes a esta. Estos artefactos pueden provenir del [repositorio de Git de DevTest Labs público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o de su propio repositorio de Git. En este artículo se muestra cómo agregar artefactos en Azure Portal y mediante Azure PowerShell. 
 
 Los *artefactos* de Azure DevTest Labs permiten especificar las *acciones* que se realizan al aprovisionarse la máquina virtual, como, por ejemplo, la ejecución de scripts de Windows PowerShell, la ejecución de comandos Bash y la instalación de software. Los *parámetros* del artefacto le permiten personalizar el artefacto para su escenario en particular.
 
-Para obtener información acerca de cómo crear artefactos personalizados, consulte el artículo: [Creación de artefactos personalizados](devtest-lab-artifact-author.md).
+Para obtener información sobre cómo crear artefactos personalizados, consulte el artículo: [Cree artefactos personalizados](devtest-lab-artifact-author.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -65,7 +65,7 @@ Los siguientes pasos muestran cómo ver o modificar los parámetros de un artefa
 1. Seleccione **Aceptar** para cerrar el panel **Artefactos seleccionados**.
 
 ## <a name="use-powershell"></a>Uso de PowerShell
-El siguiente script aplica el artefacto especificado a la máquina virtual especificada. El [Invoke AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) comando es lo que realiza la operación.  
+El siguiente script aplica el artefacto especificado a la máquina virtual especificada. El comando [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) es el que realiza la operación.  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-En los artefactos, consulte los siguientes artículos:
+Consulte los artículos siguientes sobre los artefactos:
 
-- [Especifique los artefactos obligatorios para el laboratorio](devtest-lab-mandatory-artifacts.md)
+- [Especificación de artefactos obligatorios para su laboratorio](devtest-lab-mandatory-artifacts.md)
 - [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
-- [Agregar un repositorio de artefactos a un laboratorio](devtest-lab-artifact-author.md)
+- [Incorporación de un repositorio de artefactos a un laboratorio](devtest-lab-artifact-author.md)
 - [Diagnóstico de errores de artefactos](devtest-lab-troubleshoot-artifact-failure.md)

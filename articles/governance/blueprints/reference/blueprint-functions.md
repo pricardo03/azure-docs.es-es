@@ -1,6 +1,6 @@
 ---
-title: Funciones de plano técnico de Azure
-description: Describe las funciones para su uso con Azure planos definiciones y asignaciones.
+title: Funciones de Azure Blueprints
+description: Describe las funciones para usarlas en definiciones y asignaciones de Azure Blueprints.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/15/2019
@@ -8,15 +8,15 @@ ms.topic: reference
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209403"
 ---
-# <a name="functions-for-use-with-azure-blueprints"></a>Funciones para su uso con proyectos de Azure
+# <a name="functions-for-use-with-azure-blueprints"></a>Funciones para usar con Azure Blueprints
 
-Planos técnicos de Azure proporciona funciones de creación de una definición del plano técnico más dinámicas. Estas funciones son para su uso con la definición del plano técnico y los artefactos del plano. Un artefacto de la plantilla de Resource Manager admite el uso completo de funciones de Resource Manager además de obtener un valor dinámico a través de un parámetro de plano técnico.
+Azure Blueprints proporciona funciones que aportan dinamismo a la definición de los planos técnicos. Estas funciones se usan con las definiciones y los artefactos de los planos técnicos. Un artefacto de la plantilla de Resource Manager admite el uso completo de las funciones de Resource Manager, además de obtener un valor dinámico mediante un parámetro de plano técnico.
 
 Se admiten las siguientes funciones:
 
@@ -31,7 +31,7 @@ Se admiten las siguientes funciones:
 
 `artifacts(artifactName)`
 
-Devuelve un objeto de propiedades que rellena con ese artefacto de plano técnico salidas.
+Devuelve un objeto de propiedades rellenadas con los resultados de los artefactos de ese plano técnico.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -41,7 +41,7 @@ Devuelve un objeto de propiedades que rellena con ese artefacto de plano técnic
 
 ### <a name="return-value"></a>Valor devuelto
 
-Un objeto de propiedades de salida. El **genera** propiedades dependen del tipo de artefacto de plano técnico que se hace referencia. Todos los tipos tienen el formato:
+Un objeto de propiedades de salida. Las propiedades **outputs** dependen del tipo de artefacto de plano técnico al que se hace referencia. Todos los tipos tienen este formato:
 
 ```json
 {
@@ -49,7 +49,7 @@ Un objeto de propiedades de salida. El **genera** propiedades dependen del tipo 
 }
 ```
 
-#### <a name="policy-assignment-artifact"></a>Artefacto de asignación de directiva
+#### <a name="policy-assignment-artifact"></a>Artefacto de la asignación de directiva
 
 ```json
 {
@@ -61,11 +61,11 @@ Un objeto de propiedades de salida. El **genera** propiedades dependen del tipo 
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Artefacto de la plantilla de Resource Manager
+#### <a name="resource-manager-template-artifact"></a>Artefacto de la plantilla de Resource Manager
 
-El **genera** las propiedades del objeto devuelto se definen dentro de la plantilla de Resource Manager y devuelto por la implementación.
+Las propiedades **outputs** del objeto devuelto se definen en la plantilla de Resource Manager y los devuelve la implementación.
 
-#### <a name="role-assignment-artifact"></a>Artefacto de asignación de rol
+#### <a name="role-assignment-artifact"></a>Artefacto de asignación de roles
 
 ```json
 {
@@ -79,7 +79,7 @@ El **genera** las propiedades del objeto devuelto se definen dentro de la planti
 
 ### <a name="example"></a>Ejemplo
 
-Un artefacto de la plantilla de Resource Manager con el Id. de _myTemplateArtifact_ propiedad de salida que contiene el ejemplo siguiente:
+Un artefacto de plantilla de Resource Manager con el identificador _myTemplateArtifact_ que contenga la siguiente propiedad de salida de ejemplo:
 
 ```json
 {
@@ -105,16 +105,16 @@ Un artefacto de la plantilla de Resource Manager con el Id. de _myTemplateArtifa
 }
 ```
 
-Algunos ejemplos de recuperación de datos desde el _myTemplateArtifact_ ejemplo son:
+Algunos ejemplos de recuperación de datos de la plantilla _myTemplateArtifact_ son los siguientes:
 
-| Expresión | Type | Valor |
+| Expression | Type | Valor |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "primero" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | string | "Mi valor de cadena" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "Mi value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True  |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadena | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | Cadena | "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Cadena | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -127,7 +127,7 @@ Combina varios valores de cadena y devuelve la cadena concatenada.
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | string1 |Sí |string |El primer valor para la concatenación. |
-| argumentos adicionales |No |string |Valores adicionales en orden secuencial para la concatenación |
+| argumentos adicionales |Sin |string |Valores adicionales en orden secuencial para la concatenación |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -135,7 +135,7 @@ Una cadena de valores concatenados.
 
 ### <a name="remarks"></a>Comentarios
 
-La función de Azure Blueprint difiere de la función de plantilla de Azure Resource Manager que sólo funciona con cadenas.
+La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager en que solo funciona con cadenas.
 
 ### <a name="example"></a>Ejemplo
 
@@ -145,7 +145,7 @@ La función de Azure Blueprint difiere de la función de plantilla de Azure Reso
 
 `parameters(parameterName)`
 
-Devuelve un valor de parámetro de plano técnico. El nombre del parámetro especificado debe definirse en la definición del plano técnico o en artefactos de plano técnico.
+Devuelve un valor de parámetro de plano técnico. El nombre del parámetro especificado debe estar definido en la definición o en los artefactos del plano técnico.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -155,15 +155,15 @@ Devuelve un valor de parámetro de plano técnico. El nombre del parámetro espe
 
 ### <a name="return-value"></a>Valor devuelto
 
-El valor del parámetro del artefacto de plano técnico o plano especificado.
+El valor del parámetro del plano técnico o del artefacto de plano técnico especificado.
 
 ### <a name="remarks"></a>Comentarios
 
-La función de Azure Blueprint difiere de la función de plantilla de Azure Resource Manager que sólo funciona con los parámetros de plano técnico.
+La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager en que solo funciona con parámetros de plano técnico.
 
 ### <a name="example"></a>Ejemplo
 
-Definir parámetro _principalIds_ en la definición del plano técnico:
+Defina el parámetro _principalIds_ en la definición del plano técnico:
 
 ```json
 {
@@ -185,7 +185,7 @@ Definir parámetro _principalIds_ en la definición del plano técnico:
 }
 ```
 
-A continuación, usar _principalIds_ como argumento para `parameters()` en un artefacto de plano técnico:
+Después use _principalIds_ como argumento para `parameters()` en un artefacto de plano técnico:
 
 ```json
 {
@@ -219,13 +219,13 @@ El objeto devuelto está en el formato siguiente:
 
 ### <a name="remarks"></a>Comentarios
 
-La función de Azure Blueprint difiere de la función de plantilla de Azure Resource Manager. El `resourceGroup()` función no se puede usar en un artefacto de nivel de suscripción o en la definición del plano técnico. Solo puede usarse en artefactos de plano técnico que forman parte de un artefacto del grupo de recursos.
+La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager. La función `resourceGroup()` no se puede usar en un artefacto de nivel de suscripción ni en la definición del plano técnico. Solo puede usarse en artefactos de plano técnico que forman parte de un artefacto del grupo de recursos.
 
-Un uso común de la `resourceGroup()` función consiste en crear recursos en la misma ubicación que el artefacto de grupo de recursos.
+La función `resourceGroup()` acostumbra a usarse para crear recursos en la misma ubicación que artefacto del grupo de recursos.
 
 ### <a name="example"></a>Ejemplo
 
-Para usar la ubicación del grupo de recursos, establecido en la definición del plano técnico o durante la asignación, como la ubicación de otro artefacto, declare un objeto de marcador de posición de grupo de recursos en la definición del plano técnico. En este ejemplo, _NetworkingPlaceholder_ es el nombre del marcador de posición de grupo de recursos.
+Para usar como ubicación de otro artefacto la ubicación del grupo de recursos, establecida en la definición del plano técnico o durante la asignación, indique un objeto de marcador de posición del grupo de recursos en la definición del plano técnico. En este ejemplo, _NetworkingPlaceholder_ es el nombre del marcador de posición del grupo de recursos.
 
 ```json
 {
@@ -241,7 +241,7 @@ Para usar la ubicación del grupo de recursos, establecido en la definición del
 }
 ```
 
-A continuación, utilice el `resourceGroup()` función en el contexto de un artefacto de plano técnico está destinado a un objeto de marcador de posición de grupo de recursos. En este ejemplo, el artefacto de la plantilla se implementa en el _NetworkingPlaceholder_ grupo de recursos y proporciona el parámetro _resourceLocation_ completa dinámicamente con el  _NetworkingPlaceholder_ ubicación del grupo de recursos a la plantilla. La ubicación de la _NetworkingPlaceholder_ podría haberse definido estáticamente en la definición del plano técnico o definido dinámicamente durante la asignación de grupo de recursos. En cualquier caso, el artefacto de la plantilla se proporciona esa información como un parámetro y lo usa para implementar los recursos en la ubicación correcta.
+Después utilice la función `resourceGroup()` en el contexto de un artefacto de plano técnico destinado a un objeto de marcador de posición de grupo de recursos. En este ejemplo, el artefacto de la plantilla se implementa en el grupo de recursos _NetworkingPlaceholder_ y proporciona el parámetro _resourceLocation_ que se rellena dinámicamente con la ubicación del grupo de recursos  _NetworkingPlaceholder_ en la plantilla. La ubicación del grupo de recursos _NetworkingPlaceholder_ puede haberse definido estáticamente en la definición del plano técnico o dinámicamente durante la asignación. En cualquier caso, el artefacto de la plantilla recibe esa información como un parámetro y lo usa para implementar los recursos en la ubicación correcta.
 
 ```json
 {
@@ -266,13 +266,13 @@ A continuación, utilice el `resourceGroup()` función en el contexto de un arte
 
 `resourceGroups(placeholderName)`
 
-Devuelve un objeto que representa el artefacto de grupo de recursos especificado. A diferencia de `resourceGroup()`, lo que requiere el contexto del artefacto, esta función se utiliza para obtener las propiedades de un marcador de posición de grupo de recursos específico cuando no esté en el contexto de ese grupo de recursos.
+Devuelve un objeto que representa el artefacto del grupo de recursos especificado. A diferencia de `resourceGroup()`, que requiere el contexto del artefacto, esta función se utiliza para obtener las propiedades de un marcador de posición de grupo de recursos específico cuando no esté en el contexto de ese grupo de recursos.
 
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| placeholderName |Sí |string |El nombre de marcador de posición del artefacto de grupo de recursos para devolver. |
+| placeholderName |Sí |string |El nombre de marcador de posición del artefacto del grupo de recursos que se va a devolver. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -287,7 +287,7 @@ El objeto devuelto está en el formato siguiente:
 
 ### <a name="example"></a>Ejemplo
 
-Para usar la ubicación del grupo de recursos, establecido en la definición del plano técnico o durante la asignación, como la ubicación de otro artefacto, declare un objeto de marcador de posición de grupo de recursos en la definición del plano técnico. En este ejemplo, _NetworkingPlaceholder_ es el nombre del marcador de posición de grupo de recursos.
+Para usar como ubicación de otro artefacto la ubicación del grupo de recursos, establecida en la definición del plano técnico o durante la asignación, indique un objeto de marcador de posición del grupo de recursos en la definición del plano técnico. En este ejemplo, _NetworkingPlaceholder_ es el nombre del marcador de posición del grupo de recursos.
 
 ```json
 {
@@ -303,7 +303,7 @@ Para usar la ubicación del grupo de recursos, establecido en la definición del
 }
 ```
 
-A continuación, utilice el `resourceGroups()` función desde el contexto de cualquier artefacto de plano técnico para obtener una referencia al objeto de marcador de posición del grupo de recursos. En este ejemplo, el artefacto de la plantilla se implementa fuera del _NetworkingPlaceholder_ grupo de recursos y proporciona el parámetro _artifactLocation_ completa dinámicamente con el  _NetworkingPlaceholder_ ubicación del grupo de recursos a la plantilla. La ubicación de la _NetworkingPlaceholder_ podría haberse definido estáticamente en la definición del plano técnico o definido dinámicamente durante la asignación de grupo de recursos. En cualquier caso, el artefacto de la plantilla se proporciona esa información como un parámetro y lo usa para implementar los recursos en la ubicación correcta.
+Después utilice la función `resourceGroups()` en el contexto de un artefacto de plano técnico para obtener una referencia al objeto de marcador de posición de grupo de recursos. En este ejemplo, el artefacto de la plantilla se implementa fuera del grupo de recursos _NetworkingPlaceholder_ y proporciona el parámetro _artifactLocation_ que se rellena dinámicamente con la ubicación del grupo de recursos  _NetworkingPlaceholder_ en la plantilla. La ubicación del grupo de recursos _NetworkingPlaceholder_ puede haberse definido estáticamente en la definición del plano técnico o dinámicamente durante la asignación. En cualquier caso, el artefacto de la plantilla recibe esa información como un parámetro y lo usa para implementar los recursos en la ubicación correcta.
 
 ```json
 {
@@ -324,11 +324,11 @@ A continuación, utilice el `resourceGroups()` función desde el contexto de cua
 }
 ```
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>suscripción
 
 `subscription()`
 
-Devuelve detalles acerca de la suscripción para la asignación del plano técnico actual.
+Devuelve detalles sobre la suscripción para la asignación actual del plano técnico.
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -345,7 +345,7 @@ El objeto devuelto está en el formato siguiente:
 
 ### <a name="example"></a>Ejemplo
 
-Utilice el nombre para mostrar de la suscripción y la `concat()` función para crear una convención de nomenclatura que se pasa como parámetro _resourceName_ del artefacto de la plantilla.
+Utilice el nombre para mostrar de la suscripción y la función `concat()` para crear una convención de nomenclatura que pasa como el parámetro _resourceName_ al artefacto de la plantilla.
 
 ```json
 {

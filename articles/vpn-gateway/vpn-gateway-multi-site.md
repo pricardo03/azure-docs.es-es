@@ -1,5 +1,5 @@
 ---
-title: 'Conectar una red virtual a varios sitios con VPN Gateway y PowerShell: Classic | Microsoft Docs'
+title: 'Conexión de una red virtual a varios sitios con VPN Gateway y PowerShell: modelo clásico | Microsoft Docs'
 description: Conecte varios sitios locales a una red virtual clásica con una instancia de VPN Gateway.
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836097"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
@@ -75,8 +75,8 @@ Si ya tiene una VPN de sitio a sitio con una puerta de enlace de enrutamiento di
 2. Configure la nueva puerta de enlace y cree un túnel de VPN. Para obtener instrucciones, consulte [Especificación del tipo de VPN y SKU](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Asegúrese de especificar el tipo de enrutamiento como "Dinámico".
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Si no dispone de una red virtual de sitio a sitio:
-1. Cree la red virtual de sitio a sitio con estas instrucciones: [Crear una red Virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).  
-2. Configurar una puerta de enlace de enrutamiento dinámico usando estas instrucciones: [Configurar una puerta de enlace VPN](vpn-gateway-configure-vpn-gateway-mp.md). Asegúrese de seleccionar **enrutamiento dinámico** como tipo de puerta de enlace.
+1. Cree la red virtual de sitio a sitio mediante las instrucciones que se describen en: [Creación de una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).  
+2. Configure una puerta de enlace de enrutamiento mediante estas instrucciones: [Configuración de una instancia de VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Asegúrese de seleccionar **enrutamiento dinámico** como tipo de puerta de enlace.
 
 ## <a name="export"></a>2. Exportar el archivo de configuración de red
 Exporte el archivo de configuración de red de Azure mediante la ejecución del comando siguiente. Puede cambiar la ubicación del archivo que se va a exportar a una ubicación diferente si es necesario.
@@ -163,7 +163,7 @@ Importe un archivo de configuración de red. Cuando importe este archivo con los
 ## <a name="6-download-keys"></a>6. Descargar las claves
 Una vez que se han agregado los nuevos túneles, use el cmdlet de PowerShell 'Get-AzureVNetGatewayKey' para obtener las claves IPsec/IKE compartidas previamente para cada túnel.
 
-Por ejemplo: 
+Por ejemplo:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

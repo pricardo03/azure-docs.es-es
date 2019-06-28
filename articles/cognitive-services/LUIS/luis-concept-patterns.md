@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813570"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
@@ -31,21 +31,21 @@ Piense en una aplicación de recursos humanos que informa sobre el organigrama e
 |¿Quién es el subalterno de Tom?|GetOrgChart|.30|
 |¿Quién es el subalterno de Tom?|GetOrgChart|.30|
 
-Si una aplicación tiene entre 10 y 20 expresiones con distintas longitudes de oraciones, diferente orden de palabras, e incluso diferentes palabras (sinónimos de "subalterno", "administrar", "informe"), LUIS puede devolver una puntuación de confianza baja. Crear un patrón para ayudar a LUIS a comprender la importancia del orden de word. 
+Si una aplicación tiene entre 10 y 20 expresiones con distintas longitudes de oraciones, diferente orden de palabras, e incluso diferentes palabras (sinónimos de "subalterno", "administrar", "informe"), LUIS puede devolver una puntuación de confianza baja. Para ayudar a LUIS a comprender la importancia del orden de las palabras, cree un patrón. 
 
 Los patrones solucionan las situaciones siguientes: 
 
-* La puntuación de la intención es baja
-* La intención correcta no es la puntuación de superior pero demasiado cerca de la puntuación de superior. 
+* La puntuación de la intención es baja.
+* La intención correcta no es la puntuación más alta, pero se acerca demasiado a ella. 
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Los patrones no son una garantía de intención
 Los patrones emplean una combinación de tecnologías de predicción. Establecer una intención para una expresión de plantilla en un patrón no es una garantía de la predicción de la intención, pero es un buen indicio. 
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Patrones no mejoran la detección de la entidad ha aprendido la máquina
+## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Los patrones no mejoran la detección de entidades de aprendizaje automático.
 
-Un patrón está pensado principalmente para ayudar a la predicción de intenciones y roles. La entidad pattern.any se usa para extraer las entidades de forma libre. Mientras que los patrones utilizan las entidades, un patrón no ayuda a detectar una entidad que ha aprendido la máquina.  
+La única finalidad de un patrón es ayudar a la predicción de intenciones y roles. La entidad pattern.any se usa para extraer entidades de forma libre. Si bien los patrones usan entidades, un patrón no ayuda a detectar una entidad de aprendizaje automático.  
 
 No espere ver una predicción de entidad mejorada si contrae varias expresiones en un patrón único. Para que las entidades simples se activen, tendrá que agregar expresiones o usar entidades de la lista, de lo contrario no se activará el patrón.
 
@@ -61,55 +61,55 @@ La coincidencia con un patrón se basa en primer lugar en la detección de entid
 ## <a name="pattern-syntax"></a>Sintaxis del patrón
 La sintaxis del patrón es una plantilla para una expresión. La plantilla debe contener las palabras y entidades que quiere que coincidan, así como las palabras y los signos de puntuación que quiere omitir. **No** es una expresión regular. 
 
-Las entidades en los patrones aparecen entre llaves, `{}`. Los patrones pueden incluir entidades y entidades con roles. [Pattern.Any](luis-concept-entity-types.md#patternany-entity) es una entidad solo se usan en patrones. 
+Las entidades en los patrones aparecen entre llaves, `{}`. Los patrones pueden incluir entidades y entidades con roles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) es una entidad que solo se usa en los patrones. 
 
-Sintaxis de patrón es compatible con la sintaxis siguiente:
+La sintaxis de patrón admite la sintaxis siguiente:
 
 |Función|Sintaxis|Nivel de anidamiento|Ejemplo|
 |--|--|--|--|
-|Entidad| {} -entre llaves|2|¿Dónde está el formulario {entity-name}?|
-|opcional|[] - corchetes<BR><BR>Hay un límite de 3 niveles de anidamiento de cualquier combinación de opcionales y agrupación |2|El signo de interrogación es opcional [?]|
-|agrupación|() - paréntesis|2|es (un \| b).|
-|o| \| -vertical de la barra (canalización)<br><br>Hay un límite de 2 en las barras verticales (o) en un grupo |-|Donde es el formulario ({nombre de forma corta} &#x7c; {nombre de formulario largo} &#x7c; {número de formulario})| 
-|principio o final de utterance (dictado)|^: símbolo de intercalación|-|^ empezar la declaración<br>se realiza la declaración ^<br>^ strict coincidencia literal de utterance todo con la entidad {number} ^|
+|Entidad| {}: llaves|2|Where is form {entity-name}?|
+|opcional|[]: corchetes<BR><BR>Hay un límite de 3 niveles de anidamiento de cualquier combinación de opcional y agrupación. |2|El signo de interrogación es opcional [?]|
+|agrupación|(): paréntesis|2|es (a \| b)|
+|o| \|: barra vertical<br><br>Hay un límite de 2 en las barras verticales (o) en un grupo. |-|Where is form ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})| 
+|principio o final de la expresión|^: símbolo de intercalación|-|^comienzo de la expresión<br>la expresión está terminada^<br>^coincidencia estricta de literal de la expresión entera con la entidad {number}^|
 
-## <a name="nesting-syntax-in-patterns"></a>Sintaxis de anidamiento en patrones
+## <a name="nesting-syntax-in-patterns"></a>Sintaxis de anidamiento en los patrones
 
-El **opcional** sintaxis con corchetes, pueden ser de dos niveles anidados. Por ejemplo: `[[this]is] a new form`. En este ejemplo se permite para las declaraciones siguientes: 
+La sintaxis **opcional**, con corchetes, se puede anidar dos niveles. Por ejemplo: `[[this]is] a new form`. Este ejemplo permite las expresiones siguientes: 
 
-|Ejemplo de declaración opcionales anidados|Explicación|
+|Ejemplo de expresión opcional anidada|Explicación|
 |--|--|
-|se trata de un nuevo formulario|coincide con todas las palabras en el patrón|
-|es un nuevo formulario|coincide con la palabra opcional externa y palabras que no es opcional en el patrón|
-|un nuevo formulario|sólo palabras coincidencias necesarias|
+|this is a new form|coincide con todas las palabras del patrón|
+|is a new form|coincide con la palabra opcional externa y las palabras no opcionales del patrón|
+|a new form|solo coincide con las palabras necesarias|
 
-El **agrupación** sintaxis con paréntesis, pueden ser de dos niveles anidados. Por ejemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esta característica permite que cualquiera de las tres entidades que se debe coincidir. 
+La sintaxis de **agrupación**, con paréntesis, se puede anidar dos niveles. Por ejemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esta característica permite buscar la coincidencia con cualquiera de las tres entidades. 
 
-Si Entity1 es una ubicación con funciones como origen (Seattle) y de destino (Cairo) y 2 de la entidad es un nombre conocido de creación de una entidad de la lista (RedWest-C), las declaraciones siguientes se asignarían a este patrón:
+Si Entity1 es una ubicación con roles como origen (Seattle) y destino (El Cairo) y Entity2 es un nombre de edificio conocido de una entidad de la lista (RedWest-C), las expresiones siguientes se asignarían a este patrón:
 
-|Ejemplo de agrupación anidadas utterance (dictado)|Explicación|
+|Ejemplo de expresión de agrupación anidada|Explicación|
 |--|--|
-|RedWest-C|coincide con la entidad de grupo externo|
-|Seattle|coincide con una de las entidades de agrupación interno|
-|El Cairo|coincide con una de las entidades de agrupación interno|
+|RedWest-C|coincide con la entidad de agrupación externa|
+|Seattle|coincide con una de las entidades de agrupación interna|
+|El Cairo|coincide con una de las entidades de agrupación interna|
 
-## <a name="nesting-limits-for-groups-with-optional-syntax"></a>Límites de anidamiento de grupos con una sintaxis opcional
+## <a name="nesting-limits-for-groups-with-optional-syntax"></a>Límites de anidamiento de grupos con sintaxis opcional
 
-Una combinación de **agrupación** con **opcional** sintaxis tiene un límite de 3 niveles de anidamiento.
+Una combinación de sintaxis de **agrupación** con **opcional** tiene un límite de 3 niveles de anidamiento.
 
 |Permitida|Ejemplo|
 |--|--|
-|Sí|([(test1 &#x7c; test2)] &#x7c; test3)|
-|Sin |( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
+|Sí|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
+|Sin|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
 
-## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Límites de anidamiento para grupos con sintaxis o ing
+## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Límites de anidamiento para grupos con sintaxis or-ing
 
-Una combinación de **agrupación** con **o ing** sintaxis tiene un límite de 2 barras verticales.
+Una combinación de sintaxis de **agrupación** con sintaxis **or-ing** tiene un límite de 2 barras verticales.
 
 |Permitida|Ejemplo|
 |--|--|
-|Sí|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
-|Sin |(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|Sí|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
+|Sin|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxis para agregar una entidad a una plantilla de patrón
 Para agregar una entidad a la plantilla de patrón, incluya el nombre de la entidad entre llaves, por ejemplo, `Who does {Employee} manage?`. 
@@ -140,14 +140,14 @@ Para agregar una entidad **pattern.any** a la plantilla de patrón, incluya dich
 |¿Cuánto cuesta **preguntar** y en qué formato está disponible?|
 |¿Cuánto cuesta **El curioso incidente del perro en la noche** y en qué formato está disponible?| 
 
-Las palabras del título del libro no resultan confusas para LUIS ya sabe que LUIS donde finaliza el título del libro, en función de la entidad Pattern.any.
+Las palabras del título de un libro no resultan confusas para LUIS porque sabe dónde finaliza el título del libro, en función de la entidad Pattern.any.
 
 ## <a name="explicit-lists"></a>Listas explícitas
 
-crear un [lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) a través de la API de creación para permitir la excepción cuando:
+Cree una [lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) mediante la API de creación para permitir la excepción cuando:
 
-* El patrón contiene un [Pattern.any](luis-concept-entity-types.md#patternany-entity)
-* Y esa sintaxis patrón permite la posibilidad de una extracción de entidades correcto basándose en la declaración. 
+* El patrón contenga una entidad [Pattern.any](luis-concept-entity-types.md#patternany-entity).
+* Y la sintaxis de ese patrón permita la posibilidad de una extracción de entidades incorrecta según la expresión. 
 
 Por ejemplo, suponga que tiene un patrón que contiene tanto la sintaxis opcional, `[]`, como la sintaxis de la entidad, `{}`, combinadas para extraer datos de forma incorrecta.
 
@@ -160,7 +160,7 @@ En las siguientes expresiones, las entidades **subject** y **person** se extraen
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-En la tabla anterior, debe ser el sujeto `the man from La Mancha` (un título de libro), pero dado que el asunto incluye la palabra opcional `from`, el título se predice incorrectamente. 
+En la tabla anterior, el asunto debería ser `the man from La Mancha` (el título de un libro), pero como el asunto incluye la palabra opcional `from`, el título se predice de forma incorrecta. 
 
 Para corregir esta excepción al patrón, agregue `the man from la mancha` como una coincidencia de lista explícita de la entidad {subject} mediante la [API de creación de lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -169,13 +169,13 @@ Marque texto opcional en la expresión mediante la sintaxis de corchetes de expr
 
 |Patrón con texto opcional|Significado|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find` y `from {person}` son opcionales|
-|' Puede ayudarme [?] | El signo de puntuación es opcional|
+|`[find] email about {subject} [from {person}]`|`find` y `from {person}` son opcionales.|
+|"¿Puede ayudarme[?]|El signo de puntuación es opcional.|
 
-Signos de puntuación (`?`, `!`, `.`) se deben omitir y deberá omitir usando la sintaxis de corchete en patrones. 
+Los signos de puntuación (`?`, `!`, `.`) se deben omitir y deberá omitirlos usando la sintaxis de corchetes en los patrones. 
 
-## <a name="pattern-only-apps"></a>Aplicaciones solo patrón
-Puede crear una aplicación con las intenciones que no tengan ninguna grabaciones de voz de ejemplo, siempre y cuando hay un patrón para cada intento. Para una aplicación solo patrón, el patrón no debe contener entidades ha aprendido la máquina porque requieren grabaciones de voz de ejemplo. 
+## <a name="pattern-only-apps"></a>Aplicaciones de un único patrón
+Puede crear una aplicación con intenciones que no tengan ninguna expresión de ejemplo, siempre y cuando haya un patrón para cada intención. En aplicaciones de un único patrón, el patrón no debe contener entidades de aprendizaje automático porque estas no requieren expresiones de ejemplo. 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 Obtenga información sobre los [procedimientos recomendados](luis-concept-best-practices.md).

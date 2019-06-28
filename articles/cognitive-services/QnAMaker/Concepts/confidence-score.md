@@ -12,10 +12,10 @@ ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792750"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Puntuación de confianza de una base de conocimiento de QnA Maker
@@ -46,13 +46,13 @@ En la tabla siguiente se indica la confianza típico asociada a un resultado det
 |0|Ninguna coincidencia, por lo que no se devuelve una respuesta.|"¿Cuánto cuesta el servicio?"|
 
 ## <a name="choose-a-score-threshold"></a>Seleccionar un umbral de puntuación
-En la tabla anterior se muestran las puntuaciones que se pueden esperar en la mayoría de KB. Aun así, como cada KB es diferente y contiene tipos de palabras, intenciones y objetivos distintos, se recomienda que pruebe y seleccione el umbral que mejor funcione en su caso. De forma predeterminada el umbral se establece en 0, por lo que se devuelven todas las respuestas posibles. Es el umbral recomendado que debería funcionar para la mayoría de artículos de Knowledge Base, **50**.
+En la tabla anterior se muestran las puntuaciones que se pueden esperar en la mayoría de KB. Aun así, como cada KB es diferente y contiene tipos de palabras, intenciones y objetivos distintos, se recomienda que pruebe y seleccione el umbral que mejor funcione en su caso. De forma predeterminada, el umbral se establece en 0, por lo que se devuelven todas las respuestas posibles. El umbral recomendado que debe funcionar para la mayoría de bases de conocimiento es **50**.
 
 Al elegir el umbral, tenga en cuenta el equilibrio entre los valores de Precisión y Cobertura, y ajuste el umbral según sus requisitos.
 
 - Si la **Precisión** es más importante en su caso, aumente el umbral. De este modo, cada vez que se devuelva una respuesta, el resultado será mucho más confiable y probablemente responderá a lo que buscan los usuarios. En este caso, podrían quedar más preguntas sin responder. *Por ejemplo:* si establece el umbral en **70**, podría perder la oportunidad de responder a algunos ejemplos ambiguos, como "¿Qué es Guardar y entrenar?".
 
-- Si la **Cobertura** (o coincidencia) es más importante y quiere responder a tantas preguntas como sea posible, incluso aunque solo haya una relación parcial con la pregunta del usuario, reduzca el umbral. Esto significa que podría haber más casos en los que el resultado no responde a la consulta en sí del usuario, pero proporciona otra respuesta en cierto modo relacionada. *Por ejemplo:* si realiza el umbral **30**, podría dar respuestas para las consultas como "¿Dónde puedo editar mi KB?"
+- Si la **Cobertura** (o coincidencia) es más importante y quiere responder a tantas preguntas como sea posible, incluso aunque solo haya una relación parcial con la pregunta del usuario, reduzca el umbral. Esto significa que podría haber más casos en los que el resultado no responde a la consulta en sí del usuario, pero proporciona otra respuesta en cierto modo relacionada. *Por ejemplo:* si crea el umbral **30**, podría dar respuestas a consultas del tipo "¿Dónde puedo editar mi KB?"
 
 > [!NOTE]
 > Las versiones más recientes de QnA Maker incluyen mejoras en la lógica de puntuación, lo que podría afectar al umbral. Siempre que actualice el servicio, no olvide probar y ajustar el umbral, en caso necesario. Puede comprobar la versión del servicio QnA [aquí](https://www.qnamaker.ai/UserSettings)y obtener información acerca de cómo obtener las actualizaciones más recientes [aquí](../How-To/troubleshooting-runtime.md).
@@ -72,7 +72,7 @@ Si tiene una base de conocimiento en regiones diferentes, cada región usa su pr
 
 
 ## <a name="no-match-found"></a>No se encontraron coincidencias
-Si el clasificador no encuentra ninguna buena coincidencia, se devuelve una puntuación de confianza de 0,0 o "None" (Ninguna) y la respuesta predeterminada no es "No good match found in the KB" (No se encontró ninguna buena coincidencia en KB)". Puede invalidar esta [respuesta predeterminada](#change-default-answer) en el código de aplicación o bot llamando el punto de conexión. Como alternativa, también puede establecer la respuesta de invalidación en Azure, lo que cambiará el valor predeterminado para todas las knowledge base implementada en un determinado servicio QnA Maker.
+Si el clasificador no encuentra ninguna buena coincidencia, se devuelve una puntuación de confianza de 0,0 o "None" (Ninguna) y la respuesta predeterminada no es "No good match found in the KB" (No se encontró ninguna buena coincidencia en KB)". Puede invalidar esta [respuesta predeterminada](#change-default-answer) en el código de aplicación o bot mediante una llamada al punto de conexión. Como alternativa, también puede establecer la respuesta de invalidación en Azure, lo que cambiará el valor predeterminado para todas las knowledge base implementada en un determinado servicio QnA Maker.
 
 ## <a name="change-default-answer"></a>Cambio de la respuesta predeterminada
 

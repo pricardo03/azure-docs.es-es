@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800305"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 1 con máquinas virtuales Linux
@@ -123,7 +123,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
-| type | CustomScriptForLinux | string |
+| Tipo | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (p. ej.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (p. ej.) | python MyPythonScript.py \<my-param1\> | string |
@@ -296,7 +296,7 @@ Algunos puntos a tener en cuenta:
 
 1. Enable es cuando el comando empieza a ejecutarse.
 1. Download se relaciona con la descarga del paquete de extensiones de CustomScript de Azure, no los archivos de script especificados en fileUris.
-1. También puede ver se escribe en el archivo de registro `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. También puede ver el archivo de registro donde se escribe: `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 El paso siguiente consiste en comprobar el archivo de registro. Este es el formato:
 
@@ -304,7 +304,7 @@ El paso siguiente consiste en comprobar el archivo de registro. Este es el forma
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Debe buscar la ejecución individual, tendrá un aspecto algo como:
+Debe buscar la ejecución individual, que tendrá un aspecto parecido al siguiente:
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

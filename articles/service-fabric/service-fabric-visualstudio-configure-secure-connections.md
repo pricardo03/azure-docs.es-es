@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628309"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configuración de las conexiones seguras en un clúster de Service Fabric desde Visual Studio
@@ -42,9 +42,9 @@ El cuadro de diálogo **Publicación de la aplicación de Service Fabric** valid
 1. Asegúrese de que puede acceder a uno de los certificados de cliente en el que el clúster de destino puede confiar. Normalmente, el certificado se comparte como un archivo de intercambio de información personal (.pfx, Personal Information Exchange). Consulte [Configuración de un clúster de Service Fabric desde Azure Portal](service-fabric-cluster-creation-via-portal.md) para ver cómo configurar el servidor y conceder acceso a un cliente.
 2. Instale el certificado de confianza. Para ello, haga doble clic en el archivo .pfx o use el script de PowerShell Import-PfxCertificate para importar los certificados. Instale el certificado en la ubicación **Cert:\LocalMachine\My**. Acepte toda la configuración predeterminada cuando importe el certificado.
 3. Elija el comando **Publicar...** en el menú contextual del proyecto para abrir el cuadro de diálogo **Publicar aplicación de Azure** y, a continuación, seleccione el clúster de destino. La herramienta resuelve automáticamente la conexión y guarda los parámetros de conexión segura en el perfil de publicación.
-4. Opcional: Puede editar el perfil de publicación para especificar una conexión de clúster segura.
+4. Opcional: puede editar el perfil de publicación para especificar una conexión de clúster segura.
    
-   Dado que está editando manualmente el archivo XML de perfil de publicación para especificar la información del certificado, asegúrese de anotar el nombre de almacén de certificados, ubicación de almacén y huella digital de certificado. Necesitará proporcionar estos valores para la ubicación del almacén y el nombre del almacén del certificado. Consulte [Configuración de los Recuperar la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para obtener más información.
+   Dado que está editando manualmente el archivo XML de perfil de publicación para especificar la información del certificado, asegúrese de anotar el nombre de almacén de certificados, ubicación de almacén y huella digital de certificado. Necesitará proporcionar estos valores para la ubicación del almacén y el nombre del almacén del certificado. Consulte [Configuración de los Procedimiento para recuperar la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para obtener más información.
    
    Puede usar los parámetros *ClusterConnectionParameters* para especificar los parámetros de PowerShell que se van a usar cuando se conecte al clúster de Service Fabric. Los parámetros válidos son los aceptados por el cmdlet Connect-ServiceFabricCluster. Consulte [Conexión de ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) para obtener una lista de parámetros disponibles.
    

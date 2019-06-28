@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296454"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opciones para el inicio de sesión de los usuarios en Azure AD Connect
@@ -43,8 +43,8 @@ La primera decisión de la implementación de Azure AD Connect consiste en elegi
 Azure AD admite los siguientes métodos de autenticación: 
 
 * **Autenticación en la nube**: cuando se elige este método de autenticación, Azure AD administra el proceso de autenticación del inicio de sesión de los usuarios. Con la autenticación en la nube puede elegir entre dos opciones: 
-   * **Sincronización de hash de contraseñas (PHS)**: la sincronización de hash de contraseñas permite a los usuarios usar el mismo nombre de usuario y contraseña que en el entorno local sin tener que implementar infraestructura adicional, además de Azure AD Connect. 
-   * **Autenticación de paso a través (PTA)**: esta opción es similar a la sincronización de hash de contraseñas, pero proporciona una validación simple de contraseñas con agentes de software en el entorno local para las organizaciones con directivas estrictas de seguridad y cumplimiento.
+   * **Sincronización de hash de contraseñas (PHS)** : la sincronización de hash de contraseñas permite a los usuarios usar el mismo nombre de usuario y contraseña que en el entorno local sin tener que implementar infraestructura adicional, además de Azure AD Connect. 
+   * **Autenticación de paso a través (PTA)** : esta opción es similar a la sincronización de hash de contraseñas, pero proporciona una validación simple de contraseñas con agentes de software en el entorno local para las organizaciones con directivas estrictas de seguridad y cumplimiento.
 * **Autenticación federada**: cuando se elige este método de autenticación, Azure AD deja el proceso de autenticación en manos de un sistema de autenticación de confianza como, por ejemplo, una instancia de AD FS o un sistema de federación de terceros, para validar el inicio de sesión del usuario. 
 
 Para la mayoría de las organizaciones que simplemente quieren habilitar el inicio de sesión de usuarios en Office 365, aplicaciones SaaS y otros recursos basados en Azure AD, se recomienda la opción de sincronización de hash de contraseña predeterminada.

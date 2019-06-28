@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812918"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
@@ -78,7 +78,7 @@ Para obtener más información:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Agregar listas de frases y patrones en iteraciones posteriores
 
-Un procedimiento recomendado es no aplicar estas prácticas antes de que la aplicación se haya probado. Debe entender cómo se comporta la aplicación antes de agregar listas de frases y patrones porque estas características son mayor peso que grabaciones de voz de ejemplo y distorsionará confianza. 
+Un procedimiento recomendado es no aplicar estas prácticas antes de que la aplicación se haya probado. Es necesario entender cómo se comporta la aplicación antes de agregar listas de frases y patrones, ya que estas características tienen mayor peso que las expresiones de ejemplo y sesgarán la confianza. 
 
 Una vez comprenda cómo se comporta sin estas características, agregue cada una de ellas a la aplicación según corresponda. No es necesario agregar estas características con cada [iteración](luis-concept-app-iteration.md) ni cambiarlas con cada versión. 
 

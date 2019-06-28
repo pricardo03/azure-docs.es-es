@@ -16,10 +16,10 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4917720af2396b68ccd36cc0410c9acbbba2d9b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60304594"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configuración de identidades administradas de recursos de Azure en conjuntos de escalado de máquinas virtuales mediante PowerShell
@@ -36,7 +36,7 @@ En este artículo, mediante PowerShell, aprenderá a realizar las operaciones de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de control de acceso basado en rol:
 
@@ -56,13 +56,13 @@ En esta sección, aprenderá a habilitar y quitar una identidad administrada asi
 
 Para crear un conjunto de escalado de máquinas virtuales con la identidad administrada asignada por el sistema habilitada:
 
-1. Hacer referencia a *Example 1* en el [New AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) establece el artículo de referencia de cmdlet para crear una escala de máquina virtual con una identidad administrada asignado por el sistema.  Agregue el parámetro `-IdentityType SystemAssigned` al cmdlet `New-AzVmssConfig`:
+1. Consulte el *ejemplo 1* en el artículo de referencia del cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) para crear un conjunto de escalado de máquinas virtuales con una identidad administrada asignada por el sistema.  Agregue el parámetro `-IdentityType SystemAssigned` al cmdlet `New-AzVmssConfig`:
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 > [!NOTE]
-> Opcionalmente, puede aprovisionar las identidades administradas de extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure, pero pronto quedará obsoleta. Se recomienda usar el punto de conexión de Azure Instance Metadata identidad para la autenticación. Para obtener más información, consulte [dejar de usar la extensión de máquina virtual y empezar a usar el punto de conexión IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
+> Opcionalmente, puede aprovisionar las identidades administradas para la extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure, pero pronto estará en desuso. Se recomienda el uso del punto de conexión de la identidad de Instance Metadata Service de Azure para la autenticación. Para obtener más información, consulte el artículo sobre cómo [dejar de usar la extensión de máquina virtual y empezar a usar el punto de conexión de IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Habilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure existente
@@ -82,7 +82,7 @@ Si necesita habilitar una identidad administrada asignada por el sistema en un c
    ```
 
 > [!NOTE]
-> Opcionalmente, puede aprovisionar las identidades administradas de extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure, pero pronto quedará obsoleta. Se recomienda usar el punto de conexión de Azure Instance Metadata identidad para la autenticación. Para obtener más información, consulte [migrar desde la extensión de máquina virtual al punto de conexión de IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
+> Opcionalmente, puede aprovisionar las identidades administradas para la extensión del conjunto de escalado de máquinas virtuales de los recursos de Azure, pero pronto estará en desuso. Se recomienda el uso del punto de conexión de la identidad de Instance Metadata Service de Azure para la autenticación. Para obtener más información, consulte [Migración de la extensión de máquina virtual al punto de conexión de IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Deshabilitación de la identidad administrada asignada por el sistema de un conjunto de escalado de máquinas virtuales de Azure
 

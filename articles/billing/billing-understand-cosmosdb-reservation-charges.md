@@ -10,21 +10,21 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370754"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
 
 Después de comprar capacidad reservada en Azure Cosmos DB, el descuento por la reserva se aplica automáticamente a los recursos que coincidan con los atributos y la cantidad de la reserva. Una reserva abarca el rendimiento aprovisionado para los recursos de Azure Cosmos DB. No abarca el software, redes, almacenamiento ni los cargos predefinidos de contenedor.
 
-## <a name="how-reservation-discount-is-applied"></a>Cómo se aplica el descuento de reserva
+## <a name="how-reservation-discount-is-applied"></a>Aplicación del descuento por reserva
 
-Un descuento de reserva es "*-it-o-perder-usarla*". Por lo tanto, si no tiene recursos coincidentes para cualquier hora, perder una cantidad de reserva para esa hora. No se puede llevar a cabo reenviar horas reservadas no utilizadas.
+Un descuento de reserva significa "*usarlo o perderlo*". Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
-Cuando se apaga un recurso, el descuento de reserva se aplica automáticamente a otro recurso coincidente en el ámbito especificado. Si se encuentra ningún recurso coincidente en el ámbito especificado, que son las horas reservadas *pierde*.
+Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, entonces las horas reservadas se *pierden*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>El descuento por reserva se aplica a las cuentas de Azure Cosmos DB
 
@@ -119,8 +119,8 @@ Para más información acerca de las reservas de Azure, consulte los siguientes 
 
 * [Qué son las reservas de Azure](../billing/billing-save-compute-costs-reservations.md)  
 * [Pago por adelantado para recursos de Azure Cosmos DB con capacidad reservada de Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
-* [Administrar reservas para Azure](../billing/billing-manage-reserved-vm-instance.md)  
+* [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
+* [Administración de reservas para Azure](../billing/billing-manage-reserved-vm-instance.md)  
 * [Información sobre el uso de reservas para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md)  
 * [Información sobre el uso de reservas para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)

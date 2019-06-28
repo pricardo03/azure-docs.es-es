@@ -10,10 +10,10 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61227012"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
@@ -175,7 +175,7 @@ En la siguiente tabla se muestra el comportamiento de los valores de las variabl
 | Stop |Registra el mensaje y suspende el runbook. |
 
 ## <a name="runbook-output"></a>Recuperar salidas de runbooks y mensajes
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 Puede ver los detalles de un trabajo de runbook en el Portal de Azure de la pestaña llamada Trabajos de un runbook. La opción Resumen del trabajo le muestra los parámetros de entrada y el [Flujo de salida](#output-stream), además de información general sobre el trabajo y las excepciones que se han producido. En la opción Historial se incluyen los mensajes del [Flujo de salida](#output-stream) y los [Flujos de error y de advertencia](#warning-and-error-streams), además del [Flujo detallado](#verbose-stream) y los [Registros de progreso](#progress-records), si el runbook está configurado para escribir registros detallados y de progreso.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
@@ -221,7 +221,7 @@ Puede ver en la captura de pantalla anterior que, cuando se habilita el registro
    ![Página de registro y seguimiento de creación de gráficos](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-azure-monitor-logs"></a>Registros de Microsoft Azure Monitor
-Automation puede enviar el estado de un trabajo del runbook y de transmisiones de trabajos al área de trabajo de Log Analytics. Con los registros de Azure Monitor, puede hacer,
+Automation puede enviar el estado de un trabajo del runbook y de transmisiones de trabajos al área de trabajo de Log Analytics. Con los registros de Azure Monitor, puede:
 
 * Obtener información sobre los trabajos de Automation 
 * Desencadenador de un correo electrónico o una alerta en función del estado de trabajo del runbook (por ejemplo, error o en suspensión) 
@@ -229,7 +229,7 @@ Automation puede enviar el estado de un trabajo del runbook y de transmisiones d
 * Correlacionar trabajos en cuentas de Automation 
 * Visualizar el historial de trabajos a lo largo del tiempo    
 
-Para obtener más información sobre cómo configurar la integración con los registros de Azure Monitor para recopilar, correlacionar y actuar en los datos de trabajo, consulte [reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+Para más información sobre cómo configurar la integración con los registros de Azure Monitor para recopilar datos de trabajo, correlacionarlos y actuar sobre ellos, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md)

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438199"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Enlace de salida de Notification Hubs para Azure Functions
@@ -27,7 +27,7 @@ Azure Notification Hubs debe estar configurado para el servicio de notificacione
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google ha [en desuso de Google Cloud Messaging (GCM) en favor de Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Este enlace de salida no es compatible con FCM. Para enviar notificaciones con FCM, use el [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directamente en su función o use [notificaciones de plantilla](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> Google ha [dejado de usar Google Cloud Messaging (GCM) en favor de Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Este enlace de salida no es compatible con FCM. Para enviar notificaciones con FCM, use [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directamente en su función o use [notificaciones de plantilla](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 

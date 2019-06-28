@@ -1,6 +1,6 @@
 ---
-title: Cómo administrar las asignaciones con PowerShell
-description: Obtenga información sobre cómo administrar las asignaciones de plano técnico con el módulo de PowerShell de plano técnico de Azure oficial, Az.Blueprint.
+title: Administración de asignaciones con PowerShell
+description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60682850"
 ---
-# <a name="how-to-manage-assignments-with-powershell"></a>Cómo administrar las asignaciones con PowerShell
+# <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
-Una asignación del plano técnico se puede administrar mediante el **Az.Blueprint** módulo Azure PowerShell. El módulo admite capturar, crear, actualizar y quitar las asignaciones. El módulo también puede recuperar los detalles en la definición del plano técnico existente. En este artículo se explica cómo instalar el módulo y empezar a usarlo.
+Una asignación de plano técnico se puede administrar mediante módulo de Azure PowerShell **Az.Blueprint**. El módulo admite capturar, crear, actualizar y quitar las asignaciones. El módulo también puede recuperar detalles sobre las definiciones de los planos técnicos existentes. En este artículo se explica cómo instalar el módulo y empezar a usarlo.
 
-## <a name="add-the-azblueprint-module"></a>Agregar el módulo Az.Blueprint
+## <a name="add-the-azblueprint-module"></a>Adición del módulo Az.Blueprint
 
-Para habilitar Azure PowerShell administrar la asignación del plano técnico, se debe agregar el módulo. Este módulo se puede usar con PowerShell y PowerShell Core instalados localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker de Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
+A fin de habilitar Azure PowerShell para administrar asignaciones de planos técnicos, debe agregar el módulo. Este módulo se puede usar con PowerShell y PowerShell Core instalados localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker de Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### <a name="base-requirements"></a>Requisitos básicos
 
-El módulo de planos técnicos de Azure requiere el software siguiente:
+El módulo de Azure Blueprints requiere el software siguiente:
 
-- Azure PowerShell versión 1.5.0 o superior. Si todavía no está instalado, siga [estas instrucciones](/powershell/azure/install-az-ps).
+- Azure PowerShell 1.5.0 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/azure/install-az-ps).
 - PowerShellGet 2.0.1 o una versión posterior. Si no está instalado o actualizado, siga [estas instrucciones](/powershell/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Instalación del módulo
 
-El módulo de planos de PowerShell es **Az.Blueprint**.
+El módulo de Blueprints para PowerShell es **Az.Blueprint**.
 
 1. Ejecute el siguiente comando como **administrador** en un símbolo del sistema de PowerShell:
 
@@ -50,12 +50,12 @@ El módulo de planos de PowerShell es **Az.Blueprint**.
    Get-Command -Module 'Az.Blueprint' -CommandType 'Cmdlet'
    ```
 
-## <a name="get-blueprint-definitions"></a>Obtiene las definiciones de plano técnico
+## <a name="get-blueprint-definitions"></a>Obtención de las definiciones de planos técnicos
 
 El primer paso para trabajar con una asignación a menudo es obtener una referencia a una definición de plano técnico.
-El `Get-AzBlueprint` obtiene uno o más definiciones del plano técnico. El cmdlet puede obtener la definición del plano técnico de un grupo de administración con `-ManagementGroupId {mgId}` o una suscripción con `-SubscriptionId {subId}`. El **nombre** parámetro Obtiene una definición del plano técnico, pero se debe utilizar con **ManagementGroupId** o **SubscriptionId**. **Versión** puede utilizarse con **nombre** ser más explícito acerca de qué definición de plano técnico se devuelve. En lugar de **versión**, el conmutador `-LatestPublished` grabs versión publicación más recientemente.
+El cmdlet `Get-AzBlueprint` obtiene una o varias definiciones de planos técnicos. El cmdlet puede obtener las definiciones de planos técnicos de un grupo de administración con `-ManagementGroupId {mgId}` o una suscripción con `-SubscriptionId {subId}`. El parámetro **Name** obtiene una definición del plano técnico, pero se debe utilizar con **ManagementGroupId** o **SubscriptionId**. **Version** puede utilizarse con **Name** para explicitar con más detalle qué definición de plano técnico se devuelve. En lugar de **Version**, el conmutador `-LatestPublished` toma la versión publicada más recientemente.
 
-En el ejemplo siguiente se usa `Get-AzBlueprint` para obtener todas las versiones de una definición del plano técnico denominado "101-planos técnicos-definition-subscription' de una suscripción específica que se representan como `{subId}`:
+En el ejemplo siguiente se usa `Get-AzBlueprint` para obtener todas las versiones de una definición de plano técnico denominada "101-blueprints-definition-subscription" de una suscripción específica que se representa como `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -82,7 +82,7 @@ Parameters           : {storageAccount_storageAccountType, storageAccount_locati
 ResourceGroups       : ResourceGroup
 ```
 
-El [blueprint parámetros](../concepts/parameters.md#blueprint-parameters) definición en el plano técnico se puede ampliar para proporcionar más información.
+Los [parámetros de plano técnico](../concepts/parameters.md#blueprint-parameters) en la definición del plano técnico se pueden ampliar para ofrecer más información.
 
 ```azurepowershell-interactive
 $blueprints.Parameters
@@ -97,11 +97,11 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 [Usergrouporapplicationname]:Reader_RoleAssignmentName Microsoft.Azure.Commands.Blueprint.Models.PSParameterDefinition
 ```
 
-## <a name="get-blueprint-assignments"></a>Obtener la asignación del plano técnico
+## <a name="get-blueprint-assignments"></a>Obtención de asignaciones de planos técnicos
 
-Si la asignación del plano técnico ya existe, puede obtener una referencia a él con el `Get-AzBlueprintAssignment` cmdlet. El cmdlet toma **SubscriptionId** y **nombre** como parámetros opcionales. Si **SubscriptionId** no se especifica, se usa el contexto de la suscripción actual.
+Si la asignación de plano técnico ya existe, puede obtener una referencia a ella con el cmdlet `Get-AzBlueprintAssignment`. El cmdlet toma **SubscriptionId** y **Name** como parámetros opcionales. Si no se especifica **SubscriptionId**, se usa el contexto de la suscripción actual.
 
-En el ejemplo siguiente se usa `Get-AzBlueprintAssignment` para obtener una asignación de plano técnico única denominada "Asignación-bloqueo-resource-groups" de una suscripción específica que se representan como `{subId}`:
+En el ejemplo siguiente se usa `Get-AzBlueprintAssignment` para obtener una asignación de plano técnico única denominada "Assignment-lock-resource-groups" de una suscripción específica representada como `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -113,7 +113,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -SubscriptionId '{subId}' -Name
 $blueprintAssignment
 ```
 
-La salida de ejemplo para una asignación del plano técnico tiene este aspecto:
+La salida de ejemplo para una asignación de plano técnico tiene este aspecto:
 
 ```output
 Name              : Assignment-lock-resource-groups
@@ -127,47 +127,47 @@ Parameters        :
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="create-blueprint-assignments"></a>Crear la asignación del plano técnico
+## <a name="create-blueprint-assignments"></a>Creación de asignaciones de planos técnicos
 
-Si aún no existe la asignación del plano técnico, puede crearla con el `New-AzBlueprintAssignment` cmdlet. Este cmdlet usa los siguientes parámetros:
+Si aún no existe la asignación de plano técnico, puede crearla con el cmdlet `New-AzBlueprintAssignment`. Este cmdlet utiliza los siguientes parámetros:
 
-- **Nombre** [obligatorio]
-  - Especifica el nombre de la asignación del plano técnico
-  - Debe ser único y no existe en **SubscriptionId**
-- **Instancia de blueprint** [obligatorio]
-  - Especifica la definición del plano técnico para asignar
-  - Use `Get-AzBlueprint` para obtener el objeto de referencia
-- **Ubicación** [obligatorio]
-  - Especifica la región del asignado por el sistema identidad y suscripción implementación objeto administrado que se creará en
-- **Suscripción** (opcional)
-  - Especifica la suscripción de en que la asignación se implementa
-  - Si no se proporciona, el valor predeterminado es el contexto de la suscripción actual
-- **Bloqueo** (opcional)
-  - Define el [bloqueo de recursos del plano](../concepts/resource-locking.md) que se usará para los recursos implementados
+- **Name** [obligatorio]
+  - Especifica el nombre de la asignación de plano técnico.
+  - Debe ser único y no existir ya en **SubscriptionId**.
+- **Blueprint** [obligatorio]
+  - Especifica la definición de plano técnico para asignar.
+  - Use `Get-AzBlueprint` para obtener el objeto de referencia.
+- **Location** [obligatorio]
+  - Especifica la región para la identidad administrada asignada por el sistema y el objeto de implementación de suscripción en que se creará.
+- **Subscription** (opcional)
+  - Especifica la suscripción en que se implementa la asignación.
+  - Si no se proporciona, el valor predeterminado es el contexto de la suscripción actual.
+- **Lock** (opcional)
+  - Define el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md) que se utilizará para los recursos implementados.
   - Opciones admitidas: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-  - Si no se proporciona, valor predeterminado es _ninguno_
-- **SystemAssignedIdentity** (optional)
-  - Seleccione para crear una identidad administrada asignado por el sistema para la asignación e implementar los recursos
-  - Valor predeterminado para el conjunto de parámetros "identity"
-  - No se puede usar con **UserAssignedIdentity**
-- **UserAssignedIdentity** (optional)
-  - Especifica la identidad administrada asignada por el usuario que se usará para la asignación y para implementar los recursos
-  - Parte del conjunto de parámetro "identity"
-  - No se puede usar con **SystemAssignedIdentity**
-- **Parámetro** (opcional)
-  - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de pares clave/valor de configuración [parámetros dinámicos](../concepts/parameters.md#dynamic-parameters) en la asignación del plano técnico
-  - De manera predeterminada para un parámetro dinámico es el **defaultValue** en la definición
-  - Si un parámetro no se proporciona y no tiene ningún **defaultValue**, el parámetro no es opcional
+  - Si no se proporciona, el valor predeterminado es _None_.
+- **SystemAssignedIdentity** (opcional)
+  - Selecciónelo para crear una identidad administrada asignada por el sistema para la asignación y para implementar los recursos.
+  - Valor predeterminado para el conjunto de parámetros "identity".
+  - No se puede usar con **UserAssignedIdentity**.
+- **UserAssignedIdentity** (opcional)
+  - Especifica la identidad administrada asignada por el usuario que se usará para la asignación y para implementar los recursos.
+  - Parte del conjunto de parámetros "identity".
+  - No se puede usar con **SystemAssignedIdentity**.
+- **Parameter** (opcional)
+  - Una [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de pares clave/valor para establecer [parámetros dinámicos](../concepts/parameters.md#dynamic-parameters) en la asignación de plano técnico.
+  - El valor predeterminado para un parámetro dinámico es **defaultValue** en la definición.
+  - Si un parámetro no se proporciona y no tiene ningún valor **defaultValue**, el parámetro no es opcional.
 
     > [!NOTE]
-    > **Parámetro** no es compatible con secureStrings.
+    > **Parameter** no es compatible con secureStrings.
 
 - **ResourceGroupParameter** (opcional)
-  - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de artefactos de grupo de recursos
-  - Cada marcador de posición del artefacto de grupo de recursos tendrá una pares clave/valor para establecer dinámicamente el **nombre** o **ubicación** en dicho artefacto del grupo de recursos
-  - Si el parámetro de un grupo de recursos no se proporciona y no tiene ningún **defaultValue**, el parámetro del grupo de recursos no es opcional
+  - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de artefactos de un grupo de recursos
+  - Cada marcador de posición del artefacto del grupo de recursos tendrá un par clave/valor para establecer dinámicamente el parámetro **Name** o **Location** en dicho artefacto del grupo de recursos.
+  - Si no se proporciona un parámetro para el grupo de recursos y no tiene ningún valor **defaultValue**, el parámetro del grupo de recursos no es opcional.
 
-En el ejemplo siguiente se crea una nueva asignación de versión "1.1" de la definición de plano técnico 'mi instancia de blueprint' capturada con `Get-AzBlueprint`, Establece la ubicación del objeto administrada identidad y la asignación a 'westus2', que bloquea los recursos con  _AllResourcesReadOnly_y establece las tablas hash para ambos **parámetro** y **ResourceGroupParameter** en la suscripción específica que se representan como `{subId}`:
+En el ejemplo siguiente se crea una nueva asignación de la versión "1.1" de la definición de plano técnico "my-blueprint" capturada con `Get-AzBlueprint`, establece la ubicación del objeto de asignación y la identidad aministrada en "westus2", bloquea los recursos con _AllResourcesReadOnly_ y establece las tablas hash para **Parameter** y **ResourceGroupParameter** en la suscripción específica que se representa como `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -188,7 +188,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
-La salida de ejemplo para crear una asignación del plano técnico tiene este aspecto:
+La salida de ejemplo para crear asignación de plano técnico tiene este aspecto:
 
 ```output
 Name              : my-blueprint-assignment
@@ -202,50 +202,50 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="update-blueprint-assignments"></a>Actualizar las asignaciones de plano técnico
+## <a name="update-blueprint-assignments"></a>Actualización de asignaciones de planos técnicos
 
-A veces es necesario actualizar una asignación del plano técnico que ya se ha creado. El `Set-AzBlueprintAssignment` cmdlet controla esta acción. El cmdlet toma la mayor parte de los mismos parámetros que el `New-AzBlueprintAssignment` hace un cmdlet, lo que permite a todo lo que se estableció en la asignación en actualizarse. Las excepciones a esto son la _nombre_, _Blueprint_, y _SubscriptionId_. Solo los valores proporcionados se actualizan.
+A veces es necesario actualizar una asignación de plano técnico que ya se ha creado. El cmdlet `Set-AzBlueprintAssignment` se ocupa de ello. El cmdlet toma la mayor parte de los mismos parámetros que el cmdlet `New-AzBlueprintAssignment`, lo que permite que se actualice todo lo que se estableció en la asignación. Las excepciones a esto son los parámetros _Name_, _Blueprint_ y _SubscriptionId_. Solo se actualizan los valores proporcionados.
 
-Para comprender qué ocurre cuando se actualiza una asignación del plano técnico, consulte [reglas para actualizar las asignaciones de](./update-existing-assignments.md#rules-for-updating-assignments).
+Para comprender qué ocurre cuando se actualiza una asignación de plano técnico, consulte las [reglas para actualizar asignaciones](./update-existing-assignments.md#rules-for-updating-assignments).
 
-- **Nombre** [obligatorio]
-  - Especifica el nombre de la asignación del plano técnico para actualizar
-  - Usado para buscar la asignación para la actualización, no para cambiar la asignación
-- **Instancia de blueprint** [obligatorio]
-  - Especifica la definición del plano técnico de la asignación del plano técnico
-  - Use `Get-AzBlueprint` para obtener el objeto de referencia
-  - Usado para buscar la asignación para la actualización, no para cambiar la asignación
-- **Ubicación** (opcional)
-  - Especifica la región del asignado por el sistema identidad y suscripción implementación objeto administrado que se creará en
-- **Suscripción** (opcional)
-  - Especifica la suscripción de en que la asignación se implementa
-  - Si no se proporciona, el valor predeterminado es el contexto de la suscripción actual
-  - Usado para buscar la asignación para la actualización, no para cambiar la asignación
-- **Bloqueo** (opcional)
-  - Define el [bloqueo de recursos del plano](../concepts/resource-locking.md) que se usará para los recursos implementados
+- **Name** [obligatorio]
+  - Especifica el nombre de la asignación de plano técnico que se va a actualizar.
+  - Se utiliza para buscar la asignación para actualizar, no para cambiar la asignación.
+- **Blueprint** [obligatorio]
+  - Especifica la definición del plano técnico de la asignación de plano técnico.
+  - Use `Get-AzBlueprint` para obtener el objeto de referencia.
+  - Se utiliza para buscar la asignación para actualizar, no para cambiar la asignación.
+- **Location** (opcional)
+  - Especifica la región para la identidad administrada asignada por el sistema y el objeto de implementación de suscripción en que se creará.
+- **Subscription** (opcional)
+  - Especifica la suscripción en que se implementa la asignación.
+  - Si no se proporciona, el valor predeterminado es el contexto de la suscripción actual.
+  - Se utiliza para buscar la asignación para actualizar, no para cambiar la asignación.
+- **Lock** (opcional)
+  - Define el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md) que se utilizará para los recursos implementados.
   - Opciones admitidas: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-- **SystemAssignedIdentity** (optional)
-  - Seleccione para crear una identidad administrada asignado por el sistema para la asignación e implementar los recursos
-  - Valor predeterminado para el conjunto de parámetros "identity"
-  - No se puede usar con **UserAssignedIdentity**
-- **UserAssignedIdentity** (optional)
-  - Especifica la identidad administrada asignada por el usuario que se usará para la asignación y para implementar los recursos
-  - Parte del conjunto de parámetro "identity"
-  - No se puede usar con **SystemAssignedIdentity**
-- **Parámetro** (opcional)
-  - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de pares clave/valor de configuración [parámetros dinámicos](../concepts/parameters.md#dynamic-parameters) en la asignación del plano técnico
-  - De manera predeterminada para un parámetro dinámico es el **defaultValue** en la definición
-  - Si un parámetro no se proporciona y no tiene ningún **defaultValue**, el parámetro no es opcional
+- **SystemAssignedIdentity** (opcional)
+  - Selecciónelo para crear una identidad administrada asignada por el sistema para la asignación y para implementar los recursos.
+  - Valor predeterminado para el conjunto de parámetros "identity".
+  - No se puede usar con **UserAssignedIdentity**.
+- **UserAssignedIdentity** (opcional)
+  - Especifica la identidad administrada asignada por el usuario que se usará para la asignación y para implementar los recursos.
+  - Parte del conjunto de parámetros "identity".
+  - No se puede usar con **SystemAssignedIdentity**.
+- **Parameter** (opcional)
+  - Una [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de pares clave/valor para establecer [parámetros dinámicos](../concepts/parameters.md#dynamic-parameters) en la asignación de plano técnico.
+  - El valor predeterminado para un parámetro dinámico es **defaultValue** en la definición.
+  - Si un parámetro no se proporciona y no tiene ningún valor **defaultValue**, el parámetro no es opcional.
 
     > [!NOTE]
-    > **Parámetro** no es compatible con secureStrings.
+    > **Parameter** no es compatible con secureStrings.
 
 - **ResourceGroupParameter** (opcional)
-  - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de artefactos de grupo de recursos
-  - Cada marcador de posición del artefacto de grupo de recursos tendrá una pares clave/valor para establecer dinámicamente el **nombre** o **ubicación** en dicho artefacto del grupo de recursos
-  - Si el parámetro de un grupo de recursos no se proporciona y no tiene ningún **defaultValue**, el parámetro del grupo de recursos no es opcional
+  - Un [tabla hash](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de artefactos de un grupo de recursos
+  - Cada marcador de posición del artefacto del grupo de recursos tendrá un par clave/valor para establecer dinámicamente el parámetro **Name** o **Location** en dicho artefacto del grupo de recursos.
+  - Si no se proporciona un parámetro para el grupo de recursos y no tiene ningún valor **defaultValue**, el parámetro del grupo de recursos no es opcional.
 
-En el ejemplo siguiente se actualiza la asignación de versión "1.1" de la definición de plano técnico 'mi instancia de blueprint' capturada con `Get-AzBlueprint` cambiando el modo de bloqueo:
+En el ejemplo siguiente se actualiza la asignación de versión "1.1" de la definición de plano técnico "my-blueprint" capturada con `Get-AzBlueprint` cambiando el modo de bloqueo:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -258,7 +258,7 @@ $bpAssignment = Set-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -SubscriptionId '{subId}' -Lock AllResourcesDoNotDelete
 ```
 
-La salida de ejemplo para crear una asignación del plano técnico tiene este aspecto:
+La salida de ejemplo para crear asignación de plano técnico tiene este aspecto:
 
 ```output
 Name              : my-blueprint-assignment
@@ -272,11 +272,11 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="remove-blueprint-assignments"></a>Quitar la asignación del plano técnico
+## <a name="remove-blueprint-assignments"></a>Eliminación de asignaciones de planos técnicos
 
-Cuando se trata de una asignación del plano técnico va a quitar, el `Remove-AzBlueprintAssignment` cmdlet controla esta acción. El cmdlet acepta **nombre** o **InputObject** para especificar que la asignación para quitar del plano. **SubscriptionId** es _requiere_ y se debe proporcionar en todos los casos.
+Cuando llega el momento de quitar una asignación de plano técnico, el cmdlet `Remove-AzBlueprintAssignment` se ocupa de ello. El cmdlet toma **Name** o **InputObject** para especificar la asignación que se va a quitar. **SubscriptionId** es _obligatorio_ y se debe proporcionar en todos los casos.
 
-El ejemplo siguiente recupera una asignación del plano técnico existente con `Get-AzBlueprintAssignment` y, a continuación, quita la suscripción específica que se representan como `{subId}`:
+En el ejemplo siguiente se recupera una asignación de plano técnico existente con `Get-AzBlueprintAssignment` y, a continuación, se quita la suscripción específica que se representa como `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -288,9 +288,9 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Ejemplo de código to-end
+## <a name="end-to-end-code-example"></a>Ejemplo de código de un extremo a otro
 
-Reunir todos los pasos, en el ejemplo siguiente se obtiene la definición del plano técnico, a continuación, crea, actualiza y quita una asignación del plano técnico de la suscripción específica que se representan como `{subId}`:
+Reuniendo todos estos pasos, en el ejemplo siguiente se obtiene la definición del plano técnico y, continuación, se crea, actualiza y quita una asignación de plano técnico de la suscripción específica que se representa como `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

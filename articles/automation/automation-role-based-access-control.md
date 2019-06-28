@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738841"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
@@ -142,7 +142,7 @@ Un colaborador de Log Analytics puede leer todos los datos de supervisión y edi
 |Microsoft.Compute/virtualMachines/extensions/*|Crear y administrar extensiones de máquinas virtuales clásicas.|
 |Microsoft.Insights/alertRules/*|Reglas de alerta de lectura, escritura y eliminación.|
 |Microsoft.Insights/diagnosticSettings/*|Configuración de diagnóstico de lectura, escritura y eliminación.|
-|Microsoft.OperationalInsights/*|Administrar los registros de Azure Monitor.|
+|Microsoft.OperationalInsights/*|Administrar registros de Azure Monitor.|
 |Microsoft.OperationsManagement/*|Administrar soluciones en áreas de trabajo.|
 |Microsoft.Resources/deployments/*|Crear y administrar implementaciones de grupos de recursos.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Crear y administrar implementaciones de grupos de recursos.|
@@ -156,8 +156,8 @@ Un lector de Log Analytics puede ver y buscar los datos de supervisión, así co
 |**Acciones**  |**Descripción**  |
 |---------|---------|
 |*/read|Leer recursos de todos los tipos, excepto secretos.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Administrar consultas en los registros de Azure Monitor.|
-|Microsoft.OperationalInsights/workspaces/search/action|Buscar datos de registro de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Administrar consultas de búsqueda en registros de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/search/action|Buscar datos de registros de Azure Monitor.|
 |Microsoft.Support/*|Crear y administrar incidencias de soporte técnico.|
 |**No acciones**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|No se pueden leer las claves de acceso compartido.|
@@ -180,11 +180,11 @@ Un colaborador de supervisión puede leer todos los datos de supervisión y actu
 |Microsoft.Insights/Metrics/*|Leer las métricas de un recurso.|
 |Microsoft.Insights/Register/Action|Registrar el proveedor de Microsoft.Insights.|
 |Microsoft.Insights/webtests/*|Administrar pruebas web de Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Administrar los paquetes de solución de los registros de Azure Monitor.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Administrar las búsquedas de registros guardados de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Administrar paquetes de soluciones de registros de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Administrar búsquedas guardadas de registros de Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Buscar áreas de trabajo de Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Enumerar las claves de un área de trabajo de Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Administrar configuraciones de visión de almacenamiento de registros de Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Administrar configuraciones de visión de almacenamiento de registros de Azure Monitor.|
 |Microsoft.Support/*|Crear y administrar incidencias de soporte técnico.|
 |Microsoft.WorkloadMonitor/workloads/*|Administrar cargas de trabajo.|
 
@@ -231,9 +231,9 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 |Comprobación de estado de incorporación: leer solución      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solución         |
 |Comprobación de estado de incorporación: leer máquina virtual      | Microsoft.Compute/virtualMachines/read         | Máquina virtual         |
 |Comprobación de estado de incorporación: leer cuenta      | Microsoft.Automation/automationAccounts/read  |  Cuenta de Automation   |
-| Comprobación de área de trabajo de incorporación de máquina virtual<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+| Incorporación de comprobación de área de trabajo para VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
 
-<sup>1</sup> este permiso es necesario para incorporar a través de la experiencia de portal de la máquina virtual.
+<sup>1</sup> Este permiso es necesario para incorporar a través de la experiencia del portal de la máquina virtual.
 
 ### <a name="onboarding-from-automation-account"></a>Incorporación desde cuenta de Automation
 
@@ -276,14 +276,14 @@ En la sección siguiente se muestra cómo configurar RBAC en su cuenta de Automa
 ### <a name="configure-rbac-using-the-azure-portal"></a>Configuración de RBAC mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y abra su cuenta de Automation en la página Cuentas de Automation.
-2. Haga clic en el control **Control de acceso (IAM)** de la esquina superior izquierda. Se abre la página **Control de acceso (IAM)**, donde puede añadir nuevos usuarios, grupos y aplicaciones para administrar la cuenta de Automation y ver los roles existentes que se pueden configurar para la cuenta de Automation.
+2. Haga clic en el control **Control de acceso (IAM)** de la esquina superior izquierda. Se abre la página **Control de acceso (IAM)** , donde puede añadir nuevos usuarios, grupos y aplicaciones para administrar la cuenta de Automation y ver los roles existentes que se pueden configurar para la cuenta de Automation.
 3. Haga clic en la pestaña **Asignaciones de roles**.
 
    ![Botón de acceso](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Adición de usuarios nuevos y asignación de roles
 
-1. En la página **Control de acceso (IAM)**, haga clic en **+ Agregar asignación de roles** para abrir la página **Agregar asignación de roles**, donde puede agregar un usuario, un grupo o una aplicación y asignarles un rol.
+1. En la página **Control de acceso (IAM)** , haga clic en **+ Agregar asignación de roles** para abrir la página **Agregar asignación de roles**, donde puede agregar un usuario, un grupo o una aplicación y asignarles un rol.
 
 2. Seleccione en rol en la lista de roles disponibles. Puede elegir cualquiera de los roles integrados disponibles que admitan las cuentas de Automation o cualquier rol personalizado que haya definido.
 
@@ -307,7 +307,7 @@ En la sección siguiente se muestra cómo configurar RBAC en su cuenta de Automa
 
 Puede quitar el permiso de usuario de cualquier usuario que no administre la cuenta de Automation o que haya dejado de trabajar en la organización. Estos son los pasos que deben seguirse para eliminar un usuario:
 
-1. En la página **Control de acceso (IAM)**, seleccione el usuario que desea quitar y haga clic en **Quitar**.
+1. En la página **Control de acceso (IAM)** , seleccione el usuario que desea quitar y haga clic en **Quitar**.
 2. Haga clic en el botón **Quitar** del panel de detalles de asignación.
 3. Haga clic en **Sí** para confirmar la eliminación.
 

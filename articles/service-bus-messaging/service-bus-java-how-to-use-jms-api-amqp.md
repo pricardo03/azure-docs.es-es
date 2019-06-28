@@ -1,5 +1,5 @@
 ---
-title: Cómo usar AMQP 1.0 con la API de Service Bus de Java JMS | Microsoft Docs
+title: Uso de AMQP 1.0 con la API de Service Bus de Java Message Service | Microsoft Docs
 description: Uso de Java Message Service (JMS) con Azure Service Bus y Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
 ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310968"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Uso de la API de Java Message Service (JMS) con Service Bus y AMQP 1.0
@@ -341,16 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>Frente a los temas de JMS. Temas de Service Bus
-Uso de temas de Azure Service Bus y las suscripciones a través de Java Message Service (JMS) API proporciona envío básica y las capacidades de recepción. Es una opción conveniente al migrar aplicaciones desde otros agentes de mensajes con las API compatibles de JMS, aunque difieren de los temas de JMS de temas de Service Bus y requieren algunos ajustes. 
+## <a name="jms-topics-vs-service-bus-topics"></a>Temas de JMS frente a Temas de Service Bus
+El uso de temas y suscripciones de Azure Service Bus a través de la API de Java Message Service (JMS) proporciona funcionalidades de envío y recepción básicas. Es una opción práctica al migrar aplicaciones desde otros agentes de mensajes con API compatibles con JMS, aunque los temas de Service Bus sean distintos de los de JMS y necesiten algunos ajustes. 
 
-Temas de Service Bus de Azure enrutan los mensajes en las suscripciones con nombre, compartidas, durable que se administran a través de la interfaz de administración de recursos de Azure, las herramientas de línea de comandos de Azure, o a través del portal de Azure. Cada suscripción permite un máximo de 2000 reglas de selección, cada uno de los que puede tener una condición de filtro y, para filtros de SQL, también una acción de transformación de metadatos. Cada coincidencia de la condición de filtro selecciona el mensaje de entrada que se copiará en tehj suscripción.  
+Los temas de Azure Service Bus enrutan mensajes en suscripciones con nombre, compartidas y duraderas que se administran a través de la interfaz de administración de recursos de Azure, las herramientas de línea de comandos de Azure o a través de Azure Portal. Cada suscripción permite hasta 2000 reglas de selección, que pueden tener una condición de filtro cada una y, en el caso de los filtros SQL, también una acción de transformación de metadatos. Cada coincidencia de condición de filtro selecciona el mensaje de entrada que se va a copiar en la suscripción.  
 
-Recibir mensajes de suscripciones es idéntico recibir mensajes de colas. Cada suscripción tiene una cola de mensajes no enviados asociada, así como la capacidad para reenviar automáticamente mensajes a otra cola u otro temas. 
+Recibir mensajes de suscripciones es igual que recibir mensajes de colas. Cada suscripción tiene una cola de mensajes fallidos asociada, así como la capacidad de reenviar mensajes automáticamente a otra cola o temas. 
 
-Los temas de JMS permiten a los clientes crear dinámicamente los suscriptores no perdurable y duraderos que, opcionalmente, permiten filtrar los mensajes con selectores de mensaje. No se admiten estas entidades dejar de estar compartidas por Service Bus. Sin embargo, la sintaxis de regla de filtro SQL de Service Bus es muy similar a la sintaxis del selector de mensajes admitida por JMS. 
+Los temas de JMS permiten a los clientes crear de forma dinámica suscriptores duraderos y no duraderos que permiten opcionalmente filtrar mensajes con selectores de mensajes. Estas entidades no compartidas no son compatibles con Service Bus. Sin embargo, la sintaxis de regla de filtro SQL para Service Bus es muy similar a la sintaxis del selector de mensajes compatible con JMS. 
 
-El lado del publicador de tema de JMS es compatible con Service Bus, como se muestra en este ejemplo, pero los suscriptores dinámicos no están. No se admiten las siguientes API de JMS relacionadas con la topología con Service Bus. 
+El lado del publicador de los temas de JMS es compatible con Service Bus, como se muestra en este ejemplo, pero los suscriptores dinámicos no lo son. Las siguientes API de JMS relacionadas con la topología no son compatibles con Service Bus. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Características no admitidas y restricciones
 Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con Service Bus, a saber:

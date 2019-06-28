@@ -1,5 +1,5 @@
 ---
-title: Entender el uso de las reservas de Azure para la suscripción de pago por uso | Microsoft Docs
+title: Información sobre el uso de las reservas de Azure para suscripciones de pago por uso | Microsoft Docs
 description: Aprenda a interpretar los datos de uso para comprender como se aplican las suscripciones de pago por uso de reservas de Azure.
 services: billing
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370379"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Información sobre el uso de reservas de Azure para suscripciones de pago por uso
@@ -33,7 +33,7 @@ En este artículo se da por hecho que la reserva se aplica a una única suscripc
 
 En las siguientes secciones se da por hecho que está ejecutando una máquina virtual Windows Standard_DS1_v2 en la región Este de EE. UU. y que la información de la instancia reservada de la máquina virtual tiene una apariencia similar a la de la siguiente tabla:
 
-| Campo | Value |
+| Campo | Valor |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Cantidad |1|
@@ -68,7 +68,7 @@ En las siguientes secciones se usa Azure SQL Database como ejemplo para describi
 
 Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE. UU. y que la información de la reserva tiene una apariencia similar a la de esta tabla:
 
-| Campo | Value |
+| Campo | Valor |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Cantidad |2|
@@ -103,7 +103,7 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 
 - [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
+- [Pago por adelantado de los recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)

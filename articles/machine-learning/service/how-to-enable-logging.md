@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
 ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60819268"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Habilitación del registro en Azure Machine Learning Service
@@ -27,7 +27,7 @@ El SDK de Python de Azure Machine Learning le permite habilitar el registro medi
 > * Modelos implementados
 > * Configuración de `logging` en Python
 
-[Crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md). Use la [guía](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obtener más información del SDK.
+[Cree un área de trabajo del servicio Azure Machine Learning](setup-create-workspace.md). Use la [guía](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para más información sobre el SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Entrenamiento de modelos y registro de destinos de proceso
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Consulte la documentación de referencia para la [ejecutar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) clase para funciones de registro adicionales.
+Consulte la documentación de referencia de la clase [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) para conocer funciones de registro adicionales.
 
 Para habilitar el registro local del estado de la aplicación durante el transcurso del entrenamiento, use el parámetro `show_output`. Si habilita el registro detallado podrá ver detalles del proceso de entrenamiento así como información acerca de los recursos remotos o los destinos de proceso. Use el código siguiente para habilitar el registro tras el envío del experimento.
 

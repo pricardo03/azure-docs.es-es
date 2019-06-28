@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
 ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861191"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
@@ -32,7 +32,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 * **Registro de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
 > [!IMPORTANT]
-> Azure Monitor registra actualmente solo funciona para los equilibradores de carga básica público. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> Los registros de Azure Monitor solo funcionan con los equilibradores de carga públicos. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitación del registro
 

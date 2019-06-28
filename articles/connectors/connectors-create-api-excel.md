@@ -1,5 +1,5 @@
 ---
-title: 'Conectarse a Excel Online: Azure Logic Apps'
+title: 'Conexión a Excel Online: Azure Logic Apps'
 description: Administración de datos con las API REST de Excel Online y Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311971"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Administración de datos de Excel Online con Azure Logic Apps
@@ -61,7 +61,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de los archivos, consulte estas páginas de referencia de conector:
+Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describen los archivos OpenAPI (antes Swagger) del conector, consulte estas páginas de referencia del conector:
 
 * [Excel Online para empresas](/connectors/excelonlinebusiness/)
 * [Excel Online para OneDrive](/connectors/excelonline/)

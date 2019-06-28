@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629787"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Solución de problemas de un trabajo periódico anómalo
@@ -27,7 +27,7 @@ Normalmente, los trabajos periódicos comparten la misma lógica de consulta y d
 
 La **vista de trabajos relacionados** de las herramientas de Azure Data Lake para Visual Studio le ayuda a acelerar el progreso de la solución de problemas en ambos casos.
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Paso 1: Búsqueda de trabajos periódicos y abra la vista de trabajos relacionados
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Paso 1: Búsqueda de trabajos periódicos y apertura de la vista de trabajos relacionados
 
 Para usar la vista de trabajos relacionados para solucionar un problema de un trabajo periódico, primero es preciso buscar el trabajo periódico en Visual Studio y, después, abrir la vista de trabajos relacionados.
 
@@ -47,7 +47,7 @@ En el Explorador de canalizaciones, se muestran todas las canalizaciones de la c
 
 ![Selección de una canalización y apertura de la vista de trabajos relacionados](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-## <a name="step-2-analyze-a-statistics-report"></a>Paso 2: Analizar un informe de estadísticas
+## <a name="step-2-analyze-a-statistics-report"></a>Paso 2: Análisis de un informe de estadísticas
 
 Un resumen y un informe de estadísticas se muestran en la parte superior de la vista de trabajos relacionados. Allí, puede encontrar la posible causa principal del problema. 
 
@@ -56,7 +56,7 @@ Un resumen y un informe de estadísticas se muestran en la parte superior de la 
 
 ![Diagrama del proceso de comprobación de estadísticas](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Paso 3: Comparar el trabajo anómalo con un trabajo normal
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Paso 3: Comparación del trabajo anómalo con un trabajo normal
 
 Todos los trabajos periódicos enviados se pueden encontrar en la lista de trabajos en la parte inferior de la vista de trabajos relacionados. Para obtener más información y posibles soluciones, haga clic con el botón derecho en el trabajo anómalo. Utilice la vista Diferencias de trabajo para comparar el trabajo anómalo con uno normal anterior.
 

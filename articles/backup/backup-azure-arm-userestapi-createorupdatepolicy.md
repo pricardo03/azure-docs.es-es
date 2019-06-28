@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Crear directivas de copia de seguridad mediante la API de REST'
+title: 'Azure Backup: Creación de directivas de copia de seguridad mediante la API REST'
 description: Administración de directivas de copia de seguridad (programación y retención) mediante la API REST
 services: backup
 author: pvrk
@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648812"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
@@ -30,8 +30,8 @@ Los pasos para crear una directiva de copia de seguridad para un almacén de Azu
   - Recurso compartido de archivos de Azure
 - Una directiva puede asignarse a muchos recursos. Una directiva de copia de seguridad de Azure VM puede usarse para proteger varias máquinas virtuales de Azure.
 - Una directiva consta de dos componentes:
-  - Programación: Cuándo realizar la copia de seguridad
-  - Retención: Durante cuánto tiempo deben retenerse cada copia de seguridad.
+  - Programación: cuándo realizar la copia de seguridad
+  - Retención: cuánto tiempo debe retenerse cada copia de seguridad.
 - La programación puede definirse como "diaria" o "semanal" con un punto específico en el tiempo.
 - La retención puede definirse para los puntos de copia de seguridad "diarios", "semanal", "mensual" o "anual" .
 - "Semanal" se refiere a una copia de seguridad en un determinado día de la semana, "mensual" significa una copia de seguridad en un determinado día del mes y "anual" a una copia de seguridad en un determinado día del año.
@@ -53,7 +53,7 @@ Por ejemplo, para crear una directiva para la copia de seguridad de las máquina
 |NOMBRE  |Obligatorio  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
-|etiquetas     |         | Object        |  Etiquetas del recurso       |
+|etiquetas     |         | Objeto        |  Etiquetas del recurso       |
 
 Para obtener una lista completa de las definiciones en el cuerpo de la solicitud, consulte el [documento de la directiva de copia de seguridad de API REST](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 

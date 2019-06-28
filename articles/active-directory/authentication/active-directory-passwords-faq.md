@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359065"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
@@ -46,7 +46,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Puedo definir los datos de restablecimiento de contraseña en nombre de mis usuarios?**
 
-  > **R:** Sí, puede hacerlo con Azure AD Connect, PowerShell, la [portal Azure](https://portal.azure.com), o el [centro de administración de Microsoft 365](https://admin.microsoft.com). Para obtener más información, consulte los [Datos usados en el autoservicio de restablecimiento de contraseña de Azure AD](howto-sspr-authenticationdata.md).
+  > **R:** Sí, puede hacerlo en Azure AD Connect, PowerShell, [Azure Portal](https://portal.azure.com) o el [Centro de administración de Microsoft 365](https://admin.microsoft.com). Para obtener más información, consulte los [Datos usados en el autoservicio de restablecimiento de contraseña de Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **P:  ¿Puedo sincronizar localmente los datos de las preguntas de seguridad?**
@@ -101,7 +101,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   > Si no recibe la notificación en este período de tiempo:
   > * Compruebe la carpeta de correo no deseado.
   > * Compruebe que el número o el correo electrónico de contacto sean los esperados.
-  > * Compruebe que los datos de autenticación en el directorio están correctamente formateado, por ejemplo, + 1 4255551234 o *usuario\@contoso.com*. 
+  > * Compruebe que los datos de autenticación del directorio tengan el formato correcto, por ejemplo: +1 4255551234 o *usuario\@contoso.com*. 
 * **P:  ¿Qué idiomas admite el restablecimiento de contraseña?**
 
   > **R:** La interfaz de usuario del restablecimiento de contraseña, los mensajes SMS y las llamadas de voz están localizados en los mismos idiomas que admite Office 365.

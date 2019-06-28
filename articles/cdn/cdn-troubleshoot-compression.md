@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323810"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solución de problemas de compresión de archivos de red CDN
@@ -97,7 +97,7 @@ Desplácese hasta el punto de conexión en [Azure Portal](https://portal.azure.c
 
 Con las herramientas para desarrolladores de su explorador, compruebe los encabezados de respuesta para asegurarse de que el archivo se almacena en caché en la región donde se solicita.
 
-* Compruebe el encabezado de respuesta **Server** .  El encabezado debe tener el formato **Plataforma (POP/id. de servidor)**, tal como se muestra en el ejemplo siguiente.
+* Compruebe el encabezado de respuesta **Server** .  El encabezado debe tener el formato **Plataforma (POP/id. de servidor)** , tal como se muestra en el ejemplo siguiente.
 * Compruebe el encabezado de respuesta **X-Cache** .  Debe poner **HIT**.  
 
 ![Encabezados de respuesta de red CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -116,6 +116,6 @@ Para que un archivo sea apto para la compresión, debe cumplir los siguientes re
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Compruebe la solicitud en el servidor de origen para un encabezado **Mediante**
 El encabezado **Mediante** HTTP indica al servidor web que un servidor proxy pasará la solicitud.  De forma predeterminada, los servidores web de Microsoft IIS no comprimen las respuestas si la solicitud contiene un encabezado **Mediante** .  Para anular este comportamiento, haga lo siguiente:
 
-* **IIS 6**: [Establezca HcNoCompressionForProxies = "FALSE" en las propiedades de la Metabase de IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 y hasta**: [Se ha establecido tanto **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Establezca HcNoCompressionForProxies="FALSE" en las propiedades de la metabase de IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 y posteriores**: [Establezca **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](https://www.iis.net/configreference/system.webserver/httpcompression)
 

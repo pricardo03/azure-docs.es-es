@@ -1,53 +1,53 @@
 ---
-title: Características avanzadas del explorador de métricas de Azure
-description: Obtenga información sobre las características avanzadas del explorador de métricas de Azure Monitor
-author: lingliw
+title: Características avanzadas del Explorador de métricas de Azure
+description: Descubra las características avanzadas del Explorador de métricas de Azure Monitor
+author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 01/22/2019
+ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60256760"
 ---
-# <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del explorador de métricas de Azure
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
 > [!NOTE]
-> En este artículo se da por supuesto que está familiarizado con las características básicas del explorador de métricas. Si es un usuario nuevo y desea aprender a crear su primer gráfico de métricas, consulte [Introducción al explorador de métricas de Azure](metrics-getting-started.md).
+> En este artículo se da por hecho que está familiarizado con las características básicas del Explorador de métricas. Si es un nuevo usuario y desea aprender a crear su primer gráfico de métricas, consulte [Introducción al Explorador de métricas](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Métricas en Azure
 
-Las [métricas en Azure Monitor](data-platform-metrics.md) son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Mientras que las métricas personalizadas se envían a Azure desde las aplicaciones mediante el [API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extensión de Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o por [Azure Supervisar la API de REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+Las [métricas en Azure Monitor](data-platform-metrics.md) son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Por otra parte, las métricas personalizadas se envían a Azure por medio de sus aplicaciones con la [API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), la [extensión de Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o por medio de la [API de REST de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>Crear vistas con varias métricas y gráficos
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Creación de vistas con varias métricas y gráficos
 
-Puede crear gráficos que trazar varias líneas de las métricas o mostrar varios gráficos de métricas a la vez. Esta funcionalidad le permite:
+Puede crear gráficos que tracen varias líneas de métricas o mostrar varios gráficos de métricas a la vez. Esta funcionalidad le permite:
 
-- poner en correlación las métricas relacionadas en el mismo gráfico para ver cómo una valor está relacionada con otra
-- mostrar las métricas con las diferentes unidades de medida cerca
-- Agregar visualmente y comparar las métricas de varios recursos
+- poner en correlación métricas relacionadas en el mismo grupo para ver la relación de un valor con otro,
+- mostrar métricas con diferentes unidades de medida muy cercanas o
+- agregar y comparar visualmente métricas de varios recursos.
 
-Por ejemplo, si tiene 5 cuentas de almacenamiento y desea saber la cantidad total de espacio se consume entre ellos, puede crear un gráfico de áreas (apiladas) que muestra la persona y la suma de todos los valores en momentos concretos de tiempo.
+Por ejemplo, si tiene cinco cuentas de almacenamiento y desea conocer el espacio total consumido entre ellas, puede crear un gráfico de áreas (apiladas) que muestre el valor individual y la suma de todos los valores en determinados momentos.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Varias métricas en el mismo gráfico
 
-Primero, [cree un nuevo gráfico](metrics-getting-started.md#create-your-first-metric-chart). Haga clic en **agregar métrica** y repita los pasos para agregar otra métrica en el mismo gráfico.
+En primer lugar, [cree un nuevo gráfico](metrics-getting-started.md#create-your-first-metric-chart). Haga clic en **Agregar métrica** y repita los pasos para agregar otra métrica en el mismo gráfico.
 
    > [!NOTE]
    > Normalmente no querrá tener en un gráfico métricas con unidades de medida diferentes (es decir, milisegundos y kilobytes) ni con una escala muy diferente. En su lugar, considere el uso de varios gráficos. Haga clic en el botón Agregar gráfico para crear varios gráficos en el explorador de métricas.
 
 ### <a name="multiple-charts"></a>Varios gráficos
 
-Haga clic en el **Agregar gráfico** y cree otro gráfico con una métrica diferente.
+Haga clic en **Agregar gráfico** y cree otro gráfico con una métrica diferente.
 
-### <a name="order-or-delete-multiple-charts"></a>El orden o eliminar varios gráficos
+### <a name="order-or-delete-multiple-charts"></a>Ordenación o eliminación de varios gráficos
 
-Para ordenar o eliminar varios gráficos, haga clic en el botón de puntos suspensivos ( **...**  ) símbolos para abrir el menú de gráfico y elija el elemento de menú adecuado **Subir**, **Bajar**, o **eliminar**.
+Para ordenar o eliminar varios gráficos, haga clic en el símbolo de puntos suspensivos ( **...** ) para abrir el menú del gráfico y elija el elemento de menú adecuado de **Subir**, **Bajar** o **Eliminar**.
 
 ## <a name="apply-filters-to-charts"></a>Aplicación de filtros a gráficos
 
@@ -73,7 +73,7 @@ Puede aplicar filtros a los gráficos que muestran métricas con dimensiones. Po
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Se aplican a un gráfico de la división
+## <a name="apply-splitting-to-a-chart"></a>Aplicación de la división a un gráfico
 
 Puede dividir una métrica por dimensión para visualizar cómo se comparan entre sí los distintos segmentos de la métrica, y para identificar los segmentos no relevantes de una dimensión.
 
@@ -82,7 +82,7 @@ Puede dividir una métrica por dimensión para visualizar cómo se comparan entr
 1. Haga clic en **Aplicar separación** encima del gráfico.
  
    > [!NOTE]
-   > La división no se puede usar con los gráficos que tienen varias métricas. Además, puede tener varios filtros, pero solamente una dimensión de división aplicado a un único gráfico.
+   > La división no se podrá usar con aquellos gráficos que tengan varias métricas. Asimismo, puede tener varios filtros, pero solo una dimensión de división aplicada en un único gráfico.
 
 2. Elija una dimensión por la que quiera segmentar el gráfico:
 
@@ -149,3 +149,4 @@ Consulte este [artículo](alerts-metric.md) para obtener más información sobre
 ## <a name="next-steps"></a>Pasos siguientes
 
   Lea [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) (Creación de paneles de KPI personalizados) para obtener información sobre las prácticas recomendadas para la creación de paneles accionables con métricas.
+

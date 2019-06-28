@@ -11,16 +11,16 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736622"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Cuando se crea una nueva área de trabajo en Azure Machine Learning Studio, un número de conjuntos de datos de ejemplo y los experimentos se incluye de forma predeterminada. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
+Cuando se crea un área de trabajo nueva en Azure Machine Learning Studio, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.
 
 Algunos de estos conjuntos de datos están disponibles en Azure Blob Storage. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Import Data][import-data] (Importar datos).
 
@@ -232,7 +232,7 @@ Esta es quizá la base de datos más conocida entre la literatura de reconocimie
 <tr>
   <td>Tweets sobre películas</td>
   <td>
-El conjunto de datos es una versión extendida del conjunto de datos Tweets sobre películas. El conjunto de datos incluye 170 000 valoraciones de películas extraídas de tweets bien estructurados en Twitter. Cada instancia representa un tweet y es una tupla: Id. de usuario, Id. de película IMDB, valoración, marca de tiempo, número de favoritos para ese tweet y número de retweets de ese tweet. A. Said, S. Dooms, B. Loni y D. Tikk proporcionaron el conjunto de datos para el Concurso de sistemas de recomendación 2014.
+El conjunto de datos es una versión extendida del conjunto de datos Tweets sobre películas. El conjunto de datos incluye 170 000 valoraciones de películas extraídas de tweets bien estructurados en Twitter. Cada instancia representa un tweet y es una tupla: id. de usuario, id. de película IMDB, valoración, marca de tiempo, número de favoritos para ese tweet y número de retweets de ese tweet. A. Said, S. Dooms, B. Loni y D. Tikk proporcionaron el conjunto de datos para el Concurso de sistemas de recomendación 2014.
   </td>
 </tr>
 
@@ -408,7 +408,7 @@ El conjunto de datos se ha descargado y almacenado en Azure Blob Storage (<a hre
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [KickStart sus experimentos con ejemplos](sample-experiments.md)
+> [Ponga en marcha sus experimentos con ejemplos](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

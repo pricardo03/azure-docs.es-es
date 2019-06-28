@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804011"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
@@ -144,7 +144,7 @@ En este ejemplo se definen las siguientes rutas:
 
 ## <a name="technical-information"></a>Información técnica
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitaciones actuales de los trabajos de IoT Edge en comparación con los trabajos en la nube
-El objetivo es tener paridad entre los trabajos de IoT Edge y los trabajos en la nube. Se admite la mayoría de las características de lenguaje de consulta SQL, habilitar al ejecutar la misma lógica en la nube y de IoT Edge.
+El objetivo es tener paridad entre los trabajos de IoT Edge y los trabajos en la nube. Se admite la mayoría de las características del lenguaje de consulta SQL, lo que permite ejecutar la misma lógica en la nube y en IoT Edge.
 Sin embargo, las siguientes características aún no se admiten en los trabajos perimetrales:
 * Funciones definidas por el usuario (UDF) en JavaScript. Las UDF están disponibles en [ C# para trabajos de IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (versión preliminar).
 * Agregados definidos por el usuario (UDA).

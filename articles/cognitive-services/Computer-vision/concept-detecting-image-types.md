@@ -12,21 +12,21 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368361"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detección de tipos de imagen con Computer Vision
 
-Con el [análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, Computer Vision pueden analizar el tipo de contenido de imágenes, que indica si una imagen es imágenes prediseñadas o dibujo lineal.
+Con la API [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), Computer Vision puede analizar el tipo de contenido de las imágenes, que indica si se trata de una imagen prediseñada o un dibujo lineal.
 
 ## <a name="detecting-clip-art"></a>Detección de imágenes prediseñadas
 
 Computer Vision analiza una imagen y evalúa la probabilidad de que sea una imagen prediseñada en una escala de 0 a 3, tal y como se describe en la tabla siguiente.
 
-| Value | Significado |
+| Valor | Significado |
 |-------|---------|
 | 0 | No es imagen prediseñada |
 | 1 | Ambigua |
@@ -115,4 +115,4 @@ Las respuestas JSON siguientes muestran lo que devuelve Computer Vision al infor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) documentación para obtener información sobre cómo detectar los tipos de imagen de referencia.
+Consulte la documentación de referencia sobre el [análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obtener información sobre cómo detectar los tipos de imagen.

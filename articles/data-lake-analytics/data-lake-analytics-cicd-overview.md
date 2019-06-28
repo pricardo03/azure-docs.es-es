@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60333883"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Procedimiento para configurar una canalización de CI/CD para Azure Data Lake Analytics  
@@ -66,7 +66,7 @@ Los scripts de U-SQL en un proyecto de U-SQL podrían tener las instrucciones de
 Más información acerca del [proyecto de base de datos U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->Instrucción DROP puede producir el error de eliminación de accidente. Para habilitar la instrucción DROP, deberá especificar explícitamente los argumentos de MSBuild. **AllowDropStatement** permitirá datos no relacionado operación de colocar, como quitar el ensamblado y colocar función con valores de tabla. **AllowDataDropStatement** permitirá que los datos relacionados con la operación de colocar, como drop table y drop schema. Tendrá que habilitar AllowDropStatement antes de usar AllowDataDropStatement.
+>La instrucción DROP puede causar una incidencia de eliminación de accidentes. Para habilitar la instrucción DROP, deberá especificar explícitamente los argumentos de MSBuild. **AllowDropStatement** permitirá una operación DROP no relacionada con los datos, como la función con valor de DROP ASSEMBLY y DROP TABLE. **AllowDataDropStatement** permitirá una operación DROP relacionada con los datos, como DROP TABLE y DROP SCHEMA. Tendrá que habilitar AllowDropStatement antes de usar AllowDataDropStatement.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Compilación de un proyecto de U-SQL con la línea de comandos de MSBuild
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 La definición de los argumentos y los valores son los siguientes:
 
-* **USQLSDKPath =\<paquete Nuget de U-SQL > \build\runtime**. Este parámetro hace referencia a la ruta de instalación del paquete NuGet para el servicio de lenguaje de U-SQL.
+* **USQLSDKPath=\<paquete Nuget U-SQL>\build\runtime**. Este parámetro hace referencia a la ruta de instalación del paquete NuGet para el servicio de lenguaje de U-SQL.
 * **USQLTargetType=Merge o SyntaxCheck**:
     * **Merge**. El modo Merge compila los archivos de código subyacente. Algunos ejemplos son los archivos **.cs**, **.py** y **.r**. Incorpora la biblioteca de código definido por el usuario resultante en el script U-SQL. Algunos ejemplos son un archivo binario .dll, Python o código de R.
     * **SyntaxCheck**. El modo SyntaxCheck primero combina los archivos de código subyacente en el script U-SQL. A continuación, compila el script U-SQL para validar el código.
-* **DataRoot =\<ruta de acceso de DataRoot >**. DataRoot solo se necesita para el modo SyntaxCheck. Al compilar el script con el modo SyntaxCheck, MSBuild comprueba las referencias a objetos de base de datos en el script. Antes de compilar, configure un entorno local coincidente que contenga los objetos a los que se hace referencia desde la base de datos U-SQL en la carpeta DataRoot del equipo en que se realiza compilación. Para administrar estas dependencias de la base de datos, también se puede [hacer referencia a un proyecto de base de datos de U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild solo comprueba la referencia de los objetos de base de datos, no los archivos.
+* **DataRoot=\<ruta de acceso de DataRoot>** . DataRoot solo se necesita para el modo SyntaxCheck. Al compilar el script con el modo SyntaxCheck, MSBuild comprueba las referencias a objetos de base de datos en el script. Antes de compilar, configure un entorno local coincidente que contenga los objetos a los que se hace referencia desde la base de datos U-SQL en la carpeta DataRoot del equipo en que se realiza compilación. Para administrar estas dependencias de la base de datos, también se puede [hacer referencia a un proyecto de base de datos de U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild solo comprueba la referencia de los objetos de base de datos, no los archivos.
 * **EnableDeployment=true** o **false**. EnableDeployment indica si se permite implementar bases de datos U-SQL de referencia durante el proceso de compilación. Si hace referencia al proyecto de base de datos U-SQL y consume los objetos de base de datos en el script U-SQL, establezca este parámetro en **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integración continua mediante Azure Pipelines

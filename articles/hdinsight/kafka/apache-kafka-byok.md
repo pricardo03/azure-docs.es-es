@@ -1,5 +1,5 @@
 ---
-title: Traiga su propia clave de Apache Kafka en HDInsight de Azure
+title: Método Bring Your Own Key para Apache Kafka en Azure HDInsight
 description: En este artículo se describe el método para que use su propia clave desde Azure Key Vault para cifrar los datos almacenados en Apache Kafka en Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 6108bfd9e39b37507ec7e113bf2c489e890f0ca0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233568"
 ---
-# <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Traiga su propia clave de Apache Kafka en HDInsight de Azure
+# <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Método Bring Your Own Key para Apache Kafka en Azure HDInsight
 
 Azure HDInsight incluye compatibilidad con Bring Your Own Key (BYOK) para Apache Kafka. Esta funcionalidad le permite ser el propietario y administrar las claves utilizadas para cifrar datos en reposo.
 
@@ -24,29 +24,29 @@ El cifrado de BYOK es un proceso de un paso controlado durante la creación del 
 
 Todos los mensajes en el clúster de Kafka (incluidas las réplicas mantenidas por Kafka) se cifran con una clave de cifrado de datos (DEK) simétrica. La DEK está protegida mediante la clave de cifrado de claves (KEK) del almacén de claves. Azure HDInsight controla completamente los procesos de cifrado y descifrado. 
 
-Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén de claves de forma segura. Cuando se rota una clave, el clúster de HDInsight Kafka comienza a usar la clave nueva en cuestión de minutos. Habilitar las características de protección de claves "Eliminación temporal" para protegerse frente a ransomware escenarios y la eliminación accidental. Los almacenes de claves sin esta característica de protección no se admiten.
+Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén de claves de forma segura. Cuando se rota una clave, el clúster de HDInsight Kafka comienza a usar la clave nueva en cuestión de minutos. Habilite la característica de protección de claves "Eliminación temporal" para protegerse frente a los escenarios de ransomware y la eliminación accidental. No se admiten almacenes de claves sin esta característica de protección.
 
 ## <a name="get-started-with-byok"></a>Introducción a BYOK
-Para crear un BYOK habilitado el clúster de Kafka, describiremos los pasos siguientes:
-1. Crear identidades administradas para los recursos de Azure
-2. Azure Key Vault y claves de instalación
-3. Creación de clúster de HDInsight Kafka con BYOK habilitado
+Para crear un clúster de Kafka habilitado para BYOK, llevaremos a cabo los pasos siguientes:
+1. Creación de identidades administradas para los recursos de Azure
+2. Configuración de Azure Key Vault y las claves
+3. Creación de clúster de Kafka HDInsight con BYOK habilitado
 4. Rotación de la clave de cifrado
 
-## <a name="create-managed-identities-for-azure-resources"></a>Crear identidades administradas para los recursos de Azure
+## <a name="create-managed-identities-for-azure-resources"></a>Creación de identidades administradas para los recursos de Azure
 
-   Para autenticarse en Key Vault, cree una identidad administrada asignada por el usuario utilizando el [portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), o [ CLI de Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Para obtener más información sobre cómo administrado trabajo de identidades en Azure HDInsight, consulte [administra identidades en Azure HDInsight](../hdinsight-managed-identities.md). Azure Active Directory es un requisito para las identidades administradas y BYOK a Kafka, pero Enterprise Security Package no lo es. Asegúrese de guardar el identificador de recurso de identidad administrada para cuando lo agregue a la directiva de acceso de Key Vault.
+   Para autenticarse en Key Vault, cree una identidad administrada asignada por el usuario mediante [Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md) o la [CLI de Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Para obtener más información sobre cómo funcionan las identidades administradas en Azure HDInsight, consulte [Identidades administradas en Azure HDInsight](../hdinsight-managed-identities.md). Azure Active Directory es un requisito para las identidades administradas y BYOK a Kafka, pero Enterprise Security Package no lo es. Asegúrese de guardar el identificador de recurso de identidad administrada para cuando lo agregue a la directiva de acceso de Key Vault.
 
    ![Creación de una identidad administrada asignada por el usuario en Azure Portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-## <a name="setup-the-key-vault-and-keys"></a>Configurar el almacén de claves y claves
+## <a name="setup-the-key-vault-and-keys"></a>Configuración de Key Vault y las claves
 
-   HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de claves, puede importar las claves a Azure Key Vault. Recuerde que las claves deben tener "Eliminación temporal". La característica de "Eliminación temporal" está disponible en el resto, .NET /C#, interfaces de PowerShell y CLI de Azure.
+   HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de claves, puede importar las claves a Azure Key Vault. Recuerde que las claves deben tener habilitada la característica "Eliminación temporal". Dicha característica está disponible a través de las interfaces de REST, .NET/C#, PowerShell y la CLI de Azure.
 
    1. Para crear un nuevo almacén de claves, siga la guía de inicio rápido de [Azure Key Vault](../../key-vault/key-vault-overview.md). Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../../key-vault/about-keys-secrets-and-certificates.md).
 
-   2. Habilite "eliminación temporal" en el almacén de claves utilizando la [actualización de az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) comando de cli.
-        ''' Actualización del almacén de claves de azure az CLI--nombre <Key Vault Name> --enable-soft-delete
+   2. Habilite la característica "Eliminación temporal" en el almacén de claves mediante el comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) de la CLI.
+        ```Azure CLI az keyvault update --name <Key Vault Name> --enable-soft-delete
         ```
 
    3. Create keys

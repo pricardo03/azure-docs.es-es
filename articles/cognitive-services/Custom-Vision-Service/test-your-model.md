@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
 ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816664"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Prueba y reentrenamiento de un modelo con Custom Vision Service
@@ -35,7 +35,7 @@ La imagen seleccionada aparece en el medio de la página. A continuación, los r
 
 Puede agregar ahora esta imagen de prueba al modelo y, a continuación, volver a entrenarlo.
 
-## <a name="use-the-predicted-image-for-training"></a>Uso de la imagen de predicción para entrenamiento
+## <a name="use-the-predicted-image-for-training"></a>Uso de la imagen prevista para el entrenamiento
 
 Para usar la imagen enviada anteriormente para el entrenamiento, siga estos pasos:
 

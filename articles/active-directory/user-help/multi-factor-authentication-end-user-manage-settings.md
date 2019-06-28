@@ -15,10 +15,10 @@ ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334495"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Administración de la configuración de la comprobación en dos pasos
@@ -50,7 +50,7 @@ Si hacer clic en ese vínculo no funciona, también puede seguir los pasos a con
     ![Página de proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Deseo cambiar mi número de teléfono o agregar un número secundario
-Es importante configurar un número de teléfono de autenticación secundario.  Dado que el número de teléfono principal y la aplicación móvil probablemente están en el mismo teléfono, el número de teléfono secundario es la forma más rápida, podrá regresar a tu cuenta si se pierde o lo roban el teléfono.
+Es importante configurar un número de teléfono de autenticación secundario.  Debido a que el número de teléfono principal y la aplicación móvil probablemente se encuentran en el mismo teléfono, el número de teléfono secundario es la forma más rápida que tiene para volver a tener acceso a su cuenta si se le pierde el teléfono o si se lo robaron.
 
 > [!NOTE]
 > Si no dispone de acceso a su número de teléfono principal y necesita ayuda para encontrar su cuenta, consulte el artículo [Problemas con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) para obtener más ayuda.  

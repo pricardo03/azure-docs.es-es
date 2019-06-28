@@ -12,10 +12,10 @@ ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379355"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de una base de conocimiento de QnA Maker
@@ -28,14 +28,14 @@ El punto de conexión de la base de conocimiento de QnA Maker proporciona una re
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Probar y actualizar la base de conocimiento
 
-La base de conocimiento está lista para probarla una vez que se llena con el contenido, bien editorialmente o mediante extracción automática. Las pruebas interactivas que pueden realizarse en el portal de QnA Maker a través de la **prueba** panel especificando las consultas comunes de usuario y comprobar que las respuestas se devuelven con la respuesta correcta y la puntuación de confianza suficiente. 
+La base de conocimiento está lista para probarla una vez que se llena con el contenido, bien editorialmente o mediante extracción automática. Se pueden hacer pruebas interactivas en el portal de QnA Maker mediante el panel **Prueba** por medio de la especificación de consultas de usuario comunes y la comprobación de que las respuestas se devuelvan con la respuesta correcta y la puntuación de confianza suficiente. 
 
-* **Para corregir las puntuaciones de confianza baja**: agregar preguntas alternativas. 
-* **Cuando una consulta devuelve incorrectamente el [respuesta predeterminada](confidence-score.md#change-default-answer)**: agregar nuevas respuestas a la pregunta correcta. 
+* **Para corregir las puntuaciones de confianza baja**: agregue preguntas alternativas. 
+* **Cuando una consulta devuelve incorrectamente la [respuesta predeterminada](confidence-score.md#change-default-answer)** : agregue nuevas respuestas a la pregunta correcta. 
 
 Este bucle ajustado de prueba-actualización continúa hasta que esté satisfecho con los resultados. Vea cómo [probar la base de conocimiento](../How-To/test-knowledge-base.md).
 
-Para artículos de KB de gran tamaño, use pruebas automatizadas con el [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) y `isTest` body (propiedad) en las consultas que el `test` knowledge base en lugar de la base de conocimiento publicada. 
+Para KB de gran tamaño, use pruebas automatizadas con la [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) y la propiedad del cuerpo `isTest` que consulta la base de conocimiento `test` en lugar de la base de conocimiento publicada. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Cuando haya terminado de probar la base de conocimiento, puede publicarla. Al pu
 
 De esta manera, los cambios realizados en la versión de prueba de la base de conocimiento no afectan a la versión publicada que podría estar activa en una aplicación de producción.
 
-Cada una de estas bases de conocimiento se pueden probar por separado. Mediante las API, puede tener como destino la versión de prueba de la base de conocimiento con `isTest` body (propiedad) en la llamada generateAnswer.
+Cada una de estas bases de conocimiento se pueden probar por separado. Mediante las API, puede dirigirse a la versión de prueba de la base de conocimiento con la propiedad del cuerpo `isTest` en la llamada de generateAnswer.
 
 Vea cómo [publicar la base de conocimiento](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
@@ -67,7 +67,7 @@ Según la información que obtenga de los análisis, realice [las actualizacione
 > [!div class="nextstepaction"]
 > [Puntuación de confianza](./confidence-score.md)
 
-## <a name="see-also"></a>Vea también 
+## <a name="see-also"></a>Otras referencias 
 
 [Base de conocimiento](./knowledge-base.md)
 [Información general de QnA Maker](../Overview/overview.md)

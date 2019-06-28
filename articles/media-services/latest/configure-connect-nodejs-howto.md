@@ -1,6 +1,6 @@
 ---
-title: Conectarse a Azure Media Services v3 API - Node.js
-description: Obtenga información sobre cómo conectarse a la API de Media Services v3 con Node.js.
+title: 'Conexión a la API de Azure Media Services v3: Node.js'
+description: Obtenga información sobre cómo conectarse a la API de Media Services v3 con Node.js.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733137"
 ---
-# <a name="connect-to-media-services-v3-api---nodejs"></a>Conectarse a la API de Media Services v3 - Node.js
+# <a name="connect-to-media-services-v3-api---nodejs"></a>Conexión a la API de Media Services v3: Node.js
 
-Este artículo muestra cómo conectar con el SDK del método mediante el inicio de sesión entidad de servicio de node.js de Azure Media Services v3.
+En este artículo se muestra cómo conectar con el SDK de node.js de Azure Media Services v3 con el método de inicio de sesión de la entidad de servicio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Instale Node.js](https://nodejs.org/en/download/).
-- [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de cuenta de Media Services.
+- [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 
-## <a name="create-packagejson"></a>Crear package.json
+## <a name="create-packagejson"></a>Creación de package.json
 
 1. Cree un archivo package.json con el editor que prefiera.
-1. Abra el archivo y pegue el código siguiente:
+1. Abra el archivo y pegue el siguiente código:
 
 ```json
 {
@@ -53,8 +53,8 @@ Se deben especificar los siguientes paquetes:
 
 |Paquete|DESCRIPCIÓN|
 |---|---|
-|`azure-arm-mediaservices`|SDK de Azure Media Services. <br/>Para asegurarse de que usa el paquete más reciente de Azure Media Services, consulte [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
-|`azure-storage`|SDK de Storage. Se utiliza cuando se cargan archivos en recursos.|
+|`azure-arm-mediaservices`|SDK de Azure Media Services. <br/>Para asegurarse de que usa el paquete más reciente de Azure Media Services, consulte [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/) (Instalación de azure-arm-mediaservices para NPM).|
+|`azure-storage`|SDK de Storage. Se utiliza cuando se cargan los archivos en los recursos.|
 |`ms-rest-azure`| Se usa para iniciar sesión.|
 
 Puede ejecutar el comando siguiente para asegurarse de que usa el paquete más reciente:
@@ -63,11 +63,11 @@ Puede ejecutar el comando siguiente para asegurarse de que usa el paquete más r
 npm install azure-arm-mediaservices
 ```
 
-## <a name="connect-to-nodejs-client"></a>Conectarse al cliente de Node.js
+## <a name="connect-to-nodejs-client"></a>Conexión con el cliente de Node.js
 
-1. Cree un archivo .js con su editor favorito.
+1. Cree un archivo .js con el editor que prefiera.
 1. Abra el archivo y pegue el siguiente código.
-1. Establezca los valores en la sección "configuración de punto de conexión" para los valores que se obtuvo al [acceder a las API](access-api-cli-how-to.md).
+1. Establezca los valores en la sección "endpoint config" en los valores que se obtuvo de [Acceso a la API](access-api-cli-how-to.md).
 
 ```js
 'use strict';
@@ -113,14 +113,14 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 ## <a name="run-your-app"></a>Ejecutar la aplicación
 
-Abra el símbolo del sistema. Vaya al directorio del ejemplo y ejecute los comandos siguientes:
+Abra el símbolo del sistema. Busque el directorio del ejemplo y ejecute los comandos siguientes:
 
 ```
 npm install 
 node index.js
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Conceptos de Azure Media Services](concepts-overview.md)
 - [Instalación de azure-arm-mediaservices para NPM](https://www.npmjs.com/package/azure-arm-mediaservices/)

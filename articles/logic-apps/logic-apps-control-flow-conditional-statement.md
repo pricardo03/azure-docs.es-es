@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684803"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crear instrucciones condicionales que controlen las acciones de los flujo de trabajo en Azure Logic Apps
@@ -39,7 +39,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
 
 1. Agregue una condición en la ubicación que desee. 
 
-   Para agregar una condición entre los pasos, mueva el puntero sobre la flecha en la que desee agregar la condición. Elija el **signo más** (**+**) que aparece y, luego, elija **Agregar una acción**. Por ejemplo: 
+   Para agregar una condición entre los pasos, mueva el puntero sobre la flecha en la que desee agregar la condición. Elija el **signo más** ( **+** ) que aparece y, luego, elija **Agregar una acción**. Por ejemplo:
 
    ![Agregar acción entre pasos](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -72,7 +72,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
    Para agregar un grupo con subcondiciones, elija **Agregar** > **Agregar grupo**. 
    Para agrupar filas existentes, seleccione las casillas de esas filas, elija el botón de puntos suspensivos (...) para cualquier fila y, a continuación, elija **Make group** (Crear grupo).
 
-1. En **If true** e **If false**, agregue los pasos que se van a realizar en función de que la condición se cumpla o no. Por ejemplo: 
+1. En **If true** e **If false**, agregue los pasos que se van a realizar en función de que la condición se cumpla o no. Por ejemplo:
 
    ![Condición con las rutas "If true" e "If false"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 

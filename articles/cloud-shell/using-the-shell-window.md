@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60200707"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Uso de la ventana Azure Cloud Shell
@@ -28,7 +28,7 @@ En este documento se explica cómo usar la ventana Cloud Shell.
 ## <a name="swap-between-bash-and-powershell-environments"></a>Intercambio entre los entornos Bash y PowerShell
 
 Use el selector de entorno de la barra de herramientas de Cloud Shell para cambiar entre los entornos Bash y PowerShell.  
-![Seleccionar entorno](media/using-the-shell-window/env-selector.png)
+![Selección del entorno](media/using-the-shell-window/env-selector.png)
 
 ## <a name="restart-cloud-shell"></a>Reinicio de Cloud Shell
 Haga clic en el icono de reinicio de la barra de herramientas de Cloud Shell para restablecer el estado de la máquina.  
@@ -36,38 +36,38 @@ Haga clic en el icono de reinicio de la barra de herramientas de Cloud Shell par
 > [!WARNING]
 > Al reiniciar Cloud Shell se restablecerá el estado de la máquina y todos los archivos que no conserve el recurso compartido de archivos de Azure se perderán.
 
-## <a name="change-the-text-size"></a>Cambiar el tamaño del texto
+## <a name="change-the-text-size"></a>Cambio del tamaño del texto
 Haga clic en el icono de configuración que se encuentra en la esquina superior izquierda de la ventana y, luego, mantenga el puntero sobre la opción "Tamaño de texto" y seleccione el tamaño de texto que prefiera. La selección se conservará de una sesión a otra.
 ![Tamaño del texto](media/using-the-shell-window/text-size.png)
 
-## <a name="change-the-font"></a>Cambiar la fuente
-Haga clic en el icono de configuración en la parte superior izquierdo de la ventana y, a continuación, mantenga el mouse sobre la opción "Fuente" y seleccione la fuente deseado.  La selección se conservará de una sesión a otra.
-![Font](media/using-the-shell-window/text-font.png)
+## <a name="change-the-font"></a>Cambio de la fuente
+Haga clic en el icono de configuración que se encuentra en la esquina superior izquierda de la ventana y, luego, mantenga el puntero sobre la opción "Fuente" y seleccione la fuente que prefiera.  La selección se conservará de una sesión a otra.
+![Fuente](media/using-the-shell-window/text-font.png)
 
 ## <a name="upload-and-download-files"></a>Carga y descarga de archivos
-Haga clic en el icono de carga y descarga de archivos en la parte superior izquierdo de la ventana, a continuación, seleccione la carga o descarga.  
-![Cargar/descargar archivos](media/using-the-shell-window/uploaddownload.png)
-* Para cargar archivos, use el elemento emergente para buscar el archivo en el equipo local, seleccione el archivo que desee y haga clic en el botón "Abrir".  El archivo se cargará en el `/home/user` directory.
+Haga clic en el icono de carga y descarga de archivos en la parte superior izquierda de la ventana y, luego, seleccione Cargar o Descargar.  
+![Carga y descarga de archivos](media/using-the-shell-window/uploaddownload.png)
+* Para cargar archivos, use el elemento emergente para buscar el archivo en el equipo local, seleccione el archivo que desee y haga clic en el botón "Abrir".  El archivo se cargará en el directorio `/home/user`.
 * Para descargar archivos, escriba la ruta de acceso completa del archivo en la ventana emergente y seleccione el botón "Descargar".  
 > [!NOTE] 
-> Los archivos y rutas de acceso de archivo distinguen mayúsculas de minúsculas en Cloud Shell. Compruebe el uso de mayúsculas y minúsculas en la ruta de acceso de archivo.
+> Los archivos y las rutas de acceso de archivo distinguen entre mayúsculas y minúsculas en Cloud Shell. Compruebe el uso de mayúsculas y minúsculas en la ruta de acceso del archivo.
 
-## <a name="open-another-cloud-shell-window"></a>Abrir otra ventana del Shell en la nube
+## <a name="open-another-cloud-shell-window"></a>Apertura de otra ventana de Cloud Shell
 Cloud Shell permite varias sesiones simultáneas en pestañas del explorador posibilitando que cada sesión exista como un proceso independiente.
 Si sale de una sesión, asegúrese de salir de cada ventana de sesión, ya que cada proceso se ejecuta de forma independiente aunque se ejecuten en la misma máquina.  
-Haga clic en el icono de la sesión abierta de nuevo en la parte superior izquierdo de la ventana. Se abrirá una nueva pestaña con otra sesión conectada al contenedor existente.
+Haga clic en el icono para abrir nueva sesión en la parte superior izquierda de la ventana. Se abrirá una nueva pestaña con otra sesión conectada al contenedor existente.
 ![Abrir nueva sesión](media/using-the-shell-window/newsession.png)
 
 ## <a name="cloud-shell-editor"></a>Editor de Cloud Shell
-* Hacer referencia a la [con el editor de Azure Cloud Shell](using-cloud-shell-editor.md) página.
+* Consulte la página [Uso del editor de Azure Cloud Shell](using-cloud-shell-editor.md).
 
 ## <a name="web-preview"></a>Vista previa web
-Haga clic en el icono de vista previa web en la parte superior izquierda de la ventana, seleccione "Configurar", especifique el puerto deseado al abrir.  Seleccione cualquier "puerto abierto" solo para abre el puerto, o "abrir y examinar" para abrir el puerto y el puerto en una nueva pestaña de vista previa.  
-![Vista previa Web](media/using-the-shell-window/preview.png)  
+Haga clic en el icono de vista previa web en la parte superior izquierda de la ventana, seleccione "Configurar" y especifique el puerto que desee abrir.  Seleccione "Abrir puerto" para abrir solo el puerto, o "Abrir y examinar" para abrir el puerto y obtener una vista previa del mismo en una nueva pestaña.  
+![Vista previa web](media/using-the-shell-window/preview.png)  
 <br>
 ![Configurar puerto](media/using-the-shell-window/preview-configure.png)  
-Haga clic en el icono de vista previa web en la parte superior izquierdo de la ventana, seleccione "Vista previa de puerto..." Para obtener una vista previa de un puerto abierto en una nueva pestaña. Haga clic en el icono de vista previa web en la parte superior izquierdo de la ventana, seleccione "Cerrar puerto..." para cerrar el puerto abierto.  
-![Vista previa o cerrar puerto](media/using-the-shell-window/preview-options.png)
+Haga clic en el icono de vista previa web en la parte superior izquierda de la ventana y seleccione "Puerto de vista previa..." para obtener una vista previa de un puerto abierto en una nueva pestaña. Haga clic en el icono de vista previa web en la parte superior izquierda de la ventana y seleccione "Cerrar puerto..." para cerrar el puerto abierto.  
+![Vista previa del puerto y cerrar puerto](media/using-the-shell-window/preview-options.png)
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Minimizar y maximizar la ventana Cloud Shell
 Haga clic en el icono Minimizar situado en la parte superior derecha de la ventana para ocultarla. Haga clic en el icono Cloud Shell de nuevo para mostrarla.

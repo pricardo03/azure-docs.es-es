@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
 ms.openlocfilehash: e4c4afefe7a4746f2d8138bde7fea152f228a8bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648889"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Uso de SAP en máquinas virtuales Linux en Azure
@@ -33,7 +33,7 @@ Con las máquinas virtuales de Microsoft Azure, Microsoft ofrece una completa pl
 ## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver en máquinas virtuales Linux de SUSE de Azure
 Título: Pruebas de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
 
-Resumen: No hay ninguna compatibilidad oficial con SAP para ejecutar SAP NetWeaver en máquinas virtuales de Linux de Azure en este momento. Sin embargo, es posible que los clientes quieran hacer algunas pruebas o que consideren la posibilidad de ejecutar sistemas de aprendizaje o demostración SAP en máquinas virtuales con Linux en Azure siempre que no sea necesario para ponerse en contacto con el soporte de SAP. Este artículo debe ayudar a configurar las máquinas virtuales con Linux de Azure SUSE para la ejecución de SAP y ofrece algunas sugerencias básicas con el fin de evitar posibles problemas comunes.
+Resumen: no hay ninguna compatibilidad oficial con SAP para la ejecución de SAP NetWeaver en máquinas virtuales con Linux de Azure en este momento. Sin embargo, es posible que los clientes quieran hacer algunas pruebas o que consideren la posibilidad de ejecutar sistemas de aprendizaje o demostración SAP en máquinas virtuales con Linux en Azure siempre que no sea necesario para ponerse en contacto con el soporte de SAP. Este artículo debe ayudar a configurar las máquinas virtuales con Linux de Azure SUSE para la ejecución de SAP y ofrece algunas sugerencias básicas con el fin de evitar posibles problemas comunes.
 
 Actualizado: diciembre de 2015
 

@@ -1,6 +1,6 @@
 ---
-title: Compartir imágenes de la galería en inquilinos de Azure | Microsoft Docs
-description: Obtenga información sobre cómo compartir imágenes de máquinas virtuales entre los inquilinos de Azure con galerías de imágenes compartidas.
+title: Uso compartido de las imágenes de la galería entre inquilinos de Azure | Microsoft Docs
+description: Obtenga información sobre cómo compartir imágenes de máquina virtual entre inquilinos de Azure mediante Galerías de imágenes compartidas.
 services: virtual-machines-windows
 author: cynthn
 manager: jeconnoc
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
 ms.openlocfilehash: 56c0e906203a010a1356beae4b6e5d66e34cfc2b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159846"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartir imágenes de máquina virtual de la galería en inquilinos de Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Uso compartido de imágenes de la máquina virtual de la galería entre inquilinos de Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
-## <a name="create-a-vm-using-powershell"></a>Crear una máquina virtual mediante PowerShell
+## <a name="create-a-vm-using-powershell"></a>Creación de una máquina virtual con PowerShell
 
 
-Inicie sesión en ambos inquilinos mediante el identificador de aplicación, identificador de secreto y el inquilino. 
+Inicie sesión en ambos inquilinos con el identificador de la aplicación, el secreto y el identificador del inquilino. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -38,7 +38,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-Cree la máquina virtual en el grupo de recursos que tenga permiso en el registro de aplicación. Reemplace la información en este ejemplo por los suyos propios.
+Cree la máquina virtual en el grupo de recursos que tenga permiso en el registro de la aplicación. Reemplace la información del ejemplo por la suya.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
@@ -57,4 +57,4 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede crear imagen compartido los recursos de galería mediante el [portal Azure](shared-images-portal.md).
+Puede crear también recursos de galería de imágenes compartidas con [Azure Portal](shared-images-portal.md).

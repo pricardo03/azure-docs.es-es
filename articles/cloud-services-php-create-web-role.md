@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337568"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creación de roles web y de trabajo para PHP
@@ -26,13 +26,13 @@ ms.locfileid: "60337568"
 
 En esta guía se explica cómo crear roles de trabajo o web de PHP en un entorno de desarrollo de Windows, elegir una versión específica de PHP de versiones "integradas" disponibles, cambiar la configuración de PHP, habilitar extensiones y, por último, implementar en Azure. También se describe cómo configurar un rol web o de trabajo para usar un tiempo de ejecución de PHP (con las extensiones y la configuración personalizada) proporcionado por el usuario.
 
-Azure proporciona tres modelos de proceso para ejecutar aplicaciones: Azure App Service, máquinas virtuales y servicios de nube de Azure. Los tres modelos admiten PHP. Cloud Services, que incluye roles web y de trabajo, ofrece el modelo *Plataforma como servicio (PaaS)*. Dentro de un servicio en la nube, un rol web proporciona un servidor web de Internet Information Services (IIS) dedicado para hospedar aplicaciones web front-end. Un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas, independientes de la entrada o la interacción del usuario.
+Azure proporciona tres modelos de proceso para ejecutar aplicaciones: Azure App Service, Azure Virtual Machines y Azure Cloud Services. Los tres modelos admiten PHP. Cloud Services, que incluye roles web y de trabajo, ofrece el modelo *Plataforma como servicio (PaaS)* . Dentro de un servicio en la nube, un rol web proporciona un servidor web de Internet Information Services (IIS) dedicado para hospedar aplicaciones web front-end. Un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas, independientes de la entrada o la interacción del usuario.
 
 Para más información sobre estas opciones, consulte [Cálculo de las opciones de hospedaje proporcionadas por Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Descarga del SDK de Azure para PHP
 
-El [SDK de Azure para PHP](php-download-sdk.md) tiene varios componentes. En este artículo usará dos de ellos: Azure PowerShell y los emuladores de Azure. Estos dos componentes se pueden instalar a través del instalador de la plataforma web de Microsoft. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+El [SDK de Azure para PHP](php-download-sdk.md) tiene varios componentes. En este artículo se usarán dos de ellos: Azure PowerShell y emuladores de Azure. Estos dos componentes se pueden instalar a través del instalador de la plataforma web de Microsoft. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Creación de un proyecto de Cloud Services
 

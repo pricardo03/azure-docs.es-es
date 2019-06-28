@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440240"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Cómo actualizar IoT Hub
@@ -23,15 +23,15 @@ Cuando tiene más dispositivos y necesita más funcionalidades, hay tres formas 
 
 * Agregue unidades dentro de IoT Hub. Por ejemplo, cada una de las unidades adicionales en IoT Hub B1 permite 400 000 mensajes diarios adicionales.
 
-* Cambie el tamaño de IoT Hub. Por ejemplo, migre del nivel B1 al nivel B2 para aumentar el número de mensajes que puede admitir cada unidad al día.
+* Cambie el tamaño de IoT Hub. Por ejemplo, migre del nivel B1 al nivel B2 para aumentar la cantidad de mensajes que puede admitir al día cada unidad.
 
-* Actualice a un nivel superior. Por ejemplo, la actualización del nivel B1 al nivel S1 para tener acceso a características avanzadas con la misma capacidad de mensajería.
+* Actualice a un nivel superior. Por ejemplo, actualice del nivel B1 al nivel S1 para acceder a características avanzadas con la misma capacidad de mensajería.
 
 Todos estos cambios pueden producirse sin interrumpir las operaciones existentes.
 
-Si desea cambiar IoT hub, puede quitar unidades y reducir el tamaño de IoT hub, pero no se puede cambiar a un nivel inferior. Por ejemplo, puede cambiar del nivel S2 al nivel S1, pero no puede cambiar del nivel S2 al nivel B1. Solo un tipo de [edición Iot Hub](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de un nivel se pueden elegir por IoT Hub. Por ejemplo, puede crear una instancia de IoT Hub con varias unidades de S1, pero no con una combinación de unidades de versiones distintas como, por ejemplo, S1 y B3, o S1 y S2.
+Si quiere cambiar a una versión anterior de IoT Hub, puede quitar unidades y reducir el tamaño de IoT Hub, pero no puede cambiar a una versión anterior de nivel inferior. Por ejemplo, puede cambiar del nivel S2 al nivel S1, pero no puede cambiar del nivel S2 al nivel B1. Solo se puede elegir un tipo de [edición de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de un nivel por cada instancia de IoT Hub. Por ejemplo, puede crear una instancia de IoT Hub con varias unidades de S1, pero no con una combinación de unidades de versiones distintas como, por ejemplo, S1 y B3, o S1 y S2.
 
-Estos ejemplos están diseñados para ayudarle a entender cómo ajustar IoT Hub a medida que cambia su solución. Para obtener información específica sobre las capacidades de cada nivel, debe consultar siempre [precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+Estos ejemplos están diseñados para ayudarle a entender cómo ajustar IoT Hub a medida que cambia su solución. Para información específica sobre las funcionalidades de cada nivel, debe consultar siempre [Precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="upgrade-your-existing-iot-hub"></a>Actualizar su IoT Hub existente
 
@@ -51,7 +51,7 @@ Estos ejemplos están diseñados para ayudarle a entender cómo ajustar IoT Hub 
 
 IoT Hub se ajusta ahora y sus configuraciones permanecen sin cambios.
 
-El límite máximo de particiones de nivel básico de IOT y IoT Hub de nivel estándar es 32. La mayoría de instancias de IoT Hub solo necesitan 4 particiones. El límite de particiones se elige cuando se crea la instancia de IoT Hub y relaciona los mensajes del dispositivo a la nube con la cantidad de lectores simultáneos de estos mensajes. Este valor permanecerá invariable cuando migre de un nivel básico a un nivel estándar.
+El límite máximo de particiones para los niveles básico y estándar de IoT Hub es 32. La mayoría de instancias de IoT Hub solo necesitan 4 particiones. El límite de particiones se elige cuando se crea la instancia de IoT Hub y relaciona los mensajes del dispositivo a la nube con la cantidad de lectores simultáneos de estos mensajes. Este valor permanecerá invariable cuando migre de un nivel básico a un nivel estándar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632407"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usar el SDK de .NET para iniciar la transformación de datos
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Uso del SDK de .NET para iniciar la transformación de datos
 
 ## <a name="overview"></a>Información general
 
@@ -52,7 +52,7 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
 
 1. Para recuperar los parámetros de configuración, siga estos pasos:
     1. Descargue `Get-ConfigurationParams.ps1` del script del repositorio GitHub que se encuentra en la ubicación `C:\DataTransformation`.
-    1. Ejecute el script `Get-ConfigurationParams.ps1` del repositorio GitHub. Escriba el siguiente comando: 
+    1. Ejecute el script `Get-ConfigurationParams.ps1` del repositorio GitHub. Escriba el siguiente comando:
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"

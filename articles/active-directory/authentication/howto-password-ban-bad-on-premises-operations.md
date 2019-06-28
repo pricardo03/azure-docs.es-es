@@ -1,6 +1,6 @@
 ---
-title: 'Las operaciones de protección de contraseña de AD Azure y generación de informes: Azure Active Directory'
-description: Operaciones de implementación posterior a la protección mediante contraseña de AD Azure e informes
+title: 'Operaciones de la protección con contraseña de Azure AD e informes: Azure Active Directory'
+description: Operaciones de versión preliminar de la protección con contraseña posterior a la implementación de Azure AD e informes
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358197"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Procedimientos operativos de protección con contraseña de Azure AD
@@ -28,7 +28,7 @@ Siga las instrucciones del artículo [Configuración de la lista personalizada d
 
 ## <a name="enable-password-protection"></a>Habilitación de la protección con contraseña
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com) y vaya a **Azure Active Directory**, **métodos de autenticación**, a continuación, **protección con contraseña**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory**, **Métodos de autenticación** y **Protección con contraseña**.
 1. Establezca **Habilitar protección con contraseña en Windows Server Active Directory** en **Sí**.
 1. Como se mencionó en la [Guía de implementación](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), inicialmente se recomienda establecer el **Modo** en **Auditoría**
    * Cuando se sienta cómodo con la característica, puede cambiar el **Modo** a **Forzado**

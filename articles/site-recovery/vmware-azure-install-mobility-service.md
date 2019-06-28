@@ -1,19 +1,19 @@
 ---
-title: Preparar las máquinas de origen para instalar el servicio de movilidad a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure | Microsoft Docs
-description: Obtenga información sobre cómo preparar el servidor para instalar el agente de movilidad a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
+title: Preparación de máquinas de origen para instalar Mobility Service a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure | Microsoft Docs
+description: Aprenda a preparar el servidor para instalar el agente de Mobility Service a través de la instalación de inserción para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con el servicio Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318195"
 ---
-# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar la máquina de origen para la instalación de inserción de agente de movilidad
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparación de una máquina de origen para la instalación de inserción del agente de Mobility
 
 Al configurar la recuperación ante desastres para máquinas virtuales VMware y servidores físicos con [Azure Site Recovery](site-recovery-overview.md), instala el servicio [Site Recovery Mobility](vmware-physical-mobility-service-overview.md) en cada máquina virtual VMware local y servidor físico.  Mobility Service captura las escrituras de datos en la máquina y las reenvía al servidor de procesos de Site Recovery.
 
@@ -27,7 +27,7 @@ En cada máquina Windows que quiera proteger, realice lo siguiente:
     - En la clave del Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, agregue un nuevo valor de DWORD: **LocalAccountTokenFilterPolicy**. Establezca el valor en **1**.
     -  Para hacerlo en un símbolo del sistema, ejecute el siguiente comando:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. En el Firewall de Windows de la máquina que quiere proteger, seleccione **Allow an app or feature through Firewall** (Permitir una aplicación o una característica a través de Firewall). Habilite **Compartir archivos e impresoras** e **Instrumental de administración de Windows (WMI)**. En el caso de los equipos que pertenecen a un dominio, el firewall se puede configurar mediante un objeto de directiva de grupo (GPO).
+3. En el Firewall de Windows de la máquina que quiere proteger, seleccione **Allow an app or feature through Firewall** (Permitir una aplicación o una característica a través de Firewall). Habilite **Compartir archivos e impresoras** e **Instrumental de administración de Windows (WMI)** . En el caso de los equipos que pertenecen a un dominio, el firewall se puede configurar mediante un objeto de directiva de grupo (GPO).
 
    ![Configuración de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
 

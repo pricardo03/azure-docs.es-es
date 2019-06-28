@@ -12,10 +12,10 @@ ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541625"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Edición de una base de conocimiento en QnA Maker
@@ -54,7 +54,7 @@ QnA Maker le permite administrar el contenido de la base de conocimiento, propor
 
 ## <a name="add-a-qna-pair"></a>Adición de un par de QnA
 
-En el **configuración** página, seleccione **par agregar QnA** para agregar una nueva fila a la tabla de base de conocimiento.
+En la página **Settings** (Configuración), seleccione **Add QnA pair** (Agregar par de QnA) para agregar una nueva fila a la tabla de base de conocimiento.
 
 ![Adición de un par de QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ Agregue preguntas alternativas a un par de QnA existente para mejorar la probabi
 
 ## <a name="add-metadata"></a>Agregar metadatos
 
-Agregar pares de metadatos, pero seleccione antes **ver opciones**, a continuación, seleccione **muestran metadatos**. Esto muestra la columna de metadatos. A continuación, seleccione el **+** inicie sesión para agregar un par de metadatos. Este par consta de una clave y un valor.
+Para agregar pares de metadatos, seleccione primero **View options** (Ver opciones) y, luego, seleccione **Show metadata** (Mostrar metadatos). Como resultado, se muestra la columna de metadatos. A continuación, seleccione el signo **+** para agregar un par de metadatos. Este par consta de una clave y un valor.
 
 ![Agregar metadatos](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195323"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Seguridad de Azure Data Lake Storage Gen1
@@ -98,7 +98,7 @@ Para las trazas de auditoría de administración de cuentas, vea y elija las col
 Para obtener más información sobre cómo trabajar con los registros de actividad, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Registros de diagnóstico
-Puede habilitar la auditoría de acceso de datos y registro de diagnóstico en Azure portal y enviar los registros a una cuenta de almacenamiento de blobs de Azure, un centro de eventos o registros de Azure Monitor.
+Puede habilitar el registro de auditoría y diagnóstico de acceso a los datos en Azure Portal y enviar los registros a una cuenta de Azure Blob Storage, un centro de eventos o registros de Azure Monitor.
 
 ![Registros de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "Registros de diagnóstico")
 
@@ -109,7 +109,7 @@ Los clientes empresariales demandan una plataforma en la nube de análisis de da
 
 Si quiere ver las nuevas características de Data Lake Storage Gen1, envíenos sus comentarios en el [foro de UserVoice de Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introducción a Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)

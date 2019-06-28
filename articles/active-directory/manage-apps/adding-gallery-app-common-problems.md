@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784425"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problemas al agregar una aplicación de la galería de Azure AD
@@ -40,7 +40,7 @@ Si se produce un error al hacer clic en el botón **Agregar**, verá una **notif
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>No sé cómo configurar mi aplicación una vez que la he agregado
 
-Si necesita ayuda para obtener más información sobre las aplicaciones, el [lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artículo es un buen lugar para comenzar.
+Si necesita ayuda para obtener información sobre las aplicaciones, el artículo [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) es un buen punto de partida.
 
 Además, la [biblioteca de documentos de las aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) le ayudará a obtener más información sobre el inicio de sesión único con Azure AD y así poder saber cómo funciona.
 
@@ -48,7 +48,7 @@ Además, la [biblioteca de documentos de las aplicaciones de Azure AD](https://d
 
 Puede ver los detalles de cualquier notificación del portal si sigue los pasos siguientes:
 
-1.  Seleccione el **notificaciones** icono (la campana) en la esquina superior derecha del portal de Azure
+1.  Seleccione el icono **Notificaciones** (con forma de campana) de la esquina superior derecha de Azure Portal.
 
 2.  Seleccione cualquier notificación con un estado de **Error** (aquellas con un icono (!) de color rojo situado junto a ellas).
 
@@ -93,7 +93,7 @@ Consulte las descripciones siguientes para más información acerca de las notif
 
   -   Por ejemplo: **2017-03-23T19:50:43.7583681Z**
 
-- **Identificador de transacción interno** : el identificador interno que podemos usar para buscar el error en nuestros sistemas
+- **Identificador de transacción interno**: identificador interno que podemos usar para buscar el error en nuestros sistemas
 
   -   Por ejemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -125,9 +125,9 @@ Consulte las descripciones siguientes para más información acerca de las notif
 
 -   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **dirección url interna `https://bing.com/` no es válido porque ya está en uso**
+    -   Por ejemplo: **la dirección url interna `https://bing.com/` no es válida puesto que ya está en uso**
 
--   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o grupo de  
+-   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o grupo de 
 -   producto
 
     -   Por ejemplo, ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```

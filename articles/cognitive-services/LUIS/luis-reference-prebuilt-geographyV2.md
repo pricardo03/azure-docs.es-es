@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 5b9ace8a2402d96c4bb54864eb59a56b46d04067
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65071964"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada GeographyV2 para una aplicación de LUIS
@@ -93,9 +93,9 @@ En el ejemplo siguiente se muestra la resolución de la entidad **builtin.geogra
 } 
 ```
 
-### <a name="preview-api-version-3x"></a>Versión de API preliminar 3.x
+### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
 
-El siguiente JSON es con el `verbose` parámetro establecido en `false`:
+El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
 ```json
 {
@@ -121,7 +121,7 @@ El siguiente JSON es con el `verbose` parámetro establecido en `false`:
 }
 ```
 
-El siguiente JSON es con el `verbose` parámetro establecido en `true`:
+El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
 {

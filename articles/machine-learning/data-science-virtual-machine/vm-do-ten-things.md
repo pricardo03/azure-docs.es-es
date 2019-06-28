@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366271"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Diez cosas que puede hacer en Windows Data Science Virtual Machine
@@ -61,7 +61,7 @@ Para R, puede usar un IDE como RStudio que se puede encontrar en el menú Inicio
 
 En el caso de Python, puede usar un IDE como Visual Studio Community Edition, que ya tiene preinstalada la extensión Herramientas de Python para Visual Studio (PTVS). De forma predeterminada, solo Python 3.6, el entorno raíz de Conda se configura en PTVS. Para habilitar Anaconda Python 2.7, es necesario realizar los pasos siguientes:
 
-* Cree entornos personalizados para cada versión; para ello, vaya a **Herramientas** -> **Herramientas de Python** -> **Entornos de Python** y haga clic en "**+ Personalizar**" en Visual Studio Community Edition.
+* Cree entornos personalizados para cada versión; para ello, vaya a **Herramientas** -> **Herramientas de Python** -> **Entornos de Python** y haga clic en " **+ Personalizar**" en Visual Studio Community Edition.
 * Incluya una descripción y establezca la ruta de acceso del prefijo del entorno como *c:\anaconda\envs\python2* para Anaconda Python 2.7.
 * Haga clic en **Detección automática** y luego en **Aplicar** para guardar el entorno.
 
@@ -265,7 +265,7 @@ Para descargar código de un repositorio de GitHub, debe usar el comando ```git 
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-En Visual Studio, puede realizar la misma operación de clonación. Captura de pantalla siguiente muestra cómo obtener acceso a las herramientas de Git y GitHub en Visual Studio.
+En Visual Studio, puede realizar la misma operación de clonación. En la captura de pantalla siguiente, se muestra cómo acceder a las herramientas de Git y GitHub en Visual Studio.
 
 ![Captura de Visual Studio con la conexión de GitHub mostrada](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -403,7 +403,7 @@ Si los datos residen en el Almacenamiento de blobs de Azure, puede leer directam
 
 ![Captura de pantalla del cuadro de diálogo Agregar origen de datos](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-En Visual Studio, puede leer datos de un almacenamiento de blobs, manipular los datos, realizar ingeniería de características y presentar los datos resultantes en Azure Data Lake o Azure Blob Storage. Cuando haga referencia a los datos en el Almacenamiento de blobs, use **wasb://**; sin embargo, cuando haga referencia a los datos de Azure Data Lake, use **swbhdfs://**
+En Visual Studio, puede leer datos de un almacenamiento de blobs, manipular los datos, realizar ingeniería de características y presentar los datos resultantes en Azure Data Lake o Azure Blob Storage. Cuando haga referencia a los datos en el Almacenamiento de blobs, use **wasb://** ; sin embargo, cuando haga referencia a los datos de Azure Data Lake, use **swbhdfs://**
 
 ![Captura de pantalla de la consulta con la entrada de WASB resaltada](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -896,7 +896,7 @@ Del mismo modo, si necesita una menor capacidad de proceso de máquina virtual (
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Instalar herramientas adicionales en la máquina virtual
 Hay varias herramientas previamente integradas en DSVM que pueden abordar muchas de las necesidades comunes del análisis de datos. Esto le ahorra tiempo al evitar tener que instalar y configurar los entornos de uno a uno y le ahorra dinero al tener que pagar solo los recursos que usa.
 
-Para utilizar su entorno de análisis, puede sacar provecho de otros servicios tanto de datos como de análisis de Azure, como se ha perfilado en este artículo. En algunos casos, sus necesidades pueden requerir herramientas adicionales, incluidas algunas herramientas propiedad de terceros. Tiene acceso administrativo completo en la máquina virtual para instalar las nuevas herramientas que necesite. También puede instalar paquetes adicionales de Python y R que no estén instalados previamente. En el caso de Python, puede utilizar ```conda``` o ```pip```. En cuanto a R, puede utilizar ```install.packages()``` en la consola de R o recurrir al IDE y elegir "**Packages (Paquetes)** -> **Install Packages** (Instalar paquetes)...".
+Para utilizar su entorno de análisis, puede sacar provecho de otros servicios tanto de datos como de análisis de Azure, como se ha perfilado en este artículo. En algunos casos, sus necesidades pueden requerir herramientas adicionales, incluidas algunas herramientas propiedad de terceros. Tiene acceso administrativo completo en la máquina virtual para instalar las nuevas herramientas que necesite. También puede instalar paquetes adicionales de Python y R que no estén instalados previamente. En el caso de Python, puede utilizar ```conda``` o ```pip```. En cuanto a R, puede utilizar ```install.packages()``` en la consola de R o recurrir al IDE y elegir "**Packages (Paquetes)**  -> **Install Packages** (Instalar paquetes)...".
 
 ## <a name="summary"></a>Resumen
 Estas son solo algunas de las cosas que puede hacer en Microsoft Data Science Virtual Machine. Hay muchas más cosas que puede hacer para que sea un entorno de análisis efectivo.

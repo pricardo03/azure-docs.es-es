@@ -12,10 +12,10 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401194"
 ---
 # <a name="analyze-method"></a>Método de análisis
@@ -24,9 +24,9 @@ ms.locfileid: "61401194"
 > El 9 de agosto de 2018 se retiró la versión preliminar de Linguistic Analysis. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 La API REST de **análisis** se usa para analizar una determinada entrada de lenguaje natural.
-Que puede implicar simplemente buscar el [oraciones y tokens](Sentences-and-Tokens.md) dentro de esa entrada, buscar el [parte de la oración etiquetas](POS-tagging.md), o buscar el [árbol al área](Constituency-Parsing.md).
+Eso puede implicar simplemente encontrar las [frases y tokens](Sentences-and-Tokens.md) de esa entrada, encontrar las [etiquetas de categoría gramatical](POS-tagging.md) o encontrar el [árbol de elementos de la oración](Constituency-Parsing.md).
 Puede especificar los resultados que desee eligiendo los analizadores correspondientes.
-Para obtener una lista de todos los analizadores disponibles, mire **[analizadores](AnalyzersMethod.md)**.
+Para obtener una lista de todos los analizadores disponibles, mire **[analizadores](AnalyzersMethod.md)** .
 
 Tenga en cuenta que debe especificar el idioma de la cadena de entrada.
 

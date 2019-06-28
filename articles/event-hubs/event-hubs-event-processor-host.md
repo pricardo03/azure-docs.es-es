@@ -15,10 +15,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 26f0abb48ba268f79167ed5d00e4f96d8b5e5998
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821867"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Recepción de eventos desde Azure Event Hubs mediante el host del procesador de eventos
@@ -83,7 +83,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 A continuación, cree una instancia de una instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Según la sobrecarga, al crear la instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) en el constructor, se usan los siguientes parámetros:
 
-- **hostName:** el nombre de cada instancia de consumidor. Cada instancia de **EventProcessorHost** debe tener un valor único para esta variable dentro de un grupo de consumidores, por lo que no codificar de forma rígida este valor.
+- **hostName:** el nombre de cada instancia de consumidor. Cada instancia de **EventProcessorHost** debe tener un valor único para esta variable dentro de un grupo de consumidores, así que no codifique de forma rígida este valor.
 - **eventHubPath:** El nombre del centro de eventos.
 - **consumerGroupName:** Event Hubs usa **$Default** como nombre del grupo de consumidores predeterminado, pero es recomendable crear un grupo de consumidores para sus necesidades específicas de procesamiento.
 - **eventHubConnectionString:** la cadena de conexión al centro de eventos que se puede recuperar desde Azure Portal. Esta cadena de conexión debe tener permisos de **escucha** en el centro de eventos.
@@ -125,7 +125,7 @@ En este caso, cada host adquiere la propiedad de una partición durante un deter
 
 Cada llamada a [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) ofrece una colección de eventos. Es su responsabilidad administrar estos eventos. Si desea asegurarse de que el host del procesador procesa cada mensaje al menos una vez, deberá escribir su propio código de reintento. Pero tenga cuidado con los mensajes dudosos.
 
-Se recomienda que el proceso se realice relativamente rápido, es decir, con el menor procesamiento posible. En su lugar, utilice grupos de consumidores. Si necesita escribir en el almacenamiento y realizar algún tipo de enrutamiento, es mejor usar dos grupos de consumidores y tener dos [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementaciones que se ejecuten por separado.
+Se recomienda que el proceso se realice relativamente rápido, es decir, con el menor procesamiento posible. En su lugar, utilice grupos de consumidores. Si tiene que escribir en el almacenamiento y hacer algo de enrutamiento, es mejor usar dos grupos de consumidores y tener dos implementaciones de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) que se ejecuten por separado.
 
 En algún momento durante el procesamiento, es posible que desee realizar un seguimiento de lo que ha leído y completado. Es fundamental realizar un seguimiento si debe reiniciar la lectura, para no tener que volver al principio de la transmisión. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifica este seguimiento mediante el uso de *puntos de comprobación*. Un punto de comprobación es una ubicación o desplazamiento, de una partición determinada, dentro de un grupo de consumidores determinado, en el que está satisfecho con los mensajes que se han procesado. Para marcar un punto de comprobación en **EventProcessorHost** llame al método [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) en el objeto [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext). Esta operación se realiza en el método [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) pero también se puede realizar en [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
@@ -141,7 +141,7 @@ De forma predeterminada, [EventProcessorHost](/dotnet/api/microsoft.azure.eventh
 
 ## <a name="shut-down-gracefully"></a>Cierre correcto
 
-Por último, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permite un cierre correcto de todos los lectores de partición y se le debería llamar siempre al cerrar una instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Si no lo hace, puede provocar retrasos al iniciar otras instancias de **EventProcessorHost** debido a conflictos de época y de expiración de concesión. Administración de la época se trata detalladamente en el [época](#epoch) sección del artículo. 
+Por último, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permite un cierre correcto de todos los lectores de partición y se le debería llamar siempre al cerrar una instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Si no lo hace, puede provocar retrasos al iniciar otras instancias de **EventProcessorHost** debido a conflictos de época y de expiración de concesión. La administración de épocas se trata detalladamente en la sección [Época](#epoch) del artículo. 
 
 ## <a name="lease-management"></a>Administración de concesiones
 Al registrar una clase de procesador de eventos con una instancia de EventProcessorHost, se inicia el procesamiento de eventos. La instancia de host obtiene las concesiones sobre algunas particiones del centro de eventos, posiblemente al tomar algunas de otras instancias, de una forma que converge en una distribución uniforme de particiones mediante todas las instancias de host. Para cada partición de la concesión, la instancia de host crea una instancia de la clase de procesador de eventos proporcionada, después, recibe eventos de esa partición y los pasa a la instancia de procesador de eventos. A medida que más casos se agregan y más concesiones se toman, EventProcessorHost equilibra finalmente la carga entre todos los consumidores.
@@ -164,26 +164,26 @@ Además, una sobrecarga de [RegisterEventProcessorAsync](/dotnet/api/microsoft.a
 
 Así es cómo funciona la época de recepción:
 
-### <a name="with-epoch"></a>Con el tiempo base
-Tiempo base es un identificador único (valor de tiempo) que utiliza el servicio, al aplicar la propiedad de la partición o concesión. Crear un receptor de época usando el [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) método. Este método crea un receptor de época. Se crea el receptor de una partición del centro de eventos específico desde el grupo de consumidores especificado.
+### <a name="with-epoch"></a>Con época
+La época es un identificador único (valor de tiempo) que usa el servicio para aplicar la propiedad de la partición o de la concesión. Para crear un receptor de época se usa el método [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet). Este método crea un receptor basado en época. El receptor se crea para una partición de centro de eventos específica desde el grupo de consumidores especificado.
 
-La característica de tiempo base proporciona a los usuarios la capacidad para asegurarse de que hay un solo receptor en un grupo de consumidores en cualquier momento dado, con las siguientes reglas:
+La característica de época ofrece a los usuarios la posibilidad de garantizar que solo hay un receptor en un grupo de consumidores en cualquier momento dado, con las siguientes reglas:
 
-- Si no hay ningún receptor existente en un grupo de consumidores, el usuario puede crear un receptor con cualquier valor de tiempo.
-- Si hay un receptor con un e1 del valor de tiempo y se crea un nuevo destinatario con un e2 del valor de tiempo donde e1 < = e2, el receptor con e1 se desconectará automáticamente, el receptor con e2 se ha creado correctamente.
-- Si hay un receptor con un e1 del valor de tiempo y se crea un nuevo destinatario con un e2 del valor de tiempo donde e1 > e2 y, a continuación, creación de e2 con producirá el error: Ya existe un receptor con e1 época.
+- Si no hay ningún receptor existente en un grupo de consumidores, el usuario puede crear uno con cualquier valor de época.
+- Si hay un receptor con un valor de época de e1 y se crea un receptor con un valor de época de e2 donde e1 < = e2, el receptor con e1 se desconectará automáticamente si el receptor con e2 se crea correctamente.
+- Si hay un receptor con un valor de época de e1 y se crea un receptor con un valor de época de e2 donde e1 > e2 y, a continuación, la creación de e2 generará un error que indica que ya existe un receptor con la época e1.
 
-### <a name="no-epoch"></a>No hay tiempo de base
-Crear un receptor no se basan en el tiempo con el [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) método. 
+### <a name="no-epoch"></a>No hay época
+Creará un receptor no basado en época mediante el método [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
 
-Hay algunos escenarios en donde desea que los usuarios crear varios receptores en un solo grupo de consumidores de procesamiento de flujos. Para admitir estos escenarios, tenemos capacidad para crear un receptor sin epoch y en este caso se permiten hasta 5 receptores simultáneos en el grupo de consumidores.
+Hay algunos escenarios en el procesamiento de streaming en los que a los usuarios les gustaría crear varios receptores en un solo grupo de consumidores. Para admitir estos escenarios, tenemos la posibilidad de crear un receptor sin época y, en este caso, se permiten hasta cinco receptores simultáneos en el grupo de consumidores.
 
 ### <a name="mixed-mode"></a>Modo mixto
-No recomendamos el uso de la aplicación donde crear un receptor con el tiempo y, a continuación, pase a la época no o viceversa, en el mismo grupo de consumidores. Sin embargo, cuando se produce este comportamiento, en el servicio se controla mediante las reglas siguientes:
+No recomendamos el uso de aplicaciones donde crea un receptor con época y, luego, cambia a sin época o viceversa, en el mismo grupo de consumidores. Sin embargo, cuando se produce este comportamiento, el servicio lo controla mediante las reglas siguientes:
 
-- Si hay un receptor ya ha creado con época e1 y reciba activamente eventos y se crea un nuevo destinatario con ningún época, se producirá un error en la creación del nuevo receptor. Receptores de la época siempre tienen prioridad en el sistema.
-- Si hubiera un receptor ya ha creado con época e1 y obtuvo desconecta y se crea un nuevo destinatario con ningún tiempo en una nueva MessagingFactory, la creación del nuevo receptor se realizará correctamente. Hay una salvedad aquí que nuestro sistema detectará la desconexión del"receptor" después de unos 10 minutos.
-- Si hay uno o varios receptores creados con ningún época, y se crea un nuevo destinatario con e1 época, se desconectan todos los receptores antiguos.
+- Si hay un receptor ya ha creado con época e1 y está recibiendo eventos activamente y se crea un receptor sin época, se producirá un error en la creación del receptor. Los receptores de época siempre tienen prioridad en el sistema.
+- Si hubiera un receptor ya ha creado con época e1 y se desconectara y se creara un receptor sin época en una nueva instancia de MessagingFactory, la creación del receptor se realizaría correctamente. Hay una salvedad aquí y es que nuestro sistema detectará la "desconexión del receptor" al cabo de unos 10 minutos.
+- Si hay uno o varios receptores creados sin época y se crea uno con época e1, se desconectan todos los receptores antiguos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

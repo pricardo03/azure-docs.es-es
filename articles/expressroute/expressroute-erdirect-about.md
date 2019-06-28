@@ -1,6 +1,6 @@
 ---
 title: Acerca de ExpressRoute Direct en Azure | Microsoft Docs
-description: Esta página proporciona información general sobre ExpressRoute Direct
+description: En esta página se proporciona información general sobre ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367648"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
@@ -25,9 +25,9 @@ Algunas de las características clave que ofrece ExpressRoute Direct incluyen:
 * Aislamiento físico para sectores regulados y que necesitan una conectividad dedicada y aislada, como: banca, gubernamentales y venta al por menor
 * Control granular del circuito de distribución en función de la unidad de negocio
 
-## <a name="onboard-to-expressroute-direct"></a>Incorporación a ExpressRoute directa
+## <a name="onboard-to-expressroute-direct"></a>Incorporación a ExpressRoute Direct
 
-Antes de usar ExpressRoute Direct, se debe inscribir su suscripción. Para ello, envíe un correo electrónico a <ExpressRouteDirect@microsoft.com> con el identificador de la suscripción, incluidos los detalles siguientes:
+Para poder usar ExpressRoute Direct, primero hay que inscribir la suscripción. Para ello, envíe un correo electrónico a <ExpressRouteDirect@microsoft.com> con el identificador de la suscripción, incluidos los detalles siguientes:
 
 * Los escenarios que desea lograr con **ExpressRoute Direct**
 * Las preferencias de ubicación: consulte el artículo [Asociados y ubicaciones de emparejamiento](expressroute-locations-providers.md) para obtener una lista completa de todas las ubicaciones

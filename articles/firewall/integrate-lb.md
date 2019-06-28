@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 4/1/2019
 ms.author: victorh
 ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193788"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integración de Azure Firewall con Azure Standard Load Balancer
 
 Puede integrar una instancia de Azure Firewall en una red virtual con una instancia de Azure Standard Load Balancer (pública o interna). 
 
-El diseño preferido consiste en integrarse equilibrador de carga interno con el firewall de Azure, tal como se trata de un diseño mucho más sencillo. Puede usar un equilibrador de carga público si ya tiene una implementada y desea mantenerla en su lugar. Sin embargo, debe tener en cuenta un problema de ruta asimétrica que puede interrumpir la funcionalidad con el escenario del equilibrador de carga público.
+El diseño preferido consiste integrar un equilibrador de carga interno con el firewall de Azure, ya que este es un diseño mucho más sencillo. Puede usar un equilibrador de carga público si ya tiene uno implementado y desea mantenerlo en su lugar. Sin embargo, debe tener en cuenta un problema de ruta asimétrica que puede interrumpir la funcionalidad con el escenario del equilibrador de carga público.
 
 Para más información sobre Azure Load Balancer, consulte [¿Qué e Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 

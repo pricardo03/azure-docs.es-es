@@ -3,16 +3,16 @@ title: 'Servicio Azure IoT Hub Device Provisioning: atestación de TPM'
 description: En este artículo se proporciona información general y conceptual del flujo de atestación de TPM usando el servicio Azure IoT Hub Device Provisioning.
 author: nberdy
 ms.author: nberdy
-ms.date: 04/23/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60746477"
 ---
 # <a name="tpm-attestation"></a>Atestación de TPM
@@ -35,7 +35,7 @@ Una vez que un dispositivo se ha configurado y está listo para usarse, tendrá 
 
 ![Tomar posesión de un TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Una nota sobre la toma de posesión de TPM: Tomar posesión del TPM depende de muchas cosas, incluido el fabricante, el conjunto de herramientas TPM que se va a usar y el sistema operativo del dispositivo TPM. Siga las instrucciones pertinentes para el sistema a fin de tomar posesión.
+Una nota sobre la toma de posesión del TPM: la toma de posesión del TPM depende de muchas cosas, como el fabricante del TPM, el conjunto de herramientas de TPM que se utilizan y el SO del dispositivo. Siga las instrucciones pertinentes para el sistema a fin de tomar posesión.
 
 El servicio Device Provisioning usa la parte pública de la clave de aprobación para identificar e inscribir dispositivos. El proveedor del dispositivo puede leer la parte pública de la clave de aprobación durante la fabricación o la prueba final y cargar la parte pública de la clave de aprobación en el servicio de aprovisionamiento de manera que el dispositivo se reconozca cuando se conecte al aprovisionamiento. El servicio Device Provisioning no comprueba la clave raíz de almacenamiento ni el propietario; por tanto, "borrar" el TPM elimina los datos del cliente, pero se mantiene la clave de aprobación (y otros datos del proveedor) y el dispositivo seguirá siendo reconocido por el servicio Device Provisioning cuando se conecte al aprovisionamiento.
 

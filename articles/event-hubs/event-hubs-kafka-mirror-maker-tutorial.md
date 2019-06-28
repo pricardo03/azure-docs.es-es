@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: a7271eb6b8cbc8a117b5a8e75edfe02985ec3452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821518"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Uso de Apache Kafka MirrorMaker con Event Hubs para Apache Kafka
@@ -123,8 +123,8 @@ Con MirrorMaker en ejecución, los eventos que se envían al clúster de Kafka d
 ## <a name="samples"></a>Ejemplos
 Consulte los siguientes ejemplos en GitHub:
 
-- [Código de ejemplo para este tutorial en GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
-- [Azure Event Hubs Kafka MirrorMaker que se ejecuta en Azure Container Instance](https://github.com/djrosanova/EventHubsMirrorMaker)
+- [Código de ejemplo de este tutorial en GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Kafka MirrorMaker para Azure Event Hubs que se ejecuta en una instancia de contenedor de Azure](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

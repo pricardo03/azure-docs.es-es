@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: mbullwin
 ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60904837"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatización de procesos de Application Insights con Logic Apps
 
-¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar si el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? El conector de Azure Application Insights para aplicaciones lógicas es la herramienta adecuada para este propósito.
+¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar si el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? El conector Azure Application Insights para Logic Apps es la herramienta adecuada para este fin.
 
 Con esta integración, se pueden automatizar numerosos procesos sin tener que escribir una sola línea de código. Puede crear una aplicación lógica con Application Insights Connector para automatizar rápidamente cualquier proceso de Application Insights. 
 
@@ -41,16 +41,16 @@ En este tutorial, puede obtener información sobre cómo crear una aplicación l
 
     ![Ventana del Diseñador de aplicaciones lógicas](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. En el **intervalo** , escriba **1** y, a continuación,**frecuencia** cuadro, seleccione **día**.
+1. En el cuadro **Intervalo**, escriba **1** y, luego, en el cuadro **Frecuencia**, seleccione **Día**.
 
     ![Ventana "Recurrencia" del Diseñador de aplicaciones lógicas](./media/automate-with-logic-apps/3recurrence.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Paso 3: Incorporación de una acción de Application Insights
-1. Haga clic en **nuevo paso**.
+1. Haga clic en **New Step** (Nuevo paso).
 
 1. En el cuadro de búsqueda **Elegir una acción**, escriba **Azure Application Insights**.
 
-1. En **acciones**, haga clic en **Azure Application Insights: consulta de Analytics visualizar**.
+1. En **Acciones**, haga clic en **Azure Application Insights: Visualizar consulta de análisis**.
 
     ![Ventana "Elegir una acción" del Diseñador de aplicaciones lógicas](./media/automate-with-logic-apps/4visualize.png)
 
@@ -90,7 +90,7 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
 
 ### <a name="step-6-configure-the-logic-app-to-send-email"></a>Paso 6: Configuración de la aplicación lógica para enviar correo electrónico
 
-1. Haga clic en **nuevo paso**.
+1. Haga clic en **New Step** (Nuevo paso).
 
 1. En el cuadro de búsqueda, escriba **Office 365 Outlook**.
 
@@ -100,13 +100,13 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
 
 1. En la ventana **Enviar un correo electrónico**, haga lo siguiente:
 
-    a. Escriba la dirección de correo electrónico del destinatario.
+   a. Escriba la dirección de correo electrónico del destinatario.
 
    b. Escriba un asunto para el correo electrónico.
 
    c. Haga clic en cualquier parte del cuadro **Cuerpo** y, en el menú de contenido dinámico que se abre a la derecha, seleccione **Cuerpo**.
     
-   d. Haga clic en el **Agregar nuevo parámetro** lista desplegable y seleccione los datos adjuntos y es HTML.
+   d. Haga clic en la lista desplegable **Agregar nuevo parámetro** y seleccione Datos adjuntos y Es HTML.
 
       ![Configuración de Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
 
@@ -114,7 +114,7 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
 
 1. En el menú de contenido dinámico, haga lo siguiente:
 
-     a. Seleccione **Nombre de datos adjuntos**.
+    a. Seleccione **Nombre de datos adjuntos**.
 
     b. Seleccione **Contenido de datos adjuntos**.
     

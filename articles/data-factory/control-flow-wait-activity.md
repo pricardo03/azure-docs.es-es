@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: shlo
 ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764758"
 ---
-# <a name="execute-wait-activity-in-azure-data-factory"></a>Ejecutar la actividad wait en Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Ejecutar la actividad Wait en Azure Data Factory
 Cuando use una actividad Wait en una canalización, esta espera durante el período de tiempo especificado antes de continuar con la ejecución de actividades sucesivas. 
 
 ## <a name="syntax"></a>Sintaxis
@@ -39,8 +39,8 @@ Cuando use una actividad Wait en una canalización, esta espera durante el perí
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad `Wait`. | string | Sí
-Tipo | Debe establecerse en **Wait**. | string | Sí
+Nombre | Nombre de la actividad `Wait`. | Cadena | Sí
+Tipo | Debe establecerse en **Wait**. | Cadena | Sí
 waitTimeInSeconds | El número de segundos que esperará la canalización antes de seguir con el procesamiento. | Entero | Sí
 
 ## <a name="example"></a>Ejemplo

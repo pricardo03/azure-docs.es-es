@@ -1,7 +1,7 @@
 ---
-title: Enviar un flujo de trabajo con varias entradas - Microsoft Genomics
+title: 'Envío de un flujo de trabajo con varias entradas: Microsoft Genomics'
 titleSuffix: Azure
-description: En este artículo se muestra cómo enviar un flujo de trabajo para el servicio Microsoft Genomics, si el archivo de entrada es de varios archivos FASTQ o archivos BAM procedentes del mismo ejemplo. Ya tiene instalado el cliente de msgen y ha ejecutado correctamente los datos de ejemplo a través del servicio.
+description: Este artículo demuestra cómo enviar un flujo de trabajo al servicio de Microsoft Genomics, si la entrada son varios archivos FASTQ o BAM procedentes del mismo ejemplo. Ya tiene instalado el cliente de msgen y ha ejecutado correctamente los datos de ejemplo mediante el servicio.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -10,25 +10,25 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60780885"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Envío de un flujo de trabajo con varias entradas del mismo ejemplo
 
-En este artículo se muestra cómo enviar un flujo de trabajo para el servicio Microsoft Genomics, si el archivo de entrada es de varios archivos FASTQ o BAM **procedentes del mismo ejemplo**. Por ejemplo, si ha ejecutado el **mismo ejemplo** en varias líneas en el secuenciador, el secuenciador podría generar un par de archivos FASTQ para cada línea. En lugar de concatenar estos archivos FASTQ antes del alineamiento y variant calling, puede enviar directamente todas estas entradas al cliente `msgen`. La salida del cliente `msgen` sería un **único conjunto** de archivos entre los que se incluirían un archivo .bam, un archivo .bai y un archivo .vcf. 
+Este artículo demuestra cómo enviar un flujo de trabajo al servicio de Microsoft Genomics, si la entrada son varios archivos FASTQ o BAM **procedentes del mismo ejemplo**. Por ejemplo, si ha ejecutado el **mismo ejemplo** en varias líneas en el secuenciador, el secuenciador podría generar un par de archivos FASTQ para cada línea. En lugar de concatenar estos archivos FASTQ antes del alineamiento y variant calling, puede enviar directamente todas estas entradas al cliente `msgen`. La salida del cliente `msgen` sería un **único conjunto** de archivos entre los que se incluirían un archivo .bam, un archivo .bai y un archivo .vcf. 
 
 Tenga en cuenta, sin embargo, que **no puede** mezclar archivos FASTQ y BAM en el mismo envío. Además, **tampoco es posible** enviar varios archivos FASTQ o BAM de varios individuos. 
 
-En este artículo se da por supuesto que ya ha instalado y ejecutado el cliente `msgen` y está familiarizado con el uso de Azure Storage. Si ha enviado correctamente un flujo de trabajo con los datos de ejemplo proporcionado, está listo para continuar con este artículo. 
+En este artículo se da por supuesto que ya ha instalado y ejecutado el cliente `msgen` y está familiarizado con el uso de Azure Storage. Si ha enviado correctamente un flujo de trabajo usando los datos de ejemplo proporcionados, puede continuar con este artículo. 
 
 
 ## <a name="multiple-bam-files"></a>Varios archivos BAM
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Carga de los archivos de entrada en Azure Storage
-Supongamos que tiene varios archivos BAM como entrada, *reads.bam*, *additional_reads.bam* y *yet_more_reads.bam*, y los ha cargado en su cuenta de almacenamiento *myaccount* de Azure. Tiene la dirección URL de la API y la clave de acceso. Desea los resultados en **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+Supongamos que tiene varios archivos BAM como entrada, *reads.bam*, *additional_reads.bam* y *yet_more_reads.bam*, y los ha cargado en su cuenta de almacenamiento *myaccount* de Azure. Tiene la dirección URL de la API y la clave de acceso. Desea los resultados en **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Envío del trabajo al cliente `msgen` 
@@ -91,7 +91,7 @@ Envíe el archivo `config.txt` con esta invocación: `msgen submit -f config.txt
 ## <a name="multiple-paired-fastq-files"></a>Varios archivos FASTQ emparejados
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>Carga de los archivos de entrada en Azure Storage
-Supongamos que tiene varios archivos FASTQ emparejados como entrada, *reads_1.fq.gz* y *reads_2.fq.gz*, *additional_reads_1.fq.gz* y *additional_reads_2.fq.gz*, y *yet_more_reads_1.fq.gz* y *yet_more_reads_2.fq.gz*. Los ha cargado en su cuenta de almacenamiento *myaccount* de Azure y tiene la dirección URL de la API y la clave de acceso. Desea los resultados en **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+Supongamos que tiene varios archivos FASTQ emparejados como entrada, *reads_1.fq.gz* y *reads_2.fq.gz*, *additional_reads_1.fq.gz* y *additional_reads_2.fq.gz*, y *yet_more_reads_1.fq.gz* y *yet_more_reads_2.fq.gz*. Los ha cargado en su cuenta de almacenamiento *myaccount* de Azure y tiene la dirección URL de la API y la clave de acceso. Desea los resultados en **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Envío del trabajo al cliente `msgen` 

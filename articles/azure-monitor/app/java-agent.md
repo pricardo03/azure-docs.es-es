@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
 ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900615"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java
@@ -27,7 +27,7 @@ Si ha [instrumentado la aplicación web de Java con Application Insights][java],
 * **Dependencias:** datos sobre las llamadas realizadas por la aplicación a otros componentes, por ejemplo:
   * Las **llamadas REST** realizadas a través de HttpClient, OkHttp y RestTemplate (Spring) se capturan.
   * Las llamadas **Redis** realizadas a través del cliente de Jedis se capturan.
-  * **[Llamadas JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: los comandos de MySQL, SQL Server y Oracle DB se capturan automáticamente. En el caso de MySQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta.
+  * **[Llamadas JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : los comandos de MySQL, SQL Server y Oracle DB se capturan automáticamente. En el caso de MySQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta.
 * **Excepciones detectadas:** información sobre las excepciones que controla el código.
 * **Tiempo de ejecución del método:** información sobre el tiempo necesario para ejecutar métodos específicos.
 
@@ -100,12 +100,12 @@ Para Azure App Services, haga lo siguiente:
 
 Clave: `JAVA_OPTS` Valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
 
-La versión más reciente del agente de Java de comprobar las versiones [aquí](https://github.com/Microsoft/ApplicationInsights-Java/releases
-). 
+Para conocer la versión más reciente del agente de Java, consulte [aquí](https://github.com/Microsoft/ApplicationInsights-Java/releases
+) las versiones. 
 
-El agente debe estar empaquetado como un recurso en el proyecto de forma que termina en D:/home/site/wwwroot/directory. Puede confirmar que el agente está en el directorio correcto de App Service, vaya a **herramientas de desarrollo** > **herramientas avanzadas** > **consola de depuración**y examinando el contenido del directorio del sitio.    
+El agente debe estar empaquetado como un recurso en el proyecto de forma que termine en el directorio D:/home/site/wwwroot/. Para confirmar que el agente está en el directorio correcto de App Service, vaya a **Herramientas de desarrollo** > **Herramientas avanzadas** > **Consola de depuración** y examine el contenido del directorio del sitio.    
 
-* Guardar la configuración y reinicie la aplicación. (Estos pasos solo se aplican a los servicios de aplicación que se ejecutan en Windows).
+* Guarde la configuración y reinicie la aplicación. (Estos pasos solo se aplican a las instancias de App Services que se ejecutan en Windows).
 
 > [!NOTE]
 > AI-Agent.xml y el archivo jar del agente deben estar en la misma carpeta. A menudo se colocan juntos en la carpeta `/resources` del proyecto.  

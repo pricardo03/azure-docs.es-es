@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640096"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Versión actual](connector-cassandra.md)
 
@@ -56,11 +56,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Cassandr
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **Cassandra** |Sí |
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
-| port |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 9042). |
+| puerto |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 9042). |
 | authenticationType | El tipo de autenticación que se utiliza para conectarse a la base de datos Cassandra.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). |Sí |
-| username |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
-| password |Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí, si el valor de authenticationType es Basic. |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
+| contraseña |Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí, si el valor de authenticationType es Basic. |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin |
 
 >[!NOTE]
 >Actualmente no se admite la conexión a Cassandra mediante SSL.
@@ -97,7 +97,7 @@ Para copiar datos desde Cassandra, establezca la propiedad type del conjunto de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **CassandraTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **CassandraTable** | Sí |
 | keyspace |Nombre del espacio de claves o esquema de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 | tableName |Nombre de la tabla de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 
@@ -131,7 +131,7 @@ Para copiar datos desde Cassandra, establezca el tipo de origen de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **CassandraSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **CassandraSource** | Sí |
 | query |Utilice la consulta personalizada para leer los datos. Consulta SQL-92 o consulta CQL. Vea la [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)(referencia de CQL). <br/><br/>Cuando utilice una consulta SQL, especifique **nombre de espacio de claves.nombre de tabla** para representar la tabla que quiere consultar. |No (si "tableName" y "keyspace" en el conjunto de datos están especificados) |
 | consistencyLevel |El nivel de coherencia establece el número de réplicas que deben responder a una solicitud de lectura antes de que se devuelvan datos a la aplicación cliente. Cassandra comprueba el número de réplicas especificado para que los datos satisfagan la solicitud de lectura. Para más información, consulte [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configuración de la coherencia de datos).<br/><br/>Los valores permitidos son: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** y **LOCAL_ONE**. |No (el valor predeterminado es `ONE`) |
 
@@ -173,20 +173,20 @@ Al copiar datos desde Cassandra, se utilizan las siguientes asignaciones de tipo
 
 | Tipo de datos de Cassandra | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |Cadena |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| Boolean |Boolean |
+| BOOLEAN |BOOLEAN |
 | DECIMAL |Decimal |
-| Double |Double |
+| DOUBLE |DOUBLE |
 | FLOAT |Single |
-| INET |String |
+| INET |Cadena |
 | INT |Int32 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
+| TEXT |Cadena |
+| TIMESTAMP |Datetime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |Cadena |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -244,7 +244,7 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una  |
+| 1 |S1 |Una |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
@@ -252,10 +252,10 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una  |
+| 1 |Una |
 | 1 |b |
 | 1 |C |
-| 3 |Una  |
+| 3 |Una |
 | 3 |E |
 
 ## <a name="next-steps"></a>Pasos siguientes

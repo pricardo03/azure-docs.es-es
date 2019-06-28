@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43aa0859fa67cc6b2f5c5974f072e7b6d4b29527
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112961"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Cómo usar las identidades administradas para recursos de Azure en una VM de Azure para el inicio de sesión 
@@ -87,7 +87,7 @@ Consulte [Servicios de Azure que admiten la autenticación de Azure AD](services
 Respuestas como las siguientes pueden indicar que la identidad administrada de VM para los recursos de Azure no se ha configurado correctamente:
 
 - PowerShell: *Invoke-WebRequest : No se puede conectar al servidor remoto*
-- CLI: *MSI: No se pudo recuperar un token de `http://localhost:50342/oauth2/token` con un error de "HTTPConnectionPool (host = 'localhost', puerto = 50342)* 
+- CLI: *MSI: No se pudo recuperar un token de `http://localhost:50342/oauth2/token` con un error de "HTTPConnectionPool(host='localhost', port=50342)"* 
 
 Si recibe uno de estos errores, vuelva a la máquina virtual de Azure en [Azure Portal](https://portal.azure.com) y:
 

@@ -15,16 +15,16 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b5868aaf29d6b57ea608763840a08f1991a982e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628598"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Uso de los nodos de extensión y las capas de datos de SAP HANA
 
 SAP admite un modelo de capas de datos para SAP BW de las diferentes versiones de SAP NetWeaver y SAP BW/4HANA. Para más información sobre el modelo de capas de datos, consulte el documento de SAP [SAP BW/4HANA and SAP BW on HANA with SAP HANA extension nodes](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#) (SAP BW/4HANA y SAP BW en HANA con nodos de extensión de SAP HANA).
-Con HANA (instancias grandes), puede utilizar la configuración de la opción 1 de los nodos de extensión de SAP HANA, tal como se detalla en estas preguntas más frecuentes y en los documentos del blog de SAP. Opción 2 configuraciones pueden configurarse con las siguientes SKU de instancia grande de HANA: S72m, S192, S192m, S384 y S384m. 
+Con HANA (instancias grandes), puede utilizar la configuración de la opción 1 de los nodos de extensión de SAP HANA, tal como se detalla en estas preguntas más frecuentes y en los documentos del blog de SAP. Las configuraciones de la opción-2 se pueden configurar con las siguientes SKU las instancias grandes de HANA (Instancias grandes): S72m, S192, S192m, S384 y S384m. 
 
 Al examinar la documentación, es posible que la ventaja no se vea de inmediato. Sin embargo, si se examinan las directrices de ajuste de tamaño de SAP, se puede ver una ventaja mediante el uso de los nodos de extensión de SAP HANA de las opciones 1 y 2. Estos son algunos ejemplos:
 

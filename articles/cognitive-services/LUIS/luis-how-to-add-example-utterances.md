@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072852"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Incorporación de una entidad a expresiones de ejemplo 
@@ -38,7 +38,7 @@ En el siguiente procedimiento se crea y se etiqueta una entidad personalizada de
 Are there any SQL server jobs?
 ```
 
-1. Seleccione a `SQL server` en la expresión para etiquetarlo como entidad sencilla. En el cuadro desplegable de la entidad que aparece, puede seleccionar una entidad existente o agregar una nueva entidad. Para agregar una nueva entidad, escriba su nombre `Job` en el cuadro de texto y, a continuación, seleccione **crear nueva entidad**.
+1. Seleccione a `SQL server` en la expresión para etiquetarlo como entidad sencilla. En el cuadro desplegable de la entidad que aparece, puede seleccionar una entidad existente o agregar una nueva entidad. Para agregar una nueva entidad, escriba el nombre en el cuadro de texto `Job` y, luego, seleccione **Crear nueva entidad**.
 
     ![Captura de pantalla de la especificación del nombre de la entidad](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
@@ -53,11 +53,11 @@ Are there any SQL server jobs?
 
 ## <a name="add-a-list-entity"></a>Incorporación de una entidad de lista
 
-Lista entidades representan un conjunto de coincidencias de texto exacta de palabras relacionadas en el sistema. 
+Las entidades de la lista representan un conjunto de coincidencias de texto exacto de palabras relacionadas en el sistema. 
 
 Para la lista de departamento de una empresa, puede tener valores normalizados: `Accounting` y `Human Resources`. Cada nombre normalizado tiene sinónimos. Para un departamento, estos sinónimos pueden incluir cualquier acrónimo, número o jerga de departamento. No es necesario conocer todos los valores cuando se crea la entidad. Puede agregar más después de revisar las expresiones reales del usuario con los sinónimos.
 
-1. En una declaración de ejemplo en el **intenciones** , seleccione la palabra o frase que desee en la nueva lista. Cuando aparezca la lista desplegable de entidad, escriba el nombre para la nueva entidad de la lista en el cuadro de texto superior y luego seleccione **crear nueva entidad**.   
+1. En una declaración de ejemplo de la página **Intenciones**, seleccione la palabra o frase que desea de la nueva lista. Cuando aparezca la lista desplegable de entidades, escriba el nombre de la nueva entidad de la lista en el cuadro de texto superior y, luego, seleccione **Crear nueva entidad**.   
 
 1. En el cuadro de diálogo emergente **What type of entity do you want to create?** (¿Qué tipo de entidad desea crear?), asígnele un nombre a la entidad y seleccione **List** (Lista) como tipo. Agregue sinónimos de este elemento de lista y seleccione **Done** (Listo). 
 
@@ -69,13 +69,13 @@ Para la lista de departamento de una empresa, puede tener valores normalizados: 
 
 Las entidades compuestas se crean a partir **entidades** existentes en una entidad primaria. 
 
-Suponiendo que la declaración, `Does John Smith work in Seattle?`, una declaración compuesta puede devolver información de entidad del nombre del empleado `John Smith`y la ubicación `Seattle` en una entidad compuesta. Las entidades secundarias ya deben existir en la aplicación y se marcan en la declaración de ejemplo antes de crear la entidad compuesta.
+Con la expresión `Does John Smith work in Seattle?`, una expresión compuesta puede devolver información de la entidad del nombre del empleado `John Smith` y la ubicación `Seattle` en una entidad compuesta. Las entidades secundarias ya deben existir en la aplicación y se marcan en la expresión de ejemplo antes de crear la entidad compuesta.
 
-1. Para ajustar las entidades secundarias en una entidad compuesta, seleccione el **primera** la etiqueta de entidad (extremo izquierdo) en la declaración de la entidad compuesta. Aparece una lista desplegable Mostrar las opciones para esta selección.
+1. Para encapsular las entidades secundarias en una entidad compuesta, seleccione la **primera** entidad etiquetada (más a la izquierda) en la expresión de la entidad compuesta. Aparece una lista de desplegable que muestra las opciones de esta selección.
 
-1. Seleccione **ajustar en entidad compuesta** en la lista desplegable. 
+1. Seleccione **Wrap in composite entity** (Encapsular la entidad compuesta) en la lista desplegable. 
 
-1. Seleccione la última palabra de la entidad compuesta (en la derecha). Observe que una línea verde sigue a la entidad compuesta. Este es el indicador visual para una entidad compuesta y debe estar en todas las palabras de la entidad compuesta de la entidad secundaria del extremo izquierdo en la entidad secundaria más a la derecha.
+1. Seleccione la última palabra de la entidad compuesta (en la derecha). Observe que una línea verde sigue a la entidad compuesta. Este es el indicador visual de una entidad compuesta y debe estar en todas las palabras de esta desde la entidad secundaria del extremo izquierdo hasta la entidad secundaria del extremo derecho.
 
 1. Escriba el nombre de la entidad compuesta en la lista desplegable.
 
@@ -89,11 +89,11 @@ Suponiendo que la declaración, `Does John Smith work in Seattle?`, una declarac
 
     ![Captura de pantalla de la página de detalles de Intents (Intenciones) con la entidad compuesta](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-entitys-role-to-utterance"></a>Agregar rol de la entidad a utterance (dictado)
+## <a name="add-entitys-role-to-utterance"></a>Adición del rol de la entidad a la expresión
 
-Un rol es un subtipo de una entidad, determinado por el contexto de la declaración con nombre. Puede marcar una entidad dentro de una declaración como la entidad, o seleccione un rol dentro de esa entidad. Cualquier entidad puede tener funciones incluidas entidades personalizadas que se ha aprendido la máquina (entidades simples y compuestas entidades), no ha aprendido la máquina (entidades creadas previamente, las entidades de la expresión regular, las entidades de la lista). 
+Un rol es un subtipo con nombre de una entidad, determinado por el contexto de la expresión. Puede marcar una entidad dentro de una expresión como entidad o seleccionar un rol dentro de esa entidad. Cualquier entidad puede tener roles, incluidas las entidades personalizadas con aprendizaje automático (entidades simples y compuestas) o sin aprendizaje automático (entidades pecompiladas, entidades de expresión regular o entidades de lista). 
 
-Obtenga información sobre [cómo marcar una declaración con las funciones de la entidad](tutorial-entity-roles.md) de un tutorial práctico. 
+Aprenda [cómo marcar una expresión con roles de entidad](tutorial-entity-roles.md) en un práctico tutorial. 
 
 ## <a name="entity-status-predictions"></a>Predicciones de estado de entidad
 
@@ -107,7 +107,7 @@ Seleccione las palabras que se hayan subrayado en rojo en la expresión.
 
 El cuadro de la entidad muestra el **Estado de entidad** con un signo de exclamación rojo si hay una discrepancia de predicción. Para ver el Estado de entidad con información sobre la diferencia entre las entidades etiquetadas y previstas, seleccione **Estado de entidad** y seleccione el elemento a la derecha.
 
-![Selección del estado de captura de pantalla de entidad](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
+![Captura de pantalla de selección de estado de la entidad](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 La línea roja puede aparecer en cualquiera de los momentos siguientes:
 

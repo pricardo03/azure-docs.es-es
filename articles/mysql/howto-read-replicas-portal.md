@@ -7,18 +7,18 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510780"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Procedimiento para crear y administrar réplicas de lectura en Azure Database for MySQL mediante Azure Portal
 
-En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servicio Azure Database for MySQL mediante Azure portal.
+En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servicio Azure Database for MySQL mediante Azure Portal.
 
 > [!IMPORTANT]
-> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure de su elección. La replicación entre regiones está actualmente en versión preliminar pública.
+> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure que prefiera. La replicación entre regiones se encuentra actualmente en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,13 +41,13 @@ Para crear un servidor de réplica de lectura, puede seguir estos siguientes pas
 
    ![Azure Database for MySQL: Replicación](./media/howto-read-replica-portal/add-replica.png)
 
-5. Escriba un nombre para el servidor réplica.
+5. Escriba un nombre para el servidor de réplica.
 
-    ![Azure Database for MySQL: nombre de la réplica](./media/howto-read-replica-portal/replica-name.png)
+    ![Azure Database for MySQL: nombre de réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Seleccione la ubicación para el servidor réplica. Puede crear una réplica en cualquier región de Azure. La ubicación predeterminada es el mismo que el servidor maestro
+6. Seleccione la ubicación del servidor de réplica. Puede crear una réplica en cualquier región de Azure. La ubicación predeterminada es la misma que la del servidor maestro.
 
-    ![Azure Database for MySQL: ubicación de réplica](./media/howto-read-replica-portal/replica-location.png)
+    ![Azure Database for MySQL: ubicación de la réplica](./media/howto-read-replica-portal/replica-location.png)
 
 7. Seleccione **Aceptar** para confirmar la creación de la réplica.
 

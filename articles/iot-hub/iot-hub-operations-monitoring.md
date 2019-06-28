@@ -1,5 +1,5 @@
 ---
-title: Operaciones de Azure IoT Hub supervisión (en desuso) | Microsoft Docs
+title: Supervisión de operaciones de Azure IoT Hub | Microsoft Docs
 description: Describe cómo usar la supervisión de operaciones de Azure IoT Hub para supervisar el estado de las operaciones de su centro de IoT en tiempo real.
 author: nberdy
 manager: briz
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345743"
 ---
-# <a name="iot-hub-operations-monitoring-deprecated"></a>Operaciones de IoT Hub supervisión (en desuso)
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Supervisión de operaciones de IoT Hub (en desuso)
 
 La supervisión de operaciones de IoT Hub permite supervisar el estado de las operaciones de su centro de IoT en tiempo real. IoT Hub realiza el seguimiento de eventos a través de varias categorías de operaciones. Se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.
 
 >[!NOTE]
->IoT Hub **supervisión de operaciones está en desuso y se ha quitado de IoT Hub el 10 de marzo de 2019**. Para supervisar las operaciones y mantenimiento de IoT Hub, consulte [supervisar el estado de Azure IoT Hub y diagnosticar rápidamente problemas](iot-hub-monitor-resource-health.md). Para más información sobre la escala de tiempo de desuso, consulte [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health) (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
+>**La supervisión de operaciones de IoT Hub está en desuso y se quitará de IoT Hub el 10 de marzo de 2019.** Para supervisar las operaciones y el mantenimiento de IoT Hub, consulte [Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente](iot-hub-monitor-resource-health.md). Para más información sobre la escala de tiempo de desuso, consulte [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health) (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
 
 IoT Hub supervisa seis categorías de eventos:
 
@@ -36,7 +36,7 @@ IoT Hub supervisa seis categorías de eventos:
 
 ## <a name="how-to-enable-operations-monitoring"></a>Habilitación de la supervisión de operaciones
 
-1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear una instancia de IoT hub en el [comenzar](quickstart-send-telemetry-dotnet.md) guía.
+1. Cree un Centro de IoT. Puede encontrar instrucciones sobre cómo crear un centro de IoT en la guía [Introducción](quickstart-send-telemetry-dotnet.md).
 
 2. Abra la hoja de su centro de IoT. Desde allí, haga clic en **Supervisión de operaciones**.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888991"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Uso de la compatibilidad de Azure Resource Manager con Azure Load Balancer
@@ -30,15 +30,15 @@ Con Resource Manager, Azure Load Balancer contiene los siguientes recursos secun
 
 * Configuración de dirección IP front-end: un equilibrador de carga puede incluir una o varias direcciones IP front-end, conocidas también como IP virtuales (VIP). Estas direcciones IP sirven como entrada para el tráfico.
 * Grupo de direcciones back-end: se trata de direcciones IP asociadas a las tarjetas de interfaz de red (NIC) de máquina virtual a las que se distribuye la carga.
-* Reglas de equilibrio de carga: una propiedad de regla asigna una IP de front-end determinado y la combinación de puerto a un conjunto de direcciones IP de back-end y la combinación de puerto. Un solo equilibrador de carga puede tener varias reglas de equilibrio de carga. Cada regla es una combinación de una IP de front-end y el puerto y la dirección IP y el puerto asociado con máquinas virtuales de back-end.
+* Reglas de equilibrio de carga: una propiedad de regla asigna una combinación dada de dirección IP y puerto front-end a un conjunto de combinaciones de direcciones IP y puerto back-end. Un solo equilibrador de carga puede tener varias reglas de equilibrio de carga. Cada regla es una combinación de una dirección IP y un puerto front-end y una dirección IP y un puerto back-end asociados a las máquinas virtuales.
 * Sondeos: los sondeos permiten realizar un seguimiento del estado de las instancias de máquina virtual. Si se produce un error en un sondeo de estado, la instancia de VM se sacará automáticamente de la rotación.
-* Reglas NAT entrantes: NAT reglas que definen el tráfico entrante que fluye a través de la dirección IP de front-end y se distribuye a la dirección IP de back-end.
+* Reglas NAT entrantes: las reglas NAT que definen el tráfico entrante que fluye a través de la dirección IP front-end y se distribuye a la dirección IP back-end.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## <a name="quickstart-templates"></a>Plantillas de inicio rápido
 
-El Administrador de recursos de Azure le permite aprovisionar sus aplicaciones mediante una plantilla declarativa. En una sola plantilla, se pueden implementar varios servicios junto con sus dependencias.  Use la misma plantilla para implementar su aplicación de forma repetida durante cada fase de su ciclo de vida.
+El Administrador de recursos de Azure le permite aprovisionar sus aplicaciones mediante una plantilla declarativa. En una plantilla, puede implementar varios servicios junto con sus dependencias. Use la misma plantilla para implementar su aplicación de forma repetida durante cada fase de su ciclo de vida.
 
 Las plantillas pueden incluir definiciones de máquinas virtuales, redes virtuales, conjuntos de disponibilidad, interfaces de red (NIC), cuentas de almacenamiento, equilibradores de carga, grupos de seguridad de red y direcciones IP públicas. Con las plantillas puede crear todo lo que necesita para una aplicación compleja. El archivo de plantilla se puede proteger en el sistema de administración de contenidos para controlar versiones y colaborar.
 

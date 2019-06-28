@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61215846"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Directiva de compatibilidad y retirada del SO invitado de Azure
@@ -55,9 +55,9 @@ Se publican versiones del SO invitado cada mes. Debido a la frecuencia de public
 
 A los 60 días, la versión queda "*deshabilitada*". "Deshabilitada" significa que la versión se quita del portal. La versión tampoco se puede establecer desde el archivo de configuración CSCFG. Las implementaciones existentes sigan ejecutándose. Sin embargo, no se permitirán nuevas implementaciones ni actualizaciones del código y la configuración de las implementaciones existentes.
 
-En algún momento después de convertirse en "disabled", la versión del SO invitado "expira" y cualquier instalación que siga ejecutando esa versión expirada está expuestas a problemas de seguridad y vulnerabilidad. Por lo general, la expiración se produce en lotes, por lo que el período de deshabilitación para la expiración puede variar.
+En algún momento después de volverse "deshabilitada", la versión del SO invitado "expira" y cualquier instalación que siga ejecutando esa versión expirada se expone a problemas de seguridad y vulnerabilidad. Por lo general, la expiración se produce por lotes, por lo que el período desde la deshabilitación hasta la expiración puede variar.
 
-Los clientes que configuración sus servicios para actualizar el SO invitado manualmente, debe asegurarse de que sus servicios se ejecutan en un sistema operativo invitado compatible. Si un servicio está configurado para actualizar automáticamente el SO invitado, la plataforma subyacente garantizar el cumplimiento y se actualizará al SO invitado más reciente.
+Los clientes que configuran sus servicios para actualizar el SO invitado manualmente, deben asegurarse de que sus servicios se ejecutan en un SO invitado compatible. Si un servicio está configurado para actualizar automáticamente el SO invitado, la plataforma subyacente garantizará el cumplimiento y se actualizará al SO invitado más reciente.
 
 Estos períodos se pueden prolongar a discreción de Microsoft para facilitar las transiciones de los clientes. Todos los cambios se comunicarán en la [Matriz de compatibilidad del SDK y las versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md).
 

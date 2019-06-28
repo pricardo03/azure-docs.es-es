@@ -12,19 +12,19 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 43d0b855c25ed10b074d99b247ee56dc2ba7769b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146196"
 ---
-# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidad creada previamente número de teléfono para una aplicación de LUIS
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada de número de teléfono para una aplicación de LUIS
 La entidad `phonenumber` extrae una variedad de números de teléfono, incluido el código de país. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que a la aplicación. La entidad `phonenumber` se admite solamente en la referencia cultural `en-us`. 
 
 ## <a name="types-of-a-phone-number"></a>Tipos de un número de teléfono
-`Phonenumber` se administra desde el [reconocedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repositorio de GitHub
+`Phonenumber` se administra desde el repositorio de GitHub [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml).
 
-## <a name="resolution-for-this-prebuilt-entity"></a>Resolución para esta entidad creados previamente
+## <a name="resolution-for-this-prebuilt-entity"></a>Resolución para esta entidad precompilada
 
 ### <a name="api-version-2x"></a>Versión de API 2.x
 
@@ -58,9 +58,9 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.phone
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versión de API preliminar 3.x
+### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
 
-El siguiente JSON es con el `verbose` parámetro establecido en `false`:
+El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
 ```json
 {
@@ -82,7 +82,7 @@ El siguiente JSON es con el `verbose` parámetro establecido en `false`:
 }
 ```
 
-El siguiente JSON es con el `verbose` parámetro establecido en `true`:
+El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
 {

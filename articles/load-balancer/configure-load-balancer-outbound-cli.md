@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
 ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122439"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure
 
 En este inicio rápido se muestra cómo configurar las reglas de salida en Standard Load Balancer con la CLI de Azure.  
 
-Al terminar, el recurso de Load Balancer contiene dos servidores front-end y las reglas asociadas a estos: una de entrada y otra de salida.  Cada front-end tiene una referencia a una dirección IP pública, y este escenario usa una dirección IP pública diferente para la entrada y la salida.   La regla de equilibrio de carga proporciona solo equilibrio de carga de entrada y la regla de salida controla el proceso NAT de salida proporcionada para la máquina virtual.  Esta guía de inicio rápido usa dos independiente grupos back-end, una para entrada y otra para salida, para ilustrar la funcionalidad y flexibilidad para este escenario.
+Al terminar, el recurso de Load Balancer contiene dos servidores front-end y las reglas asociadas a estos: una de entrada y otra de salida.  Cada front-end tiene una referencia a una dirección IP pública, y este escenario usa una dirección IP pública diferente para la entrada y la salida.   La regla de equilibrio de carga proporciona solo equilibrio de carga de entrada y la regla de salida controla el proceso NAT de salida proporcionada para la máquina virtual.  En esta guía de inicio rápido se usan dos grupos de back-end independientes, uno para la entrada y otro para salida, a fin de ilustrar las funcionalidades y permitir la flexibilidad para este escenario.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.28 o versiones posteriores. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="create-resource-group"></a>Crear grupo de recursos
+## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
 Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
@@ -41,7 +41,7 @@ En el ejemplo siguiente se crea un grupo de recursos denominado *myresourcegroup
     --name myresourcegroupoutbound \
     --location eastus2
 ```
-## <a name="create-virtual-network"></a>Crear Virtual Network
+## <a name="create-virtual-network"></a>Creación de una red virtual
 Cree una red virtual denominada *myvnetoutbound* con una subred llamada *mysubnetoutbound* en *myresourcegroupoutbound* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
@@ -73,15 +73,15 @@ Cree una dirección IP estándar para el comando [az network public-ip create](h
 
 En esta sección se detalla cómo se pueden crear y configurar los componentes siguientes del equilibrador de carga:
   - Una dirección IP de front-end que recibe el tráfico de red entrante en el equilibrador de carga.
-  - Un grupo de back-end donde la dirección IP de front-end envía la carga equilibrada de tráfico de red.
-  - Un grupo de back-end para la conectividad saliente. 
+  - Un grupo de back-end al que la dirección IP de front-end envía el tráfico de red de carga equilibrada.
+  - Un grupo de back-end para la conectividad de salida. 
   - Un sondeo de estado que determina el estado de las instancias de máquina virtual de back-end.
   - Una regla de entrada de equilibrador de carga que define cómo se distribuye el tráfico a las máquinas virtuales.
   - Una regla de salida de equilibrador de carga que define cómo se distribuye el tráfico de las máquinas virtuales.
 
 ### <a name="create-load-balancer"></a>Cree un equilibrador de carga
 
-Crear un equilibrador de carga con la dirección IP entrante mediante [crear az network lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado *lb* que incluye una configuración de IP de entrada de front-end y un grupo de back-end *bepoolinbound*que está asociado con la dirección IP pública *mypublicipinbound* que creó en el paso anterior.
+Use [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) para crear con la dirección IP de entrada una instancia de Load Balancer denominada *lb* que incluya una configuración de IP de front-end de entrada y un grupo de back-end *bepoolinbound* que esté asociado a la dirección IP pública *mypublicipinbound* que creó en el paso anterior.
 
 ```azurecli-interactive
   az network lb create \
@@ -94,9 +94,9 @@ Crear un equilibrador de carga con la dirección IP entrante mediante [crear az 
     --public-ip-address mypublicipinbound   
   ```
 
-### <a name="create-outbound-pool"></a>Creación de grupo saliente
+### <a name="create-outbound-pool"></a>Creación del grupo de salida
 
-Crear un grupo de direcciones de back-end adicionales para definir la conectividad saliente para un grupo de máquinas virtuales con [crear az network lb-grupo de direcciones](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) con el nombre *bepooloutbound*.  Creación de un grupo de salida independiente proporciona la máxima flexibilidad, pero puede omitir este paso y usar solo entrante *bepoolinbound* también.
+Cree un grupo adicional de direcciones de back-end denominado *bepooloutbound* para definir la conectividad de salida para un grupo de máquinas virtuales con [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest).  La creación de un grupo de salida independiente proporciona una flexibilidad máxima, pero también puede omitir este paso y usar solo el grupo *bepoolinbound* de entrada.
 
 ```azurecli-interactive
   az network lb address-pool create \
@@ -167,9 +167,9 @@ az network lb outbound-rule create \
  --address-pool bepooloutbound
 ```
 
-Si no desea usar un grupo de salida independiente, puede cambiar el argumento del grupo de direcciones en el comando anterior para especificar *bepoolinbound* en su lugar.  Se recomienda para usar grupos separados de flexibilidad y la legibilidad de la configuración resultante.
+Si no quiere usar un grupo de salida independiente, puede cambiar el argumento del grupo de direcciones en el comando anterior y especificar *bepoolinbound*.  Se recomienda usar grupos independientes para garantizar la flexibilidad y la legibilidad de la configuración resultante.
 
-En este momento, puede continuar con la máquina virtual se agrega al grupo back-end *bepoolinbound* __y__ *bepooloutbound* actualizando la configuración de IP de la NIC correspondiente los recursos mediante [agregar az network nic ip-config-grupo de direcciones](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+En este momento, puede agregar la máquina virtual al grupo de back-end *bepool* __y__ *bepooloutbound* mediante la actualización de la configuración de IP de los recursos de la NIC correspondientes mediante [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

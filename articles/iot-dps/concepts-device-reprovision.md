@@ -3,29 +3,29 @@ title: Conceptos del dispositivo sobre el reaprovisionamiento de Azure IoT Hub D
 description: En este artículo se describe los conceptos sobre reaprovisionamiento de dispositivos para Azure IoT Hub Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730015"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub
 
 Durante el ciclo de vida de una solución de IoT, es habitual mover los dispositivos entre centros de IoT. Las razones de este movimiento pueden incluir los siguientes escenarios:
 
-* **Geolocalización o geolatencia**: Como un dispositivo se mueve entre ubicaciones, mejora la latencia de red haciendo que el dispositivo de migrar a un centro de IoT más de cerca.
+* **Geolocalización o geolatencia**: puesto que un dispositivo se mueve entre ubicaciones, la latencia de red se mejora mediante la migración del dispositivo a un centro de IoT más cercano.
 
-* **Servicios multiinquilino**: Un dispositivo puede usarse dentro de la misma solución de IoT y volver a asignar a un cliente nuevo, o un sitio de cliente. Este nuevo cliente se puede atender mediante un centro de IoT diferente.
+* **Servicios multiinquilino**: un dispositivo puede usarse dentro de la misma solución de IoT y reasignarse a un cliente nuevo o al sitio de un cliente. Este nuevo cliente se puede atender mediante un centro de IoT diferente.
 
-* **Cambio de la solución**: Se puede mover un dispositivo en una solución de IoT nueva o actualizada. Esta reasignación puede requerir que el dispositivo se comunique con un nuevo centro de IoT que esté conectado a otros componentes back-end.
+* **Cambio de la solución**: un dispositivo se podría mover a una solución de IoT nueva o actualizada. Esta reasignación puede requerir que el dispositivo se comunique con un nuevo centro de IoT que esté conectado a otros componentes back-end.
 
-* **Cuarentena**: Similar a un cambio de la solución. Un dispositivo que no funciona correctamente, que está en peligro o no actualizado se puede reasignar a un centro de IoT para actualizarse y volver a estar en condiciones. Una vez que el dispositivo está funcionando correctamente, se vuelve a migrar a su centro principal.
+* **Cuarentena**: es similar a un cambio de la solución. Un dispositivo que no funciona correctamente, que está en peligro o no actualizado se puede reasignar a un centro de IoT para actualizarse y volver a estar en condiciones. Una vez que el dispositivo está funcionando correctamente, se vuelve a migrar a su centro principal.
 
 La compatibilidad del reaprovisionamiento en el Device Provisioning Service soluciona estas necesidades. Los dispositivos se pueden reasignar automáticamente a nuevos centros de IoT basados en la directiva de reaprovisionamiento configurada en la entrada de inscripción del dispositivo.
 
@@ -51,7 +51,7 @@ En función del escenario, a medida que un dispositivo se mueve entre centros de
 
 Según el escenario, un dispositivo normalmente envía una solicitud a una instancia de servicio de aprovisionamiento al reiniciarse. También admite un método para desencadenar manualmente el aprovisionamiento a petición. La directiva de reaprovisionamiento en una entrada de inscripción determina la forma en la que la instancia de Device Provisioning Service administra estas solicitudes de aprovisionamiento. La directiva también determina si se deben migrar los datos de estado del dispositivo durante el reaprovisionamiento. Las mismas directivas están disponibles para las inscripciones individuales y los grupos de inscripción:
 
-* **Volver a aprovisionar y migrar datos**: Esta directiva es el valor predeterminado para nuevas entradas de inscripción. Esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud (1). Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. La información sobre el estado actualizado del dispositivo se migrará de este centro de IoT inicial al nuevo centro de IoT (2). Durante la migración, el estado del dispositivo será **Asignando**.
+* **Volver a aprovisionar y migrar datos**: esta directiva es el valor predeterminado para nuevas entradas de inscripción. Esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud (1). Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. La información sobre el estado actualizado del dispositivo se migrará de este centro de IoT inicial al nuevo centro de IoT (2). Durante la migración, el estado del dispositivo será **Asignando**.
 
     ![Aprovisionamiento con Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
@@ -61,7 +61,7 @@ Según el escenario, un dispositivo normalmente envía una solicitud a una insta
 
     ![Aprovisionamiento con Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Nunca vuelva a aprovisionar**: El dispositivo nunca se reasigna a un concentrador diferente. Esta directiva se proporciona para administrar la compatibilidad con versiones anteriores.
+* **No volver a aprovisionar nunca**: el dispositivo nunca se reasigna a un centro diferente. Esta directiva se proporciona para administrar la compatibilidad con versiones anteriores.
 
 ### <a name="managing-backwards-compatibility"></a>Administración de la compatibilidad con versiones anteriores
 

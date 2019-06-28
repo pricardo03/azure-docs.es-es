@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60700028"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinación de la dirección IP del punto de conexión de administración
@@ -29,7 +29,7 @@ Supongamos que el host de Instancia administrada es `mi-demo.xxxxxx.database.win
 
 ![Resolución de un nombre de host interno](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-Ahora use otro `nslookup` para el nombre resaltado eliminando el segmento `.vnet.`. Al ejecutar este comando, obtendrá la dirección IP pública.
+Ahora use otro `nslookup` para el nombre resaltado eliminando el segmento `.vnet.`. Obtendrá la dirección IP pública cuando ejecute este comando.
 
 ![Resolución de la dirección IP pública](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 

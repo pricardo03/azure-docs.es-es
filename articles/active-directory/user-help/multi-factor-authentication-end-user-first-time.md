@@ -15,10 +15,10 @@ ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230048"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
@@ -69,7 +69,7 @@ Con este método se requiere que instale una aplicación de autenticador en el t
    ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Cuando haya terminado de escribir el PIN, seleccione **Cerrar**. A estas alturas, la verificación debería haberse realizado correctamente.
-9. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación móvil. Especifique su país o región en la lista desplegable y escriba su número de teléfono móvil en el cuadro situado junto al nombre de país o región. Seleccione **Next** (Siguiente).
+9. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación móvil. Especifique el país o región en la lista desplegable y escriba su número de teléfono móvil en la casilla junto al país o región. Seleccione **Next** (Siguiente).
 10. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.
 11. Si está usando estas aplicaciones, copie la contraseña de aplicación proporcionada y péguela en la aplicación en lugar de la contraseña normal. Puede utilizar la misma contraseña de aplicación para varias aplicaciones. Para más información, [ayuda con contraseñas de aplicación].
 12. Haga clic en **Done**(Listo).
@@ -87,7 +87,7 @@ Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usa
 1. Seleccione **Teléfono de autenticación** en la lista desplegable.  
 
     ![Configuración](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Elija su país o región en la lista desplegable y escriba su número de teléfono móvil.
+2. Seleccione el país o región en la lista desplegable y escriba su número de teléfono móvil.
 3. Seleccione el modo que desea usar con su teléfono móvil: texto o llamada.
 4. Seleccione **Contactar** para comprobar el número de teléfono. Según el modo seleccionado, le escribiremos o le llamaremos. Siga las instrucciones proporcionadas en la pantalla y, luego, seleccione **Comprobar**.
 5. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.

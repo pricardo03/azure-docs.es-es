@@ -10,10 +10,10 @@ ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: 73314c5864e3036d102deee2792021345b80bf2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687839"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Use the Vertex Execution View in Data Lake Tools for Visual Studio (Usar la vista de ejecución de vértices de Data Lake Tools para Visual Studio)
@@ -39,13 +39,13 @@ El panel superior central muestra el **estado de ejecución de todos los vértic
 ![Vista de ejecución de vértices de Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
 El panel inferior central muestra información sobre cada vértice:
-* Nombre del proceso: El nombre de la instancia de vértice. Se compone de distintas partes de StageName|VertexName|VertexRunInstance. Por ejemplo, el vértice SV7_Split[62].v1 corresponde a la segunda instancia en ejecución (.v1, índice que comienza desde 0) del número de vértice 62 en Stage SV7_Split.
-* Lectura de datos total/escritos: Los datos eran leídos/escritos por este vértice.
-* Estado de salida/estado: El estado final cuando finaliza el vértice.
-* Tipo de código o con errores de salida: El error cuando produce un error en el vértice.
-* Motivo de creación: ¿Por qué se creó el vértice.
+* Nombre del proceso: nombre de la instancia de vértice. Se compone de distintas partes de StageName|VertexName|VertexRunInstance. Por ejemplo, el vértice SV7_Split[62].v1 corresponde a la segunda instancia en ejecución (.v1, índice que comienza desde 0) del número de vértice 62 en Stage SV7_Split.
+* Escritura/lectura de datos total: los datos leídos/escritos por este vértice.
+* Estado de salida/estado: el estado final cuando finaliza el vértice.
+* Código de salida/Tipo de error: el error del vértice.
+* Motivo de la creación: motivo por el que se creó el vértice.
 * Latencia de cola PN/latencia de proceso/latencia de recurso: el tiempo que tarda el vértice en esperar a los recursos, procesar los datos y permanecer en la cola.
-* Creador/proceso GUID: GUID para la ejecución del vértice actual o su creador.
+* GUID del creador/proceso: GUID del vértice de ejecución actual o su creador.
 * Versión: la instancia N del vértice de ejecución (el sistema puede programar nuevas instancias de un vértice por diversos motivos, por ejemplo, conmutación por error, redundancia de proceso, etc.).
 * Hora de creación de la versión
 * Tiempo de inicio de creación de proceso/Tiempo en cola de proceso/Tiempo de inicio de proceso/Tiempo completo de proceso: cuando el proceso de vértice comienza la creación; cuando el proceso de vértice comienza a almacenarse en cola; cuando comienza determinado proceso de vértice; cuando un vértice concreto se completa.

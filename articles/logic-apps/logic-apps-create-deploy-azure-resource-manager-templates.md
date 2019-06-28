@@ -1,6 +1,6 @@
 ---
-title: 'Implementación de aplicaciones lógicas con plantillas de Azure Resource Manager: Azure Logic Apps'
-description: Implementación de aplicaciones lógicas con plantillas de Azure Resource Manager
+title: Implementación de aplicaciones lógicas con plantillas de Azure Resource Manager - Azure Logic Apps
+description: Implementación de aplicaciones lógicas mediante plantillas de Azure Resource Manager
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,31 +11,31 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: 21603ff213bc8babb4145209a76aee0b4150cc12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681768"
 ---
-# <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Implementación de aplicaciones lógicas con plantillas de Azure Resource Manager
+# <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Implementación de aplicaciones lógicas mediante plantillas de Azure Resource Manager
 
-Después de crear una plantilla de Azure Resource Manager para implementar la aplicación lógica, puede implementar la plantilla de las siguientes maneras:
+Después de crear una plantilla de Azure Resource Manager para implementar la aplicación lógica, puede implementar la plantilla de las siguientes maneras:
 
 * [Azure Portal](#portal)
 * [Azure PowerShell](#powershell)
 * [CLI de Azure](#cli)
 * [API de REST del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-deploy-rest.md)
-* [Canalizaciones de Azure de DevOps de Azure](#azure-pipelines)
+* [Azure Pipelines para Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>
 
-## <a name="deploy-through-azure-portal"></a>Implementar a través del portal de Azure
+## <a name="deploy-through-azure-portal"></a>Implementación a través de Azure Portal
 
-Para implementar automáticamente una plantilla de aplicación lógica en Azure, puede elegir la siguiente **implementar en Azure** botón, que inicia sesión en el portal de Azure y le pide información sobre la aplicación lógica. A continuación, hacer los cambios necesarios en la plantilla de aplicación lógica o los parámetros.
+Para implementar automáticamente una plantilla de aplicación lógica en Azure, puede elegir el siguiente botón **Implementar en Azure**, que inicia sesión en Azure Portal y le pide información sobre la aplicación lógica. A continuación, haga los cambios necesarios en la plantilla o los parámetros de la aplicación lógica.
 
 [![Implementación en Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Por ejemplo, se le pedirá esta información después de iniciar sesión el portal de Azure:
+Por ejemplo, se le pedirá esta información después de iniciar sesión en Azure Portal:
 
 * El nombre de la suscripción a Azure
 * El grupo de recursos que desea usar
@@ -44,11 +44,11 @@ Por ejemplo, se le pedirá esta información después de iniciar sesión el port
 * Un URI de prueba
 * La aceptación de los términos y condiciones especificados
 
-Para obtener más información, consulte [implementar recursos con plantillas de Azure Resource Manager y Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+Para más información, consulte [Implementación de aplicaciones lógicas con plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 ## <a name="authorize-oauth-connections"></a>Autorización de conexiones de OAuth
 
-Después de la implementación, la aplicación lógica funciona de un extremo a otro con parámetros válidos. Sin embargo, sigue siendo necesario autorizar las conexiones de OAuth para generar un token de acceso válido. Para las implementaciones automatizadas, puede utilizar una secuencia de comandos que da su consentimiento a cada conexión de OAuth, por ejemplo, esto [script de ejemplo en el proyecto de GitHub LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth). También puede autorizar las conexiones de OAuth a través del portal de Azure o en Visual Studio, abra la aplicación lógica en el Diseñador de Logic Apps.
+Después de la implementación, la aplicación lógica funciona de un extremo a otro con parámetros válidos. Sin embargo, sigue siendo necesario autorizar las conexiones de OAuth para generar un token de acceso válido. En el caso de las implementaciones automatizadas, puede utilizar un script que admite cada conexión de OAuth, como este [script de ejemplo del proyecto LogicAppConnectionAuth de GitHub](https://github.com/logicappsio/LogicAppConnectionAuth). También puede autorizar las conexiones de OAuth a través de Azure Portal o en Visual Studio abriendo la aplicación lógica en el Diseñador de Logic Apps.
 
 <a name="powershell"></a>
 
@@ -60,14 +60,14 @@ Para implementar en un determinado *grupo de recursos de Azure*, use este comand
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-Para implementar en una suscripción de Azure específica, use este comando:
+Para implementar en una suscripción de Azure determinada, use este comando:
 
 ```powershell
 New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment)
 * [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
 <a name="cli"></a>
@@ -80,7 +80,7 @@ Para implementar en un determinado *grupo de recursos de Azure*, use este comand
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Para implementar en una suscripción de Azure específica, use este comando:
+Para implementar en una suscripción de Azure determinada, use este comando:
 
 ```azurecli
 az deployment create --location <location> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -94,24 +94,24 @@ Para más información, consulte los temas siguientes:
 
 <a name="azure-pipelines"></a>
 
-## <a name="deploy-with-azure-devops"></a>Implementar con Azure DevOps
+## <a name="deploy-with-azure-devops"></a>Implementación con Azure DevOps
 
-Para implementar plantillas de aplicación lógica y administrar entornos, los equipos suelen usan una herramienta como [canalizaciones de Azure](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) en [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Las canalizaciones de Azure proporciona un [tareas de implementación de grupo de recursos de Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) que puede agregar a cualquier compilación o versión de canalización.
-Para que la autorización implementar y generar la canalización de versiones, también se necesita un Azure Active Directory (AD) [serviceprincipal](../active-directory/develop/app-objects-and-service-principals.md). Obtenga más información sobre [mediante entidades de servicio con las canalizaciones de Azure](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+Para implementar las plantillas de aplicación lógica y administrar entornos, los equipos suelen usan una herramienta como [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) en [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Azure Pipelines proporciona una [tarea Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2), que se puede agregar a cualquier canalización de la compilación o versión.
+Para que la autorización implemente y genere la canalización de versión, también necesita una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory. Obtenga más información sobre [el uso de entidades de servicio con Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
 
-Estos son los pasos de alto nivel generales para el uso de canalizaciones de Azure:
+Aquí le mostramos unos pasos generales de alto nivel para usar Azure Pipelines:
 
-1. En las canalizaciones de Azure, cree una canalización vacía.
+1. En Azure Pipelines, cree una canalización vacía.
 
 1. Elija los recursos que necesita para la canalización, como la plantilla de aplicación lógica y los archivos de parámetros de plantilla, que genera manualmente o como parte del proceso de compilación.
 
-1. Para el trabajo del agente, busque y agregue el **implementación del grupo de recursos de Azure** tarea.
+1. Para el trabajo del agente, busque y agregue la tarea de **implementación del grupo de recursos de Azure**.
 
-   ![Agregar tarea "Implementación de grupo de recursos de Azure"](./media/logic-apps-create-deploy-template/add-azure-resource-group-deployment-task.png)
+   ![Incorporación de la tarea "Implementación de un grupo de recursos de Azure"](./media/logic-apps-create-deploy-template/add-azure-resource-group-deployment-task.png)
 
-1. Configurar con un [serviceprincipal](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
+1. Configúrelo con una [entidad de servicio](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure). 
 
-1. Agregue referencias a la plantilla de aplicación lógica y los archivos de parámetros de plantilla.
+1. Agregue referencias a la plantilla de la aplicación lógica y los archivos de parámetros de la plantilla.
 
 1. Siga compilando los pasos del proceso de lanzamiento de otros entornos, pruebas automatizadas o aprobadores según sea necesario.
 

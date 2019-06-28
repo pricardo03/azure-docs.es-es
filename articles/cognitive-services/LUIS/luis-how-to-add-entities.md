@@ -1,7 +1,7 @@
 ---
 title: agregar entidades
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Crear entidades para extraer datos de la clave de grabaciones de voz del usuario en aplicaciones de Language Understanding (LUIS).
+description: Cree entidades para extraer datos clave de las expresiones de usuario de las aplicaciones de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,23 +12,23 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148727"
 ---
 # <a name="create-entities-without-utterances"></a>Creación de entidades sin expresiones
 
-La entidad representa una palabra o frase dentro de la expresión que quiere extraer. Una entidad representa una clase incluida una colección de objetos similares (lugares, cosas, personas, eventos o conceptos). Las entidades describen información relevante para la intención y a veces son esenciales para que la aplicación lleve a cabo la tarea. Puede crear entidades cuando se agrega una declaración para una intención o una distancia de (antes o después) agregar una declaración para una intención.
+La entidad representa una palabra o frase dentro de la expresión que quiere extraer. Una entidad representa una clase que incluye una colección de objetos parecidos (lugares, cosas, personas, eventos o conceptos). Las entidades describen información relevante para la intención y a veces son esenciales para que la aplicación lleve a cabo la tarea. Puede crear entidades cuando agregue una expresión a una intención o aparte de agregar (antes o después) una expresión a una intención.
 
 Puede agregar, editar o eliminar entidades de la aplicación de LUIS a través de la **lista de entidades** en la página **Entidades**. LUIS ofrece dos tipos principales de entidades: [entidades precompiladas](luis-reference-prebuilt-entities.md) y [entidades del usuario personalizadas](luis-concept-entity-types.md#types-of-entities).
 
-Una vez que se crea una entidad que ha aprendido la máquina, deberá marcar esa entidad en todas la declaración de ejemplo de todos los intentos en que se encuentra.
+Una vez que se crea una entidad de aprendizaje automático, debe marcar esa entidad en todas las expresiones de ejemplo de todas las intenciones en las que se encuentra.
 
 <a name="add-prebuilt-entity"></a>
 
-## <a name="add-a-prebuilt-entity-to-your-app"></a>Agregar una entidad creada previamente a la aplicación
+## <a name="add-a-prebuilt-entity-to-your-app"></a>Adición de una entidad precompilada a la aplicación
 
 Las entidades precompiladas comunes que se agregan a una aplicación son *number* y *datetimeV2*. 
 
@@ -42,7 +42,7 @@ Las entidades precompiladas comunes que se agregan a una aplicación son *number
 
 <a name="add-simple-entities"></a>
 
-## <a name="add-simple-entities-for-single-concepts"></a>Agregar entidades simples para conceptos únicos
+## <a name="add-simple-entities-for-single-concepts"></a>Adición de entidades sencillas para conceptos únicos
 
 Una entidad simple describe un concepto único. Utilice el procedimiento siguiente para crear una entidad que extraiga los nombres de departamento de la empresa como *Recursos humanos* u *Operaciones*.   
 
@@ -56,7 +56,7 @@ Una entidad simple describe un concepto único. Utilice el procedimiento siguien
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Agregar entidades de la expresión regular para conceptos muy estructurados
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Adición de entidades de expresión regular para conceptos muy estructurados
 
 Una entidad de expresión regular se usa para extraer datos de la expresión en función de una expresión regular que se proporciona. 
 
@@ -64,11 +64,11 @@ Una entidad de expresión regular se usa para extraer datos de la expresión en 
 
 1. En el cuadro de diálogo emergente, escriba `Human resources form name` en el cuadro **Entity name** (Nombre de la entidad), seleccione **Regular expression** (Expresión regular) en la lista **Entity type** (Tipo de entidad), escriba la expresión regular `hrf-[0-9]{6}` y, después, haga clic en **Done** (Listo). 
 
-    Esta expresión regular coincide con los caracteres literales `hrf-`, a continuación, de 6 dígitos para representar un formulario de número para un formulario de recursos humanos.
+    Esta expresión regular coincide con los caracteres literales `hrf-`, luego 6 dígitos para representar un número de formulario para un formulario de recursos humanos.
 
 <a name="add-composite-entities"></a>
 
-## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Agregar entidades compuestas para agrupar en una relación de elementos primarios y secundarios
+## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Adición de entidades compuestas para agrupar en una relación de elementos primarios y secundarios
 
 Puede definir las relaciones entre entidades de distintos tipos si crea una entidad compuesta. En el ejemplo siguiente, la entidad contiene una expresión regular y una entidad precompilada de name.  
 
@@ -92,7 +92,7 @@ En la expresión `Send hrf-123456 to John Smith`, el texto `hrf-123456` coincide
 
 <a name="add-pattern-any-entities"></a>
 
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Agregar entidades Pattern.any para capturar las entidades de forma libre
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Adición de entidades Pattern.any para capturar entidades de forma libre
 
 Las entidades [Pattern.Any](luis-concept-entity-types.md) solo son válidas en los [patrones](luis-how-to-model-intent-pattern.md), no en las intenciones. Este tipo de entidad ayuda a LUIS a buscar el final de las entidades de longitud variable y la elección de palabras. Dado que esta entidad se usa en un patrón, LUIS sabe dónde está el final de la entidad en la plantilla de expresión.
 
@@ -110,11 +110,11 @@ En la expresión `Where is Request relocation from employee new to the company o
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
-## <a name="add-a-role-to-distinguish-different-contexts"></a>Agregue un rol para distinguir los diferentes contextos
+## <a name="add-a-role-to-distinguish-different-contexts"></a>Adición de un rol para distinguir diferentes contextos
 
-Un rol es un subtipo con nombre en función del contexto. Está disponible en todas las entidades incluidas entidades creadas previamente y no ha aprendido la máquina. 
+Un rol es un subtipo con nombre basado en el contexto. Está disponible en todas las entidades, incluidas las entidades precompiladas y las entidades que no son de aprendizaje automático. 
 
-La sintaxis para un rol es **`{Entityname:Rolename}`** donde el nombre de entidad es seguido de dos puntos y, a continuación, el nombre del rol. Por ejemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La sintaxis de un rol es **`{Entityname:Rolename}`** , donde el nombre de la entidad va seguido por dos puntos y, luego, el nombre del rol. Por ejemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. En la sección **Build** (Compilar), seleccione **Entities** (Entidades) en el panel de la izquierda.
 
@@ -128,7 +128,7 @@ La sintaxis para un rol es **`{Entityname:Rolename}`** donde el nombre de entida
 
 <a name="add-list-entities"></a>
 
-## <a name="add-list-entities-for-exact-matches"></a>Agregar entidades de la lista de coincidencias exactas
+## <a name="add-list-entities-for-exact-matches"></a>Adición de entidades de lista para coincidencias exactas
 
 Las entidades de la lista representan un conjunto fijo y cerrado de palabras relacionadas. 
 
@@ -173,13 +173,13 @@ Para una aplicación de recursos humanos, puede tener una lista de todos los dep
 
 <a name="change-entity-type"></a>
 
-## <a name="do-not-change-entity-type"></a>No cambie el tipo de entidad
+## <a name="do-not-change-entity-type"></a>No cambiar el tipo de entidad
 
 LUIS no permite cambiar el tipo de la entidad porque no sabe qué agregar o quitar para construir esa entidad. A fin de cambiar el tipo, se recomienda crear una entidad del tipo correcto con un nombre ligeramente distinto. Una vez creada la entidad, en cada expresión debe quitar el nombre de entidad con etiqueta anterior y agregar el nuevo nombre de entidad. Una vez que se vuelven a etiquetar las expresiones, elimine la entidad anterior. 
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>Crear un patrón de una declaración de ejemplo
+## <a name="create-a-pattern-from-an-example-utterance"></a>Creación de un patrón a partir de una expresión de ejemplo
 
 Consulte [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page) (Adición de un patrón a partir de una de expresión existente en la página de intención o entidad).
 

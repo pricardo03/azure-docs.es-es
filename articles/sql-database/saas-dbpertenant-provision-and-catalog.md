@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388366"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Aprenda a aprovisionar y registrar nuevos inquilinos en el catálogo
@@ -46,7 +46,7 @@ El catálogo permite cambiar el nombre o la ubicación de la base de datos con u
 
 El catálogo también puede almacenar un inquilino adicional o metadatos de la base de datos, como la versión del esquema, el plan de servicio o los SLA que se ofrecen a los inquilinos. El catálogo puede almacenar información adicional que permite la administración de aplicaciones, soporte técnico al cliente o DevOps. 
 
-Además de la aplicación de SaaS, el catálogo puede habilitar herramientas de base de datos. En el ejemplo de Wingtip Tickets SaaS database per tenant, el catálogo se usa para habilitar consultas entre inquilinos, que se detalla en el [notificación Ad hoc tutorial](saas-tenancy-cross-tenant-reporting.md). La administración de trabajos entre bases de datos se describe en los tutoriales sobre [administración de esquemas](saas-tenancy-schema-management.md) y [análisis de inquilinos](saas-tenancy-tenant-analytics.md). 
+Además de la aplicación de SaaS, el catálogo puede habilitar herramientas de base de datos. En el ejemplo de Wingtip Tickets SaaS Database Per Tenant, el catálogo se usa para habilitar consultas entre inquilinos, que se detalla en el [tutorial de notificaciones ad hoc](saas-tenancy-cross-tenant-reporting.md). La administración de trabajos entre bases de datos se describe en los tutoriales sobre [administración de esquemas](saas-tenancy-schema-management.md) y [análisis de inquilinos](saas-tenancy-tenant-analytics.md). 
 
 En los ejemplos de SaaS de Wingtip Tickets, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). La EDCL está disponible en Java y .NET Framework. La EDCL permite que una aplicación pueda crear, administrar y usar un mapa de particiones con copia de seguridad en base de datos. 
 
@@ -84,7 +84,7 @@ Para entender cómo la aplicación Wingtip Tickets implementa el aprovisionamien
    * **$VenueType** = uno de los tipos predefinidos de ubicación: _blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer_.
    * **$DemoScenario** = **1**, *aprovisionar un único inquilino*.
 
-2. Para agregar un punto de interrupción, coloque el cursor en cualquier lugar de la línea, que dice: *New-Tenant `*. Después, presione F9.
+2. Para agregar un punto de interrupción, coloque el cursor en cualquier lugar de la línea, que dice: *New-Tenant `* . Después, presione F9.
 
    ![Punto de interrupción](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
@@ -155,7 +155,7 @@ El script implementa un lote de inquilinos adicionales Este script usa una [plan
 
 Otros patrones de aprovisionamiento que no se incluyen en este tutorial:
 
-**Aprovisionamiento previo de bases de datos.**: El patrón del aprovisionamiento previo aprovecha el hecho de que las bases de datos de un grupo elástico no suponen costos adicionales. La facturación es para el grupo elástico, no para las bases de datos. Las bases de datos inactivas no consumen recursos. Al aprovisionar previamente bases de datos en un grupo y asignarlas posteriormente cuando sea necesario, puede reducirse el tiempo de agregar inquilinos. El número de bases de datos previamente aprovisionadas puede ajustarse según sea necesario para mantener un búfer adecuado para la velocidad de aprovisionamiento prevista.
+**Aprovisionamiento previo de bases de datos.** : El patrón del aprovisionamiento previo aprovecha el hecho de que las bases de datos de un grupo elástico no suponen costos adicionales. La facturación es para el grupo elástico, no para las bases de datos. Las bases de datos inactivas no consumen recursos. Al aprovisionar previamente bases de datos en un grupo y asignarlas posteriormente cuando sea necesario, puede reducirse el tiempo de agregar inquilinos. El número de bases de datos previamente aprovisionadas puede ajustarse según sea necesario para mantener un búfer adecuado para la velocidad de aprovisionamiento prevista.
 
 **Aprovisionamiento automático**: en este patrón se usa un servicio de aprovisionamiento dedicado para aprovisionar servidores, grupos y bases de datos automáticamente según sea necesario. Si lo desea, puede incluir bases de datos de aprovisionamiento previo en grupos elásticos. Si se retiran y eliminan bases de datos, los huecos que dejan en los grupos elásticos pueden ocuparse aprovisionando el servicio. Este servicio puede ser simple o complejo, como controlar el aprovisionamiento en varias regiones geográficas y configurarse automáticamente la replicación geográfica para la recuperación ante desastres. 
 

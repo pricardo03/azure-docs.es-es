@@ -1,5 +1,5 @@
 ---
-title: Notificaciones de PIM - Azure Active Directory por correo electrónico | Microsoft Docs
+title: 'Envío de notificaciones por correo electrónico en PIM: Azure Active Directory | Microsoft Docs'
 description: Se describen las notificaciones por correo electrónico en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,21 +17,21 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289186"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) le permite saber cuándo se producen eventos importantes, como cuando está asignado o activado un rol. PIM le mantiene informado mediante el envío de notificaciones de correo electrónico, a usted y a otros participantes. Estos mensajes de correo electrónico también podrían incluir vínculos a tareas pertinentes, tales como la activación o renovación de un rol. En este artículo se describe el aspecto de estos correos electrónicos, cuándo se envían y quién los recibe.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) le permite saber cuándo se producen eventos importantes, como el momento en que se asigna o se activa un rol. PIM le mantiene informado mediante el envío de notificaciones de correo electrónico, a usted y a otros participantes. Estos mensajes de correo electrónico también podrían incluir vínculos a tareas pertinentes, tales como la activación o renovación de un rol. En este artículo se describe el aspecto de estos correos electrónicos, cuándo se envían y quién los recibe.
 
 ## <a name="sender-email-address-and-subject-line"></a>Dirección de correo electrónico del remitente y línea de asunto
 
 Los correos electrónicos que se envían desde PIM a Azure AD y los roles de recursos de Azure tienen como remitente la siguiente dirección de correo electrónico :
 
-- Dirección de correo electrónico: **azure noreply\@microsoft.com**
+- Dirección de correo electrónico:  **azure-noreply\@microsoft.com**
 - Nombre para mostrar: Microsoft Azure
 
 Estos mensajes de correo electrónico incluyen un prefijo **PIM** en la línea de asunto. Este es un ejemplo:
@@ -51,8 +51,8 @@ El destinatario de estos correos electrónicos para roles de Azure AD depende de
 | Usuario | La activación de roles está pendiente de aprobación | La solicitud de activación de roles está completa | PIM está habilitado |
 | --- | --- | --- | --- |
 | Administrador de roles con privilegios</br>(Activado/apto) | Sí</br>(solo si no se especifican aprobadores explícitos) | Sí* | Sí |
-| Administrador de seguridad</br>(Activado/apto) | Sin  | Sí* | Sí |
-| Administrador global</br>(Activado/apto) | Sin  | Sí* | Sí |
+| Administrador de seguridad</br>(Activado/apto) | Sin | Sí* | Sí |
+| Administrador global</br>(Activado/apto) | Sin | Sí* | Sí |
 
 \* Si el parámetro [**Notificaciones**](pim-how-to-change-default-settings.md#notifications) se establece en **Habilitar**.
 
@@ -101,5 +101,5 @@ Este es un correo electrónico de ejemplo que se envía cuando se asigna a un us
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de rol de Azure AD en PIM](pim-how-to-change-default-settings.md)
-- [Aprobar o rechazar solicitudes para los roles de Azure AD en PIM](azure-ad-pim-approval-workflow.md)
+- [Configuración de roles de Azure AD en PIM](pim-how-to-change-default-settings.md)
+- [Aprobación o rechazo de solicitudes para los roles de Azure AD en PIM](azure-ad-pim-approval-workflow.md)

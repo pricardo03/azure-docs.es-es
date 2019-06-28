@@ -13,15 +13,15 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475904"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
 
-El [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) clase proporciona las aplicaciones ADO.NET la capacidad de detectar y corregir las incoherencias entre el mapa de particiones global (GSM) y el mapa de particiones local (LSM) en un entorno de base de datos particionada fácilmente.
+La clase [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) proporciona a las aplicaciones ADO.NET la capacidad de detectar y corregir fácilmente las incoherencias entre el mapa de particiones global y el mapa de particiones local en un entorno de base de datos con particiones.
 
 Los mapas de particiones global y local realizan un seguimiento de la asignación de cada base de datos en un entorno con particiones. En ocasiones, se produce una interrupción entre el GSM y el LSM. En ese caso, utilice la clase RecoveryManager para detectar y reparar la interrupción.
 
@@ -33,7 +33,7 @@ Para definiciones de términos, consulte el [Glosario de herramientas de Elastic
 
 ## <a name="why-use-the-recovery-manager"></a>¿Por qué usar Recovery Manager?
 
-En un entorno de base de datos particionada, hay un inquilino por base de datos y muchas bases de datos por servidor. También puede haber muchos servidores en el entorno. Cada base de datos se asigna en el mapa de particiones, de forma que las llamadas se puedan enrutar al servidor y a la base de datos correctos. Se realiza un seguimiento de las bases de datos según una **clave de particionamiento** y se asigna un **intervalo de valores de clave** a cada partición. Por ejemplo, una clave de particionamiento puede representar los nombres de los clientes de "D" a "F". La asignación de todas las particiones (es decir, de las bases de datos) y sus intervalos de asignación se encuentran en el **mapa de particiones global (GSM)**. Cada base de datos también contiene un mapa de los intervalos contenidos en la partición, lo que se conoce como **mapa de particiones local (LSM)**. Cuando una aplicación se conecta a una partición, la asignación se almacena en caché con la aplicación para una rápida recuperación. El mapa de particiones local se usa para validar los datos almacenados en caché.
+En un entorno de base de datos particionada, hay un inquilino por base de datos y muchas bases de datos por servidor. También puede haber muchos servidores en el entorno. Cada base de datos se asigna en el mapa de particiones, de forma que las llamadas se puedan enrutar al servidor y a la base de datos correctos. Se realiza un seguimiento de las bases de datos según una **clave de particionamiento** y se asigna un **intervalo de valores de clave** a cada partición. Por ejemplo, una clave de particionamiento puede representar los nombres de los clientes de "D" a "F". La asignación de todas las particiones (es decir, de las bases de datos) y sus intervalos de asignación se encuentran en el **mapa de particiones global (GSM)** . Cada base de datos también contiene un mapa de los intervalos contenidos en la partición, lo que se conoce como **mapa de particiones local (LSM)** . Cuando una aplicación se conecta a una partición, la asignación se almacena en caché con la aplicación para una rápida recuperación. El mapa de particiones local se usa para validar los datos almacenados en caché.
 
 Puede que GSM y LSM no estén sincronizados por los motivos siguientes:
 

@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 7fa72ad62d7d11c795422a203d13a4dd45484c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60896059"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Usar la API de REST de Azure Blockchain Workbench
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Una vez que un usuario decide profundizar en un contrato, el cliente de la cadena de bloques luego puede mostrar las acciones disponibles para el usuario dado el estado del contrato. En este ejemplo, el usuario examina todas las acciones disponibles para un nuevo contrato inteligente que creó:
 
-* Modificar: Permite al usuario modificar la descripción y el precio de un recurso.
-* Terminate: Permite al usuario finalizar el contrato del recurso.
+* Modify: permite al usuario modificar la descripción y el precio de un recurso.
+* Terminate: permite al usuario finalizar el contrato del recurso.
 
 Use la [API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 Un usuario luego puede decidir tomar medidas para la instancia de contrato inteligente especificada. En este caso, considere el escenario en el que un usuario quiere modificar la descripción y el precio de un recurso a la siguiente acción:
 
-* Description: "Mi automóvil actualizada"
+* Description: "Mi automóvil actualizado"
 * Precio: 54321
 
 Use la [API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):

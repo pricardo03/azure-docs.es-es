@@ -1,7 +1,7 @@
 ---
 title: Extracción de datos
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Extraer datos de texto utterance (dictado) con las intenciones y entidades. Obtenga información sobre qué tipo de datos se puede extraer de Language Understanding (LUIS).
+description: Extraiga datos de texto de expresiones con intenciones y entidades. Conozca qué tipo de datos se pueden extraer de Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150696"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraer datos de texto utterance (dictado) con las intenciones y entidades
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
 
 Los datos más difíciles de extraer son los datos de aprendizaje automático, porque no son una coincidencia de texto exacta. El proceso de extracción de datos de [entidades](luis-concept-entity-types.md) de aprendizaje automático debe formar parte del [ciclo de creación](luis-concept-app-iteration.md) hasta que esté seguro de que recibirá los datos que espera.
@@ -46,9 +46,9 @@ Los datos principales son el **nombre de la intención** de puntuación superior
 }
 ```
 
-|Objeto de datos|Tipo de datos|Ubicación de los datos|`Value`|
+|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
 |--|--|--|--|
-|Intención|string|topScoringIntent.intent|"GetStoreInfo"|
+|Intención|Cadena|topScoringIntent.intent|"GetStoreInfo"|
 
 Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función de más de una puntuación de intención, devuelve todas las puntuaciones de intenciones al configurar el parámetro de querystring `verbose=true`. La respuesta del punto de conexión es:
 
@@ -75,10 +75,10 @@ Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función
 
 Las intenciones se ordenan de mayor a menor puntuación.
 
-|Objeto de datos|Tipo de datos|Ubicación de los datos|`Value`|Score|
+|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|Score|
 |--|--|--|--|:--|
-|Intención|String|intents[0].intent|"GetStoreInfo"|0.984749258|
-|Intención|string|intents[1].intent|"None"|0.0168218873|
+|Intención|Cadena|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Intención|Cadena|intents[1].intent|"None"|0.0168218873|
 
 Si agrega dominios creados previamente, el nombre de la intención indica el dominio, como `Utilties` o `Communication`, así como la intención:
 
@@ -106,11 +106,11 @@ Si agrega dominios creados previamente, el nombre de la intención indica el dom
 }
 ```
 
-|Dominio|Objeto de datos|Tipo de datos|Ubicación de los datos|`Value`|
+|Dominio|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
 |--|--|--|--|--|
-|Sectores públicos|Intención|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicación|Intención|string|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intención|String|intents[2].intent|"None"|
+|Sectores públicos|Intención|Cadena|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicación|Intención|Cadena|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intención|Cadena|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Datos de entidades
@@ -168,7 +168,7 @@ Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad
 ]
 ```
 
-|Objeto de datos|Nombre de entidad|`Value`|
+|Objeto de datos|Nombre de entidad|Valor|
 |--|--|--|
 |Entidad simple|`Customer`|`bob jones`|
 
@@ -228,10 +228,10 @@ Las entidades compuestas se devuelven en una matriz `compositeEntities` y todas 
 ]
 ```    
 
-|Objeto de datos|Nombre de entidad|`Value`|
+|Objeto de datos|Nombre de entidad|Valor|
 |--|--|--|
 |Entidad creada previamente de número|"builtin.number"|"2"|
-|Entidad creada previamente: GeographyV2|"Location::ToLocation"|"paris"|
+|Entidad precompilada: GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>Datos de entidad de lista
 
@@ -408,17 +408,17 @@ Las entidades [PersonName](luis-reference-prebuilt-person.md) y [GeographyV2](lu
 
 ### <a name="names-of-people"></a>Nombres de personas
 
-Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Usar un precompiladas **[personName](luis-reference-prebuilt-person.md)** entidad o un **[entidad simple](luis-concept-entity-types.md#simple-entity)** con [roles](luis-concept-roles.md) de primera y Apellidos. 
+Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad **[personName](luis-reference-prebuilt-person.md)** precompilada o una **[entidad sencilla](luis-concept-entity-types.md#simple-entity)** con [roles](luis-concept-roles.md) de nombre y apellido. 
 
-Si usa la entidad simple, asegúrese de que proporcionar ejemplos que usan el nombre y apellidos en distintas partes de la declaración, en las declaraciones de distintas longitudes y grabaciones de voz a través de todas las calidades incluidos ningún intento. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Si usa la entidad sencilla, asegúrese de proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ### <a name="names-of-places"></a>Nombres de lugares
 
-Nombres de ubicación se establecen y se conoce como países o regiones, condados, Estados, provincias y ciudades. Usar la entidad creada previamente **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extraer información de ubicación.
+Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países o regiones. Use la entidad precompilada **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extraer información de ubicación.
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
 
-Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo más difícil de extracción de datos. Comenzar con un **[entidad simple](luis-concept-entity-types.md#simple-entity)** y agregue un [lista de frases](luis-concept-feature.md). [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo más difícil de extracción de datos. Empiece con una **[entidad simple](luis-concept-entity-types.md#simple-entity)** y agregue una [lista de frases](luis-concept-feature.md). [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ## <a name="pattern-roles-data"></a>Datos de roles de patrón
 Los roles son diferencias contextuales de entidades.

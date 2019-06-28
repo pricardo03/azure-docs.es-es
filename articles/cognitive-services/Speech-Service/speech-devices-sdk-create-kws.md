@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65020550"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creación de una palabra de reactivación personalizada mediante Speech Service
@@ -47,26 +47,26 @@ Tenga en cuenta las siguientes directrices al elegir una palabra de reactivació
 
 ## <a name="create-your-wake-word"></a>Creación de la palabra de reactivación
 
-Para poder usar una palabra de reactivación personalizado con el dispositivo, deberá crear una palabra de reactivación con el servicio de generación de Microsoft personalizado Wake palabras. Después de proporcionar una palabra de reactivación, la genera servicio un archivo que implemente en el kit de desarrollo para habilitar la palabra de reactivación en el dispositivo.
+Antes de poder usar una palabra de reactivación personalizada con el dispositivo, debe crearla mediante el servicio de generación de palabras de reactivación personalizadas de Microsoft. Después de proporcionar una palabra de reactivación, el servicio produce un archivo que se implementa en el kit de desarrollo para habilitar la palabra de reactivación en el dispositivo.
 
-1. Vaya a la [Custom Speech Service Portal](https://aka.ms/sdsdk-speechportal) y **sesión** o si es necesario elegir una suscripción de voz [ **crear una suscripción**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Vaya al [portal de Custom Speech Service](https://aka.ms/sdsdk-speechportal) e **inicie sesión**; o, si no tiene una suscripción a Voz, elija [ **Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754) (Crear una suscripción).
 
-    ![El Portal de servicios de voz personalizado](media/speech-devices-sdk/wake-word-4.png)
+    ![Portal de Custom Speech Service](media/speech-devices-sdk/wake-word-4.png)
 
-1. En el [personalizado Wake Word](https://aka.ms/sdsdk-wakewordportal) escriba la palabra de activación de su elección y haga clic en la página **agregar una palabra wake**. Tenemos algunos [directrices](#choose-an-effective-wake-word) para ayudarle a elegir una palabra clave efectiva. Actualmente solo se admite el lenguaje de en-US.
+1. En la página [Custom Wake Word](https://aka.ms/sdsdk-wakewordportal) (Palabra de reactivación personalizada), escriba la palabra de reactivación de su elección y haga clic en **Add wake word** (Agregar palabra de reactivación). Existen algunas [directrices](#choose-an-effective-wake-word) para ayudarlo a elegir una palabra clave efectiva. Actualmente solo se admite el idioma en-US.
 
     ![Introducción de la palabra de reactivación](media/speech-devices-sdk/wake-word-5.png)
 
-1. Se crearán tres pronunciaciones alternativas de la palabra de reactivación. Puede elegir todas las pronunciaciones que le guste. A continuación, seleccione **Submit** para generar la palabra de reactivación. Si desea cambiar la palabra de reactivación, quitar uno existente en primer lugar, cuando mantiene el mouse en la línea de pronunciación aparecerá el icono de eliminación.
+1. Se crea tres pronunciaciones alternativas de la palabra de reactivación. Puede elegir todas las pronunciaciones que quiera. A continuación, seleccione **Submit** (Enviar) para generar la palabra de reactivación. Si quiere cambiar la palabra de reactivación, quite primero la existente; cuando mantenga el mouse sobre la línea de pronunciación aparecerá el icono de eliminación.
 
-    ![Revise la palabra de reactivación](media/speech-devices-sdk/wake-word-6.png)
+    ![Revisión de la palabra de reactivación](media/speech-devices-sdk/wake-word-6.png)
 
-1. Puede tardar hasta un minuto para el modelo que se va a generar. Se le pedirá que descargue el archivo.
+1. El modelo puede tardar hasta un minuto en generarse. Se le pedirá que descargue el archivo.
 
-    ![Descargue la palabra de reactivación](media/speech-devices-sdk/wake-word-7.png)
+    ![Descarga de la palabra de reactivación](media/speech-devices-sdk/wake-word-7.png)
 
-1. Guarde el archivo .zip en el equipo. Necesitará este archivo para implementar la palabra de reactivación personalizado en el kit de desarrollo.
+1. Guarde el archivo .zip en el equipo. Necesitará este archivo para implementar la palabra de reactivación personalizada en el kit de desarrollo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Probar la palabra de reactivación personalizado con [aprendizaje rápido del SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart).
+Pruebe la palabra de reactivación personalizado con el [inicio rápido del SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart).

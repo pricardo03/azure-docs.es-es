@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
 ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684512"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes EDIFACT para integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
@@ -82,7 +82,7 @@ Ahora que ha establecido las propiedades del contrato, puede configurar cómo es
 1. En **Agregar**, seleccione **Configuración de recepción**.
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-   **Configuración de recepción** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, números de Control, validación y configuración interna.
+   La **configuración de recepción** se organiza en las siguientes secciones: Identificadores, Confirmación, Esquemas, Números de control, Validaciones y Configuración interna.
 
    ![Selección de "Configuración de recepción"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -155,7 +155,7 @@ Puede configurar cómo este contrato identifica y administra los mensajes que se
 1.  En **Agregar**, seleccione **Send Settings** (Configuración de envío).
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
-    **Configuración de envío** se organiza en las siguientes secciones: Los identificadores, confirmación, esquemas, sobres, juegos de caracteres y separadores, números de Control y validaciones.
+    La **configuración de envío** se organiza en las siguientes secciones: Identificadores, Confirmación, Esquemas, Sobres, Juegos de caracteres y separadores, Números de control y Validaciones.
 
     !["Send Settings" (Configuración de envío)](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 

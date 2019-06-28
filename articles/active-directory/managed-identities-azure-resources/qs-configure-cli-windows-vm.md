@@ -16,10 +16,10 @@ ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c61313190615c2f30a7d37202bc0f9bcf14d800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112883"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades administradas para recursos de Azure en una VM de Azure mediante la CLI de Azure
@@ -35,7 +35,7 @@ En este artículo, con la CLI de Azure, aprenderá a usar las siguientes identid
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)**.
+- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-it-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para ejecutar los ejemplos de script de la CLI, tiene tres opciones:
     - Usar [Azure Cloud Shell](../../cloud-shell/overview.md) desde Azure Portal (consulte la sección siguiente).
@@ -108,7 +108,7 @@ Si tiene una máquina virtual que ya no necesita la identidad asignada por el si
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 > [!NOTE]
-> Si ha aprovisionado la identidad administrada para la extensión de máquina virtual de los recursos de Azure (en desuso), deberá quitarla mediante [delete de extensión de máquina virtual de az](https://docs.microsoft.com/cli/azure/vm/). Para obtener más información, consulte [migración desde la extensión de máquina virtual a Azure IMDS para la autenticación](howto-migrate-vm-extension.md).
+> Si ha aprovisionado la identidad administrada para la extensión de máquinas virtuales de los recursos de Azure (va a quedar en desuso), debe quitarla mediante [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/). Para obtener más información, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Identidad administrada asignada por el usuario
 
@@ -131,7 +131,7 @@ Para asignar una identidad asignada por el usuario a una máquina virtual durant
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente. El valor de Id. de recurso asignado a la identidad administrada asignada por el usuario se usa en el paso siguiente.
+   La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente. El valor del identificador del recurso asignado a la identidad administrada asignada por el usuario se usa en el paso siguiente.
 
    ```json
    {

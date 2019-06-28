@@ -11,10 +11,10 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60694324"
 ---
 # <a name="my-first-powershell-runbook"></a>Mi primer runbook de PowerShell
@@ -50,13 +50,13 @@ Empieza creando un runbook simple cuya salida sea el texto *Hola mundo*.
 
 Puede escribir el código directamente en el runbook o seleccionar los cmdlets, runbooks y recursos desde el control Biblioteca y agregarlos al runbook con los parámetros relacionados. En este tutorial, escribirá directamente en el runbook.
 
-1. El runbook ahora está vacío, escriba *Write-Output "Hola mundo"*. en el cuerpo del script.
+1. El runbook ahora está vacío, escriba *Write-Output "Hola mundo"* . en el cuerpo del script.
 
    ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
 
 2. Guarde el Runbook, para lo que debe hacer clic en **Guardar**.
 
-## <a name="step-3---test-the-runbook"> </a> Probar el runbook
+## <a name="step-3---test-the-runbook"> </a> Prueba del runbook
 
 Antes de publicar el runbook para que esté disponible en producción, puede que quiera probarlo para asegurarse de que funciona correctamente. Cuando se prueba un runbook, se ejecuta su versión **Borrador** y se visualizan sus resultados de forma interactiva.
 

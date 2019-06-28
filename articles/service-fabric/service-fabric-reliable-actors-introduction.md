@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60727205"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introducción a Service Fabric Reliable Actors.
@@ -37,7 +37,7 @@ Aunque el modelo de diseño del actor puede resultar adecuado para un número de
 * Las instancias de actor no bloquearán a los autores de llamadas con retrasos imprevisibles emitiendo operaciones de E/S.
 
 ## <a name="actors-in-service-fabric"></a>Actores en Service Fabric
-En Service Fabric, los actores se implementan en el marco de Reliable Actors: Un marco de aplicación basada en el patrón de actor, basado en la parte superior de [Reliable Services de Service Fabric](service-fabric-reliable-services-introduction.md). Cada servicio de Reliable Actors que escribe es en realidad un servicio de confianza con estado particionado.
+En Service Fabric, los actores se implementan en el marco de Reliable Actors: Un marco de trabajo de la aplicación basado en patrones construido sobre [Reliable Services de Service Fabric](service-fabric-reliable-services-introduction.md). Cada servicio de Reliable Actors que escribe es en realidad un servicio de confianza con estado particionado.
 
 Cada actor se define como una instancia de un tipo de actor, similar a la forma en que un objeto de .NET es una instancia de un tipo de .NET. Por ejemplo, puede haber un tipo de actor que implemente la funcionalidad de una calculadora y podría haber muchos actores de ese tipo que se distribuyesen en varios nodos en un clúster. Cada uno de esos actores se identifica de forma única mediante un identificador de actor.
 

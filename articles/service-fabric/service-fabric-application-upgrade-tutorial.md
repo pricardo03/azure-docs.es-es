@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615154"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial sobre la actualización de aplicaciones de Service Fabric con Visual Studio
@@ -32,7 +32,7 @@ ms.locfileid: "60615154"
 
 Azure Service Fabric simplifica el proceso de actualización de aplicaciones en la nube asegurándose de que solo se actualicen los servicios modificados y que el estado de las aplicaciones se supervise durante todo el proceso de actualización. También revierte automáticamente la aplicación a la versión anterior si se detecta algún problema. Las actualizaciones de aplicaciones de Service Fabric presentan un *tiempo de inactividad cero*, ya que la aplicación puede actualizarse sin que se ocasione tiempo de inactividad. Este tutorial explica cómo llevar a cabo una actualización acumulativa desde Visual Studio.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Paso 1: Generar y publicar el ejemplo de objetos visuales
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Paso 1: Crear y publicar el ejemplo de Visual Objects
 En primer lugar, descargue la aplicación [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) desde GitHub. A continuación, compile y publique la aplicación, para ello, haga clic con el botón derecho en el proyecto de aplicación, **VisualObjects** y seleccione el comando **Publicar** en el elemento de menú de Service Fabric.
 
 ![Menú contextual para una aplicación de Service Fabric][image1]
@@ -43,7 +43,7 @@ Al seleccionar **Publicar** se muestra una ventana emergente donde puede estable
 
 Ahora ya puede hacer clic en **Publicar** en el cuadro de diálogo. Ya puede usar el [explorador de Service Fabric para ver el clúster y la aplicación](service-fabric-visualizing-your-cluster.md). La aplicación Visual Objects tiene un servicio web al que puede acudir si escribe [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) en la barra de direcciones del explorador.  Debería ver 10 objetos visuales flotantes desplazándose por la pantalla.
 
-**NOTA:** Si la implementación en `Cloud.xml` perfil (Azure Service Fabric), la aplicación debe estar disponible en **http://{ServiceFabricName}. {} Region}.cloudapp.Azure.com:8081/visualobjects/**. Asegúrese de tener `8081/TCP` configurado en Load Balancer (busque Load Balancer en el mismo grupo de recursos que la instancia de Service Fabric).
+**NOTA:** Si implementa en el perfil `Cloud.xml` (Azure Service Fabric), la aplicación debe estar disponible en **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/** . Asegúrese de tener `8081/TCP` configurado en Load Balancer (busque Load Balancer en el mismo grupo de recursos que la instancia de Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Paso 2: Actualizar el ejemplo de objetos visuales
 Puede que observe que con la versión que se implementó en el Paso 1, los objetos visuales no giran. Vamos a actualizar esta aplicación a una donde los objetos visuales giren.

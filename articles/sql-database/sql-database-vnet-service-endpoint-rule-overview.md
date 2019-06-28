@@ -13,15 +13,15 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331416"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de red virtual para servidores de bases de datos
 
-Las *reglas de red virtual* son una característica de firewall que controla si el servidor de base de datos de las bases de datos únicas y el grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o las bases de datos de [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database y SQL Data Warehouse.
+Las *reglas de red virtual* son una característica de firewall que controla si el servidor de las bases de datos únicas y el grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o las bases de datos de [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database y SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. En cambio, este artículo *no* se aplica a la implementación de la **instancia administrada** de Azure SQL Database, ya que no tiene un punto de conexión de servicio asociado a ella.
@@ -92,7 +92,7 @@ Cada regla de red virtual se aplica a todo el servidor de Azure SQL Database y n
 Existe una separación de los roles de seguridad en la administración de puntos de conexión de servicio de red virtual. Se requiere una acción de cada uno de los roles siguientes:
 
 - **Administrador de red:** &nbsp; se activa el punto de conexión.
-- **Administrador de base de datos:** &nbsp; se actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor SQL Database.
+- **Administrador de base de datos:** &nbsp; Actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor de SQL Database.
 
 *Alternativa de RBAC:*
 
@@ -176,7 +176,7 @@ PolyBase se suele usar para cargar datos en Azure SQL Data Warehouse desde cuent
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 1.  Instale Azure PowerShell mediante esta [guía](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si tiene una cuenta de uso general v1 o de Blob Storage, primero debe actualizar a Uso general v2 mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
@@ -197,7 +197,7 @@ PolyBase se suele usar para cargar datos en Azure SQL Data Warehouse desde cuent
    > - Si tiene una cuenta de uso general v1 o de Blob Storage, **primero debe actualizar a Uso general v2** mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para saber los problemas conocidos con Azure Data Lake Storage Gen2, consulte esta [guía](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asignar **colaborador de datos de almacenamiento Blob** rol RBAC a su servidor de base de datos SQL.
+1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asigne el rol RBAC **Colaborador de datos de Storage Blob** al servidor de SQL Database.
 
    > [!NOTE] 
    > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para obtener los distintos roles integrados para los recursos de Azure, consulte esta [guía](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -209,7 +209,7 @@ PolyBase se suele usar para cargar datos en Azure SQL Data Warehouse desde cuent
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
     
-   1. Cree la credencial de ámbito de base de datos con **IDENTITY = "Managed Service Identity"**:
+   1. Cree la credencial de ámbito de base de datos con **IDENTITY = "Managed Service Identity"** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -248,7 +248,7 @@ El error de conexión 40914 se relaciona con *reglas de red virtual*, tal y como
 
 ### <a name="error-40914"></a>Error 40914
 
-*Texto del mensaje:* No se puede abrir el servidor "*[nombre-servidor]*" solicitado por el inicio de sesión. No está permitido que el cliente acceda al servidor.
+*Texto del mensaje:* No se puede abrir el servidor " *[nombre-servidor]* " solicitado por el inicio de sesión. Un cliente no puede acceder al servidor.
 
 *Descripción del error:* el cliente está en una subred que tiene puntos de conexión de servidor de red virtual. Sin embargo, el servidor de Azure SQL Database no tiene ninguna regla de red virtual que conceda a la subred el derecho para comunicarse con la base de datos SQL.
 
@@ -277,13 +277,13 @@ En esta sección se muestra cómo puede usar [Azure Portal][http-azure-portal-li
 
 ## <a name="powershell-alternative"></a>Alternativa de PowerShell
 
-Un script de PowerShell también puede crear reglas de red virtual. El cmdlet fundamental es **New AzSqlServerVirtualNetworkRule**. Si le interesa, consulte [PowerShell para crear una regla y un punto de conexión de servicio de red virtual para Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Un script de PowerShell también puede crear reglas de red virtual. El cmdlet fundamental es **New-AzSqlServerVirtualNetworkRule**. Si le interesa, consulte [PowerShell para crear una regla y un punto de conexión de servicio de red virtual para Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>Alternativa a la API REST
 
 Internamente, los cmdlets de PowerShell para acciones de red virtual SQL llaman a las API REST. Puede llamar directamente a las API REST.
 
-- [Reglas de Virtual Network: operaciones][rest-api-virtual-network-rules-operations-862r]
+- [Reglas de red virtual: operaciones][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -334,15 +334,15 @@ Ya debe tener una subred que esté etiquetada con el punto de conexión de servi
 
 ## <a name="related-articles"></a>Artículos relacionados
 
-- [Puntos de conexión del servicio Azure Virtual Network][vm-virtual-network-service-endpoints-overview-649d]
+- [Punto de conexión de servicio de red virtual de Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Reglas de firewall de nivel de servidor y de nivel de base de datos de Azure SQL Database][sql-db-firewall-rules-config-715d]
 
 La característica de la regla de red virtual de Azure SQL Database empezó a estar disponible a finales de septiembre de 2017.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Use PowerShell para crear un punto de conexión del servicio de Virtual Network y, a continuación, una regla de red virtual para Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Reglas de Virtual Network: operaciones][rest-api-virtual-network-rules-operations-862r] con API REST
+- [Use PowerShell para crear un punto de conexión de servicio de red virtual y, a continuación, una regla de red virtual para Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Reglas de red virtual: operaciones][rest-api-virtual-network-rules-operations-862r] con API REST
 
 <!-- Link references, to images. -->
 

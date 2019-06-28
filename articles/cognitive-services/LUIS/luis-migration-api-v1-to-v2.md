@@ -1,7 +1,7 @@
 ---
 title: Migración de API v1 a v2
 titleSuffix: Azure Cognitive Services
-description: El punto de conexión de la versión 1 y la creación de Language Understanding API están en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de punto de conexión y creación.
+description: El punto de conexión de la versión 1 y las API de creación de Language Understanding están en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de punto de conexión y creación.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522362"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
 La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) y [creación](https://go.microsoft.com/fwlink/?linkid=2092087). 
 
 ## <a name="new-azure-regions"></a>Nuevas regiones de Azure
-LUIS tiene nuevas [regiones](https://aka.ms/LUIS-regions) que proporciona para las API de LUIS. LUIS proporciona un portal diferente para los grupos de región. La aplicación se debe crear en la misma región que espera consultar. Las aplicaciones no migran las regiones de forma automática. Exporte la aplicación de una región y, luego, impórtela en otra para que esté disponible en una nueva región.
+LUIS tiene nuevas [regiones](https://aka.ms/LUIS-regions) que proporciona para las API de LUIS. LUIS proporciona otro portal para grupos de regiones. La aplicación se debe crear en la misma región que espera consultar. Las aplicaciones no migran las regiones de forma automática. Exporte la aplicación de una región y, luego, impórtela en otra para que esté disponible en una nueva región.
 
 ## <a name="authoring-route-changes"></a>Cambios de la ruta de creación
 La ruta de API de creación ha pasado de usar la ruta **prog** a usar la ruta **api**.
@@ -35,7 +35,7 @@ La ruta de API de creación ha pasado de usar la ruta **prog** a usar la ruta **
 
 
 ## <a name="endpoint-route-changes"></a>Cambios de la ruta de punto de conexión
-El punto de conexión de API tiene nuevos parámetros de cadena de consulta, así como una respuesta diferente. Si la marca detallada es true, todas las intenciones, independientemente de la puntuación, se devuelven en una matriz con el nombre de las intenciones, además del valor de topScoringIntent.
+La API de punto de conexión tiene nuevos parámetros de cadena de consulta, así como otra respuesta. Si la marca detallada es true, todas las intenciones, independientemente de la puntuación, se devuelven en una matriz con el nombre de las intenciones, además del valor de topScoringIntent.
 
 | version | Ruta de GET |
 |--|--|
@@ -112,7 +112,7 @@ Las API de clave de punto de conexión de suscripción están en desuso y devuel
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-azure-subscription.md)**. No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación. 
+Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-azure-subscription.md)** . No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación. 
 
 ## <a name="new-versioning-route"></a>Nueva ruta de control de versiones
 El modelo de v2 se encuentra ahora en una [versión](luis-how-to-manage-versions.md). Un nombre de versión tiene 10 caracteres en la ruta. La versión predeterminada es "0.1".

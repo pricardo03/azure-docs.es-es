@@ -1,7 +1,7 @@
 ---
-title: Configuración de Azure Application Insights para los modelos de aprendizaje automático de monitor
+title: Configuración de Azure Application Insights para supervisar los modelos de aprendizaje automático
 titleSuffix: Azure Machine Learning service
-description: Supervisar los servicios web implementados con el servicio de Azure Machine Learning con Azure Application Insights
+description: Supervisión de los servicios web implementados con el servicio Azure Machine Learning Service mediante Azure App Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60820225"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Supervisión de los modelos de Azure Machine Learning con Application Insights
@@ -36,7 +36,7 @@ En este artículo, puede obtener información sobre cómo configurar Azure Appli
 * Un modelo de Machine Learning entrenado para implementarse en Azure Kubernetes Service (AKS) o Azure Container Instance (ACI). Si no tiene uno, consulte el tutorial [Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).
 
 
-## <a name="use-sdk-to-configure"></a>Use el SDK para configurar 
+## <a name="use-sdk-to-configure"></a>Uso del SDK para configurar 
 
 ### <a name="update-a-deployed-service"></a>Actualización de un servicio implementado
 1. Identifique el servicio en el área de trabajo. El valor de `ws` es el nombre del área de trabajo.

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658331"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
@@ -69,7 +69,7 @@ La **capacidad** también puede tener picos intermitentes o ser mayor que cero a
 ![Métrica de capacidad](./media/api-management-capacity/capacity-metric.png)  
 
 1. Acceda a la instancia de APIM de [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Métrica (vista previa)**.
+2. Seleccione **Métrica (vista previa)** .
 3. En la sección púrpura, seleccione la métrica **Capacidad** y deje la agregación **Avg** predeterminada.
 
     > [!TIP]
@@ -78,7 +78,7 @@ La **capacidad** también puede tener picos intermitentes o ser mayor que cero a
 4. En la sección verde, seleccione **Ubicación** para dividir la métrica por dimensión.
 5. Elija el período que desee en la barra superior de la sección.
 
-    Puede establecer una alerta de métrica que le avise cuando ocurra algo inesperado. Por ejemplo, obtener notificaciones cuando la instancia de APIM ha sido superior a su capacidad máxima esperada durante más de 20 minutos.
+    Puede establecer una alerta de métrica que le avise cuando ocurra algo inesperado. Por ejemplo, obtenga notificaciones cuando la instancia de APIM haya superado su capacidad máxima esperada durante más de 20 minutos.
 
     >[!TIP]
     > Puede configurar alertas para saber en qué momento se está quedando sin capacidad un servicio o utilizar la funcionalidad de escalado automático de Azure Monitor para agregar automáticamente una unidad de Azure API Management. La operación de escalado puede tardar unos 30 minutos, por lo que debe planear las reglas en consecuencia.  

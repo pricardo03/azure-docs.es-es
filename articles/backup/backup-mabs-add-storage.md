@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
 ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813120"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adición de almacenamiento a Azure Backup Server
@@ -75,7 +75,7 @@ Con el almacenamiento con reconocimiento de la carga de trabajo, puede seleccion
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Puede configurar el almacenamiento basado en la carga de trabajo mediante el cmdlet de PowerShell Update-DPMDiskStorage, que actualiza las propiedades de un volumen en el bloque de almacenamiento en un servidor de copia de seguridad de Azure. 
+Puede configurar el almacenamiento con reconocimiento de la carga de trabajo mediante el cmdlet de PowerShell Update-DPMDiskStorage, que actualiza las propiedades de un volumen en el bloque de almacenamiento en una instancia de Azure Backup Server. 
 
 Sintaxis:
 

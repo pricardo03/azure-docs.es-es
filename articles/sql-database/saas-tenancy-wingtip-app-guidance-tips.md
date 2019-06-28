@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326299"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
@@ -79,7 +79,7 @@ Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/do
 
 Inicialmente, la implementación tiene inquilinos y servidores de SQL Database del catálogo a los que conectarse. La denominación de los servidores depende del patrón de inquilino de base de datos (vea a continuación para obtener información específica). 
 
-   - **Aplicación independiente:** servidores para cada inquilino (p. ej. *servidor contosoconcerthall-&lt;Usuario&gt;*) y *catalog-sa-&lt;Usuario&gt;*
+   - **Aplicación independiente:** servidores para cada inquilino (p. ej. *servidor contosoconcerthall-&lt;Usuario&gt;* ) y *catalog-sa-&lt;Usuario&gt;*
    - **Base de datos por inquilino: servidores** *tenants1-dpt-&lt;Usuario&gt;* y *catalog-dpt-&lt;Usuario&gt;*
    - **Base de datos de varios inquilinos: servidores** *tenants1-mt-&lt;Usuario&gt;*  y *catalog-mt-&lt;Usuario&gt;*
 
@@ -90,11 +90,11 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
     - **Aplicación independiente:** servidores de inquilinos individuales (p. ej. *contosoconcerthall-&lt;Usuario&gt;.database.windows.net*) 
     - **Base de datos por inquilino:** *tenants1-dpt-&lt;Usuario&gt;.database.windows.net*
     - **Base de datos de varios inquilinos:** *tenants1-mt-&lt;Usuario&gt;.database.windows.net* 
-2. Haga clic en **Conectar** > **Motor de base de datos...**:
+2. Haga clic en **Conectar** > **Motor de base de datos...** :
 
    ![Servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Las credenciales de demostración son: Inicio de sesión = *developer*, contraseña = *P\@ssword1*
+3. Las credenciales de demostración son: Inicio de sesión = *developer* y contraseña = *P\@ssword1*
 
     En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*. 
     ![conexión](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

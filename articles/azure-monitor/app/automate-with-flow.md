@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
 ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60903656"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatización de procesos de Azure Application Insights con el conector para Microsoft Flow
 
-¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar que el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? Azure Application Insights connector para Microsoft Flow es la herramienta adecuada para estos fines.
+¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar que el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? El conector de Azure Application Insights para Microsoft Flow es la herramienta adecuada para estos fines.
 
 Con esta integración, ahora se pueden automatizar numerosos procesos sin tener que escribir una sola línea de código. Después de crear un flujo mediante una acción de Application Insights, el flujo ejecuta automáticamente la consulta de Application Insights Analytics. 
 
@@ -34,26 +34,26 @@ En este tutorial, obtendrá información sobre cómo crear un flujo que usa el a
 
 ### <a name="step-1-create-a-flow"></a>Paso 1: Creación de un flujo
 1. Inicie sesión en [Microsoft Flow](https://flow.microsoft.com) y, a continuación, seleccione **Mis flujos**.
-2. Haga clic en **New** , a continuación, **crear desde cero**.
+2. Haga clic en **Nueva** y, luego, **Crear desde cero**.
 
-    ![Crear nuevo flujo desde cero](./media/automate-with-flow/1createflow.png)
+    ![Creación de un flujo a partir de un documento en blanco](./media/automate-with-flow/1createflow.png)
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Paso 2: Creación de un desencadenador para el flujo
-1. En la compilación de ficha, seleccione **programación**y, a continuación, seleccione **programación - periodicidad**.
+1. En la pestaña Build-in (Integrado), seleccione **Programación** y, luego, seleccione **Programación: Periodicidad**.
 
-    ![Seleccione programa en la compilación](./media/automate-with-flow/2schedule.png)
+    ![Selección de una programación bajo la pestaña Build-in (Integrado)](./media/automate-with-flow/2schedule.png)
 
-1. En el **intervalo** , escriba **1**y en el **frecuencia** cuadro, seleccione **día**.
-2. Haga clic en **nuevo paso**
+1. En el cuadro **Intervalo**, escriba **1** y, en el cuadro **Frecuencia**, seleccione **Día**.
+2. Haga clic en **Nuevo paso**.
 
-    ![Configurar la programación de periodicidad con la introducción de frecuencia e intervalo](./media/automate-with-flow/3schedulerecurrence.png)
+    ![Configuración de la programación de periodicidad con la especificación de frecuencia e intervalo](./media/automate-with-flow/3schedulerecurrence.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>Paso 3: Incorporación de una acción de Application Insights
 1. Busque **Azure Application Insights**.
-2. Haga clic en **Azure Application Insights: consulta de Analytics visualizar**.
+2. Haga clic en **Azure Application Insights: Visualizar consulta de Analytics**.
  
-    ![Elegir una acción: Consulta de Azure Application Insights Analytics visualizar](./media/automate-with-flow/4visualize.png)
+    ![Elija una acción: Azure Application Insights: Visualizar consulta de Analytics](./media/automate-with-flow/4visualize.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>Paso 4: Conexión a un recurso de Application Insights
 
@@ -61,7 +61,7 @@ Para completar este paso, necesita un identificador de aplicación y una clave d
 
 ![Identificador de aplicación en Azure Portal](./media/automate-with-flow/5apiaccess.png)
 
-![Clave de API en Azure portal](./media/automate-with-flow/6apikey.png)
+![Clave de API en Azure Porta'l](./media/automate-with-flow/6apikey.png)
 
 - Proporcione un nombre para la conexión, junto con el identificador de aplicación y la clave de API.
 
@@ -72,7 +72,7 @@ Esta consulta de ejemplo selecciona las solicitudes con error del último día y
 
 Al crear sus propias consultas, asegúrese de comprobar que funcionan correctamente en Analytics antes de agregarlas al flujo.
 
-- Agregue la siguiente consulta de Analytics y seleccione el tipo de gráfico de tabla HTML. A continuación, seleccione **nuevo paso**.
+- Agregue la siguiente consulta de Analytics y seleccione el tipo de gráfico de tabla HTML. Seleccione **Nuevo paso**.
 
     ```
     requests
@@ -96,7 +96,7 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
 
 1. En la ventana **Enviar un correo electrónico**, haga lo siguiente:
 
-    a. Escriba la dirección de correo electrónico del destinatario.
+   a. Escriba la dirección de correo electrónico del destinatario.
 
    b. Escriba un asunto para el correo electrónico.
 
@@ -108,7 +108,7 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
 
 1. En el menú de contenido dinámico, haga lo siguiente:
 
-     a. Seleccione **Nombre de datos adjuntos**.
+    a. Seleccione **Nombre de datos adjuntos**.
 
     b. Seleccione **Contenido de datos adjuntos**.
     
@@ -117,9 +117,9 @@ Al crear sus propias consultas, asegúrese de comprobar que funcionan correctame
     ![Pantalla de configuración de correo electrónico de Office 365](./media/automate-with-flow/11emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>Paso 7: Guardado y prueba del flujo
-- En el **nombre flujo** cuadro, agregue un nombre para el flujo y, a continuación, haga clic en **guardar**.
+- En el cuadro **Nombre de flujo**, agregue un nombre para el flujo y, luego, haga clic en **Guardar**.
 
-    ![Nombre de flujo y guardarlo](./media/automate-with-flow/12nameflow.png)
+    ![Nombre del flujo y guardar](./media/automate-with-flow/12nameflow.png)
 
 Puede esperar a que el desencadenador lleve a cabo esta acción o ejecutar el flujo inmediatamente [ejecutando el desencadenador a petición](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 

@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357551"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
 Tras la implementación, muchas organizaciones quieren saber cómo se usa (y si se usa) realmente el autoservicio de restablecimiento de contraseña (SSPR). La característica de informes que proporciona Azure Active Directory (Azure AD) le ayuda a responder preguntas mediante informes creados previamente. Si está debidamente protegido por licencia, también puede crear consultas personalizadas.
 
-![Generación de informes en SSPR usar la registros de auditoría en Azure AD][Reporting]
+![Generación de informes en SSPR mediante los registros de auditoría en Azure AD][Reporting]
 
 Las siguientes preguntas se pueden responder mediante informes existentes en [Azure Portal](https://portal.azure.com/):
 
@@ -50,14 +50,14 @@ En la experiencia de Azure Portal, se ha mejorado la visualización de la activi
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el panel izquierdo.
 3. Busque **Azure Active Directory** en la lista de servicios y selecciónelo.
-4. Seleccione **usuarios** desde la sección administrar.
-5. Seleccione **los registros de auditoría** desde el **usuarios** hoja. Se muestran todos los eventos de auditoría que se producen en todos los usuarios del directorio. Puede filtrar esta vista para ver también todos los eventos relacionados con contraseñas.
-6. Desde el **filtro** menú en la parte superior del panel, seleccione el **servicio** desplegable lista y cámbielo a la **la administración de contraseñas autoservicio** tipo de servicio.
+4. Seleccione **Usuarios** en la sección Administrar.
+5. Seleccione **Registros de auditoría** en la hoja **Usuarios**. Se muestran todos los eventos de auditoría que se producen en todos los usuarios del directorio. Puede filtrar esta vista para ver también todos los eventos relacionados con contraseñas.
+6. En el menú **Filtrar** de la parte superior del panel, seleccione la lista desplegable **Servicio** y cámbiela al tipo de servicio **Self-service Password Management** (Administración de contraseñas de autoservicio).
 7. También puede filtrar la lista si elige la **actividad** específica que le interesa.
 
 ### <a name="converged-registration-preview"></a>Registro convergido (versión preliminar)
 
-Si está participando en la versión preliminar pública de registro convergente, se encontrarán información relacionada con la actividad de usuario en los registros de auditoría en el servicio **métodos de autenticación**.
+Si participa en la versión preliminar pública del registro convergido, la información relativa a la actividad del usuario en los registros de auditoría se encontrará en el servicio **Métodos de autenticación**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descripción de las columnas de informe en Azure Portal
 
@@ -74,7 +74,7 @@ En la tabla siguiente se describen los distintos valores que se que puede establ
 
 | Columna | Valores permitidos y su significado |
 | --- | --- |
-| Datos registrados |**Correo electrónico alternativo**: el usuario ha utilizado un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse.<p><p>**Teléfono de la oficina**: el usuario ha utilizado un teléfono de la oficina para autenticarse.<p>**Teléfono móvil**: el usuario ha utilizado un teléfono móvil o un teléfono de autenticación para autenticarse.<p>**Preguntas de seguridad**: el usuario ha utilizado preguntas de seguridad para autenticarse.<p>**Cualquier combinación de los métodos anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)**: se produce cuando se especifica una directiva de dos puertas y se muestran los dos métodos que el usuario ha utilizado para autenticar su solicitud de restablecimiento de contraseña. |
+| Datos registrados |**Correo electrónico alternativo**: el usuario ha utilizado un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse.<p><p>**Teléfono de la oficina**: el usuario ha utilizado un teléfono de la oficina para autenticarse.<p>**Teléfono móvil**: el usuario ha utilizado un teléfono móvil o un teléfono de autenticación para autenticarse.<p>**Preguntas de seguridad**: el usuario ha utilizado preguntas de seguridad para autenticarse.<p>**Cualquier combinación de los métodos anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)** : se produce cuando se especifica una directiva de dos puertas y se muestran los dos métodos que el usuario ha utilizado para autenticar su solicitud de restablecimiento de contraseña. |
 
 ## <a name="self-service-password-management-activity-types"></a>Tipos de actividad de Self-service Password Management (Administración de contraseñas de autoservicio)
 
@@ -117,7 +117,7 @@ En la lista siguiente se explica en detalle esta actividad:
 En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica que un administrador realizó un restablecimiento de contraseña en nombre de un usuario en Azure Portal.
-* **Actor de la actividad**: el administrador que ha realizado el restablecimiento de contraseña en nombre de otro administrador o usuario final. Debe ser un administrador de contraseñas, el usuario administrador o el administrador del departamento de soporte técnico.
+* **Actor de la actividad**: el administrador que ha realizado el restablecimiento de contraseña en nombre de otro administrador o usuario final. Debe ser un administrador global, un administrador de usuarios o un administrador del departamento de soporte técnico.
 * **Destino de la actividad**: usuario cuya contraseña se ha restablecido. Puede tratarse de un usuario final o de otro administrador.
 * **Estados de la actividad**:
   * _Correcto_: indica que un administrador ha restablecido correctamente la contraseña de un usuario.

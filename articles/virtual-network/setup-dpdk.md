@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731607"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configuración de DPDK en una máquina virtual Linux
@@ -33,7 +33,7 @@ DPDK se puede ejecutar en máquinas virtuales de Azure que admitan varias distri
 
 ## <a name="benefit"></a>Ventaja
 
-**Más paquetes por segundo (PPS)**: Omitiendo el kernel y tomar el control de paquetes en el espacio de usuario, reduce el número de ciclos de eliminando modificadores de contexto. También mejora la tasa de paquetes que son procesados por segundo en las máquinas virtuales Linux de Azure.
+**Más paquetes por segundo (PPS)** : si se omite el kernel y se toma el control de los paquetes en el espacio del usuario se reduce el recuento de ciclos mediante la eliminación de los cambios de contexto. También mejora la tasa de paquetes que son procesados por segundo en las máquinas virtuales Linux de Azure.
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
@@ -133,7 +133,7 @@ Después de reiniciar, ejecute los siguientes comandos una vez:
      > [!NOTE]
      > Hay una manera de modificar el archivo GRUB para que las macropáginas se reserven en el arranque siguiendo las [instrucciones](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) de DPDK. Las instrucciones están en la parte inferior de la página. Cuando use una máquina virtual Linux de Azure, modifique en su lugar los archivos de **/etc/config/grub.d** para reservar las macropáginas en los reinicios.
 
-2. Direcciones MAC e IP: Use `ifconfig –a` para ver la dirección IP y MAC de las interfaces de red. La interfaz de red *VF* y la interfaz de red *NETVSC* tienen la misma dirección MAC, pero solo la interfaz de red *NETVSC* tiene una dirección IP. Las interfaces VF se ejecutan como interfaces subordinadas de las interfaces NETVSC.
+2. Direcciones MAC e IP: use `ifconfig –a` para ver la dirección IP y MAC de las interfaces de red. La interfaz de red *VF* y la interfaz de red *NETVSC* tienen la misma dirección MAC, pero solo la interfaz de red *NETVSC* tiene una dirección IP. Las interfaces VF se ejecutan como interfaces subordinadas de las interfaces NETVSC.
 
 3. Direcciones PCI
 
@@ -152,7 +152,7 @@ Si ejecuta una aplicación DPDK a través del PMD a prueba de errores, garantiza
 
 Use `sudo` antes del comando *testpmd* para ejecutar testpmd en modo raíz.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: Comprobación de validez, la inicialización del adaptador a prueba de errores
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: comprobación de integridad, inicialización del adaptador a prueba de errores
 
 1. Ejecute los comandos siguientes para iniciar una aplicación testpmd de puerto único:
 
@@ -180,7 +180,7 @@ Use `sudo` antes del comando *testpmd* para ejecutar testpmd en modo raíz.
 
 Los comandos anteriores inician *testpmd* en modo interactivo, lo cual es recomendable para probar comandos testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>Básico: Receptor único y un único remitente
+### <a name="basic-single-sendersingle-receiver"></a>Básico: remitente y receptor únicos
 
 Los siguientes comandos imprimen periódicamente las estadísticas de paquetes por segundo:
 
@@ -216,7 +216,7 @@ Los siguientes comandos imprimen periódicamente las estadísticas de paquetes p
 
 Si ejecuta los comandos anteriores en una máquina virtual, cambie *IP_SRC_ADDR* y *IP_DST_ADDR* a `app/test-pmd/txonly.c` para que coincida con la dirección IP real de las máquinas virtuales antes de realizar la compilación. En caso contrario, se descartarán los paquetes antes de alcanzar el receptor.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Avanzado: Reenviador único y un único remitente
+### <a name="advanced-single-sendersingle-forwarder"></a>Avanzado: remitente y reenviador únicos
 Los siguientes comandos imprimen periódicamente las estadísticas de paquetes por segundo:
 
 1. En el lado de TX, ejecute el comando siguiente:

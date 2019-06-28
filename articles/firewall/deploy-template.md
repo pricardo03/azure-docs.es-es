@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
 ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115685"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implementación de Azure Firewall mediante una plantilla
@@ -59,7 +59,7 @@ Para información sobre la sintaxis y las propiedades de JSON de un firewall en 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite, puede quitar el grupo de recursos, firewall y todos los recursos relacionados mediante la ejecución de la [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando de PowerShell. Para quitar un grupo de recursos llamado *MyResourceGroup*, ejecute: 
+Cuando ya no los necesite, puede quitar el grupo de recursos, el firewall y todos los recursos relacionados mediante la ejecución del comando de PowerShell [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Para quitar un grupo de recursos llamado *MyResourceGroup*, ejecute: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

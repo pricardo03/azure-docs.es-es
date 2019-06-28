@@ -1,6 +1,6 @@
 ---
-title: Definiciones de alerta de esquema comunes Webhooks/Logic Apps o Azure funciones/para Runbooks de Automation
-description: Descripción de las definiciones de esquema de alerta comunes Webhooks/Logic Apps o Azure funciones/para Runbooks de Automation
+title: Definiciones del esquema de alertas comunes para webhooks/Logic App/Azure Functions/Runbooks de Automation
+description: Descripción de las definiciones del esquema de alertas comunes para webhooks/Logic App/Azure Functions/Runbooks de Automation
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,21 +9,21 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775753"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
-Este artículo se describe la [definiciones de alerta de esquema comunes](https://aka.ms/commonAlertSchemaDocs) Webhooks/Logic Apps o Azure funciones/para Runbooks de Automation. 
+En este artículo se describen las [definiciones del esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs) para webhooks/Logic Apps/Azure Functions/runbooks de Automation. 
 
 ## <a name="overview"></a>Información general
 
-Describe cualquier instancia de alerta **el recurso que se vio afectado** y **la causa de la alerta**, y estas instancias se describen en el esquema común en las secciones siguientes:
-* **Essentials**: Un conjunto de **estandarizado campos**común en todos los tipos de alerta, que describen **qué recurso** la alerta se encuentra en junto con metadatos adicionales comunes alerta (por ejemplo, gravedad o descripción). 
-* **Contexto de alerta**: Un conjunto de campos que describen la **causa principal de la alerta**, con campos que varían **según el tipo de alerta**. Por ejemplo, una alerta de métrica tendría campos como el nombre de la métrica y el valor de métrica en el contexto de alerta, mientras que una alerta de registro de actividad tendría información sobre el evento que generó la alerta. 
+Cualquier instancia de alerta describe **el recurso que resultó afectado** y **la causa de la alerta**, y estas instancias se describen en el esquema común en las secciones siguientes:
+* **Información esencial**: Un conjunto de **campos estandarizados** común a todos los tipos de alertas, que describen en **qué recurso** se encuentra la alerta junto con otros metadatos de alerta comunes (por ejemplo, gravedad o descripción). 
+* **Contexto de alerta**: Un conjunto de campos que describen la **causa de la alerta**, con campos que varían **según el tipo de alerta**. Por ejemplo, una alerta de métrica tendría campos como el nombre de la métrica y el valor de la métrica en el contexto de la alerta, mientras que una alerta de registro de actividad tendría información sobre el evento que generó la alerta. 
 
 ##### <a name="sample-alert-payload"></a>Carga de alerta de ejemplo
 ```json
@@ -74,23 +74,23 @@ Describe cualquier instancia de alerta **el recurso que se vio afectado** y **la
 }
 ```
 
-## <a name="essentials-fields"></a>Campos "Essentials"
+## <a name="essentials-fields"></a>Campos de información esencial
 
 | Campo | DESCRIPCIÓN|
 |:---|:---|
 | alertId | GUID que identifica de forma única la instancia de alerta. |
-| alertRule | Nombre de la regla de alerta que generó la instancia de alerta. |
+| alertRule | Nombre de la regla de alertas que generó la instancia de la alerta. |
 | Gravedad | Gravedad de la alerta. Valores posibles: Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | Identifica la señal en el que se definió la regla de alerta. Valores posibles: Métrica, registro, registro de actividad |
-| monitorCondition | Cuando se desencadene una alerta, condición del monitor de la alerta se establece en 'Fired'. Cuando se borra la condición subyacente que provocó que se desencadene la alerta, la condición del monitor se establece en "Resuelto".   |
-| monitoringService | El servicio de supervisión o una solución que generó la alerta. El servicio de supervisión dicta los campos para el contexto de alerta. |
-| alertTargetIds | Lista de los destinos afectados todos los identificadores de ARM de una alerta. Para una alerta de registro definida en un área de trabajo de Log Analytics o una instancia de Application Insights, es el área de trabajo y la aplicación correspondiente. |
-| originAlertId | Id. de la instancia de alerta como generado por el servicio de supervisión que lo genera. |
-| firedDateTime | Fecha de hora de cuando se activó la instancia de alerta en formato UTC |
-| resolvedDateTime | Hora de fecha de cuando se establece la condición del monitor para la instancia de alerta a "Resuelto" en formato UTC. Actualmente solo es aplicable para las alertas de métricas.|
-| description | Descripción tal como se define en la regla de alerta |
-|essentialsVersion| Número de versión de la sección essentials.|
-|alertContextVersion | Número de versión de la sección alertContext |
+| signalType | Identifica la señal en que se definió la regla de alertas. Valores posibles: métrica, registro, registro de actividad |
+| monitorCondition | Cuando se desencadena una alerta, la condición de supervisión de la alerta se establece en "desencadenada". Cuando desaparece la condición subyacente que provocó que se desencadenara la alerta, la condición de supervisión se establece en "resuelta".   |
+| monitoringService | El servicio o solución de supervisión que generó la alerta. El servicio de supervisión dicta los campos para el contexto de alerta. |
+| alertTargetIds | Lista de los identificadores de ARM de todos los destinos afectados de una alerta. Para una alerta de registro definida en un área de trabajo de Log Analytics o una instancia de Application Insights, es el área de trabajo o la aplicación correspondiente. |
+| originAlertId | Identificador de la instancia de alerta generada por el servicio de supervisión encargado. |
+| firedDateTime | Fecha y hora del momento en que se desencadeno la instancia de alerta en UTC |
+| resolvedDateTime | Fecha y hora del momento en que la condición de supervisión de la instancia de alerta se estableció en "resuelta" en UTC. Actualmente solo es aplicable a las alertas de métricas.|
+| description | Descripción tal como se define en la regla de alertas. |
+|essentialsVersion| Número de versión de la sección de información esencial.|
+|alertContextVersion | Número de versión de la sección alertContext. |
 
 ##### <a name="sample-values"></a>Valores de ejemplo
 ```json
@@ -114,11 +114,11 @@ Describe cualquier instancia de alerta **el recurso que se vio afectado** y **la
 }
 ```
 
-## <a name="alert-context-fields"></a>Campos 'Contexto de alerta'
+## <a name="alert-context-fields"></a>Campos de "contexto de alerta"
 
 ### <a name="metric-alerts"></a>Alertas de métricas
 
-#### <a name="monitoringservice--platform"></a>monitoringService = "Platform"
+#### <a name="monitoringservice--platform"></a>monitoringService = 'Platform'
 
 ##### <a name="sample-values"></a>Valores de ejemplo
 ```json
@@ -151,10 +151,10 @@ Describe cualquier instancia de alerta **el recurso que se vio afectado** y **la
 }
 ```
 
-### <a name="log-alerts"></a>Alertas del registro
+### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> Si usa la opción JSON personalizada para las alertas de registro existente, la personalización no se conserva en el esquema común.
+> Si usa la opción JSON personalizada para las alertas de registro existentes, la personalización no se conserva en el esquema común.
 
 #### <a name="monitoringservice--log-analytics"></a>monitoringService = "Log Analytics"
 
@@ -202,7 +202,7 @@ Describe cualquier instancia de alerta **el recurso que se vio afectado** y **la
 
 ### <a name="activity-log-alerts"></a>Alertas de registros de actividad
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = 'Registro de actividad: administrativa'
+#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = "Activity Log - Administrative"
 
 ##### <a name="sample-values"></a>Valores de ejemplo
 ```json
@@ -231,6 +231,6 @@ Describe cualquier instancia de alerta **el recurso que se vio afectado** y **la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Más información sobre el esquema común de alerta](https://aka.ms/commonAlertSchemaDocs)
+- [Más información sobre el esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs)
 
 

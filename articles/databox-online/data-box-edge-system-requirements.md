@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756552"
 ---
-# <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de borde del cuadro de datos Azure
+# <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de Azure Data Box Edge
 
 En este artículo se describen los requisitos del sistema importantes de la solución Microsoft Azure Data Box Edge y de los clientes que se conectan a Azure Data Box Edge. Se recomienda que revise detenidamente la información antes de implementar Data Box Edge. Puede consultar esta información según considere necesario durante la implementación y las operaciones posteriores.
 
@@ -86,11 +86,11 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | https://\*.azurecr.io                     | Registros de contenedores personales y de terceros (opcional) | 
 | https://\*.azure-devices.net              | Acceso de IoT Hub (obligatorio)                             | 
 
-### <a name="url-patterns-for-gateway-for-azure-government"></a>Patrones de dirección URL de puerta de enlace de Azure Government
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Patrones de dirección URL para la puerta de enlace de Azure Government
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-for-azure-government"></a>Patrones de dirección URL para el proceso de Azure Government
+### <a name="url-patterns-for-compute-for-azure-government"></a>Patrones de dirección URL para el proceso de Azure Government
 
 | Patrón de URL                      | Componente o funcionalidad                     |  
 |----------------------------------|---------------------------------------------|
@@ -104,33 +104,33 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 ## <a name="compute-sizing-considerations"></a>Consideraciones de tamaño de proceso
 
-Use su experiencia al desarrollar y probar la solución para asegurarse de hay suficiente capacidad en el dispositivo de borde del cuadro de datos y obtener un rendimiento óptimo del dispositivo.
+Use su experiencia al desarrollar y probar la solución para asegurarse de que hay suficiente capacidad en el dispositivo de Data Box Edge y obtener un rendimiento óptimo del dispositivo.
 
 Debe considerar los siguientes factores:
 
-- **Detalles de contenedor** -pensar en lo siguiente.
+- **Detalles específicos del contenedor** - Piense en lo siguiente.
 
-    - ¿Cuántos contenedores se encuentran en la carga de trabajo? Podría tener mucha contenedores ligeros en comparación con algunos estilos que consumen muchos recursos.
-    - ¿Cuáles son los recursos asignados a estos contenedores frente a cuáles son los recursos que están consumiendo?
-    - ¿Cuántas capas compartir los contenedores?
+    - ¿Cuántos contenedores hay en la carga de trabajo? Podría tener muchos contenedores ligeros en vez unos pocos que consuman muchos recursos.
+    - ¿Cuáles son los recursos asignados a estos contenedores en comparación con los recursos que están consumiendo?
+    - ¿Cuántas capas comparten los contenedores?
     - ¿Hay contenedores sin usar? Un contenedor detenido todavía ocupa espacio en disco.
-    - ¿En qué idioma se escriben los contenedores?
-- **Tamaño de los datos procesados** -¿cuántos datos los contenedores van a procesar? ¿Estos datos consumirá espacio en disco o los datos se procesarán en la memoria?
-- **Rendimiento esperado** -¿cuáles son las características de rendimiento deseado de la solución? 
+    - ¿En qué idioma están escritos los contenedores?
+- **Tamaño de los datos procesados**: ¿cuántos datos procesarán sus contenedores? ¿Estos datos consumirán espacio en disco o los datos se procesarán en la memoria?
+- **Rendimiento esperado**: ¿cuáles son las características del rendimiento deseado de la solución? 
 
-Para comprender y refinar el rendimiento de la solución, puede usar:
+Para comprender y ajustar el rendimiento de la solución, puede usar:
 
-- Las métricas de proceso disponibles en el portal de Azure. Vaya al recurso de borde del cuadro de datos y, a continuación, vaya a **supervisión > métricas**. Examine el **Edge compute - uso de memoria** y **Edge compute: porcentaje de CPU** para comprender los recursos disponibles y cómo son los recursos de introducción consume el.
+- Las métricas de proceso disponibles en Azure Portal. Vaya al recurso Data Box Edge y, después, a **Supervisión > Métricas**. Examine **Proceso perimetral > Uso de la memoria** y **Proceso perimetral > Porcentaje de CPU** para entender los recursos disponibles y cómo se consumen los recursos.
 - Los comandos de supervisión disponibles a través de la interfaz de PowerShell del dispositivo, como:
 
-    - `dkr` estadísticas para obtener estadísticas de uso de recursos de una secuencia en directo de contenedores. El comando es compatible con las métricas de E/S de red, uso de memoria, límite de memoria y CPU.
-    - `dkr system df` Para obtener información relacionada con la cantidad de espacio en disco utilizado. 
+    - Estadísticas de `dkr` para obtener una transmisión en vivo de las estadísticas del uso de recursos de los contenedores. El comando es compatible con las métricas de CPU, uso de memoria, límite de memoria y E/S de red.
+    - `dkr system df` para obtener información relacionada con la cantidad de espacio en disco utilizado. 
     - `dkr image [prune]` para limpiar las imágenes no utilizadas y liberar espacio.
-    - `dkr ps --size` Para ver el tamaño aproximado de un contenedor en ejecución. 
+    - `dkr ps --size` para ver el tamaño aproximado de un contenedor en ejecución. 
 
-    Para obtener más información sobre los comandos disponibles, vaya a [supervisar y solucionar problemas de los módulos de proceso](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+    Para obtener más información sobre los comandos disponibles, vaya a [Supervisar y solucionar problemas de los módulos de proceso](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Por último, asegúrese de que validar la solución en el conjunto de datos y cuantificar el rendimiento en el borde del cuadro de datos antes de implementarlo en producción.
+Por último, asegúrese de validar la solución en el conjunto de datos y cuantificar el rendimiento en Data Box Edge antes de la implementación en producción.
 
 
 ## <a name="next-step"></a>Paso siguiente

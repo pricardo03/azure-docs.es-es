@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61230260"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES 
@@ -30,7 +30,7 @@ Este tema muestra cómo personalizar los valores preestablecidos de Media Encode
 Si utiliza un ajuste preestablecido XML, asegúrese de conservar el orden de los elementos, como se muestra en los ejemplos XML siguientes (por ejemplo, KeyFrameInterval debe preceder a SceneChangeDetection).
 
 > [!NOTE] 
-> Muchas de las características avanzadas de v2 de Media Services de Media Encoder Standard actualmente no están disponibles en v3. Para obtener más información, consulte [carencias de características](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
+> Muchas de las características avanzadas de Media Services v2 de Media Encoder Standard no están disponibles en v3: Para más información, consulte las [carencias de características](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Compatibilidad con tamaños relativos
 
@@ -1037,5 +1037,5 @@ Puede utilizar el valor "0" para indicar al codificador que pase por alto los me
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 [Información general sobre la codificación de Media Services](media-services-encode-asset.md)

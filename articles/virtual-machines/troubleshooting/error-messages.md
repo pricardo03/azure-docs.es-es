@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711210"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Información de mensajes de error habituales al administrar máquinas virtuales en Azure
@@ -99,8 +99,8 @@ En esta sección se muestran los mensajes de error habituales que pueden produci
 |  InvalidParameter  |  "La contraseña proporcionada debe tener entre {0} y {1} caracteres y debe cumplir al menos {2} de los siguientes requisitos de complejidad de contraseñas: <ol><li> Contiene una letra mayúscula</li><li>Contiene una letra minúscula</li><li>Contiene un dígito numérico</li><li>Contiene un carácter especial</li></ol>  |
 |  InvalidParameter  |  El nombre de usuario de administrador especificado no está permitido.  |
 |  InvalidParameter  |  No se puede asociar un disco de SO existente si la máquina virtual se crea desde una plataforma o imagen de usuario.  |
-|  InvalidParameter  |  El nombre del contenedor {0} no es válido. Los nombres de contenedor deben tener una longitud de entre 3 y 63 caracteres, y pueden contener solo caracteres alfanuméricos en minúscula y el signo de guion. Guion debe estar precedido y seguido por un carácter alfanumérico.  |
-|  InvalidParameter  |  El nombre del contenedor {0} en la dirección URL {1} no es válido. Los nombres de contenedor deben tener una longitud de entre 3 y 63 caracteres, y pueden contener solo caracteres alfanuméricos en minúscula y el signo de guion. Guion debe estar precedido y seguido por un carácter alfanumérico.  |
+|  InvalidParameter  |  El nombre del contenedor {0} no es válido. Los nombres de contenedor deben tener una longitud de entre 3 y 63 caracteres, y pueden contener solo caracteres alfanuméricos en minúscula y el signo de guion. Antes y después del guion debe ir un carácter alfanumérico.  |
+|  InvalidParameter  |  El nombre del contenedor {0} en la dirección URL {1} no es válido. Los nombres de contenedor deben tener una longitud de entre 3 y 63 caracteres, y pueden contener solo caracteres alfanuméricos en minúscula y el signo de guion. Antes y después del guion debe ir un carácter alfanumérico.  |
 |  InvalidParameter  |  El nombre del blob en la dirección URL {0} contiene una barra diagonal. Actualmente esto es algo que no se admite en discos.  |
 |  InvalidParameter  |  El identificador URI {0} no parece ser un URI de blob correcto.  |
 |  InvalidParameter  |  Un disco llamado "{0}" ya usa el mismo LUN: {1}.  |

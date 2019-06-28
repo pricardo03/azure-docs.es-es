@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335231"
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
@@ -121,7 +121,7 @@ La configuración predeterminada deniega todo acceso al extremo HTTP. Esta es la
 La configuración predeterminada permite todo acceso al extremo HTTPS. Esta configuración puede ser aún más restrictiva.
 
 ### <a name="changing-the-configuration"></a>Cambio de la configuración
-El grupo de reglas de control de acceso que se aplican a y el punto de conexión se configuran en el  **\<EndpointAcls >** sección la **archivo de configuración de servicio**.
+El grupo de reglas de control de acceso que se aplican a un punto de conexión se configuran en la sección **\<EndpointAcls>** del **archivo de configuración de servicio**.
 
 ```xml
 <EndpointAcls>
@@ -130,7 +130,7 @@ El grupo de reglas de control de acceso que se aplican a y el punto de conexión
 </EndpointAcls>
 ```
 
-Las reglas en un grupo de control de acceso se configuran en un \<nombre AccessControl = "" > sección del archivo de configuración del servicio. 
+Las reglas de un grupo de control de acceso se configuran en una sección \<AccessControl name=""> del archivo de configuración de servicio. 
 
 El formato se explica en la documentación de listas de control de acceso de red.
 Por ejemplo, para permitir únicamente a las direcciones IP del intervalo comprendido entre 100.100.0.0 y 100.100.255.255 el acceso al extremo HTTPS, las reglas se parecerían a esta:
@@ -359,7 +359,7 @@ Cada usuario para el que se ha emitido un certificado de cliente debe seguir est
 * Asegúrese de que Mostrar esté mostrando Todo
 * Seleccione el campo denominado Huella digital en la lista
 * Copie el valor de la huella digital
-  * Elimine los caracteres de Unicode no visibles delante del primer dígito
+  * Elimine los caracteres Unicode no visibles delante del primer dígito
   * Elimine todos los espacios
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configuración de clientes autorizados en el archivo de configuración de servicio

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546649"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión REST mediante Azure Data Factory
@@ -55,11 +55,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de REST:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | El **tipo** propiedad debe establecerse en **RestService**. | Sí |
+| Tipo | La propiedad **type** debe establecerse en **RestService**. | Sí |
 | url | La dirección URL base del servicio REST. | Sí |
-| enableServerCertificateValidation | Si se debe validar el certificado SSL del lado servidor al conectarse al punto de conexión. | Sin <br /> (El valor predeterminado es: **true**) |
+| enableServerCertificateValidation | Si se debe validar el certificado SSL del lado servidor al conectarse al punto de conexión. | Sin<br /> (El valor predeterminado es: **true**) |
 | authenticationType | El tipo de autenticación usado para conectarse al servicio REST. Los valores que se permiten son: **Anónima**, **Básica**, **AadServicePrincipal** y **ManagedServiceIdentity**. Haga referencia a las siguientes secciones correspondientes para obtener más información sobre propiedades y ejemplos, respectivamente. | Sí |
-| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un IR autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, esta propiedad se usará Azure Integration Runtime. |Sin  |
+| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un IR autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, esta propiedad se usará Azure Integration Runtime. |Sin |
 
 ### <a name="use-basic-authentication"></a>Uso de la autenticación básica
 
@@ -68,7 +68,7 @@ Establezca la propiedad **authenticationType** en **Basic**. Además de las prop
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | userName | El nombre de usuario para acceder al punto de conexión REST. | Sí |
-| password | Contraseña del usuario (valor **userName**). Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Contraseña del usuario (valor **userName**). Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 
 **Ejemplo**
 
@@ -169,12 +169,12 @@ Para copiar datos de REST, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del conjunto de datos debe establecerse en **RestResource**. | Sí |
-| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | Sin  |
-| requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin  |
-| additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
-| requestBody | Cuerpo de la solicitud HTTP. | Sin  |
-| paginationRules | Las reglas de paginación para componer las solicitudes de página siguiente. Vea la sección [Compatibilidad con la paginación](#pagination-support) para obtener más información. | Sin  |
+| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **RestResource**. | Sí |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | Sin |
+| requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin |
+| additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin |
+| requestBody | Cuerpo de la solicitud HTTP. | Sin |
+| paginationRules | Las reglas de paginación para componer las solicitudes de página siguiente. Vea la sección [Compatibilidad con la paginación](#pagination-support) para obtener más información. | Sin |
 
 **Ejemplo 1: Mediante el método Get con la paginación**
 
@@ -232,9 +232,9 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **RestSource**. | Sí |
-| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | Sin  |
-| requestInterval | El tiempo de espera antes de enviar la solicitud de página siguiente. El valor predeterminado es **00:00:01** |  Sin  |
+| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **RestSource**. | Sí |
+| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | Sin |
+| requestInterval | El tiempo de espera antes de enviar la solicitud de página siguiente. El valor predeterminado es **00:00:01** |  Sin |
 
 **Ejemplo**
 
@@ -275,7 +275,7 @@ Normalmente, la API REST limita su tamaño de carga de respuesta de una única s
 Este conector REST genérico admite los siguientes patrones de paginación: 
 
 * Dirección URL absoluta o relativa de la siguiente solicitud = valor de propiedad en el cuerpo de la respuesta actual
-* Dirección URL absoluta o relativa de la siguiente solicitud = valor de encabezado en los encabezados de respuesta actual
+* Dirección URL absoluta o relativa de la siguiente solicitud = valor de encabezado en los encabezados de la respuesta actual
 * Parámetro de consulta de la siguiente solicitud = valor de propiedad en el cuerpo de la respuesta actual
 * Parámetro de consulta de la siguiente solicitud = valor de encabezado en los encabezados de la respuesta actual
 * Encabezado de la siguiente solicitud = valor de propiedad en el cuerpo de la respuesta actual
@@ -287,7 +287,7 @@ Este conector REST genérico admite los siguientes patrones de paginación:
 
 | Clave | DESCRIPCIÓN |
 |:--- |:--- |
-| AbsoluteUrl | Indica la dirección URL para emitir la siguiente solicitud. Puede ser **dirección URL absoluta o relativa URL**. |
+| AbsoluteUrl | Indica la dirección URL para emitir la siguiente solicitud. Puede ser una **dirección URL absoluta o relativa**. |
 | QueryParameters.*request_query_parameter* O QueryParameters["request_query_parameter"] | El usuario define "request_query_parameter", que hace referencia a un nombre de parámetro de consulta en la siguiente dirección URL de solicitud HTTP. |
 | Headers.*request_header* O Headers["request_header"] | El usuario define "request_header", que hace referencia a un nombre de encabezado en la siguiente solicitud HTTP. |
 

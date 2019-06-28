@@ -1,6 +1,6 @@
 ---
-title: Límites de Azure Blockchain
-description: Información general del servicio y los límites funcionales en el servicio de Azure Blockchain
+title: Límites de Azure Blockchain
+description: Información general sobre los límites funcionales y de servicio en Azure Blockchain Service
 services: azure-blockchain
 keywords: cadena de bloques
 author: PatAltimore
@@ -11,56 +11,56 @@ ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
 ms.openlocfilehash: 169ec7a8ef407af3f754046aa8e3b06793a7e962
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65028176"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Límites de servicio de Azure Blockchain
+# <a name="limits-in-azure-blockchain-service"></a>Límites en Azure Blockchain Service
 
-Azure Blockchain Service tiene el servicio y los límites funcionales, como el número de nodos de que un miembro puede tener restricciones consortium y cantidades de almacenamiento.
+Azure Blockchain Service tiene límites funcionales y de servicio, como el número de nodos que puede tener un miembro, restricciones de consorcio y cantidades de almacenamiento.
 
 ## <a name="pricing-tier"></a>Plan de tarifa
 
-Los límites máximos de las transacciones y los nodos de control de validación dependen de aprovisionamiento de Azure Blockchain Service los niveles básico o estándar, los planes de tarifa.
+Los límites máximos de los nodos de validación y transacciones dependen de si aprovisiona Azure Blockchain Service en el plan de tarifa Básico o Estándar.
 
-| Plan de tarifa | Máximo de nodos de transacción | Máximo de nodos de control de validación |
+| Plan de tarifa | Cantidad máxima de nodos de transacción | Cantidad máxima de nodos de validación |
 |:---|:---:|:---:|
 | Básica | 10 | 1 |
 | Estándar | 10 | 2 |
 
-Después de que no se admite la creación de miembros, cambiar el plan de tarifa de básico y estándar.
+Después de la creación de un miembro, no se puede cambiar el plan de tarifa de Básico a Estándar.
 
 ## <a name="storage-capacity"></a>Capacidad de almacenamiento
 
-La cantidad máxima de almacenamiento que se puede utilizar para los registros y datos de libro de contabilidad por nodo es de 1 terabyte.
+La cantidad máxima de almacenamiento que se puede utilizar por nodo para los datos de libro de contabilidad y registros es de 1 terabyte.
 
-No se admite la reducción del tamaño de almacenamiento de libro de contabilidad y de registro.
+El tamaño de almacenamiento del libro de contabilidad y del registro no se puede reducir.
 
-## <a name="consortium-limits"></a>Límites del Consorcio
+## <a name="consortium-limits"></a>Límites del consorcio
 
-* **Nombres de miembro y Consortium deben ser únicos** desde otros nombres de miembro y consortium en el servicio de la cadena de bloques de Azure.
+* **Los nombres de miembro y de consorcio deben ser únicos** en Azure Blockchain Service.
 
-* **No se puede cambiar los nombres de miembro y consortium**
+* **Los nombres de miembro y de consorcio no se pueden cambiar**
 
 * **Todos los miembros de un consorcio deben estar en el mismo plan de tarifa**
 
 * **Todos los miembros que participan en un consorcio deben residir en la misma región**
 
-    El primer miembro creado en un consorcio dicta la región. Miembros invitados en el consorcio deben residir en la misma región que el primer miembro. Limitación de todos los miembros a la misma región ayuda a garantizar un consenso de red no se ve afectado.
+    El primer miembro creado en un consorcio dicta la región. Los miembros invitados al consorcio deben residir en la misma región que el primer miembro. Limitar todos los miembros a la misma región ayuda a garantizar que el consenso de red no se ve afectado.
 
 * **Un consorcio debe tener al menos un administrador**
 
-    Si hay solo un administrador en un consorcio, que no pueden quitarse del consortium o eliminar a su miembro hasta que otro administrador se agrega o se promocionan en el consorcio.
+    Si un consorcio solo tiene un administrador, este no se puede quitar del consorcio ni eliminar a su miembro hasta que se agregue otro administrador o se promocione en el consorcio.
 
-* **Los miembros quitados del consortium no pueden agregarse de nuevo**
+* **Los miembros quitados del consorcio no se pueden volver a agregar**
 
-    En su lugar, debe ser invitados a participar en el consorcio y crear a un nuevo miembro. No se eliminan sus recursos de miembro existente para conservar las transacciones históricas.
+    Tienen que recibir una nueva invitación para unirse al consorcio y crear un nuevo miembro. Los recursos de los miembros existentes no se eliminan para conservar el historial de transacciones.
 
 * **Todos los miembros de un consorcio deben usar la misma versión de libro de contabilidad**
 
-    Para obtener más información sobre la aplicación de revisiones, actualizaciones y versiones de libro de contabilidad disponibles en Azure Blockchain Service, consulte [aplicación de revisiones, actualizaciones y las versiones](ledger-versions.md).
+    Para obtener más información sobre la aplicación de revisiones, actualizaciones y versiones del libro de contabilidad disponibles en Azure Blockchain Service, vea [Aplicación de revisiones, actualizaciones y versiones](ledger-versions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928075"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versión actual](transform-data-using-machine-learning.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "60928075"
 3. **Implementarlo como un servicio web**. Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory y Machine Learning juntos
-Azure Data Factory permite crear fácilmente canalizaciones que usen un publicado [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) web service para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio para realizar predicciones sobre los datos en el lote.
+Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio para realizar predicciones sobre los datos en el lote.
 
 Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Azure Machine Learning Studio tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Puede volver a entrenar un modelo de una canalización de Data Factory realizando los pasos siguientes:
 
@@ -127,12 +127,12 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 | Propiedad          | DESCRIPCIÓN                              | Obligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | Nombre              | Nombre de la actividad en la canalización     | Sí      |
-| description       | Texto que describe para qué se usa la actividad.  | Sin        |
+| description       | Texto que describe para qué se usa la actividad.  | Sin       |
 | Tipo              | Para la actividad de U-SQL de Data Lake Analytics, el tipo de actividad es **AzureMLBatchExecution**. | Sí      |
 | linkedServiceName | Servicios vinculados al servicio vinculado de Azure Machine Learning. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
-| webServiceInputs  | Pares clave-valor que asignan los nombres de entradas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de entrada definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de entrada. | Sin        |
-| webServiceOutputs | Pares clave-valor que asignan los nombres de salidas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de salida definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de salida. | Sin        |
-| globalParameters  | Pares clave-valor que se pasan al punto de conexión del servicio de ejecución por lotes de Azure Machine Learning Studio. Las claves tienen que coincidir con los nombres de los parámetros del servicio web definidos en el servicio web publicado de Azure Machine Learning Studio. Los valores se pasan en la propiedad GlobalParameters de la solicitud de ejecución por lotes de Azure Machine Learning Studio | Sin        |
+| webServiceInputs  | Pares clave-valor que asignan los nombres de entradas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de entrada definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de entrada. | Sin       |
+| webServiceOutputs | Pares clave-valor que asignan los nombres de salidas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de salida definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de salida. | Sin       |
+| globalParameters  | Pares clave-valor que se pasan al punto de conexión del servicio de ejecución por lotes de Azure Machine Learning Studio. Las claves tienen que coincidir con los nombres de los parámetros del servicio web definidos en el servicio web publicado de Azure Machine Learning Studio. Los valores se pasan en la propiedad GlobalParameters de la solicitud de ejecución por lotes de Azure Machine Learning Studio | Sin       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Escenario 1: experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Azure Blob Storage
 

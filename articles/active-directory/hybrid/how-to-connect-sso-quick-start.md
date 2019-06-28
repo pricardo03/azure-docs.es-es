@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242685"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
@@ -93,10 +93,10 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 ![Azure Portal: Panel de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO de conexión directa crea una cuenta de equipo denominada `AZUREADSSOACC` en local Active Directory (AD) en cada bosque de AD. El `AZUREADSSOACC` cuenta de equipo debe protegerse fuertemente por motivos de seguridad. Solo los administradores de dominio debe ser capaces de administrar la cuenta de equipo. Asegúrese de que la delegación Kerberos en la cuenta de equipo está deshabilitada y que ninguna otra cuenta en Active Directory tenga permisos de delegación en el `AZUREADSSOACC` cuenta de equipo. Store a la cuenta de equipo en una unidad organizativa (OU) que están protegidos frente a eliminaciones accidentales y donde los administradores de dominio sólo tienen acceso.
+> SSO de conexión directa crea una cuenta de equipo llamada `AZUREADSSOACC` en la instancia local de Active Directory (AD) de cada bosque de AD. La cuenta de equipo `AZUREADSSOACC` precisa de una gran protección por motivos de seguridad. Solo los administradores de dominio deben poder administrar la cuenta de equipo. Asegúrese de que la delegación de Kerberos de la cuenta de equipo está deshabilitada y de que ninguna otra cuenta de Active Directory tiene permisos de delegación en la cuenta de equipo `AZUREADSSOACC`. Almacene la cuenta de equipo en una unidad organizativa (OU) donde esté a salvo de eliminaciones accidentales y donde solo los administradores de dominio tengan acceso.
 
 >[!NOTE]
-> Si utilizas arquitecturas de Pass-the-Hash y mitigación del robo de credenciales en su entorno local, realice los cambios apropiados para asegurarse de que el `AZUREADSSOACC` cuenta de equipo no termine en el contenedor de cuarentena. 
+> Si utiliza las arquitecturas Pass-the-Hash y Credential Theft Mitigation en su entorno local, realice los cambios adecuados para asegurarse de que la cuenta de equipo `AZUREADSSOACC` no termine en el contenedor de cuarentena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
@@ -124,7 +124,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
 1. Abra la herramienta Editor de administración de directivas de grupo.
 2. Edite la directiva de grupo que se aplica a algunos o todos los usuarios. En este ejemplo se usa la **directiva de dominio predeterminada**.
-3. Vaya a **configuración de usuario** > **directiva** > **plantillas administrativas** > **Windows Componentes** > **Internet Explorer** > **Panel de Control de Internet** > **página seguridad**. A continuación, seleccione **Lista de asignación de sitio a zona**.
+3. Vaya a **Configuración de usuario** > **Directiva** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad**. A continuación, seleccione **Lista de asignación de sitio a zona**.
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite la directiva y escriba los valores siguientes en el cuadro de diálogo:
    - **Nombre de valor**: dirección URL de Azure AD a la que se reenvían los vales de Kerberos.
@@ -144,7 +144,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Vaya a **configuración de usuario** > **plantillas administrativas** **directiva** > ** > **componentes de Windows**  >  **Internet Explorer** > **Panel de Control de Internet** > **página seguridad**  >   **Zona de intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
+6. Vaya a **Configuración de usuario** > **Plantillas administrativas** **Directiva** > **> **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona de intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
 
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso11.png)
 

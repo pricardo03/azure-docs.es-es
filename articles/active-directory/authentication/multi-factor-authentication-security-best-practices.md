@@ -1,5 +1,5 @@
 ---
-title: 'Guía de seguridad para Azure Multi-factor Authentication: Azure Active Directory'
+title: 'Guía de seguridad para Azure Multi-Factor Authentication: Azure Active Directory'
 description: Este documento proporciona guía acerca del uso de Azure MFA con cuentas de Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357969"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Guía de seguridad para el uso de Azure Multi-Factor Authentication con cuentas de Azure AD
@@ -43,7 +43,7 @@ Al configurar Multi-Factor Authentication, tenga en cuenta las siguientes sugere
 
 ### <a name="multi-factor-auth-provider"></a>Proveedor de Multi-Factor Authentication
 
-![Proveedor de autenticación multifactor](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+![Proveedor de Multi-Factor Authentication](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
 Si no tiene licencias que incluyan Azure MFA, puede [crear un proveedor de autenticación MFA](concept-mfa-authprovider.md).
 
@@ -68,7 +68,7 @@ Puesto que la mayoría de los usuarios están acostumbrados a usar solo las cont
 
 Si la compañía ha decidido aprovechar su propia infraestructura para habilitar MFA, es necesario [implementar un servidor de Azure Multi-Factor Authentication local](howto-mfaserver-deploy.md). En el diagrama siguiente se muestran los componentes del servidor MFA:
 
-![Los componentes de servidor MFA predeterminados](./media/multi-factor-authentication-security-best-practices/server.png) \*no se instala de forma predeterminada \** instalado pero no habilitado de forma predeterminada
+![Los componentes predeterminados del servidor de MFA](./media/multi-factor-authentication-security-best-practices/server.png) \*No se instala de forma predeterminada\**Se instala pero no se habilita de forma predeterminada
 
 El servidor Azure Multi-Factor Authentication puede proteger los recursos en la nube y los recursos locales mediante la federación. Debe disponer de AD FS y federarlo con el inquilino de Azure AD.
 Al configurar el servidor de Multi-Factor Authentication, tenga en cuenta los siguientes detalles:

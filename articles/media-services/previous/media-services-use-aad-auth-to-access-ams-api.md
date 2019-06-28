@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826161"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acceso a Azure Media Services API con la autenticación de Azure AD  
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Azure Media Services API es una API RESTful. Puede usarla para realizar operaciones en recursos multimedia a través de una API de REST o mediante los SDK del cliente disponibles. Azure Media Services ofrece un SDK del cliente de Media Services para Microsoft .NET. Para ser autorizado a acceder a recursos de Media Services y a Media Services API, se debe autenticar primero. 
 
@@ -32,7 +32,7 @@ Media Services admite la [autenticación basada en Azure Active Directory (Azure
 Este documento proporciona información general sobre cómo obtener acceso a Media Services API mediante las API de .NET o REST.
 
 > [!NOTE]
-> Autorización de Control de acceso ha quedado en desuso el 1 de junio de 2018.
+> La autorización de Access Control quedó en desuso el 1 de junio de 2018.
 
 ## <a name="access-control"></a>Control de acceso
 

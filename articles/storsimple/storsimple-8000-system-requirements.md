@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631913"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de la serie StorSimple 8000, alta disponibilidad y requisitos de red
@@ -63,14 +63,14 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 
 | Nº de puerto<sup>1,2</sup> | Dentro o fuera | Ámbito de puerto | Obligatorio | Notas |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Fuera |WAN |Sin  |<ul><li>El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Fuera |WAN |Sin |<ul><li>El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Fuera |WAN |Sí |<ul><li>El puerto de salida se usa para tener acceso a los datos en la nube.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li><li>Este puerto también se utiliza en ambos controladores para la recolección de elementos no utilizados.</li></ul> |
 | UDP 53 (DNS) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. |
 | UDP 123 (NTP) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
 | TCP 9354 |Fuera |WAN |Sí |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Device Manager. |
-| 3260 (iSCSI) |En el |LAN |Sin  |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
-| 5985 |En |LAN |Sin  |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
-| 5986 |En |LAN |Sin  |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
+| 3260 (iSCSI) |En el |LAN |Sin |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
+| 5985 |En |LAN |Sin |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
+| 5986 |En |LAN |Sin |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
@@ -155,7 +155,7 @@ El algoritmo de métrica de enrutamiento usado en Update 2 y versiones posterior
 * También se genera una alerta en el dispositivo de StorSimple cuando hay un error en la IP virtual. Para más información, vaya a la [referencia rápida de alertas](storsimple-8000-manage-alerts.md).
 * En términos de reintentos, iSCSI tendrá prioridad sobre la nube.
   
-    Considere el siguiente ejemplo: Un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
+    Considere el siguiente ejemplo: un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
   
     Si se produce un error de Data 1, dado que es la última interfaz de red de iSCSI, esto produce una conmutación por error del controlador a Data 1 en el otro controlador.
 

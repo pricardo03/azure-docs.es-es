@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 971d38fa0fbd47f0deb815577033bbe684aac32f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312583"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Creación y administración de archivos de Box con Azure Logic Apps
@@ -43,7 +43,7 @@ Si no está familiarizado con las aplicaciones lógicas, vea [¿Qué es Azure Lo
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de archivos, consulte el [página de referencia del conector](/connectors/box/).
+Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/box/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

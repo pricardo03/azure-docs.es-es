@@ -1,6 +1,6 @@
 ---
-title: Configurar alertas de seguridad para roles de Azure AD en PIM - Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo configurar alertas de seguridad para roles de Azure AD en Azure AD Privileged Identity Management (PIM).
+title: 'Configuración de alertas de seguridad para roles de Azure AD en PIM: Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar alertas de seguridad para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,21 +15,21 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288542"
 ---
-# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurar alertas de seguridad para roles de Azure AD en PIM
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configuración de alertas de seguridad para roles de Azure AD en PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genera alertas cuando no hay actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en el panel de PIM. Seleccione la alerta para ver un informe en el que se enumeren los usuarios o roles que activaron la alerta.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en el panel de PIM. Seleccione la alerta para ver un informe en el que se enumeren los usuarios o roles que activaron la alerta.
 
 ![Alertas de seguridad de PIM: captura de pantalla](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Alertas de seguridad
 
-Esta sección enumeran todas las alertas de seguridad para los roles de Azure AD, junto con cómo corregir y cómo evitar. La gravedad tiene el significado siguiente:
+En esta sección se enumeran todas las alertas de seguridad para roles de Azure AD, y cómo resolverlas y evitarlas. La gravedad tiene el significado siguiente:
 
 * **Alta**: requiere acción inmediata debido a la infracción de una directiva.
 * **Media**: no requiere acción inmediata, pero indica una posible infracción de una directiva.
@@ -130,4 +130,4 @@ Puede personalizar algunas de las alertas de seguridad de PIM para que funcionen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de rol de Azure AD en PIM](pim-how-to-change-default-settings.md)
+- [Configuración de roles de Azure AD en PIM](pim-how-to-change-default-settings.md)

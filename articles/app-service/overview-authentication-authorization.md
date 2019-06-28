@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
 ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835607"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
@@ -132,7 +132,7 @@ Elija esta opción si no necesita autenticación ni autorización, o si desea es
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir solo solicitudes autenticadas
 
-La opción es **Iniciar sesión con \<proveedor>**. App Service redirige todas las solicitudes anónimas a `/.auth/login/<provider>` para el proveedor que elija. Si la solicitud anónima procede de una aplicación móvil nativa, la respuesta devuelta es `HTTP 401 Unauthorized`.
+La opción es **Iniciar sesión con \<proveedor>** . App Service redirige todas las solicitudes anónimas a `/.auth/login/<provider>` para el proveedor que elija. Si la solicitud anónima procede de una aplicación móvil nativa, la respuesta devuelta es `HTTP 401 Unauthorized`.
 
 Con esta opción, no es necesario escribir ningún código de autenticación en la aplicación. Una autorización más precisa, como la autorización específica de rol, se puede controlarse mediante la inspección de las notificaciones del usuario (consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario)).
 

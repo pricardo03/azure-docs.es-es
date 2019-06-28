@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726389"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introducción a Reliable Actors
@@ -38,7 +38,7 @@ Inicie Visual Studio 2015 o versiones posteriores como administrador y cree un p
 
 ![Herramientas de Service Fabric para Visual Studio: nuevo proyecto][1]
 
-En el siguiente cuadro de diálogo, elija **servicio de Actor** en **.NET Core 2.0** y escriba un nombre para el servicio.
+En el siguiente cuadro de diálogo, elija **Servicio de actor** en **.NET Core 2.0** y escriba un nombre para el servicio.
 
 ![Plantillas de proyecto de Service Fabric][5]
 
@@ -50,11 +50,11 @@ El proyecto creado muestra la estructura siguiente:
 
 La solución contiene tres proyectos:
 
-* **El proyecto de aplicación (MyApplication)**. Este proyecto empaqueta todos los servicios a la vez para su implementación. Contiene los scripts de PowerShell y *ApplicationManifest.xml* para administrar la aplicación.
+* **El proyecto de aplicación (MyApplication)** . Este proyecto empaqueta todos los servicios a la vez para su implementación. Contiene los scripts de PowerShell y *ApplicationManifest.xml* para administrar la aplicación.
 
-* **El proyecto de interfaz (HelloWorld.Interfaces)**. Este proyecto contiene la definición de la interfaz del actor. Pueden definirse interfaces de actor en cualquier proyecto con cualquier nombre.  La interfaz define el contrato de actor que comparten la implementación del actor y los clientes que llaman al actor.  Dado que los proyectos de cliente pueden depender de ella, suele tener sentido que se defina en un ensamblado independiente de la implementación de actor.
+* **El proyecto de interfaz (HelloWorld.Interfaces)** . Este proyecto contiene la definición de la interfaz del actor. Pueden definirse interfaces de actor en cualquier proyecto con cualquier nombre.  La interfaz define el contrato de actor que comparten la implementación del actor y los clientes que llaman al actor.  Dado que los proyectos de cliente pueden depender de ella, suele tener sentido que se defina en un ensamblado independiente de la implementación de actor.
 
-* **El proyecto de servicio de actor (HelloWorld)**. Este proyecto define el servicio de Service Fabric que va a hospedar al actor. Contiene la implementación del actor, *HelloWorld.cs*. La implementación del actor es una clase que deriva de un tipo base `Actor` e implementa las interfaces definidas en el proyecto *MyActor.Interfaces*. Una clase de actor también debe implementar un constructor que acepta una instancia `ActorService` y `ActorId` y los pasa a la clase `Actor` base.
+* **El proyecto de servicio de actor (HelloWorld)** . Este proyecto define el servicio de Service Fabric que va a hospedar al actor. Contiene la implementación del actor, *HelloWorld.cs*. La implementación del actor es una clase que deriva de un tipo base `Actor` e implementa las interfaces definidas en el proyecto *MyActor.Interfaces*. Una clase de actor también debe implementar un constructor que acepta una instancia `ActorService` y `ActorId` y los pasa a la clase `Actor` base.
     
     Este proyecto contiene también *Program.cs*, que registra las clases de actor con el runtime de Service Fabric mediante `ActorRuntime.RegisterActorAsync<T>()`. La clase `HelloWorld` ya está registrada. Las implementaciones de actor adicionales que se agreguen al proyecto deben estar registradas también en el método `Main()`.
 
@@ -95,9 +95,9 @@ Presione **Ctrl+Mayús+B** para generar el proyecto y asegurarse de que todo se 
 
 Cree una aplicación de consola simple para llamar al servicio de actor.
 
-1. Haga clic con el botón derecho en el Explorador de soluciones > **Agregar** > **Nuevo proyecto...**.
+1. Haga clic con el botón derecho en el Explorador de soluciones > **Agregar** > **Nuevo proyecto...** .
 
-2. En los tipos de proyectos de **.NET Core**, elija **Aplicación de consola (.NET Core)**.  Asigne al proyecto el nombre *ActorClient*.
+2. En los tipos de proyectos de **.NET Core**, elija **Aplicación de consola (.NET Core)** .  Asigne al proyecto el nombre *ActorClient*.
     
     ![Cuadro de diálogo Agregar nuevo proyecto][6]    
     
@@ -116,7 +116,7 @@ Cree una aplicación de consola simple para llamar al servicio de actor.
 
     El paquete NuGet y todas sus dependencias se instalan en el proyecto ActorClient.
 
-5. El proyecto de cliente también requiere una referencia al proyecto de interfaces.  En el proyecto ActorClient, haga clic en **Dependencias** y luego en **Agregar referencia...**.  Seleccione **Proyectos > Solución** (si no está ya seleccionada) y luego marque la casilla situada junto a **HelloWorld.Interfaces**.  Haga clic en **OK**.
+5. El proyecto de cliente también requiere una referencia al proyecto de interfaces.  En el proyecto ActorClient, haga clic en **Dependencias** y luego en **Agregar referencia...** .  Seleccione **Proyectos > Solución** (si no está ya seleccionada) y luego marque la casilla situada junto a **HelloWorld.Interfaces**.  Haga clic en **OK**.
     
     ![Cuadro de diálogo Agregar referencia][7]
 

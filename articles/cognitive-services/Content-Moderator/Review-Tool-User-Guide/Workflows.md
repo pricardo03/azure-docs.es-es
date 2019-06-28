@@ -1,7 +1,7 @@
 ---
-title: Definir y usar los flujos de trabajo contenidos a través de la herramienta de revisión - Content Moderator
+title: 'Definición y uso de flujos de trabajo de contenido mediante la herramienta de revisión: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Puede usar el Diseñador de flujo de trabajo de Azure Content Moderator para definir flujos de trabajo personalizados y los umbrales según las directivas de contenido.
+description: Puede usar el diseñador de flujos de trabajo de Content Moderator para definir flujos de trabajo y umbrales personalizados en función de las directivas de contenido.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -11,63 +11,63 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: sajagtap
 ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61271182"
 ---
-# <a name="define-and-use-moderation-workflows"></a>Definir y usar los flujos de trabajo de moderación
+# <a name="define-and-use-moderation-workflows"></a>Definición y uso de los flujos de trabajo de moderación
 
-En esta guía, obtendrá información sobre cómo configurar y usar [flujos de trabajo](../review-api.md#workflows) en el [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) sitio Web. Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a una variedad de servicios para filtrar el contenido de maneras diferentes y, a continuación, realice la acción apropiada. Esta guía muestra cómo usar el conector de Content Moderator (que se incluye de forma predeterminada) para filtrar el contenido y configuración de revisiones humanas en un escenario típico de moderación.
+En esta guía, aprenderá a configurar y usar [flujos de trabajo](../review-api.md#workflows) en el sitio web de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com). Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a una variedad de servicios para filtrar el contenido de maneras diferentes y, a continuación, realizar la acción apropiada. En esta guía se muestra cómo usar el conector de Content Moderator (que se incluye de forma predeterminada) para filtrar el contenido y configurar revisiones humanas en un escenario típico de moderación.
 
-## <a name="create-a-new-workflow"></a>Crear un nuevo flujo de trabajo
+## <a name="create-a-new-workflow"></a>Creación de un área de trabajo
 
-Vaya a la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e inicie sesión. En la pestaña **Settings** (Configuración), seleccione **Workflows** (Flujos de trabajo).
+Vaya al sitio de la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y regístrese. En la pestaña **Settings** (Configuración), seleccione **Workflows** (Flujos de trabajo).
 
 ![Configuración de flujos de trabajo](images/2-workflows-0.png)
 
-En la siguiente pantalla, seleccione **agregar flujo de trabajo**.
+En la siguiente pantalla, seleccione **Add Workflow** (Agregar flujo de trabajo).
 
 ![Adición de un flujo de trabajo](images/2-workflows-1.png)
 
 ### <a name="assign-a-name-and-description"></a>Asignación de un nombre y una descripción
 
-Nombre del flujo de trabajo, escriba una descripción y elija si va a controlar el flujo de trabajo imágenes o texto.
+Asigne un nombre al flujo de trabajo, escriba una descripción y elija si el flujo de trabajo administra imágenes o texto.
 
 ![Nombre y descripción del flujo de trabajo](images/image-workflow-create.PNG)
 
-### <a name="define-evaluation-criteria"></a>Definir criterios de evaluación
+### <a name="define-evaluation-criteria"></a>Definición de los criterios de evaluación
 
-En la siguiente pantalla, vaya a la **si** sección. En el menú desplegable superior, elija **condición**. Esto le permitirá configurar la condición en la que el flujo de trabajo realizará la acción. Elija si desea utilizar varias condiciones, **combinación** en su lugar. 
+En la siguiente pantalla, vaya a la sección **If** (Si). En el menú desplegable superior, elija **Condition** (Condición). Esto le permitirá configurar la condición sobre la que el flujo de trabajo realizará la acción. Si quiere usar varias condiciones, elija **Combination** (Combinación). 
 
-A continuación, seleccione un conector. En este ejemplo se usa **Content Moderator**. Según el conector que elija, obtendrá distintas opciones para la salida de datos. Consulte la [conectores](./configure.md#connectors) sección de la Guía de configuración de herramienta de revisión para obtener información sobre cómo configurar otros conectores.
+A continuación, seleccione un conector. En este ejemplo se usa **Content Moderator**. Según el conector que elija, obtendrá distintas opciones para la salida de datos. Consulte la sección [Connectors](./configure.md#connectors) (Conectores) de la guía de configuración de la herramienta de revisión para saber cómo configurar otros conectores.
 
-![Seleccione el conector de flujo de trabajo](images/image-workflow-connect-to.PNG)
+![Selección del conector de flujo de trabajo](images/image-workflow-connect-to.PNG)
 
-Elija el resultado deseado para usar y establecer las condiciones para protegerlo contra.
+Elija la salida deseada que usará y establezca las condiciones con la que comparar.
 
 ![Definición de la condición de flujo de trabajo](images/image-workflow-condition.PNG)
 
-### <a name="define-the-action"></a>Defina la acción
+### <a name="define-the-action"></a>Definición de la acción
 
-Vaya a la **, a continuación,** sección, donde selecciona una acción. El ejemplo siguiente crea una revisión de la imagen y asigna una etiqueta. Si lo desea, puede agregar una ruta de acceso alternativa (Else) y establecer una acción para así.
+Vaya a la **Then** (Entonces) y seleccione una acción. En el ejemplo siguiente se crea una revisión de imágenes y se asigna una etiqueta. Si lo desea, puede agregar una ruta de acceso alternativa (Else) (Si no) y establecer también una acción para ella.
 
 ![Definición de la acción del flujo de trabajo](images/image-workflow-action.PNG)
 
-### <a name="save-the-workflow"></a>Guardar el flujo de trabajo
+### <a name="save-the-workflow"></a>Almacenamiento del flujo de trabajo.
 
-Tenga en cuenta el nombre del flujo de trabajo; se necesita el nombre para iniciar un trabajo de moderación con la API de flujo de trabajo (ver abajo). Por último, guarde el flujo de trabajo mediante el **guardar** situado en la parte superior de la página.
+Anote el nombre del flujo de trabajo; lo necesitará para iniciar un trabajo de moderación con la API de flujo de trabajo (vea a continuación). Por último, guarde el flujo de trabajo mediante el botón **Save** (Guardar) situado en la parte superior de la página.
 
 ## <a name="test-the-workflow"></a>Probar el flujo de trabajo
 
-Ahora que ha definido un flujo de trabajo personalizado, pruebe con contenido de ejemplo. Vaya a **flujos de trabajo** y seleccione la correspondiente **ejecutar el flujo de trabajo** botón.
+Ahora que ha definido un flujo de trabajo personalizado, pruébelo con contenido de ejemplo. Vaya a **Workflows** (Flujos de trabajo) y seleccione el botón **Execute Workflow** (Ejecutar flujo de trabajo) correspondiente.
 
 ![Prueba del flujo de trabajo](images/image-workflow-execute.PNG)
 
-Guardar este [imagen de ejemplo](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) en la unidad local. A continuación, seleccione **elegir archivos** y cargar la imagen en el flujo de trabajo.
+Guarde esta [imagen de ejemplo](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) en la unidad local. Luego, seleccione **Choose File(s)** (Elegir archivos) y cargue la imagen en el flujo de trabajo.
 
-![Un ejecutor con una oferta superpuesto a la imagen](images/sample-text.jpg)
+![Un corredor con una cita superpuesta en la imagen](images/sample-text.jpg)
 
 ### <a name="track-progress"></a>Seguimiento del progreso
 
@@ -75,12 +75,12 @@ Puede ver el progreso del flujo de trabajo en la siguiente ventana emergente.
 
 ![Seguimiento de la ejecución del flujo de trabajo](images/image-workflow-job.PNG)
 
-### <a name="verify-workflow-action"></a>Comprobar acción de flujo de trabajo
+### <a name="verify-workflow-action"></a>Comprobación de la acción del flujo de trabajo
 
-Vaya a la **imagen** pestaña **revisar** y compruebe que hay una revisión de la imagen recién creada.
+Vaya a la pestaña **Image** (Image) debajo de **Review** (Revisar) y compruebe que hay una revisión de imagen recién creada.
 
 ![Revisar las imágenes](images/image-workflow-review.PNG)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha aprendido a configurar y utilizar flujos de trabajo de moderación de Content Moderator [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com). A continuación, consulte el [Guía de la API de REST](../try-review-api-workflow.md) para aprender a crear flujos de trabajo mediante programación.
+En esta guía, ha aprendido a configurar y usar flujos de trabajo de moderación desde la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) de Content Moderator. A continuación, consulte la [guía de API REST](../try-review-api-workflow.md) para aprender a crear flujos de trabajo mediante programación.

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
 ms.openlocfilehash: 2e580a94e568f201587c06efa827006386cd6bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60327687"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Creación y carga de una imagen de máquina virtual de OpenBSD en Azure
@@ -31,7 +31,7 @@ En este artículo se supone que tiene los siguientes elementos:
 
 * **Una suscripción de Azure**: si no tiene una cuenta, puede crear una en un par de minutos. Si tiene una suscripción a MSDN, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, obtenga información sobre cómo [crear una cuenta de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).  
 * **Azure CLI**: asegúrese de que ha instalado la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index).
-* **Sistema operativo OpenBSD instalado en un archivo .vhd** : un sistema operativo OpenBSD compatible ([versión 6.2 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.2/amd64/)) debe estar instalado en un disco duro virtual. Existen varias herramientas para crear archivos .vhd. Por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones sobre cómo instalar y utilizar Hyper-V, consulte [Instalar Hyper-V y crear una máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
+* **Sistema operativo OpenBSD instalado en un archivo .vhd**: se debe instalar un sistema operativo OpenBSD compatible ([AMD64 versión 6.2](https://ftp.openbsd.org/pub/OpenBSD/6.2/amd64/)) en un disco duro virtual. Existen varias herramientas para crear archivos .vhd. Por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones sobre cómo instalar y utilizar Hyper-V, consulte [Instalar Hyper-V y crear una máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Preparación de la imagen de OpenBSD para Azure

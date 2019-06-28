@@ -1,7 +1,7 @@
 ---
-title: Compatibilidad con Language - Computer Vision
+title: 'Compatibilidad con idiomas: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Una lista de los lenguajes naturales compatibles con las características de Computer Vision.
+description: Una lista de los idiomas naturales admitidos por características de Computer Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759612"
 ---
-# <a name="language-support-for-computer-vision"></a>Compatibilidad con lenguajes para Computer Vision
+# <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
-Algunas características de Computer Vision admiten varios idiomas; las características que no se mencionan aquí solo admiten a inglés.
+Algunas características de Computer Vision admiten varios idiomas; las características que no se mencionan aquí solo admiten inglés.
 
 ## <a name="text-recognition"></a>Reconocimiento de texto
 
-Computer Vision puede reconocer texto en varios idiomas. En concreto, el [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API admite una variedad de lenguajes, mientras que el [lectura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API y [reconocer texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API solo admite inglés. Consulte [reconocer texto escrito a mano e impreso](concept-recognizing-text.md) para obtener más información sobre esta funcionalidad y las ventajas de cada API.
+Computer Vision puede reconocer texto en varios idiomas. Específicamente, la API de [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) admite varios idiomas, mientras que la API de [Leer](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) y [Reconocer texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) solo son admiten el inglés. Consulte [Reconocimiento de texto manuscrito e impreso](concept-recognizing-text.md) para obtener más información sobre esta funcionalidad y las ventajas de cada API.
 
-OCR detecta automáticamente el idioma del material de entrada, por lo que es necesario especificar un código de idioma en la llamada de API. Sin embargo, siempre se devuelven los códigos de idioma como el valor de la `"language"` nodo en la respuesta JSON.
+OCR detecta automáticamente el idioma del material de entrada, por lo que no es necesario especificar un código de idioma en la llamada a la API. Sin embargo, siempre se devuelven los códigos de idioma como el valor del nodo `"language"` en la respuesta JSON.
 
-|Idioma| Código de idioma | API DE RECONOCIMIENTO ÓPTICO DE CARACTERES |
+|Idioma| Código de idioma | API de OCR |
 |:-----|:----:|:-----:|
 |Árabe | `ar`|✔ |
 |Chino (simplificado) | `zh-Hans`|✔ |
@@ -58,7 +58,7 @@ OCR detecta automáticamente el idioma del material de entrada, por lo que es ne
 
 ## <a name="image-analysis"></a>Análisis de imágenes
 
-Algunas acciones de la [analizar: imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API puede devolver resultados en otros lenguajes, especificados con el `language` parámetro de consulta. Otras acciones, devuelven los resultados en inglés, independientemente de qué idioma se especifica, y otras iniciarán una excepción para lenguajes no admitidos. Las acciones se especifican con el `visualFeatures` y `details` parámetros de consulta; vea la [Overview](home.md) para obtener una lista de todas las acciones que puede hacer con análisis de imágenes.
+Algunas acciones de la API [analizar: imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pueden devolver resultados en otros idiomas, especificados con el parámetro de consulta `language`. Otras acciones devuelven resultados en inglés, independientemente del idioma que se especifique, y otros generan una excepción para los idiomas no admitidos. Las acciones se especifican con los parámetros de consulta `visualFeatures` y `details`; vea la [información general](home.md) para obtener una lista de todas las acciones que puede hacer con el análisis de imágenes.
 
 |Idioma | Código de idioma | Categorías | Etiquetas | DESCRIPCIÓN | Adultos | Marcas | Color | Caras | ImageType | Objetos | Celebridades | Puntos de referencia |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -70,7 +70,7 @@ Algunas acciones de la [analizar: imagen](https://westus.dev.cognitive.microsoft
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Introducción al uso de las características de Computer Vision mencionadas en esta guía.
+Conozca el uso de las características de Computer Vision mencionadas en esta guía.
 
-* [Analizar una imagen local (REST)](./quickstarts/csharp-analyze.md)
-* [Extraer el texto impreso (REST)](./quickstarts/csharp-print-text.md)
+* [Análisis de imágenes locales (REST)](./quickstarts/csharp-analyze.md)
+* [Extracción de texto impreso (REST)](./quickstarts/csharp-print-text.md)

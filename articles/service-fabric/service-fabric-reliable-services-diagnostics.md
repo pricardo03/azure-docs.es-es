@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772965"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidad de diagnóstico para Reliable Services con estado
@@ -50,7 +50,7 @@ StatefulRunAsyncSlowCancellation se genera cada vez que una solicitud de cancela
 ## <a name="performance-counters"></a>contadores de rendimiento
 El tiempo de ejecución de Reliable Services define las siguientes categorías de contador de rendimiento:
 
-| Category | DESCRIPCIÓN |
+| Categoría | DESCRIPCIÓN |
 | --- | --- |
 | Replicador transaccional de Service Fabric |Contadores específicos del replicador transaccional de Azure Service Fabric |
 | Service Fabric TStore |Contadores específicos de Azure Service Fabric TStore |
@@ -106,7 +106,7 @@ El tiempo de ejecución de Reliable Services emite los siguientes eventos en la 
 | --- | --- |
 | Operaciones de inicio de transacción/s | El número de nuevas transacciones de escritura creadas por segundo.|
 | Operaciones de transacción/s | El número de operaciones de adición/actualización/eliminación realizadas en colecciones confiables por segundo.|
-| Bytes de vaciado de registro/s | Número de bytes que el replicador de transacciones vacía en el disco por segundo |
+| Vaciado del registro en bytes/s | Número de bytes que el replicador de transacciones vacía en el disco por segundo |
 | Operaciones limitadas/s | Número de operaciones que el replicador de transacciones rechaza cada segundo por causas de limitación. |
 | Prom. ms de transacción/confirmación | Latencia de confirmación media por transacción en milisegundos |
 | Prom. Latencia de vaciado (ms) | Duración media de las operaciones de vaciado de disco iniciadas por el replicador de transacciones en milisegundos |

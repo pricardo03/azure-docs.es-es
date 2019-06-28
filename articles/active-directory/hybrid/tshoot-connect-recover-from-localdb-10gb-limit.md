@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386931"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Recuperación del límite de 10 GB de LocalDB
@@ -29,7 +29,7 @@ Azure AD Connect requiere una base de datos de SQL Server para almacenar datos d
 ## <a name="symptoms"></a>Síntomas
 Hay dos síntomas comunes:
 
-* El servicio Azure AD Connect Synchronization **puede ejecutarse**, pero no es capaz de sincronizarse y se produce el error *“stopped-database-disk-full”*.
+* El servicio Azure AD Connect Synchronization **puede ejecutarse**, pero no es capaz de sincronizarse y se produce el error *“stopped-database-disk-full”* .
 
 * El servicio Azure AD Connect Synchronization **no puede iniciarse**. Cuando se intenta iniciar el servicio, se produce el evento 6323 y aparece el mensaje de error *"El servidor encontró un error porque SQL Server no tiene espacio en disco".*
 
@@ -87,7 +87,7 @@ De forma predeterminada, Azure AD Connect mantiene durante un máximo de siete d
 
 3. En **Actions** (Acciones), seleccione **Clear Runs...** (Borrar ejecuciones...).
 
-4. Puede elegir **borrar todas las ejecuciones** o **Clear que se ejecuta antes de... \<fecha >** opción. Es conveniente que empiece borrando los datos del historial de ejecución que tienen más de dos días. Si el tamaño de la base de datos sigue siendo un problema, elija la opción **Clear all runs** (Borrar todas las ejecuciones).
+4. Puede seleccionar una de estas dos opciones: **Clear all runs** (Borrar todas las ejecuciones) o **Clear runs before… \<date>** (Borrar todas las ejecuciones anteriores a...<fecha>). Es conveniente que empiece borrando los datos del historial de ejecución que tienen más de dos días. Si el tamaño de la base de datos sigue siendo un problema, elija la opción **Clear all runs** (Borrar todas las ejecuciones).
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reducción del período de retención de los datos del historial de ejecución
 Este paso está diseñado para reducir la probabilidad de que el límite de 10 GB resulte un problema después de ejecutar varios ciclos de sincronización.

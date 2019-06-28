@@ -11,17 +11,17 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684097"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
 Para procesar una matriz en la aplicación lógica, puede crear un [bucle "Foreach"](#foreach-loop). Este bucle repite una o varias acciones en cada elemento de la matriz. Para conocer los límites del número de elementos de matriz que los bucles "Foreach" pueden procesar, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
-Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). En primer lugar, la aplicación lógica ejecuta todas las acciones dentro del bucle y, a continuación, comprueba el estado o la condición. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número de bucles "Until" en una ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número de bucles "Until" en una ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -54,7 +54,7 @@ Esta aplicación lógica de ejemplo envía un resumen diario de una fuente RSS d
 2. Entre el desencadenador RSS y la acción para enviar un correo electrónico, agregue un bucle "Foreach". 
 
    1. Para agregar un bucle entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
-   Elija el **signo más** (**+**) que aparece y seleccione **Agregar una acción**.
+   Elija el **signo más** ( **+** ) que aparece y seleccione **Agregar una acción**.
 
       ![Seleccione "Add an action" (Agregar una acción).](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -126,7 +126,7 @@ Si está trabajando en la vista de código de la aplicación lógica, puede defi
 
 De forma predeterminada, los ciclos de un bucle "Foreach" se ejecutan en paralelo. Para ejecutar cada ciclo secuencialmente, establezca la opción **Secuencial** del bucle. Los bucles "Foreach" deben ejecutarse secuencialmente cuando se han anidado bucles o variables dentro de bucles en los que se esperan resultados predecibles. 
 
-1. En la esquina superior derecha del bucle, elija **puntos suspensivos** (**...**) > **Configuración**.
+1. En la esquina superior derecha del bucle, elija **puntos suspensivos** ( **...** ) > **Configuración**.
 
    ![En bucle "Foreach", elija "..." > "Configuración"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -154,7 +154,7 @@ Si está trabajando con la definición de JSON de la aplicación lógica, puede 
 
 ## <a name="until-loop"></a>Bucle "Until"
   
-Para ejecutar y repetir acciones hasta que obtiene cumple una condición o cambia un estado, colocar dichas acciones en un bucle "Until". En primer lugar, la aplicación lógica ejecuta todas las acciones dentro del bucle y, a continuación, comprueba el estado o la condición. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle.
+Para ejecutar y repetir las acciones hasta que se cumpla una condición o cambie un estado, coloque esas acciones en un bucle "Until". La aplicación lógica ejecuta primero todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle.
 
 Estos son algunos escenarios comunes en los que puede utilizar un bucle "Until":
 
@@ -236,7 +236,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
       | Propiedad | Valor | DESCRIPCIÓN |
       | -------- | ----- | ----------- | 
-      | **To** | *\<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
+      | **To** | *\<dirección de correo electrónico\@dominio >* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
       | **Asunto** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
       | **Cuerpo** | <*email-content*> | Especifique el contenido del mensaje de correo electrónico que desea enviar. En este ejemplo, escriba cualquier texto que desee. | 
       |||| 

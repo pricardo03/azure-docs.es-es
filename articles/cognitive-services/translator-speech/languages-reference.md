@@ -12,10 +12,10 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827908"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech API: Languages
@@ -65,7 +65,7 @@ El valor proporcionado con cada propiedad es el siguiente.
 El valor asociado a la propiedad de voz a texto, `speech`, es un diccionario de pares (clave-valor). Cada clave identifica un idioma admitido de voz a texto. La clave es el identificador que el cliente pasa a la API. El valor asociado a la clave es un objeto con las siguientes propiedades:
 
 * `name`: nombre para mostrar del idioma.
-* `language`: etiqueta de idioma del idioma escrito asociado. Vea "Transacciones de texto" a continuación.
+* `language`: etiqueta de idioma del idioma escrito asociado. Consulte a continuación "Traducción de texto".
 Ejemplo:
 
 ```

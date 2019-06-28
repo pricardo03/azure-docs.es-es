@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331203"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solución de problemas de SQL Data Sync
@@ -40,7 +40,7 @@ Para obtener información general acerca de SQL Data Sync, consulte [Sincronizac
 
 - [Veo una degradación significativa del rendimiento](#sync-perf)
 
-- [He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna >. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error?](#sync-nulls)
+- [He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error?](#sync-nulls)
 
 - [¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y siguen cambiando como resultado?](#sync-circ)
 
@@ -105,7 +105,7 @@ El rendimiento disminuye considerablemente, posiblemente hasta tal punto que ni 
 
 - **Resolución**. La mejor corrección es la prevención. Asegúrese de que no haya referencias circulares en los grupos de sincronización. Cualquier fila sincronizada por un grupo de sincronización no puede ser sincronizada por otro grupo de sincronización.
 
-### <a name="sync-nulls"></a>He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna >. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error? 
+### <a name="sync-nulls"></a>He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error? 
 Este mensaje de error indica que se ha producido uno de los dos problemas siguientes:
 -  Una tabla no tiene ninguna clave principal. Para corregir este problema, agregue una clave principal a todas las tablas que va a sincronizar.
 -  Hay una cláusula WHERE en la instrucción CREATE INDEX. Data Sync no controla esta condición. Para solucionar este problema, quite la cláusula WHERE o realice los cambios manualmente en todas las bases de datos. 
@@ -155,7 +155,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
 - **Causa**. El agente cliente se ha desinstalado o no está presente.
 
 - **Resolución**. Si el agente cliente se ha desinstalado o no está presente, haga lo siguiente:  
-     a. Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.  
+    a. Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.  
     b. Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.
 
 - **Causa**. Una base de datos está sin conexión.
@@ -175,7 +175,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
   Si con esta operación no se puede quitar la base de datos del grupo de sincronización:
 
   1. Detenga y reinicie el servicio de host del agente cliente:  
-     a. Seleccione el menú **Inicio**.  
+    a. Seleccione el menú **Inicio**.  
     b. En el cuadro de búsqueda, escriba **services.msc**.  
     c. En la sección **Programas** del panel de resultados, haga doble clic en **Servicios**.  
     d. Haga clic con el botón derecho en el servicio **SQL Data Sync**.  
@@ -231,7 +231,7 @@ No puede eliminar un grupo de sincronización durante los tres minutos posterior
   1. Quite un grupo de sincronización mientras los agentes de sincronización asociados estén en línea (opción recomendada).
   1. Si el agente está sin conexión pero instalado, póngalo en línea en el equipo local. Espere a que el estado del agente aparezca como **En línea** en el portal de SQL Data Sync. A continuación, quite el grupo de sincronización.
   1. Si el agente está sin conexión porque se ha desinstalado:  
-     a.  Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.  
+    a.  Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.  
     b.  Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.  
     c. Intente eliminar el grupo de sincronización.
 
@@ -246,8 +246,8 @@ Para más información acerca de SQL Data Sync, consulte:
 -   Configuración de Data Sync
     - En el portal, [Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
-        -  [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Uso de PowerShell para sincronizar varias bases de datos de Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Uso de PowerShell para realizar la sincronización entre una base de datos de Azure SQL y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agente de sincronización de datos: [Agente de sincronización de datos para Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)

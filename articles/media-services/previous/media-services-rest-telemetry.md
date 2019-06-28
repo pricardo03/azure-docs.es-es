@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761784"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configuración de la telemetría de Azure Media Services con REST
@@ -126,7 +126,7 @@ Los pasos descritos en este tema son:
     }
 
 > [!NOTE]
-> No olvide cambiar el "https:\//telemetryvalidationstore.table.core.windows.net" valor de la cuenta de almacenamiento.
+> No olvide cambiar el valor de "https:\//telemetryvalidationstore.table.core.windows.net" en la cuenta de almacenamiento.
 
 ### <a name="response"></a>Response
 

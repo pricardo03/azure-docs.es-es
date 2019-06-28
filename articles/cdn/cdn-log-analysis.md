@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
 ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636207"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Análisis de patrones de uso de Azure CDN
@@ -27,7 +27,7 @@ Después de habilitar CDN para la aplicación, puede supervisar el uso de la red
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Análisis básicos a través de los registros de diagnóstico de Azure
 
-El análisis esencial está disponible para los puntos de conexión de CDN de todos los planes de tarifa. Los registros de diagnósticos de Azure permiten análisis básico se exporten a Azure storage, event hubs o registros de Azure Monitor. Registros de Azure Monitor ofrece una solución con gráficos que son configurables por el usuario y personalizables. Para más información sobre los registros de diagnóstico de Azure, consulte [Registros de diagnóstico de Azure](cdn-azure-diagnostic-logs.md).
+El análisis esencial está disponible para los puntos de conexión de CDN de todos los planes de tarifa. Los registros de diagnóstico de Azure permiten exportar el análisis esencial a Azure Storage, Event Hubs o registros de Azure Monitor. Los registros de Azure Monitor ofrecen una solución con gráficos que el usuario puede configurar y personalizar. Para más información sobre los registros de diagnóstico de Azure, consulte [Registros de diagnóstico de Azure](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Informes principales de Verizon
 

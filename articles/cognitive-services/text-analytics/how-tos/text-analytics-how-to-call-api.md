@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
 ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831425"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
@@ -43,7 +43,7 @@ Actualmente puede enviar los mismos documentos para todas las operaciones de Tex
 | Elemento | Valores válidos | ¿Necesario? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |El tipo de datos es una cadena, pero en la práctica, los identificadores de documento tienden a ser números enteros. | Obligatorio | El sistema usa los identificadores que proporcione para estructurar la salida. Se generan códigos de idioma, frases clave y puntuaciones de opinión para cada identificador de la solicitud.|
-|`text` | Datos no estructurado texto sin formato, hasta 5120 caracteres. | Obligatorio | Para la detección de idioma, el texto se puede expresar en cualquier idioma. Para el análisis de opiniones, la extracción de frases clave y la identificación de entidades, el texto debe estar en un [idioma admitido](../text-analytics-supported-languages.md). |
+|`text` | Texto sin formato no estructurado, hasta 5120 caracteres. | Obligatorio | Para la detección de idioma, el texto se puede expresar en cualquier idioma. Para el análisis de opiniones, la extracción de frases clave y la identificación de entidades, el texto debe estar en un [idioma admitido](../text-analytics-supported-languages.md). |
 |`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de dos caracteres para un [idioma admitido](../text-analytics-supported-languages.md) | Varía | Análisis de opiniones, extracción de frases clave, detección de idioma y vinculación de entidades; opcional para la detección de idioma. No hay ningún error si se excluye, pero sin él se debilita el análisis. El código de idioma se debe corresponder al `text` que proporcione. |
 
 Para obtener más información sobre los límites, vea [Información general de Text Analytics > Límites de datos](../overview.md#data-limits). 
@@ -91,7 +91,7 @@ El servicio acepta solicitudes de hasta 1 MB de tamaño. Si usa Postman (u otra 
 
    En Postman, la respuesta se muestra en la ventana siguiente, como un solo documento JSON, con un elemento para cada identificador de documento proporcionado en la solicitud.
 
-## <a name="see-also"></a>Vea también 
+## <a name="see-also"></a>Otras referencias 
 
  [Introducción a Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

@@ -14,10 +14,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726849"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Supervisión y diagnóstico del procesamiento de solicitudes en el proxy inverso.
@@ -37,12 +37,12 @@ Estos son algunos ejemplos sobre cómo interpretar los registros de error comune
 
     La carga incluye:
 
-   * **traceId**: Este GUID se puede utilizar para poner en correlación todos los eventos correspondientes a una única solicitud. En los siguientes dos eventos, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, lo que implica que pertenecen a la misma solicitud.
-   * **requestUrl**: La dirección URL (dirección URL de proxy inverso) al que se envió la solicitud.
-   * **verb**: Verbo HTTP.
-   * **remoteAddress**: Dirección del cliente que envía la solicitud.
-   * **resolvedServiceUrl**: Dirección URL de punto de conexión de servicio a la que se resolvió la solicitud entrante. 
-   * **errorDetails**: Información adicional sobre el error.
+   * **traceId**: este GUID se puede utilizar para poner en correlación todos los eventos correspondientes a una única solicitud. En los siguientes dos eventos, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, lo que implica que pertenecen a la misma solicitud.
+   * **requestUrl**: la dirección URL (URL de proxy inverso) a la que se envió la solicitud.
+   * **verb**: verbo HTTP.
+   * **remoteAddress**: dirección del cliente que envía la solicitud.
+   * **resolvedServiceUrl**: dirección URL del punto de conexión del servicio para el que se resolvió la solicitud entrante. 
+   * **errorDetails**: información adicional sobre el error.
 
      ```
      {
@@ -85,8 +85,8 @@ Estos son algunos ejemplos sobre cómo interpretar los registros de error comune
     
     Este es un evento de ejemplo donde el proxy inverso devuelve 404 ya que no se pudo encontrar el punto de conexión del servicio de búsqueda correspondiente.
     Las entradas de carga que interesan aquí son:
-   * **processRequestPhase**: Indica la fase durante el procesamiento de solicitudes cuando se produjo el error, ***TryGetEndpoint*** , es decir, al intentar obtener el punto de conexión del servicio al que reenviar. 
-   * **errorDetails**: Enumera los criterios de búsqueda del punto de conexión. Aquí puede ver que el listenerName especificado = **FrontEndListener**, mientras que la lista de puntos de conexión de réplica solo contiene un agente de escucha con el nombre **OldListener**.
+   * **processRequestPhase**: indica la fase durante el procesamiento de la solicitud cuando se produjo el error, es decir, ***TryGetEndpoint***, esto es, al intentar obtener el punto de conexión del servicio al que reenviar. 
+   * **errorDetails**: enumera los criterios de búsqueda del punto de conexión. Aquí puede ver que el listenerName especificado = **FrontEndListener**, mientras que la lista de puntos de conexión de réplica solo contiene un agente de escucha con el nombre **OldListener**.
     
      ```
      {
@@ -104,7 +104,7 @@ Estos son algunos ejemplos sobre cómo interpretar los registros de error comune
      }
      }
      ```
-     Otro ejemplo donde proxy inverso puede devolver 404 no encontrado es: Cuando el parámetro de configuración **SecureOnlyMode** está establecido en true con el proxy inverso escuchando en **HTTPS**; sin embargo, todos los puntos de conexión de réplica son inseguros (escucha en HTTP).
+     Otro ejemplo donde el proxy inverso puede devolver 404 (no encontrado) es cuando el valor de ApplicationGateway o el parámetro de configuración de HTTP **SecureOnlyMode** está establecido en true con el proxy inverso escuchando en **HTTPS**, sin embargo, todos los puntos de conexión de réplica son inseguros (escucha en HTTP).
      El proxy devuelve 404, ya que no puede encontrar un punto de conexión que escuche HTTPS para reenviar la solicitud. Analizar los parámetros en la carga del evento ayuda a definir el problema:
     
      ```

@@ -1,7 +1,7 @@
 ---
 title: Administración de cuentas y claves
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Los dos elementos clave de información de una cuenta de LUIS son la cuenta de usuario y la clave de creación. Se administra la información de inicio de sesión en account.microsoft.com. Administra la clave de creación de la página de configuración del portal de LUIS.
+description: Los dos elementos clave de información de una cuenta de LUIS son la cuenta de usuario y la clave de creación. La información de inicio de sesión se administra en account.microsoft.com. La clave de creación se administra en la página Settings (Configuración) del portal de LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,19 +12,19 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
 ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523518"
 ---
 # <a name="manage-account-and-authoring-key"></a>Administración de cuenta y clave de creación
 
-Los dos elementos clave de información de una cuenta de LUIS son la cuenta de usuario y la clave de creación. La información de inicio de sesión se administra en [account.microsoft.com](https://account.microsoft.com). La clave de creación se administra desde el [LUIS](luis-reference-regions.md) portal **configuración** página.
+Los dos elementos clave de información de una cuenta de LUIS son la cuenta de usuario y la clave de creación. La información de inicio de sesión se administra en [account.microsoft.com](https://account.microsoft.com). La clave de creación se administra en la página **Settings** (Configuración) del portal de [LUIS](luis-reference-regions.md).
 
 ## <a name="authoring-key"></a>Clave de creación
 
-Este único y específico de la región de creación clave en el **configuración** página que le permite crear todas las aplicaciones de la [LUIS](luis-reference-regions.md) portal, así como la [creación de API](https://go.microsoft.com/fwlink/?linkid=2092087). Para su comodidad, la clave de creación puede realizar un número [limitado](luis-boundaries.md) de consultas de punto de conexión al mes.
+Esta clave de creación única y específica de la región, de la página **Settings** (Configuración), le permite crear todas sus aplicaciones desde el portal de [LUIS](luis-reference-regions.md) y las [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087). Para su comodidad, la clave de creación puede realizar un número [limitado](luis-boundaries.md) de consultas de punto de conexión al mes.
 
 [![Página de configuración de LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
@@ -36,7 +36,7 @@ La clave de creación es específica de la [región de creación](luis-reference
 
 ## <a name="reset-authoring-key"></a>Restablecimiento de la clave de creación
 
-Si su clave de creación está en peligro, restablézcala. La clave se restablece en todas las aplicaciones en la [LUIS](luis-reference-regions.md) portal. Si crea sus aplicaciones a través de las API de creación, debe cambiar el valor de `Ocp-Apim-Subscription-Key` por la clave nueva.
+Si su clave de creación está en peligro, restablézcala. La clave se restablece en todas las aplicaciones en el portal de [LUIS](luis-reference-regions.md). Si crea sus aplicaciones a través de las API de creación, debe cambiar el valor de `Ocp-Apim-Subscription-Key` por la clave nueva.
 
 ## <a name="delete-account"></a>Eliminación de cuenta
 

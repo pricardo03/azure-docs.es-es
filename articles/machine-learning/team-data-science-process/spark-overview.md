@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 932587afcffcb3b1a259a02a98c648e938e99931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60256413"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
@@ -130,7 +130,7 @@ Hemos tomado una muestra del 0,1 % de estos archivos y los hemos combinado en ar
 | dropoff_longitude |Longitud del punto de bajada |
 | dropoff_latitude |Latitud del punto de bajada |
 | direct_distance |Distancia directa entre las ubicaciones de subida y bajada |
-| payment_type |Tipo de pago (efectivo, tarjeta de crédito etcetera.) |
+| payment_type |Tipo de pago (efectivo, tarjeta de crédito, etc.) |
 | fare_amount |Importe de la tarifa en |
 | surcharge |Suplemento |
 | mta_tax |Impuestos de MTA |

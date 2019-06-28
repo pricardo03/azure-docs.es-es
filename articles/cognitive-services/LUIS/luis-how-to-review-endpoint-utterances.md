@@ -1,7 +1,7 @@
 ---
 title: Revisión de expresiones del usuario
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Aprendizaje activo captura las consultas de punto de conexión y declaraciones de punto de conexión del usuario que está seguro de selecciona. Revise estas grabaciones de voz para seleccionar la intención y marque las entidades para estas grabaciones de voz del mundo de lectura. Acepte estos cambios en sus declaraciones de ejemplo, a continuación, entrene y publique. A continuación, LUIS identifica grabaciones de voz con más precisión.
+description: El aprendizaje activo captura las consultas de punto de conexión y selecciona las expresiones de punto de conexión del usuario de las que no está seguro. Revise estas expresiones para seleccionar la intención y marque las entidades para estas expresiones de lectura. Acepte estos cambios en sus expresiones de ejemplo, entrene y publique. LUIS identificará después las expresiones con mayor precisión.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,24 +12,24 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
 ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195171"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Cómo revisar grabaciones de voz de punto de conexión en el portal de LUIS de aprendizaje activo
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Revisión de las expresiones de punto de conexión en el portal de LUIS para aprendizaje activo
 
-[Aprendizaje activo](luis-concept-review-endpoint-utterances.md) captura las consultas de punto de conexión y declaraciones de punto de conexión del usuario que está seguro de se selecciona. Revise estas grabaciones de voz para seleccionar la intención y marque las entidades para estas grabaciones de voz del mundo de lectura. Acepte estos cambios en sus declaraciones de ejemplo, a continuación, entrene y publique. A continuación, LUIS identifica grabaciones de voz con más precisión.
+El [aprendizaje activo](luis-concept-review-endpoint-utterances.md) captura las consultas de punto de conexión y selecciona las expresiones de punto de conexión del usuario de las que no está seguro. Revise estas expresiones para seleccionar la intención y marque las entidades para estas expresiones de lectura. Acepte estos cambios en sus expresiones de ejemplo, entrene y publique. LUIS identificará después las expresiones con mayor precisión.
 
 
-## <a name="enable-active-learning"></a>Habilitar el aprendizaje activo
+## <a name="enable-active-learning"></a>Habilitación del aprendizaje activo
 
-Para habilitar el aprendizaje activo, inicie sesión en las consultas de usuario. Esto se consigue estableciendo la [consulta de punto de conexión](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) con el `log=true` querystring parámetro y valor.
+Para habilitar el aprendizaje activo, registre las consultas de usuario. Esto se consigue estableciendo la [consulta de punto de conexión](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) con el parámetro y el valor de la cadena de consulta `log=true`.
 
-## <a name="disable-active-learning"></a>Deshabilitar el aprendizaje activo
+## <a name="disable-active-learning"></a>Deshabilitación del aprendizaje activo
 
-Para deshabilitar el aprendizaje activo, no registrar las consultas de usuario. Esto se consigue estableciendo la [consulta de punto de conexión](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) con el `log=false` querystring parámetro y valor.
+Para deshabilitar el aprendizaje activo, no registre las consultas de usuario. Esto se consigue estableciendo la [consulta de punto de conexión](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) con el parámetro y el valor de la cadena de consulta `log=false`.
 
 ## <a name="filter-utterances"></a>Filtrar expresiones
 

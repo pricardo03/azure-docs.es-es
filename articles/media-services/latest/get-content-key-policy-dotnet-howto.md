@@ -13,15 +13,15 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322641"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obtención de una clave de firma de la directiva existente
 
-Uno de los principales principios de diseño de la versión v3 de la API es hacerla más segura. las API de V3 no devuelven secretos o las credenciales en **obtener** o **lista** operaciones. Ver una explicación detallada aquí: Para obtener más información, consulte [cuentas RBAC y Media Services](rbac-overview.md)
+Uno de los principales principios de diseño de la versión v3 de la API es hacerla más segura. Las API de la versión v3 no devuelven secretos o credenciales en las operaciones **Get** o **List**. Consulte la explicación detallada aquí: Para más información, consulte [RBAC and Media Services accounts](rbac-overview.md) (Cuentas de Media Services y RBAC)
 
 En el ejemplo de este artículo se muestra cómo usar .NET para obtener una clave de firma a partir de la directiva existente. 
  

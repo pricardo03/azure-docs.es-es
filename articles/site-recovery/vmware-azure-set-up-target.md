@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
 ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723821"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparación del entorno de destino para la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos en Azure
@@ -34,11 +34,11 @@ Después de completar el **Paso 1: Selección del objetivo de protección** y el
 1. **Suscripción:** en el menú desplegable, seleccione la suscripción en la que quiere replicar las máquinas virtuales o los servidores físicos.
 2. **Modelo de implementación:** seleccione el modelo de implementación (clásico o Resource Manager)
 
-Según el modelo de implementación elegido, se ejecuta una validación para garantizar que tengan al menos una red virtual en la suscripción de destino para la replicación y conmutación por error la máquina virtual o servidor físico en.
+Según el modelo de implementación elegido, se ejecuta una validación para asegurarse de que tiene al menos una red virtual en la suscripción de destino en la que replicar y conmutar por error las máquinas virtuales o los servidores físicos.
 
 Una vez completadas las validaciones correctamente, haga clic en Aceptar para ir al paso siguiente.
 
-Si no tiene una red virtual, puede crearla haciendo clic en el **+ red** situado en la parte superior de la página.
+Si no tiene una red virtual, puede crearla haciendo clic en el botón **+ Agregar** en la parte superior de la página.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de las opciones de replicación](vmware-azure-set-up-replication.md).

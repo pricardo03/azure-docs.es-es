@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
 ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238486"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restauración de archivos en Windows con el modelo de implementación de Azure Resource Manager
@@ -44,11 +44,11 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 
     ![Captura de pantalla de Azure Backup, con la opción Recuperar datos resaltada](./media/backup-azure-restore-windows-server/recover.png)
 
-3. En la página **Introducción**, para restaurar los datos en el mismo servidor o equipo, seleccione **Este servidor (`<server name>`)** > **Siguiente**.
+3. En la página **Introducción**, para restaurar los datos en el mismo servidor o equipo, seleccione **Este servidor (`<server name>`)**  > **Siguiente**.
 
     ![Captura de pantalla de la página Introducción del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. En el **seleccionar modo de recuperación** página, elija **archivos y carpetas individuales** > **siguiente**.
+4. En la página **Seleccionar modo de recuperación**, seleccione **Archivos y carpetas individuales** > **Siguiente**.
 
     ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]

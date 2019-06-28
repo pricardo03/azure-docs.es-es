@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254063"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas en Azure Monitor
@@ -38,7 +38,7 @@ Para autenticar la solicitud, Azure Monitor valida el token de aplicación media
 > [!NOTE]  
 > Cuando solicite un token de Azure AD para emitir métricas personalizadas, asegúrese de que la audiencia o el recurso para el que se solicita el token sea https://monitoring.azure.com/. Asegúrese de incluir la barra diagonal "/" final.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Asunto
 Esta propiedad captura para cuál identificador de recurso de Azure se notifica la métrica personalizada. Esta información se codificarán en la dirección URL de la llamada API que se realiza. Cada API solo puede enviar los valores de métrica para un único recurso de Azure.
 
 > [!NOTE]  
@@ -60,7 +60,7 @@ Cada punto de datos que se envía a Azure Monitor debe marcarse con una marca de
 ### <a name="namespace"></a>Espacio de nombres
 Los espacios de nombres son una manera de clasificar o agrupar las métricas similares. Mediante el uso de espacios de nombres se puede conseguir el aislamiento entre los grupos de métricas que puedan estar recopilando diferentes conclusiones o indicadores de rendimiento. Por ejemplo, podría tener un espacio de nombres denominado **ContosoMemoryMetrics** que realice el seguimiento de las métricas de uso de memoria que perfile una aplicación. Otro espacio de nombres denominado **ContosoAppTransaction** podría realizar un seguimiento de todas las métricas sobre las transacciones de usuario en la aplicación.
 
-### <a name="name"></a>Name
+### <a name="name"></a>NOMBRE
 **Nombre** es el nombre de la métrica que se está notificando. Normalmente, el nombre es lo suficientemente descriptivo como para ayudar a identificar lo que se está midiendo. Un ejemplo es una métrica que mide el número de bytes de memoria utilizados en una máquina virtual determinada. Podría tener un nombre de métrica como **Bytes de memoria en uso**.
 
 ### <a name="dimension-keys"></a>Claves de dimensión
@@ -75,7 +75,7 @@ Al informar de un punto de datos de métrica, para cada clave de dimensión en l
 * El valor de la dimensión sería **ContosoApp.exe**.
 
 Al publicar un valor de métrica, solo puede especificar un único valor de dimensión por clave de dimensión. Si recopila el mismo uso de memoria para varios procesos en la máquina virtual, puede informar sobre varios valores de métricas para esa marca de tiempo. Cada valor de métrica especificaría un valor de dimensión diferente para la clave de dimensión **Proceso**.
-Las dimensiones son opcionales, no todas las métricas pueden tener dimensiones. Si un métrica post define claves de dimensiones, los valores de dimensión correspondientes son obligatorios.
+Las dimensiones son opcionales, no todas las métricas pueden tener dimensiones. Si en una publicación de métrica se definen las claves de dimensión, los valores de dimensión correspondientes serán obligatorios.
 
 ### <a name="metric-values"></a>Valores de métrica
 Azure Monitor almacena todas las métricas a intervalos de granularidad de un minuto. Somos conscientes de que, durante un minuto determinado, es posible que una métrica tenga que ser muestreada varias veces. Un ejemplo es el uso de CPU. O podría ser necesario medirlo para muchos eventos discretos. Un ejemplo son las latencias de transacción de inicio de sesión. Para limitar el número de valores sin procesar que tenga que emitir y pagar en Azure Monitor, puede agregar previamente de manera local y emitir los valores:
@@ -181,7 +181,7 @@ Durante la versión preliminar pública, la capacidad de publicar métricas pers
 ## <a name="quotas-and-limits"></a>Cuotas y límites
 Azure Monitor impone los siguientes límites de uso a las métricas personalizadas:
 
-|Category|Límite|
+|Categoría|Límite|
 |---|---|
 |Serie temporal activa/suscripciones/región|50.000|
 |Claves de dimensión por métrica|10|

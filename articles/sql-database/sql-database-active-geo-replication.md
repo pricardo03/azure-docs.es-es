@@ -13,13 +13,13 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/26/2019
 ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387458"
 ---
-# <a name="creating-and-using-active-geo-replication"></a>Creación y uso de replicación geográfica activa
+# <a name="creating-and-using-active-geo-replication"></a>Creación y uso de la replicación geográfica activa
 
 La replicación geográfica activa es la característica de Azure SQL Database que permite crear bases de datos secundarias legibles de bases de datos individuales en un servidor de SQL Database en el mismo centro de datos u otro diferente (región).
 
@@ -78,7 +78,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 > [!NOTE]
 > La reproducción de registros se retrasa en la base de datos secundaria si hay actualizaciones del esquema en el servidor principal. Lo último requiere un bloqueo del esquema en la base de datos secundaria.
 > [!IMPORTANT]
-> Puede usar replicación geográfica para crear una base de datos secundaria en la misma región que la réplica principal. Puede usar esta base de datos secundaria para las cargas de trabajo de equilibrio de carga de solo lectura en la misma región. Sin embargo, una base de datos secundaria en la misma región no proporciona resistencia adicional de errores y, por tanto, no es un destino de conmutación por error adecuado para la recuperación ante desastres. También no garantizará avaialability aislamiento de zona. Usar crítico para la empresa o nivel de servicio Premium con [configuración de redundancia de zona](sql-database-high-availability.md#zone-redundant-configuration) y así conseguir aislamiento de zona avaialability.   
+> Puede usar la replicación geográfica para crear una base de datos secundaria en la misma región que la principal. Puede utilizar esta base de datos secundaria para equilibrar cargas de trabajo de solo lectura en la misma región. Sin embargo, una base de datos secundaria en la misma región no proporciona resistencia adicional a los errores y, por lo tanto, no es un objetivo de conmutación por error adecuado para la recuperación ante desastres. Tampoco garantiza el aislamiento de la zona de disponibilidad. Utilice el nivel de servicio Premium o crítico para la empresa con [configuración con redundancia de zona](sql-database-high-availability.md#zone-redundant-configuration) para lograr el aislamiento de la zona de disponibilidad.   
 >
 
 - **Conmutación por error planeada**
@@ -110,7 +110,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Mantenimiento de las credenciales y las reglas de firewall sincronizadas**
 
-Se recomienda usar [reglas de firewall IP de nivel de base de datos](sql-database-firewall-configure.md) con replicación geográfica las bases de datos para estas reglas se pueden replicar con la base de datos para asegurarse de que todas las bases de datos secundarias tienen las mismas reglas de firewall IP que la réplica principal. Este enfoque elimina la necesidad de que los clientes configuren y mantengan manualmente las reglas de firewall en los servidores que hospedan tanto la base de datos principal como las secundarias. Igualmente, la utilización de [usuarios de base de datos independiente](sql-database-manage-logins.md) para el acceso a los datos garantiza que la base de datos principal y las secundarias tengan siempre las mismas credenciales de usuario. Por tanto, durante una conmutación por error, no hay interrupciones debidas a discrepancias en los inicios de sesión y las contraseñas. Con la adición de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), los clientes pueden administrar el acceso de usuarios a la base de datos principal y a las secundarias, por lo que ya no es necesario administrar credenciales en las bases de datos.
+Se recomienda usar [reglas de firewall de direcciones IP de nivel de base de datos](sql-database-firewall-configure.md) para las bases de datos con replicación geográfica. Así, estas reglas se pueden replicar con la base de datos para garantizar que todas las bases de datos secundarias tengan las mismas reglas de firewall que la principal. Este enfoque elimina la necesidad de que los clientes configuren y mantengan manualmente las reglas de firewall en los servidores que hospedan tanto la base de datos principal como las secundarias. Igualmente, la utilización de [usuarios de base de datos independiente](sql-database-manage-logins.md) para el acceso a los datos garantiza que la base de datos principal y las secundarias tengan siempre las mismas credenciales de usuario. Por tanto, durante una conmutación por error, no hay interrupciones debidas a discrepancias en los inicios de sesión y las contraseñas. Con la adición de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), los clientes pueden administrar el acceso de usuarios a la base de datos principal y a las secundarias, por lo que ya no es necesario administrar credenciales en las bases de datos.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Actualización o degradación de una base de datos principal
 
@@ -120,7 +120,7 @@ Puede actualizar o degradar una base de datos principal a un tamaño de proceso 
 > Si creó una base de datos secundaria como parte de la configuración del grupo de conmutación por error, no se recomienda que la degrade. De este modo, se garantiza que la capa de datos tiene la capacidad suficiente para procesar la carga de trabajo habitual una vez que se activa la conmutación por error.
 
 > [!IMPORTANT]
-> No se puede escalar la base de datos principal en un grupo de conmutación por error a un nivel superior, a menos que la base de datos secundaria en primer lugar se escala al nivel superior. Si intenta escalar la base de datos principal antes de que se escala la base de datos secundaria, puede recibir el siguiente error:
+> La base de datos principal de un grupo de conmutación por error no puede escalar a un nivel superior a menos que la base de datos secundaria se escale primero al nivel superior. Si intenta escalar la base de datos principal antes de escalar la base de datos secundaria, es posible que reciba el siguiente error:
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
@@ -132,14 +132,14 @@ Debido a la elevada latencia de las redes de área extensa, la copia continua us
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** evita la pérdida de datos después de la conmutación por error, pero no garantiza la sincronización completa para el acceso de lectura. El retraso causado por una llamada al procedimiento **sp_wait_for_database_copy_sync** puede ser considerable y depende del tamaño del registro de transacciones en el momento de la llamada.
 
-## <a name="monitoring-geo-replication-lag"></a>Supervisión de intervalo de replicación geográfica
+## <a name="monitoring-geo-replication-lag"></a>Supervisión del retardo de la replicación geográfica
 
-Para supervisar el retraso con respecto a RPO, use *replication_lag_sec* columna de [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) en la base de datos principal. Muestra retardo en segundos entre las transacciones confirmadas en el servidor principal y son persistentes en la base de datos secundaria. Por ejemplo, Si el valor del lapso de tiempo es de 1 segundo, significa que si el servidor principal se ve afectado por una interrupción en este momento y conmutación por error está iniciado, no se guardarán 1 segundo de la transtions más reciente. 
+Para supervisar el retardo con respecto a RPO, utilice la columna *replication_lag_sec* de [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) en la base de datos principal. Muestra el retardo en segundos entre las transacciones confirmadas en la base de datos principal y las que persisten en la secundaria. Por ejemplo, si el valor del retardo es de 1 segundo, significa que si la base de datos principal se ve afectada por una interrupción en este momento y se inicia la conmutación por error, no se guardará 1 segundo de las transacciones más recientes. 
 
-Para medir el retraso con respecto a los cambios en la base de datos principal que se han aplicado en la secundaria, es decir, disponible para su lectura desde la base de datos secundaria, comparar *last_commit* tiempo en la base de datos secundaria con el mismo valor en el servidor principal base de datos.
+Para medir el retardo con respecto a los cambios en la base de datos principal que se han aplicado en la base de datos secundaria, es decir, que están disponibles para su lectura desde la base de datos secundaria, compare el tiempo de *last_commit* en la base de datos secundaria con el mismo valor en la base de datos principal.
 
 > [!NOTE]
-> A veces *replication_lag_sec* en la base de datos principal tiene un valor NULL, lo que significa que la réplica principal no actualmente saber lo lejos la secundaria.   Esto suele suceder después de proceso se reinicia y debe ser una condición temporal. Considere la posibilidad de la aplicación de alertas si el *replication_lag_sec* devuelve NULL para un período prolongado de tiempo. Podría indicar que la base de datos secundaria no puede comunicarse con la principal debido a un error de conectividad permanente. También hay situaciones que podrían causar la diferencia entre *last_commit* tiempo en la base de datos secundaria y en la base de datos principal sea muy grande. Por ejemplo, Si se realiza una confirmación en el servidor principal tras un largo período de ningún cambio, la diferencia se desplazará hasta un valor grande antes de volver rápidamente a 0. Considérelo una condición de error cuando la diferencia entre estos dos valores permanece grande durante mucho tiempo.
+> A veces *replication_lag_sec* en la base de datos principal tiene un valor NULL, lo que significa que la base de datos principal no sabe actualmente lo lejos que está la secundaria.   Esto ocurre típicamente después de reiniciar el proceso y debería ser una condición temporal. Considere la posibilidad de alertar a la aplicación si *replication_lag_sec* devuelve NULL durante un período prolongado. Esto indicaría que la base de datos secundaria no puede comunicarse con la principal debido a un error de conectividad permanente. También hay condiciones que podrían hacer que la diferencia entre el tiempo de *last_commit* en la base de datos secundaria y en la base de datos principal sea mayor. Por ejemplo, si se realiza una confirmación en la base de datos principal después de un largo período sin cambios, la diferencia saltará a un valor grande antes de volver rápidamente a 0. Considéralo una condición de error cuando la diferencia entre estos dos valores permanece grande durante mucho tiempo.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Administración mediante programación de la replicación geográfica activa
@@ -166,7 +166,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de PowerShell de Azure Resource Manager es compatible aún con Azure SQL Database, pero todo el desarrollo futuro es para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo de Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |

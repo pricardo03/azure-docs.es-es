@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711040"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
@@ -58,7 +58,7 @@ Una vez que [cree su clúster de Service Fabric independiente en máquinas con W
     Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Agregar nodos a clústeres configurados con seguridad de Windows mediante gMSA
-En clústeres configurados con cuentas de servicio administradas de grupo (gMSA) (https://technet.microsoft.com/library/hh831782.aspx)), se puede agregar un nuevo nodo mediante una actualización de configuración:
+En clústeres configurados con cuentas de servicio administradas de grupo (gMSA) (https://technet.microsoft.com/library/hh831782.aspx) ), se puede agregar un nuevo nodo mediante una actualización de configuración:
 1. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en cualquiera de los nodos existentes para obtener el archivo de configuración más reciente y agregue los detalles del nodo que desea agregar en la sección "Nodes". Asegúrese de que el nuevo nodo forma parte de la misma cuenta administrada de grupo. Esta cuenta debe ser un administrador en todos los equipos.
 
     ```

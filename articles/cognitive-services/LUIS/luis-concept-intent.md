@@ -1,7 +1,7 @@
 ---
 title: Intenciones
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Un único intento representa una tarea o acción del usuario que llevar a cabo. Es una finalidad o un objetivo que se expresa en la expresión de un usuario. Defina un conjunto de intenciones que se correspondan con las acciones que los usuarios quieren realizar en la aplicación.
+description: Una intención representa una tarea o acción que el usuario quiere realizar. Es una finalidad o un objetivo que se expresa en la expresión de un usuario. Defina un conjunto de intenciones que se correspondan con las acciones que los usuarios quieren realizar en la aplicación.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813462"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Conceptos sobre intenciones en la aplicación de LUIS
@@ -31,7 +31,7 @@ Intenciones de la aplicación de viajes   |   Expresiones de ejemplo   |
  CheckWeather | "¿Qué tiempo hace en Boston?" <br/> "Muéstrame la previsión de este fin de semana" |
  None         | "Dame una receta de galletas"<br>"¿Ganaron los Lakers?" |
 
-Todas las aplicaciones que vienen con la intención predefinida, "[ninguno](#none-intent-is-fallback-for-app)", que es la intención de reserva. 
+Todas las aplicaciones vienen con la intención predefinida "[None](#none-intent-is-fallback-for-app)", que es la intención de reserva. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Los dominios creados previamente proporcionan intenciones
 Además de las intenciones que defina, puede usar intenciones creadas previamente desde uno de los dominios creados previamente. Para obtener más información, vea [Uso de dominios creados previamente en aplicaciones de LUIS](luis-how-to-use-prebuilt-domains.md) para conocer cómo personalizar las intenciones de un dominio creado previamente para usarlas en su aplicación.
@@ -59,7 +59,7 @@ Los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md) tienen i
 
 ## <a name="none-intent"></a>Intención None
 
-El **ninguno** intención es importante para todas las aplicaciones y no debe tener cero grabaciones de voz.
+La intención **None** es importante para todas las aplicaciones y no debe tener cero expresiones.
 
 ### <a name="none-intent-is-fallback-for-app"></a>La intención None es una reserva de la aplicación
 La intención **None** es una intención general o de reserva. Se usa para enseñar a LUIS expresiones que no son importantes en el dominio de la aplicación (área de asunto). La intención **None** debe tener entre un 10 y un 20 % de las expresiones totales de la aplicación. No deje la intención None vacía. 
@@ -81,11 +81,11 @@ La intención **None** es obligatoria y no se puede eliminar ni se puede cambiar
 ## <a name="negative-intentions"></a>Intenciones negativas 
 Si quiere determinar intenciones positivas y negativas, como "**Quiero** un coche" y "**No** quiero un coche", puede crear dos intenciones (una positiva y otra negativa) y agregar expresiones adecuadas para cada una. O bien, puede crear una única intención y marcar los dos términos positivos y negativos diferentes como una entidad.  
 
-## <a name="intents-and-patterns"></a>Las intenciones y patrones
+## <a name="intents-and-patterns"></a>Intenciones y patrones
 
-Si tiene declaraciones de ejemplo, que se pueden definir en parte o todo como una expresión regular, considere el uso de la [entidad de la expresión regular](luis-concept-entity-types.md#regular-expression-entity) emparejado con un [patrón](luis-concept-patterns.md). 
+Si tiene expresiones de ejemplo, que se pueden definir parcial o totalmente como una expresión regular, considere el uso de la [entidad de expresión regular](luis-concept-entity-types.md#regular-expression-entity) emparejada con un [patrón](luis-concept-patterns.md). 
 
-Con una entidad de la expresión regular, garantiza la extracción de datos para que se compara el patrón. La coincidencia de patrones garantiza que se devuelve un objeto intent exacto. 
+El uso de una entidad de expresión regular garantiza la extracción de datos para buscar la coincidencia con el patrón. La coincidencia de patrones garantiza que se devuelve una intención exacta. 
 
 ## <a name="intent-balance"></a>Equilibrio entre las intenciones
 Las intenciones del dominio de la aplicación deben tener un equilibrio entre las expresiones de cada intención. No tenga una intención con 10 expresiones y otra con 500, ya que no están equilibradas. Si se encuentra en esta situación, revise la intención con 500 expresiones para ver si muchas de ellas se pueden reorganizar en un [patrón](luis-concept-patterns.md). 

@@ -1,5 +1,5 @@
 ---
-title: Conectarse a Dynamics 365 - Azure Logic Apps
+title: 'Conectarse a Dynamics 365: Azure Logic Apps'
 description: Crear y administrar registros con las API REST de Dynamics 365 (en línea) y Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60313809"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Administración de registros de Dynamics 365 con Azure Logic Apps
@@ -122,9 +122,9 @@ En esta tabla se describen algunos tipos de campos y los tipos de datos necesari
 
 | Tipo de campo | Tipo de datos necesario | DESCRIPCIÓN | 
 |------------|--------------------|-------------|
-| Campos de texto | Línea de texto única | Estos campos requieren una sola línea de texto o de contenido dinámico que tenga el tipo de texto. <p><p>*Campos de ejemplo*: **Descripción** y **categoría** | 
-| Campos numéricos enteros | Número entero | Algunos campos requieren un número entero o un contenido dinámico que tenga el tipo numérico entero. <p><p>*Campos de ejemplo*: **Porcentaje completado** y **duración** | 
-| Campos de fecha | Fecha y hora | Algunos campos requieren una fecha con formato mm/dd/yyyy o contenido dinámico que tenga el tipo de fecha. <p><p>*Campos de ejemplo*: **Crear en**, **fecha de inicio**, **inicio real**, **finalización real**, y **fecha de vencimiento** | 
+| Campos de texto | Línea de texto única | Estos campos requieren una sola línea de texto o de contenido dinámico que tenga el tipo de texto. <p><p>*Campos de ejemplo*: **Descripción** y **Categoría** | 
+| Campos numéricos enteros | Número entero | Algunos campos requieren un número entero o un contenido dinámico que tenga el tipo numérico entero. <p><p>*Campos de ejemplo*: **Porcentaje completado** y **Duración** | 
+| Campos de fecha | Fecha y hora | Algunos campos requieren una fecha con formato mm/dd/yyyy o contenido dinámico que tenga el tipo de fecha. <p><p>*Campos de ejemplo*: **Fecha de creación**, **Fecha de inicio**, **Inicio real**, **Finalización real** y **Fecha de vencimiento** | 
 | Campos que requieren un identificador de registro y un tipo de búsqueda | Clave principal | Algunos campos que hacen referencia a otro registro de entidad requieren un identificador de registro y un tipo de búsqueda. | 
 ||||
 
@@ -187,7 +187,7 @@ Para más información sobre cómo solucionar problemas de las aplicaciones lóg
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de archivos, consulte el [página de referencia del conector](/connectors/dynamicscrmonline/).
+Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/dynamicscrmonline/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

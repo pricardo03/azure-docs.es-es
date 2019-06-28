@@ -8,10 +8,10 @@ ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
 ms.openlocfilehash: 9180c27e64f26c05e6e16007b74f9aa8a98bcfe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440308"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Administrar la conectividad y la mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
@@ -36,7 +36,7 @@ Los detalles de implementación pueden variar según el lenguaje. Para obtener m
 
 ## <a name="designing-for-resiliency"></a>Diseño para lograr resistencia
 
-A menudo, los dispositivos IoT se basan en conexiones de red no continuas o inestables, como GSM o las conexiones por satélite. Los errores suceden cuando los dispositivos interactúan con los servicios basados en la nube debido a la disponibilidad intermitente del servicio y los errores transitorios o de nivel de infraestructura. Una aplicación que se ejecuta en un dispositivo tiene que administrar los mecanismos de conexión, reconexión y la lógica de reintento para enviar y recibir mensajes. Además, los requisitos de la estrategia de reintento dependen en gran medida del escenario, el contexto y las capacidades de IoT del dispositivo.
+A menudo, los dispositivos IoT se basan en conexiones de red no continuas o inestables, como GSM o las conexiones por satélite. Los errores suceden cuando los dispositivos interactúan con los servicios basados en la nube debido a la disponibilidad intermitente del servicio y los errores transitorios o de nivel de infraestructura. Una aplicación que se ejecuta en un dispositivo debe administrar los mecanismos de conexión y reconexión, así como la lógica de reintentos para enviar o recibir mensajes. Además, los requisitos de la estrategia de reintento dependen en gran medida del escenario, el contexto y las capacidades de IoT del dispositivo.
 
 El objetivo de los SDK de los dispositivos Azure IoT Hub es simplificar la conexión y la comunicación de la nube a los dispositivos y de los dispositivos a la nube. Estos SDK proporcionan una manera sólida de conectarse a Azure IoT Hub y un conjunto completo de opciones para enviar y recibir mensajes. Los desarrolladores también pueden modificar la implementación existente para personalizar mejor la estrategia de reintento adecuada para un escenario determinado.
 
@@ -44,7 +44,7 @@ Las características pertinentes del SDK que admiten la conectividad y la mensaj
 
 ## <a name="connection-and-retry"></a>Conexión y reintento
 
-Esta sección proporciona información general de los patrones de reconexión e inténtelo de nuevo disponibles al administrar las conexiones. Además detalla la guía de implementación para usar una directiva de reintentos diferente en la aplicación del dispositivo y enumera las API relevantes de los SDK del dispositivo.
+En esta sección se proporciona información general sobre los patrones de reconexión y reintento disponibles al administrar conexiones. Además detalla la guía de implementación para usar una directiva de reintentos diferente en la aplicación del dispositivo y enumera las API relevantes de los SDK del dispositivo.
 
 ### <a name="error-patterns"></a>Patrones de error
 

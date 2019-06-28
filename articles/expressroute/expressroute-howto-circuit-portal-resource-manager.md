@@ -9,10 +9,10 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366552"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
@@ -56,7 +56,7 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
    * **Medición de datos** determina el tipo de facturación. Puede especificar **Metered** (Limitado) para un plan de datos limitado y **Unlimited** (Ilimitado) para un plan de datos ilimitado. Tenga en cuenta que puede cambiar el tipo de facturación de **Uso medido** a **Sin límite**.
 
      > [!IMPORTANT]
-     > No se puede cambiar el tipo de **Unlimited** a **Metered**.
+     > No se puede cambiar el tipo de **Sin límite** a **Uso medido**.
 
    * La **ubicación de emparejamiento** es la ubicación física de emparejamiento con Microsoft.
 
@@ -84,19 +84,19 @@ En esta página, en **Estado de proveedor** se ofrece información sobre el esta
 Cuando se crea un nuevo circuito ExpressRoute, dicho circuito tiene el siguiente estado:
 
 Estado de proveedor: No aprovisionado<BR>
-Estado de circuito: Enabled
+Estado de circuito: habilitado
 
 ![Inicio del proceso de aprovisionamiento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 El circuito pasa al estado siguiente cuando el proveedor de conectividad se encuentra en el proceso de habilitarlo:
 
 Estado de proveedor: Aprovisionamiento<BR>
-Estado de circuito: Enabled
+Estado de circuito: habilitado
 
 Para poder usar un circuito ExpressRoute, dicho circuito tiene que estar en el siguiente estado.
 
 Estado de proveedor: aprovisionado<BR>
-Estado de circuito: Enabled
+Estado de circuito: habilitado
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Comprobación periódica del estado y la condición de la clave del circuito
 

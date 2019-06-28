@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813428"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Administración de Azure Data Lake Analytics mediante directivas
@@ -68,8 +68,8 @@ Con las directivas de nivel de trabajo, puede controlar las unidades de análisi
 
 Data Lake Analytics tiene dos directivas que se pueden establecer en el nivel de trabajo:
 
-* **Límite de AU por trabajo**: Los usuarios solo pueden enviar trabajos que tengan hasta este número de au. De forma predeterminada, este límite es el mismo que el límite máximo de unidades de análisis de la cuenta.
-* **Prioridad**: Los usuarios solo pueden enviar trabajos que tienen una prioridad menor que o igual a este valor. Un número más alto indica una prioridad más baja. De forma predeterminada, este límite se establece en 1, que es la prioridad más alta posible.
+* **Límite de AU por trabajo**: los usuarios solo pueden enviar trabajos que tengan como máximo este número de unidades de análisis. De forma predeterminada, este límite es el mismo que el límite máximo de unidades de análisis de la cuenta.
+* **Prioridad**: los usuarios solo pueden enviar trabajos con una prioridad inferior o igual a este valor. Un número más alto indica una prioridad más baja. De forma predeterminada, este límite se establece en 1, que es la prioridad más alta posible.
 
 Hay una directiva predeterminada establecida en cada cuenta. La directiva predeterminada se aplica a todos los usuarios de la cuenta. Puede establecer directivas adicionales para usuarios y grupos concretos. 
 
@@ -82,10 +82,10 @@ Hay una directiva predeterminada establecida en cada cuenta. La directiva predet
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
 2. Haga clic en **Propiedades**.
 3. En **Límites del envío de trabajos**, haga clic en el botón **Agregar directiva**. Luego, seleccione o escriba los siguientes valores:
-    1. **Nombre de la directiva de proceso**: Escriba un nombre de directiva, para recordarle acerca de la finalidad de la directiva.
-    2. **Seleccionar usuario o grupo**: Seleccione el usuario o grupo que se aplica esta directiva.
-    3. **Establecer el límite de AU del trabajo**: Establecer el límite de AU que se aplica para el usuario o grupo seleccionado.
-    4. **Establecer el límite de prioridad**: Establecer el límite de prioridad que se aplica para el usuario o grupo seleccionado.
+    1. **Compute Policy Name** (Nombre de la directiva de cálculo): escriba un nombre de directiva que le recuerde su propósito.
+    2. **Select User or Group** (Seleccionar usuario o grupo): seleccione el usuario o el grupo a los que se aplica esta directiva.
+    3. **Set the Job AU Limit** (Establecer el límite de AU del trabajo): establezca el límite de unidades de análisis que se aplica al usuario o al grupo seleccionados.
+    4. **Set the Priority Limit** (Establecer el límite de prioridad): establezca el límite de prioridad que se aplica al usuario o al grupo seleccionados.
 
 4. Haga clic en **Aceptar**.
 

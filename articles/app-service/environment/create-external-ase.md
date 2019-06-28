@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769111"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment
@@ -26,7 +26,7 @@ ms.locfileid: "60769111"
 Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet).
 
 > [!NOTE]
-> Cada entorno de App Service tiene una IP Virtual (VIP), que puede usarse para ponerse en contacto con el entorno de App Service.
+> Cada instancia de App Service Environment tiene una IP virtual (VIP) que puede usarse para ponerse en contacto con App Service Environment.
 
 Hay dos maneras de implementar una instancia de App Service Environment (ASE):
 
@@ -39,7 +39,7 @@ En este artículo se muestra cómo crear un ASE externo. Para obtener informaci�
 
 Después de crear la instancia de ASE, no puede cambiar los siguientes parámetros:
 
-- Location
+- Ubicación
 - Subscription
 - Grupos de recursos
 - Red virtual usada
@@ -92,7 +92,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 9. Especifique los detalles de redes virtuales de Azure. Seleccione **Crear nuevo** o **Seleccionar existente**. La opción para seleccionar una red virtual existente está disponible solo si tiene una red virtual en la región seleccionada. Si selecciona **Crear nuevo**, escriba un nombre para la red virtual. Se crea una red virtual de Resource Manager con dicho nombre. Utiliza el espacio de direcciones `192.168.250.0/23` en la región seleccionada. Si selecciona **Seleccionar existente**, tiene que:
 
-     a. Seleccionar el bloque de direcciones de red virtual si tiene más de uno.
+    a. Seleccionar el bloque de direcciones de red virtual si tiene más de uno.
 
     b. Escribir un nuevo nombre de subred.
 
@@ -128,7 +128,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 1. Especifique los detalles de redes virtuales de Azure. Seleccione **Crear nuevo** o **Seleccionar existente**. La opción para seleccionar una red virtual existente está disponible solo si tiene una red virtual en la región seleccionada. Si selecciona **Crear nuevo**, escriba un nombre para la red virtual. Se crea una red virtual de Resource Manager con dicho nombre. Utiliza el espacio de direcciones `192.168.250.0/23` en la región seleccionada. Si selecciona **Seleccionar existente**, tiene que:
 
-     a. Seleccionar el bloque de direcciones de red virtual si tiene más de uno.
+    a. Seleccionar el bloque de direcciones de red virtual si tiene más de uno.
 
     b. Escribir un nuevo nombre de subred.
 

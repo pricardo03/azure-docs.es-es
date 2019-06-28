@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8ddb5d0566c57dd1d507d543ac53c0975a83dd43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723574"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
@@ -36,7 +36,7 @@ La configuración global de los servicios de confianza se especifica en el manif
 | SharedLogPath |Nombre de ruta de acceso completo |"" |Especifica la ruta de acceso completa donde se encuentra el archivo de registro compartido que usan todos los servicios de confianza en todos los nodos del clúster que no especifican SharedLogPath en su configuración específica del servicio. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica el número de MB de espacio en disco que se va a asignar estáticamente para el registro compartido. El valor deber ser 2048 o superior. |
 
-En ARM de Azure o una plantilla JSON de forma local, en el ejemplo siguiente se muestra cómo cambiar el registro de transacciones compartido que se crea para realizar una copia de cualquier colección confiable de servicios con estado.
+En una plantilla de JSON o Azure ARM local, en el ejemplo siguiente se muestra cómo cambiar el registro de transacciones compartido que se crea para realizar copias de cualquier colección confiable de servicios con estado.
 
     "fabricSettings": [{
         "name": "KtlLogger",

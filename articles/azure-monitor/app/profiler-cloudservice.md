@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306383"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Generación de perfiles de Azure Cloud Services con Application Insights
@@ -33,7 +33,7 @@ Application Insights Profiler se instala con la extensión de Azure Diagnostics.
 
 1. Agregue el [SDK de Application Insights a Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-    **Se ha corregido el error en el generador de perfiles que se incluye en el WAD para servicios en la nube.** La versión más reciente de WAD (1.12.2.0) para servicios en la nube funciona con todas las versiones recientes del SDK de App Insights. Hosts de servicio en la nube actualizarán automáticamente en WAD, pero no es inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
+    **Se ha corregido el error en el generador de perfiles que se incluye con WAD para Cloud Services.** La versión más reciente de WAD (1.12.2.0) para Cloud Services funciona con todas las versiones recientes del SDK de App Insights. Los hosts de Cloud Services actualizarán WAD automáticamente, pero no es algo inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
 
 1. Realice un seguimiento de las solicitudes con Application Insights:
 
@@ -41,9 +41,9 @@ Application Insights Profiler se instala con la extensión de Azure Diagnostics.
 
     * Para los roles de trabajo, [agregue código para realizar el seguimiento de solicitudes](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-1. Configurar la extensión de diagnósticos de Azure para habilitar a Profiler:
+1. Configure la extensión de Azure Diagnostics para habilitar Profiler:
 
-     a. Busque el archivo *diagnostics.wadcfgx* de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) correspondiente a su rol de aplicación, como se muestra aquí:  
+    a. Busque el archivo *diagnostics.wadcfgx* de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) correspondiente a su rol de aplicación, como se muestra aquí:  
 
       ![Ubicación del archivo de configuración de diagnósticos](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
 ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550541"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exportación del modelo para su uso con dispositivos móviles
@@ -69,10 +69,10 @@ Para exportar el modelo después de volver a entrenarlo, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Integrar el modelo exportado en una aplicación a través de uno de los siguientes artículos o ejemplos:
+Explore uno de los siguientes artículos o ejemplos para integrar el modelo exportado en una aplicación:
 
-* [Usar el modelo de Tensorflow con Python](export-model-python.md)
-* [Usar el modelo ONNX con Machine Learning de Windows](custom-vision-onnx-windows-ml.md)
-* Vea el ejemplo de [CoreML modelo en una aplicación de iOS](https://go.microsoft.com/fwlink/?linkid=857726) para la clasificación de imágenes en tiempo real con Swift.
-* Vea el ejemplo de [modelo de Tensorflow en una aplicación de Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) para la clasificación de imágenes en tiempo real en Android.
-* Vea el ejemplo de [modelos CoreML con Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) para la clasificación de imágenes en tiempo real en una aplicación Xamarin iOS.
+* [Uso del modelo Tensorflow con Python](export-model-python.md)
+* [Uso del modelo ONNX con Machine Learning de Windows](custom-vision-onnx-windows-ml.md)
+* Consulte el ejemplo del [modelo CoreML en una aplicación de iOS](https://go.microsoft.com/fwlink/?linkid=857726) para la clasificación de imágenes en tiempo real con Swift
+* Consulte el ejemplo del [modelo Tensorflow en una aplicación de Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) para la clasificación de imágenes en tiempo real en Android.
+* Consulte el ejemplo del [modelo CoreML con Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) para la clasificación de imágenes en tiempo real en una aplicación Xamarin iOS.

@@ -1,6 +1,6 @@
 ---
-title: Arquitectura de conectividad de una instancia administrada de Azure SQL Database | Microsoft Docs
-description: Obtenga información sobre la comunicación de instancia administrada de Azure SQL Database y la arquitectura de conectividad también cómo los componentes de dirigir el tráfico a la instancia administrada.
+title: Arquitectura de conectividad para una instancia administrada en Azure SQL Database | Microsoft Docs
+description: Aprenda sobre la arquitectura de comunicación y conectividad de las instancias administradas de Azure SQL Database, y cómo los componentes dirigen el tráfico a la instancia administrada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -13,91 +13,91 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522335"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad para una instancia administrada en Azure SQL Database
 
-En este artículo se explica la comunicación en una instancia administrada de Azure SQL Database. También describe la arquitectura de conectividad y cómo los componentes de dirigir el tráfico a la instancia administrada.  
+En este artículo se explica la comunicación en una instancia administrada de Azure SQL Database. También se describe la arquitectura de conectividad y cómo los componentes dirigen el tráfico a la instancia administrada.  
 
-La instancia administrada de SQL Database se coloca dentro de la red virtual de Azure y la subred que está dedicada a las instancias administradas. Esta implementación proporciona:
+La instancia administrada de Azure SQL Database se coloca dentro de la red virtual de Azure y la subred dedicada a las instancias administradas. Esta implementación proporciona:
 
 - Una dirección IP privada segura.
-- La capacidad de conectar una red local a una instancia administrada.
-- La capacidad para conectarse a una instancia administrada en un servidor vinculado o en otro almacén de datos en local.
-- La capacidad para conectarse a una instancia administrada a los recursos de Azure.
+- La posibilidad de conectar una red local a una instancia administrada.
+- La posibilidad de conectar una instancia administrada a un servidor vinculado o a otro almacén de datos local.
+- La posibilidad de conectar una instancia administrada a recursos de Azure.
 
 ## <a name="communication-overview"></a>Información general sobre la comunicación
 
-El siguiente diagrama muestra las entidades que se conectan a una instancia administrada. También muestra los recursos que necesitan para comunicarse con la instancia administrada. El proceso de comunicación en la parte inferior del diagrama representa las aplicaciones cliente y herramientas que se conectan a la instancia administrada como orígenes de datos.  
+En el siguiente diagrama se muestran las entidades que se conectan a una instancia administrada. También se muestran los recursos que deben comunicarse con la instancia administrada. El proceso de comunicación de la parte inferior del diagrama representa las aplicaciones y las herramientas de clientes que se conectan a la instancia administrada como orígenes de datos.  
 
 ![Entidades de la arquitectura de conectividad](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-Una instancia administrada es una plataforma como servicio (PaaS). Microsoft usa a automatizadas agents (administración, implementación y mantenimiento) para administrar este servicio basado en secuencias de datos de telemetría. Dado que Microsoft es responsable de administración, los clientes no pueden acceder a las máquinas virtuales del clúster de instancia administrada a través del protocolo de escritorio remoto (RDP).
+Una instancia administrada es una oferta de plataforma como servicio (PaaS). Microsoft emplea agentes automatizados (administración, implementación y mantenimiento) para administrar este servicio según flujos de datos de telemetría. Dado que Microsoft es responsable de administración, los clientes no pueden acceder a las máquinas de clúster virtuales de instancia administrada mediante el Protocolo de escritorio remoto (RDP).
 
-Algunas operaciones a los usuarios finales o las aplicaciones pueden necesitar de SQL Server administra las instancias para interactuar con la plataforma. Un caso es la creación de una base de datos de instancia administrada. Este recurso se expone a través de la API de REST, PowerShell, CLI de Azure y Azure portal.
+Algunas operaciones de SQL Server iniciadas por los usuarios finales o las aplicaciones podrían requerir que las instancias administradas interactuaran con la plataforma. Un caso es la creación de una base de datos de instancia administrada. Este recurso se expone mediante Azure Portal, PowerShell, la CLI de Azure y la API REST.
 
-Las instancias administradas dependen de los servicios de Azure como Azure Storage para copias de seguridad, Azure Event Hubs para la telemetría, Azure Active Directory para la autenticación, Azure Key Vault para el cifrado de datos transparente (TDE) y un par de servicios de plataforma de Azure que proporcionan características de seguridad y compatibilidad. Las instancias administradas realiza las conexiones a estos servicios.
+Las instancias administradas dependen de servicios de Azure como Azure Storage para copias de seguridad, Azure Event Hubs para telemetría, Azure Active Directory para autenticación, Azure Key Vault para el Cifrado de datos transparente (TDE) y un par de servicios de plataforma de Azure que proporcionan características de seguridad y compatibilidad. Las instancias administradas crean conexiones a estos servicios.
 
-Todas las comunicaciones se cifran y firman utilizando certificados. Para comprobar la confiabilidad de comunicación partes, administra las instancias constantemente comprobación estos certificados a través de listas de revocación de certificados. Si se revocan los certificados, la instancia administrada cierra la conexión para proteger los datos.
+Todas las comunicaciones se cifran y firman mediante certificados. Para comprobar la confiabilidad de las partes en comunicación, las instancias administradas comprueban constantemente estos certificados mediante listas de revocación de certificados. En caso de revocación de los certificados, la instancia administrada cierra la conexión para proteger los datos.
 
 ## <a name="high-level-connectivity-architecture"></a>Arquitectura de conectividad de alto nivel
 
-En un nivel alto, una instancia administrada es un conjunto de componentes del servicio. Estos componentes se hospedan en un conjunto dedicado de máquinas virtuales aisladas que se ejecutan dentro de la subred de red virtual del cliente. Estas máquinas forman un clúster virtual.
+A nivel general, una instancia administrada es un conjunto de componentes del servicio. Estos componentes se hospedan en un conjunto dedicado de máquinas virtuales aisladas que se ejecutan dentro de la subred de red virtual del cliente. Estas máquinas forman un clúster virtual.
 
-Un clúster virtual puede hospedar varias instancias administradas. Si es necesario, el clúster automáticamente expande o contrae cuando el cliente cambia el número de instancias aprovisionados en la subred.
+Un clúster virtual puede hospedar varias instancias administradas. El clúster se expande y contrae automáticamente si es necesario cuando el cliente cambia el número de instancias aprovisionadas en la subred.
 
-Las aplicaciones cliente pueden conectarse a las instancias administradas y pueden consultar y actualizar las bases de datos dentro de la red virtual, red virtual emparejada, o redes conectadas mediante VPN o ExpressRoute de Azure. Esta red debe usar un punto de conexión y una dirección IP privada.  
+Las aplicaciones de los clientes pueden conectarse a instancias administradas y pueden consultar y actualizar las bases de datos dentro de la red virtual, la red virtual emparejada o la red conectada mediante VPN o Azure ExpressRoute. Esta red debe usar un punto de conexión y una dirección IP privada.  
 
-![Diagrama de arquitectura de conectividad](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
+![Diagrama de la arquitectura de conectividad](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Servicios de implementación y administración de Microsoft que se ejecutan fuera de la red virtual. Una instancia administrada y servicios de Microsoft conectan a través de los puntos de conexión que tienen direcciones IP públicas. Cuando una instancia administrada crea una conexión de salida, en el extremo receptor realiza traducción de direcciones de red (NAT) el aspecto de conexión procede de esta dirección IP pública.
+Los servicios de implementación y administración de Microsoft se ejecutan fuera de la red virtual. Las instancias administradas y los servicios de Microsoft se conectan a través de los puntos de conexión que tienen direcciones IP públicas. Cuando una instancia administrada crea una conexión de salida, en el extremo receptor parece que procede de esta dirección IP pública debido a la traducción de direcciones de red (NAT).
 
-Tráfico de administración fluye a través de la red virtual del cliente. Esto significa que los elementos de la infraestructura de la red virtual pueden dañar el tráfico de administración mediante la realización de la instancia de un error y dejan de estar disponibles.
+El tráfico de administración fluye a través de la red virtual del cliente. Esto significa que los elementos de la infraestructura de la red virtual pueden dañar el tráfico de administración al provocar que la instancia genere un error y deje de estar disponible.
 
 > [!IMPORTANT]
-> Para mejorar la experiencia del cliente y la disponibilidad del servicio, Microsoft aplica una directiva de red intención en elementos de la infraestructura de red virtual de Azure. La directiva puede afectar al funcionamiento de la instancia administrada. Este mecanismo de plataforma transparente comunica los requisitos de red a los usuarios. Objetivo principal de la directiva es para evitar errores de configuración de red y para garantizar un funcionamiento normal de instancia administrada. Cuando se elimina una instancia administrada, también se quita la directiva de intención de la red.
+> Para mejorar la experiencia del cliente y la disponibilidad del servicio, Microsoft aplica una directiva de intención de red a los elementos de la infraestructura de Azure Virtual Network. La directiva puede afectar al modo en que funciona la instancia administrada. Este mecanismo de plataforma comunica de forma transparente los requisitos de red a los usuarios. El objetivo principal de la directiva es evitar errores de configuración de red y garantizar el funcionamiento normal de las instancias administradas. Cuando se elimina una instancia administrada, también se quita la directiva de intención de red.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Arquitectura de conectividad del clúster virtual
 
-Vamos a profundizar más en la arquitectura de conectividad para las instancias administradas. En el siguiente diagrama se muestra el diseño conceptual del clúster virtual.
+Vamos a profundizar más en la arquitectura de conectividad de la Instancia administrada. En el siguiente diagrama se muestra el diseño conceptual del clúster virtual.
 
 ![Arquitectura de conectividad del clúster virtual](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Los clientes se conectan a una instancia administrada mediante el uso de un nombre de host que tiene el formato `<mi_name>.<dns_zone>.database.windows.net`. Este nombre de host se resuelve en una dirección IP privada aunque se registra en una zona de sistema de nombres de dominio (DNS) de dominio público y es que pueda resolverse públicamente. El `zone-id` se genera automáticamente al crear el clúster. Si un clúster recién creado hospeda una instancia administrada secundaria, comparte su Id. de zona con el clúster principal. Para obtener más información, consulte [usar grupos de conmutación por error automática para permitir una recuperación de varias bases de datos transparente y coordinada](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Los clientes se conectan a una instancia administrada mediante un nombre de host que tiene el formato `<mi_name>.<dns_zone>.database.windows.net`. Este nombre de host se resuelve en una dirección IP privada aunque se registra en la zona DNS (Sistema de nombres de dominio) pública y puede resolverse públicamente. `zone-id` se genera automáticamente al crear el clúster. Si un clúster recién creado hospeda una instancia administrada secundaria, comparte su identificador de zona con el clúster principal. Para más información, consulte [Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Esta dirección IP privada pertenece al equilibrador de carga interno de la instancia administrada. El equilibrador de carga dirige el tráfico a la puerta de enlace de la instancia administrada. Ya pueden ejecutar varias instancias administradas dentro del mismo clúster, la puerta de enlace usa el nombre de host de la instancia administrada para redirigir el tráfico al servicio de motor SQL correcto.
+Esta dirección IP privada pertenece al equilibrador de carga interno de la instancia administrada. El equilibrador de carga dirige el tráfico a la puerta de enlace de la instancia administrada. Como se pueden ejecutar varias instancias administradas dentro del mismo clúster, la puerta de enlace usa el nombre de host de la instancia administrada para dirigir el tráfico al servicio correcto del motor de SQL.
 
-Servicios de implementación y administración de conexión a una instancia administrada mediante un [extremo de administración](#management-endpoint) que se asigna a una referencia externa del equilibrador de carga. Tráfico se enruta a los nodos solo si se hubiera recibido en un conjunto predefinido de puertos que utilizan sólo los componentes de administración de la instancia administrada. Un firewall integrado en los nodos está configurado para permitir el tráfico solo desde los intervalos IP de Microsoft. Todas las comunicaciones entre los componentes de administración y el plano de administración autentican mutuamente con certificados.
+Los servicios de administración e implementación se conectan a una instancia administrada mediante un [punto de conexión de administración](#management-endpoint) que se asigna a un equilibrador de carga externo. El tráfico se enruta a los nodos solo si se recibe en un conjunto predefinido de puertos que usan exclusivamente los componentes de administración de la instancia administrada. Un firewall integrado en los nodos se configura para permitir el tráfico solo desde intervalos IP de Microsoft. Los certificados autentican mutuamente toda la comunicación entre los componentes de administración y el plano de administración.
 
 ## <a name="management-endpoint"></a>Administración de puntos de conexión
 
-Microsoft administra la instancia administrada mediante el uso de un extremo de administración. Este punto de conexión está dentro del clúster virtual de la instancia. El extremo de administración está protegido por un firewall integrado en el nivel de red. En el nivel de aplicación, está protegido mediante la comprobación del certificado mutuo. Para buscar la dirección IP del punto de conexión, consulte [determinar la dirección IP de la administración del punto de conexión](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Microsoft administra la instancia administrada mediante un punto de conexión de administración. Este punto de conexión está dentro del clúster virtual de la instancia. El punto de conexión de administración está protegido por un firewall integrado en el nivel de red. En el nivel de aplicación, está protegido por la comprobación mutua del certificado. Para buscar la dirección IP del punto de conexión, consulte [Determinación de la dirección IP del punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Al iniciar las conexiones dentro de la instancia administrada (como ocurre con las copias de seguridad y los registros de auditoría), el tráfico aparece iniciar desde la dirección IP pública de la administración del punto de conexión. Puede limitar el acceso a servicios públicos desde una instancia administrada mediante el establecimiento de reglas de firewall para permitir solo la dirección IP de la instancia administrada. Para obtener más información, consulte [Compruebe firewall integrado de la instancia administrada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Cuando la conexión se inicia dentro de la instancia administrada (como ocurre con las copias de seguridad y los registros de auditoría), el tráfico parece iniciarse desde la dirección IP pública del punto de conexión de administración. Se puede limitar el acceso a los servicios públicos desde una instancia administrada mediante el establecimiento de reglas de firewall que permitan únicamente la dirección IP de la instancia administrada. Para más información, consulte [Comprobación del firewall integrado de la instancia administrada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Se optimiza el tráfico que se dirige a los servicios de Azure que están dentro de la región de la instancia administrada y por ese motivo no con NAT para administra dirección IP pública de punto de conexión de administración de instancia. Por ese motivo si necesita usar reglas de firewall basado en IP, con más frecuencia para el almacenamiento, servicios deben estar en una región distinta de la instancia administrada.
+> El tráfico que se dirige a los servicios de Azure que están dentro de la región de la instancia administrada se optimiza y, por ese motivo, no se dirige mediante NAT a la dirección IP pública del punto de conexión de la instancia administrada. Así que si necesita usar reglas de firewall basadas en IP, mayormente para el almacenamiento, el servicio debe estar en una región distinta de la de la instancia administrada.
 
 ## <a name="network-requirements"></a>Requisitos de red
 
-Implementar una instancia administrada en una subred dentro de la red virtual dedicada. La subred debe tener estas características:
+Implemente una instancia administrada en una subred dedicada dentro de la red virtual. La subred debe tener estas características:
 
-- **Subred dedicada:** Subred de la instancia administrada no puede contener cualquier otro servicio en la nube que está asociado con él, y no puede ser una subred de puerta de enlace. La subred no puede contener cualquier recurso, pero la instancia administrada y versiones posteriores no se puede agregar otros tipos de recursos en la subred.
-- **Grupo de seguridad de red (NSG):** Debe definir un NSG asociado a la red virtual [reglas de seguridad de entrada](#mandatory-inbound-security-rules) y [reglas de seguridad de salida](#mandatory-outbound-security-rules) antes de cualquier otra regla. Puede usar un NSG para controlar el acceso al punto de conexión de datos de la instancia administrada filtrando el tráfico en el puerto 1433 y puertos 11000 a 11999 cuando la instancia administrada está configurada para redirección las conexiones.
-- **Tabla de usuario (UDR) de ruta definida por:** Una tabla UDR que está asociado con la red virtual debe incluir específico [entradas](#user-defined-routes).
-- **Ningún punto de conexión de servicio:** Ningún extremo de servicio se debe asociar con la subred de la instancia administrada. Asegúrese de que la opción de puntos de conexión de servicio está deshabilitada cuando se crea la red virtual.
-- **Suficientes direcciones IP:** La subred de instancia administrada debe tener al menos 16 direcciones IP. El mínimo recomendado es 32 direcciones IP. Para obtener más información, consulte [determinar el tamaño de la subred para instancias administradas](sql-database-managed-instance-determine-size-vnet-subnet.md). Puede implementar las instancias administradas en [la red existente](sql-database-managed-instance-configure-vnet-subnet.md) después de configurarlo para satisfacer [los requisitos de red para las instancias administradas](#network-requirements). De lo contrario, cree un [red y subred nuevas](sql-database-managed-instance-create-vnet-subnet.md).
+- **Subred dedicada:** la subred de la instancia administrada no puede contener ningún otro servicio en la nube asociado a ella y no puede ser una subred de puerta de enlace. La subred no puede contener ningún recurso, a excepción de la instancia administrada, y no se pueden agregar posteriormente otros tipos de recursos en la subred.
+- **Grupo de seguridad de red (NSG):** Un NSG que esté asociado a la red virtual debe definir [reglas de seguridad de entrada](#mandatory-inbound-security-rules) y [reglas de seguridad de salida](#mandatory-outbound-security-rules) antes que cualquier otras reglas. Puede usar un NSG para controlar el acceso al punto de conexión de datos de la instancia administrada mediante el filtrado del tráfico en el puerto 1433 y en los puertos 11000 a 11999 cuando la instancia administrada está configurada para conexiones de redirección.
+- **Tabla de rutas definida por el usuario (UDR):** una tabla UDR que esté asociada a la red virtual debe incluir [entradas](#user-defined-routes) específicas.
+- **Sin puntos de conexión de servicio:** ningún punto de conexión de servicio debe estar asociado con la subred de la instancia administrada. Asegúrese de que la opción de puntos de conexión de servicio esté deshabilitada al crear la red virtual.
+- **Suficientes direcciones IP:** la subred de la instancia administrada debe tener al menos 16 direcciones IP. El mínimo recomendado es 32 direcciones IP. Para más información, consulte [Determinación del tamaño de subred para instancias administradas](sql-database-managed-instance-determine-size-vnet-subnet.md). Puede implementar instancias administradas en [la red existente](sql-database-managed-instance-configure-vnet-subnet.md) después de configurarla para satisfacer [los requisitos de red de las instancias administradas](#network-requirements). De lo contrario, cree [una red y una subred](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> No se puede implementar una nueva instancia administrada si la subred de destino no tiene estas características. Cuando se crea una instancia administrada, se aplica una directiva de intención de red en la subred para evitar cambios no compatibles en el programa de instalación de red. Después de quita la última instancia de la subred, también se quita la directiva de intención de la red.
+> No se puede implementar una nueva instancia administrada si la subred de destino no tiene estas características. Cuando se crea una instancia administrada, se aplica una directiva de intención de red en la subred para evitar cambios no compatibles con la configuración de red. Después de quitar la última instancia de la subred, también se quitará la directiva de intención de red.
 
 ### <a name="mandatory-inbound-security-rules"></a>Reglas de seguridad de entrada obligatorias
 
-| NOMBRE       |Port                        |Protocol|Origen           |Destino|.|
+| NOMBRE       |Port                        |Protocolo|Origen           |Destino|.|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Cualquiera              |MI SUBNET  |PERMITIR |
 |mi_subnet   |Cualquiera                         |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
@@ -105,20 +105,20 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 ### <a name="mandatory-outbound-security-rules"></a>Reglas de seguridad de salida obligatorias
 
-| NOMBRE       |Port          |Protocol|Origen           |Destino|.|
+| NOMBRE       |Port          |Protocolo|Origen           |Destino|.|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |PERMITIR |
 |mi_subnet   |Cualquiera           |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
 
 > [!IMPORTANT]
-> Asegúrese de que hay solo una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida de los puertos 80, 443, 12000. Administra el aprovisionamiento de la instancia a través de Azure Resource Manager implementaciones se producirá un error si las reglas entrantes y salientes se configuran por separado para cada puerto. Si estos puertos están siendo reglas independientes, se producirá un error en la implementación con código de error `VnetSubnetConflictWithIntendedPolicy`
+> Asegúrese de solo haya una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida para los puertos 80, 443, 12000. El aprovisionamiento de instancias administradas mediante implementaciones de Azure Resource Manager producirá un error si las reglas de entrada y salida están configuradas por separado para cada puerto. Si estos puertos están en reglas distintas, la implementación generará el código de error `VnetSubnetConflictWithIntendedPolicy`
 
-\* MI subred hace referencia al intervalo de direcciones IP para la subred en el formulario de 10.x.x.x/y. Puede encontrar esta información en el portal de Azure, en Propiedades de la subred.
+\* MI SUBNET se refiere al intervalo de direcciones IP de la subred con el formato 10.x.x.x/y. Puede encontrar esta información en Portal de Azure, en las propiedades de subred.
 
 > [!IMPORTANT]
-> Aunque las reglas de seguridad de entrada necesario permiten el tráfico desde _cualquier_ de código fuente en los puertos 9000, 9003, 1438, 1440 y 1452, estos puertos están protegidos por un firewall integrado. Para obtener más información, consulte [determinar la dirección del punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> Aunque las reglas de seguridad de entrada obligatorias permiten el tráfico desde _cualquier_ origen en los puertos 9000, 9003, 1438, 1440 y 1452, estos puertos están protegidos por un firewall integrado. Para más información, consulte [Determinación de la dirección del punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 > [!NOTE]
-> Si utiliza la replicación transaccional en una instancia administrada y usar cualquier instancia de la base de datos como un publicador o un distribuidor, abra el puerto 445 (salida TCP) en las reglas de seguridad de la subred. Este puerto permitirá el acceso al recurso compartido de archivos de Azure.
+> Si usa replicación transaccional en una instancia administrada y si utiliza cualquier base de datos de instancias como publicador o distribuidor, abra el puerto 445 (salida TCP) en las reglas de seguridad de la subred. Este puerto permitirá el acceso al recurso compartido de archivos de Azure.
 
 ### <a name="user-defined-routes"></a>rutas definidas por el usuario
 
@@ -226,17 +226,17 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
-Además, puede agregar entradas a la tabla de enrutamiento para enrutar el tráfico que tiene intervalos de IP privadas de forma local como un destino a través de la puerta de enlace de red virtual o un dispositivo de red virtual (NVA).
+Además, puede agregar entradas a la tabla de rutas para enrutar el tráfico que tiene intervalos IP privados locales como destino a través de una puerta de enlace de red virtual o de un dispositivo de red virtual (NVA).
 
-Si la red virtual incluye un DNS personalizado, el servidor DNS personalizado debe ser capaz de resolver los nombres de host en \*. core.windows.net zona. Uso de características adicionales como autenticación de Azure AD puede requerir resolver FQDN adicionales. Para obtener más información, consulte [configurar un DNS personalizado](sql-database-managed-instance-custom-dns.md).
+Si la red virtual incluye un DNS personalizado, el servidor DNS personalizado debe ser capaz de resolver los nombres de host en la zona \*. core.windows.net. El uso de características adicionales, como la autenticación de Azure AD, puede requerir resolver FQDN adicionales. Para más información, consulte [Configuración de un DNS personalizado ](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general, consulte [avanzadas de seguridad de los datos de SQL Database](sql-database-managed-instance.md).
-- Obtenga información sobre cómo [configurar una nueva red virtual Azure](sql-database-managed-instance-create-vnet-subnet.md) o un [red virtual de Azure existente](sql-database-managed-instance-configure-vnet-subnet.md) donde puede implementar las instancias administradas.
-- [Calcular el tamaño de la subred](sql-database-managed-instance-determine-size-vnet-subnet.md) donde desea implementar las instancias administradas.
-- Obtenga información sobre cómo crear una instancia administrada:
+- Para información general, consulte [Seguridad de datos avanzada de SQL Database](sql-database-managed-instance.md).
+- Aprenda a [configurar una nueva red virtual Azure](sql-database-managed-instance-create-vnet-subnet.md) o una [red virtual de Azure existente](sql-database-managed-instance-configure-vnet-subnet.md) donde pueda implementar instancias administradas.
+- [Calcule el tamaño de la subred](sql-database-managed-instance-determine-size-vnet-subnet.md) donde quiere implementar las instancias administradas.
+- Aprenda a crear una instancia administrada:
   - Desde [Azure Portal](sql-database-managed-instance-get-started.md).
-  - Mediante el uso de [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
-  - Mediante el uso de [una plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Mediante el uso de [una plantilla de Azure Resource Manager (con el JumpBox, con SSMS incluidos)](https://portal.azure.com/). 
+  - Mediante [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
+  - Mediante [una plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+  - Mediante [una plantilla de Azure Resource Manager (JumpBox con SSMS incluido)](https://portal.azure.com/). 

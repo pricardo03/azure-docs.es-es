@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883103"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obtención de tablas ARP en el modelo de implementación clásica
@@ -54,7 +54,7 @@ En la siguiente sección se proporciona información sobre cómo puede ver las t
 Asegúrese de que tiene lo siguiente antes de continuar:
 
 * Un circuito ExpressRoute válido configurado con al menos un emparejamiento. El circuito debe estar completamente configurado por el proveedor de conectividad. Usted (o su proveedor de conectividad) debe configurar al menos uno de los emparejamientos (privado de Azure, público de Azure o Microsoft) en este circuito.
-* Intervalos de direcciones IP que se usan para configurar los emparejamientos (privado de Azure, público de Azure y Microsoft). Revise los ejemplos de asignación de dirección IP en el [página de requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para comprender cómo se asignan direcciones IP a interfaces en su sitio y en el sitio de ExpressRoute. Puede obtener información sobre la configuración de emparejamiento en la página [Creación y modificación del enrutamiento de un circuito ExpressRoute](expressroute-howto-routing-classic.md).
+* Intervalos de direcciones IP que se usan para configurar los emparejamientos (privado de Azure, público de Azure y Microsoft). Revise los ejemplos de asignación de dirección IP en [Requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para comprender cómo se asignan las direcciones IP a las interfaces en su sitio y en el sitio de ExpressRoute. Puede obtener información sobre la configuración de emparejamiento en la página [Creación y modificación del enrutamiento de un circuito ExpressRoute](expressroute-howto-routing-classic.md).
 * Información del equipo de red o del proveedor de conectividad sobre las direcciones MAC de las interfaces que se usan con estas direcciones IP.
 * El módulo más reciente de Windows PowerShell para Azure (versión 1.50 o superior).
 

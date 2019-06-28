@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775124"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceptos de seguridad del servicio Azure IoT Hub Device Provisioning 
@@ -79,7 +79,7 @@ Un certificado intermedio es un certificado X.509 que ha sido firmado por el cer
 
 El certificado de hoja, o certificado de entidad final, identifica al titular del certificado. Tiene el certificado raíz en su cadena de certificados, así como cero o más certificados intermedios. El certificado de hoja no se usa para firmar otros certificados. Identifica de forma exclusiva al dispositivo ante el servicio de aprovisionamiento, y a veces se conoce como certificado del dispositivo. Durante la autenticación, el dispositivo usa la clave privada asociada con este certificado para responder a una prueba de desafío de posesión del servicio.
 
-Hoja certificados que se usan con un [inscripción Individual](./concepts-service.md#individual-enrollment) entrada tiene un requisito que el **nombre de sujeto** debe establecerse en el identificador de registro de la entrada de inscripción Individual. Hoja certificados que se usan con un [grupo de inscripción](./concepts-service.md#enrollment-group) entrada debe tener la **nombre de sujeto** establecido en el identificador de dispositivo deseado que se mostrará en el **los registros** para el dispositivo autenticado en el grupo de inscripción.
+Los certificados de hoja usados con una entrada de [inscripción Individual](./concepts-service.md#individual-enrollment) requieren que el **nombre del sujeto** se establezca en el identificador de registro de la entrada de la inscripción individual. Los certificados de hoja utilizados con una entrada de [grupo de inscripción](./concepts-service.md#enrollment-group) deben tener el **nombre del sujeto** configurado en el identificador del dispositivo deseado que se mostrará en **Entradas de registro** para el dispositivo autenticado en el grupo de inscripción.
 
 Para más información consulte [Autenticación de dispositivos firmados con certificados de entidad de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 

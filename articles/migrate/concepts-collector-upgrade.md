@@ -8,25 +8,25 @@ ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
 ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685926"
 ---
-# <a name="collector-appliance-updates"></a>Actualizaciones de dispositivo de recopilador
+# <a name="collector-appliance-updates"></a>Actualizaciones del dispositivo de recopilador
 
 En este artículo se resume la información de actualización para la aplicación Collector en [Azure Migrate](migrate-overview.md).
 
 Azure Migrate Collector es un dispositivo ligero que sirve para detectar un entorno de vCenter local a efectos de evaluación antes de realizar la migración a Azure. [Más información](concepts-collector.md).
 
-## <a name="how-to-upgrade-the-appliance"></a>Cómo actualizar el dispositivo
+## <a name="how-to-upgrade-the-appliance"></a>Actualización del dispositivo
 
 Puede actualizar el Collector a la versión más reciente sin tener que descargar un archivo OVA de nuevo.
 
-1. Cierre todas las ventanas de explorador y cualquiera abrir archivos o carpetas en el dispositivo.
-2. Descargue el paquete de actualización más reciente de la lista de las actualizaciones que se mencionan a continuación, en este artículo.
-3. Para asegurarse de que el paquete descargado es seguro, abra la ventana de comandos de administrador y ejecute el siguiente comando para generar el hash para el archivo ZIP. El código hash generado debe coincidir con el hash que se ha mencionado en la versión específica:
+1. Cierre todas las ventanas del explorador y abra cualquier archivo/carpeta en el dispositivo.
+2. Descargue el paquete de actualización más reciente de la lista de las actualizaciones que se mencionan a continuación en este artículo.
+3. Para asegurarse de que el paquete descargado es seguro, abra la ventana de comandos del administrador y ejecute el siguiente comando para generar el valor hash para el archivo ZIP. El código hash generado debe coincidir con el hash que se ha mencionado en la versión específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
@@ -39,11 +39,11 @@ Puede actualizar el Collector a la versión más reciente sin tener que descarga
 
 ### <a name="continuous-discovery-upgrade-versions"></a>Detección continua: versiones de actualización
 
-#### <a name="version-101014-released-on-03292019"></a>Versión 1.0.10.14 (publicada en 29/03/2019)
+#### <a name="version-101014-released-on-03292019"></a>Versión 1.0.10.14 (publicada el 29/03/2019)
 
-Contiene algunas mejoras de interfaz de usuario.
+Contiene algunas mejoras para la interfaz de usuario.
 
-Valores para la actualización hash [1.0.10.14 del paquete](https://aka.ms/migrate/col/upgrade_10_14)
+Valores de código hash para el [paquete 1.0.10.14](https://aka.ms/migrate/col/upgrade_10_14) de actualización
 
 **Algoritmo** | **Valor del código hash**
 --- | ---
@@ -51,11 +51,11 @@ MD5 | 846b1eb29ef2806bcf388d10519d78e6
 SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
 SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
-#### <a name="version-101012-released-on-03132019"></a>Versión 1.0.10.12 (publicado 13/03/2019)
+#### <a name="version-101012-released-on-03132019"></a>Versión 1.0.10.12 (publicada el 13/03/2019)
 
-Contiene correcciones para problemas en la selección de Azure en la nube en el dispositivo.
+Contiene correcciones para problemas en la selección de la nube de Azure en el dispositivo.
 
-Valores para la actualización hash [1.0.10.12 del paquete](https://aka.ms/migrate/col/upgrade_10_12)
+Valores de código hash para el [paquete 1.0.10.12](https://aka.ms/migrate/col/upgrade_10_12) de actualización
 
 **Algoritmo** | **Valor del código hash**
 --- | ---

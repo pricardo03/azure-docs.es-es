@@ -19,15 +19,15 @@ ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540547"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedimientos para: Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
-En este artículo se muestra cómo agregar una aplicación de la Galería de aplicaciones de Azure AD, implementar el inicio de sesión único (SSO) y administrar la lista.
+En este artículo se explica el proceso para mostrar una aplicación en la galería de aplicaciones de Azure AD, implementar el inicio de sesión único (SSO) y administrar la aplicaciones mostradas.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>¿Qué es la galería de aplicaciones de Azure AD?
 
@@ -51,7 +51,7 @@ En este artículo se muestra cómo agregar una aplicación de la Galería de apl
 - Para las solicitudes de aprovisionamiento automático de usuarios, la aplicación debe figurar en la galería con la característica de inicio de sesión único habilitada mediante SAML 2.0/WS-Fed. Puede solicitar SSO y aprovisionamiento de usuario juntos en el portal, si aún no aparecen.
 
 >[!NOTE]
->Estamos ejecutando con un gran número de solicitudes del conector SCIM, por lo que nos hemos detenido teniendo las nuevas solicitudes en nuestro portal. Espere las solicitudes hasta nuevo aviso. Le pedimos disculpas por este retraso y las molestias que pueda haberle causado.
+>Estamos recibiendo un gran número de solicitudes del conector de SCIM, por lo que hemos dejado de aceptar nuevas solicitudes en el portal. No envíe solicitudes hasta nuevo aviso. Lamentamos este retraso y las molestias que pueda haberle causado.
 
 ## <a name="submit-the-request-in-the-portal"></a>Envío de la solicitud en el portal
 
@@ -113,15 +113,15 @@ Para actualizar o eliminar una aplicación existente en la galería de aplicacio
     * Si quiere quitar una aplicación existente de la galería de Azure AD, seleccione **Remove existing application listing** (Quitar lista de aplicaciones existentes).
     * Si tiene algún problema para obtener acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-## <a name="listing-requests-by-customers"></a>Lista de las solicitudes de clientes
+## <a name="listing-requests-by-customers"></a>Adición de solicitudes de los clientes
 
-Los clientes pueden enviar la solicitud de una solicitud de lista, haga clic en **aplicación solicita clientes** -> **enviar solicitud nueva**.
+Los clientes pueden enviar una solicitud para mostrar una aplicación a través de **App requests by Customers** -> **Submit new request** (Solicitudes de aplicaciones de los clientes -> Enviar solicitud nueva).
 
-![Icono aplicaciones solicitadas de cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Icono aplicaciones solicitadas por los clientes](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-A continuación se presenta que el flujo de cliente solicitado aplicaciones:
+A continuación se muestra el flujo de las aplicaciones solicitadas por los clientes.
 
-![Flujo de las aplicaciones cliente ha solicitado](./media/howto-app-gallery-listing/customer-request.png)
+![Flujo de las aplicaciones solicitadas por los clientes](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Escalas de tiempo
 

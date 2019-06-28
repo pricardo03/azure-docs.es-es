@@ -14,14 +14,14 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60823953"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Movimiento de datos de MySQL mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-onprem-mysql-connector.md)
 > * [Versión 2 (versión actual)](../connector-mysql.md)
 
@@ -69,12 +69,12 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesMySql** |Sí |
-| server |Nombre del servidor MySQL. |Sí |
-| database |Nombre de la base de datos MySQL. |Sí |
+| Servidor |Nombre del servidor MySQL. |Sí |
+| Base de datos |Nombre de la base de datos MySQL. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
-| username |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
-| password |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
+| nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
+| contraseña |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos MySQL local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -306,39 +306,39 @@ Al mover datos a MySQL, se usarán las asignaciones siguientes de tipos MySQL a 
 | bit |Decimal |
 | blob |Byte[] |
 | booleano |Boolean |
-| char |string |
-| date |DateTime |
-| Datetime |DateTime |
+| char |Cadena |
+| date |Datetime |
+| Datetime |Datetime |
 | decimal |Decimal |
 | double precision |Double |
 | Doble |Double |
-| enum |string |
+| enum |Cadena |
 | float |Single |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
-| long varchar |string |
+| long varchar |Cadena |
 | longblob |Byte[] |
-| longtext |string |
+| longtext |Cadena |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |string |
+| mediumtext |Cadena |
 | numeric |Decimal |
 | real |Double |
-| set |string |
+| set |Cadena |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
-| text |string |
+| text |Cadena |
 | time |TimeSpan |
-| timestamp |DateTime |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
-| tinytext |string |
-| varchar |string |
+| tinytext |Cadena |
+| varchar |Cadena |
 | year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor

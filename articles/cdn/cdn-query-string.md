@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: f0dab3dc81c626e3e7f8c79b4142e5eb4f2a1276
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324783"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta: nivel estándar
@@ -37,7 +37,7 @@ Existen tres modos de cadena de consulta:
 
 - **Pasar por alto las cadenas de consulta**: modo predeterminado. En este modo, el nodo de punto de presencia (POP) de CDN pasa las cadenas de consulta del solicitante al servidor de origen en la primera solicitud y almacena en caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el punto de presencia omiten las cadenas de consulta hasta que expira el recurso en caché.
 
-- **Omitir almacenamiento en caché para las cadenas de consulta**: En este modo, las solicitudes con cadenas de consulta no están en caché en el nodo POP de CDN. El nodo POP recupera el recurso directamente del servidor de origen y lo pasa al solicitante con cada solicitud.
+- **Omitir el almacenamiento en caché de cadenas de consulta**: en este modo, las solicitudes con cadenas de consulta no se almacenan en caché en el nodo POP de CDN. El nodo POP recupera el recurso directamente del servidor de origen y lo pasa al solicitante con cada solicitud.
 
 - **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el servidor de origen a una solicitud de example.ashx?q=test1 se almacena en caché en el nodo POP y se devuelve en los sucesivos almacenamientos en caché con la misma cadena de consulta. Se almacena en caché una solicitud de example.ashx?q=test2 como un recurso independiente con su propia configuración de período de vida.
    

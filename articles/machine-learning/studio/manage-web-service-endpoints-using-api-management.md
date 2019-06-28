@@ -1,5 +1,5 @@
 ---
-title: Administrar servicios web mediante API Management
+title: Administración de servicios web mediante API Management
 titleSuffix: Azure Machine Learning Studio
 description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API. Administre los puntos de conexión de la API REST mediante la definición del acceso del usuario, la limitación de uso y la supervisión del panel.
 services: machine-learning
@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347386"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio con API Management
@@ -150,7 +150,7 @@ Se puede llamar a las operaciones directamente desde el portal para desarrollado
 
 4. En **Request parameters** (Parámetros de solicitud), especifique su área de trabajo en **workspace** y **service**, respectivamente, escriba "2.0 en **apiversion** y "true" en **details**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
-   En **Request headers** (Encabezados de solicitud), haga clic en **Add header** (Agregar encabezado) y escriba "Content-Type" y "application/json". Haga clic en **Add header** (Agregar encabezado) y escriba "Add header" y "Bearer  *\<your service API-KEY\>*" (Portador <CLAVE de API de su servicio>). La CLAVE de API se puede encontrar en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el apéndice A).
+   En **Request headers** (Encabezados de solicitud), haga clic en **Add header** (Agregar encabezado) y escriba "Content-Type" y "application/json". Haga clic en **Add header** (Agregar encabezado) y escriba "Add header" y "Bearer  *\<your service API-KEY\>* " (Portador <CLAVE de API de su servicio>). La CLAVE de API se puede encontrar en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
    En **Request body** (Cuerpo de la solicitud), escriba `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
@@ -166,9 +166,9 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Apéndice A: Creación y prueba de un servicio web sencillo de AzureML
 ### <a name="creating-the-experiment"></a>Creación del experimento
-A continuación se muestran los pasos para crear un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web. El servicio web toma como entrada una columna de texto arbitrario de entrada y devuelve un conjunto de características representadas como números enteros. Por ejemplo: 
+A continuación se muestran los pasos para crear un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web. El servicio web toma como entrada una columna de texto arbitrario de entrada y devuelve un conjunto de características representadas como números enteros. Por ejemplo:
 
-| Text | Texto con hash |
+| Texto | Texto con hash |
 | --- | --- |
 | Este es un buen día |1 1 2 2 0 2 0 1 |
 
@@ -182,11 +182,11 @@ Cambie su nombre a **SimpleFeatureHashingExperiment**. Expanda **Conjuntos de da
 
 Expanda **Transformación de datos** y **Manipulación** y arrastre **Seleccionar columnas de conjunto de datos** al experimento. Conecte **Reseñas de libros de Amazon** a **Seleccionar columnas de conjunto de datos**.
 
-![Conecte el módulo de conjunto de datos de las revisiones de libro a un módulo de proyectar columnas](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Conexión del módulo de conjunto de datos de las reseñas de libros a un módulo de proyección de columnas](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Haga clic en **Seleccionar columnas de conjunto de datos** y después haga clic en **Iniciar el selector de columnas** y seleccione **Col2**. Haga clic en la marca de verificación para aplicar estos cambios.
 
-![Seleccione las columnas con nombres de columna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Selección de columnas mediante nombres de columna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expanda **Análisis de texto** y arrastre **Hash de características** al experimento. Conecte **Seleccionar columnas de conjunto de datos** a **Hash de características**.
 

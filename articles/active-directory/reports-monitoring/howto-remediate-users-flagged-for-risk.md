@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286676"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
@@ -46,7 +46,7 @@ Para obtener más información, consulte [Reporte de seguridad de usuarios marca
 
 También puede utilizar sus credenciales de Office 365 para acceder al **Centro de administración de Azure**. Una vez que haya activado el acceso a Azure AD, se le redirigirá al portal de Azure AD. Con el nivel de suscripción básico, el nivel de detalle que se proporciona en los informes es limitado. Los suscriptores Premium de Azure tienen a su disposición más datos y análisis.
 
-Para tener acceso a la **usuarios marcados en riesgo** informes en el centro de administración de Microsoft 365:
+Para tener acceso a los informes de **usuarios marcados en riesgo** en el centro de administración de Microsoft 365:
 
 1.  Desde el menú de navegación de la izquierda, seleccione **Centros de administración**. 
 2.  Seleccione **Azure AD**.
@@ -63,7 +63,7 @@ Realice las acciones siguientes para ayudar a corregir las cuentas afectadas y p
 2.  [Habilite la autenticación multifactor](https://aka.ms/MFAuth) para todos los usuarios. 
 3.  Use este [script de corrección](https://aka.ms/remediate) para realizar automáticamente los pasos siguientes en todas las cuentas afectadas: 
 
-     a. Restablezca la contraseña para proteger la cuenta y terminar las sesiones activas.
+    a. Restablezca la contraseña para proteger la cuenta y terminar las sesiones activas.
 
     b. Quite los delegados del buzón.
 

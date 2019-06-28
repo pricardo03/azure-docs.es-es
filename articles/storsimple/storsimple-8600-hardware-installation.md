@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630944"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
@@ -31,7 +31,7 @@ En los pasos siguientes se proporcionan instrucciones claras y detalladas sobre 
 ### <a name="prepare-to-unpack-your-device"></a>Preparación para desempaquetar el dispositivo
 Antes de desempaquetar el dispositivo, revise la información siguiente.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**¡ADVERTENCIA!**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
 
 1. Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si lo está manejando de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 2. Coloque la caja en una superficie plana y nivelada.
@@ -89,7 +89,7 @@ Los receptáculos deben instalarse en un bastidor estándar de 19 pulgadas con p
 2. Compruebe que la ubicación en la que desea efectuar la instalación dispone de alimentación de CA estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con una fuente de alimentación ininterrumpida (UPS).
 3. Asegúrese de que haya disponible una ranura 4U (2 X 2U) en el bastidor en el que desea montar los receptáculos.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**¡ADVERTENCIA!**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
 
  Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 
@@ -215,7 +215,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 | Etiqueta | DESCRIPCIÓN |
 | --- | --- |
-| Una  |LAN con acceso a Internet |
+| Una |LAN con acceso a Internet |
 | B |Controlador 0 |
 | C |PCM 0 |
 | D |Controlador 1 |
@@ -260,7 +260,7 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
 
 > [!NOTE]
-> **Administración de Lights-Out:** Cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
+> **Administración de Lights-Out**: cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
 > 
 > 
 

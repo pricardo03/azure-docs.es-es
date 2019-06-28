@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60281967"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configuración de BlueJeans para el aprovisionamiento automático de usuarios
@@ -47,7 +47,7 @@ Antes de configurar BlueJeans para el aprovisionamiento automático de usuarios 
 
 **Para agregar BlueJeans desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En el  **[portal Azure](https://portal.azure.com)**, en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -55,11 +55,11 @@ Antes de configurar BlueJeans para el aprovisionamiento automático de usuarios 
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Para agregar una nueva aplicación, seleccione la **nueva aplicación** situado en la parte superior del panel.
+3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del panel.
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **BlueJeans**, seleccione **BlueJeans** en el panel de resultados y, a continuación, seleccione el **agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **BlueJeans**, seleccione **BlueJeans** en el panel de resultados y, luego, seleccione el botón **Agregar** para agregar la aplicación.
 
     ![BlueJeans en la lista de resultados](common/search-new-app.png)
 
@@ -86,7 +86,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para BlueJeans en Azure AD:
 
-1. Inicie sesión en el [portal Azure](https://portal.azure.com) y seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **BlueJeans**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, a continuación, **BlueJeans**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 

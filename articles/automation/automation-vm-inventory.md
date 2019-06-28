@@ -11,10 +11,10 @@ ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304151"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
@@ -62,7 +62,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|Enabled     | Determina si se aplica la configuración        |
+|habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Clave del registro de Windows   | La ruta de acceso para buscar el archivo, por ejemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -71,7 +71,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|Enabled     | Determina si se aplica la configuración        |
+|habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"
@@ -80,7 +80,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|Enabled     | Determina si se aplica la configuración        |
+|habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
@@ -91,7 +91,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 ## <a name="manage-machine-groups"></a>Administración de grupos de máquinas
 
-Inventario permite crear y ver los grupos de equipos en los registros de Azure Monitor. Grupos de equipos son colecciones de equipos definidos por una consulta en los registros de Azure Monitor.
+El inventario le permite crear y ver grupos de máquinas de los registros de Azure Monitor. Los grupos de máquinas son colecciones de máquinas definidas por una consulta en los registros de Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -105,7 +105,7 @@ Si selecciona un grupo de máquinas de la lista se abrirá la página Grupos de 
 
 Haga clic en el botón **+ Clonar** para clonar el grupo de máquinas. Aquí debe asignar al grupo un nuevo nombre y un alias. La definición se puede modificar en este momento. Después de cambiar la consulta, presione **Validar consulta** para obtener una vista previa de las máquinas que se pueden seleccionar. Cuando esté satisfecho con el grupo, haga clic en **Crear** para crear el grupo de máquinas
 
-Si desea crear un nuevo grupo de máquinas, seleccione **+ crear un grupo de máquinas**. Este botón abre la **página Crear un nuevo grupo de máquinas** en la que puede definir el nuevo grupo. Haga clic en **Crear** para crear el grupo.
+Si quiere crear un nuevo grupo de máquinas, seleccione **+ Create a machine group** (+ Crear un grupo de máquinas). Este botón abre la **página Crear un nuevo grupo de máquinas** en la que puede definir el nuevo grupo. Haga clic en **Crear** para crear el grupo.
 
 ![Crear grupo de máquinas](./media/automation-vm-inventory/create-new-group.png)
 

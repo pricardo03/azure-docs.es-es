@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349851"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Actualización automática
@@ -43,7 +43,7 @@ Se puede ver el estado actual de la actualización automática con el cmdlet de 
 | Suspended |Solo lo establece el sistema. **Actualmente**, el sistema no cumple los requisitos para recibir actualizaciones automáticas. |
 | Disabled |La actualización automática está deshabilitada. |
 
-Puede cambiar entre **Habilitado** y **Deshabilitado** con `Set-ADSyncAutoUpgrade`. Solo el sistema debe establecer el estado **Suspendido**.  Antes de 1.1.750.0 el cmdlet Set-ADSyncAutoUpgrade bloquearía Autoupgrade si el estado de actualización automática se ha establecido en suspendido. Esta funcionalidad ha cambiado ahora por lo que no bloquee la actualización automática.
+Puede cambiar entre **Habilitado** y **Deshabilitado** con `Set-ADSyncAutoUpgrade`. Solo el sistema debe establecer el estado **Suspendido**.  Antes de 1.1.750.0 el cmdlet Set-ADSyncAutoUpgrade podía bloquear la actualización automática si el estado de esta se configuraba en Suspendido. Ahora se ha cambiado esta funcionalidad para que no bloquee la función AutoUpgrade.
 
 En la actualización automática se utiliza Azure AD Connect Health como infraestructura de actualización. Para que la actualización automática funcione, asegúrese de que ha abierto las direcciones URL en el servidor proxy de **Azure AD Connect Health** , tal y como se documenta en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

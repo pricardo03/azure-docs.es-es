@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199404"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar el inyector de Azure Log Analytics para la supervisión del sistema Cloud Foundry
 
 [Azure Monitor](https://azure.microsoft.com/services/log-analytics/) es un servicio de Azure. Sirve para recopilar y analizar los datos que se generan en los entornos tanto locales como en la nube.
 
-El inyector de Log Analytics (el inyector) es un componente de Cloud Foundry (CF) que reenvía las métricas desde el [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose a los registros de Azure Monitor. Con el inyector, puede recopilar, ver y analizar las métricas de mantenimiento y rendimiento del sistema CF en varias implementaciones.
+El inyector de Log Analytics es un componente de Cloud Foundry (CF) que reenvía las métricas del conjunto predeterminado de resultados de [Cloud Foundry Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) a registros de Azure Monitor. Con el inyector, puede recopilar, ver y analizar las métricas de mantenimiento y rendimiento del sistema CF en varias implementaciones.
 
-En este documento, obtendrá información sobre cómo implementar el inyector en su entorno de CF y, a continuación, obtener acceso a los datos desde la consola de los registros de Azure Monitor.
+En este documento, aprenderá a implementar el inyector en su entorno de CF y, después, tendrá acceso a los datos desde la consola de registros de Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -55,11 +55,11 @@ Antes de configurar el cliente de línea de comandos de UAA, asegúrese de que R
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Creación de un área de trabajo de Log Analytics en Azure
 
-Puede crear el área de trabajo de Log Analytics manualmente o con una plantilla. La plantilla implementará un programa de instalación de configurado previamente las vistas KPI y las alertas de la consola de los registros de Azure Monitor. 
+Puede crear el área de trabajo de Log Analytics manualmente o con una plantilla. La plantilla implementará una configuración de vistas y alertas de KPI de OMS preconfiguradas para la consola de registros de Azure Monitor. 
 
 #### <a name="to-create-the-workspace-manually"></a>Crear un área de trabajo manualmente:
 
-1. En el portal de Azure, busque en la lista de servicios en Azure Marketplace y, a continuación, seleccione las áreas de trabajo de Log Analytics.
+1. En Azure Portal, busque la lista de servicios en Azure Marketplace y, después, seleccione áreas de trabajo de Log Analytics.
 2. Seleccione **Crear** y, después, seleccione opciones para los elementos siguientes:
 
    * **Área de trabajo de Log Analytics**: escriba un nombre para el área de trabajo.
@@ -68,7 +68,7 @@ Puede crear el área de trabajo de Log Analytics manualmente o con una plantilla
    * **Ubicación**: escriba la ubicación.
    * **Plan de tarifa**: seleccione **Aceptar** para completar.
 
-Para obtener más información, consulte [empezar a trabajar con registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Para más información, consulte [Introducción a Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para crear el área de trabajo de Log Analytics a través de la plantilla de supervisión desde Azure Marketplace:
 
@@ -178,7 +178,7 @@ Asegúrese de que la aplicación de inyector de OMS se está ejecutando.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Visualización de datos en Azure Portal
 
-Si ha implementado la solución de supervisión a través de la plantilla de Marketplace, vaya a Azure Portal y localice la solución. Puede encontrar la solución en el grupo de recursos especificado en la plantilla. Haga clic en la solución, vaya a la consola"log analytics," se muestran las vistas configuradas previamente, con los KPI del sistema de Cloud Foundry superiores, datos de la aplicación, las alertas y métricas de mantenimiento de máquinas virtuales. 
+Si ha implementado la solución de supervisión a través de la plantilla de Marketplace, vaya a Azure Portal y localice la solución. Puede encontrar la solución en el grupo de recursos especificado en la plantilla. Haga clic en la solución y vaya a la "consola de Log Analytics", donde se muestran las vistas configuradas previamente, con KPI principales del sistema de Cloud Foundry, datos de la aplicación, alertas y las métricas de estado de las máquinas virtuales. 
 
 Si ha creado el área de trabajo de Log Analytics manualmente, siga estos pasos para crear las vistas y las alertas:
 
@@ -202,7 +202,7 @@ Puede [crear las alertas](https://docs.microsoft.com/azure/log-analytics/log-ana
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Número de resultados > 0   | Consul emite su estado periódicamente. 0 significa que el sistema está en buen estado y 1, que el emisor de ruta detecta que Consul está inactivo. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" o Name_s="doppler.shedEnvelopes") Delta_d>0 | Número de resultados > 0 | Número diferencial de mensajes quitados intencionadamente por Doppler debido a la contrapresión. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | Loggregator emite el mensaje **LGR** para señalar que hay problemas con el proceso de registro. Un ejemplo de este problema es cuando la salida del mensaje de registro es demasiado alta. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Cuando el inyector recibe una alerta de consumidor lento de loggregator, envía el **slowConsumerAlert** registra un valuemetric de tipo a Azure Monitor. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Cuando el inyector recibe una alerta de consumidor lento de Loggregator, envía a los registros de Azure Monitor un valor de ValueMetric de tipo **slowConsumerAlert**. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Si el número diferencial de eventos perdidos alcanza un umbral, significa que el inyector podría tener algún problema. |
 
 ## <a name="scale"></a>Escala
@@ -237,7 +237,7 @@ En la ventana de la CLI de CF, escriba lo siguiente:
 cf delete <App Name> -r
 ```
 
-Si elimina el inyector, los datos del portal de OMS no se quitan automáticamente. Expira en función de la retención de registros de Azure Monitor configuración.
+Si elimina el inyector, los datos del portal de OMS no se quitan automáticamente. Expira en función de la configuración de retención de los registros de Azure Monitor.
 
 ## <a name="support-and-feedback"></a>Soporte y comentarios
 
@@ -245,6 +245,6 @@ El inyector de Azure Log Analytics es de código abierto. Envíe sus preguntas y
 
 ## <a name="next-step"></a>Paso siguiente
 
-Desde PCF2.0, métricas de rendimiento de la máquina virtual se transfieren a inyector Azure Log Analytics mediante el reenvío de las métricas del sistema y, integradas en el área de trabajo de Log Analytics. Ya no necesitará al agente de Log Analytics para las métricas de rendimiento de la máquina virtual. Pero todavía puede usar el agente de Log Analytics para recopilar información de Syslog. El agente de Log Analytics se instala como un complemento de Bosh en las máquinas virtuales de CF. 
+A partir de PCF2.0, el reenviador de métricas del sistema transfiere las métricas de rendimiento de la máquina virtual al inyector de Azure Log Analytics y las integra en el área de trabajo de Log Analytics. Ya no necesitará al agente de Log Analytics para las métricas de rendimiento de la máquina virtual. Pero todavía puede usar el agente de Log Analytics para recopilar información de Syslog. El agente de Log Analytics se instala como un complemento de Bosh en las máquinas virtuales de CF. 
 
 Para más información, vea [Deploy Log Analytics agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease) (Implementar el agente de Log Analytics en la implementación de Cloud Foundry).

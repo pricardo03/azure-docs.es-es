@@ -15,10 +15,10 @@ ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679058"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de incorporación
@@ -33,7 +33,7 @@ En esta lista se recopilan los requisitos para ejecutar SAP HANA en Azure (insta
 
 **Conectividad de red**
 
-- ExpressRoute entre el entorno local y el de Azure: asegúrese de pedir a su ISP una conexión de 1 Gbps como mínimo para conectar el centro de datos local a Azure. La conectividad entre las unidades de instancia grande de HANA y Azure también usa la tecnología ExpressRoute. Esta conexión de ExpressRoute entre las unidades de instancia grande de HANA y Azure está incluida en el precio de las unidades de instancia grande de HANA, incluido el precio de las entradas y salidas de este circuito específico de ExpressRoute. Por lo tanto, como cliente, no tiene costos adicionales más allá de su vínculo de ExpressRoute entre local y Azure.
+- ExpressRoute entre el entorno local y el de Azure: asegúrese de pedir a su ISP una conexión de 1 Gbps como mínimo para conectar el centro de datos local a Azure. La conectividad entre las unidades de instancia grande de HANA y Azure también usa la tecnología ExpressRoute. Esta conexión de ExpressRoute entre las unidades de instancia grande de HANA y Azure está incluida en el precio de las unidades de instancia grande de HANA, incluido el precio de las entradas y salidas de este circuito específico de ExpressRoute. Por lo tanto, como cliente, no debe pagar costos adicionales más allá de su vínculo de ExpressRoute entre el entorno local y el de Azure.
 
 **Sistema operativo**
 

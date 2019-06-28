@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310372"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Actualización de SQL Data Warehouse para optimizar el rendimiento
@@ -63,7 +63,7 @@ Esta actualización se aplica a los almacenamientos de datos del nivel Gen1 opti
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Migración de Gen1 a Gen2 mediante el portal de Azure es permanente. No es un proceso para volver a Gen1.  
+> La migración de Gen1 a Gen2 mediante Azure Portal es permanente. No hay ningún proceso para volver a Gen1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -215,7 +215,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para recuperar una base de datos, use el [restauración AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet.
+Para recuperar una base de datos, use el cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
 > [!NOTE]
 > Puede realizar una restauración geográfica en Gen2. Para ello, especifique Gen2 ServiceObjectiveName (p. ej., DW1000**c**) como parámetro opcional.

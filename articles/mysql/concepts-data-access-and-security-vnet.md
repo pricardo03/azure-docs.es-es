@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 3a7eaacc4c234ec7d1d3d88455bd423256a07e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614856"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MySQL
@@ -108,7 +108,7 @@ Si quiere, puede optar por la opción de usar el [control de acceso basado en ro
 
 Para Azure Database for MySQL, la característica de las reglas de red virtual tiene las siguientes limitaciones:
 
-- Una aplicación web se puede asignar a una dirección IP privada en una red virtual o subred. Incluso si los puntos de conexión de servicio están ACTIVADOS desde la red virtual o subred proporcionada, las conexiones de la aplicación web con el servidor tendrán un origen IP público de Azure, no un origen de red virtual o subred. Para habilitar la conectividad desde una aplicación Web a un servidor que tiene reglas de firewall de red virtual, debe permitir que Azure services para tener acceso a servidor en el servidor.
+- Una aplicación web se puede asignar a una dirección IP privada en una red virtual o subred. Incluso si los puntos de conexión de servicio están ACTIVADOS desde la red virtual o subred proporcionada, las conexiones de la aplicación web con el servidor tendrán un origen IP público de Azure, no un origen de red virtual o subred. Para habilitar la conectividad desde una aplicación web con un servidor que tenga reglas de firewall de red virtual, debe permitir que los servicios de Azure accedan al servidor en el servidor.
 
 - En el firewall de su instancia de Azure Database for MySQL, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda Azure Database for MySQL.
 
@@ -138,7 +138,7 @@ Puede establecer la marca **IgnoreMissingServiceEndpoint** mediante la CLI de Az
 
 ## <a name="related-articles"></a>Artículos relacionados
 - [Redes virtuales de Azure][vm-virtual-network-overview]
-- [Puntos de conexión del servicio Azure Virtual Network][vm-virtual-network-service-endpoints-overview-649d]
+- [Punto de conexión de servicio de red virtual de Azure][vm-virtual-network-service-endpoints-overview-649d]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguiente:

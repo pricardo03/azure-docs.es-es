@@ -2,20 +2,19 @@
 title: Supervisión de la carga de trabajo mediante DMV | Microsoft Docs
 description: Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 04/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/12/2019
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748788"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
@@ -69,9 +68,9 @@ WHERE   [label] = 'My Query';
 
 En los resultados de la consulta anterior, **fíjese en el id. de solicitud** de la consulta que quiere investigar.
 
-Consultas en el **Suspended** estado puede poner en cola debido a un gran número de consultas en ejecución. Estas consultas también aparecen en la [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) esperas de consulta con un tipo de UserConcurrencyResourceType. Para información sobre los límites de simultaneidad, consulte [Niveles de rendimiento](performance-tiers.md) o [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md). Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Investigating queries waiting for resources] de este mismo artículo.
+Las consultas en estado **suspendido** se pueden poner en cola si hay un gran número de consultas activas en ejecución. Estas consultas también aparecen en la consulta [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) con un tipo de UserConcurrencyResourceType. Para información sobre los límites de simultaneidad, consulte [Niveles de rendimiento](performance-tiers.md) o [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md). Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Investigating queries waiting for resources] de este mismo artículo.
 
-Para simplificar la búsqueda de una consulta en el [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) de tabla, use [etiqueta] [ LABEL] para asignar un comentario a la consulta que se puede buscar en el sys.dm_pdw_exec_ ver las solicitudes.
+Para simplificar la búsqueda de una consulta en la tabla [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql), use [LABEL][LABEL] para asignar un comentario a la consulta que se pueda buscar en la vista sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -171,10 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la consulta espera activamente recursos de otra consulta, el estado será **AcquireResources**.  Si la consulta tiene todos los recursos necesarios, el estado será **Concedido**.
 
 ## <a name="monitor-tempdb"></a>Supervisión de tempdb
-Se utiliza tempdb para almacenar resultados intermedios durante la ejecución de la consulta. Un uso alto de la base de datos tempdb puede dar lugar a disminuir el rendimiento de la consulta. Cada nodo de Azure SQL Data Warehouse tiene aproximadamente de 1 TB de espacio sin procesar para tempdb. A continuación se muestran sugerencias para supervisar el uso de tempdb y para reducir el uso de tempdb en las consultas. 
+Tempdb se usa para almacenar resultados intermedios durante la ejecución de la consulta. Un uso alto de la base de datos tempdb puede dar lugar a una disminución del rendimiento de la consulta. Cada nodo de Azure SQL Data Warehouse tiene aproximadamente 1 TB de espacio sin procesar para tempdb. A continuación se muestran sugerencias para supervisar el uso de tempdb y para reducir el uso de tempdb en las consultas. 
 
 ### <a name="monitoring-tempdb-with-views"></a>Supervisión de tempdb con vistas
-Para supervisar el uso de tempdb, instale primero el [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) ver desde el [Microsoft Toolkit para SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). A continuación, puede ejecutar la consulta siguiente para ver el uso de tempdb por nodo para todas las consultas ejecutadas:
+Para supervisar el uso de tempdb, instale primero la vista [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) desde el [kit de herramientas de Microsoft para SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). A continuación, puede ejecutar la consulta siguiente para ver el uso de tempdb por nodo para todas las consultas ejecutadas:
 
 ```sql
 -- Monitor tempdb
@@ -206,9 +205,9 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Si tiene una consulta que consume una gran cantidad de memoria o ha recibido un mensaje de error relacionados con la asignación de tempdb, suele ser debido a un gran [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) o [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) instrucción de ejecución que se producen errores en la operación de movimiento de datos final. Normalmente esto se identifica como una operación ShuffleMove en el plan de consulta distribuida justo antes del final INSERT SELECT.
+Si tiene una consulta que consume una gran cantidad de memoria o ha recibido un mensaje de error relacionado con la asignación de tempdb, suele deberse a una instrucción [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) o [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) muy grande que da error en la operación de movimiento de datos final. Normalmente esto se identifica como una operación ShuffleMove en el plan de consulta distribuida justo antes de la instrucción INSERT SELECT final.
 
-La mitigación más común consiste en dividir la instrucción CTAS o INSERT SELECT en varias instrucciones de carga para que el volumen de datos no supere el límite de tempdb de nodo de 1TB. También puede escalar el clúster a un tamaño mayor que se distribuirá entre más nodos, lo que reduce la tempdb en cada nodo individual por el tamaño de tempdb. 
+La solución más común consiste en dividir la instrucción CTAS o INSERT SELECT en varias instrucciones de carga para que el volumen de datos no supere el límite de tempdb de 1 TB por nodo. También puede escalar el clúster a un tamaño mayor, lo cual repartirá el tamaño de tempdb entre varios nodos, reduciendo el tamaño de tempdb en cada uno de los nodos. 
 
 ## <a name="monitor-memory"></a>Supervisión de memoria
 
@@ -283,5 +282,3 @@ Para más información sobre las DMV, consulte [Vistas del sistema][System views
 [DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
-
-<!-- Update_Description: update meta properties, wording update -->

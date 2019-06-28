@@ -11,10 +11,10 @@ manager: yuvalm
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687374"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Uso de CI/CD con Azure Dev Spaces
@@ -43,9 +43,9 @@ Cree un espacio llamado _dev_ con el comando `azds space select`. El espacio _de
 azds space select -n dev
 ```
 
-Cuando se le pida que seleccione un espacio de desarrollo principal, seleccione _\<ninguno\>_.
+Cuando se le pida que seleccione un espacio de desarrollo principal, seleccione _\<ninguno\>_ .
 
-Una vez creado el espacio de desarrollo, deberá determinar el sufijo de host. Use el `azds show-context` comando para mostrar el sufijo de host del controlador de entrada de Azure Dev espacios.
+Una vez creado el espacio de desarrollo, deberá determinar el sufijo del host. Use el comando `azds show-context` para mostrar el sufijo del host del controlador de entrada de Azure Dev Spaces.
 
 ```cmd
 $ azds show-context
@@ -54,7 +54,7 @@ Name   ResourceGroup    DevSpace  HostSuffix
 MyAKS  MyResourceGroup  dev       fedcba098.eus.azds.io
 ```
 
-En el ejemplo anterior, el sufijo de host es _fedcba098.eus.azds.io_. Este valor se usa más adelante al crear la definición de versión.
+En el ejemplo anterior, el sufijo del host es _fedcba098.eus.azds.io_. Este valor se usa más adelante al crear la definición de versión.
 
 El espacio _dev_ siempre contendrá el estado más reciente del repositorio, una línea base, para que los desarrolladores puedan crear _espacios secundarios_ a partir de _dev_ para probar sus cambios aislados en el contexto de la aplicación de mayor tamaño. Este concepto se trata con más detalle en los tutoriales de Dev Spaces.
 
@@ -75,17 +75,17 @@ En la rama _azds_updates_ hemos incluido una sencilla instancia de [YAML de cana
 Dependiendo del lenguaje que haya elegido, instancia de YAML de canalización se habrá insertado en una ruta de acceso similar a: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
 Para crear una canalización a partir de este archivo:
-1. En la página principal del proyecto de DevOps, vaya a las canalizaciones > compilaciones.
-1. Seleccione la opción para crear un **New** canalización de compilación.
-1. Seleccione **GitHub** autorizar con su cuenta de GitHub como el origen, si es necesario y, a continuación, seleccione el _azds_updates_ Bifurcar desde la versión del repositorio sampleapp dev espacios bifurcada.
-1. Seleccione **configuración como código**, o **YAML**, como la plantilla.
-1. Ahora verá una página de configuración para la canalización de compilación. Como se mencionó anteriormente, vaya a la ruta de acceso específicos del idioma para el **ruta del archivo YAML** utilizando el **...**  botón. Por ejemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
-1. Vaya a la **Variables** ficha.
+1. En la página principal del proyecto de DevOps, vaya a Canalizaciones > Compilaciones.
+1. Seleccione la opción para crear una **nueva** canalización de compilación.
+1. Seleccione **GitHub** como origen, autorice con su cuenta de GitHub si es necesario y, a continuación, seleccione la rama _azds_updates_ a partir de la versión bifurcada del repositorio de la aplicación de ejemplo de dev-spaces.
+1. Seleccione **Configuración como código** o **YAML** como plantilla.
+1. Ahora verá una página de configuración para la canalización de compilación. Como se mencionó anteriormente, vaya a la ruta de acceso específica del lenguaje para la **ruta del archivo YAML** mediante el botón **...** Por ejemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Vaya a la pestaña **Variables**.
 1. Agregue manualmente _dockerId_ como variable, que es el nombre de usuario de su [cuenta de administrador de Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). (Se menciona en los requisitos previos del artículo).
 1. Agregue manualmente _dockerPassword_ como variable, que es la contraseña de su [cuenta de administrador de Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). No olvide especificar _dockerPassword_ como secreto (seleccionando el icono de candado) por motivos de seguridad.
-1. Seleccione **guardar y poner en cola**.
+1. Seleccione **Guardar y poner en cola**.
 
-Ahora tiene una solución de CI que compilará automáticamente *mywebapi* y *webfrontend* para cualquier actualización que se inserte en la rama _azds_updates_ de la bifurcación de GitHub. Puede comprobar las imágenes de Docker se han insertado navegar al portal de Azure, seleccionando el registro de contenedor de Azure y examinar el **repositorios** ficha. Puede tardar varios minutos para las imágenes generar y aparecen en el registro de contenedor.
+Ahora tiene una solución de CI que compilará automáticamente *mywebapi* y *webfrontend* para cualquier actualización que se inserte en la rama _azds_updates_ de la bifurcación de GitHub. Para comprobar que las imágenes de Docker se han insertado, vaya a Azure Portal, seleccione su instancia de Azure Container Registry y explore la pestaña **Repositorios**. Pueden pasar varios minutos hasta que las imágenes se compilen y aparezcan en el registro de contenedor.
 
 ![Repositorios de Azure Container Registry](../media/common/ci-cd-images-verify.png)
 
@@ -93,44 +93,44 @@ Ahora tiene una solución de CI que compilará automáticamente *mywebapi* y *we
 
 1. En la página principal del proyecto de DevOps, vaya a Canalizaciones > Versiones.
 1. Si está trabajando en un nuevo proyecto de DevOps que aún no contiene una definición de versión, deberá crear primero una definición de versión vacía para continuar. La opción de importación no se muestra en la interfaz de usuario hasta que tenga una definición de versión existente.
-1. En el lado izquierdo, haga clic en el **+ nuevo** botón y, después, haga clic en **importar una canalización**.
-1. Haga clic en **examinar** y seleccione `samples/release.json` desde el proyecto.
+1. En el lado izquierdo, haga clic en el botón **+ Nuevo** y, después, haga clic en **Importar una canalización**.
+1. Haga clic en **Examinar** y seleccione `samples/release.json` en el proyecto.
 1. Haga clic en **OK**. Observe que el panel de la canalización se ha cargado con la página de edición de la definición de versión. Fíjese también en que hay algunos iconos de advertencia de color rojo que indican los detalles específicos del clúster que todavía se deben configurar.
 1. A la izquierda del panel Canalización, haga clic en **Agregar un artefacto**.
-1. En el **origen** lista desplegable, seleccione la compilación de canalización que creó anteriormente.
-1. Para el **versión predeterminada**, elija **más reciente de la rama de compilación canalización predeterminada con etiquetas**.
-1. Deje **etiquetas** vacía.
-1. Establezca el **Alias de origen** en `drop`. El **alias de origen** valor se utiliza por las tareas de versión predefinidas, por lo que debe establecerse.
+1. En la lista desplegable **Origen**, seleccione la canalización de compilación que creó anteriormente.
+1. Para la **Versión predeterminada**, elija **Más reciente desde la rama de predeterminada de canalización de compilación con etiquetas**.
+1. Deje **Etiquetas** vacío.
+1. Establezca el **Alias de origen** en `drop`. Las tareas de la versión predefinidas utilizan el **Alias de origen**, así que debe configurarlo.
 1. Haga clic en **Agregar**.
 1. Ahora haga clic en el icono de rayo en el origen del artefacto `drop` recién creado, como se muestra a continuación:
 
     ![Configuración de la implementación continua del artefacto de versión](../media/common/release-artifact-cd-setup.png)
-1. Habilitar la **desencadenador de implementación continua**.
-1. Mantenga el mouse sobre el **tareas** junto a la pestaña **canalización** y haga clic en _dev_ para editar el _dev_ almacenar provisionalmente las tareas.
-1. Comprobar **Azure Resource Manager** está seleccionado en **tipo de conexión.** y verá los tres controles de lista desplegable resaltados en rojo: ![Configuración de la definición de versión](../media/common/release-setup-tasks.png)
-1. Seleccione la suscripción de Azure que se usa con espacios de desarrollo de Azure. Es posible que también tenga que hacer clic en **Authorize**.
-1. Seleccione el grupo de recursos y el clúster que se usa con espacios de desarrollo de Azure.
-1. Haga clic en **trabajo del agente**.
-1. Seleccione **hospedado Ubuntu 1604** en **grupo de agentes**.
-1. Mantenga el mouse sobre el **tareas** selector en la parte superior, haga clic en _prod_ para editar el _prod_ almacenar provisionalmente las tareas.
-1. Comprobar **Azure Resource Manager** está seleccionado en **tipo de conexión.** y seleccione la suscripción de Azure, el grupo de recursos y el clúster que usa con espacios de desarrollo de Azure.
-1. Haga clic en **trabajo del agente**.
-1. Seleccione **hospedado Ubuntu 1604** en **grupo de agentes**.
-1. Haga clic en el **Variables** tab para actualizar las variables para su lanzamiento.
-1. Actualice el valor de **DevSpacesHostSuffix** desde **UPDATE_ME** a su sufijo de host. El sufijo de host se muestra cuando ejecutó el `azds show-context` comando anteriormente.
+1. Habilite el **desencadenador de implementación continua**.
+1. Mantenga el puntero sobre la pestaña **Tareas** junto a **Canalización** y haga clic en _dev_ (desarrollo) para editar las tareas de la fase _dev_ (desarrollo).
+1. Compruebe que está activado **Azure Resource Manager** en **Tipo de conexión** y verá los tres controles desplegables resaltados en rojo: ![Configuración de definición de versión](../media/common/release-setup-tasks.png)
+1. Seleccione la suscripción de Azure que utiliza con Azure Dev Spaces. Es posible que también tenga que hacer clic en **Autorizar**.
+1. Seleccione el grupo de recursos y el clúster que utiliza con Azure Dev Spaces.
+1. Haga clic en **Trabajo de agente**.
+1. Seleccione **Hosted Ubuntu 1604** en **Grupo de agentes**.
+1. Pase el puntero sobre el selector **Tareas** en la parte superior, haga clic en _prod_ (producción) para editar las tareas de la fase _prod_ (producción).
+1. Compruebe que está activado **Azure Resource Manager** en **Tipo de conexión** y seleccione la suscripción de Azure, el grupo de recursos y el clúster que usa con Azure Dev Spaces.
+1. Haga clic en **Trabajo de agente**.
+1. Seleccione **Hosted Ubuntu 1604** en **Grupo de agentes**.
+1. Haga clic en la pestaña **Variables** para actualizar las variables para su versión.
+1. Actualice el valor de **DevSpacesHostSuffix** en **UPDATE_ME** para su sufijo de host. El sufijo del host se mostró cuando ejecutó el comando `azds show-context` anteriormente.
 1. Haga clic en **Guardar** en la esquina superior derecha y, luego, en **Aceptar**.
 1. Haga clic en **+ Versión** (junto al botón Guardar) y en **Crear una versión**.
-1. En **artefactos**, compruebe que la compilación más reciente de la canalización de compilación está seleccionada.
+1. En **Artefactos**, compruebe que está seleccionada la última compilación de su canalización de compilación.
 1. Haga clic en **Create**(Crear).
 
-Ahora se iniciará un proceso de versiones automatizado, que implementa los gráficos *mywebapi* y *webfrontend* en su clúster de Kubernetes en el espacio de nivel superior _dev_. Puede supervisar el progreso de la versión en el portal web de DevOps de Azure:
+Ahora se iniciará un proceso de versiones automatizado, que implementa los gráficos *mywebapi* y *webfrontend* en su clúster de Kubernetes en el espacio de nivel superior _dev_. Puede supervisar el progreso de la versión en el portal web de Azure DevOps:
 
-1. Navegue hasta la **versiones** sección **canalizaciones**.
-1. Haga clic en la canalización de versiones para la aplicación de ejemplo.
+1. Navegue hasta la sección **Versiones** en **Canalizaciones**.
+1. Haga clic en la canalización de versión para la aplicación de ejemplo.
 1. Haga clic en el nombre de la versión más reciente.
-1. Mantenga el mouse sobre **dev** cuadro bajo **fases** y haga clic en **registros**.
+1. Mantenga el puntero sobre la casilla **dev** en **Fases** y haga clic en **Registros**.
 
-La versión se realiza cuando se completan todas las tareas.
+La versión estará lista cuando se hayan completado todas las tareas.
 
 > [!TIP]
 > Si se produce un error en la versión con un mensaje de error como *UPGRADE FAILED: timed out waiting for the condition* (ERROR EN LA ACTUALIZACIÓN: se agotó el tiempo de espera para la condición), intente inspeccionar los pods del clúster [mediante el panel de Kubernetes](../../aks/kubernetes-dashboard.md). Si ve que se producen errores al iniciar los pods, con mensajes de error como *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required* (No se puede extraer imagen 'azdsexample.azurecr.io/mywebapi:122': error rpc: código = desc desconocido = error de respuesta de demonio: Obtener https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: no autorizado:se requiere autenticación), es posible que el clúster no tenga autorización para extraer de Azure Container Registry. Asegúrese de que ha completado el requisito previo [Autorización al clúster de AKS para extraer de Azure Container Registry](../../container-registry/container-registry-auth-aks.md).
@@ -138,7 +138,7 @@ La versión se realiza cuando se completan todas las tareas.
 Ahora dispone de una canalización de CI/CD completamente automatizada para su bifurcación de GitHub de las aplicaciones de ejemplo de Dev Spaces. Cada vez que confirme e inserte el código, la canalización de compilación compilará e insertará las imágenes *mywebapi* y *webfrontend* en la instancia de ACR personalizada. A continuación, la canalización de versión implementará el gráfico de Helm para cada aplicación en el espacio _dev_ en el clúster habilitado para Dev Spaces.
 
 ## <a name="accessing-your-dev-services"></a>Acceso a sus servicios de _dev_
-Después de la implementación, la versión _dev_ de *webfrontend* puede obtenerse con una dirección URL pública, como: `http://dev.webfrontend.fedcba098.eus.azds.io`. Puede encontrar esta dirección URL mediante la ejecución de la `azds list-uri` comando: 
+Después de la implementación, la versión _dev_ de *webfrontend* puede obtenerse con una dirección URL pública, como: `http://dev.webfrontend.fedcba098.eus.azds.io`. Puede encontrar la dirección URL mediante la ejecución del comando `azds list-uri`: 
 
 ```cmd
 $ azds list-uris
@@ -151,18 +151,18 @@ http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ## <a name="deploying-to-production"></a>Implementación en producción
 
 Para promover manualmente una versión particular a _prod_ con el sistema de CI/CD creado en este tutorial:
-1. Navegue hasta la **versiones** sección **canalizaciones**.
-1. Haga clic en la canalización de versiones para la aplicación de ejemplo.
+1. Navegue hasta la sección **Versiones** en **Canalizaciones**.
+1. Haga clic en la canalización de versión para la aplicación de ejemplo.
 1. Haga clic en el nombre de la versión más reciente.
-1. Mantenga el mouse sobre el **prod** cuadro bajo **fases** y haga clic en **implementar**.
-    ![Promover a producción](../media/common/prod-promote.png)
-1. Mantenga el mouse sobre **prod** cuadro nuevamente en **fases** y haga clic en **registros**.
+1. Mantenga el puntero sobre la casilla **prod** (producción) en **Fases** y haga clic en **Implementar**.
+    ![Promoción a producción](../media/common/prod-promote.png)
+1. Mantenga el puntero sobre la casilla **prod** (producción) de nuevo en **Fases** y haga clic en **Registros**.
 
-La versión se realiza cuando se completan todas las tareas.
+La versión estará lista cuando se hayan completado todas las tareas.
 
-El _prod_ fase de la canalización de CI/CD utiliza un equilibrador de carga en lugar del controlador Ingress de espacios de desarrollo para proporcionar acceso a _prod_ servicios. Los servicios implementan en el _prod_ fase son accesibles como direcciones IP en lugar de nombres DNS. En un entorno de producción, puede crear su propio controlador de entrada para hospedar los servicios según su propia configuración de DNS.
+La fase de _producción_ de la canalización de CI/CD utiliza un equilibrador de carga en lugar del controlador de entrada de Dev Spaces para proporcionar acceso a los servicios de _producción_. Los servicios implementados en la fase de _producción_ son accesibles como direcciones IP en lugar de nombres DNS. En un entorno de producción, puede optar por crear su propio controlador de entrada para hospedar los servicios según su propia configuración de DNS.
 
-Para determinar la dirección IP del servicio webfrontend, haga clic en el **imprimir IP público de webfrontend** paso para expandir la salida del registro. Use la dirección IP que se muestra en el registro de salida para tener acceso a la **webfrontend** aplicación.
+Para determinar la dirección IP del servicio webfrontend, haga clic en el paso de **impresión de la dirección IP pública de webfrontend** para expandir la salida del registro. Use la dirección IP que se muestra en el registro de salida para tener acceso a la aplicación **webfrontend**.
 
 ```cmd
 ...

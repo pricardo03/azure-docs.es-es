@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
 ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141657"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
@@ -49,15 +49,15 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 ## <a name="scenario"></a> Escenario
 
-En este artículo se trata cómo usar un único servicio de administración de API para consumidores tanto internos como externos y hacer que actúe como un único front-end para ambos en el entorno local y en la nube de la API. También verá cómo exponer solamente un subconjunto de las API (resaltado en verde en el ejemplo) para permitir su uso externo, usando para ello la funcionalidad de enrutamiento disponible en Application Gateway.
+En este artículo se explica cómo usar un único servicio de API Management para los consumidores tanto internos como externos y hacer que actúe como un único servidor de front-end para las API locales y en la nube. También verá cómo exponer solamente un subconjunto de las API (resaltado en verde en el ejemplo) para permitir su uso externo, usando para ello la funcionalidad de enrutamiento disponible en Application Gateway.
 
-En el primer ejemplo de la configuración, todas las API se administran únicamente desde dentro de la red virtual. Los consumidores internos (resaltados en color naranja) pueden tener acceso a todas las API internas y externas. El tráfico nunca sale a internet. Conectividad de alto rendimiento se entrega a través de circuitos Express Route.
+En el primer ejemplo de la configuración, todas las API se administran únicamente desde dentro de la red virtual. Los consumidores internos (resaltados en color naranja) pueden tener acceso a todas las API internas y externas. El tráfico nunca sale a Internet. La conectividad de alto rendimiento se proporciona mediante circuitos ExpressRoute.
 
 ![ruta de dirección URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"></a> Antes de empezar
 
-* Asegúrese de que está usando la versión más reciente de Azure PowerShell. Consulte las instrucciones de instalación de [instalar Azure PowerShell](/powershell/azure/install-az-ps). 
+* Asegúrese de que está usando la versión más reciente de Azure PowerShell. Consulte las instrucciones de instalación en [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>¿Qué se necesita para crear una integración entre API Management y Application Gateway?
 
@@ -147,7 +147,7 @@ Cree una red virtual llamada **appgwvnet** en el grupo de recursos **apim-appGw-
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 Asigne una variable de subred para los pasos siguientes.
 
@@ -202,7 +202,7 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ### <a name="step-2"></a>Paso 2
 
-Cree y establezca el nombre de host objetos de configuración del proxy y del portal.  
+Cree y establezca los objetos de configuración del nombre de host para el servidor proxy y el portal.  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
@@ -251,7 +251,7 @@ Configuración de la dirección IP de front-end con el punto de conexión de IP 
 $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 Configure el certificado para Application Gateway, que se usará para descifrar y volver a cifrar el tráfico que pasa por ella.
 
@@ -355,7 +355,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"></a>Resumen
-Azure API Management configurado en una red virtual proporciona una interfaz de puerta de enlace única para todas las API configuradas, si están hospedados localmente o en la nube. La integración de Application Gateway con API Management proporciona la flexibilidad de habilitar de manera selectiva API determinadas para que estén accesibles en Internet, así como la provisión de un firewall de aplicación web como front-end para la instancia de API Management.
+El servicio Azure API Management configurado en una red virtual proporciona una interfaz de puerta de enlace única para todas las API configuradas, independientemente de si están hospedadas de forma local o en la nube. La integración de Application Gateway con API Management proporciona la flexibilidad de habilitar de manera selectiva API determinadas para que estén accesibles en Internet, así como la provisión de un firewall de aplicación web como front-end para la instancia de API Management.
 
 ## <a name="next-steps"> </a> Pasos siguientes
 * Obtenga más información sobre Azure Application Gateway.

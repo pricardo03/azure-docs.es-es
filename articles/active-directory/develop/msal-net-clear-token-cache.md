@@ -1,6 +1,6 @@
 ---
-title: Borrar la caché de tokens mediante la biblioteca de autenticación de Microsoft para .NET - Azure
-description: Obtenga información sobre cómo borrar la caché de tokens mediante la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
+title: Borrado de la caché del token usando Microsoft Authentication Library para .NET - Azure
+description: Aprenda a borrar la caché del token usando Microsoft Authentication Library para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,17 +18,17 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6763c6b2b1f9b4de7d8669a50a4979a7aac00c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544114"
 ---
-# <a name="clear-the-token-cache-using-msalnet"></a>Borrar la caché de tokens mediante MSAL.NET
+# <a name="clear-the-token-cache-using-msalnet"></a>Borrado de la caché de tokens mediante MSAL.NET
 
-Cuando se [adquirir un token de acceso](msal-acquire-cache-tokens.md) mediante la biblioteca de autenticación de Microsoft para .NET (MSAL.NET), el token se almacena en caché. Cuando la aplicación necesita un token, debe llamar primero el `AcquireTokenSilent` método para comprobar si es un token aceptable en la memoria caché. 
+Al [adquirir un token de acceso](msal-acquire-cache-tokens.md) mediante Microsoft Authentication Library para .NET (MSAL.NET), el token se almacena en caché. Cuando la aplicación necesita un token, primero debe llamar al método `AcquireTokenSilent` para comprobar si hay un token aceptable en la caché. 
 
-Borrar la memoria caché se logra mediante la eliminación de las cuentas de la memoria caché. No obstante, esto no elimina la cookie de sesión que se encuentra en el explorador.  El ejemplo siguiente se crea una instancia de una aplicación de cliente público, obtiene las cuentas de la aplicación y quita las cuentas.
+Para borrar la caché, es necesario quitar las cuentas de la caché. No obstante, esto no elimina la cookie de sesión que se encuentra en el explorador.  En el ejemplo siguiente se crea una instancia de una aplicación cliente pública, se obtienen las cuentas de la aplicación y se quitan las cuentas.
 
 ```csharp
 private readonly IPublicClientApplication _app;
@@ -50,4 +50,4 @@ while (accounts.Any())
 
 ```
 
-Para obtener más información sobre la adquisición y almacenamiento en caché de tokens, lea [adquirir un token de acceso](msal-acquire-cache-tokens.md).
+Para obtener más información sobre la adquisición y el almacenamiento en caché de los tokens, vea [Adquirir un token de acceso](msal-acquire-cache-tokens.md).

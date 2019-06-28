@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245291"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalación de Azure AD Connect mediante una base de datos existente de ADSync
@@ -59,15 +59,15 @@ Notas importantes a tener en cuenta antes de continuar:
 1.  Descargue el instalador de Azure AD Connect (AzureADConnect.MSI) en el servidor de Windows. Haga doble clic en el instalador de Azure AD Connect para iniciar la instalación de este.
 2.  Una vez finalizada la instalación del MSI, se inicia el asistente de Azure AD Connect con la configuración del modo rápido. Cierre la pantalla haciendo clic en el icono de salida.
 ![Pantalla de bienvenida](./media/how-to-connect-install-existing-database/db1.png)
-3.  Inicie un nuevo símbolo del sistema o sesión de PowerShell. Navegue hasta la carpeta "C:\Program Files\Microsoft Azure Active Directory Connect". Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
+3.  Inicie un nuevo símbolo del sistema o sesión de PowerShell. Vaya a la carpeta "C:\Archivos de programa\Microsoft Azure Active Directory Connect". Ejecute el comando .\AzureADConnect.exe /useexistingdatabase para iniciar el asistente de Azure AD Connect en el modo de configuración "Usar base de datos existente".
 
 > [!NOTE]
-> Use el modificador **/UseExistingDatabase** solo cuando la base de datos ya contenga datos de una instalación anterior de Azure AD Connect. Por ejemplo, cuando mueva una base de datos local a una base de datos de SQL Server completa o cuando vuelva a generar el servidor de Azure AD Connect y se restaure una copia de seguridad de SQL de la base de datos de ADSync a partir de una instalación anterior de Azure AD Connect. Si la base de datos está vacío, es decir, lo no contiene ningún dato de una instalación anterior de Azure AD Connect, omita este paso.
+> Use el modificador **/UseExistingDatabase** solo cuando la base de datos ya contenga datos de una instalación anterior de Azure AD Connect. Por ejemplo, cuando mueva una base de datos local a una base de datos de SQL Server completa o cuando vuelva a generar el servidor de Azure AD Connect y se restaure una copia de seguridad de SQL de la base de datos de ADSync a partir de una instalación anterior de Azure AD Connect. Si la base de datos está vacía, es decir, no contiene datos de una instalación de Azure AD Connect anterior, omita este paso.
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. Aparece la pantalla de bienvenida a Azure AD Connect. Una vez que acepte los términos de licencia y el aviso de privacidad, haga clic en **Continuar**.
    ![Pantalla de bienvenida](./media/how-to-connect-install-existing-database/db3.png)
-1. En la pantalla **Instalar componentes necesarios**, está habilitada la opción **Usar un SQL Server existente**. Especifique el nombre del servidor de SQL Server que hospeda la base de datos de ADSync. Si la instancia del motor SQL utilizada para hospedar la base de datos de ADSync no es la instancia predeterminada del servidor de SQL Server, deberá especificar el nombre de la instancia del motor SQL. Además, si no está habilitada la exploración de SQL, también deberá especificar el número de puerto de la instancia del motor SQL. Por ejemplo:          
+1. En la pantalla **Instalar componentes necesarios**, está habilitada la opción **Usar un SQL Server existente**. Especifique el nombre del servidor de SQL Server que hospeda la base de datos de ADSync. Si la instancia del motor SQL utilizada para hospedar la base de datos de ADSync no es la instancia predeterminada del servidor de SQL Server, deberá especificar el nombre de la instancia del motor SQL. Además, si no está habilitada la exploración de SQL, también deberá especificar el número de puerto de la instancia del motor SQL. Por ejemplo:         
    ![Pantalla de bienvenida](./media/how-to-connect-install-existing-database/db4.png)           
 
 1. En la pantalla **Conectar con Azure AD**, debe proporcionar las credenciales de un administrador global de su directorio de Azure AD. Se recomienda utilizar una cuenta en el dominio predeterminado onmicrosoft.com. Esta cuenta solo se usa para crear una cuenta de servicio en Azure AD y no se utiliza una vez completado el asistente.

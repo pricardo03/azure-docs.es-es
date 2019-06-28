@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731061"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
@@ -71,7 +71,7 @@ Para que Profiler funcione correctamente:
 
     |Configuración de aplicación    | Valor    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | clave de instrumentación para el recurso de Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para el recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ Para que Profiler funcione correctamente:
    
       ![profiler-webjob]   
    
-   1. Para ver los detalles del webjob, incluido el registro, seleccione el **ApplicationInsightsProfiler3** vínculo.  
+   1. Para ver los detalles del webjob, incluido el registro, seleccione el vínculo **ApplicationInsightsProfiler3**.  
      Se abre el panel **Continuous WebJob Details** (Detalles de WebJobs continuos).
 
       ![profiler-webjob-log]
@@ -96,14 +96,14 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 
 1. En el panel de **control de la aplicación web**, abra **Configuración**.
 
-1. Establecer **versión de .NET Framework** a **v4.6**.
+1. Establezca la **versión de .NET Framework** en **v4.6**.
 
 1. Establezca **Siempre activado** en **Activado**.
-1. Crear esta configuración de aplicación:
+1. Cree esta configuración de aplicación:
 
     |Configuración de aplicación    | Valor    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | clave de instrumentación para el recurso de Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para el recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -131,7 +131,7 @@ Profiler se ejecuta como un WebJob continuo en la aplicación web. Puede abrir e
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Solución de problemas con Profiler y Azure Diagnostics
 
->**Se ha corregido el error en el generador de perfiles que se incluye en el WAD para servicios en la nube.** La versión más reciente de WAD (1.12.2.0) para servicios en la nube funciona con todas las versiones recientes del SDK de App Insights. Hosts de servicio en la nube actualizarán automáticamente en WAD, pero no es inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
+>**Se ha corregido el error en el generador de perfiles que se incluye con WAD para Cloud Services.** La versión más reciente de WAD (1.12.2.0) para Cloud Services funciona con todas las versiones recientes del SDK de App Insights. Los hosts de Cloud Services actualizarán WAD automáticamente, pero no es algo inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
 
 Para ver si Azure Diagnostics ha configurado Profiler correctamente, realice las tres acciones siguientes: 
 1. En primer lugar, tiene que comprobar si el contenido de la configuración de Azure Diagnostics que se ha implementado es el que esperaba. 
@@ -142,7 +142,7 @@ Para ver si Azure Diagnostics ha configurado Profiler correctamente, realice las
 
 Para comprobar la configuración que se usó para configurar Azure Diagnostics:
 
-1. Inicie sesión en la máquina virtual (VM) y, a continuación, abra el archivo de registro en esta ubicación. (La unidad podría ser c: o d: y la versión del complemento podrían ser diferentes).
+1. Inicie sesión en la máquina virtual (VM) y abra el archivo de registro que se encuentra en esta ubicación. (La unidad podría ser c: o d: y la versión del complemento podría ser diferente).
 
     ```
     c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
@@ -154,7 +154,7 @@ Para comprobar la configuración que se usó para configurar Azure Diagnostics:
 
 1. En dicho archivo puede buscar la cadena **WadCfg** para saber qué valores se han pasado a la máquina virtual para configurar Azure Diagnostics. Puede comprobar si el valor de iKey que ha usado el receptor de Profiler es correcto.
 
-1. Compruebe la línea de comandos que se usa para iniciar Profiler. Los argumentos que se utilizan para iniciar a Profiler están en el siguiente archivo. (Podría ser la unidad c: o d:)
+1. Compruebe la línea de comandos que se usa para iniciar Profiler. Los argumentos que se utilizan para iniciar Profiler están en el siguiente archivo. (La unidad podría ser c: o d:).
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

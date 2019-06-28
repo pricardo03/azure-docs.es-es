@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348727"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Actualización desde DirSync
@@ -49,7 +49,7 @@ Dependiendo de su implementación actual de DirSync, existen diferentes opciones
 > Cuando planee la actualización de DirSync a Azure AD Connect, no desinstale DirSync antes de la actualización. Azure AD Connect leerá y migrará la configuración de DirSync y lo desinstalará después de inspeccionar el servidor.
 
 **Actualización local**  
- El asistente muestra el tiempo previsto para completar la actualización. Este cálculo se basa en la suposición de que se tardan tres horas en completar una actualización de una base de datos con 50 000 objetos (usuarios, contactos y grupos). Si el número de objetos que hay en la base de datos es inferior a 50 000, Azure AD Connect recomienda una actualización local. Si decide continuar, la configuración actual se aplica automáticamente en la actualización y el servidor reanuda automáticamente la sincronización activa.
+El asistente muestra el tiempo previsto para completar la actualización. Este cálculo se basa en la suposición de que se tardan tres horas en completar una actualización de una base de datos con 50 000 objetos (usuarios, contactos y grupos). Si el número de objetos que hay en la base de datos es inferior a 50 000, Azure AD Connect recomienda una actualización local. Si decide continuar, la configuración actual se aplica automáticamente en la actualización y el servidor reanuda automáticamente la sincronización activa.
 
 Si desea realizar una migración de la configuración y una implementación paralela, puede anular la recomendación de actualización local. Por ejemplo, podría aprovechar para actualizar el hardware y el sistema operativo. Para más información, consulte la sección [Implementación paralela](#parallel-deployment).
 
@@ -97,7 +97,7 @@ Se requieren pasos adicionales cuando:
 3. Haga clic en Siguiente para realizar el análisis de la instalación existente de DirSync.  
    ![Análisis de la instalación de Directory Sync existente](./media/how-to-dirsync-upgrade-get-started/Analyze.png)
 4. Cuando el análisis se complete, verá recomendaciones de cómo proceder.  
-   * Si usa SQL Server Express y tiene menos de 50.000 objetos, se muestra la siguiente pantalla:   
+   * Si usa SQL Server Express y tiene menos de 50.000 objetos, se muestra la siguiente pantalla:  
      ![Análisis completado listo para actualizar desde DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * Si usa una instancia completa de SQL Server para DirSync, verá esta página en su lugar:  
      ![Análisis completado listo para actualizar desde DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
@@ -158,7 +158,7 @@ Al instalar Azure AD Connect en un nuevo servidor, se presupone que se desea rea
    * Una ubicación de instalación personalizada para Azure AD Connect.
    * Una instancia existente de SQL Server (valor predeterminado: Azure AD Connect instala SQL Server 2012 Express). No use la misma instancia de base de datos como servidor de DirSync.
    * Una cuenta de servicio usada para conectarse a SQL Server (si la base de datos de SQL Server es remota, esta cuenta debe ser una cuenta de servicio de dominio).
-     Estas opciones se pueden ver en esta pantalla:   
+     Estas opciones se pueden ver en esta pantalla:  
      ![Escriba sus credenciales de Azure AD](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Haga clic en **Next**.
 8. En la página **Listo para configurar**, deje seleccionada la opción **Inicie el proceso de sincronización en cuanto se complete la configuración**. El servidor está ya en [modo provisional](how-to-connect-sync-staging-server.md), por lo que los cambios no se exportan a Azure AD.

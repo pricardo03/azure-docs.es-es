@@ -1,5 +1,5 @@
 ---
-title: Administrar permisos de base de datos en el Explorador de datos de Azure
+title: Administración de permisos de base de datos de Azure Data Explorer
 description: En este artículo se describen los controles de acceso basado en rol de bases de datos y tablas en el Explorador de datos de Azure.
 author: orspod
 ms.author: orspodek
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60758796"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Administración de permisos de base de datos del Explorador de datos de Azure

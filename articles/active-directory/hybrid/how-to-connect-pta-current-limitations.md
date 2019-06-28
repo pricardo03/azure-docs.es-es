@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347758"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: Limitaciones actuales
@@ -34,7 +34,7 @@ Se admiten los siguientes escenarios:
 
 - El usuario inicia sesión en aplicaciones basadas en explorador web.
 - El usuario inicia sesión en clientes Outlook que usan protocolos heredados como Exchange ActiveSync, EAS, SMTP, POP e IMAP.
-- El usuario inicia sesión en aplicaciones del cliente de Office heredadas que admiten la [autenticación moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 y versiones de 2016.
+- El usuario inicia sesión en aplicaciones del cliente de Office heredadas que admiten la [autenticación moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Versiones Office 2013 y Office 2016.
 - El usuario inicia sesión en aplicaciones de protocolo heredado, como la versión 1.0 (y otras) de PowerShell.
 - Azure AD se combina con los dispositivos con Windows 10.
 - Contraseñas de aplicaciones de Multi-Factor Authentication.

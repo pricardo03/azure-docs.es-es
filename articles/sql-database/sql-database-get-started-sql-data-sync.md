@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60342242"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuración de SQL Data Sync entre Azure SQL Database e instancias locales de SQL Server
@@ -82,7 +82,7 @@ En la sección **Base de datos de miembros**, tiene la opción de agregar una ba
   | **Nombre del miembro de sincronización** | Proporcione un nombre para el nuevo miembro de sincronización. Este nombre es distinto del de la base de datos. |
   | **Suscripción** | Seleccione la suscripción de Azure asociada para fines de facturación. |
   | **Azure SQL Server** | Seleccione el servidor de SQL Database existente. |
-  | **Azure SQL Database** | Seleccione la base de datos SQL existente. |
+  | **Azure SQL Database** | Seleccione la base de datos SQL existente. |
   | **Direcciones de sincronización** | Seleccione **Sincronización bidireccional**, **Al concentrador** o **Desde el concentrador**. |
   | **Nombre de usuario** y **Contraseña** | Escriba las credenciales existentes para el servidor de SQL Database en el que se encuentra la base de datos miembro. No escriba *nuevas* credenciales en esta sección. |
 
@@ -232,7 +232,7 @@ Para más información sobre SQL Data Sync, consulte:
 
 - [Data Sync Agent para Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Procedimientos recomendados](sql-database-best-practices-data-sync.md) y [Solución de problemas de Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Supervisar SQL Data Sync con registros de Azure Monitor](sql-database-sync-monitor-oms.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 - [Actualización del esquema de sincronización con Transact-SQL](sql-database-update-sync-schema.md) o [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Para más información sobre SQL Database, consulte:

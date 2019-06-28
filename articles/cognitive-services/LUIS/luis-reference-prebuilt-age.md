@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: b8239688000f0ce32ca2c2be054b1443bbb698b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65069135"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada Age para una aplicación de LUIS
@@ -52,9 +52,9 @@ En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.age**
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versión de API preliminar 3.x
+### <a name="preview-api-version-3x"></a>Versión preliminar de API 3.x
 
-El siguiente JSON es con el `verbose` parámetro establecido en `false`:
+El siguiente JSON es con el parámetro `verbose` establecido en `false`:
 
 ```json
 {
@@ -79,7 +79,7 @@ El siguiente JSON es con el `verbose` parámetro establecido en `false`:
 }
 ```
 
-El siguiente JSON es con el `verbose` parámetro establecido en `true`:
+El siguiente JSON es con el parámetro `verbose` establecido en `true`:
 
 ```json
 {

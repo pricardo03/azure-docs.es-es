@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353795"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
@@ -32,7 +32,7 @@ En este artículo se describe cómo administrar y personalizar Servicios de fede
 |:--- |:--- |
 | **Administración de AD FS** | |
 | [Reparación de la confianza](#repairthetrust) |Cómo reparar la confianza de federación con Office 365. |
-| [Federación con Azure AD mediante el identificador de inicio de sesión alternativo](#alternateid) | Configuración de la federación con un identificador de inicio de sesión alternativo  |
+| [Federación con Azure AD mediante un identificador de inicio de sesión alternativo](#alternateid) | Configuración de la federación con un identificador de inicio de sesión alternativo  |
 | [Adición de un servidor de AD FS](#addadfsserver) |Cómo expandir una granja de servidores de AD FS con un servidor de AD FS adicional. |
 | [Incorporación de un servidor proxy de aplicación web de AD FS](#addwapserver) |Cómo expandir una granja de servidores de AD FS con un servidor proxy de aplicación web (WAP) adicional. |
 | [Adición de un dominio federado](#addfeddomain) |Cómo agregar un dominio federado. |

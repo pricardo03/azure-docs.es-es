@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244822"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
@@ -36,7 +36,7 @@ En este artículo se proporciona información adicional para administrar los cer
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configuración predeterminada de AD FS para los certificados de firma de tokens
 La firma de tokens y los certificados de descifrado de tokens son normalmente certificados autofirmados y son válidos durante un año. De forma predeterminada, AD FS incluye un proceso de renovación automática llamado **AutoCertificateRollover**. Si utiliza AD FS 2.0 o versiones posteriores, Office 365 y Azure AD actualizan automáticamente el certificado antes de que expire.
 
-### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notificación de renovación desde el centro de administración de Microsoft 365 o un correo electrónico
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notificación de renovación desde el Centro de administración de Microsoft 365 o por correo electrónico
 > [!NOTE]
 > Si recibe un correo electrónico o una notificación del portal que le solicita renovar el certificado de Office, consulte la sección de [administración de cambios en los certificados de firma de tokens](#managecerts) para comprobar si es necesario realizar alguna acción. Microsoft tiene constancia de un posible problema que puede dar lugar a notificaciones enviadas para la renovación de certificados, incluso cuando no se requiere ninguna acción.
 >
@@ -44,8 +44,8 @@ La firma de tokens y los certificados de descifrado de tokens son normalmente ce
 
 Azure AD intenta supervisar los metadatos de federación y actualizar el token de firma de certificados, tal como indican sus metadatos. 30 días antes de la expiración de los certificados de firma de tokens, Azure AD comprobará si los certificados nuevos están disponibles mediante el sondeo de los metadatos de federación.
 
-* Si se puede sondear los metadatos de federación y recuperar los nuevos certificados correctamente, no se emite ninguna notificación por correo electrónico o una advertencia en el centro de administración de Microsoft 365 al usuario.
-* Si no se puede recuperar el nuevo token de firma de certificados, ya sea porque los metadatos de federación no están accesible o no está habilitada la sustitución automática de certificados, Azure AD emite una notificación por correo electrónico y una advertencia en el centro de administración de Microsoft 365.
+* Si puede sondear los metadatos de federación y recuperar los nuevos certificados correctamente, no se enviará al usuario ninguna notificación por correo electrónico ni ninguna advertencia del Centro de administración de Microsoft 365.
+* Si no se pueden recuperar los nuevos certificados de firma de tokens, ya sea porque los metadatos de federación no son accesibles o porque no está habilitada la sustitución automática de certificados, Azure AD emitirá una notificación por correo electrónico y una advertencia en el Centro de administración de Microsoft 365.
 
 ![Notificación del portal de Office 365](./media/how-to-connect-fed-o365-certs/notification.png)
 
@@ -99,8 +99,8 @@ En la salida de Get-MsolFederationProperty o Get-AdfsCertificate compruebe la fe
 | AutoCertificateRollover | Certificados sincronizados con Azure AD | Los metadatos de federación están disponibles públicamente | Validez | . |
 |:---:|:---:|:---:|:---:|:---:|
 | Sí |Sí |Sí |- |No se requiere ninguna acción. Consulte [Renovación automática de certificados de firma de tokens](#autorenew). |
-| Sí |Sin  |- |Menos de 15 días |Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew). |
-| Sin  |- |- |Menos de 30 días |Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew). |
+| Sí |Sin |- |Menos de 15 días |Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew). |
+| Sin |- |- |Menos de 30 días |Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew). |
 
 \[-] No importa
 
@@ -114,11 +114,11 @@ Compruebe lo siguiente para confirmar que se puede actualizar el certificado aut
 
 **1. La propiedad AutoCertificateRollover de AD FS debe establecerse en True.** Esto indica que AD FS generará automáticamente nuevos certificados de descifrado de tokens y de firma de tokens antes de que expiren los antiguos.
 
-**2. Los metadatos de federación de AD FS están disponibles públicamente.**  Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
+**2. Los metadatos de federación de AD FS están disponibles públicamente.** Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-donde `(your_FS_name)` se reemplaza con el nombre de host de servicio de federación usa su organización, como fs.contoso.com.  Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.  
+donde `(your_FS_name)` se reemplaza por el nombre de host de servicio de federación que usa su organización, por ejemplo, fs.contoso.com.  Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.  
 
 Ejemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Renovación manual de certificados de firma de tokens <a name="manualrenew"></a>

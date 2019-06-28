@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629295"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de la versión de la matriz virtual de StorSimple Update 0.2 y 0.1
@@ -44,12 +44,12 @@ Update 0.2 incluye todos los cambios de Update 0.1 y, además, la revisión que 
 ## <a name="whats-new-in-the-update-01"></a>Novedades de la actualización 0.1
 La actualización 0.1 contiene las siguientes correcciones de errores y mejoras. 
 
-* **Resistencia mejorada para las interrupciones en la nube**: Esta versión incluye varias correcciones de errores en torno a la recuperación ante desastres, copia de seguridad, restauración y los niveles si se produce una interrupción de conectividad en la nube. 
-* **Mejora el rendimiento de la restauración**: Esta versión tiene correcciones de errores que se han reducido considerablemente el tiempo de finalización de los trabajos de restauración.
-* **Optimización de la recuperación de espacio automatizada**: Cuando se eliminan datos en volúmenes con aprovisionamiento reducido, necesitan los bloques de almacenamiento sin usar se deben recuperar. Con esta versión, se ha mejorado el proceso de recuperación de espacio de la nube, con lo que el espacio no utilizado que se encontrará disponible antes que en versiones anteriores.
-* **Nuevas imágenes de disco virtual**: Nuevo VHD, VHDX y VMDK ahora están disponibles a través del portal de Azure clásico. Puede descargar estas imágenes para aprovisionar nuevos dispositivos con la actualización 0.1.
-* **Mejorar la precisión del estado de los trabajos en el portal de**: En la versión anterior del software, el estado del trabajo de informes en el portal no estaba muy detallado. Este problema se ha corregido en esta versión.
-* **Experiencia de unión de dominio**: Correcciones de errores relacionados con la unión a dominio y cambiar el nombre del dispositivo.
+* **Resistencia mejorada a las interrupciones de la nube**: esta versión contiene varias correcciones de errores en torno a la recuperación ante desastres, la copia de seguridad, la restauración y la organización en niveles en caso de que se produzca una interrupción de la conectividad de la nube. 
+* **Mejor rendimiento de la restauración**: esta versión contiene correcciones de errores que han reducido considerablemente el tiempo de finalización de los trabajos de restauración.
+* **Optimización de la recuperación de espacio automatizada**: cuando se eliminan datos en volúmenes con aprovisionamiento fino, se deben recuperar los bloques de almacenamiento no utilizados. Con esta versión, se ha mejorado el proceso de recuperación de espacio de la nube, con lo que el espacio no utilizado que se encontrará disponible antes que en versiones anteriores.
+* **Nuevas imágenes de disco virtual**: nuevos VHD, VHDX y VMDK disponibles mediante el Portal de Azure clásico. Puede descargar estas imágenes para aprovisionar nuevos dispositivos con la actualización 0.1.
+* **Mejora de la precisión del estado de los trabajos en el portal**: en la versión anterior del software, el estado del trabajo que se notificaba en el portal no estaba muy detallado. Este problema se ha corregido en esta versión.
+* **Experiencias de unión a dominios**: correcciones de errores relacionados con la unión a un dominio y el cambio de nombre del dispositivo.
 
 ## <a name="issues-fixed-in-the-update-01"></a>Problemas corregidos en la actualización 0.1
 En la tabla siguiente se proporciona un resumen de los problemas corregidos en esta versión.
@@ -72,7 +72,7 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 | **3.** |Directiva de grupo |Cuando un dispositivo está unido al dominio, aplicar una directiva de grupo puede afectar negativamente al funcionamiento de dispositivo. |Asegúrese de que su matriz virtual está en su propia unidad organizativa (UO) de Active Directory y de que no se le aplica ningún objeto de directiva de grupo (GPO). |
 | **4.** |Interfaz de usuario web local. |Si tiene las características de seguridad mejorada habilitadas en Internet Explorer (IE ESC), es posible que algunas páginas de la interfaz de usuario web local, tales como Solución de problemas o Mantenimiento, no funcionen correctamente. Asimismo, cabe la posibilidad de que los botones de estas páginas tampoco funcionen. |Desactive las características de seguridad mejorada de Internet Explorer. |
 | **5.** |Interfaz de usuario web local. |En una máquina virtual de Hyper-V, las interfaces de red que se encuentran en la interfaz de usuario web se muestran como interfaces de 10 Gbps. |Este comportamiento es un reflejo de Hyper-V. Hyper-V siempre muestra los adaptadores de red virtual a 10 Gbps. |
-| **6.** |Volúmenes o recursos compartidos en niveles |El bloqueo del intervalo de bytes de las aplicaciones que funcionan con volúmenes de StorSimple no se admite. Si tiene habilitado un bloqueo de intervalo de bytes, la organización en niveles de StorSimple no funcionará. |Entre las medidas recomendadas se incluyen:  <br></br>Desactive el bloqueo del intervalo de bytes en la lógica de la aplicación.<br></br>Elija esta opción colocar los datos de esta aplicación en los volúmenes anclados localmente en lugar en volúmenes en capas.<br></br>*Advertencia*: Si usa volúmenes anclados localmente y está habilitado el bloqueo de intervalo de bytes, tenga en cuenta que el volumen anclado localmente puede estar en línea incluso antes de que se complete la restauración. En tal caso, si hay una restauración en curso, debe esperar a que esta se complete. |
+| **6.** |Volúmenes o recursos compartidos en niveles |El bloqueo del intervalo de bytes de las aplicaciones que funcionan con volúmenes de StorSimple no se admite. Si tiene habilitado un bloqueo de intervalo de bytes, la organización en niveles de StorSimple no funcionará. |Entre las medidas recomendadas se incluyen: <br></br>Desactive el bloqueo del intervalo de bytes en la lógica de la aplicación.<br></br>Elija esta opción colocar los datos de esta aplicación en los volúmenes anclados localmente en lugar en volúmenes en capas.<br></br>*Advertencia*: Si usa volúmenes anclados localmente y tiene el bloqueo del intervalo de bytes habilitado, el volumen anclado localmente puede estar en línea incluso antes de que se complete la restauración. En tal caso, si hay una restauración en curso, debe esperar a que esta se complete. |
 | **7.** |Recursos compartidos organizados en niveles |Si trabaja con archivos de gran tamaño, estos podrían ocasionar que la organización en niveles se desarrolle lentamente. |Cuando trabaje con esta clase de archivos, es recomendable que el archivo de mayor tamaño no ocupe más del 3 % del tamaño recurso compartido. |
 | **8.** |Capacidad de recursos compartidos usada |Si no hay datos en el recurso compartido, es posible que vea cierto consumo del recurso compartido. Esto ocurre porque la capacidad que se usa para los recursos compartidos incluye los metadatos. | |
 | **9.** |Recuperación ante desastres |Solo puede realizar la recuperación ante desastres de un servidor de archivos en el mismo dominio que el del dispositivo de origen. Con esta versión no se puede realizar la recuperación ante desastres en el dispositivo de destino de otro dominio. |Esta característica se implementará en una versión posterior. |

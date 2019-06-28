@@ -10,10 +10,10 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60712677"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(EN DESUSO) Uso de Draft con Azure Container Service y Azure Container Registry para crear e implementar una aplicación en Kubernetes
@@ -31,7 +31,7 @@ Puede usar Draft con cualquier registro de imágenes de Docker y cualquier clús
 ## <a name="create-an-azure-container-registry"></a>Creación de una instancia de Azure Container Registry
 Le resultará muy fácil [crear una nueva instancia de Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md) con los pasos siguientes:
 
-1. Cree un grupo de recursos de Azure para administrar el registro de ACR y el clúster de Kubernetes en ACS.
+1. Cree un grupo de recursos de Azure para administrar el registro ACR y el clúster de Kubernetes en ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```

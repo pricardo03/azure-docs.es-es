@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743671"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Presentación del Administrador de recursos de clúster de Service Fabric
@@ -54,7 +54,7 @@ Aunque algunas de estas estrategias son interesantes, Service Fabric Cluster Res
 Dado que Cluster Resource Manager es responsable de mover servicios de un lado a otro, contiene un conjunto de características distintas en comparación con las que se encontrarían en un equilibrador de carga de red. Esto es porque los equilibradores de carga de red entregan el tráfico de red adonde ya están los servicios, incluso si esa ubicación no es ideal para la ejecución del propio servicio. Cluster Resource Manager de Service Fabric usa estrategias fundamentalmente distintas para garantizar que los recursos del clúster se usen de manera eficaz.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para obtener información sobre el flujo de información y arquitectura en Cluster Resource Manager, consulte [en este artículo](service-fabric-cluster-resource-manager-architecture.md)
+- Para obtener más información sobre el flujo de información y la arquitectura de Cluster Resource Manager, consulte [este artículo](service-fabric-cluster-resource-manager-architecture.md).
 - Cluster Resource Manager tiene muchas opciones para describir el clúster. Para obtener más información sobre las métricas, vea este artículo acerca de la [descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 - Para más información sobre la configuración de servicios, vaya a [este vínculo](service-fabric-cluster-resource-manager-configure-services.md).
 - Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).

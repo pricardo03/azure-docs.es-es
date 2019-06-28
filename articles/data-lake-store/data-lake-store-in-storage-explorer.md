@@ -1,7 +1,7 @@
 ---
 title: Administración de recursos Azure Data Lake Storage Gen1 en el Explorador Azure Storage
 description: Más información para acceder a los datos y recursos de Azure Data Lake Storage Gen1 y administrarlos en el Explorador de Azure Storage
-Keywords: Azure Data Lake Store, Explorador de Azure Storage
+Keywords: Azure Data Lake Store, Azure Storage Explorer
 services: Data Lake Store
 documentationcenter: ''
 author: jejiang
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613539"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Administración de recursos Azure Data Lake Storage Gen1 con el Explorador de Storage

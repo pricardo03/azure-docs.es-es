@@ -1,7 +1,7 @@
 ---
-title: 'Uso de trabajos de moderación mediante. NET: Content Moderator'
+title: 'Uso de trabajos de moderación mediante .NET: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Usar el SDK de .NET de moderador de contenido para iniciar trabajos de moderación de contenido-to-end para el contenido de texto o imagen de Azure Content Moderator.
+description: Use .NET SDK de Content Moderator para iniciar trabajos de moderación de contenido de un extremo a otro para el contenido de imágenes o texto en Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62113875"
 ---
-# <a name="define-and-use-moderation-jobs-net"></a>Definir y usar trabajos de moderación (. NET)
+# <a name="define-and-use-moderation-jobs-net"></a>Definición y uso de trabajos de moderación (. NET)
 
-Un trabajo de moderación actúa como un tipo de contenedor para la funcionalidad de moderación de contenido, los flujos de trabajo y las revisiones. Esta guía proporciona información y ejemplos de código que le ayudarán a empezar a usar el [contenido de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Un trabajo de moderación actúa como un tipo de contenedor para la funcionalidad de moderación de contenido, los flujos de trabajo y las revisiones. En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 
 - Iniciar un trabajo de moderación para examinar y crear revisiones para moderadores humanos
 - Obtener el estado de la revisión pendiente
 - Realizar un seguimiento de la revisión y obtener su estado final
-- Envíe los resultados de la revisión a la dirección URL de devolución de llamada
+- Enviar los resultados de revisión a la dirección URL de devolución de llamada
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Iniciar sesión o crear una cuenta de Content Moderator [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) sitio.
+- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Garantizar que la clave de API puede llamar a la API de revisión para la creación de revisiones
 

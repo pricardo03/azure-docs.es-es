@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML) - servicios de voz
+title: 'Lenguaje de marcado de síntesis de voz (SSML): servicios de Voz'
 titleSuffix: Azure Cognitive Services
 description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9871e0106ee6caf11c5a1e24459fbd2044f5f3d7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021434"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
@@ -26,23 +26,23 @@ Para obtener una lista completa de los idiomas compatibles, las configuraciones 
 
 En las secciones siguientes encontrará ejemplos de tareas de síntesis de voz comunes.
 
-## <a name="adjust-speaking-style-for-neural-voices"></a>Ajustar el estilo de habla de voces neuronales
+## <a name="adjust-speaking-style-for-neural-voices"></a>Ajuste del estilo de habla para voces neuronales
 
-Puede usar para ajustar el estilo de habla al usar una de las voces neuronales SSML.
+Puede usar SSSL para ajustar el estilo de habla al usar una de las voces neuronales.
 
-De forma predeterminada, el servicio de texto a voz sintetiza texto en un estilo neutro. Las voces neuronales amplían SSML con un `<mstts:express-as>` estilos de elemento que convierte texto a voz sintetizada hablar diferentes. Actualmente, las etiquetas de estilo solo son compatibles con estas voces:
+De forma predeterminada, el servicio de texto a voz sintetiza el texto en un estilo neutro. Las voces neuronales amplían SSML con un elemento `<mstts:express-as>` que convierte el texto a voz sintetizada en distintos estilos de habla. Actualmente, las etiquetas de estilo solo son compatibles con estas voces:
 
 * `en-US-JessaNeural` 
 * `zh-CN-XiaoxiaoNeural`.
 
-Los cambios de estilo de habla puede aplicarse en el nivel de oración. Los estilos varían según la voz. Si no se admite un tipo de estilo, el servicio devolverá la voz sintetizada como estilo predeterminado neutro.
+Los cambios de estilo de habla se pueden aplicar en el nivel de oración. Los estilos varían según la voz. Si no se admite un tipo de estilo, el servicio devuelve la voz sintetizada como el estilo neutro predeterminado.
 
 | Voz | Estilo | DESCRIPCIÓN | 
 |-----------|-----------------|----------|
-| `en-US-JessaNeural` | type=`cheerful` | Expresa una emoción que es positivo y feliz |
-| | type=`empathy` | Expresa una sensación de cuidado y descripción |
-| `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresa un tono formal, similar a las difusiones de noticias |
-| | type=`sentiment ` | Transmite un mensaje están tocando o una historia |
+| `en-US-JessaNeural` | tipo =`cheerful` | Expresa una emoción que es positiva y feliz. |
+| | tipo =`empathy` | Expresa un sentimiento de cuidado y comprensión. |
+| `zh-CN-XiaoxiaoNeural` | tipo =`newscast` | Expresa un tono formal, similar a las retransmisiones de noticias. |
+| | tipo =`sentiment ` | Transmite un mensaje conmovedor o una historia. |
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
@@ -62,7 +62,7 @@ Los cambios de estilo de habla puede aplicarse en el nivel de oración. Los esti
 
 ## <a name="change-speaking-rate"></a>Cambio de la velocidad de habla
 
-Velocidad de habla puede aplicarse a las voces estándares en la palabra o frase nivel. Mientras que la velocidad de habla sólo puede aplicarse a neuronales voces en el nivel de oración.
+La velocidad de habla puede aplicarse a voces estándares en el nivel de palabra o frase. Sin embargo, solo puede aplicarse a voces neuronales en el nivel de oración.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -82,7 +82,7 @@ Velocidad de habla puede aplicarse a las voces estándares en la palabra o frase
 
 ## <a name="change-volume"></a>Cambio de volumen
 
-Cambios de volumen pueden aplicarse a las voces estándares en la palabra o frase nivel. Mientras que los cambios de volumen sólo pueden aplicarse a neuronales voces en el nivel de oración.
+Los cambios de volumen pueden aplicarse a voces estándar en el nivel de palabra o frase. Sin embargo, solo pueden aplicarse a voces neuronales en el nivel de frase.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -94,7 +94,7 @@ Cambios de volumen pueden aplicarse a las voces estándares en la palabra o fras
 
 ## <a name="change-pitch"></a>Cambio de tono
 
-Cambios de tono pueden aplicarse a las voces estándares en la palabra o frase nivel. Mientras que los cambios de tono sólo pueden aplicarse a neuronales voces en el nivel de oración.
+Los cambios de tono pueden aplicarse a voces estándar en el nivel de palabra o frase. Sin embargo, solo pueden aplicarse a voces neuronales en el nivel de frase.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -106,7 +106,7 @@ Cambios de tono pueden aplicarse a las voces estándares en la palabra o frase n
 ## <a name="change-pitch-contour"></a>Cambio de curva melódica
 
 > [!IMPORTANT]
-> Pitch contour cambios no son compatibles con las voces neuronales.
+> Los cambios de curva melódica no se admiten con voces neuronales.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>

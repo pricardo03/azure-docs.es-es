@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231428"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Cómo usar el reconocimiento de entidades con nombre en el análisis de texto
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
-El [denominado Entity Recognition API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) toma texto no estructurado y para cada documento JSON, devuelve una lista de entidades de eliminar la ambigüedad con vínculos para obtener más información en la web (Wikipedia y Bing). 
+[Named Entity Recognition API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) toma texto no estructurado y, para cada documento JSON, devuelve una lista de entidades sin ambigüedad con vínculos a más información en la web (Wikipedia y Bing). 
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Vinculación de entidad y reconocimiento de entidades con nombre
 
-Text Analytics `entities` admite el punto de conexión tanto denominado reconocimiento de entidades (ER) y la vinculación de entidad.
+El punto de conexión `entities` de Text Analytics admite el reconocimiento de entidades con nombre (NER) y la vinculación de entidades.
 
 ### <a name="entity-linking"></a>Entity Linking
 La vinculación de entidad es la capacidad de identificar y desambiguar la identidad de una entidad que se encuentra en el texto (por ejemplo, determinar si se está usando "Marte" como el planeta o como el dios romano de la guerra). Este proceso requiere la presencia de una knowledge base a la que se vinculan las entidades reconocidas (Wikipedia se usa como knowledge base del punto de conexión `entities` de Text Analytics).
@@ -31,7 +31,7 @@ La vinculación de entidad es la capacidad de identificar y desambiguar la ident
 ### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases predefinidas. Las clases de entidades admitidas se enumeran a continuación.
 
-En el análisis de texto [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), vinculación de entidad y de reconocimiento de entidades con nombre (ER) están disponibles.
+En Text Analytics [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidades y el reconocimiento de entidades con nombre (NER).
 
 ### <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -44,23 +44,23 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Persona        | N/D\*         | "Jeff", "Bill Gates"     |
 | Ubicación      | N/D\*         | "Redmond, Washington", "París"  |
 | Organización  | N/D\*         | "Microsoft"   |
-| Cantidad      | Número        | "6", "seis"     | 
+| Cantidad      | Number        | "6", "seis"     | 
 | Cantidad      | Porcentaje    | "50 %", "cincuenta por ciento"| 
 | Cantidad      | Ordinal       | "2.º", "segundo"     | 
 | Cantidad      | NumberRange   | "De 4 a 8"     | 
-| Cantidad      | Antigüedad           | "90 días","30 años"    | 
+| Cantidad      | Edad           | "90 días","30 años"    | 
 | Cantidad      | Moneda      | "10,99 $"     | 
-| Cantidad      | Dimensión     | "10 millas", "40 cm"     | 
+| Cantidad      | Dimension Data     | "10 millas", "40 cm"     | 
 | Cantidad      | Temperatura   | "32 grados"    |
-| DateTime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
-| DateTime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
-| DateTime      | Time          | "8 a. m.", "8:00"  | 
-| DateTime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
-| DateTime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
-| DateTime      | Duración      | "1 minuto y 45 segundos"   | 
-| DateTime      | Conjunto           | "Todos los martes"     | 
-| DateTime      | TimeZone      |    | 
-| Dirección URL           | N/D\*         | "https:\//www.bing.com"    |
+| Datetime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
+| Datetime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
+| Datetime      | Hora          | "8 a. m.", "8:00"  | 
+| Datetime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
+| Datetime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
+| Datetime      | Duration      | "1 minuto y 45 segundos"   | 
+| Datetime      | Set           | "Todos los martes"     | 
+| Datetime      | TimeZone      |    | 
+| URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
 \* En función de las entidades de entrada y extraídas, algunas entidades pueden omitir el valor `SubType`.  Todos los tipos de entidad admitidos enumerados solo están disponibles para los idiomas inglés, chino simplificado, francés, alemán y español.
@@ -105,11 +105,11 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
-El análisis se realiza tras la recepción de la solicitud. El servicio acepta hasta 100 solicitudes por segunda y 1000 solicitudes por minuto. Cada solicitud puede tener un máximo de 1 MB.
+El análisis se realiza tras la recepción de la solicitud. El servicio acepta hasta 100 solicitudes por segundo y 1000 solicitudes por minuto. Cada solicitud puede tener un máximo de 1 MB.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
-## <a name="step-3-view-results"></a>Paso 3: Ver resultados
+## <a name="step-3-view-results"></a>Paso 3: Visualización de los resultados
 
 Todas las solicitudes POST devolverán una respuesta con formato JSON con los identificadores y las propiedades detectadas.
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tulasim
 ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379677"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
@@ -32,11 +32,11 @@ En la tabla siguiente se resumen los tipos de contenido y los formatos de archiv
 
 ## <a name="data-source-locations"></a>Ubicaciones de orígenes de datos
 
-La mayoría de las ubicaciones de origen de datos deben proporcionar públicas las direcciones URL o archivos, que no requieren autenticación. 
+La mayoría de las ubicaciones de origen de datos deben proporcionar las direcciones URL o los archivos públicos, que no requieren autenticación. 
 
-[Ubicaciones de origen de datos de SharePoint](../How-to/add-sharepoint-datasources.md) tienen permiso para proporcionar archivos autenticados. Recursos de SharePoint deben ser archivos, no las páginas web. 
+[Las ubicaciones de origen de datos de SharePoint](../How-to/add-sharepoint-datasources.md) tienen permiso para proporcionar archivos autenticados. Los recursos de SharePoint deben ser archivos, no páginas web. 
 
-A continuación, si tiene un archivo autenticado o la dirección URL, una opción alternativa es descargar el archivo desde el sitio autenticado en el equipo local, agregue el archivo local equipo a la base de conocimiento. 
+Si tiene un archivo o una dirección URL autenticados, una opción alternativa es descargar el archivo desde el sitio autenticado hasta el equipo local y luego agregar el archivo desde el equipo local hasta la base de conocimiento. 
 
 ## <a name="faq-urls"></a>Preguntas más frecuentes sobre las direcciones URL
 
@@ -176,6 +176,6 @@ Use el tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)*
 > [!div class="nextstepaction"]
 > [Configurar un servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Vea también 
+## <a name="see-also"></a>Otras referencias 
 
 [Introducción de QnA Maker](../Overview/overview.md)

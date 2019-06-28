@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323708"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Solución de problemas de puntos de conexión de Azure CDN que devuelven un código de estado 404
@@ -73,7 +73,7 @@ Compruebe que los valores de **Tipo de origen** y **Nombre de host de origen** s
 #### <a name="http-and-https-ports"></a>Puertos HTTP y HTTPS
 Compruebe sus puertos **HTTP** y **HTTPS**. En la mayoría de los casos, los puertos 80 y 443 son correctos y no requerirá ningún cambio.  Sin embargo, si el servidor de origen está escuchando en un puerto diferente, este deberá estar representado aquí. Si no está seguro, vea la dirección URL del archivo de origen. Las especificaciones de HTTP y HTTPS usan los puertos 80 y 443 como valores predeterminados. En la dirección URL de ejemplo, https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt, no se especifica un puerto, por lo que se asume el valor predeterminado de 443 y la configuración es correcta.  
 
-Sin embargo, suponga que la dirección URL del archivo de origen que se ha probado anteriormente es http:\//www.contoso.com:8080/file.txt. Observe la parte *:8080* al final del segmento de nombre de host. Que el número indica al explorador que usan el puerto 8080 para conectarse al servidor web www\.contoso.com, por lo tanto, deberá escribir *8080* en el **puerto HTTP** campo. Es importante tener en cuenta que esta configuración de puerto solo afecta al puerto que usa el punto de conexión para recupera información del origen.
+Sin embargo, suponga que la dirección URL del archivo de origen que se ha probado anteriormente es http:\//www.contoso.com:8080/file.txt. Observe la parte *:8080* al final del segmento de nombre de host. Ese número indica al explorador que use el puerto 8080 para conectarse al servidor web en www\.contoso.com, por lo tanto, deberá escribir *8080* en el campo **Puerto HTTP**. Es importante tener en cuenta que esta configuración de puerto solo afecta al puerto que usa el punto de conexión para recupera información del origen.
 
 > [!NOTE]
 > Los puntos de conexión de **Azure CDN Estándar de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes.  Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100))(Puertos de origen permitidos de la red CDN de Azure de Akamai).  

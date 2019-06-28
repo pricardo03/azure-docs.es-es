@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545068"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
@@ -35,9 +35,9 @@ Más información sobre:
 - [Soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clústeres que se ejecutan en un nivel de confiabilidad bronze le permiten ejecutar cargas de trabajo de prueba solo. Si experimenta problemas con un clúster con una confiabilidad bronze, el equipo de soporte técnico de Microsoft le ayudarán a mitigar el problema, pero no llevará a cabo un análisis de causa raíz. Consulte [las características de confiabilidad del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obtener más detalles.
+> Los clústeres que se ejecutan en un nivel de confiabilidad Bronze le permiten ejecutar solo cargas de trabajo de prueba. Si experimenta problemas con un clúster que se ejecuta en una confiabilidad de nivel Bronze, el equipo de soporte técnico de Microsoft le ayudará a mitigar el problema, pero no llevará a cabo un análisis de causa raíz. Consulte las [características de confiabilidad del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para más información.
 >
-> Para obtener más información sobre lo que es necesario para un clúster listo para producción, consulte el [lista de comprobación de preparación para la producción](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Para obtener más detalles sobre lo que es necesario para un clúster listo para producción, consulte la [lista de comprobación sobre la preparación para la producción](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60931724"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Envío de correo electrónico con SendGrid desde Node.js
@@ -72,7 +72,7 @@ var email = new sendgrid.Email({
 });
 ```
 
-También es posible especificar un mensaje de HTML para clientes que lo admitan mediante la configuración de la propiedad html. Por ejemplo: 
+También es posible especificar un mensaje de HTML para clientes que lo admitan mediante la configuración de la propiedad html. Por ejemplo:
 
 ```javascript
 html: This is a sample <b>HTML<b> email message.
@@ -96,7 +96,7 @@ sendgrid.send(email, function(err, json){
 ```
 
 > [!NOTE]
-> Mientras que los ejemplos anteriores muestran la transferencia de un objeto de correo electrónico y la función de devolución de llamada, también es posible invocar la función de envío mediante la especificación directa de las propiedades del correo electrónico. Por ejemplo:   
+> Mientras que los ejemplos anteriores muestran la transferencia de un objeto de correo electrónico y la función de devolución de llamada, también es posible invocar la función de envío mediante la especificación directa de las propiedades del correo electrónico. Por ejemplo:  
 > 
 > ```javascript
 > sendgrid.send({
@@ -135,7 +135,7 @@ sendgrid.send({
 > 
 > 
 
-## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Procedimientos para: Usar filtros para habilitar pies de página y seguimiento
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>Procedimientos para: Uso de filtros para habilitar pies de página y seguimiento
 
 SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de filtros. Estas configuraciones se pueden agregar a un mensaje de correo electrónico para permitir una funcionalidad específica, como habilitar el seguimiento de clics, el análisis de Google, el seguimiento de las suscripciones, etc. Si desea obtener una lista completa de los filtros, consulte [Filter Settings][Filter Settings].
 
@@ -186,7 +186,7 @@ email.setFilters({
 sendgrid.send(email);
 ```
 
-## <a name="how-to-update-email-properties"></a>Procedimientos para: Actualizar las propiedades de correo electrónico
+## <a name="how-to-update-email-properties"></a>Procedimientos para: Actualización de las propiedades de correo electrónico
 
 Es posible sobrescribir algunas propiedades de correo electrónico con **setProperty** o anexarlas con **addProperty**. Por ejemplo, puede agregar destinatarios adicionales mediante
 

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d4f9617a5c2ba6f6cf8dc261845aa98e33d70a55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60649200"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
@@ -56,7 +56,7 @@ Los **paneles de dispositivo** puede contener varios tipos de iconos. Algunos de
 
 Puede crear varias versiones de la plantilla de dispositivo. Con el tiempo, tendrá varios dispositivos conectados mediante estas plantillas de dispositivo. Puede migrar los dispositivos de una versión de la plantilla de dispositivo a otra. Los pasos siguientes describen cómo migrar un dispositivo:
 
-1. Vaya a la **Device Explorer** página.
+1. Vaya a la página del **Explorador de dispositivos**.
 1. Seleccione el dispositivo que necesita migrar a otra versión.
 1. Elija **Migrate Device** (Migrar dispositivo).
 1. Seleccione el número de versión a la que desea migrar el dispositivo y elija **Migrar**.

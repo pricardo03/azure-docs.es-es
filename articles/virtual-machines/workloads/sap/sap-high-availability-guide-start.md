@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935898"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
@@ -203,7 +203,7 @@ En estos artículos, aprenderá cómo ayudar a proteger un punto único de compo
 
 ## <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
 
-**Resumen:** En este artículo se describe la arquitectura de alta disponibilidad de un sistema SAP en Azure. Se describe cómo solucionar la alta disponibilidad del único punto de error de SAP (SPOF) y los componentes redundantes, así como las características de alta disponibilidad de la infraestructura de Azure. También nos centramos en cómo se relacionan estas partes con los componentes del sistema SAP. Además, el análisis se desglosa para características de Windows y Linux. Además, se explican distintos escenarios de alta disponibilidad de SAP.
+**Resumen:** en este documento se describe la arquitectura de alta disponibilidad para un sistema SAP en Azure. Se describe cómo solucionar la alta disponibilidad del único punto de error de SAP (SPOF) y los componentes redundantes, así como las características de alta disponibilidad de la infraestructura de Azure. También nos centramos en cómo se relacionan estas partes con los componentes del sistema SAP. Además, el análisis se desglosa para características de Windows y Linux. Además, se explican distintos escenarios de alta disponibilidad de SAP.
 
 **Actualizado:** Octubre de 2017
 
@@ -214,7 +214,7 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 
 ## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>Preparación de la infraestructura de Azure para la implementación de alta disponibilidad para SAP NetWeaver
 
-**Resumen:** En estos artículos, trataremos los pasos que puede seguir para implementar la infraestructura de Azure como preparación para la instalación de SAP. Para simplificar la implementación de la infraestructura de Azure, se usan plantillas de Azure Resource Manager para SAP para automatizar el proceso.
+**Resumen:** en estos artículos trataremos los pasos que puede seguir para implementar la infraestructura de Azure como preparación para la instalación de SAP. Para simplificar la implementación de la infraestructura de Azure, se usan plantillas de Azure Resource Manager para SAP para automatizar el proceso.
 
 **Actualizado:** Marzo de 2019
 
@@ -224,15 +224,15 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 
 * ![Linux][Logo_Linux] [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con el marco de clúster SUSE Linux Enterprise Server para la instancia de SAP ASCS/SCS ][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias de SAP ASCS/SCS con los archivos de NetApp de Azure][sap-suse-ascs-ha-setting-ha-anf]
+* ![Linux][Logo_Linux] [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con el marco de clúster SUSE Linux Enterprise Server para instancias de SAP ASCS/SCS con Azure NetApp Files][sap-suse-ascs-ha-setting-ha-anf]
 
-* ![RHEL][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP ASCS/SCS: configurar GlusterFS en RHEL][high-availability-guide-rhel-glusterfs]
+* ![RHEL][Logo_Linux] [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP ASCS/SCS: configuración de GlusterFS en RHEL][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP ASCS/SCS: configuración de Pacemaker en RHEL][high-availability-guide-rhel-pacemaker]
+* ![RHEL][Logo_Linux] [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP ASCS/SCS: configuración de Pacemaker en RHEL][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Instalación de un sistema de alta disponibilidad para SAP NetWeaver en Azure
 
-**Resumen:** Estos artículos muestra ejemplo detallado de la instalación y configuración de un sistema SAP de alta disponibilidad en un clúster de clústeres de conmutación por error de Windows Server y el marco de clúster de Linux en Azure.
+**Resumen:** en estos artículos se muestra un ejemplo detallado de la instalación y la configuración de un sistema SAP de alta disponibilidad en un clúster de Clústeres de conmutación por error de Windows Server y en el marco de clúster de Linux en Azure.
 
 **Actualizado:** Marzo de 2019
 
@@ -242,6 +242,6 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 
 * ![Linux][Logo_Linux] [Instalación de la alta disponibilidad para SAP NetWeaver con el marco de clúster SUSE Linux Enterprise Server para la instancia de SAP ASCS/SCS][sap-suse-ascs-ha-sap-installation]
 
-* ![Linux][Logo_Linux] [instalar SAP NetWeaver de alta disponibilidad mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias ASCS/SCS de SAP con Azure Files de NetApp][sap-suse-ascs-ha-sap-installation-anf]
+* ![Linux][Logo_Linux] [Instalación de alta disponibilidad de SAP NetWeaver con el marco de clúster SUSE Linux Enterprise Server para instancias de SAP ASCS/SCS con Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![RHEL][Logo_Linux] [instalar SAP NetWeaver ASCS/SCS en la configuración de alta disponibilidad en RHEL][sap-rhel-ascs-ha]
+* ![RHEL][Logo_Linux] [Instalación de SAP NetWeaver ASCS/SCS en la configuración de alta disponibilidad en RHEL][sap-rhel-ascs-ha]

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242228"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
@@ -37,7 +37,7 @@ SSO de conexión directa es una característica gratuita y no es necesario usar 
 
 ## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>¿Está disponible el inicio de sesión único de conexión directa en la [nube Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) y en la [nube de Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
 
- No. El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
+No. El inicio de sesión único de conexión directa solo está disponible en la instancia mundial de Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>¿Qué aplicaciones aprovechan la funcionalidad de parámetro `domain_hint` o `login_hint` de SSO de conexión directa?
 
@@ -49,12 +49,12 @@ La siguiente es una lista parcial de las aplicaciones que envían estos parámet
 | Outlook en la Web | https:\//outlook.office365.com/contoso.com |
 | Portales de Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-Además, los usuarios obtienen una experiencia de inicio de sesión silenciosa si una aplicación envía solicitudes de inicio de sesión a puntos de conexión de Azure AD configuración como inquilinos: es decir, https:\//login.microsoftonline.com/contoso.com/ <.. > o https:\//login.microsoftonline.com/ < tenant_ID > / <.. >, en lugar de punto de conexión común de Azure AD: es decir, https:\//login.microsoftonline.com/common/ <... >. A continuación se incluye una lista no exhaustiva de aplicaciones que hacen estos tipos de solicitudes de inicio de sesión.
+Además, no es necesaria la intervención del usuario para iniciar sesión cuando una aplicación envía solicitudes de inicio de sesión a puntos de conexión de Azure AD configurados como inquilinos; es decir, https:\//login.microsoftonline.com/contoso.com/<..> o https:\//login.microsoftonline.com/<tenant_ID>/<..> en lugar del punto de conexión común de Azure AD; es decir, https:\//login.microsoftonline.com/common/<...>. A continuación se incluye una lista no exhaustiva de aplicaciones que hacen estos tipos de solicitudes de inicio de sesión.
 
 | Nombre de la aplicación | La dirección URL de la aplicación que se va a usar |
 | -- | -- |
 | SharePoint Online | https:\//contoso.sharepoint.com |
-| Azure Portal | https:\//portal.azure.com/contoso.com |
+| Portal de Azure | https:\//portal.azure.com/contoso.com |
 
 En las tablas anteriores, reemplace "contoso.com" por el nombre de dominio para obtener las direcciones URL de aplicación correctas para el inquilino.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
 ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119559"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensajes fallidos y directivas de reintento
@@ -25,7 +25,7 @@ Cuando crea una suscripción a eventos, puede personalizar la configuración de 
 Para establecer una ubicación de la cola de mensajes fallidos, se necesita una cuenta de almacenamiento para mantener los eventos que no se pueden entregar a un punto de conexión. Los ejemplos obtienen el identificador de recurso de una cuenta de almacenamiento existente. Crean una suscripción de eventos que usa un contenedor en esa cuenta de almacenamiento para el punto de conexión de mensajes con problemas de entrega.
 
 > [!NOTE]
-> Crear una cuenta de almacenamiento y un contenedor de blobs en el almacenamiento antes de ejecutar comandos en este artículo.
+> Cree una cuenta de almacenamiento y un contenedor de blobs en el almacenamiento antes de ejecutar los comandos de este artículo.
 
 ### <a name="azure-cli"></a>Azure CLI
 

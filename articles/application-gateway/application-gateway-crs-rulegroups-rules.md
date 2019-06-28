@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
 ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832921"
 ---
-# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Las reglas y grupos de reglas CRS de firewall de aplicaciones web
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Reglas y grupos de reglas de CRS del firewall de aplicaciones web
 
-El firewall de aplicaciones web de Application Gateway protege las aplicaciones web de las vulnerabilidades más habituales. Esto se realiza a través de las reglas que se definen en función de los conjuntos de reglas de núcleo OWASP 3.0 o 2.2.9. Estas reglas se pueden deshabilitar individualmente. En este artículo se incluyen las reglas y los conjuntos de reglas actuales que se ofrecen.
+El firewall de aplicaciones web de Application Gateway protege las aplicaciones web de las vulnerabilidades más habituales. Esta operación se realiza mediante reglas que se definen en función de las versiones 3.0 o 2.2.9 de OWASP Core Rule Set. Estas reglas se pueden deshabilitar individualmente. En este artículo se incluyen las reglas y los conjuntos de reglas actuales que se ofrecen.
 
-Los siguientes grupos de reglas y reglas están disponibles al usar Application Gateway con firewall de aplicaciones web.
+Los grupos de reglas y reglas siguientes están disponibles al usar Application Gateway con el firewall de aplicaciones web.
 
-# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
 
 ## <a name="owasp30"></a> Conjuntos de reglas
 
@@ -52,7 +52,7 @@ Los siguientes grupos de reglas y reglas están disponibles al usar Application 
 |---|---|
 |920100|Línea de solicitud HTTP no válida|
 |920130|Error al analizar el cuerpo de la solicitud|
-|920140|Cuerpo de solicitud de varias partes no pudo validación estricta|
+|920140|Error de validación estricta del cuerpo de la solicitud de varias partes|
 |920160|El encabezado Content-Length HTTP no es numérico.|
 |920170|Solicitud GET o HEAD con contenido del cuerpo|
 |920180|Falta el encabezado Content-Length en la solicitud POST.|
@@ -90,7 +90,7 @@ Los siguientes grupos de reglas y reglas están disponibles al usar Application 
 |920202|Intervalo = Demasiados campos para solicitud PDF (6 o más)|
 |920273|Carácter no válido en la solicitud (fuera de conjunto muy estricto)|
 |920274|Carácter no válido en encabezados de solicitud (fuera de conjunto muy estricto)|
-|920460|Caracteres de escape anómalo|
+|920460|Caracteres de escape anómalos|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
@@ -163,16 +163,16 @@ Los siguientes grupos de reglas y reglas están disponibles al usar Application 
 |941150|Filtro XSS - Categoría 5 = Atributos HTML no permitidos|
 |941180|Palabras clave de lista negra de node-validator|
 |941190|XSS mediante hojas de estilos|
-|941200|XSS mediante VML fotogramas|
-|941210|XSS mediante Javascript ofuscado|
-|941220|XSS mediante Script de VB ofuscado|
-|941230|XSS mediante 'Insertar' etiqueta|
-|941240|XSS mediante el atributo 'importar' o 'implementación'|
-|941260|XSS mediante la etiqueta 'meta'|
-|941270|XSS mediante href 'link /'|
-|941280|XSS mediante la etiqueta 'base'|
-|941290|XSS mediante la etiqueta 'applet'|
-|941300|XSS mediante la etiqueta 'object'|
+|941200|XSS mediante fotogramas VML|
+|941210|XSS mediante Ja https://aka.ms/sdsdk-quickstartvascript ofuscado|
+|941220|XSS mediante VBScript ofuscado|
+|941230|XSS mediante etiqueta "embed"|
+|941240|XSS mediante el atributo "import" o "implementación"|
+|941260|XSS mediante la etiqueta "meta"|
+|941270|XSS mediante href "link"|
+|941280|XSS mediante la etiqueta "base"|
+|941290|XSS mediante la etiqueta "applet"|
+|941300|XSS mediante la etiqueta "object"|
 |941310|Filtro XSS de codificación mal formulada US-ASCII: ataque detectado|
 |941330|Filtros XSS de IE: ataque detectado|
 |941340|Filtros XSS de IE: ataque detectado|
@@ -218,7 +218,7 @@ Los siguientes grupos de reglas y reglas están disponibles al usar Application 
 |943110|Posible ataque de fijación de sesión = Nombre del parámetro SessionID con origen de referencia fuera del dominio|
 |943120|Posible ataque de fijación de sesión = Nombre del parámetro SessionID con origen de referencia fuera del dominio|
 
-# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
 
 ## <a name="owasp229"></a> Conjuntos de reglas
 
@@ -229,7 +229,7 @@ Los siguientes grupos de reglas y reglas están disponibles al usar Application 
 |960911|Línea de solicitud HTTP no válida|
 |981227|Error de Apache = URI no válido en la solicitud|
 |960912|Error al analizar el cuerpo de la solicitud|
-|960914|Cuerpo de solicitud de varias partes no pudo validación estricta|
+|960914|Error de validación estricta del cuerpo de la solicitud de varias partes|
 |960915|El analizador de varias partes ha detectado un posible límite no coincidente.|
 |960016|El encabezado Content-Length HTTP no es numérico.|
 |960011|Solicitud GET o HEAD con contenido del cuerpo|
@@ -480,4 +480,4 @@ Los siguientes grupos de reglas y reglas están disponibles al usar Application 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo deshabilitar las reglas de WAF: [Personalización de las reglas de WAF](application-gateway-customize-waf-rules-portal.md)
+Aprenda a deshabilitar reglas de WAF: [Personalización de las reglas de WAF](application-gateway-customize-waf-rules-portal.md)

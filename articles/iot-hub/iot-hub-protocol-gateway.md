@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345403"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Compatibilidad con protocolos adicionales para centro de IoT Hub
@@ -41,8 +41,8 @@ Para más información sobre la puerta de enlace de protocolos de IoT de Azure y
 
 Para más información acerca de planificación de la implementación de IoT Hub, consulte:
 
-* [Comparar con Event Hubs](iot-hub-compare-event-hubs.md)
+* [Comparación con Event Hubs](iot-hub-compare-event-hubs.md)
 
-* [El escalado, alta disponibilidad y recuperación ante desastres](iot-hub-scaling.md)
+* [Escalado, alta disponibilidad y recuperación ante desastres](iot-hub-scaling.md)
 
 * [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)

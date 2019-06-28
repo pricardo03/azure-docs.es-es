@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232282"
 ---
 # <a name="deliver-content-to-customers"></a>Entrega de contenido a los clientes
@@ -155,7 +155,7 @@ Un punto de conexión de streaming representa un servicio de streaming que puede
 
 ## <a name="known-issues"></a>Problemas conocidos
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Cambios en la versión de manifiesto de Smooth Streaming
-Antes de la versión de servicio de julio de 2016, cuando los recursos producidos por el flujo de trabajo de Media Encoder Standard, Media Encoder Premium o Azure Media Encoder heredado se transmitieron mediante el empaquetado dinámico, el manifiesto de Smooth Streaming devuelto podría ajustarse a la versión 2.0. En la versión 2.0, las duraciones de fragmentos no utilizan las llamadas "etiquetas de repetición". Por ejemplo: 
+Antes de la versión de servicio de julio de 2016, cuando los recursos producidos por el flujo de trabajo de Media Encoder Standard, Media Encoder Premium o Azure Media Encoder heredado se transmitieron mediante el empaquetado dinámico, el manifiesto de Smooth Streaming devuelto podría ajustarse a la versión 2.0. En la versión 2.0, las duraciones de fragmentos no utilizan las llamadas "etiquetas de repetición". Por ejemplo:
 
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ Antes de la versión de servicio de julio de 2016, cuando los recursos producido
         </StreamIndex>
     </SmoothStreamingMedia>
 
-En la versión de servicio de julio de 2016, el manifiesto de Smooth Streaming generado se ajusta a la versión 2.2, con duraciones de fragmentos que utilizan etiquetas de repetición. Por ejemplo: 
+En la versión de servicio de julio de 2016, el manifiesto de Smooth Streaming generado se ajusta a la versión 2.2, con duraciones de fragmentos que utilizan etiquetas de repetición. Por ejemplo:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">

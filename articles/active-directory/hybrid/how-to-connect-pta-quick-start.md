@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243623"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: Inicio rápido
@@ -68,7 +68,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
      Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
    - Si el firewall o el proxy permiten la creación de listas blancas con DNS, cree una lista blanca para las conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
    - Los agentes de autenticación necesitan acceder a **login.windows.net** y **login.microsoftonline.com** para el registro inicial. Abra el firewall también para esas direcciones URL.
-   - Para la validación de certificados, desbloquee las direcciones URL siguientes: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, y **World Wide Web \.microsoft.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
+   - Para la validación de certificados, desbloquee las siguientes direcciones URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** y **www\.microsoft.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
 
 ## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitar la característica
 
@@ -111,15 +111,15 @@ Si tiene previsto implementar la autenticación de paso a través en un entorno 
 >[!IMPORTANT]
 >En entornos de producción, se recomienda tener un mínimo de 3 agentes de autenticación en ejecución en el inquilino. Hay un límite de sistema de 40 agentes de autenticación por inquilino. Y, como procedimiento recomendado, trate todos los servidores que ejecutan los agentes de autenticación como sistemas de nivel 0 (consulte la [referencia](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
-Instalar a varios agentes de autenticación de paso a través garantiza la alta disponibilidad, pero no determinista equilibrio de carga entre los agentes de autenticación. Para determinar cuántos agentes de autenticación que necesita para el inquilino, tenga en cuenta el pico y la carga media de solicitudes de inicio de sesión que espera ver en el inquilino. Como referencia, un solo agente de autenticación puede administrar entre 300 y 400 autenticaciones por segundo en un servidor estándar con CPU de 4 núcleos y 16 GB de RAM.
+La instalación de varios agentes de autenticación de paso a través solo garantiza una alta disponibilidad, pero no un equilibrio de carga determinista entre los agentes de autenticación. Para determinar cuántos agentes de autenticación necesita para su inquilino, considere la carga máxima y la carga media de las solicitudes de inicio de sesión que espera ver en el inquilino. Como referencia, un solo agente de autenticación puede administrar entre 300 y 400 autenticaciones por segundo en un servidor estándar con CPU de 4 núcleos y 16 GB de RAM.
 
 Para calcular el tráfico de red, use la guía sobre el tamaño siguiente:
 - Cada solicitud tiene un tamaño de carga de trabajo de (0.5K + 1K * num_of_agents) bytes; es decir, los datos de Azure AD al Agente de autenticación. Aquí, "num_of_agents" indica el número de agentes de autenticación que hay registrados en su inquilino.
 - Cada respuesta tiene un tamaño de carga de trabajo de 1K bytes; es decir, los datos del Agente de autenticación a Azure AD.
 
-Para la mayoría de los clientes, tres agentes de autenticación en total son suficientes para alta disponibilidad y capacidad. Debe instalar agentes de autenticación cerca de los controladores de dominio para mejorar la latencia de inicio de sesión.
+Para la mayoría de los clientes, tres agentes de autenticación en total son suficientes para obtener alta disponibilidad y capacidad. Debe instalar agentes de autenticación cerca de los controladores de dominio para mejorar la latencia de inicio de sesión.
 
-Para comenzar, siga estas instrucciones para descargar el software del agente de autenticación:
+Para empezar, siga estas instrucciones para descargar el software de agente de autenticación:
 
 1. Para descargar la versión más reciente del agente de autenticación (versión 1.5.193.0 o posterior), inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con las credenciales de administrador global del inquilino.
 2. Seleccione **Azure Active Directory** en el panel izquierdo.
@@ -151,11 +151,11 @@ En segundo lugar, puede crear y ejecutar un script de implementación desatendid
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
->Si está instalado un agente de autenticación en una máquina Virtual, no se puede clonar la máquina Virtual para configurar a otro agente de autenticación. Este método es **no admitido**.
+>Si se instala un agente de autenticación en una máquina virtual, no podrá clonar esta para configurar otro agente de autenticación. Este método es **incompatible**.
 
-## <a name="step-5-configure-smart-lockout-capability"></a>Paso 5: Configurar la funcionalidad de bloqueo inteligente
+## <a name="step-5-configure-smart-lockout-capability"></a>Paso 5: Configurar la funcionalidad Bloqueo inteligente
 
-Bloqueo inteligente ayuda en el bloqueo de actores malintencionados que intentan adivinar las contraseñas de usuarios o mediante métodos de fuerza bruta para obtener en. Al configurar la configuración de bloqueo inteligente en Azure AD o configuración de bloqueo apropiado en un entorno local de Active Directory, podrían filtrarse los ataques antes de llegar a Active Directory. Lectura [en este artículo](../authentication/howto-password-smart-lockout.md) para obtener más información sobre cómo configurar opciones de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
+Bloqueo inteligente ayuda a bloquear a los actores malintencionados que intentan adivinar las contraseñas de los usuarios o que usan métodos de fuerza bruta para obtenerlas. Al configurar Bloqueo inteligente en Azure AD o la configuración de bloqueo adecuada en Active Directory local, pueden filtrarse los ataques antes de que lleguen a Active Directory. Lea [este artículo](../authentication/howto-password-smart-lockout.md) para obtener más información sobre cómo configurar Bloqueo inteligente en su inquilino para proteger sus cuentas de usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/adfstoptadp): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.

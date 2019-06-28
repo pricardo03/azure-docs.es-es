@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
 ms.openlocfilehash: a8db4675e01cfb1e48c034eb39b183d72d083508
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615853"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creación de servicios incluidos con la cuenta gratuita de Azure
@@ -36,4 +36,4 @@ Puede crear varias instancias de servicios de forma gratuita siempre que la suma
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, cree una [solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

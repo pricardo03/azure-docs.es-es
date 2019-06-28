@@ -1,7 +1,7 @@
 ---
-title: Enviar un flujo de trabajo con firmas de acceso compartido - Microsoft Genomics
+title: 'Envío de un flujo de trabajo con firmas de acceso compartido: Microsoft Genomics'
 titleSuffix: Azure
-description: Este artículo se supone que tiene instalado el cliente de msgen y ha ejecutado correctamente los datos de ejemplo a través del servicio.
+description: En este artículo se da por supuesto que tiene instalado el cliente de msgen y que ha ejecutado correctamente los datos de ejemplo mediante el servicio.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60781211"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
 
-En este artículo se muestra cómo enviar un flujo de trabajo para el servicio Microsoft Genomics mediante un archivo config.txt que contiene [firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) en lugar de claves de cuenta de almacenamiento. Esta característica puede resultar útil si hay problemas de seguridad relacionados con el hecho de tener la clave de cuenta de almacenamiento visible en el archivo config.txt. 
+Esta artículo muestra cómo enviar un flujo de trabajo al servicio Microsoft Genomics mediante un archivo config.txt que contiene [firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) en lugar de claves de cuenta de almacenamiento. Esta característica puede resultar útil si hay problemas de seguridad relacionados con el hecho de tener la clave de cuenta de almacenamiento visible en el archivo config.txt. 
 
-En este artículo se da por supuesto que ya ha instalado y ejecutado el cliente `msgen` y está familiarizado con el uso de Azure Storage. Si ha enviado correctamente un flujo de trabajo con los datos de ejemplo proporcionado, está listo para continuar con este artículo. 
+En este artículo se da por supuesto que ya ha instalado y ejecutado el cliente `msgen` y está familiarizado con el uso de Azure Storage. Si ha enviado correctamente un flujo de trabajo usando los datos de ejemplo proporcionados, puede continuar con este artículo. 
 
 ## <a name="what-is-a-sas"></a>¿Qué es una SAS?
 Una [firma de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Con una SAS, puede conceder acceso a los recursos de su cuenta de almacenamiento sin compartir las claves de cuenta. Este es el aspecto clave de usar las firmas de acceso compartido en las aplicaciones: una SAS es una forma segura de compartir los recursos de almacenamiento sin poner en peligro las claves de cuenta.
@@ -56,7 +56,7 @@ La firma de acceso compartido de los archivos de entrada debe estar limitada al 
  ![Genomics SAS Explorador de Storage](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Explorador de Storage")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configuración: Crear una SAS mediante programación
+### <a name="set-up-create-a-sas-programmatically"></a>Configuración: Creación de una firma de acceso compartido mediante programación
 
 Para crear una firma de acceso compartido mediante el SDK de Azure Storage, consulte la documentación existente para varios lenguajes, entre los que se incluyen [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) y [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 

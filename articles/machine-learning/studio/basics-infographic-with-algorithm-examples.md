@@ -11,10 +11,10 @@ ms.author: garye
 ms.custom: seodc18
 ms.date: 03/04/2019
 ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751649"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
@@ -23,7 +23,7 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares en Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. Esta infografía identifica cuatro populares familias de algoritmos de regresión, detección de anomalías, agrupación en clústeres y clasificación - y proporciona vínculos a ejemplos de trabajo en el [Azure AI Gallery](https://gallery.azure.ai/). La galería contiene tutoriales y experimentos de ejemplo que muestran cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real.
+[Azure Machine Learning Studio](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. Esta infografía identifica cuatro populares familias de algoritmos (regresión, detección de anomalías, agrupación en clústeres y clasificación) y proporciona vínculos a ejemplos de trabajo en [Azure AI Gallery](https://gallery.azure.ai/). La galería contiene tutoriales y experimentos de ejemplo que muestran cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Descargue la infografía con ejemplos de algoritmos
 

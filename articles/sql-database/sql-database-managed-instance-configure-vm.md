@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60701932"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Configurar una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database
@@ -84,7 +84,7 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use esta contraseña cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
    | **Tamaño de máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
    | **Ubicación**|[resourceGroup().location].| No cambie este valor. |
-   | **Nombre de la red virtual**|La red virtual en la que creó la instancia administrada.|
+   | **Nombre de la red virtual**|La red virtual en la que creó la Instancia administrada.|
    | **Nombre de subred**|El nombre de la subred que creó en el procedimiento anterior| No elija la subred en la que creó la Instancia administrada.|
    | **Ubicación de artefactos** | [deployment().properties.templateLink.uri] | No cambie este valor. |
    | **Token de Sas de ubicación de artefactos** | déjelo en blanco | No cambie este valor. |

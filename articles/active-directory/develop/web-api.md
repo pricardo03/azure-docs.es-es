@@ -18,13 +18,13 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545208"
 ---
-# <a name="web-api"></a>API web
+# <a name="web-api"></a>API Web
 
 Las aplicaciones de API web son aplicaciones web que necesitan obtener los recursos de una API web. En este escenario, existen dos tipos de identidad que la aplicación web puede usar para autenticar y llamar a la API web:
 
@@ -69,7 +69,7 @@ Vea los ejemplos de código para escenarios de aplicación web a API web. Agrega
 
 ## <a name="app-registration"></a>Registro de aplicación
 
-Para registrar una aplicación con el extremo de la versión 1.0 de Azure AD, consulte [registrar una aplicación](quickstart-register-app.md).
+Para registrar una aplicación con el punto de conexión v1.0 de Azure AD, consulte [Registro de una aplicación](quickstart-register-app.md).
 
 * Un solo inquilino: tanto en el caso de la identidad de aplicación como en el de la identidad de usuario delegado, la aplicación web y la API web deben estar registradas en el mismo directorio de Azure AD. La API web puede configurarse para exponer un conjunto de permisos, que se usan para limitar el acceso de la aplicación web a sus recursos. Si se usa una identidad de usuario delegado, es necesario que la aplicación web seleccione los permisos deseados en el menú desplegable **Permisos para otras aplicaciones** de Azure Portal. Este paso no es necesario si se usa el tipo de identidad de aplicación.
 * Multiempresa (varios inquilinos): en primer lugar, la aplicación web se configura para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, la aplicación web y la API web quedan registradas en el directorio.

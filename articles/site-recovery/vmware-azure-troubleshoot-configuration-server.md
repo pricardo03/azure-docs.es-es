@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725574"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
@@ -22,7 +22,7 @@ En este artículo se le ayudará a solucionar problemas al implementar y adminis
 
 La máquina de origen se registra con el servidor de configuración al instalar el agente de movilidad. Puede depurar los errores durante este paso siguiendo estas directrices:
 
-1. Abra el archivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log  (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas.
+1. Abra el archivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas.
 
 2. Busque la cadena **No se encuentra ninguna dirección IP válida**. Si se encuentra la cadena:
    1. Compruebe que el identificador de host solicitado es el mismo que el identificador de host de la máquina de origen.
@@ -34,7 +34,7 @@ La máquina de origen se registra con el servidor de configuración al instalar 
 3. Si no se encuentra la cadena **No se encuentra ninguna dirección IP válida** , busque la cadena **Motivo => NULL**. Se produce este error si la máquina de origen utiliza un host vacío para registrarse con el servidor de configuración. Si se encuentra la cadena:
     - Tras resolver los problemas, siga las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para volver a intentar el registro manualmente.
 
-4. Si no se encuentra la cadena **Motivo => NULL**, en la máquina de origen, abra el archivo C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log  (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas. 
+4. Si no se encuentra la cadena **Motivo => NULL**, en la máquina de origen, abra el archivo C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas. 
 
 5. Busque la cadena **post request: (7) - Couldn't connect to server**. Si se encuentra la cadena:
     1. Resuelva los problemas de red entre el servidor de configuración y la máquina de origen. Compruebe que el servidor de configuración es accesible desde la máquina de origen con herramientas de red como ping, traceroute o un explorador web. Asegúrese de que la máquina de origen pueda acceder al servidor de configuración a través del puerto 443.
@@ -48,7 +48,7 @@ La máquina de origen se registra con el servidor de configuración al instalar 
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.  
     4. Tras resolver los problemas, vuelva a intentar el registro siguiendo las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. La plataforma debe establecerse en **VmWare** o **Azure**. Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error de desinstalación, complete los pasos siguientes: una. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices**.
+7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. La plataforma debe establecerse en **VmWare** o **Azure**. Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error en la desinstalación, complete los siguientes pasos: a. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices**.
     b. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services**.
     c. Abra el archivo Installation_Directory/Fx/uninstall.sh y convierta en comentario la sección completa que intenta detener el servicio Fx.
     d. [Desinstale](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) el agente de movilidad. Después de la desinstalación correcta, reinicie el sistema e intente volver a instalar el agente de movilidad.
@@ -79,9 +79,9 @@ Para evitar este error, asegúrese de que la hora de su reloj del sistema no sea
 
 No se puede crear el certificado necesario para autenticarse en Site Recovery. Vuelva a ejecutar el programa de instalación tras asegurarse de que lo ejecuta como un administrador local.
 
-## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Error al activar la licencia de Windows de evaluación estándar del servidor a servidor estándar
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Error al activar la licencia de Windows de Server Standard EVALUATION a Server Standard
 
-1. Como parte de la implementación de servidor de configuración a través de OVF, se usa una licencia de evaluación, que es válida durante 180 días. Debe activar esta licencia antes de que expire. En caso contrario, esto puede dar lugar a frecuente apagado del servidor de configuración y, por tanto, provocar obstáculo para las actividades de replicación.
+1. Como parte de la implementación del servidor de configuración a través de OVF, se usa una licencia de evaluación, que es válida durante 180 días. Debe activar esta licencia antes de que expire. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
 2. Si no puede activar la licencia de Windows, póngase en contacto con el [equipo de soporte técnico de Windows](https://aka.ms/Windows_Support) para solucionar el problema.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registrar la máquina de origen con el servidor de configuración
@@ -145,7 +145,7 @@ Para quitar la máquina protegida obsoleta del servidor de configuración, siga 
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    Si tiene una entrada de servidor de origen de "OnPrem-VM01" con una dirección ip 10.0.0.4, a continuación, use el comando siguiente en su lugar.
+    Si tiene una entrada de servidor de origen de "OnPrem-VM01" con una dirección IP 10.0.0.4, use el comando siguiente en su lugar.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  
@@ -203,7 +203,7 @@ Normalmente, esto se debe a un error con el puerto 443. Siga estos pasos para de
 
 Para comprobar que el agente de destino maestro puede crear una sesión TCP para la dirección IP del servidor de configuración, busque un seguimiento similar al siguiente en los registros del agente de destino maestro:
 
-TCP \<reemplazar IP con la dirección IP de CS aquí >: 52739 \<reemplazar IP con la dirección IP de CS aquí >: 443 SYN_SENT 
+TCP \<Replace IP with CS IP here>:52739 \<Replace IP with CS IP here>:443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Replace IP with CS IP here
 

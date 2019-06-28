@@ -1,6 +1,6 @@
 ---
-title: 'Agregar usuarios individualmente con licencia para las licencias basadas en grupo: Azure Active Directory | Microsoft Docs'
-description: Migración de licencias de usuarios individuales a licencias basadas en grupo con Azure Active Directory
+title: Adición de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory | Microsoft Docs
+description: Migración de licencias de usuarios individuales a licencias basadas en grupos mediante Azure Active Directory
 services: active-directory
 keywords: Licencias de Azure AD
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192450"
 ---
-# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Cómo migrar usuarios con licencias individuales a grupos de licencias
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Migración de usuarios con licencias individuales a grupos de licencias
 
-Puede que actualmente haya licencias implementadas para usuarios de organizaciones a través de una "asignación directa"; es decir, mediante el uso de scripts de PowerShell u otras herramientas diseñadas para asignar licencias de usuarios individuales. Antes de comenzar con licencias basadas en grupo para administrar las licencias de su organización, puede usar este plan de migración para reemplazar perfectamente las soluciones existentes con las licencias basadas en grupo.
+Puede que actualmente haya licencias implementadas para usuarios de organizaciones a través de una "asignación directa"; es decir, mediante el uso de scripts de PowerShell u otras herramientas diseñadas para asignar licencias de usuarios individuales. Antes de empezar a usar licencias basadas en grupos para administrar las licencias de su organización, puede usar este plan de migración para reemplazar con facilidad las soluciones existentes por licencias basadas en grupos.
 
 Lo más importante es tener en cuenta que hay que evitar una situación tal en que la migración a licencias basadas en grupos conlleve que los usuarios pierdan temporalmente las licencias que actualmente tienen asignadas. Se debe evitar cualquier proceso que pueda dar lugar a la eliminación de licencias a fin de evitar el riesgo de que los usuarios pierdan el acceso a los servicios y a sus datos.
 
@@ -69,17 +69,17 @@ El proceso de migración podría ser similar al siguiente:
 
    - Este es el estado de usuario esperado durante la migración:
 
-      ![el estado de usuario esperado durante la migración](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![estado de usuario esperado durante la migración](./media/licensing-groups-migrate-users/expected-user-state.png)
 
    Esto confirma que el usuario tiene licencias directas y heredadas. Se observa que tiene asignadas las licencias para **EMS** y **E3**.
 
    - Seleccione cada licencia para ver la información sobre los servicios habilitados. Se puede usar para comprobar si las licencias directas y de grupo habilitan exactamente los mismos planes de servicio para el usuario.
 
-      ![comprobar los planes de servicio para el usuario](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![comprobación de los planes de servicio para el usuario](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Después de confirmar que las licencias directas y de grupo son equivalentes, puede empezar a quitar a los usuarios las licencias directas. Para probarlo, quítelos para usuarios individuales en el portal y luego ejecute los scripts de automatización para quitarlos en masa. Este es un ejemplo del mismo usuario con las licencias directas quitadas a través del portal. Tenga en cuenta que el estado de licencia no varía, pero aún no se ven las asignaciones directas.
 
-   ![Confirme que se han quitado licencias directas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![confirmación de que se han quitado las licencias directas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

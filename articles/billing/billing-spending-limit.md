@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: c234f75ec752ec79e9f2a051f79e91bdde81de15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371025"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprender el límite de gasto de Azure y cómo quitarlo
@@ -72,7 +72,7 @@ Esta característica solo está disponible cuando se ha quitado el límite de ga
 
 1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions).
 1. Haga clic aquí en el banner amarillo para cambiar la opción de límite de gasto.
-1. Elija **Activar el límite de gasto para el siguiente período de facturación \<fecha inicial del período de facturación\>**.
+1. Elija **Activar el límite de gasto para el siguiente período de facturación \<fecha inicial del período de facturación\>** .
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>¿Cómo se puede establecer un límite de gasto personalizado?
 
@@ -86,4 +86,4 @@ Los límites de gasto personalizados no están disponibles.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

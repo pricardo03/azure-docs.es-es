@@ -13,15 +13,15 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703510"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
-Esta página proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de diagnóstico de rendimiento de la base de datos de [Intelligent Insights](sql-database-intelligent-insights.md). Los datos de telemetría de registro de diagnóstico se pueden transmitir a [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), o una solución de terceros para alertas personalizadas de DevOps y capacidades de informes.
+Esta página proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada detectados mediante el registro de diagnóstico de rendimiento de la base de datos de [Intelligent Insights](sql-database-intelligent-insights.md). Se puede realizar un flujo de datos de telemetría del registro de diagnóstico hacia [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 > [!NOTE]
 > Para una guía rápida de solución de problemas de rendimiento de SQL Database a través de Intelligent Insights, consulte el diagrama de flujo [Flujo de solución de problemas recomendado](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) de este documento.

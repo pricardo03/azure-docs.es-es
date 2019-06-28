@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648162"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Control de versiones en Durable Functions (Azure Functions)
@@ -140,7 +140,7 @@ Todas las entidades de Azure Storage reciben su nombre según el valor de config
 Se recomienda que implemente la nueva versión de la aplicación de función en una nueva [ranura de implementación](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Las ranuras de implementación permiten ejecutar varias copias de la aplicación de función en paralelo con solo una de ellas como ranura de *producción* activa. Cuando desee exponer la nueva lógica de orquestación en su infraestructura existente, será tan sencillo como intercambiar la nueva versión en la ranura de producción.
 
 > [!NOTE]
-> Esta estrategia funciona mejor cuando se usan desencadenadores HTTP y webhook para las funciones de orquestador. Para los desencadenadores que no son HTTP, como las colas o Event Hubs, la definición del desencadenador debe [derivan de una configuración de aplicación](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que se actualiza como parte de la operación de intercambio.
+> Esta estrategia funciona mejor cuando se usan desencadenadores HTTP y webhook para las funciones de orquestador. Para desencadenadores que no son HTTP, como las colas o Event Hubs, la definición del desencadenador debe [derivar de una configuración de aplicación](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que se actualiza como parte de la operación de intercambio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

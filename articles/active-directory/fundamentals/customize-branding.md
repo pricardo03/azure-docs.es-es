@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441643"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Incorporación de la personalización de marca en la página de inicio de sesión de Azure Active Directory de la organización
@@ -27,9 +27,9 @@ Use el logotipo de la organización y combinaciones de colores personalizadas pa
 >Para agregar personalización de marca, es necesario usar las ediciones de Azure Active Directory Premium 1, Premium 2 o Basic, o bien tener una licencia de Office 365. Para obtener más información acerca de las ediciones y licencias, consulte [Suscripción a Azure AD Premium](active-directory-get-started-premium.md).<br><br>Las ediciones Azure AD Premium y Basic están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Azure AD Premium y Basic no se admiten actualmente en el servicio de Azure administrado por 21Vianet en China. Para más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalización de la página de inicio de sesión de Azure AD
-Puede personalizar las páginas de inicio de sesión de Azure AD, que aparecen cuando los usuarios inician sesión en aplicaciones específicas del inquilino de la organización, como [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), o al pasar una variable de dominio, como [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+Puede personalizar las páginas de inicio de sesión de Azure AD, que aparecen cuando los usuarios inician sesión en aplicaciones específicas del inquilino de la organización, como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), o al pasar una variable de dominio, como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-La personalización de marca no aparecerá inmediatamente cuando los usuarios acceder a los sitios, como www\.office.com. En su lugar, el usuario tiene que iniciar sesión para que aparezca la personalización de marca.
+La personalización de marca no aparecerá inmediatamente cuando los usuarios tengan acceso a sitios como www\.office.com. En su lugar, el usuario tiene que iniciar sesión para que aparezca la personalización de marca.
 
 > [!NOTE]
 > Todos los elementos de personalización de marca son opcionales. Por ejemplo, si especifica un logotipo del banner sin ninguna imagen de fondo, se mostrará en la página de inicio de sesión su logotipo con una imagen de fondo predeterminada del sitio de destino (por ejemplo, Office 365).<br><br>Además, la personalización de marca de la página de inicio de sesión no se incluye en las cuentas Microsoft personales. Si los usuarios o los invitados de la empresa inician sesión con una cuenta Microsoft personal, la página de inicio de sesión no reflejará la personalización de marca de la organización.

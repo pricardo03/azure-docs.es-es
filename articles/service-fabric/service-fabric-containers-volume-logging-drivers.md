@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870883"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de volúmenes de Azure Files en Service Fabric (versión preliminar)
 El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.
 
 > [!NOTE]
-> Versión 6.4.571.9590 del complemento de volumen de Azure Files es una versión preliminar que está disponible con este documento. Como versión preliminar, **no** se admite para su uso en entornos de producción.
+> La versión 6.4.571.9590 del complemento de volúmenes de Azure Files es una versión preliminar que está disponible con este documento. Como versión preliminar, **no** se admite para su uso en entornos de producción.
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -39,7 +39,7 @@ El complemento de volúmenes de Azure Files es un [complemento de volúmenes de 
 
 * Si usa contenedores HyperV, hay que agregar los fragmentos de código siguientes en la sección ClusterManifest (clúster local) o fabricSettings de la plantilla ARM (clúster de Azure) o ClusterConfig.json (clúster independiente). Necesitará el nombre del volumen y el puerto en el que volumen escucha en el clúster. 
 
-En ClusterManifest, hay que agregar el siguiente código en la sección de hospedaje. En este ejemplo, el nombre del volumen es **sfazurefile** y el puerto escucha en el clúster es **19100**.  
+En ClusterManifest, hay que agregar el siguiente código en la sección de hospedaje. En este ejemplo, el nombre del volumen es **sfazurefile** y el puerto que escucha en el clúster es **19100**.  
 
 ``` xml 
 <Section Name="Hosting">
@@ -99,7 +99,7 @@ La aplicación de Service Fabric que proporciona los volúmenes para los contene
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Crear la aplicación En el comando para crear la aplicación siguiente, tenga en cuenta el parámetro de aplicación **ListenPort**. Este valor especificado para este parámetro de aplicación es el puerto en el que el complemento de volúmenes de Azure Files escucha las solicitudes desde el demonio de Docker. Es importante asegurarse de que el puerto proporcionado a la coincidencia de la aplicación la VolumePluginPorts en el ClusterManifest y no entra en conflicto con ningún otro puerto que usan el clúster o las aplicaciones.
+4. Crear la aplicación En el comando para crear la aplicación siguiente, tenga en cuenta el parámetro de aplicación **ListenPort**. Este valor especificado para este parámetro de aplicación es el puerto en el que el complemento de volúmenes de Azure Files escucha las solicitudes desde el demonio de Docker. Es importante asegurarse de que el puerto que se proporciona a la aplicación coincida con el valor de VolumePluginPorts en ClusterManifest y no entre en conflicto con ningún otro puerto que usen el clúster o las aplicaciones.
 
     ```powershell
     New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
 ms.openlocfilehash: a2171ff8a4354a59ec2f790f9bf38b7a687419ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322556"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configuración de Postman para llamadas API de REST de Azure Media Services
 
 En este artículo se muestra cómo configurar **Postman** para que se pueda usar para llamar a las API REST de Azure Media Services (AMS). El artículo muestra cómo importar archivos de entorno y colección a **Postman**. La colección contiene definiciones agrupadas de solicitudes HTTP que llaman a API de REST de Azure Media Services. El archivo de entorno contiene variables que la colección usa.
 
-Antes de empezar a desarrollar, revise [desarrollar con las API de Media Services v3](media-services-apis-overview.md).
+Antes de comenzar a desarrollar, revise [Desarrollo con las API de Media Services v3](media-services-apis-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -91,7 +91,7 @@ Antes de empezar a manipular recursos de AMS v3, debe obtener y establecer el to
 
     ![Obtención del token de AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 - [Carga de archivos en una cuenta de Media Services: REST](upload-files-rest-how-to.md)
 - [Creación de filtros con Media Services: REST](filters-dynamic-manifest-rest-howto.md)

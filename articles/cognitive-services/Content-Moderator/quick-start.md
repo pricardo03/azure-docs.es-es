@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127665"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Inicio rápido: Cómo familiarizarse con Content Moderator
@@ -69,5 +69,5 @@ O bien continúe con los pasos siguientes para empezar a usar las API de moderac
 
 Obtenga información sobre cómo usar las API de moderación en su aplicación.
 - Implementación de la moderación de imágenes. Use la [consola de API](try-image-api.md) o use el [inicio rápido de C#](image-moderation-quickstart-dotnet.md) para examinar imágenes y detectar posible contenido explícito y para adultos mediante etiquetas, puntuaciones de confianza y otra información extraída.
-- Implementación de la moderación de texto. Usar el [consola de API](try-text-api.md) o usar el [ C# quickstart](text-moderation-quickstart-dotnet.md) para analizar el contenido de texto para blasfemias potenciales, la clasificación de texto no deseado asistida por máquina (versión preliminar) y los datos personales.
+- Implementación de la moderación de texto. Use la [consola de API](try-text-api.md) o el [inicio rápido de C#](text-moderation-quickstart-dotnet.md) para examinar el contenido de texto con el fin de buscar posibles palabras soeces, clasificación de texto no deseado asistida por máquina (versión preliminar) y datos personales.
 - Implementación de la moderación de vídeo. Consulte la [guía de procedimientos de moderación en vídeo para C#](video-moderation-api.md) para buscar vídeos y detectar posible contenido para adultos y subido de tono. 

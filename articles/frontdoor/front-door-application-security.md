@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193924"
 ---
 # <a name="application-layer-security-with-front-door"></a>Seguridad en el nivel de aplicación con Front Door
@@ -25,9 +25,9 @@ Azure Front Door Service proporciona funcionalidad de protección de aplicacione
 La protección de las aplicaciones de Front Door se configura en cada entorno perimetral en todo el mundo, en consonancia con las aplicaciones, e impide automáticamente que el tráfico que no sea http(s) llegue a sus aplicaciones web. Nuestra arquitectura multiinquilino distribuida permite aplicar una protección global a cualquier escala sin sacrificar el rendimiento. En el caso de las cargas de trabajo http(s), el servicio de protección de aplicaciones de Front Door dispone de un avanzado motor de reglas personalizadas, un conjunto de reglas preconfiguradas contra ataques comunes y registros detallados de todas las solicitudes que coinciden con una regla. Se pueden utilizar acciones flexibles, como Permitir, Bloquear o Registrar solo.
 
 ## <a name="custom-access-control-rules"></a>Reglas de control de acceso personalizadas
-- **Direcciones IP permitidas de lista y la lista de bloques:** Puede configurar reglas personalizadas para controlar el acceso a sus aplicaciones web basado en lista de direcciones IP de cliente. Se admiten direcciones IP v4 e IP v6.
-- **Control de acceso basado en geográfica:** Puede configurar reglas personalizadas para controlar el acceso a sus aplicaciones web en función de código de país que proviene de una dirección IP de cliente
-- **Filtrado de los parámetros HTTP:** Puede configurar reglas de acceso personalizada basadas en la coincidencia de parámetros de solicitud HTTP incluyen encabezados de dirección URL y las cadenas de consulta
+- **Listas de direcciones IP permitidas y denegadas:** puede configurar reglas personalizadas para controlar el acceso a las aplicaciones web en función de una lista de direcciones IP de cliente. Se admiten direcciones IP v4 e IP v6.
+- **Control de acceso basado en la ubicación geográfica:** puede configurar reglas personalizadas para controlar el acceso a las aplicaciones web en función del código de país del que procede una dirección IP de cliente.
+- **Filtrado de los parámetros HTTP:** puede configurar reglas de acceso personalizadas basadas en la coincidencia de los parámetros de la solicitud http(s), incluidos los encabezados, las direcciones URL y las cadenas de consulta.
 
 ## <a name="azure-managed-rules"></a>Reglas administradas por Azure
 - De forma predeterminada, hay habilitado un conjunto preconfigurado de reglas para las vulnerabilidades OWASP más habituales. En su versión preliminar, el conjunto de reglas incluye la comprobación de solicitudes sqli y xss. En el futuro, se agregarán otras reglas. Si lo desea, puede comenzar con la acción de solo registro para comprobar si las reglas preconfiguradas funcionan según lo previsto con sus aplicaciones. 

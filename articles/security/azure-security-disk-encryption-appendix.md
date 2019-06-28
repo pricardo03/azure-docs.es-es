@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66118513"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apéndice de Azure Disk Encryption 
@@ -111,10 +111,10 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 
 |Parámetro|DESCRIPCIÓN|Obligatorio|
 |------|------|------|
-|$resourceGroupName| Nombre del grupo de recursos al que pertenece la instancia de KeyVault.  Si no existe, se creará un grupo de recursos con este nombre.| True |
-|$keyVaultName|Nombre de la instancia de KeyVault en donde se colocarán las claves de cifrado. Si no existe, se creará un almacén con este nombre.| True |
-|$location|Ubicación de la instancia de KeyVault. Asegúrese de que la instancia de KeyVault y las máquinas virtuales que se van a cifrar están en la misma ubicación. Obtenga una lista de ubicaciones con `Get-AzLocation`.|True |
-|$subscriptionId|Identificador de la suscripción de Azure que se va a utilizar.  El identificador de la suscripción se puede obtener con `Get-AzSubscription`.|True |
+|$resourceGroupName| Nombre del grupo de recursos al que pertenece la instancia de KeyVault.  Si no existe, se creará un grupo de recursos con este nombre.| True|
+|$keyVaultName|Nombre de la instancia de KeyVault en donde se colocarán las claves de cifrado. Si no existe, se creará un almacén con este nombre.| True|
+|$location|Ubicación de la instancia de KeyVault. Asegúrese de que la instancia de KeyVault y las máquinas virtuales que se van a cifrar están en la misma ubicación. Obtenga una lista de ubicaciones con `Get-AzLocation`.|True|
+|$subscriptionId|Identificador de la suscripción de Azure que se va a utilizar.  El identificador de la suscripción se puede obtener con `Get-AzSubscription`.|True|
 |$aadAppName|Nombre de la aplicación de Azure AD que se va a utilizar para escribir secretos en KeyVault. Si no existe, se creará una aplicación con este nombre. Si esta aplicación ya existe, pasará el parámetro aadClientSecret al script.|False|
 |$aadClientSecret|Secreto de cliente de la aplicación de Azure AD que se creó anteriormente.|False|
 |$keyEncryptionKeyName|Nombre de la clave de cifrado de clave opcional en KeyVault. Si no existe, se creará una clave con este nombre.|False|
@@ -234,7 +234,7 @@ Use el comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.asp
 
 5. Supervise periódicamente el progreso del cifrado con las instrucciones de la [sección siguiente](#monitoring-os-encryption-progress).
 
-6. Después de Get-AzVmDiskEncryptionStatus muestra "VMRestartPending", reinicie la máquina virtual iniciando sesión en él o mediante el uso del portal, PowerShell o CLI.
+6. Cuando Get-AzVmDiskEncryptionStatus muestre "VMRestartPending", inicie sesión en la máquina virtual para reiniciarla o hágalo mediante el portal, PowerShell o la CLI.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -546,7 +546,7 @@ Al cifrar mediante una aplicación de Azure AD (versión anterior), el secreto d
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Secreto del cifrado de disco no cifrado con KEK
-Para configurar el secreto del almacén de claves, use [conjunto AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Si tiene una máquina virtual con Windows, el archivo bek se codifica como cadena base64 y, a continuación, se carga en el almacén de claves mediante el cmdlet `Set-AzKeyVaultSecret`. En Linux, la frase de contraseña se codifica como cadena base64 y, a continuación, se carga en el almacén de claves. Además, asegúrese de que se establecen las siguientes etiquetas al crear el secreto en el almacén de claves.
+Para configurar el secreto en el almacén de claves, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Si tiene una máquina virtual con Windows, el archivo bek se codifica como cadena base64 y, a continuación, se carga en el almacén de claves mediante el cmdlet `Set-AzKeyVaultSecret`. En Linux, la frase de contraseña se codifica como cadena base64 y, a continuación, se carga en el almacén de claves. Además, asegúrese de que se establecen las siguientes etiquetas al crear el secreto en el almacén de claves.
 
 #### <a name="windows-bek-file"></a>Archivo BEK de Windows
 ```powershell

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544827"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introducción al servicio de análisis de errores
 El servicio de análisis de errores se ha diseñado para probar los servicios incorporados en Microsoft Azure Service Fabric. Con el servicio de análisis de errores puede provocar errores significativos y ejecutar escenarios de prueba completos con sus aplicaciones. Estos errores y escenarios ejercen y validan los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura, controlada y uniforme.
 
-Las acciones son los errores individuales que se dirigen a un servicio para probarlo. Un programador del servicio puede utilizar como bloques de creación para escribir escenarios complicados. Por ejemplo: 
+Las acciones son los errores individuales que se dirigen a un servicio para probarlo. Un programador del servicio puede utilizar como bloques de creación para escribir escenarios complicados. Por ejemplo:
 
 * Reiniciar un nodo para simular cualquier número de situaciones en que un equipo o máquina virtual se reinicia.
 * Mover una réplica de un servicio con estado para simular el equilibrio de carga, la conmutación por error o la actualización de la aplicación.
@@ -46,9 +46,9 @@ Cuando se inicia un escenario de prueba o una acción de error, se envía un com
 ## <a name="testing-distributed-systems"></a>Prueba de los sistemas distribuidos
 Service Fabric facilita considerablemente el trabajo de escribir y administrar aplicaciones escalables distribuidas. El servicio de análisis de errores realiza una prueba de una aplicación distribuida de una facilidad similar. Durante las pruebas deben resolverse tres problemas principales:
 
-1. Simular o generar errores que pueden producirse en escenarios del mundo real: Uno de los aspectos importantes de Service Fabric es que permite que las aplicaciones distribuidas recuperarse de varios errores. Sin embargo, para probar que la aplicación puede recuperarse de estos errores se necesita un mecanismo que simule o genere estos errores reales en un entorno de prueba controlado.
-1. La capacidad de generar errores correlacionados: Errores básicos del sistema, como errores de red o errores del equipo, son fáciles de generar de forma individual. Generar un número significativo de escenarios que pueden ocurrir en el mundo real como resultado de las interacciones de estos errores individuales no es trivial.
-1. Experiencia unificada en distintos niveles de desarrollo e implementación: Hay muchos sistemas de inyección de código de error que pueden realizar varios tipos de errores. Sin embargo, la experiencia en todos ellos es deficiente al pasar de los escenarios de desarrollo one box a ejecutar las mismas pruebas en entornos de prueba grandes y a utilizarlas para pruebas en producción.
+1. Simular o generar errores que pueden producirse en los escenarios del mundo real: uno de los aspectos importantes de Service Fabric es que permite a las aplicaciones distribuidas recuperarse de varios errores. Sin embargo, para probar que la aplicación puede recuperarse de estos errores se necesita un mecanismo que simule o genere estos errores reales en un entorno de prueba controlado.
+1. La capacidad de generar los errores correlacionados: los errores básicos del sistema, como errores de red o errores del equipo, son fáciles de generar de forma individual. Generar un número significativo de escenarios que pueden ocurrir en el mundo real como resultado de las interacciones de estos errores individuales no es trivial.
+1. Experiencia unificada en distintos niveles de desarrollo e implementación: Hay muchos sistemas de inserción de errores que pueden provocar varios tipos de errores. Sin embargo, la experiencia en todos ellos es deficiente al pasar de los escenarios de desarrollo one box a ejecutar las mismas pruebas en entornos de prueba grandes y a utilizarlas para pruebas en producción.
 
 Aunque existen varios mecanismos para resolver estos problemas, falta un sistema que haga lo mismo con las garantías requeridas, desde un entorno del desarrollador one box hasta la prueba en clústeres de producción. El servicio de análisis de errores ayuda a los desarrolladores de aplicaciones a concentrarse en probar su lógica de negocios. Este servicio proporciona todas las capacidades necesarias para probar la interacción del servicio con el sistema distribuido subyacente.
 
@@ -58,7 +58,7 @@ Para probar la solidez de un sistema distribuido frente a errores, se necesita u
 1. Desde el cliente, generar una solicitud de apagado del nodo.
 1. Enviar la solicitud al nodo correcto.
    
-     a. Si no se encuentra el nodo, debería aparecer un error.
+    a. Si no se encuentra el nodo, debería aparecer un error.
    
     b. Si se encuentra el nodo, debería devolverse solo si el nodo está apagado.
 

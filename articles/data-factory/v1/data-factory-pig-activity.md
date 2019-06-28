@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611333"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Pig en Azure Data Factory
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Actividades de transformación"]
 > * [Actividad de Hive](data-factory-hive-activity.md) 
 > * [Actividad de Pig](data-factory-pig-activity.md)
 > * [Actividad MapReduce](data-factory-map-reduce.md)
@@ -85,15 +85,15 @@ La actividad de Pig para HDInsight en una [canalización](data-factory-create-pi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la actividad |Sí |
+| Nombre |Nombre de la actividad |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin |
-| type |HDinsightPig |Sí |
+| Tipo |HDinsightPig |Sí |
 | inputs |Una o varias entradas consumidas por la actividad de Pig |Sin |
 | outputs |Una o varias salidas producidas por la actividad de Pig |Sí |
 | linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
 | script |Especifica el script de Pig en línea |Sin |
-| scriptPath |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin |
-| defines |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |Sin |
+| ruta de acceso de script |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin |
+| define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |Sin |
 
 ## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su compañía.
@@ -125,7 +125,7 @@ Para ejecutar este script de Pig en una canalización de Data Factory, tiene que
 1. Crear un servicio vinculado para registrar [su propio clúster de proceso de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o configurar un [clúster de proceso de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Llamaremos a este servicio vinculado **HDInsightLinkedService**.
 2. Crear un [servicio vinculado](data-factory-azure-blob-connector.md) para configurar la conexión al almacenamiento de blobs de Azure que hospeda los datos. Llamaremos a este servicio vinculado **StorageLinkedService**.
 3. Crear [conjuntos de datos](data-factory-create-datasets.md) que apuntan a los datos de entrada y salida. Llamaremos al conjunto de datos de entrada **PigSampleIn** y al conjunto de datos de salida **PigSampleOut**.
-4. Copie la consulta de Pig en un archivo de Azure Blob Storage configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de Azure Storage independiente. Consulte el servicio vinculado en la configuración de la actividad. Use **scriptPath** para especificar la ruta de acceso al archivo de script de pig y **scriptLinkedService**. 
+4. Copie la consulta de Pig en un archivo de Azure Blob Storage configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de Azure Storage independiente. Consulte el servicio vinculado en la configuración de la actividad. Use **scriptPath** para especificar la ruta de acceso al archivo de script de Pig y **scriptLinkedService**. 
    
    > [!NOTE]
    > También puede proporcionar el script de Pig en línea en la definición de actividad mediante la propiedad **script** . Sin embargo, no se recomienda este enfoque cuando todos los caracteres especiales del script tienen que ser caracteres de escape y pueden provocar problemas de depuración. La práctica recomendada es seguir el paso 4.
@@ -220,7 +220,7 @@ Para usar un script de Pig parametrizado, haga lo siguiente:
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)

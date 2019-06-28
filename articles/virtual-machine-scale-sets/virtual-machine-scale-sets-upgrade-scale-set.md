@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
 ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803140"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
@@ -316,7 +316,7 @@ Para actualizar las máquinas virtuales existentes, debe realizar una "actualiza
 - También puede usar los [SDK de Azure](https://azure.microsoft.com/downloads/) específicos del lenguaje.
 
 >[!NOTE]
-> Los clústeres de Service Fabric solo pueden usar el modo *automático*, pero la actualización se administra de forma diferente. Para obtener más información, consulte [las actualizaciones de aplicaciones de Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Los clústeres de Service Fabric solo pueden usar el modo *automático*, pero la actualización se administra de forma diferente. Para más información, consulte [Actualización de la aplicación de Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
 Hay un tipo de modificación en las propiedades globales del conjunto de escalado que no sigue la directiva de actualización. Los cambios en el perfil de sistema operativo del conjunto de escalado (como nombre de usuario administrador o contraseña) solo se pueden realizar en la versión de API *2017-12-01* o posterior. Estos cambios solo se aplican a las máquinas virtuales creadas después del cambio en el modelo de conjunto de escalado. Para actualizar las máquinas virtuales existentes, debe realizar un "restablecimiento de la imagen inicial" de cada una de ellas. Para ello, puede usar:
 

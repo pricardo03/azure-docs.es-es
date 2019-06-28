@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610704"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones | Mitigaciones 
+# <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones: mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF: no incluya el nodo serviceDebug en el archivo de configuración](#servicedebug)</li><li>[WCF: no incluya el nodo serviceMetadata en el archivo de configuración](#servicemetadata)</li></ul> |
-| **API web** | <ul><li>[Asegúrese de que se realiza el control de excepciones en ASP.NET Web API](#exception)</li></ul> |
-| **Aplicación web** | <ul><li>[No exponga detalles de seguridad en mensajes de error](#messages)</li><li>[Implementar la página de control de errores predeterminado](#default)</li><li>[Establezca el método de implementación como deployment retail en IIS](#deployment)</li><li>[Las excepciones deben generar un error con seguridad](#fail)</li></ul> |
+| **API web** | <ul><li>[Asegúrese de que se realiza un control adecuado de las excepciones en ASP.NET Web API](#exception)</li></ul> |
+| **Aplicación web** | <ul><li>[No exponga detalles de seguridad en los mensajes de error](#messages)</li><li>[Implemente una página de control de errores predeterminado](#default)</li><li>[Establezca el método de implementación como deployment retail en IIS](#deployment)</li><li>[Las excepciones deben generar un error con seguridad](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF: no incluya el nodo serviceDebug en el archivo de configuración
 
@@ -179,7 +179,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Compruebe los vínculos en la sección de referencias para obtener más detalles sobre el control de excepciones y validación de modelos en ASP.NET Web API 
+Compruebe los vínculos en la sección de referencias para obtener información más detallada acerca del control de excepciones y la validación del modelo en ASP.NET Web API. 
 
 ## <a id="messages"></a>No exponga detalles de seguridad en los mensajes de error
 
@@ -201,7 +201,7 @@ Compruebe los vínculos en la sección de referencias para obtener más detalles
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Modificar configuración de páginas de errores ASP.NET (Cuadro de diálogo)](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Pasos** | <p>Cuando se produce un error en una aplicación ASP.NET que provoca un error 1.x 500 o HTTP 500 Error interno del servidor, o la configuración de una característica (por ejemplo, el filtrado de solicitudes) impide que se muestre una página, se generará un mensaje de error. Los administradores pueden elegir si la aplicación debe mostrar un mensaje descriptivo al cliente, un mensaje de error detallado al cliente o un mensaje de error detallado solamente al host local. La etiqueta `<customErrors>` en el archivo web.config tiene tres modos:</p><ul><li>**En:** Especifica que los errores personalizados están habilitados. Si no se especifica ningún atributo defaultRedirect, los usuarios verán un error genérico. Los errores personalizados se muestran a los clientes remotos y al host local</li><li>**Off:** Especifica que los errores personalizados están deshabilitados. Los errores detallados de ASP.NET se muestran a los clientes remotos y al host local</li><li>**RemoteOnly:** Especifica que los errores personalizados se muestran solo a los clientes remotos y que se muestran los errores de ASP.NET en el host local. Este es el valor predeterminado</li></ul><p>Abra el archivo `web.config` de la aplicación o el sitio y asegúrese de que la etiqueta tiene definido `<customErrors mode="RemoteOnly" />` o `<customErrors mode="On" />`.</p>|
+| **Pasos** | <p>Cuando se produce un error en una aplicación ASP.NET que provoca un error 1.x 500 o HTTP 500 Error interno del servidor, o la configuración de una característica (por ejemplo, el filtrado de solicitudes) impide que se muestre una página, se generará un mensaje de error. Los administradores pueden elegir si la aplicación debe mostrar un mensaje descriptivo al cliente, un mensaje de error detallado al cliente o un mensaje de error detallado solamente al host local. La etiqueta `<customErrors>` en el archivo web.config tiene tres modos:</p><ul><li>**On:** especifica que los errores personalizados están habilitados. Si no se especifica ningún atributo defaultRedirect, los usuarios verán un error genérico. Los errores personalizados se muestran a los clientes remotos y al host local</li><li>**Off:** especifica que los errores personalizados están deshabilitados. Los errores detallados de ASP.NET se muestran a los clientes remotos y al host local</li><li>**RemoteOnly:** especifica que los errores personalizados se muestran solo a los clientes remotos y que los errores de ASP.NET se muestran al host local. Este es el valor predeterminado</li></ul><p>Abra el archivo `web.config` de la aplicación o el sitio y asegúrese de que la etiqueta tiene definido `<customErrors mode="RemoteOnly" />` o `<customErrors mode="On" />`.</p>|
 
 ## <a id="deployment"></a>Establezca el método de implementación como deployment retail en IIS
 

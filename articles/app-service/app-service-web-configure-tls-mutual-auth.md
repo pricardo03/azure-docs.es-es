@@ -16,35 +16,35 @@ ms.date: 02/22/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60852455"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar la autenticación mutua de TLS para Azure App Service
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configuración de la autenticación mutua de TLS en Azure App Service
 
-Puede restringir el acceso a una aplicación de Azure App Service habilitando diferentes tipos de autenticación. Una manera de hacerlo consiste en solicitar un certificado de cliente cuando la solicitud de cliente a través de TLS/SSL y validar el certificado. Este mecanismo se denomina autenticación mutua de TLS o autenticación de certificados de cliente. En este artículo se muestra cómo configurar la aplicación para usar la autenticación de certificado de cliente.
+Puede restringir el acceso a una aplicación de Azure App Service habilitando diferentes tipos de autenticación. Una manera de hacerlo consiste en solicitar un certificado de cliente cuando la solicitud de cliente se realice a través de TLS/SSL y validar el certificado. Este mecanismo se denomina autenticación mutua de TLS o autenticación de certificado de cliente. En este artículo se muestra cómo configurar la aplicación para usar la autenticación de certificado de cliente.
 
 > [!NOTE]
-> Si accede a su sitio a través de HTTP y no de HTTPS, no recibirá ningún certificado de cliente. Por lo que si la aplicación requiere certificados de cliente, no debe permitir las solicitudes a la aplicación a través de HTTP.
+> Si accede a su sitio a través de HTTP y no de HTTPS, no recibirá ningún certificado de cliente. Por lo tanto, si la aplicación requiere certificados de cliente, no debe permitir solicitudes a la aplicación mediante HTTP.
 >
 
-## <a name="enable-client-certificates"></a>Habilitar certificados de cliente
+## <a name="enable-client-certificates"></a>Habilitación de certificados de cliente
 
-Para configurar la aplicación para requerir certificados de cliente, deberá establecer el `clientCertEnabled` configuración para la aplicación `true`. Para establecer la configuración, ejecute el siguiente comando en el [Cloud Shell](https://shell.azure.com).
+Para configurar la aplicación y que exija certificados de cliente, deberá establecer el valor `clientCertEnabled` de la aplicación en `true`. Para establecer el valor, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="access-client-certificate"></a>Certificado de cliente de acceso
+## <a name="access-client-certificate"></a>Acceso al certificado de cliente
 
-En App Service, terminación SSL de la solicitud se produce en el equilibrador de carga front-end. Al reenviar la solicitud para el código de aplicación con [certificados de cliente habilitados](#enable-client-certificates), App Service se inserta un `X-ARR-ClientCert` encabezado de solicitud con el certificado de cliente. App Service no hace nada con este certificado de cliente que no sea de enviarla a la aplicación. Código de la aplicación es responsable de validar el certificado de cliente.
+En App Service, la terminación SSL de la solicitud tiene lugar en el equilibrador de carga front-end. Al reenviar la solicitud al código de la aplicación con [certificados de cliente habilitados](#enable-client-certificates), App Service inserta un encabezado de solicitud `X-ARR-ClientCert` con el certificado de cliente. App Service no hace nada con este certificado de cliente aparte de reenviarlo a la aplicación. El código de la aplicación es responsable de validar el certificado de cliente.
 
-Para ASP.NET, el certificado de cliente está disponible a través de la **HttpRequest.ClientCertificate** propiedad.
+En ASP.NET, el certificado de cliente está disponible mediante la propiedad **HttpRequest.ClientCertificate**.
 
-Para otras pilas de aplicaciones (Node.js, PHP, etc.), el certificado de cliente está disponible en su aplicación a través de un valor codificado en base 64 en el `X-ARR-ClientCert` encabezado de solicitud.
+En otras pilas de aplicación (Node.js, PHP, etc.), el certificado de cliente está disponible en la aplicación mediante un valor codificado en base64 en el encabezado de solicitud `X-ARR-ClientCert`.
 
 ## <a name="aspnet-sample"></a>Ejemplo de ASP.NET
 
@@ -172,7 +172,7 @@ Para otras pilas de aplicaciones (Node.js, PHP, etc.), el certificado de cliente
 
 ## <a name="nodejs-sample"></a>Ejemplo de Node.js
 
-Obtiene el siguiente código de ejemplo de Node.js el `X-ARR-ClientCert` encabezado y se usa [nodo-forge](https://github.com/digitalbazaar/forge) para convertir la cadena PEM con codificación base64 en un objeto de certificado y validarlo:
+El siguiente código de ejemplo de Node.js obtiene el encabezado `X-ARR-ClientCert` y usa [nodo-forge](https://github.com/digitalbazaar/forge) para convertir la cadena PEM codificada en base64 en un objeto de certificado y validarlo:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';

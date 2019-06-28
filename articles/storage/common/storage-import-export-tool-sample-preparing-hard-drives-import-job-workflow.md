@@ -9,10 +9,10 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320574"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación
@@ -23,7 +23,7 @@ Este artículo le guiará por el proceso completo de preparar las unidades para 
 
 Este ejemplo importa los datos siguientes en una cuenta de Azure Storage denominada `mystorageaccount`:
 
-|Location|DESCRIPCIÓN|Tamaño de los datos|
+|Ubicación|DESCRIPCIÓN|Tamaño de los datos|
 |--------------|-----------------|-----|
 |H:\Video\ |Una colección de vídeos|12 TB|
 |H:\Photo\ |Una colección de fotos|30 GB|
@@ -112,7 +112,7 @@ Ahora está listo para ejecutar la herramienta Azure Import/Export para preparar
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Si es necesario agregar más datos, cree otro archivo de conjunto de datos (mismo formato que el conjunto de datos inicial).
+Si es necesario agregar más datos, cree otro archivo de conjunto de datos (con el mismo formato que el conjunto de datos inicial).
 
 **Para la segunda sesión:**
 

@@ -8,10 +8,10 @@ ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236246"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Qué es la extensión Azure Diagnostics
@@ -52,7 +52,7 @@ También tiene la opción de enviar los datos a la base de datos de series tempo
 Para más información sobre cómo configurar este receptor, consulte la [documentación del esquema de Azure Diagnostics](diagnostics-extension-schema-1dot3.md).
 
 ## <a name="costs"></a>Costos
-Cada una de las opciones anteriores puede incurrir en costes. No olvide los busca para evitar efectos inesperados.  Application Insights, centro de eventos, y el almacenamiento de Azure tienen independientes costos asociados con la ingesta y la hora almacenada. En concreto, el almacenamiento de Azure va a contener todos los datos para siempre por lo que es posible que desee purgar datos antiguos después de un determinado período de tiempo para reducir los costos.    
+Cada una de las opciones anteriores puede incurrir en costos. Asegúrese de investigarlas para evitar facturas inesperadas.  Application Insights, Event Hub y Azure Storage tienen costos independientes asociados con la ingesta y el tiempo almacenado. En concreto, Azure Storage conservará los datos para siempre, por lo que es posible que desee purgar los datos más antiguos después de un período de tiempo determinado para mantener sus costos al mínimo.    
 
 ## <a name="versioning-and-configuration-schema"></a>Esquema de configuración y control de versiones
 Consulte [Historial y versiones del esquema de configuración de la extensión Azure Diagnostics](diagnostics-extension-schema.md).

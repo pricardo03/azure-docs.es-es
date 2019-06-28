@@ -1,6 +1,6 @@
 ---
-title: Directrices para experiencias de anclaje eficaz que usar delimitadores espacial de Azure | Microsoft Docs
-description: Directrices y consideraciones que debe crear y busque los anclajes de forma eficaz mediante el uso de delimitadores espacial de Azure.
+title: Directrices para experiencias de anclaje eficaz que usan Azure Spatial Anchors | Microsoft Docs
+description: Directrices y consideraciones para crear y ubicar anclajes de forma eficaz mediante Azure Spatial Anchors.
 author: mattwojo
 manager: jken
 services: azure-spatial-anchors
@@ -9,107 +9,107 @@ ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60566048"
 ---
-# <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Crear una experiencia eficaz delimitador mediante delimitadores espacial de Azure
+# <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Creación una experiencia de anclaje efectiva mediante Azure Spatial Anchors
 
-Este artículo proporcionan directrices y consideraciones que le ayudarán a eficazmente creación y buscar delimitadores mediante delimitadores espacial.
+En este artículo se proporcionan directrices y consideraciones que le ayudarán a crear y ubicar anclajes de forma efectiva mediante Spatial Anchors.
 
-## <a name="good-anchors"></a>Delimitadores de buena
+## <a name="good-anchors"></a>Anclajes adecuados
 
-Delimitadores espaciales le ayuda a crear delimitadores buena. Es importante invertir tiempo en educación o guiar a los usuarios de la experiencia del usuario (UX) que crear delimitadores buena. Al invertir en la creación de buenas delimitadores por adelantado, ayuda a buscar de forma confiable los anclajes de los usuarios finales:
+Spatial Anchors le ayuda a crear anclajes adecuados. Es importante invertir tiempo en la formación u orientación de los usuarios para la experiencia de usuario (UX) con el fin de crear anclajes adecuados. Si invierte en la creación de anclajes adecuados por adelantado, ayuda a los usuarios finales a buscar anclajes de forma confiable:
 
-- En diferentes dispositivos.
-- En momentos diferentes.
+- Entre diferentes dispositivos.
+- En distintos momentos.
 - En condiciones de iluminación diferentes.
 - Desde las perspectivas deseadas dentro del espacio.
 
 ## <a name="static-and-dynamic-locations"></a>Ubicaciones estáticas y dinámicas
 
-Parte del diseño de la experiencia de anclaje es elegir las ubicaciones. ¿Las ubicaciones puede estática y definirse por un administrador del espacio? ¿O bien, serán dinámicos y definido por el usuario?
+Parte del diseño de la experiencia de anclaje es elegir las ubicaciones. ¿Las ubicaciones pueden ser estáticas y que un administrador del espacio las defina? ¿O serán dinámicas y definidas por el usuario?
 
-Un administrador de almacén de venta directa es posible que desee una experiencia en tienda estática para convencer a los usuarios visitar. Pero el desarrollador de un juego de tablero de realidad mixta probable que desee permitir a los usuarios elegir dónde desea reproducir.
+Es posible que un encargado de tienda comercial desee una experiencia en tienda estática para convencer a los usuarios de que la visiten. Sin embargo, es probable que el desarrollador de un juego de mesa de realidad mixta desee permitir a los usuarios elegir dónde jugar.
 
-Para obtener ubicaciones estáticas, puede enseñar administradores dedicar tiempo ya que mantiene el espacio con buena anclajes.
+Para obtener ubicaciones estáticas, puede invitar a los administradores a que dediquen tiempo a mantener el espacio con anclajes adecuados.
 
-Para obtener ubicaciones dinámicas, debería pensar en cómo enseñar o guiar a los usuarios en la experiencia de usuario para crear los anclajes de buena.
+Para las ubicaciones dinámicas, debería pensar en cómo formar u orientar a los usuarios en la experiencia de usuario para crear los anclajes adecuados.
 
 ## <a name="stable-visual-features"></a>Características visuales estables
 
-Sistemas de seguimiento visual de que se usan en realidad mixta y dispositivos de realidad aumentada dependen de las características visuales del entorno. Para obtener la experiencia más confiable:  
+Los sistemas de seguimiento visual usados en dispositivos de realidad aumentada y combinada dependen de las características visuales del entorno. Para obtener la experiencia más confiable, realice las siguientes tareas:  
 
-- *Hacer* crear delimitadores en ubicaciones que tienen las características visuales estables (es decir, las características que no cambian con frecuencia).
+- *Cree* anclajes en ubicaciones que tengan características visuales estables (es decir, que las características no cambien con frecuencia).
 
-- *No* crear anclajes en grandes superficies en blanco que no hay características distintivas.
+- *No cree* anclajes en grandes superficies vacías que no dispongan de características distintivas.
 
-- *No* crear anclajes en materiales muy brillante.
+- *No cree* anclajes en materiales muy reflectantes.
 
-- *No* crear anclajes en superficies donde el patrón se repite, como la alfombra o papel tapiz.
+- *No cree* anclajes en superficies en las que se repita el patrón, como en una alfombra o un papel tapiz.
 
-![Ejemplos de un entorno adecuado para delimitadores y un entorno incorrecto para delimitadores](./media/stable-visual.png)
+![Ejemplos de un entorno adecuado y un entorno incorrecto para anclajes](./media/stable-visual.png)
 
-## <a name="various-viewing-perspectives"></a>Varias perspectivas de visualización
+## <a name="various-viewing-perspectives"></a>Distintas perspectivas de visualización
 
-Al crear un delimitador, piense en las personas que posteriormente intenta localizar el delimitador.
+Cuando cree un anclaje, piense en las personas que intentarán localizarlo después.
 
-Considere, por ejemplo, un delimitador en el medio de una habitación con dos puertas. Es posible que desean permitir a los usuarios a entrar en el salón de cualquier puerta. Al crear el delimitador, deberá examinar su posición de ambas entradas. Modificar perspectivas para capturar datos de entorno alrededor del delimitador para que los usuarios puedan encontrar el delimitador de cualquier puerta.
+Considere, por ejemplo, que hay un anclaje en medio de una habitación con dos puertas. Es posible que desee permitir a los usuarios entrar en el salón desde cualquier puerta. Al crear el anclaje, deberá examinar su posición desde ambas puertas. Modifique las perspectivas para capturar datos de entorno alrededor del anclaje para que los usuarios puedan encontrar el anclaje desde cualquier puerta.
 
-En general, al crear un delimitador, darle desde las perspectivas de las personas que intentarán encontrarlo. Por lo que si va a colocar contenido virtual en una escultura al aire libre, tiene sentido andar con escultura, al examinar, a medida que cree el delimitador. Si el delimitador se encuentra en la esquina de una sala, hay una única dirección enfocar desde. Al crear este delimitador, puede explorarlo solo desde esta perspectiva.
+En general, cuando cree un anclaje, examínelo desde las perspectivas de las personas que intentarán encontrarlo. Por lo tanto, si coloca contenido virtual en una escultura al aire libre, tiene sentido darle la vuelta a la escultura mientras la examina en el momento de la creación del anclaje. Si el anclaje está en la esquina de una sala, solo habrá una dirección desde la que acercarse. Al crear este anclaje, puede explorarlo solo desde esta perspectiva.
 
-## <a name="multiple-anchors"></a>Varios delimitadores
+## <a name="multiple-anchors"></a>Varios anclajes
 
-Iluminación puede suponer una diferencia en las características visuales que detecta una aplicación. Delimitadores creados en luz natural segura podrían ser difíciles de encontrar en la luz artificial y viceversa.  
+La iluminación puede marcar la diferencia en las características visuales que detecta una aplicación. Los anclajes creados con una luz fuerte y natural podrían ser difíciles de encontrar en la luz artificial y viceversa.  
 
-Si tiene este problema, puede ayudar a crear dos delimitadores. En el mismo punto, cree un delimitador en el horario de verano y otro de luz artificial. La aplicación, a continuación, puede consultar los dos delimitadores. Cuando se encuentra cualquier delimitador, la aplicación tendrá una postura para el delimitador. 
+Si tiene este problema, puede resultar útil crear dos anclajes. Cree un anclaje para la luz natural y otro para la luz artificial en el mismo punto. Su aplicación podrá consultar ambos anclajes. Cuando se encuentre el anclaje, la aplicación tomará una decisión sobre él. 
 
-De forma similar, en entornos donde las características visuales cambian porque la mayoría de los objetos mover, varios delimitadores pueden ayudar a. Cuando se convierte en un delimitador demasiado difícil de encontrar debido a cambios significativos en el entorno, puede reemplazar el delimitador por uno nuevo. Podría hacer esto, por ejemplo, en una tienda donde el diseño se actualiza cada pocos meses.
+De forma similar, puede resultar útil usar varios anclajes en entornos donde las características visuales cambian porque la mayoría de los objetos se mueven. Cuando un anclaje es demasiado difícil de encontrar debido a cambios significativos en el entorno, puede reemplazarlo por uno nuevo. Puede hacer esto, por ejemplo, en una tienda donde el diseño se actualiza cada pocos meses.
 
-## <a name="targets-and-rooms"></a>Destinos y las salas
+## <a name="targets-and-rooms"></a>Destinos y salas
 
-En muchos casos, un delimitador es un punto de entrada a la experiencia de la aplicación. Desea empezar rápidamente a través de este paso y confiable para que los usuarios pueden escribir su experiencia. Dedicar tiempo a cómo los usuarios encontrarán los delimitadores es un paso de diseño importantes. Resulta útil pensar para encontrar los delimitadores en términos de dos escenarios generales: *destinos* y *salas*.
+En muchos casos, un anclaje es un punto de entrada a la experiencia de la aplicación. Querrá realizar este paso de forma rápida y confiable para que los usuarios disfruten de su experiencia. Dedicar tiempo a la forma en la que los usuarios encontrarán los anclajes es un paso importante sobre el diseño. Resulta útil pensar en la búsqueda de anclajes en dos escenarios generales: *destinos* y *salas*.
 
 ### <a name="targets"></a>Destinos
 
-En el escenario de destino, la ubicación de un delimitador es conocida. Por ejemplo, en una aplicación ficticia realidad mixta de dibujo, un usuario coloca un lienzo virtual en la pared. Indica a los demás usuarios de la sala de reuniones para que apunte a sus dispositivos en el mismo lugar en la pared para buscar el delimitador y comience la experiencia.  
+En el escenario de destino, se conoce bien la ubicación del anclaje. Por ejemplo, en una aplicación de dibujo ficticia de realidad mixta, un usuario coloca un lienzo virtual en la pared. Esa persona solicita a los demás usuarios de la sala que sus dispositivos apunten al mismo lugar de la pared para buscar el anclaje y que comience la experiencia.  
 
-Otro ejemplo de un escenario de destino podría ser un inicio de sesión en una cafetería que diga: "Buscar ofertas". La cafetería ha colocado un delimitador aquí. Como los usuarios examen el inicio de sesión, buscan el delimitador y escriba la experiencia de realidad aumentada para buscar ofertas de café.
+Otro ejemplo de un escenario de destino podría ser un inicio de sesión en una cafetería que diga: "Buscar ofertas". La cafetería ha colocado un anclaje aquí. Cuando los usuarios analizan la señal, buscan el anclaje y entran en la experiencia de realidad aumentada para buscar ofertas de café.
 
-En el escenario de destino, pueden ayudar las fotos. Si se muestra a los usuarios una foto del destino deseado en su dispositivo, puede identificar rápidamente qué analizar en el mundo real. Por ejemplo, podría ayudar a los usuarios llegan dentro del área de un objetivo general mediante el uso de GPS. Cuando llega el usuario, la aplicación muestra una foto del destino. El usuario busca todo el espacio, busca el destino y busca el delimitador.
+En los escenarios de destino pueden ayudar las fotos. Si se muestra a los usuarios una foto del destino deseado en su dispositivo, podrán identificar rápidamente qué analizar en el mundo real. Por ejemplo, podría ayudar a los usuarios a llegar a un área general de un objetivo determinado mediante el uso de GPS. Cuando el usuario llega, la aplicación muestra una foto del destino. El usuario examina todo el espacio, busca el destino y analiza el anclaje.
 
-![Ilustración de un delimitador, que muestra una foto del destino en un dispositivo de usuario móviles](./media/start-here-edit.png)
+![Ilustración de un anclaje que muestra una foto del destino en un dispositivo móvil de un usuario](./media/start-here-edit.png)
 
 ### <a name="rooms"></a>Salas
 
-En el escenario de espacio, los usuarios especificar un espacio con simplemente saber que hay un delimitador de aquí en algún lugar. Los usuarios examen el espacio con su dispositivo y encontrar rápidamente el delimitador.
+En el escenario de sala, los usuarios especifican un espacio sabiendo únicamente que hay un anclaje en algún lugar. Los usuarios examinan el espacio con su dispositivo y encuentran rápidamente el anclaje.
 
-Esta experiencia normalmente requiere que crear delimitadores bien protegidos, como se describe en varias perspectivas de visualización. Si ha examinado la sala de muchas perspectivas cuando creó el delimitador, los usuarios pueden analizar prácticamente en cualquier parte cuando intenten buscarla.
+Esta experiencia requiere normalmente crear anclajes bien protegidos, como se describe en Distintas perspectivas de visualización. Si examinó la sala desde muchas perspectivas cuando creó el anclaje, los usuarios podrán analizar prácticamente todo el lugar cuando intenten localizarlo.
 
-![Ilustración de cómo un usuario puede examinar una habitación para buscar un delimitador](./media/scan-room.png)
+![Ilustración de cómo un usuario puede examinar una sala para buscar un anclaje](./media/scan-room.png)
 
-En esencia, que dedicar más tiempo análisis el espacio al crear el delimitador para que los usuarios posteriores pueden examinar y buscar rápidamente el delimitador. A medida que cree su experiencia, deberá tener en cuenta este equilibrio importante.
+Básicamente, dedica más tiempo a analizar el espacio cuando crea el anclaje para que los usuarios posteriores puedan examinar y buscar el anclaje rápidamente. A medida que cree su experiencia, deberá tener en cuenta este equilibrio importante.
 
-El ejemplo de la aplicación de dibujo de realidad mixta que analizamos anteriormente no funciona bien como un escenario de espacio. En este caso, el usuario que coloca el delimitador quiere otros a unirse a la experiencia de rápidamente. Los usuarios no quiere esperar a la experiencia de inicio hasta que también se examina la sala de reuniones. Dado que todos los usuarios saben exactamente dónde para que apunte a su dispositivo para localizar los delimitadores, este ejemplo funciona mejor como un escenario de destino.
+El ejemplo de la aplicación de dibujo de realidad mixta que analizamos anteriormente no funciona adecuadamente un escenario de sala. En este caso, el usuario que coloca el anclaje quiere que los demás se unan a la experiencia rápidamente. Los usuarios no quieren esperar para iniciar la experiencia hasta que se analice bien la sala. Puesto que todos los usuarios saben exactamente hacia dónde apuntar el dispositivo para ubicar los anclajes, este ejemplo funciona mejor como escenario de destino.
 
-## <a name="anchor-location"></a>Ubicación de anclaje
+## <a name="anchor-location"></a>Ubicación del anclaje
 
-Los sistemas de seguimiento visual dependen de las características visuales en un entorno. Las características más visual que incluye un examen, mayor será la probabilidad de encontrar un delimitador.
+Los sistemas de seguimiento visual dependen de las características visuales en un entorno. Conforme más características visuales pueda incluir un análisis, mayor será la probabilidad de encontrar el anclaje.
 
-Siga las directrices generales de esta sección para crear una experiencia de usuario que animan a un análisis útil del entorno.
+Siga las directrices generales de esta sección para crear una experiencia de usuario que fomente un análisis útil del entorno.
 
-En primer lugar, si el usuario no podrá encontrar un delimitador de unos segundos, la aplicación debe anime a los usuarios pasar el dispositivo para capturar más perspectivas. La aplicación también puede animar a los usuarios a sí mismos moverse por el entorno para buscar el delimitador desde varias perspectivas. Las perspectivas más características que ve el dispositivo, mejor.
+En primer lugar, si el usuario no encuentra el anclaje en pocos segundos, la aplicación debe animar a los usuarios a desplazar el dispositivo para capturar más perspectivas. La aplicación también puede animar a los usuarios a que se muevan por el entorno para buscar el anclaje desde varias perspectivas. Conforme más perspectivas de características detecte el dispositivo, mejor.
 
-Para escenarios de destino, pida al usuario a desplazarse por el destino para verlo desde distintas perspectivas. En otras palabras, pida al usuario capturar el destino de nuevas perspectivas hasta que se encuentra el delimitador.
+Para escenarios de destino, solicite al usuario que se desplace por el destino para verlo desde distintas perspectivas. Es decir, pida al usuario que capture el destino desde nuevas perspectivas hasta que encuentre el anclaje.
 
-Para escenarios de sala, pida al usuario examinar lentamente la sala. Por ejemplo, pedir al usuario activar para capturar 180 grados o incluso de 360 grados de la sala. O bien, pida al usuario para ver la sala desde una perspectiva de nuevo. 
+Para escenarios de sala, solicite al usuario examinar lentamente la sala. Por ejemplo, solicite al usuario que se gire para capturar 180 grados o incluso de 360 grados de la sala. También puede pedir al usuario que vea la sala desde una nueva perspectiva. 
 
-El método más significativo es buscar en toda la habitación. Un recorrido a través de la sala de captura más características visuales del entorno que un examen de una pared cercano, por ejemplo. Un examen de una pared cercano no capturarán tantas características útiles de visuales del entorno.
+El método más significativo es buscar en toda la habitación. Una búsqueda en toda la sala permite capturar más características visuales del entorno que una búsqueda de una pared cercana, por ejemplo. Una búsqueda en una pared cercana no permitirá capturar tantas características útiles de visuales del entorno.
 
-No es útil mover varias veces de lado a lado del dispositivo cuando se busca un delimitador. Simplemente captura los mismos puntos desde la perspectiva del mismo.
+No resulta útil mover varias veces el dispositivo de lado a lado cuando se busca un anclaje. Con ese procedimiento simplemente se capturan los mismos puntos desde la misma perspectiva.
 
-## <a name="experience-tests"></a>Experiencia de pruebas
+## <a name="experience-tests"></a>Pruebas de experiencia
 
-En este artículo, hemos hablado de directrices generales. Con los delimitadores espacial, va a escribir aplicaciones que interactúen con el mundo real. Por este motivo, debe dedicar tiempo a probar escenarios de anclaje de la aplicación en entornos reales. Esto es especialmente cierto para los entornos que representan donde se espera que los usuarios para usar la aplicación.
+En este artículo, hemos hablado de directrices generales. Con Spatial Anchors, se escribirán aplicaciones que interactuarán con el mundo real. Por este motivo, debe dedicar tiempo a probar los escenarios de anclaje de su aplicación en entornos reales. Esto se debe realizar especialmente en entornos que representan donde se espera que los usuarios usen la aplicación.

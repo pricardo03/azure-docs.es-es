@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60780939"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copia o clonación de una factoría de datos en Azure Data Factory
@@ -36,7 +36,7 @@ Estas son algunas de las circunstancias en las que podría resultar útil copiar
 
 1. Como requisito previo, debe crear la factoría de datos de destino desde Azure Portal.
 
-1. Si tiene un SelfHosted IntegrationRuntime en el generador del origen, deberá crear previamente, con el mismo nombre en la fábrica de destino. Si desea compartir el IRs SelfHosted entre diferentes factorías, puede usar el modelo publicado [aquí](author-visually.md#best-practices-for-git-integration).
+1. Si tiene una instancia de Integration Runtime autohospedada en la factoría de origen, deberá crearla previamente con el mismo nombre en el generador de destino. Si desea compartir las instancias de Integration Runtime autohospedada entre diferentes factorías, puede usar el modelo publicado [aquí](author-visually.md#best-practices-for-git-integration).
 
 1. Si está en modo GIT, cada vez que publique desde el portal, la plantilla de Resource Manager de la factoría se guarda en GIY en la rama adf_publish del repositorio.
 

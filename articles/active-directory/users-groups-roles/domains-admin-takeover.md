@@ -1,5 +1,5 @@
 ---
-title: 'Adquisición de administrador de un directorio no administrado: Azure Active Directory | Microsoft Docs'
+title: Adquisición por parte del administrador de un directorio no administrado en Azure Active Directory | Microsoft Docs
 description: Adquisición de un nombre de dominio DNS en un directorio no administrado (inquilino paralelo) en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780535"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
@@ -37,13 +37,13 @@ Durante el proceso de adquisición de un administrador, puede comprobar la propi
 
 Algunos productos que incluyen SharePoint y OneDrive, como Office 365, no admiten la adquisición externa. Si su escenario es ese o si es administrador y desea adquirir un inquilino no administrado o "paralelo" al que hayan creado usuarios que usaron el registro de autoservicio, puede hacerlo con una adquisición de administración interna.
 
-1. Crear un contexto de usuario en el inquilino no administrado a través de registrarse en Power BI. Para facilitar el ejemplo, en estos pasos se presupone que esa es la ruta.
+1. Cree un contexto de usuario en el inquilino no administrado mediante el registro con Power BI. Para facilitar el ejemplo, en estos pasos se presupone que esa es la ruta.
 
 2. Abra el [sitio de Power BI](https://powerbi.com) y seleccione **Empiece gratis**. Escriba una cuenta de usuario en la que se use el nombre de dominio de la organización, por ejemplo, `admin@fourthcoffee.xyz`. Escriba el código de verificación y, luego, revise su correo electrónico para recibir el código de confirmación.
 
 3. En el correo electrónico de confirmación de Power BI, seleccione la opción que indica que **es el destinatario del mensaje**.
 
-4. Inicie sesión en el [centro de administración de Microsoft 365](https://admin.microsoft.com) con la cuenta de usuario de Power BI. Recibe un mensaje que le indica que debe **convertirse en el administrador** del nombre de dominio que ya se comprobó en el inquilino no administrado. Seleccione la opción que indica que **desea convertirse en el administrador**.
+4. Inicie sesión en el [Centro de administración de Microsoft 365](https://admin.microsoft.com) con la cuenta de usuario de Power BI. Recibe un mensaje que le indica que debe **convertirse en el administrador** del nombre de dominio que ya se comprobó en el inquilino no administrado. Seleccione la opción que indica que **desea convertirse en el administrador**.
   
    ![primera captura de pantalla para convertirse en el administrador](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -57,23 +57,23 @@ Después de completar los pasos anteriores, ya es el administrador global del in
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Incorporación del nombre de dominio a un inquilino administrado en Azure AD
 
-1. Abra el [centro de administración de Microsoft 365](https://admin.microsoft.com).
-2. Seleccione **usuarios** y a crear una nueva cuenta de usuario con un nombre como *usuario\@fourthcoffeexyz.onmicrosoft.com* que no utiliza el nombre de dominio personalizado. 
+1. Abra el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
+2. Seleccione la pestaña **Usuarios** y cree una cuenta de usuario con un nombre como *user\@fourthcoffeexyz.onmicrosoft.com* que no use el nombre de dominio personalizado. 
 3. Asegúrese de que la cuenta de usuario nueva tiene privilegios administrativos globales en el inquilino de Azure AD.
-4. Abra **dominios** en el centro de administración de Microsoft 365, seleccione el nombre de dominio y seleccione **quitar**. 
+4. Abra la pestaña **Dominios** del Centro de administración de Microsoft 365, seleccione el nombre de dominio y haga clic en **Quitar**. 
   
    ![quitar el nombre de dominio de Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Si tiene usuarios o grupos en Office 365 que haga referencia al nombre de dominio que se quitó, se les debe cambiar el nombre al dominio .onmicrosoft.com. Si se fuerza la eliminación el nombre de dominio, todos los usuarios se cambia automáticamente en este ejemplo para *usuario\@fourthcoffeexyz.onmicrosoft.com*.
+5. Si tiene usuarios o grupos en Office 365 que haga referencia al nombre de dominio que se quitó, se les debe cambiar el nombre al dominio .onmicrosoft.com. Si se fuerza la eliminación del nombre de dominio, se cambia automáticamente el nombre de todos los usuarios, como en este ejemplo a *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que sea la del administrador global del inquilino de Azure AD.
   
 7. Seleccione **Nombres de dominio personalizados** y, luego, agregue el nombre de dominio. Deberá especificar los registros TXT de DNS para comprobar la propiedad del nombre de dominio. 
   
-   ![comprobado que se agregan a Azure AD de dominio](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![comprobación del dominio como agregado a Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Cualquier usuario de Power BI o del servicio Azure Rights Management que tenga licencias asignadas en el inquilino de Office 365 debe guardar los paneles si se quita el nombre de dominio. Debe iniciar sesión con un nombre de usuario como *usuario\@fourthcoffeexyz.onmicrosoft.com* lugar *usuario\@fourthcoffee.xyz*.
+> Cualquier usuario de Power BI o del servicio Azure Rights Management que tenga licencias asignadas en el inquilino de Office 365 debe guardar los paneles si se quita el nombre de dominio. Debe iniciar sesión con un nombre de usuario como *user\@fourthcoffeexyz.onmicrosoft.com*, en lugar de *user\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Adquisición de administración externa
 

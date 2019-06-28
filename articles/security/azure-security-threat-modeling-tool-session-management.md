@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611684"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
@@ -290,7 +290,7 @@ En el siguiente ejemplo se muestra la configuración correcta:
 ```
 
 ### <a name="example"></a>Ejemplo
-Al mismo tiempo, Html.AntiForgeryToken() proporciona al visitante una cookie denominada __RequestVerificationToken, con el mismo valor que el valor aleatorio de hidden mostrado arriba. A continuación, para validar un envío de formulario entrante, agregue el filtro [ValidateAntiForgeryToken] al método de acción de destino. Por ejemplo: 
+Al mismo tiempo, Html.AntiForgeryToken() proporciona al visitante una cookie denominada __RequestVerificationToken, con el mismo valor que el valor aleatorio de hidden mostrado arriba. A continuación, para validar un envío de formulario entrante, agregue el filtro [ValidateAntiForgeryToken] al método de acción de destino. Por ejemplo:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -304,7 +304,7 @@ Filtro de autorización que comprueba que:
 * Estos valores de cookie y `Request.Form` coincidan. Suponiendo que todo sea correcto, la solicitud entra de la forma normal. De lo contrario, aparece un error de autorización con el mensaje "No se especificó un token antifalsificación o el que se especificó no era válido". 
 
 ### <a name="example"></a>Ejemplo
-Anti-CSRF y AJAX: El token de formulario puede ser un problema para las solicitudes AJAX, porque una solicitud AJAX podría enviar datos JSON, no los datos de formulario HTML. Una solución consiste en enviar los tokens en un encabezado HTTP personalizado. En el código siguiente, se utiliza sintaxis de Razor para generar los tokens, que después se agregan a una solicitud AJAX. 
+Anti-CSRF y AJAX: el token de formulario puede ser un problema para las solicitudes AJAX, porque estas podrían enviar datos JSON en lugar de datos de formulario HTML. Una solución consiste en enviar los tokens en un encabezado HTTP personalizado. En el código siguiente, se utiliza sintaxis de Razor para generar los tokens, que después se agregan a una solicitud AJAX. 
 ```csharp
 <script>
     @functions{
@@ -377,7 +377,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Propiedad HttpSessionState.Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| **Pasos** | Tiempo de espera de sesión representa el evento que se produce cuando un usuario no realiza ninguna acción en un sitio web durante un intervalo (definido por el servidor web). El evento, en el lado servidor, cambia el estado de la sesión del usuario a "invalid" (por ejemplo, "ya no se usa") e indica al servidor web que lo destruirá (y eliminará todos los datos que contiene). En el ejemplo de código siguiente, se establece el atributo de sesión de tiempo de espera en 15 minutos en el archivo Web.config.|
+| **Pasos** | El tiempo de espera de la sesión representa el evento que se produce cuando un usuario no realiza ninguna acción en un sitio web durante un intervalo (definido por el servidor web). El evento, en el lado servidor, cambia el estado de la sesión del usuario a "invalid" (por ejemplo, "ya no se usa") e indica al servidor web que lo destruirá (y eliminará todos los datos que contiene). En el ejemplo de código siguiente, se establece el atributo de sesión de tiempo de espera en 15 minutos en el archivo Web.config.|
 
 ### <a name="example"></a>Ejemplo
 ```XML 
@@ -396,7 +396,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Elemento Forms para authentication (esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Referencias**              | [Elemento forms para authentication (Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **Pasos** | Establezca el tiempo de espera de la cookie para el vale de autenticación de formularios en 15 minutos.|
 
 ### <a name="example"></a>Ejemplo
@@ -467,7 +467,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Tecnologías aplicables** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) (Prevención de ataques de falsificación de solicitud entre sitios [CSRF] en ASP.NET Web API) |
-| **Pasos** | Anti-CSRF y AJAX: El token de formulario puede ser un problema para las solicitudes AJAX, porque una solicitud AJAX podría enviar datos JSON, no los datos de formulario HTML. Una solución consiste en enviar los tokens en un encabezado HTTP personalizado. En el código siguiente, se utiliza sintaxis de Razor para generar los tokens, que después se agregan a una solicitud AJAX. |
+| **Pasos** | Anti-CSRF y AJAX: el token de formulario puede ser un problema para las solicitudes AJAX, porque estas podrían enviar datos JSON en lugar de datos de formulario HTML. Una solución consiste en enviar los tokens en un encabezado HTTP personalizado. En el código siguiente, se utiliza sintaxis de Razor para generar los tokens, que después se agregan a una solicitud AJAX. |
 
 ### <a name="example"></a>Ejemplo
 ```Javascript
@@ -534,7 +534,7 @@ La salida se parecerá a lo siguiente:
 ```
 
 ### <a name="example"></a>Ejemplo
-Al mismo tiempo, Html.AntiForgeryToken() proporciona al visitante una cookie denominada __RequestVerificationToken, con el mismo valor que el valor aleatorio de hidden mostrado arriba. A continuación, para validar un envío de formulario entrante, agregue el filtro [ValidateAntiForgeryToken] al método de acción de destino. Por ejemplo: 
+Al mismo tiempo, Html.AntiForgeryToken() proporciona al visitante una cookie denominada __RequestVerificationToken, con el mismo valor que el valor aleatorio de hidden mostrado arriba. A continuación, para validar un envío de formulario entrante, agregue el filtro [ValidateAntiForgeryToken] al método de acción de destino. Por ejemplo:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

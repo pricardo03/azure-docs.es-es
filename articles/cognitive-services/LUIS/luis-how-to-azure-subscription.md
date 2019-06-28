@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: diberry
 ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198653"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso de claves de suscripción con la aplicación de LUIS
@@ -29,9 +29,9 @@ Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Crear recurso de tiempo de ejecución de punto de conexión de predicción en el portal de Azure
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Creación del recurso del entorno de ejecución de punto de conexión de predicción en Azure Portal
 
-Obtenga más información con el [compilar una aplicación](get-started-portal-build-app.md) Guía de inicio rápido.
+Obtenga más información con el inicio rápido sobre [compilación de una aplicación](get-started-portal-build-app.md).
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +49,7 @@ Obtenga más información con el [compilar una aplicación](get-started-portal-b
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Asignación de la clave de recurso a la aplicación de LUIS en el portal de LUIS
 
-Obtenga más información con el [implementación](get-started-portal-deploy-app.md) Guía de inicio rápido.
+Obtenga más información con el inicio rápido sobre [implementación](get-started-portal-deploy-app.md).
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -90,9 +90,9 @@ Las intenciones y sus puntuaciones también se incluyen en los registros de punt
 ```
 
 ### <a name="enable-bing-spell-checker"></a>Habilitar el corrector ortográfico de Bing 
-En **Endpoint url settings** (Configuración de dirección URL de punto de conexión), el conmutador **Bing spell checker** (Corrector ortográfico de Bing) permite a LUIS corregir las palabras mal escritas antes de realizar la predicción. Cree una **[clave de Bing Spell Check](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
+En **Endpoint url settings** (Configuración de dirección URL de punto de conexión), el conmutador **Bing spell checker** (Corrector ortográfico de Bing) permite a LUIS corregir las palabras mal escritas antes de realizar la predicción. Cree una **[clave de Bing Spell Check](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** . 
 
-Agregue el parámetro de cadena de consulta **spellCheck=true** y **bing-spell-check-subscription-key={SU_CLAVE_DE_BING}**. Reemplace `{YOUR_BING_KEY_HERE}` con su clave del corrector ortográfico de Bing.
+Agregue el parámetro de cadena de consulta **spellCheck=true** y **bing-spell-check-subscription-key={SU_CLAVE_DE_BING}** . Reemplace `{YOUR_BING_KEY_HERE}` con su clave del corrector ortográfico de Bing.
 
 ```JSON
 {
@@ -122,7 +122,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     Esta API POST requiere la siguiente configuración:
 
-    |Encabezado|Value|
+    |Encabezado|Valor|
     |--|--|
     |`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.| 
     |`Ocp-Apim-Subscription-Key`|Su [clave de creación](luis-how-to-account-settings.md).|
@@ -133,7 +133,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     Esta API POST requiere la siguiente configuración:
 
-    |Type|Configuración|Value|
+    |Type|Configuración|Valor|
     |--|--|--|
     |Encabezado|`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.|
     |Encabezado|`Ocp-Apim-Subscription-Key`|Su [clave de creación](luis-how-to-account-settings.md).|

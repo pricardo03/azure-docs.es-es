@@ -1,5 +1,5 @@
 ---
-title: 'Requisitos de datos de Azure AD SSPR: Azure Active Directory'
+title: 'Requisitos de datos del autoservicio de restablecimiento de contraseña de Azure AD: Azure Active Directory'
 description: Requisitos de datos del autoservicio de restablecimiento de contraseña de Azure AD y cómo cumplirlos
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358044"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final
@@ -47,7 +47,7 @@ Una vez que un usuario verifica el número de teléfono móvil, el campo Teléfo
 
 Un administrador global puede establecer manualmente la información de contacto de autenticación para el usuario, como se muestra en la captura de pantalla siguiente.
 
-![Autenticación póngase en contacto con información sobre un usuario de Azure AD][Contact]
+![Información de contacto de autenticación en un usuario en Azure AD][Contact]
 
 Si se rellena el campo de teléfono y el teléfono móvil está habilitado en la directiva de SSPR, el usuario verá dicho número en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
 

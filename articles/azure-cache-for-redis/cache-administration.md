@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60233033"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Administración de Azure Cache for Redis
@@ -72,7 +72,7 @@ Sí, si reinicia la memoria caché se borran todas las conexiones de cliente. El
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>¿Se pierden los datos de mi memoria caché si reinicio?
-Si reinicia los el **Master** y **esclavo** nodos, se pueden perder todos los datos en la memoria caché (o de esa partición si se utiliza una caché premium con agrupación en clústeres habilitado), pero esto no se garantiza que cualquiera. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de realizar la copia de seguridad.
+Si reinicia los nodos **Maestro** y **Esclavo**, se pueden pierden todos los datos de la memoria caché (o de esa partición si utiliza una caché premium con el agrupamiento en clústeres habilitado), pero esto no está garantizado. Si ha configurado la [persistencia de los datos](cache-how-to-premium-persistence.md), se restaurará la copia de seguridad más reciente cuando la caché vuelva a estar en línea, pero se perderán las escrituras de caché producidas después de realizar la copia de seguridad.
 
 Si reinicia solo uno de los nodos, no se suelen perder datos, pero podría pasar. Por ejemplo, si se reinicia el nodo maestro y se está escribiendo en la caché, los datos escritos se pierden. Otro escenario de pérdida de datos se produce al reiniciar un nodo y el otro nodo se dejar de funcionar debido a un error al mismo tiempo. Para obtener más información sobre las posibles causas de pérdida de datos, consulte [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) (¿Qué ha ocurrido con mis datos en Redis?).
 

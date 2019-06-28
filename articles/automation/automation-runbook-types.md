@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737166"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
@@ -45,7 +45,7 @@ Azure Automation admite numerosos tipos de runbooks que se describen brevemente 
 * No se pueden editar los runbooks fuera del Portal de Azure.
 * Puede requerir una actividad de código que contenga código de PowerShell para ejecutar una lógica compleja.
 * No se puede ver ni modificar directamente el código de PowerShell creado por el flujo de trabajo gráfico. Puede ver el código que cree en las actividades de código.
-* No se puede ejecutar en un Hybrid Runbook Worker en Linux
+* No se puede ejecutar en una instancia de Hybrid Runbook Worker en Linux
 
 ## <a name="powershell-runbooks"></a>Runbooks de PowerShell
 
@@ -55,7 +55,7 @@ Los runbooks de PowerShell están basados en Windows PowerShell.  Puede modifica
 
 * Implemente toda la lógica compleja con código de PowerShell sin las complejidades adicionales de flujo de trabajo de PowerShell.
 * El runbook se inicia con más rapidez que los runbooks de flujo de trabajo de PowerShell, ya que no es necesario compilarlos antes de la ejecución.
-* Se pueden ejecutar en Azure o en Hybrid Runbook Workers de Windows y Linux
+* Se puede ejecutar en Azure o en instancias de Hybrid Runbook Worker de Linux o Windows
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -90,7 +90,7 @@ Los runbooks del flujo de trabajo de PowerShell son runbooks de texto basados en
 * El runbook debe tratar la complejidad adicional del flujo de trabajo de PowerShell como [objetos deserializados](automation-powershell-workflow.md#code-changes).
 * El runbook tarda más en iniciarse que los runbooks de PowerShell ya que deben compilarse antes de su ejecución.
 * Los runbooks de PowerShell pueden incluirse únicamente como runbooks secundarios mediante el cmdlet Start-AzureAutomationRunbook, que crea un trabajo.
-* No se puede ejecutar en un Hybrid Runbook Worker en Linux
+* No se puede ejecutar en una instancia de Hybrid Runbook Worker en Linux
 
 ## <a name="python-runbooks"></a>Runbooks de Python
 
@@ -99,7 +99,7 @@ Runbooks de Python compilados en Python 2.  Puede modificar directamente el cód
 ### <a name="advantages"></a>Ventajas
 
 * Usar las sólidas bibliotecas de Python.
-* Se pueden ejecutar en Azure o en ambos Hybrid Runbook Workers de Linux. Hybrid Runbook Workers de Windows son compatibles con [python2.7](https://www.python.org/downloads/release/latest/python2) instalado.
+* Se puede ejecutar en Azure o en instancias de Hybrid Runbook Worker de Linux. Las instancias de Hybrid Runbook Worker de Windows se admiten con [python2.7](https://www.python.org/downloads/release/latest/python2) instalado.
 
 ### <a name="limitations"></a>Limitaciones
 

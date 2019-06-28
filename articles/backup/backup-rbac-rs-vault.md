@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: trinadhk
 ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253723"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 > [!IMPORTANT]
-> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure portal o a través de la API de REST o cmdlets de PowerShell o la CLI de almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del Azure Backup Server están fuera del control de estos roles.
+> Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure Portal o a través de la API de REST o los cmdlets de PowerShell o la CLI para el almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del Azure Backup Server están fuera del control de estos roles.
 
-Azure Backup proporciona tres roles integrados para controlar las operaciones de copia de seguridad de administración. Más información sobre [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
+Azure Backup proporciona tres roles integrados para controlar las operaciones de administración de copia de seguridad. Más información sobre [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
 
 * [Colaborador de copia de seguridad](../role-based-access-control/built-in-roles.md#backup-contributor): Este rol tiene todos los permisos para crear y administrar copias de seguridad, excepto para crear el almacén de Recovery Services y facilitar acceso a otros usuarios. Imagine este rol como administrador de copias de seguridad que puede realizar todas las operaciones de administración de copia de seguridad.
 * [Operador de copia de seguridad](../role-based-access-control/built-in-roles.md#backup-operator): Este rol tiene permisos para todo lo que puede hacer un colaborador, excepto quitar copias de seguridad y administrar directivas de copia de seguridad. Este rol es equivalente al de colaborador, salvo que no puede realizar operaciones destructivas, como detener copias de seguridad con la eliminación de datos o quitar el registro de recursos locales.
@@ -62,25 +62,25 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 > [!IMPORTANT]
 > Si especifica Colaborador de máquina virtual en un ámbito de recursos de máquina virtual y hace clic en Copia de seguridad como parte de la configuración de máquina virtual, se abrirá la pantalla "Habilitar copia de seguridad" aunque ya se haya realizado una copia de seguridad de la máquina virtual, ya que la llamada para comprobar el estado de la copia de seguridad solo funciona en el nivel de suscripción. Para evitar este problema, vaya al almacén y abra la vista de elementos de copia de seguridad de la máquina virtual o especifique un rol de colaborador de máquina virtual en un nivel de suscripción.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos del rol mínimo para la copia de seguridad del recurso compartido de archivos de Azure
-En la tabla siguiente se captura el acciones de administración de copia de seguridad y el rol correspondiente necesario para realizar la operación de recurso compartido de archivos de Azure.
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos de rol mínimos para la copia de seguridad de recursos compartidos de archivos de Azure
+En la tabla siguiente se capturan las acciones de administración de Backup y el rol correspondiente necesario para realizar la operación de recursos compartidos de archivos de Azure.
 
-| Operación de administración | Rol necesario | Recursos |
+| Operación de administración | Rol requerido | Recursos |
 | --- | --- | --- |
 | Habilitar la copia de seguridad de recursos compartidos de archivos de Azure | Colaborador de copias de seguridad | Almacén de Recovery Services |
-| | Cuenta de almacenamiento | Recurso colaborador de la cuenta de almacenamiento |
+| | Cuenta de almacenamiento | Recurso de la cuenta de almacenamiento del colaborador |
 | Copia de seguridad a petición de VM | Operador de copias de seguridad | Almacén de Recovery Services |
 | Restaurar el recurso compartido de archivos | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador de la cuenta de almacenamiento | Recursos de la cuenta de almacenamiento donde el origen de restauración y recursos compartidos de archivos de destino están presentes |
+| | Colaborador de la cuenta de almacenamiento | Recursos de la cuenta de almacenamiento donde están presentes los recursos compartidos de archivos de destino y origen de restauración |
 | Restaurar archivos individuales | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador de la cuenta de almacenamiento |   Recursos de la cuenta de almacenamiento donde el origen de restauración y recursos compartidos de archivos de destino están presentes |
+| | Colaborador de la cuenta de almacenamiento |   Recursos de la cuenta de almacenamiento donde están presentes los recursos compartidos de archivos de destino y origen de restauración |
 | Detener protección | Colaborador de copias de seguridad | Almacén de Recovery Services |      
-| Anular el registro de cuenta de almacenamiento de almacén |   Colaborador de copias de seguridad | Almacén de Recovery Services |
+| Anular el registro de la cuenta de almacenamiento del almacén |   Colaborador de copias de seguridad | Almacén de Recovery Services |
 | | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento|
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Control de acceso basado en roles](../role-based-access-control/role-assignments-portal.md): Puede comenzar con RBAC en Azure Portal.
+* [Control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md): Puede comenzar con RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI de Azure](../role-based-access-control/role-assignments-cli.md)

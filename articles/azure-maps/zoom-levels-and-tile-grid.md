@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7dcdb960fbd9196aca8b667269a4c6e5a1fb8f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794984"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 Azure Maps usa el sistema de coordenadas de la proyección de Mercator esférica (EPSG: 3857).
 
-El mundo se divide en mosaicos cuadrados. Azure maps ofrece a los mosaicos de trama y vectoriales 23 niveles de zoom, numerados de 0 a 22. En el nivel de zoom 0, todo el mundo cabe en un solo mosaico:
+El mundo se divide en mosaicos cuadrados. Azure Maps proporciona mosaicos de trama y vectoriales para 23 niveles de zoom, numerados de 0 a 22. En el nivel de zoom 0, todo el mundo cabe en un solo mosaico:
 
 ![Mosaico del mundo](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -28,9 +28,9 @@ El nivel de zoom 1 utiliza cuatro mosaicos para representar el mundo: un cuadrad
 
 ![Parte inferior izquierda del mosaico del mundo](media/zoom-levels-and-tile-grid/world1b.png)     ![Parte inferior derecha del mosaico del mundo](media/zoom-levels-and-tile-grid/world1d.png) 
 
-Cada nivel de zoom adicionales divide por cuatro los mosaicos de la anterior, creando una cuadrícula de 2<sup>zoom</sup> x 2<sup>zoom</sup>. El nivel de zoom 22 es una cuadrícula de 2<sup>22</sup> x 2<sup>22</sup> o 4 194 304 x 4 194 304 mosaicos (17 592 186 044 416 mosaicos en total).
+Cada nivel de zoom adicional divide por cuatro los mosaicos del anterior, de forma que se crea una cuadrícula de 2<sup>zoom</sup> x 2<sup>zoom</sup>. El nivel de zoom 22 es una cuadrícula de 2<sup>22</sup> x 2<sup>22</sup> o 4 194 304 x 4 194 304 mosaicos (17 592 186 044 416 mosaicos en total).
 
-Los controles de mapa interactivo de Azure Maps para web y compatibilidad con Android zoom niveles 25 los niveles de zoom, numerados de 0 a 24. Aunque los datos de carretera solo estarán disponibles en los niveles de zoom en cuando están disponibles los iconos.
+Los controles de mapa interactivo de Azure Maps para web y Android admiten 25 niveles de zoom, numerados de 0 a 24. Aunque los datos de carretera solo estarán disponibles en los niveles de zoom cuando los mosaicos estén disponibles.
 
 La tabla siguiente proporciona los valores de la lista completa de los niveles de zoom:
 
@@ -59,16 +59,16 @@ La tabla siguiente proporciona los valores de la lista completa de los niveles d
 |20|0,15|38,2|
 |21|0,075|19,1|
 |22|0,0375|9,55|
-|23|0.01875|4.775|
-|24|0.009375|2.3875|
+|23|0,01875|4,775|
+|24|0,009375|2,3875|
 
 Los mosaicos se denominan según las coordenadas x e y, y el nivel de zoom, correspondientes a la posición del mosaico en la cuadrícula para ese nivel de zoom.
 
-Al determinar qué nivel de zoom que se usará, recuerde que cada ubicación se encuentra en una posición fija en su icono. Esto significa que el número de mosaicos necesarios para mostrar una extensión determinada del territorio depende de la ubicación específica de la cuadrícula de zoom en el mundo. Por ejemplo, si hay dos puntos separados 900 metros, *puede* que al mostrar una ruta entre ellos en el nivel de zoom 17, solo ocupen tres mosaicos. Sin embargo, si el punto occidental está a la derecha de su mosaico y el punto oriental a la izquierda, puede ocupar cuatro mosaicos:
+Al determinar qué nivel de zoom se usará, recuerde que cada ubicación está en una posición fija en su mosaico. Esto significa que el número de mosaicos necesarios para mostrar una extensión determinada del territorio depende de la ubicación específica de la cuadrícula de zoom en el mundo. Por ejemplo, si hay dos puntos separados 900 metros, *puede* que al mostrar una ruta entre ellos en el nivel de zoom 17, solo ocupen tres mosaicos. Sin embargo, si el punto occidental está a la derecha de su mosaico y el punto oriental a la izquierda, puede ocupar cuatro mosaicos:
 
 ![Escala de demostración del zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 
-Una vez determinado el nivel de zoom, se pueden calcular los valores x e y. El icono de la parte superior izquierda de cada cuadrícula de zoom es x = 0, y = 0; el icono de la esquina inferior derecha se encuentra en x = 2<sup>zoom -1</sup>, y = 2<sup>zoom-1</sup>.
+Una vez determinado el nivel de zoom, se pueden calcular los valores x e y. El mosaico superior izquierdo de cada cuadrícula de zoom es x=0, y=0; el mosaico de la esquina inferior derecha está en x=2<sup>zoom -1</sup>, y = 2<sup>zoom-1</sup>.
 
 Esta es la cuadrícula de zoom para el nivel de zoom 1:
 

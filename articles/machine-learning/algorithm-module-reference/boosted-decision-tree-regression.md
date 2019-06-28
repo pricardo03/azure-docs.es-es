@@ -1,7 +1,7 @@
 ---
-title: 'Regresión de árbol de decisión ampliado: Referencia de módulo'
+title: 'Regresión del árbol de decisión potenciado: referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de regresión de árbol de decisión impulsado en el servicio Azure Machine Learning para crear un conjunto de árboles de regresión mediante impulso.
+description: Obtenga información sobre cómo usar el módulo de regresión del árbol de decisión potenciado en Azure Machine Learning Service para crear un conjunto de árboles de regresión mediante la potenciación.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,95 +11,95 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 67e54f10074ee566ce974dbd27485904bfe0a653
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411544"
 ---
-# <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión de árbol de decisión impulsado
+# <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) para el servicio Azure Machine Learning.
+En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
-Utilice este módulo para crear un conjunto de árboles de regresión mediante impulso. *Potenciación* significa que cada árbol depende de árboles anteriores. El algoritmo aprende ajustando la varianza residual de los árboles que le preceden. Por lo tanto, impulsar un conjunto de árboles de decisión tiende a mejorar la precisión con algún pequeño riesgo de menos cobertura.  
+Utilice este módulo para crear un conjunto de árboles de regresión mediante la potenciación. *Potenciación* significa que cada árbol depende de árboles anteriores. El algoritmo aprende ajustando el valor residual de los árboles que le preceden. Por lo tanto, la potenciación de un conjunto de árboles de decisión tiende a mejorar la precisión a pesar de correr el riesgo de tener menor cobertura.  
   
-Este método de regresión es un método de aprendizaje supervisado y, por lo tanto, requiere una *conjunto de datos con la etiqueta*. La columna de etiqueta debe contener valores numéricos.  
+Este método de regresión es un método de aprendizaje supervisado y, por lo tanto, requiere un *conjunto de datos con etiquetas*. La columna con la etiqueta debe contener valores numéricos.  
 
 > [!NOTE]
-> Utilice este módulo solo con conjuntos de datos que utilizan variables numéricas.  
+> Utilice este módulo solo con conjuntos de datos en los que se usen variables numéricas.  
 
-Después de haber definido el modelo, entrenar usando el [entrenar modelo](./train-model.md).
+Cuando haya definido el modelo, entrénelo usando el [modelo de entrenamiento](./train-model.md).
 
 > [!TIP]
-> ¿Desea obtener más información acerca de los árboles que se crearon? Una vez entrenado el modelo, haga clic en la salida de la [Train Model](./train-model.md) módulo y seleccione **visualizar** para ver el árbol que se creó en cada iteración. Puede explorar en profundidad las divisiones para cada árbol y ver las reglas para cada nodo.  
+> ¿Quiere más información sobre los árboles que se han creado? Después de entrenar el modelo, haga clic con el botón derecho en el resultado del módulo [Modelo de entrenamiento](./train-model.md) y seleccione **Visualizar** para ver el árbol que se ha creado en cada iteración. Puede explorar en profundidad las divisiones de cada árbol y ver las reglas de cada nodo.  
   
-## <a name="more-about-boosted-regression-trees"></a>Más información acerca de los árboles de regresión impulsados  
+## <a name="more-about-boosted-regression-trees"></a>Más información sobre los árboles de regresión potenciados  
 
-Boosting es uno de los distintos métodos clásicos para crear modelos de conjunto, junto con bagging, bosques aleatorios y así sucesivamente.  En Azure Machine Learning, árboles de decisión impulsados utilizan una implementación eficaz de gradiente mart. algoritmo de impulso. Potenciación del gradiente es una técnica para los problemas de regresión de aprendizaje automático. Genera cada árbol de regresión en forma escalonada, usando una función de pérdida predefinida para medir el error en cada paso y corregirlo en el siguiente. Por lo tanto, el modelo de predicción es realmente un conjunto de modelos de predicción más débiles.  
+La potenciación es uno de los distintos métodos clásicos para crear modelos de conjuntos, junto con la agregación, los bosques aleatorios, etc.  En Azure Machine Learning, los árboles de decisión potenciados utilizan una implementación eficaz del algoritmo de potenciación del gradiente MART. La potenciación del gradiente es una técnica de aprendizaje automático para problemas de regresión. Genera cada árbol de regresión de forma gradual, usando una función de pérdida predefinida para medir el error en cada paso y corregirlo en el siguiente. Por lo tanto, el modelo de predicción es en realidad un conjunto de modelos de predicción más débiles.  
   
-En los problemas de regresión impulso genera una serie de árboles en forma escalonada y, a continuación, selecciona el árbol óptimo mediante una función de pérdida diferenciable arbitraria.  
+En los problemas de regresión, la potenciación genera una serie de árboles de forma gradual y después selecciona el árbol óptimo mediante una función arbitraria de pérdida diferenciable.  
   
-Para obtener más información, consulte estos artículos:  
+Para más información, vea estos artículos:  
   
 + [https://wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting](https://wikipedia.org/wiki/Gradient_boosting)
 
-    Este artículo de Wikipedia sobre potenciación del gradiente proporciona cierta información general sobre los árboles impulsados. 
+    Este artículo de la Wikipedia sobre potenciación del gradiente proporciona información general sobre los árboles potenciados. 
   
 -  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
-    Microsoft Research: De RankNet a lambdarank y a LambdaMART: Información general. Por J.C. Burges.
+    Microsoft Research: de RankNet a LambdaRank y a LambdaMART (información general) Por J. C. Burges.
 
-También se pueden usar el método de potenciación de gradientes para problemas de clasificación reduciéndolos a regresión con una función de pérdida adecuada. Para obtener más información sobre la implementación de árboles impulsados para tareas de clasificación, vea [Two-Class Boosted Decision Tree](./two-class-boosted-decision-tree.md).  
+El método de potenciación de gradientes también se puede usar para clasificar problemas reduciéndolos a la regresión con una función de pérdida adecuada. Para más información sobre la implementación de árboles potenciados para tareas de clasificación, vea [Árbol de decisión potenciado de segunda clase](./two-class-boosted-decision-tree.md).  
 
-## <a name="how-to-configure-boosted-decision-tree-regression"></a>Cómo configurar la regresión de árbol de decisión impulsado
+## <a name="how-to-configure-boosted-decision-tree-regression"></a>Cómo configurar la regresión del árbol de decisión potenciado
 
-1.  Agregar el **Boosted Decision Tree** módulo al experimento. Puede encontrar este módulo en **Machine Learning**, **inicializar**, en el **regresión** categoría. 
+1.  Agregue el módulo **Boosted  Decision Tree** (Árbol de decisión potenciado) al experimento. Puede encontrar este módulo en **Machine Learning**, **Initialize** (Inicializar), en la categoría **Regression** (Regresión). 
   
-2.  Especifique cómo desea que el modelo se entrene, estableciendo el **crear modo de entrenador** opción.  
+2.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Único parámetro**: Seleccione esta opción si sabe cómo desea configurar el modelo y proporcionar un conjunto específico de valores como argumentos.  
+    -   **Parámetro único**: seleccione esta opción si sabe cómo quiere configurar el modelo y proporcione un conjunto específico de valores como argumentos.  
    
   
-3. **Número máximo de hojas por árbol**: Indicar el número máximo de nodos terminales (hojas) que se pueden crear en cualquier árbol.  
+3. **Número máximo de hojas por árbol**: indique el número máximo de nodos terminales (hojas) que se pueden crear en un árbol.  
 
-    Al aumentar este valor, podría aumentar el tamaño del árbol y obtener una mayor precisión, con el riesgo de sobreajuste y de mayor tiempo de entrenamiento.  
+    Al aumentar este valor, podría aumentar el tamaño del árbol y obtener una mayor precisión, asumiendo un el riesgo de sobreajuste y de mayor tiempo de entrenamiento.  
 
-4. **Número mínimo de muestras por nodo hoja**: Indicar el número mínimo de casos necesarios para crear un nodo terminal (hoja) en un árbol.
+4. **Número mínimo de muestras por nodo hoja**: indique el número mínimo de casos necesarios para crear un nodo terminal (hoja) en un árbol.
 
-    Al aumentar este valor, aumente el umbral para la creación de nuevas reglas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tendrían que contener al menos 5 casos que cumplen las condiciones.
+    Al aumentar este valor, aumenta el umbral para crear reglas nuevas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tienen que contener, como mínimo, cinco casos que cumplan las mismas condiciones.
 
-5. **Velocidad de aprendizaje**: Escriba un número entre 0 y 1 que define el tamaño de paso durante el aprendizaje. La velocidad de aprendizaje determina la rapidez o lentitud el aprendiz converge en la solución óptima. Si el tamaño de paso es demasiado grande, podría pasar por alto la solución óptima. Si el tamaño de paso es demasiado pequeño, entrenamiento tarda más tiempo para converger la mejor solución.
+5. **Velocidad de aprendizaje**: escriba un número entre 0 y 1 que defina el tamaño de paso durante el aprendizaje. La velocidad de aprendizaje determina la rapidez o lentitud con la que el aprendiz converge en la solución óptima. Si el tamaño del paso es demasiado grande, puede pasar por alto la solución óptima. Si el tamaño del paso es demasiado pequeño, el entrenamiento tarda más tiempo a converger en la mejor solución.
 
-6. **Número de árboles construidos**: Indica el número total de árboles de decisión para crear en el conjunto. Si crea más árboles de decisión, puede obtener una mejor cobertura, pero aumenta el tiempo de entrenamiento.
+6. **Número de árboles construidos**: indica el número total de árboles de decisión que se va a crear en el conjunto. Al crear más árboles de decisión, puede obtener una mejor cobertura, pero el tiempo de entrenamiento aumenta.
 
-    Este valor también controla el número de árboles que se muestra cuando se visualice el modelo entrenado. Si desea ver o imprimir un árbol único, puede establecer el valor en 1; Sin embargo, se genera un único árbol (es decir, el árbol con el conjunto inicial de parámetros) y no se realizan las iteraciones adicionales.
+    Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si desea ver o imprimir un árbol único, puede establecer el valor en 1. Sin embargo, solo se genera un árbol (el árbol con el conjunto inicial de parámetros) y no se llevan a cabo más iteraciones.
 
-7. **Valor de inicialización de números aleatorios**: Escriba un entero no negativo opcional que se usará como el valor de inicialización aleatorio. Especificar un valor de inicialización garantiza la reproducibilidad durante las ejecuciones que tienen los mismos datos y los parámetros.
+7. **Número de iniciación aleatorio**: introduzca un número entero no negativo opcional para que se use como valor de inicialización aleatorio. Al especificar un valor, se garantiza la reproducibilidad durante las ejecuciones que tienen los mismos datos y parámetros.
 
-    De forma predeterminada, el valor de inicialización aleatorio se establece en 0, lo que significa que el valor de inicialización inicial se obtiene del reloj del sistema.
+    De forma predeterminada, el valor de inicialización aleatorio se establece en 0, lo que significa que el valor de inicialización inicial se obtiene a partir del reloj del sistema.
   
-8. **Permitir que los niveles de categorías desconocidos**: Seleccione esta opción para crear un grupo de valores desconocidos en los conjuntos de entrenamiento y validación. Si desactiva esta opción, el modelo podrá aceptar únicamente los valores que se encuentran en los datos de entrenamiento. El modelo podría ser menos preciso con valores conocidos, pero proporcione mejores predicciones para los valores nuevos (desconocidos).
+8. **Permitir niveles de categorías desconocidos**: seleccione esta opción para crear un grupo de valores desconocidos en los conjuntos de entrenamiento y validación. Si desactiva esta opción, el modelo puede aceptar únicamente los valores que se encuentran en los datos de entrenamiento. El modelo podría ser menos preciso con valores conocidos, pero puede proporcionar mejores predicciones para los valores nuevos (desconocidos).
 
 9. Agregue un conjunto de datos de entrenamiento y uno de los módulos de entrenamiento:
 
-    - Si establece **crear modo de entrenador** opción **único parámetro**, utilice el [Train Model](train-model.md) módulo.  
+    - Si establece la opción **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Modelo de entrenamiento](train-model.md).  
   
     
 
 10. Ejecute el experimento.  
   
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
-Una vez completada la formación:
+Una vez completado el entrenamiento:
 
-+ Para ver el árbol de la que se creó en cada iteración, haga clic en la salida de la [Train Model](train-model.md) módulo y seleccione **visualizar**.
++ Para ver el árbol que se ha creado en cada iteración, haga clic con el botón derecho en el resultado del módulo [Train Model](train-model.md) (Modelo de entrenamiento) y seleccione **Visualize** (Visualizar).
   
-     Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas para cada nodo.  
+     Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.  
 
-+ Para usar el modelo para puntuar, conéctelo al [Score Model](./score-model.md), para predecir valores para nuevos ejemplos de entrada.
++ Para usar el modelo para la puntuación, conéctelo a [Score Model](./score-model.md) (Modelo de puntuación) para predecir los valores de ejemplos de nuevas entradas.
 
-+ Para guardar una instantánea del modelo entrenado, haga clic en el **calificado modelo** salida del módulo de aprendizaje y seleccione **Guardar como**. No se actualiza la copia del modelo entrenado que se guarda en las ejecuciones sucesivas del experimento.
++ Para guardar una instantánea del modelo entrenado, haga clic con el botón derecho en el resultado **Trained model** (Modelo entrenado) del módulo de entrenamiento y seleccione **Save As** (Guardar como). La copia del modelo entrenado que guarde no se actualiza en las ejecuciones sucesivas del experimento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [conjunto de módulos disponibles](module-reference.md) al servicio de Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 

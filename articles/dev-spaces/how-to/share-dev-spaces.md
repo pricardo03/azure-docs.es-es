@@ -1,5 +1,5 @@
 ---
-title: Cómo compartir espacios de desarrollo de Azure
+title: Uso compartido de Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -10,10 +10,10 @@ ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
 ms.openlocfilehash: 62d4affa5ef49de7600f9ccc800ea6bf83e4bd49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60686640"
 ---
 # <a name="share-azure-dev-spaces"></a>Uso compartido de Azure Dev Spaces

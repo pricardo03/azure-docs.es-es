@@ -1,5 +1,5 @@
 ---
-title: Escala particiones y réplicas de consulta e indización - Azure Search
+title: Escalado de particiones y réplicas para consultas e indexación en Azure Search
 description: Ajuste los recursos de proceso de réplica y partición en Azure Search, donde el precio de cada recurso se basa en unidades de búsqueda facturables.
 author: HeidiSteen
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308763"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Escalar las particiones y réplicas para cargas de trabajo en Azure Search de indexación y consulta
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Escalado de particiones y réplicas para cargas de trabajo de indexación y consulta en Azure Search
 Después de [elegir un plan de tarifa](search-sku-tier.md) y [aprovisionar un servicio de búsqueda](search-create-service-portal.md), el siguiente paso es aumentar opcionalmente el número de réplicas o particiones utilizadas por el servicio. Cada nivel ofrece un número fijo de unidades de facturación. En este artículo se explica cómo asignar las unidades para lograr una configuración óptima que equilibra los requisitos para la ejecución de consulta, indexación y almacenamiento.
 
-Configuración de recursos está disponible al configurar un servicio en la [nivel básico](https://aka.ms/azuresearchbasic) o uno de los [niveles estándar o almacenamiento optimizado](search-limits-quotas-capacity.md). Para los servicios en estos niveles, la capacidad se adquiere en incrementos de *unidades de búsqueda* (SU), en las que cada partición y réplica cuentan como una SU. 
+La configuración de recursos está disponible cuando se configura un servicio en un [nivel Básico](https://aka.ms/azuresearchbasic) o uno de los [niveles Estándar o Almacenamiento optimizado](search-limits-quotas-capacity.md). Para los servicios en estos niveles, la capacidad se adquiere en incrementos de *unidades de búsqueda* (SU), en las que cada partición y réplica cuentan como una SU. 
 
 Uso de menos SU da lugar a una factura proporcionalmente menor. Mientras el servicio esté configurando, le seguiremos cobrando. Si va a estar un tiempo sin utilizar un servicio, la única forma de evitar que le cobremos será eliminando el servicio y creándolo de nuevo cuando lo necesite más adelante.
 
@@ -27,7 +27,7 @@ Uso de menos SU da lugar a una factura proporcionalmente menor. Mientras el serv
 > La eliminación de un servicio supone la eliminación de todo su contenido. Azure Search no dispone de ningún recurso para realizar copias de seguridad de datos de búsqueda persistentes ni para restaurarlos. Para volver a implementar un índice existente en un nuevo servicio, debe ejecutar el programa usado para crearlo y cargarlo originalmente. 
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminología: réplicas y particiones
-Particiones y réplicas son los recursos principales que realizar una copia de un servicio de búsqueda.
+Las réplicas y particiones son los principales recursos que respaldan a un servicio de búsqueda.
 
 | Recurso | Definición |
 |----------|------------|
@@ -39,35 +39,35 @@ Particiones y réplicas son los recursos principales que realizar una copia de u
 >
 
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Cómo asignar particiones y réplicas
+## <a name="how-to-allocate-replicas-and-partitions"></a>Cómo asignar réplicas y particiones
 En Azure Search, un servicio se asigna inicialmente a un nivel mínimo de recursos que consta de una partición y una réplica. En los niveles donde se admita, puede ajustar de forma incremental los recursos informáticos aumentando las particiones si necesita más almacenamiento y E/S, o bien agregue réplicas para mejorar el rendimiento y aumentar los volúmenes de las consultas. Un único servicio debe tener recursos suficientes para controlar todas las cargas de trabajo (indexación y consultas). No se pueden subdividir las cargas de trabajo entre varios servicios.
 
-Para aumentar o cambiar la asignación de réplicas y particiones, se recomienda usar Azure Portal. El portal aplica límites de las combinaciones permitidas que se mantengan por debajo de los límites máximos. Si necesita un enfoque de aprovisionamiento basado en código o script, el [Azure PowerShell](search-manage-powershell.md) o [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/services) son soluciones alternativas.
+Para aumentar o cambiar la asignación de réplicas y particiones, se recomienda usar Azure Portal. El portal aplica límites a las combinaciones permitidas que se mantengan por debajo de los límites máximos. Si necesita un enfoque de aprovisionamiento basado en script o en código, [Azure PowerShell](search-manage-powershell.md) o la [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/services) son soluciones alternativas.
 
 Como norma general, las aplicaciones de búsqueda necesitan más réplicas que particiones, sobre todo cuando las operaciones de servicio están orientadas a las cargas de trabajo de consulta. En la siguiente sección sobre [alta disponibilidad](#HA) se explica el motivo.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y seleccione su servicio de búsqueda.
-2. En **configuración**, abra el **escala** página para modificar las réplicas y particiones. 
+2. En **Configuración**, abra la página **Escala** para modificar réplicas y particiones. 
 
-   Captura de pantalla siguiente muestra un servicio estándar que se aprovisiona con una réplica y partición. La fórmula en la parte inferior indica cuántas unidades de búsqueda que se usa (1). Si el precio unitario era $100 (no un precio real), el costo mensual de ejecutar este servicio sería 100 USD por término medio.
+   En la siguiente captura de pantalla se muestra un servicio estándar aprovisionado con una réplica y una partición. La fórmula de la parte inferior indica cuántas unidades de búsqueda se usan (1). Si el precio por unidad era de 100 USD (no un precio real), el costo de ejecución de este servicio sería, de media, de 100 USD.
 
-   ![Página de escala que muestra los valores actuales](media/search-capacity-planning/1-initial-values.png "página de escala que muestra los valores actuales")
+   ![Página de escala donde se muestran los valores actuales](media/search-capacity-planning/1-initial-values.png "Scale page showing current values")
 
-3. Use el control deslizante para aumentar o disminuir el número de particiones. La fórmula en la parte inferior indica cuántas unidades de búsqueda se usan.
+3. Use el control deslizante para aumentar o reducir el número de particiones. La fórmula de la parte inferior indica cuántas unidades de búsqueda se usan.
 
-   En este ejemplo se duplica la capacidad, con dos réplicas y particiones de cada uno. Tenga en cuenta el número de unidades de búsqueda; Ahora es cuatro porque la fórmula de facturación es réplicas multiplicadas por particiones (2 x 2). Duplicar la capacidad de más de duplica el costo de ejecutar el servicio. Si el costo de unidad de búsqueda estaba 100 USD, la nueva factura mensual sería ahora 400 dólares.
+   En este ejemplo se duplica la capacidad, con dos réplicas y particiones de forma individual. Observe el recuento de unidades de búsqueda; ahora es cuatro porque la fórmula de facturación son las réplicas multiplicadas por las particiones (2 x 2). Cuanto más se duplica la capacidad, más se duplica el costo de ejecución del servicio. Si el costo de la unidad de búsqueda era de 100 USD, la nueva factura mensual sería ahora de 400 USD.
 
-   Actual por los costos de unidad de cada nivel, visite la [página de precios](https://azure.microsoft.com/pricing/details/search/).
+   Para ver los costos por unidad actuales de cada nivel, visite la [Página de precios](https://azure.microsoft.com/pricing/details/search/).
 
-   ![Agregar réplicas y particiones](media/search-capacity-planning/2-add-2-each.png "agregar réplicas y particiones")
+   ![Incorporación de réplicas y particiones](media/search-capacity-planning/2-add-2-each.png "Add replicas and partitions")
 
-3. Haga clic en **guardar** para confirmar los cambios.
+3. Haga clic en **Guardar** para confirmar los cambios.
 
-   ![Confirme los cambios en la escala y la facturación](media/search-capacity-planning/3-save-confirm.png "confirme los cambios en la escala y la facturación")
+   ![Confirmación de cambios en la escala y la facturación](media/search-capacity-planning/3-save-confirm.png "Confirm changes to scale and billing")
 
-   Los cambios en la capacidad tardar varias horas en completarse. No se puede cancelar una vez que se ha iniciado el proceso y no hay ningún tipo de supervisión en tiempo real para los ajustes de réplica y partición. Sin embargo, el siguiente mensaje permanece visible mientras que los cambios están en curso.
+   Los cambios en la capacidad tardan varias horas en completarse. No se puede cancelar una vez que se ha iniciado el proceso y no hay ningún tipo de supervisión en tiempo real de los ajustes de réplica y partición. Sin embargo, el siguiente mensaje se puede seguir viendo mientras se están realizando los cambios.
 
-   ![Mensaje de estado en el portal de](media/search-capacity-planning/4-updating.png "mensaje de estado en el portal")
+   ![Mensaje de estado en el portal](media/search-capacity-planning/4-updating.png "Status message in the portal")
 
 
 > [!NOTE]
@@ -81,7 +81,7 @@ Como norma general, las aplicaciones de búsqueda necesitan más réplicas que p
 
 Un servicio del nivel Básico puede tener exactamente 1 partición y hasta 3 réplicas para un límite máximo de 3 SU. El único recurso que puede ajustarse son las réplicas. Se necesita un mínimo de 2 réplicas para lograr una alta disponibilidad en las consultas.
 
-Estándar y optimizadas para almacenamiento de todos los servicios de búsqueda pueden suponer que las siguientes combinaciones de réplicas y particiones, con el límite de 36-unidades de búsqueda. 
+Todos los servicios de búsqueda de los niveles Estándar y Almacenamiento optimizado pueden suponer las siguientes combinaciones de réplicas y particiones, con el límite de 36 unidades de búsqueda (SU). 
 
 |   | **1 partición** | **2 particiones** | **3 particiones** | **4 particiones** | **6 particiones** | **12 particiones** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ Las recomendaciones generales para alta disponibilidad son:
 
 Los Acuerdos de Nivel de Servicio (SLA) de Azure Search están destinados a las operaciones de consulta y actualizaciones de índices que constan de procesos de incorporación, actualización o eliminación de documentos.
 
-El nivel básico alcanza el límite en una partición y tres réplicas. Si desea la flexibilidad de responder inmediatamente a las fluctuaciones en la demanda para el rendimiento de indexación y consulta, considere uno de los niveles Estándar.  Si que los requisitos de almacenamiento están creciendo mucho más deprisa que el rendimiento de las consultas, considere la posibilidad de uno de los niveles de almacenamiento optimizado.
+El nivel básico alcanza el límite en una partición y tres réplicas. Si desea la flexibilidad de responder inmediatamente a las fluctuaciones en la demanda para el rendimiento de indexación y consulta, considere uno de los niveles Estándar.  Si descubre que el crecimiento de sus requisitos de almacenamiento es mucho más rápido que el del rendimiento de consultas, tenga en cuenta uno de los niveles Almacenamiento optimizado.
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilidad de los índices durante un proceso de regeneración
 
@@ -141,4 +141,4 @@ Las consultas en índices de mayor tamaño tardan más tiempo en realizarse. Por
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Elija un plan de tarifa para Azure Search](search-sku-tier.md)
+[Selección de un plan de tarifa de Azure Search](search-sku-tier.md)

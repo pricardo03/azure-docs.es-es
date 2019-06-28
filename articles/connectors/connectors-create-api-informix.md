@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691008"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introducción al conector de Informix
@@ -47,7 +47,7 @@ Este conector admite las siguientes acciones de Logic Apps:
 ## <a name="list-tables"></a>Enumeración de tablas
 La creación de una aplicación lógica para cualquier operación consta de varios pasos que se realizan mediante Microsoft Azure Portal.
 
-En la aplicación lógica, puede agregar una acción para enumerar las tablas en una base de datos de Informix. Esta acción indica al conector que procese una instrucción de esquema de Informix, como `CALL SYSIBM.SQLTABLES`.
+Dentro de la aplicación lógica, puede agregar una acción para mostrar las tablas en una base de datos Informix. La acción indica al conector que procese una instrucción de esquema de Informix, como `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
@@ -86,7 +86,7 @@ El conector admite conexiones a bases de datos locales y en la nube mediante las
 | Base de datos |Necesario. Acepta un valor de cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM). Informix acepta una cadena de 128 bytes (la base de datos se conoce como una base de datos IBM Informix (dbname)). |
 | Autenticación |Opcional. Acepta un valor de elemento de lista que puede ser Basic o Windows (kerberos). |
 | Nombre de usuario |Necesario. Acepta un valor de cadena. |
-| password |Necesario. Acepta un valor de cadena. |
+| contraseña |Necesario. Acepta un valor de cadena. |
 | Puerta de enlace |Necesario. Acepta un valor de elemento de lista que representa la puerta de enlace de datos local definida para Logic Apps en el grupo de almacenamiento. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Crear una conexión a una puerta de enlace local
@@ -154,7 +154,7 @@ Puede crear una acción de aplicación lógica para recuperar todas las filas de
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## <a name="add-one-row-using-insert"></a>Agregar una fila mediante INSERT
-Puede crear una acción de aplicación lógica para agregar una fila en una tabla de Informix. Esta acción indica al conector que procese una instrucción INSERT de Infomix, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+Puede crear una acción de aplicación lógica para agregar una fila en una tabla de Informix. La acción indica al conector que procese una instrucción INSERT de Informix, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
@@ -181,7 +181,7 @@ Puede crear una acción de aplicación lógica para agregar una fila en una tabl
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## <a name="fetch-one-row-using-select"></a>Recuperar una fila mediante SELECT
-Puede crear una acción de aplicación lógica para recuperar una fila en una tabla de Informix. Esta acción indica al conector que procese una instrucción SELECT WHERE de Informix, como `SELECT FROM AREA WHERE AREAID = '99999'`.
+Puede crear una acción de aplicación lógica para recuperar una fila en una tabla de Informix. La acción indica al conector que procese una instrucción SELECT WHERE de Informix, como `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
@@ -209,7 +209,7 @@ Puede crear una acción de aplicación lógica para recuperar una fila en una ta
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## <a name="change-one-row-using-update"></a>Cambiar una fila mediante UPDATE
-Puede crear una acción de aplicación lógica para cambiar una fila en una tabla de Informix. Esta acción indica al conector que procese una instrucción UPDATE de Infomix, como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
+Puede crear una acción de aplicación lógica para cambiar una fila en una tabla de Informix. La acción indica al conector que procese una instrucción UPDATE de Informix, como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
@@ -236,7 +236,7 @@ Puede crear una acción de aplicación lógica para cambiar una fila en una tabl
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## <a name="remove-one-row-using-delete"></a>Quitar una fila mediante DELETE
-Puede crear una acción de aplicación lógica para quitar una fila en una tabla de Informix. Esta acción indica al conector que procese una instrucción DELETE de Infomix, como `DELETE FROM AREA WHERE AREAID = '99999'`.
+Puede crear una acción de aplicación lógica para quitar una fila en una tabla de Informix. La acción indica al conector que procese una instrucción DELETE de Informix, como `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 1. En el **Panel de inicio de Azure**, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.

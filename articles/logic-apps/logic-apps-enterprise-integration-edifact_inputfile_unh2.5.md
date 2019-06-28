@@ -11,17 +11,17 @@ ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/27/2017
 ms.openlocfilehash: 926c9ebe8675d8b50d4544be813ae0b15492ae35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681685"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Control de documentos EDIFACT con segmentos UNH2.5 en Azure Logic Apps
 
 Si UNH2.5 está presente en el documento EDIFACT, se va a usar para la búsqueda de esquema. 
 
-Ejemplo: El campo UNH es **EAN008** en el mensaje EDIFACT  
+Ejemplo: el campo UNH es **EAN008** en el mensaje EDIFACT  
 UNH+SSDD1+ORDERS:D:03B:UN:**EAN008**'  
 
 Pasos que deben seguirse para controlar el mensaje: 

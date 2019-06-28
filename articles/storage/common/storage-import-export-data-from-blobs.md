@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209620"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
@@ -25,7 +25,7 @@ Antes de crear un trabajo de exportación para transferir datos fuera de Azure B
 - Tener una suscripción activa de Azure que pueda usarse para el servicio Import/Export.
 - Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks).
-- Tener una cuenta de FedEx o DHL. Si desea usar un operador distinto de FedEx o DHL, póngase en contacto con el equipo de operaciones de cuadro de datos de Azure en `adbops@microsoft.com`. 
+- Tener una cuenta de FedEx o DHL. Si quiere usar un transportista distinto de FedEx o DHL, póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com`. 
     - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
     - Generar un número de seguimiento del trabajo de exportación.
     - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento. 
@@ -82,8 +82,8 @@ Siga estos pasos para crear un trabajo de exportación en Azure Portal.
 
 4. En **Información de envío de devolución**:
 
-    - Seleccione el transportista en la lista desplegable. Si desea usar un operador distinto de FedEx o DHL, elija una opción existente en la lista desplegable. Parte del equipo de operaciones de cuadro de datos de Azure contacto `adbops@microsoft.com` con la información relacionada con el transportista que se va a usar.
-    - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez completado el trabajo de exportación. 
+    - Seleccione el transportista en la lista desplegable. Si quiere usar un transportista distinto de FedEx o DHL, elija una de las opciones de la lista desplegable. Póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com` con la información relacionada con el transportista que quiere usar.
+    - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de exportación. 
     - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
 
         > [!TIP] 
@@ -142,11 +142,11 @@ Este paso *opcional* le ayuda a determinar el número de unidades necesarias par
     |Parámetro de línea de comandos|DESCRIPCIÓN|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. El directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica, se usa el directorio actual como directorio de registro.|  
-    |**/sn:**|Obligatorio. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  
+    |**/sn:**|Necesario. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  
     |**/sk:**|Necesario únicamente si no se especifica un SAS del contenedor. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de exportación.|  
     |**/csas:**|Necesario únicamente si no se especifica una clave de cuenta de almacenamiento. El contenedor SAS para enumerar los blobs que se van a exportar en el trabajo de exportación.|  
-    |**/ExportBlobListFile:**|Obligatorio. Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso para los blobs que se van a exportar. El formato de archivo usado en el elemento `BlobListBlobPath` de la operación [Put Job](/rest/api/storageimportexport/jobs) de la API de REST del servicio Import/Export.|  
-    |**/DriveSize:**|Obligatorio. El tamaño de las unidades de disco que se van a usar para un trabajo de exportación,  *por ejemplo*, 500 GB o 1,5 TB.|  
+    |**/ExportBlobListFile:**|Necesario. Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso para los blobs que se van a exportar. El formato de archivo usado en el elemento `BlobListBlobPath` de la operación [Put Job](/rest/api/storageimportexport/jobs) de la API de REST del servicio Import/Export.|  
+    |**/DriveSize:**|Necesario. El tamaño de las unidades de disco que se van a usar para un trabajo de exportación,  *por ejemplo*, 500 GB o 1,5 TB.|  
 
     Vea el [Ejemplo del comando PreviewExport](#example-of-previewexport-command).
  

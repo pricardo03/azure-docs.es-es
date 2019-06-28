@@ -1,6 +1,6 @@
 ---
-title: ¿Durante cuánto tiempo Azure AD almacena datos de informes? | Microsoft Docs
-description: Obtenga información sobre cuánto tiempo Azure almacena los distintos tipos de datos de informes.
+title: ¿Durante cuánto tiempo Azure AD almacena los datos de informes? | Microsoft Docs
+description: Descubra durante cuánto tiempo Azure almacena los distintos tipos de datos de informes.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65781043"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>¿Durante cuánto tiempo Azure AD almacena datos de informes?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>¿Durante cuánto tiempo Azure AD almacena los datos de informes?
 
 En este artículo, aprenderá sobre las directivas de retención de datos para los diferentes informes de actividad en Azure Active Directory. 
 
@@ -33,7 +33,7 @@ En este artículo, aprenderá sobre las directivas de retención de datos para l
 | Edición de Azure AD | Inicio de la recopilación |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Cuándo suscribirse |
-| Azure AD Gratis <br /> Azure AD Básico | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
+| Azure AD Free <br /> Azure AD Basic | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
 
 ---
 
@@ -66,7 +66,7 @@ En el caso de las señales de seguridad, el proceso de recopilación se inicia c
 
 **Informes de actividad**    
 
-| Informar                 | Azure AD Gratis | Azure AD Básico | Azure AD Premium P1 | Azure AD Premium P2 |
+| Informe                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Registros de auditoría             | 7 días        |  7 días        | 30 días             | 30 días             |
 | Inicios de sesión               | N/D           |  N/D           | 30 días             | 30 días             |
@@ -76,7 +76,7 @@ Puede conservar los datos de actividad de auditoría e inicio de sesión durante
 
 **Señales de seguridad**
 
-| Informar         | Azure AD Gratis | Azure AD Básico | Azure AD Premium P1 | Azure AD Premium P2 |
+| Informe         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |
 | Usuarios en riesgo  | 7 días        | 7 días         | 30 días             | 90 días             |
 | Inicios de sesión no seguros | 7 días        | 7 días         |  30 días            | 90 días             |

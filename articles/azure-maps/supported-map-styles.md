@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230833"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa admitidos en Azure Maps
@@ -59,9 +59,9 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 
 
 ## <a name="grayscalelight"></a>grayscale_light
-**escala de grises luz** es una versión ligera del estilo de mapa de carreteras.
+**escala de grises claros** es una versión clara del estilo de mapa de carreteras.
 
-![luz de escala de grises](./media/supported-map-styles/grayscale_light.png)
+![escala de grises claros](./media/supported-map-styles/grayscale_light.png)
 
 **API correspondientes:**
 * Control de mapa JS

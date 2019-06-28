@@ -12,19 +12,19 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60203352"
 ---
-# <a name="categorize-images-by-subject-matter"></a>Categorizar las imágenes en la materia
+# <a name="categorize-images-by-subject-matter"></a>Categorización de las imágenes por materia
 
 Además de etiquetas y descripciones, Computer Vision devuelve las categorías basadas en la taxonomía que se detectan en una imagen. A diferencia de las etiquetas, las categorías se organizan en una jerarquía hereditaria de elementos primarios y secundarios, y son menos numerosas (86 en lugar de miles de etiquetas). Todos los nombres de categorías están en inglés. La categorización puede realizarse en solitario o junto con un nuevo modelo de etiquetas.
 
 ## <a name="the-86-category-concept"></a>El concepto de las 86 categorías
 
-Visión de equipo puede clasificar una imagen general o específicamente, mediante la lista de las 86 categorías en el diagrama siguiente. Consulte la taxonomía completa en formato de texto en [Taxonomía de las categorías](category-taxonomy.md).
+Computer Vision puede categorizar una imagen de manera general o específica utilizando las 86 categorías del diagrama siguiente. Consulte la taxonomía completa en formato de texto en [Taxonomía de las categorías](category-taxonomy.md).
 
 ![Listas agrupadas de todas las categorías correspondientes a la taxonomía de categoría](./Images/analyze_categories-v2.png)
 
@@ -53,7 +53,7 @@ La siguiente respuesta JSON muestra lo que devuelve Computer Vision al categoriz
 
 En la tabla siguiente se muestra un conjunto típico de imágenes y la categoría devuelta por Computer Vision para cada imagen.
 
-| Image | Category |
+| Imagen | Categoría |
 |-------|----------|
 | ![Cuatro personas posando juntas como una familia](./Images/family_photo.png) | people_group |
 | ![Un cachorro sentado en un campo de hierba](./Images/cute_dog.png) | animal_dog |

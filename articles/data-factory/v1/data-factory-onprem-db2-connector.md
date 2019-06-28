@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824021"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-onprem-db2-connector.md)
 > * [Versión 2 (versión actual)](../connector-db2.md)
 
@@ -84,10 +84,10 @@ En la tabla siguiente se enumeran las propiedades JSON que son específicas de u
 | **type** |Esta propiedad se debe establecer en **OnPremisesDB2**. |Sí |
 | **server** |Nombre del servidor DB2. |Sí |
 | **database** |Nombre de la base de datos DB2. |Sí |
-| **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |Sin  |
+| **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |Sin |
 | **authenticationType** |Tipo de autenticación que se usa para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |Sin  |
-| **password** |Contraseña para la cuenta de usuario. |Sin  |
+| **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |Sin |
+| **password** |Contraseña para la cuenta de usuario. |Sin |
 | **gatewayName** |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -317,23 +317,23 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |DateTime |
-| Time |TimeSpan |
+| Date |Datetime |
+| Hora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |string |
-| VarChar |string |
-| LongVarChar |string |
-| DB2DynArray |string |
+| Char |Cadena |
+| VarChar |Cadena |
+| LongVarChar |Cadena |
+| DB2DynArray |Cadena |
 | Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |string |
-| VarGraphic |string |
-| LongVarGraphic |string |
-| Clob |string |
+| Graphic |Cadena |
+| VarGraphic |Cadena |
+| LongVarGraphic |Cadena |
+| Clob |Cadena |
 | Blob |Byte[] |
-| DbClob |string |
+| DbClob |Cadena |
 | SmallInt |Int16 |
 | Entero |Int32 |
 | BigInt |Int64 |
@@ -343,11 +343,11 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |DateTime |
-| Time |TimeSpan |
+| Date |Datetime |
+| Hora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |string |
+| Char |Cadena |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para información sobre cómo asignar columnas en el conjunto de datos de origen a columnas en el conjunto de datos de receptor, consulte [Asignación de columnas de conjunto de datos en Azure Data Factory](data-factory-map-columns.md).

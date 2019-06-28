@@ -10,32 +10,32 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737411"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerías de runbooks y módulos para Azure Automation
 
 En lugar de crear sus propios runbooks y módulos en Azure Automation, dispone de acceso a escenarios ya compilados por Microsoft y la comunidad.
 
-Puede obtener runbooks de PowerShell y [módulos](#modules-in-powershell-gallery) desde la Galería de PowerShell y [runbooks de Python](#python-runbooks) desde la Galería de Script Center. También puede contribuir a la Comunidad si comparte los escenarios que desarrolle, vea Agregar un runbook en la Galería
+Puede obtener runbooks y [módulos](#modules-in-powershell-gallery) de PowerShell de la Galería de PowerShell y [runbooks de Python](#python-runbooks) de la galería del Centro de scripts. También puede compartir los escenarios que desarrolle para contribuir a la comunidad; para ello, consulte Adición de un runbook a la Galería de runbooks.
 
 ## <a name="runbooks-in-powershell-gallery"></a>Runbooks en la Galería de PowerShell
 
-El [Galería de PowerShell](https://www.powershellgallery.com/packages) proporciona una variedad de runbooks de Microsoft y la Comunidad que se puede importar en Azure Automation. Para usar uno, descargar un runbook desde la galería, o puede importar runbooks directamente desde la galería, o desde su cuenta de Automation en Azure portal.
+La [Galería de PowerShell](https://www.powershellgallery.com/packages) ofrece diversos runbooks de Microsoft y la comunidad que se pueden importar a Azure Automation. Puede usar uno al descargarlo de la galería, o puede importar runbooks directamente desde la galería o de la cuenta de Automation de Azure Portal.
 
-Solo se puede importar directamente desde la Galería de PowerShell mediante el portal de Azure. No se puede realizar esta función con PowerShell.
+Solo se puede importar directamente desde la Galería de PowerShell mediante Azure Portal. No se puede llevar a cabo esta función mediante PowerShell.
 
 > [!NOTE]
-> Debe validar el contenido de los runbooks que obtenga de la Galería de PowerShell y tener mucho cuidado al instalarlos y ejecutarlos en un entorno de producción.
+> Debería validar el contenido de los runbooks que obtenga de la Galería de PowerShell y extremar el cuidado al instalarlos y ejecutarlos en un entorno de producción.
 
-### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Para importar un runbook de PowerShell desde la Galería de runbooks con el portal de Azure
+### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Para importar un runbook de PowerShell de la Galería de runbooks con Azure Portal
 
 1. En Azure Portal, abra su cuenta de Automation.
 2. En **Automatización de procesos**, haga clic en **Galería de runbooks**
-3. Seleccione **origen: Galería de PowerShell**.
+3. Seleccione **Origen: Galería de PowerShell**.
 4. Busque el elemento de la galería que desee y selecciónelo para ver sus detalles. En la parte izquierda puede especificar otros parámetros de búsqueda para el anunciante y el tipo.
 
    ![Examinar galería](media/automation-runbook-gallery/browse-gallery.png)
@@ -48,9 +48,9 @@ Solo se puede importar directamente desde la Galería de PowerShell mediante el 
 7. Si lo desea, cambie el nombre del runbook y después haga clic en **Aceptar** para importarlo.
 8. El runbook aparecerá en la pestaña **Runbooks** para la cuenta de Automation.
 
-### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Adición de un runbook de PowerShell a la Galería
+### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Adición de un runbook de PowerShell a la galería
 
-Microsoft anima a agregar runbooks a la Galería de PowerShell que cree que podría ser útil para otros clientes. La Galería de PowerShell acepta módulos y scripts de PowerShell. Puede agregar un runbook, [cargarlo en la Galería de PowerShell](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft recomienda agregar a la Galería de PowerShell aquellos runbooks que piense que podrían ser útiles para otros clientes. La Galería de PowerShell acepta módulos y scripts de PowerShell. Puede agregar un runbook [cargándolo en la Galería de PowerShell](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
 
 > [!NOTE]
 > Los runbooks gráficos no se admiten en la Galería de PowerShell.
@@ -91,10 +91,10 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 
 ## <a name="python-runbooks"></a>Runbooks de Python
 
-Los runbooks de Python están disponibles en la [galería del Centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Puede contribuir con runbooks de Python en la Galería de centro de scripts haciendo **cargar una contribución**. Al hacerlo, asegúrese de agregar la etiqueta **Python** al cargar su contribución.
+Los runbooks de Python están disponibles en la [galería del Centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Puede contribuir con runbooks de Python para la galería del Centro de scripts haciendo clic en **Upload a contribution** (Cargar una contribución). Al hacerlo, asegúrese de agregar la etiqueta **Python** al cargar su contribución.
 
 > [!NOTE]
-> Para cargar contenido a [Script Center](https://gallery.technet.microsoft.com/scriptcenter) se requiere un mínimo de 100 puntos. 
+> Para cargar contenido al [Centro de scripts](https://gallery.technet.microsoft.com/scriptcenter) se requiere un mínimo de 100 puntos. 
 
 ## <a name="requesting-a-runbook-or-module"></a>Solicitud de un runbook o módulo
 

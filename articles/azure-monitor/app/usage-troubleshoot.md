@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371859"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
@@ -39,7 +39,7 @@ Actualmente, las herramientas de análisis de comportamiento de usuario no admit
 ## <a name="naming-events"></a>Nomenclatura de los eventos
 **Mi aplicación tiene miles de vistas de página y nombres de eventos personalizados distintos. Resulta difícil distinguirlos y las herramientas de análisis de comportamiento de usuario dejan de responder con frecuencia. ¿Cómo se solucionan estos problemas de nomenclatura?**
 
-Las herramientas de análisis de comportamiento de usuario utilizan las vistas de página y los nombres de los eventos personalizados. La correcta nomenclatura de los eventos es fundamental para sacarles partido a estas herramientas. El objetivo es un equilibrio entre tener nombres demasiado genéricos insuficientes ("botón hace clic en") y tener demasiados nombres demasiado específicos ("hacer clic en botón Editar en http:\//www.contoso.com/index").
+Las herramientas de análisis de comportamiento de usuario utilizan las vistas de página y los nombres de los eventos personalizados. La correcta nomenclatura de los eventos es fundamental para sacarles partido a estas herramientas. El objetivo es un equilibrio entre un número reducido de nombres demasiado genéricos ("Se hizo clic en el botón") y un número excesivo de nombres demasiado específicos ("Se hizo clic en el botón Editar de http:\//www.contoso.com/index").
 
 Para realizar cambios en las vistas de página y los nombres de evento personalizados que envía la aplicación, debe cambiar el código fuente de la aplicación y volver a realizar la implementación. **Todos los datos de telemetría de Application Insights se almacenan durante 90 días y no se pueden eliminar**, por lo que los cambios realizados en los nombres de evento tardarán 90 días en manifestarse totalmente. Durante los 90 días después de los cambios en el nombre, en la telemetría aparecen tanto los nuevos nombres como los antiguos, por lo que es necesario ajustar las consultas y comunicarse con los equipos en consecuencia.
 

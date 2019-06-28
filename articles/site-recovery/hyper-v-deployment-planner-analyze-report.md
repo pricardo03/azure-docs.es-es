@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772898"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
@@ -39,7 +39,7 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 
 **Desired bandwidth (Mbps)** (Ancho de banda deseado [Mbps]): el valor pasado para el parámetro "Bandwidth" en el momento de la generación de informes para calcular el objetivo de punto de recuperación (RPO) factible.
 
-**Actividad de datos normal observada por día (GB)**: el valor medio de la actividad de datos observada en todos los días de generación de perfiles.
+**Actividad de datos normal observada por día (GB)** : el valor medio de la actividad de datos observada en todos los días de generación de perfiles.
 
 ## <a name="recommendations"></a>Recomendaciones 
 La hoja de recomendaciones del informe de Hyper-V a Azure tiene los siguientes detalles según el RPO deseado seleccionado:
@@ -203,7 +203,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Número de discos**: el número total de discos (discos duros virtuales) de la máquina virtual.
 
-**Tamaño del disco (GB)**: el tamaño total de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño del disco (GB)** : el tamaño total de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Cores** (Núcleos): el número de núcleos de CPU en la máquina virtual.
 
@@ -258,7 +258,7 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 **Número de discos**: el número total de discos duros virtuales de la máquina virtual.
 
-**Tamaño del disco (GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño del disco (GB)** : el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Cores** (Núcleos): el número de núcleos de CPU en la máquina virtual.
 
@@ -275,7 +275,7 @@ En la tabla siguiente se proporcionan los límites de Site Recovery. Estos lími
 ---|---|---|---
 Standard Storage | 8 KB | 2 MB/s por máquina virtual | 168 GB por máquina virtual
 Premium Storage | 8 KB  | 5 MB/s por máquina virtual | 421 GB por máquina virtual
-Premium Storage | 16 KB o superior| 20 MB/s por máquina virtual | 1684 GB por máquina virtual
+Premium Storage | 16 KB o superior| 20 MB/s por máquina virtual | 1684 GB por máquina virtual
 
 Estos límites son los números promedio si la superposición de E/S es del 30 %. Site Recovery es capaz de controlar un mayor rendimiento en función de la relación de superposición, tamaños de escritura mayores y el comportamiento real de E/S de la carga de trabajo. Los números anteriores asumen un trabajo pendiente típico de aproximadamente cinco minutos. Es decir, una vez que se cargan los datos, se procesan y se crea un punto de recuperación en menos de cinco minutos.
 
@@ -300,11 +300,11 @@ La hoja de cálculo proporciona los requisitos de espacio de almacenamiento libr
 
 **Volume (VHD path)** (Volumen [ruta de acceso al disco duro virtual]): cada volumen de un host de Hyper-V en el que están presentes los archivos VHD o VHDX. 
 
-**Espacio libre disponible (GB)**: el espacio libre disponible en el volumen.
+**Espacio libre disponible (GB)** : el espacio libre disponible en el volumen.
 
-**Espacio total de almacenamiento necesario en el volumen (GB)**: el espacio de almacenamiento libre total requerido en el volumen para realizar correctamente la replicación inicial y la replicación diferencial. 
+**Espacio total de almacenamiento necesario en el volumen (GB)** : el espacio de almacenamiento libre total requerido en el volumen para realizar correctamente la replicación inicial y la replicación diferencial. 
 
-**Almacenamiento adicional total que se aprovisiona en el volumen para una replicación correcta (GB)**: recomienda el espacio total adicional que debe aprovisionarse en el volumen para realizar correctamente la replicación inicial y la replicación diferencial.
+**Almacenamiento adicional total que se aprovisiona en el volumen para una replicación correcta (GB)** : recomienda el espacio total adicional que debe aprovisionarse en el volumen para realizar correctamente la replicación inicial y la replicación diferencial.
 
 ## <a name="initial-replication-batching"></a>Procesamiento por lotes de la replicación inicial 
 
@@ -329,11 +329,11 @@ Después de haber seguido la recomendación de los requisitos de almacenamiento 
 
 **Volume (VHD path)** (Volumen [ruta de acceso al disco duro virtual]): el nombre del volumen donde residen los discos duros virtuales de la máquina virtual. 
 
-**Espacio libre disponible en el volumen (GB)**: el espacio en disco libre disponible en el volumen para la máquina virtual. Al calcular el espacio libre disponible en los volúmenes, se considera el espacio en disco usado para la replicación diferencial por las máquinas virtuales de los lotes anteriores cuyos discos duros virtuales se encuentran en el mismo volumen. 
+**Espacio libre disponible en el volumen (GB)** : el espacio en disco libre disponible en el volumen para la máquina virtual. Al calcular el espacio libre disponible en los volúmenes, se considera el espacio en disco usado para la replicación diferencial por las máquinas virtuales de los lotes anteriores cuyos discos duros virtuales se encuentran en el mismo volumen. 
 
 Por ejemplo, VM1, VM2 y VM3 residen en el volumen E:\VHDpath. Antes de la réplica, el espacio libre en el volumen es de 500 GB. VM1 forma parte del Lote 1, VM2 forma parte del Lote 2 y VM3 forma parte del Lote 3. Para VM1, el espacio libre disponible es de 500 GB. Para VM2, el espacio libre disponible sería 500 menos el espacio en disco necesario para la replicación diferencial de VM1. Si VM1 requiere 300 GB de espacio para la replicación diferencial, el espacio libre disponible para VM2 es 500 GB – 300 GB = 200 GB. De forma similar, VM2 requiere 300 GB para la replicación diferencial. El espacio libre disponible para VM3 es 200 GB - 300 GB = -100 GB.
 
-**Almacenamiento necesario en el volumen para la replicación inicial (GB)**: el espacio de almacenamiento libre requerido en el volumen para la máquina virtual para la replicación inicial.
+**Almacenamiento necesario en el volumen para la replicación inicial (GB)** : el espacio de almacenamiento libre requerido en el volumen para la máquina virtual para la replicación inicial.
 
 **Storage required on the volume for delta replication (GB)** (Almacenamiento necesario en el volumen para la replicación diferencial [GB]): el espacio de almacenamiento libre requerido en el volumen para la máquina virtual para la replicación diferencial.
 

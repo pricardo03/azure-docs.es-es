@@ -1,6 +1,6 @@
 ---
-title: Componentes de la puerta de enlace de aplicaciones
-description: En este artículo proporciona información sobre los distintos componentes de application gateway
+title: Componentes de Application Gateway
+description: En este artículo se proporciona información sobre los distintos componentes de una puerta de enlace de aplicaciones
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,147 +8,147 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831847"
 ---
-# <a name="application-gateway-components"></a>Componentes de la puerta de enlace de aplicaciones
+# <a name="application-gateway-components"></a>Componentes de Application Gateway
 
- Application gateway actúa como el único punto de contacto para los clientes. Distribuye el tráfico entrante de aplicación en varios grupos de back-end, que incluyen Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Azure App Service y servidores en entorno local o externo. Para distribuir el tráfico, una puerta de enlace de la aplicación usa varios componentes descritos en este artículo.
+ Una puerta de enlace de aplicaciones sirve como el único punto de contacto para los clientes. Se encarga de distribuir el tráfico entrante de las aplicaciones entre varios grupos de servidores back-end, como máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales, Azure App Service y servidores externos y locales. Para ello, emplea varios componentes que se describen en este artículo.
 
-![Los componentes utilizados en una puerta de enlace de aplicaciones](./media/application-gateway-components/application-gateway-components.png)
+![Componentes usados en una puerta de enlace de aplicaciones](./media/application-gateway-components/application-gateway-components.png)
 
-## <a name="frontend-ip-addresses"></a>Direcciones IP de Frontend
+## <a name="frontend-ip-addresses"></a>Direcciones IP de front-end
 
-Una dirección IP de front-end es la dirección IP asociada con una puerta de enlace de la aplicación. Puede configurar una puerta de enlace de aplicaciones para tener una dirección IP pública, una dirección IP privada o ambos. Application gateway admite uno público o una dirección IP privada. La red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace de la aplicación. Después de crearlo, una dirección IP de front-end está asociada con un agente de escucha.
+Una dirección IP de front-end es la dirección IP asociada con una puerta de enlace de aplicaciones. Puede configurar una puerta de enlace de aplicaciones para que tenga una dirección IP pública, una dirección IP privada o ambas. Una puerta de enlace de aplicaciones admite una dirección IP privada y una pública. La red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace de aplicaciones. Después de crearla, la dirección IP de front-end se asocia con un cliente de escucha.
 
-### <a name="static-versus-dynamic-public-ip-address"></a>Estático o dirección IP pública dinámica
+### <a name="static-versus-dynamic-public-ip-address"></a>Dirección IP pública estática frente a dinámica
 
-La SKU de puerta de enlace de aplicaciones de Azure v2 admite ambos internas y estáticas direcciones IP públicas estáticas, aunque la SKU v1 admite solo direcciones IP internas. Si se detiene e inicia una instancia de application gateway, puede cambiar la dirección IP virtual (VIP).
+La SKU de Azure App Gateway v2 admite tanto direcciones IP públicas estáticas como internas estáticas, si bien la SKU v1 admite solo las segundas. La dirección IP virtual (VIP) puede cambiar si una puerta de enlace de aplicaciones se detiene y se inicia.
 
-El nombre DNS asociado con una puerta de enlace de la aplicación no cambia durante el ciclo de vida de la puerta de enlace. Como resultado, debe usar un alias CNAME y hacer que apunte a la dirección DNS de la puerta de enlace de la aplicación.
+El nombre DNS asociado a una puerta de enlace de aplicaciones no cambia durante el ciclo de vida de la puerta de enlace. Como resultado, debe usar un alias CNAME y hacer que apunte a la dirección DNS de la puerta de enlace de aplicaciones.
 
-## <a name="listeners"></a>Agentes de escucha
+## <a name="listeners"></a>Clientes de escucha
 
-Un agente de escucha es una entidad lógica que comprueba si hay solicitudes de conexión entrantes. Un agente de escucha acepta una solicitud si el protocolo, puerto, host y dirección IP asociada con la solicitud coincide con los mismos elementos asociados con la configuración de agente de escucha.
+Un cliente de escucha es una entidad lógica que comprueba si hay solicitudes de conexión entrantes. Un cliente de escucha acepta una solicitud si el protocolo, el puerto, el host y la dirección IP asociados a la solicitud coinciden con los mismos elementos asociados a la configuración del cliente de escucha.
 
-Antes de usar una puerta de enlace de la aplicación, debe agregar al menos un agente de escucha. Puede haber varios agentes de escucha conectados a una puerta de enlace de aplicaciones, y se pueden usar para el mismo protocolo.
+Antes de usar una puerta de enlace de aplicaciones, debe agregar al menos un cliente de escucha. Puede haber varios clientes de escucha asociados a una puerta de enlace de aplicaciones, y se pueden usar con el mismo protocolo.
 
-Una vez que un agente de escucha detecta las solicitudes entrantes de clientes, application gateway enruta estas solicitudes a los miembros del grupo de back-end. La puerta de enlace de la aplicación usa las reglas de enrutamiento de solicitud definidas para el agente de escucha que recibió la solicitud entrante.
+Una vez que un cliente de escucha detecta las solicitudes entrantes de clientes, la puerta de enlace de aplicaciones enruta estas solicitudes a los miembros del grupo de servidores back-end. La puerta de enlace de aplicaciones usa las reglas de enrutamiento de solicitudes definidas para el cliente de escucha que recibió la solicitud entrante.
 
-Los agentes de escucha admiten los siguientes puertos y protocolos.
+Los clientes de escucha admiten los siguientes puertos y protocolos.
 
 ### <a name="ports"></a>Puertos
 
-Un puerto es donde un agente de escucha realiza escuchas para la solicitud de cliente. Puede configurar los puertos comprendidos entre 1 y 65502 para la SKU v1 y 1 para 65199 para la SKU v2.
+Un puerto es donde un cliente de escucha realiza escuchas de la solicitud de cliente. Puede configurar puertos entre 1 y 65502 para la SKU v1 y entre 1 y 65199 para la SKU v2.
 
 ### <a name="protocols"></a>Protocolos
 
 Application Gateway admite cuatro protocolos: HTTP, HTTPS, HTTP/2 y WebSocket:
 
-- Especifique entre HTTP y HTTPS protocolos en la configuración de agente de escucha.
-- Compatibilidad con [protocolos WebSockets y HTTP/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) se proporciona de forma nativa, y [compatibilidad con WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) está habilitada de forma predeterminada. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. Utilice WebSockets con agentes de escucha HTTP y HTTPS.
-- La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los clientes que se conectan a los agentes de escucha de la puerta de aplicaciones. La comunicación con granjas de servidores back-end es a través de HTTP/1.1. De forma predeterminada, HTTP/2 está deshabilitado. Puede elegir habilitarlo.
+- Especifique entre los protocolos HTTP y HTTPS en la configuración del cliente de escucha.
+- La compatibilidad con los [protocolos WebSockets y HTTP/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) se proporciona de forma nativa, y la [compatibilidad con WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) está habilitada de forma predeterminada. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. Use WebSockets con clientes de escucha HTTP y HTTPS.
+- La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los clientes que se conectan a los agentes de escucha de la puerta de aplicaciones. La comunicación con granjas de servidores back-end es a través de HTTP/1.1. De forma predeterminada, HTTP/2 está deshabilitado. Pero puede elegir habilitarlo.
 
-Use un agente de escucha HTTPS para la terminación SSL. Un agente de escucha HTTPS evita el trabajo de cifrado y descifrado para la puerta de enlace de la aplicación, por lo que los servidores web no se ve afectados por un sobrecarga. Las aplicaciones, a continuación, son gratis para centrarse en la lógica de negocios.
+Use un cliente de escucha HTTPS para la terminación SSL. Un cliente de escucha HTTPS descarga el trabajo de cifrado y descifrado en la puerta de enlace de aplicaciones, por lo que los servidores web no se ven afectados por una sobrecarga. Así, las aplicaciones pueden centrarse en la lógica de negocios.
 
 ### <a name="custom-error-pages"></a>Páginas de error personalizadas
 
-Instancia de Application Gateway le permite crear páginas de error personalizado en lugar de mostrar las páginas de error predeterminado. Mediante una página de error personalizada puede usar su propia marca y diseño. Puerta de enlace de aplicación muestra una página de error personalizado cuando una solicitud no puede conectar con el back-end.
+Application Gateway permite crear páginas de error personalizadas, en lugar de mostrar las páginas de error predeterminadas. Mediante una página de error personalizada puede usar su propia marca y diseño. Application Gateway muestra una página de error personalizada cuando una solicitud no puede conectar con el back-end.
 
-Para obtener más información, consulte [páginas de errores personalizados para la puerta de enlace de la aplicación](https://docs.microsoft.com/azure/application-gateway/custom-error).
+Para más información, consulte [Creación de páginas de error personalizadas de Application Gateway](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
-### <a name="types-of-listeners"></a>Tipos de agentes de escucha
+### <a name="types-of-listeners"></a>Tipos de clientes de escucha
 
-Hay dos tipos de agentes de escucha:
+Hay dos tipos de clientes de escucha:
 
-- **Básico**. Este tipo de agente de escucha realiza escuchas en un sitio de dominio único, donde tiene una única asignación de DNS a la dirección IP de la puerta de enlace de la aplicación. Esta configuración de agente de escucha es necesaria cuando se hospeda en un único sitio detrás de una puerta de enlace de la aplicación.
+- **Básico**. Este tipo de cliente de escucha realiza escuchas en un único sitio de dominio, donde tiene una única asignación de DNS a la dirección IP de la puerta de enlace de aplicaciones. Esta configuración de cliente de escucha es necesaria cuando se realiza el hospedaje en un único sitio detrás de una puerta de enlace de aplicaciones.
 
-- **Multisitio**. Esta configuración de agente de escucha es necesaria cuando se configura más de una aplicación web en la misma instancia de puerta de enlace de aplicaciones. Permite configurar una topología más eficaz para las implementaciones mediante la adición de hasta 100 sitios Web a una puerta de enlace. Cada sitio web se puede dirigir a su propio grupo de back-end. Por ejemplo, tres subdominios, abc.contoso.com, xyz.contoso.com y pqr.contoso.com, apuntan a la dirección IP de la puerta de enlace de la aplicación. Debe crear tres agentes de escucha multisitio y configurar cada agente de escucha para la configuración de protocolo y puerto respectivo.
+- **Multisitio**. Esta configuración de cliente de escucha es necesaria al configurar más de una aplicación web en la misma instancia de la puerta de enlace de aplicaciones. Permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. Por ejemplo, tres subdominios, abc.contoso.com, xyz.contoso.com y pqr.contoso.com, apuntan a la dirección IP de la puerta de enlace de aplicaciones. Crearía tres clientes de escucha multisitio y configuraría cada uno con la configuración respectiva de protocolo y puerto.
 
-    Para obtener más información, consulte [hospedar varios sitios](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+    Para más información, consulte [Hospedaje multisitio](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
 
-Después de crear un agente de escucha, asociarla a una regla de enrutamiento de solicitud. Esta regla determina cómo se debería enrutar la solicitud recibida en el agente de escucha para el back-end.
+Después de crear un cliente de escucha, asócielo a una regla de enrutamiento de solicitudes. Esta regla determina cómo se debe enrutar la solicitud recibida en el cliente de escucha hacia el back-end.
 
-Puerta de enlace de aplicación procesa los agentes de escucha en el orden mostrado. Si el agente de escucha coincide con una solicitud entrante, se procesa en primer lugar. Para enrutar el tráfico back-end correcto, configure un agente de escucha multisitio antes de un agente de escucha básico.
+Application Gateway procesa los clientes de escucha en el orden mostrado. Si el cliente de escucha coincide con una solicitud entrante, se procesa en primer lugar. Para enrutar el tráfico al back-end correcto, configure un cliente de escucha multisitio antes que un cliente de escucha básico.
 
-## <a name="request-routing-rules"></a>Las reglas de enrutamiento de solicitud
+## <a name="request-routing-rules"></a>Reglas de enrutamiento de solicitudes
 
-Una regla de enrutamiento de solicitud es un componente clave de una puerta de enlace de aplicaciones, ya que determina cómo enrutar el tráfico en el agente de escucha. La regla enlaza el agente de escucha, el grupo de servidores back-end y la configuración HTTP de back-end.
+Una regla de enrutamiento de solicitudes es un componente clave de una puerta de enlace de aplicaciones, ya que determina cómo se enruta el tráfico en el cliente de escucha. La regla enlaza el cliente de escucha, el grupo de servidores back-end y la configuración HTTP de back-end.
 
-Cuando un agente de escucha acepta una solicitud, la regla de enrutamiento de solicitud reenvía la solicitud al back-end o lo redirige en otro lugar. Si la solicitud se reenvía al back-end, la regla de enrutamiento de solicitud define qué grupo de servidores back-end para reenviarlo a. Además, la regla de enrutamiento de solicitud determina también si los encabezados de la solicitud se se vuelva a escribir. Un agente de escucha puede asociarse a una regla.
+Cuando un cliente de escucha acepta una solicitud, la regla de enrutamiento de solicitudes reenvía la solicitud al back-end o la redirige a otra parte. Si la solicitud se reenvía al back-end, la regla de enrutamiento de solicitudes define a qué grupo de servidores back-end reenviarla. Además, esta regla determina también si se van a reescribir los encabezados de la solicitud. Un cliente de escucha se puede asociar a una regla.
 
-Hay dos tipos de reglas de enrutamiento de solicitud:
+Hay dos tipos de reglas de enrutamiento de solicitudes:
 
-- **Básico**. Todas las solicitudes en el agente de escucha asociado (por ejemplo, blog.contoso.com/*) se reenvían al grupo asociado back-end mediante la configuración de HTTP asociada.
+- **Básico**. Todas las solicitudes del cliente de escucha asociado (por ejemplo, blog.contoso.com/*) se reenvían al grupo back-end asociado mediante la configuración HTTP asociada.
 
-- **Ruta de acceso**. Esta regla de enrutamiento le permite enrutar las solicitudes en el agente de escucha asociado a un grupo de back-end específico, según la dirección URL en la solicitud. Si la ruta de acceso de la dirección URL en una solicitud coincide con el patrón de ruta de acceso en una regla basada en ruta de acceso, la regla enruta esa solicitud. El patrón de ruta de acceso se aplica solo a la ruta de acceso de dirección URL, no a sus parámetros de consulta. Si la ruta de acceso de dirección URL en una solicitud de agente de escucha no coincide con ninguna de las reglas basadas en ruta de acceso, enruta la solicitud para el grupo de back-end de forma predeterminada y la configuración de HTTP.
+- **Basadas en la ruta de acceso**. Esta regla de enrutamiento le permite enrutar las solicitudes del cliente de escucha asociado a un grupo back-end específico, según la dirección URL de la solicitud. Si la ruta de acceso de la dirección URL de una solicitud coincide con el patrón de ruta de acceso de una regla basada en la ruta de acceso, la regla enruta esa solicitud. El patrón de ruta de acceso solo se aplica a la ruta de acceso de dirección URL, no a sus parámetros de consulta. Si la ruta de acceso de dirección URL de una solicitud del cliente de escucha no coincide con ninguna de las reglas basadas en la ruta de acceso, enruta la solicitud al grupo back-end y la configuración de HTTP predeterminados.
 
-Para obtener más información, consulte [enrutamiento basado en URL](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
+Para más información, consulte [Enrutamiento basado en la dirección URL](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
 
 ### <a name="redirection-support"></a>Compatibilidad con la redirección
 
-La regla de enrutamiento de solicitud, también puede redirigir el tráfico en la puerta de enlace de la aplicación. Se trata de un mecanismo de redirección genérico, por lo que puede redirigir a y desde cualquier puerto se define mediante el uso de reglas.
+La regla de enrutamiento de solicitudes también permite redirigir el tráfico en la puerta de enlace de aplicaciones. Este es un mecanismo de redireccionamiento genérico, por lo que puede redirigir desde y hacia cualquier puerto que defina mediante reglas.
 
-Puede elegir el destino de la redirección a ser otro agente de escucha (lo que puede ayudar a habilitar HTTP automática al redireccionamiento de HTTPS) o un sitio externo. También puede elegir para tener la redirección temporal o permanente, o para anexar la cadena de ruta de acceso y consulta URI a la dirección URL redirigida.
+Puede elegir que el destino de redireccionamiento sea otro cliente de escucha (lo que puede ayudar el redireccionamiento automático de HTTP a HTTPS) o un sitio externo. También puede elegir que el redireccionamiento sea temporal o permanente, o anexar la ruta de acceso del URI y cadena de consulta a la dirección URL redirigida.
 
-Para obtener más información, consulte [redirigir el tráfico en application gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Para más información, consulte [Redireccionamiento del tráfico en la puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 ### <a name="rewrite-http-headers"></a>Reescritura de encabezados HTTP
 
-Mediante el uso de las reglas de enrutamiento de solicitud, puede agregar, quitar o actualizar la solicitud HTTP (S) y mover los encabezados de respuesta como los paquetes de solicitud y respuesta entre el cliente y el back-end de los grupos a través de la puerta de enlace de la aplicación.
+Mediante las reglas de enrutamiento de solicitudes, puede agregar, quitar o actualizar encabezados de solicitud y respuesta HTTP (S), dado que los paquetes de solicitud y respuesta se mueven entre el cliente y los grupos back-end a través de la puerta de enlace de aplicaciones.
 
-Los encabezados se pueden establecer valores estáticos o a otros encabezados y las variables de servidor. Esto ayuda a importantes casos de uso, como extraer las direcciones IP de cliente, quitar información confidencial sobre el back-end, agregar más seguridad y así sucesivamente.
+Los encabezados se pueden establecer en valores estáticos o en otros encabezados y variables de servidor. Como consecuencia, sirve de ayuda en casos de uso importantes, como la extracción de direcciones IP de cliente, la eliminación de información confidencial sobre el back-end, la adición de más seguridad, etc.
 
-Para obtener más información, consulte [encabezados HTTP vuelva a escribir en la puerta de enlace de la aplicación](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Para más información, consulte [Rescritura de encabezados HTTP en la puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
 
-## <a name="http-settings"></a>Configuración HTTP
+## <a name="http-settings"></a>Configuración de HTTP
 
-Application gateway enruta el tráfico a los servidores back-end (especificado en la regla de enrutamiento de solicitud que incluyen la configuración de HTTP) con el número de puerto, protocolo y otras opciones que se detallan en este componente.
+Una puerta de enlace de aplicaciones enruta el tráfico a los servidores back-end (especificados en la regla de enrutamiento de solicitudes que incluye la configuración de HTTP) mediante el número de puerto, el protocolo y demás configuración detallados en este componente.
 
-El puerto y protocolo usado en la configuración de HTTP, determinan si el tráfico entre los servidores de puerta de enlace y el back-end de aplicación está cifrado (proporcionando SSL de extremo a extremo) o sin cifrar.
+El puerto y el protocolo usados en la configuración de HTTP determinan si el tráfico entre los servidores back-end y de puerta de enlace de aplicaciones está cifrado (con SSL de un extremo a otro) o sin cifrar.
 
-Este componente también se utiliza para:
+Este componente también se usa para:
 
-- Determinar si una sesión de usuario a mantenerse en el mismo servidor mediante el uso de la [afinidad de sesión basada en cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
+- Determinar si una sesión de usuario se va a mantener en el mismo servidor mediante la [afinidad de sesión basada en cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity).
 
-- Quitar miembros del grupo de back-end correctamente con [drenaje de conexiones](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
+- Quitar miembros del grupo back-end correctamente con la [purga de conexiones](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
 
-- Asociar un sondeo personalizado para supervisar el estado de back-end, establecer el intervalo de tiempo de espera de solicitud, reemplace el nombre de host y ruta de acceso en la solicitud y proporciona facilidad de un solo clic para especificar la configuración para el back-end de App Service.
+- Asociar un sondeo personalizado para supervisar el mantenimiento del back-end, establecer el intervalo de tiempo de expiración de las solicitudes, reemplazar el nombre de host y la ruta de acceso de la solicitud y proporcionar facilidad de uso con un clic para especificar la configuración del back-end de App Service.
 
-## <a name="backend-pools"></a>Grupos de back-end
+## <a name="backend-pools"></a>Grupos back-end
 
-Un grupo de back-end enruta la solicitud a los servidores back-end que atender la solicitud. Pueden contener grupos back-end:
+Un grupo back-end enruta la solicitud a los servidores back-end, quienes la atienden. Los grupos back-end pueden contener:
 
 - Tarjetas de red
-- Conjuntos de escalas de máquina virtual
+- Conjuntos de escalado de máquinas virtuales
 - Direcciones IP públicas
 - Direcciones IP internas
 - FQDN
-- Back-ends de varios inquilinos (por ejemplo, App Service)
+- Servidores back-end multiinquilino (por ejemplo, App Service)
 
-Miembros del grupo de back-end de puerta de enlace de aplicaciones no están atados a un conjunto de disponibilidad. Application gateway puede comunicarse con instancias fuera de la red virtual que se encuentra. Como resultado, los miembros de los grupos de back-end pueden ser a través de clústeres, entre los centros de datos o fuera de Azure, siempre que haya conectividad IP.
+Los miembros del grupo back-end de Application Gateway no están asociados a un conjunto de disponibilidad. Una puerta de enlace de aplicaciones puede comunicarse con instancias de fuera de la red virtual en la que se encuentra. Como resultado, los miembros de los grupos back-end pueden estar en los clústeres, en los centros de datos o fuera de Azure, siempre que haya conectividad IP.
 
-Si usa direcciones IP internas como miembros del grupo de back-end, debe usar [emparejamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o un [puerta de enlace VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Emparejamiento de redes virtuales es tráfico admitido y útil para equilibrio de carga en otras redes virtuales.
+Si usa direcciones IP internas como miembros del grupo back-end, debe usar [emparejamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o una [puerta de enlace VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). El emparejamiento de red virtual se admite y es beneficioso para el tráfico de equilibrio de carga en otras redes virtuales.
 
-Una puerta de enlace de la aplicación también puede comunicarse con a servidores locales cuando están conectados mediante Azure ExpressRoute o túneles VPN si se permite el tráfico.
+Una puerta de enlace de aplicaciones también puede comunicarse con servidores locales cuando están conectados mediante Azure ExpressRoute o túneles VPN si se permite el tráfico.
 
-Puede crear grupos de back-end diferente para distintos tipos de solicitudes. Por ejemplo, cree un grupo de back-end para las solicitudes generales y, a continuación, otro grupo de back-end para las solicitudes a los microservicios de la aplicación.
+Puede crear grupos back-end diferente para distintos tipos de solicitudes. Por ejemplo, puede crear un grupo back-end para las solicitudes generales y otro grupo back-end para las solicitudes a los microservicios de la aplicación.
 
 ## <a name="health-probes"></a>Sondeos de estado
 
-De forma predeterminada, application gateway supervisa el estado de todos los recursos de su grupo de back-end y elimina automáticamente las en mal estado. A continuación, supervisa las instancias incorrectas y agregarlos al grupo de back-end correcto cuando estén disponibles y responder a los sondeos de estado.
+De forma predeterminada, una puerta de enlace de aplicaciones supervisa el estado de todos los recursos de su grupo back-end y elimina automáticamente los que tienen un estado incorrecto. A continuación, supervisa las instancias incorrectas y las agrega de vuelta al grupo back-end en buen estado cuando está disponible y responde a los sondeos de estado.
 
-Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. Los sondeos personalizados permiten un control más granular sobre la supervisión de estado. Cuando se usan sondeos personalizados, puede configurar el intervalo de sondeo, la dirección URL y la ruta de acceso para probar y cuántas respuestas erróneas se aceptan antes de la instancia del grupo de back-end se marque como incorrecta. Se recomienda que configure los sondeos personalizados para supervisar el estado de cada grupo de back-end.
+Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. Los sondeos personalizados permiten un control más pormenorizado sobre la supervisión del estado. Cuando se usan sondeos personalizados, puede configurar el intervalo de sondeo, la dirección URL y la ruta de acceso para prueba, así como el número de respuestas erróneas que se aceptan antes de marcar la instancia del grupo back-end como en mal estado. Se recomienda configurar sondeos personalizados para supervisar el estado de cada grupo back-end.
 
-Para obtener más información, consulte [supervisar el estado de la puerta de enlace de la aplicación](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+Para más información, consulte [Supervisión del estado de la puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Creación de una puerta de enlace de aplicaciones:
 
 * [En Azure Portal](quick-create-portal.md)
-* [Con Azure PowerShell](quick-create-powershell.md)
-* [Mediante el uso de la CLI de Azure](quick-create-cli.md)
+* [Mediante Azure PowerShell](quick-create-powershell.md)
+* [Mediante la CLI de Azure](quick-create-cli.md).

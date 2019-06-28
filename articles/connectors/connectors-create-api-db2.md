@@ -1,5 +1,5 @@
 ---
-title: Conéctese a IBM DB2 - Azure Logic Apps
+title: 'Conexión a IBM DB2: Azure Logic Apps'
 description: Administración de recursos con las API de REST de IBM DB2 y Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60314230"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Administración de recursos de IBM DB2 con Azure Logic Apps
@@ -29,7 +29,7 @@ El conector de DB2 incluye un cliente de Microsoft para comunicarse con servidor
 
 Este conector de IBM DB2 admite las siguientes plataformas y versiones de IBM DB2, así como los productos compatibles de este (por ejemplo, IBM Bluemix dashDB) que admiten las versiones 10 y 11 de SQL Access Manager (SQLAM) de la arquitectura distribuida de bases de datos relacionales (DRDA):
 
-| Plataforma | Version | 
+| Plataforma | Versión | 
 |----------|---------|
 | IBM DB2 para z/OS | 11.1, 10.1 |
 | IBM DB2 para i | 7.3, 7.2, 7.1 |
@@ -85,15 +85,15 @@ Para establecer la conexión, proporcione estos detalles de conexión cuando se 
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 |----------|----------|-------------|
-| **Conectarse a través de la puerta de enlace local** | Sin  | Solo se aplica a conexiones locales. |
+| **Conexión mediante puerta de enlace local** | Sin | Solo se aplica a conexiones locales. |
 | **Nombre de la conexión** | Sí | El nombre de la conexión; por ejemplo, "MyLogicApp-DB2-connection" |
-| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias, ya sea en formato IPv4 o IPv6 seguido de dos puntos y un número de puerto TCP/IP. |
+| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6, seguido de dos puntos y un número de puerto TCP/IP. |
 | **Base de datos** | Sí | El nombre de la base de datos <p><p>**Nota**: Este valor es una cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM): <p>- DB2 para z/OS acepta una cadena de 16 bytes, donde la base de datos se conoce como una ubicación "IBM DB2 para z/OS". <br>- DB2 para DB2/OS acepta una cadena de 18 bytes, donde la base de datos se conoce como una base de datos relacional "IBM DB2 para i". <br>- DB2 para LUW acepta una cadena de 8 bytes. |
-| **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en la base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
+| **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en una base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
 | **Contraseña** | Sí | La contraseña de la base de datos |
 ||||
 
-Por ejemplo: 
+Por ejemplo:
 
 ![Detalles de conexión de las bases de datos basadas en la nube](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -105,17 +105,17 @@ Antes de crear la conexión, ya debe tener la puerta de enlace de datos local in
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 |----------|----------|-------------|
-| **Conectarse a través de la puerta de enlace local** | Sí | Se aplica cuando se desea una conexión local y se muestra las propiedades de la conexión local. |
+| **Conexión mediante puerta de enlace local** | Sí | Se aplica cuando se desea una conexión local y se muestra las propiedades de la conexión local. |
 | **Nombre de la conexión** | Sí | El nombre de la conexión; por ejemplo, "MyLogicApp-DB2-connection" | 
-| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias, ya sea en formato IPv4 o IPv6 seguido de dos puntos y un número de puerto TCP/IP. |
+| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6, seguido de dos puntos y un número de puerto TCP/IP. |
 | **Base de datos** | Sí | El nombre de la base de datos <p><p>**Nota**: Este valor es una cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM): <p>- DB2 para z/OS acepta una cadena de 16 bytes, donde la base de datos se conoce como una ubicación "IBM DB2 para z/OS". <br>- DB2 para DB2/OS acepta una cadena de 18 bytes, donde la base de datos se conoce como una base de datos relacional "IBM DB2 para i". <br>- DB2 para LUW acepta una cadena de 8 bytes. |
 | **Autenticación** | Sí | El tipo de autenticación para la conexión; por ejemplo, "Basic" <p><p>**Nota**: Seleccione este valor en la lista, que incluye Basic o Windows (Kerberos). |
-| **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en la base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
+| **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en una base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
 | **Contraseña** | Sí | La contraseña de la base de datos |
-| **Gateway** | Sí | El nombre de la puerta de enlace de datos local instalada <p><p>**Nota**: Seleccione este valor en la lista, que incluye todas las puertas de enlace de datos instalados en su suscripción de Azure y el grupo de recursos. |
+| **Gateway** | Sí | El nombre de la puerta de enlace de datos local instalada <p><p>**Nota**: Seleccione este valor en la lista, que incluye todas las puertas de enlace de datos instaladas en el grupo de recursos y las suscripciones de Azure. |
 ||||
 
-Por ejemplo: 
+Por ejemplo:
 
 ![Detalles de conexión de las bases de datos locales](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -242,7 +242,7 @@ Para agregar un único registro de una tabla de base de datos de DB2, use la acc
    | **Id. de región** | Sí | El identificador de la región que se va a agregar, como "102" |
    |||| 
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Seleccionar tabla](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -290,7 +290,7 @@ Para actualizar un único registro de una tabla de base de datos de DB2, use la 
    | **Id. de región** | Sí | El nuevo identificador de región, como "102" |
    ||||
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Seleccionar tabla](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -335,7 +335,7 @@ Para eliminar un único registro de una tabla de base de datos de DB2, use la ac
    | **Id. de fila** | Sí | Identificador del registro que se va a eliminar, como "99999" |
    ||||
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ![Seleccionar tabla](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
@@ -362,7 +362,7 @@ Expanda la acción **Eliminar fila**.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos, como desencadenadores, acciones y los límites, como se describe en OpenAPI del conector (anteriormente Swagger) de archivos, consulte el [página de referencia del conector](/connectors/db2/).
+Para obtener datos técnicos, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo OpenAPI (antes Swagger) del conector, consulte la [página de referencia del conector](/connectors/db2/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

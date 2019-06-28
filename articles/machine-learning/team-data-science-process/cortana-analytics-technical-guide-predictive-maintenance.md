@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715659"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en el sector aeroespacial
@@ -178,12 +178,12 @@ Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL D
    * El **nombre de usuario** y la **contraseña** de la base de datos son los mismos que los registrados anteriormente durante la implementación de la solución.
 2. Actualice el origen de datos del archivo de informe de la ruta de acceso inactiva con Power BI Desktop.
    
-   * En la carpeta donde ha descargado y descomprimido el archivo del generador, haga doble clic en el archivo **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Si ve algún mensaje de advertencia al abrir el archivo, ignórelo. En la parte superior del archivo, haga clic en **"Editar consultas"**.
+   * En la carpeta donde ha descargado y descomprimido el archivo del generador, haga doble clic en el archivo **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Si ve algún mensaje de advertencia al abrir el archivo, ignórelo. En la parte superior del archivo, haga clic en **"Editar consultas"** .
      
      ![Editar consultas](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Verá dos tablas, **RemainingUsefulLife** y **PMResult**. Seleccione la primera tabla y haga clic en ![Icono de Configuración de la consulta](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) junto a **Origen** en **PASOS APLICADOS** en el panel de la derecha **Configuración de la consulta**. Ignore los mensajes de advertencia que aparezcan.
    * En la ventana emergente, reemplace **Servidor** y **Base de datos** por sus propios nombres de servidor y base de datos y, después, haga clic en **Aceptar**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Deje el campo Base de datos como **pmaintenancedb**. Ignore los mensajes de advertencia que aparezcan en la pantalla.
-   * En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **Base de datos**, escriba su **nombre de usuario** y **contraseña** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una base de datos de Azure SQL). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. A continuación, haga clic en **"Conectar"**.
+   * En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **Base de datos**, escriba su **nombre de usuario** y **contraseña** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una base de datos de Azure SQL). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. A continuación, haga clic en **"Conectar"** .
    * Haga clic en la segunda tabla **PMResult**; después, en ![Icono de Navegación](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) junto a la opción **Origen** de **PASOS APLICADOS** en el panel de la derecha **Configuración de la consulta**. Luego, actualice los nombres del servidor y de la base de datos como en los pasos anteriores y, por último, haga clic en Aceptar.
    * Una vez que se le dirija a la página anterior, cierre la ventana. Se muestra un mensaje y haga clic **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la factoría de datos está programada para actualizarse cada tres horas. Después de 3 horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.
 3. (Opcional) Publique el panel de la ruta de acceso en frío en [Power BI en línea](https://www.powerbi.com/). Tenga en cuenta que este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
@@ -195,7 +195,7 @@ Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL D
      <br/>
      ![Vista final](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * Para programar la actualización de los datos, mantenga el mouse sobre el **PredictiveMaintenanceAerospace** conjunto de datos, haga clic en ![icono de puntos suspensivos](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) y, a continuación, elija **Programar actualización**.
+   * Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![Icono de puntos suspensivos](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) y, después, elija **Programar actualización**.
      <br/>
      **Nota:** Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1.
      <br/>

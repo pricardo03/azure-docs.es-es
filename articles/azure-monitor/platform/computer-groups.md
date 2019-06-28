@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
 ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741001"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -57,7 +57,7 @@ En la tabla siguiente, se describen las propiedades que definen un grupo de equi
 |:---|:---|
 | NOMBRE   | Nombre de la consulta que se va a mostrar en el portal. |
 | Alias de función | Un alias único usado para identificar el grupo de equipos en una consulta. |
-| Category       | Categoría para organizar las consultas en el portal. |
+| Categoría       | Categoría para organizar las consultas en el portal. |
 
 
 ### <a name="active-directory"></a>Active Directory

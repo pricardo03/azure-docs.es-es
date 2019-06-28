@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es Anomaly Detector API? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Use algoritmos avanzados de la API Detector de anomalías para identificar anomalías en datos de series temporales.
+description: Use algoritmos avanzados de Anomaly Detector API para identificar anomalías en datos de serie temporal.
 services: cognitive-services
 author: aahill
 ms.service: cognitive-services
@@ -10,47 +10,47 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64415824"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
-La API del Detector de anomalías permite supervisar y detectar anomalías en datos de series temporales con machine learning. La API del Detector de anomalías se adapta al identificar y aplicar los modelos de algoritmos a los datos, independientemente del sector, el escenario o volumen de datos automáticamente. Usar datos de series temporales, la API determina los límites para la detección de anomalías, los valores esperados, y qué puntos de datos son las anomalías.
+Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático. Esta API se adapta al identificar y aplicar automáticamente los modelos más idóneos para sus datos, con independencia del sector, el escenario o el volumen de datos. Con el uso de datos de serie temporal, la API determina los límites de la detección de anomalías, los valores esperados y qué puntos de datos son anomalías.
 
 ![Detectar cambios de patrón en las solicitudes de servicio](./media/anomaly_detection2.png)
 
-Uso el Detector de anomalías no requiere ninguna experiencia previa en el aprendizaje automático y la API de REST le permite integrar fácilmente el servicio en sus aplicaciones y procesos.
+Para usar Anomaly Detector, no se necesita ninguna experiencia anterior con el aprendizaje automático, y la API RESTful le permite integrar fácilmente el servicio en sus aplicaciones y procesos.
 
 ## <a name="features"></a>Características
 
-Con el Detector de anomalías, puede detectar automáticamente anomalías a lo largo de los datos de series temporales, o cuando se producen en tiempo real. 
+Con Anomaly Detector, puede detectar automáticamente las anomalías existentes en los datos de serie temporal, o cuando se producen en tiempo real. 
 
 |Característica  |DESCRIPCIÓN  |
 |---------|---------|
-|Cuando se producen en tiempo real, detectar anomalías. | Detectar anomalías en los datos de streaming mediante el uso de puntos de datos vistos con anterioridad para determinar si la última de ellas es una anomalía. Esta operación genera un modelo con los puntos de datos de envío y determina si el punto de destino es una anomalía. Mediante una llamada a la API con cada nuevo punto de datos que genera, puede supervisar los datos que se crean. |
-|Detectar anomalías en todo el conjunto de datos como un lote. | Use la serie temporal para detectar las anomalías que podrían existir a lo largo de los datos. Esta operación genera un modelo con datos de series temporales completo, con cada punto de analizar con el mismo modelo.         |
-| Obtener información adicional acerca de los datos. | Obtener datos útiles acerca de los datos y las anomalías observadas, incluidos los valores esperados, los límites de anomalías y las posiciones. |
-| Ajustar los límites de detección de anomalías. | La API del Detector de anomalías crea automáticamente límites para la detección de anomalías. Ajustar estos límites para aumentar o disminuir la sensibilidad de la API a las anomalías de datos y que se ajusten mejor a sus datos. |
+|Detección de anomalías cuando se producen en tiempo real | Detecte anomalías en sus datos de transmisión mediante los puntos de datos vistos anteriormente para determinar si el último de ellos es una anomalía. Esta operación genera un modelo con los puntos de datos enviados y determina si el punto de destino es una anomalía. La llamada a la API con cada nuevo punto de datos que genera le permite supervisar los datos que se crean. |
+|Detección de anomalías en todo el conjunto de datos como un lote | Use la serie temporal para detectar las anomalías que podrían existir en los datos. Esta operación genera un modelo con todos los datos de serie temporal, donde cada punto de analiza con el mismo modelo.         |
+| Obtención de información adicional sobre los datos | Obtenga detalles útiles sobre los datos y las anomalías observadas, como los valores esperados, los límites de anomalías y las posiciones. |
+| Ajuste de los límites de detección de anomalías | Anomaly Detector API crea automáticamente límites para la detección de anomalías. Configure estos límites para aumentar o disminuir la sensibilidad de la API a las anomalías de datos y ajustar mejor los datos. |
 
 ## <a name="demo"></a>Demostración
 
-Para empezar rápidamente con la API del Detector de anomalías, pruebe una [demostración en línea](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) que pueden ejecutarse en el explorador. Esta demostración se ejecuta en un cuaderno de Jupyter notebook hospedado en web y muestra cómo enviar una solicitud de API y visualizar el resultado.
+Para empezar rápidamente a usar Anomaly Detector API, pruebe una [demostración en línea](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) que puede ejecutarse en el explorador. En esta demostración se ejecuta en un cuaderno de Jupyter hospedado en web y se muestra cómo enviar una solicitud de API y visualizar el resultado.
 
-Para ejecutar la demostración, complete los pasos siguientes:
+Para ejecutar la demostración, haga lo siguiente:
 
-1. Obtenga una clave de suscripción válida de API del Detector de anomalías y un punto de conexión de API. La siguiente sección proporciona instrucciones para registrarse. 
-2. Inicie sesión y haga clic en el clon, en la esquina superior derecha.
-3. Haga clic en **ejecutarse en proceso gratis**
-4. Seleccione uno de los blocs de notas para este ejemplo.
-5. Agregue su clave de suscripción de API del Detector de anomalías válida para el `subscription_key` variable. Cambiar el `endpoint` variable para el punto de conexión. Por ejemplo: `https://westus2.api.cognitive.microsoft.com`
-1. En la barra de menús superior, haga clic en **celda**, a continuación, **ejecutar todo**.
+1. Obtenga una clave de suscripción válida de Anomaly Detector API y un punto de conexión de API. En la siguiente sección se proporcionan instrucciones para registrarse. 
+2. Inicie sesión y haga clic en la opción de clonación en la esquina superior derecha.
+3. Haga clic en **Run on Free Compute** (Ejecutar en un proceso gratuito).
+4. Seleccione uno de los cuadernos de este ejemplo.
+5. Agregue su clave de suscripción válida de Anomaly Detector API a la variable `subscription_key`. Cambie la variable `endpoint` por el punto de conexión. Por ejemplo: `https://westus2.api.cognitive.microsoft.com`
+1. En la barra de menús superior, haga clic en **Cell** (celda) y, luego, en **Run All** (Ejecutar todo).
 
 ## <a name="workflow"></a>Flujo de trabajo
 
-La API del Detector de anomalías es un servicio web RESTful, facilitando el proceso llamar desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
+Anomaly Detector API es un servicio web RESTful, lo que significa que es fácil llamarlo desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar código JSON.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -58,12 +58,12 @@ La API del Detector de anomalías es un servicio web RESTful, facilitando el pro
 
 Después del registro:
 
-1. Tomar datos de series temporales y convertirlo en un formato JSON válido. Use [procedimientos recomendados](concepts/anomaly-detection-best-practices.md) al preparar los datos para obtener los mejores resultados.
-1. Enviar una solicitud a la API del Detector de anomalías con sus datos.
+1. Tome sus datos de serie temporal y conviértalos en un formato JSON válido. Use los [procedimientos recomendados](concepts/anomaly-detection-best-practices.md) al preparar los datos para obtener los mejores resultados.
+1. Envíe una solicitud a Anomaly Detector API con sus datos.
 1. Analice el mensaje JSON devuelto para procesar la respuesta de API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Detectar anomalías en datos de series temporales mediante la API de REST del Detector de anomalías](quickstarts/detect-data-anomalies-csharp.md)
-* La API del Detector de anomalías [demostración en línea](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
-* El Detector de anomalías [referencia de API de REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+* [Inicio rápido: Detección de anomalías en datos de serie temporal mediante la API REST Anomaly Detector](quickstarts/detect-data-anomalies-csharp.md)
+* [Demostración en línea](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) de Anomaly Detector API
+* [Referencia de la API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) de Anomaly Detector

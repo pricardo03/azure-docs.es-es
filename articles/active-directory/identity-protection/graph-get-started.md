@@ -19,15 +19,15 @@ ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296306"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introducción a Azure Active Directory Identity Protection y Microsoft Graph
 
-Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde se encuentran las API de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Hay tres API que exponen información acerca de los usuarios e inicios de sesión con riesgo. La primera API, **identityRiskEvents**, le permite consultar una lista de Microsoft Graph de [eventos de riesgo](../reports-monitoring/concept-risk-events.md) así como información asociada. La segunda API, **riskyUsers**, permite consultar Microsoft Graph, para obtener información acerca de qué usuarios ha detectado Identity Protection como un riesgo. La tercera API, **signIn**, permite consultar Microsoft Graph para obtener información acerca de los inicios de sesión de Azure AD con propiedades concretas relacionadas con el estado, detalle y nivel del riesgo. En este artículo le permite comenzar con conexión a Microsoft Graph y consultar estas API. Para obtener una introducción más detallada, ver toda la documentación y acceder al Probador de Graph, diríjase al [sitio web de Microsoft Graph](https://graph.microsoft.io/) o consulte la documentación de referencia específica de estas API:
+Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde se encuentran las API de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Hay tres API que exponen información acerca de los usuarios e inicios de sesión con riesgo. La primera API, **identityRiskEvents**, le permite consultar una lista de Microsoft Graph de [eventos de riesgo](../reports-monitoring/concept-risk-events.md) así como información asociada. La segunda API, **riskyUsers**, permite consultar Microsoft Graph, para obtener información acerca de qué usuarios ha detectado Identity Protection como un riesgo. La tercera API, **signIn**, permite consultar Microsoft Graph para obtener información acerca de los inicios de sesión de Azure AD con propiedades concretas relacionadas con el estado, detalle y nivel del riesgo. En este artículo se le introduce a la conexión a Microsoft Graph y a la consulta de estas API. Para obtener una introducción más detallada, ver toda la documentación y acceder al Probador de Graph, diríjase al [sitio web de Microsoft Graph](https://graph.microsoft.io/) o consulte la documentación de referencia específica de estas API:
 
 * [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
@@ -80,7 +80,7 @@ Antes de comenzar, necesitará lo siguiente:
    
     ![Creación de una aplicación](./media/graph-get-started/44.png)
 
-     a. En el cuadro de texto **Nombre**, escriba el nombre de la aplicación (por ejemplo: AADIP Risk Event API Application).
+    a. En el cuadro de texto **Nombre**, escriba el nombre de la aplicación (por ejemplo: AADIP Risk Event API Application).
    
     b. Como **Tipo**, seleccione **Aplicación web y/o API web**.
    
@@ -139,7 +139,7 @@ Antes de comenzar, necesitará lo siguiente:
    
     ![Creación de una aplicación](./media/graph-get-started/24.png)
 
-     a. En el cuadro de texto **Descripción de la clave**, escriba una descripción (por ejemplo, *Evento de riesgo de AADIP*).
+    a. En el cuadro de texto **Descripción de la clave**, escriba una descripción (por ejemplo, *Evento de riesgo de AADIP*).
     
     b. Como **Duración**, seleccione **1 año**.
 

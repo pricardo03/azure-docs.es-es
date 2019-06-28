@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759337"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
@@ -52,7 +52,7 @@ Actualmente, Azure Data Explorer es compatible con lo siguiente:
 
 ### <a name="ingestion-using-integration-services"></a>Ingesta mediante servicios de integración
 
-* Azure Data Factory (ADF), un servicio de integración de datos totalmente administrado para cargas de trabajo de análisis de Azure, para copiar datos hacia y desde el Explorador de datos de Azure mediante [formatos y almacenes de datos compatibles](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Para obtener más información, consulte [copiar datos desde Azure Data Factory en el Explorador de Azure Data](/azure/data-explorer/data-factory-load-data).
+* Azure Data Factory (ADF), un servicio de integración de datos totalmente administrado para cargas de trabajo de análisis en Azure, para copiar datos con Azure Data Explorer como origen o destino usando [almacenes de datos y formatos compatibles](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Para obtener más información, consulte [Copiar datos de Azure Data Factory a Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
 
 ### <a name="programmatic-ingestion"></a>Ingesta mediante programación
 
@@ -80,7 +80,7 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
 
 * Ingesta de datos directamente en el motor de Azure Data Explorer (más adecuado para la exploración y la creación de prototipos):
 
-  * **Ingesta de inline**: comando de control (.ingest inline) que contiene los datos fuera de banda está pensado para fines de pruebas ad hoc.
+  * **Ingesta insertada**: comando de control (.ingest inline) que contiene los datos en banda, está pensado para fines de pruebas ad hoc.
 
   * **Ingesta de consulta**: comando de control (.set, .set-or-append, .set-or-replace) que señala a los resultados de la consulta, se usa para generar informes o pequeñas tablas temporales.
 
