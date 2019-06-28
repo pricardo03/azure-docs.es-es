@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 08d273ce6e6ecb1b10d3c39a0954d430a3cb674a
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730744"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: Azure PowerShell
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar PowerShell localmente, este artículo requiere Azure PowerShell `Az` módulo. Ejecute `Get-Module -ListAvailable Az` para ver cuál es la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita el módulo `Az` de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para ver cuál es la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 
 
@@ -82,7 +82,7 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-next-hop"></a>Use el próximo salto
 
-Azure crea rutas automáticamente a los destinos predeterminados. Es posible crear rutas personalizadas que reemplacen las rutas predeterminadas. En ocasiones, las rutas personalizadas pueden provocar errores de comunicación. Para probar el enrutamiento de una máquina virtual, use el [Get AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) comando para determinar el próximo salto de enrutamiento al tráfico está destinado a una dirección específica.
+Azure crea rutas automáticamente a los destinos predeterminados. Es posible crear rutas personalizadas que reemplacen las rutas predeterminadas. En ocasiones, las rutas personalizadas pueden provocar errores de comunicación. Para probar el enrutamiento desde una máquina virtual, use el comando [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) para determinar el siguiente salto de enrutamiento cuando el tráfico esté destinado a una dirección específica.
 
 Pruebe la comunicación de salida entre la máquina virtual y una de las direcciones IP de www.bing.com:
 
@@ -110,7 +110,7 @@ El resultado que se devuelve le informa que **Ninguno** es el valor de **NextHop
 
 ## <a name="view-details-of-a-route"></a>Vista de los detalles de una ruta
 
-Para analizar aún más el enrutamiento, revise las rutas eficaces para la interfaz de red con el [Get AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) comando:
+Para analizar el enrutamiento detenidamente, revise las rutas efectivas para la interfaz de red con el comando [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable):
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `

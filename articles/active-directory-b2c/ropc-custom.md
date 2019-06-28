@@ -11,10 +11,10 @@ ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66733640"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure el flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C con una directiva personalizada.
@@ -140,7 +140,7 @@ Siga los pasos de [Introducción a las directivas personalizadas en Azure Active
     </TechnicalProfile>
     ```
 
-    Reemplace el **DefaultValue** de **client_id** con el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que creó en el tutorial de requisitos previos. A continuación, reemplace **DefaultValue** de **resource_id** con el identificador de aplicación de la aplicación IdentityExperienceFramework que también se crea en el tutorial de requisitos previos.  
+    Reemplace el valor **DefaultValue** de **client_id** por el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que ha creado en el tutorial de requisitos previos. Reemplace el valor **DefaultValue** de **resource_id** por el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que también ha creado en el tutorial de requisitos previos.  
 
 5. Agregue los siguientes elementos de **ClaimsProvider** con sus perfiles técnicos al elemento **ClaimsProviders**:
 
@@ -269,9 +269,9 @@ Use su aplicación favorita de desarrollo de API para generar una llamada de API
 
 | Clave | Valor |
 | --- | ----- |
-| username | `user-account` |
-| password | `password1` |
-| grant_type | password |
+| nombre de usuario | `user-account` |
+| contraseña | `password1` |
+| grant_type | contraseña |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | id_token del token |

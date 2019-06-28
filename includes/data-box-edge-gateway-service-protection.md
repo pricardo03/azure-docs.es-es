@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 248d10e8814d195a515a658653cfc38de7dd4652
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67120572"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186960"
 ---
 - Para acceder al servicio Data Box Edge, la organización necesita tener una suscripción a Contrato Enterprise (EA) o a Proveedor de soluciones en la nube. Para más información, consulte [Registro para una suscripción a Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
 - Dado que el servicio de administración está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Azure, visite el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
