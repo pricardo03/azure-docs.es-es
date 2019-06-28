@@ -9,25 +9,25 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203629"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight
 
-Si una aplicación de procesamiento de datos en un clúster de HDInsight está ejecutándose con lentitud o genera un error con un código de error, si tienen varias opciones de solución de problemas. Si los trabajos tardan en ejecutarse más de lo esperado o si ve tiempos de respuesta lentos en general, puede haber errores en niveles superiores al clúster, como los servicios en los que se ejecuta el clúster. Sin embargo, la causa más común de estas ralentizaciones es un escalado insuficiente. Cuando se crea un nuevo clúster de HDInsight, seleccione la [tamaños de máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Si una aplicación que está procesando datos en un clúster de HDInsight se ejecuta con lentitud o genera un error con un código de error, tiene varias opciones para solucionar los problemas. Si los trabajos tardan en ejecutarse más de lo esperado o si ve tiempos de respuesta lentos en general, puede haber errores en niveles superiores al clúster, como los servicios en los que se ejecuta el clúster. Sin embargo, la causa más común de estas ralentizaciones es un escalado insuficiente. Al crear un nuevo clúster de HDInsight, seleccione los [tamaños de máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) adecuados.
 
 Para diagnosticar un clúster lento o con errores, recopile información sobre todos los aspectos del entorno, como los servicios asociados de Azure, la configuración del clúster y la información sobre la ejecución de trabajo. Un diagnóstico útil consiste en intentar reproducir el estado de error en otro clúster.
 
 * Paso 1: Recopilar datos sobre el problema.
-* Paso 2: Validar el entorno de clúster de HDInsight.
+* Paso 2: Validar el entorno del clúster de HDInsight.
 * Paso 3: Ver el estado del clúster.
-* Paso 4: Revise las versiones y la pila del entorno.
-* Paso 5: Examine los archivos de registro de clúster.
-* Paso 6: Compruebe los valores de configuración.
-* Paso 7: Reproducir el error en un clúster distinto.
+* Paso 4: Revisar las versiones y la pila del entorno.
+* Paso 5: Examinar los archivos de registro del clúster.
+* Paso 6: Comprobar los valores de configuración.
+* Paso 7: Reproducir el error en otro clúster.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Paso 1: Recopilación de datos acerca del problema
 
@@ -56,7 +56,7 @@ Azure Portal puede proporcionar esta información:
 
 ![Información de Azure Portal de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-También puede usar [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+También puede usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -72,9 +72,9 @@ Cada clúster de HDInsight se basa en varios servicios de Azure y en software de
 ### <a name="service-details"></a>Detalles del servicio
 
 * Compruebe las versiones de lanzamiento de la biblioteca de código abierto.
-* Busque [interrupciones del servicio Azure](https://azure.microsoft.com/status/).  
-* Compruebe si hay interrupciones de servicio de Azure. 
-* Compruebe la configuración de subred de red Virtual de Azure.  
+* Busque [interrupciones del servicio de Azure](https://azure.microsoft.com/status/).  
+* Busque límites de uso del servicio de Azure. 
+* Compruebe la configuración de subred de Azure Virtual Network.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver las opciones de configuración del clúster con la UI de Ambari
 
@@ -263,6 +263,6 @@ Para ayudar a diagnosticar el origen de un error de clúster, inicie un clúster
 
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Análisis de registros de HDInsight](hdinsight-debug-jobs.md)
-* [Inicio de sesión de aplicación de acceso Apache Hadoop YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Problemas conocidos de clústeres de Apache Spark en HDInsight](hdinsight-apache-spark-known-issues.md)

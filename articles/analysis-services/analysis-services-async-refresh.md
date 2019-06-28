@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506969"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
@@ -188,7 +188,7 @@ Los valores para `syncstate`:
 
 - 0: Replicating. Los archivos de base de datos se replican en una carpeta de destino.
 - 1: Rehydrating. La base de datos se rehidrata en las instancias de servidor de solo lectura.
-- 2: Completed. La operación de sincronización se completó correctamente.
+- 2\. Completed. La operación de sincronización se completó correctamente.
 - 3: Failed. Error en la operación de sincronización.
 - 4: Finalizing. La operación de sincronización se completó, pero está realizando los pasos de limpieza.
 
@@ -201,18 +201,18 @@ Este es un ejemplo de código de C# para comenzar, [RestApiSample en GitHub](htt
 1.  Clone o descargue el repositorio. Abra la solución RestApiSample.
 2.  Busque la línea **client.BaseAddress = …** y proporcione su [dirección URL base](#base-url).
 
-El ejemplo de código usa [serviceprincipal](#service-principal) autenticación.
+El ejemplo de código usa autenticación de [entidad de servicio](#service-principal).
 
 ### <a name="service-principal"></a>Entidad de servicio
 
 Consulte [Creación de una entidad de servicio: Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) e [Adición de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md) para más información sobre cómo configurar una entidad de servicio y asignar los permisos necesarios en Azure AS. Una vez completados los pasos, siga estos pasos adicionales:
 
-1.  En el código de ejemplo, busque **string authority = …**, reemplace **common** por el identificador del inquilino de su organización.
+1.  En el código de ejemplo, busque **string authority = …** , reemplace **common** por el identificador del inquilino de su organización.
 2.  Comente o quite la marca de comentario para que se use la clase ClientCredential para crear una instancia del objeto creado. Asegúrese de que se accede a los valores \<Id. de aplicación> y \<Clave de la aplicación> de forma segura o use una autenticación basada en certificado para las entidades de servicio.
 3.  Ejecute el ejemplo.
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Ejemplos](analysis-services-samples.md)   
 [API DE REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

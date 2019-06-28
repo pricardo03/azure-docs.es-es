@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023868"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Cómo hacer referencia a las anotaciones en un conjunto de aptitudes de Cognitive Search
@@ -36,7 +36,7 @@ Antes de revisar la sintaxis, repasemos algunos conceptos importantes para compr
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Ejemplo 1: referencia de anotación simple
 
-En el almacenamiento de blobs de Azure, suponga que tiene una variedad de archivos que contienen referencias a nombres de las personas que desea extraer con reconocimiento de entidades. En la definición de aptitudes que tiene a continuación, `"/document/content"` es la representación textual de todo el documento, y "personas" es una extracción de nombres completos de las entidades identificadas como personas.
+En Azure Blob Storage, supongamos que tiene ciertos archivos que contienen referencias a nombres de personas que quiere extraer mediante el reconocimiento de entidades. En la definición de aptitudes que tiene a continuación, `"/document/content"` es la representación textual de todo el documento, y "personas" es una extracción de nombres completos de las entidades identificadas como personas.
 
 Debido a que el contexto predeterminado es `"/document"`, ahora se puede hacer referencia a la lista de personas como `"/document/people"`. En este caso específico, `"/document/people"` es una anotación que puede asignarse a un campo en un índice, o usarse en otra aptitud en el mismo conjunto de aptitudes.
 
@@ -98,7 +98,7 @@ Cuando las anotaciones son matrices o colecciones de cadenas, tal vez quiera tra
 
 A veces es necesario agrupar todas las anotaciones de un tipo en particular para pasarlas a una aptitud en particular. Pongamos como ejemplo una habilidad hipotética personalizada que identifica el apellido más común de todos los apellidos extraídos en el Ejemplo 2. Para proporcionar solo los apellidos a esa habilidad personalizada, debe especificar el contexto como `"/document"` y la entrada como `"/document/people/*/lastname"`.
 
-Tenga en cuenta que la cardinalidad de `"/document/people/*/lastname"` es mayor que el del documento. Hay 10 nodos de apellido, mientras que solo hay un nodo de documento para este documento. En ese caso, el sistema creará automáticamente una matriz de `"/document/people/*/lastname"` que contenga todos los elementos del documento.
+Tenga en cuenta que la cardinalidad de `"/document/people/*/lastname"` es mayor que la del documento. Hay 10 nodos de apellido, mientras que solo hay un nodo de documento para este documento. En ese caso, el sistema creará automáticamente una matriz de `"/document/people/*/lastname"` que contenga todos los elementos del documento.
 
 ```json
   {
@@ -123,7 +123,7 @@ Tenga en cuenta que la cardinalidad de `"/document/people/*/lastname"` es mayor 
 
 
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 + [Cómo integrar una aptitud personalizada en una canalización de enriquecimiento](cognitive-search-custom-skill-interface.md)
 + [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

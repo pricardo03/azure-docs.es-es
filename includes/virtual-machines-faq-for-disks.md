@@ -9,10 +9,10 @@ ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66482412"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
@@ -105,7 +105,7 @@ Sí, se admiten discos administrados y no administrados. Recomendamos que empiec
 
 No.
 
-**¿Si creo un disco de 128 GB y después lo aumento a 130 gibibytes (GiB), cobrará por el siguiente tamaño de disco (256 GiB)?**
+**Si creo un disco de 128 GB y después aumento el tamaño a 130 gibibytes (GiB), ¿se me cobra por el siguiente tamaño de disco (256 GiB)?**
 
 Sí.
 
@@ -141,9 +141,9 @@ No se puede cambiar el nombre de los discos administrados. Sin embargo, es posib
 
 La creación de particiones de GPT solo se puede usar en discos de datos, no en discos de sistemas operativos. Los discos de SO deben usar el estilo de partición de MBR.
 
-**¿Qué tipos de discos admiten las instantáneas?**
+**¿Qué tipos de discos admiten instantáneas?**
 
-SSD Premium, estándar SSD y HDD estándar admiten instantáneas. Para estos tipos de tres discos, las instantáneas se admiten para todos los tamaños de disco (incluidos los discos de hasta 32 TB de tamaño). Ultra SSDs no admiten instantáneas.
+SSD Premium, SSD estándar y HDD estándar admiten instantáneas. En estos tres tipos de discos, las instantáneas se admiten en todos los tamaños de disco (incluidos los discos de hasta 32 TiB). Los discos SSD Ultra no admiten instantáneas.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD estándar
 
@@ -157,7 +157,7 @@ Todas las regiones de Azure ahora admiten discos SSD estándar.
 Sí, Azure Backup ya está disponible.
 
 **¿Cómo creo discos SSD estándar?**
-Puede crear discos SSD estándar con plantillas de Azure Resource Manager, SDK, PowerShell o CLI. A continuación se muestran los parámetros necesarios de la plantilla de Resource Manager para crear discos SSD estándar:
+Puede crear discos SSD estándar mediante plantillas de Azure Resource Manager, el SDK, PowerShell o la CLI. A continuación se muestran los parámetros necesarios de la plantilla de Resource Manager para crear discos SSD estándar:
 
 * La *apiVersion* para Microsoft.Compute se debe establecer en `2018-04-01` (o posterior)
 * Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
@@ -183,7 +183,7 @@ Sí, puede hacerlo. Consulte [Conversión de almacenamiento de Azure Managed Dis
 -AccountType StandardSSD_LRS
 
 **¿Cuál es la ventaja de utilizar discos SSD estándar en lugar de unidades de disco duro?**
-Los discos SSD estándar ofrecen una mejor latencia, coherencia, disponibilidad y confiabilidad en comparación con los discos de la unidad de disco duro. Debido a esto, las cargas de trabajo de las aplicaciones se ejecutan mucho mejor. Tenga en cuenta que los discos SSD Premium son la solución recomendada para la mayoría de las cargas de trabajo producción con uso intensivo de E/S.
+Los discos SSD estándar ofrecen una mejor latencia, coherencia, disponibilidad y confiabilidad en comparación con los discos HDD. Debido a esto, las cargas de trabajo de las aplicaciones se ejecutan mucho mejor. Tenga en cuenta que los discos SSD Premium son la solución recomendada para la mayoría de las cargas de trabajo producción con uso intensivo de E/S.
 
 **¿Puedo usar discos SSD estándar como discos no administrados?**
 No, los discos SSD estándar solo están disponibles como discos administrados.
@@ -195,7 +195,7 @@ No, los discos SSD estándar no tiene un Acuerdo de Nivel de Servicio de máquin
 
 **¿Hay algún impacto de la migración en el rendimiento de Managed Disks?**
 
-La migración conlleva el traslado del disco de una ubicación de almacenamiento a otra. Esto se coordina a través de la copia en segundo plano de datos, que pueden tardar varias horas en completarse, normalmente menos de 24 horas según la cantidad de datos de los discos. Durante ese tiempo, la aplicación puede experimentar una latencia de lectura más alta de lo habitual, ya que algunas lecturas pueden redirigirse a la ubicación original y pueden tardar más tiempo en completarse. No hay ningún impacto en la latencia de escritura durante este período.  
+La migración conlleva el traslado del disco de una ubicación de almacenamiento a otra. Esto se orquesta mediante una copia en segundo plano de los datos que puede tardar varias horas en completarse, normalmente menos de 24 horas en función de la cantidad de datos en los discos. Durante ese tiempo, la aplicación puede experimentar una latencia de lectura más alta de lo habitual, ya que algunas lecturas pueden redirigirse a la ubicación original y pueden tardar más tiempo en completarse. No hay ningún impacto en la latencia de escritura durante este período.  
 
 **¿Qué cambios son necesarios en una configuración del servicio Azure Backup preexistente antes y después de la migración a Managed Disks?**
 
@@ -209,7 +209,7 @@ Sí, las copias de seguridad funcionan sin problemas.
 
 No es preciso realizar cambios.
 
-**¿Es automatizar la migración de un escalado de máquinas virtuales existentes conjunto de discos no administrados a Managed Disks?**
+**¿Se admite la migración automática de un conjunto de escalado de máquinas virtuales existente de discos no administrados a Managed Disks?**
 
 No. Puede crear un nuevo conjunto de escalado con Managed Disks con la imagen del antiguo conjunto de escalado con discos no administrados.
 
@@ -223,7 +223,7 @@ Sí, puede realizar la conmutación por error a una máquina virtual con Managed
 
 **¿Hay algún impacto en la migración de las máquinas virtuales de Azure protegidas por Azure Site Recovery mediante la replicación de Azure a Azure?**
 
-Sí. Actualmente, Azure Site Recovery Azure para protección de Azure para máquinas virtuales con Managed Disks está disponible como un servicio de disponibilidad general.
+Sí. Actualmente, la protección de Azure Site Recovery para máquinas virtuales con Managed Disks solo está disponible como un servicio con carácter general.
 
 **¿Puedo migrar máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento que se hayan cifrado previamente en discos administrados?**
 
@@ -304,7 +304,7 @@ No hay ningún inconveniente a la hora de usar TRIM en discos de Azure, ya sea e
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TB para discos de datos administrados en Azure global, 4 TiB en nubes soberanas de Azure.
+El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TiB para discos de datos administrados en Azure global, 4 TiB en nubes soberanas de Azure.
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
@@ -337,29 +337,29 @@ Los discos pequeños premium de menos de 64 GiB se siguen facturando según el 
 
 Puede crear una instantánea de los discos pequeños y, después, crear un disco para cambiar automáticamente el plan de tarifa a P4 o P6, en función del tamaño aprovisionado.
 
-**¿Puede cambiar el tamaño los discos administrados existentes de tamaños de menos de 4 tebibytes (TiB) a nuevos tamaños de disco recién introducidas hasta 32 TB?**
+**¿Puede cambiar el tamaño de las instancias de Managed Disks existentes de menos de 4 tebibytes (TiB) a los nuevos tamaños de disco recién incorporados de hasta 32 TiB?**
 
 Sí.
 
-**¿Cuáles son los tamaños de disco más grandes compatibles con el servicio de copia de seguridad de Azure y Azure Site Recovery?**
+**¿Cuales son los tamaños de disco más grandes que admiten Azure Backup y el servicio Azure Site Recovery?**
 
-El tamaño de disco más grande que admiten Azure Backup y el servicio Azure Site Recovery es de 4 TiB. Compatibilidad con discos de mayor tamaño de hasta 32 TB aún no está disponible.
+El tamaño de disco más grande que admiten Azure Backup y el servicio Azure Site Recovery es de 4 TiB. La compatibilidad con los discos de mayor tamaño de hasta 32 TiB aún no está disponible.
 
-**¿Cuáles son la VM recomendada tamaños más grandes para tamaños de disco (> 4 TiB) para discos de Standard HDD y SSD estándar para lograr optimizado en disco IOPS y ancho de banda?**
+**¿Cuáles son los tamaños de máquina virtual recomendados para los tamaños de disco mayores (> 4TiB) para discos SSD estándar y HDD estándar con la finalidad de lograr niveles optimizados de ancho de banda e IOPS del disco?**
 
-Para lograr el rendimiento de disco estándar de SSD y HDD estándar tamaños de discos de gran tamaño (> 4 TiB) más allá de 500 IOPS y 60 MiB/s, se recomienda implementar una nueva máquina virtual de uno de los siguientes tamaños de máquina virtual para optimizar el rendimiento: B-series, DSv2-series, serie Dsv3, ESv3-Series, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o máquinas virtuales de la serie Ls. Adjuntar discos de gran tamaño a las máquinas virtuales o máquinas virtuales que no utilizan los tamaños recomendados anteriores existente, puede experimentar un rendimiento inferior.
+Para lograr el rendimiento de disco de los tamaños de discos grandes SSD y HDD estándar (>4 TiB) más allá de 500 IOPS y 60 MiB/s, se recomienda implementar una nueva máquina virtual de uno de los siguientes tamaños para optimizar el rendimiento: Máquinas virtuales de la serie B, serie DSv2, serie Dsv3, serie ESv3, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o serie Ls. La asociación de discos de gran tamaño a máquinas virtuales existentes o máquinas virtuales que no usan los tamaños recomendados anteriores puede dar lugar a un rendimiento inferior.
 
-**¿Cómo puedo actualizar mis discos (> 4 TiB) que se implementaron durante la versión preliminar los tamaños de disco más grande con el fin de obtener el mayor ancho de banda e IOPS en disponibilidad general?**
+**¿Cómo puedo actualizar mis discos (> 4 TiB) que se implementaron durante la versión preliminar de tamaños de disco mayores con el fin de obtener el mayor ancho de banda e IOPS con carácter general?**
 
-Puede detener e inicie la máquina virtual que está conectado el disco, o bien, separar y volver a conectar el disco. Los objetivos de rendimiento de los tamaños de disco más grandes han aumentado para SSD premium y estándar SSD en disponibilidad general.
+Puede detener e iniciar la máquina virtual a la que está conectado el disco o bien desasociar y volver a asociar el disco. Los objetivos de rendimiento de los tamaños de disco mayores han aumentado para discos SSD Premium y estándar con carácter general.
 
-**¿Qué regiones son los tamaños de disco administrado de 8 TB, TiB 16 y 32 TiB admite?**
+**¿En qué regiones se admiten los tamaños de disco administrado de 8 TiB, 16 TiB y 32 TiB?**
 
-8 TiB TiB 16, 32 TiB disco las SKU y se admiten en todas las regiones en que 21Vianet global de Azure, Microsoft Azure Government y Azure China.
+Las SKU de disco de 8 TiB, 16 TiB y 32 TiB se admiten en todas las regiones en Azure global, Microsoft Azure Government y Azure China 21Vianet.
 
-**¿Se admiten Habilitar almacenamiento en caché de Host en todos los tamaños de disco?**
+**¿Se admite la habilitación del almacenamiento en caché del host en todos los tamaños de disco?**
 
-Se admite solo Host de almacenamiento en caché de lectura y lectura/escritura en los tamaños de disco inferior a 4 TB. Para los tamaños de disco de más de 4 TiB, no se puede establecer la opción de almacenamiento en caché en un valor distinto de Ninguno. Se recomienda aprovechar el almacenamiento en caché para tamaños de disco más pequeños, donde se puede esperar un mayor aumento del rendimiento con datos almacenados en caché en la máquina virtual.
+Se admite el almacenamiento en caché del host de solo de lectura y de lectura y escritura en tamaños de disco inferiores a 4 TiB. Para los tamaños de disco de más de 4 TiB, no se puede establecer la opción de almacenamiento en caché en un valor distinto de Ninguno. Se recomienda aprovechar el almacenamiento en caché para tamaños de disco más pequeños, donde se puede esperar un mayor aumento del rendimiento con datos almacenados en caché en la máquina virtual.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 

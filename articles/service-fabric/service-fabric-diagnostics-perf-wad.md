@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66110300"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Supervisión del rendimiento con la extensión de Microsoft Azure Diagnostics
@@ -206,4 +206,4 @@ Este es un ejemplo de una configuración con el contador para la *Tiempo total d
 ## <a name="next-steps"></a>Pasos siguientes
 * Recopile más contadores de rendimiento para el clúster. Vea [Métricas de rendimiento](service-fabric-diagnostics-event-generation-perf.md) para obtener una lista de contadores que debe recopilar.
 * [Use la supervisión y diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para realizar más modificaciones en `WadCfg`, incluida la configuración de cuentas de almacenamiento adicionales a la que enviar datos de diagnóstico.
-* Visite el [WadCfg generador](https://azure.github.io/azure-diagnostics-tools/config-builder/) para generar una plantilla desde cero y asegúrese de que la sintaxis es correcta. () https://azure.github.io/azure-diagnostics-tools/config-builder/) para generar una plantilla desde cero y asegúrese de que la sintaxis es correcta.
+* Visite el [generador de WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) para compilar una plantilla desde cero y asegúrese de que la sintaxis sea correcta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) para compilar una plantilla desde cero y asegúrese de que la sintaxis sea correcta.

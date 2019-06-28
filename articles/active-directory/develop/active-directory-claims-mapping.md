@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546198"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos para: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
@@ -71,7 +71,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | appctxsender |
 | appid |
 | appidacr |
-| assertion |
+| Aserción |
 | at_hash |
 | aud |
 | auth_data |
@@ -87,7 +87,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | cloud_graph_host_name |
 | cloud_instance_name |
 | cnf |
-| code |
+| código |
 | controls |
 | credential_keys |
 | csr |
@@ -136,13 +136,13 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | nameid |
 | nbf |
 | netbios_name |
-| nonce |
+| valor de seguridad |
 | oid |
 | on_prem_id |
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| password |
+| contraseña |
 | platf |
 | polids |
 | pop_jwk |
@@ -177,7 +177,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| nombre de usuario |
 | uti |
 | ver |
 | verified_primary_email |
@@ -288,9 +288,9 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 |-----|-----|-----|
 | Usuario | surname | Nombre de familia |
 | Usuario | givenname | Nombre propio |
-| Usuario | displayname | Nombre para mostrar |
+| Usuario | displayname | Display Name (Nombre para mostrar) |
 | Usuario | objectid | ObjectID |
-| Usuario | correo | Dirección de correo electrónico |
+| Usuario | mail | Dirección de correo electrónico |
 | Usuario | userprincipalname | Nombre principal de usuario |
 | Usuario | department|department|
 | Usuario | onpremisessamaccountname | Nombre de cuenta SAM local |
@@ -325,10 +325,10 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | jobtitle | Puesto |
 | Usuario | employeeid | Id. de empleado |
 | Usuario | facsimiletelephonenumber | Número de teléfono de fax |
-| application, resource, audience | displayname | Nombre para mostrar |
+| application, resource, audience | displayname | Display Name (Nombre para mostrar) |
 | application, resource, audience | objected | ObjectID |
-| application, resource, audience | tags | Etiqueta de entidad de servicio |
-| Empresa | tenantcountry | País del inquilino |
+| application, resource, audience | etiquetas | Etiqueta de entidad de servicio |
+| Compañía | tenantcountry | País del inquilino |
 
 **TransformationID:** el elemento TransformationID solo debe indicarse si el elemento Source está establecido en “transformation”.
 
@@ -360,8 +360,8 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 |TransformationMethod|Entrada prevista|Salida prevista|DESCRIPCIÓN|
 |-----|-----|-----|-----|
-|Unir|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|correo|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
+|Unión|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
+|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
 
 **InputClaims:** use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
@@ -386,7 +386,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 |Origen|ID|DESCRIPCIÓN|
 |-----|-----|-----|
-| Usuario | correo|Dirección de correo electrónico|
+| Usuario | mail|Dirección de correo electrónico|
 | Usuario | userprincipalname|Nombre principal de usuario|
 | Usuario | onpremisessamaccountname|Nombre de cuenta SAM local|
 | Usuario | employeeid|Id. de empleado|
@@ -411,11 +411,11 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 | TransformationMethod | Restricciones |
 | ----- | ----- |
 | ExtractMailPrefix | None |
-| Unir | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
+| Unión | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
 
-Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados.  Las aplicaciones que tienen notificaciones asignación habilitada debe comprobar un URI especial para su token de claves de firma anexando `appid={client_id}` a sus [las solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados.  Las aplicaciones que tienen habilitada la asignación de notificaciones deben comprobar un URI especial para sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Escenarios de varios inquilinos
 
@@ -447,7 +447,7 @@ Para comenzar, realice uno de los pasos siguientes:
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Ejemplo: Crear y asignar una directiva que omita las notificaciones básicas de los tokens emitidos para una entidad de servicio
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Ejemplo: creación y asignación de una directiva que omita las notificaciones básicas de tokens emitidos para una entidad de servicio
 
 En este ejemplo se crea una directiva que quita el conjunto de notificaciones básicas de los tokens emitidos para entidades de servicio vinculadas.
 
@@ -518,6 +518,6 @@ En este ejemplo se crea una directiva que emite una notificación "JoinedData" p
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
-Para obtener información sobre cómo personalizar las notificaciones emitidas en el token SAML mediante el portal de Azure, consulte [Cómo: Personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales](active-directory-saml-claims-customization.md)
+Para obtener información sobre cómo personalizar las notificaciones emitidas en el token SAML a través de Azure Portal, vea [Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](active-directory-saml-claims-customization.md).

@@ -10,10 +10,10 @@ ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023994"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
@@ -64,7 +64,7 @@ No hay ninguna restricción en el uso de réplicas principales o secundarias com
 
 No, esta operación no se admite. La búsqueda siempre se centra en un solo índice.
 
-### <a name="can-i-restrict-search-index-access-by-user-identity"></a>¿Puedo restringir el acceso de índice de búsqueda por identidad de usuario?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>¿Se puede restringir el acceso al índice de búsqueda según la identidad del usuario?
 
 Puede implementar [filtros de seguridad](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) con el filtro `search.in()`. El filtro se integra bien con [servicios de administración de identidades como Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) para recortar los resultados de la búsqueda en función de la pertenencia a un grupo de usuarios definido.
 
@@ -94,7 +94,7 @@ La mayoría de los clientes eligen campos dedicados en una colección cuando se 
 
 ¿Es su pregunta acerca de una característica o funcionalidad que falta? Solicite la característica en el [sitio web de User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
  [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md)  

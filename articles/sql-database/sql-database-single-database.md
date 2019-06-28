@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794388"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Bases de datos únicas en Azure SQL Database
@@ -30,7 +30,7 @@ La opción de implementación de una base de datos única crea una base de datos
 
 ## <a name="dynamic-scalability"></a>Escalabilidad dinámica
 
-Puede crear su primera aplicación en una base de datos pequeña a bajo costo en el nivel de proceso sin servidor (versión preliminar) o un tamaño de proceso pequeña en el nivel de proceso aprovisionada. Cambia el [nivel de servicio o proceso](sql-database-single-database-scale.md) manualmente o mediante programación en cualquier momento para satisfacer las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+Puede compilar su primera aplicación en una base de datos pequeña a bajo coste en el nivel de proceso sin servidor (versión preliminar) o en un tamaño de proceso pequeño en el nivel de proceso aprovisionado. Puede cambiar el [nivel de servicio o de proceso](sql-database-single-database-scale.md) de forma manual o mediante programación en cualquier momento para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
 ## <a name="single-databases-and-elastic-pools"></a>Bases de datos únicas y grupos elásticos
 
@@ -42,7 +42,7 @@ Utilice las herramientas integradas de [supervisión de rendimiento](sql-databas
 
 ## <a name="availability-capabilities"></a>Funcionalidades de disponibilidad
 
-Bases de datos únicas, los grupos elásticos y las instancias administradas proporcionan muchas características de disponibilidad. Para obtener más información al respecto, consulte las [características de disponibilidad](sql-database-technical-overview.md#availability-capabilities).
+Las bases de datos únicas, los grupos elásticos y las instancias administradas proporcionan muchas características de disponibilidad. Para obtener más información al respecto, consulte las [características de disponibilidad](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Diferencias de Transact-SQL
 
@@ -56,7 +56,7 @@ Para obtener más información, consulte [Resolución de diferencias de Transact
 SQL Database proporciona varias [características integradas de seguridad y cumplimiento](sql-database-security-overview.md) que facilitan que su aplicación cumpla los distintos requisitos de seguridad y cumplimiento normativo.
 
 > [!IMPORTANT]
-> Azure SQL Database (todas las opciones de implementación), ha sido certificada con una serie de estándares de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
+> Azure SQL Database (todas las opciones de implementación) ha obtenido la certificación de diversas normas de cumplimiento. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

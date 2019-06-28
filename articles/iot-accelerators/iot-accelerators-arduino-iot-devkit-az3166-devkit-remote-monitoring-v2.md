@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473482"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Conexión del dispositivo IoT DevKit al acelerador de soluciones de supervisión remota
@@ -55,7 +55,7 @@ Para configurar la cadena de conexión del dispositivo IoT Hub en el dispositivo
 
     ![Modo de configuración de IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. Presione **F1** para abrir la paleta de comandos, escriba y seleccione **Azure IoT Device Workbench: Configurar opciones de dispositivo... > Config Device Connection String (Configurar cadena de conexión de dispositivo)**.
+1. Presione **F1** para abrir la paleta de comandos, escriba y seleccione **Azure IoT Device Workbench: Configurar opciones de dispositivo... > Config Device Connection String (Configurar cadena de conexión de dispositivo)** .
 
 1. Pegue la cadena de conexión que copió anteriormente y presione **ENTRAR** para configurar el dispositivo.
 
@@ -79,7 +79,7 @@ Para comprobar que la aplicación de ejemplo que cargó en el dispositivo DevKit
 
 Cuando se ejecuta la aplicación de ejemplo, el dispositivo de DevKit envía telemetría desde sus datos de sensores a través de Wi-Fi al acelerador de soluciones. Para ver los datos de telemetría:
 
-1. Vaya al panel de solución y haga clic en **Device Explorer**.
+1. Vaya al panel de soluciones y haga clic en **Explorador de dispositivos**.
 
 1. Haga clic en el nombre de dispositivo DevKit. En la pestaña de la derecha, puede ver los datos de telemetría del dispositivo DevKit en tiempo real:
 
@@ -87,7 +87,7 @@ Cuando se ejecuta la aplicación de ejemplo, el dispositivo de DevKit envía tel
 
 ### <a name="control-the-devkit-device"></a>Control del dispositivo DevKit
 
-El acelerador de soluciones de supervisión remota le permite controlar el dispositivo de manera remota. El código de ejemplo implementa tres métodos que se pueden ver en el **método** sección cuando se selecciona el dispositivo en el **Device Explorer** página:
+El acelerador de soluciones de supervisión remota le permite controlar el dispositivo de manera remota. El código de ejemplo implementa tres métodos que puede ver en la sección **Método** cuando se selecciona el dispositivo en la página **Explorador de dispositivos**:
 
 ![Métodos de IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -115,7 +115,7 @@ Si va a pasar a los tutoriales, deje el acelerador de soluciones de supervisión
 
 Si ya no necesita el acelerador de soluciones, elimínelo de la página Soluciones aprovisionadas. Para ello, selecciónelo y, a continuación, haga clic en Eliminar solución:
 
-![Eliminar solución](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Eliminación de la solución](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 ## <a name="problems-and-feedback"></a>Problemas y comentarios
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
 ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506421"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
@@ -50,7 +50,7 @@ Si está desarrollando un proyecto y tiene que compartir código fuente de forma
     ![Agregar secreto de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Antes de V15.6 de Visual Studio 2017, hemos usado se recomienda instalar la extensión de autenticación de servicios de Azure para Visual Studio. Pero está en desuso ahora como el en.NET está integrado en Visual Studio. Por lo tanto, si se encuentra en una versión anterior de visual Studio 2017, sugerimos que actualice al menos a VS 2017 15.6 o hacia arriba para que pueda usar esta funcionalidad de forma nativa y tener acceso al almacén de claves del uso de la identidad de inicio de sesión de Visual Studio se.
+    > Antes de Visual Studio 2017 V15.6, se solía recomendar instalar la extensión de autenticación de servicios de Azure para Visual Studio, aunque ya está en desuso porque la funcionalidad se ha integrado en Visual Studio. Por lo tanto, si tiene una versión anterior de Visual Studio 2017, se recomienda actualizar al menos a VS 2017 15.6 o posterior para poder usar esta funcionalidad de forma nativa y acceder a Key Vault desde la propia identidad de inicio de sesión de Visual Studio.
     >
  
 4. Agregue los siguientes paquetes de NuGet al proyecto:

@@ -1,5 +1,5 @@
 ---
-title: Implementar una máquina virtual de Azure desde un disco duro virtual de usuario | Azure Marketplace
+title: Implementación de una VM de Azure desde un disco duro virtual de usuario | Azure Marketplace
 description: Explica cómo implementar una imagen de disco duro virtual de usuario para crear una instancia de máquina virtual de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
 ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938237"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario
@@ -31,7 +31,7 @@ Copie la plantilla de Azure Resource Manager para la [implementación de VHD](cp
 | userStorageAccountName     | Nombre de la cuenta de almacenamiento                                                    |
 | sNameForPublicIP           | Nombre DNS para la dirección IP pública. Debe estar en minúscula                                  |
 | subscriptionId             | Identificador de la suscripción de Azure                                                  |
-| Location                   | Ubicación geográfica Azure estándar del grupo de recursos                       |
+| Ubicación                   | Ubicación geográfica Azure estándar del grupo de recursos                       |
 | vmName                     | Nombre de la máquina virtual                                                    |
 | vaultName                  | Nombre del almacén de claves.                                                          |
 | vaultResourceGroup         | Grupo de recursos del almacén de claves.

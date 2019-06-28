@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606743"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
@@ -51,10 +51,10 @@ A diferencia de la mayoría de las demás soluciones de Log Analytics, los agent
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | No | La solución no recopila información de los agentes de Windows. |
-| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La solución no recopila información de los agentes de Linux. |
-| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | No | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
-| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | No | La solución no recopila información de Azure Storage. |
+| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sin | La solución no recopila información de los agentes de Windows. |
+| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin | La solución no recopila información de los agentes de Linux. |
+| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sin | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
+| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin | La solución no recopila información de Azure Storage. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -142,7 +142,7 @@ Los componentes de perspectiva se actualizan según la consulta de búsqueda. Es
 
 Las hojas de Application Insights Connector se han diseñado para permitirle cambiar a la aplicación seleccionada de Application Insights *cuando usa Azure Portal*. Puede usar la solución como una plataforma de supervisión de alto nivel que le ayuda a solucionar los problemas de una aplicación. Cuando vea un posible problema en cualquiera de las aplicaciones conectadas, puede profundizar en él en la búsqueda de Log Analytics o puede cambiar directamente a la aplicación de Application Insights.
 
-Para hacer lo último, haga clic en los tres puntos suspensivos (**…**) que aparecen al final de cada línea y seleccione **Abrir en Application Insights**.
+Para hacer lo último, haga clic en los tres puntos suspensivos ( **…** ) que aparecen al final de cada línea y seleccione **Abrir en Application Insights**.
 
 >[!NOTE]
 >**Abrir en Application Insights** no está disponible en Azure Portal.
@@ -169,7 +169,7 @@ La solución recibe los siguientes tipos de telemetría de datos desde las aplic
 
 - Disponibilidad
 - Excepciones
-- Solicitudes
+- Requests
 - Vistas de página: para que el área de trabajo reciba vistas de página, se deben configurar las aplicaciones para que recopilen esa información. Para más información, consulte [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
 - Eventos personalizados: para que el área de trabajo reciba eventos personalizados, se deben configurar las aplicaciones para que recopilen esa información. Para más información, consulte [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -181,7 +181,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="generic-fields"></a>Campos genéricos
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Type | ApplicationInsights |
 | ClientIP |   |
@@ -193,8 +193,8 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 | ScreenResolution |   |
 | Continent | El continente donde se originó la solicitud |
 | País | País o región donde se originó la solicitud |
-| Provincia | La provincia, el estado o la localidad donde se originó la solicitud |
-| Ciudad | La ciudad o el pueblo donde se originó la solicitud |
+| Province | La provincia, el estado o la localidad donde se originó la solicitud |
+| City | La ciudad o el pueblo donde se originó la solicitud |
 | isSynthetic | Indica si la solicitud la creó un usuario o un método automatizado. True = generada por el usuario o false = método automatizado |
 | SamplingRate | Porcentaje de telemetría generado por el SDK que se envía al portal. Intervalo 0,0 a 100,0. |
 | SampledCount | 100/(SamplingRate). Por ejemplo, 4 =&gt; 25 % |
@@ -249,16 +249,16 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="request-specific-fields"></a>Campos específicos de solicitud
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Type | ApplicationInsights |
-| TelemetryType | Solicitar |
+| TelemetryType | Solicitud |
 | ResponseCode | Respuesta HTTP enviada al cliente |
 | RequestSuccess | Indica una solicitud correcta o errónea. True o false. |
 | RequestID | Identificador para identificar de forma única la solicitud |
 | RequestName | GET/POST + dirección URL base |
 | RequestDuration | Tiempo, en segundos, de la duración de la solicitud |
-| Dirección URL | Dirección URL de la solicitud, sin incluir el host |
+| URL | Dirección URL de la solicitud, sin incluir el host |
 | Host | Host del servidor web |
 | URLBase | Dirección URL completa de la solicitud |
 | ApplicationProtocol | Tipo de protocolo que la aplicación usa |

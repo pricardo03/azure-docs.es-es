@@ -5,13 +5,13 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072645"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)
@@ -34,12 +34,12 @@ Las aplicaciones a menudo requieren diferentes tipos y velocidades de almacenami
 
 En la tabla siguiente se describen los tipos de almacenamiento disponibles y sus capacidades:
 
-| Caso de uso | Complemento de volumen | Lectura/escritura una vez | Solo lectura varias veces | Lectura/escritura varias veces |
-|----------|---------------|-----------------|----------------|-----------------|
-| Configuración compartida       | Archivos de Azure   | Sí | Sí | Sí |
-| Datos de la aplicación estructurados        | Azure Disks   | Sí | No  | Sin   |
-| Datos de la aplicación, recursos compartidos de solo lectura | [Dysk (versión preliminar)][dysk] | Sí | Sí | Sin   |
-| Datos no estructurados, operaciones del sistema de archivos | [BlobFuse (versión preliminar)][blobfuse] | Sí | Sí | Sí |
+| Caso de uso | Complemento de volumen | Lectura/escritura una vez | Solo lectura varias veces | Lectura/escritura varias veces | Compatibilidad con contenedores de Windows Server |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| Configuración compartida       | Archivos de Azure   | Sí | Sí | Sí | Sí |
+| Datos de la aplicación estructurados        | Azure Disks   | Sí | No  | No  | Sí |
+| Datos de la aplicación, recursos compartidos de solo lectura | [Dysk (versión preliminar)][dysk] | Sí | Sí | No  | Sin |
+| Datos no estructurados, operaciones del sistema de archivos | [BlobFuse (versión preliminar)][blobfuse] | Sí | Sí | Sí | Sin |
 
 Los dos tipos principales de almacenamiento proporcionados para volúmenes en AKS están respaldados por Azure Disks o Azure Files. Para mejorar la seguridad, ambos tipos de almacenamiento usan Azure Storage Service Encryption (SSE) de manera predeterminada para cifrar los datos en reposo. Actualmente no se pueden cifrar los discos con Azure Disk Encryption en el nivel de nodo de AKS.
 
@@ -64,8 +64,8 @@ Si las aplicaciones requieren la tecnología Azure Disks como su solución de al
 
 | Tamaño y tipo de nodo | vCPU | Memoria (GiB) | Discos de datos máx. | IOPS de disco máximo sin almacenamiento en caché | Rendimiento máximo sin almacenamiento en caché (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
-| Standard_B2ms      | 2    | 8            | 4              | 1.920                  | 22.5                           |
-| Standard_DS2_v2    | 2    | 7            | 8              | 6.400                  | 96                             |
+| Standard_B2ms      | 2    | 8            | 4              | 1\.920                  | 22.5                           |
+| Standard_DS2_v2    | 2    | 7            | 8              | 6\.400                  | 96                             |
 
 En este caso, *Standard_DS2_v2* permite duplicar el número de discos conectados y proporciona entre tres o cuatro veces la cantidad de IOPS y de rendimiento de disco. Si solo examinó los recursos de proceso principales y comparó los costos, es posible que elija el tamaño de VM *Standard_B2ms* y sufra limitaciones y un bajo rendimiento de almacenamiento. Trabaje con su equipo de desarrollo de aplicaciones para comprender sus necesidades de rendimiento y de capacidad de almacenamiento. Elija el tamaño de VM adecuado para los nodos de AKS para cumplir o superar las necesidades de rendimiento. Establezca regularmente las aplicaciones para ajustar el tamaño de VM según sea necesario.
 
@@ -91,9 +91,9 @@ Para más información sobre las opciones de clase de almacenamiento, consulte l
 
 ## <a name="secure-and-back-up-your-data"></a>Proteja y realice una copia de seguridad de los datos
 
-**Mejor orientación práctica** : copia de seguridad de los datos mediante una herramienta apropiada para el tipo de almacenamiento, como Velero o Azure Site Recovery. Compruebe la integridad y seguridad de las copias de seguridad.
+**Orientación con procedimientos recomendados**: realice una copia de seguridad de los datos con una herramienta apropiada para su tipo de almacenamiento, como Velero o Azure Site Recovery. Compruebe la integridad y seguridad de las copias de seguridad.
 
-Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Velero] [ velero] puede hacer copias de seguridad persistente junto con los recursos de clúster adicional y configuraciones. Si no puede [eliminar el estado de sus aplicaciones][remove-state], realice una copia de seguridad de los datos de los volúmenes persistentes y pruebe regularmente las operaciones de restauración para verificar la integridad de los datos y los procesos necesarios.
+Cuando las aplicaciones almacenan y consumen datos que persisten en los discos o en los archivos, es necesario realizar copias de seguridad o instantáneas periódicamente de esos datos. La tecnología Azure Disks puede usar la tecnología integrada de instantánea. Es posible que necesite un enlace para que las aplicaciones vacíen las escrituras en el disco antes de realizar la operación de instantánea. [Velero][velero] puede realizar copias de seguridad de volúmenes persistentes junto con recursos y configuraciones de clústeres adicionales. Si no puede [eliminar el estado de sus aplicaciones][remove-state], realice una copia de seguridad de los datos de los volúmenes persistentes y pruebe regularmente las operaciones de restauración para verificar la integridad de los datos y los procesos necesarios.
 
 Comprenda las limitaciones de los diferentes enfoques de las copias de seguridad de datos y si necesita dejar sus datos en reposo antes de la instantánea. Las copias de seguridad de datos no necesariamente le permiten restaurar el entorno de la aplicación de la implementación del clúster. Para obtener más información acerca de estos escenarios, vea [Best practices for business continuity and disaster recovery in AKS][best-practices-multi-region] (Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en AKS).
 

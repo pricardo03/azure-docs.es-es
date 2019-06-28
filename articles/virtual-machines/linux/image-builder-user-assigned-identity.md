@@ -1,6 +1,6 @@
 ---
-title: Crear una imagen de máquina Virtual y usar una identidad administrada asignada por el usuario para obtener acceso a archivos en Azure Storage (versión preliminar)
-description: Crear imagen de máquina virtual mediante el generador de imágenes de Azure, que puede tener acceso a archivos almacenados en Azure Storage con la identidad administrada asignada por el usuario.
+title: Creación de una imagen de máquina virtual y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage (versión preliminar)
+description: Cree una imagen de máquina virtual mediante el generador de imágenes de Azure que pueda acceder a archivos almacenados en Azure Storage con la identidad administrada asignada por el usuario.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
@@ -8,27 +8,27 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65511054"
 ---
-# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Crear una imagen y usar una identidad administrada asignada por el usuario acceso a los archivos en el almacenamiento de Azure 
+# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Creación de una imagen y usar una identidad administrada asignada por el usuario para acceder a archivos en Azure Storage 
 
-Azure admite el generador de imágenes mediante secuencias de comandos, o copiar archivos desde varias ubicaciones, como GitHub y Azure storage etcetera. Para utilizar estos métodos, debe haber estado externamente puede tener acceso al generador de imágenes de Azure, pero puede proteger mediante Tokens de SAS de Azure Storage BLOB.
+El generador de imágenes de Azure admite el uso de scripts o la copia de archivos desde varias ubicaciones, como GitHub, Azure Storage, etc. Para utilizarlos, el generador de imágenes de Azure debe haber podido acceder externamente a ellos, pero puede proteger los blobs de Azure Storage mediante tokens de SAS.
 
-En este artículo se muestra cómo crear una imagen personalizada mediante el almacén de imágenes de máquina virtual de Azure que usará el servicio de un [identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para tener acceso a los archivos de almacenamiento de Azure de la personalización de la imagen, sin tener que volver a realizar los archivos accesibles públicamente o configuración de tokens de SAS.
+En este artículo se muestra cómo crear una imagen personalizada mediante el generador de imágenes de máquina virtual de Azure, en que el servicio usará una [identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para acceder a los archivos de Azure Storage para personalizar la imagen, sin tener que dar acceso público a los archivos ni configurar tokens de SAS.
 
-En el ejemplo siguiente, creará dos grupos de recursos, se utilizará para la imagen personalizada de uno y otro va a hospedar una cuenta de almacenamiento de Azure, que contiene un archivo de script. Esto simula un escenario real, donde puede tener los artefactos de compilación o archivos de imagen en diferentes cuentas de almacenamiento, fuera de Image Builder. Se creará una identidad asignada por el usuario, a continuación, conceda a ese permisos de lectura en el archivo de script, pero no establecerá cualquier acceso público a ese archivo. A continuación, usará el personalizador del Shell para descargar y ejecutar ese script desde la cuenta de almacenamiento.
+En el ejemplo siguiente, creará dos grupos de recursos: uno se utilizará para la imagen personalizada y el otro hospedará una cuenta de Azure Storage, que contiene un archivo de script. Esto simula un escenario real, en que puede tener los artefactos de compilación o los archivos de imagen en diferentes cuentas de almacenamiento, al margen del generador de imágenes. Creará una identidad asignada por el usuario y, a continuación, concederá permisos de lectura en el archivo de script, pero no establecerá ningún acceso público a ese archivo. Después, usará el personalizador de shell para descargar y ejecutar ese script desde la cuenta de almacenamiento.
 
 
 > [!IMPORTANT]
-> Generador de imágenes de Azure está actualmente en versión preliminar pública.
+> Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register-the-features"></a>Registrar las características
-Para usar el generador de imágenes de Azure durante la versión preliminar, deberá registrar la nueva característica.
+## <a name="register-the-features"></a>Registro de las características
+Para usar el generador de imágenes de Azure durante la versión preliminar, tendrá que registrar la nueva característica.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -48,7 +48,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Si no dicen registrado, ejecute lo siguiente:
+Si no se muestran como registradas, ejecute lo siguiente:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -59,7 +59,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Usaremos algunas partes de información varias veces, por lo que vamos a crear algunas variables para almacenar esa información.
+Usaremos algunos datos de forma repetida, por lo que crearemos diversas variables para almacenar esa información.
 
 
 ```azurecli-interactive
@@ -75,13 +75,13 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Cree una variable para el identificador de suscripción. Puede obtener esta mediante `az account show | grep id`.
+Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
 ```
 
-Cree los grupos de recursos para la imagen y el almacenamiento de la secuencia de comandos.
+Cree los grupos de recursos para la imagen y el almacenamiento del script.
 
 ```azurecli-interactive
 # create resource group for image template
@@ -91,7 +91,7 @@ az group create -n $strResourceGroup -l $location
 ```
 
 
-Crear el almacenamiento y copie el script de ejemplo de GitHub.
+Cree el almacenamiento y copie ahí el script de ejemplo de GitHub.
 
 ```azurecli-interactive
 # script storage account
@@ -118,7 +118,7 @@ az storage blob copy start \
 
 
 
-Conceder permiso de Image Builder para crear recursos en el grupo de recursos de imagen. El `--assignee` valor es el identificador de registro de aplicación para el servicio de generador de imágenes. 
+Conceda al generador de imágenes permiso para crear recursos en el grupo de recursos de imagen. El valor `--assignee` es el identificador de registro de aplicación para el servicio del generador de imágenes. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -128,9 +128,9 @@ az role assignment create \
 ```
 
 
-## <a name="create-user-assigned-managed-identity"></a>Crear la identidad administrada asignada por el usuario
+## <a name="create-user-assigned-managed-identity"></a>Creación de una identidad administrada asignada por el usuario
 
-Crear la identidad y asignar permisos para la cuenta de almacenamiento de la secuencia de comandos. Para obtener más información, consulte [asignada por el usuario administra identidades](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Cree la identidad y asigne permisos para la cuenta de almacenamiento del script. Para obtener más información, consulte [Identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 
@@ -147,9 +147,9 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 ```
 
 
-## <a name="modify-the-example"></a>Modifique el ejemplo
+## <a name="modify-the-example"></a>Modificación del ejemplo
 
-Descargue el archivo .json de ejemplo y configúrelo con las variables que creó.
+Descargue el archivo .json de ejemplo y configúrelo con las variables que ha creado.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
@@ -164,7 +164,7 @@ sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 
 ## <a name="create-the-image"></a>Crear la imagen
 
-Enviar la configuración de la imagen para el servicio de generador de imágenes de Azure.
+Envíe la configuración de la imagen al servicio del generador de imágenes de Azure.
 
 ```azurecli-interactive
 az resource create \
@@ -175,7 +175,7 @@ az resource create \
     -n helloImageTemplateMsi01
 ```
 
-Iniciar la generación de imagen.
+Inicie la generación de imágenes.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -185,11 +185,11 @@ az resource invoke-action \
      --action Run 
 ```
 
-Espere a que finalice la compilación. Esto puede tardar unos 15 minutos.
+Espere a que la compilación finalice. Puede tardar unos 15 minutos.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Crear una máquina virtual desde la imagen. 
+Cree una máquina virtual a partir de la imagen. 
 
 ```bash
 az vm create \
@@ -207,7 +207,7 @@ Una vez creada la máquina virtual, inicie una sesión de SSH con la máquina vi
 ssh aibuser@<publicIp>
 ```
 
-Debería ver que la imagen se ha personalizado con un mensaje del día en cuanto se establece la conexión SSH.
+Verá que la imagen se ha personalizado con un mensaje del día en cuanto se ha establecido la conexión SSH.
 
 ```console
 
@@ -234,4 +234,4 @@ az group delete -n $strResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene algún problema para trabajar con el generador de imágenes de Azure, consulte [Troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).
+Si tiene algún problema para trabajar con el generador de imágenes de Azure, consulte [Solucionar problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).

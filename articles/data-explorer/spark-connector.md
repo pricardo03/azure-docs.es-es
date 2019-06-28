@@ -1,6 +1,6 @@
 ---
-title: Usar el conector de explorador de datos de Azure para Apache Spark para mover datos entre clústeres de Spark y de explorador de datos de Azure.
-description: Este tema muestra cómo mover datos entre clústeres de Apache Spark y de explorador de datos de Azure.
+title: Use el conector de Azure Data Explorer para Apache Spark para mover datos entre clústeres de Azure Data Explorer y Spark.
+description: En este tema se muestra cómo mover datos entre clústeres de Azure Data Explorer y Apache Spark.
 author: orspod
 ms.author: orspodek
 ms.reviewer: michazag
@@ -8,50 +8,50 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441355"
 ---
-# <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Conector de datos de Azure Explorer para Apache Spark (versión preliminar)
+# <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Conector de Azure Data Explorer para Apache Spark (versión preliminar)
 
-[Apache Spark](https://spark.apache.org/) es un motor de análisis unificada para el procesamiento de datos a gran escala. El Explorador de datos de Azure es un servicio de análisis de datos rápido, totalmente administrado para análisis en tiempo real en grandes volúmenes de datos. 
+[Apache Spark](https://spark.apache.org/) es un motor de análisis unificado para el procesamiento de datos a gran escala. Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado que permite analizar grandes volúmenes de datos en tiempo real. 
 
-Conector del explorador de datos de Azure para Spark implementa el origen de datos y el receptor de datos para mover los datos en el Explorador de datos de Azure y Spark clústeres a usar ambos de sus capacidades. Con Azure Data Explorer y Apache Spark, se pueden crear aplicaciones rápidas y escalables orientadas a escenarios controlados por datos, tales como el aprendizaje automático, la extracción, transformación y carga de datos (ETL), y Log Analytics. Escribir en el Explorador de datos de Azure puede realizarse en modo de transmisión por secuencias y por lotes.
-Lectura desde el Explorador de datos de Azure admite la eliminación de columnas y la aplicación del predicado, lo que reduce el volumen de datos transferidos mediante el filtrado de datos en el Explorador de datos de Azure.
+El conector de Azure Data Explorer para Spark implementa el origen y el receptor de datos para mover datos entre clústeres de Azure Data Explorer y Spark y utilizar sus capacidades. Con Azure Data Explorer y Apache Spark, se pueden crear aplicaciones rápidas y escalables orientadas a escenarios controlados por datos, tales como el aprendizaje automático, la extracción, transformación y carga de datos (ETL), y Log Analytics. La escritura en Azure Data Explorer puede realizarse en modo de transmisión por secuencias y por lotes.
+La lectura desde Azure Data Explorer admite la eliminación de columnas y la aplicación del predicado, lo que reduce el volumen de datos transferidos mediante el filtrado de datos en Azure Data Explorer.
 
-Conector de Spark del explorador de datos de Azure es un [proyecto de código abierto](https://github.com/Azure/azure-kusto-spark) que se pueden ejecutar en cualquier clúster de Spark.
+El conector de Spark de Azure Data Explorer es un [proyecto de código abierto](https://github.com/Azure/azure-kusto-spark) que se puede ejecutar en cualquier clúster de Spark.
 
 > [!NOTE]
-> Aunque algunos de los ejemplos siguientes se refieren a una [Azure Databricks](https://docs.azuredatabricks.net/) clúster de Spark, conector de Spark de explorador de datos de Azure no tiene dependencias directas en Databricks o cualquier otra distribución de Spark.
+> Aunque algunos de los ejemplos siguientes se refieren a un clúster de Spark de [Azure Databricks](https://docs.azuredatabricks.net/), el conector de Spark de Azure Data Explorer no tiene dependencias directas en Databricks ni en ninguna otra distribución de Spark.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Creación de un clúster y de la base de datos de Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) 
 * Creación de un clúster de Spark
-* Instalar biblioteca de conectores del explorador de datos de Azure y las bibliotecas que aparecen en [dependencias](https://github.com/Azure/azure-kusto-spark#dependencies) incluidos los siguientes [SDK de Java de Kusto](/azure/kusto/api/java/kusto-java-client-library) bibliotecas:
-    * [Kusto Data Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
-    * [Kusto Ingest Client](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
-* Bibliotecas para incorporadas [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases)
+* Instale la biblioteca de conectores de Azure Data Explorer y las bibliotecas que aparecen en las [dependencias](https://github.com/Azure/azure-kusto-spark#dependencies), incluidas las siguientes bibliotecas de [SDK de Kusto Java](/azure/kusto/api/java/kusto-java-client-library):
+    * [Cliente de datos de Kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
+    * [Cliente de ingesta de Kusto](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
+* Bibliotecas pregeneradas para [Spark 2.4, Scala 2.11](https://github.com/Azure/azure-kusto-spark/releases)
 
 ## <a name="how-to-build-the-spark-connector"></a>Cómo crear el conector de Spark
 
-Conector de Spark se pueden compilar desde [orígenes](https://github.com/Azure/azure-kusto-spark) tal como se detalla a continuación.
+El conector de Spark se puede crear desde [orígenes](https://github.com/Azure/azure-kusto-spark), tal como se detalla a continuación.
 
 > [!NOTE]
-> Este paso es opcional. Si estás usando bibliotecas pregeneradas vaya a [el programa de instalación de clúster de Spark](#spark-cluster-setup).
+> Este paso es opcional. Si utiliza bibliotecas pregeneradas, vaya a [Instalación de clúster de Spark](#spark-cluster-setup).
 
 ### <a name="build-prerequisites"></a>Requisitos previos de compilación
 
 * SDK de Java 1.8 instalado
 * [Maven 3.x](https://maven.apache.org/download.cgi) instalado
-* Versión de Apache Spark 2.4.0 o superior
+* Apache Spark versión 2.4.0 o posterior
 
 > [!TIP]
-> las versiones 2.3. x también se admiten, pero pueden requerir algunos cambios en pom.xml dependencias.
+> Las versiones 2.3.x también se admiten, pero pueden requerir algunos cambios en las dependencias pom.xml.
 
-Para aplicaciones de Java/Scala con las definiciones del proyecto de Maven, vincule la aplicación con el siguiente artefacto (última versión puede variar):
+Para las aplicaciones Scala y Java que utilizan definiciones de proyecto Maven, vincule la aplicación con el siguiente artefacto (la última versión puede ser diferente):
 
 ```Maven
    <dependency>
@@ -75,58 +75,58 @@ Para compilar el archivo jar, ejecute todas las pruebas e instale jar en el repo
 mvn clean install
 ```
 
-Para obtener más información, consulte [uso del conector](https://github.com/Azure/azure-kusto-spark#usage).
+Para obtener más información, consulte [Uso de conectores](https://github.com/Azure/azure-kusto-spark#usage).
 
-## <a name="spark-cluster-setup"></a>Instalación de clúster de Spark
+## <a name="spark-cluster-setup"></a>Instalación del clúster de Spark
 
 > [!NOTE]
-> Se recomienda usar la última versión del conector de Spark de explorador de datos de Azure al realizar los pasos siguientes:
+> Se recomienda usar la última versión del conector de Spark de Azure Data Explorer al realizar los pasos siguientes:
 
-1. Establecer configuración de clúster, en función de clúster de Azure Databricks mediante Spark 2.4 y Scala 2.11 de Spark siguiente: 
+1. Establezca la siguiente configuración del clúster de Spark, en función del clúster de Azure Databricks mediante Spark 2.4 y Scala 2.11: 
 
-    ![Configuración de clúster de Databricks](media/spark-connector/databricks-cluster.png)
+    ![Configuración del clúster de Databricks](media/spark-connector/databricks-cluster.png)
 
-1. Importación de la biblioteca del conector de explorador de datos de Azure:
+1. Importe la biblioteca de conectores de Azure Data Explorer:
 
-    ![Biblioteca de importación Explorador de datos de Azure](media/spark-connector/db-create-library.png)
+    ![Importación de la biblioteca de Azure Data Explorer](media/spark-connector/db-create-library.png)
 
-1. Agregar dependencias adicionales:
+1. Agregue dependencias adicionales:
 
     ![Adición de dependencias](media/spark-connector/db-dependencies.png)
 
     > [!TIP]
-    > Se encuentra la versión correcta de java para cada versión de Spark [aquí](https://github.com/Azure/azure-kusto-spark#dependencies).
+    > La versión correcta de java para cada versión de Spark se encuentra [aquí](https://github.com/Azure/azure-kusto-spark#dependencies).
 
-1. Compruebe que todos los necesarios se instalan las bibliotecas:
+1. Compruebe que están instaladas todas las bibliotecas necesarias:
 
-    ![Comprobar las bibliotecas instaladas](media/spark-connector/db-libraries-view.png)
+    ![Comprobación de las bibliotecas instaladas](media/spark-connector/db-libraries-view.png)
 
 ## <a name="authentication"></a>Authentication
 
-Conector de Spark del explorador de datos de Azure le permite autenticarse con Azure Active Directory (Azure AD) mediante un [aplicación de Azure AD](#azure-ad-application-authentication), [token de acceso de Azure AD](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [autenticación de dispositivos ](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (para escenarios que no sea de producción), o [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). El usuario debe instalar el paquete azure-keyvault y proporcionar credenciales de la aplicación para tener acceso al recurso de Key Vault.
+El conector de Spark de Azure Data Explorer le permite autenticarse con Azure Active Directory (Azure AD) mediante una [aplicación de Azure AD](#azure-ad-application-authentication), un [token de acceso de Azure AD](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), una [autenticación de dispositivos ](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (para escenarios que no sean de producción) o [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). El usuario debe instalar el paquete azure-keyvault y proporcionar credenciales de la aplicación para tener acceso al recurso de Key Vault.
 
-### <a name="azure-ad-application-authentication"></a>Autenticación de aplicación de Azure AD
+### <a name="azure-ad-application-authentication"></a>Autenticación de la aplicación de Azure AD
 
-Método de autenticación sencillo y común mayoría. Se recomienda este método para el uso del conector de Spark de explorador de datos de Azure.
+El método de autenticación más sencillo y habitual. Se recomienda este método para usar el conector de Spark de Azure Data Explorer.
 
 |Properties (Propiedades)  |DESCRIPCIÓN  |
 |---------|---------|
-|**KUSTO_AAD_CLIENT_ID**     |   Identificador de aplicación (cliente) de Azure AD.      |
-|**KUSTO_AAD_AUTHORITY_ID**     |  Autoridad de autenticación de Azure AD. Identificador de directorio de AD (inquilino de) Azure.        |
+|**KUSTO_AAD_CLIENT_ID**     |   Identificador de la aplicación de Azure AD (cliente).      |
+|**KUSTO_AAD_AUTHORITY_ID**     |  Autoridad de autenticación de Azure AD. Identificador de Azure AD Directory (inquilino).        |
 |**KUSTO_AAD_CLIENT_PASSWORD**    |    Clave de aplicación de Azure AD para el cliente.     |
 
-### <a name="azure-data-explorer-privileges"></a>Privilegios de explorador de datos de Azure
+### <a name="azure-data-explorer-privileges"></a>Privilegios de Azure Data Explorer
 
-Deben tener los privilegios siguientes en un clúster de explorador de datos de Azure:
+Un clúster de Azure Data Explorer debe tener los privilegios siguientes:
 
-* Para leer (origen de datos), debe tener la aplicación de Azure AD *Visor* privilegios en la base de datos de destino, o *admin* privilegios en la tabla de destino.
-* Para escribir (receptor de datos), debe tener la aplicación de Azure AD *introductor* privilegios en la base de datos de destino. También debe tener *usuario* privilegios en la base de datos de destino para crear nuevas tablas. Si la tabla de destino ya existe, *admin* privilegios en la tabla de destino se pueden configurar.
+* Para lectura (origen de datos), la aplicación de Azure AD debe tener privilegios de *visor* en la base de datos de destino o de *administrador* en la tabla de destino.
+* Para escritura (receptor de datos), la aplicación de Azure AD debe tener privilegios de *agente de ingesta* en la base de datos de destino. También debe tener privilegios de *usuario* en la base de datos de destino para crear nuevas tablas. Si la tabla de destino ya existe, se pueden configurar privilegios de *administrador* en la tabla de destino.
  
-Para obtener más información sobre los roles principales del explorador de datos de Azure, consulte [autorización basada en roles](/azure/kusto/management/access-control/role-based-authorization). Para administrar roles de seguridad, consulte [administración de roles de seguridad](/azure/kusto/management/security-roles).
+Para obtener más información sobre los roles principales de Azure Data Explorer, consulte [Autorización basada en roles](/azure/kusto/management/access-control/role-based-authorization). Para administrar los roles de seguridad, consulte [Administración de los roles de seguridad](/azure/kusto/management/security-roles).
 
-## <a name="spark-sink-writing-to-azure-data-explorer"></a>Receptor de Spark: Escribir en el Explorador de datos de Azure
+## <a name="spark-sink-writing-to-azure-data-explorer"></a>Receptor de Spark: Escritura en Azure Data Explorer
 
-1. Configurar los parámetros de receptor:
+1. Configuración de los parámetros del receptor:
 
      ```scala
     val KustoSparkTestAppId = dbutils.secrets.get(scope = "KustoDemos", key = "KustoSparkTestAppId")
@@ -140,7 +140,7 @@ Para obtener más información sobre los roles principales del explorador de dat
     val table = "StringAndIntTable"
     ```
 
-1. Escribir DataFrame de Spark en clústeres del explorador de datos de Azure como lote:
+1. Escriba DataFrame de Spark en clústeres de Azure Data Explorer como lote:
 
     ```scala
     df.write
@@ -154,7 +154,7 @@ Para obtener más información sobre los roles principales del explorador de dat
       .save()
     ```
 
-1. Escribir datos de streaming:
+1. Escriba datos de streaming:
 
     ```scala    
     import org.apache.spark.sql.streaming.Trigger
@@ -180,7 +180,7 @@ Para obtener más información sobre los roles principales del explorador de dat
     kustoQ.start().awaitTermination(TimeUnit.MINUTES.toMillis(8))
     ```
 
-## <a name="spark-source-reading-from-azure-data-explorer"></a>Código fuente de Spark: Lectura desde el Explorador de datos de Azure
+## <a name="spark-source-reading-from-azure-data-explorer"></a>Origen de Spark: Lectura desde Azure Data Explorer
 
 1. Al leer pequeñas cantidades de datos, defina la consulta de datos:
 
@@ -200,7 +200,7 @@ Para obtener más información sobre los roles principales del explorador de dat
     display(df)
     ```
 
-1. Cuando se leen grandes cantidades de datos, se debe proporcionar el almacenamiento de blobs transitorios. Proporcione la clave SAS del contenedor de almacenamiento, o nombre de la cuenta de almacenamiento, clave de cuenta y nombre del contenedor. Este paso solo es necesario para la versión preliminar actual del conector de Spark.
+1. Al leer grandes cantidades de datos, se debe proporcionar almacenamiento de blobs transitorio. Proporcione la clave SAS del contenedor de almacenamiento, o el nombre de la cuenta de almacenamiento, la clave de la cuenta y el nombre del contenedor. Este paso solo es necesario para la versión preliminar actual del conector de Spark.
 
     ```scala
     // Use either container/account-key/account name, or container SaS
@@ -210,9 +210,9 @@ Para obtener más información sobre los roles principales del explorador de dat
     // val storageSas = dbutils.secrets.get(scope = "KustoDemos", key = "blobStorageSasUrl")
     ```
 
-    En el ejemplo anterior, no se acceder a Key Vault mediante la interfaz del conector. Como alternativa, usamos un método más sencillo de usar los secretos de Databricks.
+    En el ejemplo anterior, no se accede a Key Vault mediante la interfaz del conector. Como alternativa, se utiliza un método más sencillo de usar los secretos de Databricks.
 
-1. Lea desde el Explorador de datos de Azure:
+1. Lectura desde Azure Data Explorer:
 
     ```scala
     val df2 = spark.read.kusto(cluster, database, "ReallyBigTable", conf3)

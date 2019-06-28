@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: barclayn
 ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467735"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
@@ -58,13 +58,13 @@ En este momento, Azure Dedicated HSM solo proporciona módulos HSM con autentica
 
 Microsoft solo ofrece el módulo SafeNet Luna Network HSM de Gemalto mediante el servicio Dedicated HSM y no puede hospedar ningún servicio proporcionado por el cliente.
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>P: ¿Realiza el pago de soporte técnico de HSM de Azure dedicado características (ANCLAR/ETF)?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>P: ¿Admite Azure Dedicated HSM características de pago (PIN o ETF)?
 
-El servicio Azure Dedicated HSM usa dispositivos SafeNet Luna Network HSM 7 (modelo A790). Estos dispositivos no admiten la funcionalidad específica de HSM de pago (por ejemplo, PIN o ETF) ni certificaciones. Si desea que el servicio HSM de Azure dedicada para admitir el pago HSM en el futuro, pase los comentarios a su representante de cuenta de Microsoft.
+El servicio Azure Dedicated HSM usa dispositivos SafeNet Luna Network HSM 7 (modelo A790). Estos dispositivos no admiten la funcionalidad específica de HSM de pago (por ejemplo, PIN o ETF) ni certificaciones. Si quiere que el servicio Azure Dedicated HSM admita módulos HSM de pago en el futuro, envíe sus comentarios a su representante de cuenta Microsoft.
 
-### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>P: ¿Qué regiones de Azure está disponible en la HSM dedicado?
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>P: ¿En qué regiones de Azure está disponible Dedicated HSM?
 
-A partir de finales de marzo de 2019, HSM dedicados está disponible en las 14 regiones que se enumeran a continuación. Más regiones se planean y se describen a través de su representante de cuenta de Microsoft.
+Desde finales de marzo de 2019, Dedicated HSM está disponible en las 14 regiones que se indican a continuación. Además, está prevista la inclusión de más regiones. Si le interesan otras, coménteselo a su representante de cuenta Microsoft.
 
 * Este de EE. UU
 * Este de EE. UU. 2
@@ -155,9 +155,9 @@ Sí. Cada dispositivo HSM está totalmente dedicado a un solo cliente y nadie m�
 
 Microsoft no tiene ningún control administrativo ni criptográfico sobre el módulo HSM. Microsoft tiene acceso de nivel de supervisión a través de la conexión de puerto serie para recuperar datos de telemetría básicos, como el mantenimiento de los componentes y la temperatura. Esto permite a Microsoft proporcionar una notificación proactiva de los problemas de mantenimiento. Si es necesario, el cliente puede deshabilitar esta cuenta.
 
-### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>P: ¿Qué es la cuenta "inquilino" Microsoft utiliza, estoy acostumbrado al usuario de administrador que se va a "admin" en los HSM de SafeNet?
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>P: ¿Qué es la cuenta "tenantadmin" que usa Microsoft? Estoy acostumbrado a que el usuario administrador sea "admin" en módulos HSM SafeNet.
 
-El dispositivo HSM se suministra con un usuario predeterminado del Administrador con su contraseña habitual. Microsoft no deseaba tener las contraseñas predeterminadas en uso mientras cualquier dispositivo está en un grupo que espera que se aprovisione por los clientes. Esto no cumpliría los requisitos de seguridad estrictos. Por este motivo, hemos establecido una contraseña segura que se descarta en el momento del aprovisionamiento. Además, en el momento del aprovisionamiento se cree un nuevo usuario en el rol de administrador denominado "inquilino". Este usuario tiene la contraseña predeterminada y los clientes cambiar esto como la primera acción cuando se inicia sesión en el dispositivo recién aprovisionado. Este proceso garantiza altos niveles de seguridad y mantiene nuestra promesa de control administrativo de forma exclusiva para nuestros clientes. Debe tenerse en cuenta que el usuario "inquilino" puede utilizarse para restablecer la contraseña de usuario de administrador si un cliente prefiere utilizar esa cuenta. 
+El dispositivo HSM se suministra con un usuario administrador predeterminado con su contraseña predeterminada habitual. Microsoft no quería tener contraseñas predeterminadas en uso mientras los dispositivos se encontraban en un grupo a la espera de que los aprovisionaran los clientes, ya que no se cumplirían los estrictos requisitos de seguridad. Por este motivo, hemos establecido una contraseña segura que se descarta en el momento del aprovisionamiento. Además, cuando se realiza el aprovisionamiento, se cree un usuario con un rol de administrador denominado "tenantadmin". Este usuario tiene la contraseña predeterminada, que los clientes deben cambiar como primera acción al iniciar sesión en el dispositivo recién aprovisionado. Este proceso garantiza altos niveles de seguridad y nos ayuda a mantener nuestra promesa de ofrecer un control administrativo exclusivo a los clientes. Tenga en cuenta que el usuario "tenantadmin" puede emplearse para restablecer la contraseña de usuario administrador si un cliente prefiere usar esa cuenta. 
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>P: ¿Puede Microsoft o alguien de Microsoft acceder a las claves del módulo Dedicated HSM?
 
@@ -187,7 +187,7 @@ Sí. Puede enviar registros desde el dispositivo HSM a un servidor syslog
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: ¿Es posible configurar la alta disponibilidad en la misma región o en varias regiones?
 
-Sí. La configuración de alta disponibilidad se realiza en el software cliente de HSM proporcionado por Gemalto. Los HSM de la misma red virtual o de otras redes virtuales en la misma región o regiones o en el entorno local a HSM conectados a una red virtual mediante sitio a sitio o VPN de punto a punto puede agregarse a la misma configuración de alta disponibilidad. Debe tenerse en cuenta que esto sincroniza solo material de clave y los elementos de configuración no específicos, como los roles.
+Sí. La configuración de alta disponibilidad se realiza en el software cliente de HSM proporcionado por Gemalto. Los módulos HSM de la misma red virtual o de otras redes virtuales en la misma región o entre regiones y los módulos HSM locales conectados a una red virtual mediante una VPN de sitio a sitio o de punto a punto se pueden agregar a la misma configuración de alta disponibilidad. Tenga en cuenta que esto sincroniza solo material clave y no elementos de configuración específicos como los roles.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>P: ¿Puedo agregar módulos HSM de la red local a un grupo de alta disponibilidad con Azure Dedicated HSM?
 
@@ -199,13 +199,13 @@ No.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>P: ¿Cuántos módulos HSM puedo agregar a la misma configuración de alta disponibilidad desde una sola aplicación?
 
-16 miembros de un grupo de alta disponibilidad tiene toda velocidad, realizado en las pruebas con excelentes resultados.
+Se ha sometido a prueba a 16 miembros de un grupo de alta disponibilidad a pleno rendimiento y se han obtenido excelentes resultados.
 
 ## <a name="support"></a>Soporte técnico
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>P: ¿Cuál es el Acuerdo de Nivel de Servicio de Dedicated HSM?
 
-No hay ninguna garantía de tiempo de actividad específico proporcionada para el servicio HSM dedicados. Microsoft garantizará el acceso de nivel de red al dispositivo y, por lo tanto, se aplican los SLA estándar de redes de Azure.
+No existe ninguna garantía de tiempo de actividad específico para el servicio Dedicated HSM. Microsoft garantizará el acceso de nivel de red al dispositivo y, por lo tanto, se aplican los SLA estándar de redes de Azure.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>P: ¿Cómo se protegen los módulos HSM utilizados en Azure Dedicated HSM?
 
@@ -221,11 +221,11 @@ Se recomienda usar un dispositivo HSM local de respaldo para realizar la copia d
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>P: ¿Cómo puedo obtener soporte técnico para Dedicated HSM?
 
-Se proporciona soporte técnico de Microsoft y Gemalto.  Si tiene un problema con el acceso de red o de hardware, se producirá una solicitud de soporte técnico con Microsoft y, si tiene un problema con la configuración de HSM, software y desarrollo de aplicaciones, presente una solicitud de soporte técnico con Gemalto. Si tiene un problema indeterminado, presente una solicitud de soporte técnico con Microsoft y, a continuación, puede exponerse a Gemalto como requerido. 
+Microsoft y Gemalto ofrecen soporte técnico.  Si tiene algún problema con el hardware o el acceso de red, presente una solicitud de soporte técnico a Microsoft. Si tiene algún problema con el desarrollo de aplicaciones, el software y la configuración de HSM, presente una solicitud de soporte técnico a Gemalto. Si tiene un problema indeterminado, presente una solicitud de soporte técnico a Microsoft. Si es necesario, se recurrirá a Gemalto. 
 
-### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>P: ¿Cómo se puede obtener el cliente de software, documentación y acceso a la Guía de integración para el HSM de SafeNet Luna 7?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>P: ¿Cómo se obtiene el software cliente, la documentación y el acceso a la guía de integración para SafeNet Luna 7 HSM?
 
-Después de registrarse para el servicio, un identificador de cliente de Gemalto será siempre que se permite para el registro en el portal de soporte técnico del cliente de Gemalto. Esto le permitirá el acceso a todos los software y documentación, así como habilitar solicitudes de soporte técnico directamente con Gemalto.
+Después de registrarse en el servicio, se le proporcionará un identificador de cliente de Gemalto que le permitirá registrarse en el portal de soporte técnico de cliente de Gemalto. De este modo, tendrá acceso a todo el software y la documentación y podrá realizar solicitudes de soporte técnico directamente a Gemalto.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>P: Si se encuentra una vulnerabilidad de seguridad y Gemalto publica una revisión, ¿quién es responsable de la actualización o revisión del sistema operativo o firmware?
 
@@ -233,7 +233,7 @@ Microsoft no puede conectarse a los módulos HSM asignados a los clientes. Los c
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P: ¿Qué ocurre si necesito reiniciar mi HSM?
 
-HSM tiene una opción de reinicio de la línea de comandos, sin embargo, se están experimentando problemas de falta de respuesta de reinicio de forma intermitente y por este motivo, se recomienda para el más seguro, reinicie que genera una solicitud de soporte técnico con Microsoft para que el dispositivo que se reinicia físicamente. 
+HSM tiene una opción de reinicio de la línea de comandos, pero se están experimentando problemas de falta de respuesta de forma intermitente. Por este motivo, para un reinicio seguro, se recomienda que presente una solicitud de soporte técnico a Microsoft para que el dispositivo se reinicie físicamente. 
 
 ## <a name="cryptography-and-standards"></a>Criptografía y estándares
 
@@ -289,11 +289,11 @@ Dedicated HSM aprovisiona dispositivos SafeNet Network HSM 7 (modelo A790). Este
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>P: ¿Cuántas particiones se pueden crear en Dedicated HSM?
 
-El modelo de 7 de HSM de SafeNet Luna que usa A790 incluye una licencia para 10 particiones en el costo del servicio. El dispositivo tiene un límite de 100 particiones y agregar particiones hasta alcanzar este límite podría incurrir en costos de licencia adicionales y requieren la instalación de un nuevo archivo de licencia en el dispositivo.
+El dispositivo SafeNet Luna HSM 7 modelo A790 usado incluye una licencia para 10 particiones en el coste del servicio. Tiene un límite de 100 particiones y, si se alcanza este número, es posible que se incurra en costes de licencia adicionales y que se requiera la instalación de un nuevo archivo de licencia en el dispositivo.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>P: ¿Cuántas claves se admiten en Dedicated HSM?
 
-El número máximo de claves es una función de la memoria disponible. El modelo de SafeNet Luna 7 A790 usa tiene 32MB de memoria. Los números siguientes también son aplicables a los pares de claves si utiliza claves asimétricas.
+El número máximo de claves es una función de la memoria disponible. El dispositivo SafeNet Luna 7 modelo A790 en uso tiene 32 MB de memoria. Las cifras siguientes también son aplicables a los pares de claves si se usan claves asimétricas.
 
 * RSA-2048: 19 000
 * ECC-P256: 91 000

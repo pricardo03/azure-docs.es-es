@@ -11,10 +11,10 @@ manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024312"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos en Azure Search
@@ -23,11 +23,11 @@ Los sinónimos de los motores de búsqueda asocian términos equivalentes que ex
 
 En Azure Search, la expansión de sinónimos se realiza en el momento de la consulta. Puede agregar asignaciones de sinónimos a un servicio sin que se interrumpan las operaciones existentes. Puede agregar una propiedad **synonymMaps** a una definición de campo sin tener que volver a crear un índice.
 
-## <a name="create-synonyms"></a>Crear sinónimos
+## <a name="create-synonyms"></a>Creación de sinónimos
 
-No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API de REST o SDK de .NET. Para empezar a trabajar con REST, se recomienda [mediante Postman](search-fiddler.md) y formulación de las solicitudes que usan esta API: [Crear asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para C# a los desarrolladores, puede empezar a trabajar con [agregar sinónimos en búsqueda de Azure utilizando C# ](search-synonyms-tutorial-sdk.md).
+No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-fiddler.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Agregar sinónimos en Azure Search mediante C# ](search-synonyms-tutorial-sdk.md).
 
-Opcionalmente, si utilizas [claves administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo de lado del servicio, puede aplicar dicha protección al contenido de la asignación de sinónimos.
+Opcionalmente, si usa [claves administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo del servicio, puede aplicar dicha protección al contenido de la asignación de sinónimos.
 
 ## <a name="use-synonyms"></a>Usar sinónimos
 
@@ -76,14 +76,14 @@ De forma alternativa, puede usar PUT y especificar el nombre de asignación del 
 
 ##### <a name="apache-solr-synonym-format"></a>Formato de sinónimos de Apache
 
-El formato Solr es compatible con asignaciones de sinónimos equivalentes y explícitos. Las reglas de asignación se adhieren a la especificación del filtro sinónimo de código abierto de Apache Solr descrita en este documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). A continuación se muestra una regla de ejemplo para los sinónimos equivalentes.
+El formato Solr es compatible con asignaciones de sinónimos equivalentes y explícitos. Las reglas de asignación se adhieren a la especificación del filtro de sinónimos de código abierto de Apache Solr descrita en este documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). A continuación se muestra una regla de ejemplo para los sinónimos equivalentes.
 ```
 USA, United States, United States of America
 ```
 
 Con la regla anterior, la consulta de búsqueda "EE. UU." se ampliará a "EE. UU." O "Estados Unidos" O "Estados Unidos de América".
 
-La asignación explícita se denota mediante una flecha "=>". Cuando se especifica una secuencia de términos de una consulta de búsqueda que coincide con la parte izquierda de "= >" se reemplazará con las alternativas en el lado derecho. Según la regla siguiente, las consultas de búsqueda "Washington", "Wash." o "WA" se reescribirán a "WA". La asignación explícita solo se aplica en la dirección especificada y no reescribe la consulta "WA" a "Washington" en este caso.
+La asignación explícita se denota mediante una flecha "=>". Cuando se especifica, una secuencia de términos de una consulta de búsqueda que coincide con el lateral izquierdo de "=>" se sustituirá por las alternativas de la derecha. Según la regla siguiente, las consultas de búsqueda "Washington", "Wash." o "WA" se reescribirán a "WA". La asignación explícita solo se aplica en la dirección especificada y no reescribe la consulta "WA" a "Washington" en este caso.
 ```
 Washington, Wash., WA => WA
 ```

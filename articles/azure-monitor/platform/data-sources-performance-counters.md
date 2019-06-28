@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205750"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
@@ -96,11 +96,11 @@ En la tabla siguiente se enumera los objetos y contadores que pueden especificar
 | Disco lógico | % de espacio libre |
 | Disco lógico | % de Inodes usados |
 | Disco lógico | % espacio usado |
-| Disco lógico | Bytes de lectura de disco/s  |
-| Disco lógico | Lecturas de disco/s  |
+| Disco lógico | Bytes de lectura de disco/s |
+| Disco lógico | Lecturas de disco/s |
 | Disco lógico | Transferencias de disco/s |
-| Disco lógico |   Bytes de escritura en disco/s |
-| Disco lógico |  Escrituras en disco/s |
+| Disco lógico |  Bytes de escritura en disco/s |
+| Disco lógico | Escrituras en disco/s |
 | Disco lógico | Megabytes libres |
 | Disco lógico | Bytes de disco lógico/s |
 | Memoria | % de memoria disponible |
@@ -189,13 +189,13 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Computer |Nombre del equipo desde el que se recopiló el evento. |
+| Equipo |Nombre del equipo desde el que se recopiló el evento. |
 | CounterName |Nombre del contador de rendimiento. |
 | CounterPath |Ruta de acceso completa del contador en el formato \\\\\<Equipo>\\objeto(instancia)\\contador. |
 | CounterValue |Valor numérico del contador. |
 | InstanceName |Nombre de la instancia del evento.  Vacío si no hay instancias. |
 | ObjectName |Nombre del objeto de rendimiento |
-| SourceSystem |Tipo de agente del que se recopilaron los datos. <br><br>OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br>  Linux: todos los agentes de Linux.  <br>  AzureStorage: Diagnósticos de Azure |
+| SourceSystem |Tipo de agente del que se recopilaron los datos. <br><br>OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br> Linux: todos los agentes de Linux.  <br> AzureStorage: Diagnósticos de Azure |
 | TimeGenerated |Fecha y hora en que se toma la muestra de datos. |
 
 ## <a name="sizing-estimates"></a>Estimaciones de tamaño
@@ -211,10 +211,10 @@ La tabla siguiente proporciona distintos ejemplos de consultas de registros que 
 | Perf |Todos los datos de rendimiento |
 | Perf &#124; where Computer == "MyComputer" |Todos los datos de rendimiento de un equipo concreto |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Todos los datos de rendimiento de un contador concreto |
-| Perf &#124; donde ObjectName == "Processor" and CounterName == "% Processor Time" e InstanceName == "_Total" &#124; resumir AVGCPU = AVG (countervalue) by Computer |Uso medio de CPU en todos los equipos |
-| Perf &#124; donde CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) por equipo |Uso máximo de CPU en todos los equipos |
-| Perf &#124; donde ObjectName == "LogicalDisk" and CounterName == "Longitud actual de cola de disco" y el equipo == "NombreDelEquipo" &#124; summarize AggregatedValue = AVG (countervalue) por nombreDeInstancia |Longitud media de cola de disco actual en todas las instancias de un equipo dado |
-| Perf &#124; donde CounterName == "Las transferencias de disco/s" &#124; summarize AggregatedValue = percentil (CounterValue, 95) por equipo |Percentil 95 de transferencias de disco por segundo en todos los equipos |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(CounterValue) by Computer |Uso medio de CPU en todos los equipos |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) by Computer |Uso máximo de CPU en todos los equipos |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName |Longitud media de cola de disco actual en todas las instancias de un equipo dado |
+| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |Percentil 95 de transferencias de disco por segundo en todos los equipos |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Promedio por hora de uso de CPU en todos los equipos |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Percentil 70 por hora de cada contador de porcentaje % para un equipo concreto |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Promedio, mínimo, máximo y percentil 75 por hora de uso de CPU de un equipo específico |

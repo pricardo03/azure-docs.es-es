@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 49b2bdd1780caa4ae04efbc979e2ea33e2c13c4c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510154"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147232"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 
@@ -171,7 +171,7 @@ Ejemplo de una respuesta de **crear contrato** enviada desde Blockchain Workbenc
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Submitted"
+    "status": "Submitted",
     "additionalInformation": { }
 }
 ```
@@ -201,7 +201,7 @@ Si la solicitud no se realizó correctamente, se incluyen detalles sobre el erro
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract cannot be provisioned on connection."
@@ -287,7 +287,7 @@ Ejemplo de una respuesta de **crear acción de contrato** confirmada desde Block
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Committed"
+    "status": "Committed",
     "additionalInformation": { }
 }
 ```
@@ -301,7 +301,7 @@ Si la solicitud no se realizó correctamente, se incluyen detalles sobre el erro
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract action cannot be provisioned on connection."
@@ -368,14 +368,14 @@ Los temas de Service Bus se pueden utilizar para notificar a los usuarios acerca
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Consumo de mensajes de Service Bus con Logic Apps
 
 1. Cree una nueva **aplicación lógica de Azure** en Azure Portal.
-2. Al abrir la aplicación de la lógica de Azure en el portal, se le pedirá seleccionar un desencadenador. Escriba **Service Bus** en el cuadro de búsqueda y seleccione el desencadenador adecuado para el tipo de interacción que desea tener con Service Bus. Por ejemplo, **Service Bus: cuando se recibe un mensaje en una suscripción de tema (autocompletar)**.
+2. Al abrir la aplicación de la lógica de Azure en el portal, se le pedirá seleccionar un desencadenador. Escriba **Service Bus** en el cuadro de búsqueda y seleccione el desencadenador adecuado para el tipo de interacción que desea tener con Service Bus. Por ejemplo, **Service Bus: cuando se recibe un mensaje en una suscripción de tema (autocompletar)** .
 3. Cuando se muestra el diseñador de flujo de trabajo, especifique la información de conexión para Service Bus.
 4. Seleccione la suscripción y especifique el tema **workbench-external**.
 5. Desarrolle la lógica de la aplicación que utiliza el mensaje de este desencadenador.
 
 ## <a name="notification-message-reference"></a>Referencia de mensajes de notificación
 
-En función de la **messageName**, los mensajes de notificación tienen uno de los siguientes tipos de mensaje.
+En función del valor de **messageName**, los mensajes de notificación tienen uno de los siguientes tipos de mensaje.
 
 ### <a name="block-message"></a>Mensaje de bloque
 
@@ -406,7 +406,7 @@ Contiene información sobre bloques individuales. *BlockMessage* incluye una sec
 |--------------------|-------------|
 | transactionId      | Identificador único de la transacción en Azure Blockchain Workbench |
 | transactionHash    | Hash de la transacción en el libro de contabilidad |
-| from               | Identificador único en el libro de contabilidad para el origen de la transacción |
+| De               | Identificador único en el libro de contabilidad para el origen de la transacción |
 | to                 | Identificador único en el libro de contabilidad para el destino de la transacción |
 | provisioningStatus | Identifica el estado actual del proceso de aprovisionamiento de la transacción. Los valores posibles son: </br>0: la API ha creado la transacción en la base de datos</br>1: la transacción se ha enviado al libro de contabilidad</br>2: la transacción se ha confirmado correctamente en el libro de contabilidad</br>3 o 4: la transacción no se pudo confirmar en el libro de contabilidad</br>5: la transacción se confirmó correctamente en el libro de contabilidad |
 
@@ -415,7 +415,7 @@ Ejemplo de un *BlockMessage* de Blockchain Workbench:
 ``` json
 {
     "block": {
-        "blockId": 123
+        "blockId": 123,
         "blockNumber": 1738312,
         "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
         "previousBlockHash": null,
@@ -423,14 +423,14 @@ Ejemplo de un *BlockMessage* de Blockchain Workbench:
     },
     "transactions": [
         {
-            "transactionId": 234
+            "transactionId": 234,
             "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
             "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
             "to": null,
             "provisioningStatus": 1
         },
         {
-            "transactionId": 235
+            "transactionId": 235,
             "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
             "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
             "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
@@ -468,7 +468,7 @@ Contiene información sobre un contrato. El mensaje incluye una sección con pro
 |--------------------|-------------|
 | transactionId | Identificador único de la transacción en Azure Blockchain Workbench |
 | transactionHash | Hash de la transacción en el libro de contabilidad |
-| from | Identificador único en el libro de contabilidad para el origen de la transacción |
+| De | Identificador único en el libro de contabilidad para el origen de la transacción |
 | to | Identificador único en el libro de contabilidad para el destino de la transacción |
 
 #### <a name="contract-properties"></a>Propiedades del contrato
@@ -563,7 +563,7 @@ Contiene información cuando se invoca una función de contrato, por ejemplo, el
 | NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| autor de llamada                      | [Información del autor de la llamada](#caller-information) |
+| caller                      | [Información del autor de la llamada](#caller-information) |
 | contractId                  | Identificador único del contrato en Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador único del contrato en el libro de contabilidad |
 | functionName                | Nombre de la función. |
@@ -588,7 +588,7 @@ Contiene información cuando se invoca una función de contrato, por ejemplo, el
 | NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | Nombre | Nombre de parámetro |
-| value | Valor de parámetro |
+| value | Valor del parámetro |
 
 #### <a name="event-message-transaction-information"></a>Información de la transacción del mensaje de eventos
 
@@ -596,7 +596,7 @@ Contiene información cuando se invoca una función de contrato, por ejemplo, el
 |--------------------|-------------|
 | transactionId      | Identificador único de la transacción en Azure Blockchain Workbench |
 | transactionHash    | Hash de la transacción en el libro de contabilidad |
-| from               | Identificador único en el libro de contabilidad para el origen de la transacción |
+| De               | Identificador único en el libro de contabilidad para el origen de la transacción |
 | to                 | Identificador único en el libro de contabilidad para el destino de la transacción |
 
 Ejemplo de *EventMessage ContractFunctionInvocation* de Blockchain Workbench:
@@ -662,7 +662,7 @@ Contiene información de cuando una aplicación se carga en Workbench, como el n
 |------|-------------|
 | id | Identificador único del archivo de código de contrato en Azure Blockchain Workbench |
 | ledgerId | Identificador único del libro de contabilidad en Azure Blockchain Workbench |
-| ubicación | Dirección URL donde se encuentra el archivo de código de contrato |
+| location | Dirección URL donde se encuentra el archivo de código de contrato |
 
 #### <a name="application-role-information"></a>Información de rol de la aplicación
 
@@ -677,8 +677,8 @@ Contiene información de cuando una aplicación se carga en Workbench, como el n
 |------|-------------|
 | id | Identificador único del flujo de trabajo de la aplicación en Azure Blockchain Workbench |
 | Nombre | Nombre del flujo de trabajo de la aplicación |
-| displayName | Nombre para mostrar del flujo de trabajo de la aplicación |
-| funciones | Colección de [funciones para el flujo de trabajo de aplicación](#workflow-function-information)|
+| DisplayName | Nombre para mostrar del flujo de trabajo de la aplicación |
+| functions | Colección de [funciones para el flujo de trabajo de la aplicación](#workflow-function-information)|
 | states | Colección de [estados para el flujo de trabajo de la aplicación](#workflow-state-information) |
 | properties | [Información de propiedades del flujo de trabajo](#workflow-property-information) de la aplicación |
 
@@ -695,7 +695,7 @@ Contiene información de cuando una aplicación se carga en Workbench, como el n
 | NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | Nombre | Nombre del estado |
-| displayName | Nombre para mostrar del estado |
+| DisplayName | Nombre para mostrar del estado |
 | style | Estilo del estado (completado o error) |
 
 ##### <a name="workflow-property-information"></a>Información de la propiedad del flujo de trabajo
@@ -715,7 +715,7 @@ Ejemplo de *EventMessage ApplicationIngestion* de Blockchain Workbench:
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
     "applicationVersion": “1.0”,
-    "applicationDefinitionLocation": "http://url"
+    "applicationDefinitionLocation": "http://url",
     "contractCodes": [
         {
             "id": 23,
@@ -805,7 +805,7 @@ Ejemplo de *EventMessage ApplicationIngestion* de Blockchain Workbench:
                 }
             ]
         }
-    ]
+    ],
     "connectionId": [ ],
     "messageSchemaVersion": "1.0.0",
     "messageName": "EventMessage",
@@ -817,7 +817,7 @@ Ejemplo de *EventMessage ApplicationIngestion* de Blockchain Workbench:
                     "Name": "BuyerAccepted",
                     "Transitions": [
                         {
-                            "DisplayName": "Accept"
+                            "DisplayName": "Accept",
                             "AllowedRoles": [ ],
                             "AllowedInstanceRoles": [ "InstanceOwner" ],
                             "Function": "Accept",

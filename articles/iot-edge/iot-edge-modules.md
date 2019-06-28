@@ -10,15 +10,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 65cac484a9395aca47a38e2ba430b80c868267f5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65152661"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Información sobre los módulos de Azure IoT Edge
 
-Azure IoT Edge permite implementar y administrar lógica de negocios en el perímetro a través de *módulos*. Los módulos de Azure IoT Edge son la unidad más pequeña de cálculo que administra IoT Edge y pueden contener servicios de Azure (por ejemplo, Azure Stream Analytics) o su propio código específico de la solución. Para entender cómo se desarrolló, implementa y mantiene, resulta útil para pensar en los cuatro elementos conceptuales de un módulo de módulos:
+Azure IoT Edge permite implementar y administrar lógica de negocios en el perímetro a través de *módulos*. Los módulos de Azure IoT Edge son la unidad más pequeña de cálculo que administra IoT Edge y pueden contener servicios de Azure (por ejemplo, Azure Stream Analytics) o su propio código específico de la solución. Para entender cómo se desarrollan, implementan y mantienen los módulos, imagínese los cuatro elementos conceptuales de un módulo:
 
 * Una **imagen de módulo** es un paquete que contiene el software que define un módulo.
 * Una **instancia de módulo** es la unidad específica del cálculo que ejecuta la imagen de módulo en un dispositivo IoT Edge. La instancia de módulo se inicia mediante la instancia de IoT Edge en tiempo de ejecución.
@@ -69,7 +69,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Funcionalidades sin conexión
 
-Módulos de Azure IoT Edge pueden funcionar sin conexión indefinidamente después de la sincronización con IoT Hub al menos una vez. Dispositivos IoT Edge también pueden ampliar esta funcionalidad sin conexión a otros dispositivos de IoT. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
+Los módulos de Azure IoT Edge pueden funcionar sin conexión indefinidamente después de la sincronización con IoT Hub al menos una vez. Los dispositivos de IoT Edge también pueden extender esta funcionalidad sin conexión a otros dispositivos de IoT. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
 
 ## <a name="next-steps"></a>Pasos siguientes
  - [Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge](module-development.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Bosque de decisión de dos clases: Referencia de módulo'
+title: 'Bosque de decisión de dos clases: Referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de bosque de decisión de dos clases en el servicio de Azure Machine Learning para crear un modelo basado en el algoritmo de bosques de decisión de aprendizaje automático.
+description: Obtenga información sobre cómo usar el módulo de bosque de decisión de dos clases en el servicio Azure Machine Learning para crear un modelo de Machine Learning basado en el algoritmo de bosques de decisión.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,98 +11,98 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411477"
 ---
-# <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión Multiclase
+# <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión de dos clases
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) para el servicio Azure Machine Learning.
+En este artículo se describe un módulo de la interfaz visual (versión preliminar) del servicio Azure Machine Learning.
 
-Utilice este módulo para crear un modelo basado en el algoritmo de bosques de decisión de aprendizaje automático.  
+Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de bosques de decisión.  
 
-Bosques de decisión son modelos de conjunto rápidos y supervisados. Este módulo es una buena opción si desea predecir un destino con un máximo de dos resultados. 
+Los bosques de decisión son modelos de conjunto rápidos y supervisados. Este módulo es una buena opción si quiere predecir un destino con un máximo de dos resultados. 
 
 ## <a name="understanding-decision-forests"></a>Descripción de los bosques de decisión
 
-Este algoritmo de bosque de decisión es un método diseñado para las tareas de clasificación de aprendizaje de conjunto. Métodos de conjunto se basan en el principio general que en lugar de depender de un único modelo, puede obtener mejores resultados y un modelo más generalizado mediante la creación de varios modelos relacionados y combinarlas de alguna manera. Por lo general, los modelos de conjunto proporcionan una mejor cobertura y precisión que los árboles de decisión únicos. 
+Este algoritmo de bosque de decisión es un método de aprendizaje de conjunto diseñado para las tareas de clasificación. Los métodos de conjunto se basan en el principio general de que, en lugar de depender de un único modelo, puede obtener mejores resultados y un modelo más generalizado mediante la creación de varios modelos relacionados y combinarlos de alguna manera. Por lo general, los modelos de conjunto proporcionan mejor cobertura y precisión que los árboles de decisión únicos. 
 
-Hay muchas maneras de crear modelos individuales y combinarlos en un conjunto. En esta implementación de un bosque de decisión funciona creando varios árboles de decisión y, a continuación, **votación** en la clase de salida más popular. El voto es uno de los métodos más conocidos para generar los resultados en un modelo de conjunto. 
+Hay muchas maneras de crear modelos individuales y combinarlos en un conjunto. En esta implementación concreta de un bosque de decisión se crean varios árboles de decisión y, a continuación, **se vota** la clase de resultado más popular. Votar es uno de los métodos más conocidos para generar resultados en un modelo de conjunto. 
 
-+ Se crean varios árboles de clasificación individuales, con todo el conjunto de datos, pero diferentes (normalmente aleatorio) puntos de partida. Esto difiere del enfoque de bosque aleatorio, en el que los árboles de decisión individual pueden usar solo una parte aleatoria de los datos o las características.
-+ Cada árbol del árbol de decisión bosque da como resultado un histograma de frecuencia no normalizado de etiquetas. 
-+ El proceso de agregación suma estos histogramas y normaliza el resultado para obtener las "probabilidades" para cada etiqueta. 
-+ Los árboles que se tienen confianza en la predicción alta tendrán un peso mayor en la decisión final del conjunto.
++ Se crean muchos árboles de clasificación individuales, con todo el conjunto de datos, pero puntos de partida diferentes (normalmente aleatorios). Esto difiere del enfoque de bosque aleatorio, en el que los árboles de decisión individuales pueden usar solo una parte aleatoria de los datos o de las características.
++ Cada árbol del bosque de decisión produce un histograma de etiquetas de frecuencia no normalizada. 
++ El proceso de agregación suma estos histogramas y normaliza el resultado para obtener las "probabilidades" de cada etiqueta. 
++ Los árboles con un nivel alto de confianza en la predicción tendrán un peso mayor en la decisión final del conjunto.
 
 En general, los árboles de decisión tienen numerosas ventajas para las tareas de clasificación:
   
-- Puede capturar los límites de decisión no lineales.
-- Puede entrenar y predecir en grandes cantidades de datos, ya que son eficaces en el uso de memoria y de cálculo.
-- Selección de características está integrada en los procesos de aprendizaje y la clasificación.  
-- Árboles pueden adaptarse a los datos con ruido y muchas características.  
-- Son modelos no paramétricos, lo que significa que pueden controlar los datos con distribuciones variadas. 
+- Pueden capturar los límites de decisión no lineales.
+- Usted puede entrenar grandes cantidades de datos y hacer predicciones con ellos, ya que son eficaces en el cálculo y el uso de memoria.
+- La selección de características está integrada en los procesos de entrenamiento y clasificación.  
+- Los árboles pueden adaptarse a los datos con ruido y a muchas características.  
+- Son modelos no paramétricos, lo que significa que pueden controlar datos con distribuciones variadas. 
 
-Sin embargo, los árboles de decisión simple pueden saturar en los datos y son menos generalizables de árboles de árbol.
+Sin embargo, los árboles de decisión simples pueden sobreajustar los datos y son menos generalizables que los conjuntos de árboles.
 
-Para obtener más información, consulte [bosques de decisión](https://go.microsoft.com/fwlink/?LinkId=403677).  
+Para obtener más información, consulte [Bosques de decisión](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## <a name="how-to-configure"></a>Configuración
   
-1.  Agregar el **bosque de decisión de dos clases** módulo al experimento en Azure Machine Learning y abra el **propiedades** panel del módulo. 
+1.  Agregue el módulo del **bosque de decisión de dos clases** al experimento en Azure Machine Learning y abra el panel **Propiedades** del módulo. 
 
-    Puede encontrar el módulo en **Machine Learning**. Expanda **inicializar**y, a continuación, **clasificación**.  
+    Puede encontrar el módulo en **Machine Learning**. Expanda **Inicializar** y, a continuación, **Clasificación**.  
   
-2.  Para **volver a muestrear método**, elija el método utilizado para crear los árboles individuales.  Puede elegir entre **Bagging** o **replicar**.  
+2.  Para obtener información sobre el **método de nuevo muestreo**, elija el método utilizado para crear los árboles individuales.  Puede elegir entre **agregación** o **replicación**.  
   
-    -   **Bagging**: También se denomina ensacado *agregación bootstrap*. En este método, cada árbol se aumentó en un nuevo ejemplo creado mediante el muestreo de forma aleatoria el conjunto de datos original con el reemplazo de hasta que haya un conjunto de datos, el tamaño del original.  
+    -   **Agregación**: La agregación también se denomina *agregación de arranque*. En este método, cada árbol crece en una muestra nueva, creada al muestrear de forma aleatoria el conjunto de datos original con el conjunto de reemplazo hasta que haya un conjunto de datos con el tamaño del original.  
   
-         Las salidas de los modelos se combinan mediante *votación*, que es una forma de agregación. Cada árbol en un bosque de decisión de clasificación da como resultado un histograma de frecuencia sin normalizar de etiquetas. La agregación es sumar estos histogramas y normalizar para obtener las "probabilidades" para cada etiqueta. De esta manera, los árboles que se tienen confianza en la predicción alta tendrán un peso mayor en la decisión final del conjunto.  
+         Los resultados de los modelos se combinan mediante *votación*, que es una forma de agregación. Cada árbol de un bosque de decisión de clasificación produce un histograma de etiquetas de frecuencia no normalizada. En el proceso de agregación se suman estos histogramas y se normalizan para obtener las "probabilidades" de cada etiqueta. De esta manera, los árboles con un nivel alto de confianza en la predicción tendrán un peso mayor en la decisión final del conjunto.  
   
-         Para obtener más información, vea la entrada de Wikipedia para la agregación de Bootstrap.  
+         Para obtener más información, consulte la entrada de Wikipedia sobre la agregación de arranque.  
   
-    -   **Replicar**: En la replicación, cada árbol se entrena con exactamente los mismos datos de entrada. La determinación de qué división predicado se utiliza para cada nodo de árbol permanece aleatoria y los árboles será diversos.   
+    -   **Replicación**: En la replicación, cada árbol se entrena exactamente con los mismos datos de entrada. La determinación de qué predicado de división se utiliza para cada nodo de árbol sigue siendo aleatoria y los árboles serán diversos.   
   
-3.  Especifique cómo desea que el modelo se entrene, estableciendo el **crear modo de entrenador** opción.  
+3.  Para especificar cómo quiere que se entrene el modelo, establezca la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Único parámetro**: Si sabe cómo desea configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
+    -   **Parámetro único**: Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
   
-4.  Para **número de árboles de decisión**, escriba el número máximo de árboles de decisión que se pueden crear en el conjunto. Si crea más árboles de decisión, puede obtener una mejor cobertura, pero aumenta el tiempo de entrenamiento.  
+4.  En **Número de árboles de decisión**, escriba el número máximo de árboles de decisión que se pueden crear en el conjunto. Si crea más árboles de decisión, puede obtener potencialmente mejor cobertura, pero aumenta el tiempo de entrenamiento.  
   
     > [!NOTE]
-    >  Este valor también controla el número de árboles que se muestra cuando se visualice el modelo entrenado. Si desea ver o imprimir un único árbol, puede establecer el valor en 1. Sin embargo, puede ser un único árbol generado (el árbol con el conjunto inicial de parámetros) y no se realizan las iteraciones adicionales.
+    >  Este valor también controla el número de árboles que se muestran al visualizar el modelo entrenado. Si quiere ver o imprimir un único árbol, puede establecer el valor en 1. Sin embargo, solo se puede producir un único árbol (el árbol con el conjunto inicial de parámetros) y no se realizan iteraciones adicionales.
   
-5.  Para **profundidad máxima de los árboles de decisión**, escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, con un tiempo de entrenamiento de sobreajuste y aumente el riesgo.
+5.  En **Profundidad máxima de los árboles de decisión**, escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
   
-6.  Para **número de divisiones aleatorias por nodo**, escriba el número de divisiones que se usará al crear cada nodo del árbol. Un *dividir* significa que las características de cada nivel del árbol (nodo) se divide al azar.
+6.  En **Número de divisiones aleatorias por nodo**, escriba el número de divisiones que se usarán al crear cada nodo del árbol. Una *división* significa que las características de cada nivel del árbol (nodo) se dividen al azar.
   
-7.  Para **número mínimo de muestras por nodo hoja**, indicar el número mínimo de casos que son necesarios para crear cualquier nodo terminal (hoja) en un árbol.
+7.  En **Número mínimo de muestras por nodo hoja**, indique el número mínimo de casos que son necesarios para crear cualquier nodo terminal (hoja) en un árbol.
   
-     Al aumentar este valor, aumente el umbral para la creación de nuevas reglas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tendrían que contener al menos cinco casos que cumplen las condiciones.  
+     Al aumentar este valor, aumenta el umbral para crear reglas nuevas. Por ejemplo, con el valor predeterminado de 1, incluso un solo caso puede provocar que se cree una regla nueva. Si aumenta el valor a 5, los datos de entrenamiento tendrían que contener cinco casos como mínimo que cumplan las mismas condiciones.  
   
-8.  Seleccione el **permitir valores desconocidos para características de categorías** opción para crear un grupo de valores desconocidos en los conjuntos de entrenamiento o validación. El modelo podría ser menos preciso con valores conocidos, pero proporcione mejores predicciones para los valores nuevos (desconocidos). 
+8.  Seleccione la opción **Permitir valores desconocidos para las características categóricas** para crear un grupo de valores desconocidos en los conjuntos de entrenamiento o validación. El modelo podría ser menos preciso con valores conocidos, pero puede proporcionar mejores predicciones para los valores nuevos (desconocidos). 
 
-     Si desactiva esta opción, el modelo podrá aceptar únicamente los valores que se encuentran en los datos de entrenamiento.
+     Si desactiva esta opción, el modelo puede aceptar únicamente los valores que se encuentran en los datos de entrenamiento.
   
-9. Asociar un conjunto de datos con la etiqueta y uno de los [módulos de formación](module-reference.md):  
+9. Adjunte un conjunto de datos etiquetados y uno de los [módulos de entrenamiento](module-reference.md):  
   
-    -   Si establece **crear modo de entrenador** a **único parámetro**, utilice el [Train Model](./train-model.md) módulo.  
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Modelo de entrenamiento](./train-model.md).  
   
     
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
-Una vez completada la formación:
+Una vez completado el entrenamiento:
 
-+ Para ver el árbol de la que se creó en cada iteración, haga clic en la salida de la [Train Model](./train-model.md) módulo y seleccione **visualizar**.
++ Para ver el árbol que se ha creado en cada iteración, haga clic con el botón derecho en el resultado del módulo [Modelo de entrenamiento](./train-model.md) y seleccione **Visualizar**.
   
-    Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas para cada nodo.
+    Haga clic en cada árbol para explorar en profundidad las divisiones y ver las reglas de cada nodo.
 
-+ Para guardar una instantánea del modelo, haga clic en el **entrenado** de salida y seleccione **Guardar modelo**. No se actualiza el modelo guardado en ejecuciones sucesivas del experimento.
++ Para guardar una instantánea del modelo, haga clic con el botón derecho en el resultado de **Modelo de entrenamiento** y seleccione **Guardar modelo**. El modelo guardado no se actualiza en ejecuciones sucesivas del experimento.
 
-+ Para usar el modelo de puntuación, agregue el **Score Model** módulo en un experimento.
++ Para usar el modelo de puntuación, agregue el módulo **Modelo de puntuación** a un experimento.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [conjunto de módulos disponibles](module-reference.md) al servicio de Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 

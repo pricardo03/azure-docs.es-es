@@ -17,10 +17,10 @@ ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d71bfd5e560bb1509337ac371fbe101b4c6d63b5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540641"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Descripción de las experiencias de consentimiento de la aplicación de Azure AD
@@ -47,7 +47,7 @@ En el diagrama y la tabla siguientes se proporciona información sobre los bloqu
 | # | Componente | Propósito |
 | ----- | ----- | ----- |
 | 1 | Identificador de usuario | Este identificador representa al usuario en cuyo nombre la aplicación cliente solicita acceso a recursos protegidos. |
-| 2 | Puesto | El título cambia en función de si los usuarios siguen el flujo de consentimiento del usuario o del administrador. En el flujo de consentimiento del usuario, el título será "Permisos solicitados", mientras que en el flujo de consentimiento del administrador, el título tendrá una línea adicional "Aceptar para su organización". |
+| 2 | Título | El título cambia en función de si los usuarios siguen el flujo de consentimiento del usuario o del administrador. En el flujo de consentimiento del usuario, el título será "Permisos solicitados", mientras que en el flujo de consentimiento del administrador, el título tendrá una línea adicional "Aceptar para su organización". |
 | 3 | Logotipo de la aplicación | Esta imagen debe ayudar a los usuarios a tener una indicación visual de si esta aplicación es la aplicación a la que pretenden acceder. Los desarrolladores de aplicaciones proporcionan esta imagen, y no se valida la propiedad de esta imagen. |
 | 4 | Nombre de la aplicación | Este valor debe informar a los usuarios qué aplicación solicita acceso a sus datos. Tenga en cuenta que los desarrolladores proporcionan este nombre, y no se valida la propiedad del nombre de esta aplicación. |
 | 5 | Dominio de editor | Este valor debe proporcionar a los usuarios un dominio cuya confiabilidad puedan evaluar. Los desarrolladores proporcionan este dominio, y no se valida la propiedad de este dominio de editor. |
@@ -86,4 +86,4 @@ Estas son las experiencias de consentimiento que un usuario puede ver en los esc
 ## <a name="next-steps"></a>Pasos siguientes
 - Introducción paso a paso de [cómo el marco de consentimiento de Azure AD implementa el consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Para más detalles, aprenda [cómo una aplicación multiinquilino puede utilizar el marco de consentimiento](active-directory-devhowto-multi-tenant-overview.md) para implementar el consentimiento de "usuario" y "administrador", compatible con patrones de aplicación de niveles múltiples más avanzados.
-- Obtenga información sobre [cómo configurar el dominio del publicador de la aplicación](howto-configure-publisher-domain.md).
+- Obtenga información sobre [cómo configurar el dominio de editor de la aplicación](howto-configure-publisher-domain.md).

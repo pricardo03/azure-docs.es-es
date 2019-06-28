@@ -1,6 +1,6 @@
 ---
-title: Cómo buscar de forma eficaz con el servicio de búsqueda de Azure Maps | Microsoft Docs
-description: Aprenda a usar los procedimientos recomendados para la búsqueda mediante el servicio de búsqueda de Azure Maps
+title: Procedimiento para buscar de forma eficaz con el servicio de búsqueda de Azure Maps | Microsoft Docs
+description: Aprenda a usar los procedimientos recomendados para hacer búsquedas con el servicio de búsqueda de Azure Maps
 ms.author: v-musehg
 ms.date: 04/08/2019
 ms.topic: conceptual
@@ -8,20 +8,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205619"
 ---
-# <a name="best-practices-to-use-azure-maps-search-service"></a>Procedimientos recomendados para utilizar el servicio de búsqueda de Azure Maps
+# <a name="best-practices-to-use-azure-maps-search-service"></a>Procedimientos recomendados para utilizar el servicio de búsqueda de Azure Maps
 
-Azure Maps [servicio Search](https://docs.microsoft.com/rest/api/maps/search) incluye las API con distintas capacidades, por ejemplo, desde la dirección de búsqueda para buscar datos de punto de interés (POI) en torno a una ubicación específica. En este artículo, se compartirán las prácticas recomendadas para llamar a los datos a través de servicios de búsqueda de Azure Maps. Aprenderá a:
+El [servicio de búsqueda](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps incluye API con distintas capacidades, desde la búsqueda de direcciones hasta la búsqueda de datos de puntos de interés (POI) cerca de una ubicación concreta. En este artículo, compartiremos los procedimientos recomendados para llamar los datos a través de los servicios de búsqueda de Azure Maps. Aprenderá a:
 
-* Crear consultas para devolver a coincidencias relevantes
-* Limitar los resultados de búsqueda
-* Obtenga información sobre la diferencia entre varios tipos de resultados
-* Leer la estructura de respuesta de búsqueda de direcciones
+* Crear consultas que devuelvan coincidencias relevantes
+* Limitar los resultados de la búsqueda
+* Conocer la diferencia entre diferentes tipos de resultados
+* Leer la estructura de respuesta de la búsqueda de direcciones
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -29,56 +29,56 @@ Azure Maps [servicio Search](https://docs.microsoft.com/rest/api/maps/search) in
 Para realizar cualquier llamada a las API del servicio Azure Maps, necesita una cuenta de Maps y una clave. Para más información sobre cómo crear una cuenta y recuperar una clave, consulte [Administración de la cuenta y las claves de Azure Maps](how-to-manage-account-keys.md).
 
 > [!Tip]
-> Para consultar el servicio de búsqueda, puede usar el [aplicación Postman](https://www.getpostman.com/apps) para compilar REST llamadas o bien puede usar cualquier entorno de desarrollo de API que prefiera.
+> Para hacer una consulta al servicio de búsqueda, puede usar la [aplicación Postman](https://www.getpostman.com/apps) para crear llamadas de REST o el entorno de desarrollo de API que prefiera.
 
 
-## <a name="best-practices-for-geocoding"></a>Procedimientos recomendados para la codificación geográfica
+## <a name="best-practices-for-geocoding"></a>Procedimientos recomendados para la geocodificación
 
-Al buscar una dirección completa o parcial mediante el servicio de búsqueda de Azure Maps, toma el término de búsqueda y devuelve las coordenadas de longitud y latitud de la dirección. Este proceso se denomina codificación geográfica. La capacidad de obtener las coordenadas geográficas en un país depende de la cobertura de los datos de carretera y la precisión de la codificación geográfica del servicio de geocodificación.
+Al buscar una dirección completa o parcial mediante el servicio de búsqueda de Azure Maps, se toma el término de búsqueda y se devuelven las coordenadas de longitud y latitud de la dirección. Este proceso se denomina “geocodificación”. La capacidad de obtener las coordenadas geográficas en un país depende de la cobertura de los datos de carretera y la precisión de la codificación geográfica del servicio de geocodificación.
 
-Consulte [cobertura de geocodificación](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage) para obtener más información sobre las capacidades de codificación geográfica de Azure Maps por país o región.
+Consulte la [cobertura de geocodificación](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage) para obtener más información sobre las capacidades de geocodificación de Azure Maps por país o región.
 
-### <a name="limit-search-results"></a>Limitar los resultados de búsqueda
+### <a name="limit-search-results"></a>Limitar los resultados de la búsqueda
 
-   En esta sección, obtendrá información sobre cómo usar la API de búsqueda de Azure Maps para limitar los resultados de búsqueda. 
+   En esta sección, obtendrá información sobre cómo usar las API de búsqueda de Azure Maps para limitar los resultados de búsqueda. 
 
    > [!Note]
-   > Búsqueda no todas las API son totalmente compatibles con parámetros que aparecen a continuación
+   > No todas las API de búsqueda son totalmente compatibles con los siguientes parámetros
 
-   **Resultados de búsqueda geográfica sesgo**
+   **Resultados de búsqueda de sesgos geográficos**
 
-   Con el fin de geo-sesgo los resultados para el área relevante para el usuario, siempre debe agregar el máximo posible detallado entrada de la ubicación. Para restringir los resultados de búsqueda, considere la posibilidad de agregar los siguientes tipos de entrada:
+   Con el fin de aplicar un sesgo geográfico a los resultados del área relevante para el usuario, debe agregar siempre la ubicación con el máximo detalle posible. Para restringir los resultados de búsqueda, puede agregar los siguientes tipos de entrada:
 
-   1. Establecer el `countrySet` parámetro, por ejemplo "US, FR". El comportamiento de búsqueda predeterminado es buscar en todo el mundo, devolución de resultados innecesarios. Si la consulta no incluye `countrySet` parámetro, la búsqueda puede devolver resultados inexactos. Por ejemplo, busque una ciudad denominada **Bellevue** se devolverán resultados de Estados Unidos y Francia, puesto que no hay ciudades denominadas **Bellevue** en Francia y en los Estados Unidos.
+   1. Use el parámetro `countrySet`, por ejemplo, “US, FR”. De forma predeterminada, se hacen búsquedas en todo el mundo, lo cual puede devolver resultados innecesarios. Si la consulta no incluye el parámetro `countrySet`, la búsqueda puede devolver resultados inexactos. Por ejemplo, al buscar una ciudad denominada **Bellevue**, se devolverán resultados de Estados Unidos y Francia, puesto que en ambos países hay una ciudad que se denomina **Bellevue**.
 
-   2. Puede usar el `btmRight` y `topleft` cuadro parámetros para establecer el rectángulo de selección para restringir la búsqueda a un área específica en el mapa.
+   2. Puede usar los parámetros `btmRight` y `topleft` para establecer el rectángulo de selección que restringirá la búsqueda a una zona específica del mapa.
 
-   3. Para influir en el área de relevancia para los resultados, puede definir la `lat`y `lon` coordinar los parámetros y establece el radio de la zona de búsqueda con el `radius` parámetro.
+   3. Para influir en el área de relevancia de los resultados, puede definir los parámetros coordinados `lat` y `lon`, y establecer el radio de la zona de búsqueda con el parámetro `radius`.
 
 
    **Parámetros de búsqueda aproximada**
 
-   1. El `minFuzzyLevel` y `maxFuzzyLevel`, ayudar a devolver coincidencias relevantes, incluso cuando los parámetros de consulta no corresponden exactamente a la información deseada. De forma predeterminada la mayoría de las consultas de búsqueda `minFuzzyLevel=1` y `maxFuzzyLevel=2` para obtener un rendimiento y reducir los resultados inusuales. Poner un ejemplo de un término de búsqueda "restrant", coincide con "restaurante" cuando el `maxFuzzyLevel` está establecido en 2. Los niveles aproximada predeterminado pueden invalidarse según las necesidades de la solicitud. 
+   1. Los parámetros `minFuzzyLevel` y `maxFuzzyLevel` contribuyen a devolver coincidencias relevantes, incluso cuando los parámetros de consulta no se corresponden exactamente con la información deseada. La mayoría de las consultas de búsqueda tienen como valores predeterminados `minFuzzyLevel=1` y `maxFuzzyLevel=2` para aumentar el rendimiento y reducir los resultados poco comunes. Pongamos como ejemplo el término de búsqueda “restrant”, que coincide con “restaurante” cuando el valor `maxFuzzyLevel` se establece en 2. Los niveles de aproximación predeterminados se pueden invalidar según las necesidades de la solicitud. 
 
-   2. También puede especificar el conjunto exacto de tipos de resultados para devolver mediante el `idxSet` parámetro. Para este propósito puede enviar la lista separada por comas de los índices, no importa el orden del elemento. Estos son los índices compatibles:
+   2. También puede especificar el conjunto exacto de tipos de resultados que se van a devolver usando el parámetro `idxSet`. Con este fin, puede enviar una lista de índices separada por comas, sin tener en cuenta el orden de los elementos. Estos son los índices admitidos:
 
-       * `Addr` - **Intervalos de direcciones**: Para algunas de las calles, hay puntos de dirección que se interpolan desde el principio y al final de la calle; estos puntos se representan como intervalos de direcciones.
-       * `Geo` - **Ubicaciones geográficas**: Áreas en un mapa que representan una división administrativa de un terreno, es decir, país, estado, ciudad.
-       * `PAD` - **Dirección del punto de**:  Puntos en un mapa donde dirección específica con un nombre de la calle y el número puede encontrarse en un índice, por ejemplo, Soquel 2501 de recuperación ante desastres. Es el máximo nivel de precisión para las direcciones disponible.  
-       * `POI` - **Puntos de interés**: Puntos en un mapa que merecen atención y pueden ser de interés.  [Obtener la dirección de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) no se devolverá de interés.  
-       * `Str` - **Calles**: Representación de calles en el mapa.
-       * `XStr` - **Entre las calles/intersecciones**:  Representación de las uniones; lugares donde dos de las calles forman una intersección.
+       * `Addr` - **Intervalos de direcciones**: en algunas calles, hay puntos de la dirección que se interpolan desde el principio hasta el final de la calle. Estos puntos se representan como intervalos de direcciones.
+       * `Geo` - **Geografías**: áreas en un mapa que representan una división administrativa de un terreno, es decir, país, estado, ciudad.
+       * `PAD` - **Dirección del punto**:  puntos de un mapa cuya dirección específica, con el nombre y el número de la calle, se puede encontrar en un índice, por ejemplo, Soquel Dr 2501. Es el nivel con más precisión que está disponible para las direcciones.  
+       * `POI` - **Puntos de interés**: puntos de un mapa que merecen atención y pueden ser de interés.  [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) no devuelve ningún punto de interés.  
+       * `Str` - **Calles**: representación de calles en el mapa.
+       * `XStr` - **Cruce de calles o intersecciones**:  representación de cruces, lugares en los que dos calles forman una intersección.
 
 
        **Ejemplos de uso**:
 
-       * idxSet = POI (búsqueda de puntos de interés sólo) 
+       * idxSet=POI (solo búsqueda de puntos de interés) 
 
-       * idxSet = PAD, Addr (búsqueda únicamente direcciones PAD = dirección de punto, Addr = intervalo de direcciones)
+       * idxSet=PAD,Addr (solo direcciones de búsqueda, PAD= dirección del punto, Addr= intervalo de direcciones)
 
-### <a name="reverse-geocode-and-geography-entity-type-filter"></a>Invertir el filtro de tipo de entidad de código geográfico y geography
+### <a name="reverse-geocode-and-geography-entity-type-filter"></a>Invertir el filtro de tipo de entidad de código geográfico y geografía
 
-Al realizar una búsqueda de código geográfico inversa con [API de búsqueda inversa de dirección](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), el servicio tiene la capacidad de devolver los polígonos de las áreas administrativas. Especificando el parámetro `entityType` en la solicitud, puede restringir la búsqueda de tipos de entidad de geografía especificada. La respuesta resultante contendrá el identificador de geografía, así como coincide con el tipo de entidad. Si proporciona más de una entidad, punto de conexión devolverá el **entidad más pequeña disponible**. Devuelve el identificador de geometría puede utilizarse para obtener la geometría de esa ubicación geográfica a través de [servicio obtener polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
+Al realizar una búsqueda de código geográfico inversa con la [API de búsqueda inversa de la dirección](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), el servicio tiene la capacidad de devolver los polígonos de las áreas administrativas. Al especificar el parámetro `entityType` en la solicitud, puede restringir la búsqueda de los tipos de entidad geográfica especificados. La respuesta resultante contendrá el identificador geográfico, así como el tipo de entidad coincidente. Si proporciona más de una entidad, el punto de conexión devolverá la **entidad más pequeña que esté disponible**. El identificador de la geometría devuelto puede utilizarse para obtener la geometría de esa ubicación geográfica a través del [servicio para obtener el polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
 **Solicitud de ejemplo:**
 
@@ -125,16 +125,16 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 }
 ```
 
-### <a name="search-results-language"></a>Idioma de los resultados de búsqueda
+### <a name="search-results-language"></a>Idioma de los resultados de la búsqueda
 
-El `language` parámetro le permite establecer en la búsqueda en qué lenguaje se deben devolver los resultados. Si no se establece el idioma en la solicitud, el servicio de búsqueda predeterminado automáticamente es el lenguaje más común en el país o región. Además, cuando los datos en el idioma especificado no están disponibles, se usa el idioma predeterminado. Consulte [idiomas admitidos](https://docs.microsoft.com/azure/azure-maps/supported-languages) para obtener una lista de idiomas compatibles con respecto a los servicios de Azure Maps por país o región.
+El parámetro `language` le permite establecer en qué idioma se van a devolver los resultados de la búsqueda. Si no se establece el idioma en la solicitud, de forma predeterminada el servicio de búsqueda usará el idioma más común en el país o región. Además, cuando los datos no están disponibles en el idioma especificado, se usa el idioma predeterminado. En [idiomas admitidos](https://docs.microsoft.com/azure/azure-maps/supported-languages) verá una lista de los idiomas admitidos con relación a los servicios de Azure Maps por país o región.
 
 
 ### <a name="predictive-mode-auto-suggest"></a>Modo predictivo (sugerencias automáticas)
 
-Para encontrar más coincidencias parciales de las consultas, `typeahead` parámetro debe establecerse en ' true '. La consulta se interpretará como una entrada parcial y la búsqueda pasará al modo de predicción. En caso contrario, el servicio supondrá que se ha pasado toda la información pertinente.
+Para encontrar más coincidencias para las consultas parciales, el parámetro `typeahead` debe establecerse en “true”. La consulta se interpretará como una entrada parcial y la búsqueda pasará al modo predictivo. En caso contrario, el servicio supondrá que se ha pasado toda la información pertinente.
 
-En el ejemplo de consulta, a continuación, puede ver que se consulta el servicio de la dirección de búsqueda "Microsoft" con el `typeahead` parámetro establecido en **true**. Si observa que la respuesta, puede ver que el servicio de búsqueda interpreta la consulta como consulta parcial y respuesta contiene los resultados de consulta sugeridos automáticamente.
+En la consulta de ejemplo siguiente puede ver que se hace la consulta “Microso” al servicio de la dirección de búsqueda con el parámetro `typeahead` establecido en **true**. Si observa la respuesta, puede ver que el servicio de búsqueda interpreta la consulta como una consulta parcial y la respuesta contiene los resultados de la consulta sugerida automáticamente.
 
 **Consulta de ejemplo:**
 
@@ -238,26 +238,26 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 ```
 
 
-### <a name="uri-encoding-to-handle-special-characters"></a>URI de codificación para controlar los caracteres especiales 
+### <a name="uri-encoding-to-handle-special-characters"></a>Codificación de URI para controlar los caracteres especiales 
 
-Para buscar entre direcciones postales, es decir, "1 º Avenue & unión Street, Seattle", caracteres especiales '&' debe codificarse antes de enviar la solicitud. Se recomienda codificar los datos de caracteres en un URI, donde todos los caracteres se codifican mediante un carácter "%" y un valor hexadecimal de dos caracteres correspondiente a su carácter UTF-8.
+Para buscar direcciones de cruces de calles, es decir, “Paseo de Gracia & Aragón, Barcelona”, hay que codificar el carácter especial “&” antes de enviar la solicitud. Se recomienda codificar los datos de caracteres en un URI, donde todos los caracteres se codifican mediante un carácter “%” y un valor hexadecimal de dos caracteres que se corresponde a su carácter UTF-8.
 
 **Ejemplos de uso**:
 
-Obtenga la dirección de búsqueda:
+Obtener la dirección de búsqueda:
 
 ```
 query=1st Avenue & E 111th St, New York
 ```
 
- deberá codificarse como:
+ debe codificarse como:
 
 ```
 query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
-Estos son los distintos métodos que se usará para distintos idiomas: 
+Estos son los distintos métodos que hay que usar para los distintos lenguajes: 
 
 JavaScript/TypeScript:
 ```Javascript
@@ -291,12 +291,12 @@ PHP:
 urlencode(query)
 ```
 
-rubí:
+Ruby:
 ```Ruby
 CGI::escape(query) 
 ```
 
-veloz:
+Swift:
 ```Swift
 query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) 
 ```
@@ -308,15 +308,15 @@ url.QueryEscape(query)
 ```
 
 
-## <a name="best-practices-for-poi-search"></a>Procedimientos recomendados para la búsqueda de POI
+## <a name="best-practices-for-poi-search"></a>Procedimientos recomendados para la búsqueda de puntos de interés
 
-Puntos de interés (POI) búsqueda permite solicitar POI resultados por nombre, por ejemplo, búsqueda empresarial por su nombre. Se recomienda encarecidamente no usar el `countrySet` parámetro para especificar los países donde la aplicación necesita cobertura, ya que será el comportamiento predeterminado buscar en todo el mundo, devolución de resultados innecesarios o dar lugar a tiempos de búsqueda.
+La búsqueda de puntos de interés (POI) le permite pedir resultados de POI por nombre, por ejemplo, buscar un negocio por su nombre. Es muy recomendable que use el parámetro `countrySet` para especificar los países en los que su aplicación necesita cobertura, ya que, de forma predeterminada, se busca en todo el mundo, lo que probablemente devuelve resultados innecesarios o comporta largos tiempos de búsqueda.
 
-### <a name="brand-search"></a>Búsqueda de marca
+### <a name="brand-search"></a>Búsqueda de marcas
 
-Para mejorar la relevancia de los resultados y la información de la respuesta, la respuesta de búsqueda del punto de interés (POI) incluye la información de marca que se puede usar aún más para analizar la respuesta.
+Para mejorar la relevancia de los resultados y la información de la respuesta, la respuesta de la búsqueda de puntos de interés (POI) incluye la información de marca que se puede usar para analizar la respuesta.
 
-Vamos a hacer un [búsqueda de la categoría de POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) solicitud para gasolineras cerca de campus de Microsoft (Redmond, WA). Si observa que la respuesta, puede ver información de marca para cada punto de interés devuelto.
+Haremos una solicitud de [búsqueda de categorías de POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) para gasolineras cerca del campus de Microsoft (Redmond, WA). Si observa la respuesta, verá información de la marca para cada punto de interés devuelto.
 
 **Consulta de ejemplo:**
 
@@ -481,21 +481,21 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
 ```
 
 
-### <a name="airport-search"></a>Búsqueda de aeropuerto
+### <a name="airport-search"></a>Búsqueda de aeropuertos
 
-Búsqueda POI admite la búsqueda aeropuertos mediante el uso de los códigos de aeropuerto oficiales. Por ejemplo, **mar** (aeropuerto internacional de Seattle Tacoma). 
+La búsqueda de POI admite la búsqueda de aeropuertos mediante el uso de los códigos de aeropuerto oficiales. Por ejemplo, **SEA** (aeropuerto internacional de Seattle Tacoma). 
 
 ```HTTP
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=SEA 
 ```
 
-### <a name="nearby-search"></a>Búsqueda cercano
+### <a name="nearby-search"></a>Búsqueda de elementos cercanos
 
-Para recuperar solo los resultados POI en torno a una ubicación específica, la [cerca de la API de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby) puede ser la elección adecuada. Este punto de conexión solo devolverá resultados POI y no toma un parámetro de consulta de búsqueda. Para limitar los resultados, se recomienda establecer el radio.
+Para recuperar solo resultados de POI cercanos a una ubicación específica, la [API de búsquedas cercanas](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby) debe contener la elección adecuada. Este punto de conexión solo devolverá resultados de POI y no tendrá en cuenta ningún parámetro de consulta de búsqueda. Para limitar los resultados, se recomienda establecer el radio.
 
-## <a name="understanding-the-responses"></a>Descripción de las respuestas
+## <a name="understanding-the-responses"></a>Entender las respuestas
 
-Vamos a hacer una solicitud de búsqueda de direcciones en el Azure Maps [servicio de búsqueda](https://docs.microsoft.com/rest/api/maps/search) una dirección en Seattle. Si observa detenidamente la dirección URL de solicitud siguiente, hemos configurado la `countrySet` parámetro **US** para buscar la dirección en los Estados Unidos de América.
+Vamos a hacer una solicitud de búsqueda de una dirección de Seattle al [servicio de búsqueda](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps. Si observa detenidamente la URL solicitada a continuación, hemos establecido el parámetro `countrySet` en **US** para buscar la dirección en los Estados Unidos de América.
 
 **Consulta de ejemplo:**
 
@@ -503,21 +503,21 @@ Vamos a hacer una solicitud de búsqueda de direcciones en el Azure Maps [servic
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
-Aún más, echemos un vistazo a la siguiente estructura de respuesta. Los tipos de resultado de los objetos de resultado de la respuesta son diferentes. Si observa detenidamente que puede ver que tenemos tres tipos diferentes de objetos de resultado, que son "Entre Street", "Street" y "Dirección de punto". Tenga en cuenta que esa búsqueda de direcciones no devuelve de interés. El `Score` parámetro para cada objeto de respuesta indica la puntuación de coincidencia relativa a las puntuaciones de otros objetos en la misma respuesta. Consulte [obtener la dirección de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) para obtener más información acerca de los parámetros de objeto de respuesta.
+Echemos un vistazo a la siguiente estructura de respuesta. Los tipos de resultado de los objetos de resultado de la respuesta son diferentes. Si observa detenidamente, puede ver que tenemos tres tipos diferentes de objetos de resultado: “Dirección del punto”, “Calle” y “Cruce”. Tenga en cuenta que la búsqueda de direcciones no devuelve puntos de interés. El parámetro `Score` de cada objeto de respuesta indica la puntuación de coincidencia relativa a las puntuaciones de otros objetos en la misma respuesta. Vea [Obtener la dirección de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) para obtener más información sobre los parámetros del objeto de respuesta.
 
-**Tipos admitidos de resultado:**
+**Tipos de resultado admitidos:**
 
-* **Dirección de punto:** Puntos en un mapa con una dirección específica con un nombre de la calle y un número. El máximo nivel de precisión para las direcciones disponible. 
+* **Dirección del punto:** puntos en un mapa con una dirección específica, que incluye el nombre y número de calle. Es el máximo nivel de precisión que está disponible para las direcciones. 
 
-* **Intervalo de direcciones:**  Para algunas de las calles, hay puntos de dirección que se interpolan desde el principio y al final de la calle; estos puntos se representan como intervalos de direcciones. 
+* **Intervalo de direcciones:**  en algunas calles, hay puntos de la dirección que se interpolan desde el principio hasta el final de la calle. Estos puntos se representan como intervalos de direcciones. 
 
-* **Geografía:** Áreas en un mapa que representan una división administrativa de un terreno, es decir, país, estado, ciudad. 
+* **Geografía:** áreas en un mapa que representan una división administrativa de un terreno, es decir, país, estado, ciudad. 
 
-* **POI - (puntos de interés):** Puntos en un mapa que merecen atención y pueden ser de interés.
+* **POI (puntos de interés):** puntos de un mapa que merecen atención y pueden ser de interés.
 
-* **Calle:** Representación de calles en el mapa. Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa. 
+* **Calle:** representación de calles en el mapa. Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa. 
 
-* **Cross Street:** Intersecciones. Representaciones de las uniones; lugares donde dos de las calles forman una intersección.
+* **Intersección:** intersecciones. Representaciones de cruces, lugares en los que dos calles forman una intersección.
 
 **Respuesta:**
 
@@ -685,10 +685,10 @@ Aún más, echemos un vistazo a la siguiente estructura de respuesta. Los tipos 
 
 ### <a name="geometry"></a>Geometría
 
-Cuando el tipo de respuesta es **geometría**, puede incluir el identificador de geometría que se devuelve en el **dataSources** objeto bajo "geometría" e "id". Por ejemplo, [servicio obtener polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) permite solicitar los datos de geometría en formato GeoJSON, por ejemplo, una ciudad o un aeropuerto, el esquema para un conjunto de entidades. Puede usar estos datos de límites para [Geovallas](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) o [puntos de interés de búsqueda dentro de la geometría](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
+Cuando el tipo de respuesta es **Geometría**, puede incluir el identificador de geometría que se devuelve en el objeto **dataSources** bajo “geometría” e “id”. Por ejemplo, el [servicio para obtener el polígono](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) permite solicitar los datos de geometría en formato GeoJSON, por ejemplo, el contorno de ciudad o aeropuerto de un conjunto de entidades. Puede usar estos datos de límites para [geovallas](https://docs.microsoft.com/azure/azure-maps/tutorial-geofence) o [puntos de interés de búsqueda dentro de la geometría](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry).
 
 
-[Buscar dirección](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) o [búsqueda aproximada](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) respuestas de API pueden incluir el **Id. de la geometría** que se devuelve en el objeto de orígenes de datos en "geometría" y "id".
+La API para [buscar direcciones](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) o [buscar coincidencias](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) puede incluir el **identificador de geometría** que se devuelve en el objeto dataSources bajo “geometría” e “id”.
 
 
 ```JSON 
@@ -702,4 +702,4 @@ Cuando el tipo de respuesta es **geometría**, puede incluir el identificador de
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre [cómo crear solicitudes de servicio de búsqueda de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address).
-* Explore la Azure Maps [documentación de API del servicio de búsqueda](https://docs.microsoft.com/rest/api/maps/search). 
+* Explore la [documentación de la API del servicio de búsqueda](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps. 

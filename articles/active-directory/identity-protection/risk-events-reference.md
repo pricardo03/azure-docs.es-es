@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191525"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referencia sobre eventos de riesgo de Azure Active Directory Identity Protection
@@ -84,14 +84,14 @@ Este tipo de evento de riesgo indica inicios de sesión desde direcciones IP inf
 **Nombre anterior**: Inicios de sesión desde ubicaciones desconocidas
 
 
-Este tipo de evento de riesgo se considera más allá del historial de inicio de sesión (dirección IP, latitud / longitud y ASN) para buscar los inicios de sesión erróneos. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estará en "modo de aprendizaje" durante un período de tiempo en las propiedades de inicio de sesión no conocidas los eventos de riesgo se desactivará aunque nuestros algoritmos Obtenga información sobre el comportamiento del usuario. El aprendizaje de duración de modo es dinámica y depende de cuánto tiempo tarda el algoritmo para recopilar suficiente información sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
+Este tipo de evento de riesgo tiene en cuenta el historial de inicio de sesión anterior (dirección IP, latitud/longitud y ASN) para determinar inicios de sesión anómalos. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estarán en "modo de aprendizaje" durante un período de tiempo, en el que los eventos de riesgo de las propiedades de inicio de sesión desconocidas estarán desactivados mientras nuestros algoritmos aprenden el comportamiento del usuario. La duración del modo de aprendizaje es dinámica y depende de cuánto tiempo tarde el algoritmo en recopilar suficiente información sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
 
 También se ejecuta esta detección para una autenticación básica o para protocolos heredados. Dado que estos protocolos no tienen propiedades modernas como el identificador de cliente, hay una telemetría limitada para reducir los falsos positivos. Se recomienda que los clientes realicen la migración a la autenticación moderna.
 
 
-## <a name="azure-ad-threat-intelligence"></a>Inteligencia sobre amenazas de Azure AD
+## <a name="azure-ad-threat-intelligence"></a>Inteligencia de Azure AD sobre amenazas
 
 **Tipo de detección**: Sin conexión <br>
-**Nombre anterior**: Esta detección se mostrarán en los informes de Azure AD Identity Protection heredados (usuarios marcados en riesgo, eventos de riesgo) como "Usuarios con credenciales perdidas"
+**Nombre anterior**: Esta detección se mostrará en los informes heredados de Azure AD Identity Protection (Usuarios marcados en riesgo, Eventos de riesgo) como "Usuarios con credenciales filtradas".
 
-Este tipo de evento indica la actividad del usuario que es poco común para el usuario determinado o que es coherente con los patrones de ataque conocidos basados en orígenes de inteligencia de amenazas internas y externas de Microsoft.
+Este tipo de evento de riesgo indica una actividad de usuario poco común para el usuario en cuestión o coherente con patrones de ataque conocidos basados en orígenes de información sobre amenazas internas y externas de Microsoft.

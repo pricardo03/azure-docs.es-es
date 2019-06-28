@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867030"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Análisis de estadísticas de uso con los informes de HTTP avanzados de Azure CDN
@@ -42,30 +42,30 @@ En este documento se explican los informes de HTTP avanzados en Microsoft Azure 
 ## <a name="geography-reports-map-based"></a>Informes de geografía (basados en mapas)
 Hay cinco informes que usan un mapa para indicar las regiones desde las que se solicita el contenido. Estos informes son World Map, United States Map, Canada Map, Europe Map y Asia Pacific Map.
 
-Cada informe basado en mapa clasifica las entidades geográficas (es decir, países o regiones, se proporciona un mapa para visualizar las ubicaciones desde las que se solicita el contenido. Para ello se usa la codificación en colores de cada región según la cantidad de demanda experimentada en dicha región. Las regiones más claras indican una demanda menor de contenido y las más oscuras indican mayores niveles de petición de contenido.
+Cada informe basado en mapas clasifica las entidades geográficas (es decir, países o regiones); se proporciona un mapa para ayudar a visualizar las ubicaciones desde las que se solicita el contenido. Para ello se usa la codificación en colores de cada región según la cantidad de demanda experimentada en dicha región. Las regiones más claras indican una demanda menor de contenido y las más oscuras indican mayores niveles de petición de contenido.
 
-Debajo del mapa, se ofrece información detallada del tráfico y del ancho de banda para cada región. Esto permite ver el número total de visitas, el porcentaje de visitas, la cantidad total de datos transferidos (en gigabytes) y el porcentaje de datos transferidos en cada región. Consulte una descripción de cada una de estas métricas. Por último, cuando se mantiene el mouse sobre una región (es decir, país o región, estado o provincia), el nombre y el porcentaje de visitas que se produjeron en la región se mostrará como una información sobre herramientas.
+Debajo del mapa, se ofrece información detallada del tráfico y del ancho de banda para cada región. Esto permite ver el número total de visitas, el porcentaje de visitas, la cantidad total de datos transferidos (en gigabytes) y el porcentaje de datos transferidos en cada región. Consulte una descripción de cada una de estas métricas. Por último, cuando mantiene el puntero sobre una región (por ejemplo, país o región, estado o provincia), el nombre y el porcentaje de visitas que se produjeron en la región se mostrarán como una información sobre herramientas.
 
 Se proporciona más abajo una descripción breve de cada tipo de informe de geografía basado en mapas.
 
 | Nombre del informe | DESCRIPCIÓN |
 | --- | --- |
-| World Map |Este informe permite ver la demanda en todo el mundo del contenido de la red CDN. Cada país o región está codificada por color en el mapamundi para indicar el porcentaje de visitas originadas en esa región. |
+| World Map |Este informe permite ver la demanda en todo el mundo del contenido de la red CDN. Cada país o región está codificado en colores en el mapamundi para indicar el porcentaje de visitas originadas en dicha región. |
 | United States Map |Este informe permite ver la demanda del contenido de la red CDN en Estados Unidos. Cada estado está codificado en colores en este mapa para indicar el porcentaje de visitas originados en esta región. |
 | Canada Map |Este informe permite ver la demanda del contenido de la red CDN en Canadá. Cada provincia está codificada en colores en este mapa para indicar el porcentaje de visitas originadas en esta región. |
-| Europe Map |Este informe permite ver la demanda del contenido de la red CDN en Europa. Cada país o región está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esa región. |
-| Asia Pacific Map |Este informe permite ver la demanda del contenido de la red CDN en Asia. Cada país o región está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esa región. |
+| Europe Map |Este informe permite ver la demanda del contenido de la red CDN en Europa. Cada país o región está codificado en colores en el mapa para indicar el porcentaje de visitas originadas en dicha región. |
+| Asia Pacific Map |Este informe permite ver la demanda del contenido de la red CDN en Asia. Cada país o región está codificado en colores en el mapa para indicar el porcentaje de visitas originadas en dicha región. |
 
 ## <a name="geography-reports-bar-charts"></a>Informes de geografía (gráficos de barras)
-Existen dos informes adicionales que proporcionan información estadística de acuerdo con la ubicación geográfica, que son Top Cities y Top Countries. Estos informes clasifican ciudades y países o regiones, respectivamente, según el número de visitas originadas en dichos países o regiones. Tras generar este tipo de informe, un gráfico de barras indicará las 10 primeras ciudades o países o regiones que solicitaron contenido en una plataforma específica. Este gráfico de barras permite evaluar rápidamente las regiones que generan la mayor cantidad de solicitudes para su contenido.
+Existen dos informes adicionales que proporcionan información estadística de acuerdo con la ubicación geográfica, que son Top Cities y Top Countries. Estos informes clasifican ciudades y países o regiones, respectivamente, según el número de visitas originadas en esos países o regiones. Tras generar este tipo de informe, un gráfico de barras indicará las 10 ciudades o países o regiones principales que solicitaron contenido en una plataforma específica. Este gráfico de barras permite evaluar rápidamente las regiones que generan la mayor cantidad de solicitudes para su contenido.
 
 El lado izquierdo del gráfico (eje y) indica cuántas visitas se han producido en la región especificada. Directamente debajo del gráfico (eje x) se muestra una etiqueta para cada una de las 10 regiones principales.
 
 ### <a name="using-the-bar-charts"></a>Uso de los gráficos de barras
 * Si mantiene el cursor sobre una barra, el nombre y el número total de visitas que se produjeron en la región se mostrarán como una información sobre herramientas.
-* La información sobre herramientas para el informe Top Cities identifica una ciudad por su nombre, el estado o provincia y la abreviatura del país o región.
-* Si no se pudo determinar la ciudad o la región (es decir, el estado o provincia) desde la que se originó una solicitud, se indicará que son desconocidas. Si el país o región es desconocido, dos signos de interrogación (es decir,??), se mostrará.
-* Un informe puede incluir métricas para "Europa" o "Región de Asia y el Pacífico". Estos elementos no están diseñados para proporcionar información estadística sobre todas las direcciones IP de esas regiones. En su lugar, solo se aplican a las solicitudes que se originan de direcciones IP que se distribuyen por Europa o Asia/Pacífico, en lugar de a una determinada ciudad o país o región.
+* La información sobre herramientas en el informe Top Cities identifica a la ciudad por su nombre, el estado o provincia y por la abreviatura del país o región.
+* Si no se pudo determinar la ciudad o la región (es decir, el estado o provincia) desde la que se originó una solicitud, se indicará que son desconocidas. Si el país o región es desconocido, se mostrarán dos signos de interrogación (es decir, ??).
+* Un informe puede incluir métricas para "Europa" o "Región de Asia y el Pacífico". Estos elementos no están diseñados para proporcionar información estadística sobre todas las direcciones IP de esas regiones. En su lugar, solo se aplican a las solicitudes que se originan de las direcciones IP que se distribuyen por Europa o por la región de Asia y el Pacífico, en lugar de por una determinada ciudad o país o región.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas, el porcentaje de visitas, la cantidad de datos transferidos (en gigabytes) y el porcentaje de datos transferidos para las 250 regiones principales. Consulte una descripción de cada una de estas métricas.
 
@@ -74,14 +74,14 @@ A continuación se proporciona una breve descripción para ambos tipos de inform
 | Nombre del informe | DESCRIPCIÓN |
 | --- | --- |
 | Top Cities |Este informe clasifica las ciudades según el número de visitas originadas en esa región. |
-| Top Countries |Este informe clasifica los países o regiones, según el número de visitas originadas en ese país o región. |
+| Top Countries |Este informe clasifica los países o regiones según el número de visitas originadas en ese país o región. |
 
 ## <a name="daily-summary"></a>Daily Summary
 El informe Daily Summary permite ver el número total de visitas y los datos transferidos a diario en una plataforma particular. Esta información puede usarse para distinguir rápidamente los patrones de actividad de la red CDN. Por ejemplo, este informe puede ayudar a detectar qué días han tenido un tráfico mayor o menor que el previsto.
 
 Tras generar este tipo de informe, un gráfico de barras proporcionará una indicación visual de la cantidad de demanda específica de la plataforma experimentada a diario durante el período de tiempo cubierto por el informe. Lo hará mostrando una barra para cada día en el informe. Por ejemplo, si se selecciona el período de tiempo llamado "Last Week", se generará un gráfico de barras con siete barras. Cada barra indica el número total de visitas realizadas en ese día.
 
-El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la fecha especificada. Directamente debajo del gráfico (eje x), encontrará una etiqueta que indica la fecha (formato: YYYY-MM-DD) para cada día incluido en el informe.
+El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la fecha especificada. Directamente debajo del gráfico (eje X), se muestra una etiqueta con la fecha (formato: AAAA-MM-DD) para cada día incluido en el informe.
 
 > [!TIP]
 > Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa fecha se mostrará como una información sobre herramientas.
@@ -95,7 +95,7 @@ El informe By Hour permite ver el número total de visitas y los datos transferi
 
 Tras generar este tipo de informe, un gráfico de barras proporcionará una indicación visual de la cantidad de demanda específica de la plataforma experimentada cada hora durante el período de tiempo cubierto por el informe. Lo hará mostrando una barra para cada hora cubierta por el informe. Por ejemplo, si se selecciona un período de tiempo de 24 horas, se generará un gráfico de barras con veinticuatro barras. Cada barra indica el número total de visitas realizadas durante esa hora.
 
-El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la hora especificada. Directamente debajo del gráfico (eje x), encontrará una etiqueta que indica la fecha y hora (formato: YYYY-MM-DD hh: mm) para cada hora incluida en el informe. La hora se notifica con formato de 24 horas y se especifica mediante el uso de la zona horaria UTC/GMT.
+El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la hora especificada. Directamente debajo del gráfico (eje X), se muestra una etiqueta con la fecha y hora (formato: AAAA-MM-DD hh:mm) para cada hora incluida en el informe. La hora se notifica con formato de 24 horas y se especifica mediante el uso de la zona horaria UTC/GMT.
 
 > [!TIP]
 > Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa hora se mostrará como una información sobre herramientas.
@@ -119,7 +119,7 @@ Los datos usados para generar el gráfico de barras pueden verse debajo de él. 
 ## <a name="by-file-detail"></a>By File Detail
 El informe By File Detail permite ver la cantidad de demanda y el tráfico generados en una plataforma concreta de un activo específico. En la parte superior de este informe se encuentra la opción File Details For. Esta opción proporciona una lista de los activos más solicitados en la plataforma seleccionada. Para generar un informe By File Detail, debe seleccionar el activo deseado en la opción File Details For. Después, un gráfico de barras indicará la cantidad de demanda diaria que se generó durante el período de tiempo especificado.
 
-El lado izquierdo del gráfico (eje y) indica el número total de solicitudes que ha tenido un activo en un día concreto. Directamente debajo del gráfico (eje x), encontrará una etiqueta que indica la fecha (formato: YYYY-MM-DD) de la red CDN se notificó a petición para el recurso.
+El lado izquierdo del gráfico (eje y) indica el número total de solicitudes que ha tenido un activo en un día concreto. Directamente debajo del gráfico (eje X), se muestra una etiqueta con la fecha (formato: AAAA-MM-DD) para la que se notificó la demanda de red CDN para el recurso.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas y la cantidad de datos transferidos (en gigabytes) para cada día que cubre el informe.
 
@@ -199,7 +199,7 @@ El lado izquierdo del gráfico (eje y) indica el nombre de archivo para cada uno
 
 Directamente debajo del gráfico de barras, se mostrará la información siguiente para los 250 activos solicitados principales: la ruta de acceso relativa (incluido el nombre de archivo), el número de solicitudes que dieron como resultado un código de estado 404 No encontrado, el número de veces que se solicitó el activo y el porcentaje de solicitudes que dieron como resultado un código de estado de 404 No encontrado.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 * [Información general de Azure CDN](cdn-overview.md)
 * [Estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)

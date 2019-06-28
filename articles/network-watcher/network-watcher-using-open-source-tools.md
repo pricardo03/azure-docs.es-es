@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64936022"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualización de los patrones de tráfico de red de entrada y salida de las máquinas virtuales utilizando herramientas de código abierto
@@ -76,7 +76,7 @@ CapAnalysis ofrece varias opciones para visualizar la captura de paquetes, cada 
 
 1. Geomap
 
-    Este panel proporciona una vista del mapa del tráfico de red con capacidad de escalar para el volumen de tráfico de cada país o región de colores. Puede seleccionar países resaltados para ver las estadísticas de flujo adicionales, como la proporción de los datos enviados y recibidos desde direcciones IP en ese país o región.
+    Este panel proporciona una vista del mapa del tráfico de red, con colores de ajuste de escala para el volumen de tráfico de cada país o región. Puede seleccionar países o regiones resaltados para ver las estadísticas de flujo adicionales, como la proporción de datos enviados y recibidos desde direcciones IP en ese país o esa región.
 
     ![Geomap][8]
 

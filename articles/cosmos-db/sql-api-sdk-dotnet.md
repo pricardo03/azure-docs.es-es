@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
 ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510719"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET para SQL API: descarga y notas de la versión
@@ -50,17 +50,17 @@ ms.locfileid: "65510719"
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* Versión SDK System.Net.Http coincide con lo que se define en el paquete NuGet
-* Aumentar el tamaño de la precisión decimal para las consultas LINQ.
-* Se ha agregado nuevas clases CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType y PartitionKeyDefinitionVersion
-* Se ha agregado TimeToLivePropertyPath a DocumentCollection
-* Se ha agregado CompositeIndexes y SpatialIndexes a IndexPolicy
-* Versión se ha agregado a PartitionKeyDefinition
-* Agregar ninguno para la PartitionKey
+* La versión de System.Net.Http del SDK coincide con lo definido en el paquete NuGet
+* Mayor tamaño de precisión decimal para consultas de LINQ.
+* Incorporación de nuevas clases CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType y PartitionKeyDefinitionVersion
+* Incorporación de TimeToLivePropertyPath a DocumentCollection
+* Incorporación de CompositeIndexes y SpatialIndexes a IndexPolicy
+* Incorporación de Version a PartitionKeyDefinition
+* Incorporación de None a PartitionKey
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * Se ha agregado IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection y MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
+ * Incorporación de IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection y MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -373,10 +373,10 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 <br/>
 
-| Version | Fecha de lanzamiento | Fecha de retirada |
+| Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
-| [2.4.0](#2.4.0) |05 de mayo de 2019 |--- |
-| [2.3.0](#2.3.0) |04 de abril de 2019 |--- |
+| [2.4.0](#2.4.0) |5 de mayo de 2019 |--- |
+| [2.3.0](#2.3.0) |4 de abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de febrero de 2019 |--- |
 | [2.2.2](#2.2.2) |6 de febrero de 2019 |--- |
 | [2.2.1](#2.2.1) |24 de diciembre de 2018 |--- |

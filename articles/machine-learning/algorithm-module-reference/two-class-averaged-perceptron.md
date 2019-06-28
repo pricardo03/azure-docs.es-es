@@ -1,7 +1,7 @@
 ---
-title: 'Regresión de bosque de decisión: Referencia de módulo'
+title: 'Regresión de bosque de decisión: Referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el módulo de Perceptrón promedio de dos clases en el servicio de Azure Machine Learning para crear un modelo basado en el algoritmo de perceptrón promedio de aprendizaje automático.
+description: Obtenga información sobre cómo usar el módulo Perceptrón promedio de dos clases en Azure Machine Learning Service para crear un modelo de Machine Learning basado en el algoritmo de perceptrón promedio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,55 +11,55 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: f0fec525ed87f91cf102053383b2934aac4b71c0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029241"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Módulo de Perceptrón promedio de dos clases
+# <a name="two-class-averaged-perceptron-module"></a>Módulo Perceptrón promedio de dos clases
 
-En este artículo se describe un módulo de la interfaz visual (versión preliminar) para el servicio Azure Machine Learning.
+En este artículo se describe un módulo de la interfaz visual (versión preliminar) de Azure Machine Learning Service.
 
-Utilice este módulo para crear un modelo basado en el algoritmo de perceptrón promedio de aprendizaje automático.  
+Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de perceptrón promedio.  
   
-Este algoritmo de clasificación es un método de aprendizaje supervisado y requiere un *etiquetados dataset*, que incluye una columna de etiqueta. Puede entrenar el modelo, ya que proporciona el modelo y el conjunto de datos etiquetado como entrada para [entrenar modelo](./train-model.md). El modelo entrenado, a continuación, puede utilizarse para predecir valores para los nuevos ejemplos de entrada.  
+Este algoritmo de clasificación es un método de aprendizaje supervisado y requiere un *conjunto de datos etiquetado*, que incluya una columna de etiqueta. Puede entrenar el modelo proporcionando el modelo y el conjunto de datos etiquetado como entrada para [Entrenar modelo](./train-model.md). Después, el modelo entrenado puede utilizarse para predecir valores para los nuevos ejemplos de entrada.  
 
-### <a name="about-averaged-perceptron-models"></a>Acerca de los modelos de perceptrón promedio
+### <a name="about-averaged-perceptron-models"></a>Acerca de los modelos de perceptrón promedio de dos clases
 
-El *método de perceptrón promedio de* es una versión primeriza y sencilla de una red neuronal. En este enfoque, las entradas se clasifican en varias posibles salidas según una función lineal y, a continuación, junto con un conjunto de pesos que se derivan del vector de característica, por lo tanto, el nombre "perceptrón".
+El *método de perceptrón promedio* es una versión anterior y sencilla de una red neuronal. En este enfoque, las entradas se clasifican en varias posibles salidas según una función lineal y, a continuación, se combinan con un conjunto de pesos que se derivan del vector de característica, de ahí, el nombre "perceptrón".
 
-Los modelos de perceptrón más sencillos son adecuados para aprender patrones linealmente separables, mientras que redes neurales (especialmente las redes neuronales profundas) pueden modelar límites de clase más complejos. Sin embargo, los perceptrones son más rápidos, y puesto que procesan casos en serie, pueden usarse con entrenamiento continuo.
+Los modelos de perceptrón más sencillos son adecuados para aprender patrones separables linealmente, mientras que las redes neuronales (especialmente las redes neuronales profundas) pueden modelar límites de clase más complejos. Sin embargo, los perceptrones son más rápidos y, puesto que procesan los casos en serie, pueden usarse en el entrenamiento continuo.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Configuración de Perceptrón promedio de dos clases
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Procedimiento para configurar el perceptrón promedio de dos clases
 
-1.  Agregar el **Perceptrón promedio de dos clases** módulo al experimento.  
+1.  Agregue el módulo **Perceptrón promedio de dos clases** al experimento.  
 
-2.  Especifique cómo desea que el modelo se entrene, estableciendo el **crear modo de entrenador** opción.  
+2.  Especifique cómo quiere que se entrene el modelo, estableciendo la opción **Create trainer mode** (Crear modo entrenador).  
   
-    -   **Único parámetro**: Si sabe cómo desea configurar el modelo, debe proporcionar un conjunto específico de valores como argumentos.
+    -   **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, proporcione un conjunto específico de valores como argumentos.
   
-3.  Para **velocidad de aprendizaje**, especifique un valor para el *velocidad de aprendizaje*. El tamaño del paso que se utiliza en descenso de gradiente estocástico cada vez que se prueba y se corrige el modelo de control de valores de la velocidad de aprendizaje.
+3.  En **Velocidad de aprendizaje**, especifique un valor para la *velocidad de aprendizaje*. Los valores de velocidad de aprendizaje controlan el tamaño del paso que se utiliza en el descenso de gradiente estocástico cada vez que se prueba y se corrige el modelo.
   
-     Al realizar la tasa más pequeños, probar el modelo más a menudo, con el riesgo que puede quedar atascado en un nivel predefinido local. Al realizar el paso más grandes, puede convergir con mayor rapidez, con el riesgo de rebasar los mínimos reales.
+     Al disminuir la velocidad, se prueba el modelo más a menudo, con el riesgo de que pueda quedarse atascado en un nivel local. Al aumentar el paso, puede convergir con mayor rapidez, con el riesgo de superar los mínimos verdaderos.
   
-4.  Para **número máximo de iteraciones**, escriba el número de veces que desea que el algoritmo para examinar los datos de entrenamiento.  
+4.  En **Maximum number of iterations** (Número máximo de iteraciones), escriba el número de veces que desea que el algoritmo examine los datos de entrenamiento.  
   
-     Si se detiene pronto a menudo proporciona una mejor generalización. Aumentar el número de iteraciones mejora el ajuste, con el riesgo de sobreajuste.
+     Si se detiene pronto proporciona, a menudo, una mejor generalización. Aumentar el número de iteraciones mejora el ajuste, con riesgo de sobreajuste.
   
-5.  Para **valor de inicialización aleatorio número**, opcionalmente, escriba un valor entero que se usará como el valor de inicialización. Uso de un valor de inicialización se recomienda si desea garantizar la reproducibilidad del experimento en se ejecuta.  
+5.  En **Random number seed** (Inicialización de número aleatorio), escriba opcionalmente un valor de entero que se usará como inicialización. Se recomienda usar una inicialización si desea garantizar la reproducibilidad del experimento a través de las ejecuciones.  
   
-1.  Conecte un conjunto de datos de entrenamiento y uno de los módulos de aprendizaje:
+1.  Conecte un conjunto de datos de entrenamiento y uno de los módulos de entrenamiento:
   
-    -   Si establece **crear modo de entrenador** a **único parámetro**, utilice el [Train Model](train-model.md) módulo.
+    -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).
 
 ## <a name="results"></a>Results
 
-Una vez completada la formación:
+Una vez completado el entrenamiento:
 
-+ Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos de entrenamiento, haga clic en la salida de [Train Model](./train-model.md).
++ Para ver un resumen de los parámetros del modelo, junto con los pesos de característica aprendidos en el entrenamiento, haga clic con el botón derecho en la salida de [Train Model](./train-model.md) (Entrenar modelo).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [conjunto de módulos disponibles](module-reference.md) al servicio de Azure Machine Learning. 
+Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning Service. 

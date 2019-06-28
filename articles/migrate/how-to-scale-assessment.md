@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518752"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
@@ -39,11 +39,11 @@ Azure Migrate necesita acceso a los servidores de VMware para detectar automáti
 - Detalles: El usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.
 - Para restringir el acceso, asigne el rol Sin acceso con Propagar a objetos secundarios a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
 
-Si va a implementar en un entorno de varios inquilinos y le gustaría ámbito por carpeta de máquinas virtuales de un único inquilino, no se puede seleccionar la carpeta de la máquina virtual directamente al definir el ámbito de colección de Azure Migrate. Estos son instrucciones para la detección de ámbito por carpeta de máquinas virtuales:
+Si va a implementar en un entorno multiinquilino y quiere establecer el ámbito de un único inquilino por carpeta de máquinas virtuales, no puede seleccionar directamente la carpeta de máquinas virtuales al definir el ámbito de la colección en Azure Migrate. Las siguientes son instrucciones para la detección de ámbito por carpeta de máquinas virtuales:
 
-1. Cree un usuario por inquilino y asignar permisos de solo lectura a todas las máquinas virtuales que pertenecen a un inquilino determinado. 
-2. Conceda este acceso de usuario de solo lectura a todos los objetos de elemento primario donde se hospedan las máquinas virtuales. Todos los objetos primarios - host, la carpeta de hosts, el clúster, la carpeta de clústeres: en la jerarquía hasta el centro de datos son que se incluya. No es necesario propagar los permisos para todos los objetos secundarios.
-3. Use las credenciales para la detección de seleccionar el centro de datos como *ámbito de la colección*. El RBAC configurar garantiza que el usuario correspondiente de vCenter tendrán acceso a máquinas virtuales solo específico del inquilino.
+1. Cree un usuario por inquilino y asigne permisos de solo lectura a todas las máquinas virtuales que pertenezcan a un inquilino determinado. 
+2. Conceda este acceso de usuario de solo lectura a todos los objetos primarios donde se hospeden las máquinas virtuales. Se incluyen todos los objetos primarios (host, carpeta de hosts, clúster, carpeta de clústeres) de la jerarquía hasta el centro de datos. No es necesario propagar los permisos a todos los objetos secundarios.
+3. Use las credenciales para la detección al seleccionar el centro de datos como *Ámbito del grupo*. La configuración de RBAC garantiza que el usuario correspondiente de vCenter solo tenga acceso a las máquinas virtuales específicas del inquilino.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planificación de los proyectos de migración y las detecciones
 
@@ -52,13 +52,13 @@ En función del número de máquinas virtuales que se vayan a detectar, puede cr
 En el caso de una detección de una sola vez (actualmente en desuso), funciona en un modelo de disparo y olvido; una vez realizada la detección, puede usar el mismo recopilador para recopilar datos de otra instancia de vCenter Server o enviarlos a otro proyecto de migración.
 
 > [!NOTE]
-> El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure. Se recomienda mover a la aplicación de detección continua.
+> El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure. Se recomienda pasar al dispositivo de detección continua.
 
 Planee las detecciones y evaluaciones en función de los límites siguientes:
 
 | **Entidad** | **Límite de máquinas** |
 | ---------- | ----------------- |
-| Proyecto    | 1500             |
+| proyecto    | 1500             |
 | Detección  | 1500             |
 | Evaluación | 1500             |
 
@@ -88,7 +88,7 @@ Si tiene varias instancias de vCenter Server con menos de 1500 máquinas virtual
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Más de 1500 máquinas en una sola instancia de vCenter Server
 
-Si tiene más de 1500 máquinas virtuales en una sola instancia de vCenter Server, debe dividir la detección en varios proyectos de migración. Para dividir las detecciones, puede aprovechar el campo de ámbito en el dispositivo y especifique el host, clúster, carpeta de hosts, la carpeta de clústeres o el centro de datos que desea detectar. Por ejemplo, si tiene dos carpetas en vCenter Server, una con 1000 máquinas virtuales (Carpeta1) y otra con 800 (Carpeta2), puede usar el campo de ámbito para dividir las detecciones entre esas carpetas.
+Si tiene más de 1500 máquinas virtuales en una sola instancia de vCenter Server, debe dividir la detección en varios proyectos de migración. Para dividir las detecciones, puede aprovechar el campo Ámbito del dispositivo y especificar el host, el clúster, la carpeta de hosts, la carpeta de clústeres o el centro de datos que quiere detectar. Por ejemplo, si tiene dos carpetas en vCenter Server, una con 1000 máquinas virtuales (Carpeta1) y otra con 800 (Carpeta2), puede usar el campo de ámbito para dividir las detecciones entre esas carpetas.
 
 **Detección continua:** en este caso, tendrá que crear dos aplicaciones recopiladoras; para la primera, especifique el ámbito como Carpeta1 y conéctela al primer proyecto de migración. Puede iniciar en paralelo la detección de Carpeta2 mediante el segundo dispositivo de recopilador y conectarlo al segundo proyecto de migración.
 
@@ -238,7 +238,7 @@ Para cada detección que necesite realizar, ejecute el recopilador para detectar
 3.  En el escritorio, seleccione el acceso directo **Run collector** (Ejecutar recopilador).
 4.  En Azure Migrate Collector, abra **Set Up Prerequisites** (Configurar requisitos previos) y luego:
 
-     a. Acepte los términos de licencia y lea la información de terceros.
+    a. Acepte los términos de licencia y lea la información de terceros.
 
     El recopilador comprueba que la VM tenga acceso a Internet.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
 ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596743"
 ---
 # <a name="manage-and-configure-projects"></a>Administración y configuración de proyectos
@@ -37,7 +37,7 @@ Azure Notebooks inicia la máquina virtual subyacente cada vez que ejecuta un cu
 
 ## <a name="compute-tier"></a>Nivel de proceso
 
-De forma predeterminada, los proyectos se ejecutan el **gratuitos Compute** nivel, que está limitado a 4 GB de memoria y 1 GB de datos para evitar abusos. Puede omitir estas limitaciones y aumentar la capacidad de proceso mediante el uso de una máquina virtual diferente que se ha aprovisionado en una suscripción de Azure. Para obtener más información, consulte [cómo usar Data Science Virtual Machines](use-data-science-virtual-machine.md).
+De forma predeterminada, los proyectos se ejecutan en el nivel **Free Compute** (Proceso gratuito), que está limitado a 4 GB de memoria y 1 GB de datos para evitar abusos. Puede omitir estas limitaciones y aumentar la potencia de proceso mediante el uso de una máquina virtual diferente que se haya aprovisionado en una suscripción a Azure. Para obtener más información, vea [Uso de Data Science Virtual Machine](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Edición de los metadatos del proyecto
 
@@ -45,8 +45,8 @@ En el panel del proyecto, seleccione **Configuración del proyecto** y la pesta�
 
 | Configuración | DESCRIPCIÓN |
 | --- | --- |
-| Nombre del proyecto | Un nombre descriptivo para el proyecto que usa Azure Notebooks para fines de presentación. Por ejemplo, "Hola mundo en Python". |
-| Id. de proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto. Este identificador puede usar solo letras, números y guiones, se limita a 30 caracteres y no puede ser un [reservado Id. de proyecto](create-clone-jupyter-notebooks.md#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
+| Nombre de proyecto | Un nombre descriptivo para el proyecto que usa Azure Notebooks para fines de presentación. Por ejemplo, "Hola mundo en Python". |
+| Identificador del proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto. Este identificador solo puede usar letras, números y guiones, se limita a 30 caracteres y no puede ser un [identificador de proyecto reservado](create-clone-jupyter-notebooks.md#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
 | Proyecto público | Si se establece, permite a cualquier usuario con el vínculo acceder al proyecto. Al crear un proyecto privado, desactive esta opción. |
 | Ocultar clones | Si se establece, otros usuario no podrán ver una lista de los clones que se han realizado para este proyecto. Ocultar clones resulta útil para los proyectos que se comparten con muchas personas que no forman parte de la misma organización, como cuando se usa un cuaderno para impartir una clase. |
 
@@ -69,7 +69,7 @@ El comando **+ Nuevo** (método abreviado de teclado: n) crea archivos o carpeta
 | **Archivo en blanco** | Un archivo donde puede almacenar cualquier contenido, como texto, datos, etc. | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre del archivo. |
 | **Markdown** | Un archivo Markdown. | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre del archivo. |
 
-### <a name="upload-files"></a>Cargar archivos
+### <a name="upload-files"></a>Carga de archivos
 
 El comando **Cargar** proporciona dos opciones para importar datos desde otras ubicaciones: **From URL** (Desde dirección URL) y **From Computer** (Desde equipo). Para más información, consulte [Trabajar con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md).
 
@@ -81,17 +81,17 @@ Cada elemento de la lista de archivos del proyecto proporciona comandos a travé
 
 | Get-Help | Métodos abreviados de teclado | . |
 | --- | --- | --- |
-| Ejecutar | r (o clic) | Ejecuta un archivo de Notebook. Otros tipos de archivo se abren para su visualización.  |
+| Ejecute | r (o clic) | Ejecuta un archivo de Notebook. Otros tipos de archivo se abren para su visualización.  |
 | Copiar vínculo | y | Copia un vínculo al archivo en el Portapapeles. |
 | Ejecutar en JupyterLab | j | Ejecuta un cuaderno en JupyterLab, que es una interfaz más orientada al desarrollador que la que Jupyter proporciona habitualmente. |
-| Preview | p | Abre una vista previa en HTML del archivo. En Notebooks, la vista previa es una representación de solo lectura del cuaderno. Para más información, consulte la sección [Vista previa](#preview). |
+| Vista previa | p | Abre una vista previa en HTML del archivo. En Notebooks, la vista previa es una representación de solo lectura del cuaderno. Para más información, consulte la sección [Vista previa](#preview). |
 | Editar archivo | i | Abre el archivo para edición. |
 | Descargar | d | Descarga un archivo ZIP que contiene el archivo o el contenido de una carpeta. |
-| Cambiar nombre | un | Solicita un nombre nuevo para el archivo o carpeta. |
+| Cambiar nombre | a | Solicita un nombre nuevo para el archivo o carpeta. |
 | Eliminar | x | Solicita confirmación y luego quita de manera permanente el archivo del proyecto. Las eliminaciones no se pueden deshacer. |
-| Mover | min | Mueve un archivo a otra carpeta del mismo proyecto. |
+| Move | m | Mueve un archivo a otra carpeta del mismo proyecto. |
 
-#### <a name="preview"></a>Preview
+#### <a name="preview"></a>Vista previa
 
 La vista previa de un archivo o cuaderno es una vista de solo lectura del contenido; la ejecución de las celdas del cuaderno está deshabilitada. Se muestra una vista previa a cualquier persona que tenga un vínculo al archivo o al cuaderno y que no haya iniciado sesión en Azure Notebooks. Una vez que haya iniciado sesión, un usuario puede clonar el cuaderno en su propia cuenta, o bien descargar el cuaderno a su equipo local.
 
@@ -100,8 +100,8 @@ La página de vista previa admite varios comandos de barra de herramientas con m
 | Get-Help | Métodos abreviados de teclado | . |
 | --- | --- | --- |
 | Compartir | s | Muestra la ventana emergente de uso compartido donde puede obtener un vínculo, compartir en las redes sociales, obtener el código HTML para insertarlo y enviar un correo electrónico. |
-| Clonar | c  | Clone el cuaderno en su cuenta. |
-| Ejecutar | r | Ejecute el cuaderno si tiene permiso para hacerlo. |
+| Clon | c  | Clone el cuaderno en su cuenta. |
+| Ejecute | r | Ejecute el cuaderno si tiene permiso para hacerlo. |
 | Descargar | d | Descarga una copia del cuaderno. |
 
 ## <a name="configure-the-project-environment"></a>Configuración del entorno del proyecto

@@ -13,20 +13,20 @@ ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471833"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformación de datos con Azure Machine Learning Data Prep SDK
 
-En este artículo, obtendrá información sobre distintos métodos de transformación de datos mediante el `azureml-dataprep` paquete. El paquete ofrece funciones que simplifican la forma de agregar columnas, filtrar las columnas o filas no deseadas e imputar valores ausentes. Consulte la documentación de referencia completa para el [paquete dataprep de azureml](https://aka.ms/data-prep-sdk).
+En este artículo descubrirá diversos métodos para transformar datos mediante el paquete `azureml-dataprep`. El paquete ofrece funciones que facilitan la adición de columnas, el filtrado de filas o columnas no deseadas, y la atribución de valores que faltan. Consulte la documentación de referencia completa del [paquete azureml-dataprep](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Si está creando una nueva solución, pruebe el [conjuntos de datos de Azure Machine Learning](how-to-explore-prepare-data.md) (versión preliminar) para transformar los datos, los datos de instantánea y almacenar definiciones de conjunto de datos con control de versiones. Los conjuntos de datos es la próxima versión de SDK, que ofrece funcionalidad ampliada para administrar conjuntos de datos en soluciones de inteligencia artificial de la preparación de datos. Si usas el `azureml-dataprep` paquete para crear un flujo de datos con las transformaciones en lugar de usar el `azureml-datasets` paquete para crear un conjunto de datos, no podrá usar las instantáneas o los conjuntos de datos con control de versiones, más adelante.
+> Si está creando una solución, pruebe los [conjuntos de datos de Azure Machine Learning](how-to-explore-prepare-data.md) (versión preliminar) para transformar sus datos, realizar instantáneas de los datos y almacenar definiciones de conjuntos de datos con versiones. Los conjuntos de datos son la próxima versión del SDK de preparación de datos y ofrecen funcionalidad ampliada para administrar conjuntos de datos en soluciones de inteligencia artificial. Si usa el paquete `azureml-dataprep` para crear un flujo de datos con las transformaciones en lugar de usar el paquete `azureml-datasets` para crear un conjunto de datos, no podrá usar más adelante instantáneas o conjuntos de datos con versiones.
 
-Este tema de procedimientos muestra ejemplos de las siguientes tareas:
+En este procedimiento se muestran ejemplos de las tareas siguientes:
 
 - Adición de una columna mediante una expresión
 - [Atribución de valores que faltan](#impute-missing-values)
@@ -46,7 +46,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|Case Number|Date|Bloquear|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
+||ID|Case Number|Date|Block|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -63,7 +63,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Case Number|Case Category|Date|Bloquear|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
+||ID|Case Number|Case Category|Date|Block|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -100,9 +100,9 @@ dflow.head(3)
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|NaN|NaN|
 
-En el tercer registro faltan los valores de latitud y longitud. Para atribuir los valores que faltan, usa [ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) para obtener información sobre una expresión de tipo fixed. Puede atribuir las columnas con un valor calculado `MIN`, `MAX` o `MEAN` o un valor `CUSTOM`. Cuando se especifica `group_by_columns`, se atribuirán los valores que faltan por grupo a `MIN`, `MAX` y `MEAN` calculados por grupo.
+En el tercer registro faltan los valores de latitud y longitud. Para atribuir esos valores que faltan, puede usar [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) para aprender una expresión fija. Puede atribuir las columnas con un valor calculado `MIN`, `MAX` o `MEAN` o un valor `CUSTOM`. Cuando se especifica `group_by_columns`, se atribuirán los valores que faltan por grupo a `MIN`, `MAX` y `MEAN` calculados por grupo.
 
-Compruebe el `MEAN` valor de la columna de latitud utilizando el [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) función. Esta función acepta una matriz de columnas en el parámetro `group_by_columns` para especificar el nivel de agregación. El parámetro `summary_columns` acepta una llamada `SummaryColumnsValue`. Esta llamada a la función especifica el nombre de la columna actual, el nuevo nombre del campo calculado y el valor de `SummaryFunction` que se va a realizar.
+Compruebe el valor `MEAN` de la columna de latitud mediante la función [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow). Esta función acepta una matriz de columnas en el parámetro `group_by_columns` para especificar el nivel de agregación. El parámetro `summary_columns` acepta una llamada `SummaryColumnsValue`. Esta llamada a la función especifica el nombre de la columna actual, el nuevo nombre del campo calculado y el valor de `SummaryFunction` que se va a realizar.
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
@@ -190,7 +190,7 @@ Finalmente, debe llamar a `builder.preview(skip=30, count=5)` y así podrá ver 
 Ahora, pase el número de filas que desea `skip` desde arriba para ver las filas más abajo.
 
 > [!NOTE]
-> La función preview() omite las filas, pero no volver a numerar el índice de salida. En el ejemplo siguiente, el índice 0 en la tabla corresponde al índice 30 en el flujo de datos.
+> La función preview() omite las filas, pero no vuelve a numerar el índice de salida. En el ejemplo siguiente, el índice 0 de la tabla se corresponde con el índice 30 del flujo de datos.
 
 ```python
 builder.preview(skip=30, count=5)
@@ -204,7 +204,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
 |4|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
 
-Aquí puede ver un problema con el programa generado. Basado únicamente en el ejemplo que proporcionó anteriormente, el programa derivado ha elegido analizar la fecha como "Día/Mes/Año", que no es lo que se quiere hacer en este caso. Para corregir este problema, como destino un índice de registro específico y proporcionan otro ejemplo utilizando el `add_example()` funcionan en el `builder` variable.
+Aquí puede ver un problema con el programa generado. Basado únicamente en el ejemplo que proporcionó anteriormente, el programa derivado ha elegido analizar la fecha como "Día/Mes/Año", que no es lo que se quiere hacer en este caso. Para solucionar este problema, establezca un índice de registro específico y proporcione otro ejemplo con la función `add_example()` en la variable `builder`.
 
 ```python
 builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
@@ -219,7 +219,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
 |4|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
 
-Ahora las filas se controlan correctamente ' 2/1/2015' como "2 de enero de 2015", pero si echa un vistazo más allá de índice 76 de la columna derivada, verá que los valores al final no tienen nada en la columna derivada.
+Ahora, las filas administran correctamente la fecha "1/2/2015" como "Jan 2, 2015", pero si mira más allá del índice 76 en la columna derivada, puede ver que los valores al final no tienen nada en la columna derivada.
 
 ```python
 builder.preview(skip=75, count=5)
@@ -228,8 +228,8 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|3 de enero de 2015 6: 00 - 8 a. M.|
-|1|1/3/2015 7:54|3 de enero de 2015 6: 00 - 8 a. M.|
+|0|1/3/2015 7:00|Jan 3, 2015 6AM-8AM|
+|1|1/3/2015 7:54|Jan 3, 2015 6AM-8AM|
 |2|1/29/2015 6:54|None|
 |3|1/29/2015 7:00|None|
 |4|1/29/2015 7:54|None|
@@ -241,13 +241,13 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|3 de enero de 2015 6: 00 - 8 a. M.|
-|1|1/3/2015 7:54|3 de enero de 2015 6: 00 - 8 a. M.|
-|2|1/29/2015 6:54|29 de enero de 2015 6: 00 - 8 a. M.|
-|3|1/29/2015 7:00|29 de enero de 2015 6: 00 - 8 a. M.|
-|4|1/29/2015 7:54|29 de enero de 2015 6: 00 - 8 a. M.|
+|0|1/3/2015 7:00|Jan 3, 2015 6AM-8AM|
+|1|1/3/2015 7:54|Jan 3, 2015 6AM-8AM|
+|2|1/29/2015 6:54|Jan 29, 2015 6AM-8AM|
+|3|1/29/2015 7:00|Jan 29, 2015 6AM-8AM|
+|4|1/29/2015 7:54|Jan 29, 2015 6AM-8AM|
 
- Para ver una lista de derivaciones de ejemplo actual llame a `list_examples()` en el objeto de generador.
+ Para ver una lista de las derivaciones de ejemplo actuales, llame a `list_examples()` en el objeto generador.
 
 ```python
 examples = builder.list_examples()
@@ -260,19 +260,19 @@ examples = builder.list_examples()
 |2|1/29/2015 20:54|Jan 29, 2015 8PM-10PM|-3|
 
 
-En algunos casos si desea eliminar los ejemplos que son incorrectos, puede pasar cualquiera `example_row` desde el pandas.dataframe, o `example_id` valor. Por ejemplo, si ejecuta `builder.delete_example(example_id=-1)`, elimina el primer ejemplo de transformación.
+En algunos casos, si quiere eliminar ejemplos incorrectos, puede pasar `example_row` desde DataFrame de Pandas o el valor `example_id`. Por ejemplo, si ejecuta `builder.delete_example(example_id=-1)`, elimina el primer ejemplo de transformación.
 
 
-Llamar a `to_dataflow()` en el generador, que devuelve un flujo de datos con las columnas derivadas que desee agregar.
+Llame a `to_dataflow()` en el generador, que devuelve un flujo de datos en el que se han agregado las columnas derivadas deseadas.
 
 ```python
 dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtrado
+## <a name="filtering"></a>Filtros
 
-El SDK incluye los métodos [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) y [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) para que pueda filtrar las columnas o filas.
+El SDK incluye los métodos [`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) y [`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) para que pueda filtrar las columnas o filas.
 
 ### <a name="initial-setup"></a>Configuración inicial
 
@@ -293,7 +293,7 @@ dflow.head(5)
 
 ### <a name="filtering-columns"></a>Filtrado de columnas
 
-Para filtrar las columnas, use `drop_columns()`. Este método toma una lista de columnas para quitar o un argumento más complejo denominado [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
+Para filtrar las columnas, use `drop_columns()`. Este método toma una lista de columnas que se van a anular o un argumento más complejo denominado [`ColumnSelector`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
 
 #### <a name="filtering-columns-with-list-of-strings"></a>Filtrado de columnas con la lista de cadenas
 
@@ -345,7 +345,7 @@ dflow.head(2)
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-01 19:33:28|2013-08-01 19:35:21|5|.00|0.08|0|4.58|
-|1|2013-08-05 13:16:38|2013-08-05 13:18:24|1|.00|0.30|0|3.8|
+|1|2013-08-05 13:16:38|2013-08-05 13:18:24|1|.00|0,30|0|3.8|
 
 ### <a name="filtering-rows-with-complex-expressions"></a>Filtrado de filas con expresiones complejas
 
@@ -416,7 +416,7 @@ dflow.head(2)
 |0|ALABAMA|1|101710|Hale County|10171002158| |
 |1|ALABAMA|1|101710|Hale County|10171002162| |
 
-Reducir el conjunto de datos y realizar algunas transformaciones básicas, como quitar columnas, reemplazando los valores y conversión de tipos.
+Reduzca el conjunto de datos y realice algunas transformaciones básicas, como quitar columnas, reemplazar valores y convertir tipos.
 
 ```python
 dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
@@ -443,7 +443,7 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 ### <a name="transform-partition"></a>Transformar partición
 
-Use [ `transform_partition()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) para reemplazar todos los valores null con un 0. Este código se ejecutará por partición, no en todo el conjunto de datos a la vez. Esto significa que, en un conjunto de datos grande, este código puede ejecutarse en paralelo a medida que el entorno de ejecución procesa los datos, partición por partición.
+Use [`transform_partition()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow) para reemplazar todos los valores nulos por un 0. Este código se ejecutará por partición, no en todo el conjunto de datos a la vez. Esto significa que, en un conjunto de datos grande, este código puede ejecutarse en paralelo a medida que el entorno de ejecución procesa los datos, partición por partición.
 
 El script de Python debe definir una función denominada `transform()` que toma dos argumentos, `df` y `index`. El argumento `df` será una trama de datos de Pandas que contiene los datos de la partición, y el argumento `index` es un identificador único de la partición. La función de transformación puede editar completamente la trama de datos pasada, pero debe devolver una trama de datos. Cualquier biblioteca que el script Python importe debe existir en el entorno donde se ejecuta el flujo de datos.
 
@@ -463,7 +463,7 @@ df.head(2)
 
 ### <a name="new-script-column"></a>Nueva columna de script
 
-Puede usar un script de Python para crear una nueva columna que tiene el nombre del condado y el nombre del estado y también para aprovechar el nombre del estado. Para ello, use el [ `new_script_column()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) método en el flujo de datos.
+Puede usar un script de Python para crear una columna que tenga el nombre del condado y el nombre del estado, y también para poner en mayúscula el nombre del estado. Para ello, use el método [`new_script_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) en el flujo de datos.
 
 El script de Python debe definir una función denominada `newvalue()` que toma un argumento `row`. El argumento `row` es un elemento dict (`key`: nombre de columna; `val`: valor actual) y se pasará a esta función para cada fila del conjunto de datos. Esta función debe devolver un valor que se usará en la nueva columna. Cualquier biblioteca que el script Python importe debe existir en el entorno donde se ejecuta el flujo de datos.
 
@@ -482,7 +482,7 @@ dflow.head(2)
 
 ### <a name="new-script-filter"></a>Nuevo filtro de script
 
-Creación de una expresión de Python mediante [ `new_script_filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) para filtrar el conjunto de datos a solo las filas donde 'Hale' no está en el nuevo `county_state` columna. La expresión devuelve `True` si queremos conservar la fila, y `False` para quitar la fila.
+Cree una expresión de Python con [`new_script_filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) para filtrar el conjunto de datos solo en aquellas filas en las que "Hale" no esté en la nueva columna `county_state`. La expresión devuelve `True` si queremos conservar la fila, y `False` para quitar la fila.
 
 ```python
 dflow = dflow.new_script_filter("""
@@ -500,4 +500,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el SDK de Azure Machine Learning Data Prep [tutorial](tutorial-data-prep.md) para obtener un ejemplo para resolver un escenario específico
+* Consulte el [tutorial](tutorial-data-prep.md) del SDK de preparación de datos de Azure Machine Learning para obtener un ejemplo de cómo se resuelve un escenario específico.

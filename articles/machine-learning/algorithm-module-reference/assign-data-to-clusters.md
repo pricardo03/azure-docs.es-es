@@ -1,7 +1,7 @@
 ---
-title: 'Asignar datos al clúster: Referencia de módulo'
+title: 'Asignación de datos a clústeres: Referencia para los módulos'
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar los datos de asignar al módulo de clúster en el servicio de Azure Machine Learning para puntuar el modelo de agrupación en clústeres.
+description: Obtenga información sobre cómo usar el módulo Asignación de datos a clústeres en Azure Machine Learning Service para puntuar un modelo de agrupación en clústeres.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,43 +11,43 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1c2d2a02ecfb617551dd9174b87f363d57b151a8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467194"
 ---
-# <a name="module-assign-data-to-clusters"></a>Módulo: Asignar datos a clústeres
+# <a name="module-assign-data-to-clusters"></a>Módulo: Asignación de datos a clústeres
 
-En este artículo se describe cómo usar el *asignar datos a clústeres* módulo en la interfaz visual de Azure Machine Learning. El módulo genera predicciones mediante un modelo de agrupación en clústeres que se ha entrenado con el *agrupación en clústeres K-means* algoritmo.
+En este artículo se describe cómo usar el módulo *Asignación de datos a clústeres* en la interfaz visual de Azure Machine Learning. El módulo genera predicciones mediante un modelo de agrupación en clústeres que se ha entrenado con el algoritmo de *agrupación en clústeres K-means*.
 
-Los datos de asignar al módulo de clústeres devuelve un conjunto de datos que contiene las asignaciones de probables para cada nuevo punto de datos. 
+El módulo Asignación de datos a clústeres devuelve un conjunto de datos que contiene las asignaciones probables para cada punto de datos nuevo. 
 
 
-## <a name="how-to-use-assign-data-to-clusters"></a>Cómo usar datos de asignar a clústeres
+## <a name="how-to-use-assign-data-to-clusters"></a>Cómo utilizar Asignación de datos a clústeres
   
 1. En la interfaz visual de Azure Machine Learning, busque un modelo de agrupación en clústeres entrenado previamente. Puede crear y entrenar un modelo de agrupación en clústeres mediante cualquiera de los métodos siguientes:  
   
-    - Configurar el algoritmo de agrupación en clústeres K-means utilizando el [agrupación en clústeres K-Means](k-means-clustering.md) módulo y entrenar el modelo mediante el uso de un conjunto de datos y el módulo entrenar modelo de agrupación en clústeres (en este artículo).  
+    - Configure el algoritmo de agrupación en clústeres K-means mediante el módulo [Agrupación en clústeres K-Means](k-means-clustering.md) y, para entrenar el modelo, utilice un conjunto de datos y el módulo Entrenar el modelo de agrupación en clústeres (en este artículo).  
   
-    - También puede agregar un modelo de agrupación en clústeres entrenado existente desde el **guardar modelos** grupo en el área de trabajo.
+    - También puede agregar un modelo de agrupación en clústeres entrenado existente desde el grupo **Modelos guardados** en el área de trabajo.
 
-2. Adjuntar el modelo entrenado para el puerto de entrada izquierdo **asignar datos a clústeres**.  
+2. Adjunte el modelo entrenado al puerto de entrada izquierdo de **Asignación de datos a clústeres**.  
 
-3. Adjunte un nuevo conjunto de datos como entrada. 
+3. Adjunte un conjunto de datos nuevo como entrada. 
 
-   En este conjunto de datos, las etiquetas son opcionales. Por lo general, la agrupación en clústeres es un método de aprendizaje no supervisado. No se espera que conoce de antemano las categorías. Sin embargo, las columnas de entrada deben ser igual que las columnas que se usan para el entrenamiento que se produce el modelo de agrupación en clústeres o un error.
+   En este conjunto de datos, las etiquetas son opcionales. Por lo general, la agrupación en clústeres es un método de aprendizaje no supervisado. No se espera que conozca de antemano las categorías. Sin embargo, las columnas de entrada deben ser iguales que las columnas que se usan para entrenar el modelo de agrupación en clústeres; de lo contrario, se produce un error.
 
     > [!TIP]
-    > Para reducir el número de columnas que se escriben en la interfaz de las predicciones de clúster, use [seleccionar columnas del conjunto de datos](select-columns-in-dataset.md)y seleccionar un subconjunto de las columnas. 
+    > Para reducir el número de columnas que se escriben en la interfaz desde las predicciones de clúster, use [Seleccionar columnas del conjunto de datos](select-columns-in-dataset.md) y seleccione un subconjunto de columnas. 
     
-4. Deje el **comprobar para anexar o desactive la casilla resultado solo** casilla activada si desea que los resultados que contengan el conjunto de datos entrada completo, incluida una columna que muestra los resultados (asignaciones de clúster).
+4. Deje la casilla **Marcar para anexar o desmarcar solo para obtener el resultado** activada si quiere que los resultados contengan el conjunto de datos de entrada completo, incluida una columna en que se muestran los resultados (asignaciones de clúster).
   
-    Si desactiva esta casilla, solo los resultados se devuelven. Esta opción puede ser útil al crear predicciones como parte de un servicio web.
+    Si desactiva esta casilla, solo se devuelven los resultados. Esta opción puede ser útil al crear predicciones como parte de un servicio web.
   
 5.  Ejecute el experimento.  
   
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
-+  Para ver los valores del conjunto de datos, haga clic en el módulo, seleccione **como resultado conjuntos de datos**y, a continuación, seleccione **visualizar**.
++  Para ver los valores del conjunto de datos, haga clic con el botón derecho en el módulo, seleccione **Result datasets** (Conjuntos de datos del resultado) y, después, **Visualizar**.
 

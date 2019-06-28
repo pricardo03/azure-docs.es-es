@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024204"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintaxis de consulta simple en Azure Search
@@ -46,7 +46,7 @@ Por lo general, es más probable ver estos comportamientos en los patrones de in
 
 ## <a name="boolean-operators-and-or-not"></a>Operadores booleanos (AND, OR, NOT) 
 
-Puede incrustar los operadores en una cadena de consulta para crear un amplio conjunto de criterios en el que se encuentran los documentos coincidentes. 
+Puede insertar operadores en una cadena de consulta para crear un conjunto enriquecido de criterios en los que se encuentran los documentos coincidentes. 
 
 ### <a name="and-operator-"></a>Operador AND `+`
 
@@ -67,15 +67,15 @@ El operador NOT es un signo menos. Por ejemplo, `wifi –luxury` buscará docume
 
 ## <a name="suffix-operator"></a>Operador de sufijo
 
-El operador sufijo es un asterisco `*`. Por ejemplo, `lux*` buscará documentos que tengan un término que empiece por `lux`, sin distinguir entre mayúsculas y minúsculas.  
+El operador de sufijo es un asterisco `*`. Por ejemplo, `lux*` buscará documentos que tengan un término que empiece por `lux`, sin distinguir entre mayúsculas y minúsculas.  
 
-## <a name="phrase-search-operator"></a>Operador de búsqueda de frase
+## <a name="phrase-search-operator"></a>Operador de búsquedas de frases
 
 El operador de frase encierra una frase entre comillas `" "`. Por ejemplo, mientras que `Roach Motel` (sin comillas) buscaría documentos que contuvieran `Roach` y/o `Motel` en cualquier lugar y en cualquier orden, `"Roach Motel"` (con comillas) solo encontrará coincidencias en documentos que contengan esa frase completa junta y en ese orden (el análisis de texto sigue aplicándose).
 
 ## <a name="precedence-operator"></a>Operador de precedencia
 
-El operador de precedencia incluye la cadena entre paréntesis `( )`. Por ejemplo, `motel+(wifi | luxury)` buscará documentos que contengan el término motel y, o bien `wifi` o `luxury` (o ambos).  
+El operador de precedencia incluye la cadena entre paréntesis `( )`. Por ejemplo, `motel+(wifi | luxury)` buscará documentos que contengan el término motel y `wifi` o `luxury` (o ambos).  
 
 ## <a name="escaping-search-operators"></a>Escape de los operadores de búsqueda  
 
@@ -87,7 +87,7 @@ El operador de precedencia incluye la cadena entre paréntesis `( )`. Por ejempl
 > [!NOTE]  
 >  Aunque la operación de escape mantiene los tokens juntos, el análisis de texto puede dividirlos, dependiendo del modo de análisis. Consulte [Language support &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md) (Compatibilidad con idiomas [API REST de Azure Search Service]) para más detalles.  
 
-## <a name="see-also"></a>Vea también  
+## <a name="see-also"></a>Otras referencias  
 
 + [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda en documentos [API REST de Azure Search Service]) 
 + [Sintaxis de consulta de Lucene](query-lucene-syntax.md)

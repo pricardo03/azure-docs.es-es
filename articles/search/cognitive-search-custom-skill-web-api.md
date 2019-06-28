@@ -12,15 +12,15 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023855"
 ---
 # <a name="custom-web-api-skill"></a>Aptitud API web personalizada
 
-El **API Web personalizada** aptitud permite ampliar la búsqueda cognitiva llamando a un punto de conexión de API Web que proporciona operaciones personalizadas. De manera similar a las aptitudes integradas, una aptitud **API web personalizada** tiene entradas y salidas. Dependiendo de las entradas, la API Web recibe una carga JSON cuando el indizador se ejecuta y genera una carga JSON como respuesta, junto con un código de estado correcto. Se espera que la respuesta tenga las salidas especificadas por la aptitud personalizada. Cualquier otra respuesta se considera un error y no se realiza ningún enriquecimiento.
+La aptitud **API web personalizada** permite extender la búsqueda cognitiva al llamar a un punto de conexión de la API web que proporciona operaciones personalizadas. De manera similar a las aptitudes integradas, una aptitud **API web personalizada** tiene entradas y salidas. En función de las entradas, la API web recibe una carga de JSON cuando se ejecuta el indexador y genera una carga de JSON como respuesta, junto con un código de estado correcto. Se espera que la respuesta tenga las salidas especificadas por la aptitud personalizada. Cualquier otra respuesta se considera un error y no se realiza ningún enriquecimiento.
 
 La estructura de las cargas JSON se describen con mayor detalle más adelante en este documento.
 
@@ -38,7 +38,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de parámetro     | DESCRIPCIÓN |
 |--------------------|-------------|
-| uri | El URI de la API Web a la que el _JSON_ se enviará la carga. Solo se permite el esquema de URI **https** |
+| uri | URI de la API web adonde se enviará la carga de _JSON_. Solo se permite el esquema de URI **https** |
 | httpMethod | Método que se usará al enviar la carga. Los métodos permitidos son `PUT` o `POST` |
 | httpHeaders | Colección de pares clave-valor donde las claves representan los nombres de encabezados y los valores representan los valores de encabezados que se enviarán a la API web junto con la carga. Estos encabezados no se permiten en esta colección: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Opcional) Cuando se especifica, indica el tiempo de expiración del cliente http que hace la llamada API. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por ejemplo, `PT60S` para 60 segundos. Si no se establece, se elige el valor predeterminado de 30 segundos. El tiempo de expiración se puede establecer en un máximo de 90 segundos y un mínimo de 1. |
@@ -139,10 +139,10 @@ Siempre seguirá estas restricciones:
 
 ## <a name="sample-output-json-structure"></a>Estructura JSON de salida de ejemplo
 
-El elemento "output" corresponde a la respuesta devuelta por la API Web. La API Web debe devolver un _JSON_ carga (comprobar examinando el `Content-Type` encabezado de respuesta) y debe cumplir las siguientes restricciones:
+La "salida" corresponde a la respuesta devuelta desde la API web. La API web solo debe devolver una carga de _JSON_ (que se comprueba al mirar el encabezado de la respuesta `Content-Type`) y debe cumplir con estas restricciones:
 
 * Debe haber una entidad de nivel superior llamada `values`, que debe ser una matriz de objetos.
-* El número de objetos de la matriz debe ser el mismo que el número de objetos que se envían a la API Web.
+* El número de objetos en la matriz debe ser el mismo número de objetos enviados a la API web.
 * Cada objeto debe tener:
    * Una propiedad `recordId`
    * Una propiedad `data`, que es un objeto donde los campos son enriquecimientos que coinciden con los "nombres" en `output` y cuyos valores se consideran el enriquecimiento.
@@ -201,7 +201,7 @@ Además de una API web no disponible o del envío de códigos de estado no corre
 
 En los casos en que la API web no está disponible o devuelve un error HTTP, se agregará un error descriptivo con todos los detalles disponibles sobre el error HTTP al historial de ejecución del indizador.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Cómo agregar una aptitud personalizada a una canalización de Cognitive Search](cognitive-search-custom-skill-interface.md)

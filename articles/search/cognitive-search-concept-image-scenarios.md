@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023749"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
@@ -34,7 +34,7 @@ No puede desactivar la normalización de imágenes. Las habilidades que iteran l
 
 | Parámetro de configuración | DESCRIPCIÓN |
 |--------------------|-------------|
-| imageAction   | Se establece en "none" si no debe realizar ninguna acción cuando se encuentran imágenes incrustadas o archivos de imagen. <br/>Se establece en "generateNormalizedImages" para generar una matriz de imágenes normalizadas como parte de la averiguación del documento.<br/>Se establece en "generateNormalizedImagePerPage" para generar una matriz de imágenes normalizadas donde en los archivos PDF del origen de datos, cada página se representa en una imagen de salida.  La funcionalidad es igual que "generateNormalizedImages" para tipos de archivos que no son PDF.<br/>En el caso de todas las opciones que no sean "none", las imágenes se expondrán en el campo *normalized_images*. <br/>El valor predeterminado es "none". Esta configuración solo es pertinente para los orígenes de datos de blob cuando "dataToExtract" se establece en "contentAndMetadata". <br/>Un máximo de 1000 imágenes se extraerán de un documento determinado. Si hay más de 1000 imágenes en un documento, se extraerán los primeros 1.000 y se generará una advertencia. |
+| imageAction   | Se establece en "none" si no debe realizar ninguna acción cuando se encuentran imágenes incrustadas o archivos de imagen. <br/>Se establece en "generateNormalizedImages" para generar una matriz de imágenes normalizadas como parte de la averiguación del documento.<br/>Se establece en "generateNormalizedImagePerPage" para generar una matriz de imágenes normalizadas donde en los archivos PDF del origen de datos, cada página se representa en una imagen de salida.  La funcionalidad es igual que "generateNormalizedImages" para tipos de archivos que no son PDF.<br/>En el caso de todas las opciones que no sean "none", las imágenes se expondrán en el campo *normalized_images*. <br/>El valor predeterminado es "none". Esta configuración solo es pertinente para los orígenes de datos de blob cuando "dataToExtract" se establece en "contentAndMetadata". <br/>Se extraerá un máximo de 1000 imágenes de un documento determinado. Si hay más de 1000 imágenes en un documento, se extraerán las 1000 primeras y se generará una advertencia. |
 |  normalizedImageMaxWidth | El ancho máximo (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000.|
 |  normalizedImageMaxHeight | La altura máxima (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000.|
 
@@ -217,7 +217,7 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
         }
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Habilidad Análisis de imágenes](cognitive-search-skill-image-analysis.md)
 + [Habilidad de OCR](cognitive-search-skill-ocr.md)

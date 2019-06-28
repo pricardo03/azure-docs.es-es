@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937223"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
 
 Además de proteger el contenido del streaming en línea, la suscripción de contenido multimedia y los servicios de alquiler ofrecen contenido descargable que funciona cuando no hay conexión a Internet. Tendrá que descargar el contenido en su teléfono o tableta para reproducirlo en modo de avión al volar sin conexión a la red. Estos son otros escenarios en los que la descarga de contenido podría resultarle útil:
 
-- Algunos proveedores de contenido pueden no permitir la entrega de licencias DRM más allá del borde del país o región. Si un usuario desea ver contenido mientras viaja en el extranjero, se necesita la descarga sin conexión.
-- En algunos países o regiones, disponibilidad de Internet o de ancho de banda es limitado. Los usuarios pueden decidir descargar contenido para poder verlo en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria.
+- Algunos proveedores de contenido pueden suspender la entrega de licencias de DRM al cruzar la frontera de un país o una región. Si un usuario desea ver contenido mientras viaja en el extranjero, se necesita la descarga sin conexión.
+- En algunos países o regiones, la disponibilidad de Internet o de ancho de banda es limitada. Los usuarios pueden decidir descargar contenido para poder verlo en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria.
 
 En este artículo se describe cómo implementar la reproducción en modo sin conexión para contenido de DASH protegido en dispositivos Widevine o Android. La opción de DRM sin conexión le ofrece modelos de suscripción, alquiler y compra para el contenido, permitiendo a los clientes de sus servicios acceder fácilmente a dicho contenido cuando no tienen acceso a Internet.
 
@@ -144,7 +144,7 @@ Si actualiza el explorador Chrome móvil a la versión 62 (o posterior) en un te
 
 La aplicación de PWA de código abierto anterior se creó en Node.js. Si desea hospedar su propia versión en un servidor de Ubuntu, tenga en cuenta los siguientes problemas habituales que pueden impedir la reproducción:
 
-1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado 'Access-Control-Allow-Origin' en el recurso solicitado). Origen ' https:\//13.85.80.81:8080', por tanto, no puede tener acceso. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
+1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado 'Access-Control-Allow-Origin' en el recurso solicitado). Así pues, el origen "https:\//13.85.80.81:8080" no tiene el acceso permitido. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
 2. Problema de certificado: a partir de la versión 58 de Chrome, EME para Widevine requiere HTTPS. Por lo tanto, debe hospedar la aplicación de ejemplo a través de HTTPS con un certificado X509. Un certificado de prueba habitual no funciona debido a los siguientes requisitos: Es necesario obtener un certificado que cumpla con los siguientes requisitos mínimos:
     - Chrome y Firefox requieren que existan los parámetros de SAN (nombre alternativo del firmante) en el certificado
     - El certificado debe tener una entidad de certificación de confianza y un certificado de desarrollo autofirmado no sirve para ello

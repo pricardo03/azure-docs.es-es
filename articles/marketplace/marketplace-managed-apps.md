@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937796"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicaciones de Azure: guía de publicación de ofertas de aplicaciones administradas
@@ -41,7 +41,7 @@ En el caso del modelo denominado traiga su propia licencia, Microsoft facturará
 > Las aplicaciones administradas se deben poder implementar mediante Marketplace. Si la comunicación con el cliente es una preocupación, debe ponerse en contacto con los clientes interesados después de habilitar el uso compartido de clientes potenciales.  
 
 >[!Note]
->Opt channel en cloud Solution Providers (CSP) asociado ya está disponible.  Consulte [Cloud Solution Providers](./cloud-solution-providers.md) para obtener más información sobre la oferta a través de Microsoft CSP de marketing de canales asociado.
+>La participación en el canal de asociados de Proveedores de soluciones en la nube (CSP) ya está disponible.  Consulte [Proveedores de soluciones en la nube](./cloud-solution-providers.md) para obtener más información sobre el marketing que ofrece a través de los canales de asociados de CSP de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho, 

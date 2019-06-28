@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: kumud
 ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413858"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer con restablecimiento de TCP inactivo (versión preliminar pública)
@@ -27,7 +27,7 @@ Puede usar [Standard Load Balancer](load-balancer-standard-overview.md) para cre
 ![Restablecimiento de TCP en Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Equilibrador de carga con el restablecimiento de la funcionalidad de tiempo de espera de inactividad de TCP está disponible como versión preliminar pública en este momento. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Load Balancer con la funcionalidad de restablecimiento de TCP al agotarse el tiempo de espera de inactividad está disponible como versión preliminar pública en este momento. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Puede cambiar este comportamiento predeterminado y habilitar el envío de restablecimientos de TCP al agotarse el tiempo de espera de inactividad en las reglas NAT de entrada, en las reglas de equilibrio de carga y en las [reglas de salida](https://aka.ms/lboutboundrules).  Cuando se habilita en cada regla, Load Balancer envía restablecimientos TCP bidireccionales (paquetes RST de TCP) tanto a los puntos de conexión del cliente como a los del servidor en el momento en que se agota el tiempo de espera de inactividad para todos los flujos que correspondan.
 
@@ -74,7 +74,7 @@ Disponible en todas las regiones.
 ## <a name="limitations"></a>Limitaciones
 
 - El portal no se puede usar para configurar o ver el restablecimiento de TCP.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.
-- TCP RST solo se envían durante la conexión TCP en el estado ESTABLISHED.
+- TCP RST solo se envía durante la conexión TCP en el estado ESTABLECIDO.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
