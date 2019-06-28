@@ -219,7 +219,7 @@ Para conectar con Apache Phoenix, debe proporcionar la dirección IP del nodo ac
    ```
 
    > [!Note] 
-   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)**  > **ZK\* (Active)**  > **Zookeeper Info (Información de Zookeeper)** . 
+   > Puede obtener la dirección IP del nodo de ZooKeeper activo de la interfaz de usuario de Ambari. Vaya a **HBase** > **Quick Links (Vínculos rápidos)** > **ZK\* (Active)** > **Zookeeper Info (Información de Zookeeper)**. 
 
 3. Si sqlline.py se conecta a Phoenix y no supera el tiempo de espera, ejecute el siguiente comando para validar la disponibilidad y el estado de Phoenix:
 
@@ -277,7 +277,7 @@ En los registros de servidores de la región, intente identificar la escala de t
 
 Compruebe la pila de llamadas e intente determinar qué carpeta puede ser la causante del problema (por ejemplo, puede ser la carpeta de WAL o la carpeta .tmp). Después, en Cloud Explorer o mediante los comandos de HDFS, pruebe a buscar el archivo problemático. Normalmente, es un archivo \*-renamePending.json. (\*-renamePending.json es un archivo de diario que se utiliza para implementar la operación de cambio de nombre atómico en el controlador WASB. Debido a los errores de esta implementación, estos archivos se pueden dejar después de que el proceso se bloquea, y así sucesivamente). Fuerce la eliminación de este archivo en Cloud Explorer o mediante los comandos de HDFS. 
 
-En ocasiones, en esta ubicación también puede haber un archivo temporal denominado algo así como *$$$. $$$* . Para ver este archivo, tiene que usar el comando `ls` de HDFS; en Cloud Explorer no se puede ver. Para eliminar este archivo, use el comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
+En ocasiones, en esta ubicación también puede haber un archivo temporal denominado algo así como *$$$. $$$*. Para ver este archivo, tiene que usar el comando `ls` de HDFS; en Cloud Explorer no se puede ver. Para eliminar este archivo, use el comando `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$` de HDFS.  
 
 Una vez que haya ejecutado estos comandos, HMaster debería iniciarse de inmediato. 
 
@@ -343,7 +343,7 @@ Se trata de un problema conocido del servicio HMaster. Las tareas de inicio de l
 
 ### <a name="issue"></a>Problema
 
-Si se siguen los procedimientos recomendados, se puede evitar un error de reinicio en un servidor de regiones. Se recomienda pausar la actividad de las cargas de trabajo pesadas cuando se planea reiniciar los servidores de regiones de HBase. Si una aplicación continúa conectándose a servidores de regiones mientras el cierre esté en curso, la operación de reinicio del servidor de regiones se ralentizará durante varios minutos. También es aconsejable vaciar primero todas las tablas. Para una referencia sobre cómo vaciar tablas, consulte [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HDInsight HBase: cómo mejorar el tiempo de reinicio de clúster de Apache HBase vaciando tablas).
+Si se siguen los procedimientos recomendados, se puede evitar un error de reinicio en un servidor de regiones. Se recomienda pausar la actividad de las cargas de trabajo pesadas cuando se planea reiniciar los servidores de regiones de HBase. Si una aplicación continúa conectándose a servidores de regiones mientras el cierre esté en curso, la operación de reinicio del servidor de regiones se ralentizará durante varios minutos. También es aconsejable vaciar primero todas las tablas. Para una referencia sobre cómo vaciar tablas, consulte [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HDInsight HBase: cómo mejorar el tiempo de reinicio de clúster de Apache HBase vaciando tablas).
 
 Si inicia la operación de reinicio en los servidores de regiones de HBase desde la interfaz de usuario de Apache Ambari, verá inmediatamente que los servidores de regiones han dejado de funcionar, pero no se reinician de inmediato. 
 

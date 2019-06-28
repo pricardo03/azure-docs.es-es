@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937701"
 ---
 # <a name="support-for-the-marketplace"></a>Soporte técnico de Azure Marketplace  
@@ -22,7 +22,7 @@ También puede consultar muchas de las preguntas respondidas en el [canal Market
 
 ## <a name="onboarding"></a>Incorporación
 
-Abra una incidencia con Microsoft [soporte técnico de publicador de marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) para problemas con la incorporación y la introducción, o con Microsoft [compatibilidad con el asociado](https://partner.microsoft.com/support) si tiene alguna pregunta sobre Microsoft Partner Network.
+Abra una incidencia con el [soporte técnico para anunciantes de Marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) de Microsoft para problemas con la incorporación y la introducción, o con el [soporte técnico para asociados](https://partner.microsoft.com/support) de Microsoft si tiene alguna pregunta sobre Microsoft Partner Network.
 
 ## <a name="cloud-partner-portal"></a>Cloud Partner Portal  
 

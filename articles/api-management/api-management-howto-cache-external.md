@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: apimpm
 ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780353"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Uso de una instancia externa de Azure Redis Cache en Azure API Management
@@ -61,7 +61,7 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 ![Traiga su propia memoria caché a APIM](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> El **usar desde** configuración especifica que se comunicarán las implementaciones regionales de API Management con la memoria caché configurada en el caso de una configuración regional múltiple de API Management. Las memorias caché especificadas como **Predeterminada** serán reemplazadas por las memorias caché con un valor regional.
+> La configuración **Utilizar desde** especifica qué implementación regional de API Management se comunicará con la memoria caché configurada en el caso de una configuración regional múltiple de API Management. Las memorias caché especificadas como **Predeterminada** serán reemplazadas por las memorias caché con un valor regional.
 >
 > Por ejemplo, si API Management está hospedado en las regiones Este de EE. UU., Sudeste Asiático y Europa Occidental y hay dos memorias caché configuradas, una como **Predeterminada** y otra para **Sudeste Asiático**, la instancia de API Management de  **Sudeste Asiático** usará su propia memoria caché, mientras que las otras dos regiones utilizará la entrada de caché **Predeterminada**.
 
@@ -71,7 +71,7 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 2. Seleccione la pestaña **Caché externa** en el menú de la izquierda.
 3. Haga clic en el botón **+ Agregar**.
 4. Seleccione la memoria caché en el campo de lista desplegable **Instancia de caché**.
-5. Seleccione **predeterminado** o especificar la región deseada en el **usar desde** campo de lista desplegable.
+5. Seleccione **Predeterminada** o especifique la región deseada en el campo de lista desplegable **Utilizar desde**.
 6. Haga clic en **Save**(Guardar).
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Incorporación de una instancia de Azure Redis Cache hospedada fuera de la suscripción de Azure actual o de Azure en general
@@ -80,7 +80,7 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 2. Seleccione la pestaña **Caché externa** en el menú de la izquierda.
 3. Haga clic en el botón **+ Agregar**.
 4. Seleccione **Personalizada** en el campo de lista desplegable **Instancia de caché**.
-5. Seleccione **predeterminado** o especificar la región deseada en el **usar desde** campo de lista desplegable.
+5. Seleccione **Predeterminada** o especifique la región deseada en el campo de lista desplegable **Utilizar desde**.
 6. Proporcione la cadena de conexión de Azure Redis Cache en el campo **Cadena de conexión**.
 7. Haga clic en **Save**(Guardar).
 

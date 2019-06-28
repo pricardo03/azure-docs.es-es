@@ -10,10 +10,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596626"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
@@ -31,7 +31,7 @@ El tutorial [Introducción al IoT Hub](quickstart-send-telemetry-node.md) muestr
 *  Archivos grandes con imágenes
 *  Vídeos
 *  Datos de vibración muestreados con alta frecuencia
-*  Algún tipo de datos preprocesados.
+*  Alguna forma de datos procesados previamente.
 
 Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/introduction.md) o la pila [Hadoop](../hdinsight/index.yml). Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
 
@@ -42,11 +42,11 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 * **ReadFileUploadNotification.js**, que recibe notificaciones de carga de archivos de IoT Hub.
 
 > [!NOTE]
-> IoT Hub admite muchas plataformas de dispositivos y lenguajes (incluido C, .NET, JavaScript, Python y Java), mediante los SDK de dispositivo IoT de Azure. Para obtener instrucciones detalladas sobre cómo conectar el dispositivo a Azure IoT Hub, consulte el [centro IoT de Azure para desarrolladores].
+> IoT Hub admite muchas plataformas de dispositivos y lenguajes (incluido C, .NET, JavaScript, Python y Java), mediante los SDK de dispositivo IoT de Azure. Vea el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo a Azure IoT Hub.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Node.js versión 10.0 o posterior.
+* Node.js versión 10.0.x o posteriores.
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 

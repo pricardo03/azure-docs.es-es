@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
 ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506447"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Administración de secretos en aplicaciones de Service Fabric Mesh
@@ -24,14 +24,14 @@ Un secreto de la aplicación Mesh consta de:
 * Uno o varios recursos **Secretos o valores** que se almacenan en el contenedor de recursos **Secretos**. Cada recurso **Secretos o valores** se distingue por un número de versión. No puede modificar una versión de un recurso **Secretos o valores**, solo puede anexar una nueva versión.
 
 La administración de secretos consta de los pasos siguientes:
-1. Declarar una malla **secretos** recursos en un archivo YAML de modelo de recursos de Azure o JSON con tipo inlinedValue y definiciones de contentType SecretsStoreRef.
-2. Declarar malla **secretos/valores** recursos en un archivo YAML de modelo de recursos de Azure o JSON que se almacenará en el **secretos** recurso (del paso 1).
+1. Declare un recurso **Secretos** de Mesh en un archivo YAML o JSON del modelo de recursos de Azure mediante las definiciones del tipo inlinedValue y SecretsStoreRef contentType.
+2. Declare los recursos **Secretos o valores** de Mesh en un archivo YAML o JSON del modelo de recursos de Azure que se almacenará en el recurso **Secretos** (del paso 1).
 3. Modifique la aplicación Mesh para que haga referencia a los valores de secretos de Mesh.
 4. Implemente o actualice gradualmente la aplicación Mesh para consumir valores de secretos.
 5. Utilice los comandos "az" de la CLI de Azure para la administración del ciclo de vida del Servicio de almacenamiento seguro.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Declaración de un recurso de secretos de Mesh
-Un recurso de secretos de la malla se declara en un JSON de modelo de recursos de Azure o el archivo YAML mediante la definición de tipo inlinedValue. El recurso de secretos de Mesh admite los secretos con origen en el Servicio de almacenamiento seguro. 
+Un recurso de secretos de Mesh se declara en un archivo JSON o YAML del modelo de recursos de Azure mediante las definiciones del tipo inlinedValue. El recurso de secretos de Mesh admite los secretos con origen en el Servicio de almacenamiento seguro. 
 >
 El siguiente es un ejemplo sobre cómo declarar los recursos de secretos de Mesh en un archivo JSON:
 
@@ -206,7 +206,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 Pase **template-file** o **template-uri** (pero no ambos).
 
-Por ejemplo: 
+Por ejemplo:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - az mesh deployment create -- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 

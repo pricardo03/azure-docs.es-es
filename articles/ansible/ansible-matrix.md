@@ -9,21 +9,21 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
 ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230979"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo y versión de Ansible
 
-Ansible incluye un conjunto de módulos para su uso en el aprovisionamiento y configuración de los recursos de Azure. Estos recursos incluyen máquinas virtuales, conjuntos de escalado, servicios y los servicios de contenedor de la red. En este artículo se enumera los distintos módulos de Ansible para Azure y las versiones de Ansible en el que se incluyen.
+Ansible incluye un conjunto de módulos para su uso en el aprovisionamiento y configuración de los recursos de Azure. Estos recursos incluyen máquinas virtuales, conjuntos de escalado, servicios de redes y servicios de contenedores. En este artículo se enumeran los distintos módulos de Ansible para Azure y las versiones de Ansible en las que se incluyen.
 
 ## <a name="ansible-modules-for-azure"></a>Módulos de Ansible para Azure
 
-Los siguientes módulos se pueden ejecutar directamente en los hosts remotos o mediante guiones de procedimientos.
+Los siguientes módulos se pueden ejecutar directamente en hosts remotos o mediante cuadernos de estrategias.
 
-Estos módulos están disponibles desde el lanzamiento oficial de Ansible y desde los siguientes roles de cuaderno de estrategias de Microsoft.
+Estos módulos están disponibles en la versión oficial de Ansible y en los siguientes roles de cuaderno de estrategias de Microsoft.
 
 | Módulo Ansible para Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Rol de Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
@@ -190,10 +190,10 @@ Estos módulos están disponibles desde el lanzamiento oficial de Ansible y desd
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introducción al rol de cuaderno de estrategias de Azure
 
-El [rol azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) incluye todos los módulos de Azure más recientes. Las actualizaciones y correcciones de errores se realizan de manera más oportuna que en la versión oficial de Ansible. Si usa Ansible para aprovisionamiento de recursos de Azure, le recomendamos que instale el `azure_preview_module` rol.
+El [rol de cuaderno de estrategias azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) incluye todos los módulos más recientes de Azure. Las actualizaciones y correcciones de errores se realizan de manera más oportuna que en la versión oficial de Ansible. Si usa Ansible para el aprovisionamiento de recursos de Azure, se recomienda instalar el rol de cuaderno de estrategias `azure_preview_module`.
 
-El `azure_preview_module` rol se publica cada tres semanas.
+El rol de cuaderno de estrategias `azure_preview_module` se publica cada tres semanas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de los roles de guión de procedimientos, consulte [crear playbooks reutilizables](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Para obtener más información sobre los roles de cuaderno de estrategias, vea [Creating Reusable Playbooks](https://docs.ansible.com/ansible/latest/playbooks_reuse.html) (Creación de cuadernos de estrategias reutilizables). 

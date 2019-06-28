@@ -9,63 +9,63 @@ ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192313"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
-Con escalado horizontal, las consultas de cliente pueden distribuirse entre varios *réplicas de consulta* en un *consultar grupo*, lo que reduce los tiempos de respuesta durante las cargas de trabajo de consulta alta. También puede separar el procesamiento del grupo de consultas, lo que garantiza que las operaciones de procesamiento no afecten de forma negativa a las consultas de cliente. La escalabilidad horizontal puede configurarse en Azure Portal o con el uso de la API de REST de Analysis Services.
+Con la escalabilidad horizontal, las consultas de cliente pueden distribuirse entre varias *réplicas de consulta* de un *grupo de consultas*, reduciendo así los tiempos de respuesta durante las cargas de trabajo con un número elevado de consultas. También puede separar el procesamiento del grupo de consultas, lo que garantiza que las operaciones de procesamiento no afecten de forma negativa a las consultas de cliente. La escalabilidad horizontal puede configurarse en Azure Portal o con el uso de la API de REST de Analysis Services.
 
 La escalabilidad horizontal está disponible para los servidores en el plan de tarifa Estándar. Cada réplica de consulta se factura a la misma tarifa que el servidor. Todas las réplicas de la consulta se crean en la misma región que el servidor. El número de réplicas de consultas que puede configurar está limitado por la región en la que se encuentra el servidor. Para más información, consulte la [disponibilidad por región](analysis-services-overview.md#availability-by-region). La escalabilidad horizontal no aumenta la cantidad de memoria disponible para el servidor. Para aumentar la memoria, debe actualizar el plan. 
 
-## <a name="why-scale-out"></a>¿Por qué escalada?
+## <a name="why-scale-out"></a>¿Por qué escalabilidad horizontal?
 
 En una implementación típica de servidor, un servidor actúa como servidor de procesamiento y servidor de consulta. Si el número de consultas de cliente en los modelos en el servidor supera la unidades de procesamiento de consultas (QPU) del plan de su servidor o el procesamiento del modelo se produce al mismo tiempo que las cargas de trabajo con un número elevado de consultas, el rendimiento podría bajar. 
 
-Con escalado horizontal, puede crear un grupo de consultas con hasta siete de los recursos de réplica de consulta adicionales (ocho total, incluida su *principal* server). Puede escalar el número de réplicas en el grupo de consulta para satisfacer las demandas QPU en los momentos críticos, y puede separar un servidor de procesamiento del grupo de consultas en cualquier momento. 
+Con la escalabilidad horizontal, puede crear un grupo de consultas con hasta siete recursos de réplica de consulta adicionales (ocho en total, incluido el servidor *principal*). Puede escalar el número de réplicas del grupo de consultas para satisfacer las demandas de QPU en los momentos críticos y, además, puede separar un servidor de procesamiento del grupo de consultas en cualquier momento. 
 
-Independientemente del número de réplicas de consultas que tenga en un grupo de consultas, las cargas de trabajo de procesamiento no se distribuyen entre las réplicas de consulta. El servidor principal actúa como el servidor de procesamiento. Las réplicas de consulta sirven solo las consultas en las bases de datos de modelo sincronizados entre el servidor principal y en cada réplica en el grupo de consulta. 
+Independientemente del número de réplicas de consultas que tenga en un grupo de consultas, las cargas de trabajo de procesamiento no se distribuyen entre las réplicas de consulta. El servidor principal actúa como servidor de procesamiento. Las réplicas de consulta solo realizan consultas en las bases de datos de modelo sincronizadas entre el servidor principal y cada réplica del grupo de consultas. 
 
-Durante el escalado horizontal, puede tardar hasta cinco minutos para nuevas réplicas de consulta incrementalmente agregarse al grupo de consulta. Cuando todas las nuevas réplicas de consulta están activos y ejecución, nuevas conexiones de cliente tienen la carga equilibrada entre los recursos en el grupo de consulta. Las conexiones de cliente existentes no cambian del recurso al que están conectadas actualmente. En la reducción horizontal, se terminan las conexiones de cliente existentes a un recurso de grupo de consultas que se va a quitar del grupo de consultas. Los clientes pueden volver a conectarse a un recurso de grupo de consultas restantes.
+Durante el escalado horizontal, las nuevas réplicas de consulta pueden tardar hasta cinco minutos en agregarse de forma incremental al grupo de consulta. Cuando todas las nuevas réplicas de consulta están en funcionamiento, se equilibra la carga de las nuevas conexiones de cliente en todos los recursos del grupo de consultas. Las conexiones de cliente existentes no cambian del recurso al que están conectadas actualmente. En la reducción horizontal, se terminan las conexiones de cliente existentes a un recurso de grupo de consultas que se va a quitar del grupo de consultas. Los clientes pueden volver a conectarse a un recurso del grupo de consultas restante.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Al configurar el escalado horizontal de la primera vez, son bases de datos de modelo en el servidor principal *automáticamente* sincronizada con las nuevas réplicas en un nuevo grupo de consulta. La sincronización automática se produce solo una vez. Durante la sincronización automática, se copian los archivos de datos del servidor principal (que se cifran en reposo en el almacenamiento de blobs) en una segunda ubicación, que también se cifran en reposo en el almacenamiento de blobs. Las réplicas en el grupo de consulta son, a continuación, *hidrata* con datos desde el segundo conjunto de archivos. 
+Al configurar el escalado horizontal por primera vez, las bases de datos de modelo en el servidor principal se sincronizan *automáticamente* con las nuevas réplicas de un nuevo grupo de consultas. La sincronización automática se produce solo una vez. Durante la sincronización automática, los archivos de datos del servidor principal (cifrados en reposo en Blob Storage) se copian en una segunda ubicación, también cifrados en reposo en Blob Storage. Las réplicas del grupo de consultas se *hidratan* con datos del segundo conjunto de archivos. 
 
-Mientras se realiza una sincronización automática sólo cuando se escala horizontalmente un servidor por primera vez, también puede realizar una sincronización manual. Sincronizar garantiza que coinciden con los datos en las réplicas en el grupo de consultas del servidor principal. Al procesar los modelos (actualizar) en el servidor principal, se debe realizar una sincronización *después* se completan las operaciones de procesamiento. Esta sincronización copia datos actualizados desde los archivos del servidor principal en blob storage en el segundo conjunto de archivos. Las réplicas en el grupo de consulta, a continuación, se hidrata con los datos actualizados desde el segundo conjunto de archivos en blob storage. 
+Aunque una sincronización automática solo se realiza cuando se escala horizontalmente un servidor por primera vez, también puede realizar una sincronización manual. La sincronización garantiza que los datos en las réplicas del grupo de consultas coinciden con los del servidor principal. Al procesar (actualizar) modelos en el servidor principal, se debe realizar una sincronización *después* de la finalización de las operaciones de procesamiento. Esta sincronización copia los datos actualizados de los archivos del servidor principal de Blob Storage en el segundo conjunto de archivos. Las réplicas del grupo de consultas se hidratan con los datos actualizados del segundo conjunto de archivos de Blob Storage. 
 
-Al realizar una operación de escalado posterior, por ejemplo, aumentar el número de réplicas en el grupo de consulta de dos a cinco, las nuevas réplicas se hidrata con datos desde el segundo conjunto de archivos en blob storage. No hay ninguna sincronización. Si tuviera que, a continuación, realice una sincronización después de escalado horizontal, las nuevas réplicas en el grupo de consulta sería hidrata dos veces: una hidratación redundante. Al realizar una operación de escalado posterior, es importante tener en cuenta:
+Al realizar una operación de escalado horizontal posterior, por ejemplo, aumentar el número de réplicas del grupo de consultas de dos a cinco, las nuevas réplicas se hidratan con los datos del segundo conjunto de archivos de Blob Storage. No hay ninguna sincronización. Si tuviera que realizar una sincronización después del escalado horizontal, las nuevas réplicas del grupo de consultas se hidratarían dos veces: una hidratación redundante. Al realizar una operación de escalado horizontal posterior, es importante tener en cuenta:
 
-* Realizar una sincronización *antes de la operación de escalado horizontal* para evitar la hidratación redundante de las réplicas se ha agregado. No se permiten operaciones de escalado horizontal que se ejecutan al mismo tiempo y de sincronización simultáneas.
+* Realice una sincronización *antes de la operación de escalado horizontal* para evitar la hidratación redundante de las réplicas agregadas. No se permiten operaciones de escalado horizontal y sincronización simultáneas que se ejecuten al mismo tiempo.
 
-* Cuando se automatiza ambos procesamiento *y* las operaciones de escalado horizontal, es importante procesar primero los datos en el servidor principal, a continuación, realice una sincronización y, a continuación, realizar la operación de escalado horizontal. Esta secuencia garantiza un impacto mínimo en los recursos de memoria y QPU.
+* Al automatizar las operaciones de procesamiento *y* escalado horizontal, es importante procesar primero los datos en el servidor principal, luego realizar una sincronización y, por último, realizar la operación de escalado horizontal. Esta secuencia garantiza un impacto mínimo en los recursos de memoria y QPU.
 
-* Se permite la sincronización incluso cuando no hay ninguna réplica en el grupo de consulta. Si va a escalar desde cero a uno o más réplicas con nuevos datos de una operación de procesamiento en el servidor principal, realice la sincronización en primer lugar sin réplicas en el grupo de consulta y, a continuación, escalar horizontalmente. La sincronización antes de escalar horizontalmente evita hidratación redundante de las réplicas recién agregadas.
+* Se permite la sincronización aun cuando no haya réplicas en el grupo de consultas. Si va a escalar horizontalmente de cero a una o más réplicas con nuevos datos de una operación de procesamiento en el servidor principal, primero realice la sincronización sin réplicas en el grupo de consultas y luego escale horizontalmente. La sincronización antes del escalado horizontal evita la hidratación redundante de las réplicas recién agregadas.
 
-* Al eliminar una base de datos de modelo desde el servidor principal, lo que no se automáticamente eliminan de las réplicas en el grupo de consulta. Debe realizar una operación de sincronización mediante el [sincronización AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando de PowerShell que quita el archivo/s para esa base de datos de ubicación de almacenamiento de blobs compartida de la réplica y, a continuación, elimina el modelo base de datos en las réplicas en el grupo de consulta. Para determinar si una base de datos de modelo existe en las réplicas en el grupo de consulta, pero no en el servidor principal, asegúrese del **separar el servidor de procesamiento de la consulta de grupo** configuración **Sí**. A continuación, usar SSMS para conectarse al servidor principal mediante el `:rw` calificador para ver si existe la base de datos. A continuación, conectarse a las réplicas en el grupo de consulta mediante la conexión sin la `:rw` calificador para ver si también existe la misma base de datos. Si la base de datos existe en las réplicas en el grupo de consulta, pero no en el servidor principal, ejecute una operación de sincronización.   
+* Al eliminar una base de datos de modelo del servidor principal, no se elimina automáticamente de las réplicas del grupo de consultas. Debe realizar una operación de sincronización mediante el comando de PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) que quita los archivos de esa base de datos de la ubicación de Blob Storage compartida de la réplica y luego elimina la base de datos de modelo en las réplicas del grupo de consultas. Para determinar si existe una base de datos de modelo en las réplicas del grupo de consultas, pero no en el servidor principal, asegúrese de que la opción **Separar el servidor de procesamiento del grupo de consultas** esté establecida en **Sí**. Luego use SSMS para conectarse al servidor principal mediante el calificador `:rw` para ver si existe la base de datos. Después conéctese a las réplicas del grupo de consultas sin el calificador `:rw` para ver si también existe la misma base de datos. Si la base de datos existe en las réplicas del grupo de consultas pero no en el servidor principal, ejecute una operación de sincronización.   
 
-* Al cambiar el nombre de una base de datos en el servidor principal, hay un paso adicional necesario para garantizar que la base de datos está sincronizado correctamente a las réplicas. Después de cambiar el nombre, realizar una sincronización con el [sincronización AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando especificando el `-Database` parámetro con el nombre antiguo de la base de datos. Esta sincronización quita la base de datos y archivos con el nombre antiguo de las réplicas. A continuación, realice otra sincronización especificando el `-Database` parámetro con el nuevo nombre de base de datos. La sincronización de la segunda copia de la base de datos con el nombre nuevo en el segundo conjunto de archivos e hidratan las réplicas. Estas sincronizaciones no se puede realizar mediante el comando de modelo de sincronización en el portal.
+* Al cambiar el nombre de una base de datos en el servidor principal, hay un paso adicional necesario para garantizar que la base de datos se sincronice correctamente con las réplicas. Después de cambiar el nombre, realice una sincronización con el comando [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificando el parámetro `-Database` con el nombre antiguo de la base de datos. Esta sincronización quita la base de datos y los archivos con el nombre antiguo de las réplicas. Luego realice otra sincronización especificando el parámetro `-Database` con el nuevo nombre de la base de datos. La segunda sincronización copia la base de datos con el nombre nuevo en el segundo conjunto de archivos e hidrata las réplicas. Estas sincronizaciones no se pueden realizar mediante el comando de modelo Sincronizar del portal.
 
 ### <a name="separate-processing-from-query-pool"></a>Separar el procesamiento del grupo de consultas
 
-Para obtener un rendimiento máximo para las operaciones de procesamiento y consulta, puede elegir separar el servidor de procesamiento del grupo de consultas. Cuando están separados, nuevas conexiones de cliente se asignan a las réplicas de consulta en el grupo de consulta únicamente. Si las operaciones de procesamiento solo ocupan un breve período de tiempo, puede elegir separar el servidor de procesamiento del grupo de consultas solo durante el tiempo que se tarda en realizar las operaciones de procesamiento y sincronización y, a continuación, volver a incluirlo en el grupo de consultas. Al separar el servidor de procesamiento desde el grupo de consulta o la adición de nuevo en el grupo de consulta puede tardar hasta cinco minutos para completar la operación.
+Para obtener un rendimiento máximo para las operaciones de procesamiento y consulta, puede elegir separar el servidor de procesamiento del grupo de consultas. Cuando están separadas, las conexiones de cliente nuevas se asignan a réplicas de consulta del grupo de consultas únicamente. Si las operaciones de procesamiento solo ocupan un breve período de tiempo, puede elegir separar el servidor de procesamiento del grupo de consultas solo durante el tiempo que se tarda en realizar las operaciones de procesamiento y sincronización y, a continuación, volver a incluirlo en el grupo de consultas. Al separar el servidor de procesamiento del grupo de consultas o al agregarlo de nuevo a este, la operación puede tardar hasta cinco minutos en realizarse.
 
 ## <a name="monitor-qpu-usage"></a>Supervisión del uso de QPU
 
 Para determinar si la escalabilidad horizontal del servidor es necesaria, supervise el servidor en Azure Portal con Métricas. Si se supera el nivel máximo de QPU con regularidad, significa que el número de consultas en los modelos excede el límite de QPU del plan. La métrica de longitud de la cola de trabajos del grupo de consultas también aumenta si el número de consultas de la cola del grupo de subprocesos de consulta excede el número de QPU disponibles. 
 
-Otra buena métrica para inspeccionar es QPU promedio por ServerResourceType. Esta métrica compara QPU promedio para el servidor principal con la el grupo de consulta. 
+Otra buena métrica para inspeccionar es QPU media por ServerResourceType. Esta métrica compara la QPU media del servidor principal con la del grupo de consultas. 
 
-![Escalado horizontal de las métricas de consultas](media/analysis-services-scale-out/aas-scale-out-monitor.png)
+![Métricas de escalado horizontal de consultas](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>Para configurar QPU por ServerResourceType
-1. En un gráfico de líneas de las métricas, haga clic en **agregar métrica**. 
-2. En **recursos**, seleccione el servidor, a continuación, en **espacio de nombres de MÉTRICA**, seleccione **métricas estándar de Analysis Services**, a continuación, en **MÉTRICA**, Seleccione **QPU**y, a continuación, en **agregación**, seleccione **Avg**. 
-3. Haga clic en **aplicar dividir**. 
-4. En **valores**, seleccione **ServerResourceType**.  
+### <a name="to-configure-qpu-by-serverresourcetype"></a>Para configurar la QPU por ServerResourceType
+1. En un gráfico de líneas Métricas, haga clic en **Agregar métrica**. 
+2. En **RECURSO**, seleccione el servidor y, en **ESPACIO DE NOMBRES DE MÉTRICA**, seleccione **Métricas estándar de Analysis Services**; luego, en **MÉTRICA**, seleccione **QPU** y, en **AGREGACIÓN**, seleccione **Media**. 
+3. Haga clic en **Aplicar separación**. 
+4. En **VALORES**, seleccione **ServerResourceType**.  
 
 Para más información, vea [Supervisión de las métricas del servidor](analysis-services-monitor.md).
 
@@ -75,13 +75,13 @@ Para más información, vea [Supervisión de las métricas del servidor](analysi
 
 1. En Azure Portal, haga clic en **Escalabilidad horizontal**. Utilice el control deslizante para seleccionar el número de servidores de réplica de consulta. El número de réplicas elegido se suma al servidor existente.
 
-2. En **Separar el servidor de procesamiento del grupo de consultas**, seleccione Sí para excluir el servidor de procesamiento de los servidores de consulta. Cliente [conexiones](#connections) utilizando la cadena de conexión predeterminada (sin `:rw`) se redirigen a las réplicas en el grupo de consulta. 
+2. En **Separar el servidor de procesamiento del grupo de consultas**, seleccione Sí para excluir el servidor de procesamiento de los servidores de consulta. Las [conexiones](#connections) de cliente mediante la cadena de conexión predeterminada (sin `:rw`) se redirigen a las réplicas del grupo de consultas. 
 
    ![Control deslizante de escalabilidad horizontal](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. Haga clic en **Guardar** para aprovisionar los nuevos servidores de réplica de consulta. 
 
-Al configurar el escalado horizontal para un servidor de la primera vez, los modelos en el servidor principal se sincronizan automáticamente con réplicas en el grupo de consulta. La sincronización automática sólo se produce una vez, cuando se configura escalada a una o más réplicas. Los cambios posteriores en el número de réplicas en el mismo servidor *no desencadenará otra sincronización automática*. No se producirá la sincronización automática nuevo incluso si configura el servidor de réplicas de cero y, a continuación, volver a escalar horizontalmente a cualquier número de réplicas. 
+Al configurar el escalado horizontal para un servidor por primera vez, los modelos en el servidor principal se sincronizan automáticamente con las réplicas del grupo de consultas. La sincronización automática solo se produce una vez, cuando se configura el escalado horizontal en una o más réplicas por primera vez. Los cambios posteriores en el número de réplicas en el mismo servidor *no desencadenan otra sincronización automática*. La sincronización automática no se vuelve a producir aun cuando se establezca el servidor en cero réplicas y luego se vuelva a escalar horizontalmente en cualquier número de réplicas. 
 
 ## <a name="synchronize"></a>Sincronizar 
 
@@ -105,14 +105,14 @@ Use la operación **sync**.
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
-Devolver códigos de estado:
+Códigos de estado devueltos:
 
 
 |Código  |DESCRIPCIÓN  |
 |---------|---------|
 |-1     |  No válida       |
 |0     | Replicando        |
-|1     |  La rehidratación       |
+|1     |  Rehidratando       |
 |2     |   Completed       |
 |3     |   Con error      |
 |4     |    Finalizando     |
@@ -123,15 +123,15 @@ Devolver códigos de estado:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Antes de usar PowerShell, [instalar o actualizar el módulo Azure PowerShell más reciente](/powershell/azure/install-az-ps). 
+Antes de usar PowerShell, [instale o actualice la última versión del módulo de Azure PowerShell](/powershell/azure/install-az-ps). 
 
-Para ejecutar la sincronización, utilice [sincronización AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
+Para ejecutar la sincronización, use [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
-Para establecer el número de réplicas de consulta, use [conjunto AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique el parámetro opcional `-ReadonlyReplicaCount`.
+Para establecer el número de réplicas de consulta, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique el parámetro opcional `-ReadonlyReplicaCount`.
 
-Para separar el servidor de procesamiento del grupo de consulta, use [conjunto AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique el valor opcional `-DefaultConnectionMode` parámetro que se usa `Readonly`.
+Para separar el servidor de procesamiento del grupo de consultas, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique el parámetro opcional `-DefaultConnectionMode` para usar `Readonly`.
 
-Para obtener más información, consulte [mediante una entidad de servicio con el módulo Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
+Para obtener más información, vea [Uso de una entidad de servicio con el módulo Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
 
 ## <a name="connections"></a>Conexiones
 
@@ -147,7 +147,7 @@ Para SSMS, SSDT y cadenas de conexión en PowerShell, las aplicaciones de Azure 
 
 **Problema:** los usuarios ven la instancia de error **No se puede encontrar el servidor "\<Nombre del servidor >" en el modo de conexión "ReadOnly".**
 
-**Solución:** Al seleccionar el **separar el servidor de procesamiento del grupo consultando** opción conexiones de cliente mediante la cadena de conexión predeterminada (sin `:rw`) se redirigen a las réplicas del grupo de consulta. Si las réplicas en el grupo de consultas no están en línea porque la sincronización aún no se ha completado, es posible que se produzca un error en las conexiones de cliente redirigidas. Para evitar errores de conexión, debe haber al menos dos servidores en el grupo de consultas al realizar una sincronización. Cada servidor se sincroniza individualmente mientras que otros siguen en línea. Si decide no incluir el servidor de procesamiento en el grupo de consultas durante el procesamiento, puede quitarlo del grupo para el procesamiento y agregarlo de nuevo una vez completado el procesamiento, pero antes de la sincronización. Use las métricas de memoria y QPU para supervisar el estado de sincronización.
+**Solución:** al seleccionar la opción **Separar el servidor de procesamiento del grupo de consultas**, las conexiones del cliente que usan la cadena de conexión predeterminada (sin `:rw`) se redirigen a las réplicas del grupo de consultas. Si las réplicas en el grupo de consultas no están en línea porque la sincronización aún no se ha completado, es posible que se produzca un error en las conexiones de cliente redirigidas. Para evitar errores de conexión, debe haber al menos dos servidores en el grupo de consultas al realizar una sincronización. Cada servidor se sincroniza individualmente mientras que otros siguen en línea. Si decide no incluir el servidor de procesamiento en el grupo de consultas durante el procesamiento, puede quitarlo del grupo para el procesamiento y agregarlo de nuevo una vez completado el procesamiento, pero antes de la sincronización. Use las métricas de memoria y QPU para supervisar el estado de sincronización.
 
 
 

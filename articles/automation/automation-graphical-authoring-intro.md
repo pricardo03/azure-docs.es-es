@@ -44,7 +44,7 @@ Puede utilizar los controles en la parte inferior del lienzo para acercar y alej
 
 El control de Biblioteca es donde selecciona las [actividades](#activities) para agregar a su runbook. Puede agregarlas al lienzo donde las conecta a otras actividades. Incluye cuatro secciones que se describen en la tabla siguiente:
 
-| Sección | DESCRIPCIÓN |
+| Sección | Description |
 |:--- |:--- |
 | Cmdlets |Incluye todos los cmdlets que se pueden usar en su runbook. Los cmdlets se organizan por módulo. Están disponibles todos los módulos que ha instalado en su cuenta de Automation. |
 | Runbooks |Incluye los runbooks de la cuenta de Automatización de Azure. Estos runbooks se pueden agregar al lienzo para usarse como runbooks secundarios. Solo se muestran los runbooks del mismo tipo básico que el del runbook que se está editando; para los runbooks gráficos, solo se muestran los basados en PowerShell, mientras que para los runbooks gráficos de flujo de trabajo de PowerShell, solo se muestran los basados en el flujo de trabajo de PowerShell. |
@@ -109,7 +109,7 @@ En el ejemplo siguiente, el cmdlet Get-AzureRmVM tiene tres conjuntos de paráme
 
 Cuando se especifica un valor para un parámetro, se selecciona un origen de datos para determinar cómo se especifica el valor. Los orígenes de datos disponibles para un parámetro concreto dependen de los valores válidos para dicho parámetro. Por ejemplo, Null no es una opción disponible para un parámetro que no permita valores nulos.
 
-| Origen de datos | DESCRIPCIÓN |
+| Origen de datos | Description |
 |:--- |:--- |
 | Valor constante |Escriba un valor para el parámetro. Solo se encuentra disponible para los siguientes tipos de datos: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Salida de la actividad |Salida de una actividad que precede la actividad actual en el flujo de trabajo. Se enumeran todas las actividades válidas. Seleccione solo la actividad para usar su salida en el valor de parámetro. Si la actividad genera un objeto con varias propiedades, puede escribir el nombre de la propiedad después de seleccionar la actividad. |
@@ -139,7 +139,7 @@ La condición de reintento es una expresión de PowerShell que se evalúa cada v
 
 La condición de reintento puede utilizar una variable denominada $RetryData que proporciona acceso a información sobre los reintentos de actividad. Esta variable tiene las propiedades de la tabla siguiente:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Description |
 |:--- |:--- |
 | NumberOfAttempts |Número de veces que se ha ejecutado la actividad. |
 | Output |Salida de la última ejecución de la actividad. |
@@ -191,7 +191,7 @@ Para crear un vínculo entre dos actividades, seleccione la actividad de origen 
 
 Seleccione el vínculo para configurar sus propiedades en la hoja Configuración. Aquí se incluye el tipo de vínculo, que se describe en la siguiente tabla:
 
-| Tipo de vínculo | DESCRIPCIÓN |
+| Tipo de vínculo | Description |
 |:--- |:--- |
 | Canalización |La actividad de destino se ejecuta una vez para cada salida de objeto desde la actividad de origen. La actividad de destino no se ejecuta si la actividad de origen no genera salida. La salida de la actividad de origen está disponible como objeto. |
 | Secuencia |La actividad de destino se ejecuta solo una vez. Recibe una matriz de objetos desde la actividad de origen. La salida de la actividad de origen está disponible como una matriz de objetos. |

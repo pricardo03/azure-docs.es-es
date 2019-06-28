@@ -1,6 +1,6 @@
 ---
 title: Errores de datos de registro de diagnóstico de Azure Stream Analytics
-description: En este artículo se explica la entrada diferente y errores de datos de salida que pueden producirse al usar Azure Stream Analytics.
+description: En este artículo se explican los distintos errores de datos de entrada y salida que pueden producirse al usar Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,21 +8,21 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65607234"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errores de datos de Azure Stream Analytics
 
-Cuando hay una discrepancia en los datos que se procesan mediante un trabajo de Azure Stream Analytics, Stream Analytics envía un evento de error de datos a los registros de diagnóstico. Stream Analytics escribe información detallada y eventos de ejemplo, en sus registros de diagnóstico cuando se producen errores de datos. También se proporciona un resumen de esta información a través de las notificaciones del portal para algunos errores.
+Cuando hay una discrepancia en los datos que se procesan mediante un trabajo de Azure Stream Analytics, Stream Analytics envía un evento de error de datos a los registros de diagnóstico. Cuando se producen errores de datos, Stream Analytics escribe información detallada y eventos de ejemplo en sus registros de diagnóstico. También se proporciona un resumen de esta información a través de las notificaciones del portal para algunos errores.
 
-En este artículo se describe los diferentes tipos de errores, las causas y los detalles de registro de diagnóstico de errores de los datos de entrada y salida.
+En este artículo se describen los diferentes tipos de errores, las causas y los detalles de registro de diagnóstico de errores de datos de entrada y salida.
 
-## <a name="diagnostic-log-schema"></a>Esquema de registro de diagnóstico
+## <a name="diagnostic-log-schema"></a>Esquema de los registros de diagnóstico
 
-Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los registros de diagnóstico](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) para ver el esquema para los registros de diagnóstico. El siguiente JSON es un valor de ejemplo para el **propiedades** campo de un registro de diagnóstico para un error de datos.
+Para ver el esquema de los registros de diagnóstico, consulte [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema). El siguiente JSON es un valor de ejemplo para el campo **Propiedades** de un registro de diagnóstico para un error de datos.
 
 ```json
 {
@@ -43,10 +43,10 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
 * Causa: El tipo de compresión de entrada seleccionado no coincide con los datos.
-* Proporcionados notificación del portal: Sí
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
-   * Identificador de mensaje de entrada. Centro de eventos, el identificador es el PartitionId, desplazamiento y el número de secuencia.
+   * Identificador de mensaje de entrada. Para el centro de eventos, el identificador es el PartitionId, el desplazamiento y el número de secuencia.
 
 **Mensaje de error**
 
@@ -56,8 +56,8 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
-* Causa: El encabezado de datos de entrada no es válido. Por ejemplo, un archivo CSV tiene las columnas con nombres duplicados.
-* Proporcionados notificación del portal: Sí
+* Causa: El encabezado de los datos de entrada no es válido. Por ejemplo, un archivo CSV tiene columnas con nombres duplicados.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -71,13 +71,13 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
-* Causa: Las columnas de entrada definidas con CREATE TABLE o a través de TIMESTAMP BY no existe.
-* Proporcionados notificación del portal: Sí
+* Causa: Las columnas de entrada definidas con CREATE TABLE o a través de TIMESTAMP BY no existen.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Identificador de mensaje de entrada. 
    * Nombres de las columnas que faltan. 
-   * Carga útil real hasta unos pocos kilobytes.
+   * Carga útil real hasta algunos kilobytes.
 
 **Mensajes de error**
 
@@ -91,8 +91,8 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
-* Causa: No se puede convertir la entrada en el tipo especificado en la instrucción CREATE TABLE.
-* Proporcionados notificación del portal: Sí
+* Causa: No se puede convertir la entrada al tipo especificado en la instrucción CREATE TABLE.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -110,8 +110,8 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
-* Causa: Datos de entrada no están en el formato correcto. Por ejemplo, la entrada no es un JSON válido.
-* Proporcionados notificación del portal: Sí
+* Causa: Los datos de entrada no tienen el formato correcto. Por ejemplo, la entrada no es un JSON válido.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -129,8 +129,8 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
-* Causa: El valor de la expresión por la marca de tiempo no se puede convertir a datetime.
-* Proporcionados notificación del portal: Sí
+* Causa: El valor de la expresión TIMESTAMP BY no se puede convertir a datetime.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Identificador de mensaje de entrada. 
@@ -145,11 +145,11 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
-* Causa: El valor de TIMESTAMP BY OVER timestampColumn es NULL.
-* Proporcionados notificación del portal: Sí
+* Causa: El valor de timestampColumn TIMESTAMP BY OVER es NULL.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
-   * La carga real hasta algunos kilobytes.
+   * La carga útil real hasta algunos kilobytes.
 
 **Mensaje de error**
 
@@ -159,11 +159,11 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="lateinputevent"></a>LateInputEvent
 
-* Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que el período de tolerancia de llegada tardía.
-* Proporcionados notificación del portal: No
+* Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que la ventana de tolerancia de llegada tardía.
+* Notificación del portal proporcionada: Sin
 * Nivel de registro de diagnóstico: Información
 * Detalles del registro
-   * Tiempo de aplicación y la hora de llegada. 
+   * Tiempo de aplicación y hora de llegada. 
    * Carga útil real hasta algunos kilobytes.
 
 **Mensaje de error**
@@ -175,10 +175,10 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que 5 minutos.
-* Proporcionados notificación del portal: No
+* Notificación del portal proporcionada: Sin
 * Nivel de registro de diagnóstico: Información
 * Detalles del registro
-   * Tiempo de aplicación y la hora de llegada. 
+   * Tiempo de aplicación y hora de llegada. 
    * Carga útil real hasta algunos kilobytes.
 
 **Mensaje de error**
@@ -189,8 +189,8 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
-* Causa: Evento se considera fuera de servicio según la ventana de tolerancia de desorden definida.
-* Proporcionados notificación del portal: No
+* Causa: Se considera que el evento está desorganizado según la ventana de tolerancia de desorganización definida.
+* Notificación del portal proporcionada: Sin
 * Nivel de registro de diagnóstico: Información
 * Detalles del registro
    * Carga útil real hasta algunos kilobytes.
@@ -205,8 +205,8 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
-* Causa: La columna necesaria para la salida no existe. Por ejemplo, existe una columna definida como does't PartitionKey de la tabla de Azure.
-* Proporcionados notificación del portal: Sí
+* Causa: La columna necesaria para la salida no existe. Por ejemplo, no existe ninguna columna definida como Azure Table PartitionKey.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Nombre de la columna y el identificador de registro o parte del registro.
@@ -219,8 +219,8 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
-* Causa: El valor de columna no se ajusta con la salida. Por ejemplo, el nombre de columna no es una columna de tabla de Azure válida.
-* Proporcionados notificación del portal: Sí
+* Causa: El valor de la columna no se ajusta a la salida. Por ejemplo, el nombre de la columna no es una columna de tabla de Azure válida.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Nombre de la columna y el identificador del registro o parte del registro.
@@ -233,12 +233,12 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
-* Causa: No se puede convertir una columna a un tipo válido en la salida. Por ejemplo, el valor de columna no es compatible con las restricciones o tipo definido en la tabla de SQL.
-* Proporcionados notificación del portal: Sí
+* Causa: No se puede convertir una columna a un tipo válido en la salida. Por ejemplo, el valor de la columna no es compatible con las restricciones o el tipo definido en la tabla de SQL.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Nombre de la columna.
-   * Identificador del registro o en la parte del registro.
+   * Identificador del registro o parte del registro.
 
 **Mensaje de error**
 
@@ -248,11 +248,11 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
-* Causa: El valor del mensaje es mayor que el tamaño de salida admitidos. Por ejemplo, un registro es mayor que 1 MB para la salida de un centro de eventos.
-* Proporcionados notificación del portal: Sí
+* Causa: El valor del mensaje es mayor que el tamaño de salida admitido. Por ejemplo, un registro es mayor que 1 MB para la salida de un centro de eventos.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
-   * Identificador del registro o en la parte del registro.
+   * Identificador del registro o parte del registro.
 
 **Mensaje de error**
 
@@ -262,12 +262,12 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
-* Causa: Un registro ya contiene una columna con el mismo nombre que una columna del sistema. Por ejemplo, la salida de CosmosDB con una columna denominada Id. cuando la columna de identificador es una columna diferente.
-* Proporcionados notificación del portal: Sí
+* Causa: Un registro ya contiene una columna con el mismo nombre que una columna del sistema. Por ejemplo, una salida de CosmosDB con un identificador con nombre de columna cuando la columna del identificador es una columna diferente.
+* Notificación del portal proporcionada: Sí
 * Nivel de registro de diagnóstico: Advertencia
 * Detalles del registro
    * Nombre de la columna.
-   * Identificador del registro o en la parte del registro.
+   * Identificador del registro o parte del registro.
 
 ```json
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
@@ -275,6 +275,6 @@ Consulte [solucionar problemas de Azure Stream Analytics mediante el uso de los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Solución de problemas de Azure Stream Analytics mediante el uso de los registros de diagnóstico](stream-analytics-job-diagnostic-logs.md)
+* [Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 
-* [Comprender la supervisión de trabajos de Stream Analytics y cómo supervisar consultas](stream-analytics-monitoring.md)
+* [Descripción de la supervisión de trabajos de Stream Analytics y cómo supervisar consultas](stream-analytics-monitoring.md)

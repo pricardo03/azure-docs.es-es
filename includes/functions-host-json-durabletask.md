@@ -10,10 +10,10 @@ ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131668"
 ---
 Configuración de [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
@@ -54,16 +54,16 @@ Los nombres de la central de tareas deben empezar por una letra y estar formados
 |workItemQueueVisibilityTimeout |5 minutos|El tiempo de espera de visibilidad de los mensajes de la cola de elementos de trabajo quitados de la cola.|
 |maxConcurrentActivityFunctions |10 veces el número de procesadores en la máquina actual.|El número máximo de funciones de actividad que se pueden procesar simultáneamente en una única instancia de host.|
 |maxConcurrentOrchestratorFunctions |10 veces el número de procesadores en la máquina actual.|El número máximo de funciones de Orchestrator que se pueden procesar simultáneamente en una única instancia de host.|
-|maxQueuePollingInterval|30 segundos|El máximo control y el intervalo de sondeo de cola de elementos de trabajo en el *hh: mm:* formato. Los valores más altos pueden provocar mayores latencias de procesamiento de mensajes. Los valores más bajos pueden provocar mayores costos de almacenamiento debido a las transacciones de almacenamiento mayor.|
+|maxQueuePollingInterval|30 segundos|Intervalo de sondeo de cola de elementos de trabajo y control máximo en formato *hh:mm:ss:* . Los valores más altos pueden provocar mayores latencias de procesamiento de mensajes. Los valores más bajos pueden provocar mayores costos de almacenamiento debido a transacciones de almacenamiento mayor.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|El nombre de la configuración de aplicación que tiene la cadena de conexión de Azure Storage que se usa para administrar los recursos subyacentes de Azure Storage.|
-|trackingStoreConnectionStringName||El nombre de una cadena de conexión que se usará para las tablas de historial y las instancias. Si no se especifica, el `azureStorageConnectionStringName` se usa la conexión.|
-|trackingStoreNamePrefix||El prefijo que se utilizará para el historial y las instancias de tablas cuando `trackingStoreConnectionStringName` se especifica. Si no se establece, el valor de prefijo predeterminado será `DurableTask`. Si `trackingStoreConnectionStringName` no se especifica, las tablas de historial y las instancias se usará el `hubName` valor como su prefijo y cualquier configuración de `trackingStoreNamePrefix` se pasará por alto.|
-|traceInputsAndOutputs |false|Un valor que indica si se realizará el seguimiento de las entradas y salidas de las llamadas de función. El comportamiento predeterminado al realizar el seguimiento de eventos de ejecución de funciones es incluir el número de bytes en las entradas y salidas serializadas de las llamadas de función. Este comportamiento proporciona información mínima sobre las entradas y salidas aspecto sin sobredimensionar los registros o exponer por accidente información confidencial. Al establecer esta propiedad en true, el registro de funciones predeterminado registra todo el contenido de las entradas y salidas de función.|
+|trackingStoreConnectionStringName||Nombre de una cadena de conexión que se usará para las tablas de historial e instancias. Si no se especifica, se usa la conexión `azureStorageConnectionStringName`.|
+|trackingStoreNamePrefix||Prefijo que se usará para las tablas de historial e instancias cuando se especifica `trackingStoreConnectionStringName`. Si no se establece, el valor de prefijo predeterminado será `DurableTask`. Si no se especifica `trackingStoreConnectionStringName`, las tablas de historial e instancias usarán el valor `hubName` como prefijo y se pasarán por alto todos los valores de configuración de `trackingStoreNamePrefix`.|
+|traceInputsAndOutputs |false|Un valor que indica si se realizará el seguimiento de las entradas y salidas de las llamadas de función. El comportamiento predeterminado al realizar el seguimiento de eventos de ejecución de funciones es incluir el número de bytes en las entradas y salidas serializadas de las llamadas de función. Este comportamiento proporciona información mínima sobre el aspecto de las entradas y salidas, sin sobredimensionar los registros o exponer por accidente información confidencial. Al establecer esta propiedad en true, el registro de funciones predeterminado registra todo el contenido de las entradas y salidas de función.|
 |logReplayEvents|false|Un valor que indica si se debe escribir eventos de reproducción de orquestación en Application Insights.|
-|eventGridTopicEndpoint ||La dirección URL de un punto de conexión de tema personalizado de Azure Event Grid. Cuando se establece esta propiedad, se publican eventos de notificación de ciclo de vida de orquestación en este punto de conexión. Esta propiedad admite la resolución de la configuración de la aplicación.|
+|eventGridTopicEndpoint ||La dirección URL de un punto de conexión de tema personalizado de Azure Event Grid. Cuando se establece esta propiedad, se publican eventos de notificación del ciclo de vida de orquestación en este punto de conexión. Esta propiedad admite la resolución de la configuración de la aplicación.|
 |eventGridKeySettingName ||El nombre de la configuración de aplicación que contiene la clave usada para autenticarse con el tema personalizado de Azure Event Grid en `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|El número de reintentos, si, al publicar en el tema de Event Grid, se produce un error.|
 |eventGridPublishRetryInterval|5 minutos|Event Grid publica el intervalo de reintento en formato *hh:mm:ss*.|
-|eventGridPublishEventTypes||Una lista de tipos de eventos para publicar en Event Grid. Si no se especifica, se publicarán todos los tipos de evento. Permite a los valores incluyen `Started`, `Completed`, `Failed`, `Terminated`.|
+|eventGridPublishEventTypes||Lista de tipos de eventos que se van a publicar en Event Grid. Si no se especifica, se publicarán todos los tipos de evento. Los valores permitidos son `Started`, `Completed`, `Failed` y `Terminated`.|
 
-Muchas de estas configuraciones son para optimizar el rendimiento. Para más información, consulte [Rendimiento y escalado](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Muchos de estos valores son para optimizar el rendimiento. Para más información, consulte [Rendimiento y escalado](../articles/azure-functions/durable-functions-perf-and-scale.md).

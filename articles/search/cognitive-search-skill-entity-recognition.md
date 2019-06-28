@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023444"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
@@ -23,9 +23,9 @@ ms.locfileid: "65023444"
 La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
 
 > [!NOTE]
-> Expandir ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregar más algoritmos de inteligencia artificial, tendrá que [adjuntar un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> Ejecución de habilidades integrados se cobra a los existentes [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services/). Precios de extracción de imagen se describen en el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -44,7 +44,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 |defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Sin usar. Reservado para uso futuro. |
 |includeTypelessEntities | Cuando se establece en true, si el texto contiene una entidad conocida, pero no se puede clasificar en una de las categorías admitidas, se devolverá como parte del campo de salida compleja `"entities"`. 
-Estos son entidades que están bien conocidas, pero no clasificadas como parte de la actuales compatibles "categorías". Por ejemplo, "Windows 10" es una entidad conocida (producto), pero "Productos" no están en las categorías que se admiten actualmente. El valor predeterminado es `false` |
+Se trata de entidades conocidas, pero no clasificadas como parte de las "categorías" admitidas actualmente. Por ejemplo, "Windows 10" es una entidad conocida (un producto), pero "Productos" no está en las categorías que se admiten actualmente. El valor predeterminado es `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -68,7 +68,7 @@ Estos son entidades que están bien conocidas, pero no clasificadas como parte d
 | dateTimes  | Una matriz de cadenas donde cada cadena representa un valor de fecha y hora (como aparece en el texto). |
 | urls | Una matriz de cadenas donde cada cadena representa una dirección URL. |
 | emails | Una matriz de cadenas donde cada cadena representa un correo electrónico. |
-| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de una entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confidence (no se usa por ahora. Se establecerá en un valor de -1)</li></ul> |
+| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confidence (no se usa por ahora. Se establecerá en un valor de -1)</li></ul> |
 | entities | Una matriz de tipos complejos que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definición de ejemplo
@@ -194,7 +194,7 @@ Estos son entidades que están bien conocidas, pero no clasificadas como parte d
 ## <a name="error-cases"></a>Casos de error
 Si no se admite el código de idioma del documento, se devuelve un error y no se extrae ninguna entidad.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
