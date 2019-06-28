@@ -13,10 +13,10 @@ ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
 ms.openlocfilehash: 832f927f81b57fd16c202b855d8f1dbe0617ad56
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149897"
 ---
 # <a name="dependency-auto-collection"></a>Recopilación automática de dependencias
@@ -58,7 +58,7 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 | [Cliente HTTP de Apache](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Clientes de Storage</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
-| [PostgreSQL (compatibilidad de la versión Beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
+| [PostgreSQL (compatibilidad con la versión beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
 | [MySQL]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Bibliotecas de registro</b> | |
@@ -68,7 +68,7 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 | JMX | 1.0+ |
 
 > [!NOTE]
-> * Excepto el soporte técnico de programación reactivo.
+> \* Excepto el soporte técnico de programación reactivo.
 > <br>† Requiere la instalación del [agente de JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js

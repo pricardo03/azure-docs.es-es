@@ -15,70 +15,70 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 21232e5a678d6deed920e57cd0433a3b85ca4fdc
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987913"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
 >[!IMPORTANT]
->En este artículo no es un reemplazo para la documentación de administración de SAP HANA o notas de SAP. Esperamos que tienen un conocimiento sólido de y experiencia en administración de SAP HANA y las operaciones, especialmente para la copia de seguridad, restauración, alta disponibilidad y recuperación ante desastres. En este artículo, se muestran capturas de pantalla de SAP HANA Studio. El contenido, la estructura y la naturaleza de las pantallas de las herramientas de administración de SAP y de las herramientas en sí pueden cambiar de una versión a otra de SAP HANA.
+>Este artículo no sustituye a la documentación de administración de SAP HANA ni a las notas de SAP. Se espera que el lector tenga un conocimiento sólido de la administración y operaciones de SAP HANA, sobre todo en lo relativo a la copia de seguridad, restauración, alta disponibilidad y recuperación ante desastres. En este artículo se muestran capturas de pantalla de SAP HANA Studio. El contenido, la estructura y la naturaleza de las pantallas de las herramientas de administración de SAP y de las herramientas en sí pueden cambiar de una versión a otra de SAP HANA.
 
-Es importante que practique los pasos y procesos que se realizan en su entorno y con sus versiones de HANA. Algunos procesos descritos en este artículo se han simplificado para mejorar la comprensión general. No están diseñados para utilizarse como pasos detallados para posibles manuales de uso. Si desea crear manuales de uso para sus configuraciones, probar y ejecutar los procesos y documentar los procesos relacionados con sus configuraciones concretas. 
+Es importante que practique los pasos y procesos que se realizan en su entorno y con sus versiones de HANA. Algunos de los procesos descritos en este artículo se simplificaron para mejorar la comprensión general. No están diseñados para utilizarse como pasos detallados para posibles manuales de uso. Si quiere crear manuales de operaciones de sus configuraciones, pruebe y ejecute sus procesos y, después, documente aquellos relacionados con sus configuraciones concretas. 
 
 Uno de los aspectos más importantes del funcionamiento de las bases de datos es protegerlas de eventos catastróficos. La causa de estos eventos pueden deberse a cualquier cosa, desde desastres naturales a simples errores del usuario.
 
-Copia de seguridad de una base de datos, con la capacidad de restaurar a cualquier punto de tiempo, como antes de que alguien eliminados datos críticos, habilita la restauración a un estado que sea lo más parecido posible a la forma en que estaba antes de la interrupción.
+La copia de seguridad de una base de datos, con la capacidad de realizar la restauración a cualquier momento dado (como antes de que alguien eliminara datos críticos), posibilita la restauración a un estado que sea lo más parecido posible al que había antes de la interrupción.
 
-Dos tipos de copias de seguridad se deben realizar para lograr la capacidad de restaurar:
+Se deben realizar dos tipos de copias de seguridad para obtener la capacidad de restauración:
 
 - Copias de seguridad de bases de datos: completas, incrementales o diferenciales
 - Copias de seguridad del registro de transacciones
 
-Además de las copias de seguridad completas de la base de datos que se realizan en un nivel de aplicación, puede realizar copias de seguridad con instantáneas de almacenamiento. Las instantáneas de almacenamiento no reemplazan las copias de seguridad del registro de transacciones. Las copias de seguridad del registro de transacciones siguen siendo importantes para restaurar la base de datos a un momento dado o para eliminar las transacciones ya confirmadas de los registros. Las instantáneas de almacenamiento pueden acelerar la recuperación al proporcionar rápidamente una imagen de puesta al día de la base de datos. 
+Además de las copias de seguridad completas de la base de datos que se realizan en un nivel de aplicación, puede realizar copias de seguridad con instantáneas de almacenamiento. Las instantáneas de almacenamiento no reemplazan las copias de seguridad del registro de transacciones. Las copias de seguridad del registro de transacciones siguen siendo importantes para restaurar la base de datos a un momento dado o para eliminar las transacciones ya confirmadas de los registros. Aun así, las instantáneas de almacenamiento pueden acelerar la recuperación al proporcionar rápidamente una imagen de puesta al día de la base de datos. 
 
 SAP HANA en Azure (instancias grandes) ofrece dos opciones de copia de seguridad y restauración:
 
-- **Hágalo usted mismo (implementación personal).** Después de asegurarse de que hay suficiente espacio en disco, realizar copias de seguridad de registro y base de datos completa mediante uno de los siguientes métodos de copia de seguridad de disco. Puede hacer copias de seguridad directamente en los volúmenes conectados a las unidades de instancia grande de HANA o a recursos compartidos NFS que se configuran en una máquina virtual (VM) de Azure. En el último caso, los clientes configuran una VM Linux en Azure, adjuntan Azure Storage a dicha VM y comparten el almacenamiento a través de un servidor NFS configurado en esa máquina virtual. Si realiza la copia de seguridad en los volúmenes que directamente se adjuntan a unidades de instancia grande de HANA, copie las copias de seguridad en una cuenta de almacenamiento de Azure. Puede hacerlo después de configurar una máquina virtual de Azure que exporte los recursos compartidos NFS que se basan en el almacenamiento de Azure. También puede usar un almacén de copia de seguridad de Azure o el almacenamiento en frío de Azure. 
+- **Hágalo usted mismo (DIY).** Después de asegurarse de que hay suficiente espacio en disco, realice copias de seguridad completas tanto de las bases de datos como del registro mediante uno de los siguientes métodos de copia de seguridad de disco. Puede hacer copias de seguridad directamente en los volúmenes conectados a las unidades de HANA (instancias grandes) o en los recursos compartidos de NFS configurados en una máquina virtual (VM) de Azure. En el último caso, los clientes configuran una VM Linux en Azure, adjuntan Azure Storage a dicha VM y comparten el almacenamiento a través de un servidor NFS configurado en esa máquina virtual. Si realiza la copia de seguridad en los volúmenes que están adjuntos directamente a las unidades de HANA (instancias grandes), copie las copias de seguridad a una cuenta de almacenamiento de Azure. Puede hacerlo después de configurar una máquina virtual de Azure que exporte los recursos compartidos de NFS que se basan en Azure Storage. También puede usar un almacén de Azure Backup o el almacenamiento en frío de Azure. 
 
-   Otra opción es usar una herramienta de protección de datos de terceros para almacenar las copias de seguridad una vez que se copian en una cuenta de almacenamiento de Azure. La opción de copia de seguridad DIY también podría ser necesaria para los datos que necesita almacenar durante períodos más largos de tiempo para fines de auditoría y cumplimiento de normas. En todos los casos, las copias de seguridad se copian en recursos compartidos NFS que se representan a través de una VM y Azure Storage.
+   Otra opción consiste en usar una herramienta de protección de datos de terceros para almacenar las copias de seguridad una vez que se copian en una cuenta Azure Storage. Esta opción de copia de seguridad DIY también podría ser necesaria para aquellos datos que necesita almacenar durante períodos más largos de tiempo con fines de cumplimiento y auditorías. En todos los casos, las copias de seguridad se copian en recursos compartidos NFS que se representan a través de una VM y Azure Storage.
 
-- **Infraestructura de copia de seguridad y restaurar la funcionalidad.** También puede usar la copia de seguridad y restaurar la funcionalidad que proporciona la infraestructura subyacente de SAP HANA en Azure (instancias grandes). Esta opción cumple con la necesidad de copias de seguridad y restauraciones rápidas. En el resto de esta sección se trata la funcionalidad de copia de seguridad y restauración que se ofrece con las instancias grandes de HANA. Esta sección también trata la relación de copia de seguridad y restauración al desastre que ofrece funcionalidad de recuperación de instancias grandes de HANA.
+- **Funcionalidad de copia de seguridad y restauración de infraestructura.** También puede usar la funcionalidad de copia de seguridad y restauración que proporciona la infraestructura subyacente de SAP HANA en Azure (instancias grandes). Esta opción cumple con la necesidad de copias de seguridad y restauraciones rápidas. En el resto de esta sección se trata la funcionalidad de copia de seguridad y restauración que se ofrece con las instancias grandes de HANA. Esta sección también trata sobre la relación que la copia de seguridad y la restauración tienen con la funcionalidad de recuperación ante desastres que proporciona HANA (instancias grandes).
 
 > [!NOTE]
->   La tecnología de instantáneas que se usa la infraestructura subyacente de instancias grandes de HANA tiene una dependencia en las instantáneas de SAP HANA. En este momento, las instantáneas de SAP HANA no funcionan en conjunción con varios inquilinos de contenedores de base de datos multiinquilino de SAP HANA. Si solo se implementa un inquilino, las instantáneas de SAP HANA funcionan y se puede usar este método.
+>   La tecnología de instantáneas que utiliza la infraestructura subyacente de HANA (instancias grandes ) depende de las instantáneas de SAP HANA. En este momento, las instantáneas de SAP HANA no funcionan en conjunción con varios inquilinos de los contenedores de base de datos multiinquilino de SAP HANA. Si solo se implementa un inquilino, las instantáneas de SAP HANA funcionan y este método puede usarse.
 
-## <a name="use-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>Usar instantáneas de almacenamiento de SAP HANA en Azure (instancias grandes)
+## <a name="use-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>Uso de instantáneas de almacenamiento de SAP HANA en Azure (instancias grandes)
 
 La infraestructura de almacenamiento subyacente de SAP HANA en Azure (instancias grandes) admite instantáneas de almacenamiento de volúmenes. Se admite tanto la copia de seguridad como la restauración de volúmenes, pero es preciso tener en cuenta lo siguiente:
 
 - En lugar de las copias de seguridad de bases de datos completas, se toman instantáneas del volumen de almacenamiento con frecuencia.
-- Cuando se desencadena una instantánea a través de/Hana/Data y/Hana/Shared, que incluye/usr/SAP, volúmenes, la tecnología de instantáneas se inicia una instantánea antes de SAP HANA ejecuta la instantánea de almacenamiento. Esta instantánea de SAP HANA es el punto de configuración de las posibles restauraciones del registro después de la recuperación de la instantánea de almacenamiento. Para que una instantánea de HANA se realice correctamente, necesita una instancia HANA activa. En un escenario HSR, una instantánea de almacenamiento no se admite en un nodo secundario actual donde no se puede realizar una instantánea de HANA.
-- Después de la instantánea de almacenamiento se ejecuta correctamente, se elimina la instantánea de SAP HANA.
-- Las copias de seguridad del registro de transacciones se realizan con frecuencia y se almacenan en el volumen hana/logbackups o en Azure. Puede desencadenar el volumen /hana/logbackups que contiene las copias de seguridad del registro de transacciones para tomar una instantánea por separado. En ese caso, no es necesario ejecutar una instantánea de HANA.
-- Si debe restaurar una base de datos a un momento dado para una interrupción de producción, solicitar ese soporte técnico de Microsoft Azure o SAP HANA en Azure de la restauración a una instantánea de almacenamiento determinada. Un ejemplo es una restauración planeada de un sistema de espacio aislado a su estado original.
-- La instantánea de SAP HANA que se incluye en la instantánea de almacenamiento es un punto de desplazamiento para aplicar las copias de seguridad de registro de transacciones que se ejecutan y se han almacenado después de que se tomó la instantánea de almacenamiento.
+- Cuando una instantánea se desencadena sobre los volúmenes /hana/data y /hana/shared (que incluye a /usr/sap), la tecnología de la instantánea inicia una instantánea de SAP HANA antes de ejecutar la instantánea de almacenamiento. Esta instantánea de SAP HANA es el punto de configuración de las posibles restauraciones del registro después de la recuperación de la instantánea de almacenamiento. Para que una instantánea de HANA se realice correctamente se necesita una instancia de HANA activa. En un escenario HSR, la instantánea de almacenamiento no se admite en el nodo secundario actual en el que no se puede realizar la instantánea de HANA.
+- Después de que la instantánea de almacenamiento se ejecuta correctamente, se elimina la instantánea de SAP HANA.
+- Las copias de seguridad del registro de transacciones se realizan con frecuencia y se almacenan en el volumen hana/logbackups o en Azure. Puede desencadenar el volumen /hana/logbackups que contiene las copias de seguridad del registro de transacciones para tomar una instantánea por separado. En ese caso, no es preciso ejecutar una instantánea de HANA.
+- Si debe restaurar una base de datos a un punto determinado en el tiempo debido a una interrupción de producción, solicite que el soporte técnico de Microsoft Azure o SAP HANA en Azure realicen la restauración a una instantánea de almacenamiento determinada. Un ejemplo es una restauración planeada de un sistema de espacio aislado a su estado original.
+- La instantánea de SAP HANA que se incluye en la instantánea de almacenamiento es un punto de desplazamiento para aplicar las copias de seguridad del registro de transacciones que se ejecutaron y almacenaron después de que se tomara la instantánea de almacenamiento.
 - Estas copias de seguridad del registro de transacciones se realizan para restaurar la base de datos a un momento dado.
 
-Puede realizar instantáneas de almacenamiento que tienen como destino las tres clases de volúmenes:
+Puede realizar instantáneas de almacenamiento dirigidas a tres clases de volúmenes:
 
-- Una instantánea combinada en/hana/data y/hana/shared, que incluye/usr/SAP. Esta instantánea requiere la creación de una instantánea de SAP HANA como preparación para la instantánea de almacenamiento. La instantánea de SAP HANA, se garantiza que la base de datos está en un estado coherente desde un punto de vista de almacenamiento. Para el proceso de restauración, que es un punto para configurar en.
+- Una instantánea combinada en /hana/data y /hana/shared, que incluye /usr/sap. Esta instantánea requiere la creación de una instantánea de SAP HANA como preparación para la instantánea de almacenamiento. La instantánea de SAP HANA garantiza que la base de datos esté en un estado coherente desde un punto de vista de almacenamiento, lo cual es un punto a considerar para el proceso de restauración.
 - Una instantánea independiente en /hana/logbackups.
 - Una partición del sistema operativo.
 
-Para obtener las secuencias de comandos de instantánea y la documentación más reciente, consulte [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Cuando descargue el paquete de secuencia de comandos de instantánea de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0), obtendrá tres archivos. Uno de los archivos se documenta en un archivo PDF para la funcionalidad proporcionada. Después de descargar el conjunto de herramientas, siga las instrucciones que aparecen en "obtener las herramientas de la instantánea".
+Para obtener los scripts y la documentación de instantáneas más recientes, consulte [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Cuando descargue el paquete de scripts de instantánea de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0), obtendrá tres archivos. Uno de los archivos está documentado en un archivo PDF para la funcionalidad proporcionada. Después de descargar el conjunto de herramientas, siga las instrucciones que aparecen en "Get the snapshot tools" (obtención de las herramientas de instantánea).
 
 ## <a name="storage-snapshot-considerations"></a>Consideraciones de las instantáneas de almacenamiento
 
 >[!NOTE]
->Las instantáneas de almacenamiento consumen espacio de almacenamiento que se asigna a las unidades de instancia grande de HANA. Tenga en cuenta los siguientes aspectos de la programación de instantáneas de almacenamiento y cuántas de esas instantáneas mantener. 
+>Las instantáneas de almacenamiento consumen espacio de almacenamiento que está asignado a las unidades de HANA (instancias grandes). Tenga en cuenta los siguientes aspectos de la programación de instantáneas de almacenamiento y del número de instantáneas que va a conservar. 
 
 Mecánica concreta de las instantáneas de almacenamiento de SAP HANA en Azure (instancias grandes):
 
-- En el momento que se toma una instantánea de almacenamiento concreta consume poco espacio de almacenamiento.
-- Cuando los cambios de contenido de datos y el contenido de los archivos que cambian en el volumen de almacenamiento de datos de SAP HANA, la instantánea debe almacenar el contenido del bloque original y los cambios de datos.
+- Una instantánea de almacenamiento concreta en el momento en que se toma consume poco espacio de almacenamiento.
+- Cuando el contenido de datos cambia y el contenido de los archivos de datos de SAP HANA cambia en el volumen de almacenamiento, la instantánea debe almacenar el contenido del bloque original y los cambios de datos.
 - El resultado es que la instantánea de almacenamiento aumenta de tamaño. Cuanto más tiempo dure la instantánea, mayor será la instantánea de almacenamiento.
 - Cuantos más cambios se realicen en el volumen de la base de datos de SAP HANA a lo largo de la vigencia de una instantánea de almacenamiento, mayor será el consumo de espacio de dicha instantánea.
 
@@ -91,18 +91,18 @@ SAP HANA en Azure (instancias grandes) incluye tamaños de volumen fijos para lo
 Puede deshabilitar las instantáneas de almacenamiento cuando importa masas de datos o realiza otros cambios importantes en la base de datos de HANA. 
 
 
-Las secciones siguientes proporcionan información para realizar estas instantáneas e incluyen recomendaciones generales:
+En las secciones siguientes se proporciona información para realizar estas instantáneas y se incluyen recomendaciones generales:
 
-- Aunque el hardware puede admitir 255 instantáneas por volumen, que desea no acercarse a este número. La recomendación es 250 o menos.
+- Aunque el hardware puede admitir 255 instantáneas por volumen, es conveniente no acercarse a ese número. La recomendación es usar 250 o menos.
 - Antes de realizar instantáneas de almacenamiento, supervise y realice un seguimiento del espacio disponible.
 - Reduzca el número de instantáneas del almacenamiento en función del espacio libre. Puede reducir el número de instantáneas que mantiene, o ampliar los volúmenes. Puede solicitar más almacenamiento en unidades de un terabyte.
 - Durante actividades como mover datos a SAP HANA con herramientas de migración de la plataforma SAP (R3load) o restaurar bases de datos de SAP HANA a partir de copias de seguridad, deshabilite las instantáneas de almacenamiento en el volumen /hana/data. 
-- Durante reorganizaciones mayores de tablas de SAP HANA, si es posible evitar que las instantáneas de almacenamiento.
+- Durante reorganizaciones mayores de tablas de SAP HANA, evite realizar instantáneas de mantenimiento cuando sea posible.
 - Las instantáneas de almacenamiento son un requisito previo para sacar provecho de las funcionalidades de recuperación ante desastres de SAP HANA en Azure (instancias grandes).
 
 ## <a name="prerequisites-for-using-self-service-storage-snapshots"></a>Requisitos previos para usar instantáneas de almacenamiento de autoservicio
 
-Para asegurarse de que la secuencia de comandos de instantánea se ejecuta correctamente, asegúrese de que Perl está instalado en el sistema operativo Linux en el servidor de instancias grandes de HANA. Perl viene preinstalado en la unidad de instancia grande de HANA. Para comprobar la versión de Perl, utilice la siguiente línea de comandos:
+Para asegurarse de que el script de instantáneas se ejecuta correctamente, asegúrese de que Perl está instalado en el sistema operativo Linux en el servidor de HANA (instancias grandes). Perl viene preinstalado en la unidad de HANA (instancias grandes). Para comprobar la versión de Perl, utilice la siguiente línea de comandos:
 
 `perl -v`
 
@@ -111,124 +111,124 @@ Para asegurarse de que la secuencia de comandos de instantánea se ejecuta corre
 
 ## <a name="set-up-storage-snapshots"></a>Configuración de instantáneas de almacenamiento
 
-Para configurar las instantáneas de almacenamiento con instancias grandes de HANA, siga estos pasos.
+Para configurar las instantáneas de almacenamiento con HANA (instancias grandes), siga estos pasos.
 1. Asegúrese de que Perl está instalado en el sistema operativo Linux en el servidor de instancias grandes de HANA.
 1. Modifique /etc/ssh/ssh\_config para agregar la línea _MACs hmac-sha1_.
-1. Crear una cuenta de usuario de copia de seguridad de SAP HANA en el nodo maestro de cada instancia de SAP HANA que se ejecuta, si procede.
+1. Cree una cuenta de usuario de copia de seguridad de SAP HANA en el nodo maestro de cada instancia de SAP HANA que ejecute, si procede.
 1. Instale el cliente HDB de SAP HANA en todos los servidores de instancias grandes de SAP HANA.
 1. En el primer servidor de instancias grandes de SAP HANA de cada región, cree una clave pública para acceder a la infraestructura de almacenamiento subyacente que controla la creación de instantáneas.
 1. Copie los scripts y el archivo de configuración de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0) a la ubicación de **hdbsql** en la instalación de SAP HANA.
 1. Modifique el archivo *HANABackupDetails.txt* tanto como sea necesario para ajustarse a las especificaciones apropiadas del cliente.
 
-Obtenga los scripts de instantáneas más recientes y la documentación en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Para conocer los pasos enumerados anteriormente, consulte [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Obtenga los scripts de instantáneas más recientes y la documentación en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Para obtener los pasos enumerados anteriormente, consulte [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
 ### <a name="consideration-for-mcod-scenarios"></a>Consideraciones sobre los escenarios MCOD
-Si ejecuta un [escenario MCOD](https://launchpad.support.sap.com/#/notes/1681092) con varias instancias de SAP HANA en una unidad de instancia grande de HANA, tiene volúmenes de almacenamiento independientes aprovisionados para cada una de las instancias de SAP HANA. Para obtener más información sobre MDC y otras consideraciones, consulte "Importante a recordar las cosas" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Si ejecuta un [escenario MCOD](https://launchpad.support.sap.com/#/notes/1681092) con varias instancias de SAP HANA en una unidad HANA (instancias grandes), puede tener volúmenes de almacenamiento independientes aprovisionados para cada una de las instancias de SAP HANA. Para obtener más información sobre MDC y otras consideraciones, consulte "Important things to remember" (cosas importantes que debe recordar) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
  
 
 ### <a name="step-1-install-the-sap-hana-hdb-client"></a>Paso 1: Instalar el cliente de HDB de SAP HANA
 
-El sistema de operativo Linux instalado en SAP HANA en Azure (instancias grandes) incluye las carpetas y los scripts necesarios para ejecutar las instantáneas de almacenamiento de SAP HANA para la copia de seguridad y con fines de recuperación. Busque las versiones más recientes en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). La versión más reciente de las secuencias de comandos es 4.0. Los scripts podrían tener diferentes versiones secundarias dentro de la misma versión principal.
+El sistema operativo Linux instalado en SAP HANA en Azure (instancias grandes) incluye las carpetas y los scripts necesarios para ejecutar las instantáneas de almacenamiento de SAP HANA para la realización de copias de seguridad y para la recuperación ante desastres. Busque las versiones más recientes en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). La versión más reciente de los scripts es 4.0. Los scripts podrían tener diferentes versiones secundarias dentro de la misma versión principal.
 
-Es responsabilidad suya instalar al cliente HDB de SAP HANA en las unidades de instancia grande de HANA durante la instalación de SAP HANA.
+Es responsabilidad suya instalar el cliente de HDB de SAP HANA en las unidades de HANA (instancia grande) mientras instala SAP HANA.
 
 ### <a name="step-2-change-the-etcsshsshconfig"></a>Paso 2: Cambiar /etcetera/ssh/ssh\_config
 
-Este paso se describe en "Habilitar la comunicación con el almacenamiento" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Este paso se describe en "Enable communication with storage" (habilitación de la comunicación con el almacenamiento) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
 
 ### <a name="step-3-create-a-public-key"></a>Paso 3: Crear una clave pública
 
-Para habilitar el acceso a las interfaces de instantánea de almacenamiento de su inquilino de instancia grande de HANA, establezca un procedimiento de inicio de sesión a través de una clave pública. 
+Para habilitar el acceso a las interfaces de las instantáneas de almacenamiento del inquilino de HANA (instancia grande), establezca un procedimiento de inicio de sesión a través de una clave pública. 
 
-En el primer SAP HANA en el servidor de Azure (instancias grandes) en el inquilino, cree una clave pública para tener acceso a la infraestructura de almacenamiento. Con una clave pública, no se requiere una contraseña para iniciar sesión en las interfaces de instantánea de almacenamiento. También no es necesario mantener las credenciales de contraseña con una clave pública. 
+En el primer servidor de SAP HANA en Azure (instancias grandes) del inquilino, cree una clave pública para acceder a la infraestructura de almacenamiento. Con una clave pública, no se necesita una contraseña para iniciar sesión en las interfaces de la instantánea de almacenamiento. Tampoco es necesario mantener las credenciales de contraseña con una clave pública. 
 
-Para generar una clave pública, consulte "Habilitar la comunicación con el almacenamiento" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Para generar una clave pública, consulte "Enable communication with storage" (habilitación de la comunicación con el almacenamiento) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>Paso 4: Crear una cuenta de usuario de SAP HANA
 
-Para iniciar la creación de instantáneas de SAP HANA, cree una cuenta de usuario en SAP HANA que se pueden usar los scripts de instantánea de almacenamiento. Cree una cuenta de usuario de SAP HANA en SAP HANA Studio para esta finalidad. El usuario debe crearse en SYSTEMDB y *no* en la base de datos de SID para MDC. En el entorno de contenedor único, el usuario se crea en la base de datos de inquilino. Esta cuenta debe tener **Backup Admin** y **catálogo lectura** privilegios. 
+Para iniciar la creación de instantáneas de SAP HANA, cree una cuenta de usuario en SAP HANA que los scripts de instantánea de almacenamiento puedan usar. Cree una cuenta de usuario de SAP HANA en SAP HANA Studio para esta finalidad. El usuario debe crearse en SYSTEMDB y *no* en la base de datos de SID para MDC. En el entorno de contenedor único, el usuario se crea en la base de datos de inquilinos. Esta cuenta debe tener los privilegios **Backup Admin** (Administración de copias de seguridad) y **Catalog Read** (Lectura de catálogos). 
 
-Para configurar y usar una cuenta de usuario, vea "Habilitar comunicación con SAP HANA" en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0).
+Para configurar y usar una cuenta de usuario, consulte "Enable communication with SAP HANA" (habilitación de la comunicación con SAP HANA) en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0).
 
 
 ### <a name="step-5-authorize-the-sap-hana-user-account"></a>Paso 5: Autorizar la cuenta de usuario de SAP HANA
 
-En este paso, autorizar a la cuenta de usuario de SAP HANA que creó para que los scripts no necesitan enviar contraseñas en tiempo de ejecución. El comando de SAP HANA `hdbuserstore` permite la creación de una clave de usuario de SAP HANA. La clave se almacena en uno o más nodos de SAP HANA. La clave de usuario permite que el usuario acceda a SAP HANA sin tener que administrar contraseñas mediante el proceso de scripting. El proceso de scripting se describe más adelante en este mismo artículo.
+En este paso se autoriza a la cuenta de usuario de SAP HANA que creó, de manera que los scripts no necesitan enviar contraseñas en tiempo de ejecución. El comando de SAP HANA `hdbuserstore` permite la creación de una clave de usuario de SAP HANA. Esta clave se almacena en uno o más nodos de SAP HANA. La clave de usuario permite que el usuario acceda a SAP HANA sin tener que administrar contraseñas mediante el proceso de scripting. El proceso de scripting se describe más adelante en este mismo artículo.
 
 >[!IMPORTANT]
->Ejecute estos comandos de configuración con el mismo contexto de usuario que se ejecutan los comandos de instantánea en. En caso contrario, los comandos de instantánea no funcionan correctamente.
+>Ejecute estos comandos de configuración con el mismo contexto de usuario con el que se ejecutan los comandos de instantánea. De lo contrario, los comandos de instantánea no funcionarán correctamente.
 
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Paso 6: Obtener los scripts de instantánea, configurar las instantáneas y probar la configuración y la conectividad
 
-Descargue la versión más reciente de los scripts de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Puede cambiar la manera en que se instalan las secuencias de comandos con la versión 4.0 de las secuencias de comandos. Para obtener más información, vea "Habilitar comunicación con SAP HANA" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Descargue la versión más reciente de los scripts de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0). Puede cambiar la manera en que se instalan los scripts con la versión 4.0 de los scripts. Para obtener más información, consulte "Enable communication with SAP HANA" (habilitación de la comunicación con SAP HANA) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
-Para la secuencia exacta de comandos, vea "Instalación fácil de herramientas de instantánea (valor predeterminado)" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). Se recomienda el uso de la instalación predeterminada. 
+Para ver la secuencia exacta de comandos, consulte "Easy installation of snapshot tools (default)" (instalación fácil de las herramientas de instantáneas [manera predeterminada]) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). Se recomienda usar la instalación predeterminada. 
 
-Para actualizar desde la versión 3.x a 4.0, vea "Actualizar una instalación existente" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). Para desinstalar el conjunto de 4.0 herramientas, consulte "Desinstalación de las herramientas de la instantánea" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Para actualizar de la versión 3.x a la 4.0, consulte "Upgrade an existing install" (actualización de una instalación existente) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). Para desinstalar el conjunto de herramientas 4.0, consulte "Uninstallation of the snapshot tools" (desinstalación de las herramientas de instantáneas) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
-No se olvide de seguir los pasos descritos en "Completar la instalación de herramientas de la instantánea" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+No olvide seguir los pasos descritos en "Complete setup of snapshot tools" (configuración completa de las herramientas de instantáneas) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
-El propósito de los distintos scripts y archivos porque tiene instaladas se describe en "¿Cuáles son estas herramientas instantánea?" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+La finalidad de los distintos scripts y archivos instalados se describe en "What are these snapshot tools?" (¿cuáles son estas herramientas de instantáneas?). en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
-Antes de configurar las herramientas de la instantánea, asegúrese de que también configurar las ubicaciones de copia de seguridad de HANA y la configuración correctamente. Para obtener más información, consulte "Configuración de SAP HANA" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Antes de configurar las herramientas de instantáneas, asegúrese también de configurar correctamente las ubicaciones y opciones de la copia de seguridad de HANA. Para obtener más información, consulte "SAP HANA Configuration" (configuración de SAP HANA) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
-La configuración del conjunto de herramientas de instantánea se describe en "Archivo de configuración - HANABackupCustomerDetails.txt" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+La configuración del conjunto de herramientas de instantáneas se describe en "Config file - HANABackupCustomerDetails.txt" (archivo de configuración: HANABackupCustomerDetails.txt) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
-#### <a name="test-connectivity-with-sap-hana"></a>Probar la conectividad con SAP HANA
+#### <a name="test-connectivity-with-sap-hana"></a>Prueba de conectividad con SAP HANA
 
 Después de colocar todos los datos de configuración en el archivo *HANABackupCustomerDetails.txt* compruebe si las configuraciones son correctas para los datos de la instancia de HANA. Use el script `testHANAConnection`, que es independiente de una configuración de escalado vertical o escalado horizontal de SAP HANA.
 
-Para obtener más información, vea "Compruebe la conectividad con SAP HANA - testHANAConnection" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Para obtener más información, consulte "Check connectivity with SAP HANA - testHANAConnection" (comprobación de la conectividad con SAP HANA: testHANAConnection) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
-#### <a name="test-storage-connectivity"></a>Probar la conectividad de almacenamiento
+#### <a name="test-storage-connectivity"></a>Pruebas de conectividad con el almacenamiento
 
-El paso siguiente es comprobar la conectividad con el almacenamiento en función de los datos se pone en la *HANABackupCustomerDetails.txt* archivo de configuración. A continuación, ejecute una instantánea de prueba. Antes de ejecutar el `azure_hana_backup` comando, debe ejecutar esta prueba. Para la secuencia de comandos para esta prueba, consulte "Comprobación de conectividad con almacenamiento - testStorageSnapshotConnection" "en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+El paso siguiente es comprobar la conectividad con el almacenamiento según los datos que proporciona en el archivo de configuración *HANABackupCustomerDetails.txt*. A continuación, ejecute una instantánea de prueba. Debe realizar esta prueba antes de ejecutar el comando `azure_hana_backup`. Para obtener la secuencia de comandos de esta prueba, consulte "Check connectivity with storage - testStorageSnapshotConnection" (comprobación de la conectividad con el almacenamiento: testStorageSnapshotConnection) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
 Después de un inicio de sesión correcto en las interfaces de la máquina virtual de almacenamiento, el script pasa a la fase 2 y crea una instantánea de prueba. Aquí se muestra el resultado de una configuración de escalado horizontal de tres nodos de SAP HANA.
 
-Si la instantánea de prueba se ejecuta correctamente con la secuencia de comandos, puede programar las instantáneas de almacenamiento real. Si no es correcta, investigue los problemas antes de continuar. Se debe conservar la instantánea de prueba hasta que se hayan realizado las primeras instantáneas reales.
+Si la instantánea de prueba se ejecuta correctamente con el script, puede programar las instantáneas de almacenamiento reales. Si el resultado no es satisfactorio, investigue los problemas antes de continuar. Se debe conservar la instantánea de prueba hasta que se hayan realizado las primeras instantáneas reales.
 
 
 ### <a name="step-7-perform-snapshots"></a>Paso 7: Realizar instantáneas
 
-Cuando haya terminado los pasos de preparación, puede empezar a configurar y programar las instantáneas de almacenamiento real. El script que se va a programar funciona con configuraciones de escalado vertical o escalado horizontal de SAP HANA. Para ejecutar el script de copia de seguridad de forma periódica, prográmelo mediante la utilidad cron. 
+Cuando finalicen los pasos de preparación, puede empezar a configurar y programar las instantáneas de almacenamiento reales. El script que se va a programar funciona con configuraciones de escalado vertical o escalado horizontal de SAP HANA. Para ejecutar el script de copia de seguridad de forma periódica, prográmelo mediante la utilidad cron. 
 
-La sintaxis de comando exacto y la funcionalidad, vea "Realizar copia de seguridad instantánea - azure_hana_backup" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+Para ver la sintaxis y funcionalidad exactas de los comandos, consulte "Perform snapshot backup - azure_hana_backup" (creación de una copia de seguridad de instantánea: azure_hana_backup) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
 
-Cuando la secuencia de comandos `azure_hana_backup` se ejecuta, crea la instantánea de almacenamiento en los siguientes tres fases:
+Cuando se ejecuta el script `azure_hana_backup`, realiza las tres fases siguientes para crear la instantánea de almacenamiento:
 
-1. Se ejecuta una instantánea de SAP HANA.
-1. Se ejecuta una instantánea de almacenamiento.
-1. Elimina la instantánea de SAP HANA que se creó antes de que se ejecutó la instantánea de almacenamiento.
+1. Ejecuta una instantánea de SAP HANA.
+1. Ejecuta una instantánea de almacenamiento.
+1. Quita la instantánea de SAP HANA que se creó antes de ejecutar la instantánea de almacenamiento.
 
-Para ejecutar el script, llámelo desde la carpeta ejecutable de HDB en la que se copia. 
+Para ejecutar el script, llámelo desde la carpeta ejecutable de HDB en la que se copió. 
 
-El período de retención se administra con el número de instantáneas que se envían como parámetro al ejecutar el script. La cantidad de tiempo que cubren las instantáneas de almacenamiento es una función del período de ejecución y del número de instantáneas que se envían como parámetro cuando se ejecuta la secuencia de comandos. 
+El período de retención se administra con el número de instantáneas que se envían como parámetro al ejecutar el script. La cantidad de tiempo que cubren las instantáneas de almacenamiento es una función del período de ejecución y del número de instantáneas que se envían como parámetro al ejecutar el script. 
 
-Si el número de instantáneas que se mantienen supera el número que se denomine como un parámetro de la llamada de la secuencia de comandos, se elimina la instantánea de almacenamiento más antigua de la misma etiqueta antes de que se ejecuta una nueva instantánea. El número que proporcione como último parámetro de la llamada es el que puede usar para controlar el número de instantáneas que se conservan. Con este número, también puede controlar indirectamente el espacio en disco que se usa para las instantáneas. 
+Si el número de instantáneas que se conserva supera el número en el parámetro de la llamada del script, se eliminará la instantánea de almacenamiento más antigua con la misma etiqueta antes de ejecutar una nueva instantánea. El número que proporcione como último parámetro de la llamada es el que puede usar para controlar el número de instantáneas que se conservan. Con este número también puede controlar indirectamente el espacio en disco usado para las instantáneas. 
 
 
 ## <a name="snapshot-strategies"></a>Estrategias de instantánea
 La frecuencia de las instantáneas de los distintos tipos depende de si usa, o no, la funcionalidad de recuperación ante desastres de HANA (instancias grandes). Esta funcionalidad confía en instantáneas de almacenamiento, lo que podría requerir recomendaciones especiales en cuanto a la frecuencia y los períodos de ejecución de las instantáneas de almacenamiento. 
 
-En las consideraciones y recomendaciones siguientes, se supone que *no* se usa la funcionalidad de recuperación ante desastres que ofrece HANA (instancias grandes). En su lugar, las instantáneas de almacenamiento se usan como medio para tener copias de seguridad y poder proporcionar la recuperación a un momento dado durante los últimos 30 días. Dadas las limitaciones del número de instantáneas y el espacio, tenga en cuenta los siguientes requisitos:
+En las consideraciones y recomendaciones siguientes, se supone que *no* se usa la funcionalidad de recuperación ante desastres que ofrece HANA (instancias grandes). En su lugar, las instantáneas de almacenamiento se usan como medio para tener copias de seguridad y poder proporcionar la recuperación a un momento dado durante los últimos 30 días. Dadas las limitaciones del número de instantáneas y del espacio, tenga en cuenta los siguientes requisitos:
 
 - El tiempo de recuperación para una recuperación a un momento dado.
 - El espacio utilizado.
 - Los objetivos de punto de recuperación y tiempo de recuperación para una posible recuperación en caso de desastre.
-- La ejecución eventual de copias de seguridad completas de la base de datos de HANA en discos. Cada vez que se realiza una copia de seguridad completa de la base de datos en discos o la interfaz de **backint**, se produce un error en la ejecución de las instantáneas de almacenamiento. Si planea ejecutar copias de seguridad de base de datos completa sobre las instantáneas de almacenamiento, asegúrese de la ejecución de las instantáneas de almacenamiento está deshabilitada durante este tiempo.
+- La ejecución eventual de copias de seguridad completas de la base de datos de HANA en discos. Cada vez que se realiza una copia de seguridad completa de la base de datos en discos o la interfaz de **backint**, se produce un error en la ejecución de las instantáneas de almacenamiento. Si planea ejecutar copias de seguridad de la base de datos completa sobre las instantáneas del almacenamiento, asegúrese de que la ejecución de dichas instantáneas está deshabilitada durante el proceso.
 - El número de instantáneas por volumen, que está limitado a 250.
 
 <!-- backint is term for a SAP HANA interface and not a spelling error not spelling errors -->
 
-Si no utiliza la funcionalidad de recuperación ante desastres de instancias grandes de HANA, el período de la instantánea es menos frecuente. En tales casos, realizar las instantáneas combinadas en/Hana/Data y/Hana/Shared, que incluye/usr/SAP, en períodos de 12 horas o 24 horas. Mantener las instantáneas de un mes. Lo mismo puede decirse de las instantáneas del volumen de copia de seguridad del registro. Se produce la ejecución de copias de seguridad del registro de transacciones de SAP HANA en el volumen de copia de seguridad del registro en 5 minutos a períodos de 15 minutos.
+Si no usa la funcionalidad de recuperación ante desastres de HANA (instancias grandes), el período de la instantánea es menos frecuente. En dichos casos, realice las instantáneas combinadas en /hana/data y /hana/shared (incluye que /usr/sap) en períodos de 12 o 24 horas. Conserve las instantáneas durante un mes. Lo mismo ocurre para las instantáneas del volumen de copia de seguridad del registro de transacciones. Aun así, la ejecución de las copias de seguridad del registro de transacciones de SAP HANA en el volumen de la copia de seguridad del registro tiene lugar en períodos de cinco a quince minutos.
 
-Las instantáneas de almacenamiento programadas se realizan mejor mediante cron. Usar el mismo script para todas las copias de seguridad y recuperación ante desastres. Modifique las entradas de script para que coincidan con los distintos tiempos de copia de seguridad solicitados. Estas instantáneas todas se programan de manera diferente en cron en función de su tiempo de ejecución. Puede ser cada hora, cada 12 horas, diariamente, semanalmente, etc. 
+Las instantáneas de almacenamiento programadas se realizan mejor mediante cron. Utilice el mismo script para todas las copias de seguridad y para sus necesidades de recuperación ante desastres. Modifique las entradas de script para que coincidan con los distintos tiempos de copia de seguridad solicitados. Todas estas instantáneas se programan de forma diferente en cron en función de su tiempo de ejecución. Puede ser cada hora, cada 12 horas, a diario o semanalmente. 
 
-El ejemplo siguiente muestra una programación cron en/etc/crontab:
+El siguiente ejemplo muestra una programación de cron en /etc/crontab:
 ```
 00 1-23 * * * ./azure_hana_backup --type=hana --prefix=hourlyhana --frequency=15min --retention=46
 10 00 * * *  ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=28
@@ -236,13 +236,13 @@ El ejemplo siguiente muestra una programación cron en/etc/crontab:
 22 12 * * *  ./azure_hana_backup --type=logs --prefix=dailylogback --frequncy=3min --retention=28
 30 00 * * *  ./azure_hana_backup --type=boot --boottype=TypeI --prefix=dailyboot --frequncy=15min --retention=28
 ```
-En el ejemplo anterior, una instantánea combinada por hora abarca los volúmenes que contienen los/Hana/Data y /hana/shared/SID, que incluye/usr/SAP, las ubicaciones. Use este tipo de instantánea para una agilizar la recuperación a un momento dado en los dos últimos días. También hay un diarios en esos volúmenes de instantáneas. Por lo tanto, tiene dos días de cobertura por instantáneas por hora más cuatro semanas de cobertura por instantáneas diarias. El volumen de copia de seguridad del registro de transacciones también es una copia de seguridad diaria. Estas copias de seguridad se conservan durante cuatro semanas. 
+En el ejemplo anterior, una instantánea combinada por hora abarca los volúmenes que contienen las ubicaciones /hana/data y /hana/shared (que incluye /usr/sap). Use este tipo de instantánea para una agilizar la recuperación a un momento dado en los dos últimos días. También hay una instantánea diaria en esos volúmenes. Por tanto, tiene dos días de cobertura con instantáneas por hora, más cuatro semanas de cobertura con instantáneas diarias. La copia de seguridad del volumen de la copia de seguridad del registro de transacciones también se realiza a diario. Estas copias de seguridad se conservan durante cuatro semanas. 
 
-Como se ve en la tercera línea de crontab, la copia de seguridad del registro de transacciones de HANA está programada para ejecutarse cada 5 minutos. Las horas de inicio de los distintos trabajos de cron que ejecutan las instantáneas de almacenamiento son escalonadas. De este modo, las instantáneas no se ejecutan todas a la vez en un punto determinado en el tiempo. 
+Como se ve en la tercera línea de crontab, la copia de seguridad del registro de transacciones de HANA está programada para ejecutarse cada cinco minutos. Las horas de inicio de los distintos trabajos de cron que ejecutan las instantáneas de almacenamiento están escalonadas. De este modo, las instantáneas no se ejecutan todas a la vez en un momento determinado. 
 
-En el ejemplo siguiente, realice una instantánea combinada que abarca los volúmenes que contienen las ubicaciones por hora/Hana/Data y /hana/shared/SID, que incluye/usr/SAP. Las instantáneas se conservan durante dos días. Las instantáneas de los volúmenes de copia de seguridad de registro de transacciones se ejecutan cada 5 minutos y se conservan durante cuatro horas. Como antes, la copia de seguridad del archivo de registro de transacciones de HANA está programada para ejecutarse cada 5 minutos. 
+En el ejemplo siguiente, cada hora se realiza una instantánea combinada que abarca los volúmenes que contienen las ubicaciones /hana/data y /hana/shared/SID (que incluye /usr/sap). Las instantáneas se conservan durante dos días. Las instantáneas de los volúmenes de copia de seguridad del registro de transacciones se ejecutan cada cinco minutos y se conservan durante cuatro horas. Como antes, la copia de seguridad del archivo de registro de transacciones de HANA está programada para ejecutarse cada cinco minutos. 
 
-La instantánea del volumen de la copia de seguridad del registro de transacciones se realiza con un retraso de 2 minutos una vez que se ha iniciado la copia de seguridad del registro de transacciones. En circunstancias normales, finaliza la copia de seguridad del registro de transacciones de SAP HANA en esos dos minutos. Como antes, una instantánea de almacenamiento crea una copia de seguridad al día del volumen que contiene el LUN de arranque y se conserva durante cuatro semanas.
+La instantánea del volumen de la copia de seguridad del registro de transacciones se realiza con un retraso de 2 minutos una vez que se ha iniciado la copia de seguridad del registro de transacciones. En circunstancias normales, la copia de seguridad del registro de transacciones de SAP HANA debería finalizar en esos dos minutos. Como antes, una instantánea de almacenamiento crea una copia de seguridad al día del volumen que contiene el LUN de arranque y se conserva durante cuatro semanas.
 
 ```
 10 0-23 * * * ./azure_hana_backup --type=hana ==prefix=hourlyhana --frequency=15min --retention=48
@@ -251,13 +251,13 @@ La instantánea del volumen de la copia de seguridad del registro de transaccion
 30 00 * * *  ./azure_hana_backup --type=boot --boottype=TypeII --prefix=dailyboot --frequency=15min --retention=28
 ```
 
-El siguiente gráfico ilustra las secuencias del ejemplo anterior. Se excluye el LUN de arranque.
+En el siguiente gráfico se ilustran las secuencias del ejemplo anterior. No está incluido el LUN de arranque.
 
 ![Relación entre copias de seguridad e instantáneas](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA realiza escrituras normales en el volumen /hana/log para documentar los cambios confirmados en la base de datos. De manera regular, SAP HANA escribe un punto de retorno en el volumen /hana/data. Como se especifica en crontab, una copia de seguridad del registro de transacciones de SAP HANA ejecuta cada 5 minutos. 
+SAP HANA realiza escrituras normales en el volumen /hana/log para documentar los cambios confirmados en la base de datos. De manera regular, SAP HANA escribe un punto de retorno en el volumen /hana/data. Tal como se especifica en crontab, se ejecuta una copia de seguridad del registro de transacciones de SAP HANA cada cinco minutos. 
 
-También verá que una instantánea de SAP HANA ejecuta cada hora como resultado del desencadenamiento de un instantánea a través de los volúmenes/Hana/Data y /hana/shared/SID del almacenamiento combinado. Después de la instantánea de HANA se realiza correctamente, el almacenamiento combinado de instantáneas se ejecuta. Como se indica en crontab, la instantánea de almacenamiento en el volumen/Hana/logbackup ejecuta cada 5 minutos, alrededor de 2 minutos después de la copia de seguridad del registro de transacciones de HANA.
+También se ve que una instantánea de SAP HANA se ejecuta cada hora como resultado del desencadenamiento de una instantánea de almacenamiento combinada sobre los volúmenes /hana/data y /hana/shared/SID. Una vez que la instantánea de HANA se realiza correctamente, se ejecuta la instantánea de almacenamiento combinada. Tal como se indica en crontab, la instantánea de almacenamiento del volumen /hana/logbackup se ejecuta cada cinco minutos, aproximadamente dos minutos después de la copia de seguridad del registro de transacciones de HANA.
 
 > 
 
@@ -266,40 +266,40 @@ También verá que una instantánea de SAP HANA ejecuta cada hora como resultado
 
 Si ha adquirido un compromiso a los usuarios de una recuperación a un momento dado de 30 días, necesita lo siguiente:
 
-- Obtener acceso a una instantánea de almacenamiento combinada en/Hana/Data y /hana/shared/SID que es de 30 días de antigüedad, en casos extremos. 
-- Tenga copias de seguridad del registro de transacciones contiguas que cubran el tiempo entre cualquiera de las instantáneas del almacenamiento combinado. Por tanto, la instantánea de mayor antigüedad del volumen de copia de seguridad del registro de transacciones debe tener 30 días. Esto no es el caso si copia las copias de seguridad del registro de transacciones en otro recurso compartido NFS que se encuentra en el almacenamiento de Azure. En ese caso, podría extraer las copias de seguridad del registro de transacciones anteriores de dicho recurso compartido.
+- Acceda a una instantánea de almacenamiento combinada en /hana/data y /hana/shared/SID que tenga una antigüedad de 30 días en casos extremos. 
+- Tenga copias de seguridad del registro de transacciones contiguas que cubran el tiempo entre cualquiera de las instantáneas del almacenamiento combinado. Por tanto, la instantánea de mayor antigüedad del volumen de copia de seguridad del registro de transacciones debe tener 30 días. No es este el caso si copia las copias de seguridad del registro de transacciones en otro recurso compartido NFS ubicado en Azure Storage. En ese caso, podría extraer las copias de seguridad del registro de transacciones anteriores de dicho recurso compartido.
 
-Para beneficiarse de las instantáneas de almacenamiento y la posible replicación de almacenamiento de copias de seguridad de registro de transacciones, cambiar la ubicación en la que SAP HANA escribe las copias de seguridad del registro de transacciones. Puede realizar este cambio en HANA Studio. 
+Para beneficiarse de las instantáneas de almacenamiento y la eventual replicación de almacenamiento de las copias de seguridad del registro de transacciones, cambie la ubicación en la que SAP HANA escribe las copias de seguridad del registro de transacciones. Puede realizar este cambio en HANA Studio. 
 
-Si bien SAP HANA realiza una copia de seguridad de segmentos de registros completos automáticamente, especifique un intervalo de copia de seguridad de registros para que sea determinista. Esto es especialmente cierto cuando se usa la opción de recuperación ante desastres porque normalmente desea ejecutar copias de seguridad de registro con un período determinista. En el caso siguiente, 15 minutos se establece como el intervalo de copia de seguridad de registros.
+Aunque SAP HANA crea automáticamente copias de seguridad de segmentos de registros completos, especifique un intervalo de copia de seguridad de registros para que sea determinista. Esto debe hacerse así especialmente cuando se usa la opción de recuperación ante desastres, ya que lo habitual es que desee ejecutar las copias de seguridad del registro de transacciones con un período determinista. En el caso siguiente, se estableció un intervalo de copia de seguridad de registros de 15 minutos.
 
 ![Programe los registros de copia de seguridad de SAP HANA en SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
-También puede elegir las copias de seguridad más frecuentes que cada 15 minutos. A menudo este valor se usa en conjunción con la funcionalidad de recuperación ante desastres de HANA (instancias grandes). Algunos clientes realizan copias de seguridad del registro de transacciones cada 5 minutos.
+También puede optar por que las copias de seguridad se realicen con una frecuencia superior a 15 minutos. A menudo este valor se usa en conjunción con la funcionalidad de recuperación ante desastres de HANA (instancias grandes). Algunos clientes realizan copias de seguridad del registro de transacciones cada 5 minutos.
 
-Si nunca se realizó una copia de seguridad de la base de datos, el último paso es crear una copia de seguridad en archivo para crear una entrada de copia de seguridad individual que debe existir en el catálogo de copias de seguridad. En caso contrario, SAP HANA no se puede iniciar las copias de seguridad del registro especificado.
+Si nunca se realizó una copia de seguridad de la base de datos, el último paso es crear una copia de seguridad en archivo para crear una entrada de copia de seguridad individual que debe existir en el catálogo de copias de seguridad. En caso contrario, SAP HANA no puede iniciar las copias de seguridad del registro de transacciones especificadas.
 
 ![Realizar una copia de seguridad en archivo para crear una entrada de copia de seguridad individual](./media/hana-overview-high-availability-disaster-recovery/image6-make-backup.png)
 
 
-Después de ejecutan las primeras instantáneas de almacenamiento realizada correctamente, elimine la instantánea de prueba que se ejecutó en el paso 6. Para obtener más información, vea "Instantáneas de prueba de Remove - removeTestStorageSnapshot" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+Después de ejecutar correctamente las primeras instantáneas de almacenamiento, puede eliminar la instantánea de prueba que se ejecutó en el paso 6. Para obtener más información, consulte "Remove test snapshots - removeTestStorageSnapshot" (eliminación de las instantáneas de prueba: removeTestStorageSnapshot) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
 
 
-### <a name="monitor-the-number-and-size-of-snapshots-on-the-disk-volume"></a>Supervisar el número y tamaño de las instantáneas de volumen de disco
+### <a name="monitor-the-number-and-size-of-snapshots-on-the-disk-volume"></a>Supervisión del número y tamaño de instantáneas en el volumen de disco
 
-En un volumen de almacenamiento concreto se puede supervisar tanto el número de instantáneas como el consumo de almacenamiento de dichas instantáneas. El comando `ls` no muestra los archivos o el directorio de instantáneas. El comando del sistema operativo Linux `du` muestra detalles sobre esas instantáneas de almacenamiento porque se almacenan en los mismos volúmenes. Use el comando con las siguientes opciones:
+En un volumen de almacenamiento concreto se puede supervisar tanto el número de instantáneas como el consumo de almacenamiento de dichas instantáneas. El comando `ls` no muestra los archivos o el directorio de instantáneas. El comando `du` del sistema operativo Linux muestra detalles sobre esas instantáneas de almacenamiento debido a que se almacenan en los mismos volúmenes. Utilice el comando con las siguientes opciones:
 
 - `du –sh .snapshot`: esta opción proporciona el total de todas las instantáneas del directorio de instantáneas.
 - `du –sh --max-depth=1`: esta opción enumera todas las instantáneas que se guardan en la carpeta **.snapshot** y el tamaño de cada una de ellas.
 - `du –hc`: esta opción proporciona el tamaño total que usan todas las instantáneas.
 
-Utilice estos comandos para asegurarse de que las instantáneas que tomadas y almacenadas no consumen todo el almacenamiento de los volúmenes.
+Utilice estos comandos para asegurarse de que las instantáneas tomadas y almacenadas no consumen todo el almacenamiento de los volúmenes.
 
 >[!NOTE]
->Las instantáneas de lo LUN de arranque no son visibles con los comandos anteriores.
+>Las instantáneas del LUN de arranque no son visibles con los comandos anteriores.
 
-### <a name="get-details-of-snapshots"></a>Obtener detalles de las instantáneas
-Para obtener más información acerca de las instantáneas, use el script `azure_hana_snapshot_details`. Puede ejecutar este script en cualquier ubicación si hay un servidor activo en la ubicación de recuperación ante desastres. El script proporciona la siguiente salida desglosada por cada volumen que contiene instantáneas: 
+### <a name="get-details-of-snapshots"></a>Obtención de detalles de las instantáneas
+Para obtener más detalles sobre las instantáneas, utilice el script `azure_hana_snapshot_details`. Puede ejecutar este script en cualquier ubicación si hay un servidor activo en la ubicación de recuperación ante desastres. El script proporciona la siguiente salida desglosada por cada volumen que contiene instantáneas: 
    * El tamaño de las instantáneas totales de un volumen
    * Los siguientes detalles de cada instantánea del volumen: 
       - Nombre de la instantánea 
@@ -308,65 +308,65 @@ Para obtener más información acerca de las instantáneas, use el script `azure
       - Frecuencia de la instantánea
       - Identificador de copia de seguridad de HANA asociado con esa instantánea, si procede
 
-Para conocer la sintaxis del comando y salidas, vea "Instantáneas de lista - azure_hana_snapshot_details para" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
+Para conocer la sintaxis del comando y sus salidas, consulte "List snapshots - azure_hana_snapshot_details" (enumeración de instantáneas: azure_hana_snapshot_details) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure). 
 
 
 
-### <a name="reduce-the-number-of-snapshots-on-a-server"></a>Reducir el número de instantáneas en un servidor
+### <a name="reduce-the-number-of-snapshots-on-a-server"></a>Reducción del número de instantáneas en un servidor
 
-Como se explicó anteriormente, puede reducir el número de etiquetas concretas almacenadas. Los dos últimos parámetros del comando para iniciar una instantánea son la etiqueta y el número de instantáneas que se desean conservar.
+Como se explicó anteriormente, es posible reducir el número de instantáneas en etiquetas concretas almacenadas. Los dos últimos parámetros del comando para iniciar una instantánea son la etiqueta y el número de instantáneas que se desean conservar.
 
 ```
 ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=28
 ```
 
-En el ejemplo anterior, la etiqueta de la instantánea es **dailyhana**. Es el número de instantáneas con esta etiqueta que se mantienen **28**. A medida que responda al consumo de espacio en el disco es posible que desee reducir el número de instantáneas que se almacenan. Es una forma sencilla de reducir el número de instantáneas a 15, por ejemplo ejecutar el script con el último parámetro establecido en **15**:
+En el ejemplo anterior, la etiqueta de instantánea es **dailyhana**. El número de instantáneas con esta etiqueta que va a conservarse es **28**. A medida que responda al consumo de espacio en el disco es posible que desee reducir el número de instantáneas que se almacenan. Una manera sencilla de reducir el número de instantáneas a 15, por ejemplo, es ejecutar el script con el último parámetro establecido en **15**:
 
 ```
 ./azure_hana_backup --type=hana --prefix=dailyhana --frequency=15min --retention=15
 ```
 
-Si ejecuta la secuencia de comandos con esta configuración, el número de instantáneas, que incluye la nueva instantánea de almacenamiento, es 15. Se conservan las 15 instantáneas más recientes y se eliminan las 15 más antiguas.
+Si ejecuta el script con la configuración anterior, el número de instantáneas se reduce a 15, y en él se incluye a la nueva instantánea de almacenamiento. Se conservan las 15 instantáneas más recientes y se eliminan las 15 más antiguas.
 
  >[!NOTE]
- > Este script reduce el número de instantáneas solo si hay más de una hora de antigüedad de instantáneas. El script no elimina las instantáneas que tienen menos de una horas de antigüedad. Estas restricciones están relacionadas con la funcionalidad opcional de recuperación ante desastres que se ofrece.
+ > Este script reduce el número de instantáneas solo si hay instantáneas que tienen más de una hora de antigüedad. Este script no elimina las instantáneas que tienen menos de una hora de antigüedad. Estas restricciones están relacionadas con la funcionalidad opcional de recuperación ante desastres que se ofrece.
 
-Si ya no desea mantener un conjunto de instantáneas con el prefijo de copia de seguridad **dailyhana** en los ejemplos de sintaxis, ejecute el script con **0** como el número de retención. A continuación, se quitan todas las instantáneas que coincidan con esa etiqueta. Quitar todas las instantáneas puede afectar a las funcionalidades de funcionalidad de recuperación ante desastres de instancias grandes de HANA.
+Si ya no quiere conservar un conjunto de instantáneas con el prefijo de copia de seguridad **dailyhana** en los ejemplos de sintaxis, puede ejecutar el script con **0** como número de retención. Todas las instantáneas que coinciden con esa etiqueta se eliminan. La eliminación de todas las instantáneas puede afectar a las funcionalidades de recuperación ante desastres de HANA (instancias grandes).
 
-Otra opción para eliminar instantáneas específicas es usar el script `azure_hana_snapshot_delete`. Este script está diseñado para eliminar una instantánea o un conjunto de instantáneas, ya sea mediante el identificador de la copia de seguridad de HANA como aparece en HANA Studio, o bien a través del nombre mismo de la instantánea. Actualmente, el identificador de la copia de seguridad solo está asociado a las instantáneas creadas para el tipo de instantánea **hana**. Las copias de seguridad del tipo de instantánea **registros** y **arranque** no realiza una instantánea de SAP HANA, así que no hay ningún identificador de copia de seguridad que se encuentran para esas instantáneas. Si se escribe el nombre de la instantánea, busca todas las instantáneas en los distintos volúmenes que coincidan con el nombre de instantánea que se escribió. 
+Otra opción para eliminar instantáneas específicas es usar el script `azure_hana_snapshot_delete`. Este script está diseñado para eliminar una instantánea o un conjunto de instantáneas, ya sea mediante el identificador de la copia de seguridad de HANA como aparece en HANA Studio, o bien a través del nombre mismo de la instantánea. Actualmente, el identificador de la copia de seguridad solo está asociado a las instantáneas creadas para el tipo de instantánea **hana**. Las copias de seguridad de las instantáneas del tipo **logs** y **boot** no realizan una instantánea de SAP HANA, por lo que no se puede encontrar un identificador de copia de seguridad para dichas instantáneas. Si se escribe el nombre de la instantánea, busca todas las instantáneas en los distintos volúmenes que coincidan con el nombre de instantánea que se escribió. 
 
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
 
-Para obtener más información sobre la secuencia de comandos, vea "Eliminar una instantánea - azure_hana_snapshot_delete" en [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
+Para obtener más información sobre el script, consulte "Delete a snapshot - azure_hana_snapshot_delete" (eliminación de una instantánea: azure_hana_snapshot_delete) en [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf) (herramientas de instantáneas de Microsoft para SAP HANA en Azure).
 
 Ejecute el script como usuario **raíz**.
 
 >[!IMPORTANT]
->Si no hay datos que solo existen en la instantánea va a eliminar, después de elimina la instantánea, que los datos se perderán para siempre.
+>Si hay datos que existen solo en la instantánea que planea eliminar, cuando la instantánea se elimine se perderán para siempre.
 
 
 ## <a name="file-level-restore-from-a-storage-snapshot"></a>Restauración de nivel de archivo desde una instantánea de almacenamiento
 
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
-En el caso de los tipos de instantánea **hana** y **logs**, es posible acceder a las instantáneas directamente en los volúmenes del directorio **.snapshot**. Hay un subdirectorio para cada una de las instantáneas. Copiar cada archivo en el estado que tenía en el momento de la instantánea desde ese subdirectorio a la estructura de directorios real. 
+En el caso de los tipos de instantánea **hana** y **logs**, es posible acceder a las instantáneas directamente en los volúmenes del directorio **.snapshot**. Hay un subdirectorio para cada una de las instantáneas. Copie cada archivo en el estado en que estaba al momento de realizar la instantánea desde ese subdirectorio a la estructura de directorios real. 
 
-En la versión actual de la secuencia de comandos, no hay *ningún* script proporcionado para la restauración de instantáneas como autoservicio de restauración. Restauración de instantáneas puede realizarse como parte de los scripts de recuperación ante desastres de autoservicio en el sitio de recuperación ante desastres durante la conmutación por error. Para restaurar una instantánea deseada de las instantáneas existentes disponibles, debe ponerse en contacto con el equipo de operaciones de Microsoft, abra una solicitud de servicio.
+En la versión actual del script, *no* se proporciona ningún script para la restauración de autoservicio de las instantáneas. La restauración de instantáneas puede realizarse como parte de los scripts de recuperación ante desastres de autoservicio en el sitio de recuperación ante desastres durante la conmutación por error. Para restaurar la instantánea deseada de entre las instantáneas disponibles existentes, debe ponerse en contacto con el equipo de operaciones de Microsoft mediante la apertura de una solicitud de servicio.
 
 >[!NOTE]
->Solo archivo restauración no funciona para las instantáneas de la LUN independiente del tipo de las unidades de instancia grande de HANA de arranque. El **.snapshot** directorio no se expone en el LUN de arranque. 
+>Una sola restauración de archivos no funciona con las instantáneas del LUN de arranque, que independientemente del tipo de unidades de HANA (instancias grandes). El directorio **.snapshot** no se expone en el LUN de arranque. 
  
 
 ## <a name="recover-to-the-most-recent-hana-snapshot"></a>Recuperación a la instantánea más reciente de HANA
 
-En un escenario de bajada de producción, se puede iniciar el proceso de recuperación a partir de una instantánea de almacenamiento como un incidente de cliente con el soporte técnico de Microsoft Azure. Es una cuestión de urgencia altos si se han eliminado los datos en un sistema de producción y la única manera de recuperarla consiste en restaurar la base de datos de producción.
+En un escenario de bajada de producción, el proceso de recuperación a partir de una instantánea de almacenamiento se puede iniciar como un incidente de cliente en el Soporte técnico de Microsoft Azure. Sería una cuestión muy urgente si los datos se eliminaran en un sistema de producción y la única forma de volver a obtenerlos fuera a través de la restauración de la base de datos de producción.
 
-En otra situación, una recuperación a un momento dado podría ser poco urgente y se podría planear con días de antelación. Puede planear la recuperación con SAP HANA en Azure en lugar de generar una marca de alta prioridad. Por ejemplo, es posible que va a actualizar el software de SAP mediante la aplicación de un nuevo paquete de mejoras. A continuación, necesita volver a una instantánea que representa el estado antes de la actualización del paquete mejora.
+En otra situación, una recuperación a un momento dado podría ser poco urgente y se podría planear con días de antelación. Para planearla, se puede usar SAP HANA en Azure, en lugar de generar una marca de alta prioridad. Por ejemplo, puede planear la actualización del software de SAP mediante la aplicación de un nuevo paquete de mejora. A continuación, necesita volver a una instantánea que representa el estado antes de la actualización del paquete mejora.
 
-Antes de enviar la solicitud, necesita prepararse. SAP HANA en el equipo de Azure, a continuación, puede controlar la solicitud y proporcionar los volúmenes restaurados. A partir de ese momento, restaurará la base de datos de HANA con las instantáneas.
+Antes de enviar la solicitud, necesita prepararse. Después, el equipo de SAP HANA en Azure puede encargarse de la solicitud y proporcionar los volúmenes restaurados. A partir de ese momento, restaurará la base de datos de HANA con las instantáneas.
 
-Para las posibilidades de obtener una instantánea restaurada con el nuevo conjunto de herramientas, vea "Cómo restaurar una instantánea" en [Guía de recuperación Manual de SAP HANA en Azure desde una instantánea de almacenamiento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
+Para conocer las posibilidades de restaurar una instantánea con el nuevo conjunto de herramientas, consulte "How to restore a snapshot" (procedimiento para restaurar una instantánea) en [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf) (guía de restauración manual para SAP HANA en Azure a partir de una instantánea de almacenamiento).
 
-Para prepararse para la solicitud, siga estos pasos.
+Como preparación para la solicitud, siga estos pasos.
 
 1. Decida qué instantánea desea restaurar. Salvo que se indique lo contrario, solo se restaura el volumen de datos/HANA. 
 
@@ -378,11 +378,11 @@ Para prepararse para la solicitud, siga estos pasos.
 
    ![Desmontar los volúmenes de datos de todos los nodos de la base de datos de HANA](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
-1. Abra una solicitud de soporte técnico de Azure y se incluyen instrucciones sobre la restauración de una instantánea concreta:
+1. Abra una solicitud de soporte técnico de Azure e incluya instrucciones acerca de la restauración de una instantánea concreta:
 
    - Durante la restauración: SAP HANA en Azure Service podría pedirle que asista a una llamada de conferencia para coordinar, comprobar y confirmar que se restaure la instantánea de almacenamiento correcta. 
 
-   - Después de la restauración: SAP HANA en Azure Service le avisa cuando se restaura la instantánea de almacenamiento.
+   - Después de la restauración: SAP HANA en Azure Service le enviará una notificación cuando la instantánea del almacenamiento esté restaurada.
 
 1. Una vez que el proceso de restauración se haya completado, vuelva a montar todos los volúmenes de datos.
 
@@ -390,17 +390,17 @@ Para prepararse para la solicitud, siga estos pasos.
 
 
 
-Otra posibilidad de obtener, por ejemplo, archivos de datos de SAP HANA se recuperó de una instantánea de almacenamiento, se documenta en el paso 7 [Guía de recuperación Manual de SAP HANA en Azure desde una instantánea de almacenamiento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
+Otra posibilidad de restaurar, por ejemplo, archivos de datos de SAP HANA a partir de una instantánea de almacenamiento se documentó en el paso 7 de [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf) (guía de restauración manual para SAP HANA en Azure a partir de una instantánea de almacenamiento).
 
-Para restaurar una copia de seguridad de instantánea, vea [Guía de recuperación Manual de SAP HANA en Azure desde una instantánea de almacenamiento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf). 
+Para realizar una restauración a partir de una copia de seguridad de instantánea, consulte [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf) (guía de restauración manual para SAP HANA en Azure a partir de una instantánea de almacenamiento). 
 
 >[!Note]
->Si se ha restaurado la instantánea de las operaciones de Microsoft, no es necesario realizar el paso 7.
+>Si las operaciones de Microsoft restauraron su instantánea, no es necesario realizar el paso 7.
 
 
 ### <a name="recover-to-another-point-in-time"></a>Recuperación a otro momento dado
-Para restaurar a un momento dado, vea "Recuperar la base de datos en el siguiente punto dado" en [Guía de recuperación Manual de SAP HANA en Azure desde una instantánea de almacenamiento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf). 
+Para realizar una restauración a un momento dado, consulte "Recover the database to the following point in time" (recuperación de la base de datos al siguiente momento dado) en [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf) (guía de restauración manual para SAP HANA en Azure a partir de una instantánea de almacenamiento). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte [principios de la recuperación ante desastres y la preparación](hana-concept-preparation.md).
+- Consulte [Principios y preparación de la recuperación ante desastres](hana-concept-preparation.md).

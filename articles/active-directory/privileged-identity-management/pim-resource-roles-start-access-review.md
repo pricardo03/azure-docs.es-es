@@ -1,6 +1,6 @@
 ---
-title: Creación de una revisión de acceso de roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo crear una revisión de acceso de roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
+title: 'Creación de una revisión de acceso de roles de recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
+description: Aprenda a crear una revisión de acceso para los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,35 +16,35 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143500"
 ---
-# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Creación de una revisión de acceso de roles de recursos de Azure en PIM
+# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Creación de una revisión de acceso de los roles de recursos de Azure en PIM
 
-Acceso a los roles de recursos de Azure con privilegios para los empleados cambia con el tiempo. Para reducir el riesgo asociado con las asignaciones de roles obsoletos, debe revisar con regularidad acceso. Puede usar Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para crear las revisiones de acceso para los roles de recursos de Azure con privilegios. También puede configurar las revisiones de acceso periódicas que se producen automáticamente.
+El acceso a los roles de recursos de Azure con privilegios para los empleados cambia con el tiempo. Para reducir el riesgo asociado con las asignaciones de roles obsoletas, debe revisar el acceso periódicamente. Puede usar Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para crear revisiones de acceso para roles de recursos de Azure con privilegios. También puede configurar revisiones de acceso periódicas que se produzcan automáticamente.
 
-Este artículo describe cómo crear una o varias revisiones de acceso para los roles de recursos de Azure con privilegios.
+En este artículo se describe cómo crear una o varias revisiones de acceso para los roles de recursos de Azure con privilegios.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-## <a name="open-access-reviews"></a>Revisiones de acceso abierto
+## <a name="open-access-reviews"></a>Abrir revisiones de acceso
 
-1. Inicie sesión en [portal Azure](https://portal.azure.com/) con un usuario que sea miembro del rol de administrador de roles con privilegios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol Administrador de roles con privilegios.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. En el menú izquierdo, haga clic en **recursos de Azure**.
+1. En el menú izquierdo, haga clic en **Recursos de Azure**.
 
 1. Haga clic en el recurso que quiera administrar, por ejemplo, una suscripción o un grupo de administración.
 
-1. En administrar, haga clic en **las revisiones de acceso**.
+1. En Administrar, haga clic en **Revisiones de acceso**.
 
-    ![Revisiones de acceso de recursos de Azure:](./media/pim-resource-roles-start-access-review/access-reviews.png)
+    ![Recursos de Azure: Revisiones de acceso](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -56,19 +56,19 @@ Una vez que haya especificado la configuración para una revisión de acceso, ha
 
 ![Lista de revisiones de acceso](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
-De forma predeterminada, Azure AD envía un correo electrónico a los revisores poco después de iniciar la revisión. Si decide no hacer que Azure AD envíe el correo electrónico, asegúrese de informar a los revisores de que hay una revisión de acceso esperando para que la lleven a cabo. Puede mostrarles las instrucciones sobre cómo [revisen el acceso a los roles de recursos de Azure](pim-resource-roles-perform-access-review.md).
+De forma predeterminada, Azure AD envía un correo electrónico a los revisores poco después de iniciar la revisión. Si decide no hacer que Azure AD envíe el correo electrónico, asegúrese de informar a los revisores de que hay una revisión de acceso esperando para que la lleven a cabo. Puede mostrarles las instrucciones sobre cómo [revisar el acceso a los roles de recursos de Azure](pim-resource-roles-perform-access-review.md).
 
 ## <a name="manage-the-access-review"></a>Administración de la revisión de acceso
 
-Puede seguir el progreso a medida que los revisores las realizan en el **Introducción** página de la revisión de acceso. Derechos de acceso no se cambian en el directorio hasta que el [se completó la revisión](pim-resource-roles-complete-access-review.md).
+En la página **Información general** de la revisión de acceso, puede seguir el progreso de los revisores a medida que completan las revisiones. Los derechos de acceso no se cambian en el directorio hasta que [la revisión finaliza](pim-resource-roles-complete-access-review.md).
 
-![Progreso de revisiones de acceso](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+![Progreso de las revisiones de acceso](./media/pim-resource-roles-start-access-review/access-review-overview.png)
 
-Si se trata de una revisión de un solo uso, a continuación, una vez que el período de revisión de acceso o el administrador detenga la revisión de acceso, siga los pasos de [revisión de acceso de roles de recursos de Azure](pim-resource-roles-complete-access-review.md) para ver los resultados y aplicarlos.  
+Si se trata de una revisión puntual, una vez finalizado el período de revisión de acceso o cuando el administrador detenga la revisión de acceso, siga los pasos sobre [cómo realizar una revisión de acceso de los roles de recursos de Azure](pim-resource-roles-complete-access-review.md) para ver los resultados y aplicarlos.  
 
-Para administrar una serie de acceso de las revisiones, vaya a la revisión de acceso, y se encontrar próximas repeticiones en las revisiones programada y editar la fecha de finalización o agregar revisores en consecuencia.
+Para administrar una serie de revisiones de acceso, vaya a la revisión de acceso y verá los próximos eventos en Revisiones programadas; ahí podrá editar la fecha de finalización o agregar o quitar revisores según corresponda.
 
-Según las selecciones realizadas en **configuración de finalización**, voluntad de aplicar automáticamente se ejecutará después de la fecha de finalización de la revisión o al detener manualmente la revisión. El estado de la revisión cambiará de **completado** a través de los estados intermedios, como **Applying** y, finalmente, al estado **aplicado**. Debería ver a los usuarios denegados, si hay alguno, que se va a quitar de los roles en unos minutos.
+Según las selecciones de la **Configuración de finalización**, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando se detenga manualmente la revisión. El estado de la revisión cambiará de **Completado** a estados intermedios como **Aplicando** y, por último, a **Aplicado**. Debería esperar ver que los usuarios denegados, si es que los hay, se eliminan de los roles en unos minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: Formato parquet en Azure Data Factory | Microsoft Docs
-description: Este tema describe cómo tratar con formato Parquet en Azure Data Factory.
+title: Formato Parquet en Azure Data Factory | Microsoft Docs
+description: En este tema se describe cómo tratar con el formato Parquet en Azure Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: craigg
@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65144878"
 ---
-# <a name="parquet-format-in-azure-data-factory"></a>Formato parquet en Azure Data Factory
+# <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet en Azure Data Factory
 
-Siga este artículo cuando desee **analizar los archivos Parquet o escribir los datos en formato Parquet**. 
+Siga este artículo cuando quiera **analizar los archivos Parquet o escribir los datos en formato Parquet**. 
 
-Formato parquet es compatible con los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Sistema de archivos](connector-file-system.md), [FTP](connector-ftp.md), [almacenamiento en nube de Google](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)y [ SFTP](connector-sftp.md).
+El formato Parquet se admite para los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
@@ -29,13 +29,13 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | Propiedad         | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | Tipo             | La propiedad type del conjunto de datos debe establecerse en **Parquet**. | Sí      |
-| location         | Configuración de ubicación de los archivos. Cada conector basados en archivos tiene su propio tipo de ubicación y propiedades en compatibles `location`. **Ver detalles de artículo del conector -> sección de propiedades del conjunto de datos**. | Sí      |
-| compressionCodec | El códec de compresión que se usará al escribir en archivos Parquet. Al leer desde archivos Parquet, Data Factory determina automáticamente el códec de compresión basado en los metadatos del archivo.<br>Tipos admitidos son "**ninguno**","**gzip**","**snappy**" (predeterminado), y "**lzo**". Tenga en cuenta actualmente no admite la actividad de copia LZO. | Sin        |
+| location         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
+| compressionCodec | El códec de compresión que se usará al escribir en archivos Parquet. Al leer desde archivos Parquet, Data Factory determina automáticamente el códec de compresión según los metadatos del archivo.<br>Los tipos admitidos son "**none**","**gzip**","**snappy**" (predeterminado) y "**lzo**". Tenga en cuenta que actualmente la actividad de copia no admite LZO. | Sin       |
 
 > [!NOTE]
-> Espacio en blanco en el nombre de columna no se admite para archivos Parquet.
+> No se admiten espacios en blanco en el nombre de columna de los archivos Parquet.
 
-A continuación es un ejemplo de conjunto de datos de Parquet en Azure Blob Storage:
+A continuación encontrará un ejemplo de un conjunto de datos de Parquet en Azure Blob Storage:
 
 ```json
 {
@@ -61,35 +61,35 @@ A continuación es un ejemplo de conjunto de datos de Parquet en Azure Blob Stor
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de propiedades admitidas por el receptor y el origen de Parquet.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admiten el receptor y el origen Parquet.
 
-### <a name="parquet-as-source"></a>Parquet, como origen
+### <a name="parquet-as-source"></a>Parquet como origen
 
-Se admiten las siguientes propiedades en la actividad de copia ***\*origen\**** sección.
+En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en **ParquetSource**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo leer datos desde un almacén de datos. Cada conector basados en archivos tiene su propia configuración leída admitidos en `storeSettings`. **Ver detalles de artículo del conector -> sección de propiedades de actividad de copia**. | Sin        |
+| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
 
 ### <a name="parquet-as-sink"></a>Parquet como receptor
 
-Se admiten las siguientes propiedades en la actividad de copia ***\*receptor\**** sección.
+En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en **ParquetSink**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basados en archivos tiene su propia configuración de escritura compatible en `storeSettings`. **Ver detalles de artículo del conector -> sección de propiedades de actividad de copia**. | Sin        |
+| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
 
-## <a name="mapping-data-flow-properties"></a>Propiedades de flujo de datos de asignación
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
-Obtenga información detallada de [transformación del origen](data-flow-source.md) y [receptor transformación](data-flow-sink.md) en asignación de flujo de datos.
+Obtenga información detallada de la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en Asignación de instancias de Data Flow.
 
 ## <a name="data-type-support"></a>Compatibilidad con los tipos de datos
 
-Parquet, tipos de datos complejos no están actualmente admite (por ejemplo, mapa, lista, STRUCT).
+Actualmente no se admiten los tipos de datos complejos de Parquet (por ejemplo, MAP, LIST, STRUCT).
 
-## <a name="using-self-hosted-integration-runtime"></a>Uso de Integration Runtime autohospedado
+## <a name="using-self-hosted-integration-runtime"></a>Uso del entorno de ejecución de integración autohospedado
 
 > [!IMPORTANT]
 > En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos Parquet **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
@@ -109,6 +109,6 @@ Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general de la actividad de copia](copy-activity-overview.md)
-- [Asignación de flujo de datos](concepts-data-flow-overview.md)
+- [Asignación de Data Flow](concepts-data-flow-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)

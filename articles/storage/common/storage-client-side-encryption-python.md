@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146913"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Microsoft Azure Storage
@@ -139,7 +139,7 @@ La resolución de claves debe, como mínimo, implementar un método que, dado un
   * La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
   * Si no se especifica la resolución, pero sí se especifica una clave, la clave se usa si su identificador coincide con el identificador de clave necesario. Si el identificador no coincide, se genera un error.
 
-    Los ejemplos de cifrado en azure.storage.samples muestran un escenario más detallado de extremo a otro para blobs, colas y tablas.
+    Los ejemplos de cifrado en azure.storage.samples muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas.
       En los archivos de ejemplo, se proporcionan ejemplos de implementaciones de la KEK y de la resolución de claves, como KeyWrapper y KeyResolver, respectivamente.
 
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption

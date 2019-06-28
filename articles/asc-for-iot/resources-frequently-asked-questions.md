@@ -1,6 +1,6 @@
 ---
-title: Preguntas de Azure Security Center para la versión preliminar de IoT más frecuentes | Microsoft Docs
-description: Encuentre respuestas a las preguntas más frecuentes sobre Azure Security Center para el servicio y las características de IoT.
+title: Preguntas frecuentes sobre Azure Security Center para IoT, versión preliminar | Microsoft Docs
+description: Encuentre respuestas a las preguntas más frecuentes sobre las características y servicios de Azure Security Center para IoT.
 services: asc-for-iot
 ms.service: ASCforiot
 documentationcenter: na
@@ -15,140 +15,140 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: f15cd14ddc3a489db3abbbd2665d242470b5a821
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200704"
 ---
-# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Security Center para IoT  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Preguntas frecuentes sobre el Azure Security Center para IoT  
 
 > [!IMPORTANT]
 > Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En este artículo se proporciona una lista de las preguntas más frecuentes y respuestas sobre Azure Security Center (ASC) para IoT. 
+En este artículo se proporciona una lista de las preguntas más frecuentes y las respuestas sobre Azure Security Center (ASC) para IoT. 
 
-## <a name="does-azure-provide-support-for-iot-security"></a>¿Azure ofrece compatibilidad para seguridad de IoT?
+## <a name="does-azure-provide-support-for-iot-security"></a>¿Ofrece Azure compatibilidad para seguridad de IoT?
 
-Azure proporciona una vista integrada para supervisar y administrar la seguridad de IoT como parte de la solución general de seguridad a través de Azure Security Center. Si es un desarrollador de aplicaciones, puede usar la vista de centro de IoT para administrar la seguridad de la aplicación de IoT.
+Azure proporciona una vista integrada para supervisar y administrar la seguridad de IoT como parte de la solución general de seguridad a través de Azure Security Center. Si es desarrollador de aplicaciones, puede usar la vista de IoT Hub para administrar la seguridad de su aplicación para IoT.
 
-## <a name="what-is-azures-unique-value-proposition-for-iot-security"></a>¿Qué es la propuesta de valor único de Azure para la seguridad de IoT?
+## <a name="what-is-azures-unique-value-proposition-for-iot-security"></a>¿Cuál es la propuesta de valor propia de Azure para la seguridad de IoT?
 
-ASC para IoT permite a las empresas a ampliar su vista de la seguridad cibernética existente a toda la solución de IoT. Azure proporciona una vista integral de su solución empresarial, lo que le permite realizar acciones relacionadas con la empresa y las decisiones basándose en la posición de seguridad empresarial y los datos recopilan. Combina la seguridad mediante Azure IoT, Azure IoT Edge, Azure Sphere, Central de Azure y Azure Security Center le permiten crear la solución que desee con la seguridad que necesita.
+ASC para IoT permite a las empresas ampliar su vista existente de la seguridad cibernética a toda la solución de IoT. Azure proporciona una vista integral de su solución empresarial, lo que le permite realizar acciones relacionadas con la empresa y tomar decisiones según su posición de seguridad empresarial y los datos recopilados. La seguridad combinada mediante Azure IoT, Azure IoT Edge, Azure Sphere, Azure Central y Azure Security Center le permite crear la solución que quiere con la seguridad que necesita.
 
-## <a name="who-is-asc-for-iot-made-for"></a>¿Quién es ASC para prever IoT? 
+## <a name="who-is-asc-for-iot-made-for"></a>¿A quién está dirigido ASC para IoT? 
 
-ASC para IoT está integrado en la seguridad de Azure IoT Hub y proporciona las operaciones de seguridad de administración para la solución empresarial de un día para otro. ASC para IoT también se integra en las capacidades de Azure Security Center y proporcionar una vista integrada para supervisar y administrar la seguridad de IoT como parte de su solución de seguridad global.
+ASC para IoT está integrado en la seguridad de Azure IoT Hub y permite la administración de las operaciones diarias de seguridad para las soluciones empresariales. ASC para IoT también está integrado en las funcionalidades de Azure Security Center y proporciona una vista integrada para supervisar y administrar la seguridad de IoT como parte de la solución general de seguridad.
 
-## <a name="how-does-asc-for-iot-compare-to-the-competition"></a>¿Cómo se compara con la competencia ASC para IoT?
+## <a name="how-does-asc-for-iot-compare-to-the-competition"></a>¿Cómo se compara ASC para IoT con la competencia?
 
-Mientras que otras soluciones proporcionan un conjunto de funcionalidades que permiten a los clientes crear sus propias soluciones, ASC para IoT proporciona una solución de seguridad de IoT-to-end única que proporciona una vista amplia a través de la seguridad de todos los recursos de Azure relacionados. Azure permite una implementación rápida e integración completa con los módulos gemelos de IoT Hub para facilitar la integración con herramientas de administración de dispositivos existentes.
+Mientras que otras soluciones proporcionan un conjunto de funcionalidades que permiten a los clientes crear sus propias soluciones, ASC para IoT proporciona una solución exclusiva e integral de seguridad de IoT que ofrece una amplia visión de la seguridad de todos los recursos de Azure relacionados. Azure permite una implementación rápida y la integración completa en los módulos gemelos de IoT Hub para una fácil integración con las herramientas existentes de administración de dispositivos.
 
-## <a name="do-i-have-to-be-an-azure-security-center-asc-customer"></a>¿Tiene que ser un cliente de Azure Security Center (ASC)?
+## <a name="do-i-have-to-be-an-azure-security-center-asc-customer"></a>¿Tengo que ser cliente de Azure Security Center (ASC)?
 
-No, pero se recomienda. Sin ASC, ASC para IoT recibe datos limitados recursos conectados y proporciona un análisis limitado de la superficie expuesta a ataques potenciales, amenazas y ataques potenciales. 
+No, pero se recomienda. Sin ASC, ASC para IoT recibe datos limitados de los recursos conectados y brinda un análisis limitado de la superficie expuesta a ataques potenciales, de las amenazas y de los ataques potenciales. 
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>¿Tiene que ser un cliente de IoT de Azure?
+## <a name="do-i-have-to-be-an-azure-iot-customer"></a>¿Tengo que ser cliente de Azure IoT?
 
-Sí. ASC para IoT se basa en la infraestructura y conectividad de IoT de Azure.
+Sí. ASC para IoT se basa en la infraestructura y la conectividad de Azure IoT.
 
 ## <a name="do-i-have-to-install-an-agent"></a>¿Es necesario instalar a un agente?
 
-Instalación del agente en los dispositivos de IoT no es obligatorio para habilitar la ASC Microsoft para IoT. Puede elegir entre las tres opciones siguientes, obtener funcionalidades de supervisión y administración según la selección de diferentes niveles de seguridad:
+La instalación de un agente en los dispositivos de IoT no es obligatoria para habilitar Microsoft ASC para IoT. Puede elegir entre las tres opciones siguientes, con lo que obtiene distintos niveles de funcionalidad de supervisión y administración de la seguridad según la selección:
 
-1. Instale el ASC para el agente de seguridad de IoT con o sin modificaciones. Esta opción proporciona el máximo nivel de sobre la seguridad mejorada de acceso y el comportamiento del dispositivo.
+1. Instale el agente de seguridad de ASC para IoT con o sin modificaciones. Esta opción proporciona el máximo nivel de información de seguridad mejorada relativa al comportamiento y el acceso al dispositivo.
 
-2. Cree a su propio agente e implemente Microsoft ASC para esquema de mensaje de seguridad de IoT. Esta opción habilita el uso de Microsoft ASC para herramientas de análisis de IoT sobre el agente de seguridad del dispositivo.
+2. Cree su propio agente e implemente el esquema de mensajes de seguridad de Microsoft ASC para IoT. Esta opción permite usar las herramientas de análisis de Microsoft ASC para IoT, además del agente de seguridad de los dispositivos.
 
-3. Ninguna instalación del agente de seguridad de los dispositivos de IoT. Esta opción habilita la supervisión comunicación de IoT Hub, con capacidades de administración y supervisión de seguridad reducida. 
+3. Sin instalación de ningún agente de seguridad en los dispositivos de IoT. Esta opción permite la supervisión de la comunicación de IoT Hub, con funcionalidades reducidas de supervisión y administración de seguridad. 
 
-## <a name="what-does-the-asc-for-iot-agent-do"></a>¿Qué hace el ASC para el agente de IoT?
+## <a name="what-does-the-asc-for-iot-agent-do"></a>¿Qué hace el agente de ASC para IoT?
 
-ASC para el agente de IoT proporciona cobertura de amenazas en el nivel de dispositivo para la configuración del dispositivo, comportamiento y acceso (mediante el examen de la configuración), procesos y conectividad. La ASC para el agente de seguridad de IoT no examina los datos relacionados con el negocio o actividad.
+El agente de ASC para IoT proporciona cobertura de amenazas a nivel del dispositivo para la configuración, el comportamiento, el acceso (mediante el examen de la configuración), los procesos y la conectividad de los dispositivos. El agente de seguridad de ASC para IoT no examina los datos ni actividades relacionados con el negocio.
 
-## <a name="where-i-can-get-the-asc-for-iot-security-agent"></a>¿Dónde puedo obtener la ASC para el agente de seguridad de IoT?
+## <a name="where-i-can-get-the-asc-for-iot-security-agent"></a>¿Dónde se puede obtener el agente de seguridad de ASC para IoT?
 
-Los procesos de ASC para el agente de seguridad de IoT es código abierto y está disponible en GitHub en 32 bits y las versiones de Windows y Linux de 64 bits: https://github.com/Azure/Azure-Security-IoT-Preview
+El agente de seguridad de ASC para IoT es de código abierto y está disponible en GitHub para Windows y Linux en versiones de 32 y 64 bits: https://github.com/Azure/Azure-Security-IoT-Preview
 
-## <a name="where-does-the-asc-for-iot-agent-get-installed"></a>¿Donde instalado obtener los procesos de ASC para el agente de IoT? 
+## <a name="where-does-the-asc-for-iot-agent-get-installed"></a>¿Donde se instala el agente de ASC para IoT? 
 
-Encontrará información detallada sobre instalación y agente de implementación en GitHub: https://github.com/Azure/Azure-Security-IoT-Preview
+En GitHub, encontrará información detallada sobre la instalación y la implementación del agente: https://github.com/Azure/Azure-Security-IoT-Preview
 
-## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>¿Cuáles son las dependencias y requisitos previos del agente?
+## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>¿Cuáles son las dependencias y los requisitos previos del agente?
 
-ASC para IoT admite una amplia variedad de plataformas. Consulte [plataformas de dispositivos compatibles](how-to-deploy-agent.md) para comprobar la compatibilidad para los dispositivos específicos. 
+ASC para IoT admite una amplia variedad de plataformas. Consulte [Plataformas compatibles](how-to-deploy-agent.md) para verificar la compatibilidad para sus dispositivos en concreto. 
 
-## <a name="which-data-is-collected-by-the-agent"></a>¿El agente recopila los datos?
+## <a name="which-data-is-collected-by-the-agent"></a>¿Qué datos recopila el agente?
 
-El agente recopila conectividad, acceso, configuración del firewall, lista de procesos y línea base del SO.
+El agente recopila datos de conectividad, acceso, configuración del firewall, lista de procesos y línea base del SO.
 
-## <a name="how-much-data-will-the-agent-generate"></a>¿Cuántos datos se generará el agente?
+## <a name="how-much-data-will-the-agent-generate"></a>¿Cuántos datos generará el agente?
 
-Generación de datos del agente está controlada por dispositivo, aplicación, tipo de conectividad y configuración del agente de cliente. Debido a la gran variabilidad entre dispositivos y las soluciones de IoT, se recomienda implementar primero el agente en un laboratorio o configuración de pruebas para observar, aprender y establecer la configuración específica que se adapte a sus necesidades, mientras mide la cantidad de datos generados. Después de iniciar el servicio, los procesos de ASC para el agente de IoT proporcionan recomendaciones operativas para optimizar el rendimiento del agente que le ayudarán en el proceso de configuración y personalización.
+La generación de datos del agente depende del dispositivo, la aplicación, el tipo de conectividad y la configuración del agente del cliente. Debido a la gran variabilidad entre dispositivos y soluciones de IoT, se recomienda implementar primero el agente en un entorno de laboratorio o prueba para observar, aprender y establecer la configuración específica que se adapte a sus necesidades, a la vez que se mide la cantidad de datos generados. Después de iniciar el servicio, el agente de ASC para IoT proporciona recomendaciones operativas para optimizar el rendimiento del agente, lo que le ayudará en el proceso de configuración y personalización.
 
-## <a name="how-can-i-control-my-billing"></a>¿Cómo puedo controlar mi facturación?
+## <a name="how-can-i-control-my-billing"></a>¿Cómo puedo controlar la facturación?
 
-ASC para IoT proporciona a agente configurable exámenes, los búferes de datos y la capacidad para crear alertas personalizadas que aumentar o reducen la cantidad de datos generados por el agente.
+ASC para IoT proporciona exámenes de agente configurables, búferes de datos y la capacidad de crear alertas personalizadas que aumentan o reducen la cantidad de datos que genera el agente.
 
-## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>¿Se usa mensajes del agente de cuota de IoT Hub?
+## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>¿Se cuentan los mensajes del agente en la cuota de IoT Hub?
 
-Sí. Los datos del agente transmitido se contabilizarán en su cuota de IoT Hub. 
+Sí. Los datos transmitidos por el agente se contabilizan en su cuota de IoT Hub. 
 
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>¿Qué más? Ha instalado a un agente y no verán ninguna actividad o registros
+## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>¿Qué más? He instalado a un agente y no veo ninguna actividad ni registros
 
-1. Compruebe el [tipo de agente se ajusta a la plataforma de SO designada de su dispositivo](how-to-deploy-agent.md)
+1. Compruebe que el [tipo de agente se ajusta a la plataforma del SO designada de su dispositivo](how-to-deploy-agent.md).
 
-1. Confirme la [agente se está ejecutando en el dispositivo](how-to-agent-configuration.md).
+1. Confirme que el [agente se esté ejecutando en el dispositivo](how-to-agent-configuration.md).
 
-2. Compruebe el [servicio se ha habilitado correctamente](quickstart-onboard-iot-hub.md) a **seguridad** en IoT Hub. 
+2. Compruebe que el [servicio se haya habilitado correctamente](quickstart-onboard-iot-hub.md) en **Seguridad** en IoT Hub. 
 
-3. Compruebe que el dispositivo está [configurado en IoT Hub con la ASC para el módulo de IoT](quickstart-create-security-twin.md).  
+3. Compruebe que el dispositivo esté [configurado en IoT Hub con el módulo de ASC para IoT](quickstart-create-security-twin.md).  
 
-Si las actividades o los registros no están aún disponibles, póngase en contacto con su ASC para IoT asociado para obtener ayuda adicional.
+Si las actividades o los registros aún no están disponibles, póngase en contacto con su partner de ASC para IoT para obtener ayuda adicional.
 
-## <a name="what-happens-when-the-internet-connection-stops-working"></a>¿Qué ocurre cuando la conexión a internet deja de funcionar?
+## <a name="what-happens-when-the-internet-connection-stops-working"></a>¿Qué ocurre cuando la conexión a Internet deja de funcionar?
 
-El agente continúa ejecutándose y almacenar los datos siempre y cuando el dispositivo se está ejecutando. Datos se almacenan en la caché de mensajes de seguridad según la configuración de tamaño. Cuando el dispositivo vuelve a tener conectividad, los mensajes de seguridad reanudación el envío. 
+El agente sigue ejecutándose y almacena los datos, siempre y cuando el dispositivo esté en ejecución. Los datos se almacenan en la caché de mensajes de seguridad según la configuración de tamaño. Cuando el dispositivo vuelve a tener conectividad, se reanuda el envío de los mensajes de seguridad. 
 
-## <a name="if-the-device-is-restarted-will-the-security-agent-self-recover"></a>¿Si el dispositivo se reinicia, el agente de seguridad automática recuperará?
+## <a name="if-the-device-is-restarted-will-the-security-agent-self-recover"></a>Si el dispositivo se reinicia, ¿se recupera automáticamente el agente de seguridad?
 
-El agente de seguridad está diseñado para volver a ejecutar automáticamente con cada reinicio del dispositivo.
+El agente de seguridad está diseñado para volver a ejecutarse automáticamente con cada reinicio del dispositivo.
 
-## <a name="can-the-agent-affect-the-performance-of-the-device-or-other-installed-software"></a>¿El agente puede afectar al rendimiento del dispositivo o de otro software instalado?
+## <a name="can-the-agent-affect-the-performance-of-the-device-or-other-installed-software"></a>¿Puede el agente afectar al rendimiento del dispositivo o de otro software instalado?
 
-El agente consume recursos de la máquina como cualquier otra aplicación o proceso y no debe interrumpir la actividad normal de los dispositivos. Consumo de recursos en el dispositivo que se ejecuta el agente está emparejado con su programa de instalación y configuración. Se recomienda probar la configuración de agente en un entorno independiente, junto con interoperabilidad con las otras aplicaciones de IoT y funcionalidad, antes de intentar realizar la implementación en un entorno de producción.
+El agente consume recursos de la máquina como cualquier otra aplicación o proceso y no debería interrumpir la actividad normal del dispositivo. El consumo de recursos en el dispositivo donde se ejecuta el agente está condicionado por la instalación y la configuración. Se recomienda probar la configuración de agente en un entorno independiente, junto con la interoperabilidad con las otras aplicaciones y funcionalidades de IoT, antes de intentar implementar en un entorno de producción.
 
-## <a name="im-making-some-maintenance-on-the-device-can-i-turn-off-the-agent"></a>Estoy realizando algún mantenimiento en el dispositivo. ¿Puedo desactivar el agente?
+## <a name="im-making-some-maintenance-on-the-device-can-i-turn-off-the-agent"></a>Estoy realizando mantenimiento en el dispositivo. ¿Puedo desactivar el agente?
 
 El agente no puede desactivarse.
 
-## <a name="is-there-a-way-to-test-if-the-agent-is-working-correctly"></a>¿Hay una manera de probar si el agente está funcionando correctamente? 
+## <a name="is-there-a-way-to-test-if-the-agent-is-working-correctly"></a>¿Hay alguna manera de probar si el agente funciona correctamente? 
 
-Si el agente se detiene la comunicación o se produce un error al enviar mensajes de seguridad, un **dispositivo es silencioso** alerta se genera.
+Si el agente deja de comunicarse o no envía mensajes de seguridad, se genera una alerta **Device is silent** (El dispositivo está silencioso).
 
 ## <a name="can-i-create-my-own-alerts"></a>¿Puedo crear mis propias alertas?
 
-Sí. Puede establecer una alerta personalizada en el conjunto predeterminado de comportamientos, como la dirección IP y puertos abiertos. Consulte [crear alertas personalizadas](quickstart-create-custom-alerts.md) para obtener más información sobre alertas personalizadas y cómo realizarlas. 
+Sí. Puede establecer una alerta personalizada ante un conjunto predeterminado de comportamientos, como direcciones IP y puertos abiertos. Consulte [Creación de alertas personalizadas](quickstart-create-custom-alerts.md) para más información sobre las alertas personalizadas y cómo crearlas. 
 
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>¿Dónde puedo ver los registros? ¿Puedo personalizar los registros?
+## <a name="where-can-i-see-logs-can-i-customize-logs"></a>¿Dónde se pueden ver los registros? ¿Se pueden personalizan los registros?
 
-- Ver las alertas y las recomendaciones mediante el área de trabajo de Log Analytics conectado. Configurar el tamaño de almacenamiento y la duración en el área de trabajo.
+- Consulte las alertas y recomendaciones desde el área de trabajo de Log Analytics conectada. Configure el tamaño y la duración de almacenamiento en el área de trabajo.
 
-- Datos sin procesar desde el agente de seguridad también pueden almacenarse en su cuenta de Log Analytics. Considere la posibilidad de tamaño, la duración, los requisitos de almacenamiento y los costos asociados antes de cambiar la configuración de esta opción. 
+- Los datos sin procesar del agente de seguridad también pueden almacenarse en su cuenta de Log Analytics. Tenga en cuenta el tamaño, la duración, los requisitos de almacenamiento y los costos asociados antes de cambiar la configuración de esta opción. 
 
-## <a name="why-should-i-add-asc-for-iot-to-the-module-identity-what-is-it-used-for"></a>¿Por qué debo agregar ASC para IoT a la identidad de módulo? ¿Para qué se usa?
+## <a name="why-should-i-add-asc-for-iot-to-the-module-identity-what-is-it-used-for"></a>¿Por qué debería agregar ASC para IoT a la identidad de módulo? ¿Para qué se usa?
 
-Los procesos de ASC para el módulo de IoT se usan para la administración y configuración del agente.
+El módulo ASC para IoT se usa para la configuración y administración del agente.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de cómo empezar a trabajar con procesos de ASC para IoT, consulte los artículos siguientes:
+Para más información sobre los primeros pasos con ASC para IoT, consulte los siguientes artículos:
 
 
-- Leer los procesos de ASC para IoT [información general](overview.md)
-- Compruebe el [requisitos previos de servicio](service-prerequisites.md)
-- Más información acerca de cómo [empezar a trabajar](getting-started.md)
-- Comprender [ASC para las alertas de seguridad de IoT](concept-security-alerts.md)
+- Lea la [introducción](overview.md) a ASC para IoT
+- Verifique los [requisitos previos del servicio](service-prerequisites.md)
+- Más información sobre cómo [empezar a usar ASC para IoT](getting-started.md)
+- Información sobre las [alertas de seguridad de ASC para IoT](concept-security-alerts.md)
 

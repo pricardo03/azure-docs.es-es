@@ -9,10 +9,10 @@ ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148617"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
@@ -140,7 +140,7 @@ Para más información acerca de los precios de Azure Blob Storage en general, c
 Cuando activa inicialmente la eliminación temporal, se recomienda usar un período de retención pequeño para comprender mejor cómo afecta la característica a la facturación.
 
 ## <a name="quickstart"></a>Guía de inicio rápido
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 Para habilitar la eliminación temporal, vaya a la opción **Eliminación temporal** de **Blob Service**. Luego, haga clic en **Habilitado** y escriba el número de días que desea conservar los datos que se han eliminado temporalmente.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
@@ -279,7 +279,7 @@ Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de a
 
 ## <a name="faq"></a>Preguntas más frecuentes
 **¿Hay ninguna consideración especial para usar la eliminación temporal?**  
-Es posible habilitar eliminación temporal para datos sobrescritos con frecuencia en cargas de capacidad de almacenamiento mayor y una mayor latencia al enumerar los blobs. Se puede mitigar mediante el almacenamiento de los datos sobrescritos con frecuencia en una cuenta de almacenamiento independiente con la eliminación temporal deshabilitada. 
+Habilitar eliminación temporal para datos sobrescritos con frecuencia puede generar mayores cargos por capacidad de almacenamiento y una mayor latencia al enumerar los blobs. Esto se puede mitigar almacenando los datos sobrescritos con frecuencia en una cuenta de almacenamiento independiente con la eliminación temporal deshabilitada. 
 
 **¿Para qué tipos de almacenamiento se puede usar la eliminación temporal?**  
 Actualmente, la eliminación temporal sólo está disponible para el almacenamiento de blobs (objeto).

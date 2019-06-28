@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65139289"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
-Este tema describe al programador integrado en la sincronización de Azure AD Connect (motor de sincronización).
+En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (motor de sincronización).
 
 Esta característica se introdujo con la compilación 1.1.105.0 (publicada en febrero de 2016).
 
@@ -72,7 +72,7 @@ La configuración del programador se almacena en Azure AD. Si tiene un servidor 
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Sintaxis: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
- d: días; HH: horas; mm: minutos; ss: segundos
+d: días; HH: horas; mm: minutos; ss: segundos
 
 Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Cambia el programador para ejecutarse cada 3 horas.
@@ -93,7 +93,7 @@ Una vez realizados los cambios, no olvide volver a habilitar el programador con 
 De forma predeterminada, el programador se ejecuta cada 30 minutos. En algunos casos, es posible que quiera ejecutar un ciclo de sincronización entre los ciclos programados o necesite ejecutar un tipo diferente.
 
 ### <a name="delta-sync-cycle"></a>Ciclo de sincronización diferencial
- Un ciclo de sincronización diferencial incluye los siguientes pasos:
+Un ciclo de sincronización diferencial incluye los siguientes pasos:
 
 
 - Importación diferencial en todos los conectores
@@ -109,24 +109,24 @@ Un ciclo de sincronización completo incluye los pasos siguientes:
 
 Es posible que haya un cambio urgente que debe sincronizar inmediatamente, para lo que necesita ejecutar manualmente un ciclo. 
 
-Si necesita ejecutar manualmente un ciclo de sincronización, a continuación, desde la ejecución de PowerShell `Start-ADSyncSyncCycle -PolicyType Delta`.
+Si necesita ejecutar manualmente un ciclo de sincronización, ejecute `Start-ADSyncSyncCycle -PolicyType Delta`desde PowerShell.
 
 Para iniciar un ciclo de sincronización completo, ejecute `Start-ADSyncSyncCycle -PolicyType Initial` desde un símbolo del sistema de PowerShell.   
 
-Ejecutar un ciclo de sincronización completa puede llevar mucho tiempo, lea la sección siguiente para leer cómo optimizar este proceso.
+La ejecución de un ciclo de sincronización completo puede llevar mucho tiempo; lea la siguiente sección para saber cómo optimizar este proceso.
 
-### <a name="sync-steps-required-for-different-configuration-changes"></a>Sincronizar los pasos necesarios para realizar cambios de configuración diferente
-Los cambios de configuración diferentes requieren pasos de sincronización diferentes para asegurarse de que los cambios se aplican correctamente a todos los objetos.
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Pasos de sincronización requeridos para diferentes cambios de configuración
+Los diferentes cambios de configuración requieren diferentes pasos de sincronización para garantizar que los cambios se aplican correctamente a todos los objetos.
 
-- Agrega varios objetos o atributos que desea importar desde un directorio de origen (mediante Agregar o modificar las reglas de sincronización)
-    - Se requiere una importación completa en el conector para ese directorio de origen
+- Se agregaron más objetos o atributos para importar desde un directorio de origen (esto es, agregando o modificando las reglas de sincronización).
+    - Es necesario realizar una importación completa en el conector de ese directorio de origen.
 - Realizó cambios en las reglas de sincronización
-    - Se requiere una sincronización completa en el conector para las reglas de sincronización modificadas
+    - Es necesario realizar una sincronización completa en el conector para las reglas de sincronización cambiadas.
 - Cambió el [filtrado](how-to-connect-sync-configure-filtering.md) para que se incluya un número diferente de objetos
-    - Una importación completa es necesaria en el conector para cada conector de AD a menos que esté usando filtrado por atributo en función de atributos que se van a importar ya en el motor de sincronización
+    - Es necesario realizar una importación completa en el conector para cada conector de AD, A MENOS que esté usando una operación de filtrado basada en atributos que ya se están importando en el motor de sincronización.
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personalización de un ciclo de sincronización que se ejecute la combinación correcta de pasos de sincronización diferencial y completo
-Para evitar la ejecución de un ciclo de sincronización completa se pueden marcar conectores específicos para ejecutar un paso completo mediante los siguientes cmdlets.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>La personalización de un ciclo de sincronización ejecuta la combinación correcta de pasos de sincronización diferencial y completa.
+Para evitar ejecutar un ciclo de sincronización completo, puede marcar conectores específicos para que ejecuten un paso completo mediante los siguientes cmdlets.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +134,13 @@ Para evitar la ejecución de un ciclo de sincronización completa se pueden marc
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Ejemplo:  Si ha realizado cambios en las reglas de sincronización para el conector "Bosque de AD A" que no requieren los nuevos atributos importará ejecutaría el siguiente ciclo de cmdlets para ejecutar una sincronización delta, que también hizo una sincronización completa el paso para dicho conector.
+Ejemplo:  Si realizó cambios en las reglas de sincronización del conector "AD Forest A" que no requieren la importación de nuevos atributos, puede ejecutar los siguientes cmdlets para ejecutar un ciclo de sincronización diferencial en el cual también se realizó un paso de sincronización completa para ese conector.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Ejemplo:  Si ha realizado cambios en las reglas de sincronización para el conector "Bosque de AD A" para que requiere ahora un nuevo atributo al que se va a importar debe ejecutar los siguientes cmdlets para ejecutar un ciclo de sincronización delta que también se hizo una importación completa, el paso de sincronización completa para dicho conector.
+Ejemplo:  Si realizó cambios en las reglas de sincronización del conector "AD Forest A" y ahora es necesario importar nuevos atributos, puede ejecutar los siguientes cmdlets para ejecutar un ciclo de sincronización diferencial en el cual también se realizó un paso de sincronización e importación completa para ese conector.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -199,7 +199,7 @@ Get-ADSyncConnectorRunStatus
 ```
 
 ![Estado de la ejecución de conector](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
- En la ilustración anterior, la primera línea refleja un estado donde el motor de sincronización está inactivo. La segunda línea es de cuando se ejecuta el conector de Azure AD.
+En la ilustración anterior, la primera línea refleja un estado donde el motor de sincronización está inactivo. La segunda línea es de cuando se ejecuta el conector de Azure AD.
 
 ## <a name="scheduler-and-installation-wizard"></a>Scheduler y Asistente para instalación
 Si inicia el Asistente para instalación, el programador se suspende temporalmente. Este comportamiento es debido a que se supone que realizará cambios en la configuración y estos cambios no se pueden aplicar si el motor de sincronización se está ejecutando activamente. Por este motivo, no deje el Asistente para instalación abierto, ya que impide que el motor de sincronización realizar ninguna acción.

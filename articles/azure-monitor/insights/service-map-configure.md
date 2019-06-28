@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: magoedte
 ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142747"
 ---
 # <a name="configure-service-map-in-azure"></a>Configuración de Service Map en Azure
@@ -63,7 +63,7 @@ En las secciones siguientes se enumeran los sistemas operativos compatibles para
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
 
-La siguiente sección se enumeran los sistemas operativos compatibles para el agente de dependencia en Linux.  
+En las secciones siguientes se enumeran los sistemas operativos compatibles para Dependency Agent en Linux.  
 
 - Se admiten solo versiones de kernel SMP Linux y predeterminados.
 - Las versiones de kernel no estándar, como PAE y Xen, no son compatibles con ninguna distribución de Linux. Por ejemplo, un sistema con la cadena de versión de "2.6.16.21-0.8-xen" no es compatible.
@@ -117,7 +117,7 @@ La siguiente sección se enumeran los sistemas operativos compatibles para el ag
 
 | Archivo | SO | Versión | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## <a name="connected-sources"></a>Orígenes conectados
@@ -129,7 +129,7 @@ Service Map obtiene sus datos de Microsoft Dependency Agent. Dependency Agent se
 | Agentes de Windows | Sí | Service Map analiza y recopila datos de equipos Windows. <br><br>Además del [agente de Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Windows requieren Microsoft Dependency Agent. Consulte los sistemas operativos compatibles para obtener una lista completa de las versiones de sistema operativo. |
 | Agentes de Linux | Sí | Service Map analiza y recopila datos de equipos Linux. <br><br>Además del [agente de Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Linux requieren Microsoft Dependency Agent. Consulte los sistemas operativos compatibles para obtener una lista completa de las versiones de sistema operativo. |
 | Grupo de administración de System Center Operations Manager | Sí | Service Map analiza y recopila datos de los agentes de Windows y Linux en un [grupo de administración de System Center Operations Manager](../../azure-monitor/platform/om-agents.md) conectado. <br><br>Se requiere una conexión directa desde el equipo agente de System Center Operations Manager a Log Analytics. |
-| Cuenta de almacenamiento de Azure | Sin  | Service Map recopila datos de equipos agentes, así que no hay ningún dato en él que recopilar de Azure Storage. |
+| Cuenta de almacenamiento de Azure | Sin | Service Map recopila datos de equipos agentes, así que no hay ningún dato en él que recopilar de Azure Storage. |
 
 En Windows, tanto System Center Operations Manager como Log Analytics usan Microsoft Monitoring Agent (MMA) para recopilar y enviar los datos de supervisión. (Según el contexto, este agente se denomina agente de System Center Operations Manager, agente de Log Analytics, agente de Log Analytics, MMA o agente directo). System Center Operations Manager y Log Analytics proporcionan versiones integradas diferentes de MMA. Cada una de estas versiones puede informar a System Center Operations Manager, a Log Analytics o a ambos.  
 

@@ -9,10 +9,10 @@ ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 082033cebc68fc97f7cff9ce80eb02acbbf5f4b0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145894"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
@@ -199,7 +199,7 @@ Puede configurar la supervisión a través de [Azure Portal](https://portal.azur
 > Puede habilitar el análisis de minutos con PowerShell. Esta funcionalidad no está disponible en el portal.
 >
 
-* Para obtener información sobre cómo habilitar y ver los datos de las métricas de almacenamiento mediante PowerShell, consulte [métricas de Storage analytics](storage-analytics-metrics.md).
+* Para más información sobre cómo habilitar y ver los datos de las métricas de almacenamiento mediante PowerShell, consulte [Métricas de Storage Analytics](storage-analytics-metrics.md).
 
 * Para obtener información sobre cómo habilitar y recuperar los datos de registro del almacenamiento con PowerShell, vea [Cómo habilitar el registro de almacenamiento con PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) y [Buscar sus datos de registro de almacenamiento](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
@@ -223,7 +223,7 @@ La API Table de Azure Cosmos DB proporciona características premium para el alm
 La mayoría de los usuarios utiliza la nube pública de Azure para una implementación global. También hay algunas implementaciones independientes de Microsoft Azure por motivos de soberanía, etc. Estas implementaciones independientes se conocen como "entornos". Estos son los entornos disponibles:
 
 * [Azure Government Cloud (Nube de Azure Government)](https://azure.microsoft.com/features/gov/)
-* [Azure China 21Vianet en la nube operada por 21Vianet en China](http://www.windowsazure.cn/)
+* [Nube Azure China 21Vianet controlada por 21Vianet en China](http://www.windowsazure.cn/)
 * [Nube de Alemania de Azure](../../germany/germany-welcome.md)
 
 Para obtener información sobre cómo obtener acceso a estas nubes y su almacenamiento con PowerShell, consulte [Administración del almacenamiento en las nubes independientes mediante PowerShell](storage-powershell-independent-clouds.md).

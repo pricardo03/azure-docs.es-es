@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
 ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149122"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
@@ -72,8 +72,8 @@ La herramienta proporciona los detalles siguientes:
 
 | | **VMware a Azure** |**Hyper-V en Azure**|**De Azure a Azure**|**De Hyper-V a un sitio secundario**|**Sitio VMware en un sitio secundario**
 --|--|--|--|--|--
-Escenarios admitidos |Sí|Sí|Sin |Sí*|Sin 
-Versión admitida | 6.7, 6.5, 6.0 o 5.5 de vCenter| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
+Escenarios admitidos |Sí|Sí|Sin|Sí*|Sin
+Versión admitida | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuración admitida|vCenter, ESXi| Clúster de Hyper-V, host de Hyper-V|N/D|Clúster de Hyper-V, host de Hyper-V|N/D|
 Número de servidores cuyo perfil puede generarse por instancia en ejecución de Azure Site Recovery Deployment Planner |Único (los perfiles de las máquinas virtuales que pertenecen a una instancia de vCenter Server o a un servidor ESXi se pueden generar a la vez)|Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D |Varios (los perfiles de las máquinas virtuales en varios hosts o clústeres de hosts se pueden generar a la vez)| N/D
 
@@ -96,7 +96,7 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 
 1.  Cada host Hyper-V cuyo perfil debe realizarse debe tener:
 
-     a. La máquina virtual en la que la herramienta se va a ejecutar en su lista TrustedHosts. Ejecute el siguiente comando desde una sesión de PowerShell con privilegios elevados en el host Hyper-V.
+    a. La máquina virtual en la que la herramienta se va a ejecutar en su lista TrustedHosts. Ejecute el siguiente comando desde una sesión de PowerShell con privilegios elevados en el host Hyper-V.
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
@@ -121,7 +121,7 @@ E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
 
-Se resumen las actualizaciones más recientes en Deployment Planner [historial de versiones](site-recovery-deployment-planner-history.md).
+En el [historial de versiones](site-recovery-deployment-planner-history.md) se resumen las actualizaciones más recientes de Deployment Planner.
 
 Si tiene una versión anterior de la herramienta, realice una de las siguientes acciones:
  * Si la versión más reciente no contiene una corrección de la generación de perfiles y la generación de perfiles ya está en curso en la versión actual del programador, continúe con la generación de perfiles.
@@ -135,8 +135,8 @@ Si tiene una versión anterior de la herramienta, realice una de las siguientes 
   >Cada nueva instancia de Deployment Planner es una actualización acumulativa del archivo zip. No es preciso copiar los archivos más recientes en la carpeta anterior. Se puede crear y usar una carpeta nueva.
 
 ## <a name="version-history"></a>Historial de versiones
-La última versión de la herramienta Azure Site Recovery Deployment Planner es 2.4.
-Consulte [historial de versiones de Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) página correcciones se agregan en cada actualización.
+La versión más reciente de la herramienta Azure Site Recovery Deployment Planner es la 2.4.
+Para saber qué correcciones se han agregado en cada actualización, consulte [Historial de versiones de Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

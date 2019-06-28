@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149767"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
 En este artículo obtendrá ayuda para buscar y corregir los errores que se producen al usar el servicio Azure Machine Learning.
 
-## <a name="visual-interface-issues"></a>Problemas de la interfaz Visual
+## <a name="visual-interface-issues"></a>Problemas de la interfaz visual
 
-Interfaz visual para problemas de servicio de aprendizaje automático.
+Problemas de la interfaz visual para Machine Learning Service.
 
-### <a name="long-compute-preparation-time"></a>Tiempo de preparación de un proceso largo
+### <a name="long-compute-preparation-time"></a>Tiempo prolongado de preparación de un proceso
 
-Crear nuevo proceso o evocar dejando proceso lleva tiempo, puede ser de unos minutos o incluso más tiempo. El equipo está trabajando para la optimización.
+Crear un nuevo proceso o evocar un proceso saliente lleva tiempo, puede ser de minutos o incluso más. El equipo está trabajando para optimizarlo.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>No se puede ejecutar un experimento contiene solo conjunto de datos 
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>No se puede ejecutar un experimento que solo contiene un conjunto de datos 
 
-Desea ejecutar un experimento solo contiene el conjunto de datos para visualizar el conjunto de datos. Sin embargo, no se permite ejecutar un experimento contiene solo conjunto de datos hoy mismo. Se corregirá este problema.
+Puede querer ejecutar un experimento que solo contenga un conjunto de datos para visualizar el conjunto de datos. Sin embargo, en este momento no se permite ejecutar un experimento que solo contiene un conjunto de datos. Estamos corrigiendo este problema.
  
-Antes de la corrección, puede conectar el conjunto de datos a cualquier módulo de transformación de datos (Seleccionar columnas de conjunto de datos, editar metadatos, etc. de dividir datos) y ejecute el experimento. A continuación, puede visualizar el conjunto de datos. 
+Antes de la corrección, puede conectar el conjunto de datos a cualquier módulo de transformación de datos (seleccione Select Columns in Dataset [Seleccionar columnas en el conjunto de datos], Edit Metadata [Editar metadatos], Split Data [Dividir datos], etc.) y ejecute el experimento. A continuación, puede visualizar el conjunto de datos. 
 
-A continuación de la imagen se muestra cómo: ![visulize datos](./media/resource-known-issues/aml-visualize-data.png)
+La imagen a continuación muestra cómo: ![visualize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalación de SDK
 
@@ -67,11 +67,11 @@ No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aproba
 
 ## <a name="automated-machine-learning"></a>Automated Machine Learning
 
-Aprendizaje automático de flujo automatizado de tensores no admite actualmente la versión del flujo de tensores 1.13. Instalar esta versión hará que las dependencias del paquete deje de funcionar. Estamos trabajando para corregir este problema en una versión futura. 
+El aprendizaje automático automatizado de TensorFlow no admite actualmente la versión 1.13 de TensorFlow. Instalar esta versión hará que las dependencias del paquete dejen de funcionar. Estamos trabajando para corregir este problema en una versión futura. 
 
-### <a name="experiment-charts"></a>Gráficos del experimento
+### <a name="experiment-charts"></a>Gráficos de experimento
 
-Los gráficos de clasificación binaria (retirada-precisión, ROC, obtener curva, etc.) se muestra en iteraciones de experimentos de aprendizaje automático automatizadas no son representación correctamente en la interfaz de usuario desde 4/12. Trazados de gráficos son actualmente con los resultados inversa, donde se muestran los modelos con mejor rendimiento con resultados inferior. Una resolución está investigando.
+Los gráficos de clasificación binaria (precisión-retirada, ROC, curva de ganancia, etc.) que se muestran en las iteraciones de experimentos de aprendizaje automático automatizados no se representan correctamente en la interfaz de usuario desde 4/12. Los trazados de los gráficos actualmente muestran resultados inversos, donde los modelos con mejor rendimiento se muestran con resultados inferiores. Se está investigando una resolución.
 
 ## <a name="databricks"></a>Databricks
 
@@ -79,33 +79,33 @@ Problemas de Databricks y Azure Machine Learning.
 
 ### <a name="failure-when-installing-packages"></a>Error al instalar paquetes
 
-Instalación de Azure Machine Learning SDK se produce un error en Azure Databricks cuando se instalan varios paquetes. Algunos paquetes, como `psutil`, pueden provocar conflictos. Para evitar errores de instalación, instale los paquetes congelando la versión de la biblioteca. Este problema está relacionado con Databricks y no el SDK del servicio Azure Machine Learning. Puede experimentar este problema con otras bibliotecas, demasiado. Ejemplo:
+No es posible instalar el SDK de Azure Machine Learning en Azure Databricks cuando se instalan más paquetes. Algunos paquetes, como `psutil`, pueden provocar conflictos. Para evitar errores de instalación, inmovilice la versión de la biblioteca para instalar los paquetes. Este problema está relacionado con Databricks y no con el SDK de Azure Machine Learning Service. También puede experimentar este problema con otras bibliotecas. Ejemplo:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
-Como alternativa, puede usar scripts de init si mantener enfrenta a problemas de instalación con bibliotecas de Python. Este enfoque no se admite oficialmente. Para obtener más información, consulte [scripts init centrada en el clúster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Como alternativa, puede usar scripts de init si sigue experimentando problemas de instalación con las bibliotecas de Python. Este enfoque no se admite oficialmente. Para más información, consulte [Cluster-scoped init scripts](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts) (Script de init del ámbito de clúster).
 
-### <a name="cancel-an-automated-machine-learning-run"></a>Cancelar una ejecución de aprendizaje de automático automatizada
+### <a name="cancel-an-automated-machine-learning-run"></a>Cancelar una ejecución de aprendizaje automático automatizado
 
-Cuando usas automatizada de machine learning funcionalidades en Azure Databricks, para cancelar una ejecución e iniciar un nuevo experimento ejecutar, reinicie el clúster de Azure Databricks.
+Al usar las funcionalidades de aprendizaje automático automatizado en Azure Databricks, para cancelar una ejecución e iniciar una nueva ejecución de un experimento, reinicie el clúster de Azure Databricks.
 
-### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iteraciones para el aprendizaje automático automatizadas
+### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iteraciones para aprendizaje automático automatizado
 
-En la máquina automatizada aprendizaje configuración, si tiene más de 10 iteraciones, establezca `show_output` a `False` cuando se envía la ejecución.
+En la configuración del aprendizaje automático automatizado, si tiene más de 10 iteraciones, establezca `show_output` en `False` cuando envíe la ejecución.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget para el aprendizaje automático de Azure Machine Learning/automatizado a la SDK
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget para el SDK de Azure Machine Learning/aprendizaje automático automatizado
 
-No se admite el widget de SDK de Azure Machine Learning en un cuaderno de Databricks porque los blocs de notas no pueden analizar los widgets HTML. Puede ver el widget en el portal mediante el uso de este código de Python en la celda del Bloc de notas de Azure Databricks:
+El widget del SDK de Azure Machine Learning no se admite en un cuaderno de Databricks porque los cuadernos no pueden analizar los widgets HTML. Para ver el widget en el portal, use este código de Python en la celda del cuaderno de Azure Databricks:
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>Error de importación: No hay ningún módulo denominado 'pandas.core.indexes'
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Error de importación: No hay ningún módulo denominado “pandas.core.indexes”
 
-Si ve este error cuando se usa había automatizada de aprendizaje automático:
+Si ve este error al usar el aprendizaje automático automatizado:
 
 1. Ejecute este comando para instalar dos paquetes en el clúster de Azure Databricks: 
 
@@ -114,17 +114,17 @@ Si ve este error cuando se usa había automatizada de aprendizaje automático:
    pandas==0.22.0
    ```
 
-1. Separar y, a continuación, volver a adjuntar el clúster en el Bloc de notas. 
+1. Desasocie y, luego, vuelva a conectar el clúster al cuaderno. 
 
 Si estos pasos no resuelven el problema, pruebe a reiniciar el clúster.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 Si ve directamente el área de trabajo desde un vínculo de recurso compartido desde el SDK o el portal, no podrá ver la página de información general normal con la información de suscripción en la extensión. Tampoco será capaz de cambiar a otra área de trabajo. Si necesita ver otra área de trabajo, la solución consiste en ir directamente a [Azure Portal](https://portal.azure.com) y buscar el nombre de la misma.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros, visite [portal Azure](https://portal.azure.com) y vaya al área de trabajo y seleccione **área de trabajo > experimento > Ejecutar > registros**.
+A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Para ver algunos registros, visite [Azure Portal](https://portal.azure.com), vaya al área de trabajo y seleccione **Área de trabajo > Experimento > Ejecutar > Registros**.
 
 ## <a name="resource-quotas"></a>Cuotas de recursos
 

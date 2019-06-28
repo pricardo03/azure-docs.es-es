@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147687"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage
@@ -68,7 +68,7 @@ A continuación se muestra un ejemplo de una única regla de CORS que se ha espe
 
 A continuación se describen todos los elementos incluidos en la regla de CORS:
 
-* **AllowedOrigins**: los dominios de origen que pueden realizar una solicitud en el servicio de almacenamiento mediante CORS. El dominio de origen es el dominio desde el que se origina la solicitud. Tenga en cuenta que el origen debe tener una coincidencia exacta con distinción entre mayúsculas y minúsculas con el origen que el agente de usuario envía al servicio. También puede utilizar el carácter comodín '*' para permitir que todos los dominios de origen hagan solicitudes a través de CORS. En el ejemplo anterior, lo dominios de http:\//www.contoso.com y http: \/ /www.fabrikam.com pueden hacer solicitudes al servicio mediante CORS.
+* **AllowedOrigins**: los dominios de origen que pueden realizar una solicitud en el servicio de almacenamiento mediante CORS. El dominio de origen es el dominio desde el que se origina la solicitud. Tenga en cuenta que el origen debe tener una coincidencia exacta con distinción entre mayúsculas y minúsculas con el origen que el agente de usuario envía al servicio. También puede utilizar el carácter comodín '*' para permitir que todos los dominios de origen hagan solicitudes a través de CORS. En el ejemplo anterior, los dominios http:\//www.contoso.com y http:\//www.fabrikam.com pueden hacer solicitudes al servicio mediante CORS.
 * **AllowedMethods**: los métodos (verbos de solicitud HTTP) que el dominio de origen puede usar para una solicitud de CORS. En el ejemplo anterior, solo se permiten las solicitudes PUT y GET.
 * **AllowedHeaders**: los encabezados de solicitud que el dominio de origen puede especificar en la solicitud de CORS. En el ejemplo anterior, se permiten todos los encabezados de metadatos que comienzan por x-ms-meta-data, mx-ms-meta-target y x-ms-meta-abcm. Tenga en cuenta que el carácter comodín '*' indica que se permite cualquier encabezado que empiece con el prefijo especificado.
 * **ExposedHeaders**: los encabezados de respuesta que se pueden enviar en la respuesta a la solicitud de CORS y que el explorador expone al emisor de la solicitud. En el ejemplo anterior, se pide al explorador que exponga todos los encabezados que empiecen por x-ms-meta.
@@ -165,11 +165,11 @@ En la tabla siguiente se indica cómo responderá Almacenamiento de Azure a las 
 | Solicitud | Configuración de la cuenta y resultado de la evaluación de reglas |  |  | Response |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Encabezado Origin presente en la solicitud** |**Reglas de CORS especificadas para este servicio** |**Existe una regla de coincidencia que permite todos los orígenes (*)** |**Existe una regla de coincidencia para una coincidencia exacta del origen** |**La respuesta incluye el encabezado Vary establecido en Origin** |**La respuesta incluye Access-Control-Allowed-Origin: "*"** |**La respuesta incluye Access-Control-Exposed-Headers** |
-| Sin  |No |No |No |No |No |No |
+| Sin |No |No |No |No |No |No |
 | No |Sí |No |No |Sí |No |No |
 | No |Sí |Sí |No |No |Sí |Sí |
 | Sí |No |No |No |No |No |No |
-| Sí |Sí |Sin  |Sí |Sí |Sin  |Sí |
+| Sí |Sí |Sin |Sí |Sí |Sin |Sí |
 | Sí |Sí |No |No |Sí |No |No |
 | Sí |Sí |Sí |No |No |Sí |Sí |
 

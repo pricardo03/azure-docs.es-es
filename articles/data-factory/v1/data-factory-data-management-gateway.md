@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143301"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
@@ -93,12 +93,12 @@ Data Management Gateway se puede instalar de las siguientes maneras:
 
 ### <a name="install-the-gateway-from-download-center"></a>Instalación de la puerta de enlace desde el Centro de descarga
 1. Vaya a la [página de descarga de Microsoft Data Management Gateway](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Haga clic en **descargar**, seleccione el **64-bit** versión (32 bits ya no se admiten) y haga clic en **siguiente**.
+2. Haga clic en **Descargar**, seleccione la versión de **64 bits** (ya no se admite la de 32 bits) y haga clic en **Siguiente**.
 3. Ejecute el **MSI** directamente o guárdelo en el disco duro para ejecutarlo más adelante.
 4. En la página **principal**, seleccione un **idioma** y haga clic en **Siguiente**.
 5. **Acepte** el contrato de licencia para el usuario final y haga clic en **Siguiente**.
 6. Seleccione la **carpeta** donde quiera instalar la puerta de enlace y haga clic en **Siguiente**.
-7. En la página **Preparado para instalar...**, haga clic en **Instalar**.
+7. En la página **Preparado para instalar...** , haga clic en **Instalar**.
 8. Haga clic en **Finalizar** para completar la instalación.
 9. Obtenga la clave en Azure Portal. Vaya a la siguiente sección para obtener instrucciones detalladas al respecto.
 10. En la página **Registrar puerta de enlace** del **Administrador de configuración de Data Management Gateway** que se está ejecutando en la máquina, siga los siguientes pasos:
@@ -205,8 +205,8 @@ Puede ver y actualizar el proxy HTTP mediante la herramienta Administrador de co
 ### <a name="configure-proxy-server-settings"></a>Configuración de un servidor proxy
 Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, la puerta de enlace utilizará la configuración de proxy de diahost.exe.config y diawp.exe.config. Si no hay ningún proxy especificado en diahost.exe.config y diawp.exe.config, la puerta de enlace se conecta al servicio en la nube directamente sin pasar por el proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo diahost.exe.config.
 
-1. En el Explorador de archivos, realice una copia de seguridad *C:\\\\archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* a realizar una copia de seguridad del archivo original.
-2. Inicie Notepad.exe como administrador y abra el archivo de texto *C:\\\\archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\ diahost.exe.config*. Encontrará la etiqueta predeterminada para system.net como se muestra en el siguiente código:
+1. En el Explorador de archivos, cree una copia segura de *C:\\\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* para conservar una copia de seguridad del archivo original.
+2. Inicie Notepad.exe como administrador y abra el archivo de texto *C:\\\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config*. Encontrará la etiqueta predeterminada para system.net como se muestra en el siguiente código:
 
     ```
     <system.net>
@@ -250,7 +250,7 @@ Si usa un firewall de terceros, puede abrir manualmente el puerto 8050. Si se pr
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Si decide no abrir el puerto 8050 en la máquina de puerta de enlace, use otros mecanismos que no sean la aplicación de **configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, podría usar [New AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet de PowerShell. Consulte la sección Configuración de credenciales y seguridad para obtener más información sobre cómo configurar las credenciales del almacén de datos.
+Si decide no abrir el puerto 8050 en la máquina de puerta de enlace, use otros mecanismos que no sean la aplicación de **configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) de PowerShell. Consulte la sección Configuración de credenciales y seguridad para obtener más información sobre cómo configurar las credenciales del almacén de datos.
 
 ## <a name="update"></a>Actualizar
 De forma predeterminada, Data Management Gateway se actualiza automáticamente cuando hay disponible una versión más reciente de la puerta de enlace. La puerta de enlace no se actualiza hasta que se completan todas las tareas programadas y deja de procesar tareas hasta que se complete la operación de actualización. Si se produce un error en la actualización, la puerta de enlace se revierte a la versión anterior.
@@ -280,7 +280,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 
 [Para puerta de enlace de nodo único]
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la *C:\\\\archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  carpeta.
+2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
     ```powershell
@@ -293,7 +293,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
     ```
    [Para puerta de enlace escalable y altamente disponible de varios nodos](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la *C:\\\\archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  carpeta.
+2. Cambie a la carpeta *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
     Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad.
@@ -310,7 +310,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 Una vez instalada la puerta de enlace, puede iniciar el Administrador de configuración de Data Management Gateway de una de las siguientes maneras:
 
 1. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad.
-2. Ejecute el archivo ejecutable *ConfigManager.exe* en la carpeta: *C:\\\\archivos de programa\\Microsoft Data Management Gateway\\2.0\\compartido*.
+2. Ejecute el archivo ejecutable *ConfigManager.exe* en la carpeta: *C:\\\\Archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared*.
 
 ### <a name="home-page"></a>Página de inicio
 En la página principal puede hacer las siguientes acciones:
@@ -365,9 +365,9 @@ En la tabla siguiente se proporcionan las descripciones de las columnas de la li
 
 Propiedad de supervisión | DESCRIPCIÓN
 :------------------ | :----------
-Name | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).
+NOMBRE | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).
 Status | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status).
-Version | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática).
+Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática).
 Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
 Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
 Redes (Entrada/Salida) | Uso de red de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real.
@@ -471,7 +471,7 @@ Para cifrar las credenciales en el Editor de Data Factory, realice los siguiente
 
 Cuando se usa la aplicación **Setting Credentials** (Establecer credenciales), el portal las cifra con el certificado especificado en la pestaña **Certificado** del **Administrador de configuración de Data Management Gateway** de la máquina de la puerta de enlace.
 
-Si desea obtener un enfoque basado en API para cifrar las credenciales, puede usar el [New AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Se agregan credenciales cifradas al elemento **EncryptedCredential** de **connectionString** en el JSON, Usar JSON con el [New AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet o en el Editor de factoría de datos.
+Si quiere adoptar un enfoque basado en API para el cifrado de credenciales, puede usar el cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Se agregan credenciales cifradas al elemento **EncryptedCredential** de **connectionString** en el JSON, y se usa el JSON con el cmdlet [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o en Data Factory Editor.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -488,7 +488,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     ```powershell
     Connect-AzAccount
     ```
-3. Use la **New AzDataFactoryGateway** para crear una puerta de enlace lógica como sigue:
+3. Use el cmdlet **New-AzDataFactoryGateway** para crear una puerta de enlace lógica como se indica a continuación:
 
     ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
@@ -511,7 +511,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. En Azure PowerShell, cambie a la carpeta: *C:\\\\archivos de programa\\en tiempo de ejecución de integración de Microsoft\\3.0\\PowerShellScript\\*. Ejecute el script *RegisterGateway.ps1* asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
+1. En Azure PowerShell, cambie a la carpeta: *C:\\\\Archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Ejecute el script *RegisterGateway.ps1* asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -524,12 +524,12 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
-2. Puede usar el **Get AzDataFactoryGateway** para obtener la lista de puertas de enlace en la factoría de datos. Cuando el **Estado** es **En línea**, significa que la puerta de enlace está lista para usarla.
+2. Use el cmdlet **Get-AzDataFactoryGateway** para obtener la lista de puertas de enlace de su factoría de datos. Cuando el **Estado** es **En línea**, significa que la puerta de enlace está lista para usarla.
 
     ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   Puede quitar una puerta de enlace con el **Remove-AzDataFactoryGateway** cmdlet y actualizar la descripción de una puerta de enlace mediante la **conjunto AzDataFactoryGateway** cmdlets. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.  
+   Puede quitar una puerta de enlace con el cmdlet **Remove-AzDataFactoryGateway** y actualizar la descripción de una puerta de enlace con los cmdlets **Set-AzDataFactoryGateway**. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.  
 
 ### <a name="list-gateways-using-powershell"></a>Enumeración de puertas de enlace con PowerShell
 

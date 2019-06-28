@@ -1,6 +1,6 @@
 ---
-title: Creación del grupo host y el inquilino en el escritorio Virtual de Windows - Azure
-description: Cómo resolver problemas al configurar una sesión y el inquilino host máquina virtual (VM) en un entorno de Escritorio Virtual de Windows.
+title: Creación de grupos de inquilinos y de host en Windows Virtual Desktop en Azure
+description: Cómo resolver problemas al configurar una máquina virtual (VM) de inquilino y host de sesión en un entorno de Windows Virtual Desktop.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
@@ -8,148 +8,148 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64928128"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Creación del grupo de inquilinos y host
+# <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
 
-Use este artículo para solucionar los problemas que tiene al configurar las máquinas de virtuales de host de sesión de Escritorio Virtual de Windows (VM).
+Use este artículo para solucionar los problemas que tiene al configurar las máquinas de virtuales (VM) de host de sesión de Windows Virtual Desktop.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 
 En este momento no se aceptan casos de soporte técnico mientras Windows Virtual Desktop se encuentre en versión preliminar. Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para hablar sobre Windows Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
 
-## <a name="vms-are-not-joined-to-the-domain"></a>Las máquinas virtuales no están unidas al dominio
+## <a name="vms-are-not-joined-to-the-domain"></a>Las VM no se unen al dominio
 
-Siga estas instrucciones si tiene problemas para unir las máquinas virtuales al dominio.
+Siga estas instrucciones si tiene problemas para unir las VM al dominio.
 
-- Unir la máquina virtual manualmente mediante el proceso en [unir una máquina virtual Windows Server a un dominio administrado](https://docs.microsoft.com/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) o mediante el [plantilla de unión de dominio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-- Intente hacer ping en el nombre de dominio desde la línea de comandos en la máquina virtual.
-- Revise la lista de mensajes de error de unión de dominio en [solución de problemas de mensajes de Error de unión de dominio](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
+- Una la VM manualmente con el proceso de [Unir una máquina virtual de Windows Server a un dominio administrado](https://docs.microsoft.com/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) o con la [plantilla de unión a un dominio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Intente hacer ping en el nombre de dominio desde la línea de comandos en la VM.
+- Revise la lista de mensajes de error de unión a un dominio en [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx) (Solución de problemas con mensajes de error de unión a un dominio).
 
 ### <a name="error-incorrect-credentials"></a>Error: Credenciales incorrectas
 
-**Causa:** Se ha producido un error de escritura realizada cuando las credenciales se han introducido en correcciones de la interfaz de la plantilla Azure Resource Manager.
+**Causa:** Hubo un error ortográfico al escribir las credenciales en las correcciones de la interfaz de la plantilla de Azure Resource Manager.
 
-**Fix:** Siga estas instrucciones para corregir las credenciales.
+**Corrección:** Siga estas instrucciones para corregir las credenciales.
 
-1. Agregar manualmente las máquinas virtuales a un dominio.
-2. Volver a implementar una vez que las credenciales que se hayan confirmado. Consulte [creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
-3. Unir las máquinas virtuales a un dominio mediante una plantilla con [une una máquina virtual Windows existente al dominio de Active Directory](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+1. Agregue manualmente las VM a un dominio.
+2. Vuelva a implementar una vez que las credenciales se hayan confirmado. Consulte [Creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+3. Una las VM a un dominio con una plantilla con [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/) (Unir una VM Windows existente a un dominio de AD).
 
-### <a name="error-timeout-waiting-for-user-input"></a>Error: Tiempo de espera para la entrada de usuario
+### <a name="error-timeout-waiting-for-user-input"></a>Error: Se agotó el tiempo de espera para la entrada del usuario
 
-**Causa:** La cuenta utilizada para completar la unión al dominio puede tener la autenticación multifactor (MFA).
+**Causa:** La cuenta usada para completar la unión a un dominio puede tener autenticación multifactor (MFA).
 
-**Fix:** Siga estas instrucciones para completar la unión al dominio.
+**Corrección:** Siga estas instrucciones para completar la unión a un dominio.
 
-1. Quitar temporalmente MFA para la cuenta.
+1. Quite temporalmente la MFA para la cuenta.
 2. Use una cuenta de servicio.
 
 ### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Error: La cuenta usada durante el aprovisionamiento no tiene permisos para completar la operación
 
-**Causa:** La cuenta utilizada no tiene permisos para unir las máquinas virtuales al dominio debido al cumplimiento de normas y reglamentos.
+**Causa:** La cuenta usada no tiene permisos para unir las VM al dominio debido al cumplimiento de normas y reglamentos.
 
-**Fix:** Siga estas instrucciones.
+**Corrección:** Siga estas instrucciones.
 
-1. Usar una cuenta que sea miembro del grupo de administradores.
-2. Conceda los permisos necesarios para la cuenta utilizada.
+1. Use una cuenta que sea miembro del grupo Administrador.
+2. Conceda los permisos necesarios para la cuenta usada.
 
-### <a name="error-domain-name-doesnt-resolve"></a>Error: No se resuelve el nombre de dominio
+### <a name="error-domain-name-doesnt-resolve"></a>Error: El nombre de dominio no se resuelve
 
-**Causa 1:** Las máquinas virtuales están en un grupo de recursos que no está asociado con la red virtual (VNET) donde se encuentra el dominio.
+**Causa 1:** Las VM están en un grupo de recursos que no está asociado con la red virtual (VNET) donde se encuentra el dominio.
 
-**Corrección 1:** Crear el emparejamiento de VNET entre la red virtual donde se aprovisionan las máquinas virtuales y la red virtual donde se ejecuta el controlador de dominio (DC). Consulte [crear un emparejamiento de redes virtuales: Resource Manager, diferentes suscripciones](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
+**Corrección 1:** Cree el emparejamiento de VNET entre la red virtual donde se han aprovisionado las VM y la red virtual donde se ejecuta el controlador de dominio (DC). Consulte [Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
 
-**Causa 2:** Cuando se usa AadService (AADS), no se han establecido las entradas de DNS.
+**Causa 2:** Al usar AadService (AADS), no se han establecido las entradas de DNS.
 
-**Corrección 2:** Para configurar servicios de dominio, consulte [habilitar Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Corrección 2:** Para establecer los servicios de dominio, consulte [Habilitación de Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
-## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Agente de Escritorio Virtual de Windows y el cargador de arranque de Escritorio Virtual de Windows no están instalados
+## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>El agente de Windows Virtual Desktop y el cargador de arranque de Windows Virtual Desktop no están instalados
 
-La manera recomendada para aprovisionar máquinas virtuales es mediante Azure Resource Manager **creación y aprovisionamiento de Escritorio Virtual de Windows de host grupo** plantilla. La plantilla instala automáticamente el agente de Escritorio Virtual de Windows y el cargador de arranque de Escritorio Virtual de Windows del agente.
+La manera recomendada para aprovisionar VM es mediante la plantilla **Create and provision Windows Virtual Desktop host pool** (Creación y aprovisionamiento del grupo de host de Windows Virtual Desktop) de Azure Resource Manager. La plantilla instala automáticamente el agente de Windows Virtual Desktop y el cargador de arranque de Windows Virtual Desktop.
 
-Siga estas instrucciones para confirmar que se instalan los componentes y para comprobar los mensajes de error.
+Siga estas instrucciones para confirmar que los componentes se han instalado y para comprobar los mensajes de error.
 
-1. Confirme que los dos componentes se instalan mediante la comprobación **Panel de Control** > **programas** > **programas y características**. Si **Windows Virtual Desktop Agent** y **cargador de arranque de Escritorio Virtual de Windows del agente** no son visibles, no están instaladas en la máquina virtual.
-2. Abra **Explorador de archivos** y vaya a **C:\Windows\Temp\scriptlogs.log**. Si falta el archivo, indica que el DSC de PowerShell que instala los dos componentes no pudo ejecutar en el contexto de seguridad proporcionado.
-3. Si el archivo **C:\Windows\Temp\scriptlogs.log** está presente, ábralo y busque mensajes de error.
+1. Para confirmar que los dos componentes se han instalado, consulte **Panel de control** > **Programas** > **Programas y características**. Si no ve **Windows Virtual Desktop Agent** y **Windows Virtual Desktop Agent Boot Loader**, no están instalados en la VM.
+2. Abra el **Explorador de archivos** y vaya a **C:\Windows\Temp\scriptlogs.log**. Si falta el archivo, es señal de que el DSC de PowerShell que instala los dos componentes no pudo ejecutarse en el contexto de seguridad proporcionado.
+3. Si se encuentra el archivo **C:\Windows\Temp\scriptlogs.log**, ábralo y busque mensajes de error.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Error: Faltan Windows Virtual Desktop Agent y el cargador de arranque de Escritorio Virtual de Windows del agente. C:\Windows\Temp\scriptlogs.log is also missing
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Error: Faltan el agente de Windows Virtual Desktop y el cargador de arranque de Windows Virtual Desktop. C:\Windows\Temp\scriptlogs.log también falta
 
-**Causa 1:** Credenciales proporcionadas durante la entrada de la plantilla de Azure Resource Manager son incorrectas o los permisos son insuficientes.
+**Causa 1:** Las credenciales proporcionadas durante la entrada de la plantilla de Azure Resource Manager son incorrectas o los permisos eran insuficientes.
 
-**Corrección 1:** Agregar manualmente los componentes que faltan para las máquinas virtuales con [creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Corrección 1:** Agregue manualmente los componentes que faltan para las VM con [Creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
-**Causa 2:** DSC de PowerShell se puede iniciar y ejecutar pero no se pudo completar, ya no se puede iniciar sesión en el escritorio Virtual de Windows y obtener la información necesaria.
+**Causa 2:** DSC de PowerShell se puedo iniciar y ejecutar, pero no se pudo completar, ya no se puede iniciar sesión en Windows Virtual Desktop y obtener la información necesaria.
 
-**Corrección 2:** Confirme que los elementos de la lista siguiente.
+**Corrección 2:** Confirme los elementos de la lista siguiente.
 
-- Asegúrese de que la cuenta no tiene MFA.
-- Confirme que el nombre del inquilino es preciso y el inquilino existe en el escritorio Virtual de Windows.
+- Asegúrese de que la cuenta no tenga MFA.
+- Confirme que el nombre del inquilino esté correcto y que el inquilino exista en Windows Virtual Desktop.
 - Confirme que la cuenta tiene al menos permisos de colaborador de RDS.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>Error: Error de autenticación, error en C:\Windows\Temp\scriptlogs.log
 
-**Causa:** DSC de PowerShell era capaz de ejecutar pero no se pudo conectar al escritorio Virtual de Windows.
+**Causa:** DSC de PowerShell pudo ejecutarse, pero no pudo conectarse a Windows Virtual Desktop.
 
-**Fix:** Confirme que los elementos de la lista siguiente.
+**Corrección:** Confirme los elementos de la lista siguiente.
 
-- Registrar manualmente las máquinas virtuales con el servicio de Escritorio Virtual de Windows.
-- Confirmar la cuenta usada para la conexión a Escritorio Virtual de Windows tiene permisos en el inquilino para crear grupos host.
-- Confirmar la cuenta no tiene MFA.
+- Registre manualmente las VM con el servicio de Windows Virtual Desktop.
+- Confirme que la cuenta usada para conectarse a Windows Virtual Desktop tiene permisos en el inquilino para crear grupos host.
+- Confirme que la cuenta no tenga MFA.
 
-## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>Agente de Escritorio Virtual de Windows no está registrando con el servicio de Escritorio Virtual de Windows
+## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>El agente de Windows Virtual Desktop no se registra en el servicio de Windows Virtual Desktop
 
-Cuando el agente de Escritorio Virtual de Windows se instala por primera vez en la sesión de hospedar las máquinas virtuales (ya sea manualmente o a través de la plantilla de Azure Resource Manager y PowerShell DSC), proporciona un token de registro. La siguiente sección trata problemas aplicables para el agente de Escritorio Virtual de Windows y el token.
+Cuando el agente de Windows Virtual Desktop se instala por primera vez en las VM de host de sesión (ya sea manualmente o a través de la plantilla de Azure Resource Manager y DSC de PowerShell), proporciona un token de registro. En la siguiente sección se trata la solución de problemas aplicables al agente de Windows Virtual Desktop y el token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Error: El campo en el cmdlet Get-RdsSessionHost estado muestra el estado como no disponible
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Error: El estado archivado en el cmdlet Get-RdsSessionHost muestra el estado como no disponible
 
-![Cmdlet Get-RdsSessionHost muestra el estado como no disponible.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![El cmdlet Get-RdsSessionHost muestra el estado como no disponible.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** El agente no puede actualizarse automáticamente a una nueva versión.
 
-**Fix:** Siga estas instrucciones para actualizar manualmente el agente.
+**Corrección:** Siga estas instrucciones para actualizar manualmente el agente.
 
-1. Descargue una versión nueva del agente en la máquina virtual del host de sesión.
-2. Inicie el Administrador de tareas y, en la ficha servicio, detenga el servicio RDAgentBootLoader.
-3. Ejecute al instalador para la nueva versión del agente de Escritorio Virtual de Windows.
-4. Cuando se le pida el token de registro, quite la entrada INVALID_TOKEN y presione siguiente (un nuevo token no es necesario).
-5. Complete el Asistente de instalación.
-6. Abra el Administrador de tareas e iniciar el servicio RDAgentBootLoader.
+1. Descargue una nueva versión del agente en la VM del host de sesión.
+2. Inicie el Administrador de tareas y, en la pestaña Servicio, detenga el servicio RDAgentBootLoader.
+3. Ejecute al instalador para la nueva versión del agente de Windows Virtual Desktop.
+4. Cuando se le pida el token de registro, quite la entrada INVALID_TOKEN y presione Siguiente (no es necesario un nuevo token).
+5. Complete el Asistente para la instalación.
+6. Abra el Administrador de tareas e inicie el servicio RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Error:  Entrada del registro de Windows Virtual Desktop Agent IsRegistered muestra un valor de 0
+## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Error:  La entrada del registro IsRegistered del agente de Windows Virtual Desktop muestra un valor de 0
 
-**Causa:** Token de registro ha expirado o se ha generado con el valor de expiración de 999999.
+**Causa:** El token de registro ha expirado o se ha generado con el valor de expiración de 999999.
 
-**Fix:** Siga estas instrucciones para corregir al agente de registro error.
+**Corrección:** Siga estas instrucciones para corregir el error del registro del agente.
 
-1. Si ya hay un token de registro, lo quita con Remove-RDSRegistrationInfo.
-2. Generar nuevo token con Rds NewRegistrationInfo.
-3. Confirme que el parámetro - ExpriationHours está configurado en 72 (valor máximo es 99999).
+1. Si ya hay un token de registro, quítelo con Remove-RDSRegistrationInfo.
+2. Genere un nuevo token con Rds-NewRegistrationInfo.
+3. Confirme que el parámetro -ExpriationHours esté configurado en 72 (el valor máximo es 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Error: Agente de Escritorio Virtual de Windows no está notificando un latido al ejecutar Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Error: El agente de Windows Virtual Desktop no notifica un latido al ejecutar Get-RdsSessionHost
 
 **Causa 1:** Se ha detenido el servicio RDAgentBootLoader.
 
-**Corrección 1:** Inicie el Administrador de tareas y, si la ficha servicio notifica un estado detenido para RDAgentBootLoader servicio, inicie el servicio.
+**Corrección 1:** Inicie el Administrador de tareas y, si la pestaña Servicio notifica un estado detenido para el servicio RDAgentBootLoader, inicie el servicio.
 
-**Causa 2:** Se puede cerrar el puerto 443.
+**Causa 2:** Puede que el puerto 443 esté cerrado.
 
 **Corrección 2:** Siga estas instrucciones para abrir el puerto 443.
 
-1. Confirmar el puerto 443 esté abierto, descargue la herramienta PSPing desde [herramientas Sysinternal](https://docs.microsoft.com/sysinternals/downloads/psping).
-2. Instale PSPing en el host de sesión que se ejecuta el agente de máquina virtual.
-3. Abra el símbolo del sistema como administrador y emita el siguiente comando:
+1. Para confirmar que el puerto 443 esté abierto, descargue la herramienta PSPing desde las [herramientas de Sysinternal](https://docs.microsoft.com/sysinternals/downloads/psping).
+2. Instale PSPing en la VM de host de sesión donde se ejecuta el agente.
+3. Abra el símbolo del sistema como administrador y emita el comando siguiente:
 
     ```cmd
     psping rdbroker.wvdselfhost.microsoft.com:443
     ```
 
-4. Confirmar información PSPing recibido desde el RDBroker:
+4. Confirme que PSPing reciba la información desde RDBroker:
 
     ```
     PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
@@ -167,23 +167,23 @@ Cuando el agente de Escritorio Virtual de Windows se instala por primera vez en 
     Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
     ```
 
-## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Solución de problemas con la pila de Escritorio Virtual de Windows en paralelo
+## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Solución de problemas con la pila en paralelo de Windows Virtual Desktop
 
-La pila en paralelo de Escritorio Virtual de Windows se instala automáticamente con Windows Server 2019. Usar Microsoft Installer (MSI) para instalar la pila en paralelo en Microsoft Windows Server 2016 o Windows Server 2012 R2. Microsoft Windows 10, la pila de Escritorio Virtual de Windows en paralelo está habilitada con **enablesxstackrs.ps1**.
+La pila en paralelo de Windows Virtual Desktop se instala automáticamente con Windows Server 2019. Use Microsoft Installer (MSI) para instalar la pila en paralelo en Microsoft Windows Server 2016 o Windows Server 2012 R2. Para Microsoft Windows 10, la pila en paralelo de Windows Virtual Desktop se habilita con **enablesxstackrs.ps1**.
 
-Hay tres maneras principales de la pila side-by-side obtiene instalada o habilitada en las máquinas virtuales del grupo de host de sesión:
+Hay tres maneras principales de instalar la pila en paralelo o habilitarla en VM del grupo de host de sesión:
 
-- Con Azure Resource Manager **creación y aprovisionamiento de grupo de host de Escritorio Virtual de Windows nueva** plantilla
-- Por el que se incluye y habilitado en la imagen maestra
-- Instalado o habilitado manualmente en cada máquina virtual (o con extensiones o PowerShell)
+- Con la plantilla **Create and provision Windows Virtual Desktop host pool** (Creación y aprovisionamiento del grupo de host de Windows Virtual Desktop) de Azure Resource Manager.
+- Al incluirla y habilitarla en la imagen maestra.
+- Al instalarla o habilitarla manualmente en cada VM (con extensiones o PowerShell).
 
-Si tiene problemas con la pila en paralelo de Escritorio Virtual de Windows, escriba el **qwinsta** ejecutado desde el símbolo del sistema para confirmar que la pila side-by-side está instalada o habilitada.
+Si tiene problemas con la pila en paralelo de Windows Virtual Desktop, escriba el comando **qwinsta** desde el símbolo del sistema para confirmar que la pila en paralelo esté instalada o habilitada.
 
-La salida de **qwinsta** enumerará **rdp sxs** en la salida si la pila side-by-side está instalada y habilitada.
+La salida de **qwinsta** enumerará **rdp-sxs** en el resultado si la pila en paralelo está instalada y habilitada.
 
-![Pila Side-by-side instalado o habilitado con qwinsta aparece como sxs de rdp en la salida.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![La pila en paralelo instalada o habilitada, donde qwinsta aparece como rdp-sxs en la salida.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine las entradas del registro que se enumeran a continuación y confirme que coinciden con sus valores. Si faltan las claves del registro o valores no coinciden, siga las instrucciones de [creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) acerca de cómo volver a instalar la pila en paralelo.
+Examine las entradas del Registro que se enumeran a continuación y confirme que coincidan con sus valores. Si faltan las claves del Registro o los valores no coinciden, siga las instrucciones de [Creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) para conocer cómo reinstalar la pila en paralelo.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -195,87 +195,87 @@ Examine las entradas del registro que se enumeran a continuación y confirme que
 
 ### <a name="error-oreverseconnectstackfailure"></a>Error: O_REVERSE_CONNECT_STACK_FAILURE
 
-![Código de error O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Código de error de O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Causa:** La pila en paralelo no está instalada en el host de sesión de máquina virtual.
+**Causa:** La pila en paralelo no está instalada en la VM del host de sesión.
 
-**Fix:** Siga estas instrucciones para instalar la pila en paralelo en el host de sesión de máquina virtual.
+**Corrección:** Siga estas instrucciones para instalar la pila en paralelo en la VM del host de sesión.
 
-1. Use el protocolo de escritorio remoto (RDP) para obtener directamente en la máquina virtual del host de sesión como administrador local.
-2. Descargue e importe [Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) usar en la sesión de PowerShell si no lo ha hecho ya.
-3. Instalar la pila en paralelo usando [creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+1. Use el Protocolo de escritorio remoto (RDP) para ir directamente a la VM del host de sesión como administrador local.
+2. Si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
+3. Instale la pila en paralelo con [Creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
-## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Cómo corregir una pila de side-by-side de Escritorio Virtual de Windows que no funciona correctamente
+## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Cómo corregir una pila en paralelo de Windows Virtual Desktop con error de funcionamiento
 
-Existen conocidos circunstancias que pueden causar la pila en paralelo no funcione correctamente:
+Existen circunstancias conocidas que pueden provocar que la pila en paralelo no funcione correctamente:
 
-- No, siguiendo el orden correcto de los pasos para habilitar la pila en paralelo
-- Actualización automática para Windows 10 mejorado versátil disco (EVD)
-- Falta el rol de Host de sesión de escritorio remoto (RDSH)
+- No seguir el orden correcto de los pasos para habilitar la pila en paralelo
+- Actualizar automáticamente a Enhanced Versatile Disc (EVD) de Windows 10
+- La falta del rol de host de sesión de Escritorio remoto (RDSH)
 - Ejecutar enablesxsstackrc.ps1 varias veces
-- Ejecutando enablesxsstackrc.ps1 en una cuenta que no tiene privilegios de administrador local
+- Ejecutar enablesxsstackrc.ps1 en una cuenta que no tiene privilegios de administrador local
 
-Las instrucciones de esta sección pueden ayudarle a desinstalar la pila de Escritorio Virtual de Windows en paralelo. Una vez que se desinstale la pila en paralelo, vaya a "Registrar la máquina virtual con el grupo de host de Escritorio Virtual de Windows" en [creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) para volver a instalar la pila en paralelo.
+Las instrucciones de esta sección pueden ayudarle a desinstalar la pila en paralelo de Windows Virtual Desktop. Una vez que se desinstale la pila en paralelo, vaya a "Registrar las máquinas virtuales al grupo host de vista previa de Escritorio Virtual de Windows" en [Creación de un grupo host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) para reinstalar la pila en paralelo.
 
-La máquina virtual utilizada para ejecutar la corrección debe estar en la misma subred y el mismo dominio que la máquina virtual con la pila en paralelo que no funciona correctamente.
+La VM usada para ejecutar la corrección debe estar en la misma subred y el mismo dominio que la VM con la pila en paralelo con error de funcionamiento.
 
-Siga estas instrucciones para ejecutar la corrección de la misma subred y dominio:
+Siga estas instrucciones para ejecutar la corrección desde la misma subred y dominio:
 
-1. Conectar con protocolo estándar de escritorio remoto (RDP) a la máquina virtual desde donde se aplicará la revisión.
-2. Descargar PsExec de https://docs.microsoft.com/sysinternals/downloads/psexec.
+1. Conéctese con el Protocolo de escritorio remoto (RDP) a la VM desde donde se aplicará la revisión.
+2. Descargue PsExec de https://docs.microsoft.com/sysinternals/downloads/psexec.
 3. Descomprima el archivo descargado.
-4. Inicie el símbolo del sistema como administrador local.
+4. Inicie un símbolo del sistema como administrador local.
 5. Navegue hasta la carpeta donde ha descomprimido PsExec.
-6. Desde el símbolo del sistema, use el siguiente comando:
+6. En un símbolo del sistema, use el siguiente comando:
 
     ```cmd
             psexec.exe \\<VMname> cmd
     ```
 
     >[!Note]
-    >VMname es el nombre del equipo de la máquina virtual con la pila en paralelo que no funciona correctamente.
+    >VMname es el nombre de equipo de la VM con la pila en paralelo con error de funcionamiento.
 
-7. Acepte el contrato de licencia de PsExec, haga clic en Aceptar.
+7. Para aceptar el contrato de licencia de PsExec, haga clic en Aceptar.
 
-    ![Captura de pantalla de contrato de licencia de software.](media/SoftwareLicenseTerms.png)
+    ![Captura de pantalla del contrato de licencia de software.](media/SoftwareLicenseTerms.png)
 
     >[!Note]
     >Este cuadro de diálogo se muestra solo la primera vez que se ejecuta PsExec.
 
-8. Una vez abierta la sesión de símbolo del sistema en la máquina virtual con la pila en paralelo que no funciona correctamente, ejecute qwinsta y confirme que está disponible una entrada denominada rdp-sxs. Si no es así, una pila en paralelo no está presente en la máquina virtual para que el problema no está vinculado a la pila en paralelo.
+8. Una vez que se abre la sesión de símbolo del sistema en la VM con la pila en paralelo con error de funcionamiento, ejecute qwinsta y confirme que haya disponible una entrada denominada rdp-sxs. Si no es así, no hay una pila en paralelo en la VM, así que el problema no está vinculado a la pila en paralelo.
 
     ![Símbolo del sistema de administrador](media/AdministratorCommandPrompt.png)
 
-9. Ejecute el comando siguiente, que mostrará una lista de componentes de Microsoft instalados en la máquina virtual con la pila en paralelo que no funciona correctamente.
+9. Ejecute el comando siguiente, que mostrará una lista de componentes de Microsoft instalados en la VM con la pila en paralelo con error de funcionamiento.
 
     ```cmd
         wmic product get name
     ```
 
-10. Ejecute el comando siguiente con los nombres de producto del paso anterior.
+10. Ejecute el comando siguiente con los nombres de productos del paso anterior.
 
     ```cmd
         wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
     ```
 
-11. Desinstalar todos los productos que empiecen por "Escritorio remoto".
+11. Desinstale todos los productos que empiecen por "Remote Desktop".
 
-12. Una vez se hayan desinstalado todos los componentes de Escritorio Virtual de Windows, siga las instrucciones para su sistema operativo:
+12. Una vez se hayan desinstalado todos los componentes de Windows Virtual Desktop, siga las instrucciones para su sistema operativo:
 
-13. Si el sistema operativo es Windows Server, reinicie la máquina virtual que tenía la pila en paralelo que no funciona correctamente (ya sea con Azure portal o desde la herramienta de PsExec).
+13. Si el sistema operativo es Windows Server, reinicie la VM que tenía la pila en paralelo con error de funcionamiento (ya sea con Azure Portal o desde la herramienta PsExec).
 
 Si el sistema operativo es Microsoft Windows 10, continúe con las instrucciones siguientes:
 
-14. Desde la máquina virtual ejecuta PsExec, abra el Explorador de archivos y copie disablesxsstackrc.ps1 en la unidad del sistema de la máquina virtual con la pila side-by-side funcionamiento incorrecto.
+14. Desde la VM que ejecuta PsExec, abra el Explorador de archivos y copie disablesxsstackrc.ps1 en la unidad del sistema de la VM con la pila en paralelo con error de funcionamiento.
 
     ```cmd
         \\<VMname>\c$\
     ```
 
     >[!NOTE]
-    >VMname es el nombre del equipo de la máquina virtual con la pila en paralelo que no funciona correctamente.
+    >VMname es el nombre de equipo de la VM con la pila en paralelo con error de funcionamiento.
 
-15. El proceso recomendado: desde la herramienta de PsExec, inicie PowerShell y navegue hasta la carpeta en el paso anterior y ejecute disablesxsstackrc.ps1. Como alternativa, puede ejecutar los siguientes cmdlets:
+15. Proceso recomendado: desde la herramienta PsExec, inicie PowerShell y navegue hasta la carpeta del paso anterior y ejecute disablesxsstackrc.ps1. Como alternativa, puede ejecutar los cmdlets siguientes:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -283,16 +283,16 @@ Si el sistema operativo es Microsoft Windows 10, continúe con las instrucciones
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
     ```
 
-16. Cuando se realizan los cmdlets en ejecución, reinicie la máquina virtual con la pila en paralelo que no funciona correctamente.
+16. Cuando se terminen de ejecutar los cmdlets, reinicie la VM con la pila en paralelo con error de funcionamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información general sobre cómo solucionar problemas de Escritorio Virtual de Windows y las pistas de escalado, consulte [solución de problemas de introducción, comentarios y soporte técnico](troubleshoot-set-up-overview.md).
-- Para solucionar problemas durante la creación de un grupo de inquilinos y host en un entorno de Escritorio Virtual de Windows, consulte [creación del grupo de inquilinos y host](troubleshoot-set-up-issues.md).
-- Para solucionar problemas al configurar una máquina virtual (VM) en el escritorio Virtual de Windows, consulte [configuración de máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
-- Para solucionar problemas con conexiones de cliente de Escritorio Virtual de Windows, consulte [las conexiones de cliente de escritorio remoto](troubleshoot-client-connection.md).
-- Para solucionar problemas al usar PowerShell con el escritorio Virtual de Windows, consulte [Windows PowerShell de Escritorio Virtual](troubleshoot-powershell.md).
-- Para obtener más información sobre el servicio en versión preliminar, consulte [entorno de versión preliminar de Windows Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de implementaciones de plantilla de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
+- Para obtener información general sobre cómo solucionar problemas de Windows Virtual Desktop y las pistas de escalación, consulte [Introducción, comentarios y soporte técnico para solucionar problemas](troubleshoot-set-up-overview.md).
+- Para solucionar problemas durante la creación de un grupo de inquilinos y de host en un entorno de Windows Virtual Desktop, consulte [Creación de los grupos de inquilinos y de host](troubleshoot-set-up-issues.md).
+- Para solucionar problemas al configurar una máquina virtual (VM) en Windows Virtual Desktop, consulte [Configuración de la máquina virtual del host de sesión](troubleshoot-vm-configuration.md).
+- Para solucionar problemas con conexiones de cliente de Windows Virtual Desktop, consulte [Conexiones de cliente de Escritorio remoto](troubleshoot-client-connection.md).
+- Para solucionar problemas al usar PowerShell con Windows Virtual Desktop, consulte [PowerShell para Windows Virtual Desktop](troubleshoot-powershell.md).
+- Para obtener más información sobre el servicio en versión preliminar, consulte [Entorno de versión preliminar de Windows Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

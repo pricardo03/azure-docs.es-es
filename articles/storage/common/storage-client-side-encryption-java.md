@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147022"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
@@ -56,9 +56,9 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 > 
 > 
 
-Descargar un blob cifrado implica recuperar el contenido del blob completo mediante la **descargar**/**openInputStream** métodos útiles. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los métodos de conveniencia **download**/**openInputStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
-Descargar un intervalo arbitrario (**downloadRange** métodos) en el objeto blob cifrado implica ajustar el intervalo proporcionado por los usuarios con el fin de obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente solicitado intervalo.  
+Descargar un intervalo arbitrario (métodos**downloadRange**) en el blob cifrado, implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que puedan usarse para descifrar correctamente el intervalo solicitado.  
 
 Todos los tipos de blobs (blobs en bloques, blobs de anexión) se pueden cifrar y descifrar usando este esquema.
 

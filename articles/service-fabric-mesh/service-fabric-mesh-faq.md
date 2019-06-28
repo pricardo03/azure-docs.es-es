@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
 ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143292"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
@@ -28,7 +28,7 @@ Formule preguntas, obtenga respuestas de los ingenieros de Microsoft e informe d
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>¿Cuál es el costo de participar en la versión preliminar?
 
-Actualmente no hay ningún cargo por la implementación de aplicaciones o contenedores en la vista previa de la malla. Vea las actualizaciones de mayo para su habilitación para la facturación. Sin embargo, le recomendamos que elimine los recursos que implemente y dejarlos no ejecutándose a menos que se está probando activamente.
+Actualmente, no hay ningún cargo por implementar aplicaciones o contenedores en la versión preliminar de Mesh. Se esperan actualizaciones en mayo para su habilitación para facturación. Sin embargo, le recomendamos que elimine los recursos que implemente y que no los deje ejecutándose, a menos que los esté probando activamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>¿Hay un límite de cuota del número de núcleos y RAM?
 
@@ -49,7 +49,7 @@ Actualmente, limitamos la duración de una aplicación a dos días. El objetivo 
 
 Si se diera el caso, puede validar que el sistema la apague mediante la ejecución de un comando `az mesh app show` en la CLI de Azure. Compruebe si se devuelve `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."`. 
 
-Por ejemplo:  
+Por ejemplo: 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -96,11 +96,11 @@ Las siguientes imágenes del sistema operativo de contenedor pueden usarse para 
     - Ninguna limitación conocida
 
 > [!NOTE]
-> Herramientas de malla de Visual Studio no admite aún la implementación en Windows Server 2019 y 1809 contenedores.
+> Las herramientas de Visual Studio para Mesh no admiten aún la implementación en contenedores de Windows Server 2019 y 1809.
 
-### <a name="what-types-of-applications-can-i-deploy"></a>¿Qué tipos de aplicaciones puedo implementar? 
+### <a name="what-types-of-applications-can-i-deploy"></a>¿Qué tipos de aplicación puedo implementar? 
 
-Puede implementar cualquier cosa que se ejecuta en contenedores que se ajusta a las restricciones se coloca en un recurso de aplicación (vea más arriba para obtener más información acerca de las cuotas). Si detectamos utilizas malla para ejecutar cargas de trabajo no válidos o aproveche el sistema (es decir, de minería de datos), a continuación, nos reservamos el derecho para finalizar las implementaciones y la lista de bloqueo de su suscripción desde la que se ejecuta en el servicio. Póngase en contacto con nosotros si tiene alguna pregunta sobre la ejecución de una carga de trabajo específica. 
+Puede implementar cualquier cosa que se ejecute en contenedores y que cumplan con las restricciones impuestas a un recurso de aplicación (consulte antes para más información sobre las cuotas). Si detectamos que usa Mesh para ejecutar cargas de trabajo no permitidas o abusa del sistema (es decir, realiza minería de datos), nos reservamos el derecho a finalizar las implementaciones y a impedir que su suscripción se ejecute en el servicio. Póngase en contacto con nosotros si tiene alguna pregunta sobre la ejecución de una carga de trabajo específica. 
 
 ## <a name="developer-experience-issues"></a>Problemas de experiencia para el desarrollador
 
@@ -110,7 +110,7 @@ La generación de consultas de DNS de un contenedor en el servicio DNS de Servic
 
 - Use Windows Fall Creators Update (versión 1709 o superior) como imagen del contenedor base.
 - Si el nombre del servicio por sí solo no funciona, pruebe el nombre completo: ServiceName.ApplicationName.
-- En el archivo de Docker para el servicio, agregue `EXPOSE <port>`, donde port es el puerto en el que expone el servicio. Por ejemplo: 
+- En el archivo de Docker para el servicio, agregue `EXPOSE <port>`, donde port es el puerto en el que expone el servicio. Por ejemplo:
 
 ```Dockerfile
 EXPOSE 80
@@ -144,9 +144,9 @@ No se pueden implementar varias aplicaciones en un clúster de un nodo. Para mit
 - Use un clúster de cinco nodos al implementar varias aplicaciones en un clúster local.
 - Quite las aplicaciones que no se estén probando actualmente.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Herramientas de VS con compatibilidad limitada para los contenedores de Windows
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Las herramientas de VS tienen compatibilidad limitada para los contenedores de Windows
 
-Las herramientas de Visual Studio solo admiten la implementación de contenedores de Windows con una versión de sistema operativo base de Windows Server 1709 y 1803 hoy en día. 
+Actualmente, las herramientas de Visual Studio solo admiten la implementación de contenedores de Windows con una versión base de sistema operativo de Windows Server 1709 y 1803. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Lagunas de características y otros problemas conocidos
 

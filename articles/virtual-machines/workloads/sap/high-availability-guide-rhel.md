@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
 ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142992"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux
@@ -28,14 +28,14 @@ ms.locfileid: "65142992"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -74,7 +74,7 @@ Lea primero las notas y los documentos de SAP siguientes:
   * [Administración del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referencia del complemento de alta disponibilidad](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Configuración de ASCS/ERS para SAP Netweaver con recursos independientes en RHEL 7.5](https://access.redhat.com/articles/3569681)
-  * [Configurar ASCS/ERS de SAP S/4HANA con independiente Enqueue Server 2 (ENSA2) en Pacemaker en RHEL ](https://access.redhat.com/articles/3974941)
+  * [Configuración de SAP S/4HANA ASCS/ERS con el servidor 2 de puesta en cola independiente (ENSA2) en Pacemaker en RHEL ](https://access.redhat.com/articles/3974941)
 * Documentación de RHEL específica para Azure:
   * [Directivas de compatibilidad para clústeres de alta disponibilidad RHEL: instancias de Microsoft Azure Virtual Machines como miembros del clúster](https://access.redhat.com/articles/3131341)
   * [Instalación y configuración de un clúster de alta disponibilidad de Red Hat Enterprise Linux 7.4 (y versiones posteriores) en Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -88,7 +88,7 @@ Para lograr alta disponibilidad, SAP NetWeaver requiere almacenamiento compartid
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y el nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga (A)SCS y ERS.
 
 > [!IMPORTANT]
-> Clústeres de varios SID de SAP ASCS/ERS con Red Hat Linux como sistema operativo invitado en máquinas virtuales de Azure es **no admite**. Agrupación en clústeres de varios SID se describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker.
+> La agrupación en clústeres de varios SID de SAP ASCS/ERS con Red Hat Linux como sistema operativo invitado en las VM de Azure **NO se admite**. La agrupación en clústeres de varios SID describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -149,9 +149,9 @@ Azure Marketplace contiene una imagen de Red Hat Enterprise Linux que puede usar
    1. Disponibilidad del sistema  
       Seleccione alta disponibilidad
    1. Nombre de usuario administrador, contraseña del administrador o clave SSH  
-      Se crea un nuevo usuario que se puede usar para iniciar sesión en la máquina.
+      Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
    1. Identificador de subred  
-   Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: /subscriptions/**&lt;id. de suscripción&gt;**/resourceGroups/**&lt;nombre del grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nombre de red virtual&gt;**/subnets/**&lt;nombre de subred&gt;**
+   Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: /subscriptions/ **&lt;id. de suscripción&gt;** /resourceGroups/ **&lt;nombre del grupo de recursos&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nombre de red virtual&gt;** /subnets/ **&lt;nombre de subred&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementación manual de Linux mediante Azure Portal
 
@@ -198,7 +198,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster. Después, 
          * Repita los pasos anteriores para crear un sondeo de estado para ERS (por ejemplo 621**02** y **nw1-aers-hp**).
    1. Reglas de equilibrio de carga
       1. TCP 32**00** para ASCS
-         1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar
+         1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
          1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **nw1-lb-3200**).
          1. Seleccione la dirección IP de front-end, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **nw1-ascs-frontend**).
          1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
@@ -211,7 +211,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster. Después, 
          * Repita los pasos anteriores para los puertos 33**02**, 5**02**13, 5**02**14, 5**02**16 y TCP para ASCS ERS
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en máquinas virtuales de Azure que se encuentre detrás de equilibrador de carga de Azure. Habilitar las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Para obtener información detallada, consulte [sondeos de estado de equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Lea [Sondeos de estado de Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) para obtener más información.
 
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
@@ -219,7 +219,7 @@ Siga los pasos de [Configuración de Pacemaker en Red Hat Enterprise Linux en Az
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>Preparación de la instalación de SAP NetWeaver
 
-Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
+Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos, **[1]** : aplicable solo al nodo 1 o **[2]** : aplicable solo al nodo 2.
 
 1. **[A]** Configure la resolución nombres de host
 
@@ -485,7 +485,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 1. **[1]** Cree los recursos de clúster de SAP
 
-  Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recursos como sigue:
+  Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recursos tal como se indica:
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -508,8 +508,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   SAP ha introducido soporte técnico para el servidor 2, incluida la replicación, a partir de SAP NW 7.52 de puesta en cola. A partir de ABAP plataforma 1809, poner en cola el servidor 2 está instalado de forma predeterminada. Consulte SAP nota [2630416](https://launchpad.support.sap.com/#/notes/2630416) para la compatibilidad con el servidor 2 de puesta en cola.
-   Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), instale el agente de recursos recursos agentes sap 4.1.1 12.el7.x86_64 o versiones más reciente y definir los recursos como sigue:
+   SAP introdujo una opción de compatibilidad con el servidor 2 de puesta en cola, incluida la replicación, a partir de la versión de SAP NW 7.52. A partir de la plataforma ABAP (versión 1809), el servidor 2 de puesta en cola está instalado de forma predeterminada. Consulte la nota de SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) para consultar la compatibilidad con el servidor 2 de puesta en cola.
+   Si usa la arquitectura del servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), instale el agente de recursos resource-agents-sap-4.1.1-12.el7.x86_64 o una versión más reciente y defina los recursos tal como se indica:
 
 <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -531,7 +531,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte SAP nota [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Si está actualizando desde una versión anterior y va a cambiar al servidor 2 de puesta en cola, consulte la nota de SAP [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 

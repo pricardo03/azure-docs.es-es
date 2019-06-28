@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
 ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146017"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
@@ -42,10 +42,10 @@ El número total de "puntos de retención" especificado en esta directiva es de 
 ## <a name="example--putting-both-together"></a>Ejemplo: reunir ambos
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Directiva de retención diaria**: Las copias de seguridad realizadas diariamente se almacenan durante siete días.
-2. **Directiva de retención semanal**: Las copias de seguridad realizadas cada día a medianoche y 6 p. M. el sábado se conservan durante cuatro semanas
-3. **Directiva de retención mensual**: Se conservan las copias de seguridad realizadas a medianoche y 6 p. m. el último sábado de cada mes durante 12 meses
-4. **Directiva de retención anual**: Copias de seguridad realizadas en la medianoche del último sábado de cada mes de marzo se conservarán durante 10 años
+1. **Directiva de retención diaria**: Lasas copias de seguridad realizadas diariamente se almacenan durante siete días.
+2. **Directiva de retención semanal**: Las copias de seguridad realizadas todos los días a medianoche y el sábado a las 6 p. m se conservan durante 4 semanas.
+3. **Directiva de retención mensual**: Las copias de seguridad realizadas a medianoche y a las 6 p. m. del último sábado de cada mes se conservan durante 12 meses.
+4. **Directiva de retención anual**: Las copias de seguridad realizadas del último sábado de cada mes de marzo se conservan durante 10 años.
 
 El número total de "puntos de retención" (desde los que un cliente puede restaurar datos) en el diagrama anterior se calcula de la forma siguiente:
 
@@ -57,7 +57,7 @@ El número total de "puntos de retención" (desde los que un cliente puede resta
 El número total de puntos de recuperación es 56.
 
 > [!NOTE]
-> Puede crear hasta 9999 puntos de recuperación por instancia protegida mediante Azure Backup. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo que realiza copias de seguridad en Azure.
+> Con Azure Backup, puede crear hasta 9999 puntos de recuperación por instancia protegida. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo que realiza copias de seguridad en Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
