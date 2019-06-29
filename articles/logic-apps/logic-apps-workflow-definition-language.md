@@ -112,7 +112,7 @@ Esta es la estructura general de una definición de parámetro:
 |-----------|----------|------|-------------|
 | <*parameter-type*> | Sí | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Con todas las contraseñas, claves y secretos, use los tipos `securestring` y `secureobject` porque la operación `GET` no los devuelve. Para más información sobre cómo proteger los parámetros, vea [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | El tipo del parámetro. |
 | <*default-parameter-values*> | Sí | Igual que `type`. | El valor de parámetro predeterminado cuando no se especifica ningún valor al crear una instancia del flujo de trabajo. |
-| <*matriz_con_valores_de_parámetro_permitidos*> | Sin | Matriz | Una matriz con valores que puede aceptar el parámetro. |
+| <*matriz_con_valores_de_parámetro_permitidos*> | Sin | Array | Una matriz con valores que puede aceptar el parámetro. |
 | `metadata` | Sin | Objeto JSON | Cualquier otro detalle del parámetro, por ejemplo, el nombre o una descripción legible de la aplicación lógica o el flujo, o bien los datos de tiempo de diseño que usa Visual Studio u otras herramientas. |
 ||||
 

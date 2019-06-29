@@ -106,7 +106,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
-| Tipo | CustomScriptExtension | string |
+| type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (p. ej.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (p. ej.) | 123456789 | Entero de 32 bits |

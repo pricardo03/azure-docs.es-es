@@ -324,7 +324,7 @@ Después utilice la función `resourceGroups()` en el contexto de un artefacto d
 }
 ```
 
-## <a name="subscription"></a>suscripción
+## <a name="subscription"></a>subscription
 
 `subscription()`
 

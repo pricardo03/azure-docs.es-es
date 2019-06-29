@@ -156,9 +156,9 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
  
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------|
-| encabezados | Objeto JSON | Encabezados de la respuesta |
+| headers | Objeto JSON | Encabezados de la respuesta |
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta |
-| Código de estado | Entero | El código de estado de la respuesta |
+| status code | Entero | El código de estado de la respuesta |
 |||| 
 
 *Ejemplo*
@@ -329,9 +329,9 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
-| encabezados | Objeto JSON | Encabezados de la respuesta | 
+| headers | Objeto JSON | Encabezados de la respuesta | 
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
-| Código de estado | Entero | El código de estado de la respuesta | 
+| status code | Entero | El código de estado de la respuesta | 
 |||| 
 
 *Requisitos de las solicitudes entrantes*
@@ -340,14 +340,14 @@ Para que funcione bien con la aplicación lógica, el punto de conexión debe cu
   
 | Response | Obligatorio | DESCRIPCIÓN | 
 |----------|----------|-------------| 
-| Código de estado | Sí | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
+| status code | Sí | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
 | Encabezado Retry-after | Sin | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
 | Encabezado Location | Sin | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
 |||| 
 
 *Comportamientos de ejemplo para solicitudes distintas*
 
-| Código de estado | Reintentar después | Comportamiento | 
+| status code | Reintentar después | Comportamiento | 
 |-------------|-------------|----------|
 | 200 | {none} | Ejecutar el flujo de trabajo y luego comprobar de nuevo si hay más datos después de la periodicidad definida. | 
 | 200 | 10 segundos | Ejecutar el flujo de trabajo y luego comprobar de nuevo si hay más datos después de 10 segundos. |  
@@ -424,9 +424,9 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
-| encabezados | Objeto JSON | Encabezados de la respuesta | 
+| headers | Objeto JSON | Encabezados de la respuesta | 
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
-| Código de estado | Entero | El código de estado de la respuesta | 
+| status code | Entero | El código de estado de la respuesta | 
 |||| 
 
 *Ejemplo*
