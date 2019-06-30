@@ -17,8 +17,10 @@
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: service-bus-quickstart-cli.md
+            - name: Plantilla del Administrador de recursos de Azure
+              href: service-bus-resource-manager-namespace-queue.md
         - name: Envío y recepción de mensajes
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: Temas y suscripciones de Service Bus
       items:
         - name: Creación de temas y suscripciones
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Portal de Azure
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Plantilla del Administrador de recursos de Azure
+              href: service-bus-resource-manager-namespace-topic.md
         - name: Publicación y suscripción de mensajes
           items:
             - name: .NET
@@ -187,10 +193,6 @@
           items:
             - name: Creación de un espacio de nombres
               href: service-bus-resource-manager-namespace.md
-            - name: Creación de un espacio de nombres y una cola
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Creación de un espacio de nombres con un tema y una suscripción
-              href: service-bus-resource-manager-namespace-topic.md
             - name: Creación de una regla de autorización para el espacio de nombres y la cola
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Creación de un espacio de nombres con un tema, una suscripción y una regla'

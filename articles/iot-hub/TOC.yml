@@ -60,7 +60,7 @@
               href: tutorial-routing.md
             - name: Plantilla de Azure Resource Manager
               href: tutorial-routing-config-message-routing-RM-template.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: tutorial-routing-config-message-routing-CLI.md
             - name: PowerShell
               href: tutorial-routing-config-message-routing-PowerShell.md
@@ -159,6 +159,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Seguridad
       items:
+        - name: Recomendaciones
+          href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Seguridad total
           href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
         - name: Prácticas recomendadas de seguridad
@@ -365,7 +367,7 @@
           href: iot-hub-troubleshoot-connectivity.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/iot
     - name: .NET (servicio)
       href: /dotnet/api/microsoft.azure.devices

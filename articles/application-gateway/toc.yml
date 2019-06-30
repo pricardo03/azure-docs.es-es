@@ -93,9 +93,10 @@
       items:
         - name: Azure PowerShell
           href: tutorial-manage-web-traffic-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-manage-web-traffic-cli.md
         - name: Plantilla
+          displayName: 'ARM, Resource Manager, template'
           href: create-vmss-template.md
     - name: Configuración del equilibrador de carga interno
       items:
@@ -133,7 +134,7 @@
       items:
         - name: Azure PowerShell
           href: tutorial-restrict-web-traffic-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-restrict-web-traffic-cli.md
     - name: Configuración de conjuntos de reglas de WAF
       items:
@@ -141,7 +142,7 @@
           href: application-gateway-customize-waf-rules-portal.md
         - name: Azure PowerShell
           href: application-gateway-customize-waf-rules-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: application-gateway-customize-waf-rules-cli.md
     - name: Reglas personalizadas del firewall de aplicaciones web
       items:
@@ -153,13 +154,13 @@
       items:
         - name: Azure PowerShell
           href: tutorial-url-route-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-url-route-cli.md
     - name: Hospedar varios sitios
       items:
         - name: Azure PowerShell
           href: tutorial-multiple-sites-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-multiple-sites-cli.md
     - name: Redirección del tráfico
       items:
@@ -241,6 +242,8 @@
       href: /rest/api/applicationgateway
     - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
+    - name: Plantilla de Resource Manager
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
 - name: Recursos
   items:
     - name: Creación de plantillas

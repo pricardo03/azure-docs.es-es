@@ -7,21 +7,24 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Introducción
+    - name: Primeros pasos
       href: video-indexer-get-started.md
 - name: Tutoriales
   items:
     - name: Uso de Video Indexer API
       href: video-indexer-use-apis.md
 - name: Conceptos
-  href: video-indexer-concepts.md
   items:
+    - name: Información general
+      href: video-indexer-concepts.md
     - name: Comparación de los valores preestablecidos de Video Indexer y Media Services
       href: compare-video-indexer-with-media-services-presets.md
     - name: Administración de varios inquilinos
       href: manage-multiple-tenants.md
     - name: Personalización de modelos de contenido
       items:
+        - name: Información general
+          href: customize-content-models-overview.md
         - name: Marcas
           href: customize-brands-model-overview.md
         - name: Idioma
@@ -80,9 +83,11 @@
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Regiones
+    - name: Regions
       href: regions.md
     - name: Preguntas más frecuentes
       href: faq.md
     - name: Cumplimiento normativo
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: Notas de la versión
+      href: release-notes.md

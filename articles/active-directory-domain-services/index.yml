@@ -5,8 +5,8 @@ metadata:
   title: Documentación de Azure AD Domain Services
   description: Aprenda cómo usar Active Directory Domain Services para unir máquinas virtuales de Azure a un dominio sin usar controladores de dominio. Tutoriales y otra documentación le muestran cómo administrar máquinas virtuales mediante directivas de grupo.
   keywords: 'Azure AD, Azure, unión a un dominio, directiva de grupos, LDAP, Kerberos, controlador de dominio, DC, migración mediante lift-and-shift'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page
@@ -32,7 +32,7 @@ sections:
             html: <p>Cree su propio dominio administrado con este sencillo tutorial.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            title: Introducción
+            title: Primeros pasos
           - href: contact-us.md
             html: <p>Reciba ayuda cuando la necesita.</p>
             image:

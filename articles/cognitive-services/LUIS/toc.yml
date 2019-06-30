@@ -258,7 +258,7 @@
           href: luis-migration-api-v1-to-v2.md
         - name: Migración a la API REST V3
           href: luis-migration-api-v3.md
-          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference'
+          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
     - name: Uso de contenedores
       items:
         - name: Instalación y ejecución de contenedores
@@ -270,7 +270,7 @@
   items:
     - name: Privacidad del usuario
       href: luis-user-privacy.md
-    - name: Regiones
+    - name: Regions
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Límites
@@ -315,7 +315,7 @@
     - name: Referencia de dominio creado previamente
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
-    - name: Azure CLI
+    - name: CLI de Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
       href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
