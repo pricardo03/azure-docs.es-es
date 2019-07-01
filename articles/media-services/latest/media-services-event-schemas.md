@@ -319,7 +319,7 @@ El objeto data tiene las siguientes propiedades:
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
 | encoderIp | string | Dirección IP del codificador. |
-| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | resultCode | string | El motivo por el que se rechazó la conexión. En la tabla siguiente se muestran los códigos de resultados: |
 
 Los códigos de resultados son:
@@ -366,7 +366,7 @@ El objeto data tiene las siguientes propiedades:
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de proporcionar este id. en la URL de introducción. |
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |
 | encoderIp | string | Dirección IP del codificador. |
-| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -400,7 +400,7 @@ El objeto data tiene las siguientes propiedades:
 | streamId | string | Identificador de la transmisión o la conexión. El codificador o el cliente es responsable de agregar este id. en la URL de introducción. |  
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |  
 | encoderIp | string | Dirección IP del codificador. |
-| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | resultCode | string | La razón por la cual el codificador se desconecta. Podría ser un cierre estable o un error. En la tabla siguiente se muestran los códigos de resultados: |
 
 Los códigos de resultado del error son:
@@ -499,7 +499,7 @@ El objeto data tiene las siguientes propiedades:
 | bitrate | integer | Velocidad de bits de la pista. |
 | ingestUrl | string | Introducir la dirección URL que proporcionó el evento en directo. |
 | encoderIp | string  | Dirección IP del codificador. |
-| EncoderPort | string | Puerto del codificador de donde procede esta transmisión. |
+| encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | timestamp | string | Primera marca de tiempo del fragmento de datos recibido. |
 | timescale | string | Escala temporal en la que se representa la marca de tiempo. |
 
