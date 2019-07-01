@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447235"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Creación de flujos de trabajo o acciones basados en eventos mediante webhooks y Azure Logic Apps
@@ -29,7 +29,7 @@ Más información sobre [cómo crear API personalizadas compatibles con webhook]
 
 ## <a name="use-the-webhook-trigger"></a>Uso del desencadenador de webhook
 
-Un [ *desencadenador* ](../connectors/apis-list.md) es un evento que inicia un flujo de trabajo de aplicación lógica. El desencadenador de webhook es basado en eventos, que no dependen de sondeo para los nuevos elementos. Cuando se guarda la aplicación lógica con un desencadenador de webhook, o cuando cambie la aplicación lógica de deshabilitado a habilitado, el desencadenador de webhook *se suscribe* para el servicio o extremo especificado mediante el registro de un *deladirecciónURLdedevolucióndellamada* con ese servicio o un punto de conexión. El desencadenador, a continuación, usa esa dirección URL para ejecutar la aplicación lógica según sea necesario. Al igual que el [desencadenador de solicitud](connectors-native-reqres.md), la aplicación lógica se activa inmediatamente cuando se produce el evento esperado. El desencadenador *cancela la suscripción* si quita el desencadenador y guarde la aplicación lógica, o al cambiar la aplicación lógica desde habilitado a deshabilitado.
+Un [ *desencadenador* ](../connectors/apis-list.md) es un evento que inicia un flujo de trabajo de aplicación lógica. El desencadenador de webhook se basa en eventos, que no dependen del sondeo de nuevos elementos. Cuando se guarda la aplicación lógica con un desencadenador de webhook, o cuando se cambia la aplicación lógica de deshabilitada a habilitada, el desencadenador de webhook *se suscribe* al servicio o punto de conexión especificados mediante el registro de una *dirección URL de devolución de llamada* con ese servicio o punto de conexión. El desencadenador usa entonces esa dirección URL para ejecutar la aplicación lógica según sea necesario. Al igual que el [desencadenador de solicitud](connectors-native-reqres.md), la aplicación lógica se activa inmediatamente cuando se produce el evento esperado. El desencadenador *cancela la suscripción* si lo quita y guarda la aplicación lógica, o al cambiar la aplicación lógica de habilitada a deshabilitada.
 
 Este ejemplo muestra cómo configurar un desencadenador HTTP en el Diseñador de aplicación lógica. En este paso se da por hecho que ya ha implementado una API que sigue [el patrón de suscripción y cancelación de suscripción de webhook que se utiliza en las aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-triggers), o bien que ya ha accedido a una API de este tipo. 
 
@@ -48,13 +48,13 @@ Este ejemplo muestra cómo configurar un desencadenador HTTP en el Diseñador de
 
 ## <a name="use-the-webhook-action"></a>Uso de la acción de webhook
 
-Un [ *acción* ](../connectors/apis-list.md) es una operación que se define y ejecutar el flujo de trabajo de la aplicación lógica. Cuando una aplicación lógica ejecuta una acción de webhook, esa acción *se suscribe* para el servicio o extremo especificado mediante el registro de un *dirección URL de devolución de llamada* con ese servicio o un punto de conexión. La acción de webhook, a continuación, espera hasta que la dirección URL antes de la aplicación lógica se reanuda la ejecución de llamadas de servicio. Elimina la suscripción de la aplicación lógica desde el servicio o punto de conexión en estos casos: 
+Una [*acción*](../connectors/apis-list.md) es una operación que se define y ejecuta mediante el flujo de trabajo de la aplicación lógica. Cuando una aplicación lógica ejecuta una acción de webhook, esa acción *se suscribe* al servicio o punto de conexión especificados mediante el registro de una *dirección URL de devolución de llamada* con ese servicio o punto de conexión. La acción de webhook espera entonces a que el servicio llame a la dirección URL antes de que la aplicación lógica reanude la ejecución. La aplicación lógica cancela la suscripción del servicio o punto de conexión en estos casos: 
 
-* Cuando finalice correctamente la acción de webhook
+* Cuando finaliza correctamente la acción de webhook
 * Si se cancela la ejecución de la aplicación lógica mientras espera una respuesta
-* Antes de la lógica de aplicación agota el tiempo
+* Antes de que la aplicación lógica agote el tiempo de espera
 
-Por ejemplo, el [ **enviar correo electrónico de aprobación** ](connectors-create-api-office365-outlook.md) acción es un ejemplo de acción de webhook que sigue este patrón. Puede extender este patrón a cualquier servicio a través de la acción de webhook. 
+Por ejemplo, la acción [**Enviar correo electrónico de aprobación**](connectors-create-api-office365-outlook.md) es un ejemplo de acción de webhook que sigue este patrón. Puede extender este patrón a cualquier servicio a través de la acción de webhook. 
 
 Este ejemplo muestra cómo configurar una acción de webhook en el Diseñador de aplicación lógica. En estos pasos se da por hecho que ya ha implementado una API que sigue [el patrón de suscripción y cancelación de suscripción de webhook que se utiliza en las aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-actions), o bien que ya ha accedido a una API de este tipo. 
 
@@ -95,9 +95,9 @@ Un asterisco (*) indica un campo obligatorio.
 
 | Display Name (Nombre para mostrar) | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
-| Método de suscripción* |estático |Método HTTP que va a utilizarse para la solicitud de suscripción. |
+| Método de suscripción* |method |Método HTTP que va a utilizarse para la solicitud de suscripción. |
 | URI de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de suscripción. |
-| Método de cancelación de suscripción* |estático |Método HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
+| Método de cancelación de suscripción* |method |Método HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
 | URI de cancelación de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
 | Cuerpo de suscripción |body |Cuerpo de la solicitud HTTP para realizar la suscripción. |
 | Encabezados de suscripción |encabezados |Encabezados de la solicitud HTTP para realizar la suscripción. |
@@ -131,9 +131,9 @@ Un asterisco (*) indica un campo obligatorio.
 
 | Display Name (Nombre para mostrar) | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
-| Método de suscripción* |estático |Método HTTP que va a utilizarse para la solicitud de suscripción. |
+| Método de suscripción* |method |Método HTTP que va a utilizarse para la solicitud de suscripción. |
 | URI de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de suscripción. |
-| Método de cancelación de suscripción* |estático |Método HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
+| Método de cancelación de suscripción* |method |Método HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
 | URI de cancelación de suscripción* |uri |URI HTTP que va a utilizarse para la solicitud de cancelación de suscripción. |
 | Cuerpo de suscripción |body |Cuerpo de la solicitud HTTP para realizar la suscripción. |
 | Encabezados de suscripción |encabezados |Encabezados de la solicitud HTTP para realizar la suscripción. |

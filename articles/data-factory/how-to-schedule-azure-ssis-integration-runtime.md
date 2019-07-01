@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60522558"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención de Azure-SSIS Integration Runtime mediante una programación
@@ -94,7 +94,7 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
   
     2. En **Method** (Método) seleccione **POST**. 
     3. En **Body** (Cuerpo), especifique `{"message":"Start my IR"}`. 
-    4. Para **autenticación**, seleccione **MSI** para usar la identidad administrada para la ADF, consulte [identidad administrada para Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artículo para obtener más información.
+    4. En **Authentication** (Autenticación), seleccione **MSI** para usar la identidad administrada de su ADF. Para más información, consulte el artículo [Identidad administrada de Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
     5. En **Recurso**, escriba `https://management.azure.com/`.
     
        ![IR de SSIS de programación de actividades web en ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -118,7 +118,7 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
     
    ![Asignaciones de roles de identidad administrada de ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
-6. Valide la instancia de ADF y todos los valores de canalización, haga clic en **Validate all/Validate** (Validar todo/Validar) en la barra de herramientas de la fábrica o la canalización. Para cerrar **Factory/Pipeline Validation Output** (Resultado de validación de la fábrica/canalización), haga clic en el botón **>>**.  
+6. Valide la instancia de ADF y todos los valores de canalización, haga clic en **Validate all/Validate** (Validar todo/Validar) en la barra de herramientas de la fábrica o la canalización. Para cerrar **Factory/Pipeline Validation Output** (Resultado de validación de la fábrica/canalización), haga clic en el botón **>>** .  
 
    ![Comprobar la canalización](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 
@@ -131,7 +131,7 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
 2. Para probar la tercera canalización, inicie SQL Server Management Studio (SSMS). En la ventana **Conectar al servidor**, realice las acciones siguientes. 
 
     1. En **Nombre del servidor**, escriba **&lt;el nombre del servidor de Azure SQL Database&gt;.database.windows.net**.
-    2. Seleccione **Opciones >>**.
+    2. Seleccione **Opciones >>** .
     3. En **Conectar una base de datos**, seleccione **SSISDB**.
     4. Seleccione **Conectar**. 
     5. Expanda **Catálogos de Integration Services** -> **SSISDB** -> Su carpeta -> **Proyectos** -> Su proyecto de SSIS -> **Paquetes** . 
@@ -156,7 +156,7 @@ Ahora que las canalizaciones funcionan tal como esperaba, puede crear desencaden
 
     1. En **Nombre**, escriba el nombre del desencadenador. En el ejemplo siguiente, **Ejecutar diariamente** es el nombre del desencadenador. 
     2. En **Tipo**, seleccione **Programación**. 
-    3. En **Fecha de inicio (UTC)**, seleccione una fecha y hora de inicio en UTC. 
+    3. En **Fecha de inicio (UTC)** , seleccione una fecha y hora de inicio en UTC. 
     4. En **Periodicidad**, especifique la cadencia para el desencadenador. En el ejemplo siguiente, es **A diario** una vez. 
     5. En **Fin**, seleccione **Sin fin** o escriba una fecha y hora de finalización después de seleccionar **El día**. 
     6. Seleccione **Activado** para activar el desencadenador inmediatamente después de publicar la configuración completa de ADF. 
@@ -330,7 +330,7 @@ En la siguiente sección se ofrecen los pasos para la creación de un runbook de
 
    ![Botón Iniciar runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
     
-5. En **iniciar Runbook** panel, realice las siguientes acciones: 
+5. En el panel **Iniciar runbook**, haga lo siguiente: 
 
     1. En **NOMBRE DEL GRUPO DE RECURSOS**, escriba el nombre del grupo de recursos que tiene la instancia de ADF con Azure-SSIS IR. 
     2. En **NOMBRE DE LA FACTORÍA DE DATOS**, escriba el nombre de la instancia de ADF con Azure-SSIS IR. 

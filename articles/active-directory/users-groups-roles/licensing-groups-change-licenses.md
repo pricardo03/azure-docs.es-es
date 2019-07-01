@@ -17,13 +17,13 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b65eb38b6c8102295f40b5e169ae7c32a2342a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471202"
 ---
-# <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>Cambiar la licencia para un solo usuario en un grupo con licencia en Azure Active Directory
+# <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>Cambio de la licencia de un solo usuario de un grupo con licencia en Azure Active Directory
 
 En este artículo se describe el método recomendado para mover usuarios entre diferentes licencias de productos mediante el uso de licencias basadas en grupos. El objetivo de este enfoque consiste en asegurar que no hay ninguna pérdida de datos ni de servicio durante la migración: los usuarios deben cambiar entre productos sin problemas. Se tratan dos variantes del proceso de migración:
 

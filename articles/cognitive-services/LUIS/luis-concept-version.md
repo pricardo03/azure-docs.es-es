@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
 ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60509690"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Comprender cómo y cuándo usar una versión de LUIS
@@ -46,12 +46,12 @@ Clone una versión para crear una copia de una versión existente y guárdela co
 ## <a name="import-and-export-a-version"></a>Importar y exportar una versión
 Puede importar una versión en el nivel de la aplicación. Esa versión se convertirá en la versión activa y usará el identificador de versión en la propiedad "versionId" del archivo de la aplicación. También puede importar la versión en el nivel de versión en una aplicación existente. La versión nueva se convertirá en la versión activa. 
 
-Puede exportar una versión en el nivel de aplicación o bien en el nivel de versión. La única diferencia es que la versión exportada en el nivel de aplicación es la versión activa, mientras que en el nivel de versión puede elegir cualquier versión para exportarla en la página **[Configuración](luis-how-to-manage-versions.md)**. 
+Puede exportar una versión en el nivel de aplicación o bien en el nivel de versión. La única diferencia es que la versión exportada en el nivel de aplicación es la versión activa, mientras que en el nivel de versión puede elegir cualquier versión para exportarla en la página **[Configuración](luis-how-to-manage-versions.md)** . 
 
 El archivo exportado no contiene información de aprendizaje automático, puesto que la aplicación se vuelve a entrenar después de importarla. El archivo exportado no contiene colaboradores: debe volver a agregarlos cuando se haya importado la versión en la nueva aplicación.
 
 ## <a name="export-each-version-as-app-backup"></a>Exportar cada versión como una copia de seguridad de aplicación
-Para poder hacer una copia de seguridad de la aplicación de LUIS, debe exportar cada versión en la página **[Configuración](luis-how-to-manage-versions.md)**.
+Para poder hacer una copia de seguridad de la aplicación de LUIS, debe exportar cada versión en la página **[Configuración](luis-how-to-manage-versions.md)** .
 
 ## <a name="delete-a-version"></a>Eliminar una versión
 Puede eliminar todas las versiones, excepto la versión activa, de la lista Versiones de la página Configuración. 

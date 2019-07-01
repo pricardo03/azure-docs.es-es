@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
 ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552708"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
@@ -93,6 +93,6 @@ Cuando se publique el panel, **Uso compartido y control de acceso** se actualice
 ![administrar control de acceso](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para administrar los recursos, consulte [los recursos de administración de Azure mediante el portal de Azure](../azure-resource-manager/manage-resources-portal.md).
+* Para administrar recursos, vea [Administración de recursos de Azure mediante Azure Portal](../azure-resource-manager/manage-resources-portal.md).
 * Para implementar recursos, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

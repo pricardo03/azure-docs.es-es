@@ -17,15 +17,15 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502235"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Herramientas de ingesta de datos de Data Science Virtual Machine
 
-Uno de los primeros pasos técnicos en un proyecto de inteligencia artificial o ciencia de datos es identificar los conjuntos de datos que se van a usar y colocarlos en el entorno de análisis. Data Science Virtual Machine (DSVM) proporciona herramientas y bibliotecas para traer datos de distintos orígenes a un almacenamiento de datos analíticos localmente en DSVM o en una plataforma de datos en la nube o local. 
+Uno de los primeros pasos técnicos en un proyecto de inteligencia artificial o ciencia de datos es identificar los conjuntos de datos que se van a usar y colocarlos en el entorno de análisis. Data Science Virtual Machine (DSVM) proporciona herramientas y bibliotecas para traer datos de distintos orígenes a un almacenamiento de datos de análisis local en DSVM o en una plataforma de datos local o en la nube. 
 
 Estas son algunas herramientas de movimiento de datos que se pueden encontrar en DSVM. 
 
@@ -34,7 +34,7 @@ Estas son algunas herramientas de movimiento de datos que se pueden encontrar en
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Una herramienta para copiar datos de blobs de Azure Storage en Azure Data Lake Store. También puede usar copiar datos entre dos cuentas de Azure Data Lake Store.      |
-| Versiones de DSVM compatibles      |  Windows      |
+| Versiones de DSVM compatibles      | Windows      |
 | Usos típicos      | Importación de varios blobs de Azure Storage en Azure Data Lake Store.      |
 |  ¿Cómo se usa o ejecuta?    |   Abra un símbolo del sistema y escriba `adlcopy` para obtener ayuda.    |
 | Vínculos a ejemplos      | [Uso de AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
@@ -57,7 +57,7 @@ Estas son algunas herramientas de movimiento de datos que se pueden encontrar en
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Una herramienta para copiar datos a y desde archivos locales, blobs de almacenamiento de Azure, archivos y tablas.      |
-| Versiones de DSVM compatibles      |  Windows      |
+| Versiones de DSVM compatibles      | Windows      |
 | Usos típicos      | Copia de archivos a Blob Storage o copia de blobs entre cuentas.      |
 |  ¿Cómo se usa o ejecuta?    |   Abra un símbolo del sistema y escriba `azcopy` para obtener ayuda.    |
 | Vínculos a ejemplos      | [AzCopy en Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
@@ -69,7 +69,7 @@ Estas son algunas herramientas de movimiento de datos que se pueden encontrar en
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Herramienta para importar datos desde diversos orígenes, incluidos archivos JSON, archivos CSV, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB y colecciones de la API de SQL a Azure Cosmos DB.      |
-| Versiones de DSVM compatibles      |  Windows      |
+| Versiones de DSVM compatibles      | Windows      |
 | Usos típicos      | Importación de archivos de una máquina virtual a CosmosDB, importación de datos desde Azure Table Storage a CosmosDB o importación de datos desde una base de datos de SQL Server a CosmosDB.     |
 |  ¿Cómo se usa o ejecuta?    |   Para usar la versión de línea de comandos, abra un símbolo del sistema y escriba `dt`. Para usar la versión de línea de comandos, abra un símbolo del sistema y escriba `dtui`.    |
 | Vínculos a ejemplos      | [Importación de datos en Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
@@ -81,7 +81,7 @@ Estas son algunas herramientas de movimiento de datos que se pueden encontrar en
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Herramienta de SQL Server para copiar datos entre SQL Server y un archivo de datos.      |
-| Versiones de DSVM compatibles      |  Windows      |
+| Versiones de DSVM compatibles      | Windows      |
 | Usos típicos      | Importación de un archivo CSV a una tabla de SQL Server o exportación de una tabla de SQL Server a un archivo.      |
 |  ¿Cómo se usa o ejecuta?    |   Abra un símbolo del sistema y escriba `bcp` para obtener ayuda.    |
 | Vínculos a ejemplos      | [Utilidad de copia masiva](https://docs.microsoft.com/sql/tools/bcp-utility)      |
@@ -104,7 +104,7 @@ Estas son algunas herramientas de movimiento de datos que se pueden encontrar en
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Una herramienta para conectar orígenes de datos locales a servicios en la nube para su consumo.      |
-| Versiones de DSVM compatibles      |  Windows      |
+| Versiones de DSVM compatibles      | Windows      |
 | Usos típicos      | Conexión de una máquina virtual a un origen de datos local.      |
 |  ¿Cómo se usa o ejecuta?    |   Inicie "Microsoft Data Management Gateway" desde el menú Inicio.    |
 | Vínculos a ejemplos      | [Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)      |

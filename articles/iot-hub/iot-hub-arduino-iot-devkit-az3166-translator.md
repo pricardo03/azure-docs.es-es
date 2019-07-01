@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
 ms.openlocfilehash: df7e7b426a8c85c8051d7f588c706a6f8811e183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60518718"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Uso de IoT DevKit AZ3166 con Azure Functions y Cognitive Services para crear un traductor de idiomas
@@ -54,7 +54,7 @@ Para completar los pasos de este tutorial, deberá realizar las siguientes tarea
 
    Anote el nombre de dispositivo de Azure IoT Hub que creó.
 
-1. Abra `Functions\DevKitTranslatorFunction.cs` y actualice las siguientes líneas de código con el nombre del dispositivo y la clave de servicio de voz que anotó.
+1. Abra `Functions\DevKitTranslatorFunction.cs` y actualice las siguientes líneas de código con el nombre de dispositivo y la clave del servicio de Voz que anotó.
    ```csharp
    // Subscription Key of Speech Service
    const string speechSubscriptionKey = "";
@@ -91,7 +91,7 @@ Para completar los pasos de este tutorial, deberá realizar las siguientes tarea
 
    ![Modo de configuración de DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
-1. Haga clic en `F1`, escriba y seleccione **Azure IoT Device Workbench: Configurar opciones de dispositivo... > Config Device Connection String (Configurar cadena de conexión de dispositivo)**. Seleccione **Select IoT Hub Device Connection String** (Seleccionar cadena de conexión de dispositivo de IoT Hub) para configurarla en DevKit.
+1. Haga clic en `F1`, escriba y seleccione **Azure IoT Device Workbench: Configurar opciones de dispositivo... > Config Device Connection String (Configurar cadena de conexión de dispositivo)** . Seleccione **Select IoT Hub Device Connection String** (Seleccionar cadena de conexión de dispositivo de IoT Hub) para configurarla en DevKit.
    ![Configurar cadena de conexión](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string.png)
 
 1. Verá la notificación cuando se realice correctamente.

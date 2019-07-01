@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586039"
 ---
-# <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Plano técnico de seguridad y cumplimiento de Azure: Almacenamiento de datos para la automatización de FedRAMP
+# <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Plano técnico de seguridad y cumplimiento de Azure: Data Warehouse para la automatización de FedRAMP
 
 ## <a name="overview"></a>Información general
 
@@ -75,15 +75,15 @@ Registros de Azure Monitor
 
 En la siguiente sección se detallan los elementos de desarrollo e implementación.
 
-**SQL Data Warehouse**: [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) es un almacenamiento de datos empresariales (EDW) que aprovecha el procesamiento paralelo masivo (MPP) para ejecutar rápidamente consultas complejas en petabytes de datos. Importe macrodatos en SQL Data Warehouse con consultas T-SQL de PolyBase simples y use la potencia de MPP para realizar análisis de alto rendimiento.
+**SQL Data Warehouse**: [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) es un almacenamiento de datos empresarial (EDW) que aprovecha el procesamiento paralelo masivo (MPP) para ejecutar rápidamente consultas complejas en petabytes de datos. Importe macrodatos en SQL Data Warehouse con consultas T-SQL de PolyBase simples y use la potencia de MPP para realizar análisis de alto rendimiento.
 
-**SQL Server Reporting Services**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) permite la rápida creación de informes con tablas, gráficos, mapas, medidores, matrices y más para Azure SQL Data Warehouse.
+**SQL Server Reporting Services**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) posibilita una rápida creación de informes con tablas, gráficos, mapas, medidores, matrices y más para Azure SQL Data Warehouse.
 
 **Host de tipo bastión**: el host de tipo bastión es el único punto de entrada que permite a los usuarios acceder a los recursos implementados en este entorno. El host de tipo bastión proporciona una conexión segura a los recursos implementados al permitir solo el tráfico remoto desde las direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto (RDP), el origen del tráfico debe definirse en el grupo de seguridad de red (NSG).
 
 Se ha creado una máquina virtual unidas mediante dominio como host de tipo bastión con las siguientes configuraciones:
 -   [Extensión antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Extensión de los registros de Azure Monitor](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Extensión de registros de Azure Monitor](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Extensión de Diagnósticos de Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) mediante Azure Key Vault (cumple los requisitos de Azure Government, PCI DSS, HIPAA y otros).
 -   Una [directiva de apagado automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reducir el consumo de recursos de la máquina virtual cuando no esté en uso.
@@ -100,7 +100,7 @@ La arquitectura de referencia define una red virtual privada con un espacio de d
 
 Cada uno de los grupos de seguridad de red tiene puertos y protocolos específicos abiertos para que la solución pueda funcionar de forma segura y correcta. Además, las siguientes opciones de configuración están habilitadas para cada NSG:
   - Los [eventos y registros de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) están habilitados y se almacenan en la cuenta de almacenamiento.
-  - Registros de Azure Monitor se conecta a la [diagnósticos del NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Los registros de Azure Monitor están conectados a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
 **Subredes**: Cada subred se asocia a su NSG correspondiente.
 
@@ -122,16 +122,16 @@ La arquitectura protege los datos en reposo mediante el cifrado, la auditoría d
 -   El [enmascaramiento de los datos dinámicos de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) puede realizarse después de la implementación de la arquitectura de referencia. Los clientes deberán ajustar la configuración del enmascaramiento de los datos dinámicos para ajustarse al esquema de la base de datos.
 
 ### <a name="business-continuity"></a>Continuidad del negocio
-**Alta disponibilidad**: Las cargas de trabajo de servidor se agrupan en una [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ayudar a garantizar una alta disponibilidad de máquinas virtuales en Azure. Durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual está disponible para cumplir el 99,95 % del Acuerdo de Nivel de Servicio de Azure.
+**Alta disponibilidad**: las cargas de trabajo del servidor se agrupan en un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ayudar a garantizar una alta disponibilidad de las máquinas virtuales de Azure. Durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual está disponible para cumplir el 99,95 % del Acuerdo de Nivel de Servicio de Azure.
 
 **Almacén de Recovery Services**: El [almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) aloja datos de copia de seguridad y protege todas las configuraciones de Azure Virtual Machines en esta arquitectura. Con los almacenes de Recovery Services, los clientes pueden restaurar archivos y carpetas desde una VM de IaaS sin tener que restaurar toda la VM, lo que permite unos tiempos de restauración más rápidos.
 
 ### <a name="logging-and-audit"></a>Registro y auditoría
-[Registros de Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) proporciona gran cantidad de registros de actividad de usuario y del sistema, así como mantenimiento del sistema. El [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) solución recopila y analiza los datos generados por los recursos en Azure y entornos locales.
+[Los registros de Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) ofrecen un registro completo de la actividad de usuario y del sistema, además de mantenimiento de este. La solución de [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) recopila y analiza los datos generados por los recursos en los entornos locales o en Azure.
 - **Registros de actividad**: los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción.
 - **Registros de diagnóstico**: los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos incluyen los registros del sistema de eventos de Windows y los registros de Azure Blob Storage, tablas y cola.
 - **Registros de firewall**: Application Gateway proporciona registros completos de diagnóstico y acceso. Los registros de firewall están disponibles para los recursos de Application Gateway con WAF habilitado.
-- **Archivado de registros**: todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para que queden archivados durante un período de retención definido de dos días. Estos registros se conexión a los registros de Azure Monitor para procesar, almacenar e informes del panel.
+- **Archivado de registros**: todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para que queden archivados durante un período de retención definido de dos días. Esos registros se conectan a los registros de Azure Monitor para el procesamiento, el almacenamiento y la creación de informes de panel.
 
 Además, como parte de esta arquitectura, se incluyen las siguientes soluciones de supervisión:
 -   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor a intervalos regulares y proporciona una lista prioritaria de recomendaciones específicas para la infraestructura de servidor implementada.

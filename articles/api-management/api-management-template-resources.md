@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557892"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
@@ -49,20 +49,20 @@ Se admiten las siguientes opciones de localización:
 
 | Configuración regional    | Idioma               |
 |-----------|------------------------|
-| "en"      | "Inglés"              |
+| "en"      | "English"              |
 | "cs"      | "Čeština"              |
 | "de"      | "Deutsch"              |
 | "es"      | "Español"              |
 | "fr"      | "Français"             |
 | "hu"      | "Magyar"               |
-| "it"      | "En"Italiano             |
+| "it"      | "Italiano"             |
 | "ja-JP"   | "日本語"                |
 | "ko"      | "한국어"                |
 | "nl"      | "Nederlands"           |
 | "pl"      | "Polski"               |
 | "pt-br"   | "Português (Brasil)"   |
 | "pt-pt"   | "Português (Portugal)" |
-| "ru"      | "РУССКИЙ"              |
+| "ru"      | "Русский"              |
 | "sv"      | "Svenska"              |
 | "tr"      | "Türkçe"               |
 | "zh-hans" | "中文(简体)"           |
@@ -112,13 +112,13 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PageTitleApis|API existentes|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Versión preliminar de la aplicación|  
 |WebApplicationsRequirementsHeader|Requisitos|  
@@ -127,7 +127,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|¿Está seguro de que desea quitar la aplicación?|  
 |WebDevelopersAppNotPublished|No publicado|  
@@ -143,13 +143,13 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|APLICACIONES|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |NoItemsToDisplay|No se encontró ningún resultado.|  
 |GeneralExceptionMessage|Se ha producido algún problema. Podría ser un problema temporal o un error. Vuelva a intentarlo.|  
@@ -160,7 +160,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
 |ButtonLabelSave|Save|  
@@ -184,7 +184,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="Documentation"></a> Documentation  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Encabezado "{0}" no válido|  
 |WebDocumentationInvalidRequestErrorMessage|Dirección URL de solicitud no válida|  
@@ -332,7 +332,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |LinkLabelBack|atrás|  
 |LinkLabelHomePage|página principal|  
@@ -350,7 +350,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemas|  
 |WebIssuesNoActiveSubscriptions|No tiene ninguna suscripción activa. Debe suscribirse a un producto para informar de un problema.|  
@@ -361,7 +361,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |LinkLabelHomePage|página principal|  
 |LinkLabelSendUsEmail|envíenos un correo electrónico|  
@@ -376,7 +376,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebProductsAgreement|Al suscribirse al producto {0}, acepta los `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Términos de uso|  
@@ -398,13 +398,13 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PageTitleProducts|Productos|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Los administradores han deshabilitado el inicio de sesión actualmente.|  
 |TextboxExternalIdentitiesSigninInvitation|O bien inicie sesión con|  
@@ -412,7 +412,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PrincipalNotFound|No se encuentra la entidad de seguridad o la firma no es válida.|  
 |ErrorSsoAuthenticationFailed|Error de autenticación SSO.|  
@@ -482,7 +482,7 @@ Se admiten las siguientes opciones de localización:
 |WebAuthenticationUserIsNotConfirm|Confirme el registro antes de tratar de iniciar sesión.|  
 |WebAuthenticationInvalidEmailFormated|El correo electrónico no es válido: {0}|  
 |WebAuthenticationUserNotFound|Usuario no encontrado|  
-|WebAuthenticationTenantNotRegistered|La cuenta pertenece a un inquilino de Azure Active Directory que no está autorizado para tener acceso a este portal.|  
+|WebAuthenticationTenantNotRegistered|La cuenta pertenece a un inquilino de Azure Active Directory que no está autorizado para acceder a este portal.|  
 |WebAuthenticationAuthenticationFailed|Error de autenticación.|  
 |WebAuthenticationGooglePlusNotEnabled|Error de autenticación. Si ha autorizado la aplicación, póngase en contacto con el administrador para asegurarse de que la autenticación de Google está configurada correctamente.|  
 |ValidationErrorAllowedTenantIsRequired|Se requiere un inquilino permitido.|  
@@ -508,7 +508,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|¿Ha olvidado la contraseña?|  
 |WebAuthenticationIfAdministrator|Si es administrador, debe iniciar sesión en `<a href="{0}"\>here</a\>`.|  
@@ -520,7 +520,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |PageTitleSignup|Suscripción|  
 |WebAuthenticationAlreadyAMember|¿Ya es miembro?|  
@@ -530,7 +530,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|¿Está seguro de que desea cancelar esta suscripción?|  
 |SubscriptionRenewConfirmation|¿Está seguro de que desea renovar esta suscripción?|  
@@ -553,7 +553,7 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |SectionHeadingCloseAccount|¿Desea para cerrar su cuenta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -564,14 +564,14 @@ Se admiten las siguientes opciones de localización:
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Actualizar perfil|  
 |PageTitleUpdateProfile|Actualizar información de cuenta|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|NOMBRE|Text|  
+|NOMBRE|Texto|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Cambiar información de la cuenta|  
 |ButtonLabelChangePassword|Cambiar contraseña|  

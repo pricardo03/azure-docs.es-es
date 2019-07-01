@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
 ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586240"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool, versión actualizada 7.1.60126.1: 29 de enero de 2019
 
 El 29 de enero de 2019 se lanzó la versión 7.1.60126.1 de Microsoft Threat Modeling Tool, que incluye los cambios siguientes:
 
-- La versión mínima necesaria de .NET se ha aumentado a [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
+- La versión mínima necesaria de .NET ha aumentado a [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - La versión mínima necesaria de Windows ha aumentado a [Actualización de aniversario de Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) debido a la dependencia de .NET.
 - Se ha agregado una característica de alternancia de validación de modelos al menú Opciones de la herramienta.
 - Se han actualizado varios vínculos en las propiedades de las amenazas.

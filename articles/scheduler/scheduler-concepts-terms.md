@@ -11,10 +11,10 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530938"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
@@ -39,7 +39,7 @@ A grandes rasgos, la API REST de Scheduler expone estas operaciones para adminis
 
 ### <a name="job-management"></a>Administración de trabajos
 
-Admite operaciones para crear y editar trabajos. Todos los trabajos deben pertenecer a una colección de trabajos existente, así que no hay ninguna creación implícita. Para más información, consulte [API REST de Scheduler: Trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs). Aquí es la dirección URI para estas operaciones:
+Admite operaciones para crear y editar trabajos. Todos los trabajos deben pertenecer a una colección de trabajos existente, así que no hay ninguna creación implícita. Para más información, consulte [API REST de Scheduler: Trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs). Esta es la dirección del identificador URI de estas operaciones:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -47,7 +47,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Administración de la colección de trabajos
 
-Admite operaciones para crear y editar trabajos y colecciones de trabajos, que se asignan a las cuotas y a la configuración compartida. Por ejemplo, las cuotas especifican el número máximo de trabajos y un intervalo menor de periodicidad. Para más información, consulte [API REST de Scheduler: Colecciones de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Aquí es la dirección URI para estas operaciones:
+Admite operaciones para crear y editar trabajos y colecciones de trabajos, que se asignan a las cuotas y a la configuración compartida. Por ejemplo, las cuotas especifican el número máximo de trabajos y un intervalo menor de periodicidad. Para más información, consulte [API REST de Scheduler: Colecciones de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Esta es la dirección del identificador URI de estas operaciones:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -55,7 +55,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Administración del historial de trabajos
 
-Admite la operación GET para recuperar 60 días de historial de ejecución de trabajos, por ejemplo, el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Incluye compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. Para más información, consulte [API REST de Scheduler: Trabajos - Enumeración del historial de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Aquí es la dirección URI para esta operación:
+Admite la operación GET para recuperar 60 días de historial de ejecución de trabajos, por ejemplo, el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Incluye compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. Para más información, consulte [API REST de Scheduler: Trabajos - Enumeración del historial de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Esta es la dirección del identificador URI de esta operación:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -75,7 +75,7 @@ Azure Scheduler admite varios tipos de trabajo:
 En el nivel superior, un trabajo de Scheduler tiene estas partes básicas:
 
 * La acción que se ejecuta cuando se activa el temporizador de trabajo
-* Opcional: El tiempo de ejecución del trabajo
+* Opcional: El tiempo para ejecutar el trabajo
 * Opcional: Cuándo y con qué frecuencia se debe repetir el trabajo
 * Opcional: Una acción de error que se ejecuta si se produce un error en la acción principal
 
@@ -83,11 +83,11 @@ El trabajo también incluye datos proporcionados por el sistema, como el siguien
 
 | Elemento | Obligatorio | DESCRIPCIÓN | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Sin  | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | Sin | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sí | Los detalles de la acción principal, que puede incluir un objeto **errorAction** | 
-| [**errorAction**](#error-action) | Sin  | Los detalles de la acción secundaria que se ejecuta si se produce un error en la acción principal |
-| [**recurrence**](#recurrence) | Sin  | Los detalles como la frecuencia y el intervalo para un trabajo periódico | 
-| [**retryPolicy**](#retry-policy) | Sin  | Los detalles de la frecuencia de reintentos de una acción | 
+| [**errorAction**](#error-action) | Sin | Los detalles de la acción secundaria que se ejecuta si se produce un error en la acción principal |
+| [**recurrence**](#recurrence) | Sin | Los detalles como la frecuencia y el intervalo para un trabajo periódico | 
+| [**retryPolicy**](#retry-policy) | Sin | Los detalles de la frecuencia de reintentos de una acción | 
 | [**state**](#state) | Sí | Los detalles del estado actual del trabajo |
 | [**status**](#status) | Sí | Los detalles del estado actual del trabajo, que está controlado por el servicio |
 ||||
@@ -248,15 +248,15 @@ Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el
 | Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sí, cuando se usa **recurrence** | "Minute", "Hour", "Day", "Week", "Month", "Year" | La unidad de tiempo entre las repeticiones | 
-| **interval** | Sin  | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
-| **schedule** | Sin  | Varía | Los detalles de las programaciones más complejas y avanzadas. Consulte **hours**, **minutes**, **weekDays**, **months** y **monthDays** | 
-| **hours** | Sin  | De 1 a 24 | Una matriz con las marcas de hora para saber cuándo ejecutar el trabajo | 
-| **minutes** | Sin  | 0 a 59 | Una matriz con las marcas de minutos para saber cuándo ejecutar el trabajo | 
-| **months** | Sin  | De 1 a 12 | Una matriz con los meses en los que se puede ejecutar el trabajo | 
-| **monthDays** | Sin  | Varía | Una matriz con los días del mes en los que se puede ejecutar el trabajo | 
-| **weekDays** | Sin  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matriz con los días de la semana en los que se puede ejecutar el trabajo | 
-| **count** | Sin  | <*none*> | El número de repeticiones. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
-| **endTime** | Sin  | <*none*> | La fecha y hora en la que se detiene la periodicidad. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
+| **interval** | Sin | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
+| **schedule** | Sin | Varía | Los detalles de las programaciones más complejas y avanzadas. Consulte **hours**, **minutes**, **weekDays**, **months** y **monthDays** | 
+| **hours** | Sin | De 1 a 24 | Una matriz con las marcas de hora para saber cuándo ejecutar el trabajo | 
+| **minutes** | Sin | De 0 a 59 | Una matriz con las marcas de minutos para saber cuándo ejecutar el trabajo | 
+| **months** | Sin | De 1 a 12 | Una matriz con los meses en los que se puede ejecutar el trabajo | 
+| **monthDays** | Sin | Varía | Una matriz con los días del mes en los que se puede ejecutar el trabajo | 
+| **weekDays** | Sin | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matriz con los días de la semana en los que se puede ejecutar el trabajo | 
+| **count** | Sin | <*none*> | El número de repeticiones. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
+| **endTime** | Sin | <*none*> | La fecha y hora en la que se detiene la periodicidad. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
 ||||
 
 Para obtener más información acerca de estos elementos, consulte [Creación de programaciones complejas y periodicidad avanzada](../scheduler/scheduler-advanced-complexity.md).
@@ -278,8 +278,8 @@ Para el caso de que un trabajo de Scheduler pueda producir un error, puede confi
 | Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sí | **Fixed**, **None** | Determina si se especifica una directiva de reintentos (**fixed**) o no (**none**). | 
-| **retryInterval** | Sin  | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
-| **retryCount** | Sin  | 4 | Especifica el número de reintentos. El valor máximo es 20. | 
+| **retryInterval** | Sin | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
+| **retryCount** | Sin | 4 | Especifica el número de reintentos. El valor máximo es 20. | 
 ||||
 
 Para más información, consulte [Alta disponibilidad y confiabilidad de Scheduler](../scheduler/scheduler-high-availability-reliability.md).
@@ -307,7 +307,7 @@ Después de que se inicia un trabajo, Scheduler devuelve información sobre el e
 * El número de errores, si existen.
 * El número de errores, si existen
 
-Por ejemplo: 
+Por ejemplo:
 
 ```json
 "status": {
@@ -319,7 +319,7 @@ Por ejemplo:
 }
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554700"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
@@ -359,7 +359,7 @@ Haga clic en **Reglas de alerta** para configurar las alertas basadas en métric
 De manera predeterminada, en Azure Monitor las métricas de caché se [almacenan durante 30 días](../azure-monitor/platform/data-platform-metrics.md) y después se eliminan. Para conservar las métricas de caché más de 30 días, haga clic en **Diagnóstico** para [configurar la cuenta de almacenamiento](cache-how-to-monitor.md#export-cache-metrics) que se usa para almacenar los diagnósticos de la memoria caché.
 
 >[!NOTE]
->Además de archivar las métricas de caché en el almacenamiento, también puede [transmitirlos a Event hubs o enviarlos a los registros de Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Además de archivar las métricas de caché en el almacenamiento, también puede [transmitirlas a un centro de eventos o enviarlas a registros de Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 
@@ -404,7 +404,7 @@ Las nuevas instancias de Azure Cache for Redis se configuran con los siguientes 
 | `maxclients` |Depende del plan de tarifa<sup>2</sup> |Este valor es el número máximo de clientes conectados que se permiten al mismo tiempo. Una vez alcanzado el límite, Redis cierra todas las conexiones nuevas y devuelve un error de "número máximo alcanzado de clientes". |
 | `maxmemory-policy` |`volatile-lru` |La directiva maxmemory es la configuración de cómo Redis selecciona lo que se debe quitar cuando se alcanza `maxmemory` (el tamaño de la oferta de caché que seleccionó al crear la caché). Con Azure Cache for Redis, la configuración predeterminada es `volatile-lru`, que quita las claves con una fecha de expiración definida mediante un algoritmo LRU. Esta opción puede configurarse en el Portal de Azure. Para más información, vea [Directivas de memoria](#memory-policies). |
 | `maxmemory-samples` |3 |Para ahorrar memoria, los algoritmos LRU y TTL mínimo son algoritmos aproximados en lugar de algoritmos precisos. De forma predeterminada, Redis comprueba tres claves y selecciona la que se ha usado menos recientemente. |
-| `lua-time-limit` |5.000 |Tiempo máximo de ejecución de un script Lua en milisegundos. Si se alcanza el tiempo máximo de ejecución, Redis registra que un script está aún en ejecución una vez transcurrido el tiempo máximo permitido y empieza a responder a las consultas con un error. |
+| `lua-time-limit` |5\.000 |Tiempo máximo de ejecución de un script Lua en milisegundos. Si se alcanza el tiempo máximo de ejecución, Redis registra que un script está aún en ejecución una vez transcurrido el tiempo máximo permitido y empieza a responder a las consultas con un error. |
 | `lua-event-limit` |500 |Tamaño máximo de la cola de eventos de script. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Los límites de búfer de salida de cliente pueden usarse para forzar la desconexión de clientes que, por algún motivo (un motivo habitual es que un cliente de Pub/Sub no puede consumir mensajes tan rápidamente como el publicador los crea), no leen datos del servidor con suficiente rapidez. Para más información, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 

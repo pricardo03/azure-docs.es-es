@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585141"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual del rendimiento de consultas en Azure SQL Database
@@ -38,7 +38,7 @@ Aunque los niveles de servicio de Azure SQL Database están diseñados para mejo
 
 - **Aplicaciones que tienen un rendimiento lento debido a un comportamiento "comunicativo"**
 
-  Las aplicaciones comunicativas realizan excesivas operaciones de acceso a los datos que son sensibles a la latencia de red. Para reducir el número de operaciones de acceso a datos de la base de datos SQL, puede que tenga que modificar estos tipos de aplicaciones. Por ejemplo, podría mejorar el rendimiento de la aplicación mediante técnicas como el procesamiento por lotes las consultas ad hoc o mover las consultas a procedimientos almacenados. Para más información, consulte [Consultas por lotes](#batch-queries).
+  Las aplicaciones comunicativas realizan excesivas operaciones de acceso a los datos que son sensibles a la latencia de red. Para reducir el número de operaciones de acceso a datos de la base de datos SQL, puede que tenga que modificar estos tipos de aplicaciones. Por ejemplo, puede mejorar el rendimiento de la aplicación mediante técnicas como el procesamiento por lotes de consultas ad hoc o el movimiento de las consultas a procedimientos almacenados. Para más información, consulte [Consultas por lotes](#batch-queries).
 
 - **Bases de datos con una carga de trabajo intensiva que no se admiten en una sola máquina**
 

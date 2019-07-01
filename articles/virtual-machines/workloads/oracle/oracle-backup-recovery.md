@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567080"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure
@@ -45,7 +45,7 @@ Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para más 
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>Paso 3: Preparar la base de datos
+### <a name="step-3-prepare-the-database"></a>Paso 3: Preparación de la base de datos
 
 1.  En este paso se presupone que tiene una instancia de Oracle (cdb1) que se ejecuta en una máquina virtual denominada *myVM*.
 
@@ -133,7 +133,7 @@ Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para más 
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Paso 4: Copia de seguridad coherentes con la aplicación para máquinas virtuales Linux
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Paso 4: Copias de seguridad coherentes con la aplicación para máquinas virtuales Linux
 
 Las copias de seguridad coherentes con la aplicación es una nueva característica de Azure Backup. Puede crear y seleccionar scripts para ejecutar antes y después de la instantánea de máquina virtual (anteriores a la instantánea y posteriores a la instantánea).
 
@@ -170,7 +170,7 @@ Las copias de seguridad coherentes con la aplicación es una nueva característi
 
 4. Edite el archivo JSON.
 
-    Edite el archivo VMSnapshotScriptPluginConfig.json para incluir los parámetros `PreScriptLocation` y `PostScriptlocation`. Por ejemplo: 
+    Edite el archivo VMSnapshotScriptPluginConfig.json para incluir los parámetros `PreScriptLocation` y `PostScriptlocation`. Por ejemplo:
 
     ```azurecli
     {
@@ -266,7 +266,7 @@ Las copias de seguridad coherentes con la aplicación es una nueva característi
 Para más información, vea [Copia de seguridad coherente con la aplicación para máquinas virtuales Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Paso 5: Los almacenes de uso de Azure Recovery Services para realizar copias de seguridad de la máquina virtual
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Paso 5: Uso de los almacenes de Azure Recovery Services para las copias de seguridad de máquina virtual
 
 1.  En Azure Portal, busque **almacenes de Recovery Services**.
 
@@ -303,11 +303,11 @@ Para más información, vea [Copia de seguridad coherente con la aplicación par
 
     ![Página de detalles del almacén myVault de Recovery Services](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  En la hoja **Elementos de copia de seguridad (Azure Virtual Machine)**, en el lado derecho de la página, haga clic en el botón de puntos suspensivos (**...**) y después en **Realizar copia de seguridad ahora**.
+9.  En la hoja **Elementos de copia de seguridad (Azure Virtual Machine)** , en el lado derecho de la página, haga clic en el botón de puntos suspensivos ( **...** ) y después en **Realizar copia de seguridad ahora**.
 
     ![Comando Realizar copia de seguridad ahora de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Haga clic en el botón **Copia de seguridad**. Espere a que finalice el proceso de copia de seguridad. A continuación, vaya a [paso 6: Quitar los archivos de base de datos](#step-6-remove-the-database-files).
+10. Haga clic en el botón **Copia de seguridad**. Espere a que finalice el proceso de copia de seguridad. Luego, vaya al [Paso 6: Eliminación de los archivos de la base de datos](#step-6-remove-the-database-files).
 
     Para ver el estado del trabajo de copia de seguridad, haga clic en **Trabajos**.
 
@@ -319,7 +319,7 @@ Para más información, vea [Copia de seguridad coherente con la aplicación par
 
 11. Para una copia de seguridad coherente con la aplicación, resuelva los errores en el archivo de registro. El archivo de registro se encuentra en /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
 
-### <a name="step-6-remove-the-database-files"></a>Paso 6: Quitar los archivos de base de datos 
+### <a name="step-6-remove-the-database-files"></a>Paso 6: Eliminación de los archivos de la base de datos 
 Más adelante en este artículo obtendrá información sobre cómo probar el proceso de recuperación. Para poder probarlo, tiene que eliminar los archivos de la base de datos.
 
 1.  Elimine los archivos de copia de seguridad y el espacio de tabla:
@@ -351,11 +351,11 @@ Para restaurar los archivos eliminados, siga estos pasos:
 
     ![Número de elementos de copia de seguridad de máquinas virtuales de Azure en los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. En la hoja **myvm1**, haga clic en **Recuperación de archivos (versión preliminar)**.
+3. En la hoja **myvm1**, haga clic en **Recuperación de archivos (versión preliminar)** .
 
     ![Captura de pantalla de la página de recuperación de archivos de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery_service_14.png)
 
-4. En el panel **Recuperación de archivos (versión preliminar)**, haga clic en **Descargar script**. Después, guarde el archivo de descarga (.sh) en una carpeta en el equipo cliente.
+4. En el panel **Recuperación de archivos (versión preliminar)** , haga clic en **Descargar script**. Después, guarde el archivo de descarga (.sh) en una carpeta en el equipo cliente.
 
     ![Operaciones de guardado del archivo de script descargado](./media/oracle-backup-recovery/recovery_service_15.png)
 
@@ -452,13 +452,13 @@ Para restaurar los archivos eliminados, siga estos pasos:
 
 En lugar de restaurar los archivos eliminados de los almacenes de Recovery Services, puede restaurar toda la máquina virtual.
 
-### <a name="step-1-delete-myvm"></a>Paso 1: Eliminar myVM
+### <a name="step-1-delete-myvm"></a>Paso 1: Eliminación de myVM
 
 *   Inicie sesión en Azure Portal, vaya al almacén **myVM1** y haga clic en **Eliminar**.
 
     ![Comando Eliminar almacén](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-the-vm"></a>Paso 2: Recupere la máquina virtual
+### <a name="step-2-recover-the-vm"></a>Paso 2: Recuperación de la máquina virtual
 
 1.  Vaya a **Almacenes de Recovery Services** y seleccione **myVault**.
 
@@ -468,11 +468,11 @@ En lugar de restaurar los archivos eliminados de los almacenes de Recovery Servi
 
     ![Elementos de copias de seguridad de myVault](./media/oracle-backup-recovery/recover_vm_03.png)
 
-3.  En la hoja **Elementos de copia de seguridad (Máquina Virtual de Azure)**, seleccione **myvm1**.
+3.  En la hoja **Elementos de copia de seguridad (Máquina Virtual de Azure)** , seleccione **myvm1**.
 
     ![Página de la máquina virtual de recuperación](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  En la hoja **myvm1**, haga clic en el botón de puntos suspensivos (**...**) y después en **Restore VM** (Restaurar máquina virtual).
+4.  En la hoja **myvm1**, haga clic en el botón de puntos suspensivos ( **...** ) y después en **Restore VM** (Restaurar máquina virtual).
 
     ![Comando Restaurar máquina virtual](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -496,7 +496,7 @@ En lugar de restaurar los archivos eliminados de los almacenes de Recovery Servi
 
     ![Estado del proceso de restauración](./media/oracle-backup-recovery/recover_vm_09.png)
 
-### <a name="step-3-set-the-public-ip-address"></a>Paso 3: Establecer la dirección IP pública
+### <a name="step-3-set-the-public-ip-address"></a>Paso 3: Establecimiento de la dirección IP pública
 Una vez restaurada la máquina virtual, configure la dirección IP pública.
 
 1.  En el cuadro de búsqueda, escriba **dirección IP pública**.
@@ -527,7 +527,7 @@ Una vez restaurada la máquina virtual, configure la dirección IP pública.
     ssh <publicIpAddress>
     ```
 
-### <a name="step-5-test-whether-the-database-is-accessible"></a>Paso 5: Comprobar si la base de datos es accesible
+### <a name="step-5-test-whether-the-database-is-accessible"></a>Paso 5: Comprobación de accesibilidad de la base de datos
 *   Para probar la accesibilidad, use el script siguiente:
 
     ```bash 
@@ -537,9 +537,9 @@ Una vez restaurada la máquina virtual, configure la dirección IP pública.
     ```
 
     > [!IMPORTANT]
-    > Si la base de datos **inicio** comando genera un error, para recuperar la base de datos, vea [paso 6: Utilice RMAN para recuperar la base de datos](#step-6-optional-use-rman-to-recover-the-database).
+    > Si el comando **startup** de la base de datos genera un error, para recuperarla, vea el [Paso 6: Usar RMAN para recuperar la base de datos](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Paso 6: (Opcional) Uso de RMAN para recuperar la base de datos
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Paso 6: (Opcional) Usar RMAN para recuperar la base de datos
 *   Para recuperar la base de datos, use el script siguiente:
 
     ```bash

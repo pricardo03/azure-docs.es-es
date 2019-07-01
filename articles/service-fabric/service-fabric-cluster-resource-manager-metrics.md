@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516760"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
@@ -37,7 +37,7 @@ Supongamos que desea empezar a escribir e implementar un servicio. En este momen
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Alto |
 | ReplicaCount |0 |1 |1 |Mediano |
-| Número |1 |1 |1 |Bajo |
+| Recuento |1 |1 |1 |Bajo |
 
 
 Para cargas de trabajo básicas, las métricas predeterminadas proporcionan una distribución apropiada del trabajo en el clúster. En el siguiente ejemplo, vamos a ver lo que sucede cuando se crean dos servicios y se confía en las métricas predeterminadas para mantener el equilibrio. El primero es un servicio con estado con tres particiones y un conjunto de tres réplicas de destino. El segundo es un servicio sin estado con una partición y un recuento de instancias de tres.
@@ -57,7 +57,7 @@ Algunos puntos a tener en cuenta:
 
 ¡Bien!
 
-Las métricas predeterminadas funcionan correctamente como lugar de partida. Pero estas métricas predeterminadas tienen una utilidad limitada. Por ejemplo:  ¿Qué es la probabilidad de que el esquema de particiones que elija dé como resultado una utilización perfectamente uniforme por todas las particiones? ¿Cuál es la probabilidad de que la carga de un servicio dado se mantenga constante en el tiempo, o incluso que sea la misma en varias particiones ahora mismo?
+Las métricas predeterminadas funcionan correctamente como lugar de partida. Pero estas métricas predeterminadas tienen una utilidad limitada. Por ejemplo:  ¿Cuál es la probabilidad de que el esquema de partición que elija dé como resultado una utilización perfectamente uniforme de todas las particiones? ¿Cuál es la probabilidad de que la carga de un servicio dado se mantenga constante en el tiempo, o incluso que sea la misma en varias particiones ahora mismo?
 
 Puede trabajar solo con las métricas predeterminadas. De todas forma, si lo hace, normalmente significa que la utilización del clúster será inferior y más desigual de lo deseable. Esto se debe a que las métricas predeterminadas no son adaptables y presuponen que todo es equivalente. Por ejemplo, un elemento principal que está ocupado y otro que no lo está, ambos contribuyen con "1" en la métrica de PrimaryCount. En el peor de los casos, usar solo las métricas predeterminadas puede producir una sobrecarga en los nodos y problemas de rendimiento. Si está interesado en obtener el máximo partido de su clúster y evitar problemas de rendimiento, tiene que usar métricas personalizadas e informes de carga dinámica.
 
@@ -66,13 +66,13 @@ Las métricas se configuran para cada instancia de servicio con nombre cuando se
 
 Todas las métricas tienen algunas propiedades que las describen: un nombre, un peso y una carga predeterminada.
 
-* Nombre de métrica: El nombre de la métrica. El nombre de la métrica es un identificador único de la métrica en el clúster desde la perspectiva de Resource Manager.
-* Peso: Ponderación de métricas define qué importancia tiene esta métrica en relación con las demás métricas para este servicio.
-* Carga predeterminada: La carga predeterminada se representa de forma diferente dependiendo de si el servicio es con o sin estado.
+* Nombre de la métrica: El nombre de la métrica. El nombre de la métrica es un identificador único de la métrica en el clúster desde la perspectiva de Resource Manager.
+* Peso: el peso de la métrica define su importancia con relación a las demás métricas de este servicio.
+* Carga predeterminada: la carga predeterminada se representa de forma distinta dependiendo de si el servicio es con o sin estado.
   * Para los servicios sin estado, cada métrica tiene una propiedad única llamada DefaultLoad.
   * Para servicios con estado, se define lo siguiente:
-    * PrimaryDefaultLoad: La cantidad predeterminada de la métrica que este servicio consume cuando es principal.
-    * SecondaryDefaultLoad: La cantidad predeterminada de la métrica que este servicio consume cuando es secundario.
+    * PrimaryDefaultLoad: cantidad predeterminada de la métrica que este servicio consume cuando es principal.
+    * SecondaryDefaultLoad: cantidad predeterminada de la métrica que este servicio consume cuando es secundario.
 
 > [!NOTE]
 > Si define métricas personalizadas y desea usar _también_ las métricas predeterminadas, tiene que volver a agregar estas últimas de forma _explícita_. Esto es así porque tiene que definir claramente la relación entre las métricas predeterminadas y sus métricas personalizadas. Por ejemplo, puede que le preocupen más las métricas ConnectionCount o WorkQueueDepth que las de distribución principal. De forma predeterminada el peso de la métrica PrimaryCount es alto pero debe reducirlo a medio cuando agregue sus otras métricas, para asegurarse de que estas tienen prioridad.
@@ -144,7 +144,7 @@ Recuerde: si solo desea utilizar las métricas predeterminadas, no necesita toca
 Ahora, vamos a analizar en detalle cada uno de estos valores y a hablar sobre los comportamientos en los que influyen.
 
 ## <a name="load"></a>Carga
-La razón fundamental de la definición de las métricas es la representación de cierta carga. *Carga* es la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico. El valor Carga puede configurarse prácticamente en cualquier momento. Por ejemplo: 
+La razón fundamental de la definición de las métricas es la representación de cierta carga. *Carga* es la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico. El valor Carga puede configurarse prácticamente en cualquier momento. Por ejemplo:
 
   - Carga se puede definir cuando se crea un servicio. Esto se denomina _carga predeterminada_.
   - La información de la métrica, incluyendo la carga predeterminada, para un servicio puede actualizarse después de crear el servicio. Esto se denomina _actualizar un servicio_. 
@@ -234,7 +234,7 @@ Hay algunas cosas aún que es necesario explicar:
 ## <a name="metric-weights"></a>Pesos de métrica
 Es importante realizar un seguimiento de las mismas métricas en los diferentes servicios. Esta vista global es la que permite que Cluster Resource Manager realice un seguimiento del consumo en el clúster, equilibre el consumo en todos los nodos y se asegure de que los nodos no exceden su capacidad. Sin embargo, los servicios pueden tener vistas diferentes en cuanto a la importancia de la misma métrica. Además, en un clúster con muchas métricas y una gran cantidad de servicios, puede que no existan soluciones perfectamente equilibradas para todas las métricas. ¿Cómo debe controlar Cluster Resource Manager estos casos?
 
-La ponderación de las métricas permite a Cluster Resource Manager tomar decisiones sobre cómo equilibrar el clúster cuando no hay ninguna respuesta perfecta. La ponderación de las métricas también permite a Cluster Resource Manager equilibrar servicios específicos de manera diferente. Las métricas pueden tener cuatro niveles diferentes de ponderación: Cero, baja, Media y alta. Una métrica con un peso de cero no aporta nada a la hora de considerar si todo está equilibrado o no. Sin embargo, su carga contribuye a la administración de capacidad. Las métricas con un peso cero siguen siendo útiles y se utilizan con frecuencia como parte la supervisión del comportamiento y el rendimiento del servicio. [En este artículo](service-fabric-diagnostics-event-generation-infra.md) se proporciona más información sobre el uso de las métricas de supervisión y diagnóstico de los servicios. 
+La ponderación de las métricas permite a Cluster Resource Manager tomar decisiones sobre cómo equilibrar el clúster cuando no hay ninguna respuesta perfecta. La ponderación de las métricas también permite a Cluster Resource Manager equilibrar servicios específicos de manera diferente. Las métricas pueden tener cuatro niveles diferentes de peso: cero, bajo, medio y alto. Una métrica con un peso de cero no aporta nada a la hora de considerar si todo está equilibrado o no. Sin embargo, su carga contribuye a la administración de capacidad. Las métricas con un peso cero siguen siendo útiles y se utilizan con frecuencia como parte la supervisión del comportamiento y el rendimiento del servicio. [En este artículo](service-fabric-diagnostics-event-generation-infra.md) se proporciona más información sobre el uso de las métricas de supervisión y diagnóstico de los servicios. 
 
 El impacto real de las diferentes ponderaciones de métricas en el clúster es que Cluster Resource Manager genera diferentes soluciones. Las ponderaciones de las métricas indican a Cluster Resource Manager que ciertas métricas son más importantes que otras. Cuando no hay ninguna solución perfecta, Cluster Resource Manager puede preferir soluciones que equilibren mejor las métricas ponderadas. Si un servicio considera que una métrica no es importante, puede encontrar que su uso de esa métrica está desequilibrado. Esto permite que otro servicio obtenga una distribución uniforme de alguna métrica que es importante para él.
 
@@ -242,7 +242,7 @@ Echemos un vistazo a un ejemplo de algunos informes de carga y cómo pesos de m�
 
 <center>
 
-![Ejemplo de ponderación de métricas y su impacto en soluciones de equilibrio][Image3]
+![Ejemplo de peso de métricas y su impacto en soluciones de equilibrio][Image3]
 </center>
 
 En este ejemplo, hay cuatro servicios diferentes, todos informando sobre valores diferentes para dos métricas diferentes, MetricA y MetricB. En un caso, todos los servicios definen a MetricA como la más importante (Peso = Alto) y a MetricB como no importante (Peso = Bajo). Como resultado, vemos que Cluster Resource Manager coloca los servicios de modo que MetricA está mejor equilibrada que MetricB. "Mejor equilibrada" significa que MetricA tiene una desviación estándar menor que MetricB. En el segundo caso, se invierten las ponderaciones de las métricas. Como resultado, Cluster Resource Manager intercambiaría los servicios A y B para conseguir una asignación en la que MetricB quede mejor equilibrada que MetricA.
@@ -260,7 +260,7 @@ En realidad, para cada métrica se realiza el seguimiento con varios pesos. El p
 
 <center>
 
-![El impacto de una única solución Global][Image4]
+![El impacto de una única solución global][Image4]
 </center>
 
 En el ejemplo de la parte superior, basado solamente en el equilibrio global, el clúster en conjunto está equilibrado. Todos los nodos tienen el mismo número de réplicas principales y el mismo número total de réplicas. Sin embargo, si examinamos el impacto real de esta asignación, no es tan bueno: la pérdida de cualquier nodo afecta a una determinada carga de trabajo desproporcionadamente, porque se lleva todas sus réplicas principales. Por ejemplo, si se produce un error en el primer nodo, se perderían las tres réplicas principales de las tres particiones diferentes del servicio Circle. Por el contrario, en los servicios Triangle y Hexagon sus particiones pierde una réplica. Esto apenas causa interrupciones, aparte de tener que recuperar la réplica perdida.

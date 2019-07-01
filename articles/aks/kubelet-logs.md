@@ -1,25 +1,24 @@
 ---
 title: Visualización de registros de kubelet desde Azure Kubernetes Service (AKS)
-description: Obtenga información sobre cómo ver información de solución de problemas en los registros de kubelet desde nodos de Azure Kubernetes Service (AKS)
+description: Aprenda a visualizar la información de solución de problemas en los registros de kubelet desde los nodos de Azure Kubernetes Service (AKS).
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 03/05/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/05/2019
+ms.author: iainfou
 ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465026"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obtención de registros de kubelet desde nodos de clúster de Azure Kubernetes Service (AKS)
 
-Como parte del funcionamiento de un clúster de AKS, debe revisar los registros para solucionar un problema. Integrado en el portal de Azure es la capacidad para ver los registros para el [AKS dominar componentes] [ aks-master-logs] o [contenedores en un clúster AKS][azure-container-logs]. En ocasiones, es posible que necesite obtener *kubelet* registros desde un nodo AKS para solucionar problemas.
+Como parte del funcionamiento de un clúster de AKS, puede que deba revisar los registros para solucionar un problema. Azure Portal incorpora la posibilidad de ver los registros de los [componentes maestros de AKS][aks-master-logs] o de los [contenedores de un clúster AKS][azure-container-logs]. En ocasiones, necesitará obtener registros de *kubelet* de un nodo de AKS para solucionar problemas.
 
-Este artículo muestra cómo puede usar `journalctl` para ver el *kubelet* registra en un nodo de AKS.
+En este artículo se muestra cómo puede usar `journalctl` para ver los registros de *kubelet* en un nodo de AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

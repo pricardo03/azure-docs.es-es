@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487079"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
@@ -29,7 +29,7 @@ En este artículo se describe la infraestructura de seguridad básica que utiliz
 
 En una solución de Data Factory, se crean una o varias [canalizaciones](data-factory-create-pipelines.md)de datos. Una canalización es una agrupación lógica de actividades que realizan una tarea. Estas canalizaciones residen en la región donde se creó la factoría de datos. 
 
-Aunque Data Factory solamente está disponible en las regiones **Oeste de EE. UU.**, **Este de EE.UU.** y **Europa del Norte**, el servicio de movimiento de datos está disponible [globalmente en varias regiones](data-factory-data-movement-activities.md#global). El servicio de Data Factory garantiza que los datos no abandonan un área geográfica o región, a menos que se indique explícitamente al servicio que utilice una región alternativa si el servicio de movimiento de datos no se ha implementado todavía en esa región. 
+Aunque Data Factory solamente está disponible en las regiones **Oeste de EE. UU.** , **Este de EE.UU.** y **Europa del Norte**, el servicio de movimiento de datos está disponible [globalmente en varias regiones](data-factory-data-movement-activities.md#global). El servicio de Data Factory garantiza que los datos no abandonan un área geográfica o región, a menos que se indique explícitamente al servicio que utilice una región alternativa si el servicio de movimiento de datos no se ha implementado todavía en esa región. 
 
 Azure Data Factory en sí no almacena datos, excepto las credenciales de servicio vinculadas de los almacenes de datos en la nube, que se cifran mediante certificados. Permite crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los [almacenes de datos admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) y organizar el procesamiento de los datos mediante [servicios de proceso](data-factory-compute-linked-services.md) en otras regiones o en entornos locales. También permite [supervisar y administrar flujos de trabajo](data-factory-monitor-manage-pipelines.md) mediante mecanismos de programación y la interfaz de usuario.
 
@@ -95,7 +95,7 @@ Las credenciales de los almacenes de datos locales no se almacenan en la nube, s
 - Con **texto sin formato** (menos seguro) a través de HTTPS desde Azure Portal o el Asistente para copia. Las credenciales se pasan en texto sin formato a la puerta de enlace local.
 - Con la **biblioteca de criptografía de JavaScript del Asistente para copia**.
 - Con la **aplicación de administración de credenciales con un clic**. La aplicación de un clic se ejecuta en la máquina local con acceso a la puerta de enlace y establece las credenciales para el almacén de datos. Esta opción y la siguiente son las más seguras. La aplicación de administración de credenciales usa el puerto 8050 de la máquina con la puerta de enlace para una comunicación segura de manera predeterminada.  
-- Use [New AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) cmdlet de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlo al **EncryptedCredential** elemento de la **connectionString** en el archivo JSON que usa con el [ Nuevo AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet o en el fragmento JSON en el portal de Data Factory Editor. Esta opción y la aplicación de un solo clic son las más seguras. 
+- Use el cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas que devuelve este cmdlet y agregarlas al elemento **EncryptedCredential** de **connectionString** en el archivo JSON que se usa con el cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o en el fragmento JSON en el Editor de Data Factory del portal. Esta opción y la aplicación de un solo clic son las más seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Cifrado basado en la biblioteca de criptografía de JavaScript
 Puede cifrar las credenciales del almacén de datos con la [biblioteca de criptografía de JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) del [Asistente para copia](data-factory-copy-wizard.md). Cuando se selecciona esta opción, el Asistente para copia recupera la clave pública de la puerta de enlace y la usa para cifrar las credenciales del almacén de datos. La máquina de puerta de enlace descifra las credenciales y la [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) de Windows las protege.
@@ -174,7 +174,7 @@ Algunos almacenes de datos en la nube también requieren listas de direcciones I
 
 Los siguientes almacenes de datos en la nube necesitan una lista de direcciones IP admitidas por la máquina con la puerta de enlace. De forma predeterminada, algunos de estos almacenes de datos no necesitan listas de direcciones IP admitidas. 
 
-- [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)

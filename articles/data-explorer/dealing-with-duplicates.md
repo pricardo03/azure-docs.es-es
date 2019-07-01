@@ -1,6 +1,6 @@
 ---
-title: Controlar datos duplicados en el Explorador de datos de Azure
-description: En este tema le mostrará varios métodos para tratar con datos duplicados cuando se usa el Explorador de datos de Azure.
+title: Control de datos duplicados en Azure Data Explorer
+description: En este tema se muestran diversos enfoques para abordar los datos duplicados cuando se usa Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60445777"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Controlar datos duplicados en el Explorador de datos de Azure
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Control de datos duplicados en Azure Data Explorer
 
 Los dispositivos que envían datos a la nube mantienen una caché local de los datos. Según el tamaño de los datos, la memoria caché local puede almacenar datos de varios días o incluso meses. Es conveniente proteger las bases de datos analíticos de aquellos dispositivos que por error vuelven a enviar los datos almacenados en caché y provocan la duplicación de datos en la base de datos analíticos. En este tema se describen los procedimientos recomendados para controlar los datos duplicados para estos tipos de escenarios.
 

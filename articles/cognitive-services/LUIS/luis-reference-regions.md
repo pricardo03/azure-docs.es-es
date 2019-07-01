@@ -1,7 +1,7 @@
 ---
 title: Regiones de publicación y puntos de conexión
 titleSuffix: Azure Cognitive Services
-description: 3 regiones creación y sus portales admiten todas las regiones de publicación muchos. La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al publicar una aplicación, LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave.
+description: Tres regiones de creación y sus portales admiten todas las regiones de publicación. La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al publicar una aplicación, LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 20ea2eb632a6d685351178691cc3d0f58a567902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60599277"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creación y publicación de regiones y las claves asociadas
@@ -24,8 +24,8 @@ Tres regiones de creación son compatibles con los portales correspondientes de 
 
 <a name="luis-website"></a>
 
-## <a name="luis-authoring-regions"></a>Creación de LUIS regiones
-Existen tres portales de creación de LUIS, según la región. Debe crear y publicar el contenido en la misma región. 
+## <a name="luis-authoring-regions"></a>Regiones de creación de LUIS
+Hay tres portales de creación de LUIS, en función de la región. Debe crear y publicar el contenido en la misma región. 
 
 |LUIS|Región de creación|Nombre de la región de Azure|
 |--|--|--|
@@ -33,19 +33,19 @@ Existen tres portales de creación de LUIS, según la región. Debe crear y publ
 |[au.luis.ai][au.luis.ai]|Australia| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai]|Europa|`westeurope`|
 
-Creación de las regiones tiene [emparejado regiones de conmutación por error](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+Las regiones de creación tienen [regiones de conmutación por error emparejadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 <a name="regions-and-azure-resources"></a>
 
-## <a name="publishing-regions-and-azure-resources"></a>Publicación de las regiones y los recursos de Azure
-La aplicación se publica en todas las regiones asociadas a los recursos de LUIS agregados en el portal de LUIS. Por ejemplo, para una aplicación creada en [www.luis.ai][www.luis.ai], si crea un recurso de Cognitive Service LUIS o de en **westus** y [agregarla a la aplicación como un recurso ](luis-how-to-azure-subscription.md), la aplicación se publica en dicha región. 
+## <a name="publishing-regions-and-azure-resources"></a>Regiones de publicación y recursos de Azure
+La aplicación se publica en todas las regiones asociadas a los recursos de LUIS agregados en el portal de LUIS. Por ejemplo, para una aplicación creada en [www.luis.ai][www.luis.ai], si crea un recurso de LUIS o del Cognitive Service en **westus** y lo [agrega a la aplicación como un recurso](luis-how-to-azure-subscription.md), la aplicación se publicará en dicha región. 
 
 ## <a name="public-apps"></a>Aplicaciones públicas
 Se publica una aplicación pública en todas las regiones para que un usuario con una clave de recurso de LUIS basada en regiones pueda tener acceso a la aplicación en cualquier región que esté asociado a su clave de recurso.
 
 <a name="publishing-regions"></a>
 
-## <a name="publishing-regions-are-tied-to-authoring-regions"></a>Regiones de publicación están vinculadas a la creación de las regiones
+## <a name="publishing-regions-are-tied-to-authoring-regions"></a>Las regiones de publicación están asociadas a las regiones de creación
 
 La aplicación de regiones de creación solo se puede publicar en la región de publicación correspondiente. Si la aplicación está en la región de creación incorrecta, expórtela e impórtela en la región de creación correcta para su región de publicación. 
 
@@ -55,7 +55,7 @@ Las aplicaciones de LUIS creadas en https://www.luis.ai se pueden publicar en to
 
 Para publicar en las regiones europeas, solo debe crear aplicaciones de LUIS en https://eu.luis.ai. Si intenta publicar en cualquier otro lugar con una clave en la región europea, LUIS mostrará un mensaje de advertencia. En su lugar, use https://eu.luis.ai. Las aplicaciones de LUIS creadas en [https://eu.luis.ai][eu.luis.ai] no se migran automáticamente a otras regiones. Exporte e importe la aplicación de LUIS para poder migrarla.
 
-## <a name="europe-publishing-regions"></a>Publicación regiones de Europa
+## <a name="europe-publishing-regions"></a>Regiones de publicación de Europa
 
  Región global | Región de la API de creación y sitio web de creación| Región de publicación y de consulta<br>`API region name`   |  Formato de dirección URL de punto de conexión   |
 |-----|------|------|------|
@@ -68,7 +68,7 @@ Para publicar en las regiones europeas, solo debe crear aplicaciones de LUIS en 
 
 Para publicar en las regiones australianas, solo debe crear aplicaciones de LUIS en https://au.luis.ai. Si intenta publicar en cualquier otro lugar con una clave en la región australiana, LUIS mostrará un mensaje de advertencia. En su lugar, use https://au.luis.ai. Las aplicaciones de LUIS creadas en [https://au.luis.ai][au.luis.ai] no se migran automáticamente a otras regiones. Exporte e importe la aplicación de LUIS para poder migrarla.
 
-## <a name="australia-publishing-regions"></a>Publicación regiones de Australia
+## <a name="australia-publishing-regions"></a>Regiones de publicación de Australia
 
  Región global | Región de la API de creación y sitio web de creación| Región de publicación y de consulta<br>`API region name`   |  Formato de dirección URL de punto de conexión   |
 |-----|------|------|------|
@@ -76,7 +76,7 @@ Para publicar en las regiones australianas, solo debe crear aplicaciones de LUIS
 
 ## <a name="publishing-to-other-regions"></a>Publicación en otras regiones
 
-Para publicar en las demás regiones, cree LUIS aplicaciones [ https://www.luis.ai ](https://www.luis.ai) solo. 
+Para publicar en otras regiones, cree aplicaciones de LUIS en [https://www.luis.ai](https://www.luis.ai). 
 
 ## <a name="other-publishing-regions"></a>Otras regiones de publicación
 
@@ -101,7 +101,7 @@ Para publicar en las demás regiones, cree LUIS aplicaciones [ https://www.luis.
 
 ## <a name="endpoints"></a>Puntos de conexión
 
-LUIS actualmente tiene 2 puntos de conexión: uno para la creación y otro para el análisis de predicción de consulta.
+LUIS actualmente tiene dos puntos de conexión: uno para la creación y otro para el análisis de predicción de consultas.
 
 |Propósito|URL|
 |--|--|
@@ -118,9 +118,9 @@ En la tabla siguiente se explican los parámetros que se muestran entre llaves `
 
 ## <a name="failover-regions"></a>Regiones de conmutación por error
 
-Cada región tiene una región secundaria para la conmutación por error a. Se produce un error de Europa conmuta por error over dentro de Europa y Australia en Australia.
+Cada región tiene una región secundaria a la que conmutar por error. Europa conmuta por error dentro de Europa y Australia conmuta por error dentro de Australia.
 
-Creación de las regiones tiene [emparejado regiones de conmutación por error](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+Las regiones de creación tienen [regiones de conmutación por error emparejadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

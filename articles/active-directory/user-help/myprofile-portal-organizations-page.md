@@ -13,10 +13,10 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60475555"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Administración de las organizaciones desde el portal Mi perfil (versión preliminar)
@@ -57,4 +57,4 @@ Puede salir de cualquier organización que no sea la organización principal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Después de ver la organización, puede seleccionar para ver o administrar su [información de seguridad](user-help-security-info-overview.md)conectados [dispositivos](myprofile-portal-devices-page.md), o ver cómo su organización [usa los datos](myprofile-portal-privacy-page.md).
+- Después de ver las organizaciones, puede seleccionar ver o administrar la [información de seguridad](user-help-security-info-overview.md) y los [dispositivos](myprofile-portal-devices-page.md) conectados; o puede ver cómo la organización [usa sus datos](myprofile-portal-privacy-page.md).

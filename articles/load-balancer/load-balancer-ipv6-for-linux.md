@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: kumud
 ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516550"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurar DHCPv6 para VM de Linux
@@ -54,9 +54,9 @@ En este documento se describe cómo habilitar DHCPv6 para que su máquina virtua
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-A partir con Ubuntu 17.10, es el mecanismo de configuración de red predeterminada [NETPLAN]( https://netplan.io).  Durante la instalación y creación de instancias, NETPLAN lee la configuración de red de los archivos de configuración de YAML en esta ubicación: / {lib,etc,run}/netplan/*.yaml.
+A partir de Ubuntu 17.10, el mecanismo de configuración de red predeterminado es [NETPLAN]( https://netplan.io).  Durante la instalación y la creación de instancias, NETPLAN lee la configuración de red de los archivos de configuración de YAML en esta ubicación: /{lib,etc,run}/netplan/*.yaml.
 
-Incluya un *dhcp6:true* instrucción para cada interfaz ethernet en la configuración.  Por ejemplo: 
+Incluya una instrucción *dhcp6:true* para cada interfaz Ethernet en la configuración.  Por ejemplo:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Incluya un *dhcp6:true* instrucción para cada interfaz ethernet en la configura
             eno1:
               dhcp6: true
 
-Durante el arranque temprano, el netplan "representador de red" escribe la configuración en/ejecuta para entregar desactivar control de dispositivos para el daemon de red especificado para la información de referencia sobre NETPLAN, consulte https://netplan.io/reference.
+Durante el primer arranque, el "representador de red" de NETPLAN escribe la configuración en /run para entregar el control de los dispositivos al demonio de red especificado. Para información de referencia sobre NETPLAN, consulte https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

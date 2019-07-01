@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
 ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457208"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
@@ -56,7 +56,7 @@ Puede restablecer una puerta de enlace de VPN de Resource Manager mediante Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-El cmdlet para restablecer una puerta de enlace es **Reset-AzVirtualNetworkGateway**. Antes de realizar un restablecimiento, asegúrese de que tiene la versión más reciente de la [cmdlets de PowerShell Az](https://docs.microsoft.com/powershell/module/az.network). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet1GW en el grupo de recursos TestRG1:
+El cmdlet para restablecer una puerta de enlace es **Reset-AzVirtualNetworkGateway**. Antes de realizar un restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets Az de PowerShell](https://docs.microsoft.com/powershell/module/az.network). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet1GW en el grupo de recursos TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

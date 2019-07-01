@@ -1,5 +1,5 @@
 ---
-title: 'Solucionar el error "No se puede llegar allí desde aquí": Azure Active Directory | Microsoft Docs'
+title: 'Solución de problemas: error "No se puede llegar allí desde aquí": Azure Active Directory | Microsoft Docs'
 description: Solución de problemas de los posibles motivos por los que obtiene el mensaje de error "No se puede llegar allí desde aquí".
 services: active-directory
 author: eross-msft
@@ -15,10 +15,10 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473810"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Solución de problemas de los posibles motivos por los que obtiene el mensaje de error "No se puede llegar allí desde aquí".

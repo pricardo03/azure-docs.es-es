@@ -11,22 +11,22 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
 ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607192"
 ---
-# <a name="create-human-reviews-net"></a>Crear revisiones humanas (. NET)
+# <a name="create-human-reviews-net"></a>Creación de revisiones humanas (.NET)
 
-Las revisiones de almacenan y mostrar el contenido para que moderadores humanos evaluar. Cuando un usuario completa una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificadas. Esta guía proporciona información y ejemplos de código que le ayudarán a empezar a usar el [contenido de moderador de SDK para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Las revisiones almacenan y muestran el contenido que habrán de evaluar moderadores humanos. Cuando un usuario completa una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado. En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 
 - Crear un conjunto de revisiones para moderadores humanos.
 - Obtener el estado de las revisiones existentes para moderadores humanos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Iniciar sesión o crear una cuenta de Content Moderator [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) sitio.
+- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Garantizar que la clave de API puede llamar a la API de revisión para la creación de revisiones
 
@@ -159,7 +159,7 @@ Agregue la clase siguiente a la clase **Program**. Utilice esta clase para asoci
 >
 > Una clave de un plan gratuito tiene un límite de una solicitud por segundo.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Agregue las siguientes constantes a la **programa** clase en Program.cs
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Agregar las siguientes constantes a la clase **Program** en Program.cs
 
 ```csharp
 /// <summary>
@@ -181,7 +181,7 @@ Agregue la clase siguiente a la clase **Program**. Utilice esta clase para asoci
     private const string OutputFile = "OutputLog.txt";
 ```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Agregue las siguientes constantes y los campos estáticos en la **programa** clase en Program.cs
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Agregar las siguientes constantes y campos estáticos a la clase **Program** en Program.cs
 
 Actualice estos valores para que contengan información específica de la suscripción y el equipo.
 
@@ -238,7 +238,7 @@ private const string MetadataKey = "sc";
 private const string MetadataValue = "true";
 ```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Agregue los siguientes campos estáticos a la **programa** clase en Program.cs
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Agregar los siguientes campos estáticos a la clase **Program** en Program.cs
 
 Use estos campos para realizar un seguimiento del estado de la aplicación.
 
@@ -382,7 +382,7 @@ Agregue el método siguiente a la clase **Program**.
 
 Agregue el siguiente código al método **Main**.
 
-Este código simula muchas de las operaciones que lleva a cabo al definir y administrar la lista, así como al usar la lista para filtrar imágenes. Las características de registro que pueda ver los objetos de respuesta generados por las llamadas SDK para el servicio mModerator contenido.
+Este código simula muchas de las operaciones que lleva a cabo al definir y administrar la lista, así como al usar la lista para filtrar imágenes. Las características de registro permiten ver los objetos de respuesta generados por las llamadas de SDK al servicio de Content Moderator.
 
 ```csharp
 using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -536,4 +536,4 @@ Verá una respuesta similar al siguiente ejemplo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtener el [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) y descargue el [solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esta y otras guías de inicio rápido de Content Moderator para. NET y comience ya con la integración.
+Obtenga el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) y descargue la [solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este y otros inicios rápidos de Content Moderator para .NET y empiece a trabajar en la integración.

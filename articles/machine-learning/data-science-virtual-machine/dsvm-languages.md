@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502266"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Lenguajes admitidos en Data Science Virtual Machine 
@@ -222,7 +222,7 @@ La ubicación predeterminada de Julia es un entorno global que todos los usuario
 Abra el terminal y ejecute `julia`. 
 * Uso en un IDE
 
-Use `Juno` el IDE de Julia instalado en DSVM y disponible como un acceso directo del menú aplicación.
+Use el IDE de Julia `Juno` instalado en la DSVM y disponible como acceso directo del menú de aplicación.
 
 * Uso en Jupyter
 
@@ -234,12 +234,12 @@ La ubicación predeterminada de Julia es un entorno global que todos los usuario
 
 ## <a name="other-languages"></a>Otros lenguajes
 
-**C#**: disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `csc`. 
+**C#** : disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `csc`. 
 
 **Java**: OpenJDK está disponible en la edición para Windows y Linux de DSVM y establecido en la ruta de acceso. Puede escribir el comando `javac` o `java` en el símbolo del sistema (Windows) o en el shell Bash (Linux) para usar Java. 
 
 **node.js**: node.js está disponible en la edición para Windows y Linux de DSVM y establecido en la ruta de acceso. Puede escribir el comando `node` o `npm` en el símbolo del sistema (Windows) o en el shell Bash (Linux) para obtener acceso a node.js. En Windows, la extensión de las Herramientas de Node.js para Visual Studio se instala para proporcionar un IDE gráfico para desarrollar su aplicación node.js. 
 
-**F#**: disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `fsc`. 
+**F#** : disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `fsc`. 
 
 

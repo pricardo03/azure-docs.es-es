@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
 ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531680"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
@@ -29,7 +29,7 @@ En este artículo se muestra cómo se pueden programar tanto los trabajos único
 
 * El servicio Azure Logic Apps admite tanto la zona horaria como el horario de verano (DST).
 
-Para más información, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) o bien, intente crear su primera aplicación lógica en este inicio rápido: [Crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para más información, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) o bien, intente crear su primera aplicación lógica en este inicio rápido: [Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,7 +45,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
 1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco en el Diseñador de aplicaciones lógicas. 
 
-   Siga los pasos básicos, [inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Para conocer los pasos básicos, siga el [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 1. En el cuadro de búsqueda, escriba "when a http request" como filtro. En la lista de desencadenadores, seleccione este desencadenador: **Cuando se recibe una solicitud HTTP** 
 
@@ -67,7 +67,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
 1. En el desencadenador, elija **Next step** (Paso siguiente). 
 
-1. En el cuadro de búsqueda, escriba "retraso hasta" como filtro. En la lista de acciones, seleccione esta acción: **Retraso hasta**
+1. En el cuadro de búsqueda, escriba "retraso hasta" como filtro. En la lista de acciones, seleccione esta acción: **Retrasar hasta**
 
    Dicha acción detiene el flujo de la aplicación lógica hasta una fecha y hora especificadas.
 
@@ -104,7 +104,7 @@ Por ejemplo, mediante la aplicación Postman puede crear una solicitud POST con 
 
 | Método de solicitud | URL | Cuerpo | encabezados |
 |----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **raw** (sin formato) <p>**JSON(application/json)** <p>En el cuadro **raw** (sin formato), escriba la carga que desee enviar en la solicitud. <p>**Nota**: Esta configuración automáticamente configura el **encabezados** valores. | **Clave**: Content-Type <br>**Valor**: application/json
+| **POST** | <*endpoint-URL*> | **raw** (sin formato) <p>**JSON(application/json)** <p>En el cuadro **raw** (sin formato), escriba la carga que desee enviar en la solicitud. <p>**Nota**: Este valor configura automáticamente los valores de **Encabezados**. | **Clave**: Content-Type <br>**Valor**: application/json
  |||| 
 
 ![Enviar solicitud para desencadenar manualmente la aplicación lógica](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -129,7 +129,7 @@ En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecució
 
 1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco en el Diseñador de aplicaciones lógicas. 
 
-   Siga los pasos básicos, [inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Para conocer los pasos básicos, siga el [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 1. En el cuadro de búsqueda, escriba "periodicidad" para el filtro. En la lista de desencadenadores, seleccione este desencadenador: **Periodicidad** 
 
@@ -159,7 +159,7 @@ Estas son otras formas de personalizar los trabajos.
 
 Para controlar la forma en que las acciones intentan volver a ejecutarse en una aplicación lógica cuando se producen errores intermitentes, puede establecer la [directiva de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies) en la configuración de cada acción, por ejemplo:
 
-1. Abra el menú (**...** ) de la acción y seleccione **Configuración**.
+1. Abra el menú ( **...** ) de la acción y seleccione **Configuración**.
 
    ![Abrir la configuración de la acción](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -179,7 +179,7 @@ En Azure Scheduler, si la acción predeterminada no se ejecuta, puede ejecutar u
 
    ![Agregar acción paralela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. En la acción alternativa, abra el menú (**...** ) y seleccione **Configurar ejecución posterior**.
+1. En la acción alternativa, abra el menú ( **...** ) y seleccione **Configurar ejecución posterior**.
 
    ![Configurar ejecución posterior](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -195,20 +195,20 @@ Para más información acerca del control de excepciones, consulte [Detección y
 
 <a name="retire-date"></a> 
 
-**P.**: ¿Cuándo es retirar Azure Scheduler? <br>
-**R.**: Azure Scheduler está programado para retirar el 30 de septiembre de 2019.
+**P.** : ¿Cuándo se va a retirar Azure Scheduler? <br>
+**R.** : Está programado que Azure Scheduler se retire el 30 de septiembre de 2019.
 
-**P.**: ¿Qué ocurre con Mis colecciones de trabajos del programador y los trabajos una vez que se retira el servicio? <br>
-**R.**: Se eliminarán todos los trabajos y colecciones de trabajos del programador del sistema.
+**P.** : ¿Qué ocurrirá con mis colecciones de trabajos y mis trabajos de Scheduler cuando se retire el servicio? <br>
+**R.** : Todas las colecciones de trabajos y los trabajos de Scheduler se eliminarán del sistema.
 
-**P.**: ¿Tengo que realizar copias de seguridad o realizar otras tareas antes de migrar Mis trabajos del programador a Logic Apps? <br>
-**R.**: Como práctica recomendada, siempre realizar una copia de seguridad de su trabajo. Compruebe que las aplicaciones lógicas que creó se ejecutan según lo esperado antes de eliminar o deshabilitar los trabajos de Scheduler. 
+**P.** : ¿Tengo que hacer una copia de seguridad o realizar cualquier otra tarea antes de migrar mis trabajos de Scheduler a Logic Apps? <br>
+**R.** : Como procedimiento recomendado, realice siempre una copia de seguridad de su trabajo. Compruebe que las aplicaciones lógicas que creó se ejecutan según lo esperado antes de eliminar o deshabilitar los trabajos de Scheduler. 
 
-**P.**: ¿Hay alguna herramienta que me puede ayudar a migrar Mis trabajos de programador a Logic Apps? <br>
-**R.**: Cada trabajo de Scheduler es único, por lo que no existe una única herramienta. Sin embargo, hay varios scripts disponibles que puede modificar para ajustarlos a sus necesidades. Para obtener información acerca de la disponibilidad de los scripts, realice la consulta más adelante.
+**P.** : ¿Hay alguna herramienta que pueda ayudarme a migrar mis trabajos de Scheduler a Logic Apps? <br>
+**R.** : Cada trabajo de Scheduler es único, por lo que no existe una que sirva para todos los trabajos. Sin embargo, hay varios scripts disponibles que puede modificar para ajustarlos a sus necesidades. Para obtener información acerca de la disponibilidad de los scripts, realice la consulta más adelante.
 
-**P.**: ¿Dónde puedo obtener soporte para migrar Mis trabajos de programador? <br>
-**R.**: Estas son algunas maneras de obtener soporte técnico: 
+**P.** : ¿Dónde puedo obtener soporte técnico para migrar mis trabajos de Scheduler? <br>
+**R.** : Estas son algunas formas de obtener soporte técnico: 
 
 **Azure Portal**
 
@@ -235,4 +235,4 @@ Si su suscripción de Azure tiene un plan de soporte técnico de pago, puede cre
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de tareas y flujos de trabajo que se ejecutan regularmente con Azure Logic Apps](../connectors/connectors-native-recurrence.md)
-* [Tutorial: Comprobación del tráfico con una aplicación lógica basada en programación](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+* [Tutorial: Comprobación del tráfico con una aplicación lógica basada en una programación](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

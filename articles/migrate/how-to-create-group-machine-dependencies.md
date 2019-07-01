@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596798"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupación de máquinas con asignación de dependencias de máquina
@@ -21,7 +21,7 @@ En este artículo se describe cómo crear un grupo de máquinas para la evaluaci
 > La funcionalidad de visualización de dependencias no está disponible en Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Preparar la visualización de dependencias
-Azure Migrate aprovecha la solución Service Map en registros de Azure Monitor para habilitar la visualización de dependencias de máquinas.
+Azure Migrate aprovecha la solución Service Map de los registros de Azure Monitor para habilitar la visualización de dependencias de máquinas.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Asociar un área de trabajo de Log Analytics
 Si quiere aprovechar la visualización de dependencias, necesita asociar un área de trabajo de Log Analytics, actual o nueva, con un proyecto de Azure Migrate. Solo se puede crear o vincular un área de trabajo en la misma suscripción donde se crea el proyecto de migración.
@@ -106,7 +106,7 @@ Obtenga más información sobre la compatibilidad de Dependency Agent para los s
 4. Puede consultar las dependencias de distintas duraciones; para ello, haga clic en la duración correspondiente en la etiqueta de intervalo de tiempo. De forma predeterminada, el intervalo es una hora. Puede modificar el intervalo de tiempo o especificar las fechas de inicio y finalización, y la duración.
 
    > [!NOTE]
-   >    Actualmente, la interfaz de usuario de la visualización de dependencias no admite la selección de un intervalo de tiempo superior a una hora. Use Azure Monitor registra en [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) durante un período más largo.
+   >    Actualmente, la interfaz de usuario de la visualización de dependencias no admite la selección de un intervalo de tiempo superior a una hora. Use los registros de Azure Monitor para [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) durante un período más largo.
 
 5. Después de identificar máquinas dependientes que desea agrupar, use Ctrl+clic para seleccionar varias máquinas en el mapa y haga clic en **Agrupar máquinas**.
 6. Especifique un nombre para el grupo. Verifique que Azure Migrate puede detectar las máquinas dependientes.
@@ -119,27 +119,27 @@ Obtenga más información sobre la compatibilidad de Dependency Agent para los s
 
 Una vez creado el grupo, se recomienda instalar los agentes en todas las máquinas del grupo y restringir el grupo mediante la visualización de la dependencia de todo el grupo.
 
-## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consultar datos de dependencia de los registros de Azure Monitor
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consulta de datos de dependencia de los registros de Azure Monitor
 
-Datos de dependencia capturados por Service Map están disponibles para realizar consultas en el área de trabajo de Log Analytics asociada con su proyecto de Azure Migrate. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) acerca de las tablas de datos de Service Map para consultar en Azure Monitor registra. 
+Los datos de dependencia capturados por Service Map están disponibles para su consulta en el área de trabajo de Log Analytics asociado con el proyecto de Azure Migrate. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre las tablas de datos de Service Map que puede consultar en los registros de Azure Monitor. 
 
-Para ejecutar las consultas de Kusto:
+Para ejecutar consultas de Kusto:
 
 1. Después de instalar los agentes, vaya al portal y haga clic en **Introducción**.
 2. En **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en el nombre del área de trabajo que se proporciona junto al **Área de trabajo de OMS**.
 3. En la página del área de trabajo de Log Analytics, haga clic en **General** > **Registros**.
-4. Escriba la consulta para recopilar datos de dependencia mediante registros de Azure Monitor. Buscar consultas de ejemplo en la sección siguiente.
+4. Escriba la consulta para recopilar los datos de dependencia mediante los registros de Azure Monitor. Busque consultas de ejemplo en la sección siguiente.
 5. Ejecute la consulta haciendo clic en Ejecutar. 
 
-[Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) acerca de cómo escribir consultas de Kusto. 
+[Más información](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre la escritura de consultas de Kusto. 
 
-### <a name="sample-azure-monitor-logs-queries"></a>Ejemplo de Azure Monitor registra aquellas consultas
+### <a name="sample-azure-monitor-logs-queries"></a>Consultas de registros de Azure Monitor de ejemplo
 
-Estos son ejemplos de consultas puede utilizar para extraer datos de dependencia. Puede modificar las consultas para extraer los puntos de datos preferida. Está disponible una lista exhaustiva de los campos de registros de datos de dependencia [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Buscar más ejemplos de consultas [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+A continuación se muestran consultas de ejemplo que puede utilizar para extraer datos de dependencia. Puede modificar las consultas para extraer los puntos de datos preferidos. [Aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) hay disponible una lista exhaustiva de los campos de registros de datos de dependencia. Busque más consultas de ejemplo [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
-#### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Resumir las conexiones entrantes en un conjunto de máquinas
+#### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Resumen de las conexiones entrantes en un conjunto de máquinas
 
-Tenga en cuenta que los registros en la tabla de métricas de conexión, VMConnection, no representan conexiones de red físicos individuales. Varias conexiones de red físicos se agrupan en una conexión lógica. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) acerca de la conexión de red físicos se agregan datos en un registro lógico único VMConnection. 
+Tenga en cuenta que los registros de la tabla de métricas de conexión, VMConnection, no representan conexiones de red físicos individuales. Varias conexiones de red físicas se agrupan en una conexión lógica. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sobre cómo se agregan los datos de conexión de red física en un solo registro lógico en VMConnection. 
 
 ```
 // the machines of interest
@@ -155,7 +155,7 @@ VMConnection
 | summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Resumir el volumen de datos enviados y recibidos en las conexiones entrantes entre un conjunto de máquinas
+#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Resumen del volumen de datos enviados y recibidos en conexiones entrantes entre un conjunto de máquinas
 
 ```
 // the machines of interest

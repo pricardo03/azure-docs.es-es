@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60510129"
 ---
 # <a name="default-insights-tag"></a>Etiqueta de conclusiones predeterminada
@@ -100,7 +100,7 @@ La etiqueta de conclusiones predeterminada es la que tiene el campo `displayName
 
 ## <a name="pagesincluding-insight"></a>Conclusión PagesIncluding
 
-La conclusión PagesIncluding proporciona una lista de las páginas web que incluyan esta imagen. Es realmente una lista de `Image` objetos y el `hostPageUrl` campo contiene la dirección URL a la página Web que incluye la imagen. Para el ejemplo de uso, consulte [ejemplo de insight PagesIncluding](./bing-insights-usage.md#pagesincluding-insight-example).
+La conclusión PagesIncluding proporciona una lista de las páginas web que incluyan esta imagen. En realidad es una lista de objetos `Image` y el campo `hostPageUrl` contiene la dirección URL a la página web que incluye la imagen. Para ver un ejemplo de su uso, consulte el [ejemplo de conclusión de PagesIncluding](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -139,7 +139,7 @@ La conclusión PagesIncluding proporciona una lista de las páginas web que incl
 
 ## <a name="shoppingsources-insight"></a>Conclusión ShoppingSources
 
-La conclusión ShoppingSources proporciona una lista de sitios web en los que el usuario puede adquirir el elemento que se muestra en la imagen. La lista de ofertas incluye la dirección URL de la página Web donde el usuario puede adquirir el elemento, el precio del elemento y los detalles de clasificación o una revisión. Para ver un ejemplo de su uso, consulte el [ejemplo de ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
+La conclusión ShoppingSources proporciona una lista de sitios web en los que el usuario puede adquirir el elemento que se muestra en la imagen. La lista de ofertas incluye la dirección URL de la página web en la que el usuario puede comprar el artículo, el precio del artículo y la valoración o comentarios. Para ver un ejemplo de su uso, consulte el [ejemplo de ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -168,7 +168,7 @@ La conclusión ShoppingSources proporciona una lista de sitios web en los que el
 
 ## <a name="moresizes-insight"></a>Conclusión MoreSizes
 
-La información de MoreSizes identifica el número de tamaños (mayores o menores) de la imagen que Bing se encuentra en Internet (consulte la `availableSizesCount` campo):
+La conclusión MoreSizes identifica el número de tamaños (mayor o menor) de la imagen que Bing ha encontrado en Internet (consulte el campo `availableSizesCount`):
 
 ```json
       {
@@ -203,7 +203,7 @@ La información de MoreSizes identifica el número de tamaños (mayores o menore
 
 ## <a name="visualsearch-insight"></a>Conclusión VisualSearch
 
-La conclusión VisualSearch proporciona una lista de imágenes que son visualmente similares a la imagen original (incluye contenido similar al que se muestra en la imagen original). Para el ejemplo de uso, consulte [ejemplo de insight VisualSearch](./bing-insights-usage.md#visualsearch-insight-example).
+La conclusión VisualSearch proporciona una lista de imágenes que son visualmente similares a la imagen original (incluye contenido similar al que se muestra en la imagen original). Para ver un ejemplo de su uso, consulte el [ejemplo de conclusión de VisualSearch](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -243,7 +243,7 @@ La conclusión VisualSearch proporciona una lista de imágenes que son visualmen
 
 ## <a name="recipes-insight"></a>Conclusión Recipes
 
-La conclusión Recipes proporciona una lista de páginas web que incluyen una receta para hacer la comida que se muestra en la imagen. Para el ejemplo de uso, consulte [ejemplo insight de recetas](./bing-insights-usage.md#recipes-insight-example).
+La conclusión Recipes proporciona una lista de páginas web que incluyen una receta para hacer la comida que se muestra en la imagen. Para ver un ejemplo de su uso, consulte el [ejemplo de conclusión de Recipes](./bing-insights-usage.md#recipes-insight-example).
 
 ```json
       {
@@ -278,7 +278,7 @@ La conclusión Recipes proporciona una lista de páginas web que incluyen una re
 
 ## <a name="imagebyid-insight"></a>Conclusión ImageById
 
-Proporciona la información de ImageById un `Image` objeto de la imagen que ha solicitado información para:
+La conclusión ImageById proporciona un objeto `Image` de la imagen de la que solicitó conclusiones:
 
 ```json
       {
@@ -377,7 +377,7 @@ La conclusión ProductVisualSearch proporciona una lista de imágenes de product
 
 ## <a name="relatedsearches-insight"></a>Conclusión RelatedSearches
 
-La conclusión RelatedSearches proporciona una lista de búsquedas relacionadas realizadas por otros usuarios (según los términos de búsqueda de otros usuarios). Para el ejemplo de uso, consulte [ejemplo de insight RelatedSearches](./bing-insights-usage.md#relatedsearches-insight-example).
+La conclusión RelatedSearches proporciona una lista de búsquedas relacionadas realizadas por otros usuarios (según los términos de búsqueda de otros usuarios). Para ver un ejemplo de uso, consulte el [ejemplo de conclusión de RelatedSearches](./bing-insights-usage.md#relatedsearches-insight-example).
 
 ```json
       {
@@ -400,7 +400,7 @@ La conclusión RelatedSearches proporciona una lista de búsquedas relacionadas 
 
 ## <a name="documentlevelsuggestions-insight"></a>Conclusión DocumentLevelSuggestions
 
-La información de DocumentLevelSuggestions proporciona una lista de términos de búsqueda sugerida en función del contenido de la imagen:
+La conclusión DocumentLevelSuggestions proporciona una lista de términos de búsqueda sugeridos en función del contenido de la imagen:
 
 ```json
       {
@@ -423,6 +423,6 @@ La información de DocumentLevelSuggestions proporciona una lista de términos d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Desproteger [de uso de ejemplos de Bing insights](bing-insights-usage.md) para ver cómo Bing podría mostrar la información visual.
+Consulte [Ejemplos de uso de conclusiones de Bing](bing-insights-usage.md) para ver cómo Bing puede mostrar las conclusiones visuales.
 
 Para empezar a trabajar rápidamente con la primera solicitud, consulte los artículos de inicio rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).

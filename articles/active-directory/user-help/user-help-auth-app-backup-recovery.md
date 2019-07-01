@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474236"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Copia seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator
@@ -100,7 +100,7 @@ Existen diversos motivos para que la copia de seguridad no esté disponible:
 -   **Cuentas de Microsoft Authenticator existentes.** Si ya ha configurado cuentas en la aplicación Microsoft Authenticator, la aplicación no podrá recuperar las cuentas de copia de seguridad. Evitar la recuperación garantiza que los datos de la cuenta no se sobreescriben con información obsoleta. En esta situación, debe eliminar cualquier información de cuenta existente de la configuración de las cuentas existentes en la aplicación Authenticator para recuperar la copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha realizado la copia de seguridad de las credenciales de la cuenta y las ha recuperado en un dispositivo nuevo, use la aplicación Microsoft Authenticator para verificar su identidad. Para obtener más información, consulte [iniciar sesión en sus cuentas mediante la aplicación Microsoft Authenticator](user-help-sign-in.md).
+Ahora que ha realizado la copia de seguridad de las credenciales de la cuenta y las ha recuperado en un dispositivo nuevo, use la aplicación Microsoft Authenticator para verificar su identidad. Para más información, consulte [Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Temas relacionados
 

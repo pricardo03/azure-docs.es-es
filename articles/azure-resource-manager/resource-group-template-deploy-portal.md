@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520583"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
 
-En este artículo se muestra cómo utilizar [Azure Portal](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) para implementar los recursos de Azure. Para obtener información acerca de cómo administrar los recursos, consulte [los recursos de administración de Azure mediante el portal de Azure](manage-resources-portal.md).
+En este artículo se muestra cómo utilizar [Azure Portal](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) para implementar los recursos de Azure. Para más información sobre cómo administrar los recursos, consulte [Administración de recursos de Azure con Azure Portal](manage-resources-portal.md).
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
@@ -137,5 +137,5 @@ El portal permite guardar una plantilla en su cuenta de Azure y volver a impleme
 
 - Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](./resource-group-audit.md).
 - Para solucionar errores de implementación, vea [View deployment operations](./resource-manager-deployment-operations.md) (Ver operaciones de implementación).
-- Para exportar una plantilla de una implementación o el grupo de recursos, consulte [plantillas Azure Resource Manager exportar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Para exportar una plantilla de una implementación o un grupo de recursos, consulte [Exportación de plantillas de Azure Resource Manager](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Para el lanzamiento seguro del servicio en varias regiones, vea [Azure Deployment Manager](./deployment-manager-overview.md).

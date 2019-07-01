@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591601"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
@@ -74,7 +74,7 @@ Debe estar familiarizado con el funcionamiento de las siguientes tecnologías:
 - [Tecnologías de clúster de Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Instancias del clúster de conmutación por error de SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Una diferencia importante es que en un clúster de conmutación por error invitado de máquina virtual de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure. 
+Una diferencia importante es que en un clúster de conmutación por error invitado de VM de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure. 
 
 Además, debe tener conocimientos generales de las siguientes tecnologías:
 
@@ -238,7 +238,7 @@ Valide el clúster en la interfaz de usuario o con PowerShell.
 Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales.
 
 1. En **Administrador del servidor**, haga clic en **Herramientas** y, después, en **Administrador de clústeres de conmutación por error**.
-1. En **Administrador de clústeres de conmutación por error**, haga clic en **Acción** y, después, en **Validar configuración...**.
+1. En **Administrador de clústeres de conmutación por error**, haga clic en **Acción** y, después, en **Validar configuración...** .
 1. Haga clic en **Next**.
 1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
 1. En **Opciones de pruebas**, elija **Ejecutar solo las pruebas que seleccione**. Haga clic en **Next**.
@@ -399,7 +399,7 @@ Para crear el equilibrador de carga:
 
    - **Nombre**: nombre del sondeo de estado.
    - **Protocolo**: TCP.
-   - **Puerto**: Establecer en el puerto que creó en el firewall para el sondeo de estado en [este paso](#ports). En este artículo, el ejemplo usa el puerto TCP `59999`.
+   - **Puerto**: establezca este parámetro en el puerto que creó en el firewall para el sondeo de estado en [este paso](#ports). En este artículo, el ejemplo usa el puerto TCP `59999`.
    - **Intervalo**: 5 segundos.
    - **Umbral incorrecto**: 2 errores consecutivos.
 
@@ -416,12 +416,12 @@ Para crear el equilibrador de carga:
    - **Nombre**: nombre de las reglas de equilibrio de carga.
    - **Dirección IP de front-end**: use la dirección IP del recurso de red del clúster de la FCI de SQL Server.
    - **Puerto**: establecido para el puerto TCP de la FCI de SQL Server. El puerto de la instancia predeterminado es 1433.
-   - **Puerto back-end**: este valor utiliza el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)**.
+   - **Puerto back-end**: este valor utiliza el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)** .
    - **Grupo de back-end**: use el nombre del grupo de back-end que configuró anteriormente.
    - **Sondeo de mantenimiento**: utilice el sondeo de estado que configuró anteriormente.
    - **Persistencia de la sesión**: Ninguno.
-   - **Tiempo de espera de inactividad (minutos)**: 4.
-   - **IP flotante (Direct Server Return)**: Enabled
+   - **Tiempo de espera de inactividad (minutos)** : 4.
+   - **IP flotante (Direct Server Return)** : habilitado
 
 1. Haga clic en **OK**.
 
@@ -491,7 +491,7 @@ En máquinas virtuales de Azure, MSDTC no se admite en Windows Server 2016 y ver
 - El recurso MSDTC en clúster no puede configurarse para usar almacenamiento compartido. Con Windows Server 2016, si crea un recurso MSDTC, no mostrará ningún almacenamiento compartido disponible para su uso, incluso si el almacenamiento está allí. Este problema se ha corregido en Windows Server 2019.
 - El equilibrador de carga básico no controla los puertos RPC.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Otras referencias
 
 [Instalación de S2D con escritorio remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

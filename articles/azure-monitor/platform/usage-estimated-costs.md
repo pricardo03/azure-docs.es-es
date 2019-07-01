@@ -10,10 +10,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453827"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Supervisión del uso y costos estimados en Azure Monitor
@@ -68,7 +68,7 @@ En la página también se muestra un conjunto diferente de medidores que se corr
 
 El nuevo modelo de precios no tiene asignaciones de datos incluidas basadas en nodos. Por lo tanto, estos medidores de ingesta de datos se combinan en un nuevo medidor de ingesta de datos común llamado **Shared Services\Data Ingestion**. 
 
-Hay otro cambio en los datos ingeridos en Log Analytics o Application Insights en regiones con costos más elevados. Los datos para estas regiones con costos elevados se mostrarán con los nuevos medidores regionales. Un ejemplo es **Ingesta de datos (Centro-oeste de EE. UU.)**.
+Hay otro cambio en los datos ingeridos en Log Analytics o Application Insights en regiones con costos más elevados. Los datos para estas regiones con costos elevados se mostrarán con los nuevos medidores regionales. Un ejemplo es **Ingesta de datos (Centro-oeste de EE. UU.)** .
 
 > [!NOTE]
 > Los costos estimados según la suscripción no gestionan los derechos por nodo del nivel de cuenta de la suscripción de Operations Management Suite (OMS). Consulte con su representante de cuentas para obtener una explicación más detallada del nuevo modelo de precios en este caso.
@@ -102,14 +102,14 @@ La estimación de costos muestra los efectos de estos cambios.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Traslado al nuevo modelo de precios
 
-Si ha decidido adoptar el nuevo modelo de precios para una suscripción determinada, vaya a cada recurso de Application Insights, abra el **uso y costos estimados** y asegúrese de que se encuentra en el plan de tarifa básico y vaya a Log Analytics área de trabajo, abra el **tarifa** página y cambie a la **por GB (2018)** plan de tarifa. 
+Si ha decidido adoptar el nuevo modelo de precios para una suscripción determinada, vaya a cada recurso de Application Insights, abra **Uso y costos estimados** y asegúrese de que se encuentra en el plan de tarifa básico; luego, vaya a cada área de trabajo de Log Analytics, abra la página **Plan de tarifa** y cambie a **Por GB (2018)** . 
 
 > [!NOTE]
-> El requisito de que todos los recursos de Application Insights y áreas de trabajo de Log Analytics en una suscripción determinada adoptarán el modelo de precios más reciente se ha quitado, lo que permite mayor flexibilidad y facilita la configuración. 
+> El requisito de que todos los recursos de Application Insights y áreas de trabajo de Log Analytics de una suscripción determinada adopten el modelo de precios más reciente se ha eliminado, lo que permite una mayor flexibilidad y una configuración más fácil. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Traslado automático al nuevo modelo de precios
 
-Como se mencionó anteriormente, el ya no es un requisito para mover todos los recursos de supervisión en una suscripción al nuevo modelo de precios al mismo tiempo y por lo tanto, el ``migratetonewpricingmodel`` acción ya no tendrá ningún efecto. Ahora puede mover recursos de Application Insights y áreas de trabajo de Log Analytics por separado en los planes de tarifa más recientes.  
+Como se mencionó anteriormente, ya no hay ningún requisito para mover todos los recursos de supervisión de una suscripción al nuevo modelo de precios al mismo tiempo, de ahí que la acción ``migratetonewpricingmodel`` ya no tenga ningún efecto. Ahora puede mover recursos de Application Insights y áreas de trabajo de Log Analytics por separado a los nuevos planes de tarifa.  
 
-Automatización de este cambio se documenta para Application Insights con [conjunto AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) con ``-PricingPlan "Basic"`` y el uso de Log Analytics [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) con ``-sku "PerGB2018"``. 
+La automatización de este cambio se documenta para Application Insights mediante [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) con ``-PricingPlan "Basic"`` y para Log Analytics mediante [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) con ``-sku "PerGB2018"``. 
 

@@ -16,10 +16,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469135"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegación de roles de administrador de aplicaciones en Azure Active Directory
@@ -58,7 +58,7 @@ Cuando un usuario registra una aplicación, se agrega automáticamente como prim
 
 ## <a name="delegate-app-ownership"></a>Delegación de la propiedad de las aplicaciones
 
-Los propietarios de la aplicación y los propietarios de registro de aplicación pueden cada administrar solo las aplicaciones o los registros de aplicaciones que les pertenecen. Por ejemplo, cuando agrega un propietario a la aplicación Salesforce, ese propietario puede administrar el acceso a Salesforce y la configuración de esta aplicación, pero no de otras aplicaciones. Una aplicación puede tener muchos propietarios y un usuario puede ser el propietario de muchas aplicaciones.
+Los propietarios de aplicaciones y los propietarios de registros de aplicaciones solo pueden administrar las aplicaciones o los registros de aplicaciones de los que son propietarios. Por ejemplo, cuando agrega un propietario a la aplicación Salesforce, ese propietario puede administrar el acceso a Salesforce y la configuración de esta aplicación, pero no de otras aplicaciones. Una aplicación puede tener muchos propietarios y un usuario puede ser el propietario de muchas aplicaciones.
 
 Un propietario de la aplicación puede:
 

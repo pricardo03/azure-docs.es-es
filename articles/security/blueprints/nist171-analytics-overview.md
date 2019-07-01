@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f79ba9ae60454d4e73c914fc1c8af675a6d07d5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608867"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure Security and Compliance Blueprint: análisis de datos para NIST SP 800-171
@@ -51,7 +51,7 @@ Esta solución usa los siguientes servicios de Azure. Para obtener más informac
 - Azure Functions
 - Azure Key Vault
 - Azure Machine Learning
-- Monitor de Azure (registros)
+- Azure Monitor (registros)
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
@@ -81,7 +81,7 @@ La arquitectura de referencia define una red virtual privada con un espacio de d
 
 Cada uno de los grupos de seguridad de red tiene puertos y protocolos específicos abiertos para que la solución pueda funcionar de forma segura y correcta. Además, las siguientes opciones de configuración están habilitadas para cada NSG:
   - Los [eventos y registros de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) están habilitados y se almacenan en la cuenta de almacenamiento.
-  - Registros de Azure Monitor se conecta a la [diagnósticos del NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Los registros de Azure Monitor están conectados a los [diagnósticos del grupo de seguridad de red](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
 **Subredes**: Cada subred se asocia a su NSG correspondiente.
 
@@ -96,7 +96,7 @@ La arquitectura protege los datos en reposo mediante el cifrado, la auditoría d
 
 **Azure Disk Encryption**: [Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) usa la función de BitLocker de Windows para proporcionar el cifrado del volumen de discos de datos. La solución se integra con Azure Key Vault para ayudar a controlar y administrar las claves de cifrado del disco.
 
-**Azure SQL Database**: la instancia de SQL Database usa las siguientes medidas de seguridad de base de datos:
+**Azure SQL Database**: la instancia de SQL Database usa las siguientes medidas de seguridad de base de datos:
 -   La [autenticación y autorización de Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permiten la administración de identidades de usuarios de bases de datos y otros servicios de Microsoft en una ubicación central.
 -   La [auditoría de bases de datos SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) realiza un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de una cuenta de almacenamiento de Azure.
 -   SQL Database está configurado para usar el [cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Lleva a cabo un cifrado y descifrado en tiempo real de la base de datos, copias de seguridad asociadas y archivos de registro de transacciones para proteger la información en reposo. El cifrado de datos transparente garantiza que los datos almacenados no han estado sujetos a acceso no autorizado.
@@ -135,9 +135,9 @@ Los servicios de Azure proporcionan un registro completo de la actividad de usua
 - **Registros de actividad**: los [registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico**: los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Azure Application Gateway. Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. Los usuarios pueden configurar el período de retención (de hasta 730 días) para satisfacer sus requisitos específicos.
 
-**Registros de Azure Monitor**: Los registros se consolidan en [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para procesamiento, almacenamiento e informes de panel. Una vez recopilados, los datos se organizan en tablas independientes por tipo de datos en las áreas de trabajo de Log Analytics. De este modo, todos los datos se pueden analizar juntos, independientemente de su fuente original. Security Center se integra con los registros de Azure Monitor. Los clientes pueden usar las consultas de Kusto para acceder a sus datos de eventos de seguridad y la combinamos con datos de otros servicios.
+**Registros de Azure Monitor**: los registros se consolidan en [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para el procesamiento, el almacenamiento y la creación de informes de panel. Una vez recopilados, los datos se organizan en tablas independientes por tipo de datos en las áreas de trabajo de Log Analytics. De este modo, todos los datos se pueden analizar juntos, independientemente de su fuente original. Security Center se integra con registros de Azure Monitor. Los clientes pueden usar las consultas de Kusto para acceder a sus datos de eventos de seguridad y combinarlos con los datos de otros servicios.
 
-El siguiente Azure [soluciones de supervisión](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) se incluyen como parte de esta arquitectura:
+Como parte de esta arquitectura se incluyen las siguientes [soluciones de supervisión](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) de Azure:
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la solución Active Directory Health Check evalúa el riesgo y el estado de los entornos de servidor de forma periódica. Proporciona una lista priorizada de recomendaciones específicas para la infraestructura de servidor implementada.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la solución SQL Health Check evalúa el riesgo y el estado de los entornos de servidor de forma periódica. Proporciona a los clientes una lista priorizada de recomendaciones específicas de la infraestructura de servidor implementada.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la solución Agent Health informa de cuántos agentes se implementan y su distribución geográfica. También informa de cuántos agentes no responden y del número de agentes que envían datos operativos.

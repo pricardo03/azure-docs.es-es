@@ -16,10 +16,10 @@ ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60470079"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Información de cómo interactúan varios inquilinos de Azure Active Directory
@@ -47,7 +47,7 @@ Puede configurar cada inquilino de Azure AD de manera independiente para que los
 Para agregar un inquilino de Azure AD en Azure Portal, inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que sea un administrador global de Azure AD y, a la izquierda, seleccione **Nuevo**.
 
 > [!NOTE]
-> A diferencia de otros recursos de Azure, los inquilinos no son recursos secundarios de una suscripción a Azure. Si su suscripción de Azure se cancela o ha expirado, todavía puede tener acceso a los datos de inquilino mediante Azure PowerShell, Graph API de Azure o el centro de administración de Microsoft 365. También puede [asociar otra suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> A diferencia de otros recursos de Azure, los inquilinos no son recursos secundarios de una suscripción a Azure. Aunque su suscripción a Azure se cancele o expire, puede acceder a los datos de su inquilino mediante Azure PowerShell, Azure Graph API o el Centro de administración de Microsoft 365. También puede [asociar otra suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

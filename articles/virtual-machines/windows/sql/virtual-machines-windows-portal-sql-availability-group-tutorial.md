@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593793"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
@@ -53,7 +53,7 @@ En la tabla siguiente se enumeran los requisitos previos que debe completar ante
 Antes de comenzar con este tutorial, debe completar los requisitos de [Finalización de requisitos previos para crear grupos de disponibilidad AlwaysOn en Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Si estos requisitos previos ya se han completado, puede ir a [Creación del clúster](#CreateCluster).
 
   >[!NOTE]
-  > Muchos de los pasos proporcionados en este tutorial ahora se pueden automatizar con [CLI de máquina virtual de Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) y [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Muchos de los pasos proporcionados en este tutorial ahora se pueden automatizar con la [CLI de máquina virtual de SQL de Azure](virtual-machines-windows-sql-availability-group-cli.md) y las [plantillas de inicio rápido de Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -299,7 +299,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
 
     ![Asistente para nuevo grupo de disponibilidad, seleccionar sincronización de datos iniciales](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo era, **\\\\\<Primer servidor SQL Server\>\Backup\\**. Haga clic en **Next**.
+8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo era, **\\\\\<Primer servidor SQL Server\>\Backup\\** . Haga clic en **Next**.
 
    >[!NOTE]
    >La sincronización completa realiza una copia de seguridad completa de la base de datos en la primera instancia de SQL Server y la restaura en la segunda instancia. Para bases de datos grandes, no se recomienda la sincronización completa porque puede llevar mucho tiempo. Puede reducir este tiempo realizando manualmente una copia de seguridad de la base de datos y restaurándola con `NO RECOVERY`. Si ya se ha restaurado la base de datos con `NO RECOVERY` en el segundo servidor SQL Server antes de configurar el grupo de disponibilidad, elija **Solo unirse**. Si desea realizar la copia de seguridad después de configurar el grupo de disponibilidad, elija **Omitir la sincronización de datos iniciales**.
@@ -402,7 +402,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Text | SQLAlwaysOnEndPointProbe |
+   | **Nombre** | Texto | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
    | **Puerto** | Cualquier puerto no utilizado | 59999 |
    | **Intervalo**  | Cantidad de tiempo entre los intentos de sondeo, en segundos |5 |
@@ -418,7 +418,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Text | SQLAlwaysOnEndPointListener |
+   | **Nombre** | Texto | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al crear el equilibrador de carga. |
    | **Protocolo** | Elija TCP |TCP |
    | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 1433 |
@@ -426,7 +426,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
    | **Sondeo** |Nombre especificado para el sondeo | SQLAlwaysOnEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
-   | **IP flotante (Direct Server Return)** | |Enabled |
+   | **IP flotante (Direct Server Return)** | |habilitado |
 
    > [!WARNING]
    > Direct Server Return se establece durante la creación. No se puede modificar.
@@ -445,7 +445,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Text | WSFCEndPointProbe |
+   | **Nombre** | Texto | WSFCEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
    | **Puerto** | Cualquier puerto no utilizado | 58888 |
    | **Intervalo**  | Cantidad de tiempo entre los intentos de sondeo, en segundos |5 |
@@ -459,7 +459,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Text | WSFCEndPoint |
+   | **Nombre** | Texto | WSFCEndPoint |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al configurar la dirección IP de WSFC. Esto es diferente de la dirección IP del agente de escucha |
    | **Protocolo** | Elija TCP |TCP |
    | **Puerto** | Use el puerto para la dirección IP del clúster. Se trata de un puerto disponible que no se usa para el puerto de sondeo del agente de escucha. | 58888 |
@@ -467,7 +467,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
    | **Sondeo** |Nombre especificado para el sondeo | WSFCEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
-   | **IP flotante (Direct Server Return)** | |Enabled |
+   | **IP flotante (Direct Server Return)** | |habilitado |
 
    > [!WARNING]
    > Direct Server Return se establece durante la creación. No se puede modificar.

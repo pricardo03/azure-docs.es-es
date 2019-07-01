@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486874"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
@@ -59,7 +59,7 @@ Puede crear factorías de datos mediante una de las siguientes herramientas y SD
 * **Plantilla de Azure Resource Manager** Consulte [Tutorial: Creación de la primera factoría de datos de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para detalles.
 
 ### <a name="can-i-rename-a-data-factory"></a>¿Se puede cambiar el nombre de una Factoría de datos?
- No. Al igual que otros recursos de Azure, el nombre de una factoría de datos de Azure no se puede cambiar.
+No. Al igual que otros recursos de Azure, el nombre de una factoría de datos de Azure no se puede cambiar.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>¿Puedo mover una factoría de datos de una suscripción a Azure a otra?
 Sí. Use el botón **Mover** situado en la hoja de la factoría de datos tal como se muestra en el siguiente diagrama:
@@ -173,12 +173,12 @@ Puede volver a ejecutar un segmento de una de las siguientes maneras:
 
 * Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Nueva ejecución de ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para ver instrucciones.   
 * Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento en Azure Portal.
-* Ejecute **conjunto AzDataFactorySliceStatus** cmdlet con el estado se establece en **espera** para el segmento.   
+* Ejecute el cmdlet **Set-AzDataFactorySliceStatus** con el estado **En espera** para el segmento.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Consulte [conjunto AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obtener más información acerca del cmdlet.
+  Consulte [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] para más información sobre el cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>¿Cuánto tiempo se tardó en procesar un segmento?
 Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más información.
@@ -193,7 +193,7 @@ También puede hacer lo siguiente en Azure Portal:
 6. Debería ver el campo **DURACIÓN** con un valor. Este valor es el tiempo necesario para procesar el segmento.   
 
 ### <a name="how-to-stop-a-running-slice"></a>¿Cómo detener un segmento en ejecución?
-Si necesita detener la ejecución de la canalización, puede usar [Suspend AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. Actualmente, la suspensión de la canalización no detiene las ejecuciones de segmentos en curso. Cuando terminan las ejecuciones en curso, no se selecciona ningún segmento adicional.
+Si debe impedir que se ejecute la canalización, puede usar el cmdlet [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline). Actualmente, la suspensión de la canalización no detiene las ejecuciones de segmentos en curso. Cuando terminan las ejecuciones en curso, no se selecciona ningún segmento adicional.
 
 Si desea realmente detener todas las ejecuciones inmediatamente, la única manera sería eliminar la canalización y crearla de nuevo. Si decide eliminar la canalización, NO es necesario eliminar tablas y servicios vinculados usados por la canalización.
 

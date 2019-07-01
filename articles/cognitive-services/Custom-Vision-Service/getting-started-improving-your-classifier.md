@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60606936"
 ---
 # <a name="how-to-improve-your-classifier"></a>Mejora del clasificador
@@ -29,7 +29,7 @@ Este es un patrón general que le ayudará a crear un clasificador más preciso:
 1. Usar nuevas imágenes para probar la predicción
 1. Modificar los datos de entrenamiento existentes según los resultados de la predicción
 
-## <a name="prevent-overfitting"></a>Evitar el sobreajuste
+## <a name="prevent-overfitting"></a>Evitación del sobreajuste
 
 En ocasiones, un clasificador obtendrá información sobre cómo realizar predicciones en función de las características arbitrarias que las imágenes tienen en común. Por ejemplo, si va a crear un clasificador que distingue las manzanas de los cítricos y se proporcionan imágenes de manzanas en las manos y de cítricos en platos blancos, puede que el clasificador conceda una importancia innecesaria a la diferencia entre manos y platos blancos en vez de entre manzanas y cítricos.
 
@@ -39,7 +39,7 @@ Para corregir este problema, utilice las instrucciones de entrenamiento siguient
 
 ## <a name="data-quantity"></a>Cantidad de datos
 
-El número de imágenes de entrenamiento es el factor más importante. Se recomienda usar al menos 50 imágenes por etiqueta como un punto de partida. Con menos imágenes, hay un mayor riesgo de sobreajuste y, aunque los números de rendimiento pueden sugerir una buena calidad, el modelo podría tener dificultades con datos reales. 
+El número de imágenes de entrenamiento es el factor más importante. Se recomienda usar al menos cincuenta imágenes por etiqueta como punto de partida. Con menos imágenes, hay un mayor riesgo de sobreajuste y, aunque los números de rendimiento pueden sugerir una buena calidad, el modelo podría tener dificultades con datos reales. 
 
 ## <a name="data-balance"></a>Equilibrio de datos
 
@@ -73,7 +73,7 @@ Para corregir este problema, incluya una variedad de imágenes para asegurarse d
 
     ![Ejemplos de imágenes de estilos](./media/getting-started-improving-your-classifier/style.png)
 
-## <a name="negative-images"></a>Imágenes negativo
+## <a name="negative-images"></a>Imágenes negativas
 
 En algún punto del proyecto, puede que tenga que agregar _ejemplos negativos_ para ayudar a que el clasificador sea más preciso. Ejemplos negativos son aquellos que no coinciden con ninguna de las otras etiquetas. Cuando cargue estas imágenes, aplíqueles la etiqueta especial **Negative** (Negativo).
 

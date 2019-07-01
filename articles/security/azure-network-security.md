@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587464"
 ---
 # <a name="azure-network-security"></a>Azure Network Security
@@ -284,9 +284,9 @@ Un grupo de seguridad de red incluye algunas reglas integradas que debe tener en
 
 -   **Permitir todo el tráfico de una red virtual específica:** todas las VM en la misma instancia de Azure Virtual Network pueden comunicarse entre sí.
 
--   **Permitir el equilibrio de carga entrante de Azure:** Esta regla permite el tráfico desde cualquier dirección de origen a cualquier dirección de destino para el equilibrador de carga de Azure.
+-   **Permitir el equilibrio de carga entrante de Azure:**  Esta regla permite el tráfico desde cualquier dirección de origen a cualquier dirección de destino para el equilibrador de carga de Azure.
 
--   **Denegar todo el tráfico entrante:** Esta regla bloquea todo el tráfico procedente de Internet que haya permitido explícitamente.
+-   **Denegar todo el tráfico entrante:**  Esta regla bloquea todo el tráfico procedente de Internet que haya permitido explícitamente.
 
 -   **Permitir todo el tráfico saliente a Internet:** esta regla permite que las VM inicien conexiones a Internet. Si no desea que se inicien estas conexiones, debe crear una regla para bloquearlas o aplicar la tunelización forzada.
 
@@ -393,7 +393,7 @@ Además, el WAF de Application Gateway le ayuda a supervisar las aplicaciones we
 
 El registro con formato JSON va directamente a la cuenta de almacenamiento del cliente. Tiene un control total sobre estos registros y puede aplicar sus propias directivas de retención.
 
-También puede usar estos registros en su propio sistema de análisis con [Integración de registro de Azure](https://aka.ms/AzLog). Los registros de WAF también se integran con [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) para que pueda usar los registros de Azure Monitor para ejecutar consultas específicas sofisticadas.
+También puede usar estos registros en su propio sistema de análisis con [Integración de registro de Azure](https://aka.ms/AzLog). Los registros de WAF también se integran con los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) para que pueda usar estos para ejecutar consultas específicas sofisticadas.
 
 #### <a name="azure-web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF) de Azure
 
@@ -597,7 +597,7 @@ Las métricas son medidas de rendimiento y contadores recopilados durante un per
 
 #### <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-Se crean los recursos de red y se registran en las cuentas de almacenamiento, enviadas a un centro de eventos eventos periódicos y espontáneos o registros de Azure Monitor. Estos registros proporcionan información acerca del estado de un recurso. Estos registros pueden verse en las herramientas como los registros de Power BI y Azure Monitor. Para obtener información sobre cómo ver los registros de diagnóstico, visite [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Los recursos de red crean eventos periódicos y espontáneos y estos se registran en las cuentas de almacenamiento y se envían a un centro de eventos o a los registros de Azure Monitor. Estos registros proporcionan información acerca del estado de un recurso. Estos registros se pueden visualizar en herramientas como Power BI y los registros de Azure Monitor. Para aprender a visualizar registros de diagnóstico, visite [Registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Los registros de diagnóstico están disponibles para el [equilibrador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), las rutas y [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
@@ -605,9 +605,9 @@ Network Watcher proporciona una vista de los registros de diagnóstico. Esta vis
 
 ### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-[Registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) es un servicio de Azure que supervisa la nube y en entornos locales para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
+Los [registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) son un servicio de Azure que supervisan los entornos local y en la nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
 
-Registros de Azure Monitor ofrece las siguientes soluciones para supervisar las redes:
+Los registros de Azure Monitor ofrecen las siguientes soluciones para supervisar las redes:
 
 -   Network Performance Monitor (NPM) (monitor de rendimiento de red)
 
@@ -627,7 +627,7 @@ Se utiliza para supervisar la conectividad entre:
 -   subredes que hospedan distintos niveles de una aplicación de varios niveles.
 
 
-#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Azure application gateway analytics en los registros de Azure Monitor
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Análisis de puertas de enlace de aplicaciones de Azure en los registros de Azure Monitor
 
 Para Application Gateway se admiten los siguientes registros:
 
@@ -641,7 +641,7 @@ Las métricas siguientes son compatibles con Application Gateway:
 
 -   Rendimiento de 5 minutos
 
-#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Análisis de grupo de seguridad de red de Azure en los registros de Azure Monitor
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Análisis de grupos de seguridad de red de Azure en los registros de Azure Monitor
 
 Para los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) se admiten los siguientes registros:
 

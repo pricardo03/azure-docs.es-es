@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591719"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
@@ -180,7 +180,7 @@ Para cada sitio web (contoso.com y fabrikam.com), configure las reglas de equili
 
 4. En **Puerto** y **Puerto back-end**, mantenga el valor predeterminado de **80**.
 
-5. En **IP flotante (Direct Server Return)**, seleccione **Deshabilitado**.
+5. En **IP flotante (Direct Server Return)** , seleccione **Deshabilitado**.
 
 6. <a name="step6-6"></a>Seleccione **Aceptar**.
 
@@ -194,4 +194,4 @@ Como último paso, configure los registros de recursos de DNS para que apunten a
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre cómo combinar servicios de equilibrio de carga en Azure en [Uso de servicios de equilibrio de carga de Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Aprenda cómo puede usar diferentes tipos de registros para administrar y solucionar problemas de equilibrador de carga en [registros de Azure Monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Obtenga información sobre cómo usar diferentes tipos de registros para administrar y solucionar los problemas del equilibrador de carga en [Registros de Azure Monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

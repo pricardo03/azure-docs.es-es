@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456176"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
@@ -73,7 +73,7 @@ Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de adm
 | 80011 | El agente de autenticación no puede recuperar la clave de descifrado. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
 
 >[!IMPORTANT]
->Los agentes de autenticación de paso a través autenticar usuarios de Azure AD mediante la validación de sus nombres de usuario y contraseñas en Active Directory mediante una llamada a la [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, si ha establecido la configuración de "Inicio de sesión para" en Active Directory para limitar el acceso de inicio de sesión de estación de trabajo, tendrá que agregar los servidores que hospedan a los agentes de autenticación de paso a través a la lista de "Inicio de sesión para" servidores así. Si no lo bloqueará su los usuarios inicien sesión en Azure AD.
+>Para autenticar a los usuarios de Azure AD, los agentes de autenticación de paso a través validan sus nombres de usuario y contraseñas en Active Directory mediante la llamada a la [API LogonUser de Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, si ha establecido la configuración de inicio de sesión en Active Directory para limitar el acceso de inicio de sesión de la estación de trabajo, tendrá que agregar también los servidores que hospedan los agentes de autenticación de paso a través a la lista de servidores de inicio de sesión. Si no lo hace, los usuarios no podrán iniciar sesión en Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalación del agente de autenticación
 
@@ -133,7 +133,7 @@ Para obtener un análisis detallado, habilite el registro "Sesión" (haga clic c
 
 ### <a name="detailed-trace-logs"></a>Registros de seguimiento detallados
 
-Para solucionar errores de inicio de sesión de losusuarios, busque los registros de seguimiento en **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Estos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica Autenticación de paso a través. Estos errores también pueden hacerse corresponder con los motivos de errores de inicio de sesión mostrados en la tabla anterior. La siguiente es una entrada del registro de ejemplo:
+Para solucionar errores de inicio de sesión de losusuarios, busque los registros de seguimiento en **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** . Estos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica Autenticación de paso a través. Estos errores también pueden hacerse corresponder con los motivos de errores de inicio de sesión mostrados en la tabla anterior. La siguiente es una entrada del registro de ejemplo:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -161,7 +161,7 @@ Si están habilitados los registros de auditoría, se puede encontrar informaci�
 
 ## <a name="performance-monitor-counters"></a>Contadores de Performance Monitor
 
-Otra forma de supervisar a los agentes de autenticación consiste en realizar un seguimiento de los contadores específicos de Performance Monitor en cada servidor en que está instalado el agente de autenticación. Use los siguientes contadores globales (**# PTA authentications**, **#PTA failed authentications** y **#PTA successful authentications**) y los contadores de errores (**# PTA authentication errors**):
+Otra forma de supervisar a los agentes de autenticación consiste en realizar un seguimiento de los contadores específicos de Performance Monitor en cada servidor en que está instalado el agente de autenticación. Use los siguientes contadores globales ( **# PTA authentications**, **#PTA failed authentications** y **#PTA successful authentications**) y los contadores de errores ( **# PTA authentication errors**):
 
 ![Contadores de Performance Monitor de la Autenticación de paso a través](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

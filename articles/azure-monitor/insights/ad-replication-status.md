@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60495196"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Supervisión de Active Directory Replication Status con Azure Monitor
@@ -44,7 +44,7 @@ Si no desea conectar ninguno de los controladores de dominio directamente a Azur
 3. En el equipo, configure la siguiente clave del Registro:<br>Clave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valor: **IsTarget**<br>Datos del valor: **true**
 
    > [!NOTE]
-   > Estos cambios no surten efecto hasta que reinicie el servicio Microsoft Monitoring Agent (HealthService.exe).
+   > Estos cambios no surten efecto hasta que reinicia el servicio Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Instalación de una solución
    > Siga el proceso descrito en [Instalación de una solución de supervisión](solutions.md#install-a-monitoring-solution) para agregar la solución **Active Directory Replication Status** al área de trabajo de Log Analytics. No es necesario realizar ninguna configuración más.
 
@@ -54,7 +54,7 @@ En la tabla siguiente se muestran los métodos de recolección de datos y otros 
 
 | plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows |&#8226; |&#8226; |  |  |&#8226; |cada cinco días |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |cada cinco días |
 
 
 

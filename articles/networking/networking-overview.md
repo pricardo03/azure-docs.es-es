@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
 ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565861"
 ---
 # <a name="azure-networking"></a>Redes de Azure
@@ -136,7 +136,7 @@ Azure crea tablas de rutas predeterminadas que permiten a los recursos conectado
 
 Azure proporciona las siguientes herramientas para supervisar y administrar las redes:
 - **Registros de actividad:** todos los recursos de Azure tienen registros de actividad que proporcionan información acerca de las operaciones que se llevan a cabo, el estado de las operaciones y quién inició la operación. Para más información sobre los registros de actividad, consulte el artículo [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-- **Registros de diagnóstico:** Eventos periódicos y espontáneos se crean los recursos de red y se registran en las cuentas de almacenamiento de Azure, envía a Azure Event hubs o envía a los registros de Azure Monitor. Estos registros de diagnóstico proporcionan información acerca del estado de un recurso. Los registros de diagnóstico se proporcionan para Load Balancer (con conexión a Internet), los grupos de seguridad de red, las rutas y Application Gateway. Para más información acerca de los registros de diagnóstico, consulte el artículo [Introducción a los registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Registros de diagnóstico:** los recursos de red crean eventos periódicos y espontáneos y estos se registran en las cuentas de almacenamiento de Azure, se envían a un centro de eventos de Azure o a registros de Azure Monitor. Estos registros de diagnóstico proporcionan información acerca del estado de un recurso. Los registros de diagnóstico se proporcionan para Load Balancer (con conexión a Internet), los grupos de seguridad de red, las rutas y Application Gateway. Para más información acerca de los registros de diagnóstico, consulte el artículo [Introducción a los registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métricas:** las métricas son medidas de rendimiento y contadores recopilados durante un período de tiempo en los recursos. Las métricas se pueden utilizar para desencadenar alertas basadas en umbrales. Las métricas están disponibles actualmente en Application Gateway. Para más información sobre las métricas, consulte el artículo de [introducción a las métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Solución de problemas:** se puede acceder directamente a la información de solución de problemas en Azure Portal. Esta información ayuda a diagnosticar los problemas comunes con ExpressRoute, VPN Gateway, Application Gateway, registros de seguridad de red, rutas, DNS, Load Balancer y Traffic Manager.
 - **Control de acceso basado en rol (RBAC):** controle quién puede crear y administrar recursos de redes con el control de acceso basado en rol (RBAC). Obtenga más información sobre RBAC en el artículo [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 

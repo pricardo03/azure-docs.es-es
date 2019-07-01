@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505584"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitar o deshabilitar una regla de firewall en un sistema operativo invitado de máquina virtual de Azure
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitación o deshabilitación de una regla de firewall en el SO invitado de una máquina virtual de Azure
 
 En este artículo se proporciona una referencia para solucionar una situación en que se sospecha que el firewall del sistema operativo invitado está filtrando tráfico parcial en una máquina virtual (VM). Esto puede resultar útil por los siguientes motivos:
 
@@ -107,7 +107,7 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
     
         A continuación, cambie **Active=FALSE** a **Active=TRUE** en la cadena:
 
-        **V2.22 | Acción = Permitir | Active = TRUE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil privado de = | Perfil público de = | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nombre =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
     
     * Para deshabilitar una regla, abra el valor del Registro siguiente:
     
@@ -115,7 +115,7 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
 
         A continuación, cambie **Active =TRUE** a **Active=FALSE**:
         
-        **V2.22 | Acción = Permitir | Active = FALSE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil privado de = | Perfil público de = | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nombre =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
 3.  Reinicie la máquina virtual para aplicar estos cambios.
 
@@ -154,7 +154,7 @@ Antes de seguir estos pasos, tome una instantánea del disco del sistema de la m
         
         A continuación, cambie **Active=FALSE** a **Active=True**.
         
-        **V2.22 | Acción = Permitir | Active = TRUE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil privado de = | Perfil público de = | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nombre =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
     3.  Para deshabilitar una regla, abra la clave del Registro siguiente:
 
@@ -162,7 +162,7 @@ Antes de seguir estos pasos, tome una instantánea del disco del sistema de la m
 
         A continuación, cambie **Active=True** a **Active=FALSE**.
         
-        **V2.22 | Acción = Permitir | Active = FALSE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil privado de = | Perfil público de = | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nombre =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
 9.  Seleccione  **BROKENSYSTEM** y, a continuación, seleccione  **Archivo** > **Descargar subárbol**  en el menú.
 

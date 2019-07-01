@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525971"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Advanced Threat Protection para Azure Database for MySQL
@@ -18,9 +18,9 @@ ms.locfileid: "60525971"
 Advanced Threat Protection para Azure Database for MySQL detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
 
 > [!NOTE]
-> Protección contra amenazas avanzada está en versión preliminar pública.
+> Advanced Threat Protection está en versión preliminar pública.
 
-Advanced Threat Protection forma parte de la oferta Seguridad de datos avanzada, que es un paquete unificado para capacidades avanzadas de seguridad de SQL. Protección contra amenazas avanzada se puede obtener acceso y administrar a través de la [portal Azure](https://portal.azure.com) o mediante [API de REST](/rest/api/mysql/serversecurityalertpolicies). La característica está disponible para los servidores de propósito General y optimizado para memoria.
+Advanced Threat Protection forma parte de la oferta Seguridad de datos avanzada, que es un paquete unificado para capacidades avanzadas de seguridad de SQL. Se puede obtener acceso a Advanced Threat Protection y administrarlo por medio de [Azure Portal](https://portal.azure.com) y la [API REST](/rest/api/mysql/serversecurityalertpolicies). La característica está disponible para los servidores de uso general y para los optimizados para memoria.
 
 > [!NOTE]
 > La característica Advanced Threat Protection **no** está disponible en las siguientes regiones de nube soberana y Azure Government: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (este), US DoD (centro), Centro de Alemania, Norte de Alemania, Este de China y Este de China 2. Visite [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para obtener información de disponibilidad general del producto.

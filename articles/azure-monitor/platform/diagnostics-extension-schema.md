@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527313"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
@@ -29,7 +29,7 @@ Esta página es un índice de las versiones del esquema de la extensión Azure D
 >
 > Esta página solo es pertinente si está usando uno de estos servicios.
 
-La extensión de diagnósticos de Azure se usa con otros productos de diagnósticos de Microsoft como Azure Monitor, que incluye Application Insights y Log Analytics. Para más información, consulte el artículo de [información general de herramientas de supervisión de Microsoft](../../azure-monitor/overview.md).
+La extensión Azure Diagnostics se usa con otros productos de diagnóstico de Microsoft, como Azure Monitor, que incluye Application Insights y Log Analytics. Para más información, consulte el artículo de [información general de herramientas de supervisión de Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envío de las versiones de Azure Diagnostics y de Azure SDK  
 
@@ -187,7 +187,7 @@ Existen algunas diferencias importantes entre el funcionamiento de la cadena de 
 
 * En Azure SDK 2.4 y versiones anteriores, la cadena de conexión se usaba como entorno de tiempo de ejecución mediante el complemento de diagnóstico para obtener la información de la cuenta de almacenamiento para la transferencia de registros de diagnóstico.
 * En Azure SDK 2.6 y versiones posteriores, Visual Studio usa la cadena de conexión de diagnóstico para configurar la extensión de diagnóstico con la información de la cuenta de almacenamiento adecuada durante la publicación. La cadena de conexión le permite definir las cuentas de almacenamiento diferentes para diferentes configuraciones de servicio que Visual Studio usará al publicar. Sin embargo, porque ya no está disponible el complemento de diagnóstico (después de Azure SDK 2.5), el archivo .cscfg por sí solo no puede habilitar la extensión de diagnóstico. Debe habilitar la extensión por separado a través de herramientas como Visual Studio o PowerShell.
-* Para simplificar el proceso de configuración de la extensión de diagnósticos con PowerShell, la salida del paquete de Visual Studio también contiene el XML de configuración pública para la extensión de diagnósticos para cada rol. Visual Studio usa la cadena de conexión de diagnósticos para rellenar la información de la cuenta de almacenamiento presente en la configuración pública. Los archivos de configuración públicos se crean en la carpeta Extensiones y siguen el patrón `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Cualquier implementación basada en PowerShell puede usar este patrón para asignar cada configuración a un rol.
+* Para simplificar el proceso de configuración de la extensión de diagnósticos con PowerShell, la salida del paquete de Visual Studio también contiene el XML de configuración pública para la extensión de diagnósticos para cada rol. Visual Studio usa la cadena de conexión de diagnósticos para rellenar la información de la cuenta de almacenamiento presente en la configuración pública. Los archivos de configuración públicos se crean en la carpeta Extensiones y siguen el patrón`PaaSDiagnostics.<RoleName>.PubConfig.xml`. Cualquier implementación basada en PowerShell puede usar este patrón para asignar cada configuración a un rol.
 * El portal de Azure también usa la cadena de conexión del archivo .cscfg para obtener acceso a los datos de diagnóstico, por lo que puede aparecer en la pestaña **Supervisión** . La cadena de conexión es necesaria para configurar el servicio para que muestre los datos de supervisión detallada en el portal.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migración de proyectos a Azure SDK 2.6 y versiones posteriores

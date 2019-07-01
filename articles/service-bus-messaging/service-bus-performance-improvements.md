@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589660"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
@@ -84,7 +84,7 @@ El procesamiento por lotes del lado cliente permite que un cliente de cola o tem
 
 De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Puede cambiar el intervalo entre lotes si configura la propiedad [BatchFlushInterval][BatchFlushInterval] antes de crear la factoría de mensajería. Esta configuración afecta a todos los clientes que se creen en esta factoría.
 
-Para deshabilitar el procesamiento por lotes, establezca la propiedad [BatchFlushInterval][BatchFlushInterval] en **TimeSpan.Zero**. Por ejemplo: 
+Para deshabilitar el procesamiento por lotes, establezca la propiedad [BatchFlushInterval][BatchFlushInterval] en **TimeSpan.Zero**. Por ejemplo:
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -96,9 +96,9 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 El procesamiento por lotes no afecta al número de operaciones de mensajería facturables y solo está disponible para el protocolo de cliente de Service Bus mediante la biblioteca [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). El protocolo HTTP no admite el procesamiento por lotes.
 
 > [!NOTE]
-> Configuración de BatchFlushInterval garantiza que el procesamiento por lotes es implícita desde la perspectiva de la aplicación. es decir, la aplicación realiza SendAsync() y CompleteAsync() llama y no realiza llamadas de lote específicas.
+> La configuración de BatchFlushInterval garantiza que el procesamiento por lotes es implícito desde la perspectiva de la aplicación. Es decir, la aplicación realiza llamadas SendAsync() y CompleteAsync() y no realiza llamadas Batch específicas.
 >
-> Procesamiento por lotes del lado cliente explícita puede implementarse mediante el uso de la siguiente llamada al método: 
+> El procesamiento por lotes del lado cliente explícito se puede implementar mediante el uso de la siguiente llamada al método: 
 > ```csharp
 > Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
 > ```
@@ -113,7 +113,7 @@ Para aumentar el rendimiento de una cola, un tema o una suscripción, Service Bu
 
 Las demás operaciones de almacenamiento que se producen durante este intervalo se agregan al lote. El acceso al almacén de procesamiento por lotes solo afecta a las operaciones **Send** y **Complete**, pero no a las de recepción. El acceso al almacén de procesamiento por lotes es una propiedad de una entidad. El procesamiento por lotes se produce en todas las entidades que tengan habilitado el acceso al almacén de procesamiento por lotes.
 
-Cuando se crea una cola, un tema o una suscripción nuevos, el acceso al almacén de procesamiento por lotes está habilitado de manera predeterminada. Para deshabilitar el acceso al almacén de procesamiento por lotes, establezca la propiedad [EnableBatchedOperations][EnableBatchedOperations] en **false** antes de crear la entidad. Por ejemplo: 
+Cuando se crea una cola, un tema o una suscripción nuevos, el acceso al almacén de procesamiento por lotes está habilitado de manera predeterminada. Para deshabilitar el acceso al almacén de procesamiento por lotes, establezca la propiedad [EnableBatchedOperations][EnableBatchedOperations] en **false** antes de crear la entidad. Por ejemplo:
 
 ```csharp
 QueueDescription qd = new QueueDescription();
@@ -139,16 +139,16 @@ La captura previa no afecta al número de operaciones de mensajería facturables
 
 ## <a name="prefetching-and-receivebatch"></a>Captura previa y ReceiveBatch
 
-Aunque los conceptos de precarga juntos varios mensajes tienen una semántica similar a procesar los mensajes en un lote (ReceiveBatch), hay algunas diferencias menores que deben tenerse en cuenta al aprovechar juntas.
+Aunque los conceptos de capturar previamente varios mensajes tienen una semántica similar a procesar los mensajes en un lote (ReceiveBatch), hay algunas diferencias menores que deben tenerse en cuenta al aprovechar estos dos conceptos conjuntamente.
 
-La precarga es una configuración (o modo) en el cliente (QueueClient y SubscriptionClient) y ReceiveBatch es una operación (que tiene una semántica de solicitud-respuesta).
+La captura previa es una configuración (o modo) en el cliente (QueueClient y SubscriptionClient) y ReceiveBatch es una operación (que tiene una semántica de solicitud-respuesta).
 
-Al usar juntas, tenga en cuenta los siguientes casos:
+Cuando se usen conjuntamente, tenga en cuenta los siguientes casos:
 
-* Captura previa debe ser mayor o igual que el número de mensajes que espera recibir de ReceiveBatch.
-* Captura previa puede alcanzar n/3 multiplicado por el número de mensajes procesados por segundo, donde n es la duración del bloqueo predeterminado.
+* La captura previa debe ser mayor o igual que el número de mensajes que espera recibir de ReceiveBatch.
+* La captura previa puede alcanzar n/3 veces el número de mensajes procesados por segundo, donde n es la duración del bloqueo predeterminada.
 
-Hay algunos desafíos que se produzca un expansiva enfocar (es decir, mantener el número de capturas muy alto), ya que implica que el mensaje está bloqueado para un receptor en particular. La recomendación es intentar out captura previa de los valores entre los umbrales mencionados anteriormente y empíricamente identificar lo que cabe.
+Hay algunos desafíos con tener un enfoque codicioso (es decir, mantener el recuento de capturas previas muy alto), porque implica que el mensaje se bloquea para un receptor en particular. La recomendación es intentar capturar previamente los valores entre los umbrales mencionados anteriormente e identificar empíricamente lo que se ajuste.
 
 ## <a name="multiple-queues"></a>Varias colas
 

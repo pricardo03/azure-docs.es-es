@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450750"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Supervisión y administración de los recursos de SharePoint con Azure Logic Apps
@@ -70,9 +70,9 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
    En la lista de acciones, seleccione la que desee.
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
-   Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+   Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
 
-1. Cuando se le solicite el inicio de sesión, proporcione la información de conexión necesaria. Si usa SharePoint Server, asegúrese de seleccionar **conectarse mediante una puerta de enlace de datos local**. Cuando termine, seleccione **Crear**.
+1. Cuando se le solicite el inicio de sesión, proporcione la información de conexión necesaria. Si usa SharePoint Server, asegúrese de seleccionar **Conectarse mediante una puerta de enlace de datos local**. Cuando termine, seleccione **Crear**.
 
 1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 

@@ -1,6 +1,6 @@
 ---
-title: Cómo saber si una página de inicio de sesión de Azure AD acepta cuentas de Microsoft | Microsoft Docs
-description: En la pantalla de mensajería refleja la búsqueda de nombre de usuario durante el inicio de sesión
+title: Cómo saber si una página de inicio de sesión de Azure AD acepta cuentas Microsoft | Microsoft Docs
+description: Cómo los mensajes en pantalla reflejan la búsqueda del nombre de usuario durante el inicio de sesión
 services: active-directory
 author: curtand
 manager: mtillman
@@ -14,26 +14,26 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60468218"
 ---
-# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opciones de inicio de sesión para cuentas de Microsoft en Azure Active Directory
+# <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opciones de inicio de sesión para cuentas Microsoft en Azure Active Directory
 
-La página de inicio de sesión de Microsoft 365 para Azure Active Directory (Azure AD) admite cuentas educativas y profesionales o cuentas de Microsoft, pero según la situación del usuario, podría ser una u otra o ambas. Por ejemplo, la página de inicio de sesión de Azure AD es compatible con:
+La página de inicio de sesión de Microsoft 365 para Azure Active Directory (Azure AD) admite cuentas educativas o profesionales y cuentas Microsoft, pero según la situación del usuario, podría ser una, la otra o ambas. Por ejemplo, la página de inicio de sesión de Azure AD admite:
 
-* Aplicaciones que acepten inicios de sesión con ambos tipos de cuenta
-* Organizaciones que aceptan los invitados
+* Aplicaciones que aceptan inicios de sesión con ambos tipos de cuenta
+* Organizaciones que aceptan invitados
 
 ## <a name="identification"></a>Identificación
-Puede indicar si la página de inicio de sesión de que su organización usa es compatible con las cuentas de Microsoft examinando el texto de sugerencia en el campo de nombre de usuario. Si aparece el texto de la sugerencia "Correo electrónico, teléfono o Skype", la página de inicio de sesión es compatible con las cuentas de Microsoft.
+Para saber si la página de inicio de sesión que usa su organización admite cuentas Microsoft, examine el texto de sugerencia en el campo de nombre de usuario. Si en el texto de sugerencia pone "Correo electrónico, teléfono o Skype", la página de inicio de sesión admite cuentas Microsoft.
 
-![Diferencia entre las páginas de inicio de sesión de cuenta](./media/signin-account-support/ui-prompt.png)
+![Diferencia entre las páginas de inicio de sesión de las cuentas](./media/signin-account-support/ui-prompt.png)
 
-[Opciones de inicio de sesión adicionales solo funcionan para cuentas personales de Microsoft](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) pero no se puede usar para iniciar sesión para profesionales o educativas de recursos de la cuenta.
+Las [opciones de inicio de sesión adicionales solo funcionan con cuentas Microsoft personales](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ), no se pueden usar para iniciar sesión en recursos de cuentas profesionales o educativas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Personalizar su inicio de sesión de marca](../fundamentals/add-custom-domain.md)
+[Personalización de marca del inicio de sesión](../fundamentals/add-custom-domain.md)

@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567221"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Movimiento de datos hacia y desde Azure Cosmos DB mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-azure-documentdb-connector.md)
 > * [Versión 2 (versión actual)](../connector-azure-cosmos-db.md)
 
@@ -59,7 +59,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
-| type |La propiedad type debe establecerse en: **DocumentDb** |Sí |
+| Tipo |La propiedad type debe establecerse en: **DocumentDb** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB. |Sí |
 
 Ejemplo:
@@ -124,8 +124,8 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | --- | --- | --- | --- |
-| query |Especifique la consulta para leer los datos. |Cadena de consulta admitida por Azure Cosmos DB. <br/><br/>Ejemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Sin  <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Carácter especial para indicar que el documento está anidado |Cualquier carácter. <br/><br/>Azure Cosmos DB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Azure Data Factory permite al usuario indicar la jerarquía a través de nestingSeparator que es "." en los ejemplos anteriores. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla. |Sin  |
+| query |Especifique la consulta para leer los datos. |Cadena de consulta admitida por Azure Cosmos DB. <br/><br/>Ejemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Sin <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |Carácter especial para indicar que el documento está anidado |Cualquier carácter. <br/><br/>Azure Cosmos DB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Azure Data Factory permite al usuario indicar la jerarquía a través de nestingSeparator que es "." en los ejemplos anteriores. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla. |Sin |
 
 **DocumentDbCollectionSink** admite las siguientes propiedades:
 
@@ -133,7 +133,7 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 | --- | --- | --- | --- |
 | nestingSeparator |Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/><br/>En el ejemplo anterior: `Name.First` en la tabla de salida produce la siguiente estructura JSON en el documento de Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carácter que se usa para separar los niveles de anidamiento.<br/><br/>El valor predeterminado es `.` (punto). |Carácter que se usa para separar los niveles de anidamiento. <br/><br/>El valor predeterminado es `.` (punto). |
 | writeBatchSize |Número de solicitudes paralelas al servicio Azure Cosmos DB para crear documentos.<br/><br/>Puede ajustar el rendimiento cuando se copian datos hacia o desde Cosmos DB mediante esta propiedad. Puede esperar un rendimiento mejor al aumentar writeBatchSize porque se envían más solicitudes paralelas a Cosmos DB. Sin embargo, deberá evitar una limitación de solicitudes que puede generar el mensaje de error: "La tasa de solicitudes es grande".<br/><br/>La limitación de solicitudes se decide mediante una serie de factores, incluidos tamaño de los documentos, número de términos en los documentos, directiva de indexación de colección de destino, etc. Para las operaciones de copia, puede usar una colección mejor (por ejemplo, S3) para obtener el máximo rendimiento disponible (2.500 unidades de solicitudes por segundo). |Entero |No (valor predeterminado: 5) |
-| writeBatchTimeout |Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |Sin  |
+| writeBatchTimeout |Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |Sin |
 
 ## <a name="importexport-json-documents"></a>Importación o exportación de documentos JSON
 Con este conector de Cosmos DB, le resultará muy sencillo
@@ -484,16 +484,16 @@ Azure Cosmos DB es un almacén NoSQL para documentos JSON, en el que se permiten
 ## <a name="appendix"></a>Anexo
 1. **Pregunta:** ¿Admite la actividad de copia la actualización de los registros existentes?
 
-    **Respuesta:** No.
+    **Respuesta:**  No.
 2. **Pregunta:** ¿Cómo hace frente el reintento de una copia en Azure Cosmos DB a los registros ya copiados?
 
     **Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo identificador, la operación de copia genera un error.
 3. **Pregunta:** ¿Admite Data Factory el [intervalo o las particiones de datos basadas en hash](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Respuesta:** No.
+    **Respuesta:**  No.
 4. **Pregunta:** ¿Puedo especificar más de una colección de Azure Cosmos DB para una tabla?
 
-    **Respuesta:** No. Solo se puede especificar una colección cada vez.
+    **Respuesta:**  No. Solo se puede especificar una colección cada vez.
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

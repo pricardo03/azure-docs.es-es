@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565606"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Solución de problemas de conmutación por recuperación al entorno local desde Azure
@@ -56,7 +56,7 @@ Para resolver este problema:
 
 Para resolver este problema:
 
-Para volver a proteger una máquina virtual que ha conmutado por error, la máquina virtual de Azure debe estar en ejecución para que Mobility Service se registre con el servidor de configuración local y pueda empezar a realizar la replicación mediante la comunicación con el servidor de procesos. Si el equipo está en una red incorrecta o no se está ejecutando (no responder o apagado), el servidor de configuración no puede alcanzar el servicio de movilidad en la máquina virtual para iniciar la reprotección.
+Para volver a proteger una máquina virtual que ha conmutado por error, la máquina virtual de Azure debe estar en ejecución para que Mobility Service se registre con el servidor de configuración local y pueda empezar a realizar la replicación mediante la comunicación con el servidor de procesos. Si el equipo está en una red incorrecta o no se ejecuta (no responde o apagado), el servidor de configuración no puede acceder a Mobility Service de la máquina virtual para iniciar la reprotección.
 
 * Puede reiniciar la máquina virtual para que pueda comenzar la comunicación con el entorno local.
 * Reinicie el trabajo de reprotección después de iniciar la máquina virtual de Azure.

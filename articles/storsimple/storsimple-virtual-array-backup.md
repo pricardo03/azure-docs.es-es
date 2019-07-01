@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60581401"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Copia de seguridad de recursos compartidos o volúmenes de la matriz virtual de StorSimple
@@ -32,7 +32,7 @@ Este tutorial se aplica solo a instancias de StorSimple Virtual Array. Para obte
 
 ## <a name="back-up-shares-and-volumes"></a>Crear copias de seguridad de los recursos compartidos y volúmenes
 
-Las copias de seguridad proporcionan seguridad a partir de un momento específico y mejoran la capacidad de recuperación, al mismo tiempo que reducen los tiempos de restauración de recursos compartidos y volúmenes. Puede realizar copias de seguridad de un recurso compartido o volumen en el dispositivo StorSimple de dos maneras: **Programado** o **Manual**. En las siguientes secciones se detallan cada uno de los métodos.
+Las copias de seguridad proporcionan seguridad a partir de un momento específico y mejoran la capacidad de recuperación, al mismo tiempo que reducen los tiempos de restauración de recursos compartidos y volúmenes. Puede hacer una copia de seguridad de un recurso compartido o de un volumen de su dispositivo StorSimple de dos maneras: **Programada** o **Manual**. En las siguientes secciones se detallan cada uno de los métodos.
 
 ## <a name="change-the-backup-start-time"></a>Cambio de la hora de inicio de la copia de seguridad
 

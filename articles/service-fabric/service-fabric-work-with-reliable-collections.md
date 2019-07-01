@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506746"
 ---
 # <a name="working-with-reliable-collections"></a>Trabajo con Reliable Collections
@@ -207,7 +207,7 @@ Además, el código de servicio se actualiza con un dominio de actualización en
 
 > [!WARNING]
 > Aunque puede modificar el esquema de una clave, debe asegurarse de que el código hash de la clave y los algoritmos de igualdades son estables. Si cambia la forma en la que cualquiera de estos algoritmos opera, no podrá volver a buscar la clave del diccionario confiable nunca más.
-> Las cadenas de .NET se puede usar como una clave pero el uso de la cadena como la clave, no use el resultado de String.GetHashCode como la clave.
+> Las cadenas .NET se pueden usar como clave; pero use la propia cadena como clave, no el resultado de String.GetHashCode.
 
 Como alternativa, puede realizar lo que se conoce normalmente como una actualización en dos fases. Gracias a la actualización en dos fases, se actualizará el servicio de V1 a V2: V2 contiene el código que sabe cómo tratar el nuevo cambio de esquema, pero este código no se ejecuta. Cuando el código de V2 lee datos de V1, opera en ellos y escribe datos de V1. Luego, después de que la actualización se complete en todos los dominios de actualización, puede indicar de algún modo a las instancias de V2 en ejecución que la actualización se ha completado. (Una forma de indicar esto es lanzar una actualización de la configuración; esta característica es la que convierte a esto en una actualización de dos fases). Ahora, las instancias de V2 pueden leer datos de V1, convertirlos en datos de V2, operar en ellos y escribirlos como datos de V2. Cuando otras instancias lean datos de V2, no necesitarán convertirlos; simplemente operarán en ellos y escribirán datos de V2.
 

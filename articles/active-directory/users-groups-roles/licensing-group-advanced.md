@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471903"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
@@ -115,7 +115,7 @@ Como administrador, puede revisar todos los grupos afectados por el cambio y rea
 
 Este es un ejemplo cómo podría ser este proceso:
 
-1. Originalmente, asignó el producto *Office 365 Enterprise E5* a varios grupos. Uno de esos grupos, denominado *Office 365 E5 (solo Exchange)*, se diseñó para habilitar solamente el servicio *Exchange Online (Plan 2)* para sus miembros.
+1. Originalmente, asignó el producto *Office 365 Enterprise E5* a varios grupos. Uno de esos grupos, denominado *Office 365 E5 (solo Exchange)* , se diseñó para habilitar solamente el servicio *Exchange Online (Plan 2)* para sus miembros.
 
 2. Recibió una notificación de Microsoft sobre que se extenderá el producto E5 con un nuevo servicio: *Microsoft Stream*. Cuando el servicio esté disponible en el inquilino, puede hacer lo siguiente:
 
@@ -188,7 +188,7 @@ Cuando cambia una licencia en un grupo, Azure AD comenzará a aplicar los cambio
    > ```
 
 3. Para ver el registro completo de cómo se procesa un grupo, incluidos todos los cambios de usuario, establezca los siguientes filtros:
-   - **Iniciado por (actor)**: "Licencias basadas en grupos de Microsoft Azure AD"
+   - **Iniciado por (actor)** : "Licencias basadas en grupos de Microsoft Azure AD"
    - **Intervalo de fechas** (opcional): intervalo personalizado para cuando se sabe que un grupo específico inició y finalizó el procesamiento
 
 Esta salida de ejemplo muestra el inicio del procesamiento, todos los cambios de usuario resultantes y el fin del procesamiento.
@@ -216,7 +216,7 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 
 - La característica solo se puede usar con grupos de seguridad y grupos de Office 365 que tengan securityEnabled=TRUE.
 
-- El [centro de administración de Microsoft 365](https://admin.microsoft.com) no admite actualmente las licencias basadas en grupo. Si un usuario hereda una licencia de un grupo, esta licencia aparece en el portal de administración de Office como una licencia de usuario normal. Si intenta modificar esa licencia o quitarla, el portal devuelve un mensaje de error. Las licencias de grupo heredadas no se pueden modificar directamente en un usuario.
+- El [Centro de administración de Microsoft 365](https://admin.microsoft.com) no admite actualmente licencias basadas en grupo. Si un usuario hereda una licencia de un grupo, esta licencia aparece en el portal de administración de Office como una licencia de usuario normal. Si intenta modificar esa licencia o quitarla, el portal devuelve un mensaje de error. Las licencias de grupo heredadas no se pueden modificar directamente en un usuario.
 
 - Cuando se asignan o modifican licencias para un grupo grande (por ejemplo, con más de 100 000 usuarios), podría afectar el rendimiento. En concreto, el volumen de cambios generado por la automatización de Azure AD podría afectar negativamente el rendimiento de la sincronización de directorios entre Azure AD y los sistemas locales.
 

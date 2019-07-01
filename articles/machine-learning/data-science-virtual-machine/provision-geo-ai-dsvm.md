@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578579"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure 
@@ -87,7 +87,7 @@ En caso contrario, puede registrar una nueva cuenta y licencia de ArcGIS u obten
 
 ![Evaluación-gratuita-ArcGIS](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Después de registrarse para cualquier una pagada o gratuita ArcGIS cuenta de prueba, puede autorizar a ArcGIS Pro para su cuenta siguiendo las instrucciones de [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Después de registrar su cuenta de evaluación gratuita o de pago de ArcGIS, puede autorizar a ArcGIS Pro para su cuenta mediante las instrucciones de [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf) (Introducción a ArcGIS Pro). 
 
 Después de iniciar sesión en el software de escritorio ArcGIS Pro con su cuenta de ArcGIS, podrá empezar a usar las herramientas de ciencia de datos instaladas y configuradas en la máquina virtual para sus proyectos de análisis geoespacial y de aprendizaje automático.
 

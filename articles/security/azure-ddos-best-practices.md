@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588163"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: procedimientos recomendados y arquitecturas de referencia
@@ -126,7 +126,7 @@ El servicio Azure DDoS Protection Basic le ayuda a proteger a los clientes y a e
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>Telemetría, alertas y supervisión de DDoS Protection
 
-DDoS Protection Standard expone datos de telemetría detallados mediante [Azure Monitor](../azure-monitor/overview.md) mientras dura un ataque de DDoS. También puede configurar alertas para todas las métricas de Azure Monitor que usa DDoS Protection. Registro se puede integrar con Splunk (Azure Event Hubs), los registros de Azure Monitor y el almacenamiento de Azure para análisis avanzado a través de la interfaz de diagnósticos de Azure Monitor.
+DDoS Protection Standard expone datos de telemetría detallados mediante [Azure Monitor](../azure-monitor/overview.md) mientras dura un ataque de DDoS. También puede configurar alertas para todas las métricas de Azure Monitor que usa DDoS Protection. El registro se puede integrar con Splunk (Azure Event Hubs), registros de Azure Monitor y Azure Storage para realizar análisis avanzados con la interfaz de Azure Monitor Diagnostics.
 
 ##### <a name="ddos-mitigation-policies"></a>Directivas de mitigación de DDoS
 

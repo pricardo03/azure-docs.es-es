@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591754"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configuración de varias direcciones VIP para un servicio en la nube
@@ -172,7 +172,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Registros de Azure Monitor para equilibrio de carga de Azure](load-balancer-monitor-log.md)
+[Registros de Azure Monitor para Azure Load Balancer](load-balancer-monitor-log.md)
 
 [Información general sobre el equilibrador de carga accesible desde Internet](load-balancer-internet-overview.md)
 

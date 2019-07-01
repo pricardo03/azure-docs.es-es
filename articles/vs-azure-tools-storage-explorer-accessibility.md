@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457279"
 ---
 # <a name="storage-explorer-accessibility"></a>Accesibilidad al Explorador de Storage
@@ -27,11 +27,11 @@ ms.locfileid: "60457279"
 
 El Explorador de Storage admite el uso de un lector de pantalla en Windows y Mac. Se recomiendan los lectores de pantalla siguientes para cada plataforma:
 
-Plataforma | Screen Reader
+Plataforma | Lector de pantalla
 ---------|--------------
- Windows  | NVDA
+Windows  | NVDA
 Mac      | VoiceOver
-Linux    | (los lectores de pantalla no se admiten en Linux)
+Linux    | (no se admiten lectores de pantalla en Linux)
 
 Si surge un problema de accesibilidad al utilizar el Explorador de almacenamiento, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -45,7 +45,7 @@ La configuración del zoom aumenta el tamaño de la mayoría de los elementos de
 
 ## <a name="high-contrast-themes"></a>Temas de contraste alto
 
-El Explorador de Storage tiene dos temas de contraste alto: **Contraste alto (claro)** y **Contraste alto (oscuro)**. Puede cambiar el tema mediante la selección en de la Ayuda > menú temas.
+El Explorador de Storage tiene dos temas de contraste alto: **Contraste alto (claro)** y **Contraste alto (oscuro)** . Para cambiar el tema, selecciónelo en el menú Ayuda > Temas.
 
 ![Submenú Temas][1]
 
@@ -105,7 +105,7 @@ Actualizar  | **Control + R**
 Get-Help                | Métodos abreviados de teclado
 -----------------------|------------------
 Alternar herramientas de desarrollo | **F12**
-Recargar                 | **Control + Alt + R**
+Recargar                 | **Alt+Control+R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

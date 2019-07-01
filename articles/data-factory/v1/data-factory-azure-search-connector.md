@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567238"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Search mediante el uso de Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-azure-search-connector.md)
 > * [Versión 2 (versión actual)](../connector-azure-search.md)
 
@@ -68,7 +68,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| type | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
+| Tipo | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
 | indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
 
 
@@ -79,8 +79,8 @@ En la actividad de copia, si el receptor es de tipo **AzureSearchIndexSink**, es
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).| Combinar (predeterminado)<br/>Cargar| Sin  |
-| WriteBatchSize | Carga datos en el índice de Azure Search cuando el tamaño del búfer alcanza el valor de WriteBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información. | De 1 a 1000. El valor predeterminado es 1000. | Sin  |
+| WriteBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).| Combinar (predeterminado)<br/>Cargar| Sin |
+| WriteBatchSize | Carga datos en el índice de Azure Search cuando el tamaño del búfer alcanza el valor de WriteBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información. | De 1 a 1000. El valor predeterminado es 1000. | Sin |
 
 ### <a name="writebehavior-property"></a>Propiedad WriteBehavior
 AzureSearchSink realiza una operación upsert al escribir los datos. Es decir, al crear un documento, si la clave de este ya se encuentra en el índice de Azure Search, este servicio actualiza el documento existente en lugar de generar una excepción de conflicto.
@@ -100,13 +100,13 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 
 | Tipo de datos de Azure Search | Compatible con el receptor de Azure Search |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| Cadena | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
 | Boolean | Y |
 | DataTimeOffset | Y |
-| String Array | N |
+| Matriz de cadenas | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search

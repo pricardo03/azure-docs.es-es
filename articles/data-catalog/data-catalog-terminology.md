@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580466"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminología de Azure Data Catalog
@@ -23,7 +23,7 @@ Azure Data Catalog es un repositorio de metadatos basado en la nube en el que se
 
 ## <a name="data-source"></a>Origen de datos
 
-Un origen de datos es un sistema o un contenedor que administra los recursos de datos. Algunos ejemplos son las bases de datos de SQL Server, bases de datos Oracle, bases de datos de SQL Server Analysis Services (tabulares o multidimensionales) y servidores SQL Server Reporting Services.
+Un origen de datos es un sistema o un contenedor que administra los recursos de datos. Como ejemplos se incluyen las bases de datos de SQL Server, de Oracle, de SQL Server Analysis Services (tabulares o multidimensionales) y servidores de SQL Server Reporting Services.
 
 ## <a name="data-asset"></a>Recurso de datos
 
@@ -67,7 +67,7 @@ Un perfil de datos en Azure Data Catalog es una instantánea de metadatos de niv
 
 En Azure Data Catalog, cualquier usuario puede proporcionar metadatos descriptivos para un recurso de datos registrados. Cada usuario tiene una perspectiva distinta de los datos y su uso. Por ejemplo, el administrador de un servidor puede proporcionar los detalles de su contrato de nivel de servicio (SLA) o windows de respaldo; un administrador de datos puede proporcionar vínculos a la documentación para los procesos de negocio admitidos por los datos; un analista puede proporcionar una descripción en los términos que sean más relevantes para otros analistas y que pueden ser más valiosos para aquellos usuarios que necesitan descubrir y comprender los datos.
 
-Cada una de estas perspectivas es intrínsecamente valiosa, y con Azure Data Catalog, cada usuario puede proporcionar la información que le resulte significativa, mientras que todos los usuarios pueden usar esa información para comprender los datos y su finalidad.
+Cada una de estas perspectivas es intrínsecamente valiosa, y con Azure Data Catalog, cada usuario puede proporcionar la información que le resulte significativa, mientras que todos los usuarios pueden usar esa información para comprender los datos y su objetivo.
 
 ## <a name="expert"></a>Experto
 
@@ -75,7 +75,7 @@ Un experto es un usuario que se ha identificado como poseedor de una perspectiva
 
 ## <a name="owner"></a>Propietario
 
-Un propietario es un usuario que tiene privilegios adicionales para administrar un recurso de datos en Azure Data Catalog. Los usuarios pueden tomar posesión de los recursos de datos registrados y los propietarios pueden agregar a otros usuarios como copropietarios. Para obtener más información, vea [cómo administrar los recursos de datos](data-catalog-how-to-manage.md)  
+Un propietario es un usuario que tiene privilegios adicionales para administrar un recurso de datos en Azure Data Catalog. Los usuarios pueden tomar posesión de los recursos de datos registrados y los propietarios pueden agregar a otros usuarios como copropietarios. Para más información, vea [Cómo administrar recursos de datos](data-catalog-how-to-manage.md).  
 
 > [!NOTE]
 > Propiedad y administración solo están disponibles en la Standard Edition de Azure Data Catalog.

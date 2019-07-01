@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473878"
 ---
 # <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
@@ -30,7 +30,7 @@ Si su organización usa la verificación en dos pasos, puede configurar su cuent
 1. En el equipo, vaya a la página [Comprobación de seguridad adicional](https://aka.ms/mfasetup).
 
     >[!Note]
-    >Si no ve la página **Comprobación de seguridad adicional**, es posible que el administrador haya activado la experiencia de información de seguridad (versión preliminar). Si es así, debe seguir las instrucciones de la sección [Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md). Si no es así, deberá ponerse en contacto con el departamento de soporte técnico de su organización para obtener ayuda. Para obtener más información acerca de la información de seguridad, consulte [info (versión preliminar) Introducción a la seguridad](user-help-security-info-overview.md).
+    >Si no ve la página **Comprobación de seguridad adicional**, es posible que el administrador haya activado la experiencia de información de seguridad (versión preliminar). Si es así, debe seguir las instrucciones de la sección [Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md). Si no es así, deberá ponerse en contacto con el departamento de soporte técnico de su organización para obtener ayuda. Para más información sobre seguridad, consulte [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).
 
 2. Active la casilla situada junto a **Aplicación Authenticator** y luego seleccione **Configurar**.
 

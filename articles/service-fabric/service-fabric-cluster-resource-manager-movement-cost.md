@@ -1,5 +1,5 @@
 ---
-title: 'Cluster Resource Manager de Service Fabric: Costo de movimiento | Microsoft Docs'
+title: 'Resource Manager para el clúster de Service Fabric: costo de movimiento | Microsoft Docs'
 description: Información general del costo de movimiento de los servicios de Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516596"
 ---
 # <a name="service-movement-cost"></a>Costo del movimiento del servicio
@@ -76,7 +76,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impacto del costo de movimiento
-MoveCost tiene cuatro niveles: Cero, baja, Media y alta. Los valores de MoveCost están relacionados entre sí, excepto en el caso del valor Zero. Zero significa que mover una réplica es gratuito y que no se debe tener en cuenta en la puntuación de la solución. Establecer el costo de movimiento en High *no* garantiza que la réplica se mantenga en un mismo lugar.
+MoveCost tiene cuatro niveles: cero, bajo, medio y alto. Los valores de MoveCost están relacionados entre sí, excepto en el caso del valor Zero. Zero significa que mover una réplica es gratuito y que no se debe tener en cuenta en la puntuación de la solución. Establecer el costo de movimiento en High *no* garantiza que la réplica se mantenga en un mismo lugar.
 
 <center>
 

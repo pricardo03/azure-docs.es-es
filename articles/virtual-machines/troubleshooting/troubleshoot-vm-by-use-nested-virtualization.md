@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444368"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solución de problemas de una máquina virtual de Azure mediante la virtualización anidada en Azure
@@ -35,11 +35,11 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 -   La máquina virtual de rescate debe usar el mismo tipo de cuenta de almacenamiento (Estándar o Premium) que la máquina virtual con problemas.
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Paso 1: Crear una máquina virtual de rescate e instalar el rol Hyper-V
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Paso 1: Creación de una máquina virtual de rescate e instalación del rol de Hyper-V
 
 1.  Cree una máquina virtual de rescate:
 
-    -  Sistema operativo: Windows Server 2016 Datacenter
+    -  Sistema operativo: Windows Server 2016 Datacenter
 
     -  Tamaño Cualquier serie V3 con al menos dos núcleos que admitan la virtualización anidada. Para obtener más información, consulte la sección [Introducción a los nuevos tamaños Dv3 y Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
@@ -71,7 +71,7 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 13. Permita que el servidor instale el rol de Hyper-V. Esta operación tarda unos minutos y el servidor se reiniciará automáticamente.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Paso 2: Crear la máquina virtual con problemas en el servidor de Hyper-V de la máquina virtual de rescate
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Paso 2: Creación de la máquina virtual con problemas en el servidor de Hyper-V de la máquina virtual de rescate
 
 1.  Registre el nombre del disco en la máquina virtual con problemas y, a continuación, elimínela. Asegúrese de conservar todos los discos conectados. 
 
@@ -87,7 +87,7 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 4.  Abra Administración de discos (diskmgmt.msc). Asegúrese de que el disco de la máquina virtual con problemas esté establecido en **Sin conexión**.
 
-5.  Abra el Administrador de Hyper-V: En **administrador del servidor**, seleccione el **rol Hyper-V**. Haga clic con el botón derecho en el servidor y, a continuación, seleccione **Administrador de Hyper-V**.
+5.  Abra el administrador de Hyper-V: En **Administrador del servidor**, seleccione el **rol Hyper-V**. Haga clic con el botón derecho en el servidor y, a continuación, seleccione **Administrador de Hyper-V**.
 
 6.  En Administrador de Hyper-V, haga clic con el botón derecho en la máquina virtual de rescate y seleccione **Nuevo** > **Máquina virtual** > **Siguiente**.
 
@@ -122,7 +122,7 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 19. Ahora puede trabajar con la máquina virtual como máquina virtual local. Puede seguir los pasos para solucionar problemas que sean necesarios.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Paso 3: Volver a crear la máquina virtual de Azure en Azure
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Paso 3: Nueva creación de la máquina virtual de Azure en Azure
 
 1.  Cuando la máquina virtual vuelva a estar en línea, apáguela en el administrador de Hyper-V.
 

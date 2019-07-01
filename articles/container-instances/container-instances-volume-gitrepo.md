@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
 ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563026"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montaje de un volumen de gitRepo en Azure Container Instances
@@ -30,14 +30,14 @@ Al montar un volumen de *gitRepo*, puede establecer tres propiedades para config
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | -------- | -------- | ----------- |
 | `repository` | Sí | Dirección URL completa, incluidos `http://` o `https://`, del repositorio de GIT que se va a clonar.|
-| `directory` | Sin  | Directorio en el que se debe clonar el repositorio. La ruta de acceso no debe contener "`..`" ni empezar por ello.  Si especifica "`.`", el repositorio se clona en el directorio del volumen. De lo contrario, el repositorio de GIT se clona en un subdirectorio del nombre indicado dentro del directorio del volumen. |
-| `revision` | Sin  | Hash de confirmación de la revisión que se va a clonar. Si no se especifica, se clona la revisión de `HEAD`. |
+| `directory` | Sin | Directorio en el que se debe clonar el repositorio. La ruta de acceso no debe contener "`..`" ni empezar por ello.  Si especifica "`.`", el repositorio se clona en el directorio del volumen. De lo contrario, el repositorio de GIT se clona en un subdirectorio del nombre indicado dentro del directorio del volumen. |
+| `revision` | Sin | Hash de confirmación de la revisión que se va a clonar. Si no se especifica, se clona la revisión de `HEAD`. |
 
-## <a name="mount-gitrepo-volume-azure-cli"></a>Volumen de gitRepo de montaje: Azure CLI
+## <a name="mount-gitrepo-volume-azure-cli"></a>Montaje de un volumen de gitRepo: Azure CLI
 
 Para montar un volumen de GitRepo al implementar instancias de contenedor con la [CLI de Azure](/cli/azure), utilice los parámetros `--gitrepo-url` y `--gitrepo-mount-path` en el comando [crear contenedor az][az-container-create]. Opcionalmente, puede especificar el directorio del volumen en que va a realizar la clonación (`--gitrepo-dir`) y el hash de confirmación de la revisión que se va a clonar (`--gitrepo-revision`).
 
-Este comando de ejemplo clona Microsoft [aci-helloworld] [ aci-helloworld] en aplicación de ejemplo `/mnt/aci-helloworld` en la instancia del contenedor:
+Este comando de ejemplo clona la aplicación de ejemplo [aci-helloworld][aci-helloworld] de Microsoft en `/mnt/aci-helloworld` en la instancia de contenedor:
 
 ```azurecli-interactive
 az container create \
@@ -62,7 +62,7 @@ total 16
 drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 ```
 
-## <a name="mount-gitrepo-volume-resource-manager"></a>Volumen de gitRepo de montaje: Resource Manager
+## <a name="mount-gitrepo-volume-resource-manager"></a>Montaje de un volumen de gitRepo: Resource Manager
 
 Para montar un volumen de GitRepo al implementar instancias de contenedor con un [plantilla de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), rellene la matriz `volumes` en la sección `properties` del grupo contenedor de la plantilla. Luego, en todos los contenedores del grupo de contenedores en los que desee montar el volumen de *GitRepo*, rellene la matriz `volumeMounts` en la sección `properties` de la definición del contenedor.
 
@@ -98,9 +98,9 @@ Para ver un repositorio GIT de Azure Repos, especifique cualquier nombre de usua
 
 Para más información acerca de los tokens de acceso personal para GitHub y Azure Repos, vea lo siguiente:
 
-GitHub: [Creación de un token de acceso personal para la línea de comandos][pat-github]
+GitHub: [Creating a personal access token for the command line][pat-github] (Creación de un token de acceso personal para la línea de comandos)
 
-Azure Repos: [Crear tokens de acceso personal para autenticar el acceso][pat-repos]
+Azure Repos: [Create personal access tokens to authenticate access][pat-repos] (Creación de tokens de acceso personales para autenticar el acceso)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

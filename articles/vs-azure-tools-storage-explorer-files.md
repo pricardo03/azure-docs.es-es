@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456857"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso del Explorador de Storage con Azure File Storage
@@ -31,7 +31,7 @@ Para completar los pasos de este artículo, necesitará:
 
 - [Descarga e instalación del Explorador de Storage](https://www.storageexplorer.com/)
 
-- [Conectarse a una cuenta de Azure storage o un servicio](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Conectarse a una cuenta o a un servicio de almacenamiento de Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Creación de un recurso compartido de archivos
 
@@ -203,7 +203,7 @@ Los siguientes pasos muestran cómo administrar los archivos (y carpetas) en un 
 
         ![Carga de archivos](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Archivos** para seleccionar los archivos que desea cargar.
+        b. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos ( **...** ) a la derecha del cuadro de texto **Archivos** para seleccionar los archivos que desea cargar.
 
         ![Adición de archivos](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -215,7 +215,7 @@ Los siguientes pasos muestran cómo administrar los archivos (y carpetas) en un 
 
         ![Menú Cargar carpeta](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. En el cuadro de diálogo **Cargar carpeta**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Carpeta** para seleccionar la carpeta cuyo contenido desea cargar.
+        b. En el cuadro de diálogo **Cargar carpeta**, seleccione el botón de puntos suspensivos ( **...** ) a la derecha del cuadro de texto **Carpeta** para seleccionar la carpeta cuyo contenido desea cargar.
 
         c. Opcionalmente, especifique la carpeta de destino en la que se cargará el contenido de la carpeta seleccionada. Si la carpeta de destino no existe, se creará.
 

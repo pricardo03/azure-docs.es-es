@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60443762"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Descripción de un reinicio del sistema de una máquina virtual de Azure
@@ -102,7 +102,7 @@ Todas las máquinas virtuales de dicho host se reubican automáticamente en otro
 
 En contadas ocasiones, el equipo de operaciones de Azure podría necesitar realizar actividades de mantenimiento para garantizar el buen estado general de la plataforma Azure. Este comportamiento podría afectar a la disponibilidad de las máquinas virtuales y suele generar la misma acción de recuperación automática que se ha descrito.  
 
-Mantenimiento no planeados incluyen lo siguiente:
+Los mantenimientos no planeados incluyen lo siguiente:
 
 - Desfragmentación urgente de nodos
 - Actualizaciones urgentes de los conmutadores de la red

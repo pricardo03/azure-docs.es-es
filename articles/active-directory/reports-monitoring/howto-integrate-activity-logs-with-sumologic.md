@@ -1,6 +1,6 @@
 ---
-title: Stream registros de Azure Active Directory a SumoLogic con Azure Monitor | Microsoft Docs
-description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con SumoLogic con Azure Monitor
+title: Transmisión de los registros de Azure Active Directory a SumoLogic mediante Azure Monitor | Microsoft Docs
+description: Aprenda a integrar los registros de Azure Active Directory con SumoLogic mediante Azure Monitor.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437869"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrar los registros de Azure Active Directory con SumoLogic con Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integración de los registros de Azure Active Directory con SumoLogic mediante Azure Monitor
 
 En este artículo, aprenderá a integrar los registros de Azure Active Directory (Azure AD) con SumoLogic mediante Azure Monitor. En primer lugar, se enrutan los registros a un centro de eventos de Azure y, a continuación, se integra el centro de eventos con SumoLogic.
 

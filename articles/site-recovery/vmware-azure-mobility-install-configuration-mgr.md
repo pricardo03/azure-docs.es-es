@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598272"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatización de la instalación de Mobility Service con System Center Configuration Manager
@@ -24,7 +24,7 @@ En este artículo se proporciona un ejemplo de cómo puede usar System Center Co
 
 En este artículo se usa System Center Configuration Manager 2012 R2 para demostrar la actividad de implementación. Se supone que usa la versión **9.9.4510.1** o posterior de Mobility Service.
 
-Como alternativa, puede automatizar la instalación de Mobility Service con [DSC de automatización de Azure](vmware-azure-mobility-deploy-automation-dsc.md).
+Como alternativa, puede automatizar la instalación de Mobility Service con [DSC de Azure Automation ](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -210,7 +210,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 > [!TIP]
 > Para evitar los reinicios innecesarios, programe la instalación del paquete durante la ventana de mantenimiento mensual o la ventana de actualizaciones de software.
 
-Puede supervisar el progreso de la implementación en la consola de Configuration Manager. Vaya a **Supervisión** > **Implementaciones** > *[nombre del paquete]*.
+Puede supervisar el progreso de la implementación en la consola de Configuration Manager. Vaya a **Supervisión** > **Implementaciones** >  *[nombre del paquete]* .
 
   ![Captura de pantalla de la opción de Configuration Manager para supervisar implementaciones](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 

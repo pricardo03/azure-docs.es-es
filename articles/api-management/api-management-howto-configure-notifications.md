@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
 ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60528364"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Azure API Management
@@ -25,7 +25,7 @@ Administración de API ofrece la posibilidad de configurar notificaciones de eve
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene una instancia del servicio API Management, complete el tutorial siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+Si no tiene una instancia del servicio API Management, realice el inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

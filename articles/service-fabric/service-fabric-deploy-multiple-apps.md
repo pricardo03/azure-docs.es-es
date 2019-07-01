@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583873"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementación de varios ejecutables invitados
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Una vez que la aplicación se publica correctamente en el clúster local, puede obtener acceso a la aplicación de Node.js en el puerto que hemos especificado en el manifiesto de servicio de la aplicación de Node.js, por ejemplo, http:\//localhost:3000.
+Cuando la aplicación se publica correctamente en el clúster local, puede acceder a la aplicación de Node.js en el puerto que hemos especificado en el manifiesto de servicio de la aplicación de Node.js, por ejemplo http:\//localhost:3000.
 
 En este tutorial, ha visto cómo empaquetar fácilmente dos aplicaciones existentes como una aplicación de Service Fabric. También ha aprendido cómo implementarla en Service Fabric para que pueda beneficiarse de algunas de las características de Service Fabric, como la alta disponibilidad y la integración del sistema de mantenimiento.
 

@@ -2,17 +2,16 @@
 title: 'Conceptos: Acceso e identidad en Azure Kubernetes Service (AKS)'
 description: Este artículo contiene más información sobre el acceso y la identidad en Azure Kubernetes Service (AKS), incluida la integración de Azure Active Directory, el control de acceso basado en rol de Kubernetes y los roles y enlaces.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 02/28/2019
+ms.author: iainfou
 ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467058"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
@@ -31,7 +30,7 @@ En este artículo se presentan los conceptos básicos para ayudarle a autenticar
 
 Uno de los tipos de usuario principales de Kubernetes es una *cuenta de servicio*. Una cuenta de servicio existe en la API de Kubernetes y está administrada por esta. Las credenciales de las cuentas de servicio se almacenan como secretos de Kubernetes que usan los pods autorizados para comunicarse con el servidor de API. La mayoría de las solicitudes de API proporcionan un token de autenticación para una cuenta de servicio o una cuenta de usuario normal.
 
-Las cuentas de usuario normales permiten un acceso más tradicional para administradores o desarrolladores humanos, no solo a servicios y procesos. Kubernetes en sí mismo no proporciona una solución de administración de identidades donde se almacenan las contraseñas y cuentas de usuario normal. En su lugar, se pueden integrar soluciones de identidad externas en Kubernetes. Para los clústeres de AKS, esta solución de identidades integrada es Azure Active Directory.
+Las cuentas de usuario normales permiten un acceso más tradicional para administradores o desarrolladores humanos, no solo a servicios y procesos. Kubernetes por sí solo no proporciona una solución de administración de identidades donde se almacenan contraseñas y cuentas de usuario normales. En su lugar, se pueden integrar soluciones de identidad externas en Kubernetes. Para los clústeres de AKS, esta solución de identidades integrada es Azure Active Directory.
 
 Para más información sobre las opciones de identidad en Kubernetes, consulte [autenticación Kubernetes][kubernetes-authentication].
 
@@ -76,7 +75,7 @@ Un ClusterRoleBinding funciona de la misma manera para enlazar roles con usuario
 
 Para empezar a trabajar con Azure AD y el RBAC de Kubernetes, consulte [Integración de Azure Active Directory con AKS][aks-aad].
 
-Para las prácticas recomendadas asociadas, consulte [procedimientos recomendados para la autenticación y autorización en AKS][operator-best-practices-identity].
+Para conocer los procedimientos recomendados asociados, consulte [Procedimientos recomendados para la autenticación y la autorización en AKS][operator-best-practices-identity].
 
 Para obtener más información sobre los conceptos básicos de Kubernetes y AKS, consulte los artículos siguientes:
 
@@ -93,9 +92,9 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

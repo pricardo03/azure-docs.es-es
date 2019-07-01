@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
 ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565708"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Solución de problemas de actualización del proveedor de Microsoft Azure Site Recovery
@@ -42,9 +42,9 @@ Para actualizar, realice los siguientes pasos:
 
 1. Vuelva a la carpeta donde descargó el programa de instalación unificada y ejecute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para finalizar la actualización. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Error de actualización debido a que se va a cambiar el nombre de la carpeta de 3rd-party
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Error durante la actualización debido a que se ha cambiado el nombre de una carpeta de terceros
 
-Para que la actualización se realice correctamente, la carpeta 3rd-party no debe cambiarse.
+Para que la actualización se realice correctamente, no se debe cambiar el nombre de esta carpeta.
 
 Para resolver el problema:
 

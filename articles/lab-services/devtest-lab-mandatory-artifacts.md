@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60562264"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especificación de artefactos obligatorios para su laboratorio de Azure DevTest Labs
-Como propietario de un laboratorio, puede especificar obligatorios artefactos que se aplican a cada máquina creada en el laboratorio. Imagine un escenario donde quiere que cada máquina del laboratorio se conecte a la red corporativa. En este caso, cada usuario del laboratorio tendría que agregar un artefacto de unión a un dominio durante la creación de máquinas virtuales para asegurarse de que su equipo está conectado al dominio corporativo. En otras palabras, los usuarios del laboratorio esencialmente tendrían que volver a crear una máquina en caso de que se olviden de aplicar artefactos obligatorios en su equipo. Como propietario del laboratorio, convierte el artefacto de unión a un dominio en un artefacto obligatorio en el laboratorio. Con este paso se asegura de que cada máquina está conectada a la red corporativa y ahorra tiempo y esfuerzo a los usuarios del laboratorio.
+Como propietario de un laboratorio, puede especificar los artefactos obligatorios que se aplican a cada máquina creada en el laboratorio. Imagine un escenario donde quiere que cada máquina del laboratorio se conecte a la red corporativa. En este caso, cada usuario del laboratorio tendría que agregar un artefacto de unión a un dominio durante la creación de máquinas virtuales para asegurarse de que su equipo está conectado al dominio corporativo. En otras palabras, los usuarios del laboratorio esencialmente tendrían que volver a crear una máquina en caso de que se olviden de aplicar artefactos obligatorios en su equipo. Como propietario del laboratorio, convierte el artefacto de unión a un dominio en un artefacto obligatorio en el laboratorio. Con este paso se asegura de que cada máquina está conectada a la red corporativa y ahorra tiempo y esfuerzo a los usuarios del laboratorio.
  
 Entre otros artefactos obligatorios podrían incluirse una herramienta común que el equipo utiliza o un módulo de administración de seguridad relacionado con la plataforma que cada máquina debe tener de forma predeterminada, etcétera. En pocas palabras, cualquier software común que todas las máquinas del laboratorio deben tener se convierte en un artefacto obligatorio. Si crea una imagen personalizada de una máquina a la que se le han aplicado artefactos obligatorios y luego crea otra máquina a partir de esa imagen, los artefactos obligatorios se vuelven a aplicar a la máquina durante la creación. Este comportamiento también implica que, aunque la imagen personalizada sea anterior, cada vez que cree una máquina a partir de ella, se le aplicará la versión más actualizada de los artefactos obligatorios durante el flujo de creación. 
  

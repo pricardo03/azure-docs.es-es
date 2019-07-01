@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516908"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
@@ -423,7 +423,7 @@ Una de las características interesantes de Rattle es la posibilidad de ejecutar
 Cuando haya terminado de crear modelos, seleccione la pestaña **Log** (Registrar) para ver el código R ejecutado por Rattle durante la sesión. Puede seleccionar el botón **Export** (Exportar) para guardarlo.
 
 > [!NOTE]
-> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *exportar este registro...*  en el texto del registro.
+> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ...* (Exportar este registro) en el texto del registro.
 >
 >
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533244"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
@@ -34,7 +34,7 @@ La aplicación de detección continua solo recopila datos de rendimiento de form
 Cuando se elimina un proyecto de Azure Migrate, elimina el proyecto de migración junto con todos los grupos y valoraciones. Sin embargo, si ha vinculado un área de trabajo de Log Analytics al proyecto, no elimina automáticamente el área de trabajo de Log Analytics. Esto es porque la misma área de trabajo de Log Analytics se puede usar para varios casos de uso. Si también quiere eliminar el área de trabajo de Log Analytics, deberá hacerlo manualmente.
 
 1. Vaya al área de trabajo de Log Analytics vinculada al proyecto.
-    a. Si aún no ha eliminado el proyecto de migración, puede encontrar el vínculo al área de trabajo desde la página de información general del proyecto en la sección Essentials.
+   a. Si aún no ha eliminado el proyecto de migración, puede encontrar el vínculo al área de trabajo desde la página de información general del proyecto en la sección Essentials.
 
    ![Área de trabajo de LA](./media/troubleshooting-general/LA-workspace.png)
 
@@ -53,13 +53,13 @@ Si no puede exportar el informe de evaluación del portal, pruebe a usar la API 
 
 1. Instale *armclient* en el equipo (si no lo tiene ya instalado):
 
-    a. En una ventana del símbolo del sistema del administrador, ejecute el siguiente comando: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+   a. En una ventana del símbolo del sistema del administrador, ejecute el siguiente comando: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
    b. En una ventana de Windows PowerShell del administrador, ejecute el siguiente comando: ```choco install armclient```
 
 2. Obtenga la dirección URL para el informe de evaluación mediante la API REST de Azure Migrate.
 
-    a.    En una ventana de Windows PowerShell del administrador, ejecute el siguiente comando: ```armclient login```
+   a.    En una ventana de Windows PowerShell del administrador, ejecute el siguiente comando: ```armclient login```
 
         This opens the Azure login pop-up where you need to sign in to Azure.
 
@@ -80,7 +80,7 @@ Si no puede exportar el informe de evaluación del portal, pruebe a usar la API 
 
 4. Una vez descargado el informe, puede utilizar Excel para buscar la carpeta descargada y abrir el archivo en Excel para verlo.
 
-### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Datos de rendimiento de CPU, memoria y discos aparecen como ceros
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Los datos de rendimiento de CPU, memoria y discos aparecen como ceros
 
 Azure Migrate crea continuamente perfiles del entorno local para recopilar datos de rendimiento de las máquinas virtuales de un entorno local. Si acaba de iniciar la detección de su entorno, deberá esperar al menos un día para poder realizar la recopilación de datos de rendimiento. Si se crea una evaluación sin esperar un día, las métricas de rendimiento se mostrarán como ceros. Después de esperar un día, puede crear una nueva evaluación o actualizar la evaluación existente mediante la opción "Recalcular" en el informe de evaluación.
 
@@ -102,9 +102,9 @@ Puede ir a la sección **Essentials** en la página **Introducción** del proyec
    - Haga clic en Archivo > Deploy OVF template (Implementar plantilla OVF) > Busque el archivo OVA y complete la implementación.
 4. Si la implementación sigue sin funcionar, póngase en contacto con el soporte técnico de Azure Migrate.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>No se pudieron seleccionar Azure en la nube en el dispositivo, se produce un error con el error "Error al seleccionar la nube de Azure"
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>No se puede seleccionar la nube de Azure en la aplicación, se produce un error "Error de selección de nube de Azure"
 
-Se trata de un problema conocido y una corrección está disponible para el problema. Descargue el [última actualización bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) para el dispositivo y el dispositivo para aplicar la corrección de actualización.
+Se trata de un problema conocido y hay una corrección disponible para el problema. Descargue los [bits de actualización más recientes](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) para la aplicación y actualice este para aplicar la corrección.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>El recopilador no es capaz de conectarse a Internet
 
@@ -156,7 +156,7 @@ Este problema podría producirse debido a un problema con la instalación de VMw
 1. Si no tiene la versión más reciente del dispositivo del recopilador, [actualice el recopilador a la versión más reciente](https://aka.ms/migrate/col/checkforupdates) y compruebe si el problema se resuelve.
 2. Si ya tiene la versión más reciente del recopilador, siga los pasos siguientes para realizar una instalación limpia de PowerCLI:
 
-    a. Cierre el explorador web en el dispositivo.
+   a. Cierre el explorador web en el dispositivo.
 
    b. Detenga el servicio "Azure Migrate Collector" yendo al Administrador de servicios de Windows (abra "Ejecutar" y escriba services.msc para abrir el Administrador de servicios de Windows). Haga clic con el botón derecho en el servicio Azure Migrate Collector y haga clic en Detener.
 
@@ -165,33 +165,33 @@ Este problema podría producirse debido a un problema con la instalación de VMw
 
    d. Reinicie el servicio "Azure Migrate Collector" en el Administrador de servicios de Windows (abra "Ejecutar" y escriba services.msc para abrir el Administrador de servicios de Windows). Haga clic con el botón derecho en el servicio Azure Migrate Collector y haga clic en Iniciar.
 
-   e. Haga doble clic en el acceso directo del escritorio "Ejecutar recopilador" para iniciar la aplicación del recopilador. La aplicación del recopilador automáticamente debe descargar e instalar la versión necesaria de PowerCLI.
+   e. Haga doble clic en el acceso directo del escritorio "Ejecutar recopilador" para iniciar la aplicación del recopilador. La aplicación del recopilador debe descargar e instalar automáticamente la versión necesaria de PowerCLI.
 
-3. Si los pasos anteriores no resuelven el problema, siga los pasos de una a c anterior y, a continuación, instale manualmente PowerCLI en el dispositivo siguiendo estos pasos:
+3. Si con las indicaciones anteriores no se resuelve el problema, siga los pasos a, b y c anteriores e instale manualmente PowerCLI en la aplicación mediante estos pasos:
 
-    a. Limpiar PowerCLI incompleta todos los archivos de instalación siguiendo los pasos #a #c en el paso #2 anterior.
+   a. Limpie todos los archivos de instalación incompletos de PowerCLI mediante los pasos a, b y c del paso 2 anterior.
 
-   b. Vaya a Inicio > Ejecutar > PowerShell(x86) abiertos de Windows en modo de administrador
+   b. Vaya a Inicio > Ejecutar > Abrir PowerShell(x86) en modo administrador.
 
-   c. Ejecute el comando:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tipo "A" cuando pide confirmación)
+   c. Ejecute el comando:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (cuando se le pida confirmación, escriba "A")
 
    d. Reinicie el servicio "Azure Migrate Collector" en el Administrador de servicios de Windows (abra "Ejecutar" y escriba services.msc para abrir el Administrador de servicios de Windows). Haga clic con el botón derecho en el servicio Azure Migrate Collector y haga clic en Iniciar.
 
-   e. Haga doble clic en el acceso directo del escritorio "Ejecutar recopilador" para iniciar la aplicación del recopilador. La aplicación del recopilador automáticamente debe descargar e instalar la versión necesaria de PowerCLI.
+   e. Haga doble clic en el acceso directo del escritorio "Ejecutar recopilador" para iniciar la aplicación del recopilador. La aplicación del recopilador debe descargar e instalar automáticamente la versión necesaria de PowerCLI.
 
-4. Si no puede descargar el módulo en el dispositivo debido a problemas de firewall, descargue e instale el módulo en un equipo que tenga acceso a internet mediante los pasos siguientes:
+4. Si no puede descargar el módulo en la aplicación debido a problemas del firewall, descargue e instale el módulo en una máquina con acceso a Internet mediante los pasos siguientes:
 
-     a. Limpiar PowerCLI incompleta todos los archivos de instalación siguiendo los pasos #a #c en el paso #2 anterior.
+    a. Limpie todos los archivos de instalación incompletos de PowerCLI mediante los pasos a, b y c del paso 2 anterior.
 
-    b. Vaya a Inicio > Ejecutar > PowerShell(x86) abiertos de Windows en modo de administrador
+    b. Vaya a Inicio > Ejecutar > Abrir PowerShell(x86) en modo administrador.
 
-    c. Ejecute el comando:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tipo "A" cuando pide confirmación)
+    c. Ejecute el comando:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (cuando se le pida confirmación, escriba "A")
 
-    d. Copie todos los módulos, comenzando con "VMware" desde "C:\Program Files (x86) \WindowsPowerShell\Modules" en la misma ubicación en la máquina virtual del recopilador.
+    d. Copie todos los módulos que comienzan por "VMware" desde "C:\Program Files (x86) \WindowsPowerShell\Modules" en la misma ubicación de la máquina virtual del recopilador.
 
     e. Reinicie el servicio "Azure Migrate Collector" en el Administrador de servicios de Windows (abra "Ejecutar" y escriba services.msc para abrir el Administrador de servicios de Windows). Haga clic con el botón derecho en el servicio Azure Migrate Collector y haga clic en Iniciar.
 
-    f. Haga doble clic en el acceso directo del escritorio "Ejecutar recopilador" para iniciar la aplicación del recopilador. La aplicación del recopilador automáticamente debe descargar e instalar la versión necesaria de PowerCLI.
+    f. Haga doble clic en el acceso directo del escritorio "Ejecutar recopilador" para iniciar la aplicación del recopilador. La aplicación del recopilador debe descargar e instalar automáticamente la versión necesaria de PowerCLI.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
@@ -254,7 +254,7 @@ Puede [visualizar las dependencias de grupos](https://docs.microsoft.com/azure/m
 
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>He instalado agentes y he usado la visualización de dependencias para crear grupos. Ahora, después de la conmutación por error, los equipos muestran la acción "Instalar agente" en lugar de "Ver dependencias"
 * Tras una conmutación por error planeada o no planeada, los equipos locales se desactivan y los equipos equivalentes se activan en Azure. Estos equipos adquieren una dirección MAC diferente. Pueden adquirir una dirección IP distinta en función de si el usuario elige conservar o no la dirección IP local. Si las direcciones IP y MAC difieren, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
-* Después de la conmutación por error de prueba, los equipos locales permanecen encendidos según lo previsto. Los equipos equivalentes que se activan en Azure adquieren una dirección MAC distinta y pueden adquirir una dirección IP diferente. A menos que los bloques de usuario saliente Azure Monitor registra el tráfico procedente de estos equipos, Azure Migrate no asocia las máquinas locales con ningún dato de dependencia de Service Map y solicita al usuario que instale a los agentes en lugar de visualizar las dependencias.
+* Después de la conmutación por error de prueba, los equipos locales permanecen encendidos según lo previsto. Los equipos equivalentes que se activan en Azure adquieren una dirección MAC distinta y pueden adquirir una dirección IP diferente. A menos que el usuario bloquee el tráfico saliente de los registros de Azure Monitor procedente de estas máquinas, Azure Migrate no asocia las máquinas locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Solución de problemas de preparación de Azure
 

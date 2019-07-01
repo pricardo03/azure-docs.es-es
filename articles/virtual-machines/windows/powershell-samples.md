@@ -17,10 +17,10 @@ ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 576fe268bec12c16c7c2e2076dfa066c908693d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583696"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Ejemplos de PowerShell de máquina virtual de Azure
@@ -49,5 +49,5 @@ En la tabla siguiente se proporcionan vínculos a ejemplos de scripts de PowerSh
 |**Protección de las máquinas virtuales**||
 | [Cifrado de una VM y sus discos de datos](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un almacén de claves de Azure, una clave de cifrado y una entidad de servicio, y luego cifra una VM. |
 |**Supervisión de máquinas virtuales**||
-| [Supervisar una máquina virtual con Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea una máquina virtual, instala el agente de Azure Log Analytics e inscribe la VM en un área de trabajo de Log Analytics.  |
+| [Supervisión de una máquina virtual con Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crea una máquina virtual, instala el agente de Azure Log Analytics e inscribe la VM en un área de trabajo de Log Analytics.  |
 | | |

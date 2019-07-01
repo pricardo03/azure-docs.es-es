@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608127"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Ejecución de tareas en contenedores con directivas de reinicio
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Ejemplo de ejecución hasta terminación
 
-Para ver la directiva de reinicio en acción, cree una instancia del contenedor de Microsoft [aci-wordcount] [ aci-wordcount-image] la imagen y especifique el `OnFailure` directiva de reinicio. Este contenedor de ejemplo ejecuta un script de Python que, de forma predeterminada, analiza el texto de la obra [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, escribe las 10 palabras más comunes en STDOUT y, a continuación, se cierra.
+Para ver la directiva de reinicio en acción, cree una instancia de contenedor a partir de la imagen [aci-wordcount][aci-wordcount-image] de Microsoft y especifique la directiva de reinicio `OnFailure`. Este contenedor de ejemplo ejecuta un script de Python que, de forma predeterminada, analiza el texto de la obra [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, escribe las 10 palabras más comunes en STDOUT y, a continuación, se cierra.
 
 Ejecute el contenedor de ejemplo con el siguiente comando [az container create][az-container-create]:
 
@@ -95,7 +95,7 @@ En este ejemplo se muestra la salida que el script envía a STDOUT. No obstante,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Escenarios basados en tareas, como un conjunto de datos grande con varios contenedores, de procesamiento por lotes pueden aprovechar las ventajas de personalizado [variables de entorno](container-instances-environment-variables.md) o [líneas de comandos](container-instances-start-command.md) en tiempo de ejecución.
+Los escenarios basados en tareas, como el procesamiento por lotes de un gran conjunto de datos con varios contenedores, pueden aprovechar las [variables de entorno](container-instances-environment-variables.md) o las [líneas de comando](container-instances-start-command.md) personalizadas en tiempo de ejecución.
 
 Para más información acerca de cómo conservar la salida de los contenedores que se ejecutan hasta completarse, consulte [Montaje de un recurso compartido de archivos de Azure en Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 

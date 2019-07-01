@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561496"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Escalado vertical de la infraestructura de Azure DevTest Labs
@@ -46,7 +46,7 @@ A continuación, se resaltan las ventajas de cada enfoque.
 A menudo, el enfoque de una suscripción no es fácil de administrar en una gran empresa. Sin embargo, la limitación del número de suscripciones proporciona las siguientes ventajas:
 
 - **Previsión** de los costos de la empresa.  Realizar presupuestos resulta mucho más sencillo en una sola suscripción porque todos los recursos están en un único grupo. Este enfoque permite simplificar la toma de decisiones sobre cuándo adoptar medidas de control de costos en un momento dado de un ciclo de facturación.
-- **Facilidad de uso** de máquinas virtuales, los artefactos, las fórmulas, configuración de red, permisos, directivas, etc. es más fácil, ya que todas las actualizaciones son necesarias solo en una suscripción en lugar de realizar actualizaciones a través de varias suscripciones.
+- La **manejabilidad** de máquinas virtuales, artefactos, fórmulas, configuraciones de red, permisos, directivas, etc. es más fácil, ya que todas las actualizaciones son necesarias solo en una suscripción, en lugar de realizar actualizaciones en varias suscripciones.
 - Los trabajos de **red** se simplifican en gran medida en una sola suscripción para empresas donde la conectividad local es un requisito. Conectar redes virtuales entre suscripciones (modelo tipo hub-and-spoke) es necesario con suscripciones adicionales, lo que requiere configuración adicional, administración, espacios de direcciones IP, etc.
 - La **colaboración en equipo** es más fácil cuando todos trabajan en la misma suscripción: por ejemplo, es más fácil volver a asignar una máquina virtual a un compañero de trabajo, compartir los recursos del equipo, etc.
 

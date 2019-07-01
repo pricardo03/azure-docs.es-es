@@ -15,10 +15,10 @@ ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60478657"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitectura de almacenamiento de SAP HANA (instancias grandes)
@@ -73,9 +73,9 @@ Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para inf
 
 Se puede hospedar más de una instancia de SAP HANA activa en las unidades de HANA (instancias grandes). Para proporcionar las funcionalidades de instantáneas de almacenamiento y recuperación ante desastres, esta configuración requiere un volumen por cada instancia. Actualmente, las unidades de HANA (instancias grandes) se pueden subdividir de esta forma:
 
-- **S72, S72m, S96, S144, S192**: En incrementos de 256 GB con la unidad más pequeña inicial de 256 GB. Se pueden combinar incrementos diferentes, como 256 GB y 512 GB, hasta el máximo de memoria de la unidad.
-- **S144m y S192m**: En incrementos de 256 GB con la unidad más pequeña de 512 GB. Se pueden combinar incrementos diferentes, como 512 GB y 768 GB, hasta el máximo de memoria de la unidad.
-- **Clase de tipo II**: En incrementos de 512 GB, con la unidad más pequeña inicial de 2 TB. Se pueden combinar incrementos diferentes, como 512 GB, 1 GB y 1,5 GB, hasta el máximo de memoria de la unidad.
+- **S72, S72m, S96, S144, S192**: en incrementos de 256 GB con la unidad más pequeña inicial de 256 GB. Se pueden combinar incrementos diferentes, como 256 GB y 512 GB, hasta el máximo de memoria de la unidad.
+- **S144m y S192m**: en incrementos de 256 GB con la unidad más pequeña de 512 GB. Se pueden combinar incrementos diferentes, como 512 GB y 768 GB, hasta el máximo de memoria de la unidad.
+- **Clase de tipo II**: en incrementos de 512 GB con la unidad más pequeña inicial de 2 TB. Se pueden combinar incrementos diferentes, como 512 GB, 1 GB y 1,5 GB, hasta el máximo de memoria de la unidad.
 
 Algunos ejemplos de la ejecución de varias instancias de SAP HANA tendrían este aspecto.
 
@@ -94,16 +94,16 @@ El almacenamiento usado para HANA (instancias grandes) permite un cifrado transp
 
 Con las SKU de clase de tipo I, se cifra el volumen en el que está almacenado el LUN de arranque. En el caso de las SKU de clase de tipo II de HANA (instancias grandes), tendrá que cifrar el LUN de arranque con los métodos del sistema operativo. Para más información, póngase en contacto con el equipo de Microsoft Service Management.
 
-## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Configuración requerida para las instancias más grandes de HANA en instancias grandes de HANA
-El almacenamiento usado en instancias grandes de HANA tiene una limitación de tamaño de archivo. El [limitación de tamaño es de 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por archivo. A diferencia de las limitaciones de tamaño de archivo en los sistemas de archivos EXT3, HANA no es consciente implícitamente de la limitación de almacenamiento exigida por el almacenamiento de instancias grandes de HANA. Como resultado HANA no creará automáticamente un nuevo archivo de datos cuando se alcanza el límite de tamaño de archivo de 16TB. Como HANA intenta aumentar el archivo más allá de 16 TB, HANA se notificará errores y el servidor de indexación se bloquearán al final.
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Configuración necesaria para instancias más grandes de HANA en instancias grandes de HANA
+El almacenamiento usado en instancias grandes de HANA tiene una limitación de tamaño de archivo. La [limitación de tamaño es de 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por archivo. A diferencia de las limitaciones de tamaño de archivo de los sistemas de archivos EXT3, HANA no es consciente implícitamente de la limitación de almacenamiento exigida por el almacenamiento de instancias grandes de HANA. Por consiguiente, HANA no creará automáticamente un nuevo archivo de datos cuando se alcance el límite de tamaño de archivo de 16 TB. Cuando HANA intente aumentar el archivo más allá de 16 TB, informará de errores y el servidor de índice terminará bloqueándose.
 
 > [!IMPORTANT]
-> Con el fin de evitar intentar aumentar el límite de tamaño de archivo de 16 TB de almacenamiento de instancia grande de HANA más allá de los archivos de datos HANA, tiene que establecer los parámetros siguientes en el archivo de configuración global.ini de HANA
+> Con el fin de impedir que HANA intente aumentar los archivos de datos más allá del límite de tamaño de archivo de 16 TB del almacenamiento de instancias grandes de HANA, tiene que establecer los parámetros siguientes en el archivo de configuración global.ini de HANA:
 > 
 > - datavolume_striping=true
 > - datavolume_striping_size_gb = 15000
-> - Vea también SAP nota [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-> - Tenga en cuenta la nota de SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - Vea también la nota de SAP [2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Tenga en cuenta la nota de SAP [2631285](https://launchpad.support.sap.com/#/notes/2631285).
 
 
 

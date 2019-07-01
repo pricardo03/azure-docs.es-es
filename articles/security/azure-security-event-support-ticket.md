@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
 ms.openlocfilehash: 243b6b7846719d3f848073e3aa973c9406ca59c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586600"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Procedimientos para registrar una incidencia de soporte técnico de un evento de seguridad
@@ -32,7 +32,7 @@ ms.locfileid: "60586600"
 
     i. ¿Cuál es el problema o la vulnerabilidad?
 
-    ii. Para las vulnerabilidades, proporcione el identificador CVE (mitre.org) o el relleno calculadora CVSS3 v3 (https://www.first.org/cvss/calculator/3.0).
+    ii. En el caso de las vulnerabilidades, proporcione el identificador CVE (mitre.org) o la ficha rellena de la calculadora CVSS3 v3(https://www.first.org/cvss/calculator/3.0).
 
     iii. ¿Hay una resolución o una mitigación de riesgos? En caso afirmativo, proporcione los pasos de corrección.
 

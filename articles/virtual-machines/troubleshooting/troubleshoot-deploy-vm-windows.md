@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de implementación de máquinas virtuales Windows en Azure | Microsoft Docs
-description: Solucionar problemas de implementación de máquina virtual Windows en el modelo de implementación de Azure Resource Manager.
+description: Solución de problemas de implementación de máquinas virtuales Windows en el modelo de implementación de Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593263"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solución de problemas de implementación de máquinas virtuales Windows en Azure
@@ -32,7 +32,7 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>El clúster no admite el tamaño de máquina virtual solicitado
-\<propiedades supportTopicIds = resourceTags "123456789" = "windows" productPesIds = "1234, 5678" / >
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
 - Si no se puede cambiar el tamaño de la máquina virtual solicitada:
     - Detenga todas las máquinas virtuales en el conjunto de disponibilidad. Haga clic en **Grupos de recursos** > su grupo de recursos > **Recursos** > su conjunto de disponibilidad > **Máquinas virtuales** > su máquina virtual > **Detener**.
@@ -41,7 +41,7 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>El clúster no tiene recursos disponibles
-\<propiedades supportTopicIds = resourceTags "123456789" = "windows" productPesIds = "1234, 5678" / >
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Vuelva a intentar realizar la solicitud más tarde.
 - Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente
     - Cree una máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
@@ -65,7 +65,7 @@ Con el contrato Enterprise:
 
 Para obtener más información, consulte los siguientes recursos:
 
- - [Información general de Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Información general sobre la ventaja de uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Preguntas más frecuentes descargables](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 

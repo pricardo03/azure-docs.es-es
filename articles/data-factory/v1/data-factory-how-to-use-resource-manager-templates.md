@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583373"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
@@ -46,10 +46,10 @@ Consulte los siguientes tutoriales para obtener instrucciones detalladas para cr
 ## <a name="data-factory-templates-on-github"></a>Plantillas de Data Factory en GitHub
 Consulte las siguientes plantillas de inicio rápido de Azure en GitHub:
 
-* [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) (Creación de una instancia de Data Factory para copiar datos desde Azure Blob Storage en Azure SQL Database)
+* [Creación de una factoría de datos para copiar datos de Azure Blob Storage a Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) (Creación de una instancia de Data Factory con actividad de Hive en un clúster de Azure HDInsight)
 * [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) (Creación de una instancia de Data Factory para copiar datos desde Salesforce en Azure Blobs)
-* [Create a Data factory that chains activities: copies data from an FTP server to Azure Blobs, invokes a hive script on an on-demand HDInsight cluster to transform the data, and copies result into Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob) (Creación de Data Factory que encadena actividades: copia de datos desde un servidor FTP en blobs de Azure, invocación de un script de hive en un clúster de HDInsight a petición para transformar los datos y copia del resultado en Azure SQL Database)
+* [Creación de una factoría de datos que encadena actividades: copiar datos desde un servidor FTP en blobs de Azure, invocar un script de Hive en un clúster de HDInsight a petición para transformar los datos y copiar el resultado en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
 No dude en compartir sus plantillas de Azure Data Factory en [Inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Consulte la [Guía de contribución](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) cuando desarrolle plantillas que se puedan compartir a través de este repositorio.
 

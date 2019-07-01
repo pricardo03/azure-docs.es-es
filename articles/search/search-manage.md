@@ -11,10 +11,10 @@ ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565448"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
@@ -60,7 +60,7 @@ En términos de información general acerca del servicio, hay varias formas de o
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Supervisar el uso de recursos
-En el panel, la supervisión de recursos se limita a la información que se muestra en el panel de servicios y algunas métricas que puede obtener al consultar el servicio. En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación. Puede aprovisionar los recursos externos, como la supervisión de Azure, si desea capturar y almacenar los eventos registrados. Para obtener más información, consulte [supervisión de Azure Search](search-monitor-usage.md).
+En el panel, la supervisión de recursos se limita a la información que se muestra en el panel de servicios y algunas métricas que puede obtener al consultar el servicio. En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación. Puede aprovisionar recursos externos, como la supervisión de Azure, si desea capturar y persistir eventos registrados. Para más información, consulte [Supervisión de Azure Search](search-monitor-usage.md).
 
 Al usar la API de REST del servicio de búsqueda, podrá obtener una recuento de los documentos e índices mediante programación: 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
 ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586856"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
@@ -29,13 +29,13 @@ Con [seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azu
 
 Un equipo de operaciones de TI es el responsable de administrar la infraestructura del centro de datos, las aplicaciones y los datos, incluida la estabilidad y la seguridad de estos sistemas. Sin embargo, la obtención de información de seguridad sobre el cada vez mayor número de entornos de TI complejos, a menudo requiere que las organizaciones reúnan datos a partir de distintos sistemas de administración y seguridad.
 
-[Los registros de Microsoft Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es una solución de administración de TI basada en la nube que le ayuda a administrar y proteger sus instalaciones y la infraestructura en la nube. Los siguientes servicios que se ejecutan en Azure proporcionan su funcionalidad principal. En Azure, se incluyen varios servicios que le permiten administrar y proteger la infraestructura local y en la nube. Cada servicio proporciona una función de administración específica. Puede combinar los servicios para lograr distintos escenarios de administración. 
+Los [registros de Microsoft Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es una solución de administración de TI basada en la nube de Microsoft que le permite administrar y proteger su infraestructura local y en la nube. Los siguientes servicios que se ejecutan en Azure proporcionan su funcionalidad principal. En Azure, se incluyen varios servicios que le permiten administrar y proteger la infraestructura local y en la nube. Cada servicio proporciona una función de administración específica. Puede combinar los servicios para lograr distintos escenarios de administración. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) recopila datos de orígenes administrados en almacenes de datos centralizados. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API. Una vez recopilados los datos, están disponibles para las alertas, el análisis y la exportación. 
 
-Puede consolidar datos de varios orígenes y combinar datos de los servicios de Azure con el entorno local existente. Registros de Azure Monitor también separa claramente la recopilación de los datos de la acción realizada en los datos, por lo que todas las acciones que están disponibles para todos los tipos de datos.
+Puede consolidar datos de varios orígenes y combinar datos de los servicios de Azure con el entorno local existente. Los registros de Azure Monitor también separan claramente la recopilación de los datos de la acción realizada en los datos para que todas las acciones estén disponibles para todos los tipos de datos.
 
 ### <a name="automation"></a>Automation
 
@@ -72,7 +72,7 @@ Azure AD también incluye un conjunto completo de [funcionalidades de administra
 - [Auditoría avanzada](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Supervisión de seguridad y alertas](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Con Azure Active Directory, todas las aplicaciones que publica para sus asociados y clientes (empresa o consumidor) tendrán las mismas funcionalidades de administración de identidad y acceso.  Esto permite reducir significativamente los costos operativos.
+Con Azure Active Directory, todas las aplicaciones que publica para sus asociados y clientes (empresa o consumidor) tendrán las mismas funcionalidades de administración de identidad y acceso. Esto permite reducir significativamente los costos operativos.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -93,7 +93,7 @@ Security Center evalúa la configuración de los recursos para identificar probl
 >[!Note]
 >Consulte [Permisos en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions) para obtener más información sobre los roles y las acciones permitidas en Security Center.
 
-Security Center usa Microsoft Monitoring Agent. Este es el mismo agente que usa el servicio de Azure Monitor. Los datos que recopila este agente se almacenan en una [área de trabajo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) existente de Log Analytics asociada con la suscripción a Azure o en una nueva área de trabajo, según la geolocalización de la VM.
+Security Center usa Microsoft Monitoring Agent. Es el mismo agente que usa el servicio de Azure Monitor. Los datos que recopila este agente se almacenan en una [área de trabajo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) existente de Log Analytics asociada con la suscripción a Azure o en una nueva área de trabajo, según la geolocalización de la VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

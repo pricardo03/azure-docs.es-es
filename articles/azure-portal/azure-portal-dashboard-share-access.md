@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552017"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Uso compartido de paneles de Azure mediante el control de acceso basado en rol
@@ -75,6 +75,6 @@ Tras esto, el panel ya se ha publicado. Si son adecuados los permisos heredados 
      ![roles asignados](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener una lista de roles, consulte [RBAC: roles integrados](../role-based-access-control/built-in-roles.md).
+* Para una lista de roles, consulte [RBAC: roles integrados](../role-based-access-control/built-in-roles.md).
 * Para más información acerca de cómo administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](resource-group-portal.md).
 

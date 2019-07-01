@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583845"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
 Para ejecutar determinadas cargas de trabajo de proceso intensivo en Azure Container Instances, implemente los [grupos de contenedores](container-instances-container-groups.md) con *recursos de GPU*. Las instancias de contenedor en el grupo pueden acceder a una o varias GPU NVIDIA Tesla mientras se ejecutan cargas de contenedor como CUDA y aplicaciones de aprendizaje profundo.
 
-Este artículo muestra cómo agregar recursos GPU al implementar un grupo de contenedores mediante el uso de un [archivo YAML](container-instances-multi-container-yaml.md) o [plantilla de Resource Manager](container-instances-multi-container-group.md). También puede especificar los recursos GPU al implementar una instancia de contenedor mediante el portal de Azure.
+En este artículo se muestra cómo agregar recursos de GPU al implementar un grupo de contenedores mediante el uso de un [archivo YAML](container-instances-multi-container-yaml.md) o una [plantilla de Resource Manager](container-instances-multi-container-group.md). También puede especificar los recursos de GPU al implementar una instancia de contenedor mediante Azure Portal.
 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar y se [aplican algunas limitaciones](#preview-limitations). Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
@@ -53,7 +53,7 @@ Para usar GPU en una instancia de contenedor, especifique un *recurso de GPU* co
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Al implementar recursos GPU, establezca los recursos de CPU y memoria adecuada para la carga de trabajo, hasta los valores máximos que se muestra en la tabla anterior. Estos valores son actualmente mayores que los recursos de CPU y memoria disponibles en los grupos de contenedores sin recursos GPU.  
+Al implementar recursos de GPU, establezca los recursos de CPU y memoria apropiados para la carga de trabajo, hasta los valores máximos mostrados en la siguiente anterior. Estos valores actualmente son mayores que los recursos de CPU y memoria disponibles en los grupos de contenedores sin recursos de GPU.  
 
 ### <a name="things-to-know"></a>Cosas que debe saber
 
@@ -65,7 +65,7 @@ Al implementar recursos GPU, establezca los recursos de CPU y memoria adecuada p
 
 * **Controladores de CUDA**: las instancias de contenedor con los recursos de GPU se aprovisionan previamente con controladores de NVIDIA CUDA y tiempos de ejecución de contenedor, por lo que puede usar imágenes de contenedor desarrolladas para cargas de trabajo de CUDA.
 
-  Se admite CUDA 9.0 en esta fase. Por ejemplo, puede usar siguiendo las imágenes base para el archivo de Docker:
+  Se admite CUDA 9.0 en esta fase. Por ejemplo, puede usar las siguientes imágenes base para su archivo de Docker:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     
@@ -211,7 +211,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Como el uso de recursos de GPU puede ser caro, asegúrese de que los contenedores no se ejecutan inesperadamente durante largos períodos. Supervise los contenedores en Azure Portal o consulte el estado de un grupo de contenedores con el comando [az container show][az-container-show]. Por ejemplo: 
+Como el uso de recursos de GPU puede ser caro, asegúrese de que los contenedores no se ejecutan inesperadamente durante largos períodos. Supervise los contenedores en Azure Portal o consulte el estado de un grupo de contenedores con el comando [az container show][az-container-show]. Por ejemplo:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

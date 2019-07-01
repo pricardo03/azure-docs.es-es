@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515905"
 ---
 # <a name="configure-storage"></a>Configurar el almacenamiento
@@ -47,7 +47,7 @@ Los siguientes pasos agregan un archivador principal de NAS:
 
 1. En el panel de control de Avere, haga clic en la ficha **Settings** (Configuración) que se encuentra en la parte superior.
 
-1. Haga clic en **Core Filer (Archivador principal)** > **Manage Core Filers (Administrar archivadores principales)** a la izquierda.
+1. Haga clic en **Core Filer (Archivador principal)**  > **Manage Core Filers (Administrar archivadores principales)** a la izquierda.
 
 1. Haga clic en **Create**(Crear).
 
@@ -112,13 +112,13 @@ Para agregar Blob Storage después de crear el clúster, siga estos pasos.
 
    ![GUI de Azure Portal para copiar la clave](media/avere-vfxt-copy-storage-key.png) 
 
-1. Abra el panel de control de Avere para el clúster. Haga clic en **Settings** (Configuración) y abra la opción **Cluster (Clúster)** > **Cloud Credentials (Credenciales en la nube)** en el panel de navegación izquierdo. En la página de credenciales en la nube, haga clic en **Add Credential** (Agregar credencial).
+1. Abra el panel de control de Avere para el clúster. Haga clic en **Settings** (Configuración) y abra la opción **Cluster (Clúster)**  > **Cloud Credentials (Credenciales en la nube)** en el panel de navegación izquierdo. En la página de credenciales en la nube, haga clic en **Add Credential** (Agregar credencial).
 
    ![Haga clic en el botón Add Credential (Agregar credencial); este se encuentra en la página de configuración de credenciales en la nube](media/avere-vfxt-new-credential-button.png)
 
 1. Rellene la información siguiente para crear una credencial para el archivador principal en la nube: 
 
-   | Campo | Value |
+   | Campo | Valor |
    | --- | --- |
    | Nombre de credencial | cualquier nombre descriptivo |
    | Tipo de servicio | (seleccione la clave de acceso de Azure Storage) |
@@ -130,7 +130,7 @@ Para agregar Blob Storage después de crear el clúster, siga estos pasos.
 
    ![Se completó el formulario de credenciales en la nube en el panel de control de Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. A continuación, cree el archivador principal. En el lado izquierdo del panel de control Avere, haga clic en **Core Filer (Archivador principal)** >  **Manage Core Filers (Administrar archivadores principales)**. 
+1. A continuación, cree el archivador principal. En el lado izquierdo del panel de control Avere, haga clic en **Core Filer (Archivador principal)**  >  **Manage Core Filers (Administrar archivadores principales)** . 
 
 1. Haga clic en el botón **Create** (Crear) situado en la página de configuración **Manage Core Filers** (Administrar archivadores principales).
 

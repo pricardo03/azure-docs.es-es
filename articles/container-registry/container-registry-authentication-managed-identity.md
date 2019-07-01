@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563076"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use la identidad administrada de Azure para autenticarse en Azure Container Registry 
@@ -126,7 +126,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-Dado que necesita el Id. de la identidad en un paso posterior al iniciar sesión la CLI desde una máquina virtual, se muestra el valor:
+Dado que necesita el identificador de la identidad en un paso posterior para iniciar sesión en la CLI desde una máquina virtual, use el siguiente comando para mostrar el valor en pantalla:
 
 ```bash
 echo $userID
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Establezca una conexión SSH con la máquina virtual de Docker que está configurada con la identidad. Ejecute los siguientes comandos de la CLI de Azure mediante la instancia de la CLI de Azure que instaló en la máquina virtual.
 
-En primer lugar, autenticarse en la CLI de Azure con [inicio de sesión de az][az-login], utilizando la identidad que configuró en la máquina virtual. Como valor de `<userID>`, use el identificador de identidad que recuperó en el paso anterior. 
+En primer lugar, autentíquese en la CLI de Azure con [az login][az-login] y la identidad que configuró en la máquina virtual. Como valor de `<userID>`, use el identificador de identidad que recuperó en el paso anterior. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-A continuación, autenticarse en el registro con [el inicio de sesión de az acr][az-acr-login]. Cuando se usa este comando, la CLI utiliza el token de Active Directory que creó al ejecutar `az login` para autenticar sin problemas la sesión con el registro de contenedor. (Según la configuración de la máquina virtual, es posible que deba ejecutar este comando y los comandos de docker con `sudo`).
+Después, autentíquese en el registro con [az acr login][az-acr-login]. Cuando se usa este comando, la CLI utiliza el token de Active Directory que creó al ejecutar `az login` para autenticar sin problemas la sesión con el registro de contenedor. (Según la configuración de la máquina virtual, es posible que deba ejecutar este comando y los comandos de docker con `sudo`).
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Establezca una conexión SSH con la máquina virtual de Docker que está configurada con la identidad. Ejecute los siguientes comandos de la CLI de Azure mediante la instancia de la CLI de Azure que instaló en la máquina virtual.
 
-En primer lugar, autenticarse con la CLI de Azure [inicio de sesión de az][az-login], mediante la identidad asignada por el sistema en la máquina virtual.
+En primer lugar, autentíquese en la CLI de Azure con [az login][az-login] y la identidad asignada por el sistema en la máquina virtual.
 
 ```azurecli
 az login --identity
 ```
 
-A continuación, autenticarse en el registro con [el inicio de sesión de az acr][az-acr-login]. Cuando se usa este comando, la CLI utiliza el token de Active Directory que creó al ejecutar `az login` para autenticar sin problemas la sesión con el registro de contenedor. (Según la configuración de la máquina virtual, es posible que deba ejecutar este comando y los comandos de docker con `sudo`).
+Después, autentíquese en el registro con [az acr login][az-acr-login]. Cuando se usa este comando, la CLI utiliza el token de Active Directory que creó al ejecutar `az login` para autenticar sin problemas la sesión con el registro de contenedor. (Según la configuración de la máquina virtual, es posible que deba ejecutar este comando y los comandos de docker con `sudo`).
 
 ```azurecli
 az acr login --name myContainerRegistry

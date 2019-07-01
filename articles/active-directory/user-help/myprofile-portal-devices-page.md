@@ -13,10 +13,10 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60475876"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Administración de los dispositivos conectados desde el portal Mi perfil (versión preliminar)
@@ -36,7 +36,7 @@ Puede administrar los dispositivos a los que está conectado con la cuenta profe
     ![Página Dispositivo, que muestra los dispositivos conectados](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Deshabilitación de un dispositivo
-Puede deshabilitar cualquiera de los dispositivos conectados en cualquier momento. Esto es especialmente importante si un dispositivo no le resulta familiar o si un dispositivo se pierde o lo roban. Después de deshabilitar un dispositivo, ya no se pueden autenticar por su organización y no podrá tener acceso a cualquiera de los recursos de su organización.
+Puede deshabilitar cualquiera de los dispositivos conectados en cualquier momento. Esto es especialmente importante si un dispositivo no le resulta familiar o si un dispositivo se pierde o lo roban. Después de deshabilitar un dispositivo, la organización ya no podrá autenticarlo y será imposible acceder a ninguno de los recursos de la organización.
 
 >[!Important]
 >Si deshabilita un dispositivo por error, no existe modo alguno de deshacerlo. Deberá ponerse en contacto con el administrador de la organización para volver a agregar el dispositivo.
@@ -49,4 +49,4 @@ Puede deshabilitar cualquiera de los dispositivos conectados en cualquier moment
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Después de ver los dispositivos conectados, puede seleccionar para ver o administrar su [información de seguridad](user-help-security-info-overview.md), su [organizaciones](myprofile-portal-organizations-page.md), o ver cómo su organización [usa los datos](myprofile-portal-privacy-page.md).
+- Después de ver los dispositivos conectados, puede seleccionar ver o administrar la [información de seguridad](user-help-security-info-overview.md) y las [organizaciones](myprofile-portal-organizations-page.md), o ver cómo la organización [usa los datos](myprofile-portal-privacy-page.md).

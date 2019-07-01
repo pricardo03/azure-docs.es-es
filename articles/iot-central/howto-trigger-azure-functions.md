@@ -9,17 +9,17 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 0d92e9bdf8ec207e5ef0e3f891c162182b5a4fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60518323"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Desencadenamiento de Azure Functions con webhooks en Azure IoT Central
 
 *Este tema se aplica a creadores y administradores.*
 
-Use Azure Functions para ejecutar código sin servidor en la salida del webhook a partir de las reglas de IoT Central. No tendrá que aprovisionar una máquina virtual o publicar una aplicación web para usar Azure Functions, pero en su lugar, puede ejecutar este código sin servidor. Use Azure Functions para transformar la carga del webhook antes de enviarla a su destino final, como una base de datos SQL o Event Grid.
+Use Azure Functions para ejecutar código sin servidor en la salida del webhook a partir de las reglas de IoT Central. No tiene que aprovisionar ninguna máquina virtual ni publicar ninguna aplicación web para usar Azure Functions, sino que podrá ejecutar este código sin servidor. Use Azure Functions para transformar la carga del webhook antes de enviarla a su destino final, como una base de datos SQL o Event Grid.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,19 +27,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="how-to-connect-azure-functions"></a>Cómo conectarse a Azure Functions
 
-1. [Crear una nueva aplicación de función en Azure portal](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
+1. [Cree una aplicación de función en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
 
-    ![Crear una nueva aplicación de función en Azure portal](media/howto-trigger-azure-functions/createfunction.png)
+    ![Creación de una aplicación de función en Azure Portal](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Expanda la aplicación de función y seleccione el **botón +** junto a las funciones. Si esta función es la primera de ellas en la aplicación de función, seleccione **en portal** como entorno de desarrollo y seleccione **continuar**.
+2. Expanda la aplicación de función y seleccione el **botón +** , que se encuentra junto a Functions. Si esta función es la primera de su aplicación de función, seleccione **En el portal** como entorno de desarrollo y seleccione **Continuar**.
 
     ![Elegir la función personalizada en la aplicación de función](media/howto-trigger-azure-functions/customfunction.png)
 
-3. Elija **Webhook y API** plantilla y seleccione **crear**. En este tema usa la función de Azure basados en .NET.
+3. Elija la plantilla **Webhook y API** y seleccione **Crear**. En este tema se usa la función de Azure basada en .NET.
 
     ![Seleccione el desencadenador del webhook genérico.](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 
-4. En la nueva función, seleccione **<> / Get función URL**, a continuación, copie y guarde el valor. Use este valor para configurar el webhook.
+4. En la nueva función, seleccione **</> Obtener la dirección URL de la función** y copie y guarde los valores. Use este valor para configurar el webhook.
 
     ![Obtener la dirección URL de la función](media/howto-trigger-azure-functions/getfunctionurl.png)
 
@@ -49,7 +49,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![Escriba la dirección URL de la función en el campo Dirección URL de devolución de llamada.](media/howto-trigger-azure-functions/configurewebhook.PNG)
 
-6. Guarde la regla. Ahora cuando se desencadena la regla, el webhook invoca la aplicación de función se ejecute. En la aplicación de función, puede seleccionar **Monitor** para ver el historial de la invocación de la función. Puede usar Application Insights o la vista clásica para ver el historial.
+6. Guarde la regla. Ahora, cuando se desencadene la regla, el webhook invoca la ejecución de la aplicación de función. En la aplicación de función, puede seleccionar **Monitor** para ver el historial de invocación de la función. Puede usar Application Insights o la vista clásica para ver el historial.
 
     ![Supervisar el historial de invocación de la función](media/howto-trigger-azure-functions/monitorfunction.PNG)
 

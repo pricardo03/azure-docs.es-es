@@ -1,6 +1,6 @@
 ---
-title: Usar plantillas de inicio rápido de Azure para configurar el grupo de disponibilidad AlwaysOn para SQL Server en una máquina virtual de Azure
-description: Usar plantillas de inicio rápido de Azure para crear el clúster de conmutación por error de Windows, las máquinas virtuales de SQL Server se unan al clúster, crear el agente de escucha y configurar el equilibrador de carga interno en Azure.
+title: Uso de plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
+description: Use las plantillas de inicio rápido de Azure para crear el clúster de conmutación por error de Windows, unir las máquinas virtuales de SQL Server al clúster, crear el agente de escucha y configurar Load Balancer interno en Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,13 +16,13 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591336"
 ---
-# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usar plantillas de inicio rápido de Azure para configurar el grupo de disponibilidad AlwaysOn para SQL Server en una máquina virtual de Azure
+# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Uso de plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
 En este artículo se describe cómo usar las plantillas de inicio rápido de Azure para automatizar parcialmente la implementación de una configuración de grupo de disponibilidad Always On para SQL Server Virtual Machines en Azure. Son dos las plantillas de inicio rápido de Azure que se usan en este proceso. 
 
    | Plantilla | DESCRIPCIÓN |
@@ -39,13 +39,13 @@ Para automatizar la configuración de un grupo de disponibilidad Always On media
 - Una [suscripción a Azure](https://azure.microsoft.com/free/).
 - Un grupo de recursos con un controlador de dominio. 
 - Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) en el mismo conjunto o zona de disponibilidad que se hayan [registrado con el proveedor de recursos de máquina virtual de SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
-- (No se usa para cualquier entidad) disponible de dos direcciones IP, uno para el equilibrador de carga interno y otro para el agente de escucha del grupo de disponibilidad dentro de la misma subred que el grupo de disponibilidad. Si se utiliza un equilibrador de carga existente, se necesita una única dirección IP disponible.  
+- Dos direcciones IP disponibles (que no use ninguna entidad), una para la instancia de Load Balancer interno y otra para la escucha del grupo de disponibilidad, dentro de la misma subred que el grupo de disponibilidad. Si se utiliza un equilibrador de carga existente, solo será necesaria una dirección IP disponible.  
 
 ## <a name="permissions"></a>Permisos
-Los siguientes permisos son necesarios para configurar el grupo de disponibilidad Always On mediante plantillas de inicio rápido de Azure: 
+Los siguientes permisos son necesarios para configurar el grupo de disponibilidad Always On mediante las plantillas de inicio rápido de Azure: 
 
-- Una cuenta de usuario de dominio existente al que tenga permiso para 'Crear objeto de equipo' en el dominio.  Por ejemplo, una cuenta de administrador de dominio normalmente tiene permisos suficientes (p. ej.: account@domain.com). _Esta cuenta también debe formar parte del grupo de administradores local en cada máquina virtual para crear el clúster._
-- La cuenta de usuario de dominio que controla el servicio de SQL Server. 
+- Una cuenta de usuario de dominio existente que tenga permiso para crear objetos de equipo en el dominio.  Por ejemplo, una cuenta de administrador de dominio normalmente tiene permisos suficientes (p. ej.: account@domain.com). _Esta cuenta también debe formar parte del grupo de administradores local en cada máquina virtual para crear el clúster._
+- La cuenta de usuario del dominio que controla el servicio SQL Server. 
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Paso 1: Creación del clúster WSFC y unión a él de las máquinas virtuales con SQL Server mediante una plantilla de inicio rápido 
@@ -81,13 +81,13 @@ Una vez que se han registrado sus máquinas virtuales con SQL Server con el nuev
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Paso 2: Creación del grupo de disponibilidad de forma manual 
-Crear manualmente el grupo de disponibilidad como de costumbre, ya sea mediante [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
+Cree el grupo de disponibilidad manualmente del modo habitual, ya sea mediante [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > **No** cree una escucha en este momento porque lo hace automáticamente la plantilla de inicio rápido **101-sql-vm-aglistener-setup** en el paso 4. 
 
 ## <a name="step-3---manually-create-the-internal-load-balancer-ilb"></a>Paso 3: Creación de la instancia de Load Balancer interno (ILB) de forma manual
-La escucha de grupo (AG) de disponibilidad AlwaysOn requiere un equilibrador de carga interno de Azure (ILB). El ILB proporciona una dirección IP "flotante" para la escucha de grupo de disponibilidad que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar una instancia de Load Balancer básico; en caso contrario, deberá usar Standard Load Balancer.  **El ILB debe estar en la misma red virtual que las instancias de VM con SQL Server.** Solo es necesario crear el ILB; el resto de la configuración (como las reglas para el grupo de servidores back-end, el sondeo de estado y el equilibrio de carga) se gestiona mediante la plantilla de inicio rápido **101-sql-vm-aglistener-setup** en el paso 4. 
+La escucha de grupo de disponibilidad Always On requiere una instancia de Azure Load Balancer interno (ILB). El ILB proporciona una dirección IP "flotante" para la escucha de grupo de disponibilidad que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar una instancia de Load Balancer básico; en caso contrario, deberá usar Standard Load Balancer.  **El ILB debe estar en la misma red virtual que las instancias de VM con SQL Server.** Solo es necesario crear el ILB; el resto de la configuración (como las reglas para el grupo de servidores back-end, el sondeo de estado y el equilibrio de carga) se gestiona mediante la plantilla de inicio rápido **101-sql-vm-aglistener-setup** en el paso 4. 
 
 1. En el Portal de Azure, abra el grupo de recursos que contiene las máquinas virtuales de SQL Server. 
 2. En el grupo de recursos, haga clic en **Agregar**.

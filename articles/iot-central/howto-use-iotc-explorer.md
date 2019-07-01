@@ -3,17 +3,17 @@ title: Supervisar la conectividad de dispositivos con Azure IoT Central Explorer
 description: Supervise los mensajes de los dispositivo y observe los cambios de los dispositivos gemelos mediante la CLI de IoT Central Explorer.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 16cb27ab330118d1bb59cf4f3d782bf55fa28d43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4d17f0e5273c7397bd9c6a71d14b7992d8652768
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60517096"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165874"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Supervisar la conectividad de dispositivos con Azure IoT Central Explorer
 
@@ -21,14 +21,14 @@ ms.locfileid: "60517096"
 
 Use la CLI de IoT Central Explorer para ver los mensajes que sus dispositivos envían a IoT Central y observe los cambios en el IoT Hub gemelo. Puede usar esta herramienta de código abierto para obtener una visión más detallada del estado de la conectividad del dispositivo y así diagnosticar los problemas de los mensajes del dispositivo que no llegan a la nube o los dispositivos que no responden a cambios gemelos.
 
-[Visite el repositorio CAOI explorer en GitHub.](https://aka.ms/iotciotcexplorercligithub)
+[Visite el repositorio iotc-explorer en GitHub](https://aka.ms/iotciotcexplorercligithub).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Node.js, versión 8.x o posterior - https://nodejs.org
-+ Un administrador de la aplicación debe generar un token de acceso para su uso en el Explorador de CAOI
++ Un administrador de la aplicación debe generar un token de acceso para usarlo en iotc-explorer.
 
-## <a name="install-iotc-explorer"></a>Instale el Explorador de CAOI
+## <a name="install-iotc-explorer"></a>Instalación de iotc-explorer
 
 Ejecute el siguiente comando desde su línea de comando paras instalarlo:
 
@@ -37,33 +37,33 @@ npm install -g iotc-explorer
 ```
 
 > [!NOTE]
-> Normalmente, deberá ejecutar el comando de instalación con `sudo` en entornos similares a Unix.
+> Normalmente es necesario ejecutar el comando de instalación con `sudo` en entornos similares a Unix.
 
-## <a name="run-iotc-explorer"></a>Ejecute CAOI-explorer
+## <a name="run-iotc-explorer"></a>Ejecución de iotc-explorer
 
-Las secciones siguientes describen los comandos y opciones que puede usar al ejecutar `iotc-explorer`. Para ver el conjunto completo de comandos y opciones, pasar `--help` a `iotc-explorer` o cualquiera de sus subcomandos.
+En las secciones siguientes se describen comandos y opciones comunes que puede usar al ejecutar `iotc-explorer`. Para ver el conjunto completo de comandos y opciones, pase `--help` a `iotc-explorer` o a cualquiera de sus subcomandos.
 
 ### <a name="login"></a>Inicio de sesión
 
 Antes de comenzar, un administrador de su aplicación de IoT Central debe obtener un token de acceso para que usted pueda usarlo. El administrador debe realizar los siguientes pasos:
 
-1. Vaya a **administración** , a continuación, **Tokens de acceso**.
-1. Seleccione **generar Token**.
+1. Vaya a **Administración** y, luego, **Tokens de acceso**.
+1. Seleccione **Generar token**.
     ![Captura de pantalla de la página de tokens de acceso](media/howto-use-iotc-explorer/accesstokenspage.png)
 
-1. Escriba un nombre de símbolo (token), seleccione **siguiente**y, a continuación, **copia**.
+1. Escriba un nombre de token, seleccione **Siguiente** y, luego, **Copiar**.
     > [!NOTE]
-    > El valor del token solo se muestra una vez, por lo que se debe copiar antes de cerrar el cuadro de diálogo. Después de cerrar el cuadro de diálogo, porque no es nunca volverá a mostrar.
+    > El valor del token solo se muestra una vez, por lo que se debe copiar antes de cerrar el cuadro de diálogo. Después de cerrar el cuadro de diálogo, nunca se vuelve a mostrar.
 
     ![Captura de pantalla del cuadro diálogo de la opción para copiar el token de acceso](media/howto-use-iotc-explorer/copyaccesstoken.png)
 
-Puede usar el token para iniciar sesión en la CLI como sigue:
+Puede usar el token para iniciar sesión en la CLI de la manera siguiente:
 
 ```cmd/sh
 iotc-explorer login "<Token value>"
 ```
 
-Si prefiere no tener el token que se conserva en el historial de shell, puede dejar el token de alejar y proporciónelo en su lugar cuando se le solicite:
+Si prefiere que el token no se guarde en su historial de shell, puede omitirlo y proporcionarlo cuando se le solicite:
 
 ```cmd/sh
 iotc-explorer login
@@ -83,13 +83,13 @@ Salida:
 
 ![salida del comando monitor-messages](media/howto-use-iotc-explorer/monitormessages.png)
 
-Para ver un dispositivo específico, simplemente agregue el identificador de dispositivo al final del comando:
+Para inspeccionar un dispositivo específico, basta con agregar el identificador de dispositivo al final del comando:
 
 ```cmd/sh
 iotc-explorer monitor-messages <your-device-id>
 ```
 
-También puede generar un formato más reconocible por la máquina agregando los `--raw` opción del comando:
+También puede generar un formato que sea más fácil de reconocer para la máquina si agrega la opción `--raw` al comando:
 
 ```
 iotc-explorer monitor-messages --raw
@@ -115,4 +115,4 @@ iotc-explorer get-twin <your-device-id> --raw
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar el Explorador de IoT Central, el siguiente paso sugerido es explorar [administración de dispositivos IoT Central](howto-manage-devices.md).
+Ahora que ya ha aprendido a usar IoT Central Explorer, el siguiente paso sugerido es explorar la [administración de dispositivos de IoT Central](howto-manage-devices.md).

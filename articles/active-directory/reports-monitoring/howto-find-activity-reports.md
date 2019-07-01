@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60438333"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
@@ -48,9 +48,9 @@ El informe de registros de auditoría consolida los siguientes informes:
 
 ### <a name="filtering-on-audit-logs"></a>Filtrado por registros de auditoría
 
-Puede usar el filtrado avanzado en el informe de auditoría para tener acceso a una categoría específica de los datos de auditoría, si se especifica en el **categoría** filtro. Por ejemplo, para ver todas las actividades relacionadas con los usuarios, seleccione el **UserManagement** categoría. 
+Puede usar los filtros avanzados en el informe de auditoría para acceder a una categoría determinada de datos; para ello, especifíquela en el filtro **Categoría**. Por ejemplo, para ver todas las actividades relacionadas con los usuarios, seleccione la categoría**UserManagement**. 
 
-Las categorías se incluyen:
+Las categorías son:
 
 - Todo
 - AdministrativeUnit
@@ -69,14 +69,14 @@ Las categorías se incluyen:
 - RoleManagement
 - UserManagement
 
-También puede filtrar en un servicio específico que usa el **servicio** filtro de lista desplegable. Por ejemplo, para obtener todos los eventos de auditoría relacionados con la administración de contraseñas de autoservicio, seleccione el **la administración de contraseñas autoservicio** filtro.
+También puede filtrar por un servicio específico mediante el filtro desplegable**Service** (Servicio). Por ejemplo, para obtener todos los eventos de auditoría relacionados con la administración de contraseñas de autoservicio, seleccione el filtro **Self-service Password Management** (Administración de contraseñas de autoservicio).
 
-Los servicios incluyen:
+Los servicios son:
 
 - Todo
 - Revisiones de acceso
 - Account Provisioning (Aprovisionamiento de cuentas) 
-- Aplicación de inicio de sesión único
+- Inicio de sesión único de aplicaciones
 - Métodos de autenticación
 - B2C
 - Acceso condicional
@@ -153,7 +153,7 @@ Descargue los registros de actividad (auditoría o inicios de sesión) y no veo 
  
 #### <a name="cause"></a>Causa
 
-Al descargar los registros de actividad en Azure portal, limitamos la escala a 250000 registros, ordenados por más reciente en primer lugar. 
+Al descargar los registros de actividad en Azure Portal, limitamos la escala a 250 000 registros, con el más reciente primero. 
 
 #### <a name="resolution"></a>Resolución
 

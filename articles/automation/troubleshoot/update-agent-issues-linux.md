@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60597819"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Linux en Update Management
@@ -27,7 +27,7 @@ La siguiente lista enumera los tres estados de preparación en los que puede est
 * **No configurado**: el agente de actualización no se encuentra o no ha finalizado la incorporación.
 
 > [!NOTE]
-> Puede haber un ligero retraso entre lo que se muestra el portal de Azure y el estado actual de la máquina.
+> Puede haber un ligero retraso entre lo que Azure Portal muestra y el estado actual de la máquina.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 

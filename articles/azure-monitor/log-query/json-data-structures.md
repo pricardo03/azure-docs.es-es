@@ -1,6 +1,6 @@
 ---
 title: Trabajo con cadenas en consultas de registro de Azure Monitor | Microsoft Docs
-description: En este artículo se proporciona un tutorial para usar Azure Monitor de Log Analytics en Azure portal para consultar y analizar datos de registro en Azure Monitor.
+description: En este artículo se proporciona un tutorial para usar el análisis de registros de Azure Monitor en Azure Portal para consultar y analizar datos de registro en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519656"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabajo con JSON y estructuras de datos en consultas de registro de Azure Monitor
 
 > [!NOTE]
-> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) y [Introducción a las consultas de registro de Azure Monitor](get-started-queries.md) antes de completar esta lección.
+> Antes de realizar esta lección, debe seguir los pasos de [Introducción a Log Analytics de Azure Monitor](get-started-portal.md) e [Introducción a las consultas de registro de Azure Monitor](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

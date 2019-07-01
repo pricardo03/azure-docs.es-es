@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/13/2019
 ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525929"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
@@ -25,13 +25,13 @@ Azure Database for MySQL actualmente admite las siguientes versiones:
 
 Versión de corrección de errores: 5.6.42
 
-Consulte la [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) para obtener más información sobre las mejoras y correcciones de MySQL 5.6.42.
+Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) de MySQL para más información sobre mejoras y correcciones de MySQL 5.6.42.
 
 ## <a name="mysql-version-57"></a>MySQL versión 5.7
 
 Versión de corrección de errores: 5.7.24
 
-Consulte la [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) para obtener información sobre las mejoras y correcciones de MySQL 5.7.24.
+Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) de MySQL para más información sobre mejoras y correcciones de MySQL 5.7.24.
 
 > [!NOTE]
 > En el servicio, se usa una puerta de enlace para redirigir las conexiones a las instancias de servidor. Una vez establecida la conexión, el cliente de MySQL muestra la versión de MySQL establecida en la puerta de enlace, no la versión real que se ejecuta en la instancia del servidor MySQL. Para determinar la versión de la instancia del servidor MySQL, use el comando `SELECT VERSION();` en el símbolo del sistema de MySQL.

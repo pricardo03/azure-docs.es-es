@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506236"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Pasos detallados de solución de problemas de SSH para los problemas de conexión a una máquina virtual Linux en Azure
@@ -40,7 +40,7 @@ Los siguientes pasos ayudan a aislar la causa del error y a averiguar soluciones
 
 2. Seleccione **Configuración** para examinar los puntos de conexión, las direcciones IP, los grupos de seguridad de red y otros valores de configuración.
 
-   La máquina virtual debe tener un punto de conexión definido para el tráfico SSH que puede ver en **Puntos de conexión** o en **[Grupo de seguridad de red](../../virtual-network/security-overview.md)**. Los puntos de conexión en las máquinas virtuales que se crearon con Resource Manager se almacenan en un grupo de seguridad de red. Compruebe que las reglas se hayan aplicado al grupo de seguridad de red y que se haga referencia a ellas en la subred.
+   La máquina virtual debe tener un punto de conexión definido para el tráfico SSH que puede ver en **Puntos de conexión** o en **[Grupo de seguridad de red](../../virtual-network/security-overview.md)** . Los puntos de conexión en las máquinas virtuales que se crearon con Resource Manager se almacenan en un grupo de seguridad de red. Compruebe que las reglas se hayan aplicado al grupo de seguridad de red y que se haga referencia a ellas en la subred.
 
 Para comprobar la conectividad de red, compruebe los puntos de conexión configurados y vea si puede conectarse con la máquina virtual a través de otro protocolo, como HTTP u otro servicio.
 
@@ -77,7 +77,7 @@ Si utiliza la autenticación de certificados, compruebe que dispone de estos per
 * Chmod 644 ~/.ssh/known_hosts (contiene los hosts a los que se ha conectado a través de SSH)
 
 ## <a name="source-2-organization-edge-device"></a>Causa 2: Dispositivo perimetral de la organización
-Para descartar el dispositivo perimetral de la organización como causa de los errores, compruebe que un equipo conectado directamente a Internet puede establecer conexiones a SSH con la máquina virtual de Azure. Si tiene acceso a la máquina virtual a través de una VPN de sitio a sitio o una conexión de ExpressRoute de Azure, vaya a [causa 4: Grupos de seguridad de red](#nsg).
+Para descartar el dispositivo perimetral de la organización como causa de los errores, compruebe que un equipo conectado directamente a Internet puede establecer conexiones a SSH con la máquina virtual de Azure. Si va a acceder a la máquina virtual mediante una VPN de sitio a sitio o una conexión de Azure ExpressRoute, vaya a [Causa 4: Grupos de seguridad de red](#nsg)
 
 ![Diagrama que resalta el dispositivo perimetral de la organización](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -91,9 +91,9 @@ Si puede crear una conexión SSH con un equipo que esté conectado directamente 
 
 Trabaje con el administrador de red para corregir la configuración de los dispositivos perimetrales de la organización para permitir el tráfico SSH a Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Causa 3: Punto de conexión de servicio en la nube y ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Causa 3: Punto de conexión de servicio de en la nube y ACL
 > [!NOTE]
-> Esta causa se aplica solo a las máquinas virtuales creadas con el modelo de implementación clásica. Para las máquinas virtuales creadas mediante Resource Manager, vaya a [causa 4: Grupos de seguridad de red](#nsg).
+> Esta causa se aplica solo a las máquinas virtuales creadas con el modelo de implementación clásica. Si la máquina virtual se creó mediante Resource Manager, vaya a [Causa 4: Grupos de seguridad de red](#nsg)
 
 Para descartar el punto de conexión de servicio en la nube y ACL como el origen del error, compruebe si otra máquina virtual de Azure de la misma red virtual puede conectarse mediante SSH.
 
@@ -103,8 +103,8 @@ Si no tiene otra máquina virtual en la misma red virtual, puede crear una fáci
 
 Si puede crear una conexión SSH con una máquina virtual en la misma red virtual, compruebe las siguientes áreas:
 
-* **La configuración del punto de conexión para el tráfico de SSH en la máquina virtual de destino.**  El puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual. (El puerto predeterminado es 22). Para comprobar que el número de puerto TCP de SSH en Azure Portal, seleccione **Máquinas virtuales** > *Nombre de máquina virtual* > **Configuración** > **Puntos de conexión**.
-* **La ACL del punto de conexión para el tráfico de SSH en la máquina virtual de destino.**  Una ACL permite especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de SSH al punto de conexión. Compruebe las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](../../virtual-network/virtual-networks-acl.md).
+* **La configuración del punto de conexión para el tráfico de SSH en la máquina virtual de destino.** El puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual. (El puerto predeterminado es 22). Para comprobar que el número de puerto TCP de SSH en Azure Portal, seleccione **Máquinas virtuales** > *Nombre de máquina virtual* > **Configuración** > **Puntos de conexión**.
+* **La ACL del punto de conexión para el tráfico de SSH en la máquina virtual de destino.** Una ACL permite especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de SSH al punto de conexión. Compruebe las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](../../virtual-network/virtual-networks-acl.md).
 
 Para descartar el punto de conexión como causa del problema, quite el actual, cree uno y especifique el nombre SSH (puerto TCP 22 para el número de puerto público y privado). Para obtener más información, vea [Configuración de puntos de conexión en una máquina virtual en Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

@@ -16,15 +16,15 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5aac1f7e1ded700b9bec38c358ea0049df93fd3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454564"
 ---
-# <a name="azure-monitor-powershell-samples"></a>Ejemplos de Azure PowerShell de Monitor
+# <a name="azure-monitor-powershell-samples"></a>Ejemplos de PowerShell de Azure Monitor
 
-En la tabla siguiente incluye vínculos a ejemplos de scripts de PowerShell para realizar varias funciones en Azure Monitor.
+En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell que realizan distintas funciones en Azure Monitor.
 
 | | |
 |---|---|

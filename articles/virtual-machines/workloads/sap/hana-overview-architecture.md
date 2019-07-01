@@ -15,10 +15,10 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c177dbad1145dee6eda3202d8076997cc7673dfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477807"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>¿Qué es SAP HANA en Azure (instancias grandes)?
@@ -27,9 +27,9 @@ SAP HANA en Azure (instancias grandes) es una solución exclusiva de Azure. Adem
 
 El aislamiento del cliente dentro de la demarcación de infraestructura se realiza en inquilinos y presenta el siguiente aspecto:
 
-- **Redes**: Aislamiento de los clientes dentro de la pila de infraestructura a través de redes virtuales por cliente asigna a inquilinos. Un inquilino se asigna a un único cliente. Un cliente puede tener varios inquilinos. El aislamiento de red de los inquilinos prohíbe la comunicación de red entre ellos en el nivel de la demarcación de infraestructura, incluso si los inquilinos pertenecen al mismo cliente.
-- **Los componentes de almacenamiento**: Aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados a ellos. Los volúmenes de almacenamiento pueden asignarse solo a una máquina virtual de almacenamiento. Una máquina virtual de almacenamiento se asigna exclusivamente a un solo inquilino en la pila de la infraestructura certificada con SAP HANA TDI. Como resultado, se puede acceder a los volúmenes de almacenamiento asignados a una máquina virtual de almacenamiento solo en un inquilino específico y relacionado. Dichos volúmenes no son visibles entre los distintos inquilinos implementados.
-- **Servidor o host**: Un servidor o una unidad de host no se comparte entre clientes o inquilinos. Un servidor o host implementado en un cliente es una unidad de proceso de reconstrucción completa atómica que se asigna a un único inquilino. *No* se usan particiones por hardware ni por software que puedan dar lugar a que un cliente comparta un host o servidor con otro cliente. Los volúmenes de almacenamiento asignados a la máquina virtual de almacenamiento del inquilino específico se montan en dicho servidor. Un inquilino puede tener una o muchas unidades de servidor de diferentes SKU asignadas de forma exclusiva.
+- **Redes**: aislamiento de los clientes dentro de la pila de infraestructura mediante redes virtuales por inquilino asignado al cliente. Un inquilino se asigna a un único cliente. Un cliente puede tener varios inquilinos. El aislamiento de red de los inquilinos prohíbe la comunicación de red entre ellos en el nivel de la demarcación de infraestructura, incluso si los inquilinos pertenecen al mismo cliente.
+- **Componentes de almacenamiento**: aislamiento mediante máquinas virtuales de almacenamiento que tienen asignados volúmenes de almacenamiento. Los volúmenes de almacenamiento pueden asignarse solo a una máquina virtual de almacenamiento. Una máquina virtual de almacenamiento se asigna exclusivamente a un solo inquilino en la pila de la infraestructura certificada con SAP HANA TDI. Como resultado, se puede acceder a los volúmenes de almacenamiento asignados a una máquina virtual de almacenamiento solo en un inquilino específico y relacionado. Dichos volúmenes no son visibles entre los distintos inquilinos implementados.
+- **Servidor o host**: una unidad de servidor o host no se comparte entre clientes o inquilinos. Un servidor o host implementado en un cliente es una unidad de proceso de reconstrucción completa atómica que se asigna a un único inquilino. *No* se usan particiones por hardware ni por software que puedan dar lugar a que un cliente comparta un host o servidor con otro cliente. Los volúmenes de almacenamiento asignados a la máquina virtual de almacenamiento del inquilino específico se montan en dicho servidor. Un inquilino puede tener una o muchas unidades de servidor de diferentes SKU asignadas de forma exclusiva.
 - En una demarcación de infraestructura de SAP HANA en Azure (instancias grandes) se implementan muchos inquilinos diferentes que se aíslan entre sí a través de los conceptos de inquilino en los niveles de redes, almacenamiento y proceso. 
 
 

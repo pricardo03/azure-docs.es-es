@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458564"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Administración de recursos de Azure Blob Storage con el Explorador de Azure Storage
@@ -30,7 +30,7 @@ Puede usar el almacenamiento de blobs para exponer datos públicamente o para al
 Para completar los pasos de este artículo, necesitará:
 
 * [Descarga e instalación del Explorador de Storage](https://www.storageexplorer.com)
-* [Conectarse a una cuenta de Azure storage o un servicio](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Conectarse a una cuenta o a un servicio de almacenamiento de Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Creación de un contenedor de blobs
 Todos los blobs deben residir en un contenedor de blobs, que no es más que una agrupación lógica de blobs. Una cuenta puede contener un número ilimitado de contenedores y cada contenedor puede almacenar un número ilimitado de blobs.
@@ -172,7 +172,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
      1. En la barra de herramientas del panel principal, seleccione **Cargar** y, luego, **Cargar archivos** en el menú desplegable.
 
         ![Menú Cargar archivos][15]
-     2. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Archivos** para seleccionar los archivos que desea cargar.
+     2. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos ( **...** ) a la derecha del cuadro de texto **Archivos** para seleccionar los archivos que desea cargar.
 
         ![Opciones de Cargar archivos][16]
      3. Especifique el **tipo de blob**. Para obtener más información, consulte [Cree el contenedor y establezca los permisos](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
@@ -183,7 +183,7 @@ Los siguientes pasos muestran cómo administrar los blobs (y carpetas) en un con
      1. En la barra de herramientas del panel principal, seleccione **Cargar**, y luego **Cargar carpeta** en el menú desplegable.
 
         ![Menú Cargar carpeta][17]
-     2. En el cuadro de diálogo **Cargar carpeta**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de texto **Carpeta** para seleccionar la carpeta cuyo contenido desea cargar.
+     2. En el cuadro de diálogo **Cargar carpeta**, seleccione el botón de puntos suspensivos ( **...** ) a la derecha del cuadro de texto **Carpeta** para seleccionar la carpeta cuyo contenido desea cargar.
 
         ![Opciones de Cargar carpeta][18]
      3. Especifique el **tipo de blob**. Para obtener más información, consulte [Cree el contenedor y establezca los permisos](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).

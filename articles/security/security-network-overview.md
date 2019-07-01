@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444272"
 ---
 # <a name="azure-network-security-overview"></a>Introducción a Azure Network Security
@@ -324,7 +324,7 @@ Microsoft proporciona protección contra DDoS conocida como **Básica** como par
 * **Ajuste adaptable:** la generación de perfiles de tráfico inteligente va conociendo con el tiempo el tráfico de la aplicación y selecciona y actualiza el perfil que resulta más adecuado para el servicio. El perfil se ajusta a medida que el tráfico cambia con el tiempo. Protección de capa 3 a capa 7: proporciona protección contra DDoS de pila completa cuando se usa con un firewall de aplicaciones web.
 * **Escala de mitigación amplia:** se pueden mitigar más de 60 tipos de ataque diferentes con capacidad global para protegerse contra los ataques DDoS más conocidos.
 * **Métricas de ataques:** con Azure Monitor se puede acceder a un resumen de métricas de cada ataque.
-* **Alertas de ataques:** las alertas se pueden configurar en el inicio y la detención de un ataque y a lo largo de la duración del ataque mediante métricas de ataque integradas. Las alertas se integran en el software operativo como registros de Microsoft Azure Monitor, Splunk, Azure Storage, correo electrónico y el portal de Azure.
+* **Alertas de ataques:** las alertas se pueden configurar en el inicio y la detención de un ataque y a lo largo de la duración del ataque mediante métricas de ataque integradas. Las alertas se integran en el software operativo, como los registros de Microsoft Azure Monitor, Splunk, Azure Storage, el correo electrónico y Azure Portal.
 * **Garantía de costo:**  créditos para servicio de escalado horizontal de aplicaciones y transferencia de datos para ataques de DDoS documentados.
 * **Capacidad de respuesta rápida ante DDoS** Los clientes de DDoS Protection Standard ahora tienen acceso al equipo de Rapid Response durante un ataque activo. DDR ayuda con la realización de una investigación sobre los ataques, la personalización de mitigaciones durante un ataque y la publicación de análisis sobre tales ataques.
 

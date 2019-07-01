@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60562599"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Administración de fórmulas de Azure DevTest Labs
@@ -44,7 +44,7 @@ Los siguientes pasos le guiarán por el proceso de creación de una fórmula a p
 
 3. En la lista de laboratorios, seleccione el laboratorio que desee.  
 
-4. En la página del laboratorio, seleccione **Fórmulas (bases reutilizables)**.
+4. En la página del laboratorio, seleccione **Fórmulas (bases reutilizables)** .
    
     ![Menú Fórmula](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
@@ -69,7 +69,7 @@ Los siguientes pasos le guiarán por el proceso de creación de una fórmula a p
     - **Configuración de dirección IP**: especifique si desea direcciones IP públicas, privadas o compartidas. Para obtener más información sobre las direcciones IP compartidas, consulte [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Direcciones IP compartidas en Azure DevTest Labs).
     - **Expiration date and time** (Fecha y hora de expiración): especifique la fecha y la hora de expiración de la máquina virtual para que esta se elimine automáticamente. 
     - **Make this machine claimable** (Poder reclamar esta máquina): poder reclamar una máquina significa que no se podrá asignar la propiedad durante su creación. En su lugar, los usuarios del laboratorio podrán asumir propiedad ("reclamar") de la máquina en la hoja del laboratorio.     
-    - **Número de instancias pueden reclamables** -especifique el número de instancias pueden reclamables que desea crear. 
+    - **Number of claimable instances** (Número de instancias que se pueden reclamar): especifique cuántas instancias reclamables desea crear. 
 8. Seleccione **Enviar** para crear la fórmula.
 
 9. Cuando se ha creado la fórmula, se muestra en la lista de la página **Fórmulas**.
@@ -88,7 +88,7 @@ Los siguientes pasos le guiarán a través del proceso de creación de una fórm
 4. En la página **Información general** del laboratorio, seleccione la máquina virtual desde la que desee crear la fórmula.
    
     ![Máquinas virtuales de laboratorios](./media/devtest-lab-create-formulas/my-vms.png)
-5. En la página de la máquina virtual, seleccione **Crear fórmula (base reutilizable)**.
+5. En la página de la máquina virtual, seleccione **Crear fórmula (base reutilizable)** .
    
     ![Crear fórmula](./media/devtest-lab-create-formulas/create-formula-menu.png)
 6. En la página **Crear fórmula**, escriba un **Nombre** y una **Descripción** para la nueva fórmula.
@@ -102,7 +102,7 @@ Para modificar una fórmula, siga estos pasos:
 1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.  
-4. En la página del laboratorio, seleccione **Fórmulas (bases reutilizables)**.
+4. En la página del laboratorio, seleccione **Fórmulas (bases reutilizables)** .
    
     ![Menú Fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. En la hoja **Lab formulas** (Fórmulas de laboratorio), seleccione la fórmula que quiere modificar.

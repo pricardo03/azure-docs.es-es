@@ -1,5 +1,5 @@
 ---
-title: Consultas en Azure Monitor avanzadas | Microsoft Docs
+title: Consultas avanzadas en Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona un tutorial de uso del portal de Analytics para escribir consultas en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
 ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589587"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escritura de consultas avanzadas en Azure Monitor
 
 > [!NOTE]
-> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) y [Introducción a las consultas](get-started-queries.md) antes de completar esta lección.
+> Debe completar [Introducción a los análisis de registros de Azure Monitor](get-started-portal.md) e [Introducción a las consultas de registros de Azure Monitor](get-started-queries.md) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-La función `print` devolverá una tabla con una sola columna y una sola fila, que muestra el resultado de un cálculo. Esto se suele usar en casos donde es necesario un cálculo simple. Por ejemplo, para buscar la hora actual en la hora estándar del Pacífico y agregar una columna con EST:
+La función `print` devolverá una tabla con una sola columna y una sola fila, que muestra el resultado de un cálculo. Se suele usar en los casos en los que es necesario un cálculo simple. Por ejemplo, para buscar la hora actual en la hora estándar del Pacífico y agregar una columna con EST:
 
 ```Kusto
 print nowPst = now()-8h

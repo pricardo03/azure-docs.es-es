@@ -18,16 +18,16 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452693"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Preguntas frecuentes y problemas conocidos con la versión actualizada de Identity Protection de Azure Active Directory
 
 
-## <a name="dismiss-user-risk-known-issues"></a>Descartar problemas conocidos de riesgo de usuario
+## <a name="dismiss-user-risk-known-issues"></a>Problemas conocidos al descartar el riesgo del usuario
 
 **Descartar el riesgo del usuario** en la versión clásica de Identity Protection establece el actor del historial de riesgo del usuario de la versión actualizada de Identity Protection en **Azure AD**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "60452693"
 Actualmente hay un problema conocido que provoca latencias en el flujo de descarte de riesgo de usuario. Si tiene una "directiva de riesgo de usuario", esta directiva dejará de aplicarse a los usuarios descartados a los pocos minutos de hacer clic en "Descartar el riesgo de usuario". Sin embargo, se han constatado retrasos en la experiencia de usuario al actualizar el "Estado de riesgo" de los usuarios descartados. Como alternativa, actualice la página a nivel del explorador para ver el "Estado de riesgo" más reciente del usuario.
 
 
-## <a name="risky-users-report-known-issues"></a>Problemas conocidos de informes de usuarios de riesgo
+## <a name="risky-users-report-known-issues"></a>Problemas conocidos del informes de usuarios en riesgo
 
 Las consultas en el campo **Nombre de usuario** distinguen mayúsculas de minúsculas, mientras que las consultas en el campo **Nombre** no lo hacen.
 
@@ -46,7 +46,7 @@ Si activa o desactiva **Show dates as (Mostrar fechas como)** se ocultará o mos
 **Descartar todos los eventos** en la versión clásica de Identity Protection establece el estado de los eventos de riesgo en **Closed (resolved)** [Cerrado (resuelto)].
 
 
-## <a name="risky-sign-ins-report-known-issues"></a>Problemas conocidos de informe de inicios de sesión
+## <a name="risky-sign-ins-report-known-issues"></a>Problemas conocidos del informe de inicios de sesión en riesgo
 
 **Resolver** en un evento de riesgo establece el estado en **Users passed MFA driven by risk-based policy** (Los usuarios superaron el proceso de MFA según una directiva basada en riesgo).
 
@@ -76,7 +76,7 @@ La asignación de geolocalización de direcciones IP es un desafío que afecta a
 
 **Confirmar que es seguro** (en un inicio de sesión): informa a Azure AD Identity Protection de que el inicio de sesión lo realizó el propietario de la identidad y no indica un peligro.
 
-- Al recibir estos comentarios, pasamos el estado de riesgo del inicio de sesión (y no al usuario) a **Confirmado (en peligro)** y el nivel de riesgo a **-**.
+- Al recibir estos comentarios, pasamos el estado de riesgo del inicio de sesión (y no al usuario) a **Confirmado (en peligro)** y el nivel de riesgo a **-** .
 
 - Además, se proporcionará la información a los sistemas de aprendizaje automático para futuras mejoras en la evaluación de riesgos.
 

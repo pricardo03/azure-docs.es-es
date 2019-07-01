@@ -1,5 +1,5 @@
 ---
-title: Ver historial de actividad y auditoría para roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
+title: 'Visualización del historial de actividad y auditoría de los roles de recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
 description: Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441451"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en PIM
@@ -113,4 +113,4 @@ Mi auditoría permite ver la actividad del rol personal.
 
 - [Asignación de roles de recursos de Azure en PIM](pim-resource-roles-assign-roles.md)
 - [Aprobación o rechazo de solicitudes de roles de recursos de Azure en PIM](pim-resource-roles-approval-workflow.md)
-- [Ver el historial de auditoría de roles de Azure AD en PIM](pim-how-to-use-audit-log.md)
+- [Visualización del historial de auditorías de Azure AD en PIM](pim-how-to-use-audit-log.md)

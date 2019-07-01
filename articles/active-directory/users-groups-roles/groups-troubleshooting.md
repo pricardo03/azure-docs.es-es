@@ -14,19 +14,19 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0eededcc180d7652fd52c79b85ca3c34f65a22a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469720"
 ---
-# <a name="troubleshoot-and-resolve-groups-issues"></a>Localizar y solucionar problemas de grupos
+# <a name="troubleshoot-and-resolve-groups-issues"></a>Solución de problemas de grupos
 
-## <a name="troubleshooting-group-creation-issues"></a>Solución de problemas de creación de grupo
+## <a name="troubleshooting-group-creation-issues"></a>Solución de problemas de creación de grupos
 
-**Deshabilitado la creación del grupo de seguridad en Azure portal, pero todavía se pueden crear grupos a través de Powershell** el **usuario puede crear grupos de seguridad en los portales de Azure** en los controles del portal de Azure o no que no es administrador los usuarios pueden crear grupos de seguridad en el panel de acceso o el portal de Azure. No controla la creación del grupo de seguridad a través de Powershell.
+**He deshabilitado la creación de grupos de seguridad en Azure Portal, pero los grupos se pueden crear aún mediante PowerShell** La opción **Los usuarios pueden crear grupos de seguridad en los portales de Azure.** de Azure Portal controla si los usuarios administradores pueden crear grupos de seguridad en el Panel de acceso o en Azure Portal. No controla la creación de grupos de seguridad mediante PowerShell.
 
-Para deshabilitar la creación de grupos para los usuarios sin derechos administrativos en Powershell:
+Para deshabilitar la creación de grupos para usuarios no administradores en PowerShell:
 1. Compruebe que los usuarios no administradores pueden crear grupos:
    
 
@@ -42,25 +42,25 @@ Para deshabilitar la creación de grupos para los usuarios sin derechos administ
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```
 
-<br/>**He recibido un grupos máximo permitido de error al intentar crear un grupo dinámico en Powershell**<br/>
-Si recibe un mensaje que indica el Powershell _max permitidas alcanzado el recuento de grupos de directivas de grupo dinámico_, esto significa que se ha alcanzado el límite máximo de grupos dinámicos en el inquilino. El número máximo de grupos dinámicos por inquilino es 5000.
+<br/>**He recibido un error de grupos máximos permitidos al intentar crear un grupo dinámico en PowerShell**<br/>
+Si recibe un mensaje en PowerShell que indica que _se ha alcanzado el número máximo de grupos permitidos de directivas de grupos dinámicos_, significa que se ha alcanzado el límite máximo de grupos dinámicos en el inquilino. El número máximo de grupos dinámicos por inquilino es 5000.
 
-Para crear los nuevos grupos dinámicos, primero deberá eliminar algunos grupos dinámicos existentes. No hay ninguna manera de aumentar el límite.
+Para crear grupos dinámicos, primero debe eliminar algunos grupos dinámicos existentes. No hay ninguna forma de aumentar el límite.
 
 ## <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solución de problemas relacionados con las pertenencias dinámicas para grupos
 
 **He configurado una regla en un grupo pero las pertenencias no se actualizan en el grupo**.<br/>
-1. Compruebe los valores de atributos de dispositivo en la regla o de usuario. Asegúrese de que hay usuarios que cumplen la regla. Para los dispositivos, compruebe las propiedades del dispositivo para asegurarse de que todos los atributos sincronizados contienen los valores esperados.<br/>
-2. Compruebe la pertenencia del estado de procesamiento para confirmar si ha finalizado. Puede comprobar el [pertenencia al estado de procesamiento](groups-create-rule.md#check-processing-status-for-a-rule) y la última fecha actualizada en el **información general sobre** página para el grupo.
+1. Compruebe los valores de los atributos de usuario o dispositivo de la regla. Asegúrese de que haya usuarios que cumplen la regla. En el caso de los dispositivos, compruebe las propiedades de estos para asegurarse de que los atributos sincronizados contienen los valores esperados.<br/>
+2. Compruebe el estado de procesamiento de la pertenencia para confirmar que está completa. Puede comprobar el [estado de procesamiento de la pertenencia](groups-create-rule.md#check-processing-status-for-a-rule) y la última fecha actualizada en la página **Información general** del grupo.
 
 Si todo es correcto, el grupo tardará un poco en rellenarse. Dependiendo del tamaño del inquilino, el grupo puede tardar hasta 24 horas en rellenarse por primera vez o después de un cambio de la regla.
 
-**He configurado una regla, pero ahora se han quitado los miembros existentes de la regla**.<br/> Este es el comportamiento esperado. Los miembros existentes del grupo se quitan cuando una regla se habilita o se cambia. Los usuarios devueltos tras la evaluación de la regla se agregan como miembros al grupo.
+**He configurado una regla, pero ahora se han quitado los miembros existentes de la regla**.<br/>Este es el comportamiento esperado. Los miembros existentes del grupo se quitan cuando una regla se habilita o se cambia. Los usuarios devueltos tras la evaluación de la regla se agregan como miembros al grupo.
 
 **No veo los cambios en la pertenencia al instante cuando agrego o cambio una regla, ¿por qué pasa esto?**<br/>La evaluación de pertenencia dedicada se realiza periódicamente en un proceso asincrónico en segundo plano. La duración del proceso viene determinada por el número de usuarios del directorio y el tamaño del grupo creado como resultado de la regla. Normalmente, los directorios con un número pequeño de usuarios verán los cambios en la pertenencia al grupo en unos pocos minutos. Los directorios con un gran número de usuarios pueden tardar 30 minutos o más en completarse.
 
-**¿Cómo se puede forzar el grupo de procesarse ahora?**<br/>
-Actualmente, no hay ninguna manera de desencadenar automáticamente el grupo al que se procesan a petición. Sin embargo, puede desencadenar manualmente el reprocesamiento de mediante la actualización de la regla de pertenencia para agregar un espacio en blanco al final.  
+**¿Cómo se puede forzar al grupo a procesarse ahora?**<br/>
+Actualmente, no hay ninguna manera de desencadenar automáticamente el procesamiento del grupo a petición. Sin embargo, puede desencadenar manualmente el reprocesamiento si actualiza la regla de pertenencia para agregar un espacio en blanco al final.  
 
 **Se detectó una error de procesamiento de la regla**<br/>En la tabla siguiente se enumeran los errores de reglas de pertenencia dinámica más habituales y se indica cómo corregirlos.
 

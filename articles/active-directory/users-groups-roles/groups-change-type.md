@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472078"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Cambio de la pertenencia de un grupo estático a dinámico en Azure Active Directory
@@ -33,7 +33,7 @@ Puede cambiar la pertenencia de un grupo de estático a dinámico (o viceversa) 
 
 ## <a name="change-the-membership-type-for-a-group"></a>Cambio del tipo de pertenencia de un grupo
 
-1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea un administrador global o un usuario en el inquilino.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea administrador global o administrador de usuarios en el inquilino.
 2. Seleccione **Grupos**.
 3. En la lista **Todos los grupos**, abra el grupo que desea cambiar.
 4. Seleccione **Propiedades**.
@@ -47,7 +47,7 @@ Los pasos siguientes son un ejemplo de cómo cambiar un grupo de usuarios para q
   
 2. Seleccione **Agregar una consulta dinámica** y, a continuación, proporcione la regla.
   
-   ![Escriba la regla para el grupo dinámico](./media/groups-change-type/enter-rule.png)
+   ![Especificar la regla del grupo dinámico](./media/groups-change-type/enter-rule.png)
   
 3. Después de crear la regla, seleccione **Agregar consulta** en la parte inferior de la página.
 4. Seleccione **Guardar** en la página **Propiedades** del grupo para guardar los cambios. El **tipo de pertenencia** del grupo se actualiza inmediatamente en la lista de grupos.

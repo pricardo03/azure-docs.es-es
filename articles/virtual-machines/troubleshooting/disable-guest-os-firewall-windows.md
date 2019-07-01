@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505468"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Deshabilitar el firewall del sistema operativo invitado en la máquina virtual de Azure
@@ -33,7 +33,7 @@ El proceso que se describe en este artículo está pensado para usarse como solu
 
 Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual en la misma red virtual, puede realizar estas mitigaciones mediante el uso de la otra máquina virtual.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigación 1: Característica de extensión de Script o ejecutar comando personalizado
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigación 1: Característica Ejecutar comando o Extensión de script personalizado
 
 Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecutar comando](../windows/run-command.md) o [extensión de script personalizado](../extensions/custom-script-windows.md) (solo máquinas virtuales de Resource Manager) para ejecutar los siguientes scripts de forma remota.
 
@@ -70,7 +70,7 @@ Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecut
     ```
 
 > [!Note]
-> Si el servidor de seguridad se establece a través de un objeto de directiva de grupo, este método no funcionen debido a este comando cambia solo las entradas de registro local. Si hay una directiva en vigor, invalidará este cambio. 
+> Si el firewall se establece con un objeto de directiva de grupo, puede que este método no funcione debido a que este comando cambia solo las entradas del registro local. Si hay una directiva en vigor, invalidará este cambio. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Mitigación 3: comandos de PSTools
 
@@ -104,11 +104,11 @@ Siga estos pasos para utilizar [Registro remoto](https://support.microsoft.com/h
 
 4.  Abra una instancia de **Services.msc**.
 
-5.  Haga clic en **Servicios (Local)**.
+5.  Haga clic en **Servicios (Local)** .
 
 6.  Seleccione **Conectarse a otro equipo**.
 
-7.  Escriba la  **dirección de IP privada (DIP)** de la máquina virtual con problemas.
+7.  Escriba la  **dirección de IP privada (DIP)**  de la máquina virtual con problemas.
 
 8.  Reinicie la directiva de firewall local.
 

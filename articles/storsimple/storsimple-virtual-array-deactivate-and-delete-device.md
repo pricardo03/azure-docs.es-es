@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: bb1a56d204a46f89213f20e317494120f0ea565e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580635"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desactivación y eliminación de una matriz virtual de StorSimple
@@ -36,9 +36,9 @@ La información de este artículo solo se aplica a las instancias de StorSimple 
 
 La desactivación es una operación permanente y no se puede deshacer. Los dispositivos desactivados no se pueden volver a registrar en el servicio StorSimple Device Manager. Es posible que tenga que desactivar y eliminar una instancia de StorSimple Virtual Array en los escenarios siguientes:
 
-* **Conmutación por error planeada** : El dispositivo está en línea y planea conmutar por error el dispositivo. Si piensa actualizar a un dispositivo de mayor tamaño, es posible que necesite realizar la conmutación por error en su dispositivo. Después de que se transfiere la propiedad de los datos y la conmutación por error está completa, se elimina automáticamente el dispositivo de origen.
-* **Conmutación por error imprevista** : El dispositivo está desconectado y deberá conmutar por error el dispositivo. Esta situación puede producirse durante un desastre, cuando hay una interrupción del centro de datos y el dispositivo principal está inactivo. Planea realizar la conmutación por error del dispositivo en un dispositivo secundario. Después de que se transfiere la propiedad de los datos y la conmutación por error está completa, se elimina automáticamente el dispositivo de origen.
-* **Retirar** : Desea retirar el dispositivo. Esto requiere que primero desactive el dispositivo y luego lo elimine. Al desactivar un dispositivo, no podrá acceder a los datos almacenados localmente. Solo podrá acceder y recuperar los datos almacenados en la nube. Si piensa mantener los datos del dispositivo tras la desactivación, debe realizar una instantánea en la nube de todos los datos antes de desactivar un dispositivo. Dicha instantánea le permitirá recuperar todos los datos más adelante.
+* **Conmutación por error planeada**: el dispositivo está en línea y planea realizar la conmutación por error en su dispositivo. Si piensa actualizar a un dispositivo de mayor tamaño, es posible que necesite realizar la conmutación por error en su dispositivo. Después de que se transfiere la propiedad de los datos y la conmutación por error está completa, se elimina automáticamente el dispositivo de origen.
+* **Conmutación por error no planeada**: el dispositivo está en línea y es preciso realizar la conmutación por error en el dispositivo. Esta situación puede producirse durante un desastre, cuando hay una interrupción del centro de datos y el dispositivo principal está inactivo. Planea realizar la conmutación por error del dispositivo en un dispositivo secundario. Después de que se transfiere la propiedad de los datos y la conmutación por error está completa, se elimina automáticamente el dispositivo de origen.
+* **Dar de baja**: desea dar de baja el dispositivo. Esto requiere que primero desactive el dispositivo y luego lo elimine. Al desactivar un dispositivo, no podrá acceder a los datos almacenados localmente. Solo podrá acceder y recuperar los datos almacenados en la nube. Si piensa mantener los datos del dispositivo tras la desactivación, debe realizar una instantánea en la nube de todos los datos antes de desactivar un dispositivo. Dicha instantánea le permitirá recuperar todos los datos más adelante.
 
 ## <a name="deactivate-a-device"></a>Desactivación de un dispositivo
 

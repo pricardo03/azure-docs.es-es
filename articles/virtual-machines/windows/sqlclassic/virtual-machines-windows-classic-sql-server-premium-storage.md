@@ -17,10 +17,10 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583269"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
@@ -54,7 +54,7 @@ Hay varios requisitos previos para usar Premium Storage.
 
 Para usar Premium Storage, debe usar máquinas virtuales (VM) de la serie DS. Si nunca usó máquinas de la serie DS en el servicio en la nube, debe eliminar la máquina virtual existente, mantener los discos conectados y, a continuación, crear un nuevo servicio en la nube antes de volver a crear la máquina virtual como un tamaño de rol DS*. Para más información sobre los tamaños de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="cloud-services"></a>Cloud Services
+### <a name="cloud-services"></a>Servicios en la nube
 
 Solo puede usar máquinas virtuales DS* con Premium Storage cuando se crean en un servicio en la nube nuevo. Si usa SQL Server AlwaysOn en Azure, el agente de escucha de AlwaysOn hará referencia a la dirección IP del equilibrador de carga interno o externo de Azure que está asociada a un servicio en la nube. Este artículo se centra en cómo migrar manteniendo al mismo tiempo la disponibilidad en este escenario.
 
@@ -140,7 +140,7 @@ Para cada disco, siga estos pasos:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-1. Tenga en cuenta el LUN y DiskName.
+1. Anote el nombre del disco y el LUN.
 
     ![DisknameAndLUN][2]
 1. Conéctese mediante Escritorio remoto a la máquina virtual. A continuación, vaya a **Administración de equipos** | **Administrador de dispositivos** | **Unidades de disco**. Examine las propiedades de cada uno de los “Discos virtuales de Microsoft”.
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Paso 2: Aumentar los errores en los recursos permitidos \<opcional >
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Paso 2: Aumentar los errores permitidos en los recursos \<Opcional>
 
 En ciertos recursos que pertenecen al grupo de disponibilidad AlwaysOn hay límites en el número de errores que pueden producirse en un período, en el que el servicio de clúster intenta reiniciar el grupo de recursos. Se recomienda aumentar este número al realizar este procedimiento, ya que, si no lo conmuta por error manualmente y desencadena conmutaciones por error al apagar los equipos, puede acercarse a este límite.
 
@@ -692,7 +692,7 @@ También se recomienda duplicar el número de errores permitidos. Para hacerlo e
 
 Cambie el número máximo de errores a 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Paso 3: Recurso de dirección IP de la adición de grupo de clúster \<opcional >
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Paso 3: Agregar el recurso de dirección IP para el grupo de clústeres \<Opcional>
 
 Si tiene una sola dirección IP para el grupo de clústeres y está alineada con la subred en la nube, tenga en cuenta que, si desconecta accidentalmente todos los nodos del clúster en la nube de esa red, el recurso de IP del clúster y el nombre de red del clúster no pueden conectarse. En esta situación, impide las actualizaciones a otros recursos de clúster.
 
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>Configuración de la aplicación cliente
 
-Si la aplicación de cliente SQL es compatible con el .NET 4.5 SQLClient, puede usar ' MULTISUBNETFAILOVER = TRUE' palabra clave. Se debe aplicar esta palabra clave, porque permite establecer una conexión más rápida con el grupo de disponibilidad AlwaysOn de SQL durante la conmutación por error. Enumera todas las direcciones IP asociadas al agente de escucha de AlwaysOn en paralelo y tiene una velocidad de reintento de conexión TCP más agresiva durante una conmutación por error.
+Si la aplicación cliente SQL admite .NET 4.5 SQLClient, puede usar la palabra clave "MULTISUBNETFAILOVER=TRUE". Se debe aplicar esta palabra clave, porque permite establecer una conexión más rápida con el grupo de disponibilidad AlwaysOn de SQL durante la conmutación por error. Enumera todas las direcciones IP asociadas al agente de escucha de AlwaysOn en paralelo y tiene una velocidad de reintento de conexión TCP más agresiva durante una conmutación por error.
 
 Para más información sobre la configuración anterior, consulte [Palabra clave MultiSubnetFailover y características asociadas](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consulte también [Compatibilidad de SqlClient para la alta disponibilidad y la recuperación ante desastres](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -1223,7 +1223,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### <a name="step-23-test-failover"></a>Paso 23: Conmutación por error de prueba
 
-Espere a que el nodo migrado se sincronice con el nodo de AlwaysOn local. Colóquelo en el modo de replicación sincrónica y espere a que se sincronice. A continuación, failover desde local hasta el primer nodo migrado, que es el AFP. En cuanto lo consiga, cambie el último nodo migrado al AFP.
+Espere a que el nodo migrado se sincronice con el nodo de AlwaysOn local. Colóquelo en el modo de replicación sincrónica y espere a que se sincronice. A continuación, conmute por error de local al primer nodo migrado, que es el AFP. En cuanto lo consiga, cambie el último nodo migrado al AFP.
 
 Debe probar las conmutaciones por error entre todos los nodos y ejecutar pruebas de caos para garantizar que las conmutaciones por error funcionan como se esperaba y de manera puntual.
 

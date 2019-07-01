@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60592162"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
@@ -190,7 +190,7 @@ La siguiente tabla muestra la configuración de estas dos máquinas:
 | **Dirección IP pública** |*Mismo nombre que la máquina virtual* |
 | **Grupo de seguridad de red** |*Mismo nombre que la máquina virtual* |
 | **El conjunto de disponibilidad** |adavailabilityset </br>**Dominios de error**: 2 </br>**Dominios de actualización**: 2|
-| **Diagnóstico** |Enabled |
+| **Diagnóstico** |habilitado |
 | **Cuenta de almacenamiento de información de diagnóstico** |*Se crea automáticamente* |
 
    >[!IMPORTANT]
@@ -206,7 +206,7 @@ En los pasos siguientes, configurará la máquina **ad-primary-dc** como control
 1. En el portal, abra el grupo de recursos **SQL-HA-RG** y seleccione la máquina **ad-primary-dc**. En **ad-primary-dc**, haga clic en **Conectar** para abrir un archivo RDP con el fin de obtener acceso a Escritorio remoto.
 
     ![Conexión a una máquina virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Inicie sesión con su cuenta de administrador configurada (**\DomainAdmin**) y la contraseña (**Contoso!0000**).
+2. Inicie sesión con su cuenta de administrador configurada ( **\DomainAdmin**) y la contraseña (**Contoso!0000**).
 3. De forma predeterminada, se debe mostrar el panel **Administrador del servidor** .
 4. Haga clic en el vínculo **Agregar roles y características** en el panel.
 
@@ -464,7 +464,7 @@ Para agregar características de clúster de conmutación por error, realice los
 Repita los pasos en la otra máquina virtual con SQL Server.
 
   >[!NOTE]
-  > Este paso, junto con realmente unir las máquinas virtuales de SQL Server en el clúster de conmutación por error, ahora se puede automatizar con [CLI de máquina virtual de Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) y [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Ahora este paso, junto con la unión real de las máquinas virtuales de SQL Server al clúster de conmutación por error, se puede automatizar con la [CLI de máquina virtual de SQL de Azure](virtual-machines-windows-sql-availability-group-cli.md) y las [plantillas de inicio rápido de Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configuración del firewall en cada máquina virtual con SQL Server

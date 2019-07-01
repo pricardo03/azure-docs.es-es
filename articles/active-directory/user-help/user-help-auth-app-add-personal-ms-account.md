@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474099"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Adición de cuentas personales de Microsoft
@@ -68,6 +68,6 @@ Puede agregar su cuenta personal de Microsoft activando primero la verificación
 
 - Después de agregar las cuentas a la aplicación, puede iniciar sesión con la aplicación Authenticator en su dispositivo. Para más información, consulte cómo [iniciar sesión con la aplicación](user-help-auth-app-sign-in.md).
 
-- Si tiene dificultades para obtener el código de verificación para su cuenta personal de Microsoft, consulte el **solucionar problemas de código de verificación** sección de la [información de seguridad de cuenta de Microsoft & verificación códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artículo.
+- Si tiene dificultades para obtener el código de verificación de su cuenta Microsoft personal, consulte la sección **Solución de problemas de código de seguridad** del artículo [Información de seguridad y códigos de seguridad de la cuenta de Microsoft](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes).
 
 - En cuanto a los dispositivos con iOS, también puede hacer una copia de seguridad en la nube de las credenciales de su cuenta y de la configuración relacionada de la aplicación, como el orden de las cuentas. Para obtener más información, consulte [Copia seguridad y recuperación con la aplicación Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

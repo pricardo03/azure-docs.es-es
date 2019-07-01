@@ -1,6 +1,6 @@
 ---
 title: Análisis de registros de actividad de Azure Active Directory mediante los registros de Azure Monitor | Microsoft Docs
-description: Aprenda a analizar los registros de actividad de Azure Active Directory mediante registros de Azure Monitor
+description: Aprenda a analizar los registros de actividad de Azure Active Directory mediante registros de Azure Monitor.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: priyamo
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60438239"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure AD de analizar los registros de actividad con los registros de Azure Monitor
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Análisis de registros de actividad de Azure AD con registros de Azure Monitor
 
 Después de [integrar los registros de actividad de Azure AD con los registros de Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), puede usar la eficacia de estos últimos para obtener información sobre el entorno. También puede instalar las [vistas de Log Analytics para los registros de actividad de Azure AD](howto-install-use-log-analytics-views.md) para acceder a informes pregenerados sobre eventos de auditoría y de inicio de sesión en el entorno.
 

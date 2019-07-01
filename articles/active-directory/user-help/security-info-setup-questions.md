@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474640"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configuración de la información de seguridad (versión preliminar) para usar preguntas de seguridad
@@ -36,7 +36,7 @@ Si usa preguntas de seguridad, le recomendamos que las use junto con otro métod
 > 
 > Si no ve la opción de preguntas de seguridad, es posible que su organización no le permite usar preguntas de seguridad para la comprobación. Si este es el caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
 > 
-> No se permiten las cuentas de administrador para usar preguntas de seguridad como método de restablecimiento de contraseña. Si se ha iniciado sesión como una cuenta de nivel de administrador, no verá estas opciones.
+> Las cuentas de administrador no pueden usar preguntas de seguridad como método de restablecimiento de contraseña. Si ha iniciado sesión con una cuenta de nivel administrador, no verá estas opciones.
 
 ### <a name="to-set-up-your-security-questions"></a>Para configurar las preguntas de seguridad
 

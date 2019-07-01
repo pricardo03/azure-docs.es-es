@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 0641545c10d7f59cb1874659eae9c7e7bf65932e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532266"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for MySQL
@@ -30,7 +30,7 @@ Los problemas conocidos y las limitaciones relacionadas con las migraciones en l
 - Migración de la misma versión. No se admite la migración de MySQL 5.6 a Azure Database for MySQL 5.7.
 - Habilite el registro binario en my.ini (Windows) o my.cnf (Unix).
     - Establezca Server_id en cualquier número mayor o igual a 1, por ejemplo, Server_id = 1 (solo para MySQL 5.6).
-    - Establecer log-bin = \<ruta de acceso > (solo para MySQL 5.6)
+    - Establezca log-bin = \<ruta de acceso> (solo para MySQL 5.6)
     - Establezca binlog_format = row.
     - Expire_logs_days = 5 (recomendado - solo para MySQL 5.6).
 - El usuario debe tener el rol ReplicationAdmin.
@@ -80,7 +80,7 @@ Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamañ
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solución alternativa**: Si tiene un objeto de unidad de negocio que es mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [formular las migraciones de base de datos de Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
+    **Solución alternativa**: si tiene un objeto LOB mayor de 32 KB, póngase en contacto con el equipo de ingeniería en [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Otras limitaciones
 - No se admite una cadena de contraseña que tenga llaves de apertura y cierre {  } al principio y al final de la cadena de contraseña. Esta limitación se aplica tanto a conectarse a MySQL de origen como a Azure Database for MySQL de destino.

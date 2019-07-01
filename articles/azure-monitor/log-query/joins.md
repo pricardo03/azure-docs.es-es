@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520108"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Combinaciones en consultas de registros de Azure Monitor
 
 > [!NOTE]
-> Debe completar [empezar a trabajar con Azure Monitor de Log Analytics](get-started-portal.md) y [consultas de registros de Azure Monitor](get-started-queries.md) antes de completar esta lección.
+> Debe completar [Introducción a Log Analytics de Azure Monitor](get-started-portal.md) y [Consultas de registros de Azure Monitor](get-started-queries.md) antes de realizar los pasos de esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

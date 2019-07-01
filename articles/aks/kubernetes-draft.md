@@ -2,17 +2,16 @@
 title: Uso de Draft con AKS y Azure Container Registry
 description: Uso de Draft con AKS y Azure Container Registry
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465158"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Uso de Draft con Azure Kubernetes Service (AKS)
@@ -77,7 +76,7 @@ Ahora que hay una relación de confianza entre AKS y ACR, habilite el uso de ACR
 1. Establezca el valor de *registro* de la configuración de Draft. En los siguientes comandos, reemplace `<acrName>` con el nombre del registro de ACR:
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. Inicie sesión en el registro de ACR con [az acr login][az-acr-login]:
@@ -145,7 +144,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Para obtener acceso a la aplicación, abra un explorador web a la dirección y el puerto especificado en el `draft connect` salida, como `http://localhost:49804`. 
+Para acceder a la aplicación, abra un explorador web con la dirección y el puerto especificados en la salida de `draft connect`, como `http://localhost:49804`. 
 
 ![Aplicación de Java de ejemplo que se ejecuta con Draft](media/kubernetes-draft/sample-app.png)
 
@@ -220,7 +219,7 @@ En este ejemplo, actualice la aplicación de ejemplo de Java para cambiar el tex
 vi src/main/java/helloworld/Hello.java
 ```
 
-Actualice el texto de salida para mostrar, *Hola mundo, soy Java en AKS!*:
+Actualice el texto de salida para mostrar, *Hola mundo, soy Java en AKS!* :
 
 ```java
 package helloworld;
@@ -271,4 +270,4 @@ Para obtener más información sobre el uso de Draft, consulte la documentación
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

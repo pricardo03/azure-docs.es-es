@@ -10,15 +10,15 @@ ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 5ed6e0b21b00ede3f78a102fd004e5706ae3cea5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60464907"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso de OpenFaaS en AKS
 
-[OpenFaaS] [ open-faas] es un marco para crear funciones sin servidor mediante el uso de contenedores. Como proyecto de código abierto, se ha adoptado a gran escala dentro de la comunidad. En este documento se detalla la instalación y uso de OpenFaas en un clúster de Azure Kubernetes Service (AKS).
+[OpenFaaS][open-faas] es un marco para la creación de funciones sin servidor mediante contenedores. Como proyecto de código abierto, se ha adoptado a gran escala dentro de la comunidad. En este documento se detalla la instalación y uso de OpenFaas en un clúster de Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,9 +29,9 @@ Para completar los pasos de este artículo, necesita lo siguiente.
 * CLI de Azure instalada en el sistema de desarrollo.
 * Herramientas de línea de comandos GIT instaladas en el sistema.
 
-## <a name="add-the-openfaas-helm-chart-repo"></a>Agregue el repositorio de gráfico de helm de OpenFaaS
+## <a name="add-the-openfaas-helm-chart-repo"></a>Incorporación del repositorio de gráficos de Helm de OpenFaaS
 
-OpenFaaS mantiene su propio gráficos de helm para mantener al día con los últimos cambios.
+OpenFaaS mantiene sus propios gráficos de Helm para estar al día con los últimos cambios.
 
 ```azurecli-interactive
 helm repo add openfaas https://openfaas.github.io/faas-netes/
@@ -42,13 +42,13 @@ helm repo update
 
 Como recomendación, OpenFaaS y sus funciones deberían almacenarse en su propio espacio de nombres de Kubernetes.
 
-Crear un espacio de nombres para el sistema OpenFaaS y funciones:
+Cree un espacio de nombres para el sistema y las funciones de OpenFaaS:
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-Generar una contraseña para el Portal de interfaz de usuario de OpenFaaS y API de REST:
+Genere una contraseña para el portal de la interfaz de usuario de OpenFaaS y la API REST:
 
 ```azurecli-interactive
 # generate a random password
@@ -61,7 +61,7 @@ kubectl -n openfaas create secret generic basic-auth \
 
 Puede obtener el valor del secreto con `echo $PASSWORD`.
 
-La contraseña que creamos aquí la usará el gráfico de helm para habilitar la autenticación básica en la puerta de enlace de OpenFaaS, que se expone a Internet a través de un equilibrador de carga de la nube.
+La contraseña que creamos aquí se usará en el gráfico de Helm para habilitar la autenticación básica en la puerta de enlace de OpenFaaS, que se expone en Internet mediante un equilibrador de carga de nube.
 
 En el repositorio clonado se incluye un gráfico de Helm para OpenFaaS. Utilice este gráfico para implementar OpenFaaS en el clúster de AKS.
 
@@ -119,7 +119,7 @@ Por último, instale la CLI de OpenFaaS. En este ejemplo se usaba brew. Consulte
 brew install faas-cli
 ```
 
-Establecer `$OPENFAAS_URL` a la dirección IP pública se encuentra por encima.
+Establezca `$OPENFAAS_URL` en la dirección IP pública que se encuentra encima.
 
 Inicie sesión con la CLI de Azure:
 
@@ -247,7 +247,7 @@ También puede probar la función dentro de la UI de OpenFaaS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información con el taller de OpenFaaS a través de un conjunto de laboratorios de prácticas que tratan temas tales como cómo crear sus propios bots de GitHub, puede seguir consumiendo secretos, ver las métricas y escalado automático.
+Para seguir aprendiendo, puede realizar el taller sobre OpenFaaS, un conjunto de laboratorios prácticos que abarcan temas como la creación de su propio bot de GitHub, el consumo de secretos, la visualización de métricas y el escalado automático.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

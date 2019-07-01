@@ -1,6 +1,6 @@
 ---
-title: Cómo integrar los registros de Azure Active Directory con ArcSight mediante Azure Monitor | Microsoft Docs
-description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con ArcSight mediante Azure Monitor
+title: Integración de los registros de Azure Active Directory con ArcSight mediante Azure Monitor | Microsoft Docs
+description: Aprenda a integrar los registros de Azure Active Directory con ArcSight mediante Azure Monitor.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437029"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar los registros de Azure Active Directory con ArcSight mediante Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integración de los registros de Azure Active Directory con ArcSight mediante Azure Monitor
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) es una solución de administración de eventos e información de seguridad (SIEM) que ayuda a detectar y responder a amenazas de seguridad en la plataforma. Ahora puede enrutar los registros de Azure Active Directory (Azure AD) a ArcSight con Azure Monitor mediante el conector de ArcSight para Azure AD. Esta característica permite supervisar el inquilino para comprobar si se compromete la seguridad mediante ArcSight.  
 

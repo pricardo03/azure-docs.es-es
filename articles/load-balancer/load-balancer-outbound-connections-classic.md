@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
 ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595039"
 ---
 # <a name="outbound-connections-classic"></a>Conexiones salientes (clásico)
@@ -39,7 +39,7 @@ Azure ofrece tres métodos diferentes para lograr la conectividad saliente en la
 
 | Escenario | Método | Protocolos IP | DESCRIPCIÓN | Rol de trabajo web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. Máquina virtual con una dirección IP pública de nivel de instancia](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure utiliza la dirección IP pública asignada a la máquina virtual. La instancia tiene disponibles todos los puertos efímeros. | Sin  | Sí |
+| [1. Máquina virtual con una dirección IP pública de nivel de instancia](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure utiliza la dirección IP pública asignada a la máquina virtual. La instancia tiene disponibles todos los puertos efímeros. | Sin | Sí |
 | [2. Punto de conexión con equilibrio de carga público](#publiclbendpoint) | SNAT con enmascaramiento de puertos (PAT) al punto de conexión público | TCP, UDP | Azure comparte el punto de conexión público de dirección IP pública con varios puntos de conexión privados. Azure usa puertos efímeros del punto de conexión público para PAT. | Sí | Sí |
 | [3. Máquina virtual independiente](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con toda la implementación y usa puertos efímeros de la dirección IP del punto de conexión público para PAT. Se trata de un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. | Sí | Sí |
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
 ms.openlocfilehash: 699581c7ccd3f36da0cd0c1def623607b7c0a13b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589671"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
@@ -27,9 +27,9 @@ No es posible cambiar la opción de particionamiento en una cola o tema existent
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Cada cola o tema particionado consta de varias particiones. Cada partición se almacena en un almacén de mensajería diferente y controlado por un agente de mensajes diferentes. Cuando se envía un mensaje a una cola o tema particionado, Service Bus asigna el mensaje a una de las particiones. La selección se realiza de forma aleatoria mediante Service Bus o una clave de partición que el remitente puede especificar.
+Cada cola o tema con particiones consta de varias particiones. Cada partición se almacena en un almacén de mensajería diferente y la controla un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a una de las particiones. La selección se realiza de forma aleatoria mediante Service Bus o una clave de partición que el remitente puede especificar.
 
-Cuando un cliente quiere recibir un mensaje desde una cola con particiones, o desde una suscripción a un tema con particiones, Service Bus consulta todas las particiones para los mensajes, a continuación, devuelve el primer mensaje que se obtiene de cualquiera de los almacenes de mensajería al receptor. Service Bus almacena en caché los demás mensajes y los devuelve cuando recibe solicitudes de recepción adicionales. Un cliente de recepción no es consciente de las particiones; el comportamiento de cara al cliente de una cola o tema con particiones (por ejemplo, lectura, finalización, aplazamiento, mensajes fallidos y captura previa) es idéntico al comportamiento de una entidad regular.
+Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de una suscripción a un tema con particiones, Service Bus consulta en todas las particiones si hay mensajes y luego devuelve al receptor el primer mensaje que se obtiene de cualquiera de los almacenes de mensajería. Service Bus almacena en caché los demás mensajes y los devuelve cuando recibe solicitudes de recepción adicionales. Un cliente de recepción no es consciente de las particiones; el comportamiento de cara al cliente de una cola o tema con particiones (por ejemplo, lectura, finalización, aplazamiento, mensajes fallidos y captura previa) es idéntico al comportamiento de una entidad regular.
 
 No hay costos adicionales cuando se envía un mensaje a una cola o tema con particiones o cuando se recibe un mensaje de ellos.
 
@@ -39,15 +39,15 @@ Para usar colas o temas con particiones con Azure Service Bus, use la versión 2
 
 ### <a name="standard"></a>Estándar
 
-En el nivel de mensajería Estándar, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 16 copias (16 particiones) de la entidad, cada uno del mismo tamaño especificado. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
+En el nivel de mensajería Estándar, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 16 copias (16 particiones) de la entidad, cada una del mismo tamaño especificado. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
 
 ### <a name="premium"></a>Premium
 
-En un espacio de nombres de nivel Premium, no se admiten particiones de entidades. Aunque puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4, 5, 10, 20, 40 u 80 GB (el valor predeterminado es 1 GB). Para ver el tamaño de la cola o tema, puede examinar su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
+En un espacio de nombres de nivel Premium no se admiten entidades de creación de particiones. Aunque puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4, 5, 10, 20, 40 u 80 GB (el valor predeterminado es 1 GB). Para ver el tamaño de la cola o tema, puede examinar su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
 
 ### <a name="create-a-partitioned-entity"></a>Creación de una entidad particionada
 
-Hay varias maneras de crear una cola o tema con particiones. Al crear la cola o el tema desde la aplicación, puede habilitar las particiones para la cola o el tema estableciendo respectivamente las propiedades [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] en **true**. Estas propiedades deben establecerse en el momento de crear la cola o el tema y solo están disponibles en la antigua biblioteca [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Como se indicó anteriormente, no es posible cambiar estas propiedades en una cola o tema existente. Por ejemplo: 
+Hay varias maneras de crear una cola o tema con particiones. Al crear la cola o el tema desde la aplicación, puede habilitar las particiones para la cola o el tema estableciendo respectivamente las propiedades [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] en **true**. Estas propiedades deben establecerse en el momento de crear la cola o el tema y solo están disponibles en la antigua biblioteca [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Como se indicó anteriormente, no es posible cambiar estas propiedades en una cola o tema existente. Por ejemplo:
 
 ```csharp
 // Create partitioned topic
@@ -61,11 +61,11 @@ También puede crear una cola o tema con particiones en [Azure Portal][Azure por
 
 ## <a name="use-of-partition-keys"></a>Uso de claves de partición
 
-Cuando un mensaje se coloca en cola en una cola o tema con particiones, Service Bus comprueba la presencia de una clave de partición. Si encuentra uno, selecciona la partición basándose en esa clave. Si no encuentra una clave de partición, selecciona la partición basándose en un algoritmo interno.
+Cuando un mensaje se coloca en cola en una cola o tema con particiones, Service Bus comprueba la presencia de una clave de partición. Si encuentra una, selecciona la partición basándose en esa clave. Si no encuentra una clave de partición, selecciona la partición basándose en un algoritmo interno.
 
 ### <a name="using-a-partition-key"></a>Uso de una clave de partición
 
-Algunos escenarios, como sesiones o transacciones, requieren los mensajes se almacenen en una partición específica. Todos estos escenarios requieren el uso de una clave de partición. Todos los mensajes que utilizan la misma clave de partición se asignan a la misma partición. Si la partición no está disponible temporalmente, Service Bus devuelve un error.
+En algunos escenarios, como sesiones o transacciones, es necesario que los mensajes se almacenen en una partición específica. Todos estos escenarios requieren el uso de una clave de partición. Todos los mensajes que usan la misma clave de partición se asignan a la misma partición. Si la partición no está disponible temporalmente, Service Bus devuelve un error.
 
 En función del escenario, se usan diferentes propiedades de mensaje como clave de partición:
 
@@ -77,17 +77,17 @@ En función del escenario, se usan diferentes propiedades de mensaje como clave 
 
 ### <a name="not-using-a-partition-key"></a>Sin uso de una clave de partición
 
-En ausencia de una clave de partición, Service Bus distribuye los mensajes en un modo round-robin en todas las particiones de la cola o tema particionado. Si la partición elegida no está disponible, Service Bus asigna el mensaje a una partición diferente. De esta manera, la operación de envío se realiza correctamente a pesar de la no disponibilidad temporal de un almacén de mensajería. Sin embargo, no obtendrá la ordenación garantizada que proporciona una clave de partición.
+En ausencia de una clave de partición, Service Bus distribuye los mensajes en modo round-robin a todas las particiones de una cola o tema con particiones. Si la partición elegida no está disponible, Service Bus asigna el mensaje a una partición diferente. De esta manera, la operación de envío se realiza correctamente a pesar de la no disponibilidad temporal de un almacén de mensajería. Sin embargo, no obtendrá la ordenación garantizada que proporciona una clave de partición.
 
 Para acceder a un análisis más detallado del equilibrio entre la disponibilidad (sin clave de partición) y la coherencia (con una clave de partición), consulte [este artículo](../event-hubs/event-hubs-availability-and-consistency.md). Esta información se aplica igualmente a entidades de Service Bus con particiones.
 
-Para dar a Service Bus tiempo suficiente para poner en cola el mensaje en una partición diferente, el [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) valor especificado por el cliente que envía el mensaje debe ser superior a 15 segundos. Se recomienda establecer la propiedad [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) en el valor predeterminado de 60 segundos.
+Para dar a Service Bus el tiempo suficiente para poner en cola el mensaje en otra partición, el valor de [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) especificado por el cliente que envía el mensaje debe ser superior a quince segundos. Se recomienda establecer la propiedad [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) en el valor predeterminado de 60 segundos.
 
-Una clave de partición "ancla" un mensaje a una partición específica. Si el almacén de mensajería que contiene esta partición no está disponible, Service Bus devuelve un error. En ausencia de una clave de partición, Service Bus puede elegir una partición diferente y la operación se realiza correctamente. Por lo tanto, se recomienda no suministrar una clave de partición a menos que sea necesario.
+Una clave de partición “ancla” un mensaje a una partición específica. Si el almacén de mensajería que contiene esta partición no está disponible, Service Bus devuelve un error. En ausencia de una clave de partición, Service Bus puede elegir una partición diferente y la operación se realiza correctamente. Por lo tanto, se recomienda no suministrar una clave de partición a menos que sea necesario.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Temas avanzados: uso de transacciones con entidades con particiones
 
-Los mensajes que se envían como parte de una transacción deben especificar una clave de partición. La clave puede ser una de las siguientes propiedades: [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) o [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). Todos los mensajes que se envían como parte de la misma transacción deben especificar la misma clave de partición. Si intenta enviar un mensaje sin una clave de partición dentro de una transacción, Service Bus devuelve una excepción de operación no válida. Si intenta enviar varios mensajes dentro de la misma transacción que tienen claves de partición diferentes, Service Bus devuelve una excepción de operación no válida. Por ejemplo: 
+Los mensajes que se envían como parte de una transacción deben especificar una clave de partición. La clave puede ser una de las siguientes propiedades: [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) o [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). Todos los mensajes que se envían como parte de la misma transacción deben especificar la misma clave de partición. Si intenta enviar un mensaje sin una clave de partición dentro de una transacción, Service Bus devuelve una excepción de operación no válida. Si intenta enviar varios mensajes dentro de la misma transacción que tienen claves de partición diferentes, Service Bus devuelve una excepción de operación no válida. Por ejemplo:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -101,13 +101,13 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-Si se establece alguna de las propiedades que actúan como una clave de partición, Service Bus ancla el mensaje a una partición específica. Este comportamiento se produce independientemente de si se usa una transacción o no. Se recomienda que no especifique una clave de partición si no es necesario.
+Si se establece alguna de las propiedades que sirven de clave de partición, Service Bus ancla el mensaje a una partición. Este comportamiento se produce independientemente de si se usa una transacción o no. Se recomienda que no especifique una clave de partición si no es necesario.
 
 ## <a name="using-sessions-with-partitioned-entities"></a>Uso de sesiones con entidades con particiones
 
 Para enviar un mensaje transaccional a un tema o cola que tiene en cuenta la sesión, el mensaje debe tener establecida la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid). Si también se especifica la propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), debe ser idéntica a la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid). Si difieren, Service Bus devuelve una excepción de operación no válida.
 
-A diferencia de las colas o temas regulares (sin particiones), no es posible usar una única transacción para enviar varios mensajes a diferentes sesiones. Si se intenta, Service Bus devuelve una excepción de operación no válida. Por ejemplo: 
+A diferencia de las colas o temas regulares (sin particiones), no es posible usar una única transacción para enviar varios mensajes a diferentes sesiones. Si se intenta, Service Bus devuelve una excepción de operación no válida. Por ejemplo:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -126,9 +126,9 @@ committableTransaction.Commit();
 Service Bus de Azure admite el reenvío automático de mensajes desde entidades con particiones, así como a ellas y entre ellas. Para habilitar el reenvío automático de mensajes, establezca la propiedad [QueueDescription.ForwardTo][QueueDescription.ForwardTo] en la cola o suscripción de origen. Si el mensaje especifica una clave de partición ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) o [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), esa clave de partición se usa para la entidad de destino.
 
 ## <a name="considerations-and-guidelines"></a>Consideraciones e instrucciones
-* **Características de alta coherencia**: Si una entidad utiliza características como sesiones, detección de duplicados o control explícito de la clave de partición, las operaciones de mensajería siempre se enrutan a la partición específica. Si ninguna de las particiones experimenta un tráfico elevado o el almacén subyacente es incorrecto, esas operaciones producirá un error y se reduce la disponibilidad. En general, la coherencia es todavía mucho mayor que en las entidades sin particiones ya que solo un subconjunto del tráfico tiene problemas, en lugar de todo el tráfico. Para obtener más información, consulte este [análisis sobre la disponibilidad y la coherencia](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Administración**: Operaciones, como Create, Update y Delete deben realizarse en todas las particiones de la entidad. Si cualquier partición es incorrecta, podría provocar errores en estas operaciones. Para la operación Get, información, como números de mensajes se debe agregar de todas las particiones. Si cualquier partición es incorrecta, se notifica el estado de disponibilidad de la entidad como limitado.
-* **Escenarios de bajo volumen de mensajes**: para tales escenarios, especialmente cuando se usa el protocolo HTTP, tendrá que realizar varias operaciones de recepción con el fin de obtener todos los mensajes. Para las solicitudes de recepción, el front-end realiza una operación de recepción en todas las particiones y se almacena en caché todas las respuestas recibidas. Una solicitud de recepción posterior en la misma conexión se beneficiaría de este almacenamiento en caché y las latencias de recepción serían menores. Sin embargo, si tiene varias conexiones o utiliza el protocolo HTTP, se establecerá una conexión nueva para cada solicitud. Por lo tanto, no hay ninguna garantía de que llegará al mismo nodo. Si todos los mensajes existentes están bloqueados y almacenados en caché en otro equipo front-end, la operación de recepción devolverá un valor **null**. Finalmente, los mensajes caducan y podrá volver a recibirlos. Se recomienda mantener la conexión HTTP.
+* **Características de alta coherencia**: si una entidad utiliza características como sesiones, detección de duplicados o control explícito de la clave de creación de particiones, las operaciones de mensajería se enrutarán siempre a particiones específicas. Si cualquiera de estas particiones experimenta un tráfico elevado o el almacén subyacente es incorrecto, se producirá un error en las operaciones y se reducirá la disponibilidad. En general, la coherencia es todavía mucho mayor que en las entidades sin particiones ya que solo un subconjunto del tráfico tiene problemas, en lugar de todo el tráfico. Para obtener más información, consulte este [análisis sobre la disponibilidad y la coherencia](../event-hubs/event-hubs-availability-and-consistency.md).
+* **Administración**: las operaciones Create, Update y Delete se deben realizar en todas las particiones de la entidad. Si alguna partición es incorrecta, podría provocar errores en estas operaciones. Para la operación Get, la información, como el número de mensajes, se debe agregar desde todas las particiones. Si alguna partición es incorrecta, se notifica el estado de disponibilidad de la entidad como limitado.
+* **Escenarios de bajo volumen de mensajes**: para tales escenarios, especialmente cuando se usa el protocolo HTTP, tendrá que realizar varias operaciones de recepción con el fin de obtener todos los mensajes. Para las solicitudes de recepción, el equipo front-end realiza una operación de recepción en todos las particiones y almacena en caché todas las respuestas recibidas. Una solicitud de recepción posterior en la misma conexión se beneficiaría de este almacenamiento en caché y las latencias de recepción serían menores. Sin embargo, si tiene varias conexiones o utiliza el protocolo HTTP, se establecerá una conexión nueva para cada solicitud. Por lo tanto, no hay ninguna garantía de que llegará al mismo nodo. Si todos los mensajes existentes están bloqueados y almacenados en caché en otro equipo front-end, la operación de recepción devolverá un valor **null**. Finalmente, los mensajes caducan y podrá volver a recibirlos. Se recomienda mantener la conexión HTTP.
 * **Examinar o buscar mensajes**: disponible únicamente en la antigua biblioteca [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) no siempre devuelve el número de mensajes especificado en la propiedad [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount). Este comportamiento tiene dos motivos habituales. Uno de ellos es que el tamaño agregado de la colección de mensajes supera el tamaño máximo de 256 KB. El otro es que si la cola o tema tiene la [propiedad EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) establecida en **true**, puede que una partición no tenga suficientes mensajes para completar el número solicitado de mensajes. En general, si una aplicación desea recibir un número específico de mensajes, debe llamar a [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) repetidamente hasta que obtenga ese número de mensajes o no habrá más mensajes para inspeccionar. Para obtener más información, incluidos algunos ejemplos de código, consulte la documentación de la API [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) o [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch).
 
 ## <a name="latest-added-features"></a>Características agregadas más recientes
