@@ -45,24 +45,22 @@
           href: application-proxy-network-topology.md
         - name: Comparación de soluciones de acceso remoto
           href: application-proxy-migration.md
+    - name: Inicio de sesión único
+      items:
+        - name: ¿Qué es el inicio de sesión único?
+          href: what-is-single-sign-on.md
+        - name: Plan de implementación del inicio de sesión único
+          href: plan-sso-deployment.md
+    - name: Inicio de sesión único de One Click
+      items:
+        - name: ¿Qué es el inicio de sesión único de One Click?
+          href: one-click-sso-tutorial.md
     - name: Aprovisionamiento de usuarios y grupos
       items:
         - name: Aprovisionamiento automático de usuarios
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Aplicaciones SaaS
           href: user-provisioning.md
-        - name: Aplicaciones habilitadas con SCIM
+        - name: Aprovisionamiento automático de aplicaciones habilitadas con SCIM
           href: use-scim-to-provision-users-and-groups.md
-        - name: Personalización de atributos de la aplicación
-          href: Customize-application-attributes.md
-        - name: Escritura de expresiones para la asignación de atributos
-          href: functions-for-customizing-application-data.md
-        - name: Filtros de ámbito
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Notificación del aprovisionamiento automático de usuarios
-          href: check-status-user-account-provisioning.md
-        - name: Solución de problemas de aprovisionamiento de usuarios
-          href: application-provisioning-config-problem.md
     - name: Seguridad de las aplicaciones
       items:
         - name: Opciones de acceso a aplicaciones
@@ -75,18 +73,8 @@
           href: tenant-restrictions.md
         - name: Configuración del cifrado de token SAML (versión preliminar)
           href: howto-saml-token-encryption.md
-    - name: Inicio de sesión único
-      items:
-        - name: ¿Qué es el inicio de sesión único?
-          href: what-is-single-sign-on.md
-        - name: Plan de implementación del inicio de sesión único
-          href: plan-sso-deployment.md
     - name: Portales de usuario final
       href: end-user-experiences.md
-    - name: Inicio de sesión único de One Click
-      items:
-        - name: ¿Qué es el inicio de sesión único de One Click?
-          href: one-click-sso-tutorial.md
 - name: Guías de procedimientos
   items:
     - name: Incorporación de una aplicación en la nube
@@ -157,12 +145,20 @@
               href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Configurar aprovisionamiento de usuarios
       items:
-        - name: ¿Cuánto tiempo tarda el aprovisionamiento?
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: 'Configuración del aprovisionamiento de usuarios: aplicación de la galería'
+        - name: Aprovisionamiento de usuarios para aplicaciones de la galería
           href: application-provisioning-config-how-to.md
-        - name: 'Sincronización de un atributo para la asignación: aplicación de la galería'
-          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Configuración del aprovisionamiento automático de usuarios
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Personalización de atributos de la aplicación
+          href: Customize-application-attributes.md
+        - name: Escritura de expresiones para la asignación de atributos
+          href: functions-for-customizing-application-data.md
+        - name: Filtros de ámbito
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Comprobación del estado de aprovisionamiento
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Notificación del aprovisionamiento automático de usuarios
+          href: check-status-user-account-provisioning.md
     - name: Asignación de usuarios y administración del acceso a las aplicaciones
       items:
         - name: Configuración del consentimiento del usuario
@@ -235,10 +231,12 @@
               href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Solución de problemas de aprovisionamiento de usuarios
           items:
+            - name: Solución de problemas de aprovisionamiento de usuarios
+              href: application-provisioning-config-problem.md
+            - name: 'Sincronización de un atributo para la asignación: aplicación de la galería'
+              href: user-provisioning-sync-attributes-for-mapping.md
             - name: 'Tarda horas: aplicación de la galería'
               href: application-provisioning-when-will-provisioning-finish.md
-            - name: 'Problema al configurar el aprovisionamiento de usuarios: aplicación de la galería'
-              href: application-provisioning-config-problem.md
             - name: Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios en una aplicación de la galería
               href: application-provisioning-config-problem-storage-limit.md
             - name: 'Los usuarios no están aprovisionados: aplicación de la galería'

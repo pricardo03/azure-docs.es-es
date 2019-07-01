@@ -30,6 +30,8 @@
   items:
     - name: Métodos abreviados de teclado
       href: azure-portal-keyboard-shortcuts.md
+    - name: Guarde en la lista de direcciones IP seguras las URL de Azure Portal
+      href: azure-portal-safelist-urls.md
     - name: Estructura de los paneles de Azure
       href: azure-portal-dashboards-structure.md
 - name: Recursos

@@ -46,6 +46,8 @@
       href: front-door-routing-methods.md
     - name: Reescritura de direcciones URL
       href: front-door-url-rewrite.md
+    - name: Redirección de direcciones URL
+      href: front-door-url-redirect.md
     - name: WAF
       items:
         - name: Información general
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: Guías de procedimientos
   items:
+    - name: Redirección del tráfico
+      items:
+        - name: Configuración de una instancia de Front Door con redirección de HTTP y HTTPS
+          href: front-door-how-to-redirect-https.md
+    - name: Incorporación de dominios personalizados
+      items:
+        - name: Incorporación de un dominio raíz o de Apex
+          href: front-door-how-to-onboard-apex-domain.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de enrutamiento
@@ -86,7 +96,7 @@
       href: waf-faq.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/ext/front-door/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor

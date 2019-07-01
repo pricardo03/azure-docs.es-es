@@ -25,6 +25,8 @@
           href: howto-create-tenant.md
         - name: Creación de un objeto y un usuario de aplicación de Azure AD
           href: howto-aad-app-configuration.md
+    - name: Implementación de un sistema Prometheus independiente en un clúster de Red Hat OpenShift en Azure
+      href: howto-deploy-prometheus.md
 - name: Referencia
   items:
     - name: CLI de Red Hat OpenShift en Azure

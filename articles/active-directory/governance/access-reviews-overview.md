@@ -1,6 +1,6 @@
 ---
 title: ¿Qué son las revisiones de acceso? Azure Active Directory | Microsoft Docs
-description: Con las revisiones de acceso de Azure Active Directory, puede controlar el acceso de suscripción y de aplicación de grupo para cumplir con las iniciativas de cumplimiento de su organización, administración de riesgos y gobierno.
+description: Con las revisiones de acceso de Azure Active Directory, puede controlar la pertenencia a grupos y el acceso a las aplicaciones para cumplir con las iniciativas de cumplimiento, de administración de riesgos y de gobernanza de su organización.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/18/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204605"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>¿Qué acceso de Azure AD de revisiones?
+# <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
-Revisiones de acceso de Azure Active Directory (Azure AD) permiten a las organizaciones a administrar las pertenencias a grupos de forma eficaz, el acceso a aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
+Las revisiones de acceso de Azure Active Directory (Azure AD) permiten a las organizaciones administrar de forma eficiente la pertenencia a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
 Este es un vídeo que proporciona una introducción rápida de las revisiones de acceso:
 
@@ -42,35 +42,48 @@ Azure AD le permite colaborar internamente dentro de su organización y con usua
 
 ## <a name="when-to-use-access-reviews"></a>¿Cuándo usar revisiones de acceso?
 
-- **Demasiados usuarios en roles con privilegios:** Es una buena idea comprobar cuántos usuarios tiene acceso administrativo, ¿cuántos de ellos son los administradores globales, y si hay alguna invitó invitados o socios que no se han quitado después de que se asigna para realizar una tarea administrativa. Puede volver a certificar los usuarios de la asignación de rol de [roles de Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como los administradores globales, o [roles de recursos de Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como administrador de acceso de usuario en el [con privilegios de Azure AD Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experimentar.
+- **Demasiados usuarios en roles con privilegios:** es recomendable comprobar cuántos usuarios tienen acceso administrativo, cuántos de ellos son administradores globales, y si hay algún invitado o asociado que no se haya quitado después de que se haya asignado una tarea administrativa. Puede volver a certificar los usuarios con asignación de roles en [roles de Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), por ejemplo, administradores globales, o [roles de recursos de Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), por ejemplo, administrador de acceso de usuario, en la experiencia [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
 - **Cuando no es factible la automatización:** puede crear las reglas de pertenencia dinámica en grupos de seguridad o grupos de Office 365, pero ¿qué ocurre si los datos de recursos humanos no se encuentran en Azure AD o si los usuarios todavía necesitan acceso después de abandonar el grupo para entrenar a su sustituto? Luego puede crear una revisión en ese grupo para asegurarse de que los usuarios que aún necesiten acceso sigan teniendo acceso.
 - **Cuando se usa un grupo para una nueva finalidad:** si tiene un grupo que se va a sincronizar con Azure AD, o si va a habilitar la aplicación Salesforce para todos los usuarios del equipo de Ventas, sería útil solicitar al propietario del grupo que revise la pertenencia al grupo antes de usar el grupo en un contenido de riesgo distinto.
 - **Acceso a datos críticos para la empresa:** para determinados recursos y con fines de auditoría, podría exigirse a personas ajenas a TI que cierren sesión periódicamente y justifiquen por qué necesitan acceso.
 - **Para mantener la lista de excepciones de la directiva:** En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso para proteger el acceso a los recursos de la organización. A veces, sin embargo, hay casos empresariales en los que hay que hacer excepciones. Como administrador de TI, puede administrar esta tarea, evitar las excepciones de omisiones de la directiva y proporcionar a los auditores prueba de que estas excepciones se revisan normalmente.
-- **Pedir a los propietarios de grupos que confirmen que todavía necesitan invitados en sus grupos:** Acceso de los empleados se puede automatizar con algunos local IAM, pero no los usuarios invitados. Si un grupo proporciona a los invitados acceso a contenido empresarial confidencial, es responsabilidad del propietario del grupo confirmar que los invitados todavía tienen una necesidad empresarial legítima de acceso.
+- **Pedir a los propietarios de grupos que confirmen que todavía necesitan invitados en sus grupos:** el acceso de los empleados se puede automatizar con algún tipo de IAM a nivel local, pero no los usuarios invitados. Si un grupo proporciona a los invitados acceso a contenido empresarial confidencial, es responsabilidad del propietario del grupo confirmar que los invitados todavía tienen una necesidad empresarial legítima de acceso.
 - **Repetir las revisiones periódicamente:** puede configurar revisiones periódicas de acceso de usuarios a frecuencias establecidas, como semanal, mensual, trimestral o anualmente, donde los revisores reciban notificaciones al principio de cada revisión. Los revisores pueden aprobar o denegar el acceso con una interfaz sencilla y con la ayuda de recomendaciones inteligentes.
 
 ## <a name="where-do-you-create-reviews"></a>¿Donde se crean las revisiones?
 
-Dependiendo de lo que desea revisar, creará la revisión de acceso en Azure AD acceso a PIM de Azure AD, aplicaciones de empresa de Azure AD (en versión preliminar) o las revisiones.
+Dependiendo de lo que quiera revisar, creará la revisión de acceso en Revisiones de acceso de Azure AD, aplicaciones de empresa de Azure AD (en versión preliminar) o Azure AD PIM.
 
 | Derechos de acceso de los usuarios | Los revisores pueden ser | Revisión creada en | Experiencia del revisor |
 | --- | --- | --- | --- |
-| Miembros del grupo de seguridad</br>Miembros del grupo de Office | Revisores especificados</br>Propietarios del grupo</br>Revisión propia | Revisiones de acceso de Azure AD</br>Grupos de Azure AD | Panel de acceso |
-| Asignados a una aplicación conectada | Revisores especificados</br>Revisión propia | Revisiones de acceso de Azure AD</br>Aplicaciones de empresa de Azure AD (en versión preliminar) | Panel de acceso |
-| Rol de Azure AD | Revisores especificados</br>Revisión propia | Azure AD PIM | Azure Portal |
-| Rol de recursos de Azure | Revisores especificados</br>Revisión propia | Azure AD PIM | Azure Portal |
+| Miembros del grupo de seguridad</br>Miembros del grupo de Office | Revisores especificados</br>Propietarios del grupo</br>Autorrevisión | Revisiones de acceso de Azure AD</br>Grupos de Azure AD | Panel de acceso |
+| Asignados a una aplicación conectada | Revisores especificados</br>Autorrevisión | Revisiones de acceso de Azure AD</br>Aplicaciones de empresa de Azure AD (en versión preliminar) | Panel de acceso |
+| Rol de Azure AD | Revisores especificados</br>Autorrevisión | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal de Azure |
+| Rol de recursos de Azure | Revisores especificados</br>Autorrevisión | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portal de Azure |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="which-users-must-have-licenses"></a>¿Qué usuarios deben tener licencias?
 
-Para usar revisiones de acceso, debe tener una de las siguientes licencias:
+Cada usuario que interactúa con las revisiones de acceso debe tener una licencia de pago de Azure AD Premium P2. Algunos ejemplos son:
 
-- Azure AD Premium P2
-- Licencia de Enterprise Mobility + Security (EMS) E5
+- Administradores que crean una revisión de acceso
+- Propietarios de grupos que realizan una revisión de acceso
+- Usuarios asignados como revisores
+- Usuarios que realizan una autorrevisión
 
-Para más información, consulte [ Suscripción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial) (Prueba de Enterprise Mobility + Security E5).
+También puede solicitar a los usuarios invitados que revisen su propio acceso. Por cada licencia de Azure AD Premium P2 de pago que asigne a uno de los usuarios de la organización, puede usar la colaboración negocio a negocio (B2B) Azure AD para invitar hasta a cinco usuarios, gracias a la concesión de usuarios externos. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
 
-## <a name="get-started-with-access-reviews"></a>Introducción a las revisiones de acceso
+Estos son algunos escenarios de ejemplo que le ayudarán a determinar el número de licencias que debe tener.
+
+| Escenario | Cálculo | Número necesario de licencias |
+| --- | --- | --- |
+| Un administrador crea una revisión de acceso al grupo A con 500 usuarios.<br/>Asigna a tres propietarios del grupo como revisores. | Un administrador y tres propietarios de grupos | 4 |
+| Un administrador crea una revisión de acceso al grupo A con 500 usuarios.<br/>Realiza una autorrevisión. | Un administrador y 500 usuarios como autorrevisores | 501 |
+| Un administrador crea una revisión de acceso de un grupo con cinco usuarios y 25 usuarios invitados.<br/>Realiza una autorrevisión. | Un administrador y cinco usuarios como revisores automática<br/>(los usuarios invitados están cubiertos en la proporción requerida de 1:5) | 6 |
+| Un administrador crea una revisión de acceso de un grupo con cinco usuarios y 28 usuarios invitados.<br/>Realiza una autorrevisión. | Un administrador y cinco usuarios como autorrevisores más un usuario para cubrir los usuarios invitados en la proporción 1:5 requerida | 7 |
+
+Para más información acerca de cómo asignar licencias a los usuarios, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+
+## <a name="learn-about-access-reviews"></a>Más información sobre las revisiones de acceso
 
 Para obtener más información sobre cómo crear y realizar las revisiones de acceso, vea esta breve demostración:
 
@@ -80,33 +93,13 @@ Si está listo para implementar revisiones de acceso en su organización, siga e
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
-## <a name="enable-access-reviews"></a>Habilitación de revisiones de acceso
+## <a name="license-requirements"></a>Requisitos de licencia
 
-Para habilitar las revisiones de acceso, siga estos pasos.
-
-1. Como administrador Global o administrador de usuario, inicie sesión en el [portal Azure](https://portal.azure.com) donde desea usar el acceso de revisiones.
-
-1. Haga clic en **Todos los servicios** y busque el servicio Revisiones de acceso.
-
-1. Haga clic en **las revisiones de acceso**.
-
-    ![Revisiones de acceso de todos los servicios:](./media/access-reviews-overview/all-services-access-reviews.png)
-
-1. En la lista de navegación, haga clic en **Incorporar** para abrir la página **Incorporarse a las revisiones de acceso**.
-
-    ![Incorporación de revisiones de acceso](./media/access-reviews-overview/onboard-button.png)
-
-1. Haga clic en **Crear** para habilitar las revisiones de acceso en el directorio actual.
-
-    ![Incorporarse a las revisiones de acceso](./media/access-reviews-overview/onboard-access-reviews.png)
-
-    Revisa la próxima vez que inicie acceso, se habilitarán las opciones de revisión de acceso.
-
-    ![Revisiones de acceso habilitadas](./media/access-reviews-overview/access-reviews-enabled.png)
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de una revisión de acceso de grupos o aplicaciones](create-access-review.md)
 - [Creación de una revisión de acceso de los usuarios en un rol administrativo de Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Revisar el acceso a grupos o aplicaciones](perform-access-review.md)
-- [Revisión de acceso de grupos o aplicaciones](complete-access-review.md)
+- [Revisión del acceso a grupos o aplicaciones](perform-access-review.md)
+- [Completar una revisión de acceso de grupos o aplicaciones](complete-access-review.md)

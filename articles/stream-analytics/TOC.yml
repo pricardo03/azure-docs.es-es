@@ -88,7 +88,7 @@
           href: stream-analytics-test-query.md
         - name: Visualización de los resultados en un panel
           href: stream-analytics-power-bi-dashboard.md
-        - name: Limpieza de un trabajo
+        - name: Detención o eliminación de un trabajo
           href: stream-analytics-clean-up-your-job.md
         - name: Emparejamiento de trabajos por motivos de confiabilidad
           href: stream-analytics-job-reliability.md

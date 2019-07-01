@@ -5,19 +5,22 @@
 - name: Derechos de acceso para crear y administrar solicitudes de soporte técnico
   href: create-manage-support-requests-using-access-control.md
 - name: Solicitudes de aumento de cuota
-  href: resource-manager-core-quotas-request.md
   items:
-    - name: Aumento del límite de máquinas virtuales de la serie vCPU
-      href: per-vm-quota-requests.md
-    - name: Aumento del límite de vCPU regionales totales
-      href: regional-quota-requests.md
-    - name: Aumento del límite de redes
-      href: networking-quota-requests.md
+    - name: Solicitudes de aumento de cuota del modelo de implementación de Resource Manager
+      items:
+        - name: Aumento del límite de máquinas virtuales de la serie vCPU
+          href: per-vm-quota-requests.md
+        - name: Aumento del límite de vCPU regionales totales
+          href: regional-quota-requests.md
+        - name: Aumento del límite de redes
+          href: networking-quota-requests.md
+    - name: Solicitudes de aumento de cuota del modelo de implementación clásico
+      href: classic-deployment-model-quota-increase-requests.md
 - name: Solución de problemas de regiones o suscripciones de SKU
   href: sku-series-unavailable.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure
     - name: Azure PowerShell
       href: /powershell/azure

@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66015213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204514"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>¿Qué es Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection permite a las organizaciones configurar respuestas automatizadas a acciones sospechosas relacionadas con las identidades de usuario.
+Azure Active Directory Identity Protection permite a las organizaciones configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios.
 
 ## <a name="get-started"></a>Introducción
 
