@@ -179,7 +179,7 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 | type | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
 | name | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
 | description | Sin | Descripción opcional de la alerta. |
-| Gravedad | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
+| severity | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 
 #### <a name="threshold"></a>Umbral
