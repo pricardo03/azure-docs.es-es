@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549090"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carga de datos en Azure SQL Data Warehouse mediante Azure Data Factory
@@ -26,10 +26,10 @@ La introducción a Azure SQL Data Warehouse es ahora más fácil que nunca si se
 
 Azure Data Factory ofrece los siguientes beneficios para cargar datos en Azure SQL Data Warehouse:
 
-* **Fácil de configurar**: Un asistente intuitivo de 5 pasos sin necesidad de scripting.
-* **Almacén de datos enriquecidos admiten**: Compatibilidad integrada para un amplio conjunto de servidores locales y almacenes de datos basado en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
-* **Seguro y conforme**: Se transfieran a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
-* **Rendimiento sin precedentes mediante PolyBase**: Polybase es la manera más eficaz para mover datos a Azure SQL Data Warehouse. Mediante la característica de blob de almacenamiento provisional, puede alcanzar velocidades de carga altas para todos los tipos de almacenes de datos, incluido Azure Blob Storage y Data Lake Store. (Polybase es compatible con Azure Blob Storage y Azure Data Lake Store de forma predeterminada). Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
+* **Fácil de configurar**: con un asistente intuitivo en cinco pasos sin necesidad de scripting.
+* **Amplia compatibilidad para el almacenamiento de datos**: compatibilidad integrada para un amplio conjunto de almacenes de datos tanto locales como en la nube. Para una lista detallada, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Seguro y compatible**: los datos se transfieren a través de HTTPS o ExpressRoute. La presencia del servicio global garantiza que los datos nunca abandonan el límite geográfico.
+* **Rendimiento sin precedentes mediante PolyBase**: Polybase es la forma más eficaz de mover datos a Azure SQL Data Warehouse. Mediante la característica de blob de almacenamiento provisional, puede alcanzar velocidades de carga altas para todos los tipos de almacenes de datos, incluido Azure Blob Storage y Data Lake Store. (Polybase es compatible con Azure Blob Storage y Azure Data Lake Store de forma predeterminada). Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
 
 En este artículo se muestra cómo usar la herramienta para copiar datos de Data Factory a fin de _cargar datos de Azure SQL Database en Azure SQL Data Warehouse_. Puede seguir los mismos pasos para copiar datos de otros tipos de almacenes de datos.
 
@@ -39,9 +39,9 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* Azure SQL Data Warehouse: El almacenamiento de datos contiene los datos que se copian de la base de datos SQL. Si no tiene ninguna instancia de Azure SQL Data Warehouse, consulte las instrucciones de [Creación de una instancia de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: En este tutorial copia datos de una base de datos SQL de Azure con los datos de ejemplo Adventure Works LT. Puede crear una base de datos SQL si sigue las instrucciones que aparecen en [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md). 
-* Cuenta de almacenamiento de Azure: Azure Storage se usa como el _ensayo_ blob en la operación de copia masiva. Si no dispone de una cuenta de almacenamiento de Azure, consulte las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
+* Azure SQL Data Warehouse: Este almacén de datos contiene los datos que se copian de SQL Database. Si no tiene ninguna instancia de Azure SQL Data Warehouse, consulte las instrucciones de [Creación de una instancia de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+* Azure SQL Database: este tutorial copia los datos de una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. Puede crear una base de datos SQL si sigue las instrucciones que aparecen en [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md). 
+* Cuenta de almacenamiento de Azure: Azure Storage se usa como blob de _almacenamiento provisional_ en la operación de copia masiva. Si no dispone de una cuenta de almacenamiento de Azure, consulte las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
@@ -53,7 +53,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
       
    ![Página New data factory (Nueva factoría de datos)](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadSQLDWDemo\" no está disponible", escriba un nombre diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_**ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
+    * **Nombre**: escriba un nombre único global para la factoría de datos de Azure. Si recibe el error "El nombre de la factoría de datos \"LoadSQLDWDemo\" no está disponible", escriba un nombre diferente. Por ejemplo, podría utilizar el nombre _**suNombre**_ **ADFTutorialDataFactory**. Intente crear de nuevo la factoría de datos. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
     * **Suscripción**: seleccione la suscripción de Azure donde desea crear la factoría de datos. 
     * **Grupo de recursos**: seleccione un grupo de recursos existente en la lista desplegable o seleccione la opción **Crear nuevo** y escriba el nombre de un grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versión**: seleccione **V2**.
@@ -77,7 +77,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 1. En la página **Almacén de datos de origen**, realice los pasos siguientes:
 
-     a. Haga clic en **+ Crear nueva conexión**:
+    a. Haga clic en **+ Crear nueva conexión**:
 
     ![Página Source data store (Almacén de datos de origen)](./media/load-azure-sql-data-warehouse/new-source-linked-service.png)
 
@@ -85,7 +85,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
     ![Seleccione Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. En el **nuevo servicio vinculado** página, seleccione el nombre del servidor y el nombre de la base de datos en la lista desplegable y especifique el nombre de usuario y la contraseña. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
+    c. En la página **New Linked Service** (Nuevo servicio vinculado) seleccione el nombre del servidor y el de la base de datos en la lista desplegable y especifique el nombre de usuario y la contraseña. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
    
     ![Configurar Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -99,7 +99,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 1. En la página **Almacén de datos de destino**, realice los pasos siguientes:
 
-     a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
+    a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
     ![Página del almacén de datos receptor](./media/load-azure-sql-data-warehouse/new-sink-linked-service.png)
 
@@ -107,7 +107,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
     ![Seleccionar Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. En el **nuevo servicio vinculado** página, seleccione el nombre del servidor y el nombre de la base de datos en la lista desplegable y especifique el nombre de usuario y la contraseña. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
+    c. En la página **New Linked Service** (Nuevo servicio vinculado) seleccione el nombre del servidor y el de la base de datos en la lista desplegable y especifique el nombre de usuario y la contraseña. Haga clic en **Test connection** (Prueba de conexión) para validar la configuración y, después, seleccione **Finish** (Finalizar).
    
     ![Configurar Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
@@ -128,7 +128,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 1. En la página **Settings** (Configuración), siga estos pasos:
 
-     a. En la sección **Staging settings** (Configuración provisional), haga clic en **+ New** (+Nuevo) para crear un almacenamiento provisional. El almacenamiento se usa para almacenar provisionalmente los datos antes de cargarlos en SQL Data Warehouse mediante PolyBase. Una vez que se completa la copia, los datos provisionales en Azure Storage se limpian automáticamente. 
+    a. En la sección **Staging settings** (Configuración provisional), haga clic en **+ New** (+Nuevo) para crear un almacenamiento provisional. El almacenamiento se usa para almacenar provisionalmente los datos antes de cargarlos en SQL Data Warehouse mediante PolyBase. Una vez que se completa la copia, los datos provisionales en Azure Storage se limpian automáticamente. 
 
     ![Configurar almacenamiento provisional](./media/load-azure-sql-data-warehouse/configure-staging.png)
 
