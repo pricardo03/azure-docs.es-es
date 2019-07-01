@@ -62,11 +62,11 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
 
 | Campo | ¿Obligatorio? | DESCRIPCIÓN |
 | --- | --- | --- |
-| operación |Sí |el valor debe ser "Scale" |
+| operation |Sí |el valor debe ser "Scale" |
 | sendToSubscriptionAdministrator |Sí |el valor debe ser "true" o "false" |
 | sendToSubscriptionCoAdministrators |Sí |el valor debe ser "true" o "false" |
 | customEmails |Sí |el valor puede ser null [] o una cadena de matriz de mensajes de correo electrónico |
-| Webhooks |Sí |el valor puede ser null o un identificador URI válido |
+| webhooks |Sí |el valor puede ser null o un identificador URI válido |
 | serviceUri |Sí |un identificador URI de https válido |
 | properties |Sí |el valor debe ser {} vacío o puede contener pares clave-valor |
 
@@ -106,11 +106,11 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | Campo | ¿Obligatorio? | DESCRIPCIÓN |
 | --- | --- | --- |
 | status |Sí |Estado que indica que se ha generado una acción de escalado automático. |
-| operación |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
-| contexto |Sí |Contexto de la acción de escalado automático. |
+| operation |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
+| context |Sí |Contexto de la acción de escalado automático. |
 | timestamp |Sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
 | id |Sí |Id. de Resource Manager de la configuración de escalado automático |
-| Nombre |Sí |Nombre de la configuración de escalado automático. |
+| name |Sí |Nombre de la configuración de escalado automático. |
 | details |Sí |Explicación de la acción que realizó el servicio de escalado automático y el cambio en el recuento de instancias. |
 | subscriptionId |Sí |Id. de suscripción del recurso de destino que se está escalando. |
 | resourceGroupName |Sí |Nombre del grupo de recursos del recurso de destino que se está escalando. |
@@ -120,5 +120,5 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | portalLink |Sí |Vínculo del portal de Azure a la página de resumen del recurso de destino. |
 | oldCapacity |Sí |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
-| Properties (Propiedades) |Sin |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
+| properties (Propiedades) |Sin |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
 
