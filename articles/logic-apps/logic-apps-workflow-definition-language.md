@@ -80,7 +80,7 @@ Esta es la estructura general de una definición de salida:
 |-----------|----------|------|-------------|
 | <*key-name*> | Sí | Cadena | El nombre de clave del valor devuelto de salida. |
 | <*key-type*> | Sí | int, float, string, securestring, bool, array, JSON object | El tipo del valor devuelto de salida. |
-| <*valor-de-la-clave*> | Sí | Igual que <*key-type*> | El valor devuelto de salida. |
+| <*key-value*> | Sí | Igual que <*key-type*> | El valor devuelto de salida. |
 |||||
 
 Para obtener la salida de una ejecución de flujo de trabajo, revise el historial y los detalles de ejecución de la aplicación lógica en Azure Portal o use la [API REST de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). También puede pasar la salida a sistemas externos, por ejemplo, a Power BI, para crear paneles.

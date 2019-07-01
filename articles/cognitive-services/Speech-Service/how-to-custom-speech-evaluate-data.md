@@ -1,7 +1,7 @@
 ---
-title: Evaluar la precisión de voz personalizados - servicios de voz
+title: 'Evaluación de la precisión de la voz personalizada: servicios de Voz'
 titlesuffix: Azure Cognitive Services
-description: En este documento aprenderá cómo trasvasar medir la calidad del modelo de texto a voz de Microsoft o sus modelos personalizados. Datos de la transcripción de audio + etiqueta humanos son necesarios para probar la exactitud y 30 minutos a 5 horas de audio representativa debe proporcionarse.
+description: En este documento, aprenderá a medir cuantitativamente la calidad del modelo de conversión de texto a voz de Microsoft o su modelo personalizado. Para probar la voz se requieren datos de transcripción de con la etiqueta audio + humano, y se deben proporcionar entre 30 minutos y 5 horas de audio representativo.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,64 +11,64 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 7c1b3602b09c1a129923180c4b1d4a5f8293de2c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025914"
 ---
-# <a name="evaluate-custom-speech-accuracy"></a>Evaluar la precisión de voz personalizado
+# <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de la voz personalizada
 
-En este documento, obtendrá información sobre cómo medir la calidad del modelo de texto a voz de Microsoft o sus modelos personalizados de sentido cuantitativo. Datos de la transcripción de audio + etiqueta humanos son necesarios para probar la exactitud y 30 minutos a 5 horas de audio representativa debe proporcionarse.
+En este documento, aprenderá a medir cuantitativamente la calidad del modelo de conversión de texto a voz de Microsoft o su modelo personalizado. Para probar la voz se requieren datos de transcripción de con la etiqueta audio + humano, y se deben proporcionar entre 30 minutos y 5 horas de audio representativo.
 
-## <a name="what-is-word-error-rate-wer"></a>¿Qué es la tasa de errores de Word (WER)?
+## <a name="what-is-word-error-rate-wer"></a>¿Qué es Word Error Rate (WER)?
 
-Es el estándar del sector para medir la precisión del modelo *tasa de errores de Word* (WER). WER cuenta el número de palabras incorrectas identificadas durante el reconocimiento, a continuación, se divide por el número total de las palabras proporcionadas en la transcripción de la etiqueta humanos. Por último, ese número se multiplica por 100% para calcular el WER.
+Es el estándar del sector para medir la precisión del modelo. WER cuenta el número de palabras incorrectas identificadas durante el reconocimiento y luego las divide entre el número total de palabras proporcionadas en la transcripción con la etiqueta humano. Por último, ese número se multiplica por 100 % para calcular la tasa WER.
 
-![Fórmula WER](./media/custom-speech/custom-speech-wer-formula.png)
+![Fórmula de WER](./media/custom-speech/custom-speech-wer-formula.png)
 
-Ha identificado incorrectamente las palabras otoño en tres categorías:
+Las palabras identificadas incorrectamente pertenecen a tres categorías:
 
-* Inserción (I): Palabras que se agregan incorrectamente en la transcripción de hipótesis
-* Eliminación (D): Palabras que están sin detectar en la transcripción de hipótesis
-* Sustitución (S): Palabras que se sustituyen entre hipótesis y de referencia
+* Inserción (I): palabras que se agregan incorrectamente en la transcripción de hipótesis.
+* Eliminación (D): palabras que no se detectan en la transcripción de hipótesis.
+* Sustitución (S): palabras que se sustituyeron entre la referencia y la hipótesis.
 
 Este es un ejemplo:
 
 ![Ejemplo de palabras identificadas incorrectamente](./media/custom-speech/custom-speech-dis-words.png)
 
-## <a name="resolve-errors-and-improve-wer"></a>Resolver errores y mejorar WER
+## <a name="resolve-errors-and-improve-wer"></a>Resolución de errores y mejora de WER
 
-Puede usar el WER desde los resultados de reconocimiento de la máquina para evaluar la calidad del modelo que se usa con su aplicación, la herramienta o el producto. Un WER de 5-10% se considera que es buena calidad y está listo para usarse. Un WER del 20% es aceptable, pero que desee considerar entrenamiento adicional. Un WER del 30% o más señala una calidad deficiente y requiere la personalización y entrenamiento.
+Puede usar WER a partir de los resultados de reconocimiento automático para evaluar la calidad del modelo que usa con su aplicación, herramienta o producto. Una tasa WER de entre un 5 y un 10 % se considera buena calidad y está listo para usarse. Una tasa WER de 20 % es aceptable, pero quizás considere la posibilidad de entrenamiento adicional. Una tasa WER de 30 % o más señala una calidad deficiente y la necesidad de personalización y entrenamiento.
 
-Cómo se distribuyen los errores es importante. Cuando se producen muchos errores de eliminación, suele ser debido a la intensidad de señal de audio débil. Para resolver este problema, debe recopilar datos de audio más cercano al origen. Errores de inserción significan que el audio se grabó en un entorno ruidoso y puede estar presente, hablan a la vez que causan problemas de reconocimiento. A menudo se producen errores de sustitución cuando una muestra suficiente de términos específicos de dominio se ha proporcionado como transcripciones etiquetados humanos o relacionados con texto.
+El modo en que se distribuyen los errores es importante. Si se encuentran muchos errores de eliminación, la causa suele ser la intensidad débil de señal de audio. Para resolver este problema, debe recopilar los datos de audio más cerca de la fuente. Los errores de inserción significan que el audio se grabó en un entorno ruidoso y pueden producirse interferencias, lo que ocasiona problemas de reconocimiento. Los errores de sustitución se encuentran a menudo cuando se ha proporcionado una muestra insuficiente de términos específicos del dominio como transcripciones con la etiqueta humano o texto relacionado.
 
-Al analizar archivos individuales, puede determinar qué tipo de errores existen y qué errores son únicos en un archivo específico. Comprensión de los problemas en el nivel de archivo le ayudará a las mejoras de destino.
+Al analizar archivos individuales, puede determinar qué tipo de errores existen y qué errores son específicos de un determinado archivo. Comprender los problemas en el nivel de archivo le ayudará a identificar las mejoras.
 
-## <a name="create-a-test"></a>Crear una prueba
+## <a name="create-a-test"></a>Creación de una prueba
 
-Si desea probar la calidad del modelo de línea de base de texto a voz de Microsoft o un modelo personalizado que ha formado, se pueden comparar dos modelos en paralelo para evaluar la precisión. La comparación incluye los resultados de reconocimiento y WER. Normalmente, un modelo personalizado se compara con el modelo de línea de base de Microsoft.
+Si quiere probar la calidad del modelo de línea de base de texto a voz de Microsoft o un modelo personalizado que haya entrenado, puede comparar dos modelos en paralelo para evaluar la precisión. La comparación incluye los resultados de reconocimiento y WER. Normalmente, un modelo personalizado se compara con el modelo de línea de base de Microsoft.
 
 Para evaluar los modelos en paralelo:
 
-1. Vaya a **Speech to text > personalizado de voz > pruebas**.
-2. Haga clic en **Agregar prueba**.
-3. Seleccione **evalúe su precisión**. Asigne un nombre, descripción, a la prueba y seleccione el conjunto de datos de la transcripción de audio + etiqueta humanos.
-4. Seleccione hasta dos modelos que le gustaría probar.
+1. Vaya a **Speech-to-text > Custom Speech > Testing** (Conversión de voz a texto > Custom Speech > Pruebas).
+2. Haga clic en **Add test** (Agregar prueba).
+3. Seleccione **Evaluate accuracy** (Evaluar precisión). Proporcione a la prueba un nombre y una descripción, y seleccione el conjunto de datos de transcripción con la etiqueta audio + humano.
+4. Puede seleccionar hasta dos modelos para probar.
 5. Haga clic en **Create**(Crear).
 
-Después de la prueba se ha creado correctamente, puede comparar los resultados en paralelo.
+Después de que la prueba se ha creado correctamente, puede comparar los resultados en paralelo.
 
 ## <a name="side-by-side-comparison"></a>Comparación en paralelo
 
-Una vez completada la prueba, indicado por el cambio de estado a *Succeeded*, encontrará una serie WER para ambos modelos incluidos en la prueba. Haga clic en el nombre de la prueba para ver la página de detalles de pruebas. Esta página de detalles muestra todas las palabras pronunciadas en el conjunto de datos, que indica los resultados del reconocimiento de los dos modelos, junto con la transcripción del conjunto de datos enviado. Con el fin de inspeccionar la comparación en paralelo, puede alternar los distintos tipos de errores, incluida la inserción, eliminación y sustitución. Al escuchar el audio y comparar los resultados del reconocimiento en cada columna, que muestra la transcripción de la etiqueta humanos y los resultados de dos modelos de voz a texto, puede decidir qué modelo satisfaga sus necesidades y dónde están entrenamiento adicionales y mejoras Obligatorio.
+Una vez finalizada la prueba, que viene indicado por el cambio de estado a *Succeeded* (Correcto), encontrará un número de WER para ambos modelos incluidos en la prueba. Haga clic en el nombre de la prueba para ver la página de detalles de las pruebas. En esta página se muestran todas las expresiones del conjunto de datos y se indican los resultados del reconocimiento de los dos modelos al lado de la transcripción del conjunto de datos enviado. Con el fin de inspeccionar la comparación en paralelo, puede alternar los distintos tipos de error, como inserción, eliminación y sustitución. Al escuchar el audio y comparar los resultados del reconocimiento de cada columna, que muestra la transcripción con la etiqueta humano y los resultados de los dos modelos de voz a texto, puede decidir qué modelo satisface sus necesidades y dónde hacen falta entrenamiento y mejoras adicionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Entrenar el modelo.](how-to-custom-speech-train-model.md)
-* [Implementar el modelo](how-to-custom-speech-deploy-model.md)
+* [Entrenamiento del modelo](how-to-custom-speech-train-model.md)
+* [Implementación del modelo](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Preparar y probar los datos](how-to-custom-speech-test-data.md)
-* [Inspeccione los datos](how-to-custom-speech-inspect-data.md)
+* [Preparación y prueba de los datos](how-to-custom-speech-test-data.md)
+* [Inspección de los datos](how-to-custom-speech-inspect-data.md)

@@ -157,7 +157,7 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------|
 | headers | Objeto JSON | Encabezados de la respuesta |
-| Cuerpo | Objeto JSON | Cuerpo de la respuesta |
+| body | Objeto JSON | Cuerpo de la respuesta |
 | status code | Entero | El código de estado de la respuesta |
 |||| 
 
@@ -330,7 +330,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
 | headers | Objeto JSON | Encabezados de la respuesta | 
-| Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
+| body | Objeto JSON | Cuerpo de la respuesta | 
 | status code | Entero | El código de estado de la respuesta | 
 |||| 
 
@@ -425,7 +425,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
 | headers | Objeto JSON | Encabezados de la respuesta | 
-| Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
+| body | Objeto JSON | Cuerpo de la respuesta | 
 | status code | Entero | El código de estado de la respuesta | 
 |||| 
 

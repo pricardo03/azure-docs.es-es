@@ -1,5 +1,5 @@
 ---
-title: 'Inicie sesión con la información de comprobación o la seguridad de dos pasos: Azure Active Directory | Microsoft Docs'
+title: 'Inicio de sesión con la verificación en dos pasos o la información de seguridad: Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo iniciar sesión con los distintos métodos de verificación de identidad en la información de seguridad.
 services: active-directory
 author: eross-msft
@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472976"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicio de sesión con la información de seguridad o la verificación en dos pasos
@@ -53,16 +53,16 @@ Una vez configurada la verificación en dos pasos o la información de seguridad
 2. Abra el mensaje de texto y escriba el código del mensaje de texto en el cuadro **Especificar el código**.
 
 ## <a name="sign-in-using-another-verification-method"></a>Inicio de sesión con otro método de comprobación
-Si por algún motivo no puede utilizar su método principal de inicio de sesión, puede usar otro método de comprobación ha establecido previamente.
+Si por algún motivo no puede usar su método de inicio de sesión principal, puede usar otro método de comprobación configurado previamente.
 
-1. Inicie sesión en su cuenta normalmente y, a continuación, elija el **otra manera de iniciar sesión** vincular en el **verificación** página.
+1. Inicie sesión en la cuenta de la forma habitual y, luego, elija el vínculo **Sign in another way** (Iniciar sesión de otro modo) en la página **Two-step verification** (Verificación en dos pasos).
 
     ![Cambio del método de comprobación de inicio de sesión](media/security-info/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >Si no ve el **otra manera de iniciar sesión** vincular, significa que no ha configurado ningún otro método de comprobación y que tendrá que ponerse en contacto con el Administrador de ayuda para iniciar sesión en su cuenta. Después de que el administrador le ayuda a iniciar sesión, asegúrese de que agregar métodos de comprobación adicional. Para más información sobre cómo agregar métodos de comprobación, consulte el artículo [Administración de la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md).
+    >Si no ve el vínculo **Sign in another way** (Iniciar sesión de otro modo), significa que no ha configurado ningún otro método de comprobación y que tendrá que ponerse en contacto con el administrador para solicitar ayuda para iniciar sesión en su cuenta. Después de que el administrador lo ayuda a iniciar sesión, asegúrese de agregar métodos de comprobación adicionales. Para más información sobre cómo agregar métodos de comprobación, consulte el artículo [Administración de la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md).
     > 
-    >Si ve el **otra manera de iniciar sesión** vincular, pero sigue sin ver otros métodos de verificación, tendrá que ponerse en contacto con el administrador para obtener ayuda de inicio de sesión en su cuenta.
+    >Si ve el vínculo pero sigue sin ver ningún otro método de comprobación, tendrá que ponerse en contacto con el administrador para que lo ayude a iniciar sesión en su cuenta.
 
 2. Elija el método de comprobación alternativo y siga con el proceso de verificación en dos pasos.
 
