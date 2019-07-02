@@ -58,8 +58,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=data-catalog'
     - name: REST
       href: /rest/api/datacatalog/
-    - name: Plantilla de Resource Manager
-      href: /azure/templates/microsoft.datacatalog/catalogs
     - name: Búsqueda de referencia de sintaxis
       href: /rest/api/datacatalog/data-catalog-search-syntax-reference
     - name: Conceptos para desarrollador

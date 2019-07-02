@@ -109,7 +109,7 @@ Algunos ejemplos de recuperación de datos de la plantilla _myTemplateArtifact_ 
 
 | Expression | Type | Valor |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadena | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | Cadena | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | { "myproperty": "my value", "anotherProperty": true } |

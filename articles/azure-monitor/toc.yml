@@ -564,6 +564,8 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: Habilitar para un clúster ya existente
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: Asignaciones de regiones
+                      href: insights/container-insights-region-mapping.md
                 - name: Análisis
                   href: insights/container-insights-analyze.md
                 - name: Configuración de los valores de colección del agente
