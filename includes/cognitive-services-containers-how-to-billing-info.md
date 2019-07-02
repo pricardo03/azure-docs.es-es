@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/16/2019
-ms.openlocfilehash: 05961f8dd2788179a15e6bfe094484cf4770067b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052045"
 ---
 Las consultas en el contenedor se facturan con el plan de tarifa del recurso de Azure que se usa para `<ApiKey>`.
 
@@ -21,12 +21,12 @@ El contenedor necesita que se ejecuten los valores del argumento de facturación
 
 ### <a name="billing-arguments"></a>Argumentos de facturación
 
-Las tres opciones siguientes se deben especificar con valores válidos para que el comando `docker run` inicie el contenedor.
+Para que el comando `docker run` inicie el contenedor, se deben especificar las tres opciones siguientes se deben especificar con valores válidos:
 
 | Opción | DESCRIPCIÓN |
 |--------|-------------|
-| `ApiKey` | La clave de API del recurso de Cognitive Services usado para realizar un seguimiento de la información de facturación.<br/>El valor de esta opción debe establecerse en una clave de API del recurso aprovisionado especificado en `Billing`. |
-| `Billing` | El punto de conexión del recurso de Cognitive Services usado para realizar el seguimiento de la información de facturación.<br/>El valor de esta opción debe establecerse en el URI del punto de conexión de un recurso aprovisionado de Azure.|
-| `Eula` | Indica que ha aceptado la licencia del contenedor.<br/>El valor de esta opción debe establecerse en `accept`. |
+| `ApiKey` | La clave de API del recurso de Cognitive Services que se usa para realizar un seguimiento de la información de facturación.<br/>El valor de esta opción se debe establecer en una clave de API para el recurso aprovisionado que se especifica en `Billing`. |
+| `Billing` | El punto de conexión del recurso de Cognitive Services que se usa para realizar el seguimiento de la información de facturación.<br/>El valor de esta opción debe establecerse en el URI del punto de conexión de un recurso aprovisionado de Azure.|
+| `Eula` | Indica que ha aceptado la licencia del contenedor.<br/>El valor de esta opción debe establecerse en **accept**. |
 
 

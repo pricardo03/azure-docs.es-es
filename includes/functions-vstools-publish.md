@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5c513a76537eb5b28e85e6289a610e318ab790d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050712"
 ---
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
 2. Seleccione **Azure Function App**, elija **Crear nuevo**y, después, seleccione **Publicar**.
 
-    ![Elegir un destino de publicación](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
+    ![Elegir un destino de publicación](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png) 
 
-    Cuando habilita **Ejecutar desde ZIP**, la aplicación de función de Azure entra en modo de solo lectura y se ejecuta directamente desde el paquete de implementación. Para más información, consulte [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
-     
+    Al hacer clic en **Run from a package file (recommended)** [Ejecutar desde un archivo de paquete (se recomienda)], la aplicación de funciones se implementará mediante la [implementación desde un archivo ZIP](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) con el modo [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) (Ejecutar desde paquete) habilitado. Esta es la forma recomendada de ejecutar las funciones y mejorará el rendimiento.
+
     >[!CAUTION]
     >Al elegir **Seleccionar existente**, todos los archivos de la aplicación de función existente en Azure se sobrescriben con los archivos del proyecto local. Use esta opción solo al volver a publicar actualizaciones en una aplicación de función existente.
 
-3. Si todavía no conectó Visual Studio a su cuenta de Azure, seleccione **Agregar una cuenta...**.
+3. Si todavía no conectó Visual Studio a su cuenta de Azure, seleccione **Agregar una cuenta...** .
 
 4. En el cuadro de diálogo **Crear servicio de aplicaciones**, utilice la configuración de **Hospedaje** que se especifica en la tabla que hay debajo de la imagen:
 
