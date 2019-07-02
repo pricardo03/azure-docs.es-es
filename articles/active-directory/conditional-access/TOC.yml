@@ -19,6 +19,8 @@
 - name: Conceptos
   expanded: false
   items:
+    - name: Adopción del acceso condicional
+      href: howto-conditional-access-adoption-kit.md
     - name: Directivas de protección básicas
       href: concept-baseline-protection.md
     - name: Condiciones

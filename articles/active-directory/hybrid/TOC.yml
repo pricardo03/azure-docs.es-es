@@ -22,6 +22,8 @@
       items:
         - name: Administración regulada por la nube para cargas de trabajo locales
           href: cloud-governed-management-for-on-premises.md
+        - name: Cuatro pasos para una base de identidad sólida
+          href: four-steps.md
     - name: Azure AD Connect y Connect Health
       items:
         - name: ¿Qué es Azure AD Connect y Connect Health?
@@ -68,6 +70,8 @@
       items:
         - name: ¿Qué es Azure AD Connect Sync?
           href: how-to-connect-sync-whatis.md
+        - name: Cuenta de servicio de Azure ADSync
+          href: concept-adsync-service-account.md
         - name: Características de la sincronización de Azure AD Connect
           href: how-to-connect-syncservice-features.md
         - name: ¿Qué es Azure AD Connect Sync Service Manager?

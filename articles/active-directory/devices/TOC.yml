@@ -18,43 +18,53 @@
     - name: Configuración de Azure AD durante la primera ejecución de Windows 10
       href: azuread-joined-devices-frx.md
 - name: Conceptos
-  expanded: false
+  expanded: true
   items:
+    - name: Dispositivos registrados en Azure AD
+      href: concept-azure-ad-register.md
+    - name: Dispositivos unidos a Azure AD
+      href: concept-azure-ad-join.md
+    - name: Dispositivos híbridos unidos a Azure AD
+      href: concept-azure-ad-join-hybrid.md
     - name: Inicio de sesión único en recursos locales
       href: azuread-join-sso.md
     - name: Tokens de actualización principales
       href: concept-primary-refresh-token.md
-    - name: Estaciones de trabajo administradas de Azure
+    - name: Estaciones de trabajo administradas por Azure
       href: concept-azure-managed-workstation.md
 - name: Guías de procedimientos
-  expanded: true
+  expanded: false
   items:
-    - name: Administración de identidades de dispositivo
-      href: device-management-azure-portal.md
-    - name: Administración de dispositivos obsoletos
-      href: manage-stale-devices.md
     - name: Planeación de la implementación de la unión a Azure AD
       href: azureadjoin-plan.md
+    - name: Asignación de administradores locales en dispositivos unidos a Azure AD
+      href: assign-local-admin.md
     - name: Planeación de la implementación de la unión a Azure AD híbrido
       href: hybrid-azuread-join-plan.md
     - name: Validación controlada de la unión a Azure AD híbrido
       href: hybrid-azuread-join-control.md
-    - name: Asignación de administradores locales en dispositivos unidos a Azure AD
-      href: assign-local-admin.md
+    - name: Administración de identidades de dispositivo
+      href: device-management-azure-portal.md
+    - name: Administración de dispositivos obsoletos
+      href: manage-stale-devices.md
     - name: Habilitar Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
-    - name: Implementación de estaciones de trabajo administradas de Azure
+    - name: Implementación de estaciones de trabajo administradas por Azure
       href: howto-azure-managed-workstation.md
-    - name: Solución de problemas de dispositivos actuales de Windows unidos a Azure AD híbrido
-      href: troubleshoot-hybrid-join-windows-current.md
-    - name: Solución de problemas de dispositivos heredados de Windows unidos a Azure AD híbrido
-      href: troubleshoot-hybrid-join-windows-legacy.md
-    - name: Solución de problemas de Enterprise State Roaming
-      href: enterprise-state-roaming-troubleshooting.md
+    - name: Solución de problemas de identidades de dispositivo
+      items:
+        - name: Solución de problemas de dispositivos actuales de Windows unidos a Azure AD híbrido
+          href: troubleshoot-hybrid-join-windows-current.md
+        - name: Solución de problemas de dispositivos heredados de Windows unidos a Azure AD híbrido
+          href: troubleshoot-hybrid-join-windows-legacy.md
+        - name: Solución de problemas de Enterprise State Roaming
+          href: enterprise-state-roaming-troubleshooting.md
     - name: Preguntas más frecuentes
-      href: faq.md
-    - name: Habilitar preguntas frecuentes de Enterprise State Roaming
-      href: enterprise-state-roaming-faqs.md
+      items:
+        - name: Preguntas más frecuentes
+          href: faq.md
+        - name: Habilitar preguntas frecuentes de Enterprise State Roaming
+          href: enterprise-state-roaming-faqs.md
 - name: Referencia
   items:
     - name: Configuración de GPO de Enterprise State Roaming

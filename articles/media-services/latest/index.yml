@@ -55,34 +55,22 @@ sections:
         className: cardsM
         columns: 1
         items:
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>El tutorial le indica cómo cargar un archivo de vídeo local, codificar el archivo y transmitir el contenido codificado.<p/>'
+          - html: '<p>El tutorial le indica cómo cargar un archivo de vídeo local, codificar el archivo y transmitir el contenido codificado.<p/>'
             href: /azure/media-services/latest/stream-files-tutorial-with-api
             title: Codificación de archivos cargados y streaming de vídeo
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>El tutorial explica cómo configurar un evento en directo. Posteriormente, muestra cómo usar .NET para crear un tipo de paso a través de un evento en directo.</p>'
+          - html: '<p>El tutorial explica cómo configurar un evento en directo. Posteriormente, muestra cómo crear un tipo de paso a través de un evento en directo.</p>'
             href: /azure/media-services/latest/stream-live-tutorial-with-api
             title: Difusión en directo
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>En este tutorial se muestra cómo analizar vídeos con la API de Azure Media Services.</p>
+          - html: <p>En este tutorial se muestra cómo analizar vídeos con la API de Azure Media Services.</p>
             href: /azure/media-services/latest/analyze-videos-tutorial-with-api
             title: Análisis del vídeo
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Aprenda a configurar y usar las API de Media Services para cifrar dinámicamente el contenido con AES-128.</p>
+          - html: <p>Aprenda a configurar y usar las API de Media Services para cifrar dinámicamente el contenido con AES-128.</p>
             href: /azure/media-services/latest/protect-with-aes128
             title: Cifrado dinámico con AES-128
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Aprenda a configurar y usar las API de Media Services para cifrar dinámicamente el contenido con varias soluciones de DRM (PlayReady, Widevine y FairPlay).</p>'
+          - html: '<p>Aprenda a configurar y usar las API de Media Services para cifrar dinámicamente el contenido con varias soluciones de DRM (PlayReady, Widevine y FairPlay).</p>'
             href: /azure/media-services/latest/protect-with-drm
             title: Cifrado dinámico con varias soluciones de DRM
-          - image:
-              src: media/index/rest.svg
-            html: <p>El tutorial le indica cómo codificar un archivo remoto según la dirección URL y cómo transmitir el vídeo.</p>
+          - html: <p>El tutorial le indica cómo codificar un archivo remoto según la dirección URL y cómo transmitir el vídeo.</p>
             href: /azure/media-services/latest/stream-files-tutorial-with-rest
             title: Codificación de archivos remotos y streaming de vídeo
   - title: Ejemplos
@@ -94,7 +82,7 @@ sections:
         items:
           - image:
               src: media/index/cli.svg
-            text: Azure CLI
+            text: CLI de Azure
             href: 'https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services'
           - image:
               src: media/index/rest.svg

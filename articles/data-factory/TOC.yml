@@ -548,8 +548,6 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Limpieza de los registros de SSISDB con trabajos de Elastic Database
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-        - name: Solución de problemas de ejecución de paquetes en Azure-SSIS Integration Runtime
-          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Creación de desencadenadores
       items:
         - name: Creación de un desencadenador basado en eventos
@@ -572,6 +570,12 @@
           href: solution-template-delta-copy-with-control-table.md
         - name: Transformación de datos con Databricks
           href: solution-template-databricks-notebook.md
+    - name: Guía de solución de problemas
+      items:
+        - name: Solución de problemas de actividad
+          href: data-factory-troubleshoot-guide.md
+        - name: Solución de problemas de ejecución de paquetes en Azure-SSIS Integration Runtime
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Referencia
   items:
     - name: .NET

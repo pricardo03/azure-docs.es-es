@@ -49,11 +49,33 @@
         - name: Pasos de implementación
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
-    - name: OFICIAL EN EL REINO UNIDO
+    - name: NIST SP 800-53 Rev 4
       items:
         - name: Asignación de controles
-          displayName: 'standards, uk official'
+          displayName: 'standards, nist, 800-53'
+          href: ./samples/nist-sp-800-53-rev4/control-mapping.md
+    - name: PCI-DSS v3.2.1
+      items:
+        - name: Información general
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/index.md
+        - name: Asignación de controles
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/control-mapping.md
+        - name: Pasos de implementación
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/deploy.md
+    - name: UK OFFICIAL y UK NHS
+      items:
+        - name: Información general
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/index.md
+        - name: Asignación de controles
+          displayName: 'standards, uk official, uk nhs'
           href: ./samples/ukofficial/control-mapping.md
+        - name: Pasos de implementación
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/deploy.md
 - name: Conceptos
   items:
     - name: Ciclo de vida de un plano técnico

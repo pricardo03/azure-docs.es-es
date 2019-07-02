@@ -29,10 +29,18 @@
       href: sample-projects.md
 - name: Conceptos
   items:
-    - name: Proveedores personalizados
+    - name: Proveedores de recursos personalizados de Azure
       href: custom-providers-overview.md
+    - name: Ver definición de artefacto
+      href: concepts-view-definition.md
 - name: Guías de procedimientos
   items:
+    - name: Proveedores de recursos personalizados
+      items:
+        - name: Adición de acciones personalizadas en Azure
+          href: custom-providers-action-endpoint-how-to.md
+        - name: Adición de recursos personalizados en Azure
+          href: custom-providers-resources-endpoint-how-to.md
     - name: Publicadores
       items:
         - name: Creación de la interfaz del portal
@@ -57,6 +65,12 @@
           href: approve-just-in-time-access.md
 - name: Referencia
   items:
+    - name: Proveedores de recursos personalizados
+      items:
+        - name: Referencia de proxy de recurso personalizado
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: Referencia de caché de recurso personalizado
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
     - name: CLI de Azure
       href: /cli/azure/managedapp
     - name: PowerShell

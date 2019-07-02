@@ -58,6 +58,8 @@
       href: 'https://aka.ms/adpricing'
     - name: Disponibilidad regional
       href: 'https://aka.ms/adregion'
+    - name: Contenido generado por el usuario
+      href: user-generated-content.md
     - name: Unirse al grupo de asesores de Anomaly Detector en Microsoft Teams
       href: 'https://aka.ms/adadvisorsjoin'
     - name: Arquitectura de referencia de la solución

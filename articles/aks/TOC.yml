@@ -19,6 +19,8 @@
     - name: Desarrollo de aplicaciones
       expanded: true
       items:
+        - name: Uso de Draft
+          href: kubernetes-draft.md
         - name: Uso de Java (VS Code y CLI)
           href: ../dev-spaces/quickstart-java.md
           maintainContext: true
@@ -82,7 +84,7 @@
               href: operator-best-practices-container-image-management.md
             - name: Redes
               href: operator-best-practices-network.md
-            - name: Almacenamiento
+            - name: Storage
               href: operator-best-practices-storage.md
             - name: Continuidad empresarial (BC) y recuperación ante desastres (DR)
               href: operator-best-practices-multi-region.md
@@ -153,6 +155,8 @@
               href: configure-azure-cni.md
         - name: Creación de un conjunto de equilibrador de carga interno
           href: internal-lb.md
+        - name: Uso de Standard Load Balancer (versión preliminar)
+          href: load-balancer-standard.md
         - name: Uso de una dirección IP estática
           href: static-ip.md
         - name: Entrada
@@ -187,6 +191,8 @@
           href: use-pod-security-policies.md
         - name: Definición de intervalos IP de servidor de API autorizado (versión preliminar)
           href: api-server-authorized-ip-ranges.md
+        - name: Implementaciones de control con Azure Policy (versión preliminar)
+          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Actualización de las credenciales de la entidad de servicio del clúster
           href: update-credentials.md
         - name: Restricción y control del tráfico de salida del clúster (versión preliminar)
@@ -280,8 +286,6 @@
                   maintainContext: true
         - name: Ejecución de aplicaciones con Helm
           href: kubernetes-helm.md
-        - name: Desarrollo de aplicaciones con Draft
-          href: kubernetes-draft.md
         - name: Uso de Service Broker para Azure
           href: integrate-azure.md
         - name: Uso de la API de Cosmos DB para MongoDB con OSBA

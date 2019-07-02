@@ -17,6 +17,8 @@
               href: quickstarts/python-train-extract.md
 - name: Guías de procedimientos
   items:
+    - name: Creación de un conjunto de datos de aprendizaje
+      href: build-training-data-set.md
     - name: Uso de contenedores
       items:
         - name: Instalación y ejecución de contenedores
