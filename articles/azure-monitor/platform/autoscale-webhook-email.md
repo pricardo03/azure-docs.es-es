@@ -18,7 +18,7 @@ ms.locfileid: "60787312"
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.  
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 Los Webhook permiten enrutar las notificaciones de alerta de Azure a otros sistemas para procesarlas posteriormente o notificaciones personalizadas. Un ejemplo de esto puede ser el enrutamiento de la alerta a los servicios que pueden controlar una solicitud web entrante para enviar SMS, registrar errores o notificar a un equipo mediante servicios de chat y mensajería. El identificador URI de webhook debe ser un punto de conexión HTTP o HTTPS válido.
 
 ## <a name="email"></a>Email
@@ -62,7 +62,7 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
 
 | Campo | ¿Obligatorio? | DESCRIPCIÓN |
 | --- | --- | --- |
-| operation |Sí |el valor debe ser "Scale" |
+| operación |Sí |el valor debe ser "Scale" |
 | sendToSubscriptionAdministrator |Sí |el valor debe ser "true" o "false" |
 | sendToSubscriptionCoAdministrators |Sí |el valor debe ser "true" o "false" |
 | customEmails |Sí |el valor puede ser null [] o una cadena de matriz de mensajes de correo electrónico |
@@ -106,7 +106,7 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | Campo | ¿Obligatorio? | DESCRIPCIÓN |
 | --- | --- | --- |
 | status |Sí |Estado que indica que se ha generado una acción de escalado automático. |
-| operation |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
+| operación |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
 | context |Sí |Contexto de la acción de escalado automático. |
 | timestamp |Sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
 | id |Sí |Id. de Resource Manager de la configuración de escalado automático |
