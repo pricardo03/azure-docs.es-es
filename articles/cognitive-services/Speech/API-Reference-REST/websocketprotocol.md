@@ -98,7 +98,7 @@ Los clientes *deben* admite los mecanismos de redireccionamiento estándar indic
 
 Los clientes *deben* usar un punto de conexión adecuado de Servicio de voz. El punto de conexión se basa en el modo y el idioma de reconocimiento. En la tabla se muestran algunos ejemplos.
 
-| Mode | Ruta de acceso | URI de servicio |
+| Mode | Path | URI de servicio |
 | -----|-----|-----|
 | Interactive | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -308,7 +308,7 @@ Los clientes deben confirmar el final de un turno enviando un mensaje `telemetry
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
-| Ruta de acceso | `telemetry` |
+| Path | `telemetry` |
 | X-Timestamp | Marca de tiempo del reloj de cliente UTC en formato ISO 8601 |
 | Content-Type | `application/json` |
 | Cuerpo | Una estructura JSON que contiene información del cliente sobre el turno |
@@ -330,7 +330,7 @@ El mensaje `speech.startDetected` indica que Servicio de voz ha detectado voz en
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
-| Ruta de acceso | `speech.startDetected` |
+| Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Cuerpo | La estructura JSON que contiene información sobre las condiciones cuando se detectó el inicio de la voz. El campo *Offset* de esta estructura especifica el desfase (en unidades de 100 nanosegundos) cuando se detecta la voz en la secuencia de audio, en relación con el inicio de la secuencia. |
 
@@ -355,7 +355,7 @@ Durante el reconocimiento de voz, Servicio de voz genera periódicamente hipóte
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
-| Ruta de acceso | `speech.hypothesis` |
+| Path | `speech.hypothesis` |
 | X-RequestId | UUID en formato "no-dash" |
 | Content-Type | application/json |
 | Cuerpo | La estructura JSON de la hipótesis de voz |
@@ -387,7 +387,7 @@ Cuando Servicio de voz determina que tiene suficiente información para generar 
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
-| Ruta de acceso | `speech.phrase` |
+| Path | `speech.phrase` |
 | Content-Type | application/json |
 | Cuerpo | La estructura JSON de la frase de voz |
 
@@ -415,7 +415,7 @@ El mensaje `speech.endDetected` especifica que la aplicación cliente debe deten
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
-| Ruta de acceso | `speech.endDetected` |
+| Path | `speech.endDetected` |
 | Cuerpo | La estructura JSON que contiene el desfase cuando se ha detectado el final del habla. El desfase se representa en el unidades de 100 nanosegundos desde el principio del audio que se usó para el reconocimiento. |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -440,7 +440,7 @@ El elemento *Offset* especifica el desfase (en unidades de 100 nanosegundos) cua
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
-| Ruta de acceso | `turn.start` |
+| Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Cuerpo | Estructura JSON |
 
@@ -467,7 +467,7 @@ El cuerpo del mensaje `turn.start` es una estructura JSON que contiene el contex
 | Campo | DESCRIPCIÓN |
 | ------------- | ---------------- |
 | Codificación de mensajes de WebSocket | Texto |
-| Ruta de acceso | `turn.end` |
+| Path | `turn.end` |
 | Cuerpo | None |
 
 #### <a name="sample-message"></a>Mensaje de ejemplo
