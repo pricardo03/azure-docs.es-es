@@ -7,7 +7,7 @@
 - name: Guías de inicio rápido
   items:
     - name: Configuración de alertas para eventos de Service Health
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
 - name: Conceptos
   items:
     - name: Página de estado de Azure
@@ -19,9 +19,9 @@
 - name: Procedimientos
   items:
     - name: Configuración de alertas para eventos de Service Health
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: alerts-activity-log-service-notifications.md
     - name: Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
-      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: service-notifications.md
     - name: Envío de alertas a sistemas externos a través de webhook
       href: service-health-alert-webhook-guide.md
     - name: Envío de alertas a ServiceNow

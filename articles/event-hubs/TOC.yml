@@ -17,7 +17,7 @@
       items:
         - name: Portal de Azure
           href: event-hubs-create.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
@@ -63,14 +63,16 @@
       href: event-hubs-availability-and-consistency.md
     - name: Escalabilidad
       href: event-hubs-scalability.md
+    - name: Recuperación ante desastres geográfica
+      items:
+        - name: Recuperación ante desastres geográfica y replicación geográfica
+          href: event-hubs-geo-dr.md
     - name: Seguridad
       items:
         - name: Identidad administrada para recursos de Azure
           href: event-hubs-managed-service-identity.md
         - name: Control de acceso basado en rol (versión preliminar)
           href: event-hubs-role-based-access-control.md
-        - name: Recuperación ante desastres geográfica y replicación geográfica
-          href: event-hubs-geo-dr.md
         - name: Introducción al modelo de autenticación y seguridad
           href: event-hubs-authentication-and-security-model-overview.md
         - name: Atributos de seguridad

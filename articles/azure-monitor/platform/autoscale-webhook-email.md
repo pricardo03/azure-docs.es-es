@@ -62,7 +62,7 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
 
 | Campo | ¿Obligatorio? | DESCRIPCIÓN |
 | --- | --- | --- |
-| operación |Sí |el valor debe ser "Scale" |
+| operation |Sí |el valor debe ser "Scale" |
 | sendToSubscriptionAdministrator |Sí |el valor debe ser "true" o "false" |
 | sendToSubscriptionCoAdministrators |Sí |el valor debe ser "true" o "false" |
 | customEmails |Sí |el valor puede ser null [] o una cadena de matriz de mensajes de correo electrónico |
@@ -106,7 +106,7 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | Campo | ¿Obligatorio? | DESCRIPCIÓN |
 | --- | --- | --- |
 | status |Sí |Estado que indica que se ha generado una acción de escalado automático. |
-| operación |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
+| operation |Sí |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente". |
 | context |Sí |Contexto de la acción de escalado automático. |
 | timestamp |Sí |Marca de tiempo cuando se desencadena la acción de escalado automático. |
 | id |Sí |Id. de Resource Manager de la configuración de escalado automático |
