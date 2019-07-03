@@ -221,8 +221,8 @@ Puede obtener la clave pública de la lista de nodos de transacción. Copie la c
 
     | Valor | DESCRIPCIÓN
     |-------|-------------
-    | \<clave pública del nodo alpha\> | Clave pública del nodo alpha
-    | \<Dirección de la cuenta de Ethereum\> | Dirección de la cuenta de Ethereum creada en el nodo de transacción predeterminado
+    | \<alpha node public key\> | Clave pública del nodo alpha
+    | \<Ethereum account address\> | Dirección de la cuenta de Ethereum creada en el nodo de transacción predeterminado
 
     En este ejemplo, el valor inicial del valor **storeData** se establece en 42.
 
@@ -392,8 +392,8 @@ Puesto que no se declaró la clave pública del nodo **beta** en **privateFor**,
 
     | Valor | DESCRIPCIÓN
     |-------|-------------
-    | \<clave pública del nodo alpha\> | Clave pública del nodo alpha
-    | \<Dirección de la cuenta de Ethereum\> | Dirección de la cuenta de Ethereum creada en el nodo de transacción predeterminado.
+    | \<alpha node public key\> | Clave pública del nodo alpha
+    | \<Ethereum account address\> | Dirección de la cuenta de Ethereum creada en el nodo de transacción predeterminado.
 
     **privateFor** define los nodos para los que está disponible la transacción. En este ejemplo, la cuenta del nodo de transacción predeterminado puede transmitir las transacciones privadas al nodo **alpha**. Deberá agregar claves públicas para todos los participantes de la transacción privada.
 
