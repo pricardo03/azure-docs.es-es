@@ -43,9 +43,9 @@ Una aplicación de cadena de bloques contiene metadatos de configuración, flujo
 |-------|-------------|:--------:|
 | ApplicationName | Nombre único de aplicación. El contrato inteligente correspondiente debe usar el mismo **ApplicationName** para la clase de contrato aplicable.  | Sí |
 | DisplayName | Nombre descriptivo para mostrar de la aplicación. | Sí |
-| DESCRIPCIÓN | Descripción de la aplicación. | Sin |
+| Description | Descripción de la aplicación. | Sin |
 | ApplicationRoles | Colección de [ApplicationRoles](#application-roles). Roles de los usuarios que pueden actuar o participar en la aplicación.  | Sí |
-| Flujos de trabajo | Colección de [flujos de trabajo](#workflows). Cada flujo de trabajo actúa como una máquina de estados que controla el flujo de la lógica de negocios. | Sí |
+| Workflows | Colección de [flujos de trabajo](#workflows). Cada flujo de trabajo actúa como una máquina de estados que controla el flujo de la lógica de negocios. | Sí |
 
 Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#configuration-file-example).
 
