@@ -152,7 +152,7 @@ Los encabezados siguientes son obligatorios para todos los mensajes originados p
 
 | Encabezado | Valor |
 |----|----|
-| Ruta de acceso | La ruta de acceso del mensaje según lo especificado en este documento |
+| Path | La ruta de acceso del mensaje según lo especificado en este documento |
 | X-RequestId | UUID en formato "no-dash" |
 | X-Timestamp | Marca de tiempo del reloj de cliente UTC en formato ISO 8601 |
 
@@ -181,7 +181,7 @@ Los clientes *deben* enviar un mensaje `speech.config` inmediatamente después d
 
 | Nombre de encabezado | Valor |
 |----|----|
-| Ruta de acceso | `speech.config` |
+| Path | `speech.config` |
 | X-Timestamp | Marca de tiempo del reloj de cliente UTC en formato ISO 8601 |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -252,7 +252,7 @@ Los siguientes encabezados son obligatorios para todos los mensajes `audio`.
 
 | Encabezado         |  Valor     |
 | ------------- | ---------------- |
-| Ruta de acceso | `audio` |
+| Path | `audio` |
 | X-RequestId | UUID en formato "no-dash" |
 | X-Timestamp | Marca de tiempo del reloj de cliente UTC en formato ISO 8601 |
 | Content-Type | El tipo de contenido de audio. El tipo debe ser *audio/x-wav* (PCM) o *audio/silk* (SILK). |
