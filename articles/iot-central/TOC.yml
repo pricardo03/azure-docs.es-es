@@ -62,7 +62,7 @@
         - name: Uso de conjuntos de dispositivos
           href: howto-use-device-sets.md
         - name: Versión de la plantilla del dispositivo
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: Supervisión y análisis
       items:
         - name: Creación de regla de telemetría
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: Configuración del panel de la aplicación
           href: howto-configure-homepage.md
+        - name: Uso de iconos de panel
+          href: howto-use-tiles.md
         - name: Personalización de la interfaz de usuario de la aplicación
           href: howto-customize-ui.md
         - name: Uso de plantillas de aplicación

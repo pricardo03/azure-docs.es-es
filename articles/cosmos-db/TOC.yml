@@ -460,10 +460,12 @@
               href: tutorial-query-graph.md
         - name: Guías de procedimientos
           items:
-            - name: Importación de datos de gráfico
-              href: bulk-executor-graph-dotnet.md
+            - name: Modelado de datos de Graph
+              href: graph-modeling.md
             - name: Creación de particiones de datos de gráfico
               href: graph-partitioning.md
+            - name: Importación de datos de gráfico
+              href: bulk-executor-graph-dotnet.md
             - name: Optimización de consultas de Gremlin
               href: graph-execution-profile.md
             - name: Almacenamiento y administración de datos de Spring

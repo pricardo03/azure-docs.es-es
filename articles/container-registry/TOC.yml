@@ -93,6 +93,8 @@
       items:
         - name: Introducción a ACR Tasks
           href: container-registry-tasks-overview.md
+        - name: Tareas programadas
+          href: container-registry-tasks-scheduled.md
         - name: Tareas de varios pasos
           href: container-registry-tasks-multi-step.md
         - name: Uso con identidad administrada
