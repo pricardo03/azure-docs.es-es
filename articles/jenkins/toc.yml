@@ -31,6 +31,8 @@
               maintainContext: true
             - name: Implementación en AKS mediante el patrón azul/verde
               href: jenkins-aks-blue-green-deployment.md
+            - name: "CI/CD con Azure\_Dev\_Spaces"
+              href: tutorial-jenkins-dev-spaces.md
         - name: App Service
           items:
             - name: Creación de recursos de Azure en un trabajo de canalización

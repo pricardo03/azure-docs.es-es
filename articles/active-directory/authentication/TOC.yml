@@ -144,6 +144,8 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: Informes
       items:
+        - name: Uso y conclusiones
+          href: howto-authentication-methods-usage-insights.md
         - name: Informes de SSPR
           href: howto-sspr-reporting.md
         - name: Informes de MFA
