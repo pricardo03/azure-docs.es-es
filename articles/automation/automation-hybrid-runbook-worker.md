@@ -4,17 +4,17 @@ description: Este artículo brinda información sobre cómo instalar y usar Hybr
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fceeed47ee77207e00ebfc619226ecbb5956bc3d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198468"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478527"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker
 
@@ -34,7 +34,7 @@ El proceso para instalar una instancia de Hybrid Runbook Worker depende del sist
 
 Para instalar y configurar una instancia de Hybrid Runbook Worker en Windows, se pueden usar dos métodos. El método recomendado usa un runbook de Automation a fin de automatizar completamente el proceso para configurar un equipo Windows. El segundo método es un procedimiento paso a paso para instalar y configurar el rol manualmente. En el caso de las máquinas de Linux, debe ejecutar un script de Python para instalar el agente en la máquina.
 
-|SO  |Tipos de implementación  |
+|OS  |Tipos de implementación  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
@@ -46,6 +46,7 @@ Para instalar y configurar una instancia de Hybrid Runbook Worker en Windows, se
 
 Revise la [información para planear la red](#network-planning) antes de empezar a implementar una instancia de Hybrid Runbook Worker. Después de haber implementado correctamente el trabajo, revise la [ejecución de runbooks en Hybrid Runbook Worker](automation-hrw-run-runbooks.md) para más información sobre cómo configurar los runbooks para automatizar los procesos del centro de datos local o en otro entorno de nube.
 
+El equipo se puede agregar a un grupo de Hybrid Runbook Worker en la cuenta de Automation para admitir los runbooks de Automation siempre que use la misma cuenta para la solución y la pertenencia a grupos de Hybrid Runbook Worker. Esta funcionalidad se agregó a la versión 7.2.12024.0 de Hybrid Runbook Worker.
 ## <a name="remove-a-hybrid-runbook-worker"></a>Eliminación de una instancia de Hybrid Runbook Worker
 
 Puede quitar una o varias instancias de Hybrid Runbook Worker de un grupo o puede quitar el grupo, dependiendo de sus requisitos. Para quitar una instancia de Hybrid Runbook Worker de un equipo local, siga estos pasos:

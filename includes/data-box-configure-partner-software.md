@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150745"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186981"
 ---
 Configuración del software de partner para conectar con el cliente. Para conectar con el software de partner, normalmente necesitaría la información siguiente (puede variar), que se recopila en la página **Conectar y copiar** de la interfaz de usuario web local del paso anterior:
 

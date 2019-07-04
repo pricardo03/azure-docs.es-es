@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782809"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295515"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administración de los datos de registro y las áreas de trabajo en Azure Monitor
 Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, que es básicamente un contenedor que incluye información de configuración y datos. Para administrar el acceso a datos del registro, tendrá que realizar varias tareas administrativas relacionadas con las áreas de trabajo. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
@@ -213,7 +213,7 @@ Los miembros del rol *Lector de Log Analytics* pueden:
 
 El rol Lector de Log Analytics incluye las siguientes acciones de Azure:
 
-| Type    | Permiso | DESCRIPCIÓN |
+| type    | Permiso | DESCRIPCIÓN |
 | ------- | ---------- | ----------- |
 | . | `*/read`   | Capacidad para ver todos los recursos de Azure y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
 | . | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidad de realizar consultas de búsqueda de registros v2 |
@@ -278,7 +278,7 @@ Consulte [Definición del control de acceso por tabla](#table-level-rbac) a cont
 ## <a name="table-level-rbac"></a>RBAC de nivel de tabla
 **RBAC de nivel de tabla** le permite proporcionar un control más específico a los datos de un área de trabajo de Log Analytics además de los otros permisos. Este control le permite definir tipos de datos específicos que son accesibles solo a un conjunto concreto de usuarios.
 
-El control de acceso de la tabla se implementa con [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) para conceder o denegar un acceso específico a las [tablas](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) del área de trabajo. Estos roles se aplican a las áreas de trabajo con los [modos de control de acceso](#access-control-mode) basado en el área de trabajo o basado en el recurso, independientemente del [modo de acceso](#access-modes) del usuario.
+El control de acceso de la tabla se implementa con [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) para conceder o denegar un acceso específico a las [tablas](../log-query/logs-structure.md) del área de trabajo. Estos roles se aplican a las áreas de trabajo con los [modos de control de acceso](#access-control-mode) basado en el área de trabajo o basado en el recurso, independientemente del [modo de acceso](#access-modes) del usuario.
 
 Cree un [rol personalizado](../../role-based-access-control/custom-roles.md) con las acciones siguientes para definir el acceso al control de acceso de la tabla.
 

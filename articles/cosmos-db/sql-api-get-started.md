@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596095"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342117"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB
 
@@ -130,11 +130,11 @@ Ahora, comience a escribir código. Encontrará el archivo *Project.cs* completo
       
       ![Visualización y copia de las clave de acceso en Azure Portal](./media/sql-api-get-started/nosql-tutorial-keys.png)
       
-   1. En **Claves de lectura y escritura**, copie el valor de **URI** mediante el botón Copiar de la derecha y péguelo en `<your endpoint URL>` de *Program.cs*. Por ejemplo:  
+   1. En **Claves de lectura y escritura**, copie el valor de **URI** mediante el botón Copiar de la derecha y péguelo en `<your endpoint URL>` de *Program.cs*. Por ejemplo: 
       
       `private const string EndpointUrl = "https://mysqlapicosmosdb.documents.azure.com:443/";`
       
-   1. Copie el valor de **PRIMARY KEY** y péguelo en `<your primary key>` de *Program.cs*. Por ejemplo:  
+   1. Copie el valor de **PRIMARY KEY** y péguelo en `<your primary key>` de *Program.cs*. Por ejemplo: 
       
       `private const string PrimaryKey = "19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==";`
    
@@ -450,7 +450,7 @@ En el siguiente diagrama se muestra cómo llama la sintaxis de la consulta SQL d
 
 ![Diagrama que ilustra el ámbito y el significado de la consulta usada por el tutorial de NoSQL para crear una aplicación de consola de C#.](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-La palabra clave [FROM](how-to-sql-query.md#FromClause) es opcional en la consulta SQL, ya que las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Puede intercambiar `FROM Families f` por `FROM root r`, o cualquier otro nombre de variable que elija. Azure Cosmos DB deducirá que `Families`, `root` o el nombre de variable elegido hace referencia a la colección actual.
+La palabra clave [FROM](sql-query-from.md) es opcional en la consulta SQL, ya que las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Puede intercambiar `FROM Families f` por `FROM root r`, o cualquier otro nombre de variable que elija. Azure Cosmos DB deducirá que `Families`, `root` o el nombre de variable elegido hace referencia a la colección actual.
 
 ## <a id="ReplaceDocument"></a>Actualización de un documento JSON
 

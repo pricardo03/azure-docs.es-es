@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319332"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514419"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | logs| Tipo complejo| Nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice primero una operación de configuración de diagnóstico GET. |
 | category| Cadena| Matriz de las categorías de registro y sus directivas de retención |
 | timeGrain | Cadena | La granularidad de las métricas que se capturan en formato de duración ISO 8601. Debe ser PT1M (un minuto).|
-| Enabled| Boolean | Especifica si la colección de esa categoría de métrica o registro está habilitada para este recurso.|
+| enabled| Boolean | Especifica si la colección de esa categoría de métrica o registro está habilitada para este recurso.|
 | retentionPolicy| Tipo complejo| Describe la directiva de retención para una categoría de métrica o registro. Se utiliza solamente para la opción de cuenta de almacenamiento.|
 | days| Int| Número de días para retener las métricas o registros. Con el valor cero, se retienen los registros indefinidamente. Se utiliza solamente para la opción de cuenta de almacenamiento. |
 
@@ -387,7 +387,7 @@ ADFV2 emite las siguientes métricas:
 
 | **Métrica**           | **Nombre de métrica para mostrar**         | **Unidad** | **Tipo de agregación** | **Descripción**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Las métricas de ejecuciones de canalización se realizaron correctamente | Recuento    | Total                | Total de ejecuciones de canalizaciones realizadas correctamente dentro de una ventana de minutos |
+| PipelineSucceededRuns | Las métricas de ejecuciones de canalización se realizaron correctamente | Recuento    | Total                | Total de ejecuciones de canalizaciones realizadas correctamente dentro de una ventana de minutos |
 | PipelineFailedRuns   | Métricas de ejecuciones de canalización erróneas    | Recuento    | Total                | Total de ejecuciones de canalizaciones erróneas dentro de una ventana de minutos    |
 | ActivitySucceededRuns | Métricas de ejecución de actividad realizadas correctamente | Recuento    | Total                | Total de ejecuciones de actividad realizadas correctamente dentro de una ventana de minutos  |
 | ActivityFailedRuns   | Métricas de ejecuciones de actividad erróneas    | Recuento    | Total                | Total de ejecuciones de actividad erróneas dentro de una ventana de minutos     |

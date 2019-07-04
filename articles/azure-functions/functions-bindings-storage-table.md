@@ -4,19 +4,19 @@ description: Descubra cómo usar los enlaces de Azure Table Storage en Azure Fun
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511866"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480076"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -532,7 +532,7 @@ El enlace de entrada de Table Storage admite los siguientes escenarios:
 
   Establezca las propiedades `filter` y `take`. No establezca `partitionKey` o `rowKey`. Obtenga acceso a la entidad (o entidades) de la tabla de entradas mediante `context.bindings.<name>`. Los objetos deserializados tienen las propiedades `RowKey` y `PartitionKey`.
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 Use un enlace de salida de Azure Table Storage para escribir entidades en una tabla de una cuenta de Azure Storage.
 

@@ -1,19 +1,19 @@
 ---
 title: Desplazamiento por las API de Azure Digital Twins | Microsoft Docs
 description: Conozca los patrones comunes de consultar las API de administración de Azure Digital Twins.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-adgera
+ms.openlocfilehash: 1c5549b903e9a4768d81d601c42e621864522781
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60924501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462019"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Cómo usar las API de administración de Azure Digital Twins
 

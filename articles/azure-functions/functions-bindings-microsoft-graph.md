@@ -3,18 +3,18 @@ title: Enlaces de Microsoft Graph para Azure Functions
 description: Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Microsoft Graph en Azure Functions.
 services: functions
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae376343103d68df226d30d1d76133a3f055f5c2
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511814"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480385"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -980,7 +980,7 @@ El enlace expone los siguientes tipos de funciones. NET:
 
 
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 
 Los webhooks le permiten reaccionar antes los eventos de Microsoft Graph. Para admitir webhooks, las funciones son necesarias para crear _suscripciones de weebhook_, actualizarlas y reaccionar ante ellas. Una solución de webhook completa requiere una combinación de los enlaces siguientes:
 - Un [desencadenador de webhook de Microsoft Graph](#webhook-trigger) permite reaccionar ante un webhook de entrada.

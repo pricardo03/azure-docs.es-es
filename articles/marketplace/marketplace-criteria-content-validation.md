@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937840"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202680"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instrucciones de descripción de Azure Marketplace
 
@@ -39,14 +39,14 @@ Las ofertas deben cumplir [todos los requisitos de descripción](https://docs.mi
 | 11 | Ayuda y soporte técnico | Vínculo a al menos uno de los siguientes: <br>o Números de teléfono <br>o Soporte técnico por correo electrónico <br>o Agentes de chat <br>o Foros de la comunidad |<br>• Todos los métodos de soporte técnico enumerados: soporte técnico por teléfono y correo electrónico. <br>• El soporte técnico de pago se ofrece de forma gratuita durante el período de prueba o la versión limitada de prueba. | 
 | 12 | Información legal | Directivas o términos disponibles a través de una dirección URL pública. |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>Requisitos de la oferta de evaluación
 
 |  | Elemento de lista | Requisitos básicos | Requisitos óptimos | 
 |:--- |:--- |:--- |:--- |
 |  | Estado de la descripción | El vínculo debe llevar a una experiencia de evaluación dirigida al usuario. | También hay disponibles otras llamadas a la acción (por ejemplo, comprar ahora). | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>Requisitos de aplicaciones de SaaS
 
 |  | Elemento de lista | Requisitos básicos | Requisitos óptimos | 
@@ -63,7 +63,7 @@ Las ofertas deben cumplir [todos los requisitos de descripción](https://docs.mi
 | 10 | Contactos: Ayuda y soporte técnico | <br>•    Nombre de contacto de ingeniería: escriba el nombre del contacto de ingeniería de la aplicación. Este contacto recibirá comunicaciones técnicas de Microsoft.<br>•    Correo electrónico de contacto de ingeniería:  escriba la dirección de correo electrónico del contacto de ingeniería de la aplicación.<br>•    Teléfono de contacto de ingeniería: escriba el número de teléfono del contacto de ingeniería. Se admiten notaciones de número de teléfono ISO; para obtener más información, vea https://en.wikipedia.org/wiki/E.123.<br>• Nombre de contacto de soporte técnico: escriba el nombre del contacto de soporte técnico de la aplicación. Este contacto recibirá comunicaciones relacionadas con el soporte técnico de Microsoft.<br>• Correo electrónico de contacto de soporte técnico: escriba la dirección de correo electrónico del contacto de soporte técnico de la aplicación. <br>• Teléfono de contacto de soporte técnico: escriba el número de teléfono del contacto de soporte técnico. Se admiten notaciones de número de teléfono ISO; para obtener más información, vea https://en.wikipedia.org/wiki/E.123. <br>• Dirección URL de soporte técnico: escriba la dirección URL de la página de soporte técnico. | <br>• Todos los métodos de soporte técnico enumerados: soporte técnico por teléfono y correo electrónico. <br>• El soporte técnico de pago se ofrece de forma gratuita durante el período de prueba o la versión limitada de prueba. |
 | 11 | Información legal |<br>• Dirección URL de la directiva de privacidad: escriba la URL en el campo de dirección URL de directiva de privacidad en el CPP. <br>• Términos de uso: Escriba los términos de uso de la aplicación. Los clientes deben aceptar estos términos antes de poder probar la aplicación. |  Directivas o términos disponibles a través de una dirección URL pública de un sitio. |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>Requisitos de la oferta de contenedor
 
@@ -74,7 +74,7 @@ Las ofertas deben cumplir [todos los requisitos de descripción](https://docs.mi
 | 3 | Artefactos de Marketplace | Los logotipos se muestran correctamente. |<br>• El logotipo incluye una “imagen prominente” que es la imagen de gran formato en Azure Portal. <br>• Logotipos: se requiere uno pequeño (48 x 48) y uno grande (216 x 216) <br>• Requisitos de imagen prominente: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.<br>• Captura de pantalla (5 como máximo):  CPP requiere una imagen .png con una resolución de 1280 x 720.|
 | 4 | Administración de clientes potenciales |<br>• Administración de clientes potenciales: Seleccione el sistema donde se almacenarán los clientes potenciales. <br>• Obtenga información sobre cómo conectar su sistema CRM [aquí](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>Requisitos de la oferta de consultoría
 
@@ -97,6 +97,3 @@ Las ofertas deben cumplir [todos los requisitos de descripción](https://docs.mi
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre los distintos tipos de ofertas en el Marketplace. <br>[Aplicaciones de SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Contenedores](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Servicios de consultoría](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Determinación del tipo de aplicación para la solución](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
-
- 
----

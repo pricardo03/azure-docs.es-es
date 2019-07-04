@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 06/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 5628a1b3ea42c91f49f78699c37bb2b306275e9e
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730833"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446711"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Uso de Azure Data Box Heavy para migrar el contenido del recurso compartido de archivos a SharePoint Online
 
@@ -81,7 +81,7 @@ Para optimizar el rendimiento y la conectividad, se recomienda crear una máquin
 
 1. Inicie sesión en Azure Portal y, a continuación, [cree una máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 2. [Monte el recurso compartido de archivos de Azure en la máquina virtual](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
-3. [Descargue la Herramienta de migración de SharePoint](http://spmtreleasescus.blob.core.windows.net/install/default.htm) e instálela en la máquina virtual de Azure.
+3. [Descargue la Herramienta de migración de SharePoint](https://spmtreleasescus.blob.core.windows.net/install/default.htm) e instálela en la máquina virtual de Azure.
 4. Inicie la Herramienta de migración de SharePoint. Haga clic en **Iniciar sesión** y escriba su nombre de usuario y la contraseña de Office 365.
 5. Cuando se le pregunte **¿Dónde están los datos?** , seleccione **Recurso compartido de archivos**. Escriba la ruta de acceso al recurso compartido de archivos de Azure donde se encuentran los datos.
 6. Siga las instrucciones siguientes de la forma habitual, incluida la ubicación de destino. Para más información, vaya a [Uso de la herramienta de migración de SharePoint](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).

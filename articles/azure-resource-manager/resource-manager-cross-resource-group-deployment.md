@@ -1,24 +1,17 @@
 ---
 title: Implementación de recursos de Azure en varios grupos de recursos y suscripciones | Microsoft Docs
 description: Muestra cómo tener como destino más de un grupo de recursos y una suscripción de Azure durante la implementación.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3641833f0b55f20066302de350bfab17adfade0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33b0a998206b68f1807f5bfa3c3f39164798842c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128536"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205484"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos o una suscripción
 
@@ -260,7 +253,7 @@ En el ejemplo anterior, tanto **parentRG** como **inlineRG** se resuelven en **p
                                              }
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Para implementar dos cuentas de almacenamiento en dos grupos de recursos de la **misma suscripción** con la CLI de Azure, use:
 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 03589745e6e9b40b937c49162e99035ce6c81423
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9046af82388f99cfdd82c8cb816d4cda1e5f8237
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800044"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206862"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Android con Azure Spatial Anchors
 
@@ -57,7 +57,7 @@ Seleccione **Open an existing Android Studio project** (Abrir un proyecto existe
 
 Seleccione **Open an existing Android Studio project** (Abrir un proyecto existente de Android Studio) y el proyecto que se encuentra en `Android/NDK/`.
 
-***
+---
 
 ## <a name="configure-account-identifier-and-key"></a>Configuración del identificador y la clave de la cuenta
 
@@ -65,7 +65,7 @@ El paso siguiente es configurar la aplicación para usar el identificador de cue
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-Abra `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsActivity.java`.
+Abra `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
 
 Busque el campo `SpatialAnchorsAccountKey` y reemplace `Set me` por la clave de la cuenta.
 
@@ -79,7 +79,7 @@ Busque el campo `SpatialAnchorsAccountKey` y reemplace `Set me` por la clave de 
 
 Busque el campo `SpatialAnchorsAccountId` y reemplace `Set me` por el identificador de la cuenta.
 
-***
+---
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Implementación de la aplicación en el dispositivo Android
 

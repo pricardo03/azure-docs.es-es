@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593219"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449818"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows muestra el mensaje "Error crítico del servicio" en pantalla azul al arrancar una máquina virtual de Azure
 En este artículo se describe el error "Error crítico del servicio" que puede surgir al iniciar una máquina virtual Windows en Microsoft Azure. Proporciona pasos de solución de problemas para ayudar a resolver los problemas. 
@@ -30,7 +30,7 @@ En este artículo se describe el error "Error crítico del servicio" que puede s
 
 Una máquina virtual de Windows no se inicia. Al revisar las capturas de pantalla de inicio en [Diagnósticos de arranque](./boot-diagnostics.md), ve uno de los mensajes de error siguientes en una pantalla azul:
 
-- "Se produjo un problema con su equipo y se debe reiniciar. Puede reiniciar. Para más información sobre este problema y posibles soluciones, visite http://windows.com/stopcode. Si se llama al departamento de soporte técnico, aporte esta información: Código de detención: CRITICAL SERVICE FAILED (ERROR CRÍTICO DEL SERVICIO)" 
+- "Se produjo un problema con su equipo y se debe reiniciar. Puede reiniciar. Para más información sobre este problema y posibles soluciones, visite https://windows.com/stopcode. Si se llama al departamento de soporte técnico, aporte esta información: Código de detención: CRITICAL SERVICE FAILED (ERROR CRÍTICO DEL SERVICIO)" 
 - "Se produjo un problema con su equipo y se debe reiniciar. Solo vamos a recopilar alguna información de error y, a continuación, lo reiniciaremos automáticamente. Si desea más información, después puede buscar en línea este error: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa

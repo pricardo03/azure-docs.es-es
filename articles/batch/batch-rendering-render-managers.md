@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118593"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436178"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Uso de Azure Batch con administradores de granja de representación
 
@@ -23,7 +23,7 @@ Azure proporciona compatibilidad integrada o complementos para administradores d
 Se admiten los siguientes administradores de representación:
 
 * [¡PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Fecha límite Thinkbox](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Uso de Azure con PipelineFX Qube
@@ -32,7 +32,7 @@ Los scripts y las instrucciones para habilitar las máquinas virtuales de grupos
 
 ## <a name="using-azure-with-royal-render"></a>Uso de Azure con Royal Render
 
-Render Royal tiene incorporada la integración de Azure y Azure Batch, lo que permite ampliar una granja de representaciones con las máquinas virtuales basadas en Azure. Para un resumen, consulte [los archivos de ayuda](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Render Royal tiene incorporada la integración de Azure y Azure Batch, lo que permite ampliar una granja de representaciones con las máquinas virtuales basadas en Azure. Para un resumen, consulte [los archivos de ayuda](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 Para un ejemplo de un cliente de Royal Render que usa la integración de Azure, consulte la [historia de cliente Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
 

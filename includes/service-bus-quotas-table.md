@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1c4a0384342db82ee9c1f6b9e806188d5949681
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171215"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235443"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Azure Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, vea [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Nombre de cuota | Ámbito | Notas | Valor |
 | --- | --- | --- | --- |
 | Número máximo de espacios de nombres Básico o Estándar por suscripción de Azure |Espacio de nombres |Azure Portal rechaza las solicitudes posteriores de espacios de nombres Básico o Estándar adicionales. |100|
-| Número máximo de espacios de nombres Premium por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres Premium adicionales. |25 |
+| Número máximo de espacios de nombres Premium por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres Premium adicionales. |50 |
 | Tamaño de cola o tema |Entidad |Se define al crear la cola o el tema. <br/><br/> Los sucesivos mensajes entrantes se rechazan y el código que llama recibe una excepción. |1, 2, 3, 4 o 5 GB.<br /><br />En la SKU Premium y en la SKU Estándar con [particiones](/azure/service-bus-messaging/service-bus-partitioning) habilitadas, el tamaño máximo de cola o tema es de 80 GB. |
 | Número de conexiones simultáneas en un espacio de nombres |Espacio de nombres |Las solicitudes posteriores de conexiones adicionales se rechazan y el código que llama recibe una excepción. Las operaciones REST no cuentan para las conexiones de TCP simultáneas. |NetMessaging: 1000.<br /><br />AMQP: 5000. |
 | Número de solicitudes de recepción simultáneas en una cola, un tema o una entidad de suscripción |Entidad |Las solicitudes de recepción posteriores se rechazan y el código que llama recibe una excepción. Esta cuota se aplica a un número combinado de operaciones de recepción simultáneas en todas las suscripciones de un tema. |5\.000 |

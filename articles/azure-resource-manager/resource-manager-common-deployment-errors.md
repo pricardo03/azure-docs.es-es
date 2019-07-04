@@ -1,26 +1,19 @@
 ---
 title: Solución de errores comunes de implementación de Azure | Microsoft Docs
 description: Describe cómo solucionar errores comunes al implementar recursos en Azure con Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: error de implementación, implementación de Azure, implementar en Azure
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128549"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206336"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -169,7 +162,7 @@ O bien, la respuesta de contenido con:
 
 Esta información puede ayudarlo a determinar si un valor en la plantilla se está estableciendo de forma incorrecta.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Actualmente, la CLI de Azure no admite activar el registro de depuración, pero sí puede recuperarlo.
 
