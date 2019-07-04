@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836131"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202941"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -85,7 +85,7 @@ Las notas de SAP siguientes están relacionadas con SAP en Azure con respecto al
 
 | Número de nota | Título |
 | --- | --- |
-| [1928533] |Aplicaciones SAP en Azure: Supported Products and Azure VM types (Nota de SAP 1928533: Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure) |
+| [1928533] |SAP applications on Azure: Supported Products and Azure VM types (Nota de SAP 1928533: Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure) |
 | [2015553] |SAP on Microsoft Azure: Support Prerequisites (Nota de soporte técnico 2015553 de SAP en Microsoft Azure: requisitos previos de soporte técnico) |
 | [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP (Solución de problemas de la supervisión mejorada de Azure para SAP) |
 | [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure (Métricas de supervisión clave para SAP en Microsoft Azure) |
@@ -150,7 +150,7 @@ La colocación de los archivos de base de datos y los archivos de registro y fas
 Como ya se ha indicado, si el requisito de IOPS es superior a lo que puede proporcionar un solo disco duro virtual, equilibre el número de operaciones de IOPS necesarias para los archivos de base de datos entre varios discos duros virtuales. La forma más sencilla de distribuir la carga de IOPS entre los discos consiste en crear una sección de software por los diferentes discos. Después, coloque una serie de archivos de datos del DBMS de SAP en los LUN extraídos de la sección de software. El número de discos de la sección está controlado por las demandas de IOPS, rendimiento y volumen.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Se recomienda usar espacios de almacenamiento de Windows para crear conjuntos seccionados entre varios discos duros virtuales de Azure. Use al menos Windows Server 2012 R2 o Windows Server 2016.
@@ -164,7 +164,7 @@ Como ya se ha indicado, si el requisito de IOPS es superior a lo que puede propo
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Dado que Azure Storage mantiene tres imágenes de los discos duros virtuales, no tiene sentido configurar una redundancia al seccionar. Solo tiene que configurar el seccionamiento para que las operaciones de E/S se distribuyan entre los diferentes discos duros virtuales.
@@ -230,7 +230,7 @@ Las máquinas virtuales de Azure ofrecen discos no persistentes después de impl
 
 Para más información, consulte [Understand the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Comprender la unidad temporal en máquinas virtuales Windows en Azure).
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > La unidad D:\ de una máquina virtual de Azure es una unidad no persistente respaldada por algunos discos locales del nodo de ejecución de Azure. Como es persistente, todos los cambios realizados en el contenido de la unidad D se pierden cuando se reinicia la máquina virtual. Los cambios incluyen archivos que se almacenaron, directorios que se crearon y aplicaciones que se instalaron.
@@ -241,7 +241,7 @@ Para más información, consulte [Understand the temporary drive on Windows VMs 
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Para reducir aún más la latencia de red entre máquinas virtuales de Azure, se
 > No todos los tipos de máquina virtual admiten redes aceleradas. En el artículo anterior se enumeran los tipos de máquina virtual que admiten redes aceleradas.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Para información sobre cómo implementar máquinas virtuales con redes aceleradas para Windows, consulte [Creación de una máquina virtual Windows con redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -350,7 +350,7 @@ Para reducir aún más la latencia de red entre máquinas virtuales de Azure, se
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > En el caso de SUSE, Red Hat y Oracle Linux, Redes aceleradas se admite con las versiones recientes. Las versiones anteriores como SLES 12 SP2 o RHEL 7.2 no son compatibles con redes aceleradas de Azure.

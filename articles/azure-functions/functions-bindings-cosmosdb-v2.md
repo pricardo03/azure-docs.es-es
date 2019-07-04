@@ -4,23 +4,23 @@ description: Descubra cómo utilizar desencadenadores y enlaces de almacenamient
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1a505fc5ef09fe9842e72488843155af7c0888cb
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343035"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480817"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Seleccione la versión del entorno de ejecución de Azure Functions que usa: "]
 > * [Versión 1](functions-bindings-cosmosdb.md)
 > * [Versión 2](functions-bindings-cosmosdb-v2.md)
 
@@ -1243,6 +1243,7 @@ Este es el código de Python:
 ```python
 import azure.functions as func
 
+
 def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Document:
     if documents:
         document = documents[0]
@@ -1296,6 +1297,7 @@ Este es el código de Python:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     if not todoitems:
@@ -1354,6 +1356,7 @@ Este es el código de Python:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     if not todoitems:
@@ -1729,7 +1732,7 @@ En las funciones de C# y F#, cuando se sale de la función correctamente, los ca
 
 En las funciones de JavaScript, las actualizaciones no se realizan automáticamente al cerrar la función. Por el contrario, use `context.bindings.<documentName>In` y `context.bindings.<documentName>Out` para realizar las actualizaciones. Consulte el ejemplo de JavaScript.
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 El enlace de salida de Azure Cosmos DB permite escribir un nuevo documento en una base de datos de Azure Cosmos DB mediante SQL API.
 
@@ -2345,7 +2348,7 @@ En esta sección se describen las opciones de configuración globales disponible
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |GatewayMode|Puerta de enlace|Modo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Las opciones son `Direct` y `Gateway`|
-|Protocol|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB.  Lea [aquí para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking)| 
+|Protocolo|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB.  Lea [aquí para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|N/D|Prefijo de concesión que se usará en todas las funciones de una aplicación.| 
 
 ## <a name="next-steps"></a>Pasos siguientes

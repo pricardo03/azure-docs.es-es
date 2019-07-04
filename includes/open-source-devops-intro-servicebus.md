@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/22/2019
 ms.author: tarcher
 ms.openlocfilehash: eb96027351cf244e9cd4404f702544411130db5e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142180"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67187005"
 ---
 [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) es un agente de mensajes de [integración](https://azure.microsoft.com/product-categories/integration/) empresarial. Service Bus admite dos tipos de comunicación: colas y temas. 
 

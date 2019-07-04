@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024530"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485376"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Ejemplos de consultas mediante la sintaxis de búsqueda "simple" en Azure Search
 
@@ -27,7 +27,7 @@ La sintaxis de consulta alternativa es [Lucene completa](https://docs.microsoft.
 
 Los ejemplos siguientes aprovechan un índice de búsqueda de trabajos de Nueva York que consta de los disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://nycopendata.socrata.com/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado proporcionado por Microsoft, lo que significa que no necesita una suscripción de Azure o Azure Search para probar estas consultas.
 
-Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte el artículo sobre la [exploración con clientes REST](search-fiddler.md).
+Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte el artículo sobre la [exploración con clientes REST](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Establecimiento del encabezado de solicitud
 

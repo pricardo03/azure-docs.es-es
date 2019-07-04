@@ -3,18 +3,18 @@ title: Creación de una aplicación de Azure IoT Central | Microsoft Docs
 description: Cree una nueva aplicación de Azure IoT Central. Cree una aplicación de evaluación o de pago por uso mediante una plantilla de aplicación.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/07/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 6b53f091b63c79493f6bed78e111b50d33adbf13
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 07b062bd39177f283bd38ed6b687b590c5c4fb46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066032"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creación de una aplicación de Azure IoT Central
 

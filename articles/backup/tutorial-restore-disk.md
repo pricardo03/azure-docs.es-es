@@ -1,21 +1,19 @@
 ---
 title: Restauración de un disco de máquina virtual con Azure Backup
 description: Obtenga información acerca de cómo restaurar un disco y crear una máquina virtual recuperada en Azure con Backup and Recovery Services.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: c3fcf6430f04a3fc10abbd9129e4857e35db84eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 70431870027cc27d886995b0bf7f47108ad767fa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127579"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273940"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restauración de un disco y creación de una máquina virtual recuperada en Azure
 Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o archivos individuales. En este artículo se explica cómo restaurar una máquina virtual completa mediante la CLI. En este tutorial, aprenderá a:

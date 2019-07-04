@@ -10,13 +10,13 @@ ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 487ad5c4f68f2fd965384a33aa9f6c0e8da351a4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
+ms.openlocfilehash: dd90dee2f973bb26a43706eb77f15778cb9116a0
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800740"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502963"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desarrollo de varios servicios con Azure Dev Spaces
 
@@ -77,35 +77,6 @@ En el código de ejemplo anterior se reenvía el encabezado `azds-route-as` de l
 1. Presione F10 para continuar. Ahora se desencadena el punto de interrupción del proyecto `mywebapi`.
 1. Presione F5 para continuar; volverá al código del proyecto `webfrontend`.
 1. Al presionar F5 una vez más, se completa la solicitud y se devuelve una página del explorador. En la aplicación web, la página Acerca de mostrará un mensaje concatenado por los dos servicios: "Hello from webfrontend y Hello from mywebapi".
-
-¡Listo! Ahora tiene una aplicación de varios contenedores donde cada uno se puede desarrollar e implementar por separado.
-
-### <a name="automatic-tracing-for-http-messages"></a>Seguimiento automático de los mensajes HTTP
-Puede que haya observado que, aunque *webfrontend* no contiene ningún código especial para imprimir la llamada HTTP que realiza a *mywebapi*, puede ver que HTTP realiza un seguimiento de mensajes en la ventana de salida:
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
-   GET /Home/About HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend-668b7ddb9f-n5rhj --pu5-> mywebapi:
-   GET /api/values/1 HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
-   HTTP/1.1 200 OK
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
-   HTTP/1.1 200 OK
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <meta charset="utf-8" />
-       <meta name="viewport" content="width=device-width, initial-sc...<[TRUNCATED]>
-```
-Esta es una de las ventajas "gratuitas" que obtendrá de la instrumentación de Dev Spaces. Insertamos los componentes que realizan los seguimientos de las solicitudes HTTP a medida que atraviesan el sistema para que le sea más fácil realizar un seguimiento de llamadas complejas a varios servicios durante el desarrollo.
 
 ### <a name="well-done"></a>¡Listo!
 Ahora tiene una aplicación de varios contenedores donde cada uno se puede desarrollar e implementar por separado.

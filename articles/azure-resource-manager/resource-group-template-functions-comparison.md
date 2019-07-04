@@ -1,25 +1,17 @@
 ---
 title: 'Funciones de la plantilla de Azure Resource Manager: comparación | Microsoft Docs'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para comparar valores.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0eafadd4049baea58aa882b3421eaa6a684a3a38
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128691"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205493"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funciones de comparación para las plantillas de Azure Resource Manager
 
@@ -40,10 +32,10 @@ Comprueba si dos valores son iguales.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |entero, cadena, matriz u objeto |El primer valor en el que comprobar la igualdad. |
-| arg2 |Sí |entero, cadena, matriz u objeto |El segundo valor en el que comprobar la igualdad. |
+| arg1 |Sí |int, string, array u object |El primer valor en el que comprobar la igualdad. |
+| arg2 |Sí |int, string, array u object |El segundo valor en el que comprobar la igualdad. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -196,7 +188,7 @@ Comprueba si el primer valor es mayor que el segundo.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación mayor. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación mayor. |
@@ -272,7 +264,7 @@ Comprueba si el primer valor es mayor o igual que el segundo.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación mayor o igual. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación mayor o igual. |
@@ -348,7 +340,7 @@ Comprueba si el primer valor es menor que el segundo.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación menor. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación menor. |
@@ -424,7 +416,7 @@ Comprueba si el primer valor es menor o igual que el segundo.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación menor o igual. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación menor o igual. |

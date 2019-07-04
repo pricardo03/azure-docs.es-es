@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 51ef6f3f8ac18b71064f73f32597c1f59ffa1d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22224fba6a001fa424029caa60beb726a2775e26
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075335"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206444"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Administración de recursos de Azure con Azure PowerShell
 
@@ -29,7 +26,7 @@ Otros artículos sobre cómo administrar recursos:
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Implementación de recursos en un grupo de recursos existente
 
-Puede implementar los recursos de Azure mediante Azure PowerShell directamente o implementar una plantilla de Resource Manager para crear recursos de Azure.
+Puede implementar los recursos de Azure mediante Azure PowerShell directamente o implementar una plantilla de Resource Manager para crear recursos de Azure.
 
 ### <a name="deploy-a-resource"></a>Implementación de un recurso
 
@@ -65,7 +62,7 @@ Para más información, consulte [Implementación de recursos con plantillas de 
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implementación de un grupo de recursos y de recursos
 
-Se puede crear un grupo de recursos e implementar recursos en este grupo. Para más información, consulte [Creación de un grupo de recursos e implementación de recursos](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+Puede crear un grupo de recursos e implementar recursos en el grupo. Para más información, consulte [Creación de un grupo de recursos e implementación de recursos](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Implementación de recursos en varias suscripciones o grupos de recursos
 
@@ -82,7 +79,7 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 Remove-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName
 ```
 
-Para obtener más información sobre cómo ordena Azure Resource Manager la eliminación de recursos, consulte [Eliminación del grupo de recursos en Azure Resource Manager](./resource-group-delete.md).
+Para obtener más información sobre cómo ordena Azure Resource Manager la eliminación de recursos, consulte [Eliminación del grupo de recursos en Azure Resource Manager](./resource-group-delete.md).
 
 ## <a name="move-resources"></a>Traslado de recursos
 
@@ -139,11 +136,11 @@ El etiquetado ayuda a organizar lógicamente los grupos de recursos y los recurs
 
 ## <a name="manage-access-to-resources"></a>Administración del acceso a los recursos
 
-El [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md) es la forma en que se administra el acceso a los recursos en Azure. Para obtener más información, consulte [Administración del acceso mediante RBAC y Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+El [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md) es la forma en que se administra el acceso a los recursos en Azure. Para obtener más información, consulte [Administración del acceso mediante RBAC y Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](./resource-group-overview.md).
-- Para obtener información sobre la sintaxis de la plantilla de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
+- Para obtener información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](./resource-group-overview.md).
+- Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
 - Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](/azure/azure-resource-manager/).
-- Para ver los esquemas de plantilla de Resource Manager, consulte la [referencia de plantilla](/azure/templates/).
+- Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).

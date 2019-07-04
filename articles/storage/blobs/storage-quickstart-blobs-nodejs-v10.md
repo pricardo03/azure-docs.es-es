@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149433"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536162"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Inicio rápido: Carga, descarga, enumeración y eliminación de blobs mediante la versión v10 del SDK de Azure Storage para JavaScript
 
-En esta guía de inicio rápido aprenderá a usar la versión [v10 del SDK de Azure Storage para JavaScript](https://github.com/Azure/azure-storage-js) en Node.js para cargar, descargar, enumerar y eliminar blobs, y administrar contenedores.
+En esta guía de inicio rápido aprenderá a usar la versión [v10 del SDK de Azure Storage para JavaScript](https://github.com/Azure/azure-sdk-for-js) en Node.js para cargar, descargar, enumerar y eliminar blobs, y administrar contenedores.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -99,7 +99,7 @@ Las credenciales se leen desde variables de entorno basadas en el contexto adecu
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
@@ -238,7 +238,7 @@ Para crear un contenedor, se usa el método *create* de *ContainerURL*.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
-Como el nombre del contenedor se define cuando se llama a *ContainerURL.fromServiceURL(serviceURL, containerName)*, llamar al método *create* es todo lo que necesita para crear el contenedor.
+Como el nombre del contenedor se define cuando se llama a *ContainerURL.fromServiceURL(serviceURL, containerName)* , llamar al método *create* es todo lo que necesita para crear el contenedor.
 
 ### <a name="upload-text"></a>Cargar texto
 Para cargar texto en el blob, use el método *upload*.

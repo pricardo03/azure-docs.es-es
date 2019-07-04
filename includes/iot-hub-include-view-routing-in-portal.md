@@ -1,8 +1,20 @@
 ---
-title: include file description: include file author: robinsh ms.service: iot-hub services: iot-hub ms.topic: include ms.date: 03/05/2019 ms.author: robinsh ms.custom: include file
-<!-- this is the bit that tells the customer how to view the routing info they just set up -->
+title: archivo de inclusión
+description: archivo de inclusión
+author: robinsh
+ms.service: iot-hub
+services: iot-hub
+ms.topic: include
+ms.date: 03/05/2019
+ms.author: robinsh
+ms.custom: include file
+ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235441"
 ---
-
 Ahora que están configurados los puntos de conexión y las rutas de mensajes, puede ver su configuración en el portal. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Grupos de recursos**. A continuación, seleccione el grupo de recursos y, luego, el centro (el nombre del centro comienza con `ContosoTestHub` en este tutorial). Verá el panel de IoT Hub.
 
 ![Pantalla de propiedades de IoT Hub](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)

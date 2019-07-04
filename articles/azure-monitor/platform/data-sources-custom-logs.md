@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996524"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273067"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
 El origen de datos de registros personalizados de Azure Monitor permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
@@ -35,11 +35,7 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 - El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.
 
 >[!NOTE]
->Si hay entradas duplicadas en el archivo de registro, Azure Monitor las recopila.  Pero los resultados de la consulta serán incoherentes cuando los resultados del filtro muestren más eventos que el recuento de resultados.  Es importante que valide el registro para determinar si la aplicación que crea está causando este comportamiento y solucionarlo si es posible antes de crear la definición de la colección de registros personalizada.  
->
-  
->[!NOTE]
-> Si la aplicación crea un nuevo archivo de registro cada día o cuando alcanza un tamaño determinado, el agente de Log Analytics para Linux no lo detecta hasta que se reinicia. Esto se debe a que el agente solo enumera y comienza a supervisar patrones con los registros especificados al iniciar el sistema, y por ello es necesario pensar en evitarlo mediante la automatización del reinicio del agente.  Esta limitación no existe con el agente de Log Analytics para Windows.  
+> Si hay entradas duplicadas en el archivo de registro, Azure Monitor las recopila. Pero los resultados de la consulta serán incoherentes cuando los resultados del filtro muestren más eventos que el recuento de resultados. Es importante que valide el registro para determinar si la aplicación que crea está causando este comportamiento y solucionarlo si es posible antes de crear la definición de la colección de registros personalizada.  
 >
 
 >[!NOTE]
@@ -86,7 +82,7 @@ Por ejemplo, una aplicación puede crear un archivo de registro cada día con la
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 
-| DESCRIPCIÓN | Ruta de acceso |
+| DESCRIPCIÓN | Path |
 |:--- |:--- |
 | Todos los archivos en *C:\Logs* con la extensión .txt en el agente de Windows |C:\Logs\\\*.txt |
 | Todos los archivos en *C:\Logs* con un nombre que empieza con "registro" y una extensión .txt en el agente de Windows |C:\Logs\log\*.txt |

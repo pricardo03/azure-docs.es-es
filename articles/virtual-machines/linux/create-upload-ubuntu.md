@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/24/2019
 ms.author: szark
-ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c90b6b3292b7ced75c1a01e64133533ffa5970df
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60327956"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357283"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparación de una máquina virtual Ubuntu para Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -125,15 +125,6 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
    > [!Note]
    >  El paquete `walinuxagent` puede eliminar los paquetes `NetworkManager` y `NetworkManager-gnome`, en caso de que estén instalados.
 
-Para Ubuntu 18.04/18.10, actualice el origen de datos de Azure, edite /etc/cloud/cloud.cfg.d/90-azure.cfg y agregue este código al final del archivo:
-
-**Importante: El código debe agregarse exactamente como se muestra, incluidos los espacios.**
-
-```bash
-datasource:
-   Azure:
-     agent_command: [service, walinuxagent, start]
-```
 
 1. Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
    

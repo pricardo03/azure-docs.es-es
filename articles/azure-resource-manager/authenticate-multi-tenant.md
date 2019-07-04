@@ -1,22 +1,17 @@
 ---
 title: 'Autenticación entre inquilinos: Azure Resource Manager'
 description: Se describe cómo Azure Resource Manager gestiona las solicitudes de autenticación entre inquilinos.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6554c05f40f580a6d7ae086e1d09834298f86621
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5370b9b6d6a8bee82f8feca6dbcbcd78a4c12193
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550774"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205610"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticación de solicitudes entre inquilinos
 
@@ -28,7 +23,7 @@ La solicitud tiene los siguientes valores de encabezado de autenticación:
 
 | Nombre de encabezado | DESCRIPCIÓN | Valor de ejemplo |
 | ----------- | ----------- | ------------ |
-| Autorización | Token primario | Bearer &lt;primary-token&gt; |
+| Authorization | Token primario | Bearer &lt;primary-token&gt; |
 | x-ms-authorization-auxiliary | Tokens auxiliares | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
 
 El encabezado auxiliar puede contener hasta tres tokens auxiliares. 

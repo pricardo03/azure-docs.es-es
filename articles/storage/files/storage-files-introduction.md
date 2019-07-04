@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 075a3cea426fd5f54ef142648754fa9a9e2810b4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706960"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508323"
 ---
 # <a name="what-is-azure-files"></a>¿Qué es Azure Files?
 Azure Files ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de Azure Files se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. Además, los recursos compartidos de archivos de Azure Files se pueden almacenar en la caché de los servidores de Windows Server con Azure File Sync, lo que permite un acceso rápido allí donde se utilizan los datos.
@@ -21,7 +21,7 @@ Azure Files ofrece recursos compartidos de archivos en la nube totalmente admini
 ## <a name="videos"></a>Vídeos
 | Introducing Azure File Sync (Introducción a Azure File Sync) (2 m) | Azure Files with Sync (Ignite 2017) (85 m)  |
 |-|-|
-| [![Presentación en pantalla del vídeo Introducing Azure File Sync, haga clic para reproducirlo.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Presentación en pantalla de Azure Files with Sync, haga clic para reproducirlo.](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
+| [![Presentación en pantalla del vídeo Introducing Azure File Sync, haga clic para reproducirlo.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Presentación en pantalla de Azure Files with Sync, haga clic para reproducirlo.](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
 
 ## <a name="why-azure-files-is-useful"></a>¿Por qué es útil Azure Files?
 Los recursos compartidos de archivos de Azure se pueden usar para:
@@ -29,11 +29,11 @@ Los recursos compartidos de archivos de Azure se pueden usar para:
 * **Reemplazar o complementar servidores de archivos locales**:  
     Azure Files puede utilizarse para reemplazar totalmente o complementar los servidores de archivos tradicionales locales o en dispositivos NAS. Desde sistemas operativos tan extendidos como Windows, macOS y Linux se puede montar directamente un recurso compartido de Azure Files desde cualquier lugar del mundo. Los recursos compartidos de Azure Files se pueden replicar también con Azure File Sync en servidores de Windows Server, locales o en la nube, para obtener un almacenamiento en caché eficiente y distribuido de los datos allí donde se usan.
 
-* **Aplicaciones "Lift-and-shift"**:  
+* **Aplicaciones "Lift-and-shift"** :  
     Azure Files facilita la migración mediante "lift and shift" de aplicaciones a la nube que espera un recurso compartido de archivos para almacenar datos de la aplicación de archivos o de un usuario. Azure Files permite la migración clásica mediante "lift and shift" en la que tanto la aplicación como sus datos se mueven a Azure, y la migración híbrida mediante "lift and shift" en la que los datos de la aplicación se mueven a Azure Files pero la aplicación continúa ejecutándose de forma local. 
 
 * **Simplificar el desarrollo en la nube**:  
-    Azure Files también se puede utilizar de muchas formas para simplificar los nuevos proyectos de desarrollo en la nube. Por ejemplo: 
+    Azure Files también se puede utilizar de muchas formas para simplificar los nuevos proyectos de desarrollo en la nube. Por ejemplo:
     * **Configuración de aplicaciones compartidas**  
         Un patrón habitual entre las aplicaciones distribuidas es contar con archivos de configuración en una ubicación centralizada que permite tener acceso a ellos desde muchas instancias de aplicaciones. Las instancias de la aplicación pueden cargar su configuración mediante la API de REST de Azure Files y los usuarios pueden acceder a ella según sea necesario montando el recurso compartido SMB localmente.
 

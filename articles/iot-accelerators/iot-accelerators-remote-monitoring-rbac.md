@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443134"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203158"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configuración de controles de acceso basado en rol en el acelerador de soluciones de supervisión remota
 
@@ -91,11 +91,11 @@ En los pasos siguientes se describe cómo agregar un rol a una aplicación en Az
 
 1. Busque su solución en el **registro de aplicaciones** de Azure Portal. El nombre de la aplicación es el nombre de la solución de supervisión remota. En la siguiente captura de pantalla, los nombres para mostrar de la solución y de la aplicación son **contoso-rm4**.
 
-    ![Registro de aplicación](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Registro de aplicación](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Seleccione la aplicación y, a continuación, haga clic en **Manifiesto**. Puede ver los dos [roles de aplicación](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) existentes definidos para la aplicación:
 
-    ![Visualización del manifiesto](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Visualización del manifiesto](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Edite el manifiesto para agregar un rol denominado **ManageDevices** como se muestra en el siguiente fragmento de código. Necesita una cadena única como un GUID para el nuevo identificador de rol. Puede generar un nuevo GUID con un servicio como [Online GUID Generator](https://www.guidgenerator.com/):
 

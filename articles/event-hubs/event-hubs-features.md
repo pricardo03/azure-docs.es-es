@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b2618807a39f20de041a78204dcc40793b22843
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822022"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275430"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -151,33 +151,6 @@ Datos de evento:
 * Propiedades del sistema
 
 Es su responsabilidad administrar el desplazamiento.
-
-## <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
-
-Hay dos factores que influyen en el escalado con Event Hubs.
-*   Unidades de procesamiento
-*   Particiones
-
-### <a name="throughput-units"></a>Unidades de procesamiento
-
-La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rendimiento*. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Un único procesamiento le permite:
-
-* Entrada: hasta 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero.
-* Salida: hasta 2 MB por segundo o 4096 eventos por segundo.
-
-Si supera la capacidad de las unidades de rendimiento adquiridas, la entrada se limitará y se devolverá una excepción [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). La salida no produce excepciones de limitación, pero sigue estando limitada a la capacidad de las unidades de rendimiento adquiridas. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de rendimiento adquirió para el espacio de nombres. Puede administrar las unidades de procesamiento en la hoja **Escala** de los espacios de nombres en [Azure Portal](https://portal.azure.com). También puede administrar unidades de procesamiento mediante programación con las [API de Event Hubs](event-hubs-api-overview.md).
-
-Las unidades de procesamiento se adquieren previamente y se facturan por hora. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Event Hubs y compartir entre todos los centros de eventos del espacio de nombres.
-
-### <a name="partitions"></a>Particiones
-
-Las particiones permiten escalar el procesamiento de bajada. Gracias al modelo de consumidor con particiones que ofrece Event Hubs con particiones, puede escalar horizontalmente al procesar los eventos al mismo tiempo. Un centro de eventos puede tener hasta 32 particiones.
-
-Se recomienda equilibrar las unidades de procesamiento y las particiones 1:1 para lograr una escalabilidad óptima. Una sola partición tiene una entrada y una salida garantizadas de hasta una unidad de procesamiento. Aunque puede lograr un mayor procesamiento en una partición, no se garantiza el rendimiento. Por este motivo, se recomienda encarecidamente que el número de particiones en un centro de eventos sea mayor o igual que el número de unidades de procesamiento.
-
-Dado el procesamiento total que planea necesitar, conoce el número de unidades de procesamiento que precisa y el número mínimo de particiones, pero, ¿cuántas particiones debería tener? Elija el número de particiones en función del paralelismo de bajada que quiere conseguir, así como de las futuras necesidades de procesamiento. No hay ningún cargo por el número de particiones que tiene dentro de un centro de eventos.
-
-Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

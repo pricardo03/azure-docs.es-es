@@ -9,11 +9,11 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: dc4281c17b92e1720625764a52a34a94d6f296ab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66164602"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186246"
 ---
 Antes de crear cualquier elemento, revisemos el concepto de ámbito. Azure proporciona cuatro niveles de administración: grupo de administración, suscripción, grupo de recursos y recurso. Los [grupos de administración](../articles/billing/billing-enterprise-mgmt-group-overview.md) están en versión preliminar. En la imagen siguiente se muestra un ejemplo de estos niveles:
 

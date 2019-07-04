@@ -13,16 +13,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70a862f51f9e15b8eb26e2ac12b046b76b9a7402
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549840"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514337"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-python.md)
 
@@ -41,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 1. Inicie el Bloc de notas. Copie el texto siguiente y guárdelo como archivo **input.txt** en el disco.
 
-    ```
+    ```text
     John|Doe
     Jane|Doe
     ```
@@ -52,12 +52,12 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 1. Abra un terminal o símbolo del sistema con privilegios de administrador. 
 2. En primer lugar, instale el paquete de Python para los recursos de administración de Azure:
 
-    ```
+    ```python
     pip install azure-mgmt-resource
     ```
 3. Para instalar el paquete de Python para Data Factory, ejecute el siguiente comando:
 
-    ```
+    ```python
     pip install azure-mgmt-datafactory
     ```
 
@@ -374,7 +374,7 @@ def main():
         }
     )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))

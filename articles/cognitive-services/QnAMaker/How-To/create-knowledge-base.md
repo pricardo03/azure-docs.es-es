@@ -3,20 +3,20 @@ title: Creación de una base de conocimiento
 titleSuffix: QnA Maker API - Azure Cognitive Services
 description: Use el portal de servicios de QnA Maker API para crear una base de conocimiento con charla. Esto hace que la aplicación sea más atractiva. Agregue un conjunto rellenado previamente de las principales charlas a la base de conocimiento como punto de partida para las charlas del bot y le ahorrará el tiempo y el costo que supone escribirlas desde cero.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c674d33d7f0958fbce8f080f43404c480c7410c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541792"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447440"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Inicio rápido: Creación de una base de conocimiento mediante el portal de servicios de QnA Maker API
 

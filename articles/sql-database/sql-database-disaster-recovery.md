@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075819"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341070"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una base de datos de Azure SQL o conmutación por error a una base de datos secundaria
 
@@ -34,7 +34,7 @@ Para obtener información sobre los escenarios de continuidad empresarial y sus 
 > Si usa bases de datos o grupos de nivel Premium o Crítico para la empresa con redundancia de zona, el proceso de recuperación se automatiza y el resto de este material no se aplica.
 
 > [!NOTE]
-> Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda encarecidamente que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Para obtener más información, consulte [Actualización o degradación como base de datos principal](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda encarecidamente que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Para obtener más información, consulte [Actualización o degradación como base de datos principal](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Use uno o varios grupos de conmutación por error para administrar la conmutación por error de varias bases de datos.

@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: dd8e760e658715b89bf45718ac571ccaeb5ade96
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020947"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465567"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para Unity (Beta)
+
+También hay inicios rápidos disponibles para la conversión de [texto a voz](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -52,7 +54,7 @@ Para completar este proyecto necesitará lo siguiente:
 
 * El SDK de Voz para Unity (Beta) se empaqueta como un paquete de recursos de Unity (.unitypackage).
   Puede descargarlo [aquí](https://aka.ms/csspeech/unitypackage).
-* Importe el SDK de Voz seleccionando **Assets (Recursos)** > **Import Package (Importar paquete)** > **Custom Package (Paquete personalizado)**.
+* Importe el SDK de Voz seleccionando **Assets (Recursos)**  > **Import Package (Importar paquete)**  > **Custom Package (Paquete personalizado)** .
   Para más información, consulte la [documentación de Unity](https://docs.unity3d.com/Manual/AssetPackages.html).
 * En el selector de archivos, seleccione el archivo .unitypackage del SDK de Voz que descargó anteriormente.
 * Asegúrese de que se seleccionan todos los archivos y haga clic en **Import** (Importar):
@@ -84,7 +86,7 @@ Cuando haya terminado, la interfaz de usuario debe ser similar a esta captura de
 1. Edite el script haciendo doble clic en él.
 
    > [!NOTE]
-   > Puede configurar qué editor de código se va a iniciar en **Edit (Editar)** > **Preferences (Preferencias)**, consulte el [manual del usuario de Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > Puede configurar qué editor de código se va a iniciar en **Edit (Editar)**  > **Preferences (Preferencias)** , consulte el [manual del usuario de Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Reemplace todo el código por lo siguiente:
 

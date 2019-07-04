@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204038"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446619"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -124,7 +124,7 @@ Cree un grupo de Batch con al menos dos nodos de ejecución.
    f. Seleccione **Aceptar** para crear el grupo.
 
 #### <a name="azure-storage-explorer"></a>Explorador de Azure Storage
-Use el [Explorador de Azure Storage 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (de ClumsyLeaf Software) para inspeccionar y modificar los datos de los proyectos de Storage. También puede inspeccionar y modificar los datos de los registros de las aplicaciones hospedadas en la nube.
+Use el [Explorador de Azure Storage 6](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (de ClumsyLeaf Software) para inspeccionar y modificar los datos de los proyectos de Storage. También puede inspeccionar y modificar los datos de los registros de las aplicaciones hospedadas en la nube.
 
 1. Cree un contenedor denominado **mycontainer** con acceso privado (sin acceso anónimo).
 

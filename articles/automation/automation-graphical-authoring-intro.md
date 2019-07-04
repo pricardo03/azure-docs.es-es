@@ -4,17 +4,17 @@ description: Creación gráfica le permite crear runbooks para Azure Automation 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740818"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476690"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 
@@ -326,7 +326,7 @@ Las propiedades de la siguiente tabla definen los parámetros de entrada:
 |:--- |:--- |
 | Name |El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
 | Description |Una descripción opcional del parámetro de entrada. |
-| Type |El tipo de datos que se espera para el valor del parámetro. Azure Portal proporciona un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
+| type |El tipo de datos que se espera para el valor del parámetro. Azure Portal proporciona un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
 | Mandatory |Especifica si se debe proporcionar un valor para el parámetro. No es posible iniciar el runbook si no se proporciona un valor para cada parámetro obligatorio que no tiene definido un valor predeterminado. |
 | Valor predeterminado |Especifica el valor que se usa para el parámetro si no se brinda alguno. Puede ser Null o un valor específico. |
 

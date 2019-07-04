@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507226"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296287"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure Portal
 
@@ -83,13 +80,13 @@ Para obtener más información sobre cómo Azure Resource Manager ordena la elim
 
 ## <a name="deploy-resources-to-a-resource-group"></a>Implementar recursos en un grupo de recursos
 
-Después de haber creado una plantilla de Resource Manager, puede usar Azure Portal para implementar los recursos de Azure. Parea crear una plantilla, vea [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). Para saber cómo implementar una plantilla usando Azure Portal, vea [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](resource-group-template-deploy-portal.md).
+Después de haber creado una plantilla de Resource Manager, puede usar Azure Portal para implementar los recursos de Azure. Parea crear una plantilla, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). Para saber cómo implementar una plantilla usando Azure Portal, vea [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](resource-group-template-deploy-portal.md).
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>Mover a otro grupo de recursos o suscripción
 
-Los recursos de un grupo se pueden mover a otro grupo de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
+Puede mover los recursos de un grupo a otro grupo de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 
-## <a name="lock-resource-groups"></a>Bloquear grupos de recursos
+## <a name="lock-resource-groups"></a>Bloqueo de grupos de recursos
 
 Los bloqueos impiden que otros usuarios de la organización eliminen o modifiquen por error recursos esenciales, como una suscripción de Azure, un grupo de recursos o un recurso. 
 
@@ -104,27 +101,19 @@ Para obtener más información, vea [Bloqueo de recursos para impedir cambios in
 
 ## <a name="tag-resource-groups"></a>Etiquetar grupos de recursos
 
-Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para obtener información, vea [Uso de etiquetas para organizar recursos de Azure](./resource-group-using-tags.md#portal).
+Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para obtener información, vea [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md#portal).
 
 ## <a name="export-resource-groups-to-templates"></a>Exportar grupos de recursos a plantillas
 
 Para obtener más información sobre cómo exportar plantillas, vea [Exportar uno o varios recursos a una plantilla: Portal](export-template-portal.md).
 
-### <a name="fix-export-issues"></a>Solución de problemas de exportación
-
-No todos los tipos de recursos admiten la función de exportación de plantilla. Solo se producirán problemas de exportación si esta se realiza desde un grupo de recursos y no desde el historial de implementación. Si su última implementación representa con precisión el estado actual del grupo de recursos, debe exportar la plantilla desde el historial de implementación en lugar de desde el grupo de recursos. Realice la exportación desde un grupo de recursos únicamente si ha realizado cambios en el grupo de recursos que no están definidos en una única plantilla.
-
-Para evitar los problemas de exportación, agregue manualmente los recursos que faltan a la plantilla. El mensaje de error incluye los tipos de recursos que no se pueden exportar. Busque el tipo de recurso en [Referencia de plantilla](/azure/templates/). Por ejemplo, para agregar manualmente una puerta de enlace de red virtual, consulte [Microsoft.Network/virtualNetworkGateways template reference](/azure/templates/microsoft.network/virtualnetworkgateways) (Referencia de plantilla Microsoft.Network/virtualNetworkGateways). La referencia a la plantilla proporciona el código JSON necesario para agregar el recurso a la plantilla.
-
-Después de obtener el formato JSON del recurso, debe obtener los valores del recurso. Puede ver los valores del recurso utilizando la operación GET en la API REST del tipo de recurso. Por ejemplo, para obtener los valores de la puerta de enlace de red virtual, consulte [Virtual Network Gateways - Get](/rest/api/network-gateway/virtualnetworkgateways/get) (Puertas de enlace de red virtual: Get).
-
-## <a name="manage-access-to-resource-groups"></a>Administrar el acceso a los grupos de recursos
+## <a name="manage-access-to-resource-groups"></a>Administración del acceso a los grupos de recursos
 
 El [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md) es la forma en que se administra el acceso a los recursos en Azure. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre Azure Resource Manager, vea [Información general de Azure Resource Manager](./resource-group-overview.md).
-- Para obtener información sobre la sintaxis de las plantillas de Resource Manager, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
-- Para obtener información sobre cómo desarrollar plantillas, vea los [tutoriales paso a paso](/azure/azure-resource-manager/).
-- Para ver los esquemas de plantilla de Resource Manager, vea la [referencia de plantilla](/azure/templates/).
+- Para obtener información sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](./resource-group-overview.md).
+- Para obtener información sobre la sintaxis de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](./resource-group-authoring-templates.md).
+- Para obtener información sobre cómo desarrollar plantillas, consulte los [tutoriales paso a paso](/azure/azure-resource-manager/).
+- Para ver los esquemas de plantilla de Azure Resource Manager, vea la [referencia de plantilla](/azure/templates/).

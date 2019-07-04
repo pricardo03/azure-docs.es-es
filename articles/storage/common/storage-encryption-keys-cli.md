@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 06/24/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ca2cfc9369fd6fb001b2a2dc401c33e5ddfd38c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 925b69e064e260a78a102a068f052ad7d396c380
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142903"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357055"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurar las claves que administra el cliente para el cifrado de Azure Storage desde la CLI de Azure.
 
@@ -54,7 +54,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-## <a name="configure-the-key-vault-access-policy"></a>Configurar la directiva de acceso del almacén de claves
+## <a name="configure-the-key-vault-access-policy"></a>Configuración de la directiva de acceso del almacén de claves
 
 A continuación, configure la directiva de acceso del almacén de claves, para que la cuenta de almacenamiento tenga permiso para acceder a él. En este paso, usará la identidad administrada que asignó previamente a la cuenta de almacenamiento.
 
@@ -62,7 +62,7 @@ Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) para es
 
 ```azurecli-interactive
 storage_account_principal=$(az storage account show \
-    -name <storage-account> \
+    --name <storage-account> \
     --resource-group <resource-group> \
     --query identity.principalId \
     --output tsv)
@@ -115,5 +115,5 @@ Cuando se crea una nueva versión de una clave, deberá actualizar la cuenta de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md) 
-- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md) 
+- [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

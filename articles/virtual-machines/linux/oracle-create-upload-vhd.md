@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 55a2b7b690c40ab21a59f93aaba0ab5add5faa98
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542414"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203010"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparación de una máquina virtual Oracle Linux para Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -107,7 +107,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
         # logout
 14. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-- - -
+---
 ## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
 **Cambios en Oracle Linux 7**
 

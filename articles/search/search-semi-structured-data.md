@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3184b839087944d8d4335927810ec31d8876866e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024382"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485334"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial de REST: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Search
 
@@ -48,7 +48,7 @@ Las llamadas de REST requieren la dirección URL del servicio y una clave de acc
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -70,7 +70,7 @@ Una vez finalizada la carga, los archivos deberían aparecer en su propia subcar
 
 ## <a name="set-up-postman"></a>Configuración de Postman
 
-Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Search mediante Postman](search-fiddler.md).
+Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Search mediante Postman](search-get-started-postman.md).
 
 El método de solicitud de todas las llamadas del tutorial es **POST**. Las claves de encabezado son "Content-type" y "api-key". Los valores de las claves de encabezado son, respectivamente, "application/json" y su "clave de administrador" (la clave de administrador es un marcador de posición para su clave principal de búsqueda). El cuerpo es donde se coloca el contenido real de la llamada. En función del cliente que esté usando, puede haber algunas variaciones en cómo se crea la consulta, pero estos son los conceptos básicos.
 
@@ -127,7 +127,7 @@ La respuesta debería tener este aspecto:
 
 ## <a name="create-an-index"></a>Creación de un índice
     
-La segunda llamada es [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), que crea un índice de Azure Search que almacena todos los datos en los que se pueden realizar búsquedas. Un índice especifica todos los parámetros y sus atributos.
+La segunda llamada es [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), que crea un índice de Azure Search que almacena todos los datos en los que se pueden realizar búsquedas. Un índice especifica todos los parámetros y sus atributos.
 
 La dirección URL de esta llamada es `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda.
 

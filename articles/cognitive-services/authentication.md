@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 06cc5509598cb6227a64e2cf375a5686c89312eb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163670"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435930"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
@@ -28,7 +28,7 @@ Cada solicitud a una instancia de Azure Cognitive Services debe incluir un encab
 
 Antes de hacer una solicitud, necesita una cuenta de Azure y una suscripción a Azure Cognitive Services. Si ya tiene una cuenta, siga adelante y vaya a la sección siguiente. Si no tiene una cuenta, tenemos una guía para que la configure en unos minutos: [Creación de una cuenta de Cognitive Services para Azure](cognitive-services-apis-create-account.md).
 
-Puede obtener la clave de suscripción en [Azure Portal](cognitive-services-apis-create-account.md#access-your-resource) después de crear la cuenta, o al activar una [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Puede obtener la clave de suscripción en [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) después de crear la cuenta, o al activar una [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
 ## <a name="authentication-headers"></a>Encabezados de autenticación
 

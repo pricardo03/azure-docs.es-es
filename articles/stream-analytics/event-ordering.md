@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47a8ee2c03e67d4fd9b34888430ed0cc702205f6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789491"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273179"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuración de las directivas de ordenación de eventos para Azure Stream Analytics
 
@@ -73,7 +73,7 @@ Cuando se combinan varias particiones del mismo flujo de entrada, la tolerancia 
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Este mensaje es para informarle de que al menos una partición de entrada está vacía y retrasará la salida de acuerdo con el umbral de llegada tardía. Para solucionar este problema, se recomienda que opte por una de estas opciones: 
+Este mensaje es para informarle de que al menos una partición de entrada está vacía y retrasará la salida de acuerdo con el umbral de llegada tardía. Para solucionar este problema, se recomienda que opte por una de estas opciones:  
 1. Asegurarse de que todas las particiones del centro de eventos o IoT Hub reciben una entrada. 
 2. Utilizar la cláusula Partition by PartitionId en la consulta. 
 

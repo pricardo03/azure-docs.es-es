@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0c40d0985b0d6c967a55b1954a1cb54feeb15361
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149383"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514578"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Python
 
@@ -54,11 +54,13 @@ En este ejemplo se crea un archivo de prueba en la carpeta *Documents*. El progr
 
 En primer lugar, instale las dependencias mediante la ejecución de `pip install`:
 
+```python
     pip install azure-storage-blob
+```
 
 Después, ejecute el ejemplo. Verá mensajes similares a la siguiente salida:
   
-```
+```output
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
 Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt

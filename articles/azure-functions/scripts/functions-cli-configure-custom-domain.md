@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131301"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075462"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Asignación de un dominio personalizado a una aplicación de función
 
-En este script de ejemplo se crea una aplicación de función en un plan de App Service y, después, se asigna al dominio personalizado que proporcione. Si la aplicación de función se hospeda en un [plan Premium](../functions-scale.md#premium-plan-public-preview) o en un [plan de App Service](../functions-scale.md#app-service-plan), puede asignar un dominio personalizado mediante un registro CNAME o un registro D. Para las aplicaciones de función de un [plan de consumo](../functions-scale.md#consumption-plan), solo se admite la opción de CNAME. En este ejemplo se crea un plan de App Service y requiere un registro A para asignar el dominio. 
+En este script de ejemplo se crea una aplicación de función en un plan de App Service y, después, se asigna al dominio personalizado que proporcione. Si la aplicación de función se hospeda en un [plan Premium](../functions-scale.md#premium-plan) o en un [plan de App Service](../functions-scale.md#app-service-plan), puede asignar un dominio personalizado mediante un registro CNAME o un registro D. Para las aplicaciones de función de un [plan de consumo](../functions-scale.md#consumption-plan), solo se admite la opción de CNAME. En este ejemplo se crea un plan de App Service y requiere un registro A para asignar el dominio. 
 
 Para ejecutar este script de ejemplo, debe haber configurado un registro A en el dominio personalizado que señale al nombre de dominio predeterminado de la aplicación web. Para más información, consulte las instrucciones del artículo [Asignación de un dominio personalizado a Azure App Service](https://aka.ms/appservicecustomdns). 
 

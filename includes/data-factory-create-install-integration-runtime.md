@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66168209"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186784"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
@@ -98,7 +98,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
 9. En la página **Ha completado el Asistente para la instalación de Microsoft Integration Runtime**, seleccione **Finalizar**.
 
-10. En la página **Registro de Integration Runtime (autohospedado)**, pegue la clave guardada en la sección anterior y seleccione en **Registrar**. 
+10. En la página **Registro de Integration Runtime (autohospedado)** , pegue la clave guardada en la sección anterior y seleccione en **Registrar**. 
 
     ![Registro de Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
@@ -106,7 +106,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     ![Se registró correctamente](media/data-factory-create-install-integration-runtime/registered-successfully.png)
 
-12. En la página **Nuevo nodo de Integration Runtime (autohospedado)**, seleccione **Siguiente**. 
+12. En la página **Nuevo nodo de Integration Runtime (autohospedado)** , seleccione **Siguiente**. 
 
     ![Página Nuevo nodo de Integration Runtime](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
 
@@ -114,7 +114,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     ![Página Canal de comunicaciones de intranet](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
 
-14. En la página **Registro de Integration Runtime (autohospedado)**, seleccione **Iniciar Configuration Manager**.
+14. En la página **Registro de Integration Runtime (autohospedado)** , seleccione **Iniciar Configuration Manager**.
 
 15. Verá la siguiente página cuando el nodo esté conectado al servicio en la nube:
 
@@ -124,7 +124,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     ![Ficha Diagnóstico](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
 
-     a. En la página **Configuration Manager**, vaya a la pestaña **Diagnósticos**.
+    a. En la página **Configuration Manager**, vaya a la pestaña **Diagnósticos**.
 
     b. Seleccione **SqlServer** para el tipo de origen de datos.
 

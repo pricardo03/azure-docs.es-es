@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455186"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440208"
 ---
 1. Descargue los inicios rápidos del SDK de cliente para estas plataformas:
     
@@ -100,6 +100,4 @@ ms.locfileid: "66455186"
 
         4. Seleccione **App Service** como destino de publicación y haga clic en **Seleccionar existente**. Después, seleccione **Publicar** en la parte inferior de la ventana.
 
-        5. Primero tendrá que iniciar sesión en Visual Studio con su suscripción de Azure. Seleccione `Subscription`, `Resource Group` y luego el nombre de la aplicación. Cuando esté listo, haga clic en **Aceptar**. Se implementará el proyecto de servidor de .NET que tiene localmente en el back-end de App Service. Cuando termine la implementación, se le redirigirá a `http://{zumoappname}.azurewebsites.net/` en el explorador.
-        
-           ![Back-end está activo](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+        5. Primero tendrá que iniciar sesión en Visual Studio con su suscripción de Azure. Seleccione `Subscription`, `Resource Group` y luego el nombre de la aplicación. Cuando esté listo, haga clic en **Aceptar**. Se implementará el proyecto de servidor de .NET que tiene localmente en el back-end de App Service. Cuando termine la implementación, se le redirigirá a `http://{zumoappname}.azurewebsites.net/` en el explorador.                   

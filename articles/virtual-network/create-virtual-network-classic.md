@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098123"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202866"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creación de una red virtual (clásica) con varias subredes
 
@@ -65,7 +65,7 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
     - Haga clic en el icono **Eliminar** en el panel **myVnet**.
     - Para confirmar la eliminación, haga clic en **Sí** en el cuadro **Eliminar red virtual**.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 1. Puede [instalar y configurar la CLI de Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o usar la CLI dentro de Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizarla con la cuenta. Para obtener ayuda con los comandos de la CLI, escriba `azure <command> --help`. 
 2. En una sesión de la CLI, inicie sesión en Azure con el comando siguiente. Si hace clic en **Pruébelo** en el cuadro siguiente, se abre Cloud Shell. Puede iniciar sesión en la suscripción de Azure sin especificar el siguiente comando:

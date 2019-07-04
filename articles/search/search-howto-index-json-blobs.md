@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523068"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485435"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexación de blobs JSON con el indexador de blobs de Azure Search
 En este artículo se muestra cómo configurar un [indexador](search-indexer-overview.md) de blobs de Azure Search para extraer contenido estructurado de los documentos JSON en Azure Blob Storage y permitir que se hagan búsquedas en él con Azure Search. Este flujo de trabajo crea un índice de Azure Search y lo carga con texto extraído de los blobs JSON. 
@@ -73,7 +73,7 @@ En la página **origen de datos**, el origen debe ser **Azure Blob Storage** con
 
 No es necesario agregar conocimientos cognitivos para la importación de documentos JSON. A menos que necesite específicamente [incluir Cognitive Services APIs y transformaciones](cognitive-search-concept-intro.md) a la canalización de indización, omita este paso.
 
-Para omitir el paso, vaya primero a la página siguiente.
+Para omitir el paso, vaya a la página siguiente.
 
    ![Botón Página siguiente de Cognitive Search](media/search-get-started-portal/next-button-add-cog-search.png)
 
@@ -118,7 +118,7 @@ Puede usar la API REST para indexar blobs JSON, siguiendo un flujo de trabajo de
 
 Eche un vistazo al [código de ejemplo de REST](#rest-example) al final de esta sección para ver cómo crear los tres objetos. Esta sección también contiene detalles sobre [modos de análisis de JSON](#parsing-modes), [blobs únicos](#parsing-single-blobs), [matrices JSON](#parsing-arrays) y [matrices anidadas](#nested-json-arrays).
 
-Para la indexación de JSON basado en código, use [Postman](search-fiddler.md) y la API REST para crear estos objetos:
+Para la indexación de JSON basado en código, use [Postman](search-get-started-postman.md) y la API REST para crear estos objetos:
 
 + [índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [origen de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -136,7 +136,7 @@ Los blobs JSON de Azure Blob Storage suelen ser un documento JSON único o una "
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1\. Ensamblar las entradas para la solicitud
 
-Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar [Postman](search-fiddler.md) para enviar solicitudes HTTP a Azure Search.
+Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar [Postman](search-get-started-postman.md) para enviar solicitudes HTTP a Azure Search.
 
 Copie los cuatro valores siguientes en el Bloc de notas para poder pegarlos en una solicitud:
 

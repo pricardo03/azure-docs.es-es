@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236232"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275369"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs: una plataforma de streaming de macrodatos y un servicio de ingesta de eventos
 Azure Event Hubs es una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. Puede recibir y procesar millones de eventos por segundo. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento.
@@ -45,9 +45,9 @@ Event Hubs es una plataforma como servicio (PaaS) completamente administrada con
 
 ## <a name="support-for-real-time-and-batch-processing"></a>Compatibilidad con procesamiento por lotes y en tiempo real
 
-Ingiera, almacene en búfer y procese la secuencia en tiempo real para obtener información práctica y útil. Event Hubs usa un [modelo de consumidor con particiones](event-hubs-features.md#partitions), que permite que varias aplicaciones procesen la secuencia de manera simultánea y le deja controlar la velocidad del procesamiento.
+Ingiera, almacene en búfer y procese la secuencia en tiempo real para obtener información práctica y útil. Event Hubs usa un [modelo de consumidor con particiones](event-hubs-scalability.md#partitions), que permite que varias aplicaciones procesen la secuencia de manera simultánea y le deja controlar la velocidad del procesamiento.
 
-[Capture](event-hubs-capture-overview.md) los datos casi en tiempo real en una instancia de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) para la retención a largo plazo o el procesamiento por microlotes. Puede lograr este comportamiento en la misma secuencia que usa para derivar análisis en tiempo real. La configuración de la captura de datos de eventos es rápida. Su ejecución no conlleva gastos administrativos y se escala automáticamente con las  [unidades de procesamiento](event-hubs-features.md#throughput-units) de Event Hubs. Event Hubs le permite centrarse en el procesamiento de datos en lugar de hacerlo en la captura de datos.
+[Capture](event-hubs-capture-overview.md) los datos casi en tiempo real en una instancia de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) para la retención a largo plazo o el procesamiento por microlotes. Puede lograr este comportamiento en la misma secuencia que usa para derivar análisis en tiempo real. La configuración de la captura de datos de eventos es rápida. Su ejecución no conlleva gastos administrativos y se escala automáticamente con las  [unidades de procesamiento](event-hubs-scalability.md#throughput-units) de Event Hubs. Event Hubs le permite centrarse en el procesamiento de datos en lugar de hacerlo en la captura de datos.
 
 Azure Event Hubs también se integra con [Azure Functions](/azure/azure-functions/) para una arquitectura sin servidor.
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912127"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203683"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicación de varias versiones de la API 
 
@@ -38,15 +38,15 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Agregar una nueva versión
 
 ![Menú contextual de la API: agregar versión](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. Seleccione **Demo Conference API** en la lista de API.
-2. Seleccione el menú contextual (**...** ) junto a ella.
+2. Seleccione el menú contextual ( **...** ) junto a ella.
 3. Seleccione **+ Agregar versión**.
 
 > [!TIP]

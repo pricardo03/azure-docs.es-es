@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0d6ea62f1d2c1e15dff13aa45c4923717dd9c2c4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: eeec278a1c9e4888aa4a63af3d9c86e7a8c1615c
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390174"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502912"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Java
 
@@ -101,8 +101,9 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+    ```
 
-1. Create a `BufferedReader` and read the response from the API. Print it to the console.
+1. Cree un objeto `BufferedReader` y lea la respuesta de la API. Imprímala en la consola.
     
     ```java
     BufferedReader in = new BufferedReader(

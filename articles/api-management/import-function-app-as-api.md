@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f9e5c531e387ba8d2c61c6d46b1e8935bc7d42cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243110"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67429042"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -69,7 +69,7 @@ Siga estos pasos para crear una API desde una instancia de Azure Function App.
     ![Agregar desde Function App](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Solo se pueden importar funciones que se basen en desencadenador HTTP y que tengan la configuración del nivel de autorización establecida en *Anónimo* o *Función*. En este momento, no se admiten aplicaciones de función de Linux.
+    > Solo se pueden importar funciones que se basen en desencadenador HTTP y que tengan la configuración del nivel de autorización establecida en *Anónimo* o *Función*.
 
 7. Cambie a la vista **Completa** y asigne el **Producto** a la nueva API. Si es necesario, edite otros campos que se rellenan automáticamente.
 

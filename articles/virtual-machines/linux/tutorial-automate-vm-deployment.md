@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8a65b7becc4ec60290670819799e9f8731d55058
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114266"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial: Uso de cloud-init para personalizar una máquina virtual Linux en Azure durante el primer arranque
 
@@ -110,7 +110,7 @@ Antes de poder crear una máquina virtual, cree un grupo de recursos con [az gro
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una VM denominada *myAutomatedVM*:
+Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una máquina virtual denominada *myVM*:
 
 ```azurecli-interactive
 az vm create \

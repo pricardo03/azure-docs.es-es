@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515944"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446730"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Inicio rápido: Implementación de Azure Data Box Heavy mediante Azure Portal
 
@@ -29,7 +29,7 @@ Antes de implementar el dispositivo, complete los siguientes requisitos previos 
 
 Antes de comenzar, asegúrese de que:
 
-- El dispositivo puede pasar por todas las entradas. Las dimensiones del dispositivo son: ancho: 66 cm longitud: 121,9 cm alto: 71,12 cm
+- El dispositivo puede pasar por todas las entradas. Las dimensiones del dispositivo son: 66,04 cm largo: 121,92 cm alto: alto: 71,12 cm
 - Tiene acceso al dispositivo mediante un ascensor o una rampa si no tiene pensado instalarlo en una planta baja.
 - Cuenta con dos personas para administrar el dispositivo. El dispositivo pesa aproximadamente 226 kg. y viene con ruedas.
 - Tiene un sitio llano en el centro de datos que se encuentra próximo a una conexión de red disponible con espacio para un dispositivo con esta superficie.
@@ -57,7 +57,7 @@ Antes de comenzar, asegúrese de que:
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Orden
 
@@ -95,7 +95,7 @@ Este paso tarda entre 10 y 15 minutos en completarse.
 
 Este paso tarda entre 5 y 7 minutos en completarse.
 
-1. Para obtener la contraseña del dispositivo, vaya a **General > Detalles del dispositivo** en [Azure Portal](http://portal.azure.com). Se usa la misma contraseña para ambos nodos del dispositivo.
+1. Para obtener la contraseña del dispositivo, vaya a **General > Detalles del dispositivo** en [Azure Portal](https://portal.azure.com). Se usa la misma contraseña para ambos nodos del dispositivo.
 2. Asigne una dirección IP estática 192.168.100.5 y la subred 255.255.255.0 al adaptador Ethernet en el equipo que usa para conectarse a Data Box Heavy. Acceda a la interfaz de usuario web local del dispositivo en `https://192.168.100.10`. La conexión puede tardar hasta 5 minutos tras encender el dispositivo.
 3. Inicie sesión con la contraseña desde Azure Portal. Ve un error que indica un problema con el certificado de seguridad del sitio web. Siga las instrucciones específicas del explorador para continuar a la página web.
 4. De forma predeterminada, la red de las interfaces (excepto MGMT) se configura como DHCP. Si es necesario, puede configurar estas interfaces como estáticas y proporcionar una dirección IP.

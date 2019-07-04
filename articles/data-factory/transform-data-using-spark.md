@@ -11,12 +11,12 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387832"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312089"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -25,8 +25,6 @@ ms.locfileid: "60387832"
 
 La actividad de Spark en una [canalización](concepts-pipelines-activities.md) de Data Factory ejecuta un programa de Spark en su clúster de HDInsight [propio](compute-linked-services.md#azure-hdinsight-linked-service) o [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas. Cuando se usa un servicio vinculado a Spark a petición, Data Factory crea automáticamente un clúster Just-in-Time para procesar los datos y, luego, lo elimina una vez finalizado el procesamiento. 
 
-> [!IMPORTANT]
-> La actividad de Spark no admite clústeres de HDInsight Spark que usan una instancia de Azure Data Lake Store como almacenamiento principal.
 
 ## <a name="spark-activity-properties"></a>Propiedades de la actividad de Spark
 Esta es la definición de JSON de ejemplo de una actividad de Spark:    
@@ -45,7 +43,7 @@ Esta es la definición de JSON de ejemplo de una actividad de Spark:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"
@@ -80,7 +78,7 @@ Los trabajos de Spark son más extensibles que los de Pig y Hive. En los trabajo
 
 Cree la siguiente estructura de carpetas en la instancia de Azure Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en Azure Blob Storage:     
 
-| Ruta de acceso                  | DESCRIPCIÓN                              | Obligatorio | Type   |
+| Path                  | DESCRIPCIÓN                              | Obligatorio | type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (raíz)            | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí      | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí      | Archivo   |

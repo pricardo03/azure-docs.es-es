@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560840"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295556"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de búsqueda en registros de Azure Monitor
-
-> [!NOTE]
-> Debe completar [Get started with Azure Monitor log queries](get-started-queries.md) (Introducción a las consultas de registro de Azure Monitor) antes de completar esta lección.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Las consultas de registro de Azure Monitor pueden comenzar por un nombre de tabla o un comando de búsqueda. Este tutorial trata las consultas de búsqueda. Cada método tiene sus ventajas.
 
 Las consultas basadas en tablas comienzan por definir el ámbito de la consulta y, por tanto, tienden a ser más eficaces que las de búsqueda. Las consultas de búsqueda son menos estructuradas, lo que las convierte en la mejor opción cuando se busca un valor específico en columnas o tablas. Con **search** se pueden examinar todas las columnas de una tabla determinada o en todas las tablas para encontrar el valor especificado. La cantidad de datos que se procesa puede ser enorme, por lo que estas consultas podrían tardar más en completarse y devolver conjuntos de resultados muy grandes.

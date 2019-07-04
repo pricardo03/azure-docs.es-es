@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9962874600e259a639c70b7b180e5fc2a940461f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: cf60e298782d7bdcf15b53474b2d002a3fd62bba
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999559"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341892"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y Python en Computer Vision
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
+- Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
 - Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
@@ -36,7 +36,7 @@ Para crear y ejecutar el ejemplo, copie el código siguiente en el editor de có
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -60,9 +60,10 @@ thumbnail_url = vision_base_url + "generateThumbnail"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'width': '50', 'height': '50', 'smartCropping': 'true'}
-data    = {'url': image_url}
-response = requests.post(thumbnail_url, headers=headers, params=params, json=data)
+params = {'width': '50', 'height': '50', 'smartCropping': 'true'}
+data = {'url': image_url}
+response = requests.post(thumbnail_url, headers=headers,
+                         params=params, json=data)
 response.raise_for_status()
 
 thumbnail = Image.open(BytesIO(response.content))

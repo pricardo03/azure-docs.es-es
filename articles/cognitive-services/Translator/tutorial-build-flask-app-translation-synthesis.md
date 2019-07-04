@@ -3,19 +3,19 @@ title: 'Tutorial: Compilación de una aplicación de Flask para traducir, sintet
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, compilará una aplicación web basada en Flask que usa Azure Cognitive Services para traducir texto, realizar análisis de opinión y sintetizar texto traducido a voz. Se prestará especial atención el código de Python y las rutas de Flask que habilitan nuestra aplicación. No se dedicará mucho tiempo al código de JavaScript que controla la aplicación, pero sí se proporcionarán todos los archivos para que pueda inspeccionarlos.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 4df2de7f0428ffe35712a29bfef645b6feb66813
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: cef747e82e7d039952bec73e822f28eab2adaa97
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514999"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434889"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Compilación de una aplicación de Flask con Azure Cognitive Services
 
@@ -182,7 +182,7 @@ Este código garantiza que cuando un usuario navega a `http://your-web-app.com/a
 
 Aunque estos ejemplos ilustran cómo representar páginas HTML para un usuario, también se pueden usar rutas para llamar a API al presionar un botón o para realizar una serie de acciones sin necesidad de salir de la página principal. Cuando cree rutas para traducción, opinión y síntesis de voz verá un ejemplo de esto en acción.
 
-### <a name="get-started"></a>Introducción
+### <a name="get-started"></a>Primeros pasos
 
 1. Abra el proyecto en el entorno de desarrollo integrado y, después, cree un archivo denominado `app.py` en la raíz de su directorio de trabajo. A continuación, copie este código en `app.py` y guarde:
 

@@ -2,27 +2,21 @@
 title: Funcionamiento del inicio de sesión único en recursos locales de dispositivos unidos a Azure AD | Microsoft Docs
 description: Aprenda a configurar dispositivos híbridos unidos a Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/20/2018
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45941de6a90a5824ebc1e5d31b18b68f5fd9d493
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64e190e3e70459846b50e1f68158b0a5c458a216
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353200"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482057"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funcionamiento del inicio de sesión único en recursos locales de dispositivos unidos a Azure AD
 
@@ -34,21 +28,17 @@ En este artículo se explica cómo funciona.
 
 Como debe recordar un solo nombre de usuario y contraseña, el inicio de sesión único simplifica el acceso a los recursos y mejora la seguridad del entorno. Con un dispositivo unido a Azure AD, los usuarios ya tienen una experiencia de inicio de sesión único para las aplicaciones de nube en el entorno. Si el entorno tiene una instancia de Azure AD y una instancia de AD local, probablemente desee ampliar el alcance de la experiencia de inicio de sesión único a sus aplicaciones de línea de negocio (LOB) locales, recursos compartidos de archivos e impresoras.  
 
-
 Los dispositivos unidos a Azure AD no tienen ningún conocimiento acerca del entorno de AD porque no están unidos a él. Sin embargo, puede proporcionar información adicional acerca de su instancia de AD local a estos dispositivos con Azure AD Connect.
 Un entorno con ambos, Azure AD y AD local, también se conoce como entorno híbrido. Si tiene un entorno híbrido, es probable que tenga ya implementado Azure AD Connect para sincronizar la información de identidad local con la de la nube. Como parte del proceso de sincronización, Azure AD Connect sincroniza la información de dominio local con Azure AD. Cuando un usuario inicia sesión en un dispositivo de Azure AD en un entorno híbrido:
 
 1. Azure AD envía el nombre del dominio local del usuario como miembro de vuelta al dispositivo. 
-
-2. El servicio de la autoridad de seguridad local (LSA) permite la autenticación de Kerberos en el dispositivo.
+1. El servicio de la autoridad de seguridad local (LSA) permite la autenticación de Kerberos en el dispositivo.
 
 Durante un intento de acceso a un recurso en el dominio del usuario local, el dispositivo:
 
 1. Usa la información de dominio para localizar un controlador de dominio (DC). 
-
-2. Envía las credenciales de usuario y la información de dominio local al controlador de dominio encontrado para autenticar al usuario.
-
-3. Recibe un [vale de concesión de vales (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) de Kerberos que se utiliza para acceder a los recursos unidos a AD.
+1. Envía las credenciales de usuario y la información de dominio local al controlador de dominio encontrado para autenticar al usuario.
+1. Recibe un [vale de concesión de vales (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) de Kerberos que se utiliza para acceder a los recursos unidos a AD.
 
 Todas las aplicaciones que están configuradas para la **autenticación integrada de Windows** tienen un inicio de sesión único perfecto al intentar el usuario acceder.  
 
@@ -59,19 +49,14 @@ Windows Hello para empresas requiere configuración adicional para habilitar el 
 Con el inicio de sesión único, en un dispositivo unido a Azure AD puede: 
 
 - Acceder a una ruta de acceso UNC de un servidor miembro de AD
-
 - Acceder a un servidor web miembro de AD configurado para la seguridad integrada de Windows 
-
-
 
 Si desea administrar su AD local desde un dispositivo Windows, instale las [Herramientas de administración remota del servidor para Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
 
 Puede usar:
 
 - El complemento Usuarios y equipos de Active Directory (ADUC) para administrar todos los objetos de AD. Sin embargo, deberá especificar el dominio al que desea conectarse manualmente.
-
 - El complemento DHCP para administrar un servidor DHCP unido a AD. Sin embargo, deberá especificar el nombre del servidor DHCP o la dirección.
-
  
 ## <a name="what-you-should-know"></a>Qué debería saber
 

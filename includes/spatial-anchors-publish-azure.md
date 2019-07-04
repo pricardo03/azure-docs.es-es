@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305367"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186004"
 ---
 ### <a name="open-the-publish-wizard"></a>Apertura del Asistente para publicación
 
@@ -44,8 +44,8 @@ En el cuadro de diálogo **Configurar un plan de hospedaje**, use estos valores:
 | Configuración | Valor sugerido | DESCRIPCIÓN |
 |-|-|-|
 |Plan de servicio de aplicación| MySharingServicePlan | Nombre del plan de App Service. |
-| Ubicación | Oeste de EE. UU. | El centro de datos donde se hospeda la aplicación web. |
-| Tamaño | Gratuito | El [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina las características de hospedaje. |
+| Location | Oeste de EE. UU. | El centro de datos donde se hospeda la aplicación web. |
+| Size | Gratuito | El [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina las características de hospedaje. |
 
 Seleccione **Aceptar**.
 

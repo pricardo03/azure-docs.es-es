@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99abcc70a81622e4efbe85722d457bd1846b6e15
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024312"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485212"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos en Azure Search
 
@@ -25,7 +25,7 @@ En Azure Search, la expansión de sinónimos se realiza en el momento de la cons
 
 ## <a name="create-synonyms"></a>Creación de sinónimos
 
-No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-fiddler.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Agregar sinónimos en Azure Search mediante C# ](search-synonyms-tutorial-sdk.md).
+No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-get-started-postman.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Agregar sinónimos en Azure Search mediante C# ](search-synonyms-tutorial-sdk.md).
 
 Opcionalmente, si usa [claves administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo del servicio, puede aplicar dicha protección al contenido de la asignación de sinónimos.
 

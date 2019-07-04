@@ -2,20 +2,20 @@
 title: Hacer copias de seguridad de Windows Server en Azure
 description: En este tutorial se detalla la copia de seguridad de servidores Windows Server locales en un almacén de Recovery Services.
 services: backup
-author: saurabhsensharma
-manager: shivamg
+author: dcurwin
+manager: carmonm
 keywords: copia de seguridad de Windows Server; copia de seguridad de Windows Server; copia de seguridad y recuperación ante desastres
 ms.service: backup
 ms.topic: tutorial
 ms.date: 8/22/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097430"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273965"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -67,8 +67,8 @@ El agente de Microsoft Azure Recovery Services (MARS) crea una asociación entre
 
 3. En el menú **Objetivo de Backup**:
 
-   * en **¿Dónde se ejecuta su carga de trabajo?**, seleccione **Local**, 
-   * En el menú **¿De qué desea hacer una copia de seguridad?**, seleccione **Archivos y carpetas** y **Estado del sistema**.
+   * en **¿Dónde se ejecuta su carga de trabajo?** , seleccione **Local**, 
+   * En el menú **¿De qué desea hacer una copia de seguridad?** , seleccione **Archivos y carpetas** y **Estado del sistema**.
 
    ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
 
@@ -116,9 +116,9 @@ Use el agente de Microsoft Azure Recovery Services para programar cuándo se rea
 
 5. Haga clic en **Next**.
 
-6. En la página **Especificar la programación de copia de seguridad (estado del sistema)**, especifique las horas del día o la semana en que las copias de seguridad deben desencadenarse para el estado del sistema y haga clic en **Siguiente**.
+6. En la página **Especificar la programación de copia de seguridad (estado del sistema)** , especifique las horas del día o la semana en que las copias de seguridad deben desencadenarse para el estado del sistema y haga clic en **Siguiente**.
 
-7. En la página **Seleccionar la directiva de retención (estado del sistema)**, elija la directiva de retención para la copia de seguridad del estado del sistema y haga clic en **Siguiente**.
+7. En la página **Seleccionar la directiva de retención (estado del sistema)** , elija la directiva de retención para la copia de seguridad del estado del sistema y haga clic en **Siguiente**.
 
 8. De forma similar, seleccione la programación de copia de seguridad y la directiva de retención de los archivos y carpetas seleccionados. 
 

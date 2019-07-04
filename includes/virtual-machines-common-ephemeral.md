@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391469"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457534"
 ---
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual (VM) y no se conservan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales y tienen más en cuenta el tiempo empleado en implementaciones a gran escala o el tiempo en restablecer la imagen inicial de dichas máquinas. También son adecuados para migrar las aplicaciones en las que se ha usado el modelo de implementación clásico al modelo de implementación de Resource Manager. Con los discos del sistema operativo efímeros, notará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. Además, los discos del sistema operativo efímeros son gratuitos, es decir, no generan costos de almacenamiento. 
  

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791963"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447821"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
-En este tema, obtendrá información sobre cómo configurar el registro de telemetría de diagnósticos para Azure SQL Database mediante Azure Portal, PowerShell, CLI de Azure, API REST de Azure Monitor y la plantilla de Azure Resource Manager. Estos diagnósticos se pueden usar para medir el uso de recursos y las estadísticas de ejecución de consultas. 
+En este tema, obtendrá información sobre cómo configurar el registro de telemetría de diagnósticos para Azure SQL Database mediante Azure Portal, PowerShell, CLI de Azure, API REST de Azure Monitor y la plantilla de Azure Resource Manager. Estos diagnósticos se pueden usar para medir el uso de recursos y las estadísticas de ejecución de consultas.
 
 Las bases de datos únicas, bases de datos agrupadas en grupos elásticos y bases de datos de instancia en una instancia administrada pueden transmitir métricas y registros de diagnóstico para facilitar la supervisión del rendimiento. Puede configurar una base de datos para optimizar el uso de recursos, los trabajos y sesiones, y la conectividad en uno de los siguientes recursos de Azure:
 
@@ -119,7 +119,7 @@ Para habilitar el streaming de telemetría de diagnóstico del recurso de grupos
 1. Además, configure el streaming de datos de telemetría de diagnóstico para cada base de datos del grupo elástico que quiera supervisar siguiendo los pasos descritos en la sección siguiente.
 
 > [!IMPORTANT]
-> Además de configurar los datos de telemetría de diagnóstico para un grupo elástico, también deberá configurar los datos de telemetría de diagnóstico para cada base de datos de un grupo elástico, tal como se describe a continuación. 
+> Además de configurar los datos de telemetría de diagnóstico para un grupo elástico, también deberá configurar los datos de telemetría de diagnóstico para cada base de datos de un grupo elástico, tal como se describe a continuación.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configuración del streaming de datos de telemetría de diagnóstico para una base de datos única o una base de datos en un grupo elástico
 
@@ -181,7 +181,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de un recurs
 1. Además, configure el streaming de datos de telemetría de diagnóstico para cada base de datos de instancia dentro de la instancia administrada que quiere supervisar siguiendo los pasos descritos en la sección siguiente.
 
 > [!IMPORTANT]
-> Además de configurar los datos de telemetría de diagnóstico para una instancia administrada, también deberá configurar los datos de telemetría de diagnóstico para cada base de datos de la instancia, tal como se describe a continuación. 
+> Además de configurar los datos de telemetría de diagnóstico para una instancia administrada, también deberá configurar los datos de telemetría de diagnóstico para cada base de datos de la instancia, tal como se describe a continuación.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configuración del streaming de datos de telemetría de diagnóstico para bases de datos de instancia
 
@@ -211,7 +211,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico para bases d
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, vea [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
 
 Puede habilitar las métricas y los registros de diagnóstico con PowerShell.
 
@@ -261,9 +261,10 @@ Proporcione el identificador de recurso del área de trabajo \<$WSID\> como un p
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Reemplace \<subID\> por el identificador de suscripción, \<RG_NAME\> por el nombre del grupo de recursos y \<WS_NAME\> por el nombre del área de trabajo.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Puede habilitar las métricas y los registros de diagnóstico con la CLI de Azure.
 
@@ -397,10 +398,6 @@ Un nombre de blob para almacenar datos desde un grupo elástico tiene el aspecto
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-### <a name="download-metrics-and-logs-from-storage"></a>Descarga de métricas y registros desde Storage
-
-Aprenda a [descargar métricas y registros de diagnóstico desde Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
-
 ## <a name="data-retention-policy-and-pricing"></a>Directiva de retención de datos y precios
 
 Si selecciona Event Hubs o una cuenta de almacenamiento, puede especificar una directiva de retención. Esta directiva elimina los datos anteriores a un período de tiempo seleccionado. Si especifica Log Analytics, la directiva de retención depende del plan de tarifa seleccionado. En este caso, las unidades gratuitas de ingesta de datos especificadas pueden habilitar la supervisión gratuita de varias bases de datos al mes. Todo uso en exceso de la telemetría de diagnóstico de las unidades gratuitas puede suponer costos. Tenga en cuenta que las bases de datos activas con cargas de trabajo más pesadas ingieren más datos que las bases de datos inactivas. Para más información, vea [Precios de análisis de registros](https://azure.microsoft.com/pricing/details/monitor/).
@@ -441,7 +438,7 @@ Los detalles de datos de telemetría disponibles para todos los registros se doc
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: ResourceUsageStats |
 |Recurso|Nombre del recurso |
@@ -466,10 +463,10 @@ Los detalles de datos de telemetría disponibles para todos los registros se doc
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics |
-|nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent |
+|OperationName|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent |
 |Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
@@ -517,10 +514,10 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: QueryStoreWaitStatistics |
-|nombreOperación|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent |
+|OperationName|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent |
 |Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
@@ -555,10 +552,10 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQ |
 |Categoría|Nombre de la categoría Siempre: Errors |
-|nombreOperación|Nombre de la operación. Siempre: ErrorEvent |
+|OperationName|Nombre de la operación. Siempre: ErrorEvent |
 |Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
@@ -570,7 +567,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |Message|Mensaje de error en texto sin formato. |
 |user_defined_b|Es el bit de error definido por el usuario. |
 |error_number_d|Código de error |
-|Gravedad|Gravedad del error |
+|severity|Gravedad del error |
 |state_d|Estado del error |
 |query_hash_s|Hash de consulta de la consulta errónea, si está disponible |
 |query_plan_hash_s|Hash de plan de consulta de la consulta errónea, si está disponible |
@@ -584,10 +581,10 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.m
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: DatabaseWaitStatistics |
-|nombreOperación|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent |
+|OperationName|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent |
 |Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
@@ -613,10 +610,10 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: Tiempos de expiración |
-|nombreOperación|Nombre de la operación. Siempre: TimeoutEvent |
+|OperationName|Nombre de la operación. Siempre: TimeoutEvent |
 |Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
@@ -636,10 +633,10 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: Blocks |
-|nombreOperación|Nombre de la operación. Siempre: BlockEvent |
+|OperationName|Nombre de la operación. Siempre: BlockEvent |
 |Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
@@ -660,10 +657,10 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC] |Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: Interbloqueos |
-|nombreOperación|Nombre de la operación. Siempre: DeadlockEvent |
+|OperationName|Nombre de la operación. Siempre: DeadlockEvent |
 |Recurso|Nombre del recurso |
 |ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
@@ -681,7 +678,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Type|Siempre: AzureDiagnostics |
+|type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: AutomaticTuning |
 |Recurso|Nombre del recurso |
@@ -719,5 +716,3 @@ Para obtener información sobre Event Hubs, lea lo siguiente:
 
 - [¿Qué es Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Para obtener más información acerca de Azure Storage, vea [cómo descargar métricas y registros de diagnóstico desde Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

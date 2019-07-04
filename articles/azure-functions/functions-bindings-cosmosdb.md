@@ -4,18 +4,18 @@ description: Descubra cómo utilizar desencadenadores y enlaces de almacenamient
 services: functions
 author: craigshoemaker
 ms.author: cshoe
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e6782c48543723438ee332313de268117dee3e9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60737285"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480717"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Enlaces de Azure Cosmos DB para Azure Functions 1.x
 
@@ -1179,7 +1179,7 @@ En las funciones de C# y F#, cuando se sale de la función correctamente, los ca
 
 En las funciones de JavaScript, las actualizaciones no se realizan automáticamente al cerrar la función. Por el contrario, use `context.bindings.<documentName>In` y `context.bindings.<documentName>Out` para realizar las actualizaciones. Consulte el [ejemplo de JavaScript](#input---javascript-examples).
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 El enlace de salida de Azure Cosmos DB permite escribir un nuevo documento en una base de datos de Azure Cosmos DB mediante SQL API.
 

@@ -3,17 +3,17 @@ title: Ejecución de scripts de PowerShell en una VM Linux de Azure
 description: Este tema describe cómo ejecutar scripts dentro de una máquina virtual Linux de Azure mediante el comando Ejecutar
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570588"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477043"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Linux con el comando Ejecutar
 
@@ -41,7 +41,7 @@ A continuación, se muestra una lista de restricciones que están presentes cuan
 > [!NOTE]
 > Para poder funcionar correctamente, el comando Ejecutar requiere conectividad (puerto 443) a las direcciones IP públicas de Azure. Si la extensión no tiene acceso a estos puntos de conexión, los scripts se pueden ejecutar correctamente pero no devuelven los resultados. Si va a bloquear el tráfico de la máquina virtual, puede usar las [etiquetas de servicio](../../virtual-network/security-overview.md#service-tags) para permitir el tráfico a las direcciones IP públicas de Azure mediante el uso de la etiqueta `AzureCloud`.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 A continuación, se muestra un ejemplo que utiliza el comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para ejecutar un script de PowerShell en una máquina virtual Linux de Azure.
 

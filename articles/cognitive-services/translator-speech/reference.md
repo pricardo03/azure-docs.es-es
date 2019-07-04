@@ -3,20 +3,20 @@ title: Referencia de Translator Speech API
 titleSuffix: Azure Cognitive Services
 description: Documentación de referencia para Translator Speech API.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f083a6ca3079128aad4aba3a53013df378a6106
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60539186"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446896"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -173,10 +173,10 @@ Cuando una aplicación cliente ha terminado de transmitir el audio y ha recibido
 |to|(vacío)|Especifica el idioma al que se va a traducir el texto transcrito. El valor es uno de los identificadores de idioma del ámbito `text` de la respuesta de la API de idiomas.|query|string|
 |features|(vacío)   |Conjunto separados por comas de las características seleccionadas por el cliente. Las características disponibles son:<ul><li>`TextToSpeech`: especifica que el servicio debe devolver el audio traducido de la última oración traducida.</li><li>`Partial`: especifica que el servicio debe devolver los resultados intermedios del reconocimiento mientras el audio transmite al servicio.</li><li>`TimingInfo`: especifica que el servicio debe devolver información de tiempo asociada a cada reconocimiento.</li></ul>Por ejemplo, un cliente debe especificar `features=partial,texttospeech` para recibir los resultados parciales y texto a voz, pero no información de tiempo. Tenga en cuenta que los resultados finales siempre se transmiten al cliente.|query|string|
 |voice|(vacío)|Identifica qué voz utilizar para la representación de texto a voz del texto traducido. El valor es uno de los identificadores de voz del ámbito de tts de la respuesta de la API de idiomas. Si no se especifica una voz, el sistema elegirá una automáticamente cuando esté habilitada la característica de texto a voz.|query|string|
-|formato|(vacío)|Especifica el formato de la secuencia de audio de texto a voz devuelta por el servicio. Las opciones disponibles son la siguientes:<ul><li>`audio/wav`: secuencia de audio Waveform. El cliente debe utilizar el encabezado WAV para interpretar correctamente el formato de audio. El audio WAV para texto a voz es de PCM de canal único de 16 bits con una velocidad de muestreo de 24 kHz o 16 kHz.</li><li>`audio/mp3`: secuencia de audio MP3.</li></ul>El valor predeterminado es `audio/wav`.|query|string|
+|format|(vacío)|Especifica el formato de la secuencia de audio de texto a voz devuelta por el servicio. Las opciones disponibles son la siguientes:<ul><li>`audio/wav`: secuencia de audio Waveform. El cliente debe utilizar el encabezado WAV para interpretar correctamente el formato de audio. El audio WAV para texto a voz es de PCM de canal único de 16 bits con una velocidad de muestreo de 24 kHz o 16 kHz.</li><li>`audio/mp3`: secuencia de audio MP3.</li></ul>El valor predeterminado es `audio/wav`.|query|string|
 |ProfanityAction    |(vacío)    |Especifica cómo el servicio debe tratar las palabras soeces reconocidas en la voz. Las acciones válidas son las siguientes:<ul><li>`NoAction`: las palabras soeces se dejan tal cual.</li><li>`Marked`: las palabras soeces se reemplazan por un marcador. Consulte el parámetro `ProfanityMarker`.</li><li>`Deleted`: las palabras soeces se eliminan. Por ejemplo, si la palabra `"jackass"` se trata como una palabra soez, la frase `"He is a jackass."` se convertirá en `"He is a .".`</li></ul>El valor predeterminado es Marcado.|query|string|
 |ProfanityMarker|(vacío)    |Especifica cómo se tratan las palabras soeces detectadas cuando `ProfanityAction` se establece en `Marked`. Las opciones válidas son las siguientes:<ul><li>`Asterisk`: las palabras soeces se reemplazan por la cadena `***`. Por ejemplo, si la palabra `"jackass"` se trata como una palabra soez, la frase `"He is a jackass."` se convertirá en `"He is a ***.".`</li><li>`Tag`: las palabras soeces están rodeadas por una etiqueta XML de palabras soeces. Por ejemplo, si la palabra `"jackass"` se trata como una palabra soez, la frase `"He is a jackass."` se convertirá en `"He is a <profanity>jackass</profanity>."`.</li></ul>El valor predeterminado es `Asterisk`.|query|string|
-|Autorización|(vacío)  |Especifica el valor del token de portador del cliente. Use el prefijo `Bearer` seguido del valor de `access_token` devuelto por el servicio de token de autenticación.|encabezado   |string|
+|Authorization|(vacío)  |Especifica el valor del token de portador del cliente. Use el prefijo `Bearer` seguido del valor de `access_token` devuelto por el servicio de token de autenticación.|encabezado   |string|
 |Ocp-Apim-Subscription-Key|(vacío)|Es necesario si no se ha especificado el encabezado `Authorization`.|encabezado|string|
 |access_token|(vacío)   |Alternativa para pasar un token de acceso de OAuth válido. El token de portador normalmente se proporciona con el encabezado `Authorization`. Algunas bibliotecas de WebSocket no permiten que el código de cliente establezca los encabezados. En este caso, el cliente puede utilizar el parámetro de consulta `access_token` para pasar un token válido. Al utilizar un token de acceso para realizar la autenticación, si el encabezado `Authorization` no se establece, debe establecerse `access_token`. Si se establecen el encabezado y el parámetro de consulta, se omite el parámetro de consulta. Los clientes solo deben usar un método para pasar el token.|query|string|
 |subscription-key|(vacío)   |Alternativa para pasar la clave de la suscripción. Algunas bibliotecas de WebSocket no permiten que el código de cliente establezca los encabezados. En este caso, el cliente puede utilizar el parámetro de consulta `subscription-key` para pasar una clave de suscripción válida. Al utilizar una clave de suscripción para realizar la autenticación, si el encabezado `Ocp-Apim-Subscription-Key`  no se establece, se debe establecer la clave de la suscripción. Si se establecen el encabezado y el parámetro de consulta, se omite el parámetro de consulta. Los clientes solo deben usar un método para pasar la `subscription key`.|query|string|

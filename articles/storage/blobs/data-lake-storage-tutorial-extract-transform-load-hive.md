@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939192"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447742"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
 
@@ -39,14 +39,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     Consulte [Quickstart: Introducción a Apache Hadoop y Apache Hive en Azure HDInsight con Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database**: Use una base de datos de Azure SQL como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una base de datos de Azure SQL en Azure Portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: Use una base de datos de Azure SQL como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una base de datos de Azure SQL en Azure Portal](../../sql-database/sql-database-get-started.md).
 
 * **CLI de Azure**: Si no ha instalado la CLI de Azure , consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Un cliente de Secure Shell (SSH)**: Para más información, consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!IMPORTANT]
-> Los pasos descritos en este artículo requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de Azure HDInsight o en versiones posteriores. Consulte la información sobre la [retirada de HDInsight en Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* **Un cliente de Secure Shell (SSH)** : Para más información, consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Descarga de los datos de vuelo
 
@@ -240,7 +237,7 @@ Necesita el nombre del servidor de la base de datos SQL para esta operación. Co
 
     ![Obtener detalles del servidor de Azure SQL Server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
-    Hay muchas maneras de conectarse a SQL Database y crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
+    Hay muchas maneras de conectarse a SQL Database y crear una tabla. En los siguientes pasos se utiliza [FreeTDS](https://www.freetds.org/) desde el clúster de HDInsight.
 
 5. Para instalar FreeTDS, use el siguiente comando desde una conexión SSH al clúster:
 

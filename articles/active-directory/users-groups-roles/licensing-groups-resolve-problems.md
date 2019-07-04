@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4060c90af3825122c871696a5555e8579d0ad0a
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466278"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358095"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -105,7 +105,7 @@ Si usa Exchange Online, es posible que algunos de los usuarios del inquilino no 
 > [!TIP]
 > Para ver si hay una dirección del proxy duplicada, ejecute el siguiente cmdlet de PowerShell en Exchange Online:
 > ```
-> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
 > Para más información acerca de este problema, consulte [Mensaje de error "la dirección del proxy ya está en uso" en Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). El artículo también incluye información sobre [cómo conectarse a Exchange Online mediante PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
 

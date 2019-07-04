@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 190b7f15a8ae0a5b9472188129f7116050fc831f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424658"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466835"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificación de varios recursos de Application Insights de Azure Monitor 
 En este artículo se describe cómo consultar y ver todos los datos de registro de aplicación de Application Insights en un mismo lugar, incluso cuando están en diferentes suscripciones de Azure, como un reemplazo para Application Insights Connector en desuso. El número de recursos de Application Insights que se pueden incluir en una sola consulta se limita a 100.  
@@ -141,7 +141,7 @@ En la tabla siguiente se muestran las diferencias de esquema entre Log Analytics
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
-| URL | _url |
+| URL | url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Pasos siguientes

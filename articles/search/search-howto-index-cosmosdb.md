@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753986"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485448"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexación de Cosmos DB mediante un indexador de Azure Search
 
@@ -93,7 +93,7 @@ Desde esa página puede ir directamente a la personalización del índice.
 
 En la página de **Índice**, debería mostrarse una lista de campos con un tipo de datos y una serie de casillas de verificación para configurar los atributos del índice. El asistente puede generar una lista de campos basada en metadatos y mediante el muestreo de los datos de origen. 
 
-Puede seleccionar atributos de forma masiva si activa la casilla situada en la parte superior de una columna de atributos. Elija **Se puede recuperar** y **Se puede buscar** para cada campo que se debe devolver a una aplicación cliente y está sujeta a un proceso de búsqueda de texto completo. Observará que los enteros no permiten búsquedas de texto completo o de texto parcial (los números se evalúan literalmente y suelen ser útiles en filtros).
+Puede seleccionar atributos de forma masiva si activa la casilla situada en la parte superior de una columna de atributos. Elija **Se puede recuperar** y **Se puede buscar** para cada campo que se debe devolver a una aplicación cliente y está sujeto a un proceso de búsqueda de texto completo. Observará que los enteros no permiten búsquedas de texto completo o de texto parcial (los números se evalúan literalmente y suelen ser útiles en filtros).
 
 Revise la descripción de [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) y [analizadores de lenguaje](https://docs.microsoft.com/rest/api/searchservice/language-support) para más información. 
 
@@ -133,9 +133,9 @@ En la cuenta de Cosmos DB, puede elegir si desea que la recopilación indexe aut
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1\. Ensamblado de las entradas para la solicitud
 
-Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar [Postman](search-fiddler.md) para enviar solicitudes HTTP a Azure Search.
+Para cada solicitud, debe proporcionar el nombre del servicio y la clave de administrador de Azure Search (en el encabezado POST) y el nombre de cuenta de almacenamiento y la clave para Blob Storage. Puede usar [Postman](search-get-started-postman.md) para enviar solicitudes HTTP a Azure Search.
 
-Copie los cuatro valores siguientes en el Bloc de notas para que pueda pegarlos en una solicitud:
+Copie los cuatro valores siguientes en el Bloc de notas para poder pegarlos en una solicitud:
 
 + Nombre del servicio Azure Search
 + Clave de administración de Azure Search
@@ -143,7 +143,7 @@ Copie los cuatro valores siguientes en el Bloc de notas para que pueda pegarlos 
 
 Encontrará estos valores en el portal:
 
-1. En las páginas del portal de Azure Search, copie la URL del servicio Azure Search desde la página Resumen.
+1. En las páginas del portal de Azure Search, copie la URL del servicio Azure Search desde la página de información general.
 
 2. En el panel de navegación izquierdo, haga clic en **Claves** y, luego, copie la clave primaria o la secundaria (son equivalentes).
 

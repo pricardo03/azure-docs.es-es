@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080527"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>¿Qué son los aceleradores de soluciones de Azure IoT?
 
@@ -42,7 +42,7 @@ Puede usar el panel de supervisión remota para ver los datos de telemetría de 
 
 ### <a name="connected-factory"></a>Fábrica conectada
 
-Use el [acelerador de soluciones Factoría conectada](iot-accelerators-connected-factory-sample-walkthrough.md) para recopilar datos de telemetría de recursos industriales con una interfaz de [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) y para controlarlos. Los recursos industriales podrían incluir estaciones de prueba y ensamblado en una línea de producción de una fábrica.
+Use el [acelerador de soluciones Factoría conectada](iot-accelerators-connected-factory-features.md) para recopilar datos de telemetría de recursos industriales con una interfaz de [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) y para controlarlos. Los recursos industriales podrían incluir estaciones de prueba y ensamblado en una línea de producción de una fábrica.
 
 Puede utilizar el panel de fábrica conectada para supervisar y administrar sus dispositivos industriales:
 

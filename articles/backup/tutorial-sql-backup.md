@@ -6,14 +6,14 @@ author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfe48fb1bf6a361ce79d0ddc5281a6380a5367e4
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016120"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203492"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -33,7 +33,7 @@ En este artículo se muestra cómo hacer una copia de seguridad de una base de d
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne las siguientes condiciones:
 
 1. Identifique o [cree](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) un almacén de Recovery Services en la misma región o configuración regional que la máquina virtual que hospeda la instancia de SQL Server.
-2. [Compruebe los permisos de máquina virtual](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) necesarios para realizar una copia de seguridad de las bases de datos SQL.
+2. [Compruebe los permisos de máquina virtual](backup-azure-sql-database.md#set-vm-permissions) necesarios para realizar una copia de seguridad de las bases de datos SQL.
 3. Compruebe que la máquina virtual tenga [conectividad de red](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Compruebe que las bases de datos de SQL Server se denominan de acuerdo con las [directrices de nomenclatura](#verify-database-naming-guidelines-for-azure-backup) de Azure Backup.
 5. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de configurar este escenario. Puede habilitar Azure Backup para una máquina virtual de Azure junto con Azure Backup para una base de datos de SQL Server que se ejecute en la máquina virtual sin que se produzcan conflictos.
@@ -61,7 +61,7 @@ Azure Backup lleva a cabo una serie de acciones al configurar la copia de seguri
 - Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT SERVICE\AzureWLBackupPluginSvc**. Esta cuenta se usa para la copia de seguridad y restauración, y es necesario tener permisos de administrador del sistema.
 - Azure Backup aprovecha la cuenta **NT AUTHORITY\SYSTEM** para la detección o consulta de bases de datos, por lo que esta cuenta debe tener un inicio de sesión público en SQL.
 
-Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Compruebe las directrices de nomenclatura de las bases de datos de Azure Backup.
 
@@ -114,7 +114,7 @@ Detecte las bases de datos que se ejecutan en la máquina virtual.
     - Azure Backup crea la cuenta de servicio **NT Service\AzureWLBackupPluginSvc** en la máquina virtual.
       - Todas las operaciones de copia de seguridad y restauración utilizan la cuenta de servicio.
       - **NT Service\AzureWLBackupPluginSvc** necesita permisos de administrador del sistema de SQL. Todas las máquinas virtuales de SQL Server creadas en Azure Marketplace llevan instalado **SqlIaaSExtension**. La extensión **AzureBackupWindowsWorkload** usa **SQLIaaSExtension** para obtener automáticamente los permisos necesarios.
-    - Si no ha creado la máquina virtual desde Marketplace, no tendrá instalado **SqlIaaSExtension** y la operación de detección no se podrá realizar; se muestra el mensaje de error **UserErrorSQLNoSysAdminMembership**. Siga las [instrucciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) para solucionar el problema.
+    - Si no ha creado la máquina virtual desde Marketplace, no tendrá instalado **SqlIaaSExtension** y la operación de detección no se podrá realizar; se muestra el mensaje de error **UserErrorSQLNoSysAdminMembership**. Siga las [instrucciones](backup-azure-sql-database.md#set-vm-permissions) para solucionar el problema.
 
         ![Seleccionar la máquina virtual y la base de datos](./media/backup-azure-sql-database/registration-errors.png)
 

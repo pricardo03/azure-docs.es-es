@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Unión de una VM de Ubuntu a un 
 description: Unión de una máquina virtual Linux Ubuntu a Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 9b1ad1b70258f623219ca171797aac4cdd33b310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: b21c5c517b1f4a1cbcbf2028a079793c70996d58
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245945"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473117"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Unión de una máquina virtual Ubuntu de Azure a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual Linux Ubuntu a un dominio administrado de Azure AD Domain Services.

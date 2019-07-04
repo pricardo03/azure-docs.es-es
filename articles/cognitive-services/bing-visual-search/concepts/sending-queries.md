@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 4/03/2019
+ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd5118b42f32a521df8e3acfffb68391d4021791
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579871"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541523"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envío de consultas de búsqueda a Bing Visual Search API
 
-En este artículo se describen los parámetros y atributos de las solicitudes enviadas a Bing Visual Search API, así como el objeto de respuesta.
+En este artículo se describen los parámetros y atributos de las solicitudes enviadas a Bing Visual Search API, así como el objeto de respuesta. 
 
 Puede obtener información acerca de una imagen de tres maneras:
 
@@ -73,7 +73,7 @@ Las solicitudes solo se deben enviar como solicitudes HTTP POST.
 
 Estos son los parámetros de consulta que debe especificar la solicitud. Como mínimo, debe incluir el parámetro de consulta `mkt`.
 
-| NOMBRE | Valor | Type | Obligatorio |
+| NOMBRE | Valor | type | Obligatorio |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Código de país de dos caracteres que representa de dónde provienen los resultados.<br /><br /> Si establece este parámetro, debe especificar también el encabezado [Accept-Language](#acceptlanguage). Bing usa el primer idioma compatible que encuentra en la lista de idiomas y combina el idioma con el código de país que especifique para determinar el mercado del que debe devolver resultados. Si la lista de idiomas no incluye ningún idioma compatible, Bing busca el idioma y el mercado más cercanos que admiten la solicitud. También puede usar un mercado agregado o predeterminado para los resultados, en lugar del especificado.<br /><br /> Debe utilizar este parámetro de consulta y el parámetro de consulta `Accept-Language` solo si especifica varios idiomas. En caso contrario, debe utilizar los parámetros de consulta `mkt` y `setLang`.<br /><br /> Este parámetro y el parámetro de consulta [mkt](#mkt) son mutuamente excluyentes: no especifique los dos. | Cadena | Sin       |
 | <a name="mkt" />mkt   | Mercado de dónde proceden los resultados. <br /><br /> **NOTA:** Si se conoce, se recomienda especificar siempre el mercado. Especificar el mercado ayuda a Bing a enrutar la solicitud y devolver una respuesta adecuada y óptima.<br /><br /> Este parámetro y el parámetro de consulta [cc](#cc) son mutuamente excluyentes: no especifique los dos. | Cadena | Sí      |
@@ -192,6 +192,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 ## <a name="bing-visual-search-responses"></a>Respuestas de Bing Visual Search
+
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 Si hay conclusiones disponibles para la imagen, la respuesta contiene uno o varios valores `tags` que contienen las conclusiones. El campo `image` contiene el token de conclusión de la imagen de entrada:
 

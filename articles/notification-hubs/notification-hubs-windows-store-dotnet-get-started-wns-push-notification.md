@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 714c2be7265a41a7791ce39bfaa1bdc12fa58cac
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006937"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340761"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs
 
@@ -29,7 +29,7 @@ ms.locfileid: "60006937"
 En este tutorial se crea un Centro de notificaciones para enviar notificaciones push a una aplicación de Plataforma universal de Windows (UWP). Cree una aplicación vacía de la Tienda Windows que reciba notificaciones push a través de los Servicios de notificaciones de inserción de Windows (WNS). Luego, use el Centro de notificaciones para difundir notificaciones push a todos los dispositivos que ejecuten la aplicación.
 
 > [!NOTE]
-> El código completo de este tutorial se encuentra en [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+> El código completo de este tutorial se encuentra en [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/UwpSample).
 
 Siga estos pasos:
 
@@ -66,7 +66,7 @@ Para enviar notificaciones push a las aplicaciones de la plataforma universal de
 3. Expanda **Administración de la aplicación**, seleccione **WNS/MPNS**, y, luego, **Sitio de Servicios Live**. Iniciar sesión en su cuenta de Microsoft. Se abre el **Portal de registro de aplicaciones** en una pestaña nueva. Otra posibilidad es navegar directamente al [Portal de registro de aplicaciones](https://apps.dev.microsoft.com) y seleccionar el nombre de la aplicación para acceder a esta página.
 
     ![Página de WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Anote la contraseña del **Secreto de aplicación** y el **identificador de seguridad de paquete (SID)**.
+4. Anote la contraseña del **Secreto de aplicación** y el **identificador de seguridad de paquete (SID)** .
 
     >[!WARNING]
     >El secreto de aplicación y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
@@ -77,7 +77,7 @@ Para enviar notificaciones push a las aplicaciones de la plataforma universal de
 
 ### <a name="configure-wns-settings-for-the-hub"></a>Configuración de los valores de WNS del centro
 
-1. En la categoría **CONFIGURACIÓN DE NOTIFICACIONES**, seleccione **Windows (WNS)**.
+1. En la categoría **CONFIGURACIÓN DE NOTIFICACIONES**, seleccione **Windows (WNS)** .
 2. Especifique los valores de **SID del paquete** y **Clave de seguridad** que anotó en la sección anterior.
 3. Haga clic en **Guardar** en la barra de herramientas.
 
@@ -90,9 +90,9 @@ El centro de notificaciones ya está configurado para funcionar con WNS. Tiene l
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, después, **Proyecto**.
 2. En el cuadro de diálogo **Nuevo proyecto**, realice estos pasos:
 
-    1. Expanda **Visual C#**.
+    1. Expanda **Visual C#** .
     2. Seleccione **Windows Universal**.
-    3. Seleccione **Aplicación vacía (Windows universal)**.
+    3. Seleccione **Aplicación vacía (Windows universal)** .
     4. Escriba un **nombre** para el proyecto.
     5. Seleccione **Aceptar**.
 

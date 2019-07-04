@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: e4b366075cb16f62a0e16b5b06da6fb19ffefdb9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150737"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186980"
 ---
 1. Inicio de sesión en el dispositivo Data Box. Asegúrese de que está desbloqueado.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824642"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204487"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -40,7 +40,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 ## <a name="list-of-functions"></a>Lista de funciones
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Append
 **Función:**<br> Append(source, suffix)
 
@@ -48,12 +48,12 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
 | **suffix** |Obligatorio |Cadena |La cadena que se va a anexar al final del valor de origen. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **Función:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
@@ -61,13 +61,13 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
 | **inputFormat** |Obligatorio |Cadena |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatorio |Cadena |Formato de la fecha de salida. |
 
-- - -
+---
 ### <a name="join"></a>Unión
 **Función:**<br> Join(separator, source1, source2, …)
 
@@ -77,12 +77,12 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **separator** |Obligatorio |Cadena |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
 | **source1  … sourceN** |Obligatorio, número variable de veces |Cadena |Valores de cadena que se van a agrupar. |
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Función:**<br> Mid(source, start, length)
 
@@ -90,13 +90,13 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo. |
 | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
 | **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Función:**<br> NormalizeDiacritics(source)
 
@@ -104,11 +104,11 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena | Normalmente un atributo de nombre o de apellido. |
 
-- - -
+---
 ### <a name="not"></a>not
 **Función:**<br> Not(source)
 
@@ -116,11 +116,11 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
 
-- - -
+---
 ### <a name="replace"></a>Replace
 **Función:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
@@ -143,7 +143,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
 | **oldValue** |Opcional |Cadena |Valor que se va a reemplazar en **source** o **template**. |
@@ -153,7 +153,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 | **replacementAttributeName** |Opcional |Cadena |Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
 | **template** |Opcional |Cadena |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Función:**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 
@@ -166,12 +166,12 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |Cadena | Lista de reglas de generación de valor único para realizar la evaluación. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Función:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -179,11 +179,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatorio |Cadena |Objeto **[appRoleAssignments]** . |
 
-- - -
+---
 ### <a name="split"></a>Dividir
 **Función:**<br> Split(source, delimiter)
 
@@ -191,12 +191,12 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |**de origen** que se actualiza. |
 | **delimitador** |Obligatorio |Cadena |Especifica el carácter que se usará para dividir la cadena (ejemplo: ","). |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **Función:**<br> StripSpaces(source)
 
@@ -204,11 +204,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |**de origen** que se actualiza. |
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **Función:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
@@ -216,14 +216,14 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |**Source** que se actualiza. |
 | **defaultValue** |Opcional |Cadena |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
 | **key** |Obligatorio |Cadena |**Key** con que se compara el valor de **source**. |
 | **value** |Obligatorio |Cadena |Valor de reemplazo para el **source** que coincide con la clave. |
 
-- - -
+---
 ### <a name="tolower"></a>ToLower
 **Función:**<br> ToLower (origen, referencia cultural)
 
@@ -231,12 +231,12 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen |
 | **referencia cultural** |Opcional |Cadena |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **Función:**<br> ToUpper (origen, referencia cultural)
 
@@ -244,7 +244,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena |Normalmente el nombre del atributo del objeto de origen. |
 | **referencia cultural** |Opcional |Cadena |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|

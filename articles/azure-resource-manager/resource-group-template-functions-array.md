@@ -1,25 +1,17 @@
 ---
 title: 'Funciones de la plantilla de Azure Resource Manager: matrices y objetos | Microsoft Docs'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con matrices y objetos.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128699"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206391"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager
 
@@ -56,7 +48,7 @@ Convierte el valor en una matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sí |int, string, array u object |Valor que se convierte en matriz. |
 
@@ -109,9 +101,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| intOutput | Matriz | [1] |
-| stringOutput | Matriz | ["efgh"] |
-| objectOutput | Matriz | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -134,7 +126,7 @@ Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las ma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |int, string, array u object |El primer valor para comprobar si hay valores nulos. |
 | argumentos adicionales |Sin |int, string, array u object |Valores adicionales para probar si hay valores nulos. |
@@ -197,8 +189,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | stringOutput | Cadena | default |
 | intOutput | Int | 1 |
-| objectOutput | Objeto | {"first": "default"} |
-| arrayOutput | Matriz | [1] |
+| objectOutput | Object | {"first": "default"} |
+| arrayOutput | Array | [1] |
 | emptyOutput | Bool | True |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -222,7 +214,7 @@ Combina varias matrices y devuelve la matriz concatenada, o combina varios valor
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La primera matriz o cadena para la concatenación. |
 | argumentos adicionales |Sin |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
@@ -273,7 +265,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| return | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -336,7 +328,7 @@ Comprueba si una matriz contiene un valor, un objeto contiene una clave o una ca
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
 | itemToFind |Sí |cadena o entero |El valor para buscar. |
@@ -430,7 +422,7 @@ Crea una matriz a partir de los parámetros.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
 | argumentos adicionales |Sin |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
@@ -484,10 +476,10 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringArray | Matriz | ["a", "b", "c"] |
-| intArray | Matriz | [1, 2, 3] |
-| objectArray | Matriz | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Matriz | [["one", "two", "three"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -511,7 +503,7 @@ Determina si una matriz, un objeto o una cadena están vacíos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
@@ -589,7 +581,7 @@ Devuelve el primer elemento de la matriz o el primer carácter de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
@@ -654,7 +646,7 @@ Devuelve una única matriz u objeto con los elementos comunes de los parámetros
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
@@ -709,8 +701,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Objeto | {"one": "a", "three": "c"} |
-| arrayOutput | Matriz | ["two", "three"] |
+| objectOutput | Object | {"one": "a", "three": "c"} |
+| arrayOutput | Array | ["two", "three"] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -731,7 +723,7 @@ Devuelve un objeto JSON.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |string |Valor que se va a convertir en JSON. |
 
@@ -781,9 +773,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| jsonOutput | Objeto | {"a": "b"} |
+| jsonOutput | Object | {"a": "b"} |
 | nullOutput | boolean | True |
-| paramOutput | Objeto | {"a": "demo value"}
+| paramOutput | Object | {"a": "demo value"}
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -806,7 +798,7 @@ Devuelve el último elemento de la matriz o el último carácter de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
@@ -871,7 +863,7 @@ Devuelve el número de elementos de una matriz, o los caracteres de una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
 
@@ -954,7 +946,7 @@ Devuelve el valor máximo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
@@ -1018,7 +1010,7 @@ Devuelve el valor mínimo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
@@ -1082,7 +1074,7 @@ Crea una matriz de enteros a partir de un entero de inicio y contiene un número
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | startingInteger |Sí |int |El primer entero de la matriz. |
 | numberofElements |Sí |int |El número de enteros en la matriz. |
@@ -1123,7 +1115,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| rangeOutput | Matriz | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1146,7 +1138,7 @@ Devuelve una matriz con todos los elementos después del número especificado de
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
 | numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
@@ -1203,7 +1195,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | Cadena | two three |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -1227,7 +1219,7 @@ Devuelve una matriz con el número especificado de elementos desde el inicio de 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
 | numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
@@ -1284,7 +1276,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | Cadena | en |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -1308,7 +1300,7 @@ Devuelve una única matriz u objeto con todos los elementos de los parámetros. 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
@@ -1363,8 +1355,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | Matriz | ["one", "two", "three", "four"] |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 

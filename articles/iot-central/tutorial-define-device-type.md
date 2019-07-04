@@ -3,18 +3,18 @@ title: Definición de un nuevo tipo de dispositivo en Azure IoT Central | Micros
 description: Este tutorial le muestra, como desarrollador, cómo definir un nuevo tipo de dispositivo en la aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y la configuración del tipo.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 54884728533aeff0472ed99660be00478227fbcd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056785"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central
 
@@ -176,7 +176,7 @@ Los eventos se usan para definir los datos en un momento dado que el dispositivo
      | -------------------- | -----------       |
      | Display Name (Nombre para mostrar)         | Fan Motor Error   |
      | Nombre del campo           | fanmotorerr       |
-     | Gravedad             | Error             |
+     | severity             | Error             |
 
      Para guardar la definición del evento, haga clic en **Save** (Guardar):
 
@@ -287,7 +287,7 @@ Las *propiedades de la aplicación* se usan para almacenar información sobre el
 
     | Campo                | Valor                |
     | -------------------- | -------------------- |
-    | Display Name (Nombre para mostrar)         | Ubicación             |
+    | Display Name (Nombre para mostrar)         | Location             |
     | Nombre del campo           | location             |
     | Valor inicial        | Seattle, WA          |
     | DESCRIPCIÓN          | Ubicación del dispositivo      |

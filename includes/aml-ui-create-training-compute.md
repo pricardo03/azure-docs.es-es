@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/06/2019
 ms.openlocfilehash: cf35651f7dd839e8792029851b9bfe278036624c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66397264"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67186932"
 ---
 Un experimento se ejecuta en un destino de proceso que es un recurso de proceso que está asociado al área de trabajo.  Una vez creado un destino de proceso, puede volver a utilizarlo para futuras ejecuciones.
 

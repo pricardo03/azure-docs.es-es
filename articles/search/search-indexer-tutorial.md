@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025081"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485389"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial de C#: Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial de C#: Cómo rastrear una base de datos de Azure SQL mediante los indexadores de Azure Search
 
-Aprenda a configurar un indexador para extraer datos que permiten búsquedas de una base de datos SQL de Azure de ejemplo. [Los indexadores](search-indexer-overview.md) son un componente de Azure Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de Azure SQL Database. 
+Aprenda a configurar un indexador para extraer datos que permiten búsquedas de una base de datos de Azure SQL de ejemplo. [Los indexadores](search-indexer-overview.md) son un componente de Azure Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de Azure SQL Database. 
 
 Tener un profundo conocimiento de la configuración del indexador resulta de utilidad porque simplifica la cantidad de código que se tiene que escribir y mantener. En lugar de preparar e insertar un conjunto de datos JSON conforme a un esquema, puede asociar un indexador a un origen de datos, hacer que el indexador extraiga los datos y los inserte en un índice y, luego, de manera opcional, puede ejecutar el indexador según una programación recurrente para seleccionar los cambios en el origen subyacente.
 
@@ -27,7 +27,7 @@ En este tutorial, se usarán las [bibliotecas cliente .NET de Azure Search](http
 
 > [!div class="checklist"]
 > * Agregar información del servicio de búsqueda a la configuración de la aplicación
-> * Preparar un conjunto de datos externo en la base de datos SQL de Azure 
+> * Preparar un conjunto de datos externo en la base de datos de Azure SQL 
 > * Revisar las definiciones de índice e indexador en el código de ejemplo
 > * Ejecutar el código de indexador para importar los datos
 > * Buscar en el índice
@@ -58,7 +58,7 @@ Las llamadas de REST requieren la dirección URL del servicio y una clave de acc
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -99,7 +99,7 @@ En el ejercicio siguiente se da por supuesto que no hay ningún servidor ni base
 
    ![Página SQL Database](./media/search-indexer-tutorial/hotels-db.png)
 
-4. En el panel de navegación, haga clic en **Editor de consultas (versión preliminar)**.
+4. En el panel de navegación, haga clic en **Editor de consultas (versión preliminar)** .
 
 5. Haga clic en **Iniciar sesión** y escriba el nombre de usuario y la contraseña del administrador del servidor.
 

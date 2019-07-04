@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a794852e68fdb2bf52717aaa6441880bd1d51139
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186667"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436261"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -71,9 +71,9 @@ No es necesario especificar los grupos de seguridad de red a nivel de subred, po
 
 **Reglas de seguridad de salida**
 
-| Origen | Puertos de origen | Destino | Etiqueta de servicio de destino | Protocolo | . |
-| --- | --- | --- | --- | --- | --- |
-| Cualquiera | 443 | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y la red virtual)  | Cualquiera | PERMITIR |
+| Origen | Puertos de origen | Destino | Etiqueta de servicio de destino | Puertos de destino | Protocolo | . |
+| --- | --- | --- | --- | --- | --- | --- |
+| Cualquiera | * | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y la red virtual) | 443 | TCP | PERMITIR |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Grupos de la configuración de servicios en la nube
 

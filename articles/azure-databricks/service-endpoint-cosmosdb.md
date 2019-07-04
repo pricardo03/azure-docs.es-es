@@ -1,18 +1,18 @@
 ---
 title: Implementar Azure Databricks con un punto de conexión de Cosmos DB
 description: En este tutorial se describe cómo implementar Azure Databricks en una red virtual con un punto de conexión de servicio habilitado para Cosmos DB.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054537"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar Azure Databricks con un punto de conexión de Cosmos DB
 
@@ -61,7 +61,7 @@ Antes de empezar, haga lo siguiente:
    |Grupo de recursos|*su grupo de recursos*|
    |Nombre de cuenta|db-vnet-service-endpoint|
    |API|Core (SQL)|
-   |Ubicación|Oeste de EE. UU.|
+   |Location|Oeste de EE. UU.|
    |Redundancia geográfica|Disable|
    |Escrituras de varias regiones|Habilitar|
 
@@ -69,7 +69,7 @@ Antes de empezar, haga lo siguiente:
 
 3. Seleccione la pestaña **Network** (Red) y configure su red virtual. 
 
-    a. Elija la red virtual que creó como un requisito previo y, a continuación, seleccione la *subred pública*. Tenga en cuenta que la *subred privada* tiene la nota *"Falta el punto de conexión de Microsoft AzureCosmosDB"*. Esto es porque solo se habilita el punto de conexión de servicio de Cosmos DB en la *subred pública*.
+   a. Elija la red virtual que creó como un requisito previo y, a continuación, seleccione la *subred pública*. Tenga en cuenta que la *subred privada* tiene la nota *"Falta el punto de conexión de Microsoft AzureCosmosDB"* . Esto es porque solo se habilita el punto de conexión de servicio de Cosmos DB en la *subred pública*.
 
    b. Asegúrese de tener habilitada la opción **Allow access from Azure portal** (Permitir acceso desde Azure Portal). Esta configuración le permite obtener acceso a su cuenta de Cosmos DB desde Azure Portal. Si esta opción está configurada en **Deny** (Denegar), surgirán errores cuando intente acceder a su cuenta. 
 

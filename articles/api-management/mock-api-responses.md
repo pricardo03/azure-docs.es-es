@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412753"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205320"
 ---
 # <a name="mock-api-responses"></a>Simulación de respuestas de API
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Creación de una API de prueba 
 

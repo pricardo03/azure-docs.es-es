@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9ae894bee803c60b56a1bfacd5667f355aa44d2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 835dc8d25ad1d6a30020408636b556c3f247200d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799996"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478372"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de la API REST de Python para llamar a Text Analytics de Cognitive Services 
 <a name="HOLTop"></a>
@@ -49,7 +49,6 @@ Cree una nueva aplicación de Python en su editor o IDE favorito. Agregue las im
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 Cree variables para la clave de suscripción, y el punto de conexión para la API REST de Text Analytics. Compruebe que la región del punto de conexión corresponde a la que usó al suscribirse (por ejemplo `westcentralus`). Si usa una clave de evaluación gratuita, no es necesario realizar ningún cambio.
@@ -90,7 +89,7 @@ languages = response.json()
 pprint(languages)
 ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```json
 {
@@ -160,7 +159,7 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 La puntuación de las opiniones de un documento oscila entre 0,0 y 1,0: una puntuación más alta indica una opinión más positiva.
 
@@ -220,7 +219,7 @@ key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```json
 {
@@ -290,7 +289,7 @@ response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
 ```
 
-### <a name="output"></a>Salida
+### <a name="output"></a>Output
 
 ```json
 {'documents': [{'id': '1',

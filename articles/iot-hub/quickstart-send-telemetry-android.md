@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6e7d0ff396a4d264ee1f724d192c6c36abb400b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051569"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Inicio rápido: Envío de datos de telemetría de IoT desde un dispositivo Android
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Android Studio desde https://developer.android.com/studio/. Para más información relativa a la instalación de Android Studio, consulte [android-installation](https://developer.android.com/studio/install). 
+* Android Studio desde https://developer.android.com/studio/. Para más información relativa a la instalación de Android Studio, consulte [android-installation](https://developer.android.com/studio/install).
 
 * En el ejemplo de este artículo se usa Android SDK 27.
 
@@ -113,11 +113,10 @@ En esta sección, usará Azure Cloud Shell con la [extensión de IoT](https://do
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     La siguiente captura de pantalla muestra la salida en la que IoT Hub recibe los datos de telemetría que el dispositivo Android ha enviado:
 
       ![Leer los mensajes de dispositivo mediante la CLI de Azure](media/quickstart-send-telemetry-android/read-data.png)
-
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
@@ -130,4 +129,3 @@ Para aprender a controlar el dispositivo simulado desde una aplicación back-end
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Control de un dispositivo conectado a IoT Hub](quickstart-control-device-android.md)
-

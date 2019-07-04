@@ -4,19 +4,19 @@ description: Descubra cómo utilizar los enlaces de Mobile Apps en Azure Functio
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61438132"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480360"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de Mobile Apps para Azure Functions 
 
@@ -163,7 +163,7 @@ En las funciones de JavaScript, el registro se pasa en el objeto `context.bindin
 
 En funciones de C# y F#, los cambios realizados en el registro de entrada (parámetro de entrada) se devuelven automáticamente a la tabla cuando la función termina correctamente. No se puede modificar un registro en las funciones de JavaScript.
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 Use el enlace de salida de Mobile Apps para escribir un registro nuevo en una tabla de Mobile Apps.  
 

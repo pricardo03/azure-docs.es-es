@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0aff792d7e005fb17ebec0715ca3ac7237fd7a71
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549672"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341001"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 
@@ -141,7 +141,8 @@ Configure un `BatchExtensionsClient` que use la extensión del SDK:
 
 ```python
 
-client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
+client = batch.BatchExtensionsClient(
+    base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
 ...
 ```
 
@@ -149,10 +150,9 @@ Cree una colección de tareas para agregarla a un trabajo. Por ejemplo:
 
 
 ```python
-tasks=list()
+tasks = list()
 # Populate the list with your tasks
 ...
-
 ```
 
 Agregue la colección de tareas mediante [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Establezca el parámetro `threads` para aumentar el número de operaciones simultáneas:
@@ -188,7 +188,7 @@ parameter_sweep = {
                 "repeatTask": {
                     "commandLine": "/bin/bash -c 'echo Hello world from task {0}'",
                     "constraints": {
-                        "retentionTime":"PT1H"
+                        "retentionTime": "PT1H"
                     }
                 }
             },

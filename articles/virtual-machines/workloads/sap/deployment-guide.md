@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82ab400c89cb57f3cf72cfb9196ea7c6402808fe
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154078"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203915"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 
@@ -534,7 +534,7 @@ Una vez que se ha implementado la máquina virtual en Azure, siga las mismas dir
 Como las diferentes versiones de un sistema operativo o DBMS tienen requisitos de revisión diferentes, las imágenes que encuentre en Azure Marketplace podrían no ajustarse a sus necesidades. En su lugar, quizás quiera crear una máquina virtual con su propia imagen de máquina virtual de sistema operativo o DBMS, que puede implementar de nuevo más tarde.
 Los pasos para crear una imagen privada de Linux y una imagen privada de Windows son diferentes.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Para preparar una imagen de Windows que pueda usar para implementar varias máquinas virtuales, la configuración de Windows (como el nombre de host y el SID de Windows) debe estar resumida o generalizada en la máquina virtual local. Puede utilizar [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) para ello.
@@ -545,7 +545,7 @@ Los pasos para crear una imagen privada de Linux y una imagen privada de Windows
 >
 >
 
-- - -
+---
 Puede preparar y crear una imagen personalizada y, a continuación, usarla para crear varias máquinas virtuales nuevas. Esto se describe en [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide]. Puede configurar el contenido de base de datos con el administrador de aprovisionamiento de software de SAP para instalar un nuevo sistema SAP (restaura una copia de seguridad de base de datos desde un disco conectado a la máquina virtual) o puede restaurar directamente una copia de seguridad de base de datos desde Azure Storage (si DBMS lo permite). Para más información, consulte [Implementación de DBMS de Azure Virtual Machines para SAP en NetWeaver][dbms-guide]. Si ya instaló un sistema SAP en la máquina virtual local (especialmente para los sistemas de dos niveles), puede adaptar la configuración del sistema SAP después de realizar la implementación de la máquina virtual de Azure mediante el procedimiento de cambio de nombre del sistema admitido por el administrador de aprovisionamiento de software de SAP (nota de SAP [1619720]). De lo contrario, puede instalar el software de SAP después de la implementación de la máquina virtual de Azure.
 
 El diagrama de flujo siguiente muestra la secuencia de pasos específica de SAP para implementar una máquina virtual desde una imagen personalizada:
@@ -674,7 +674,7 @@ En este escenario, el agente de máquina virtual **no** se instala automáticame
 
 Para más información acerca del agente de máquina virtual de Azure, consulte los siguientes recursos.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Información general del agente de máquina virtual de Azure][virtual-machines-windows-agent-user-guide]
@@ -685,7 +685,7 @@ Para más información acerca del agente de máquina virtual de Azure, consulte 
 >
 >
 
-- - -
+---
 
 El siguiente diagrama de flujo muestra la secuencia de pasos para trasladar una máquina virtual local mediante un disco duro virtual de Azure no generalizado:
 

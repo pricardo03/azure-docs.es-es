@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/11/2019
-ms.openlocfilehash: 480cec39e42e075ad83ad3e32b88c638094db64f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/26/2019
+ms.openlocfilehash: 79fa102fcaa5570849757cbd1c9cf58c44382247
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186591"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434133"
 ---
 > [!TIP]
 > Puede usar el comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) para enumerar las imágenes de contenedor descargadas. Por ejemplo, el comando siguiente muestra el id., el repositorio y la etiqueta de cada imagen de contenedor descargada, con formato de tabla:
@@ -18,5 +18,5 @@ ms.locfileid: "67186591"
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
 >  IMAGE ID            REPOSITORY              TAG
->  ebbee78a6baa       <container-name>         latest
->  ``` 
+>  <image-id>       <repository-path/name>         <tag-name>
+>  ```

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e5d05c32c9c3271cfc49e7abd0609ec7b090778
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535209"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435307"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y PHP
 
 Use este artículo de inicio rápido para realizar la primera llamada a Bing Video Search API y ver un resultado de búsqueda de la respuesta JSON. Esta sencilla aplicación de JavaScript envía una consulta de búsqueda de vídeo HTTP a la API y muestra la respuesta. Si bien esta aplicación está escrita en JavaScript y usa Node.js, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 El ejemplo de código se escribió para ejecutarse en PHP 5.6.
 
-Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obtener detalles técnicos acerca de las API.
+Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) para obtener detalles técnicos acerca de las API.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,7 +32,7 @@ Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitive
 
 ## <a name="running-the-application"></a>Ejecución de la aplicación
 
-[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) devuelve resultados relacionados con los vídeos desde el motor de búsqueda de Bing.
+[Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devuelve resultados relacionados con los vídeos desde el motor de búsqueda de Bing.
 
 1. Asegúrese de que la compatibilidad con HTTP segura está habilitada en `php.ini`, tal como se describe en el comentario del código.
 2. Cree un nuevo proyecto de PHP en su IDE o editor favorito.

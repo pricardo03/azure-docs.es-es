@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8def6336dd35b8eac1ae357cb32df35d1b7baa2c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e8257f04df038d3706fe2a5e66fc6cd96ec8cd7d
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383748"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550884"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y PHP
 
@@ -25,7 +25,7 @@ Use esta guía de inicio rápido para realizar la primera llamada a Bing Image S
 
 Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
 
-El código fuente de este ejemplo está disponible [en GitHub]https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
+El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

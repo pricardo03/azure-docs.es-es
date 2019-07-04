@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 929977913fdbf0c6f59d69ec536a2638bca7b97c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 341f5a30fe03de4c69b5a7e18703931988d2d185
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063638"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Cloud Messaging (en desuso)
 
@@ -110,7 +110,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 
 ### <a name="updating-the-projects-androidmanifestxml"></a>Actualización del archivo AndroidManifest.xml del proyecto
 
-1. Para admitir GCM, implemente un servicio de escucha Instance ID en el código, que se usará para [obtener tokens de registro](https://developers.google.com/cloud-messaging/android/client#sample-register) con [Instance ID API de Google](https://developers.google.com/instance-id/). En este tutorial, el nombre de la clase es `MyInstanceIDService`.
+1. Para admitir GCM, implemente un servicio de escucha Instance ID en el código, que se usará para [obtener tokens de registro](https://developers.google.com/cloud-messaging/) con [Instance ID API de Google](https://developers.google.com/instance-id/). En este tutorial, el nombre de la clase es `MyInstanceIDService`.
 
     Agregue la siguiente definición de servicio al archivo AndroidManifest.xml, en la etiqueta `<application>` . Reemplace el marcador de posición `<your package>` por el nombre real del paquete, que se muestra en la parte superior del archivo `AndroidManifest.xml`.
   
@@ -144,7 +144,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
     ```
 4. Agregue los siguientes permisos de GCM necesarios bajo la etiqueta `</application>`. Reemplace `<your package>` por el nombre del paquete que se muestra en la parte superior del archivo `AndroidManifest.xml`.
 
-    Para más información sobre estos permisos, consulte [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest)(Configuración de una aplicación de cliente GCM para Android).
+    Para más información sobre estos permisos, consulte [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/)(Configuración de una aplicación de cliente GCM para Android).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

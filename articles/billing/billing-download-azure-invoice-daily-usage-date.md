@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616458"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491402"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
 
@@ -56,9 +56,9 @@ Para más información sobre la factura, consulte [Comprender la factura de Micr
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Descarga de facturas para un contrato de cliente de Microsoft
 
-Las facturas se generan para cada [perfil de facturación](billing-mca-overview.md#understand-billing-profiles) en el contrato de cliente de Microsoft. Debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para descargar facturas desde Azure Portal.
+Las facturas se generan para cada [perfil de facturación](billing-mca-overview.md#billing-profiles) en el contrato de cliente de Microsoft. Debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para descargar facturas desde Azure Portal.
 
-1. Busque en **Administración de costos + facturación**.
+1. Busque **Administración de costos + facturación**.
 2. Seleccione un perfil de facturación.
 3. Seleccione **Facturas**.
 4. En la cuadrícula de la factura, busque la fila de la factura que desea descargar.
@@ -108,7 +108,7 @@ Puede optar por dejar de recibir la factura por correo electrónico; para ello, 
 
 Si tiene un contrato de cliente de Microsoft, puede optar por recibir la factura por correo electrónico. La factura se envía por correo electrónico a los propietarios del perfil de facturación, colaboradores, lectores y administradores de facturación. Los lectores no pueden actualizar la preferencia de factura por correo electrónico.
 
-1. Busque en **Administración de costos + facturación**.
+1. Busque **Administración de costos + facturación**.
 1. Seleccione un perfil de facturación.
 1. En **Configuración**, seleccione **Propiedades**.
 1. En **Enviar factura por correo electrónico**, seleccione **Actualizar la preferencia de factura por correo electrónico**.
@@ -153,7 +153,7 @@ Para más información sobre el uso diario, consulte [Comprender la factura de M
 
 ### <a name="download-usage-for-ea-customers"></a>Descarga del uso para los clientes de EA
 
-Para ver y descargar los datos de uso como cliente de EA, debe ser administrador de Enterprise, o bien Propietario de la cuenta o Administrador de departamento con la directiva para ver los cargos habilitada.
+Para ver y descargar los datos de uso como cliente de EA, debe ser administrador de Enterprise, o bien propietario de la cuenta o administrador de departamento con la directiva para ver los cargos habilitada.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Busque *Administración de costos + facturación*.
@@ -167,12 +167,12 @@ Para ver y descargar los datos de uso como cliente de EA, debe ser administrador
 
 Para ver y descargar datos de uso de un perfil de facturación, debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación.
 
-#### <a name="download-usage-for-billed-charges"></a>Descarga del uso para los cargos de facturación
+#### <a name="download-usage-for-billed-charges"></a>Descarga del uso para los cargos facturados
 
-1. Busque en **Administración de costos + facturación**.
+1. Busque **Administración de costos + facturación**.
 2. Seleccione un perfil de facturación.
 3. Seleccione **Facturas**.
-4. En la cuadrícula de la factura, busque la fila de la factura correspondiente al uso que desea descargar.
+4. En la cuadrícula de la factura, busque la fila de la factura correspondiente a los datos de uso que quiere descargar.
 5. Haga clic en el botón de puntos suspensivos (`...`) al final de la fila.
 6. En el menú contextual de descarga, seleccione **Uso y cargos de Azure**.
 
@@ -180,7 +180,7 @@ Para ver y descargar datos de uso de un perfil de facturación, debe ser el prop
 
 También puede descargar el uso del mes hasta la fecha para el período de facturación actual; esto es, los cargos que aún no se han facturado.
 
-1. Busque en **Administración de costos + facturación**.
+1. Busque **Administración de costos + facturación**.
 2. Seleccione un perfil de facturación.
 3. En la hoja **Información general**, haga clic en **Uso y cargos de Azure**.
 

@@ -4,19 +4,19 @@ description: Aprenda a usar desencadenadores y enlaces HTTP en Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53626c1d8fe0b9301883280a9f0925eb38ad1d99
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472364"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480448"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -307,6 +307,7 @@ Este es el código de Python:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -756,7 +757,7 @@ Para proteger totalmente los puntos de conexión de función en producción, con
 
 Cuando use alguno de estos métodos de seguridad de nivel de aplicación de función, debe establecer el nivel de autenticación de función desencadenada por HTTP en `anonymous`.
 
-### <a name="webhooks"></a>Webhooks
+### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > El modo de webhook solo está disponible para la versión 1.x del runtime de Functions. Este cambio se realizó para mejorar el rendimiento de los desencadenadores HTTP en la versión 2.x.
@@ -792,7 +793,7 @@ El archivo [host.json](functions-host-json.md) contiene opciones de configuraci�
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="output"></a>Salida
+## <a name="output"></a>Output
 
 Use el enlace de salida HTTP para responder al remitente de la solicitud HTTP. Este enlace requiere un desencadenador HTTP y le permite personalizar la respuesta asociada con la solicitud del desencadenador. Si no se proporciona un enlace de salida HTTP, un desencadenador HTTP devuelve HTTP 200 OK con un cuerpo vacío en Functions 1.x, o HTTP 204 No Content con un cuerpo vacío en Functions 2.x.
 

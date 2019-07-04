@@ -2,19 +2,20 @@
 title: 'Ética y uso responsable: Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Estas instrucciones están pensadas para ayudarle a implementar la personalización de forma que le ayude a generar confianza en su empresa y servicio. Tómese un tiempo para investigar, conocer y deliberar sobre el impacto de la personalización en la vida de las personas. En caso de duda, busque orientación.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239888"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428427"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Directrices para la implementación responsable de Personalizer
 
@@ -196,7 +197,7 @@ Microsoft se esfuerza constantemente en mejorar sus documentos y herramientas pa
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) (Ética y ciencia de datos) de DJ Patil, Hilary Mason, Mike Loukides.
 * [ACM Code of Ethics](https://www.acm.org/code-of-ethics) (Código ACM de ética)
 * [Ley de no discriminación por información genética (GINA)](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms) (Principios FATML de algoritmos de responsabilidad)
+* [FATML Principles for Accountable Algorithms](https://www.fatml.org/resources/principles-for-accountable-algorithms) (Principios FATML de algoritmos de responsabilidad)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

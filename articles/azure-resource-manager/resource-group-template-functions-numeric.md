@@ -1,25 +1,17 @@
 ---
 title: 'Funciones de la plantilla de Azure Resource Manager: numéricas | Microsoft Docs'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con números.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f63ce16369fd1ff58d5368b43c3c730008e63d9a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128655"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206416"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funciones numéricas para las plantillas de Azure Resource Manager
 
@@ -47,7 +39,7 @@ Devuelve la suma de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Sí |int |Primer número que se agregará. |
 |operand2 |Sí |int |Segundo número que se agregará. |
@@ -118,7 +110,7 @@ Devuelve el índice actual de un bucle de iteración.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | loopName | Sin | string | El nombre del bucle para obtener la iteración. |
 | Offset |Sin |int |El número que se agregará al valor de iteración basado en cero. |
@@ -164,7 +156,7 @@ Devuelve la división de enteros de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir. No puede ser 0. |
@@ -235,7 +227,7 @@ Convierte el valor en un número de punto flotante. Solo use esta función al pa
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o entero |El valor para convertir en número de punto flotante. |
 
@@ -269,7 +261,7 @@ Convierte el valor especificado en un entero.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí |cadena o entero |Valor que se convierte en entero. |
 
@@ -329,7 +321,7 @@ Devuelve el valor máximo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
@@ -393,7 +385,7 @@ Devuelve el valor mínimo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
@@ -457,7 +449,7 @@ Devuelve el resto de la división de enteros de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir; no puede ser 0. |
@@ -527,7 +519,7 @@ Devuelve la multiplicación de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Primer número que se va a multiplicar. |
 | operand2 |Sí |int |Segundo número que se va a multiplicar. |
@@ -598,7 +590,7 @@ Devuelve la resta de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número del que se resta. |
 | operand2 |Sí |int |Número que se resta. |
