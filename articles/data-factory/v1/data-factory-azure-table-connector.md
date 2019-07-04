@@ -538,7 +538,7 @@ Teniendo en cuenta la asignación del tipo OData de Azure Table al tipo .NET ant
 | Nombre de la columna | Type |
 | --- | --- |
 | userid |Edm.Int64 |
-| Nombre |Edm.String |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 A continuación, defina el conjunto de datos de Azure Table de la manera siguiente. No es necesario especificar la sección "structure" con la información de tipo porque ya se especificó en el almacén de datos subyacente.
