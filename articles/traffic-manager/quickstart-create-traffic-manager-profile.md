@@ -2,7 +2,8 @@
 title: 'Guía de inicio rápido: Creación de un perfil de Traffic Manager para la alta disponibilidad de aplicaciones mediante Azure Portal'
 description: Este artículo de guía de inicio rápido describe cómo crear un perfil de Traffic Manager para crear aplicaciones web de alta disponibilidad.
 services: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: kumud
-ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: allensu
+ms.openlocfilehash: d9b1d0624aa94884c269eb33131f8b61671e99ee
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760671"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050998"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Inicio rápido: Creación de un perfil de Traffic Manager mediante Azure Portal
 

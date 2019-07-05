@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fddf853b90297cb75ffbd7c74cf81dd368370aa1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 5ab7cff28b63447a450e55b4e3e30688c1f0e026
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011221"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341921"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Análisis de imágenes remotas mediante API REST y Python en Computer Vision
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener [Python](https://www.python.org/downloads/) instalado si desea ejecutar el ejemplo localmente.
-- Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
+- Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
 - Debe tener instalados los siguientes paquetes Python: Puede usar [pip](https://packaging.python.org/tutorials/installing-packages/) para instalar los paquetes de Python.
     - Solicitudes
     - [matplotlib](https://matplotlib.org/)
@@ -53,7 +53,7 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 import json
 from PIL import Image
@@ -78,10 +78,11 @@ analyze_url = vision_base_url + "analyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/" + \
     "Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
 
-headers = {'Ocp-Apim-Subscription-Key': subscription_key }
-params  = {'visualFeatures': 'Categories,Description,Color'}
-data    = {'url': image_url}
-response = requests.post(analyze_url, headers=headers, params=params, json=data)
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params = {'visualFeatures': 'Categories,Description,Color'}
+data = {'url': image_url}
+response = requests.post(analyze_url, headers=headers,
+                         params=params, json=data)
 response.raise_for_status()
 
 # The 'analysis' object contains various fields that describe the image. The most
