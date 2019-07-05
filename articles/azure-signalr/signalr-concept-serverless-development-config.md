@@ -40,7 +40,7 @@ Una aplicación cliente requiere un token de acceso válido para conectarse a Az
 
 Use una función de Azure desencadenada por HTTP y el enlace de entrada *SignalRConnectionInfo* para generar el objeto de información de conexión. La función debe tener una ruta HTTP que termina en `/negotiate`.
 
-Para más información sobre cómo crear la función de negociación, consulte la ](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding) referencia del enlace de entrada de [*SignalRConnectionInfo*.
+Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*referencia del enlace de entrada de](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)
 
 Para aprender a crear un token autenticado, consulte [Uso de la autenticación de App Service](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Use el enlace de salida *SignalR* para enviar mensajes a los clientes conectados
 
 Se pueden agregar usuarios a uno o más grupos. También puede usar el enlace de salida de *SignalR* para agregar o quitar usuarios en los grupos.
 
-Para más información, consulte la ](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding)referencia del enlace de salida de [*SignalR*.
+Para más información, consulte la [*SignalR* referencia del enlace de salida de](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
 
 ### <a name="signalr-hubs"></a>Concentradores de SignalR
 
