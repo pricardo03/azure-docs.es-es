@@ -197,7 +197,7 @@
         - name: Seguimiento de experimentos con MLflow
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
-        - name: Visualización de experimentos con TensorBoard
+        - name: Visualización de ejecuciones con TensorBoard
           displayName: 'log, monitor, metrics'
           href: how-to-monitor-tensorboard.md
     - name: Automatizar el aprendizaje automático
