@@ -42,7 +42,7 @@ En esta sección se le guiará por los pasos necesarios para cargar una página 
 
 ### <a name="open-the-sample-directly"></a>Abrir el ejemplo directamente
 
-Adquiera una clave de suscripción, tal como se describe arriba. Luego abra el [vínculo al ejemplo](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Esto cargará la página en el explorador predeterminado (representado mediante [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Adquiera una clave de suscripción, tal como se describe arriba. Luego abra el [vínculo al ejemplo](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Esto cargará la página en el explorador predeterminado (representado mediante [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Abrir el ejemplo desde una copia local
 
