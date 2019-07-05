@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415889"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203546"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depuración de las API con el seguimiento de solicitudes
 
@@ -35,8 +35,8 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Import and publish your first API](import-and-publish.md) (Importación y publicación de la primera API).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Realizar el seguimiento de una llamada
 

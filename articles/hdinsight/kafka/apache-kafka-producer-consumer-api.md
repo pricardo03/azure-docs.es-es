@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 3dead1bdedb75a1b6fafb947da9c88094f0c4de9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/24/2019
+ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724158"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446414"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Uso de Producer API y Consumer API de Apache Kafka
 
@@ -65,8 +65,7 @@ Esto es lo más importante que hay que saber del archivo `pom.xml`:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > La entrada `${kafka.version}` se declara en la sección `<properties>..</properties>` de `pom.xml` y está configurada para la versión Kafka del clúster de HDInsight.
+    La entrada `${kafka.version}` se declara en la sección `<properties>..</properties>` de `pom.xml` y está configurada para la versión Kafka del clúster de HDInsight.
 
 * Complementos: los complementos de Maven proporcionan varias funcionalidades. En este proyecto, se utilizan los siguientes complementos:
 
@@ -220,10 +219,19 @@ El consumo por clientes del mismo grupo se controla mediante las particiones del
 
 Los registros almacenados en Kafka se almacenan en el orden en que se reciben dentro de una partición. Para lograr la entrega ordenada de registros *dentro de una partición*, cree un grupo de consumidores donde el número de instancias de consumidor coincida con el número de particiones. Para lograr la entrega ordenada de registros *dentro del tema*, cree un grupo de consumidores con solo una instancia de consumidor.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para limpiar los recursos creados por este tutorial puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, también se elimina el clúster de HDInsight asociado y otros recursos asociados al grupo.
+
+Para quitar el grupo de recursos mediante Azure Portal:
+
+1. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija __Grupos de recursos__ para mostrar la lista de sus grupos de recursos.
+2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en __Más__ (...) en el lado derecho de la lista.
+3. Seleccione __Eliminar grupo de recursos__ y confirme la elección.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, aprendió a usar Producer y Consumer API de Apache Kafka con Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
 
-* [Análisis de registros de Apache Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Réplica de datos entre clústeres de Apache Kafka](apache-kafka-mirroring.md)
-* [Streams API de Apache Kafka con HDInsight](apache-kafka-streams-api.md)
+> [!div class="nextstepaction"]
+> [Análisis de registros de Apache Kafka](apache-kafka-log-analytics-operations-management.md)
