@@ -77,7 +77,7 @@ En esta guía de inicio rápido se incluye un código de ejemplo que muestra có
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Paso 2: Descarga del servidor web o proyecto
 
-- [Descarga del código de ejemplo](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Descargar el código de ejemplo](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Paso 3: Configuración del proyecto
 

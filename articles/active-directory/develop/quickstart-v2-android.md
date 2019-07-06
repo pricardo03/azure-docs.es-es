@@ -78,7 +78,7 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 
 #### <a name="step-2-download-the-project"></a>Paso 2: Descarga del proyecto
 
-* [Descarga del código de ejemplo](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Descargar el código de ejemplo](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Paso 3: Configuración del proyecto
 
@@ -180,7 +180,7 @@ A continuación, realice la inicialización de MSAL con el siguiente código:
 
 > |Donde: ||
 > |---------|---------|
-> |`R.raw.auth_config` | Este archivo contiene las configuraciones de la aplicación incluido el identificador de la aplicación o de cliente, audiencia de inicio de sesión, URI de redirección y varias otras opciones de personalización. |
+> |`R.raw.auth_config` | Este archivo contiene las configuraciones de la aplicación, incluidos el identificador de la aplicación o de cliente, las audiencia de inicio de sesión, el URI de redirección y varias otras opciones de personalización. |
 
 ### <a name="requesting-tokens"></a>Solicitud de tokens
 
