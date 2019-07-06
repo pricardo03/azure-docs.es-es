@@ -190,6 +190,8 @@
       href: 'https://msdn.microsoft.com/library/azure/mt586720'
     - name: REST (clásico)
       href: 'https://msdn.microsoft.com/library/azure/dn606310'
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.network/expressroutecircuits
 - name: Recursos
   items:
     - name: P+F de ExpressRoute
