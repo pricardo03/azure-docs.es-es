@@ -306,9 +306,9 @@ En la tabla siguiente se describen estas propiedades JSON:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre | Nombre de la actividad |Sí |
+| name | Nombre de la actividad |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin |
-| Tipo | Se debe establecer en: **SqlServerStoredProcedure** | Sí |
+| type | Se debe establecer en: **SqlServerStoredProcedure** | Sí |
 | inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |Sin |
 | outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
 | storedProcedureName |Especifique el nombre del procedimiento almacenado de la base de datos de Azure SQL, el almacenamiento de datos de Azure SQL o la base de datos de SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
