@@ -329,9 +329,9 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Nombre | Nombre de la actividad en la canalización. | Sí |
+| name | Nombre de la actividad en la canalización. | Sí |
 | description | Texto que describe para qué se usa la actividad. | Sin |
-| Tipo | Esta propiedad debe establecerse en HDInsightSpark. | Sí |
+| type | Esta propiedad debe establecerse en HDInsightSpark. | Sí |
 | linkedServiceName | Nombre del servicio vinculado de HDInsight en el que se ejecuta el programa de Spark. | Sí |
 | rootPath | Contenedor de blobs y carpeta que contiene el archivo de Spark. El nombre de archivo distingue entre mayúsculas y minúsculas. | Sí |
 | entryFilePath | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. | Sí |
