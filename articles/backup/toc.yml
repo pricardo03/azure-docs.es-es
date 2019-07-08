@@ -62,6 +62,8 @@
           href: backup-azure-files-faq.md
         - name: Preguntas más frecuentes sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
           href: faq-backup-sql-server.md
+        - name: Preguntas más frecuentes sobre Azure Backup Server y DPM
+          href: backup-azure-dpm-azure-server-faq.md
     - name: Arquitectura de copia de seguridad
       href: backup-architecture.md
     - name: Control de acceso basado en roles

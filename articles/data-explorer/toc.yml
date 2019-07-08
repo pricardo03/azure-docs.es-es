@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: Comprobación del estado del clúster
           href: check-cluster-health.md
-        - name: Administración del escalado horizontal del clúster
-          href: manage-cluster-scale-out.md
-        - name: Administración del escalado vertical del clúster
-          href: manage-cluster-scale-up.md
+        - name: Administración del escalado horizontal de clústeres
+          href: manage-cluster-horizontal-scaling.md
+        - name: Administración del escalado vertical de clústeres
+          href: manage-cluster-vertical-scaling.md
         - name: Eliminación de datos
           href: delete-data.md
         - name: Tratamiento de datos duplicados
