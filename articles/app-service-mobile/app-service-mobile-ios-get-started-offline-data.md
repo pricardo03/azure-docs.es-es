@@ -162,9 +162,9 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 | Atributo | Type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | Cadena |
+| itemId | String |
 | properties | Binary Data |
-| table | Cadena |
+| table | String |
 | tableKind | Integer 16 |
 
 
@@ -174,7 +174,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 | Atributo | Type |
 | --- | --- |
-| id |Cadena |
+| id |String |
 | operationId |Integer 64 |
 | properties |Binary Data |
 | tableKind |Integer 16 |
@@ -185,11 +185,11 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 | Atributo | Type |
 | --- | --- |
-| id |Cadena |
-| key |Cadena |
+| id |String |
+| key |String |
 | keyType |Integer 64 |
-| table |Cadena |
-| value |Cadena |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabla de datos
 
@@ -197,12 +197,12 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 | Atributo | Type | Nota: |
 | --- | --- | --- |
-| id | Cadena, marcado obligatorio |Clave principal en almacén remoto |
+| id | String, marcado obligatorio |Clave principal en almacén remoto |
 | complete | Boolean | Campo de tarea pendiente |
-| text |Cadena |Campo de tarea pendiente |
+| text |String |Campo de tarea pendiente |
 | createdAt | Date | (opcional) Se asigna a la propiedad del sistema **createdAt** |
 | updatedAt | Date | (opcional) Se asigna a la propiedad del sistema **updatedAt** |
-| version | Cadena | (opcional) Se usa para detectar conflictos; se asigna a version |
+| version | String | (opcional) Se usa para detectar conflictos; se asigna a version |
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
 En esta sección, modifique la aplicación para que no se sincronice al iniciarse la aplicación ni cuando se inserten y actualicen elementos. Solo se sincroniza cuando se realiza el gesto de actualización.
