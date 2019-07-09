@@ -37,7 +37,7 @@
       href: integrate-ci-cd-pipeline.md
 - name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
 - name: Conceptos
   items:
@@ -67,16 +67,18 @@
   items:
     - name: Configuración
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
         - name: Proveedor de .NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Generador de .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Proveedor de Java Spring
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: Azure SDK para .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: Proveedor de Java Spring
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+        - name: SDK de Azure para Java
+          href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Administración de características
