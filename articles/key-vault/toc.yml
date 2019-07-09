@@ -164,8 +164,6 @@
       href: common-parameters-and-headers.md
     - name: Datos del cliente
       href: key-vault-customer-data.md
-    - name: Notas de la versión
-      href: key-vault-versions.md
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Disponibilidad en regiones

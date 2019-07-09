@@ -155,6 +155,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: Conceptos
           items:
+            - name: Lectura de las directrices de seguridad
+              href: data-box-heavy-safety.md
             - name: Revisión del seguimiento y registro
               href: data-box-logs.md
             - name: Revisión de los requisitos
