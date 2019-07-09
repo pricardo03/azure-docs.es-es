@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65917010"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
@@ -46,7 +46,7 @@ En este artículo, llevará a cabo los siguientes pasos:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con el ["desarrollo de escritorio con C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carga de trabajo habilitado.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -404,7 +404,7 @@ En esta sección, actualizará el ejemplo de aprovisionamiento denominado **prov
 
 El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne la tostadora al centro de IoT según la directiva de asignación personalizada.
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_** .
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -508,12 +508,12 @@ La siguiente tabla muestra los escenarios esperados y los códigos de error de r
 
 | Escenario | Resultado del registro del servicio de aprovisionamiento | Resultados del SDK de aprovisionamiento |
 | -------- | --------------------------------------------- | ------------------------ |
-| El webhook devuelve 200 OK con el valor de 'iotHubHostName' establecido en un nombre de host de centro de IoT válido | Estado del resultado: Asignadas  | SDK devuelve PROV_DEVICE_RESULT_OK junto con información del centro |
-| El webhook devuelve 200 OK con el valor de 'iotHubHostName' en la respuesta, pero se establece en una cadena vacía o null | Estado del resultado: Incorrecto<br><br> Código de error: CustomAllocationIotHubNotSpecified (400208) | SDK devuelve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| El webhook devuelve 401 no autorizado | Estado del resultado: Incorrecto<br><br>Código de error: CustomAllocationUnauthorizedAccess (400209) | SDK devuelve PROV_DEVICE_RESULT_UNAUTHORIZED |
+| El webhook devuelve 200 OK con el valor de 'iotHubHostName' establecido en un nombre de host de centro de IoT válido | Estado del resultado: Asignado  | SDK devuelve PROV_DEVICE_RESULT_OK junto con información del centro |
+| El webhook devuelve 200 OK con el valor de 'iotHubHostName' en la respuesta, pero se establece en una cadena vacía o null | Estado del resultado: Con error<br><br> Código de error: CustomAllocationIotHubNotSpecified (400208) | SDK devuelve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| El webhook devuelve 401 no autorizado | Estado del resultado: Con error<br><br>Código de error: CustomAllocationUnauthorizedAccess (400209) | SDK devuelve PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Se ha creado una inscripción individual para deshabilitar el dispositivo | Estado del resultado: Disabled | SDK devuelve PROV_DEVICE_RESULT_DISABLED |
 | El webhook devuelve el código de error > = 429 | La orquestación de DPS volverá a intentarlo un par de veces. La directiva de reintentos actual es:<br><br>&nbsp;&nbsp;- Número de reintentos: 10<br>&nbsp;&nbsp;- Intervalo inicial: 1 s<br>&nbsp;&nbsp;- Incremento: 9s | El SDK omitirá el error y enviará otro mensaje para obtener el estado en el tiempo especificado |
-| El webhook devuelve cualquier otro código de estado | Estado del resultado: Incorrecto<br><br>Código de error: CustomAllocationFailed (400207) | SDK devuelve PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| El webhook devuelve cualquier otro código de estado | Estado del resultado: Con error<br><br>Código de error: CustomAllocationFailed (400207) | SDK devuelve PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -530,7 +530,7 @@ Para eliminar el grupo de recursos por nombre:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-2. En el cuadro de texto **Filtrar por nombre...**, escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
+2. En el cuadro de texto **Filtrar por nombre...** , escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
 
 3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 
@@ -538,8 +538,8 @@ Para eliminar el grupo de recursos por nombre:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más Reprovisioning, vea [reaprovisionamiento conceptos de dispositivo de IoT Hub](concepts-device-reprovision.md) 
-- Para obtener información más Desaprovisionamiento de usuarios, consulte [Desaprovisionamiento de dispositivos que automática aprovisionados](how-to-unprovision-devices.md) 
+- Para obtener más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
+- Para obtener más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md). 
 
 
 

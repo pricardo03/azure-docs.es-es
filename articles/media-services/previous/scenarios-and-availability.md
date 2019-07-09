@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991431"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Microsoft Azure Media Services (AMS) permite cargar, almacenar, codificar y empaquetar de forma segura contenido de audio o vídeo para su entrega a petición y mediante streaming en vivo a varios clientes (por ejemplo, televisión, PC y dispositivos móviles).
 
@@ -111,7 +111,7 @@ Para obtener información acerca de la disponibilidad en los centros de datos, c
 3. Obtenga una vista previa del flujo de datos en vivo.
 4. Entregue el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth o HLS) directamente a sus clientes o a una red Content Delivery Network (CDN) para ampliar la distribución.
 
-    -o bien-
+    O bien
 
     Registre y almacene el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
 
@@ -196,8 +196,8 @@ AMS ofrece dos codificadores a petición **Media Encoder Standard** y **Flujo de
 
 |Nombre de procesador de multimedia|Status|Centros de datos
 |---|---|---|
-|Estándar de codificador multimedia|GA|Todo|
-|Media Encoder Premium Workflow|GA|Todos excepto China|
+|Media Encoder Estándar|GA|Todo|
+|Flujo de trabajo del Codificador multimedia|GA|Todos excepto China|
 
 ### <a name="analytics-media-processors"></a>Procesadores de multimedia de Analytics
 
@@ -207,14 +207,14 @@ Análisis multimedia es una colección de componentes de voz y visión que facil
 
 |Nombre de procesador de multimedia|Status|Centros de datos
 |---|---|---|
-|Azure Media Face Detector|Preview|Todo|
+|Azure Media Face Detector|Vista previa|Todo|
 |Azure Media Indexer|GA|Todo|
-|Azure Media Motion Detector|Preview|Todo|
-|Azure Media OCR|Preview|Todo|
-|Azure Media Redactor|Preview|Todo|
-|Estabilizador de Azure Media|Preview|Todo|
-|Azure Media Video Thumbnails|Preview|Todo|
-|Azure Media Indexer 2|Preview|Todos excepto China y la región Gobierno Federal|
+|Azure Media Motion Detector|Vista previa|Todo|
+|Azure Media OCR|Vista previa|Todo|
+|Azure Media Redactor|Vista previa|Todo|
+|Estabilizador de Azure Media|Vista previa|Todo|
+|Azure Media Video Thumbnails|Vista previa|Todo|
+|Azure Media Indexer 2|Vista previa|Todos excepto China y la región Gobierno Federal|
 
 ### <a name="protection"></a>Protección
 
@@ -224,7 +224,7 @@ Microsoft Azure Media Services le permite proteger su contenido multimedia desde
 
 |Cifrado|Status|Centros de datos|
 |---|---|---| 
-|Almacenamiento|GA|Todo|
+|Storage|GA|Todo|
 |Claves AES-128|GA|Todo|
 |Fairplay|GA|Todo|
 |PlayReady|GA|Todo|
@@ -260,6 +260,6 @@ Consulte las rutas de aprendizaje de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Proporcionar comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

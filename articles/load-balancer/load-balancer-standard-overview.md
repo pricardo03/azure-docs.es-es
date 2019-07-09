@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
 ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957470"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Introducción a Azure Standard Load Balancer
 
-Azure Load Balancer permite escalar las aplicaciones y ofrecer una alta disponibilidad de los servicios. Load Balancer se puede usar para escenarios de entrada y de salida, proporciona baja latencia y alta capacidad de proceso, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP. 
+Azure Load Balancer permite escalar las aplicaciones y crear alta disponibilidad para sus servicios. Load Balancer se puede usar para escenarios de entrada y de salida, proporciona baja latencia y alta capacidad de proceso, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP. 
 
 Este artículo se centra en Load Balancer Estándar.  Para obtener información más general acerca de Azure Load Balancer, consulte también [Información general de Load Balancer](load-balancer-overview.md).
 
@@ -75,7 +75,7 @@ Repase [Sondeos de estado de Load Balancer](load-balancer-custom-probe-overview.
 ### <a name="az"></a>Zonas de disponibilidad
 
 >[!IMPORTANT]
->Revisión [zonas de disponibilidad](../availability-zones/az-overview.md) para otros temas relacionados, incluida cualquier información específica de la región.
+>Revise el artículo sobre [zonas de disponibilidad](../availability-zones/az-overview.md) para ver otros temas relacionados, incluida cualquier información específica de la región.
 
 Load Balancer Estándar admite otras funcionalidades en las regiones donde las zonas de disponibilidad están disponibles.  Estas características se agregan a las que Load Balancer Estándar ya proporciona.  Las configuraciones de las zonas de disponibilidad están disponibles para equilibradores de carga estándar públicos e internos.
 
@@ -204,11 +204,11 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 >
 >En los recursos Load Balancer e IP pública se deben usar SKU coincidentes. No puede tener una combinación de recursos de SKU básica y recursos de SKU estándar. No se pueden asociar máquinas virtuales independientes, máquinas virtuales en un recurso de conjunto de disponibilidad o conjuntos de escalado de máquinas virtuales a ambas SKU simultáneamente.
 
-## <a name="region-availability"></a>Disponibilidad por región
+## <a name="region-availability"></a>Disponibilidad en regiones
 
 Standard Load Balancer está disponible actualmente en todas las regiones de la nube pública.
 
-## <a name="sla"></a>Acuerdo de Nivel de Servicio
+## <a name="sla"></a>Contrato de nivel de servicio
 
 Load Balancer Estándar está disponible con un SLA del 99,99 %.  Consulte el [SLA de Load Balancer Estándar](https://aka.ms/lbsla) para obtener más información.
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700478"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
@@ -138,7 +138,7 @@ Todas las máquinas virtuales que están conectadas a la red virtual se registra
 2. En la lista de redes virtuales, seleccione la red virtual en la cual quiera cambiar los servidores DNS.
 3. Seleccione **Servidores DNS**, en **CONFIGURACIÓN**.
 4. Seleccione una de las siguientes opciones:
-   - **Predeterminado (proporcionado por Azure)**: todos los nombres de los recursos y las direcciones IP privadas se registran automáticamente en los servidores DNS de Azure. Puede resolver nombres entre los recursos conectados a la misma red virtual. No se puede usar esta opción para resolver nombres entre redes virtuales. Para resolver nombres de otras redes virtuales, tiene que usar un servidor DNS personalizado.
+   - **Predeterminado (proporcionado por Azure)** : todos los nombres de los recursos y las direcciones IP privadas se registran automáticamente en los servidores DNS de Azure. Puede resolver nombres entre los recursos conectados a la misma red virtual. No se puede usar esta opción para resolver nombres entre redes virtuales. Para resolver nombres de otras redes virtuales, tiene que usar un servidor DNS personalizado.
    - **Personalizado**: puede agregar uno o varios servidores, hasta el límite de Azure para una red virtual. Para obtener más información sobre los límites de servidor DNS, vea [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Tiene las siguientes opciones:
    - **Agregar una dirección**: agrega el servidor a la lista de servidores DNS de la red virtual. Esta opción también registra el servidor DNS con Azure. Si ya ha registrado un servidor DNS con Azure, puede seleccionarlo en la lista.
    - **Quitar una dirección**: junto al servidor que quiere quitar, seleccione **...** y, a continuación, **Quitar**. Eliminar el servidor solo lo quita de esta lista de redes virtuales. El servidor DNS seguirá registrado en Azure para que lo usen otras redes virtuales.

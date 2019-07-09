@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935404"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming sin conexión para iOS 
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión de Media Services que se está usando:"]
 > * [Versión 3](../latest/offline-fairplay-for-ios.md)
 > * [Versión 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Azure Media Services proporciona un conjunto de [servicios de protección de contenido](https://azure.microsoft.com/services/media-services/content-protection/) de alto diseño que abarca:
 
@@ -42,8 +42,8 @@ El cifrado de contenido del tipo Administración de derechos digitales (DRM) o E
 Además de la protección del contenido de streaming en línea sobre diversos protocolos de streaming, el modo sin conexión para el contenido protegido también es una característica solicitada con frecuencia. Se requiere compatibilidad con el modo sin conexión para los escenarios siguientes:
 
 * Reproducción cuando la conexión a Internet no está disponible, como durante los viajes.
-* Algunos proveedores de contenido podrían no permitir la entrega de licencias DRM más allá del borde del país o región. Si los usuarios desean ver contenido mientras viajan fuera del país o región, es necesario descargar sin conexión.
-* En algunos países o regiones, la disponibilidad de internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, el problema habitualmente no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores de OVP y OTT solicitan la compatibilidad con el modo sin conexión.
+* Algunos proveedores de contenido pueden suspender la entrega de licencias de DRM al cruzar la frontera de un país o región. Si los usuarios quieren ver contenido mientras viajan fuera del país o la región, es necesario descargar sin conexión.
+* En algunos países o regiones, la disponibilidad de Internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, el problema habitualmente no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores de OVP y OTT solicitan la compatibilidad con el modo sin conexión.
 
 En este artículo se trata la compatibilidad con el modo sin conexión de FairPlay Streaming (FPS) que está destinado a dispositivos que ejecutan iOS 10 o posterior. Esta característica no es compatible con otras plataformas de Apple como watchOS, tvOS o Safari en macOS.
 
@@ -207,7 +207,7 @@ Las preguntas más frecuentes que aparecen a continuación proporcionan ayuda pa
 - **¿Por qué se sigue reproduciendo solo audio sin vídeo durante el modo sin conexión después de agregar audio-only=false?** Según cómo esté diseñada la clave de caché de la red de entrega de contenido (CND), es posible que el contenido se almacene en la memoria caché. Debe purgar la caché.
 - **¿El modo sin conexión de FPS es compatible con iOS 11 además de iOS 10?** Sí. El modo sin conexión de FPS es compatible tanto con iOS 10 como con iOS 11.
 - **¿Por qué no encuentro el documento "Offline Playback with FairPlay Streaming and HTTP Live Streaming" ("Reproducción sin conexión con FairPlay Streaming y HTTP Live Streaming") en el SDK de FPS Server?** A partir de la versión 4 del SDK de FPS Server, este documento se combinó con el documento relativo a la guía de programación de streaming de FairPlay.
-- **¿Qué significa el último parámetro en la siguiente API para el modo sin conexión de FPS?**
+- **¿Qué significa el último parámetro en la siguiente API para el modo sin conexión de FPS?** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Si necesita la configuración correspondiente a esta API, consulte el [método FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). El parámetro representa la duración del alquiler sin conexión con la hora como unidad.

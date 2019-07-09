@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462010"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Movimiento de datos de PostgreSQL mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-onprem-postgresql-connector.md)
 > * [Versión 2 (versión actual)](../connector-postgresql.md)
 
@@ -50,7 +50,7 @@ Puede crear una canalización con una actividad de copia que mueva datos desde u
 
 - La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 - Puede usar las siguientes herramientas para crear una canalización:
-  - Azure Portal
+  - Portal de Azure
   - Visual Studio
   - Azure PowerShell
   - Plantilla del Administrador de recursos de Azure
@@ -75,12 +75,12 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesPostgreSql** |Sí |
-| server |Nombre del servidor de PostgreSQL. |Sí |
-| database |Nombre de la base de datos de PostgreSQL. |Sí |
+| Servidor |Nombre del servidor de PostgreSQL. |Sí |
+| Base de datos |Nombre de la base de datos de PostgreSQL. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
-| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
+| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
+| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de PostgreSQL local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -306,7 +306,7 @@ Al mover datos a PostgreSQL, se usan las asignaciones siguientes de tipo Postgre
 
 | Tipo de Base de datos de PostgreSQL | Alias de PostgresSQL | Tipo .NET Framework |
 | --- | --- | --- |
-| abstime | |DateTime |
+| abstime | |Datetime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
@@ -314,28 +314,28 @@ Al mover datos a PostgreSQL, se usan las asignaciones siguientes de tipo Postgre
 | boolean |booleano |Boolean |
 | Box | |Byte[], String |
 | bytea | |Byte[], String |
-| character [(n)] |char [(n)] |String |
-| character varying [(n)] |varchar [(n)] |String |
-| cid | |String |
-| cidr | |String |
+| character [(n)] |char [(n)] |Cadena |
+| character varying [(n)] |varchar [(n)] |Cadena |
+| cid | |Cadena |
+| cidr | |Cadena |
 | circle | |Byte[], String |
-| date | |DateTime |
-| daterange | |String |
+| date | |Datetime |
+| daterange | |Cadena |
 | double precision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
+| intarry | |Cadena |
+| int4range | |Cadena |
+| int8range | |Cadena |
 | integer |int, int4 |Int32 |
 | interval [fields] [(p)] | |TimeSpan |
-| json | |String |
+| json | |Cadena |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |String |
+| numrange | |Cadena |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
@@ -345,7 +345,7 @@ Al mover datos a PostgreSQL, se usan las asignaciones siguientes de tipo Postgre
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |String |
+| text | |Cadena |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).

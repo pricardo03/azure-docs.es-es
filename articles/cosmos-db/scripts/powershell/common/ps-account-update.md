@@ -1,19 +1,19 @@
 ---
-title: 'Script de PowerShell de Azure: actualización de una cuenta de Azure Cosmos'
-description: 'Ejemplo de script de Azure PowerShell: actualización con las regiones se ha agregado una cuenta de Azure Cosmos'
+title: 'Script de Azure PowerShell: actualizar una cuenta de Azure Cosmos'
+description: 'Ejemplo de script de Azure PowerShell: actualizar una cuenta de Azure Cosmos con regiones agregadas'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247835"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Actualizar una cuenta de Azure Cosmos y agregar una región con PowerShell
+# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Actualizar una cuenta de Azure Cosmos y agregue una región mediante PowerShell.
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

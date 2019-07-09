@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: 8a8feb0f12fbf5eadcddf239ff2e13c058a566fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64693303"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
@@ -87,7 +87,7 @@ Solo se puede eliminar una subred si no tiene recursos. Si hay recursos en la su
 1. En el cuadro de búsqueda de la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela.
 2. En la lista de redes virtuales, seleccione la red virtual que contiene la subred que desea eliminar.
 3. En **CONFIGURACIÓN**, seleccione **Subredes**.
-4. En la lista de subredes, seleccione **...**, que se encuentra a la derecha, para la subred que desea eliminar.
+4. En la lista de subredes, seleccione **...** , que se encuentra a la derecha, para la subred que desea eliminar.
 5. Seleccione **Eliminar** y, luego, seleccione **Sí**.
 
 **Comandos**

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384139"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Compatibilidad de idiomas y regiones para Bing Image Search API
@@ -45,9 +45,9 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Chile|CL|
 |Dinamarca|DK|
 |Finlandia|FI|
-|Francia|FR|
+|Francia|VF|
 |Alemania|DE|
-|Hong Kong SAR|HK|
+|RAE de Hong Kong|HK|
 |India|IN|
 |Indonesia|ID|
 |Italia|IT|
@@ -76,7 +76,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 
 ## <a name="markets"></a>Mercados
 
-|País/región|Lenguaje|Código de mercado|
+|País/región|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Español|es-AR|
 |Australia|English|en-AU|
@@ -91,7 +91,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Finlandia|Finés|fi-FI|
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
-|Hong Kong SAR|Chino tradicional|zh-HK|
+|RAE de Hong Kong|Chino tradicional|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italia|Italiano|it-IT|
