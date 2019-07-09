@@ -196,7 +196,7 @@ El comando `az postgres server restore` necesita los parámetros siguientes:
 | Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
-| Nombre | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
+| name | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Seleccione un momento dado en el que quiere restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria local, como `2017-04-13T05:59:00-08:00`, o usar el formato de hora Zulú UTC `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
 
