@@ -176,7 +176,7 @@ En esta sección se explican las distintas maneras de usar acciones de script al
     | Seleccione un script | Para utilizar su propio script, seleccione __Custom__ (Personalizado). En caso contrario, seleccione uno de los que se proporcionan. |
     | NOMBRE |Especifique un nombre para la acción de script. |
     | URI de script de Bash |Especifique el URI del script. |
-    | Principal, Trabajo o Zookeeper |Especifique los nodos en los que se ejecuta el script: **Principal**, **Trabajo** o **ZooKeeper**. |
+    | Head, Worker o ZooKeeper |Especifique los nodos en los que se ejecuta el script: **Head**, **Worker** o **ZooKeeper**. |
     | Parámetros |Especifique los parámetros, si lo requiere el script. |
 
     Use la entrada __Continuar con esta acción de script__ para asegurarse de que el script se aplica durante las operaciones de escalado.
