@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258975"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
@@ -157,7 +157,7 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
   > Compruebe que el código postal especificado también sea correcto. Se realiza una validación de ciudad, código postal.
 
 * **¿Cómo se puede obtener un código de promoción?**
-  > Complete el formulario de [Registro de Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para recibir un código promocional del Centro de desarrollo. Vea cómo [crear una cuenta de centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obtener más información.
+  > Complete el formulario de [Registro de Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para recibir un código promocional del Centro de desarrollo. Para más información, consulte [Creación de una cuenta del Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
  
 * **¿Qué debo esperar cuando después de completar el registro?**
   > Busque un correo electrónico en verify@microsoft.com con la línea de asunto "Action needed: Verify your email account with Microsoft" (Se requiere una acción: compruebe la cuenta de correo electrónico con Microsoft). Haga clic en el vínculo de comprobación sujeto a limitación temporal para completar el registro. *Si no ha recibido ningún correo electrónico en 24 horas, compruebe la carpeta de correo no deseado.*
@@ -182,7 +182,7 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
   > No podrá publicar ofertas Transact sin completar la información fiscal y bancaria de su cuenta del Centro de desarrollo.  Para más información sobre la adición de información de la cuenta, visite la sección [Adición de información bancaria y fiscal](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 * **¿Puedo cambiar la cuenta de inicio de sesión de Microsoft del Centro de desarrollo?**
-  >  No. Una vez creado un Centro de desarrollo, no se puede cambiar la cuenta de propietario. Tiene que empezar de nuevo con una cuenta del Centro de desarrollo totalmente nueva con la cuenta de Microsoft que desee.
+  > No. Una vez creado un Centro de desarrollo, no se puede cambiar la cuenta de propietario. Tiene que empezar de nuevo con una cuenta del Centro de desarrollo totalmente nueva con la cuenta de Microsoft que desee.
 
 * **¿Dónde puedo ponerme en contacto con el soporte técnico para problemas relativos al registro en el Centro de desarrollo?**
   Para acceder a soporte técnico, visite la página Soporte técnico para desarrolladores de Windows en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
