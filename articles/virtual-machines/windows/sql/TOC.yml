@@ -58,8 +58,12 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Uso de Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
+    - name: Registro con el proveedor de recursos
+      href: virtual-machines-windows-sql-register-with-resource-provider.md
     - name: Cambio en el modelo de licencias para una máquina virtual de SQL
       href: virtual-machines-windows-sql-ahb.md
+    - name: Cambio de edición de SQL Server
+      href: virtual-machines-windows-sql-change-edition.md
     - name: Migrar
       items:
         - name: Migración de una base de datos de SQL Server
@@ -96,7 +100,7 @@
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/
     - name: T-SQL
       href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
