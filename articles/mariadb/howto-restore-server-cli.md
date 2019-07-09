@@ -74,7 +74,7 @@ El comando `az mariadb server restore` requiere los siguientes parámetros:
 | Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos donde existe el servidor de origen.  |
-| Nombre | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
+| name | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Seleccione un momento dado anterior para restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria, como `2018-03-13T05:59:00-08:00`. También puede utilizar el formato de hora Zulú UTC, por ejemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
 
@@ -114,7 +114,7 @@ El comando `az mariadb server georestore` requiere los siguientes parámetros:
 | Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nombre del grupo de recursos al que pertenece el nuevo servidor.|
-|Nombre | mydemoserver-georestored | Nombre del nuevo servidor. |
+|name | mydemoserver-georestored | Nombre del nuevo servidor. |
 |source-server | mydemoserver | Nombre del servidor existente cuyas copias de seguridad con redundancia geográfica se usan. |
 |location | estado | Ubicación del nuevo servidor. |
 |sku-name| GP_Gen5_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen5_8 se asigna a un servidor Gen 5 de uso general con ocho núcleos virtuales.|
