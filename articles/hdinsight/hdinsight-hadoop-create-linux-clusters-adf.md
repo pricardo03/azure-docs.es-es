@@ -189,9 +189,9 @@ En este artículo, se configura la actividad de Hive para crear un clúster Hado
 
     |Propiedad  |Valor  |
     |---------|---------|
-    |NOMBRE | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
+    |Name | Escriba un nombre para la factoría de datos. Este nombre debe ser único globalmente.|
     |Subscription | Seleccione su suscripción a Azure. |
-    |Grupos de recursos | Seleccione **Usar existente** y, a continuación, seleccione el grupo de recursos que ha creado mediante el script de PowerShell. |
+    |Resource group | Seleccione **Usar existente** y, a continuación, seleccione el grupo de recursos que ha creado mediante el script de PowerShell. |
     |`Version` | Deje en **V2**. |
     |Location | La ubicación se establece automáticamente en la ubicación que ha especificado anteriormente durante la creación del grupo de recursos. En este tutorial, la ubicación se establece en **Este de EE. UU.** |
 
