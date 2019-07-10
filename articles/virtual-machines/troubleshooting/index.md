@@ -4,7 +4,7 @@ description: Aprenda a solucionar problemas en implementaciones de máquinas vir
 title: Documentación sobre solución de problemas en Azure Virtual Machines | Microsoft Docs
 services: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 1fdf195e5d02c9264bf24d9cf3ac8b1a47ed850b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47db174042f7dd2e9d1bd1503c8e8b8f635b4dbe
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61227144"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705746"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Solución de problemas de máquinas virtuales de Azure
 
@@ -61,7 +61,7 @@ ms.locfileid: "61227144"
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [Se cambian los nombres de dispositivos](troubleshoot-device-names-problems.md)
 - Acceso a la recuperación de máquinas virtuales
-    -  Windows
+    - Windows
         - [PowerShell](troubleshoot-recovery-disks-windows.md)
         - [Azure Portal](troubleshoot-recovery-disks-portal-windows.md)
     - Linux
