@@ -77,6 +77,8 @@
           href: face-how-to-install-containers.md
         - name: Configuración de contenedores
           href: face-resource-container-config.md
+        - name: Uso de instancias de contenedores
+          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
     - name: Usar el servicio conectado de Face API
       href: vs-face-connected-service.md
 - name: Referencia

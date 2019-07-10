@@ -49,9 +49,11 @@
       href: deploy-availability-zone-powershell.md
     - name: Integración con Load Balancer
       href: integrate-lb.md
+    - name: Reglas de aplicación con nombres de dominio completos de SQL
+      href: sql-fqdn-filtering.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall

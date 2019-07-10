@@ -40,7 +40,7 @@ Una aplicación cliente requiere un token de acceso válido para conectarse a Az
 
 Use una función de Azure desencadenada por HTTP y el enlace de entrada *SignalRConnectionInfo* para generar el objeto de información de conexión. La función debe tener una ruta HTTP que termina en `/negotiate`.
 
-Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*referencia del enlace de entrada de](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)
+Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*de referencia del enlace entrada de](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)
 
 Para aprender a crear un token autenticado, consulte [Uso de la autenticación de App Service](#using-app-service-authentication).
 

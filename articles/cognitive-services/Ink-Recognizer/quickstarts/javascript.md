@@ -1,44 +1,44 @@
 ---
-title: 'Inicio rápido: Reconocer la entrada de lápiz digital con la API de REST de módulo de reconocimiento de tinta y Node.js'
-description: Use la API de reconocimiento de tinta para iniciar reconocer trazos de tinta digital.
+title: 'Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y Node.js'
+description: Use la API Ink Recognizer para comenzar a reconocer los trazos de entrada de lápiz digital.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 651474fd538123e760022ac59efbbaf0b9b83d70
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.openlocfilehash: 1785faf718b940794aebc045a3491be45eea03f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519671"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435211"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Inicio rápido: Reconocer la entrada de lápiz digital con la API de REST de módulo de reconocimiento de tinta y JavaScript
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y JavaScript
 
-Use esta guía de inicio rápido para empezar a usar la API de reconocimiento de tinta en trazos de tinta digital. Esta aplicación de JavaScript envía una solicitud de API que contiene los datos del trazo de tinta con formato JSON y muestra la respuesta.
+Use este inicio rápido para empezar a usar la API Ink Recognizer en trazos de entrada de lápiz digital. Esta aplicación de JavaScript envía una solicitud de API que contiene los datos del trazo de tinta con formato JSON y muestra la respuesta.
 
-Aunque esta aplicación está escrita en Javascript y se ejecuta en el explorador web, la API es un servicio web RESTful compatible con la mayoría de lenguajes de programación.
+Si bien esta aplicación está escrita en JavaScript y se ejecuta en el explorador web, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-Normalmente se llamaría a la API desde una aplicación de entrada de lápiz digital. En este tutorial rápido envía los datos del trazo de tinta para el siguiente ejemplo escritas a mano desde un archivo JSON.
+Normalmente se llamaría a la API desde una aplicación de entrada de lápiz digital. En este inicio rápido se envían los datos del trazo de entrada de lápiz digital para la siguiente muestra escrita a mano desde un archivo JSON.
 
-![una imagen de texto escrito a mano](../media/handwriting-sample.jpg)
+![imagen de un texto manuscrito](../media/handwriting-sample.jpg)
 
 El código fuente de este inicio rápido está disponible en [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un explorador web
-- Los datos del trazo de tinta de ejemplo para este inicio rápido pueden encontrarse en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
+- Los datos del trazo de entrada de lápiz digital para este inicio rápido están disponibles en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 ## <a name="create-a-new-application"></a>Creación de una aplicación
 
-1. En el IDE o editor favorito, cree un nuevo `.html` archivo. A continuación, agregarle HTML básico para el código que se agregará más adelante.
+1. En su IDE o editor favoritos, cree un archivo `.html`. A continuación, agréguele HTML básico para el código que se agregará más adelante.
     
     ```html
     <!DOCTYPE html>
@@ -55,9 +55,9 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     </html>
     ```
 
-2. Dentro de la `<body>` etiqueta, agregue el siguiente código html:
+2. Dentro de la etiqueta `<body>`, agregue el siguiente HTML:
     1. Dos áreas de texto para mostrar la solicitud JSON y la respuesta.
-    2. Un botón para llamar a la `recognizeInk()` función que se crearán más adelante.
+    2. Un botón para llamar a la función `recognizeInk()` que se creará más adelante.
     
     ```HTML
     <!-- <body>-->
@@ -71,13 +71,13 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     <!--</body>-->
     ```
 
-## <a name="load-the-example-json-data"></a>Cargar lo datos JSON de ejemplo
+## <a name="load-the-example-json-data"></a>Carga de los datos JSON de ejemplo
 
-1. Dentro de la `<script>` etiquetar, cree una variable para el sampleJson. A continuación, cree una función de JavaScript denominada `openFile()` que abre un explorador de archivos para que pueda seleccionar el archivo JSON. Cuando el `Recognize ink` se hace clic en el botón, se llama a esta función y empezar a leer el archivo.
-2. Use un `FileReader` del objeto `onload()` función para procesar el archivo de forma asincrónica. 
-    1. Reemplazar cualquier `\n` o `\r` caracteres en el archivo con una cadena vacía. 
-    2. Use `JSON.parse()` para convertir el texto en un archivo JSON válido
-    3. Actualización de la `request` cuadro de texto de la aplicación. Use `JSON.stringify()` para dar formato a la cadena JSON. 
+1. Dentro de la etiqueta `<script>`, cree una variable para el archivo JSON de muestra. A continuación, cree una función de JavaScript denominada `openFile()` que abre un explorador de archivos para que pueda seleccionar el archivo JSON. Cuando se hace clic en el botón `Recognize ink`, se llama a esta función y se empieza a leer el archivo.
+2. Use una función `onload()` del objeto `FileReader` para procesar el archivo de forma asincrónica. 
+    1. Reemplace cualquier carácter `\n` o `\r` en el archivo con una cadena vacía. 
+    2. Use `JSON.parse()` para convertir el texto en un archivo JSON válido.
+    3. Actualice el cuadro de texto `request` de la aplicación. Use `JSON.stringify()` para dar formato a la cadena JSON. 
     
     ```javascript
     var sampleJson = "";
@@ -94,9 +94,9 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     };
     ```
 
-## <a name="send-a-request-to-the-ink-recognizer-api"></a>Enviar una solicitud a la API de reconocimiento de tinta
+## <a name="send-a-request-to-the-ink-recognizer-api"></a>Envíe una solicitud a la API Ink Recognizer
 
-1. Dentro de la `<script>` etiquetar, cree una función denominada `recognizeInk()`. Esta función más adelante llamará a la API y actualice la página con la respuesta. Agregue el código de los pasos siguientes en esta función. 
+1. Dentro de la etiqueta `<script>`, cree una función denominada `recognizeInk()`. Esta función más adelante llamará a la API y actualizará la página con la respuesta. Agregue el código con los pasos siguientes dentro de esta función. 
         
     ```javascript
     function recognizeInk() {
@@ -104,7 +104,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
     }
     ```
 
-    1. Cree variables para la dirección URL del punto de conexión, la clave de suscripción y el ejemplo de JSON. A continuación, cree un `XMLHttpRequest` objeto va a enviar la solicitud de API. 
+    1. Cree variables para la dirección URL del punto de conexión, la clave de suscripción y el archivo JSON de muestra. A continuación, cree un objeto `XMLHttpRequest` para enviar la solicitud de API. 
         
         ```javascript
         // Replace the below URL with the correct one for your subscription. 
@@ -115,7 +115,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
         var SUBSCRIPTION_KEY = "YOUR-SUBSCRIPTION-KEY";
         var xhttp = new XMLHttpRequest();
         ```
-    2. Crear la función de devolución para la `XMLHttpRequest` objeto. Esta función se analizar la respuesta de API desde una solicitud correcta y mostrarla en la aplicación. 
+    2. Cree la función de devolución para el objeto `XMLHttpRequest`. Esta función analizará la respuesta de API desde una solicitud correcta y la mostrará en la aplicación. 
             
         ```javascript
         function returnFunction(xhttp) {
@@ -132,7 +132,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
         }
         ```
 
-    4. Creación de una función para el objeto de solicitud `onreadystatechange` propiedad. Cuando se cambia el estado de preparación del objeto de solicitud, se aplicarán las funciones de valor devuelto y de error anteriores.
+    4. Cree una función para la propiedad `onreadystatechange` del objeto de solicitud. Cuando el estado de preparación del objeto de solicitud cambie, se aplicarán las funciones de valor devuelto y de error anteriores.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -146,7 +146,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
         };
         ```
     
-    5. Envíe la solicitud de API. Agregue su clave de suscripción para la `Ocp-Apim-Subscription-Key` encabezado y establezca el `content-type` a `application/json`
+    5. Envíe la solicitud API. Agregue la clave de suscripción al encabezado `Ocp-Apim-Subscription-Key` y establezca `content-type` en `application/json`.
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);
@@ -154,19 +154,20 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
         xhttp.setRequestHeader("content-type", "application/json");
         xhttp.send(JSON.stringify(sampleJson));
         };
+        ```
 
-## Run the application and view the response
+## <a name="run-the-application-and-view-the-response"></a>Ejecución de la aplicación y visualización de la respuesta
 
-This application can be run within your web browser. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
+Esta aplicación se puede ejecutar dentro del explorador web. Se devuelve una respuesta correcta en formato JSON. También puede encontrar la respuesta JSON en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
 
-## Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [Referencia de API de REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
-To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C# and Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Javascript web-browser app](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java and Android mobile app](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Swift and iOS mobile app](https://go.microsoft.com/fwlink/?linkid=2089805)
+Para ver el funcionamiento de la API Ink Recognition en una aplicación de entrada de lápiz digital, eche un vistazo a las siguientes aplicaciones de ejemplo en GitHub:
+* [C# y Plataforma universal de Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# y Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Aplicación para explorador web de JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Aplicación móvil Java y Android](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Aplicación móvil iOS y SWIFT](https://go.microsoft.com/fwlink/?linkid=2089805)

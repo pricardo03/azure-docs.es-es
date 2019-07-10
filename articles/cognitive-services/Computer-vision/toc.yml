@@ -147,13 +147,15 @@
           href: computer-vision-how-to-install-containers.md
         - name: Configuración de contenedores
           href: computer-vision-resource-container-config.md
+        - name: Uso de instancias de contenedores
+          href: deploy-computer-vision-on-container-instances.md
     - name: Usar el servicio conectado de Computer Vision
       href: vs-computer-vision-connected-service.md
     - name: Análisis de vídeos en tiempo real
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'

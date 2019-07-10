@@ -9,6 +9,8 @@
   items:
     - name: 'ASP.NET Core: C#'
       href: signalr-quickstart-dotnet-core.md
+    - name: 'ASP.NET: C#'
+      href: signalr-quickstart-dotnet.md
     - name: 'Azure Functions: JavaScript'
       href: signalr-quickstart-azure-functions-javascript.md
     - name: 'Azure Functions: C#'
@@ -25,7 +27,7 @@
   items:
     - name: Ejemplos de código
       href: 'https://github.com/aspnet/AzureSignalR-samples'
-    - name: Azure CLI
+    - name: CLI de Azure
       href: signalr-reference-cli.md
 - name: Conceptos
   items:
@@ -57,7 +59,7 @@
       items:
         - name: Varias instancias
           href: signalr-howto-scale-multi-instances.md
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Rotación de claves de acceso
           href: signalr-howto-key-rotation.md
@@ -67,7 +69,7 @@
           href: signalr-concept-azure-functions.md
 - name: Referencias
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: signalr-reference-cli.md
     - name: API DE REST
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
