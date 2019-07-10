@@ -66,7 +66,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Abra el grupo de recursos creado en el último procedimiento. El nombre predeterminado es el nombre del proyecto con **rg** anexado.
 1. Seleccione **Control de acceso (IAM)** en el menú izquierdo.
-1. Seleccione **Asignaciones de roles	**. 
+1. Seleccione **Asignaciones de roles**. 
 1. En **Nombre**, escriba la dirección de correo electrónico que escribió en el último procedimiento. Verá que el usuario con la dirección de correo electrónico tiene el rol de **colaborador de máquina virtual**.
 
 ## <a name="clean-up"></a>Limpieza

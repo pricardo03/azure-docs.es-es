@@ -242,6 +242,12 @@
           href: monitor-events-portal-how-to.md
         - name: 'Supervisión de eventos: CLI'
           href: job-state-events-cli-how-to.md
+    - name: Uso de Azure Monitor
+      items:
+        - name: Supervisión de métricas
+          href: media-services-metrics-howto.md
+        - name: Supervisión de los registros de diagnóstico
+          href: media-services-diagnostic-logs-howto.md
     - name: Proteger contenido
       items:
         - name: 'Obtención de directiva de clave de contenido: .NET'
