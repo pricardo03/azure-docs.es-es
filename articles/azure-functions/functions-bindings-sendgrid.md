@@ -256,13 +256,13 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type**|| Requerida: se debe establecer en `sendGrid`.|
-|**dirección**|| Requerida: se debe establecer en `out`.|
+|**direction**|| Requerida: se debe establecer en `out`.|
 |**name**|| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. Este valor es ```$return``` cuando hay solo un valor de devuelto. |
 |**apiKey**|**ApiKey**| El nombre de una configuración de aplicación que contiene la clave de API. Si no está establecido, el nombre predeterminado de la configuración de aplicación es "AzureWebJobsSendGridApiKey".|
 |**to**|**To**| Dirección de correo electrónico del destinatario. |
 |**from**|**From**| Dirección de correo electrónico del remitente. |
-|**subject**|**Asunto**| Asunto del correo electrónico. |
-|**text**|**Texto**| Contenido del correo electrónico. |
+|**subject**|**Subject**| Asunto del correo electrónico. |
+|**text**|**Text**| Contenido del correo electrónico. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
